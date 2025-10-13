@@ -33,7 +33,8 @@ const printHelp = () => {
     'Usage: node bin/cli.js <transform> <path> [options]',
     '',
     'Transforms:',
-    '  migrate-theme-v6-to-v7   Migrate v6 theme to v7',
+    '  migrate-grommet-icons-to-hpe   Migrate grommet-icons to @hpe-design/icons-grommet',
+    '  migrate-theme-v6-to-v7         Migrate v6 theme to v7',
     '',
     'Options:',
     '  --dry      Run in dry mode (no changes)',
@@ -46,6 +47,8 @@ const printHelp = () => {
     '  --help     Show this help message',
     '',
     'Example usage:',
+    '  node bin/cli.js migrate-grommet-icons-to-hpe src/',
+    '  node bin/cli.js migrate-grommet-icons-to-hpe src/ --dry',
     '  node bin/cli.js migrate-theme-v6-to-v7 src/ --scan',
     '  node bin/cli.js migrate-theme-v6-to-v7 src/',
     '  node bin/cli.js migrate-theme-v6-to-v7 src/ --dry',
@@ -68,6 +71,10 @@ const transform = args[0];
 const target = args[1];
 
 const transforms = {
+  'migrate-grommet-icons-to-hpe': path.join(
+    __dirname,
+    '../transforms/migrate-grommet-icons-to-hpe.js',
+  ),
   'migrate-theme-v6-to-v7': path.join(
     __dirname,
     '../transforms/migrate-theme-v6-to-v7.js',
@@ -133,9 +140,11 @@ function runJscodeshift({ files, parser, extensions, scan }) {
 
   // Create temporary file with filenames
   const os = require('os');
-  const tempFilePath = 
-    path.join(os.tmpdir(), `jscodeshift-files-${Date.now()}.txt`);
-  
+  const tempFilePath = path.join(
+    os.tmpdir(),
+    `jscodeshift-files-${Date.now()}.txt`,
+  );
+
   try {
     // Write filenames to temporary file, one per line
     fs.writeFileSync(tempFilePath, files.join('\n'), 'utf8');
@@ -151,7 +160,7 @@ function runJscodeshift({ files, parser, extensions, scan }) {
       if (verboseFlag) cmd += ` ${verboseFlag}`;
       if (quoteFlag) cmd += ` ${quoteFlag}`;
     }
-    
+
     // Redirect temp file as stdin
     cmd += ` < "${tempFilePath}"`;
 
@@ -166,13 +175,13 @@ function runJscodeshift({ files, parser, extensions, scan }) {
         output.split('\n').forEach(line => {
           const file = line.split(' ')[2];
           if (line.includes(target)) {
-            totalFiles++;
+            totalFiles += 1;
             if (line.includes('OK')) {
-              changedFiles++;
+              changedFiles += 1;
               if (dry) {
-                console.log(`🔍 Would update t-shirt sizes: ${file}`);
+                console.log(`🔍 Would update: ${file}`);
               } else {
-                console.log(`✅ Updated t-shirt sizes: ${file}`);
+                console.log(`✅ Updated: ${file}`);
               }
             }
           }
@@ -192,13 +201,13 @@ function runJscodeshift({ files, parser, extensions, scan }) {
       if (totalFiles > 0 && (changedFiles > 0 || hadError)) {
         if (dry) {
           console.log(
-            `\n🔍 T-shirt size migration preview: ${changedFiles} files would be updated, ${
+            `\n🔍 Migration preview: ${changedFiles} files would be updated, ${
               totalFiles - changedFiles
             } files unchanged (${totalFiles} total files processed)`,
           );
         } else {
           console.log(
-            `\n🎯 T-shirt size automated transformations complete: ${changedFiles} files updated, ${
+            `\n🎯 Automated transformations complete: ${changedFiles} files updated, ${
               totalFiles - changedFiles
             } files unchanged (${totalFiles} total files processed)`,
           );
@@ -226,7 +235,9 @@ function runJscodeshift({ files, parser, extensions, scan }) {
         fs.unlinkSync(tempFilePath);
       }
     } catch (cleanupErr) {
-      console.warn(`Warning: Could not clean up temporary file: ${tempFilePath}`);
+      console.warn(
+        `Warning: Could not clean up temporary file: ${tempFilePath}`,
+      );
     }
   }
 }
@@ -271,38 +282,78 @@ if (hadError) {
 
 if (!args.includes('--scan')) {
   console.log('');
-  if (dry) {
-    console.log('🔍 Dry run complete! No files were actually changed.');
-    console.log('');
-    console.log('📋 What would happen:');
-    console.log(
-      '   • Would automatically identify and update t-shirt size values with high confidence',
-    );
-    console.log(
-      '   • Would transform props like pad, margin, gap, height, width, round, etc.',
-    );
-    console.log('');
-    console.log('🔍 Next steps:');
-    console.log(' • Remove --dry flag to apply the changes');
-    console.log(
-      ' • Use --scan to see potential manual changes that may need manual review or fix',
-    );
-  } else {
-    console.log(
-      '✅ Grommet Theme HPE v6 → v7 automated transformations complete.',
-    );
-    console.log('');
-    console.log('📋 What happened:');
-    console.log(
-      '   • Automatically identified and updated t-shirt size values with high confidence',
-    );
-    console.log(
-      '   • Transformed props like pad, margin, gap, height, width, round, etc.',
-    );
-    console.log('');
-    console.log('🔍 Next step:');
-    console.log(
-      ' Use --scan to see potential manual changes that may need manual review or fix',
-    );
+
+  // base messages on the type of transform
+  if (transform === 'migrate-grommet-icons-to-hpe') {
+    if (dry) {
+      console.log('🔍 Dry run complete! No files were actually changed.');
+      console.log('');
+      console.log('📋 What would happen:');
+      console.log(
+        '   • Would migrate imports from grommet-icons to @hpe-design/icons-grommet',
+      );
+      console.log('   • Would update icon names according to the new mapping');
+      console.log(
+        '   • Would show warnings for deprecated icons with no replacement',
+      );
+      console.log(
+        '   • Would handle both main package and individual icon imports',
+      );
+      console.log('');
+      console.log('🔍 Next steps:');
+      console.log(' • Remove --dry flag to apply the changes');
+      console.log(' • Review any deprecation warnings for manual updates');
+    } else {
+      console.log('✅ Grommet Icons → HPE Design Icons migration complete.');
+      console.log('');
+      console.log('📋 What happened:');
+      console.log(
+        '   • Migrated imports from grommet-icons to @hpe-design/icons-grommet',
+      );
+      console.log('   • Updated icon names according to the new mapping');
+      console.log(
+        '   • Showed warnings for deprecated icons that need manual review',
+      );
+      console.log('   • Handled both main package and individual icon imports');
+      console.log('');
+      console.log('🔍 Next step:');
+      console.log(' • Review any deprecation warnings and update manually');
+      console.log(' • Test your application to ensure icons render correctly');
+    }
+  } else if (transform === 'migrate-theme-v6-to-v7') {
+    if (dry) {
+      console.log('🔍 Dry run complete! No files were actually changed.');
+      console.log('');
+      console.log('📋 What would happen:');
+      console.log(
+        '   • Would automatically identify and update t-shirt size values with high confidence',
+      );
+      console.log(
+        '   • Would transform props like pad, margin, gap, height, width, round, etc.',
+      );
+      console.log('');
+      console.log('🔍 Next steps:');
+      console.log(' • Remove --dry flag to apply the changes');
+      console.log(
+        ' • Use --scan to see potential manual changes that may need manual review or fix',
+      );
+    } else {
+      console.log(
+        '✅ Grommet Theme HPE v6 → v7 automated transformations complete.',
+      );
+      console.log('');
+      console.log('📋 What happened:');
+      console.log(
+        '   • Automatically identified and updated t-shirt size values with high confidence',
+      );
+      console.log(
+        '   • Transformed props like pad, margin, gap, height, width, round, etc.',
+      );
+      console.log('');
+      console.log('🔍 Next step:');
+      console.log(
+        ' Use --scan to see potential manual changes that may need manual review or fix',
+      );
+    }
   }
 }
