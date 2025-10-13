@@ -1,6 +1,5 @@
 import React, { cloneElement } from 'react';
 import { Box, Heading, HeadingProps, Paragraph } from 'grommet';
-import { DriveCage } from 'grommet-icons';
 
 export const EmptyState = ({
   actions,

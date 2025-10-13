@@ -4,8 +4,8 @@ import {
   StatusCritical,
   StatusWarning,
   StatusGood,
-  CircleInformation,
-} from 'grommet-icons';
+  Info,
+} from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { SkeletonContext } from '../SkeletonContext';
 
@@ -27,7 +27,7 @@ const statuses = {
   },
   info: {
     background: 'background-info',
-    icon: <CircleInformation color="icon-info" height="medium" />,
+    icon: <Info color="icon-info" height="medium" />,
     label: 'Information',
   },
 };

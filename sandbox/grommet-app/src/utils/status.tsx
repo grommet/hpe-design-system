@@ -1,31 +1,46 @@
 import React from 'react';
 import {
-  StatusCriticalSmall,
+  StatusCritical,
   StatusDisabled,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-  StatusWarningSmall
-} from "grommet-icons";
+  StatusGood,
+  StatusUnknown,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 
 export const statusMap = new Map([
-  ['critical', {
-    icon: <StatusCriticalSmall />,
-    color: 'status-critical',
-  }],
-  ['warning', {
-    icon: <StatusWarningSmall />,
-    color: 'status-warning',
-  }],
-  ['ok', {
-    icon: <StatusGoodSmall />,
-    color: 'status-ok',
-  }],
-  ['unknown', {
-    icon: <StatusUnknownSmall />,
-    color: 'status-unknown',
-  }],
-  ['unsupported', {
-    icon: <StatusDisabled />,
-    color: 'status-unknown',
-  }],
+  [
+    'critical',
+    {
+      icon: <StatusCritical />,
+      color: 'status-critical',
+    },
+  ],
+  [
+    'warning',
+    {
+      icon: <StatusWarning />,
+      color: 'status-warning',
+    },
+  ],
+  [
+    'ok',
+    {
+      icon: <StatusGood />,
+      color: 'status-ok',
+    },
+  ],
+  [
+    'unknown',
+    {
+      icon: <StatusUnknown />,
+      color: 'status-unknown',
+    },
+  ],
+  [
+    'unsupported',
+    {
+      icon: <StatusDisabled />,
+      color: 'status-unknown',
+    },
+  ],
 ]);

@@ -19,7 +19,7 @@ import {
   CardBody,
   CardFooter,
 } from 'grommet';
-import { Apps, Close, Configure, LinkNext } from 'grommet-icons';
+import { Apps, Close, Configure, LinkNext } from '@hpe-design/icons-grommet';
 import insights from '../../../../mockData/insights.json';
 import { SupportingContext } from '../../../../contexts';
 import { AcccessPoints } from './AcccessPoints';

@@ -17,7 +17,7 @@ import {
 } from 'grommet';
 import * as tokens from 'hpe-design-tokens/docs';
 import { EmptyState } from '../components/EmptyState';
-import { CircleInformation, Close, LinkNext } from 'grommet-icons';
+import { Info, Close, LinkNext } from '@hpe-design/icons-grommet';
 import { buildTokenTree } from '../build-token-tree';
 
 const tree = buildTokenTree(tokens);
@@ -251,9 +251,7 @@ const Visualizer = () => {
                   buildTree(selected, true, () => setSelected({}))
                 ) : (
                   <EmptyState
-                    icon={
-                      <CircleInformation color="icon-info" size="xxlarge" />
-                    }
+                    icon={<Info color="icon-info" size="xxlarge" />}
                     title="No design token selected"
                     description="Select a design token from the list to see its dependencies."
                   />

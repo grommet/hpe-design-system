@@ -11,7 +11,7 @@ import {
 } from 'grommet';
 import { RoutedAnchor, NavSidebar } from '../../../../components';
 import ContentPane from '../../../../components/ContentPane';
-import { Previous } from 'grommet-icons';
+import { Left } from '@hpe-design/icons-grommet';
 import { OpsRampDetailItems } from '../NavigationalSidebar/navItems';
 import { OpsRampDetailTable } from './OpsRampDetailTable';
 import { ResourceDetails } from './ResourceDetails';
@@ -67,7 +67,7 @@ export const OpsRampDetail: React.FC = () => {
                 as={Link}
                 to="/layouts"
                 label="Layouts"
-                icon={<Previous />}
+                icon={<Left />}
               />
             }
           />

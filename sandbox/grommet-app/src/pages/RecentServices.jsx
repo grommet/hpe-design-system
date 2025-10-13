@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Anchor, List, Grid, Text, Box, Button, Skeleton } from 'grommet';
 import { Link } from 'react-router-dom';
 import services from '../mockData/services.json';
-import { Apps, List as ListIcon } from 'grommet-icons';
+import { Apps, List as ListIcon } from '@hpe-design/icons-grommet';
 import { Card } from '../components';
 import ContentPane from '../components/ContentPane';
 import { useLoading, skeleton as skeletonAnimation } from '../utils/skeleton';
