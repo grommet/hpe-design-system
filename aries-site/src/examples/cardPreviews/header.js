@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Header, Button, Text } from 'grommet';
-import { Hpe, Menu } from 'grommet-icons';
+import { Menu } from '@hpe-design/icons-grommet';
+import { Hpe } from 'grommet-icons';
 
 export const HeaderPreview = () => (
   <Header

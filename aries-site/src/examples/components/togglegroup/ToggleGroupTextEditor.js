@@ -1,20 +1,21 @@
 import React from 'react';
 import { Box, ToggleGroup } from 'grommet';
-import { Bold, Italic, Underline } from 'grommet-icons';
 
+// TODO: update to use icons from @hpe-design/icons-grommet
+// if we have them in later versions
 const options = [
   {
-    icon: <Bold a11yTitle="Bold" />,
+    // icon: <Bold a11yTitle="Bold" />,
     value: 'bold',
     tip: 'Bold',
   },
   {
-    icon: <Italic a11yTitle="Italic" />,
+    // icon: <Italic a11yTitle="Italic" />,
     value: 'italic',
     tip: 'Italic',
   },
   {
-    icon: <Underline a11yTitle="Underline" />,
+    // icon: <Underline a11yTitle="Underline" />,
     value: 'underline',
     tip: 'Underline',
   },

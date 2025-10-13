@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-import { Figma, Code, Book, Table } from 'grommet-icons';
+import { Code, Book, Table } from '@hpe-design/icons-grommet';
+import { Figma } from 'grommet-icons';
 import { Box, Text } from 'grommet';
 import { ButtonStates, ContentLayoutPreview } from '../../examples';
 
@@ -49,7 +50,11 @@ export const tokens = [
         <Box direction="row" gap="3xsmall">
           <Box background="icon-primary" pad="medium" round="medium" />
           <Box background="icon-info" pad="medium" round="medium" />
-          <Box background="dataVis-categorical-40" pad="medium" round="medium" />
+          <Box
+            background="dataVis-categorical-40"
+            pad="medium"
+            round="medium"
+          />
         </Box>
       ),
     },
@@ -72,7 +77,11 @@ export const tokens = [
       'To support color accessibility, there are foreground and background color pairings that ensure accessible color combinations.',
     preview: {
       component: () => (
-        <Box background="background-neutral-xstrong" pad="medium" round="medium">
+        <Box
+          background="background-neutral-xstrong"
+          pad="medium"
+          round="medium"
+        >
           color.text.onStrong
         </Box>
       ),
