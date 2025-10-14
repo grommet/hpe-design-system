@@ -1,4 +1,4 @@
-import { Anchor, Box, Image, Notification, Paragraph } from 'grommet';
+import { Anchor, Box, Notification, Paragraph } from 'grommet';
 import {
   GridStepOne,
   StepTwo,
@@ -15,15 +15,7 @@ to:
 - Allow the number of grid columns to adapt to a variety of screen widths.
 - Allow the items to adapt and flex within the available space.
 
-At the end of this tutorial, you will have built this:
-
-<Box align="start" height="xlarge">
-  <Image
-    alt="Image of a web page display product cards arranged in a grid."
-    src="/learnImages/grid-fundamentals-part-1/what-we-are-building.png"
-    fit="contain"
-  />
-</Box>
+At the end of this tutorial, you will have built the [final layout](#step-6-final-layout) in Step 6 below.
 
 ## Prerequisites
 
@@ -32,7 +24,7 @@ because Grommet is a ReactJS-based UI library, introductory knowledge of
 [React](https://reactjs.org/docs/getting-started.html) may be helpful in understanding
 the syntax.
 
-## Getting started
+## Step 0: Getting started
 
 Let’s get started. Use this [CodeSandbox template](https://codesandbox.io/s/grid-fundamentals-part-one-starter-ljmks2?file=/src/App.js) as a starter.
 
@@ -64,7 +56,7 @@ Let's also add a heading to the page.
 </>
 ```
 
-## Add placeholder content
+## Step 1: Add placeholder content
 
 Now that you have the Grid in place, let's add some placeholder content. Replace the
 "hello world" text with the following:
@@ -98,7 +90,7 @@ Now that you have the Grid in place, let's add some placeholder content. Replace
 We now have a Grid with seven boxes, each containing a product name. The Grid is
 displaying the boxes in a single column, which is the default behavior.
 
-## Add columns
+## Step 2: Add columns
 
 To display the boxes in a grid, we need to add columns. The Grid component has a
 `columns` property that allows you to specify the number and/or width of the
@@ -113,7 +105,7 @@ Now the boxes are displayed in a grid with three columns.
 
 <GridStepOne />
 
-## Add product content
+## Step 3: Add product content
 
 Now that we have a grid with three columns, let's add some product content to the
 boxes. Start by adding `ProductCard` and `productList` to App.js. `ProductCard` is
@@ -146,11 +138,6 @@ and price. `productList` is a JSON file containing the product data.
         target="_blank"
         rel="noopener noreferrer"
         label="Heading"
-      />, <Anchor
-        href="https://v2.grommet.io/image"
-        target="_blank"
-        rel="noopener noreferrer"
-        label="Image"
       />, <Anchor
         href="https://v2.grommet.io/paragraph"
         target="_blank"
@@ -199,7 +186,7 @@ Now the products are displayed in the grid with three columns.
 
 <StepTwo />
 
-## Responsive columns
+## Step 4: Responsive columns
 
 Take a moment to resize the browser window. Adjust the width, both wider and narrower. Notice
 that the products appear squished when the browser window is narrow and stretched when the
@@ -233,7 +220,7 @@ responsive.
 
 <StepThree />
 
-## Polishing the layout
+## Step 5: Polishing the layout
 
 Now that we have a responsive Grid, let's polish the layout. Let's add some space
 between the products by adding `gap="xsmall"` to the Grid.
@@ -276,6 +263,8 @@ const ProductsPage = () => {
     ...
   </Grid>
 ```
+
+## Step 6: Final layout
 
 Congratulations! You have completed the tutorial and have a great start on a very
 respectable product catalog.
