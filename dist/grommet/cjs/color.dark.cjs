@@ -112,16 +112,14 @@ module.exports = {
         "categorical-80": "#e5786a"
       },
       "transparent": "rgba(0, 0, 0, 0)",
-      "focus": {
-        "": "#ffffff",
-        "support": "#292d3a"
-      },
+      "focus": "#ffffff",
       "foreground": {
         "primary": "#05cc93",
         "critical": "#fc6161",
         "warning": "#ec8c25",
         "unknown": "#7d8a92"
-      }
+      },
+      "focus-support": "#292d3a"
     },
     "shadow": {
       "small": "0 2px 4px rgba(0, 0, 0, 0.24) ",

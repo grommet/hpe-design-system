@@ -112,16 +112,14 @@ module.exports = {
         "categorical-80": "var(--hpe-color-dataVis-categorical-80)"
       },
       "transparent": "var(--hpe-color-transparent)",
-      "focus": {
-        "": "var(--hpe-color-focus)",
-        "support": "var(--hpe-color-focus-support)"
-      },
+      "focus": "var(--hpe-color-focus)",
       "foreground": {
         "primary": "var(--hpe-color-foreground-primary)",
         "critical": "var(--hpe-color-foreground-critical)",
         "warning": "var(--hpe-color-foreground-warning)",
         "unknown": "var(--hpe-color-foreground-unknown)"
-      }
+      },
+      "focus-support": "var(--hpe-color-focus-support)"
     },
     "shadow": {
       "small": "var(--hpe-shadow-small)",

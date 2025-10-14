@@ -4481,16 +4481,14 @@ export default {
     "attributes": {
       "category": "color",
       "type": "focus",
-      "item": "DEFAULT",
-      "subitem": "REST"
+      "item": "DEFAULT"
     },
     "path": [
       "color",
       "focus",
-      "DEFAULT",
-      "REST"
+      "DEFAULT"
     ],
-    "key": "{color.focus.DEFAULT.REST}"
+    "key": "{color.focus.DEFAULT}"
   },
   "hpe.color.focus.support": {
     "$type": "color",
@@ -4525,16 +4523,14 @@ export default {
     "attributes": {
       "category": "color",
       "type": "focus",
-      "item": "DEFAULT",
-      "subitem": "support"
+      "item": "support"
     },
     "path": [
       "color",
       "focus",
-      "DEFAULT",
       "support"
     ],
-    "key": "{color.focus.DEFAULT.support}"
+    "key": "{color.focus.support}"
   },
   "hpe.color.foreground.primary": {
     "$type": "color",

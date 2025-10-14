@@ -12,7 +12,13 @@ export default {
         "style": "solid"
       },
       "outlineOffset": "2px",
-      "boxShadow": "0 0 0 2px #ffffff "
+      "boxShadow": {
+        "offsetX": 0,
+        "offsetY": 0,
+        "blur": 0,
+        "spread": "{focusIndicator.outlineOffset}",
+        "color": "{color.focus.support}"
+      }
     },
     "fontStack": {
       "primary": "'Graphik', Arial, sans-serif"
