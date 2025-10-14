@@ -1447,28 +1447,26 @@
     },
     "focus": {
       "DEFAULT": {
-        "REST": {
-          "$type": "color",
-          "$value": "{deprecated.base.color.teal.400}",
-          "$description": "The primary outer ring of the focus indicator, used to define the overall area of the focused element.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["STROKE_COLOR"],
-              "codeSyntax": {}
-            }
+        "$type": "color",
+        "$value": "{deprecated.base.color.teal.400}",
+        "$description": "The primary outer ring of the focus indicator, used to define the overall area of the focused element.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["STROKE_COLOR"],
+            "codeSyntax": {}
           }
-        },
-        "support": {
-          "$type": "color",
-          "$value": "{color.transparent}",
-          "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["STROKE_COLOR"],
-              "codeSyntax": {}
-            }
+        }
+      },
+      "support": {
+        "$type": "color",
+        "$value": "{color.transparent}",
+        "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["STROKE_COLOR"],
+            "codeSyntax": {}
           }
         }
       }
