@@ -264,9 +264,10 @@ const DEPRECATED_ICONS = new Set([
 const OLD_PACKAGE = 'grommet-icons';
 const NEW_PACKAGE = '@hpe-design/icons-grommet';
 
-module.exports = function transformer(file, api) {
+module.exports = function transformer(file, api, options) {
   const j = api.jscodeshift;
   const root = j(file.source);
+  const { quote } = options;
 
   let hasModifications = false;
   const deprecatedUsages = [];
@@ -504,5 +505,7 @@ module.exports = function transformer(file, api) {
   const predominantQuote =
     doubleQuoteCount > singleQuoteCount ? 'double' : 'single';
 
-  return hasModifications ? root.toSource({ quote: predominantQuote }) : null;
+  return hasModifications
+    ? root.toSource({ quote: quote || predominantQuote })
+    : null;
 };
