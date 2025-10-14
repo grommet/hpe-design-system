@@ -17,7 +17,7 @@ const StyledBox = styled(Box)`
         theme.global.colors.border[theme.dark ? 'dark' : 'light']};
     border-radius: 4px;
     padding: 0px 3px;
-    font-family: Graphik;
+    font-family: inherit;
     font-size: 24px;
   }
 `;
