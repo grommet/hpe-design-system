@@ -288,7 +288,7 @@ module.exports = function transformer(file, api, options) {
       // Extract the subpath if it exists
       // e.g., "grommet-icons/icons/StatusGoodSmall" -> "/icons/StatusGoodSmall"
       const subPath = originalSource.substring(OLD_PACKAGE.length);
-      
+
       // For subpath imports like "grommet-icons/icons/StatusGoodSmall",
       // we need to extract the icon name and handle both default and named
       // imports
@@ -296,12 +296,12 @@ module.exports = function transformer(file, api, options) {
         // Extract icon name from subpath (last segment)
         const pathSegments = subPath.split('/').filter(Boolean);
         const iconNameFromPath = pathSegments[pathSegments.length - 1];
-        
+
         // Process each imported icon from subpath
         importSpecifiers.forEach(specifier => {
           let iconName;
           let localName;
-          
+
           if (specifier.type === 'ImportDefaultSpecifier') {
             // Default import: import StatusGoodSmall from
             // 'grommet-icons/icons/StatusGoodSmall'
@@ -317,7 +317,7 @@ module.exports = function transformer(file, api, options) {
             newSpecifiers.push(specifier);
             return;
           }
-          
+
           // Check if icon is deprecated
           if (DEPRECATED_ICONS.has(iconName)) {
             deprecatedUsages.push({
@@ -330,18 +330,16 @@ module.exports = function transformer(file, api, options) {
                 `suitable alternative. (${file.path})`,
             );
           }
-          
+
           // Check if icon needs to be remapped
           const newName = ICON_MAPPING[iconName] || iconName;
-          
+
           // Update local references if the local name matches the icon name
           if (localName === iconName && newName !== iconName) {
             // Update all JSXOpeningElement references
-            root
-              .find(j.JSXIdentifier, { name: iconName })
-              .forEach(jsxPath => {
-                jsxPath.value.name = newName;
-              });
+            root.find(j.JSXIdentifier, { name: iconName }).forEach(jsxPath => {
+              jsxPath.value.name = newName;
+            });
 
             // Update all Identifier references
             root
@@ -356,7 +354,7 @@ module.exports = function transformer(file, api, options) {
                 identPath.value.name = newName;
               });
           }
-          
+
           // Convert to named import for new package
           // All imports become named imports in the new package
           if (iconName === localName || newName !== iconName) {
@@ -371,10 +369,7 @@ module.exports = function transformer(file, api, options) {
             // Aliased case: import { NewIcon as LocalName } from
             // '@hpe-design/icons-grommet'
             newSpecifiers.push(
-              j.importSpecifier(
-                j.identifier(newName),
-                j.identifier(localName),
-              ),
+              j.importSpecifier(j.identifier(newName), j.identifier(localName)),
             );
           }
         });
@@ -445,9 +440,7 @@ module.exports = function transformer(file, api, options) {
                     .filter(identPath => {
                       // Don't replace import specifiers
                       // (we already handled those)
-                      return (
-                        identPath.parent.value.type !== 'ImportSpecifier'
-                      );
+                      return identPath.parent.value.type !== 'ImportSpecifier';
                     })
                     .forEach(identPath => {
                       identPath.value.name = newName;
@@ -469,11 +462,21 @@ module.exports = function transformer(file, api, options) {
       // Update the import declaration
       if (newSpecifiers.length > 0) {
         path.value.specifiers = newSpecifiers;
-        path.value.source.value = NEW_PACKAGE;
-        if (quote === 'single') {
-          path.value.source.raw = `'${NEW_PACKAGE}'`;
+
+        // For subpath imports, preserve subpath structure in new package
+        // e.g., 'grommet-icons/icons/Grow' -> '@hpe-design/icons-grommet/...'
+        let newSource;
+        if (subPath) {
+          newSource = NEW_PACKAGE + subPath;
         } else {
-          path.value.source.raw = `"${NEW_PACKAGE}"`;
+          newSource = NEW_PACKAGE;
+        }
+
+        path.value.source.value = newSource;
+        if (quote === 'single') {
+          path.value.source.raw = `'${newSource}'`;
+        } else {
+          path.value.source.raw = `"${newSource}"`;
         }
       } else {
         // If no specifiers remain, remove the import
