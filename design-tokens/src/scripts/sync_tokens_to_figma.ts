@@ -55,8 +55,6 @@ async function main() {
       localVariables,
     );
 
-    console.log('Post variables payload:', postVariablesPayload);
-
     if (
       Object.values(postVariablesPayload).every(value => value.length === 0)
     ) {
