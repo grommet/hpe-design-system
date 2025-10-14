@@ -302,15 +302,13 @@ const tokenAliasToFigmaAlias = (alias: string): string => {
     let name = parts.slice(2).join('-');
 
     if (exceptionColors.includes(section)) {
-      // If the section is an exception color, we want to keep the first part
+      // If it's an exception color, the token hierarchy is one level
+      // higher than others. Adjust the section and name accordingly.
       section = parts.slice(0, 1).join('/');
       name = parts.slice(1).join('-');
     }
 
     adjustedName = `${section}${name ? `/${name}` : ''}`;
-    // if (adjustedName.includes('focus')) {
-    //   console.log('adjustedName', adjustedName);
-    // }
   }
   return adjustedName;
 };
@@ -569,17 +567,6 @@ export function generatePostVariablesPayload(
       const differences = tokenAndVariableDifferences(token, variable);
 
       const resolvedType = variableResolvedTypeFromToken(token);
-
-      if (adjustedName.includes('color/focus')) {
-        // console.log('token:', token);
-        console.log('adjustedName:', adjustedName);
-        // console.log('variable:', variable);
-        console.log('variableId:', variableId);
-        console.log('variableInPayload:', variableInPayload);
-        console.log('differences:', differences);
-        console.log('resolvedType:', resolvedType);
-        console.log('\n\n\n\n');
-      }
 
       // Add a new variable if it doesn't exist in the Figma file,
       // and we haven't added it already in another mode
