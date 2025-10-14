@@ -107,7 +107,7 @@ if (
 const verboseFlag = `-v ${verboseLevel}`;
 
 // Handle --quote flag
-let quoteFlag = '--quote=double';
+let quoteFlag;
 const quoteIndex = args.indexOf('--quote');
 if (quoteIndex !== -1 && args[quoteIndex + 1]) {
   const quoteValue = args[quoteIndex + 1];

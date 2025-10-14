@@ -20,8 +20,7 @@ describe('migrate-grommet-icons-to-hpe codemod', () => {
     });
 
     it('handles multiple icon imports', () => {
-      const input =
-        "import { Alert, Calendar, Search } from 'grommet-icons';";
+      const input = "import { Alert, Calendar, Search } from 'grommet-icons';";
       const output = runCodemod(input);
       expect(output).toContain(
         "import { Alert, Calendar, Search } from '@hpe-design/icons-grommet'",
@@ -337,7 +336,7 @@ import React from 'react';`;
         'import { StatusCriticalSmall, StatusGoodSmall, Next, ' +
         "Previous } from 'grommet-icons';\n\n" +
         'export const StatusCard = ({ status }) => {\n' +
-        '  const Icon = status === \'error\' ? StatusCriticalSmall : ' +
+        "  const Icon = status === 'error' ? StatusCriticalSmall : " +
         'StatusGoodSmall;\n' +
         '  \n' +
         '  return (\n' +
@@ -358,6 +357,29 @@ import React from 'react';`;
       );
       expect(output).toContain('<Left />');
       expect(output).toContain('<Right />');
+    });
+  });
+  describe('test subpaths', () => {
+    it('updates import from grommet-icons to @hpe-design/icons-grommet', () => {
+      const input = "import Alert from 'grommet-icons/icons/Alert';";
+      const output = runCodemod(input);
+      expect(output).toContain("from '@hpe-design/icons-grommet/icons/Alert'");
+    });
+
+    it('handles multiple subpath imports correctly', () => {
+      const input = `import { Grow } from 'grommet-icons/icons/Grow';
+import { Cube } from 'grommet-icons/icons/Cube';`;
+      const output = runCodemod(input);
+      expect(output).toContain(
+        "import { Grow } from '@hpe-design/icons-grommet/icons/Grow'",
+      );
+      expect(output).toContain(
+        "import { Cube } from '@hpe-design/icons-grommet/icons/Cube'",
+      );
+      // Ensure they remain as separate import statements
+      const lines = output.split('\n');
+      const importLines = lines.filter(line => line.includes('import'));
+      expect(importLines.length).toBe(2);
     });
   });
 });
