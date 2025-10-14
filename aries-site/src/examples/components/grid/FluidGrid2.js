@@ -26,7 +26,6 @@ export const FluidGrid2 = () => (
         title={index + 1}
         {...contentAreaProps}
         height={heightMap[index % 4]}
-        background="background-info"
       />
     ))}
   </Grid>
