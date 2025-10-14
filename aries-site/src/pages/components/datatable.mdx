@@ -195,11 +195,11 @@ Wrapping should be used when:
 
 ### Handling empty cells
 
-If the value of a cell is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values while also maintaing the scanablility across rows and columns.
+If the value of a cell is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values while also maintaining the scannability across rows and columns.
 
-Because the HPE theme does not have borders or background color differences to differentiate between rows and columns, a visual indicator in empty cells is necessary to maintain readability and scanability.
+Because the HPE theme does not have borders or background color differences to differentiate between rows and columns, a visual indicator in empty cells is necessary to maintain readability and scannability.
 
-For empty cells, add an `a11yTitle="No value"` to the Text component that would otherwise render the data to ensure users of assisstive technology are informed of the empty state.
+For empty cells, add an `a11yTitle="No value"` to the Text component that would otherwise render the data to ensure users of assistive technology are informed of the empty state.
 
 <Example
   componentName="DataTable"
@@ -310,7 +310,7 @@ dragging the right side of its header to the left or to the right to expand the 
 
 ### Searching and filtering
 
-Complimenatary elements such as search or filters should be guided by the task the user
+Complementary elements such as search or filters should be guided by the task the user
 is setting out to accomplish.
 
 - Looking for a specific record? --> Search.
@@ -410,7 +410,7 @@ Should be guided by the task the user is setting out to accomplish.
   - Perhaps I am reviewing a customer's account history. I am not looking for
     a particular record, rather I am in scanning mode, trying to get a sense of
     the volume and types of interaction with a customer over time. Infinite Scroll
-    creates a nice, frictionless experirence for this to occur.
+    creates a nice, frictionless experience for this to occur.
 - Searching for a specific record? --> It depends.
   - Do you have a good search experience? --> Infinite Scroll
   - Do you have a performant API?
