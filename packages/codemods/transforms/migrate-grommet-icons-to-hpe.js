@@ -264,13 +264,16 @@ const DEPRECATED_ICONS = new Set([
 const OLD_PACKAGE = 'grommet-icons';
 const NEW_PACKAGE = '@hpe-design/icons-grommet';
 
-module.exports = function transformer(file, api, options) {
+module.exports = function transformer(file, api) {
   const j = api.jscodeshift;
   const root = j(file.source);
-  const { quote = 'single' } = options;
 
   let hasModifications = false;
   const deprecatedUsages = [];
+
+  // Detect the predominant quote style in the file
+  let singleQuoteCount = 0;
+  let doubleQuoteCount = 0;
 
   // Find all import declarations from grommet-icons (including subpaths)
   root
@@ -473,10 +476,18 @@ module.exports = function transformer(file, api, options) {
         }
 
         path.value.source.value = newSource;
-        if (quote === 'single') {
-          path.value.source.raw = `'${newSource}'`;
-        } else {
+
+        // Preserve the original quote style from the source
+        const originalRaw = path.value.source.raw;
+        const usesDoubleQuotes = originalRaw && originalRaw.startsWith('"');
+
+        // Count quote usage for overall file quote preference
+        if (usesDoubleQuotes) {
+          doubleQuoteCount += 1;
           path.value.source.raw = `"${newSource}"`;
+        } else {
+          singleQuoteCount += 1;
+          path.value.source.raw = `'${newSource}'`;
         }
       } else {
         // If no specifiers remain, remove the import
@@ -489,5 +500,9 @@ module.exports = function transformer(file, api, options) {
     hasModifications = true;
   }
 
-  return hasModifications ? root.toSource({ quote }) : null;
+  // Use the predominant quote style for the toSource options
+  const predominantQuote =
+    doubleQuoteCount > singleQuoteCount ? 'double' : 'single';
+
+  return hasModifications ? root.toSource({ quote: predominantQuote }) : null;
 };
