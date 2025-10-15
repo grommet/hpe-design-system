@@ -6,6 +6,7 @@
   "main": "src/pages/index.js",
   "private": true,
   "dependencies": {
+    "hpe-design-tokens": "^2.1.0",
     "@hpe-design/icons-grommet": "^1.0.1",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
