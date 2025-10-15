@@ -77,39 +77,9 @@ const lightColors = [
     hex: colors.purple.light,
   },
   {
-    name: 'gold',
-    value: colors.gold.light,
-    hex: colors.gold.light,
-  },
-  {
     name: 'blue',
     value: colors.blue.light,
     hex: colors.blue.light,
-  },
-  {
-    name: 'plum',
-    value: colors.plum.light,
-    hex: colors.plum.light,
-  },
-  {
-    name: 'coral',
-    value: colors.coral.light,
-    hex: colors.coral.light,
-  },
-  {
-    name: 'fuschia',
-    value: colors.fuschia.light,
-    hex: colors.fuschia.light,
-  },
-  {
-    name: 'cyan',
-    value: colors.cyan.light,
-    hex: colors.cyan.light,
-  },
-  {
-    name: 'neutral',
-    value: colors.neutral.light,
-    hex: colors.neutral.light,
   },
 ];
 
@@ -125,39 +95,9 @@ const darkColors = [
     hex: colors.purple.dark,
   },
   {
-    name: 'gold',
-    value: colors.gold.dark,
-    hex: colors.gold.dark,
-  },
-  {
     name: 'blue',
     value: colors.blue.dark,
     hex: colors.blue.dark,
-  },
-  {
-    name: 'plum',
-    value: colors.plum.dark,
-    hex: colors.plum.dark,
-  },
-  {
-    name: 'coral',
-    value: colors.coral.dark,
-    hex: colors.coral.dark,
-  },
-  {
-    name: 'fuschia',
-    value: colors.fuschia.dark,
-    hex: colors.fuschia.dark,
-  },
-  {
-    name: 'cyan',
-    value: colors.cyan.dark,
-    hex: colors.cyan.dark,
-  },
-  {
-    name: 'neutral',
-    value: colors.neutral.dark,
-    hex: colors.neutral.dark,
   },
 ];
 
