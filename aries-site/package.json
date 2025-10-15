@@ -38,7 +38,7 @@
     "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
-    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/hpe-design-tokens-v2-stable",
+    "grommet-theme-hpe": "^8.0.0",
     "next-transpile-modules": "^10.0.1",
     "start-server-and-test": "^2.0.3",
     "testcafe": "^3.5.0",

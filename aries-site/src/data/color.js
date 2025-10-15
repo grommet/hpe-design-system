@@ -19,34 +19,49 @@ const primaryColors = [
 
 const coreColors = [
   {
-    name: 'purple!',
-    value: 'purple!',
-    hex: colors['purple!'],
+    name: 'neutral',
+    value: 'neutral',
+    hex: colors.neutral,
   },
   {
-    name: 'teal!',
-    value: 'teal!',
-    hex: colors['teal!'],
+    name: 'green',
+    value: 'green',
+    hex: colors.green,
   },
   {
-    name: 'blue!',
-    value: 'blue!',
-    hex: colors['blue!'],
+    name: 'purple',
+    value: 'purple',
+    hex: colors.purple,
   },
   {
-    name: 'red!',
-    value: 'red!',
-    hex: colors['red!'],
+    name: 'blue',
+    value: 'blue',
+    hex: colors.blue,
   },
   {
-    name: 'orange!',
-    value: 'orange!',
-    hex: colors['orange!'],
+    name: 'cyan',
+    value: 'cyan',
+    hex: colors.cyan,
   },
   {
-    name: 'yellow!',
-    value: 'yellow!',
-    hex: colors['yellow!'],
+    name: 'fuschia',
+    value: 'fuschia',
+    hex: colors.fuschia,
+  },
+  {
+    name: 'coral',
+    value: 'coral',
+    hex: colors.coral,
+  },
+  {
+    name: 'plum',
+    value: 'plum',
+    hex: colors.plum,
+  },
+  {
+    name: 'gold',
+    value: 'gold',
+    hex: colors.gold,
   },
 ];
 
@@ -61,31 +76,41 @@ const lightColors = [
     value: colors.purple.light,
     hex: colors.purple.light,
   },
-  // {
-  //   name: 'teal',
-  //   value: colors.teal.light,
-  //   hex: colors.teal.light,
-  // },
+  {
+    name: 'gold',
+    value: colors.gold.light,
+    hex: colors.gold.light,
+  },
   {
     name: 'blue',
     value: colors.blue.light,
     hex: colors.blue.light,
   },
-  // {
-  //   name: 'red',
-  //   value: colors.red.light,
-  //   hex: colors.red.light,
-  // },
-  // {
-  //   name: 'orange',
-  //   value: colors.orange.light,
-  //   hex: colors.orange.light,
-  // },
-  // {
-  //   name: 'yellow',
-  //   value: colors.yellow.light,
-  //   hex: colors.yellow.light,
-  // },
+  {
+    name: 'plum',
+    value: colors.plum.light,
+    hex: colors.plum.light,
+  },
+  {
+    name: 'coral',
+    value: colors.coral.light,
+    hex: colors.coral.light,
+  },
+  {
+    name: 'fuschia',
+    value: colors.fuschia.light,
+    hex: colors.fuschia.light,
+  },
+  {
+    name: 'cyan',
+    value: colors.cyan.light,
+    hex: colors.cyan.light,
+  },
+  {
+    name: 'neutral',
+    value: colors.neutral.light,
+    hex: colors.neutral.light,
+  },
 ];
 
 const darkColors = [
@@ -99,31 +124,41 @@ const darkColors = [
     value: colors.purple.dark,
     hex: colors.purple.dark,
   },
-  // {
-  //   name: 'teal',
-  //   value: colors.teal.dark,
-  //   hex: colors.teal.dark,
-  // },
+  {
+    name: 'gold',
+    value: colors.gold.dark,
+    hex: colors.gold.dark,
+  },
   {
     name: 'blue',
     value: colors.blue.dark,
     hex: colors.blue.dark,
   },
-  // {
-  //   name: 'red',
-  //   value: colors.red.dark,
-  //   hex: colors.red.dark,
-  // },
-  // {
-  //   name: 'orange',
-  //   value: colors.orange.dark,
-  //   hex: colors.orange.dark,
-  // },
-  // {
-  //   name: 'yellow',
-  //   value: colors.yellow.dark,
-  //   hex: colors.yellow.dark,
-  // },
+  {
+    name: 'plum',
+    value: colors.plum.dark,
+    hex: colors.plum.dark,
+  },
+  {
+    name: 'coral',
+    value: colors.coral.dark,
+    hex: colors.coral.dark,
+  },
+  {
+    name: 'fuschia',
+    value: colors.fuschia.dark,
+    hex: colors.fuschia.dark,
+  },
+  {
+    name: 'cyan',
+    value: colors.cyan.dark,
+    hex: colors.cyan.dark,
+  },
+  {
+    name: 'neutral',
+    value: colors.neutral.dark,
+    hex: colors.neutral.dark,
+  },
 ];
 
 /* Backgrounds */
