@@ -1,5 +1,5 @@
 import { Box, Button, Heading } from 'grommet';
-import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
+import { Sidebar as SidebarIcon } from 'grommet-icons';
 import { ScreenReaderOnly } from '../../ScreenReaderOnly';
 import { useEffect, useState } from 'react';
 
