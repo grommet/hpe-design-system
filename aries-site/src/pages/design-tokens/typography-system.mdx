@@ -1,8 +1,18 @@
-import { Markdown, Text } from 'grommet';
+import { useContext } from 'react';
+import { Markdown, Text, ThemeContext } from 'grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
 import { DesignTokensTable } from '../../components';
+
+export const SyntaxHighlighterWrapper = ({ children, ...props }) => {
+  const theme = useContext(ThemeContext);
+  return (
+    <SyntaxHighlighter style={theme.dark ? prism.dark : prism.light} {...props}>
+      {children}
+    </SyntaxHighlighter>
+  );
+};
 
 There are two categories of typography design tokens: heading and text. Each are offered in a range of t-shirt sizes. At each t-shirt size, there is a defined font-size, font-weight, and line-height.
 
@@ -36,17 +46,12 @@ Always build a page following proper HTML structure. Use the appropriate heading
     }}
     width="100%"
   >
-    <SyntaxHighlighter
-      tabIndex="0"
-      style={prism.light}
-      wrapLongLines
-      language="javascript"
-    >
+    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
       {`<h1 class="heading-xlarge">Page title</h1>
 <h2 class="card heading-medium">Card title</h2>
 <h2 class="heading-large">Section title</h2>
 <h3 class="card heading-medium">Another card title</h3>`}
-    </SyntaxHighlighter>
+    </SyntaxHighlighterWrapper>
   </Example>
   <Example
     height="none"
@@ -55,17 +60,12 @@ Always build a page following proper HTML structure. Use the appropriate heading
       message: `Change the semantic level of a heading to adjust the visual styling. This can lead to accessibility issues and break the semantic structure of the page. Notice the incorrect jump from h1 to h3.`,
     }}
   >
-    <SyntaxHighlighter
-      tabIndex="0"
-      style={prism.light}
-      wrapLongLines
-      language="javascript"
-    >
+    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
       {`<h1 class="heading-xlarge">Page title</h1>
 <h3 class="card heading-medium">Card title</h2>
 <h2 class="heading-large">Section title</h2>
 <h3 class="card heading-medium">Another card title</h3>`}
-    </SyntaxHighlighter>
+    </SyntaxHighlighterWrapper>
   </Example>
 </BestPracticeGroup>
 

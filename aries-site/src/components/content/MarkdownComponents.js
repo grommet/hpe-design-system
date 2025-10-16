@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -15,6 +15,7 @@ import {
   TableHeader,
   TableRow,
   Text,
+  ThemeContext,
 } from 'grommet';
 import { Copy } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -61,6 +62,34 @@ CopyCodeButton.propTypes = {
   code: PropTypes.string.isRequired,
 };
 
+const PreComponent = ({ children, ...rest }) => {
+  const theme = useContext(ThemeContext);
+  return (
+    <Box
+      width="xlarge"
+      round="xsmall"
+      overflow="auto"
+      margin={{ bottom: 'medium' }}
+    >
+      <Stack anchor="top-right">
+        <SyntaxHighlighter
+          style={theme.dark ? prism.dark : prism.light}
+          wrapLongLines
+          language="javascript"
+          {...rest}
+        >
+          {children?.props?.children}
+        </SyntaxHighlighter>
+        <CopyCodeButton code={children?.props?.children} />
+      </Stack>
+    </Box>
+  );
+};
+
+PreComponent.propTypes = {
+  children: PropTypes.node,
+};
+
 export const components = {
   blockquote: props => (
     <Box width="xlarge">
@@ -71,26 +100,7 @@ export const components = {
       />
     </Box>
   ),
-  pre: ({ children, ...rest }) => (
-    <Box
-      width="xlarge"
-      round="xsmall"
-      overflow="auto"
-      margin={{ bottom: 'medium' }}
-    >
-      <Stack anchor="top-right">
-        <SyntaxHighlighter
-          style={prism.light}
-          wrapLongLines
-          language="javascript"
-          {...rest}
-        >
-          {children?.props?.children}
-        </SyntaxHighlighter>
-        <CopyCodeButton code={children?.props?.children} />
-      </Stack>
-    </Box>
-  ),
+  pre: PreComponent,
   p: SubsectionText,
   a: props =>
     internalLink.test(props.href) ? (
