@@ -25,6 +25,7 @@ import {
   ShieldSecurity,
   ListUnordered,
 } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
 import { Hpe } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 
