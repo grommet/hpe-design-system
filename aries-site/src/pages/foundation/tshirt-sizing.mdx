@@ -2,52 +2,53 @@ import { Box, Image } from 'grommet';
 import { Example } from '../../layouts';
 import { ButtonSizingExample } from '../../examples';
 
-## What is t-shirt sizing?
+## Summary
 
-T-shirt sizing is the way that Grommet leverages familiar clothing sizes of "small", "medium", "large", and other ranges of sizes to drive the sizing and spacing of components. Grommet maps these t-shirt sizes to specific pixel values. The mapping and pixel value derivation is [explained below](/foundation/tshirt-sizing#the-base-unit).
+- Named size tokens (e.g. `small`, `medium`) replace raw pixel values.
+- The system governs both component dimensions and spacing (padding, gap, margin, border, radius).
+- The scale derives from two base units: 24px (original) and 16px (supplemental in v7).
+- The token `medium` remains consistent across v6 and v7.
+- Larger values can be composed from smaller ones (e.g. `xsmall` + `xsmall` = `medium`).
+- Omitting an explicit `size` prop yields the default `medium` for most components.
+- Reliance on ad‑hoc pixel values is discouraged in favor of existing standardized tokens.
 
-T-shirt sizing controls two aspects of a user interface:
+## Definition
 
-- the [height and width](/foundation/tshirt-sizing#t-shirt-sizing-for-component-dimensions) of layout components.
-- the [spacing](/foundation/tshirt-sizing#t-shirt-sizing-for-spacing-and-other-styles) within and around components (e.g. gap, margin, padding, border, etc.).
+T‑shirt sizing is a tokenized scale employing semantic names such as `small`, `medium`, and `large` in place of raw pixel values. Each token corresponds to a defined pixel value and governs:
 
-When designing and developing with the HPE Design System, you should always use t-shirt sizes. If you find yourself specifying custom pixel values, this should be a warning signaling either:
+- Component dimensions (width, height, or `size` props)
+- Spacing concerns (gap, margin, padding, border, radius)
 
-- A need to consult with your designer about why a custom value is needed.
-- Something in the implementation can and should be simplified.
-- Or, there could be a gap in the Design System which should be reported and addressed.
+Adherence to the standardized tokens promotes consistency; introduction of arbitrary pixel values should be avoided when an existing token suffices.
 
-In nearly every case, designs and development should be using t-shirt sizes for compatibility and maintenance.
+## Benefits
 
-## Why do we use t-shirt sizing?
+Benefits include:
 
-T-shirt sizing delivers a more unified experience for HPE customers by creating consistent user interfaces across pages and across applications.
+- Establishment of a shared vocabulary (semantic tokens versus arbitrary pixel counts)
+- Accelerated layout specification through reuse of predefined values
+- Built-in responsive adaptation via theme breakpoints
+- Consistency and maintainability achieved through systematic reuse
 
-There are also benefits of t-shirt sizing for designers and developers!
+Example: a padding token of `large` may resolve to a smaller token at compact breakpoints without manual intervention.
 
-T-shirt sizing creates a common language between designers and developers, as well as provides common, well-defined intervals which make designing and developing more efficient.
-Using pixel values, percentages, or other sizing methods to create layouts can result in applications that are less composable and less scalable. Instead, a container of content may just have a width of "medium", for example, and Grommet will take care of the rest.
+## v6 vs v7
 
-Finally, t-shirt sizes enable content to responsively scale more easily and consistently. For example, a layout's padding may be set to "large" on desktop screen and gracefully adjust to "small" on mobile devices with minimal effort.
+### v7 scale
+The v7 scale introduces supplementary intermediate steps derived from a dual base: 24px (primary) and 16px (secondary). This approach increases granularity while preserving legacy alignment.
 
-## The dual doubling scale (HPE theme v7 and above)
+Highlights:
+- Expanded set of intermediary tokens enables finer layout calibration.
+- Token `medium` retains its prior value for backward compatibility.
+- Former 1152px `xlarge` removed; `xxlarge` (1024px) recommended where applicable.
+- Composite relationships maintained (e.g. `xsmall` + `xsmall` = `medium`).
 
-With the introduction of HPE theme v7, the t-shirt sizing scale has been significantly expanded using a "Dual Doubling" approach to provide more granular sizing options. This new scale addresses gaps in the previous scale and offers greater design flexibility.
-
-**Key highlights of the Dual Doubling scale:**
-
-- **Introduces in-between steps** which address gaps in the current scale, making desired design layouts easier to execute.
-- **Has parity with existing scale** which means that all designs may be recreated with the new scale without any layout shifts. The only exception is container `xlarge` (1152px), which does not have a direct equivalent. We recommend using `xxlarge` (1024px) instead.
-- In the new scale, `medium` matches the v6 `medium`. The remaining t-shirt sizes require mapping to achieve design parity. Although this is not the case for `round` as shown on [Radius sizes comparison](#radius-sizes-comparison-round) table.
-- **Every t-shirt size may be composed** by smaller t-shirt sizes and/or divided into halves, thirds, quarters, ... 12ths, etc. (e.g. `small` + `small` = `large`, or `xsmall` + `xsmall` + `xsmall` = `large`, or even `medium` + `xsmall` = `large`).
-- **Scale consists of a primary scale** based on the doubling of a 24px base unit (same as v6 and below) plus a supplementary scale doubling a 16px base unit.
-
-**Results in the following pixel progression:**
+Pixel progression (ascending):
 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536, 2048.
 
-Below are the sizing values from the [HPE theme v7](https://github.com/grommet/grommet-theme-hpe/blob/master/CHANGELOG.md#700) and above which implements this expanded scale:
+Tables below enumerate renamed and added values.
 
-### Container sizes comparison (width, height, size, columns, rows)
+### Container sizes
 
 | **v6 and below** | **v7**    | **Value** | **Notes**                                 |
 | ---------------- | --------- | --------- | ----------------------------------------- |
@@ -64,7 +65,7 @@ Below are the sizing values from the [HPE theme v7](https://github.com/grommet/g
 | `xlarge`         | --        | 1152px    | Value eliminated (doesn't follow formula) |
 | `xxlarge`        | `3xlarge` | 1536px    | Renamed for consistency                   |
 
-### Spacing sizes comparison (pad, margin, gap, thickness)
+### Spacing sizes
 
 | **v6 and below** | **v7**    | **Value** | **Notes**               |
 | ---------------- | --------- | --------- | ----------------------- |
@@ -81,80 +82,7 @@ Below are the sizing values from the [HPE theme v7](https://github.com/grommet/g
 | --               | `xxlarge` | 64px      | New intermediate size   |
 | `xlarge`         | `3xlarge` | 96px      | Renamed for consistency |
 
-## Original scale (HPE theme v6 and below)
-
-In order to create the range of sizes and their corresponding pixel values, a base unit of 24px is used as a scalar.
-
-Below is the original sizing scale from Grommet's [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) theme file that was used in HPE theme v6 and below versions to drive the height/width for components such as [Box](https://design-system.hpe.design/components/box). The `base.js` theme establishes many of the defaults leveraged across Grommet applications.
-
-```
-// base.js in Grommet
-
-xxsmall: `${baseSpacing * 2}px`, // 48px
-xsmall: `${baseSpacing * 4}px`, // 96px
-small: `${baseSpacing * 8}px`, // 192px
-medium: `${baseSpacing * 16}px`, // 384px
-large: `${baseSpacing * 32}px`, // 768px
-xlarge: `${baseSpacing * 48}px`, // 1152px
-xxlarge: `${baseSpacing * 64}px`, // 1536px
-full: '100%',
-```
-
-## T-shirt sizing for component dimensions
-
-One of the main ways t-shirt sizing is used is to control the width/height of a component. For some components, like [Box](/components/box), this can be controlled with the `width` and `height` props. For other components, like [Avatar](https://v2.grommet.io/avatar?theme=hpe), [DataTable](/components/datatable), or [Text](/foundation/typography#text), the dimensions are controlled by the `size` prop. And others, like [Grid](/components/grid), t-shirt sizes specify `row` and `column` dimensions.
-
-The [Grommet site](https://v2.grommet.io/) provides documentation on the props available to any given component. If you're unsure if a component supports `width`, `height`, or `size`, that would be the right place to check.
-
-Given the [Container sizes comparison](#container-sizes-comparison-width-height-size-columns-rows) table the following code would render 3 boxes
-
-- The first Box has a width of 384px and height of 192px.
-- The second Box has a width of 384px and height of 384px.
-- The third Box has a width of 384px and height of 768px.
-
-```
-<Box width="medium" height="xsmall" />
-// width = 384px, height = 192px
-
-<Box width="medium" height="medium" />
-// width = 384px, height = 384px
-
-<Box width="medium" height="xlarge" />
-// width = 384px, height = 768px
-```
-
-<Box width="xlarge">
-  <Image src="/box-sizing.png" alt="Demonstration of t-shirt sizing on Box" />
-</Box>
-
-## T-shirt sizing for spacing and other styles
-
-In addition to overall component dimensions, t-shirt sizing can also be used to define spacing and other styling such as pad, gap, margin, and border.
-
-To create the pixel values for these styles, Grommet divides and/or multiplies the base unit of `24px` by various integers. The HPE theme v7 introduces additional scale doubling of 16px base unit to achieve intermediate sizes for more precise spacing control.
-
-`pad`, `gap`, and `margin` are controlled by `edgeSize` which now includes the expanded scale shown in the spacing sizes section above.
-
-Given this code snippet, if you were to implement the following code, you would have a Box with width of 384px, height of 192px, and pad of 48px.
-
-```
-<Box
-    width="medium"
-    height="xsmall"
-    pad="xlarge"
-/>
-```
-
-<Box width="medium" margin={{ bottom: 'large' }}>
-  <Image
-    src="/edge-sizing.png"
-    alt="Demonstration of t-shirt sizing for pad on Box"
-  />
-</Box>
-
-### Border sizes comparison
-
-Border sizing is controlled by `borderSize`.
+### Border sizes
 
 | **v6 and below** | **v7**    | **Value** | **Notes**             |
 | ---------------- | --------- | --------- | --------------------- |
@@ -167,9 +95,7 @@ Border sizing is controlled by `borderSize`.
 | `xlarge`         | --        | 24px      | Eliminated            |
 | --               | `default` | 1px       | New default value     |
 
-### Radius sizes comparison (round)
-
-Radius sizing is controlled by `round` and is used for border-radius properties.
+### Radius sizes
 
 | **v6 and below** | **v7**    | **Value** | **Notes**                                 |
 | ---------------- | --------- | --------- | ----------------------------------------- |
@@ -188,7 +114,76 @@ Radius sizing is controlled by `round` and is used for border-radius properties.
 | `xlarge`         | --        | 96px      | Eliminated                                |
 | `full`           | `full`    | 9999px    | Unchanged (creates fully rounded corners) |
 
-Given this code snippet, if you were to implement the following code, you would have a Box with width of 384px, height of 192px, and a border with a width of 2px.
+### v6 legacy scale
+Earlier versions employed a single 24px scalar base. Excerpt from original `base.js` theme values:
+
+```
+// base.js in Grommet
+
+xxsmall: `${baseSpacing * 2}px`, // 48px
+xsmall: `${baseSpacing * 4}px`, // 96px
+small: `${baseSpacing * 8}px`, // 192px
+medium: `${baseSpacing * 16}px`, // 384px
+large: `${baseSpacing * 32}px`, // 768px
+xlarge: `${baseSpacing * 48}px`, // 1152px
+xxlarge: `${baseSpacing * 64}px`, // 1536px
+full: '100%',
+```
+
+## Component dimensions
+
+T‑shirt size tokens define component dimensions. Prop usage varies by component type:
+
+- `width` / `height`: structural components such as [Box](/components/box)
+- `size`: content or element-level components such as [Avatar](https://v2.grommet.io/avatar?theme=hpe), [Text](/foundation/typography#text), [DataTable](/components/datatable)
+- Grid layout: row and column sizing in [Grid](/components/grid)
+
+Prop support is documented within the official [Grommet component reference](https://v2.grommet.io/).
+
+Example below demonstrates three distinct heights with a constant width:
+
+```
+<Box width="medium" height="xsmall" />
+// width = 384px, height = 192px
+
+<Box width="medium" height="medium" />
+// width = 384px, height = 384px
+
+<Box width="medium" height="xlarge" />
+// width = 384px, height = 768px
+```
+
+<Box width="xlarge">
+  <Image src="/box-sizing.png" alt="Demonstration of t-shirt sizing on Box" />
+</Box>
+
+## Spacing & styles
+
+Tokens also govern spacing concerns: padding, margin, gap, border thickness, and corner radius.
+
+Resolution to pixel values occurs automatically via theme mapping against the 24px and 16px bases.
+
+Attributes such as `pad`, `gap`, and `margin` leverage the `edgeSize` scale defined in the tables above.
+
+The example below shows `xlarge` padding resolved to 48px:
+
+```
+<Box
+    width="medium"
+    height="xsmall"
+    pad="xlarge"
+/>
+```
+
+<Box width="medium" margin={{ bottom: 'large' }}>
+  <Image
+    src="/edge-sizing.png"
+    alt="Demonstration of t-shirt sizing for pad on Box"
+  />
+</Box>
+
+
+The following snippet produces a Box with width 384px, height 192px, and a 2px border.
 
 ```
 <Box
@@ -205,11 +200,9 @@ Given this code snippet, if you were to implement the following code, you would 
   />
 </Box>
 
-### Composability and scaling between t-shirt sizes
+### Composability
 
-With the expanded v7 scale, sizes are designed to create a unified, harmonious experience with mathematically precise relationships. The new scale allows for more granular control while maintaining consistent proportional relationships.
-
-The expanded scale enables flexible composition where sizes can be combined and divided:
+The v7 scale maintains additive and divisional consistency; sums or partitions of smaller tokens align precisely with larger counterparts.
 
 ```
 // Container sizes maintain doubling relationships at key intervals:
@@ -225,9 +218,9 @@ xsmall (12px) + xsmall (12px) = medium (24px)
 medium (24px) + medium (24px) = xlarge (48px)
 ```
 
-This expanded scale addresses the common scenario where "medium" was too small and "large" was too big, providing a size that fits "just right."
+Intermediate tokens address previous gaps where `medium` and `large` formed an overly broad jump.
 
-### T-shirt size composition visualization
+### Composition visualization
 
 The beauty of the Dual Doubling scale is its mathematical precision, allowing sizes to compose and decompose in predictable ways. The visualization below demonstrates how different t-shirt sizes relate to each other:
 
@@ -238,27 +231,23 @@ The beauty of the Dual Doubling scale is its mathematical precision, allowing si
   />
 </Box>
 
-As shown in the composition above:
+Summary:
+- Smaller tokens compose larger tokens.
+- Mathematical relationships remain predictable.
+- Consistent mixing sustains visual rhythm.
 
-- Multiple smaller sizes can combine to create larger sizes.
-- Each size maintains mathematical precision within the Dual Doubling scale.
-- For example: `xsmall` (192px) + `xsmall` (192px) = `medium` (384px).
-- Or: `small` (256px) + `xxsmall` (128px) = `medium` (384px).
-- This mathematical relationship enables predictable scaling and consistent proportions.
-- Designers and developers can confidently mix and match sizes knowing they will harmonize.
+### Default size
 
-### Default `size` of "medium"
+Components exposing a `size` prop default to `medium` when unspecified.
 
-For components that support a `size` prop, the default size is `medium`. This means that if you do not specify your own `size`, the component will render with the styling that corresponds with "medium" size.
-
-Notice in this example of Button sizes how the "Default" button is the same size as the "Medium" button. In the code, you'll see:
+In the button example below, "Default" and `size="medium"` produce equivalent rendering:
 
 ```
 <Button label="Default" primary />
 <Button size="medium" label="Medium" primary />
 ```
 
-Because `medium` is the default size, you can simplify your code by implementing a component without the `size` prop when `medium` is the desired size.
+Omitting the `size` prop when `medium` is appropriate reduces verbosity without altering appearance.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
