@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Menu } from 'grommet';
-import { More } from 'grommet-icons';
+import { More } from '@hpe-design/icons-grommet';
 
 export const ActionMenu = ({ items }) => (
   <Menu

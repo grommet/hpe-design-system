@@ -1,11 +1,11 @@
 import {
-  AppsRounded as Components,
+  Apps as Components,
   Storage,
   Servers,
   Network,
   ShieldSecurity,
-  GenAI,
-} from 'grommet-icons';
+  AIGen,
+} from '@hpe-design/icons-grommet';
 import { type NavItemType } from '../../../js/components';
 
 export const navItems: NavItemType[] = [
@@ -66,7 +66,7 @@ export const navItems: NavItemType[] = [
             url: '/natural-language-processing',
           },
         ],
-        icon: <GenAI aria-hidden="true" />,
+        icon: <AIGen aria-hidden="true" />,
       },
     ],
   },
