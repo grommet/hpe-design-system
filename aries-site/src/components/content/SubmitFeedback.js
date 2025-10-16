@@ -2,7 +2,12 @@ import React, { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Box, Button, Grid, Heading, Layer, ResponsiveContext } from 'grommet';
-import { ChatOption, Contact, Close, Github } from '@hpe-design/icons-grommet';
+import {
+  ChatConversation,
+  Contact,
+  Close,
+  Github,
+} from '@hpe-design/icons-grommet';
 import { SubsectionText } from '.';
 
 const HeadingContext = createContext({});
@@ -37,7 +42,7 @@ const JoinConversation = () => {
 
   return (
     <Box gap="xsmall">
-      <ChatOption size="large" />
+      <ChatConversation size="large" />
       <Heading level={level} margin="none">
         Join the conversation
       </Heading>
