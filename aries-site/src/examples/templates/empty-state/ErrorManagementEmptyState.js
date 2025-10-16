@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmptyState } from 'aries-core';
 import { Button } from 'grommet';
-import { Alert } from 'grommet-icons';
+import { Alert } from '@hpe-design/icons-grommet';
 
 export const ErrorManagementEmptyState = ({ ...rest }) => {
   return (

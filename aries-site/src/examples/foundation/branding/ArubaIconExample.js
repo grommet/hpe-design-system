@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
+// TODO replace with DS icon package when available
 import { Aruba } from 'grommet-icons';
 
 export const ArubaIconExample = () => {

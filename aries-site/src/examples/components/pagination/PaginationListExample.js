@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { List, Menu, ResponsiveContext } from 'grommet';
-import { More } from 'grommet-icons';
+import { More } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 const data = [];

@@ -8,7 +8,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { Down, Up } from 'grommet-icons';
+import { Down, Up } from '@hpe-design/icons-grommet';
 
 export const Destination = ({ children, detail, id, useCases, ...rest }) => {
   const [showMore, setShowMore] = useState(false);

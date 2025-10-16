@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading } from 'grommet';
-import { Link as LinkIcon } from 'grommet-icons';
+import { Link as LinkIcon } from '@hpe-design/icons-grommet';
 
 import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';

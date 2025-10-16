@@ -16,7 +16,7 @@ import {
   TableRow,
   Text,
 } from 'grommet';
-import { Copy } from 'grommet-icons';
+import { Copy } from '@hpe-design/icons-grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 

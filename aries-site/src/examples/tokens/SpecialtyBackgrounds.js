@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Paragraph, Text } from 'grommet';
-import { Add } from 'grommet-icons';
+import { Add } from '@hpe-design/icons-grommet';
 
 export const SpecialtyBackgrounds = () => {
   return (

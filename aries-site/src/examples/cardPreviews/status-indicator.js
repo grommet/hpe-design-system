@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
-import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
-import { StatusCriticalSmall } from 'grommet-icons/icons/StatusCriticalSmall';
-import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
+import {
+  StatusGood,
+  StatusWarning,
+  StatusCritical,
+  StatusUnknown,
+} from '@hpe-design/icons-grommet';
 
 import { Box } from 'grommet';
 
 export const StatusIndicatorPreview = () => (
   <Box align="center" justify="center" fill background="background-back">
     <Box direction="row" gap="xsmall">
-      <StatusGoodSmall color="status-ok" />
-      <StatusWarningSmall color="status-warning" />
-      <StatusCriticalSmall color="status-critical" />
-      <StatusUnknownSmall color="status-unknown" />
+      <StatusGood color="status-ok" />
+      <StatusWarning color="status-warning" />
+      <StatusCritical color="status-critical" />
+      <StatusUnknown color="status-unknown" />
     </Box>
   </Box>
 );
@@ -22,21 +24,21 @@ export const StatusIndicatorPreview = () => (
 export const StatusBox = ({ toast }) => (
   <Box direction="row" gap="xlarge" pad={{ bottom: 'medium' }}>
     <Box align="center">
-      <StatusGoodSmall color="status-ok" />
+      <StatusGood color="status-ok" />
       Normal
     </Box>
     <Box align="center">
-      <StatusWarningSmall color="status-warning" />
+      <StatusWarning color="status-warning" />
       Warning
     </Box>
     {!toast && (
       <Box align="center">
-        <StatusCriticalSmall color="status-critical" />
+        <StatusCritical color="status-critical" />
         Critical
       </Box>
     )}
     <Box align="center">
-      <StatusUnknownSmall color="status-unknown" />
+      <StatusUnknown color="status-unknown" />
       Unknown
     </Box>
   </Box>

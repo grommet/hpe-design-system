@@ -1,10 +1,12 @@
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Box, ResponsiveContext, Text } from 'grommet';
+// TODO replace with DS icon package when available
 import { Aruba, Hpe } from 'grommet-icons';
 import { UserContext, MenuLayer } from '.';
 
 const brands = {
+  // todo replace with logo
   hpe: {
     name: 'HPE',
     logo: <Hpe color="brand" />,

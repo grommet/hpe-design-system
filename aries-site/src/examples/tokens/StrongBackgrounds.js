@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { Box, Button, Text } from 'grommet';
-import { Add } from 'grommet-icons';
+import { Add } from '@hpe-design/icons-grommet';
 
 export const StrongBackgrounds = () => {
   const theme = useContext(ThemeContext);

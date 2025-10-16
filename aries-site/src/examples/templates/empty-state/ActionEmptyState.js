@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { EmptyState } from 'aries-core';
 import { Anchor, Box, Button, Grid, ResponsiveContext } from 'grommet';
-import { Checkmark, Search } from 'grommet-icons';
+import { Checkmark, Search } from '@hpe-design/icons-grommet';
 
 export const ActionEmptyState = () => {
   const breakpoint = useContext(ResponsiveContext);

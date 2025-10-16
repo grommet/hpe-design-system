@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Tip } from 'grommet';
-import { Moon, Sun } from 'grommet-icons';
+import { Moon, Sun } from '@hpe-design/icons-grommet';
 import { useDarkMode } from '../../utils';
 
 export const ThemeModeToggle = ({ active }) => {

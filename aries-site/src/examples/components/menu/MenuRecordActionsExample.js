@@ -1,11 +1,11 @@
 import { Box, Heading, List, Menu, Notification, Text } from 'grommet';
 import {
   More,
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-  StatusWarningSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 import { useState } from 'react';
 
 import { TextEmphasis } from 'aries-core';
@@ -16,19 +16,19 @@ const serverGroups = require('../../../data/mockData/serverGroups.json').groups;
 const STATUS_MAP = {
   Critical: {
     label: 'Critical',
-    icon: <StatusCriticalSmall color="status-critical" size="small" />,
+    icon: <StatusCritical color="status-critical" size="small" />,
   },
   Warning: {
     label: 'Warning',
-    icon: <StatusWarningSmall color="status-warning" size="small" />,
+    icon: <StatusWarning color="status-warning" size="small" />,
   },
   OK: {
     label: 'Okay',
-    icon: <StatusGoodSmall color="status-ok" size="small" />,
+    icon: <StatusGood color="status-ok" size="small" />,
   },
   Unknown: {
     label: 'Unknown',
-    icon: <StatusUnknownSmall color="status-unknown" size="small" />,
+    icon: <StatusUnknown color="status-unknown" size="small" />,
   },
 };
 

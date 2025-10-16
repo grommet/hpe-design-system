@@ -1,7 +1,7 @@
 import React, { cloneElement, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text, ThemeContext } from 'grommet';
-import { Checkmark } from 'grommet-icons';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import { SelectorGroupContext } from './SelectorGroup';
 
 const SelectorIndicator = ({ selected, indicator, ...rest }) => {

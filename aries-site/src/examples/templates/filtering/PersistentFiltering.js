@@ -26,7 +26,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Filter, Close, Search } from 'grommet-icons';
+import { Filter, Close, Search } from '@hpe-design/icons-grommet';
 
 const allData = [
   {

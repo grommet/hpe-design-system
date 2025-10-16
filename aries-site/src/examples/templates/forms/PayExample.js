@@ -11,7 +11,7 @@ import {
   TextInput,
   ResponsiveContext,
 } from 'grommet';
-import { Apple, CreditCard } from 'grommet-icons';
+import { CreditCard } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 const currentDate = new Date();
@@ -133,7 +133,6 @@ export const PayExample = () => {
               type="button"
               primary
               color="background-neutral-xstrong"
-              icon={<Apple />}
               gap="5xsmall"
               size="large"
             />

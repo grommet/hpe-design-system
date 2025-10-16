@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, Heading, Menu, Text } from 'grommet';
-import { MoreVertical } from 'grommet-icons';
+import { MoreVertical } from '@hpe-design/icons-grommet';
 
 export const DashboardCardHeader = ({ title, level, subtitle, menuItems }) => (
   <Box direction="row" align="start" justify="between" fill>

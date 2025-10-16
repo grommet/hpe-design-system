@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
 import { ThemeContext } from 'styled-components';
-import { StatusGoodSmall } from 'grommet-icons';
+import { StatusGood } from '@hpe-design/icons-grommet';
 import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
 
@@ -134,7 +134,7 @@ export const InPageNavigation = ({ headings, title }) => {
                   icon={
                     showUpdate && pageUpdateReady ? (
                       <Box background={{ dark: true }} justify="top">
-                        <StatusGoodSmall
+                        <StatusGood
                           a11yTitle="Section has been updated"
                           size="10px"
                           color="teal"

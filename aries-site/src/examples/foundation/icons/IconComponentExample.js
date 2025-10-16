@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Menu } from 'grommet';
-import { Add, Next } from 'grommet-icons';
+import { Add, Right } from '@hpe-design/icons-grommet';
 
 export const IconComponentExample = () => (
   <Box gap="medium" direction="row-responsive">
@@ -9,6 +9,6 @@ export const IconComponentExample = () => (
       icon={<Add />}
       label="Menu with Icon"
     />
-    <Button label="Button" icon={<Next />} reverse onClick={() => {}} />
+    <Button label="Button" icon={<Right />} reverse onClick={() => {}} />
   </Box>
 );

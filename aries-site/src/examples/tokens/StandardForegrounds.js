@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Grid, Text } from 'grommet';
-import { Trigger } from 'grommet-icons';
+import { Trigger } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../layouts';
 
 export const StandardForegrounds = () => {

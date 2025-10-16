@@ -11,11 +11,11 @@ import {
   Text,
 } from 'grommet';
 import {
-  StatusCriticalSmall,
-  StatusWarningSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusWarning,
+  StatusGood,
+  StatusUnknown,
+} from '@hpe-design/icons-grommet';
 import { FilterServers } from '../../templates/filtering';
 
 export const CardFilteringBestPractice = ({ bestPractice = true }) => (
@@ -38,22 +38,22 @@ const statuses = [
   {
     name: 'Critical',
     count: 5,
-    icon: <StatusCriticalSmall color="status-critical" size="small" />,
+    icon: <StatusCritical color="status-critical" size="small" />,
   },
   {
     name: 'Warning',
     count: 4,
-    icon: <StatusWarningSmall color="status-warning" size="small" />,
+    icon: <StatusWarning color="status-warning" size="small" />,
   },
   {
     name: 'Good',
     count: 43,
-    icon: <StatusGoodSmall color="status-ok" size="small" />,
+    icon: <StatusGood color="status-ok" size="small" />,
   },
   {
     name: 'Unknown',
     count: 5,
-    icon: <StatusUnknownSmall color="status-unknown" size="small" />,
+    icon: <StatusUnknown color="status-unknown" size="small" />,
   },
 ];
 

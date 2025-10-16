@@ -11,7 +11,7 @@ import {
   PageHeader,
   ResponsiveContext,
 } from 'grommet';
-import { Sidebar } from 'grommet-icons';
+import { Sidebar } from '@hpe-design/icons-grommet';
 import { useSessionStorage } from '@shared/hooks';
 import { NavigationMenu } from '../../js/components';
 import { AppHeader, Genie, Help, LayerHeader, navItems } from './content';
@@ -29,8 +29,14 @@ const responsiveGridAreas = {
 };
 
 export const NavigationMenuExample = () => {
-  const [contextContent, setContextContent] = useSessionStorage('contextContent', '');
-  const [activeItem, setActiveItem] = useSessionStorage<string | undefined>('activeItem', 'Home');
+  const [contextContent, setContextContent] = useSessionStorage(
+    'contextContent',
+    '',
+  );
+  const [activeItem, setActiveItem] = useSessionStorage<string | undefined>(
+    'activeItem',
+    'Home',
+  );
   const [open, setOpen] = useSessionStorage<boolean>('open', true);
   const [openLayer, setOpenLayer] = useState<boolean>(false);
   const breakpoint = useContext(ResponsiveContext);
@@ -45,7 +51,7 @@ export const NavigationMenuExample = () => {
     setActiveItem,
     items: navItems,
     open,
-    setOpen
+    setOpen,
   };
 
   const messages = {
@@ -87,7 +93,7 @@ export const NavigationMenuExample = () => {
       >
         {mobile ? (
           <>
-            <Box justify="center" fill pad={{ horizontal: "3xsmall" }}>
+            <Box justify="center" fill pad={{ horizontal: '3xsmall' }}>
               <Button
                 a11yTitle="Open navigation menu"
                 icon={<Sidebar />}
@@ -128,7 +134,7 @@ export const NavigationMenuExample = () => {
       <Main
         gridArea="main"
         background="background-back"
-        round={{ corner: 'top-left', size: "medium" }}
+        round={{ corner: 'top-left', size: 'medium' }}
       >
         <Page>
           <PageContent>

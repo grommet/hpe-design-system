@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Footer, ResponsiveContext } from 'grommet';
-import { LinkNext } from 'grommet-icons';
+import { LinkNext } from '@hpe-design/icons-grommet';
 import { WizardContext } from '.';
 
 export const StepFooter = ({ nextId, ...rest }) => {

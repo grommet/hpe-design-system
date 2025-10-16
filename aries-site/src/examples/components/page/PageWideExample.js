@@ -14,7 +14,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { More } from 'grommet-icons';
+import { More } from '@hpe-design/icons-grommet';
 
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Spinner, Text } from 'grommet';
-import { StatusGoodSmall } from 'grommet-icons';
+import { StatusGood } from '@hpe-design/icons-grommet';
 import { ButtonGroup, ModalBody, ModalFooter } from 'aries-core';
 
 const steps = {
@@ -47,7 +47,7 @@ const steps = {
   'power-on-success': {
     body: (
       <Box align="center" gap="3xsmall" direction="row">
-        <StatusGoodSmall color="green" size="small" />
+        <StatusGood color="green" size="small" />
         <Text size="large">Power on initiated for 1 device.</Text>
       </Box>
     ),

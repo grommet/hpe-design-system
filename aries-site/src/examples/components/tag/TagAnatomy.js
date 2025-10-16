@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Grid, Diagram, Stack, Text, ThemeContext } from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
@@ -83,7 +83,7 @@ export const AnatomyBox = ({ id, nameId, valueId, closeId }) => {
             <Button
               a11yTitle="Remove"
               id={closeId}
-              icon={<FormClose />}
+              icon={<Close />}
               hoverIndicator
               focusIndicator
               plain

@@ -15,7 +15,12 @@ import {
   Toolbar,
 } from 'grommet';
 import { TextEmphasis } from 'aries-core';
-import { Deliver, Package, StatusCritical, StatusGood } from 'grommet-icons';
+import {
+  Deliver,
+  Package,
+  StatusCritical,
+  StatusGood,
+} from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../../layouts';
 import { orders } from './mockData';
 

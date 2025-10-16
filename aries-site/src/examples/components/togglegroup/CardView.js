@@ -9,7 +9,7 @@ import {
   Text,
   Heading,
 } from 'grommet';
-import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
+import { StatusCritical, StatusGood } from '@hpe-design/icons-grommet';
 
 export const CardView = () => {
   return (
@@ -34,9 +34,9 @@ const Card = ({ name, success, rocket }) => {
         <Box gap="3xsmall">
           <Box direction="row" align="center" gap="3xsmall" flex>
             {success === 'Successful' ? (
-              <StatusGoodSmall color="status-ok" height="medium" />
+              <StatusGood color="status-ok" height="medium" />
             ) : (
-              <StatusCriticalSmall color="status-critical" height="medium" />
+              <StatusCritical color="status-critical" height="medium" />
             )}
             <Text>{success}</Text>
           </Box>

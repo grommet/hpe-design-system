@@ -10,7 +10,7 @@ import {
   Paragraph,
   Stack,
 } from 'grommet';
-import { Notes } from 'grommet-icons';
+import { Notes } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const connection = (fromTarget, toTarget) => ({

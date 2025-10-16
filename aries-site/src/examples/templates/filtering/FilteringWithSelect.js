@@ -16,7 +16,7 @@ import {
   Text,
   Toolbar,
 } from 'grommet';
-import { More, StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
+import { More, StatusGood, StatusWarning } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const allData = [
@@ -82,9 +82,9 @@ const Results = () => {
                 <Text>{item.status}</Text>
               )}
               {item.status === 'Ready' ? (
-                <StatusGoodSmall color="status-ok" size="small" />
+                <StatusGood color="status-ok" size="small" />
               ) : (
-                <StatusWarningSmall color="status-warning" size="small" />
+                <StatusWarning color="status-warning" size="small" />
               )}
             </Box>
             <Menu

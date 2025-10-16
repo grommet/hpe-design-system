@@ -1,5 +1,5 @@
 import { Button, Header, Text } from 'grommet';
-import { GenAI, HelpOption } from 'grommet-icons';
+import { AIGen, Help } from '@hpe-design/icons-grommet';
 import { ButtonGroup } from '../../../js/components';
 
 interface AppHeaderProps {
@@ -25,7 +25,7 @@ export const AppHeader = ({
       <ButtonGroup>
         <Button
           a11yTitle="Toggle help content"
-          icon={<HelpOption aria-hidden={true} />}
+          icon={<Help aria-hidden={true} />}
           active={contextContent === 'help'}
           onClick={() =>
             setContextContent(contextContent === 'help' ? '' : 'help')
@@ -33,7 +33,7 @@ export const AppHeader = ({
         />
         <Button
           a11yTitle="Toggle genie content"
-          icon={<GenAI aria-hidden={true} />}
+          icon={<AIGen aria-hidden={true} />}
           active={contextContent === 'genie'}
           onClick={() =>
             setContextContent(contextContent === 'genie' ? '' : 'genie')

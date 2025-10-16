@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, DropButton, Heading, Paragraph } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 
 export const DropButtonExample = () => {
   const [open, setOpen] = React.useState();

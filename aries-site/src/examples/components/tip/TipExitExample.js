@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Paragraph } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 export const TipExitExample = () => (

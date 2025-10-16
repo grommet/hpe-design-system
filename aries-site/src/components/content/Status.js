@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
+// TODO replace with DS icon package when available
 import { Figma, Grommet } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import { IconCircle, IconTriangle } from '../icons';

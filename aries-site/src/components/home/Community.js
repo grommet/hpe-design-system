@@ -10,7 +10,9 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { ChatOption, Info, Slack } from 'grommet-icons';
+import { ChatConversation, Info } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Slack } from 'grommet-icons';
 
 const LinkButton = props => (
   <Button
@@ -31,7 +33,7 @@ const SlackOption = () => (
       <Text>Specific questions? Want feedback or advice?</Text>
     </Box>
     <LinkButton
-      icon={<ChatOption />}
+      icon={<ChatConversation />}
       label="Join us on Slack"
       href="https://slack-invite.grommet.io/"
       primary

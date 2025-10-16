@@ -11,7 +11,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from '@hpe-design/icons-grommet';
 
 const Announcer = ({ announce, message, mode, role }) => {
   const theme = useContext(ThemeContext);

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Collapsible } from 'grommet';
-import { Trash } from 'grommet-icons';
+import { Trash } from '@hpe-design/icons-grommet';
 import { ChildHeader } from './ChildHeader';
 
 // using value names from summarize prop, builds the summary message

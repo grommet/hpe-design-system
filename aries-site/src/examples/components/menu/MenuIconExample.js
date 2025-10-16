@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, List, Menu } from 'grommet';
-import { More } from 'grommet-icons';
+import { More } from '@hpe-design/icons-grommet';
 
 export const MenuIconExample = () => {
   const data = ['User 1', 'User 2', 'User 3'];

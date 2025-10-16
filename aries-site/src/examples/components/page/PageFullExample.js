@@ -11,7 +11,7 @@ import {
   PageHeader,
   Text,
 } from 'grommet';
-import { Bookmark } from 'grommet-icons';
+import { Bookmark } from '@hpe-design/icons-grommet';
 
 import { TextEmphasis } from 'aries-core';
 import serverhealth from '../../../data/mockData/serverhealth.json';

@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
-import { InProgress, StatusWarning, StatusGood } from 'grommet-icons';
+import {
+  InProgress,
+  StatusWarning,
+  StatusGood,
+} from '@hpe-design/icons-grommet';
 import { Measure, StatusBar } from '../components';
 
 const MOCK_DATA = require('../../../../data/mockData/firmware-bundles.json');

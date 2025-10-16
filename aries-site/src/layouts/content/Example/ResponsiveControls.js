@@ -5,7 +5,7 @@ import {
   Expand,
   PhoneVertical,
   PersonalComputer,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 
 import { screens } from '..';
 

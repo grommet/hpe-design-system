@@ -9,7 +9,7 @@ import {
   Tabs,
   Text,
 } from 'grommet';
-import { StatusGoodSmall } from 'grommet-icons';
+import { StatusGood } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../../layouts';
 import { emptyServerData } from '../data';
 
@@ -31,7 +31,7 @@ export const NameValueListDetailPage = () => {
                   <NameValuePair key={name} name={name}>
                     {name === 'Health' ? (
                       <Box align="center" gap="3xsmall" direction="row">
-                        <StatusGoodSmall size="small" color="status-ok" />
+                        <StatusGood size="small" color="status-ok" />
                         {value}
                       </Box>
                     ) : (

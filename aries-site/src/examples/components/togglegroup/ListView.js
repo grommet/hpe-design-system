@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, List, Text } from 'grommet';
-import { More, StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
+import { More, StatusCritical, StatusGood } from '@hpe-design/icons-grommet';
 
 export const ListView = () => {
   return (
@@ -30,9 +30,9 @@ const ListItem = ({ name, success, rocket, date }) => {
           </Text>
           <Box direction="row" align="center" gap="3xsmall" flex>
             {success === 'Successful' ? (
-              <StatusGoodSmall color="status-ok" height="medium" />
+              <StatusGood color="status-ok" height="medium" />
             ) : (
-              <StatusCriticalSmall color="status-critical" height="medium" />
+              <StatusCritical color="status-critical" height="medium" />
             )}
             <Text>{success}</Text>
           </Box>

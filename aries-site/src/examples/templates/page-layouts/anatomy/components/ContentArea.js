@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, ThemeContext } from 'grommet';
+// TODO replace with DS icon package when available
 import { Hpe } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import { aries } from '../../../../../themes/aries';

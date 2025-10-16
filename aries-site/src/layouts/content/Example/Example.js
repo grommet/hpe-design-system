@@ -16,7 +16,7 @@ import {
   ResponsiveContext,
   ThemeContext,
 } from 'grommet';
-import { Contract } from 'grommet-icons';
+import { Contract } from '@hpe-design/icons-grommet';
 import { aries } from '../../../themes/aries';
 // import { scaled } from '../../../themes/scaled';
 import {

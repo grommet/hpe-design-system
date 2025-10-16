@@ -10,24 +10,24 @@ import {
   Text,
 } from 'grommet';
 import {
-  StatusGoodSmall,
-  StatusCriticalSmall,
-  StatusWarningSmall,
-  CircleInformation,
-  ShareRounded,
-} from 'grommet-icons';
+  StatusGood,
+  StatusCritical,
+  StatusWarning,
+  Info,
+  Share,
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const getStatusIcon = status => {
   switch (status) {
     case 'failed':
-      return <StatusCriticalSmall alt="" color="status-critical" />;
+      return <StatusCritical alt="" color="status-critical" />;
     case 'conditional':
-      return <CircleInformation alt="" />;
+      return <Info alt="" />;
     case 'AAA not achieved':
-      return <StatusWarningSmall alt="" color="status-warning" />;
+      return <StatusWarning alt="" color="status-warning" />;
     default:
-      return <StatusGoodSmall alt="" color="status-ok" />;
+      return <StatusGood alt="" color="status-ok" />;
   }
 };
 
@@ -130,7 +130,7 @@ export const WCAGRuleDetail = ({ rules, version }) => {
           label="accessibility principles"
           href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
           target="_blank"
-          icon={<ShareRounded />}
+          icon={<Share />}
           reverse
           rel="noopener noreferrer"
         />

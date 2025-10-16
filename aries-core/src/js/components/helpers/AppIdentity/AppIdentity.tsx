@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
+// TODO replace with DS icon package when available
 import { Aruba, Hpe } from 'grommet-icons';
 
 const brands = {
@@ -33,7 +34,7 @@ export const AppIdentity = forwardRef(
           gap="medium"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
-          pad={{ vertical: "xsmall" }}
+          pad={{ vertical: 'xsmall' }}
           responsive={false}
         >
           {brand && brands[brand].logo}

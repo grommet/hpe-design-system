@@ -8,7 +8,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { HelpOption, HomeRounded } from 'grommet-icons';
+import { Help, Home } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { UserContext } from '.';
 
@@ -21,8 +21,8 @@ export const HeaderNav = () => {
     <Nav align="center" direction="row" gap="xsmall">
       {!['xsmall', 'small'].includes(size) && (
         <>
-          <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
-          <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
+          <Button icon={<Help />} a11yTitle="Help" title="Help" />
+          <Button icon={<Home />} a11yTitle="Home" title="Home" />
         </>
       )}
       <DropButton

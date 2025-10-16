@@ -8,10 +8,10 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import {
-  StatusGoodSmall,
-  StatusWarningSmall,
-  StatusCriticalSmall,
-} from 'grommet-icons';
+  StatusGood,
+  StatusWarning,
+  StatusCritical,
+} from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 const data = [
@@ -124,7 +124,7 @@ const formatData = dataSet =>
       case 'ok':
         adjustedDatum.status = {
           label: datum.status,
-          icon: StatusGoodSmall,
+          icon: StatusGood,
           value: 0,
           color: 'status-ok',
         };
@@ -132,7 +132,7 @@ const formatData = dataSet =>
       case 'warning':
         adjustedDatum.status = {
           label: datum.status,
-          icon: StatusWarningSmall,
+          icon: StatusWarning,
           value: 1,
           color: 'status-warning',
         };
@@ -140,7 +140,7 @@ const formatData = dataSet =>
       case 'critical':
         adjustedDatum.status = {
           label: datum.status,
-          icon: StatusCriticalSmall,
+          icon: StatusCritical,
           value: 2,
           color: 'status-critical',
         };

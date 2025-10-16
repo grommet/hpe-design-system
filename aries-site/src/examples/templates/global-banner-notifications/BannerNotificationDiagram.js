@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Grid, Diagram, Stack, Text } from 'grommet';
-import { Close, StatusCriticalSmall } from 'grommet-icons';
+import { Close, StatusCritical } from '@hpe-design/icons-grommet';
 
 import { Annotation } from '../../../layouts';
 
@@ -86,7 +86,7 @@ export const BannerNotificationDiagram = () => (
       <Annotation id={4} target="4" />
       <AnatomyBox />
       <AnatomyBox align="center">
-        <StatusCriticalSmall id="status-indicator" color="red" />
+        <StatusCritical id="status-indicator" color="red" />
       </AnatomyBox>
       <AnatomyBox>
         <Text id="content" alignSelf="center">

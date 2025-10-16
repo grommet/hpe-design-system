@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, Drop } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 
 export const Popover = ({
   a11yTitle,

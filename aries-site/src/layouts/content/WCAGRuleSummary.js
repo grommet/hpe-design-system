@@ -1,28 +1,28 @@
 /* eslint-disable react/prop-types */
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 import {
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusWarningSmall,
-  CircleInformation,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusGood,
+  StatusWarning,
+  Info,
+} from '@hpe-design/icons-grommet';
 
 const STATUS_MAP = {
   passed: {
     label: 'Passed',
-    icon: <StatusGoodSmall alt="" color="status-ok" />,
+    icon: <StatusGood alt="" color="status-ok" />,
   },
   failed: {
     label: 'Failed',
-    icon: <StatusCriticalSmall alt="" color="status-critical" />,
+    icon: <StatusCritical alt="" color="status-critical" />,
   },
   conditional: {
     label: 'Conditional',
-    icon: <CircleInformation alt="" />,
+    icon: <Info alt="" />,
   },
   'AAA not achieved': {
     label: 'AAA not achieved',
-    icon: <StatusWarningSmall alt="" color="status-warning" />,
+    icon: <StatusWarning alt="" color="status-warning" />,
   },
 };
 

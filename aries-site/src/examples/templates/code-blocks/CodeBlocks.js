@@ -9,7 +9,7 @@ export const CodeBlockExample = () => {
   const codeString = `import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Card, CardBody, CardFooter, Chart, Text, Stack } from 'grommet';
-import { Wifi, StatusWarningSmall } from 'grommet-icons';
+import { Wifi, StatusWarning } from '@hpe-design/icons-grommet';
 
 const mockData = Array(30)
   .fill()

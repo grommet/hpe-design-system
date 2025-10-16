@@ -14,7 +14,7 @@ import {
   TextArea,
   TextInput,
 } from 'grommet';
-import { Checkmark } from 'grommet-icons';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
   CancellationLayer,
   Error,

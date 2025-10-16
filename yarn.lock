@@ -1997,6 +1997,11 @@
   dependencies:
     "@hapi/hoek" "^11.0.2"
 
+"@hpe-design/icons-grommet@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@hpe-design/icons-grommet/-/icons-grommet-1.0.1.tgz#17d9a34cac232b8becf171c2b0fbb1644033fcd4"
+  integrity sha512-lv5SKWKiLxJCay0Ria7CfhWBuzA58YTG2rUAnvrgpKOU+87PqMoQ41fk0JMF/vjCgyY7Vz1ga7PjS3g25sRp2g==
+
 "@humanwhocodes/config-array@^0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.13.0.tgz#fb907624df3256d04b9aa2df50d7aa97ec648748"
@@ -7763,12 +7768,7 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.12.4:
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.14.0.tgz#115e165c724d21f493b45c66b02f915d26a182b4"
-  integrity sha512-Y1XxECsP24nU5y1Xs+Xyz6Q4jduzzMUBOb6Dno9YfxZFgxw1ie3+Wwui04+3I6xf036NQJpEI/O8mfMgBaLWXg==
-
-"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.12.4, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.14.0"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#2f0aec275cbd7ea3377dc79bd39b1ec21e9e4535"
 
@@ -7777,7 +7777,14 @@ grommet-icons@^4.12.4:
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.8.0.tgz#689fafe3c055fd5021f9475afdbfb258de658b60"
   integrity sha512-YmKmE7WI3fSimoovD5NogIy1Pag0c4lqyDHH076fEl3lhEpNZ4cgJtcLk+TxhHM5cq9AEfA8ebioNTkoEpYEhQ==
 
-"grommet-theme-hpe-v6@npm:grommet-theme-hpe@6", grommet-theme-hpe@^6.0.0:
+"grommet-theme-hpe-v6@npm:grommet-theme-hpe@6":
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-6.5.1.tgz#83b4f765ed25cb4a988b22e9b9b3d6740e432f6d"
+  integrity sha512-0ObM7dEGlhECYlrupxrjR+Z/kIoYxJD/tVFEh/vawpO4jU05LKRRKvkM97vrKFqAP9N64mbc52Tk17tJnSrwKw==
+  dependencies:
+    hpe-design-tokens "~1.4.0"
+
+grommet-theme-hpe@^6.0.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-6.5.1.tgz#83b4f765ed25cb4a988b22e9b9b3d6740e432f6d"
   integrity sha512-0ObM7dEGlhECYlrupxrjR+Z/kIoYxJD/tVFEh/vawpO4jU05LKRRKvkM97vrKFqAP9N64mbc52Tk17tJnSrwKw==
@@ -12788,7 +12795,16 @@ string-length@^4.0.1:
     char-regex "^1.0.2"
     strip-ansi "^6.0.0"
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -12901,7 +12917,14 @@ stringify-entities@^4.0.0:
     character-entities-html4 "^2.0.0"
     character-entities-legacy "^3.0.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -14524,7 +14547,16 @@ word-wrap@^1.2.5, word-wrap@~1.2.3:
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.5.tgz#d2c45c6dd4fbce621a66f136cbe328afd0410b34"
   integrity sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==

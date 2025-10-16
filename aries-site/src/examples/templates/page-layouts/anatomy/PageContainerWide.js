@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Box, Diagram, Stack, ThemeContext } from 'grommet';
-import { LinkPrevious, LinkNext } from 'grommet-icons';
+import { LinkPrev, LinkNext } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { ContentArea } from './components';
 
@@ -39,7 +39,7 @@ export const PageContainerWide = () => {
       margin={{ horizontal: annotationMargin }}
       pad={{ top: '3xlarge' }}
     >
-      <LinkPrevious id="left-edge" color="text-strong" />
+      <LinkPrev id="left-edge" color="text-strong" />
       <Box id="label" pad={{ horizontal: '3xsmall' }} background="orange">
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>

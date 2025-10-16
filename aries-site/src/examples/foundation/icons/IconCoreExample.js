@@ -12,19 +12,19 @@ import {
 } from 'grommet';
 import {
   Add,
-  CircleInformation,
-  CircleQuestion,
+  Info,
+  Help,
   Close,
   Download,
   Edit,
   Filter,
-  FormDown,
-  FormUp,
+  Down,
+  Up,
   Notification,
   Search,
   Subtract,
   Trash,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const CoreIcon = ({ Icon, name, aliases, guidance }) => (
@@ -136,12 +136,12 @@ export const IconControlsExample = () => (
       guidance="Use in buttons to decrease counts, and zoom out on maps."
     />
     <CoreIcon
-      Icon={FormUp}
+      Icon={Up}
       name="Collapse"
       guidance="Use in buttons to collapse content."
     />
     <CoreIcon
-      Icon={FormDown}
+      Icon={Down}
       name="Expand"
       guidance="Use in buttons to expand content."
     />
@@ -157,13 +157,13 @@ export const IconControlsExample = () => (
 export const IconInformationalExample = () => (
   <Grid alignSelf="stretch" gap="medium" columns="xsmall">
     <CoreIcon
-      Icon={CircleInformation}
+      Icon={Info}
       name="Information"
       guidance={`Use to reveal additional contextual information inline or as a 
       tooltip.`}
     />
     <CoreIcon
-      Icon={CircleQuestion}
+      Icon={Help}
       name="Help"
       guidance={`Use to assist the user via a modal dialog, side drawer, 
       navigation to a help center, or other mechanism.`}

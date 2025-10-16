@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
-import { CircleAlert } from 'grommet-icons';
+import { Alert } from '@hpe-design/icons-grommet';
 
 export const Error = ({ children, ...rest }) => (
   <Box
@@ -13,7 +13,7 @@ export const Error = ({ children, ...rest }) => (
     width="medium"
   >
     <Box direction="row" gap="3xsmall" {...rest}>
-      <CircleAlert size="small" />
+      <Alert size="small" />
       <Text size="xsmall">{children}</Text>
     </Box>
   </Box>

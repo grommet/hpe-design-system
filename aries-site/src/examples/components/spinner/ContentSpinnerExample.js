@@ -14,12 +14,13 @@ import {
   PageHeader,
 } from 'grommet';
 import {
-  Hpe,
   User,
-  HelpOption,
+  Help,
   Menu as MenuIcon,
   Notification,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Hpe } from 'grommet-icons';
 import { ContentPane } from '../../../layouts';
 
 export const ContentSpinnerExample = () => {
@@ -51,7 +52,7 @@ export const ContentSpinnerExample = () => {
 
         {!['xsmall', 'small'].includes(size) ? (
           <Box gap="3xsmall" direction="row">
-            <Button a11yTitle="Help" icon={<HelpOption />} />
+            <Button a11yTitle="Help" icon={<Help />} />
             <Button a11yTitle="Notifications" icon={<Notification />} />
             <Button a11yTitle="Account" icon={<User />} />
           </Box>
@@ -59,7 +60,7 @@ export const ContentSpinnerExample = () => {
           <Menu
             icon={<MenuIcon />}
             items={[
-              { icon: <HelpOption /> },
+              { icon: <Help /> },
               { icon: <Notification /> },
               { icon: <User /> },
             ]}

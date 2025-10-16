@@ -8,7 +8,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 

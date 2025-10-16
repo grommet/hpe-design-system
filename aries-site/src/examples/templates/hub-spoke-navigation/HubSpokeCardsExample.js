@@ -13,9 +13,8 @@ import {
 } from 'grommet';
 import {
   Cluster,
-  Previous,
+  Left,
   Group,
-  Hpe,
   List as ListIcon,
   Location,
   LocationPin,
@@ -24,8 +23,10 @@ import {
   Server,
   Servers,
   ShieldSecurity,
-  UnorderedList,
-} from 'grommet-icons';
+  ListUnordered,
+} from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Hpe } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 
 // Mock application page data
@@ -65,7 +66,7 @@ const pages = [
   },
   {
     name: 'Logs',
-    icon: <UnorderedList />,
+    icon: <ListUnordered />,
     layout: 'list',
     parent: 'Performance',
     children: ['Beacon D', 'Server B', 'Server XYZ', 'Server A'].concat(
@@ -178,7 +179,7 @@ export const HubSpokeCardsExample = () => {
       {typeof parent !== 'undefined' && parent !== 'Home' && (
         <Button
           alignSelf="start"
-          icon={<Previous />}
+          icon={<Left />}
           gap="5xsmall"
           label={parent}
           onClick={() => setCurrentPage(getPageDetails(parent))}

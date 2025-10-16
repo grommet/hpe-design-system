@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, Button, Diagram, Grid, Stack, Text } from 'grommet';
-import { Iteration, Checkmark } from 'grommet-icons';
+import { Iteration, Checkmark } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const StyledBox = styled(Box)`

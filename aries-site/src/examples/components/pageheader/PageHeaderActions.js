@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Page, PageContent, PageHeader } from 'grommet';
-import { Pin } from 'grommet-icons';
+import { Pin } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { FilterServers, ReverseAnchor } from '../../templates';
 import { ContentPane } from '../../../layouts';

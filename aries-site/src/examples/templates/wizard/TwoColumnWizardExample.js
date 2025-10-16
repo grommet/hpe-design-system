@@ -13,7 +13,12 @@ import {
   TextArea,
   TextInput,
 } from 'grommet';
-import { Checkmark, ContactInfo, Stakeholder, UserAdd } from 'grommet-icons';
+import {
+  Checkmark,
+  Contact,
+  Stakeholder,
+  UserAdd,
+} from '@hpe-design/icons-grommet';
 import {
   CancellationLayer,
   Error,
@@ -281,7 +286,7 @@ const Guidance = () => {
         <Text color="text-strong">Instruction for the first field.</Text>
       </Box>
       <Box direction="row" gap="xsmall">
-        <ContactInfo color="text-strong" />
+        <Contact color="text-strong" />
         <Text color="text-strong">Instruction for the next field.</Text>
       </Box>
       <Box direction="row" gap="xsmall">

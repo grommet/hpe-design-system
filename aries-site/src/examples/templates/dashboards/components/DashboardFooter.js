@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Button, Footer, Text } from 'grommet';
+// TODO replace with DS icon package when available
 import { Hpe } from 'grommet-icons';
 
 const footerButtons = [

@@ -11,7 +11,7 @@ import {
   Paragraph,
   Text,
 } from 'grommet';
-import { Favorite } from 'grommet-icons';
+import { Favorite } from '@hpe-design/icons-grommet';
 
 const currencyFormatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
