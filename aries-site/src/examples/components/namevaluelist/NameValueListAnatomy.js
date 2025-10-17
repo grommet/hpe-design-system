@@ -74,8 +74,8 @@ export const NameValueListAnatomy = () => (
         could use gridAreas, but felt heavy for this need. */}
         <Box />
         <Annotation id={1} target="1" />
-        <AnatomyBox id="nameVisual" background="orange" />
-        <AnatomyBox id="name" background="orange" />
+        <AnatomyBox id="nameVisual" background="background-info" />
+        <AnatomyBox id="name" background="background-info" />
         <Annotation id={3} target="3" />
       </AnatomyGrid>
       <AnatomyGrid>
