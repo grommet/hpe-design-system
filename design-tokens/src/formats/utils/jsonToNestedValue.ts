@@ -31,5 +31,20 @@ export const jsonToNestedValue = (
     }
   });
 
+  // Temporary fix for focus/focus-support tokens. We should revisit later to make more generic.
+  if (
+    keyPath.includes('color') &&
+    token &&
+    typeof token === 'object' &&
+    'focus' in token
+  ) {
+    Object.entries(token).forEach(([key, value]) => {
+      if (key === 'focus') {
+        nextObj['focus'] = value['DEFAULT'];
+        nextObj['focus-support'] = value['support'];
+      }
+    });
+  }
+
   return nextObj;
 };

@@ -16,7 +16,6 @@ const background = hpe.global?.colors?.background as BackgroundType | undefined;
 const preview: Preview = {
   decorators: [
     (Story, context) => {
-      console.log('context', context.globals);
       let mode: 'light' | 'dark' = 'light';
       if (
         context.globals?.backgrounds?.value ===

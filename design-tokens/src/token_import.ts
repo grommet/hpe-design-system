@@ -291,13 +291,23 @@ function isAlias(value: string) {
  * @param alias
  */
 const tokenAliasToFigmaAlias = (alias: string): string => {
+  const exceptionColors = ['color/focus'];
   const isColor = /^color/.test(alias);
   let adjustedName = alias;
+
   if (isColor) {
     let parts = adjustedName.split('/');
     parts = parts.filter(part => !excludedNameParts.includes(part));
-    const section = parts.slice(0, 2).join('/');
-    const name = parts.slice(2).join('-');
+    let section = parts.slice(0, 2).join('/');
+    let name = parts.slice(2).join('-');
+
+    if (exceptionColors.includes(section)) {
+      // If it's an exception color, the token hierarchy is one level
+      // higher than others. Adjust the section and name accordingly.
+      section = parts.slice(0, 1).join('/');
+      name = parts.slice(1).join('-');
+    }
+
     adjustedName = `${section}${name ? `/${name}` : ''}`;
   }
   return adjustedName;
@@ -557,6 +567,7 @@ export function generatePostVariablesPayload(
       const differences = tokenAndVariableDifferences(token, variable);
 
       const resolvedType = variableResolvedTypeFromToken(token);
+
       // Add a new variable if it doesn't exist in the Figma file,
       // and we haven't added it already in another mode
       if (!variable && !variableInPayload && resolvedType !== undefined) {
