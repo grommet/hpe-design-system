@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { defaultProps } from './default-props';
 import { useIconPad, parseMetricToNum } from './utils';
