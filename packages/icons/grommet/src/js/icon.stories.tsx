@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
-import { base } from './themes';
+import { hpe } from 'grommet-theme-hpe';
+import type { ThemeType } from 'grommet/themes';
 import * as Icons from './icons';
 
 const customTheme = {
@@ -53,12 +54,12 @@ const meta: Meta<IconArgs> = {
       description: 'Name of the icon to display',
     },
     color: {
-      control: { type: 'text' as const },
-      description: 'Color of the icon',
+      control: { type: 'select' as const },
+      options: Object.keys((hpe as ThemeType).global?.colors ?? {}).filter(color => color?.startsWith('icon')),
     },
     size: {
       control: { type: 'select' as const },
-      options: ['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'],
+      options: Object.keys((hpe as ThemeType).icon?.size ?? {}),
       description: 'Size of the icon',
     },
     theme: {
@@ -70,7 +71,7 @@ const meta: Meta<IconArgs> = {
     iconName: 'Accessibility',
     color: 'icon',
     size: 'medium',
-    theme: base,
+    theme: hpe,
   },
   // tags: ['autodocs'],
 }

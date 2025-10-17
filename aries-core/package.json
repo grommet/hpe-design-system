@@ -44,7 +44,7 @@
     "del": "^6.1.1",
     "dotenv": "^8.2.0",
     "fs-extra": "^11.1.0",
-    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/hpe-design-tokens-v2-stable",
+    "grommet-theme-hpe": "^8.0.0",
     "react-syntax-highlighter": "^15.6.1",
     "simple-git": "^3.15.1",
     "storybook": "^8.3.6",
