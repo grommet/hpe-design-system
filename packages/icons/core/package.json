@@ -1,0 +1,32 @@
+{
+  "name": "@hpe-design/icons-svg",
+  "description": "HPE Icons in SVG format for use with the HPE Design System.",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons/core",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/hpe-icons.js",
+      "require": "./dist/hpe-icons.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "icons",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "COPYRIGHT.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^7.1.7",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}
