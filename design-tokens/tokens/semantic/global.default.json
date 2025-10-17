@@ -4,7 +4,7 @@
       "$type": "border",
       "$value": {
         "width": "{base.dimension.50}",
-        "color": "{color.focus}",
+        "color": "{color.focus.DEFAULT}",
         "style": "solid"
       },
       "$description": "",
@@ -36,7 +36,7 @@
           "offsetY": 0,
           "blur": 0,
           "spread": "{focusIndicator.outlineOffset}",
-          "color": "{base.color.white.100}"
+          "color": "{color.focus.support}"
         }
       ],
       "$description": "",
