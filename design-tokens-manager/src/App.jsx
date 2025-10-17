@@ -7,7 +7,9 @@ import { Visualizer } from './routes/Visualizer';
 // import { Builder } from './routes/Builder';
 // import { Docs } from './routes/Docs';
 import { Scaler } from './routes/Scaler/index';
-import { Github, HomeRounded, Optimize, Sidebar } from 'grommet-icons';
+import { Home, Optimize, Sidebar } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Github } from 'grommet-icons';
 
 function App() {
   const [darkMode, setDarkMode] = useState(
@@ -36,7 +38,7 @@ function App() {
             <Box pad="medium" gap="medium">
               <Button icon={<Sidebar />} />
               <Nav gap="xsmall">
-                <Button as={Link} icon={<HomeRounded />} tip="Home" to="/" />
+                <Button as={Link} icon={<Home />} tip="Home" to="/" />
                 <Button
                   as={Link}
                   icon={<Optimize />}

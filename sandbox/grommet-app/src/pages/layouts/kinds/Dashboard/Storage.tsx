@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Card, CardBody, Heading, Paragraph } from 'grommet';
-import { GenAIFill } from 'grommet-icons';
+import { AIGenFill } from '@hpe-design/icons-grommet';
 
 export const Storage = () => (
   <Card onClick={() => {}}>
@@ -12,7 +12,7 @@ export const Storage = () => (
         background="background-contrast"
         flex={false}
       >
-        <GenAIFill />
+        <AIGenFill />
       </Box>
       <Box gap="xsmall">
         <Heading level={2} margin="none" size="small">

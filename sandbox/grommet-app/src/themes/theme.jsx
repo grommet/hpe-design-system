@@ -14,12 +14,13 @@ import {
   Blank,
   Close,
   Up,
-  Hpe,
-  CircleAlert,
+  Alert,
   Ascending,
   Descending,
   Unsorted,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
+// TO DO replace when available
+import { Hpe } from 'grommet-icons';
 // import { hpe } from 'grommet-theme-hpe';
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
@@ -1995,9 +1996,7 @@ const buildTheme = (tokens, flags) => {
         container: {
           gap: 'xsmall', // Q: missing token
         },
-        icon: (
-          <CircleAlert size="small" color={light.hpe.color.icon.critical} />
-        ),
+        icon: <Alert size="small" color={light.hpe.color.icon.critical} />,
         size: 'xsmall',
         color: components.hpe.formField.default.error.rest.textColor,
         margin: {

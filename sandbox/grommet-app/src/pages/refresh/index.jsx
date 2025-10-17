@@ -15,13 +15,13 @@ import {
   Down,
   LinkNext,
   MoreVertical,
-  Next,
-  Previous,
+  Right,
+  Left,
   Refresh,
-  ShareRounded,
+  Share,
   Sidebar,
   VirtualMachine,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import ContentPane from '../../components/ContentPane';
 
 function Sustainability() {
@@ -84,13 +84,11 @@ function Sustainability() {
                 </Heading>
               </Box>
             }
-            parent={
-              <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
-            }
+            parent={<Anchor as={Link} to="/" label="Home" icon={<Left />} />}
             actions={
               <Box direction="row">
                 <Button icon={<Refresh />} />
-                <Button icon={<ShareRounded />} />
+                <Button icon={<Share />} />
                 <Button icon={<MoreVertical />} />
               </Box>
             }
@@ -103,7 +101,7 @@ function Sustainability() {
                     align="start"
                     justify="start"
                     kind="nav"
-                    icon={<Next color="icon-brand" />}
+                    icon={<Right color="icon-brand" />}
                     label="HPE Private Cloud Las Vegas"
                   />
                   <Button

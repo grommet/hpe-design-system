@@ -5,11 +5,11 @@ import {
   Close,
   Configure,
   Expand,
-  GenAIFill,
+  AIGenFill,
   History,
   Microphone,
   NewWindow,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { SupportingContext } from '../contexts/SupportingContext';
 
 const UserMessage = ({ message }) => (
@@ -89,7 +89,7 @@ export const Chat = () => {
         // flex={false}
       >
         <Box direction="row" align="center" gap="small">
-          <GenAIFill />
+          <AIGenFill />
           <Text size="large" weight={500} color="text-strong">
             GreenLake Intelligence
           </Text>

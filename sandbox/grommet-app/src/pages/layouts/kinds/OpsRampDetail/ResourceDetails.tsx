@@ -10,25 +10,22 @@ import {
 } from 'grommet';
 import {
   LinkNext,
-  StatusGoodSmall,
-  StatusCriticalSmall,
-  StatusUnknownSmall,
-  StatusPlaceholderSmall,
+  StatusGood,
+  StatusCritical,
+  StatusUnknown,
   MoreVertical,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
+import { StatusPlaceholderSmall } from 'grommet-icons';
 import ContentPane from '../../../../components/ContentPane';
 import { ResourceAlerts } from './ResourceAlerts';
 import { ResourceTraits } from './ResourceTraits';
 import { ResourceOverview } from './ResourceOverview';
 
 const statusMap: { [key: string]: JSX.Element | null } = {
-  up: <StatusGoodSmall aria-label="up status" color="status-ok" />,
-  down: (
-    <StatusCriticalSmall aria-label="down status" color="status-critical" />
-  ),
-  unknown: (
-    <StatusUnknownSmall aria-label="unknown status" color="status-unknown" />
-  ),
+  up: <StatusGood aria-label="up status" color="status-ok" />,
+  down: <StatusCritical aria-label="down status" color="status-critical" />,
+  unknown: <StatusUnknown aria-label="unknown status" color="status-unknown" />,
+  // TO DO what to use for status placeholder
   undefined: <StatusPlaceholderSmall aria-label="undefined status" />,
 };
 

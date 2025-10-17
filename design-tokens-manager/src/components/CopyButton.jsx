@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from 'grommet';
-import { Copy } from 'grommet-icons';
+import { Copy } from '@hpe-design/icons-grommet';
 
 const defaultTip = 'Copy to clipboard';
 

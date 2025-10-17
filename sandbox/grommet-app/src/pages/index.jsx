@@ -7,7 +7,7 @@ import {
   Grid,
   ResponsiveContext,
 } from 'grommet';
-import { Configure } from 'grommet-icons';
+import { Configure } from '@hpe-design/icons-grommet';
 import { Recommended } from './Recommended';
 import { Learn } from './Learn';
 import { QuickActions } from './QuickActions';

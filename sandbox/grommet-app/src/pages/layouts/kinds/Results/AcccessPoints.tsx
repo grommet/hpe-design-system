@@ -3,7 +3,7 @@ import { Legend } from '../../../../components';
 import expenses from '../../../../mockData/expenses.json';
 import { useContext } from 'react';
 import { SkeletonContext } from '../../../../components';
-import { MoreVertical } from 'grommet-icons';
+import { MoreVertical } from '@hpe-design/icons-grommet';
 
 export const AcccessPoints = () => {
   const skeleton = useContext(SkeletonContext);

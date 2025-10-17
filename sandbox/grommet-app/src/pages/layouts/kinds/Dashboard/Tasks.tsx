@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, CardBody, Card, Heading, Text } from 'grommet';
-import { LinkNext, StatusWarning } from 'grommet-icons';
+import { LinkNext } from '@hpe-design/icons-grommet';
 
 export const Tasks = () => (
   <Card

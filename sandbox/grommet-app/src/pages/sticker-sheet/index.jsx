@@ -12,7 +12,7 @@ import {
   Tab,
   Tabs,
 } from 'grommet';
-import { Previous } from 'grommet-icons';
+import { Left } from '@hpe-design/icons-grommet';
 import { themes } from '../../themes/theme';
 import { ModeContext, TabContent } from './components';
 import {
@@ -100,9 +100,7 @@ const StickerSheet = () => {
               title="Sticker sheet"
               subtitle={`To be used for visual regression comparisons from 
             current theme to the next.`}
-              parent={
-                <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
-              }
+              parent={<Anchor as={Link} to="/" label="Home" icon={<Left />} />}
               // hide actions from demo deploy
               // actions={
               //   <Box direction="row" gap="xsmall">

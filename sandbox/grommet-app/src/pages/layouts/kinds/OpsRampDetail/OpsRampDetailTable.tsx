@@ -11,7 +11,7 @@ import {
   DataTable,
   Pagination,
 } from 'grommet';
-import { Actions, Share } from 'grommet-icons';
+import { Actions, Share } from '@hpe-design/icons-grommet';
 import opsRamp from '../../../../mockData/opsRamp.json';
 
 import { QuickFilters } from './QuickFilters';

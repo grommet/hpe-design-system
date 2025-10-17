@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, CardBody, Card, Heading, Text } from 'grommet';
-import { StatusWarning } from 'grommet-icons';
+import { StatusWarning } from '@hpe-design/icons-grommet';
 
 export const Monitoring = () => (
   <Card background="background-warning" onClick={() => {}}>

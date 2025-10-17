@@ -17,7 +17,7 @@ import {
   CheckBoxGroup,
   PageHeader,
 } from 'grommet';
-import { Previous } from 'grommet-icons';
+import { Left } from '@hpe-design/icons-grommet';
 import { RoutedAnchor } from '../../../../components';
 import ContentPane from '../../../../components/ContentPane';
 
@@ -57,7 +57,7 @@ export const Form = () => {
               as={Link}
               label="Layouts"
               to="/layouts"
-              icon={<Previous />}
+              icon={<Left />}
             />
           }
         />

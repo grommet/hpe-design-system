@@ -1,42 +1,41 @@
 import React from 'react';
 import { Box, Menu } from 'grommet';
-import { MoreVertical } from 'grommet-icons';
+import { MoreVertical } from '@hpe-design/icons-grommet';
 
 export const DataTableActions = ({ responsive, ...rest }) => {
   const tableActions = [
     [
       {
         label: 'Move location',
-        onClick: () => { }
+        onClick: () => {},
       },
     ],
     [
       {
         label: 'Power on',
-        onClick: () => { }
+        onClick: () => {},
       },
       {
         label: 'Power off',
-        onClick: () => { }
+        onClick: () => {},
       },
       {
         label: 'Reboot',
-        onClick: () => { }
+        onClick: () => {},
       },
-    ]
-  ]
+    ],
+  ];
 
-  const label = "Actions";
-
+  const label = 'Actions';
 
   return (
     <Box direction="row" {...rest}>
       <Menu
         label={responsive ? undefined : label}
         items={tableActions}
-        kind='toolbar'
+        kind="toolbar"
         icon={responsive ? <MoreVertical /> : undefined}
       />
     </Box>
   );
-}
+};

@@ -13,7 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Devices } from './Devices';
 import { SustainabilityInsights } from './SustainabilityInsights';
-import { Previous } from 'grommet-icons';
+import { Left } from '@hpe-design/icons-grommet';
 import ContentPane from '../../components/ContentPane';
 
 function Sustainability() {
@@ -22,7 +22,7 @@ function Sustainability() {
       <PageContent>
         <PageHeader
           title="Sustainability Insight Center"
-          parent={<Anchor as={Link} to="/" label="Home" icon={<Previous />} />}
+          parent={<Anchor as={Link} to="/" label="Home" icon={<Left />} />}
           actions={<Button label="Export report" secondary />}
         />
         <Box gap="medium" animation="fadeIn">
