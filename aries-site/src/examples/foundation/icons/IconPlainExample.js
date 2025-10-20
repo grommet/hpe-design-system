@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box } from 'grommet';
+// TODO replace with DS icon package when available
 import { Hpe, Hpi } from 'grommet-icons';
 
 export const IconPlainExample = () => (

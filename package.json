@@ -36,6 +36,7 @@
   ],
   "dependencies": {
     "@changesets/cli": "^2.27.9",
+    "@hpe-design/icons-grommet": "^1.0.1",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
     "grommet-theme-hpe": "^6.0.0",

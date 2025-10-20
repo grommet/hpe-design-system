@@ -11,11 +11,12 @@ import {
 } from 'grommet';
 import {
   Chat,
-  Hpe,
   Notification,
   Search as SearchIcon,
   User,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Hpe } from 'grommet-icons';
 
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-complex-example',

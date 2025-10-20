@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext, TextInput } from 'grommet';
-import { Search } from 'grommet-icons';
+import { Search } from '@hpe-design/icons-grommet';
 import { useFilters } from '.';
 
 const StyledTextInput = styled(TextInput).attrs(() => ({

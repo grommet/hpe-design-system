@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
-import { StatusGoodSmall } from 'grommet-icons';
+import { StatusGood } from '@hpe-design/icons-grommet';
 import { serverData } from '../data';
 
 export const NameValueListWeightBadExample = () => (
@@ -11,7 +11,7 @@ export const NameValueListWeightBadExample = () => (
         if (name === 'Health') {
           val = (
             <Box direction="row" gap="3xsmall" align="center">
-              <StatusGoodSmall size="small" color="status-ok" />
+              <StatusGood size="small" color="status-ok" />
               {value}
             </Box>
           );

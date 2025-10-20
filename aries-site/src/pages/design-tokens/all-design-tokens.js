@@ -11,7 +11,7 @@ import {
   Notification,
   ResponsiveContext,
 } from 'grommet';
-import { Close, Folder, Menu } from 'grommet-icons';
+import { Close, Folder, Menu } from '@hpe-design/icons-grommet';
 import { ThemeContext } from 'styled-components';
 import {
   structuredTokens,

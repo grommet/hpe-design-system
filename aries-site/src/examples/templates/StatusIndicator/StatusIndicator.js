@@ -2,27 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import {
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-  StatusWarningSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 
 const STATUS_MAP = {
-  OK: { label: 'Okay', icon: <StatusGoodSmall />, color: 'status-ok' },
+  OK: { label: 'Okay', icon: <StatusGood />, color: 'status-ok' },
   Warning: {
     label: 'Warning',
-    icon: <StatusWarningSmall />,
+    icon: <StatusWarning />,
     color: 'status-warning',
   },
   Critical: {
     label: 'Critical',
-    icon: <StatusCriticalSmall />,
+    icon: <StatusCritical />,
     color: 'status-critical',
   },
   Unknown: {
     label: 'Unknown',
-    icon: <StatusUnknownSmall />,
+    icon: <StatusUnknown />,
     color: 'status-unknown',
   },
 };

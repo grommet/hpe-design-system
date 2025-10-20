@@ -8,7 +8,7 @@ import {
   Paragraph,
   TextInput,
 } from 'grommet';
-import { Copy } from 'grommet-icons';
+import { Copy } from '@hpe-design/icons-grommet';
 import {
   ButtonGroup,
   ModalBody,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Tab, Tabs } from 'grommet';
-import { Currency, HomeRounded, User } from 'grommet-icons';
+import { Currency, Home, User } from '@hpe-design/icons-grommet';
 import { TabContent } from './TabContent';
 
 export const TabWithIconExample = () => {
@@ -9,7 +9,7 @@ export const TabWithIconExample = () => {
 
   return (
     <Tabs activeIndex={index} onActive={onActive} justify="start">
-      <Tab title="General" icon={<HomeRounded />}>
+      <Tab title="General" icon={<Home />}>
         <TabContent>General Information</TabContent>
       </Tab>
       <Tab title="Account" icon={<User />}>

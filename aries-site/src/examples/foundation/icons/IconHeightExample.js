@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Paragraph } from 'grommet';
-import { Add } from 'grommet-icons';
+import { Add } from '@hpe-design/icons-grommet';
 
 export const IconHeightExample = () => (
   <Box gap="medium">

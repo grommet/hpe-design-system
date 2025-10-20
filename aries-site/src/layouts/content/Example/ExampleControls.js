@@ -1,14 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext } from 'grommet';
-import {
-  Document,
-  DocumentText,
-  Expand,
-  Github,
-  Grommet,
-  Figma,
-} from 'grommet-icons';
+import { Document, DocumentText, Expand } from '@hpe-design/icons-grommet';
+// // TODO replace with DS icon package when available
+import { Github, Grommet, Figma } from 'grommet-icons';
 
 export const ExampleControls = ({
   componentName,

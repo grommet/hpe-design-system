@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import {
   DocumentUpdate,
   Group,
-  Aruba,
   PhoneVertical,
   ShieldSecurity,
   Support,
   UserAdd,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Aruba } from 'grommet-icons';
 
 // styled component to create custom orange button
 const StyledButton = styled(Button)`

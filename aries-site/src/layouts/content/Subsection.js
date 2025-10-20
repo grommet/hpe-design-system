@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Header, Text } from 'grommet';
-import { Link as LinkIcon } from 'grommet-icons';
+import { Link as LinkIcon } from '@hpe-design/icons-grommet';
 import { Subheading } from '../../components';
 import { getPageDetails, nameToSlug } from '../../utils';
 

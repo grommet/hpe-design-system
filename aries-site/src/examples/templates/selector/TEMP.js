@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Box, Heading, List, Text } from 'grommet';
-import { User, SettingsOption, Analytics, Grow, Spa, Gem } from 'grommet-icons';
+import {
+  User,
+  Settings,
+  Analytics,
+  Grow,
+  Spa,
+  Gem,
+} from '@hpe-design/icons-grommet';
 import { SelectorGroup, Selector } from 'aries-core';
 
 const data = [
@@ -16,7 +23,7 @@ const data = [
     value: 'option 2',
     title: 'Option 2',
     description: 'This is a description.',
-    icon: <SettingsOption height="medium" />,
+    icon: <Settings height="medium" />,
   },
   {
     value: 'option 3',

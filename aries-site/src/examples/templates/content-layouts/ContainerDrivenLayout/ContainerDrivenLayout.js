@@ -15,7 +15,7 @@ import {
   ThemeContext,
 } from 'grommet';
 
-import { Down, Next } from 'grommet-icons';
+import { Down, Right } from '@hpe-design/icons-grommet';
 import { AppResults } from './AppResults';
 
 const allApps = require('../../../../data/mockData/applications.json');
@@ -94,7 +94,7 @@ const Filter = ({ label, expand, setExpand, property }) => {
     <>
       <Button
         label={label}
-        icon={expand ? <Down /> : <Next />}
+        icon={expand ? <Down /> : <Right />}
         onClick={() => setExpand(!expand)}
       />
       <Collapsible open={expand}>
