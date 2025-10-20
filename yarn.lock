@@ -7960,20 +7960,6 @@ grommet-icons@^4.12.4, "grommet-icons@https://github.com/grommet/grommet-icons/t
   dependencies:
     hpe-design-tokens "~1.4.0"
 
-grommet-theme-hpe@^6.0.0:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-6.5.1.tgz#83b4f765ed25cb4a988b22e9b9b3d6740e432f6d"
-  integrity sha512-0ObM7dEGlhECYlrupxrjR+Z/kIoYxJD/tVFEh/vawpO4jU05LKRRKvkM97vrKFqAP9N64mbc52Tk17tJnSrwKw==
-  dependencies:
-    hpe-design-tokens "~1.4.0"
-
-grommet-theme-hpe@^6.0.0:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-6.5.1.tgz#83b4f765ed25cb4a988b22e9b9b3d6740e432f6d"
-  integrity sha512-0ObM7dEGlhECYlrupxrjR+Z/kIoYxJD/tVFEh/vawpO4jU05LKRRKvkM97vrKFqAP9N64mbc52Tk17tJnSrwKw==
-  dependencies:
-    hpe-design-tokens "~1.4.0"
-
 grommet-theme-hpe@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-8.0.0.tgz#a5709fdb3ddb31b97cbfc6d793f2c5e10ab148fc"
