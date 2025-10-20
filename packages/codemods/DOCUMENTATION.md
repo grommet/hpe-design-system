@@ -1,12 +1,15 @@
 # HPE Design System Codemods Documentation
 
+> **Quick Start:** See [README.md](README.md) for basic usage and examples.
+
 ## Overview
 
-`hpe-design-system-codemods` is a codemod project to assist migrations for package versions related to the HPE Design System.
+This documentation provides comprehensive information about the HPE Design System codemods, including advanced features, troubleshooting, and development guidelines.
 
-Available codemod transformations:
+Available transforms:
 
-- [Grommet-theme-hpe v6 to v7](#Grommet-theme-hpe-v6-to-v7)
+- [migrate-grommet-icons-to-hpe](#migrate-grommet-icons-to-hpe) - Icon library migration
+- [migrate-theme-v6-to-v7](#migrate-theme-v6-to-v7) - Theme size property migration
 
 ## Table of Contents
 
@@ -23,17 +26,21 @@ Available codemod transformations:
 
 ## Installation
 
-### Using npx (No Installation Required)
+### Using npx (Recommended)
+
+No installation required - run codemods directly:
 
 ```bash
-npx hpe-design-system-codemods <codemode transform> <path> [options]
+npx hpe-design-system-codemods <transform-name> <path> [options]
 ```
 
 ### Local Development
 
+For contributing or customizing:
+
 ```bash
-git clone <repository-url>
-cd hpe-design-system-codemods
+git clone https://github.com/grommet/hpe-design-system.git
+cd hpe-design-system/packages/codemods
 yarn install
 ```
 
@@ -72,277 +79,131 @@ npx hpe-design-system-codemods <codemod transform> <path> --scan
 
 ## Transforms
 
+### migrate-grommet-icons-to-hpe
+
+Automatically migrates icon imports from `grommet-icons` to `@hpe-design/icons-grommet`.
+
+**Key Features:**
+- Updates library imports from `grommet-icons` to `@hpe-design/icons-grommet`
+- Remaps icon names (e.g., `StatusCriticalSmall` → `StatusCritical`, `Next` → `Right`)
+- Updates JSX elements and all identifier references
+- Supports aliased imports
+- Warns about deprecated icons (logos, brand icons, etc.)
+
+**Quick Example:**
+
+```jsx
+// Before
+import { StatusCriticalSmall, Next, BarChart } from 'grommet-icons';
+
+// After
+import { StatusCritical, Right, ChartBar } from '@hpe-design/icons-grommet';
+```
+
+**📖 For detailed migration information, see:** [Icon Migration Guide](migration_guides/GROMMET_ICONS_TO_HPE.md)
+
 ### migrate-theme-v6-to-v7
 
-This transform handles the migration of t-shirt size properties from Grommet HPE theme v6 to v7. It uses [jscodeshift](https://github.com/facebook/jscodeshift) to parse and transform JavaScript, TypeScript, JSX, and TSX files, specifically targeting the migration of t-shirt size prop values.
+Automatically migrates t-shirt size properties from Grommet HPE theme v6 to v7.
 
-#### Property Categories
+**Key Features:**
+- Transforms spacing properties (`gap`, `margin`, `pad`, `thickness`)
+- Handles container properties (`height`, `width`, `columns`, `rows`)
+- Updates border and radius properties
+- Supports complex nested structures and conditionals
+- Scan mode to identify areas needing manual review
 
-This transform handles different categories of properties with specific size mappings:
+**Quick Example:**
 
-##### Spacing Properties
+```jsx
+// Before
+<Box pad="small" margin="large" />
 
-Properties: `gap`, `margin`, `pad`, `thickness`
+// After
+<Box pad="xsmall" margin="xlarge" />
+```
 
-| v6 Size | v7 Size |
-| ------- | ------- |
-| xxsmall | 5xsmall |
-| xsmall  | 3xsmall |
-| small   | xsmall  |
-| medium  | medium  |
-| large   | xlarge  |
-| xlarge  | 3xlarge |
-
-##### Border Properties
-
-Properties: `border`
-
-| v6 Size | v7 Size |
-| ------- | ------- |
-| xlarge  | large   |
-
-##### Container Properties
-
-Properties: `height`, `width`, `columns`, `rows`
-
-| v6 Size | v7 Size |
-| ------- | ------- |
-| xxsmall | 5xsmall |
-| xsmall  | 3xsmall |
-| small   | xsmall  |
-| medium  | medium  |
-| large   | xlarge  |
-| xlarge  | xxlarge |
-| xxlarge | 3xlarge |
-
-##### Radius Properties
-
-Properties: `round`
-
-| v6 Size | v7 Size |
-| ------- | ------- |
-| small   | medium  |
-| medium  | xlarge  |
-| large   | xxlarge |
-| xlarge  | xxlarge |
+**📖 For detailed migration information, see:** [Theme Migration Guide](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
 
 ## CLI Options
 
 ### Core Options
 
-| Option      | Description                                        | Default  |
-| ----------- | -------------------------------------------------- | -------- |
-| `--dry`     | Run in dry mode (preview changes without applying) | false    |
-| `--scan`    | Scan for t-shirt sizes without transforming        | false    |
-| `--verbose` | Set verbosity level (0, 1, or 2)                   | 0        |
-| `--quote`   | Set quote style ('single' or 'double')             | 'double' |
-| `--help`    | Show help message                                  | -        |
+| Option      | Description                                        | Default  | Applies To |
+| ----------- | -------------------------------------------------- | -------- | ---------- |
+| `--dry`     | Run in dry mode (preview changes without applying) | false    | All        |
+| `--scan`    | Scan for changes without transforming              | false    | v6-to-v7   |
+| `--verbose` | Set verbosity level (0, 1, or 2)                   | 0        | v6-to-v7   |
+| `--quote`   | Set quote style ('single' or 'double')             | varies*  | All        |
+| `--help`    | Show help message                                  | -        | All        |
 
-### Verbosity Levels
+*Default quote style: `single` for `migrate-grommet-icons-to-hpe`, `double` for `migrate-theme-v6-to-v7`
+
+### Verbosity Levels (v6-to-v7 only)
 
 - **Level 0** (default): Minimal output, only shows essential information
-- **Level 1**: Shows file processing information and summary (includes files in which have no changes)
+- **Level 1**: Shows file processing information and summary (includes files with no changes)
 - **Level 2**: Shows files that were successfully transformed
 
-The `--scan` mode scans the entire project to look for areas that may need manual transforming.
+### Scan Mode (v6-to-v7 only)
+
+The `--scan` mode scans the entire project to look for areas that may need manual transforming without making any changes.
 
 ## Usage Examples
 
-### Basic Usage
+### migrate-grommet-icons-to-hpe
 
 ```bash
-# Transform all files in src directory
+# Basic usage - migrate all files in src directory
+npx hpe-design-system-codemods migrate-grommet-icons-to-hpe src/
+
+# Dry run to preview changes
+npx hpe-design-system-codemods migrate-grommet-icons-to-hpe src/ --dry
+
+# Use double quotes instead of single quotes
+npx hpe-design-system-codemods migrate-grommet-icons-to-hpe src/ --quote double
+
+# Development commands
+node bin/cli.js migrate-grommet-icons-to-hpe src/
+node bin/cli.js migrate-grommet-icons-to-hpe src/ --dry
+```
+
+### migrate-theme-v6-to-v7
+
+```bash
+# Basic usage - transform all files in src directory
 npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/
 
-# Transform specific file
-npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/components/MyComponent.jsx
-```
-
-### Scan Mode
-
-```bash
-# Scan entire project
+# Scan entire project for changes
 npx hpe-design-system-codemods migrate-theme-v6-to-v7 . --scan
 
-# Scan with verbose output
-npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --scan --verbose 2
-```
-
-### Dry Run Mode
-
-```bash
-# Preview changes with single quotes
+# Dry run with single quotes
 npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --dry --quote single
 
-# Preview with detailed output (shows all files including NOC)
+# Dry run with verbose output (shows all files including NOC)
 npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --dry --verbose 1
-```
 
-### Development Commands
-
-```bash
-# Using local installation
+# Development commands
 node bin/cli.js migrate-theme-v6-to-v7 src/ --scan
 node bin/cli.js migrate-theme-v6-to-v7 src/ --dry
 node bin/cli.js migrate-theme-v6-to-v7 src/
 ```
 
-## Migration Details
-
-### What Gets Transformed
-
-The codemod intelligently handles various code patterns:
-
-#### 1. Simple String Props
-
-**Before:**
-
-```jsx
-<Box pad="small" margin="large" />
-```
-
-**After:**
-
-```jsx
-<Box pad="xsmall" margin="xlarge" />
-```
-
-#### 2. Object Props
-
-**Before:**
-
-```jsx
-<Box pad={{ horizontal: 'large', vertical: 'small' }} />
-```
-
-**After:**
-
-```jsx
-<Box pad={{ horizontal: 'xlarge', vertical: 'xsmall' }} />
-```
-
-#### 3. Array Props
-
-**Before:**
-
-```jsx
-<Grid columns={['xsmall', 'small', 'medium']} />
-```
-
-**After:**
-
-```jsx
-<Grid columns={['3xsmall', 'xsmall', 'medium']} />
-```
-
-#### 4. Conditional Expressions
-
-**Before:**
-
-```jsx
-<Box margin={isLarge ? 'large' : 'small'} />
-```
-
-**After:**
-
-```jsx
-<Box margin={isLarge ? 'xlarge' : 'xsmall'} />
-```
-
-#### 5. Variable Assignments
-
-**Before:**
-
-```javascript
-const padding = 'small';
-const spacing = { top: 'large', bottom: 'xsmall' };
-```
-
-**After:**
-
-```javascript
-const padding = 'xsmall';
-const spacing = { top: 'xlarge', bottom: '3xsmall' };
-```
-
-#### 6. Complex Nested Structures
-
-**Before:**
-
-```javascript
-const theme = {
-  button: {
-    pad: {
-      small: { horizontal: 'xsmall', vertical: 'xxsmall' },
-      medium: { horizontal: 'small', vertical: 'xsmall' },
-    },
-  },
-};
-```
-
-**After:**
-
-```javascript
-const theme = {
-  button: {
-    pad: {
-      small: { horizontal: '3xsmall', vertical: '5xsmall' },
-      medium: { horizontal: 'xsmall', vertical: '3xsmall' },
-    },
-  },
-};
-```
-
-#### 7. Special Properties
-
-The codemod handles special properties like `nameProps` and `valueProps`:
-
-**Before:**
-
-```jsx
-<NameValueList
-  nameProps={{ width: 'xsmall' }}
-  valueProps={{ width: ['small', 'medium'] }}
-/>
-```
-
-**After:**
-
-```jsx
-<NameValueList
-  nameProps={{ width: '3xsmall' }}
-  valueProps={{ width: ['xsmall', 'medium'] }}
-/>
-```
-
-### What Doesn't Get Transformed
-
-The codemod is designed to be conservative and avoid false positives:
-
-1. **Array.includes() calls**: Size values in `.includes()` method calls are preserved
-2. **Non-style objects**: Objects without style-related properties are ignored
-3. **Comments and strings**: T-shirt sizes in comments or unrelated strings are preserved
-4. **Custom property names**: Only known Grommet properties are transformed
-
 ## Advanced Features
 
-### Intelligent Pattern Recognition
+### Icon Migration (migrate-grommet-icons-to-hpe)
 
-The codemod uses sophisticated AST (Abstract Syntax Tree) analysis to:
+- **Smart remapping**: Automatically maps 100+ icon names to new conventions
+- **Deprecation warnings**: Alerts about icons removed from the library
+- **Alias preservation**: Maintains custom import aliases
+- **Complete updates**: Updates imports, JSX, and all code references
 
-- Distinguish between style-related and unrelated usage of size strings
-- Handle deeply nested object and array structures
-- Preserve code formatting and comments
-- Maintain TypeScript type annotations
+### Theme Migration (migrate-theme-v6-to-v7)
 
-### Scan Mode Analysis
-
-The scan mode provides detailed analysis:
-
-- **File-by-file reporting**: Shows which files contain t-shirt sizes
-- **Line-level precision**: Identifies exact locations of size usage
-- **Pattern detection**: Distinguishes between different usage patterns
-- **Manual review flagging**: Highlights cases that may need manual review
+- **Intelligent pattern recognition**: Uses AST analysis to distinguish style-related usage
+- **Deep structure handling**: Processes nested objects and arrays
+- **Scan mode analysis**: Provides file-by-file reporting and manual review flagging
+- **Format preservation**: Maintains code formatting, comments, and TypeScript annotations
 
 ### Error Handling
 
@@ -363,12 +224,21 @@ yarn test
 
 The test suite covers:
 
+**migrate-grommet-icons-to-hpe:**
+- ✅ Library import updates
+- ✅ Icon name remapping (100+ icons)
+- ✅ JSX element updates
+- ✅ Identifier reference updates
+- ✅ Aliased imports
+- ✅ Deprecated icon warnings
+- ✅ Edge cases and real-world scenarios
+
+**migrate-theme-v6-to-v7:**
 - ✅ Simple prop transformations
 - ✅ Object and array handling
 - ✅ Conditional expressions
 - ✅ Variable assignments
 - ✅ Nested structures
-- ✅ Edge cases and error scenarios
 - ✅ TypeScript compatibility
 - ✅ Scan mode functionality
 
@@ -377,11 +247,18 @@ The test suite covers:
 When contributing, add tests for new scenarios:
 
 ```javascript
-// __tests__/migrate-theme-v6-to-v7.test.js
-it('transforms your new scenario', () => {
-  const input = 'your input code';
+// Example for migrate-grommet-icons-to-hpe
+it('transforms your new icon scenario', () => {
+  const input = "import { OldIcon } from 'grommet-icons';";
   const output = runCodemod(input);
-  expect(output).toContain('expected output');
+  expect(output).toContain('NewIcon');
+});
+
+// Example for migrate-theme-v6-to-v7
+it('transforms your new size scenario', () => {
+  const input = '<Box pad="small" />';
+  const output = runCodemod(input);
+  expect(output).toContain('xsmall');
 });
 ```
 
@@ -392,14 +269,20 @@ it('transforms your new scenario', () => {
 ```
 hpe-design-system-codemods/
 ├── bin/
-│   └── cli.js                    # Command-line interface
+│   └── cli.js                                # Command-line interface
 ├── transforms/
-│   └── migrate-theme-v6-to-v7.js # Main transformation logic
+│   ├── migrate-grommet-icons-to-hpe.js      # Icon migration logic
+│   └── migrate-theme-v6-to-v7.js            # Theme size migration logic
 ├── __tests__/
-│   └── migrate-theme-v6-to-v7.test.js # Test suite
-├── package.json                  # Package configuration
-├── LICENSE                       # Apache 2.0 license
-└── README.md                     # Basic usage guide
+│   ├── migrate-grommet-icons-to-hpe.test.js # Icon migration tests
+│   └── migrate-theme-v6-to-v7.test.js       # Theme migration tests
+├── migration_guides/
+│   ├── GROMMET_ICONS_TO_HPE.md              # Icon migration guide
+│   └── MIGRATE_THEME_V6_TO_V7.md            # Theme migration guide
+├── package.json                              # Package configuration
+├── LICENSE                                   # Apache 2.0 license
+├── README.md                                 # Basic usage guide
+└── DOCUMENTATION.md                          # This file
 ```
 
 ### Architecture
@@ -422,13 +305,20 @@ hpe-design-system-codemods/
 # Install dependencies
 yarn install
 
-# Run tests
+# Run all tests
 yarn test
 
+# Run tests for specific transform
+yarn test migrate-grommet-icons-to-hpe
+yarn test migrate-theme-v6-to-v7
+
 # Test local CLI
+node bin/cli.js --help
+node bin/cli.js migrate-grommet-icons-to-hpe --help
 node bin/cli.js migrate-theme-v6-to-v7 --help
 
-# Debug with verbose output
+# Debug with dry run and verbose output
+node bin/cli.js migrate-grommet-icons-to-hpe src/ --dry
 node bin/cli.js migrate-theme-v6-to-v7 src/ --dry --verbose 2
 ```
 
@@ -450,12 +340,21 @@ node bin/cli.js migrate-theme-v6-to-v7 src/ --dry --verbose 2
 
 #### "Unexpected transformations"
 
-- Use `--dry` mode to preview changes
-- Check if custom property names conflict with standard Grommet props
+- Use `--dry` mode to preview changes before applying
+- Review the migration guides for expected transformations
+- Check if custom property/icon names conflict with known patterns
 
-#### "Verbose mode shows too many NOC (No Changes) files"
+#### Deprecated icon warnings (migrate-grommet-icons-to-hpe)
 
-The verbose modes (`--verbose 1`) show NOC files being processed. This is a limitation of jscodeshift.
+When you see warnings about deprecated icons:
+1. Review the warning message for the icon name
+2. Check the migration guide for suggested alternatives
+3. Manually replace with an appropriate icon from `@hpe-design/icons-grommet`
+4. Consider if the icon is still needed for your use case
+
+#### "Verbose mode shows too many NOC (No Changes) files" (migrate-theme-v6-to-v7)
+
+The verbose mode (`--verbose 1`) shows all files being processed, including those with no changes. This is a limitation of jscodeshift.
 
 **Workarounds to see only changed files:**
 
@@ -475,19 +374,40 @@ git status --porcelain
 
 ## Best Practices
 
-### Before Running the Codemod
+### Before Running Any Codemod
 
-1. **Create a backup** or ensure your code is in version control
-2. **Run dry mode** to understand the scope of changes
+1. **Create a backup** or ensure your code is in version control (Git recommended)
+2. **Run dry mode** (`--dry`) to preview changes before applying
 3. **Test on a small subset** of files first
-4. **Review the migration mappings** to understand the changes
-5. **Run a scan mode** to understand the files that need manually reviewed
+4. **Review the migration guides** to understand expected transformations:
+   - [Icon Migration Guide](migration_guides/GROMMET_ICONS_TO_HPE.md)
+   - [Theme v6-to-v7 Guide](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
 
-### After Running the Codemod
+### For migrate-grommet-icons-to-hpe
 
-1. **Run your tests** to ensure functionality is preserved
-2. **Review the changes** manually, especially flagged items from scan mode
-3. **Test the UI** to ensure visual consistency
+**Before:**
+1. Read through the deprecation warnings
+2. Identify which icons you're using
+3. Check the mapping reference for remapped icons
+
+**After:**
+1. Review console warnings for deprecated icons
+2. Manually replace deprecated icons with suitable alternatives
+3. Install `@hpe-design/icons-grommet` and uninstall `grommet-icons`
+4. Run your tests to ensure functionality is preserved
+5. Test the UI to verify icons render correctly
+
+### For migrate-theme-v6-to-v7
+
+**Before:**
+1. Run scan mode (`--scan`) to identify files needing changes
+2. Review property categories and size mappings
+
+**After:**
+1. Run your tests to ensure functionality is preserved
+2. Review changes manually, especially items flagged in scan mode
+3. Test the UI to ensure visual consistency
+4. Verify responsive behavior with different screen sizes
 
 ## License
 
@@ -495,10 +415,19 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 
 ## Related Resources
 
-- [Grommet Documentation](https://v2.grommet.io/)
 - [HPE Design System](https://design-system.hpe.design/)
+- [@hpe-design/icons-grommet](https://www.npmjs.com/package/@hpe-design/icons-grommet)
+- [Grommet Documentation](https://v2.grommet.io/)
 - [jscodeshift Documentation](https://github.com/facebook/jscodeshift)
 
 ---
 
-_This documentation covers version 0.1.0 of hpe-design-system-codemods. For the latest updates and changes, please refer to the project's repository._
+## See Also
+
+- **[README.md](README.md)** - Quick start guide and basic usage
+- **[Icon Migration Guide](migration_guides/GROMMET_ICONS_TO_HPE.md)** - Detailed icon migration information
+- **[Theme Migration Guide](migration_guides/MIGRATE_THEME_V6_TO_V7.md)** - Detailed theme migration information
+
+---
+
+_This documentation is for hpe-design-system-codemods. For the latest updates and changes, please refer to the project's repository._

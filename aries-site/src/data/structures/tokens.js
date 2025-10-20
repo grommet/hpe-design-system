@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { Code, Book, Table } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
 import { Figma } from 'grommet-icons';
 import { Box, Text } from 'grommet';
 import { ButtonStates, ContentLayoutPreview } from '../../examples';

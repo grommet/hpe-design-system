@@ -8,7 +8,7 @@ import {
   Tab,
   Tabs,
 } from 'grommet';
-import { StatusGood } from '@grommet-design/icons-grommet';
+import { StatusGood } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../../layouts';
 import { kubernetesData, serverData, tagsData } from '../data';
 

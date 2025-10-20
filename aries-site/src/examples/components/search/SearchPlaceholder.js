@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextInput, Box } from 'grommet';
-import { Search as SearchIcon } from '@grommet-design/icons-grommet';
+import { Search as SearchIcon } from '@hpe-design/icons-grommet';
 
 export const SearchPlaceholder = ({ bestPractice = true }) => {
   const [value, setValue] = React.useState();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
-import { StatusGood, StatusWarning } from '@grommet-design/icons-grommet';
+import { StatusGood, StatusWarning } from '@hpe-design/icons-grommet';
 import { iconValueData } from '../data';
 
 export const NameValueListIconValuePreview = () => (

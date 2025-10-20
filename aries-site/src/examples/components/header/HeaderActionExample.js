@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Button, Header, Text } from 'grommet';
 import { Add } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
 import { Hpe } from 'grommet-icons';
 
 export const HeaderActionExample = () => (

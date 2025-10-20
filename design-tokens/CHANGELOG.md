@@ -1,5 +1,19 @@
 # hpe-design-tokens
 
+## 2.1.0
+
+- Fixed an accessibility issue with the focus indicator in dark mode.
+
+**Color (light)**
+- Added `color.focus.support` with value `base.color.white.100`
+
+**Color (dark)**
+- Added `color.focus.support` with value `base.color.grey.1000`
+- Changed `color.focus` from `base.color.grey.1000` to `base.color.white.100`
+
+**Global**
+- Changed `focusIndicator.boxShadow` from `base.color.white.100` to `color.focus.support`
+
 ## 2.0.0
 
 ### Major Changes
