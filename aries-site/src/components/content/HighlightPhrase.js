@@ -4,14 +4,13 @@ import { useRouter } from 'next/router';
 import { Text } from 'grommet';
 
 // Controls whether matched phrase stays highlighted or fades away
+// TODO change color
 const HighlightedText = styled(Text)`
   ${({ fade, theme }) =>
     fade
       ? 'animation: fadeOut ease-out 4s;'
       : `color: ${
-          theme.dark
-            ? theme.global.colors.yellow.light
-            : theme.global.colors.blue.dark
+          theme.dark ? theme.global.colors.cyan : theme.global.colors.blue.dark
         };
         font-weight: bolder;`}
 
@@ -22,14 +21,12 @@ const HighlightedText = styled(Text)`
     10% {
       color: ${({ theme }) =>
         theme.dark
-          ? theme.global.colors['yellow!']
+          ? theme.global.colors['cyan!']
           : theme.global.colors.blue.light};
     }
     40% {
       color: ${({ theme }) =>
-        theme.dark
-          ? theme.global.colors.yellow.light
-          : theme.global.colors.blue.dark};
+        theme.dark ? theme.global.colors.cyan : theme.global.colors.blue.dark};
     }
     100% {
       color: inherit;
