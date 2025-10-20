@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Header, Menu, Text, ResponsiveContext } from 'grommet';
+// TODO replace with DS icon package when available
 import { Hpe } from 'grommet-icons';
 
 export const MenuHeaderExample = () => {

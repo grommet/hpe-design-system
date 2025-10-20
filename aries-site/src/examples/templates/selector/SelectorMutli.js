@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Iteration } from 'grommet-icons';
+import { Iteration } from '@hpe-design/icons-grommet';
 import { SelectorGroup, Selector } from 'aries-core';
 
 export const SelectorMutli = () => {

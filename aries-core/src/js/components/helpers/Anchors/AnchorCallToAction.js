@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor } from 'grommet';
-import { Next } from 'grommet-icons';
+import { Right } from '@hpe-design/icons-grommet';
 
 export const AnchorCallToAction = forwardRef(
   ({ color, size, ...rest }, ref) => (
     <Anchor
       color={color}
-      icon={<Next />}
+      icon={<Right />}
       ref={ref}
       reverse
       size={size}

@@ -9,7 +9,9 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Search as SearchIcon, Hpe } from 'grommet-icons';
+import { Search as SearchIcon } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Hpe } from 'grommet-icons';
 
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon-example',

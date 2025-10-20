@@ -8,7 +8,7 @@ import {
   Layer,
   ResponsiveContext,
 } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 

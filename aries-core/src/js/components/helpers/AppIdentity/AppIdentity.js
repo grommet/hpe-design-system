@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
+// TODO replace with DS icon package when available
 import { Aruba, Hpe } from 'grommet-icons';
 
 const brands = {

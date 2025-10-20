@@ -11,7 +11,9 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { Aruba, Close, Menu } from 'grommet-icons';
+import { Close, Menu } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Aruba } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 
 export const MenuLayer = () => {

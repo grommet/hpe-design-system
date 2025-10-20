@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
-import { Grow } from 'grommet-icons/icons/Grow';
-import { Cube } from 'grommet-icons/icons/Cube';
+import { Cube, Grow } from '@hpe-design/icons-grommet';
 import { IconCircle, IconDiamond, IconSquare } from '../components';
 import {
   components as componentsArr,

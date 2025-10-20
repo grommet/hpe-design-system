@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, Text, Diagram, Stack } from 'grommet';
-import { Map, List, Table } from 'grommet-icons';
+import { Map, List, Table } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';

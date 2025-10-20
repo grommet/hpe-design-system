@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Box, Button, ThemeContext } from 'grommet';
-import { Filter } from 'grommet-icons';
+import { Filter } from '@hpe-design/icons-grommet';
 
 import { useFilters } from '.';
 import { FiltersLayer } from './FiltersLayer';

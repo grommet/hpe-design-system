@@ -1,37 +1,37 @@
 import React from 'react';
 import { Box, List, Menu, Text } from 'grommet';
-import { More, StatusGoodSmall, StatusCriticalSmall } from 'grommet-icons';
+import { More, StatusGood, StatusCritical } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const data = [
   {
     name: 'My PVT Cloud Order',
     option: 'Complete',
-    icon: StatusGoodSmall,
+    icon: StatusGood,
     color: 'status-ok',
   },
   {
     name: 'VMaaS for R&D',
     option: 'Critical',
-    icon: StatusCriticalSmall,
+    icon: StatusCritical,
     color: 'status-critical',
   },
   {
     name: 'GEM_1',
     option: 'Complete',
-    icon: StatusGoodSmall,
+    icon: StatusGood,
     color: 'status-ok',
   },
   {
     name: 'Mercury',
     option: 'Complete',
-    icon: StatusGoodSmall,
+    icon: StatusGood,
     color: 'status-ok',
   },
   {
     name: 'MCC',
     option: 'Critical',
-    icon: StatusCriticalSmall,
+    icon: StatusCritical,
     color: 'status-critical',
   },
 ];

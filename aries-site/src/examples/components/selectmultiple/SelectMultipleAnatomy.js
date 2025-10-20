@@ -9,7 +9,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Up } from 'grommet-icons';
+import { Up } from '@hpe-design/icons-grommet';
 
 const options = [];
 for (let i = 1; i <= 10; i += 1) options.push(`User ${i}`);

@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
 } from 'grommet';
-import { Trash } from 'grommet-icons';
+import { Trash } from '@hpe-design/icons-grommet';
 import { connection } from '../../../../utils';
 import { Annotation } from '../../../../layouts';
 import { ChildHeader } from '../../FormChildObject';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Anchor, PageHeader } from 'grommet';
-import { Previous } from 'grommet-icons';
+import { Left } from '@hpe-design/icons-grommet';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Status, SubsectionText } from '../../components';
 
@@ -16,7 +16,7 @@ export const DocsPageHeader = ({ title, topic, render }) => {
       parent={
         page.parentPage ? (
           <Link href={nameToPath(page.parentPage)} passHref legacyBehavior>
-            <Anchor label={parent.name} icon={<Previous />} />
+            <Anchor label={parent.name} icon={<Left />} />
           </Link>
         ) : (
           <Link href={nameToPath(topic.toLowerCase())} passHref legacyBehavior>

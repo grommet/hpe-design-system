@@ -9,7 +9,7 @@ import {
   TableRow,
   Text,
 } from 'grommet';
-import { Checkmark } from 'grommet-icons';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const CheckmarkIcon = () => <Checkmark size="small" color="text-strong" />;

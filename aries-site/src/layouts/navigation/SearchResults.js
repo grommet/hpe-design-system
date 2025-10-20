@@ -9,7 +9,7 @@ import {
   Pagination,
   Text,
 } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 
 import { TextEmphasis } from 'aries-core';
 import { SearchInput, SearchResult } from '.';

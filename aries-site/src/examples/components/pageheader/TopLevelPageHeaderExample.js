@@ -19,7 +19,7 @@ import {
   ServerCluster,
   Tag,
   User,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const data = [

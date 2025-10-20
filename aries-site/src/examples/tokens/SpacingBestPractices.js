@@ -2,7 +2,7 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { dimension } from 'hpe-design-tokens/grommet';
 import { Box, Text } from 'grommet';
-import { Checkmark } from 'grommet-icons';
+import { Checkmark } from '@hpe-design/icons-grommet';
 
 // eslint-disable-next-line react/prop-types
 export const SpacingBestPractices = ({ bestPractice = true }) => {

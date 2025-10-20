@@ -12,7 +12,7 @@ import {
   PageContent,
   PageHeader,
 } from 'grommet';
-import { Previous } from 'grommet-icons';
+import { Left } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 import { details, tags } from '.';
 
@@ -35,7 +35,7 @@ export const TagResource = () => (
       <PageHeader
         title="Store C-3P0"
         subtitle="Aruba 530 32930F"
-        parent={<Anchor icon={<Previous />} label="Devices" />}
+        parent={<Anchor icon={<Left />} label="Devices" />}
         actions={<Button label="Edit" primary />}
       />
       <Box gap="medium" flex={false}>

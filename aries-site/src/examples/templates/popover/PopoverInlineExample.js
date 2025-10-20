@@ -12,7 +12,7 @@ import {
   Heading,
   ResponsiveContext,
 } from 'grommet';
-import { CircleInformation } from 'grommet-icons';
+import { Info } from '@hpe-design/icons-grommet';
 
 const device = [
   {
@@ -77,7 +77,7 @@ export const PopoverInlineExample = () => {
             <Button
               align="center"
               justify="start"
-              icon={<CircleInformation aria-hidden size="small" />}
+              icon={<Info aria-hidden size="small" />}
               onClick={handleButtonClick}
               ref={targetRef}
               a11yTitle="Informational help"

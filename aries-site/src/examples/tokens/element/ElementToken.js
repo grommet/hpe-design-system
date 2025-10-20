@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, CheckBox, Text } from 'grommet';
 // eslint-disable-next-line import/no-unresolved
 import { components } from 'hpe-design-tokens/grommet';
-import { Add } from 'grommet-icons';
+import { Add } from '@hpe-design/icons-grommet';
 
 export const ElementToken = ({ token }) => {
   let paddingX = components.hpe.element.medium.paddingX.default;
