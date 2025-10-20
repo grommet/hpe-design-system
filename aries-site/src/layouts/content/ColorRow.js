@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Text } from 'grommet';
+import { Box, Text, ThemeContext } from 'grommet';
 
 export const ColorRow = ({
   colorSpec,
   textColor = 'text-strong',
   textSize = 'small',
 }) => {
+  const theme = useContext(ThemeContext);
   const { value, name, hex } = colorSpec;
 
   return (
@@ -25,8 +26,9 @@ export const ColorRow = ({
       <Text color={textColor} size={textSize} weight="bold">
         {name}
       </Text>
+
       <Text color={textColor} size={textSize}>
-        {hex}
+        {theme.dark ? hex?.dark || hex : hex?.light || hex}
       </Text>
     </Box>
   );
