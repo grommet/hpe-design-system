@@ -22,10 +22,10 @@ import {
   User,
   Notification,
   Catalog,
-  HelpOption,
+  Help,
   Menu,
   LinkNext,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { Link } from 'react-router-dom';
 import { themes } from '../../themes/theme';
 
@@ -89,7 +89,7 @@ export const GlobalHeader = ({
             ) : undefined}
           </Box>
           <Box direction="row" gap="xsmall">
-            <Button icon={<HelpOption />} />
+            <Button icon={<Help />} />
             <Button icon={<Catalog />} />
             <Button icon={<Notification />} />
             <DropButton

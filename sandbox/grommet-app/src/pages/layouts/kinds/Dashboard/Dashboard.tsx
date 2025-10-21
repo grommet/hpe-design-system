@@ -9,7 +9,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Link } from 'react-router-dom';
-import { Configure, GenAIFill, NewWindow } from 'grommet-icons';
+import { Configure, AIGenFill, NewWindow } from '@hpe-design/icons-grommet';
 import { Capacity } from './components';
 import { SustainabilityOverview } from '../../../SustainabilityOverview';
 import { Usage } from './Usage';
@@ -37,7 +37,7 @@ export const Dashboard = () => {
               <Button icon={<Configure />} size="large" />
               <Button icon={<NewWindow />} size="large" />
               <Button
-                icon={<GenAIFill />}
+                icon={<AIGenFill />}
                 size="large"
                 onClick={() => setShowSupporting(<Chat />)}
               />

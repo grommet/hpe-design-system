@@ -1,5 +1,5 @@
 import { Box, Button } from 'grommet';
-import { Sidebar } from 'grommet-icons';
+import { Sidebar } from '@hpe-design/icons-grommet';
 import { CopyButton } from '../../../components/CopyButton';
 
 export const ScaleToolbar = ({

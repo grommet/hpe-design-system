@@ -3,11 +3,8 @@ import {
   StatusCritical,
   StatusWarning,
   StatusGood,
-  StatusCriticalSmall,
-  StatusWarningSmall,
-  StatusGoodSmall,
-  CircleInformation,
-} from 'grommet-icons';
+  Info,
+} from '@hpe-design/icons-grommet';
 import { DashboardCard, NotificationMetric } from '../components';
 import notifications from '../mockData/notifications.json';
 import { useContext } from 'react';
@@ -17,25 +14,25 @@ const statuses = {
   critical: {
     background: 'background-critical',
     icon: <StatusCritical color="icon-critical" height="medium" />,
-    iconCompact: <StatusCriticalSmall color="icon-critical" height="medium" />,
+    iconCompact: <StatusCritical color="icon-critical" height="medium" />,
     label: 'Critical',
   },
   warning: {
     background: 'background-warning',
     icon: <StatusWarning color="icon-warning" height="medium" />,
-    iconCompact: <StatusWarningSmall color="icon-warning" height="medium" />,
+    iconCompact: <StatusWarning color="icon-warning" height="medium" />,
     label: 'Warning',
   },
   ok: {
     background: 'background-ok',
     icon: <StatusGood color="icon-ok" height="medium" />,
-    iconCompact: <StatusGoodSmall color="icon-ok" height="medium" />,
+    iconCompact: <StatusGood color="icon-ok" height="medium" />,
     label: 'Ok',
   },
   info: {
     background: 'background-info',
-    icon: <CircleInformation color="icon-info" height="medium" />,
-    iconCompact: <StatusGoodSmall color="icon-info" height="medium" />,
+    icon: <Info color="icon-info" height="medium" />,
+    iconCompact: <StatusGood color="icon-info" height="medium" />,
     label: 'Information',
   },
 };
