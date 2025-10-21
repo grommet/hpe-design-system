@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, ToggleGroup } from 'grommet';
-import { Table, List, MapLocation } from 'grommet-icons';
+import { Table, List, Map } from '@hpe-design/icons-grommet';
 
 export const ToggleGroupPreview = () => (
   <Box align="center" justify="center">
@@ -16,7 +16,7 @@ export const ToggleGroupPreview = () => (
           value: 'list',
         },
         {
-          icon: <MapLocation />,
+          icon: <Map />,
           value: 'map',
         },
       ]}

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import {
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-  StatusWarningSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 import { Measure, StatusBar } from '../components';
 
 const MOCK_DATA = require('../../../../data/mockData/serverhealth.json');
@@ -12,19 +12,19 @@ const MOCK_DATA = require('../../../../data/mockData/serverhealth.json');
 const STATUS_MAP = {
   Critical: {
     label: 'Critical',
-    icon: <StatusCriticalSmall color="status-critical" />,
+    icon: <StatusCritical color="status-critical" />,
   },
   Warning: {
     label: 'Warning',
-    icon: <StatusWarningSmall color="status-warning" />,
+    icon: <StatusWarning color="status-warning" />,
   },
   OK: {
     label: 'Okay',
-    icon: <StatusGoodSmall color="status-ok" />,
+    icon: <StatusGood color="status-ok" />,
   },
   Unknown: {
     label: 'Unknown',
-    icon: <StatusUnknownSmall color="status-unknown" />,
+    icon: <StatusUnknown color="status-unknown" />,
   },
 };
 

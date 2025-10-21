@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Footer, ResponsiveContext, Text } from 'grommet';
-import { Previous, Next } from 'grommet-icons';
+import { Left, Right } from '@hpe-design/icons-grommet';
 
 export const FooterComboExample = () => {
   const size = useContext(ResponsiveContext);
@@ -15,8 +15,8 @@ export const FooterComboExample = () => {
   return (
     <Box gap="medium">
       <Footer fill="horizontal">
-        <Button label="Go back" icon={<Previous />} />
-        <Button label="Next" icon={<Next />} reverse />
+        <Button label="Go back" icon={<Left />} />
+        <Button label="Next" icon={<Right />} reverse />
       </Footer>
       <Footer
         direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}

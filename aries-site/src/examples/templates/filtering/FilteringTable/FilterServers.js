@@ -14,19 +14,19 @@ import {
   Toolbar,
 } from 'grommet';
 import {
-  StatusWarningSmall,
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-} from 'grommet-icons';
+  StatusWarning,
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+} from '@hpe-design/icons-grommet';
 
 import serverhealth from '../../../../data/mockData/serverhealth.json';
 
 const statusIcons = {
-  Warning: <StatusWarningSmall color="status-warning" size="small" />,
-  OK: <StatusGoodSmall color="status-ok" size="small" />,
-  Critical: <StatusCriticalSmall color="status-critical" size="small" />,
-  Unknown: <StatusUnknownSmall color="status-unknown" size="small" />,
+  Warning: <StatusWarning color="status-warning" size="small" />,
+  OK: <StatusGood color="status-ok" size="small" />,
+  Critical: <StatusCritical color="status-critical" size="small" />,
+  Unknown: <StatusUnknown color="status-unknown" size="small" />,
 };
 
 const columns = [

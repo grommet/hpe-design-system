@@ -1,4 +1,4 @@
-import { CloudUpload, Notes, ShareRounded, UserAdd } from 'grommet-icons';
+import { CloudUpload, Notes, Share, UserAdd } from '@hpe-design/icons-grommet';
 
 export const applications = [
   {
@@ -103,7 +103,7 @@ export const tools = [
     RMA, license management, downloads and more.`,
     action: {
       label: 'Launch',
-      icon: <ShareRounded />,
+      icon: <Share />,
       href: '#',
     },
   },
@@ -113,7 +113,7 @@ export const tools = [
     storage, virtual machines and more.`,
     action: {
       label: 'Launch',
-      icon: <ShareRounded />,
+      icon: <Share />,
       href: '#',
     },
   },

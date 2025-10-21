@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Blank } from 'grommet-icons';
+import { Blank } from '@hpe-design/icons-grommet';
 
 export const IconDiamond = props => (
   <Blank {...props}>

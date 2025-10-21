@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'grommet';
-import { Lock } from 'grommet-icons';
+import { Lock } from '@hpe-design/icons-grommet';
 import { EmptyState } from 'aries-core';
 
 export const AccessDenied = () => {

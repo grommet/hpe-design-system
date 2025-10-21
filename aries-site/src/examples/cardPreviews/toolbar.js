@@ -1,6 +1,6 @@
 import React from 'react';
 import { Toolbar, TextInput, DropButton } from 'grommet';
-import { Search, Filter } from 'grommet-icons';
+import { Search, Filter } from '@hpe-design/icons-grommet';
 
 export const ToolBarPreview = () => (
   <Toolbar>

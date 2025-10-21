@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Heading, Grid, ResponsiveContext, Tag } from 'grommet';
-import { User } from 'grommet-icons';
+import { User } from '@hpe-design/icons-grommet';
 import { Card } from '../../templates';
 
 const products = [

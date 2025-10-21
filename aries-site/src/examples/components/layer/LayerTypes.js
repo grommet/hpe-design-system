@@ -9,7 +9,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { LinkNext } from 'grommet-icons';
+import { LinkNext } from '@hpe-design/icons-grommet';
 import { Example } from '../../../layouts';
 
 const columns = {

@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Stack, ThemeContext } from 'grommet';
-import { Copy, Github } from 'grommet-icons';
+import { Copy } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Github } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 import {

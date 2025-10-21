@@ -1,5 +1,5 @@
 import { Button, Header, Heading } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 
 interface LayerHeaderProps {
   onClose: () => void;
@@ -10,8 +10,8 @@ export const LayerHeader = ({ onClose, ...rest }: LayerHeaderProps) => {
     <Header
       pad={{
         left: 'medium',
-        right: "3xsmall",
-        vertical: "xsmall",
+        right: '3xsmall',
+        vertical: 'xsmall',
       }}
       direction="row"
       align="center"

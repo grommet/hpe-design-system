@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+// TODO replace with DS icon package when available
 import { Grommet } from 'grommet-icons';
 import {
   BoxPreview,

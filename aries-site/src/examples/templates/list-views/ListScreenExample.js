@@ -12,7 +12,9 @@ import {
   Page,
   PageContent,
 } from 'grommet';
-import { Monitor, More, User, System, Hpe } from 'grommet-icons';
+import { Monitor, More, User, System } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Hpe } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import { ContentPane } from '../../../layouts';
 

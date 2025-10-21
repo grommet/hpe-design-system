@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair, Text } from 'grommet';
-import { StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
+import { StatusGood, StatusWarning } from '@hpe-design/icons-grommet';
 import { iconValueData } from '../data';
 
 export const NameValueListIconValuePreview = () => (
@@ -9,12 +9,10 @@ export const NameValueListIconValuePreview = () => (
       {Object.entries(iconValueData).map(([name, value]) => {
         let icon;
         if (value === 'Ok')
-          icon = (
-            <StatusGoodSmall aria-hidden="true" color="green" size="small" />
-          );
+          icon = <StatusGood aria-hidden="true" color="green" size="small" />;
         else if (value === 'Warning')
           icon = (
-            <StatusWarningSmall
+            <StatusWarning
               aria-hidden="true"
               color="status-warning"
               size="small"

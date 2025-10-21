@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CircleInformation, StatusWarning } from 'grommet-icons';
+import { Info, StatusWarning } from '@hpe-design/icons-grommet';
 import { Measure, StatusBar } from '../components';
 
 const MOCK_DATA = require('../../../../data/mockData/servers.json');
@@ -7,7 +7,7 @@ const MOCK_DATA = require('../../../../data/mockData/servers.json');
 const ATTENTION_MAP = {
   'Not activated': {
     label: 'Not Activated',
-    icon: <CircleInformation />,
+    icon: <Info />,
   },
   'Not connected': {
     label: 'Not connected',
