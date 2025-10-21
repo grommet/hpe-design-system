@@ -24,8 +24,17 @@ export const PageAnatomy = () => {
         gap="xsmall"
         width="80%"
       >
-        <ContentArea title="Page Header" background="purple!" flex={false} />
-        <ContentArea title="Other Content" background="orange" border flex />
+        <ContentArea
+          title="Page Header"
+          background={{ color: 'decorative-purple', opacity: 'weak' }}
+          flex={false}
+        />
+        <ContentArea
+          title="Other Content"
+          background={{ color: 'decorative-blue', opacity: 'weak' }}
+          border
+          flex
+        />
       </ContentArea>
     </ContentArea>
   );

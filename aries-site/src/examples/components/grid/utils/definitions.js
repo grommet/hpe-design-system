@@ -1,5 +1,5 @@
 export const contentAreaProps = {
-  background: 'orange',
+  background: { color: 'decorative-blue', opacity: 'weak' },
   border: true,
   height: 'xsmall',
 };

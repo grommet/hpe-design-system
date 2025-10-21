@@ -32,7 +32,10 @@ export const BannerContentLayoutExample = () => (
             <Button icon={<Help />} a11yTitle="Help" title="Help" />
             <Button icon={<Home />} a11yTitle="Home" title="Home" />
           </>
-          <Avatar background="purple!" flex={false}>
+          <Avatar
+            background={{ color: 'decorative-green', opacity: 'weak' }}
+            flex={false}
+          >
             <Text size="small" color="text-strong">
               JS
             </Text>

@@ -11,7 +11,10 @@ const parentGrid = {
 export const NestedGrid = () => (
   <ContentArea title="Parent Grid" {...demoStyle}>
     <Grid columns={parentGrid.columns} gap={parentGrid.gap}>
-      <ContentArea background="orange" {...demoStyle} />
+      <ContentArea
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+        {...demoStyle}
+      />
       <Box gap="xsmall">
         <NestedGridA />
         <NestedGridB />
@@ -33,8 +36,14 @@ const NestedGridA = () => (
       rows={nestedGridA.rows}
       gap={nestedGridA.gap}
     >
-      <ContentArea background="orange" {...demoStyle} />
-      <ContentArea background="orange" {...demoStyle} />
+      <ContentArea
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+        {...demoStyle}
+      />
+      <ContentArea
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+        {...demoStyle}
+      />
     </Grid>
   </ContentArea>
 );
@@ -52,10 +61,22 @@ const NestedGridB = () => (
       rows={nestedGridB.rows}
       gap={nestedGridB.gap}
     >
-      <ContentArea background="orange" height="xsmall" {...demoStyle} />
+      <ContentArea
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+        height="xsmall"
+        {...demoStyle}
+      />
       <Box gap="3xsmall">
-        <ContentArea border background="orange" height="5xsmall" />
-        <ContentArea border background="orange" height="3xsmall" />
+        <ContentArea
+          border
+          background={{ color: 'decorative-blue', opacity: 'weak' }}
+          height="5xsmall"
+        />
+        <ContentArea
+          border
+          background={{ color: 'decorative-blue', opacity: 'weak' }}
+          height="3xsmall"
+        />
       </Box>
     </Grid>
   </ContentArea>

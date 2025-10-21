@@ -40,7 +40,11 @@ export const PageContainerWide = () => {
       pad={{ top: '3xlarge' }}
     >
       <LinkPrev id="left-edge" color="text-strong" />
-      <Box id="label" pad={{ horizontal: '3xsmall' }} background="orange">
+      <Box
+        id="label"
+        pad={{ horizontal: '3xsmall' }}
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+      >
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
       <LinkNext id="right-edge" color="text-strong" />
@@ -59,7 +63,7 @@ export const PageContainerWide = () => {
       >
         <ContentArea
           title="Global Header"
-          background="status-unknown"
+          background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />
         <Stack>
@@ -74,12 +78,12 @@ export const PageContainerWide = () => {
             >
               <ContentArea
                 title="Page Header"
-                background="purple!"
+                background={{ color: 'decorative-purple', opacity: 'weak' }}
                 flex={false}
               />
               <ContentArea
                 title="Other Content"
-                background="orange"
+                background={{ color: 'decorative-blue', opacity: 'weak' }}
                 border
                 height="xsmall"
               />
@@ -89,7 +93,7 @@ export const PageContainerWide = () => {
         </Stack>
         <ContentArea
           title="Global Footer"
-          background="status-unknown"
+          background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />
       </ContentArea>
