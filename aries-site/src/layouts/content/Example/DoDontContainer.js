@@ -15,10 +15,10 @@ export const DoDontContainer = ({
   const size = useContext(ResponsiveContext);
   if (bestPracticeProp) {
     if (bestPracticeProp.type === 'do') {
-      background = 'green!';
+      background = 'foreground-primary';
       label = 'Do';
     } else if (bestPracticeProp.type === 'dont') {
-      background = 'border-critical';
+      background = 'foreground-critical';
       label = "Don't";
     }
 
