@@ -49,6 +49,10 @@ export const aries = deepMerge(hpe, {
 
 export const ariesPop = deepMerge(aries, {
   ...hpePop,
+  // pulling in button from hpe theme
+  button: {
+    ...hpe.button,
+  },
   anchor: {
     // rely on base anchor styling to meet color contrast on background-back
     size: {
