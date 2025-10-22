@@ -2,18 +2,22 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Text } from 'grommet';
+// eslint-disable-next-line import/no-unresolved
+import { primitives } from 'hpe-design-tokens/grommet';
+
+const highlightColors = {
+  'dark-10': primitives.hpe.base.color['purple-400'],
+  dark: primitives.hpe.base.color['purple-700'],
+  'light-10': primitives.hpe.base.color['blue-300'],
+  light: primitives.hpe.base.color['blue-200'],
+};
 
 // Controls whether matched phrase stays highlighted or fades away
-// TODO change color
 const HighlightedText = styled(Text)`
   ${({ fade, theme }) =>
     fade
       ? 'animation: fadeOut ease-out 4s;'
-      : `color: ${
-          theme.dark
-            ? theme.global.colors.purple
-            : theme.global.colors.blue.dark
-        };
+      : `color: ${theme.dark ? highlightColors.dark : highlightColors.light};
         font-weight: bolder;`}
 
   @keyframes fadeOut {
@@ -22,15 +26,11 @@ const HighlightedText = styled(Text)`
     }
     10% {
       color: ${({ theme }) =>
-        theme.dark
-          ? theme.global.colors['purple!']
-          : theme.global.colors.blue.light};
+        theme.dark ? highlightColors['dark-10'] : highlightColors['light-10']};
     }
     40% {
       color: ${({ theme }) =>
-        theme.dark
-          ? theme.global.colors.purple
-          : theme.global.colors.blue.dark};
+        theme.dark ? highlightColors.dark : highlightColors.light};
     }
     100% {
       color: inherit;
