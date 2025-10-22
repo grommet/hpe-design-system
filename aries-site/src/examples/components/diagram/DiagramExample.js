@@ -9,10 +9,7 @@ const Node = ({ id, ...rest }) => (
     margin="xsmall"
     pad="medium"
     round="medium"
-    background={{
-      color: { light: 'background', dark: 'background-front' },
-      dark: true,
-    }}
+    background="background-front"
     {...rest}
   />
 );
