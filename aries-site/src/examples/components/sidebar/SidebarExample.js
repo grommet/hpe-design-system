@@ -12,7 +12,7 @@ export const SidebarExample = () => {
   return (
     <Sidebar
       pad="medium"
-      background="background-front"
+      background="background-contrast"
       flex={false}
       // height for demo purposes only, remove in production
       height="xlarge"
