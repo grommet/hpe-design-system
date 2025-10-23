@@ -49,7 +49,7 @@ export const aries = deepMerge(hpe, {
 
 export const ariesPop = deepMerge(aries, {
   ...hpePop,
-  // pulling in button from hpe theme
+// pulling in Button from HPE theme since the hpePop Button is too large
   button: {
     ...hpe.button,
   },
