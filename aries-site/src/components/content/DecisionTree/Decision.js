@@ -12,7 +12,7 @@ export const Decision = ({ children, id, ...rest }) => {
     <Box {...rest}>
       <Box
         id={id}
-        background="purple!"
+        background={{ color: 'decorative-purple', opacity: 'weak' }}
         flex={false}
         pad="medium"
         round="xxlarge"

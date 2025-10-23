@@ -1,4 +1,3 @@
-export * from './FixedGrid';
 export * from './FluidGrid1';
 export * from './FluidGrid2';
 export * from './GapExample';

@@ -19,7 +19,7 @@ export const AppAnatomy = () => {
     >
       <ContentArea
         title="Global Header"
-        background="status-unknown"
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         flex={false}
       />
       <ContentArea title="Page" border flex>
@@ -33,7 +33,7 @@ export const AppAnatomy = () => {
       </ContentArea>
       <ContentArea
         title="Global Footer"
-        background="status-unknown"
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         flex={false}
       />
     </ContentArea>

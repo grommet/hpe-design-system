@@ -43,7 +43,7 @@ export const PageContainerNarrow = () => {
       <Box
         id="narrow-container"
         pad={{ horizontal: '3xsmall' }}
-        background="orange"
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
       >
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
@@ -63,7 +63,7 @@ export const PageContainerNarrow = () => {
       >
         <ContentArea
           title="Global Header"
-          background="status-unknown"
+          background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />
         <Stack>
@@ -78,12 +78,12 @@ export const PageContainerNarrow = () => {
             >
               <ContentArea
                 title="Page Header"
-                background="purple!"
+                background={{ color: 'decorative-purple', opacity: 'weak' }}
                 flex={false}
               />
               <ContentArea
                 title="Other Content"
-                background="orange"
+                background={{ color: 'decorative-blue', opacity: 'weak' }}
                 border
                 height="xsmall"
               />
@@ -93,7 +93,7 @@ export const PageContainerNarrow = () => {
         </Stack>
         <ContentArea
           title="Global Footer"
-          background="status-unknown"
+          background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />
       </ContentArea>

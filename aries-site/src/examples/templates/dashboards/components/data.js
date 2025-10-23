@@ -23,7 +23,7 @@ export const data = [
     title: 'Guides and resources',
     description:
       'Stay informed with how-to guides, resources, and documentation.',
-    icon: <Support color="purple!" />,
+    icon: <Support color="purple" />,
   },
   {
     cta: 'Send an invite',
@@ -50,7 +50,7 @@ export const data = [
     title: 'Set up multi-factor authentication  ',
     description:
       'Easily add extra protection by requiring access to your phone.',
-    icon: <PhoneVertical color="purple!" />,
+    icon: <PhoneVertical color="purple" />,
   },
   {
     cta: 'Release notes',

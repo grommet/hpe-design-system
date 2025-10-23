@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Box, Button } from 'grommet';
+import { Avatar, Box, Button, Text } from 'grommet';
 
 export const AvatarAccessibilityExample = () => {
   const handleClick = () => {
@@ -13,9 +13,9 @@ export const AvatarAccessibilityExample = () => {
           size="large"
           a11yTitle="Avatar containing initial letters
            J and S when clicked an alert will pop up"
-          background="green"
+          background={{ color: 'decorative-green', opacity: 'weak' }}
         >
-          JS
+          <Text color="text-strong">JS</Text>
         </Avatar>
       </Button>
     </Box>

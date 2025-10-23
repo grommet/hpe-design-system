@@ -76,11 +76,13 @@ const SidebarHeader = () => (
   >
     <Box gap="3xsmall">
       <Avatar
-        background="status-unknown"
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         flex={false}
         margin={{ bottom: '3xsmall' }}
       >
-        <Text size="large">A</Text>
+        <Text size="large" color="text-strong">
+          A
+        </Text>
       </Avatar>
       <TextEmphasis>AT&T Corporation</TextEmphasis>
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>

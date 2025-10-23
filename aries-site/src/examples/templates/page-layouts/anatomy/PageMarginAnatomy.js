@@ -36,7 +36,7 @@ const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
         align="center"
         justify="center"
         round="xsmall"
-        background="status-unknown"
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         border={{ style: 'dashed' }}
       >
         <TextEmphasis>{label}</TextEmphasis>
