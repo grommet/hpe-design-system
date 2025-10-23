@@ -1,5 +1,9 @@
 # hpe-design-system-codemods
 
+## 0.2.1
+
+- Fixed links in README.md
+
 ## 0.2.0
 
 - Added codemod to aid in grommet-icons to @hpe-design/icons-grommet migration.
