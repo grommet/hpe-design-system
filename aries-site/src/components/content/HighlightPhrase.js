@@ -6,10 +6,10 @@ import { Text } from 'grommet';
 import { primitives } from 'hpe-design-tokens/grommet';
 
 const highlightColors = {
-  'dark-10': primitives.hpe.base.color['purple-400'],
-  dark: primitives.hpe.base.color['purple-700'],
-  'light-10': primitives.hpe.base.color['blue-300'],
-  light: primitives.hpe.base.color['blue-200'],
+  'dark-10': primitives.hpe.base.color['blue-700'],
+  dark: primitives.hpe.base.color['blue-200'],
+  'light-10': primitives.hpe.base.color['blue-200'],
+  light: primitives.hpe.base.color['blue-700'],
 };
 
 // Controls whether matched phrase stays highlighted or fades away
