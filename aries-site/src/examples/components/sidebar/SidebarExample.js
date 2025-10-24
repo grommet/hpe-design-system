@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
 import { Avatar, Box, Button, Sidebar } from 'grommet';
 import {
   Clock,
@@ -10,11 +9,10 @@ import {
 } from '@hpe-design/icons-grommet';
 
 export const SidebarExample = () => {
-  const theme = useContext(ThemeContext);
   return (
     <Sidebar
-      background={{ color: !theme.dark ? 'background' : 'blue', dark: true }}
       pad="medium"
+      background="background-contrast"
       flex={false}
       // height for demo purposes only, remove in production
       height="xlarge"

@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { Box, Grid, Notification, Text } from 'grommet';
 import { Trigger } from '@hpe-design/icons-grommet';
 import { ContentPane, Example } from '../../layouts';
@@ -85,7 +87,24 @@ Refer to this table below for examples of background colors paired with "on" col
 | <ColorPreview datum={{value: 'background-ok'}} pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onOk">Aa</Text></ColorPreview>                                         | color.background.ok                      | color.text.onWarning, color.text.onWarning.strong                      |
 | <ColorPreview datum={{value: 'background-info'}} pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onInfo">Aa</Text></ColorPreview>                                     | color.background.info                    | color.text.onInfo, color.text.onInfo.strong                            |
 | <ColorPreview datum={{value: 'background-unknown'}} pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onUnknown">Aa</Text></ColorPreview>                               | color.background.unknown                 | color.text.onUnknown, color.text.onUnknown.strong                      |
-| <ColorPreview datum={{value: 'background-primary-strong'}} pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onPrimaryStrong">Aa</Text></ColorPreview>                  | color.background.primary.strong          | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |
-| <ColorPreview datum={{value: 'background-primary-xstrong'}} pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onPrimaryStrong">Aa</Text></ColorPreview>                 | color.background.primary.xstrong         | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |
+| <ColorPreviewWithMode color="background-primary-strong" pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onPrimaryStrong">Aa</Text></ColorPreviewWithMode>             | color.background.primary.strong          | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |
+| <ColorPreviewWithMode color="background-primary-xstrong" pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onPrimaryStrong">Aa</Text></ColorPreviewWithMode>            | color.background.primary.xstrong         | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |        
 | <ColorPreview datum={{value: 'background-selected-primary'}} pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onSelectedPrimary">Aa</Text></ColorPreview>              | color.background.selected.primary        | color.text.onSelectedPrimary, color.icon.onSelectedPrimary             |
-| <ColorPreview datum={{value: 'background-selected-primary-strong'}} pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onSelectedPrimaryStrong">Aa</Text></ColorPreview> | color.background.selected.primary.strong | color.text.onSelectedPrimaryStrong, color.icon.onSelectedPrimaryStrong |
+| <ColorPreviewWithMode color="background-selected-primary-strong" pad={{vertical: 'xsmall', horizontal: 'medium'}}><Text size="large" color="text-onPrimaryStrong">Aa</Text></ColorPreviewWithMode>   | color.background.selected.primary.strong | color.text.onSelectedPrimaryStrong, color.icon.onSelectedPrimaryStrong |
+
+export const ColorPreviewWithMode = ({ color, ...rest }) => {
+  // need to check theme to overridde what grommet does by default
+  // by setting text color based on light/dark mode
+  const theme = useContext(ThemeContext);
+  const mode = theme.dark ? 'dark' : 'light';
+
+  return (
+    <ColorPreview
+      background={{
+        color: color,
+        dark: mode === 'light' ? false : true
+      }}
+      {...rest}
+    />
+  );
+};

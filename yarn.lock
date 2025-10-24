@@ -7797,12 +7797,12 @@ grommet-icons@^4.12.4:
   dependencies:
     hpe-design-tokens "~1.4.0"
 
-grommet-theme-hpe@^7.0.0:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-7.0.2.tgz#ddbe510738d39dd698d4548c58984826daf41f53"
-  integrity sha512-/UN4RAMFfhcwrhKJPG2Id6uJkBRbGT0RiQOQDCjikjD2fEJyu/iBx9WEFRehqDZjAkZSdWHEU7Tr6K7M+DwTLQ==
+grommet-theme-hpe@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-8.0.0.tgz#a5709fdb3ddb31b97cbfc6d793f2c5e10ab148fc"
+  integrity sha512-dgFU2Jxg9DPEepHJY5E+B4R3nQEKcmZmhGj/Tzmn6Ci1PD+ZnzRpn7htTOyeTJUMo7axGpYFS8oFhCg+O4BfEQ==
   dependencies:
-    hpe-design-tokens "~1.4.0"
+    hpe-design-tokens "^2.1.0"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.50.0"
@@ -7986,7 +7986,12 @@ hpack.js@^2.1.6:
     readable-stream "^2.0.1"
     wbuf "^1.1.0"
 
-hpe-design-tokens@^1.4.1, hpe-design-tokens@~1.4.0:
+hpe-design-tokens@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/hpe-design-tokens/-/hpe-design-tokens-2.1.0.tgz#92b0af00770de213b0c3aa12c44ac2a00eb7c0c8"
+  integrity sha512-BBePwTRthtBJb+Bz8SwxM5h0M6mVLh8f8/YCqCLLEs0elePFVmXZ0RokPIYVakUWgCze1l5CTOMjAiKfyXrJQQ==
+
+hpe-design-tokens@~1.4.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/hpe-design-tokens/-/hpe-design-tokens-1.4.1.tgz#110f72474eabbac167f4d5b771ad655f356089fa"
   integrity sha512-qYv8LX1DSgcwWgtN7eHEh8ILSs9z1qUqOCzMcPNTC122iXUNtRb/BN8QEW7D31Q1Pa1V2JoTc5iBwzYcN3CyEw==

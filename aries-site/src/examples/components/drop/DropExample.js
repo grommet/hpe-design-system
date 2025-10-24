@@ -12,7 +12,7 @@ export const DropExample = () => {
   return (
     <>
       <Box
-        background="blue!"
+        background="background-contrast"
         pad="medium"
         align="center"
         justify="start"

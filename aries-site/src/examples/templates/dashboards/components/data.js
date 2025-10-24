@@ -1,5 +1,3 @@
-import { Button } from 'grommet';
-import styled from 'styled-components';
 import {
   DocumentUpdate,
   Group,
@@ -11,20 +9,9 @@ import {
 // TODO replace with DS icon package when available
 import { Aruba } from 'grommet-icons';
 
-// styled component to create custom orange button
-const StyledButton = styled(Button)`
-  background: ${props => props.theme.global.colors['orange!']};
-  color: ${props => props.theme.global.colors['text-strong'].light};
-  &:hover {
-    background: ${props => props.theme.global.colors['orange!']};
-    color: ${props => props.theme.global.colors['text-strong'].light};
-  }
-`;
-
 export const data = [
   {
-    cta: <StyledButton label="Launch" />,
-    background: 'yellow',
+    cta: 'Launch',
     title: 'Aruba Network Manager',
     description: `Network configuration and operations made simple. Your 
     network on a single pane of glass.`,

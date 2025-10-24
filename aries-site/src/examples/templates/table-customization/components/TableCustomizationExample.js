@@ -128,7 +128,6 @@ const Results = () => {
         <Box overflow="auto" flex>
           <DataTable
             aria-describedby="users-heading"
-            background="background"
             columns={COLUMNS}
             select={select}
             onSelect={setSelect}

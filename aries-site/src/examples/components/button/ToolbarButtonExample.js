@@ -10,16 +10,23 @@ import {
 } from 'grommet';
 import applications from '../../../data/mockData/applications.json';
 
-export const ToolbarButtonExample = () => (
-  <Box>
-    <Data data={applications}>
-      <Toolbar>
-        <DataSearch />
-        <DataFilters layer />
-        <Box flex />
-        <Menu label="Actions" kind="toolbar" />
-      </Toolbar>
-      <DataSummary />
-    </Data>
-  </Box>
-);
+export const ToolbarButtonExample = () => {
+  const items = [
+    { label: 'View details', onClick: () => {} },
+    { label: 'Edit profile', onClick: () => {} },
+    { label: 'Apply blueprint', onClick: () => {} },
+  ];
+  return (
+    <Box>
+      <Data data={applications}>
+        <Toolbar>
+          <DataSearch />
+          <DataFilters layer />
+          <Box flex />
+          <Menu label="Actions" items={items} kind="toolbar" />
+        </Toolbar>
+        <DataSummary />
+      </Data>
+    </Box>
+  );
+};
