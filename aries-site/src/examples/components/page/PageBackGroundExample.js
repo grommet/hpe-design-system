@@ -22,7 +22,7 @@ export const PageBackGroundExample = () => (
     <PageContent
       background={{
         fill: 'horizontal',
-        image: 'url(/images/abstract-color-clouds.jpg)',
+        image: 'url(/images/abstract-neutral-01.png)',
         size: 'contain',
         position: 'left',
         color: '#FAFBFD', // custom to match image background
