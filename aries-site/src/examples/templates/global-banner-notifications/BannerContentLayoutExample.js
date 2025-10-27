@@ -33,7 +33,7 @@ export const BannerContentLayoutExample = () => (
             <Button icon={<Home />} a11yTitle="Home" title="Home" />
           </>
           <Avatar
-            background={{ color: 'decorative-green', opacity: 'weak' }}
+            background='background-contrast'
             flex={false}
           >
             <Text size="small" color="text-strong">
@@ -44,7 +44,7 @@ export const BannerContentLayoutExample = () => (
       </ContentArea>
       <Notification
         status="warning"
-        message={`Your supscription will expire in 7 days. Renew your 
+        message={`Your subscription will expire in 7 days. Renew your 
             subscription to ensure you don't lose access.`}
         onClose={() => {}}
         actions={[
