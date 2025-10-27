@@ -5,6 +5,7 @@ import { Text } from 'grommet';
 // eslint-disable-next-line import/no-unresolved
 import { primitives } from 'hpe-design-tokens/grommet';
 
+// Temporary solution, ideally we should not be using primitives directly
 const highlightColors = {
   'dark-10': primitives.hpe.base.color['blue-700'],
   dark: primitives.hpe.base.color['blue-200'],
