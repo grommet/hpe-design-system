@@ -26,12 +26,16 @@ export const DataTableAnatomy = () => (
       </Box>
     </AnatomySection>
     <AnatomySection
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
       background={{ color: 'decorative-purple', opacity: 'weak' }}
       margin={{ bottom: '5xsmall' }}
     >
       <AnatomyLabel>Table header</AnatomyLabel>
     </AnatomySection>
     <AnatomySection
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
       background={{ color: 'decorative-blue', opacity: 'weak' }}
       height="xsmall"
       margin={{ bottom: '5xsmall' }}

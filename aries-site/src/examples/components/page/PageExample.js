@@ -25,11 +25,15 @@ export const PageExample = () => (
       <ContentArea
         title="Page header"
         border
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
         background={{ color: 'decorative-purple', opacity: 'weak' }}
       />
       <ContentArea
         title="Other content"
         border
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
         background={{ color: 'decorative-blue', opacity: 'weak' }}
       >
         <Paragraph color="text-strong" margin={{ bottom: 'none' }}>

@@ -43,6 +43,8 @@ export const PageContainerWide = () => {
       <Box
         id="label"
         pad={{ horizontal: '3xsmall' }}
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
         background={{ color: 'decorative-blue', opacity: 'weak' }}
       >
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
@@ -63,6 +65,8 @@ export const PageContainerWide = () => {
       >
         <ContentArea
           title="Global Header"
+          // TODO: Using opacity weak is a temporary solution until
+          // we have a wider range of colors in the theme.
           background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />
@@ -78,11 +82,15 @@ export const PageContainerWide = () => {
             >
               <ContentArea
                 title="Page Header"
+                // TODO: Using opacity weak is a temporary solution until
+                // we have a wider range of colors in the theme.
                 background={{ color: 'decorative-purple', opacity: 'weak' }}
                 flex={false}
               />
               <ContentArea
                 title="Other Content"
+                // TODO: Using opacity weak is a temporary solution until
+                // we have a wider range of colors in the theme.
                 background={{ color: 'decorative-blue', opacity: 'weak' }}
                 border
                 height="xsmall"
@@ -93,6 +101,8 @@ export const PageContainerWide = () => {
         </Stack>
         <ContentArea
           title="Global Footer"
+          // TODO: Using opacity weak is a temporary solution until
+          // we have a wider range of colors in the theme.
           background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />

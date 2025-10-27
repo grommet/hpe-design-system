@@ -12,6 +12,8 @@ export const Decision = ({ children, id, ...rest }) => {
     <Box {...rest}>
       <Box
         id={id}
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
         background={{ color: 'decorative-purple', opacity: 'weak' }}
         flex={false}
         pad="medium"

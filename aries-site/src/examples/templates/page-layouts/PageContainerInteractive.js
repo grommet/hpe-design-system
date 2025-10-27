@@ -26,6 +26,8 @@ export const PageContainerInteractive = () => (
      your implementation. */}
     <ContentArea
       title="Global Header"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
       background={{ color: 'decorative-neutral', opacity: 'weak' }}
     />
     {/* PageContainer is a context provider which specifies the page's 
@@ -42,6 +44,8 @@ export const PageContainerInteractive = () => (
     </Page>
     <ContentArea
       title="Global Footer"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
       background={{ color: 'decorative-neutral', opacity: 'weak' }}
     />
   </AppContainer>
@@ -55,6 +59,8 @@ const PageChildren = () => (
         //  demonstration. Remove from your implementation.
         as={ContentArea}
         title="Page Header"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
         background={{ color: 'decorative-purple', opacity: 'weak' }}
         border
       >
@@ -64,6 +70,8 @@ const PageChildren = () => (
       <Main
         as={ContentArea}
         title="Other Content"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
         background={{ color: 'decorative-blue', opacity: 'weak' }}
         border
         fill={false}

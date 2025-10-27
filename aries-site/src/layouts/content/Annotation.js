@@ -10,6 +10,8 @@ export const Annotation = ({ id, kind, target, ...rest }) => {
     <Box
       id={id}
       align="center"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
       background={
         kind === 'style'
           ? { color: 'decorative-purple', opacity: 'weak' }
