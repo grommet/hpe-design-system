@@ -19,7 +19,13 @@ export const Destination = ({ children, detail, id, useCases, ...rest }) => {
 
   return (
     <Box {...rest}>
-      <Box id={id} background={{ color: 'yellow!' }} round="medium">
+      <Box
+        id={id}
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+        round="medium"
+      >
         <Box pad="medium">
           <Text color="text-strong" weight={500} size={textSize}>
             {children}

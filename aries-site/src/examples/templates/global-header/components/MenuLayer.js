@@ -76,11 +76,16 @@ const SidebarHeader = () => (
   >
     <Box gap="3xsmall">
       <Avatar
-        background="status-unknown"
+        // TODO: This only meets accessibility contrast requirements
+        // because the text size is 18px. Revisit when we have more
+        // token colors available.
+        background="decorative-purple"
         flex={false}
         margin={{ bottom: '3xsmall' }}
       >
-        <Text size="large">A</Text>
+        <Text size="large" color="text-strong">
+          A
+        </Text>
       </Avatar>
       <TextEmphasis>AT&T Corporation</TextEmphasis>
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
