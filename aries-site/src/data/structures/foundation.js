@@ -86,7 +86,7 @@ export const foundation = [
       'Always ingredients',
       'HPE GreenLake badge',
       'HPE green',
-      'MetricHPE font',
+      'Graphik font',
       'Call to action button',
       'Flexible ingredients',
       'Color and texture styles',
@@ -269,7 +269,7 @@ export const foundation = [
     name: 'Typography',
     cardOrder: 7,
     category: 'Assets',
-    description: `The MetricHPE font is an integral part of our personality 
+    description: `The Graphik font is an integral part of our personality 
     and design. When we’re making a statement, our visual language is clear, 
     recognized and understood.`,
     preview: {
@@ -284,7 +284,7 @@ export const foundation = [
     seoDescription: `HPE Design System guidance for applying typefaces, 
     font weights, styles, sizing, and more.`,
     sections: [
-      'MetricHPE Styles',
+      'HPE Graphik Styles',
       'Semantic usage of Heading levels',
       'Best practices for Heading',
       'Heading Sizes',
