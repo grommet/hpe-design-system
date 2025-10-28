@@ -68,9 +68,9 @@ export const CorePrinciples = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <Grid columns="xsmall" gap="xlarge" pad={{ vertical: 'medium' }}>
+    <Grid columns="small" gap="xlarge" pad={{ vertical: 'medium' }}>
       {corePrinciplesObjects.map(item => (
-        <Box key={item.name}>
+        <Box key={item.name} width="medium">
           <Image
             src={theme.dark ? item.imageSrc.dark : item.imageSrc.light}
             alt={item.imageAlt}
