@@ -17,53 +17,7 @@ const primaryColors = [
   },
 ];
 
-const coreColors = [
-  {
-    name: 'neutral',
-    value: 'neutral',
-    hex: colors.neutral,
-  },
-  {
-    name: 'green',
-    value: 'green',
-    hex: colors.green,
-  },
-  {
-    name: 'purple',
-    value: 'purple',
-    hex: colors.purple,
-  },
-  {
-    name: 'blue',
-    value: 'blue',
-    hex: colors.blue,
-  },
-  {
-    name: 'cyan',
-    value: 'cyan',
-    hex: colors.cyan,
-  },
-  {
-    name: 'fuschia',
-    value: 'fuschia',
-    hex: colors.fuschia,
-  },
-  {
-    name: 'coral',
-    value: 'coral',
-    hex: colors.coral,
-  },
-  {
-    name: 'plum',
-    value: 'plum',
-    hex: colors.plum,
-  },
-  {
-    name: 'gold',
-    value: 'gold',
-    hex: colors.gold,
-  },
-];
+const coreColors = [];
 
 const lightColors = [
   {
