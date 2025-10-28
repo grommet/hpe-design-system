@@ -7,7 +7,7 @@ export const ColorSwatch = ({ background }) => {
   const theme = useContext(ThemeContext);
 
   let backgroundColor;
-  if (background.sidebar && theme.dark) backgroundColor = 'blue';
+  if (background.sidebar && theme.dark) backgroundColor = 'decorative-blue';
   else backgroundColor = background;
 
   return (

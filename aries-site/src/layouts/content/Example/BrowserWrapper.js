@@ -31,9 +31,11 @@ export const BrowserWrapper = forwardRef(
             align="center"
             pad="xsmall"
           >
-            <Box round pad="3xsmall" background="status-critical" />
-            <Box round pad="3xsmall" background="status-warning" />
-            <Box round pad="3xsmall" background="decorative-green" />
+            {/* TODO consider revisiting these colors when
+       we have more tokens available */}
+            <Box round pad="3xsmall" background="foreground-critical" />
+            <Box round pad="3xsmall" background="foreground-warning" />
+            <Box round pad="3xsmall" background="foreground-primary" />
           </Box>
         )}
         <Box

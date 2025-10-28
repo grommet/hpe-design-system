@@ -188,7 +188,7 @@ export const Hero = props => {
           width="121"
           height="121"
           rx="6"
-          fill={normalizeColor('decorative-brand', theme, false)}
+          fill={normalizeColor('decorative-blue', theme, false)}
           popStart={sequence(7)}
           roundStart={sequence(ROUND_STEP)}
         />
@@ -199,7 +199,7 @@ export const Hero = props => {
           width="77"
           height="115"
           rx="6"
-          fill="#d36d00"
+          fill={normalizeColor('foreground-warning', theme, false)}
           popStart={sequence(8)}
           roundStart={sequence(ROUND_STEP)}
         />

@@ -121,8 +121,8 @@ const SidebarFooter = () => (
       </Box>
       <Button>
         <Box direction="row" gap="xsmall">
-          <Box background="decorative-purple" pad="xsmall" round="medium">
-            <Aruba color="text-strong" />
+          <Box pad="xsmall" round="medium">
+            <Aruba />
           </Box>
           <Box>
             <TextEmphasis size="xsmall">Aruba Network Manager</TextEmphasis>
