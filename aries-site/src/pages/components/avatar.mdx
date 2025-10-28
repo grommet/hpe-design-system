@@ -1,3 +1,4 @@
+import { Notification } from 'grommet';
 import {
   AccessibilitySection,
   BestPracticeGroup,
@@ -133,6 +134,11 @@ When applicable, an avatar is aligned to the left of the title within a PageHead
 </Example>
 
 ## Accessibility
+
+<Notification
+  status="warning"
+  message="If using a background color with Notification use 'decorative-green' with 'text-strong' as the text to meet accessibility contrast requirements."
+/>
 
 Inform users of assistive technologies what the avatar represents by including an `a11yTitle`. This text will be read out by a screen reader when the user reaches the avatar.
 

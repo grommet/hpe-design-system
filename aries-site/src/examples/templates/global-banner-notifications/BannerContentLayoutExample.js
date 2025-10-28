@@ -33,7 +33,10 @@ export const BannerContentLayoutExample = () => (
             <Button icon={<Home />} a11yTitle="Home" title="Home" />
           </>
           <Avatar
-            background='background-contrast'
+            // TODO: Consider a different background here.
+            // Temporary solution until there is a wider
+            // range of colors in the theme.
+            background="decorative-green"
             flex={false}
           >
             <Text size="small" color="text-strong">

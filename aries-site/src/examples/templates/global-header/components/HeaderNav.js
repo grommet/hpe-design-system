@@ -33,7 +33,10 @@ export const HeaderNav = () => {
         onClose={() => setOpen(false)}
       >
         {!user.image ? (
-          <Avatar background="decorative-purple" flex={false}>
+          // TODO: Consider a different background here.
+          // Temporary solution until there is a wider
+          // range of colors in the theme.
+          <Avatar background="decorative-green" flex={false}>
             <Text size="large" color="text-strong">
               JD
             </Text>
@@ -52,7 +55,10 @@ const UserDetails = () => {
     <Box width="medium">
       <Box pad="medium" direction="row" gap="xsmall">
         {user && !user.image ? (
-          <Avatar background="decorative-purple" flex={false} size="large">
+          // TODO: Consider a different background here.
+          // Temporary solution until there is a wider
+          // range of colors in the theme.
+          <Avatar background="decorative-green" flex={false} size="large">
             <Text size="xlarge" color="text-strong">
               JD
             </Text>

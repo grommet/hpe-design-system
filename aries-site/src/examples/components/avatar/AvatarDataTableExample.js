@@ -23,10 +23,10 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
                 <Box alignContent="center" gap="xsmall" direction="row">
                   <Avatar
                     a11yTitle={datum.avatar.name}
-                    // TODO: Consider a different background here. Using
-                    // background-contrast is a temporary solution until
-                    // we have a wider range of colors in the theme.
-                    background="background-contrast"
+                    // TODO: Consider a different background here. 
+                    // Temporary solution until there is a wider 
+                    // range of colors in the theme.
+                    background="decorative-green"
                     src={datum.avatar.src}
                     size="small"
                   >
