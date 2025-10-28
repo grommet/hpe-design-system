@@ -48,17 +48,8 @@ export const aries = deepMerge(hpe, {
 });
 
 export const ariesPop = deepMerge(aries, {
-  ...hpePop,
-// pulling in Button from HPE theme since the hpePop Button is too large
-  button: {
-    ...hpe.button,
-  },
-  anchor: {
-    // rely on base anchor styling to meet color contrast on background-back
-    size: {
-      large: undefined,
-      xlarge: undefined,
-    },
+  heading: {
+    ...hpePop.heading,
   },
   // this is producing a console warning because it's not a supported status
   // proposing that notification should be more flexible to allow other statuses
