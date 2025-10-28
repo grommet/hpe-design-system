@@ -24,8 +24,8 @@ npx hpe-design-system-codemods <transform-name> <path> [options]
 
 ## 📚 Documentation
 
-- **[Complete Documentation](DOCUMENTATION.md)** - Comprehensive guide with advanced features
-- **[Migration Guides](migration_guides/)** - Detailed migration information for each transform
+- **[Complete Documentation](https://github.com/grommet/hpe-design-system/blob/master/packages/codemods/DOCUMENTATION.md)** - Comprehensive guide with advanced features
+- **[Migration Guides](https://github.com/grommet/hpe-design-system/tree/6e6aadcf5d2806518c28845cb7d42a5f356bc689/packages/codemods/migration_guides)** - Detailed migration information for each transform
 
 ## Codemod transforms
 
@@ -51,7 +51,7 @@ npx hpe-design-system-codemods migrate-grommet-icons-to-hpe src/ --dry
 - ✅ Handles aliased imports
 - ✅ Warns about deprecated icons
 
-**📖 [Complete Migration Guide →](migration_guides/GROMMET_ICONS_TO_HPE.md)**
+**📖 [Complete Migration Guide →](https://github.com/grommet/hpe-design-system/blob/6e6aadcf5d2806518c28845cb7d42a5f356bc689/packages/codemods/migration_guides/GROMMET_ICONS_TO_HPE.md)**
 
 **Before/After Example:**
 ```jsx
@@ -85,7 +85,7 @@ npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --dry
 - ✅ Scan mode for manual review identification
 - ✅ Preserves complex nested structures
 
-**📖 [Complete Migration Guide →](migration_guides/MIGRATE_THEME_V6_TO_V7.md)**
+**📖 [Complete Migration Guide →](https://github.com/grommet/hpe-design-system/blob/6e6aadcf5d2806518c28845cb7d42a5f356bc689/packages/codemods/migration_guides/MIGRATE_THEME_V6_TO_V7.md)**
 
 **Before/After Example:**
 ```jsx
@@ -100,6 +100,6 @@ npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --dry
 
 ## Need Help?
 
-- 📖 **[Complete Documentation](DOCUMENTATION.md)** - Advanced features, troubleshooting, development
-- 🔧 **[Migration Guides](migration_guides/)** - Detailed transformation information
+- 📖 **[Complete Documentation](https://github.com/grommet/hpe-design-system/blob/6e6aadcf5d2806518c28845cb7d42a5f356bc689/packages/codemods/DOCUMENTATION.md)** - Advanced features, troubleshooting, development
+- 🔧 **[Migration Guides](https://github.com/grommet/hpe-design-system/tree/6e6aadcf5d2806518c28845cb7d42a5f356bc689/packages/codemods/migration_guides)** - Detailed transformation information
 - 🐛 **Issues?** Open an issue in the [HPE Design System repository](https://github.com/grommet/hpe-design-system)
