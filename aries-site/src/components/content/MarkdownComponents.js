@@ -134,9 +134,9 @@ export const components = {
     />
   ),
   h1: props => <Heading margin={{ vertical: 'xsmall' }} level={1} {...props} />,
-  h2: props => <SubsectionHeader level={2} {...props} />,
-  h3: props => <SubsectionHeader level={3} {...props} />,
-  h4: props => <SubsectionHeader level={4} {...props} />,
+  h2: props => <SubsectionHeader headingSize="small" level={2} {...props} />,
+  h3: props => <SubsectionHeader headingSize="small" level={3} {...props} />,
+  h4: props => <SubsectionHeader headingSize="small" level={4} {...props} />,
   hr: () => (
     <Box
       as="hr"

@@ -6,7 +6,7 @@ import { Link as LinkIcon } from '@hpe-design/icons-grommet';
 import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';
 
-export const SubsectionHeader = ({ children, level }) => {
+export const SubsectionHeader = ({ headingSize, children, level }) => {
   const [over, setOver] = useState(false);
   const id = nameToSlug(children);
   return (
@@ -21,7 +21,7 @@ export const SubsectionHeader = ({ children, level }) => {
       onMouseOut={() => setOver(false)}
       onBlur={() => setOver(false)}
     >
-      <Heading margin={{ vertical: 'xsmall' }} level={level}>
+      <Heading size={headingSize} margin={{ vertical: 'xsmall' }} level={level}>
         <HighlightPhrase size="inherit">{children}</HighlightPhrase>
       </Heading>
       <Button
@@ -41,4 +41,5 @@ export const SubsectionHeader = ({ children, level }) => {
 SubsectionHeader.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   level: PropTypes.number,
+  headingSize: PropTypes.string,
 };
