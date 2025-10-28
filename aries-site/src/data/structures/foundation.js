@@ -269,7 +269,7 @@ export const foundation = [
     name: 'Typography',
     cardOrder: 7,
     category: 'Assets',
-    description: `The Graphik font is an integral part of our personality 
+    description: `The HPE Graphik font is an integral part of our personality 
     and design. When we’re making a statement, our visual language is clear, 
     recognized and understood.`,
     preview: {
