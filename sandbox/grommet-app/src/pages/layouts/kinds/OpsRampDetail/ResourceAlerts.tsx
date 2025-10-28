@@ -2,12 +2,12 @@ import React from 'react';
 import { Anchor, Grid, Box, Text, ResponsiveContext } from 'grommet';
 import { Metric, metricSizes } from '../../../../components';
 import {
-  StatusGoodSmall,
-  StatusCriticalSmall,
-  StatusWarningSmall,
+  StatusGood,
+  StatusCritical,
+  StatusWarning,
   StatusInfo,
-  StatusPlaceholderSmall,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
+import { StatusPlaceholderSmall } from 'grommet-icons';
 
 interface AlertItemProps {
   label: string;
@@ -75,20 +75,21 @@ export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
   const alertData = [
     {
       label: 'Critical',
-      Icon: StatusCriticalSmall,
+      Icon: StatusCritical,
       color: 'status-critical',
       value: 4,
     },
     {
       label: 'Warning',
-      Icon: StatusWarningSmall,
+      Icon: StatusWarning,
       color: 'status-warning',
       value: 2,
     },
-    { label: 'OK', Icon: StatusGoodSmall, color: 'status-ok', value: 0 },
+    { label: 'OK', Icon: StatusGood, color: 'status-ok', value: 0 },
     { label: 'Info', Icon: StatusInfo, value: 4 },
     {
       label: 'Observed',
+      // TO DO what to use for status placeholder
       Icon: StatusPlaceholderSmall,
       value: 2,
     },

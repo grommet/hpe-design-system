@@ -16,11 +16,7 @@ import {
   // ToggleGroup,
 } from 'grommet';
 
-import {
-  Previous,
-  Trash,
-  // Copy,
-} from 'grommet-icons';
+import { Left, Trash } from '@hpe-design/icons-grommet';
 
 const colors = ['background', 'foregroundColor', 'borderColor'];
 const dimensions = [
@@ -158,7 +154,7 @@ const Builder = () => {
       <Grid columns={['auto', 'flex']} gap="large">
         <Box gap="small" pad="medium" background="background-front">
           <Box gap="xsmall" flex={false}>
-            <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
+            <Anchor as={Link} to="/" label="Home" icon={<Left />} />
             <Heading margin="none">Token builder</Heading>
           </Box>
 

@@ -15,7 +15,7 @@ import {
   FormField,
   Select,
 } from 'grommet';
-import { Folder } from 'grommet-icons';
+import { Folder } from '@hpe-design/icons-grommet';
 import * as tokens from 'hpe-design-tokens/docs';
 
 const structuredTokens = {

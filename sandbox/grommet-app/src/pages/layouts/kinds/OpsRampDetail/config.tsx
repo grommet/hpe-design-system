@@ -1,11 +1,11 @@
 import React from 'react';
 import { Anchor, Box, Button, ColumnConfig } from 'grommet';
 import {
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-  StatusPlaceholderSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+} from '@hpe-design/icons-grommet';
+import { StatusPlaceholder } from 'grommet-icons';
 
 export type Node = {
   name: string;
@@ -65,19 +65,14 @@ export const columns: (
         width={{ min: 'max-content' }}
       >
         {datum.state === 'up' ? (
-          <StatusGoodSmall aria-label="up status" color="status-ok" />
+          <StatusGood aria-label="up status" color="status-ok" />
         ) : datum.state === 'down' ? (
-          <StatusCriticalSmall
-            aria-label="down status"
-            color="status-critical"
-          />
+          <StatusCritical aria-label="down status" color="status-critical" />
         ) : datum.state === 'unknown' ? (
-          <StatusUnknownSmall
-            aria-label="unknown status"
-            color="status-unknown"
-          />
+          <StatusUnknown aria-label="unknown status" color="status-unknown" />
         ) : datum.state === 'undefined' ? (
-          <StatusPlaceholderSmall aria-label="undefined status" />
+          // TO DO what to use for status placeholder
+          <StatusPlaceholder aria-label="undefined status" />
         ) : null}
         <Anchor
           as={Button}

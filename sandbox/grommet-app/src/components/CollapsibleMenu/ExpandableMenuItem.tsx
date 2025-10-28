@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Collapsible, Text } from 'grommet';
-import { Down, LinkNext, Up } from 'grommet-icons';
+import { Down, LinkNext, Up } from '@hpe-design/icons-grommet';
 import { dimension } from 'hpe-design-tokens/grommet';
 
 export const ExpandableMenuItem = ({

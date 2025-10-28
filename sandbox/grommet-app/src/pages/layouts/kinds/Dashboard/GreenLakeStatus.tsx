@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, CardBody, Card, Heading, Text } from 'grommet';
-import { StatusGood } from 'grommet-icons';
+import { StatusGood } from '@hpe-design/icons-grommet';
 
 export const GreenLakeStatus = () => (
   <Card background="background-ok" onClick={() => {}}>

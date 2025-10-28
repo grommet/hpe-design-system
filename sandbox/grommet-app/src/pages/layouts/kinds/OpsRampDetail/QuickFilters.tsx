@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { SelectorGroup, Selector } from '../../../../components';
 import {
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-  StatusPlaceholderSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+} from '@hpe-design/icons-grommet';
+import { StatusPlaceholderSmall } from 'grommet-icons';
 import { Box, DataContext, Text } from 'grommet';
 
 const MiniSelector = ({ value, count, icon, title }) => {
@@ -73,23 +73,24 @@ export const QuickFilters: React.FC<{
     >
       {[
         {
-          icon: <StatusCriticalSmall color="status-critical" />,
+          icon: <StatusCritical color="status-critical" />,
           value: 'down',
           count: counts?.down,
           title: 'Down',
         },
         {
-          icon: <StatusGoodSmall color="status-ok" />,
+          icon: <StatusGood color="status-ok" />,
           value: 'up',
           count: counts?.up,
           title: 'Up',
         },
         {
-          icon: <StatusUnknownSmall />,
+          icon: <StatusUnknown />,
           value: 'unknown',
           count: counts?.unknown,
           title: 'Unknown',
         },
+        // TO DO what to use for status placeholder
         {
           icon: <StatusPlaceholderSmall color="status-unknown" />,
           value: 'undefined',
