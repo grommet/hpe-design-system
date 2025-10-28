@@ -75,9 +75,14 @@ export const ContentCard = forwardRef(
                     {parent.icon('small', parent.color)}
                     <Text>{parent.name}</Text>
                   </Box>
+                  {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
                   {showUpdate && changeKind === 'Update' && (
                     <NotificationTag
-                      backgroundColor="teal"
+                      backgroundColor={{
+                        color: 'decorative-cyan',
+                        opacity: 'weak',
+                      }}
                       a11yTitle={`There have been updates for ${
                         render || name
                       }`}
@@ -85,9 +90,14 @@ export const ContentCard = forwardRef(
                       size="small"
                     />
                   )}
+                  {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
                   {showUpdate && changeKind === 'New' && (
                     <NotificationTag
-                      backgroundColor="purple"
+                      backgroundColor={{
+                        color: 'decorative-purple',
+                        opacity: 'weak',
+                      }}
                       a11yTitle={`There's a new item called ${render || name}`}
                       value="New!"
                       size="small"

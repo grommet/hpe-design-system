@@ -43,7 +43,7 @@ const columns = [
             }}
           >
             <Box>
-              <StatusCritical color="red" />
+              <StatusCritical color="status-critical" />
             </Box>
           </Tip>
         );

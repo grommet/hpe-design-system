@@ -11,11 +11,11 @@ export const AvatarSizePreviewExample = () => (
       title="Small avatar with profile picture"
     />
     <AvatarContainer
-      background="green"
+      background="decorative-purple"
       alt="Avatar containing initial letters J and S"
       title="Medium avatar with initials"
     >
-      JS
+      <Text size="large">JS</Text>
     </AvatarContainer>
     <AvatarContainer
       round="xlarge"
