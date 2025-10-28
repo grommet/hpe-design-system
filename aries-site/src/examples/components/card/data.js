@@ -65,7 +65,7 @@ export const applications = [
 
 export const activities = [
   {
-    icon: <Notes color="blue" />,
+    icon: <Notes color="decorative-blue" />,
     title: 'Helpful guides',
     description: `Access step by step guides on getting the most out of 
     your GreenLake console.`,
@@ -75,7 +75,7 @@ export const activities = [
     },
   },
   {
-    icon: <UserAdd color="red" />,
+    icon: <UserAdd color="decorative-cyan" />,
     title: 'Invite users',
     description: `Send a sign-up link to users so you can collaborate 
     with your team.`,
@@ -85,7 +85,7 @@ export const activities = [
     },
   },
   {
-    icon: <CloudUpload color="purple" />,
+    icon: <CloudUpload color="decorative-purple" />,
     title: 'Manage devices',
     description: `Add, apply licenses, and assign devices in your
     device inventory.`,

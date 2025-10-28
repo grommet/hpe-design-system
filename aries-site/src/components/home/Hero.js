@@ -23,7 +23,8 @@ const popAnimation = css`
     to {
       opacity: 1;
     }
-  `} 0s ${props => props.popStart || 0}s 1 forwards`;
+  `} 0s ${props => props.popStart || 0}s 1 forwards
+`;
 
 const roundAnimation = css`
   ${keyframes`
@@ -44,7 +45,8 @@ const fadeAnimation = css`
     100% {
       opacity: 1;
     }
-  `} 2s ${props => props.fadeStart || 0}s 1 forwards`;
+  `} 2s ${props => props.fadeStart || 0}s 1 forwards
+`;
 
 const StyledLines = styled.g`
   opacity: 0;
@@ -88,7 +90,7 @@ export const Hero = props => {
   const size = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const darkMode = useDarkMode();
-  const purple = normalizeColor('purple', theme, false);
+  const purple = normalizeColor('decorative-purple', theme, false);
 
   return (
     <Box fill {...props}>
@@ -142,7 +144,7 @@ export const Hero = props => {
           width="121"
           height="119"
           rx="6"
-          fill={normalizeColor('orange!', theme, darkMode.value)}
+          fill={normalizeColor('decorative-cyan', theme, darkMode.value)}
           offset={-142}
           popStart={sequence(1)}
           moveStart={sequence(2)}
@@ -154,7 +156,7 @@ export const Hero = props => {
           width="279.439"
           height="278.439"
           rx="21.6585"
-          stroke={normalizeColor('blue!', theme, darkMode.value)}
+          stroke={normalizeColor('decorative-blue', theme, darkMode.value)}
           strokeWidth="14.439"
           popStart={sequence(3)}
         />
@@ -186,7 +188,7 @@ export const Hero = props => {
           width="121"
           height="121"
           rx="6"
-          fill={normalizeColor('blue', theme, false)}
+          fill={normalizeColor('decorative-brand', theme, false)}
           popStart={sequence(7)}
           roundStart={sequence(ROUND_STEP)}
         />
@@ -197,7 +199,7 @@ export const Hero = props => {
           width="77"
           height="115"
           rx="6"
-          fill="#FFD63E"
+          fill="#d36d00"
           popStart={sequence(8)}
           roundStart={sequence(ROUND_STEP)}
         />
@@ -208,7 +210,7 @@ export const Hero = props => {
           width="185"
           height="115"
           rx="6"
-          fill={normalizeColor('green', theme, false)}
+          fill={normalizeColor('decorative-green', theme, false)}
           popStart={sequence(9)}
           roundStart={sequence(ROUND_STEP)}
         />

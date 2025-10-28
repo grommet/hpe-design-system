@@ -137,7 +137,7 @@ export const InPageNavigation = ({ headings, title }) => {
                         <StatusGood
                           a11yTitle="Section has been updated"
                           size="10px"
-                          color="teal"
+                          color="decorative-cyan"
                           height="small"
                         />
                       </Box>

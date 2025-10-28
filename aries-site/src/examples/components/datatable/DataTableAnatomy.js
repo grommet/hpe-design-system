@@ -42,7 +42,9 @@ export const DataTableAnatomy = () => (
     >
       <AnatomyLabel>Table body</AnatomyLabel>
     </AnatomySection>
-    <AnatomySection background="blue!">
+    {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
+    <AnatomySection background={{ color: 'decorative-cyan', opacity: 'weak' }}>
       <AnatomyLabel>Table footer</AnatomyLabel>
     </AnatomySection>
   </Box>

@@ -31,9 +31,9 @@ export const BrowserWrapper = forwardRef(
             align="center"
             pad="xsmall"
           >
-            <Box round pad="3xsmall" background="red" />
-            <Box round pad="3xsmall" background="yellow" />
-            <Box round pad="3xsmall" background="green" />
+            <Box round pad="3xsmall" background="status-critical" />
+            <Box round pad="3xsmall" background="status-warning" />
+            <Box round pad="3xsmall" background="decorative-green" />
           </Box>
         )}
         <Box

@@ -33,7 +33,7 @@ export const HeaderNav = () => {
         onClose={() => setOpen(false)}
       >
         {!user.image ? (
-          <Avatar background="blue!" flex={false}>
+          <Avatar background="decorative-purple" flex={false}>
             <Text size="large" color="text-strong">
               JD
             </Text>
@@ -52,7 +52,7 @@ const UserDetails = () => {
     <Box width="medium">
       <Box pad="medium" direction="row" gap="xsmall">
         {user && !user.image ? (
-          <Avatar background="blue!" flex={false} size="large">
+          <Avatar background="decorative-purple" flex={false} size="large">
             <Text size="xlarge" color="text-strong">
               JD
             </Text>
