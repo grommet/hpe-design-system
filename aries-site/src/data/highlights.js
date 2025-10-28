@@ -35,7 +35,7 @@ export const highlights = [
   {
     name: 'Typography',
     summary:
-      'Text styles for the HPE Metric font to work in various view contexts',
+      'Text styles for the HPE Graphik font to work in various view contexts',
     image: {
       src: {
         light: '/highlightImages/typography.svg',
