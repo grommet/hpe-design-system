@@ -32,6 +32,7 @@ const videosSeeAllContent = {
 export const VideoSection = () => (
   <SectionCards
     headingLevel={3}
+    headingSize="small"
     items={videos}
     seeAllContent={videosSeeAllContent}
   />
