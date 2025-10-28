@@ -5,7 +5,7 @@ export const BoxExample = () => (
     <Box direction="row-responsive" gap="medium" align="center">
       <Box
         align="center"
-        border={{ color: 'green', size: 'medium' }}
+        border={{ color: 'decorative-green', size: 'medium' }}
         pad="xlarge"
         round="medium"
         width="medium"
@@ -15,7 +15,7 @@ export const BoxExample = () => (
       <Box
         align="center"
         justify="center"
-        border={{ color: 'green', size: 'medium' }}
+        border={{ color: 'decorative-green', size: 'medium' }}
         pad="xlarge"
         round="medium"
         width="medium"
