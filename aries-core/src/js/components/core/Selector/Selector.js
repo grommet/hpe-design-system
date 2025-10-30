@@ -12,10 +12,9 @@ const StyledBox = styled(Box)`
   ${props =>
     props.selected &&
     // eslint-disable-next-line max-len
-    `box-shadow: inset 0 0 0 1px ${normalizeColor(
-      props.border.color,
-      props.theme,
-    )};
+    `box-shadow: inset 0 0 0 ${
+      props.theme.global.edgeSize['5xsmall']
+    } ${normalizeColor(props.border.color, props.theme)};
     };`}
 `;
 
