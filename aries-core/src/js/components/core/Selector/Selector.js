@@ -11,7 +11,6 @@ import { SelectorHeader } from './SelectorHeader';
 const StyledBox = styled(Box)`
   ${props =>
     props.selected &&
-    // eslint-disable-next-line max-len
     `box-shadow: inset 0 0 0 ${
       props.theme.global.edgeSize['5xsmall']
     } ${normalizeColor(props.border.color, props.theme)};
