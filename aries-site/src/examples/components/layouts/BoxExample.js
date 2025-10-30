@@ -15,7 +15,7 @@ export const BoxExample = () => (
       <Box
         align="center"
         justify="center"
-        border={{ color: 'decorative-green', size: 'medium' }}
+        border={{ color: 'border-default', size: 'medium' }}
         pad="xlarge"
         round="medium"
         width="medium"
