@@ -18,9 +18,9 @@ You can import individual SVG files directly from the package:
 
 ```javascript
 // Import as a URL/path
-import addIcon from '@hpe-design/icons-svg/icons/add.svg';
-import closeIcon from '@hpe-design/icons-svg/icons/close.svg';
-import searchIcon from '@hpe-design/icons-svg/icons/search.svg';
+import addIcon from '@hpe-design/icons-svg/add.svg';
+import closeIcon from '@hpe-design/icons-svg/close.svg';
+import searchIcon from '@hpe-design/icons-svg/search.svg';
 
 // Use in your HTML
 const iconElement = `<img src="${addIcon}" alt="Add" class="icon" />`;
