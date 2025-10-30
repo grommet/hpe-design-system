@@ -1,4 +1,4 @@
-import { Anchor, Box, Card, Text } from 'grommet';
+import { Anchor, Box, Card, Text, Notification } from 'grommet';
 import { StatusCritical, StatusInfo } from '@hpe-design/icons-grommet';
 
 The HPE Design System crafts words into content that cultivates an exceptional user experience.
@@ -426,7 +426,7 @@ Consider a case with messaging related to a condition where a Kubernetes cluster
 
 ### Version 1
 
-<ClusterExample>Cluster out of Memory</ClusterExample>
+<Notification width="xlarge" status='critical' message='Cluster out of Memory'></Notification>
 
 Problems:
 
@@ -438,7 +438,7 @@ Problems:
 
 ### Version 2
 
-<ClusterExample>The ABC cluster is out of memory.</ClusterExample>
+<Notification width="xlarge" status='critical' message='The cluster "ABC" is out of memory.'></Notification>
 
 Problems:
 
@@ -448,7 +448,7 @@ Problems:
 
 ### Version 3
 
-<ClusterExample>The cluster "ABC" is using over 95% of its memory.</ClusterExample>
+<Notification width="xlarge" status='critical' message='The cluster "ABC" is using over 95% of its memory.'></Notification>
 
 Problems:
 
@@ -457,14 +457,16 @@ Problems:
 
 ### Version 4
 
-<ClusterExample>
-  <Box width="100%">
-  <Text weight="bold">
-    The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB of
-    free memory out of 1TB total).
-  </Text>
-  </Box>
-</ClusterExample>
+<Notification
+  width="xlarge"
+  status='critical'
+  message={
+    <Text weight="bold">
+      The cluster <Anchor label="ABC" /> is using over 95% of its memory
+      (42GB of free memory out of 1TB total).
+    </Text>
+  }
+/>
 
 Problems:
 
@@ -472,15 +474,19 @@ Problems:
 
 ### Version 5
 
-<ClusterExample>
-  <Box gap="xsmall">
-    <Text weight="bold">
-      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
-      of free memory out of 1TB total).
-    </Text>
-    <Text>Do the needful.</Text>
-  </Box>
-</ClusterExample>
+<Notification
+  status='critical'
+  width="xlarge"
+  message={
+    <Box>
+      <Text weight="bold">
+        The cluster <Anchor label="ABC" /> is using over 95% of its memory
+        (42GB of free memory out of 1TB total).
+      </Text>
+      <Text>Do the needful.</Text>
+    </Box>
+  }
+/>
 
 Problems:
 
@@ -488,17 +494,21 @@ Problems:
 
 ### Version 6
 
-<ClusterExample>
-  <Box gap="xsmall">
-    <Text weight="bold">
-      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
-      of free memory out of 1TB total).
-    </Text>
-    <Text>
-      Remove containers, reduce quotas, or increase the cluster capacity.
-    </Text>
-  </Box>
-</ClusterExample>
+<Notification
+  status='critical'
+  width="xlarge"
+  message={
+    <Box gap="xsmall">
+      <Text weight="bold">
+        The cluster <Anchor label="ABC" /> is using over 95% of its memory
+        (42GB of free memory out of 1TB total).
+      </Text>
+      <Text>
+        Remove containers, reduce quotas, or increase the cluster capacity.
+      </Text>
+    </Box>
+  }
+/>
 
 Problems:
 
@@ -508,19 +518,23 @@ Problems:
 
 ### Version 7
 
-<ClusterExample status="info">
-  <Box gap="xsmall">
-    <Text weight="bold">
-      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
-      of free memory out of 1TB total).
-    </Text>
-    <Text>
-      If you have plans to increase utilization in the near future, additional
-      capacity can be added by selecting the "Order Capacity" action from the
-      action menu.
-    </Text>
-  </Box>
-</ClusterExample>
+<Notification
+  status="info"
+  width="xlarge"
+  message={
+    <Box gap="xsmall">
+      <Text weight="bold">
+        The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
+        of free memory out of 1TB total).
+      </Text>
+      <Text>
+        If you have plans to increase utilization in the near future, additional
+        capacity can be added by selecting the "Order Capacity" action from the
+        action menu.
+      </Text>
+    </Box>
+  }
+/>
 
 Problems:
 
@@ -528,19 +542,23 @@ Problems:
 
 ### Best practice
 
-<ClusterExample status="info">
-  <Box gap="xsmall">
-    <Text weight="bold">
-      The cluster <Anchor label="ABC" /> is using over 95% of its memory (42GB
-      of free memory out of 1TB total).
-    </Text>
-    <Text>
-      If you have plans to increase utilization in the near future, additional
-      capacity can be added by selecting the <Anchor label="Order Capacity" />{' '}
-      action from the action menu.
-    </Text>
-  </Box>
-</ClusterExample>
+<Notification
+  status="info"
+  width="xlarge"
+  message={
+    <Box gap="xsmall">
+      <Text weight="bold">
+        The cluster <Anchor label="ABC" /> is using over 95% of its memory
+        (42GB of free memory out of 1TB total).
+      </Text>
+      <Text>
+        If you have plans to increase utilization in the near future,
+        additional capacity can be added by selecting the{' '}
+        <Anchor label="Order Capacity" /> action from the action menu.
+      </Text>
+    </Box>
+  }
+/>
 
 - Correct capitalization and punctuation is used.
 - The named resource is hyperlinked so that a user can directly navigation to it from a notification.
@@ -548,25 +566,3 @@ Problems:
 - Context on how much available memory is provided.
 - The user is given a way to directly perform a mentioned action.
 
-export const ClusterExample = ({ children, status, ...rest }) => (
-  <Card
-    direction="row"
-    border
-    round="medium"
-    width={{ max: 'xlarge' }}
-    pad="medium"
-    gap="medium"
-    margin={{ bottom: 'medium' }} // to create better spacing on page
-  >
-    {status === 'info' ? (
-      <StatusInfo color="icon-info" />
-    ) : (
-      <StatusCritical color="icon-critical" />
-    )}
-    {typeof children === 'string' ? (
-      <Text weight="bold">{children}</Text>
-    ) : (
-      children
-    )}
-  </Card>
-);
