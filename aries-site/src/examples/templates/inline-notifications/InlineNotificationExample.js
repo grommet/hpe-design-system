@@ -84,7 +84,6 @@ export const InlineNotificationExample = ({ containerRef }) => {
                   id="access-token"
                   readOnly
                   value={accessToken}
-                  background="blue"
                 />
               </FormField>
               <Button

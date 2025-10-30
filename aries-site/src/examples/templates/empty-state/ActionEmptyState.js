@@ -17,7 +17,7 @@ export const ActionEmptyState = () => {
       <EmptyState
         title="Success"
         description="Your message was successfully delivered."
-        icon={<Checkmark color="green" />}
+        icon={<Checkmark color="icon-ok" />}
         actions={
           <Box align="center" gap="xsmall">
             <Button label="Return to dashboard" primary />
@@ -30,7 +30,7 @@ export const ActionEmptyState = () => {
         title="All notifications cleared"
         description={`There are no further notifications 
         for you to view.`}
-        icon={<Checkmark color="green" />}
+        icon={<Checkmark color="icon-ok" />}
         level={2}
       />
       <EmptyState

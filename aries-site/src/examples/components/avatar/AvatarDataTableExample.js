@@ -23,11 +23,16 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
                 <Box alignContent="center" gap="xsmall" direction="row">
                   <Avatar
                     a11yTitle={datum.avatar.name}
-                    background="purple!"
+                    // TODO: Consider a different background here. 
+                    // Temporary solution until there is a wider 
+                    // range of colors in the theme.
+                    background="decorative-green"
                     src={datum.avatar.src}
                     size="small"
                   >
-                    <Text size="xsmall">{datum.avatar.inital}</Text>
+                    <Text size="xsmall" color="text-strong">
+                      {datum.avatar.inital}
+                    </Text>
                   </Avatar>
                   <Text>{datum.name}</Text>
                 </Box>

@@ -11,11 +11,16 @@ export const AvatarSizePreviewExample = () => (
       title="Small avatar with profile picture"
     />
     <AvatarContainer
-      background="green"
+      // TODO: Consider a different background here.
+      // Temporary solution until there is a wider
+      // range of colors in the theme.
+      background="decorative-green"
       alt="Avatar containing initial letters J and S"
       title="Medium avatar with initials"
     >
-      JS
+      <Text size="large" color="text-strong">
+        JS
+      </Text>
     </AvatarContainer>
     <AvatarContainer
       round="xlarge"

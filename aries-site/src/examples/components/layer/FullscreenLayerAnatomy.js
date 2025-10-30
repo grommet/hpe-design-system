@@ -78,9 +78,11 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
       align="center"
       pad="xsmall"
     >
-      <Box round pad="3xsmall" background="red" />
-      <Box round pad="3xsmall" background="yellow" />
-      <Box round pad="3xsmall" background="green" />
+      {/* TODO consider revisiting these colors when
+       we have more tokens available */}
+      <Box round pad="3xsmall" background="foreground-critical" />
+      <Box round pad="3xsmall" background="foreground-warning" />
+      <Box round pad="3xsmall" background="foreground-primary" />
     </Box>
     <Page background="background-front" id="layer-container">
       <Button alignSelf="end" a11yTitle="Close" icon={<Close />} id={closeId} />

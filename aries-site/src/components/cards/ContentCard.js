@@ -10,7 +10,7 @@ import { NotificationTag } from '../../layouts/content/NotificationTag';
 import { ViewContext } from '../../pages/_app';
 
 export const ContentCard = forwardRef(
-  ({ level, topic, minimal, ...rest }, ref) => {
+  ({ level, topic, minimal, size, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
 
@@ -62,6 +62,7 @@ export const ContentCard = forwardRef(
               align="start"
               gap="3xsmall"
               level={level}
+              size="small"
             >
               {parent && parent.icon && !minimal && (
                 <Box
@@ -74,9 +75,14 @@ export const ContentCard = forwardRef(
                     {parent.icon('small', parent.color)}
                     <Text>{parent.name}</Text>
                   </Box>
+                  {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
                   {showUpdate && changeKind === 'Update' && (
                     <NotificationTag
-                      backgroundColor="teal"
+                      backgroundColor={{
+                        color: 'decorative-cyan',
+                        opacity: 'weak',
+                      }}
                       a11yTitle={`There have been updates for ${
                         render || name
                       }`}
@@ -84,9 +90,14 @@ export const ContentCard = forwardRef(
                       size="small"
                     />
                   )}
+                  {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
                   {showUpdate && changeKind === 'New' && (
                     <NotificationTag
-                      backgroundColor="purple"
+                      backgroundColor={{
+                        color: 'decorative-purple',
+                        opacity: 'weak',
+                      }}
                       a11yTitle={`There's a new item called ${render || name}`}
                       value="New!"
                       size="small"
@@ -106,6 +117,7 @@ export const ContentCard = forwardRef(
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 ContentCard.propTypes = {
+  size: PropTypes.string,
   level: PropTypes.number,
   minimal: PropTypes.bool,
   topic: PropTypes.shape({

@@ -24,8 +24,21 @@ export const PageAnatomy = () => {
         gap="xsmall"
         width="80%"
       >
-        <ContentArea title="Page Header" background="purple!" flex={false} />
-        <ContentArea title="Other Content" background="orange" border flex />
+        <ContentArea
+          title="Page Header"
+          // TODO: Using opacity weak is a temporary solution until
+          // we have a wider range of colors in the theme.
+          background={{ color: 'decorative-purple', opacity: 'weak' }}
+          flex={false}
+        />
+        <ContentArea
+          title="Other Content"
+          // TODO: Using opacity weak is a temporary solution until
+          // we have a wider range of colors in the theme.
+          background={{ color: 'decorative-blue', opacity: 'weak' }}
+          border
+          flex
+        />
       </ContentArea>
     </ContentArea>
   );

@@ -19,7 +19,9 @@ export const AppAnatomy = () => {
     >
       <ContentArea
         title="Global Header"
-        background="status-unknown"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         flex={false}
       />
       <ContentArea title="Page" border flex>
@@ -33,7 +35,9 @@ export const AppAnatomy = () => {
       </ContentArea>
       <ContentArea
         title="Global Footer"
-        background="status-unknown"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         flex={false}
       />
     </ContentArea>

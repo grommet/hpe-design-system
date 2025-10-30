@@ -21,7 +21,11 @@ const FeaturedLayout = ({ ...rest }) => (
           <Box width="100%" round="xsmall">
             {icon}
           </Box>
-          <Heading level={2} margin={{ top: 'xsmall', bottom: 'none' }}>
+          <Heading
+            size="small"
+            level={2}
+            margin={{ top: 'xsmall', bottom: 'none' }}
+          >
             {name}
           </Heading>
           <Paragraph size="small">{description}</Paragraph>

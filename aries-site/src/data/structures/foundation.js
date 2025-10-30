@@ -1,4 +1,4 @@
-import { Box, Text } from 'grommet';
+import { Box, Text, Image } from 'grommet';
 
 export const foundation = [
   {
@@ -75,7 +75,14 @@ export const foundation = [
     the top elements that are always used, along with several optional 
     components that can be added.`,
     preview: {
-      component: () => <Box fill background="datawave-multi-5" />,
+      component: () => (
+        <Box>
+          <Image
+            src="/images/Abstract.jpg"
+            alt="HPE Distinctive Brand Assets Preview"
+          />
+        </Box>
+      ),
     },
     seoDescription: `To be easy to mind and easy to buy as the market leader
     in edge to cloud, we must be consistent and fresh. Our distinctive 
@@ -86,7 +93,7 @@ export const foundation = [
       'Always ingredients',
       'HPE GreenLake badge',
       'HPE green',
-      'MetricHPE font',
+      'Graphik font',
       'Call to action button',
       'Flexible ingredients',
       'Color and texture styles',
@@ -252,7 +259,7 @@ export const foundation = [
     },
     relatedContent: ['Button', 'Header', 'Menu', 'Search'],
     sections: [
-      'Developing with Grommet Icons',
+      'Developing with Hpe Icons',
       'Icon within components',
       'Icon Sizes',
       'Button Icons',
@@ -269,7 +276,7 @@ export const foundation = [
     name: 'Typography',
     cardOrder: 7,
     category: 'Assets',
-    description: `The MetricHPE font is an integral part of our personality 
+    description: `The HPE Graphik font is an integral part of our personality 
     and design. When we’re making a statement, our visual language is clear, 
     recognized and understood.`,
     preview: {
@@ -284,7 +291,7 @@ export const foundation = [
     seoDescription: `HPE Design System guidance for applying typefaces, 
     font weights, styles, sizing, and more.`,
     sections: [
-      'MetricHPE Styles',
+      'HPE Graphik Styles',
       'Semantic usage of Heading levels',
       'Best practices for Heading',
       'Heading Sizes',

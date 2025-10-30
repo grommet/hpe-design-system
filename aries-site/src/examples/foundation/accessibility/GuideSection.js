@@ -32,6 +32,7 @@ const guidesSeeAllContent = {
 export const GuideSection = () => (
   <SectionCards
     headingLevel={3}
+    headingSize="small"
     items={guides}
     seeAllContent={guidesSeeAllContent}
   />
