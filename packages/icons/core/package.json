@@ -10,11 +10,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/hpe-icons.js",
       "require": "./dist/hpe-icons.cjs"
-    }
+    },
+    "./*.svg": "./dist/*.svg"
   },
   "files": [
     "dist",
-    "icons",
     "package.json",
     "README.md",
     "CHANGELOG.md",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "typescript": "~5.8.3",
     "vite": "^7.1.7",
-    "vite-plugin-dts": "^4.5.4"
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-static-copy": "^2.3.2"
   }
 }
