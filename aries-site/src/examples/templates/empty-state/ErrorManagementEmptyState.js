@@ -9,7 +9,7 @@ export const ErrorManagementEmptyState = ({ ...rest }) => {
       title="Unable to retrieve data"
       description={`Try refreshing the browser window. If the problem 
         persists, please submit a support request.`}
-      icon={<Alert color="status-warning" />}
+      icon={<Alert color="icon-warning" />}
       actions={<Button label="Submit support request" primary />}
       level={2}
       {...rest}

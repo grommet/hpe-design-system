@@ -47,7 +47,7 @@ const steps = {
   'power-on-success': {
     body: (
       <Box align="center" gap="3xsmall" direction="row">
-        <StatusGood color="decorative-green" size="small" />
+        <StatusGood color="icon-ok" size="small" />
         <Text size="large">Power on initiated for 1 device.</Text>
       </Box>
     ),

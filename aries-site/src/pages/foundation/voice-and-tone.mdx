@@ -559,9 +559,9 @@ export const ClusterExample = ({ children, status, ...rest }) => (
     margin={{ bottom: 'medium' }} // to create better spacing on page
   >
     {status === 'info' ? (
-      <StatusInfo color="status-unknown" />
+      <StatusInfo color="icon-info" />
     ) : (
-      <StatusCritical color="status-critical" />
+      <StatusCritical color="icon-critical" />
     )}
     {typeof children === 'string' ? (
       <Text weight="bold">{children}</Text>

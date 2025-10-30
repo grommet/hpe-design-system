@@ -6,6 +6,7 @@ import {
   StatusWarning,
   StatusCritical,
   StatusUnknown,
+  Info,
 } from '@hpe-design/icons-grommet';
 
 import { Box } from 'grommet';
@@ -24,22 +25,26 @@ export const StatusIndicatorPreview = () => (
 export const StatusBox = ({ toast }) => (
   <Box direction="row" gap="xlarge" pad={{ bottom: 'medium' }}>
     <Box align="center">
-      <StatusGood color="status-ok" />
+      <StatusGood color="icon-ok" />
       Normal
     </Box>
     <Box align="center">
-      <StatusWarning color="status-warning" />
+      <StatusWarning color="icon-warning" />
       Warning
     </Box>
     {!toast && (
       <Box align="center">
-        <StatusCritical color="status-critical" />
+        <StatusCritical color="icon-critical" />
         Critical
       </Box>
     )}
     <Box align="center">
-      <StatusUnknown color="status-unknown" />
+      <StatusUnknown color="icon-unknown" />
       Unknown
+    </Box>
+    <Box align="center">
+      <Info color="icon-info" />
+      Info
     </Box>
   </Box>
 );

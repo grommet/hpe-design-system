@@ -252,7 +252,7 @@ export const foundation = [
     },
     relatedContent: ['Button', 'Header', 'Menu', 'Search'],
     sections: [
-      'Developing with Grommet Icons',
+      'Developing with Hpe Icons',
       'Icon within components',
       'Icon Sizes',
       'Button Icons',

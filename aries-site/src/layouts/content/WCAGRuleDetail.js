@@ -152,7 +152,11 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                       { status: 'passed' },
                     ).status,
                   )}
-                  <Heading margin={{ vertical: 'xsmall' }} level={4}>
+                  <Heading
+                    size="small"
+                    margin={{ vertical: 'xsmall' }}
+                    level={4}
+                  >
                     {group}
                   </Heading>
                 </Box>
