@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Box, Button } from 'grommet';
+import { normalizeColor } from 'grommet/utils';
 import { SelectorGroupContext } from './SelectorGroup';
 import { SelectorHeader } from './SelectorHeader';
 
@@ -10,8 +11,10 @@ import { SelectorHeader } from './SelectorHeader';
 const StyledBox = styled(Box)`
   ${props =>
     props.selected &&
-    // eslint-disable-next-line max-len
-    `box-shadow: inset 0 0 0 1px ${props.theme.global.colors['border-selected']};`}
+    `box-shadow: inset 0 0 0 ${
+      props.theme.global.borderSize.small
+    } ${normalizeColor(props.border.color, props.theme)};
+    };`}
 `;
 
 // match focus indicator rounding to container
