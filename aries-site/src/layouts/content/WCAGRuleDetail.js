@@ -14,7 +14,7 @@ import {
   StatusCritical,
   StatusWarning,
   Info,
-  Share,
+  NewWindow,
 } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
@@ -130,7 +130,7 @@ export const WCAGRuleDetail = ({ rules, version }) => {
           label="accessibility principles"
           href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
           target="_blank"
-          icon={<Share />}
+          icon={<NewWindow />}
           reverse
           rel="noopener noreferrer"
         />
