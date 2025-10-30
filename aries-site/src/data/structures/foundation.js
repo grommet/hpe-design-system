@@ -1,4 +1,4 @@
-import { Box, Text } from 'grommet';
+import { Box, Text, Image } from 'grommet';
 
 export const foundation = [
   {
@@ -75,7 +75,14 @@ export const foundation = [
     the top elements that are always used, along with several optional 
     components that can be added.`,
     preview: {
-      component: () => <Box fill background="datawave-multi-5" />,
+      component: () => (
+        <Box>
+          <Image
+            src="/images/Abstract.jpg"
+            alt="HPE Distinctive Brand Assets Preview"
+          />
+        </Box>
+      ),
     },
     seoDescription: `To be easy to mind and easy to buy as the market leader
     in edge to cloud, we must be consistent and fresh. Our distinctive 
