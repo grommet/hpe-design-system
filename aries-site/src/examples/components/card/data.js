@@ -170,7 +170,7 @@ export const event = {
   HPE is delivering groundbreaking innovations that completely 
   reimagine how organizations unleash the power of their data.`,
   image: {
-    src: 'https://d3hq6blov2iije.cloudfront.net/images/textures/HPE_data_slice_01_800_0_72_RGB+20107.jpg',
+    src: '/images/Abstract.jpg',
     alt: 'Layers of purple, pink, orange, and yellow in slices',
     fit: 'cover',
   },
