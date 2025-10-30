@@ -57,8 +57,7 @@ export const ariesPop = deepMerge(aries, {
     learn: {
       icon: Info,
       background: {
-        color: 'status-warning',
-        opacity: 'weak',
+        color: 'icon-warning',
       },
       color: 'text',
       toast: {
