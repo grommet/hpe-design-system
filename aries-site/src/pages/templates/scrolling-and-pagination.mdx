@@ -1,3 +1,13 @@
-import { ComingSoon } from '../../components';
+import { EmptyState } from 'aries-core'
+import { InProgress } from '@hpe-design/icons-grommet'
 
-<ComingSoon />
+<ScrollingAndPaginationEmptyState />
+
+export const ScrollingAndPaginationEmptyState = () => (
+  <EmptyState
+    level={2}
+    title="Update in progress"
+    description="This page is unavailable. Content will be available in the future."
+    icon={<InProgress size="xxlarge" />}
+  />
+)
