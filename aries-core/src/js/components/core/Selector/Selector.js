@@ -12,7 +12,7 @@ const StyledBox = styled(Box)`
   ${props =>
     props.selected &&
     `box-shadow: inset 0 0 0 ${
-      props.theme.global.edgeSize['5xsmall']
+      props.theme.global.borderSize.small
     } ${normalizeColor(props.border.color, props.theme)};
     };`}
 `;
