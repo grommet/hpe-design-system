@@ -12,6 +12,7 @@ import {
 } from 'grommet';
 import {
   Add,
+  Alert,
   Info,
   Help,
   Close,
@@ -35,9 +36,9 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
       gap="xsmall"
       pad={{ top: 'medium', horizontal: 'medium', bottom: 'xsmall' }}
     >
-      <Icon />
+      <Icon size="xlarge"/>
       <Box>
-        <Heading level="4" margin="none">
+        <Heading level="4" margin="none" size="small">
           {name}
         </Heading>
         {aliases && (
@@ -138,11 +139,13 @@ export const IconControlsExample = () => (
     <CoreIcon
       Icon={Up}
       name="Collapse"
+      aliases={['Up']}
       guidance="Use in buttons to collapse content."
     />
     <CoreIcon
       Icon={Down}
       name="Expand"
+      aliases={['Down']}
       guidance="Use in buttons to expand content."
     />
     <CoreIcon
@@ -158,15 +161,18 @@ export const IconInformationalExample = () => (
   <Grid alignSelf="stretch" gap="medium" columns="xsmall">
     <CoreIcon
       Icon={Info}
-      name="Information"
-      guidance={`Use to reveal additional contextual information inline or as a 
-      tooltip.`}
+      name="Info"
+      guidance={`Use to indicate additional contextual information, either inline or in a tooltip.`}
     />
     <CoreIcon
       Icon={Help}
       name="Help"
-      guidance={`Use to assist the user via a modal dialog, side drawer, 
-      navigation to a help center, or other mechanism.`}
+      guidance={`Use to signal that contextual help or support content is available, such as guidance or help center.`}
+    />
+    <CoreIcon
+      Icon={Alert}
+      name="Alert"
+      guidance={`Use to indicate a warning or important message that requires user attention. Not used to indicate status.`}
     />
   </Grid>
 );

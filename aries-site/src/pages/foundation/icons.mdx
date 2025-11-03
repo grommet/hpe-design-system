@@ -10,28 +10,37 @@ import {
   IconHeightExample,
   IconPlainExample,
   IconSizeExample,
+  IconStatusExample,
   IconTextExample,
 } from '../../examples';
 
 {/* TODO replace with DS icon package when available */}
 import { Figma } from 'grommet-icons';
 
-Icons can be used to represent information to users, such as actions a user can perform or different types of functionality.
+Icons can appear as stand-alone decorative elements or be embedded within components such as buttons and tabs to enhance usability and recognition. They provide quick visual cues that help users interpret actions and content at a glance.
 
-It is important that the use of an icon is clear. In some cases, it may be beneficial to pair icons with text to ensure the use of the icon is properly understood, but if text is always needed, consider using the text without an icon.
-Best practice is to not use icons unless most users are already familiar with their meaning. Otherwise, multiple products may end up using the same obscure icon for different reasons, resulting in confusion for users using those products.
+Icons should support recognition, not create ambiguity. Familiar, universal symbols (e.g., search, delete, close) can stand alone, while less common icons should be paired with a label to ensure clarity. Thoughtful, consistent use prevents overuse or misuse, avoiding the confusion caused by unclear or inconsistent symbolism.
+
+The HPE icon library is semantically named to indicate each icon’s intended usage. Every icon includes metadata to improve discovery and provide additional context about its purpose.
+
+- Use icons only when their meaning is clear and purposeful.
+- Pair unfamiliar icons with a text label to aid comprehension.
+- If an icon always needs a label to be understood, consider using text alone.
+- Avoid re-using the same symbol for different meanings across products.
+- Keep icons visually consistent with the library’s size, and color standards.
+- Use decorative icons sparingly — they should enhance, not distract.
 
   <Button
     icon={<Figma color="plain" />}
     label="Open in Figma"
     target="_blank"
     secondary
-    href="https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons---V2?node-id=66-13&t=S5gUdNzCkbPmEoZF-1"
+    href="https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons-V2-%E2%80%93-Production?node-id=0-1"
     rel="noreferrer noopener"
     alignSelf="start"
   />
 
-### Developing with @hpe-design/icons-grommet Icons
+### Developing with HPE Icons
 
 For guidance on installing and migrating to use the @hpe-design/icons-grommet icons in your application, refer to the migration documentation.
 
@@ -44,15 +53,55 @@ For guidance on installing and migrating to use the @hpe-design/icons-grommet ic
   secondary
 />
 
+### Icon sizes
+
+The default icon size is medium. Icons can be scaled using predefined size options to align with our typography scale, ensuring consistent vertical rhythm and proper inline alignment with text.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconSizeExample.js">
+  <IconSizeExample />
+</Example>
+
+### Icon color
+
+Standalone icon components use the default color token **icon-default**.\
+Decorative icons may also use **icon-strong**, **icon-weak**, **icon-disabled**, or **icon-primary** to convey emphasis or state.\
+
+Non-semantic icons, such as brand or third-party SVGs, should display their native colors. To preserve their original styling, apply the prop **color="plain"**.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconPlainExample.js">
+  <IconPlainExample />
+</Example>
+
+### Status icons
+
+Status icons are reserved for drawing attention to information about system health. They must be paired with the appropriate status color as defined by brand.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconStatusExample.js">
+  <IconStatusExample />
+</Example>
+
+### Align with text
+
+When icons are displayed inline with text in a row using align="start", apply a height property to the icon.
+Set the height value to match the T-shirt size of the accompanying text — for example, use height="medium" when placed beside medium (default) text.
+
+The height property is only required when the parent row uses align="start".
+
+In the HPE theme, icons are sized relative to font size rather than line height. This provides a more balanced visual relationship between icons and text. Applying a height value ensures the icon receives the correct top and bottom padding to align visually with the text’s line height.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconHeightExample.js">
+  <IconHeightExample />
+</Example>
+
 ### Accessibility
 
-For screen reader accessibility there is an aria-label provided for
-each icon. The color of the icons should also pass any color
-contrast ratio.
+Each icon includes an aria-label to support screen readers.\
+Use the **a11yTitle** prop to override or customize the default label when needed.\
+Ensure icon colors maintain sufficient contrast against their background in accordance with WCAG guidelines.
 
-### Icon within components
+### Icons within components
 
-Icons can be used in a variety of different ways. They are used within other components such as [Search](/components/search), [Menu](/components/menu), [Button](/components/button).
+Icons are available for use inside other components such as [Search fields](/components/search), [Menus](https://design-system.hpe.design/components/menu?#with-custom-icon) and [Buttons](https://design-system.hpe.design/components/button?#button-with-icon). When placed within a component, an icon will inherit styling, color, and scale properties from its parent component to maintain theme alignment.
 
 <Example
   docs="https://icons.grommet.io/?theme=hpe"
@@ -62,42 +111,6 @@ Icons can be used in a variety of different ways. They are used within other com
   <IconComponentExample />
 </Example>
 
-### Icon sizes
-
-The default icon size is medium. This should be adjusted depending
-on where in your application the icon is being used.
-
-<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconSizeExample.js">
-  <IconSizeExample />
-</Example>
-
-### Button icons
-
-The icon should be centered aligned with any text that is being used next to it. The correct size icon should be paired with similar size text. When using the Icon as a button both the label and icon will be wrapped within that Button.
-
-<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconSizeExample.js">
-  <IconTextExample />
-</Example>
-
-### Icon plain color
-
-The default icon color is 'text-strong' for the corresponding light/dark mode. For some icons there are spcific colors in how they are represented, such as HPE, HP that need to respect the built in colors for those SVGs so the color prop can be given 'plain'.
-
-<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconPlainExample.js">
-  <IconPlainExample />
-</Example>
-
-### Icon height
-
-In instances where icons are presented alongside text in a row with `align="start"`, it is necessary to add a `height` property to the icon. The value of the height property should match the t-shirt size of the accompanying text. For example, an icon should receive `height="medium"` when presented alongside `medium` (default) text.
-
-The `height` property on icon is only necessary when a row uses `align="start"`.
-
-HPE theme icons are sized to match font-sizes, as opposed to line-heights, in order for a more balanced presentation of icons and text. Applying the `height` property to an icon ensures the necessary top and bottom padding is applied to the icon to align with the line-height of the text.
-
-<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconHeightExample.js">
-  <IconHeightExample />
-</Example>
 
 ## Core icons
 
@@ -105,24 +118,24 @@ The following common icons should be used as described in order to provide a con
 
 ### Resource actions
 
-These icons should be used for actions that change persistent resources.
+These icons represent actions that create, update, or delete saved resources.
 
 <IconResourceActionsExample />
 
 ### UI actions
 
-These icons should be used for actions that change the context of the UI.
+These icons represent actions that move the user to a new view or context within the interface.
 
 <IconUIActionsExample />
 
 ### UI controls
 
-These icons should be used to control the state of individual components.
+These icons represent actions that adjust or toggle the state of an individual component.
 
 <IconControlsExample />
 
 ### Info and help
 
-These icons should be used to provide additional contextual information or help to the user.
+These icons support users by offering extra context, guidance, or help content.
 
 <IconInformationalExample />
