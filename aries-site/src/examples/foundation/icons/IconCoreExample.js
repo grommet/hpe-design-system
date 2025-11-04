@@ -25,6 +25,8 @@ import {
   Search,
   Subtract,
   Trash,
+  ZoomIn,
+  ZoomOut,
 } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
@@ -72,19 +74,17 @@ export const IconResourceActionsExample = () => (
     <CoreIcon
       Icon={Add}
       name="Add"
-      aliases={['Create']}
-      guidance="Use in buttons to initiate adding or creating things."
+      guidance="Use to initiate the creation or addition of a new item."
     />
     <CoreIcon
       Icon={Edit}
       name="Edit"
-      guidance="Use in buttons to initiate editing things."
+      guidance="Use to initiate editing or modification of content."
     />
     <CoreIcon
       Icon={Trash}
       name="Trash"
-      aliases={['Delete']}
-      guidance="Use in buttons to initiate deleting things."
+      guidance="Use to initiate the removal or deletion of content."
     />
   </Grid>
 );
@@ -94,30 +94,36 @@ export const IconUIActionsExample = () => (
     <CoreIcon
       Icon={Close}
       name="Close"
-      guidance="Use in buttons to close layers."
+      guidance="Use to dismiss or close layers, modals, or panels."
     />
     <CoreIcon
       Icon={Search}
       name="Search"
-      guidance="Use next to and within search fields to
-        access and execute searching."
+      guidance="Use to indicate that an input field supports search."
     />
     <CoreIcon
       Icon={Filter}
       name="Filter"
-      guidance="Use in buttons to toggle filter controls associated with
-        grids of cards, lists, and tables."
+      guidance={
+        'Use to toggle filter controls for related content such as ' +
+        'lists, tables, or card grids.'
+      }
     />
     <CoreIcon
       Icon={Notification}
       name="Notification"
-      guidance="Use in buttons in the global header to
-        open a recent list or new page of notifications."
+      guidance={
+        'Use to signal updates, alerts, or new activity requiring ' +
+        'user attention.'
+      }
     />
     <CoreIcon
       Icon={Download}
       name="Download"
-      guidance="Use in buttons to initiate downloading files."
+      guidance={
+        'Use to indicate that a file or resource is available to ' +
+        'download.'
+      }
     />
   </Grid>
 );
@@ -127,33 +133,40 @@ export const IconControlsExample = () => (
     <CoreIcon
       Icon={Add}
       name="Add"
-      aliases={['Increase', 'Zoom In']}
-      guidance="Use in buttons to increase counts, and zoom in on maps."
+      guidance="Use to increase a value or quantity."
     />
     <CoreIcon
       Icon={Subtract}
       name="Subtract"
-      aliases={['Decrease', 'Zoom Out']}
-      guidance="Use in buttons to decrease counts, and zoom out on maps."
+      guidance="Use to decrease a value or quantity."
+    />
+    <CoreIcon
+      Icon={ZoomIn}
+      name="Zoom In"
+      guidance="Use to increase zoom level or enlarge content."
+    />
+    <CoreIcon
+      Icon={ZoomOut}
+      name="Zoom Out"
+      guidance="Use to decrease zoom level or reduce content size."
     />
     <CoreIcon
       Icon={Up}
-      name="Collapse"
-      aliases={['Up']}
-      guidance="Use in buttons to collapse content."
+      name="Up"
+      guidance="Use to indicate collapsable content."
     />
     <CoreIcon
       Icon={Down}
-      name="Expand"
-      aliases={['Down']}
-      guidance="Use in buttons to expand content."
+      name="Down"
+      guidance="Use to indicate expandable content."
     />
-    <CoreIcon
+    {/* The Design system doesnt have a custom design solution for
+    clearing input fields */}
+    {/* <CoreIcon
       Icon={Close}
       name="Close"
-      aliases={['Clear']}
       guidance="Use in in file input fields to clear them."
-    />
+    /> */}
   </Grid>
 );
 
@@ -162,17 +175,26 @@ export const IconInformationalExample = () => (
     <CoreIcon
       Icon={Info}
       name="Info"
-      guidance={`Use to indicate additional contextual information, either inline or in a tooltip.`}
+      guidance={
+        'Use to indicate additional contextual information, either ' +
+        'inline or in a tooltip.'
+      }
     />
     <CoreIcon
       Icon={Help}
       name="Help"
-      guidance={`Use to signal that contextual help or support content is available, such as guidance or help center.`}
+      guidance={
+        'Use to signal that contextual help or support content is ' +
+        'available, such as guidance or help center.'
+      }
     />
     <CoreIcon
       Icon={Alert}
       name="Alert"
-      guidance={`Use to indicate a warning or important message that requires user attention. Not used to indicate status.`}
+      guidance={
+        'Use to indicate a warning or important message that requires ' +
+        'user attention. Not used to indicate status.'
+      }
     />
   </Grid>
 );

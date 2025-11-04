@@ -57,7 +57,7 @@ For guidance on installing and migrating to use the @hpe-design/icons-grommet ic
 
 ### Icon sizes
 
-The default icon size is medium. Icons can be scaled using predefined size options to align with our typography scale, ensuring consistent vertical rhythm and proper inline alignment with text.
+The default icon size is medium. Icons can be scaled using predefined size options to align with the [typography scale](/foundation/typography), ensuring consistent vertical rhythm and proper inline alignment with text.
 
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconSizeExample.js">
   <IconSizeExample />
@@ -65,8 +65,8 @@ The default icon size is medium. Icons can be scaled using predefined size optio
 
 ### Icon color
 
-Standalone icon components use the default color token **icon-default**.\
-Decorative icons may also use **icon-strong**, **icon-weak**, **icon-disabled**, or **icon-primary** to convey emphasis or state.
+Standalone icon components use the default color token `icon-default`.\
+Decorative icons may also use `icon-strong` `icon-weak` `icon-disabled` or `icon-primary` to convey emphasis or state.
 
 Non-semantic icons, such as brand or third-party SVGs, should display their native colors. To preserve their original styling, apply the prop `color="plain"`.
 
@@ -84,10 +84,10 @@ Status icons are reserved for drawing attention to information about system heal
 
 ### Aligning with text
 
-When icons are displayed inline with text in a row using align="start", apply a height property to the icon.
+When icons are displayed inline with text in a row using `align="start"`, apply a height property to the icon.
 Set the height value to match the T-shirt size of the accompanying text — for example, use height="medium" when placed beside medium (default) text.
 
-The height property is only required when the parent row uses align="start".
+The height property is only required when the parent row uses `align="start"`.
 
 In the HPE theme, icons are sized relative to font size rather than line height. This provides a more balanced visual relationship between icons and text. Applying a height value ensures the icon receives the correct top and bottom padding to align visually with the text’s line height.
 

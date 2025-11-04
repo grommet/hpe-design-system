@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from 'grommet';
 // TODO replace with DS icon package when available
-import { Hpe, HpeLabs } from 'grommet-icons';
+import { Hpe } from 'grommet-icons';
 import {
   Achievement,
   Aid,
@@ -14,6 +14,5 @@ export const IconPlainExample = () => (
     <Aid color="icon-default" size="xxlarge" />
     <Alarm color="icon-strong" size="xxlarge" />
     <Hpe color="plain" size="xxlarge" />
-    <HpeLabs color="plain" size="xxlarge" />
   </Box>
 );

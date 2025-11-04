@@ -13,7 +13,8 @@ export const IconHeightExample = () => (
     <Box direction="row" gap="xsmall" align="start">
       <Add />
       <Paragraph margin="none">
-        Without height="medium", the icon no longer aligns with the first line of text.
+        Without height=&quot;medium&quot;, the icon no longer aligns with the
+        first line of text.
       </Paragraph>
     </Box>
       <Box direction="row" gap="xsmall" align="start">
@@ -25,7 +26,8 @@ export const IconHeightExample = () => (
     <Box direction="row" gap="xsmall" align="start">
       <Add size="large"/>
       <Paragraph margin="none" size="large">
-        Without height="large", the icon no longer aligns with the first line of text.
+        Without height=&quot;large&quot;, the icon no longer aligns with the
+        first line of text.
       </Paragraph>
     </Box>
   </Box>
