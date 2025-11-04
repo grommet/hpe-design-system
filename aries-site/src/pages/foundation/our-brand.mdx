@@ -1,6 +1,6 @@
 import { UsageExample } from '../../layouts';
 import { ArubaIconExample, HpeElementExample } from '../../examples';
-import { Button, Image } from 'grommet';
+import { Box, Button, Image } from 'grommet';
 
 Our logos are a powerful expression of our brand and who we are. The
 distinctive symbol, we call the "Element," speaks to our focus on
@@ -28,11 +28,15 @@ less dense content. Place the logo on the top left or bottom left
 depending on the layout; neither placement is necessarily preferred.
 
 <UsageExample label="hpe-logo" themeMode="light">
-  <Image src="/static/images/hpe-logo.svg" alt="HPE Logo" />
+  <Box width="small">
+    <Image alt="HPE logo" fit="contain" src="/HPE_logo_full-clr_pos_rgb.svg" />
+  </Box>
 </UsageExample>
 
 <UsageExample label="hpe-logo-invert" themeMode="dark">
-  <Image src="/static/images/hpe-logo-invert.svg" alt="HPE Logo Invert" />
+  <Box width="small">
+    <Image alt="HPE logo" fit="contain" src="/HPE_logo_full-clr_rev_rgb.svg" />
+  </Box>
 </UsageExample>
 
 ### HPE Element

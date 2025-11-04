@@ -5,7 +5,7 @@ import { Box, Text } from 'grommet';
 export const DataTableAnatomy = () => (
   <Box width="medium" margin={{ bottom: 'medium' }}>
     <AnatomySection
-      background="background-primary-xstrong"
+      background={{ color: 'decorative-green', opacity: 'weak' }}
       gap="3xsmall"
       margin={{ bottom: 'xsmall' }}
       pad={{ horizontal: 'xsmall', top: '5xsmall', bottom: '3xsmall' }}
@@ -25,17 +25,26 @@ export const DataTableAnatomy = () => (
         </AnatomySection>
       </Box>
     </AnatomySection>
-    <AnatomySection background="purple!" margin={{ bottom: '5xsmall' }}>
+    <AnatomySection
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-purple', opacity: 'weak' }}
+      margin={{ bottom: '5xsmall' }}
+    >
       <AnatomyLabel>Table header</AnatomyLabel>
     </AnatomySection>
     <AnatomySection
-      background="orange"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-blue', opacity: 'weak' }}
       height="xsmall"
       margin={{ bottom: '5xsmall' }}
     >
       <AnatomyLabel>Table body</AnatomyLabel>
     </AnatomySection>
-    <AnatomySection background="blue!">
+    {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
+    <AnatomySection background={{ color: 'decorative-cyan', opacity: 'weak' }}>
       <AnatomyLabel>Table footer</AnatomyLabel>
     </AnatomySection>
   </Box>

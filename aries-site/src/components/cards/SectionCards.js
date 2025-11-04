@@ -3,7 +3,12 @@ import { Box, Button, CardBody, Heading, Grid } from 'grommet';
 import PropTypes from 'prop-types';
 import { LinkCard } from './LinkCard';
 
-export const SectionCards = ({ items, headingLevel, seeAllContent }) => {
+export const SectionCards = ({
+  items,
+  headingLevel,
+  seeAllContent,
+  headingSize,
+}) => {
   const { buttonLabel, href } = seeAllContent;
 
   return (
@@ -23,7 +28,7 @@ export const SectionCards = ({ items, headingLevel, seeAllContent }) => {
                 >
                   <Icon size="large" />
                 </Box>
-                <Heading level={headingLevel} margin="none">
+                <Heading size={headingSize} level={headingLevel} margin="none">
                   {title}
                 </Heading>
               </CardBody>
@@ -46,6 +51,7 @@ export const SectionCards = ({ items, headingLevel, seeAllContent }) => {
 SectionCards.propTypes = {
   items: PropTypes.array,
   headingLevel: PropTypes.number,
+  headingSize: PropTypes.string,
   seeAllContent: PropTypes.oneOfType([
     PropTypes.shape({
       buttonLabel: PropTypes.string,

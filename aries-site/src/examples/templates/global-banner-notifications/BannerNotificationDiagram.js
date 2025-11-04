@@ -86,7 +86,7 @@ export const BannerNotificationDiagram = () => (
       <Annotation id={4} target="4" />
       <AnatomyBox />
       <AnatomyBox align="center">
-        <StatusCritical id="status-indicator" color="red" />
+        <StatusCritical id="status-indicator" color="status-critical" />
       </AnatomyBox>
       <AnatomyBox>
         <Text id="content" alignSelf="center">

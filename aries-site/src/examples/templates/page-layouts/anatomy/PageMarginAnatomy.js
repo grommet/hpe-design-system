@@ -36,7 +36,9 @@ const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
         align="center"
         justify="center"
         round="xsmall"
-        background="status-unknown"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         border={{ style: 'dashed' }}
       >
         <TextEmphasis>{label}</TextEmphasis>

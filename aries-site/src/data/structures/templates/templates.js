@@ -989,6 +989,7 @@ export const templates = [
     seoDescription: `When and how to apply techniques such as scrollable 
     regions or pagination.`,
     sections: [],
+    relatedContent: ['Pagination', 'Lists', 'Card', 'DataTable'],
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
   },
   {

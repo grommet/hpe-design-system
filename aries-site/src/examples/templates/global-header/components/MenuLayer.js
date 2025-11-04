@@ -76,11 +76,15 @@ const SidebarHeader = () => (
   >
     <Box gap="3xsmall">
       <Avatar
-        background="status-unknown"
+        // TODO: Revisit when we have more
+        // token colors available.
+        background="decorative-green"
         flex={false}
         margin={{ bottom: '3xsmall' }}
       >
-        <Text size="large">A</Text>
+        <Text size="large" color="text-strong">
+          A
+        </Text>
       </Avatar>
       <TextEmphasis>AT&T Corporation</TextEmphasis>
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
@@ -116,8 +120,8 @@ const SidebarFooter = () => (
       </Box>
       <Button>
         <Box direction="row" gap="xsmall">
-          <Box background="orange!" pad="xsmall" round="medium">
-            <Aruba color="background" />
+          <Box pad="xsmall" round="medium">
+            <Aruba />
           </Box>
           <Box>
             <TextEmphasis size="xsmall">Aruba Network Manager</TextEmphasis>

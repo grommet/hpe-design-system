@@ -8,7 +8,7 @@ export const TagAttention = () => {
       <Card
         icon={
           <Tag
-            border={{ color: 'blue' }}
+            border={{ color: 'decorative-blue' }}
             value="New"
             margin={{ bottom: '3xsmall' }}
           />

@@ -94,7 +94,9 @@ export const SelectMultipleSelected = ({ id, ...rest }) => (
   <DropElement {...rest}>
     <Highlight
       id={id}
-      background="validation-ok"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-green', opacity: 'weak' }}
       direction="row"
       justify="between"
       align="center"
@@ -112,7 +114,13 @@ SelectMultipleSelected.propTypes = {
 
 export const SelectMultipleSearch = ({ id, ...rest }) => (
   <DropElement pad={{ horizontal: '3xsmall' }} {...rest}>
-    <Highlight id={id} background="teal" pad="none">
+    <Highlight
+      id={id}
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-blue', opacity: 'weak' }}
+      pad="none"
+    >
       <TextInput placeholder="Search" />
     </Highlight>
   </DropElement>
@@ -124,7 +132,12 @@ SelectMultipleSearch.propTypes = {
 
 export const SelectMultipleLimit = ({ id, limit, ...rest }) => (
   <DropElement pad={{ horizontal: '3xsmall', top: '3xsmall' }} {...rest}>
-    <Highlight id={id} background="validation-warning">
+    <Highlight
+      id={id}
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-cyan', opacity: 'weak' }}
+    >
       <Text size="small">{`Select up to ${limit}`}</Text>
     </Highlight>
   </DropElement>
@@ -141,7 +154,13 @@ export const SelectMultipleOptions = ({ id, ...rest }) => (
       {options.map(label => (
         <Highlight
           id={label === highlightedOption ? 'listItem' : undefined}
-          background={label === highlightedOption ? 'yellow' : undefined}
+          background={
+            label === highlightedOption
+              ? // TODO: Using opacity weak is a temporary solution until
+                // we have a wider range of colors in the theme.
+                { color: 'decorative-purple', opacity: 'weak' }
+              : undefined
+          }
           pad="none"
           key={label}
         >

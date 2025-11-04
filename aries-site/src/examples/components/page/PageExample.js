@@ -22,8 +22,20 @@ export const PageExample = () => (
       gap="xsmall"
       {...demoStyle}
     >
-      <ContentArea title="Page header" border background="purple!" />
-      <ContentArea title="Other content" border background="orange">
+      <ContentArea
+        title="Page header"
+        border
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-purple', opacity: 'weak' }}
+      />
+      <ContentArea
+        title="Other content"
+        border
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+      >
         <Paragraph color="text-strong" margin={{ bottom: 'none' }}>
           Page is a container providing context (i.e. instructions) for how
           content should be laid out on a page.

@@ -36,12 +36,12 @@ Object.keys(tokens).forEach(mode => {
   });
 });
 
-const ColorPreview = ({ datum, ...rest }) => (
+const ColorPreview = ({ background, datum, ...rest }) => (
   <Box
     pad="medium"
     round="xsmall"
     flex={false}
-    background={datum.value}
+    background={background || datum.value}
     border={{ color: 'border-weak' }}
     {...rest}
   />

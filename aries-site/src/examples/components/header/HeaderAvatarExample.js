@@ -25,7 +25,12 @@ export const HeaderAvatarExample = () => (
       </Box>
     </Button>
     <Button>
-      <Avatar background="background-contrast">ES</Avatar>
+      {/* TODO: Consider a different background here. Temporary 
+      solution until there is a wider range of colors in the 
+      theme. */}
+      <Avatar background="decorative-green">
+        <Text color="text-strong">ES</Text>
+      </Avatar>
     </Button>
   </Header>
 );

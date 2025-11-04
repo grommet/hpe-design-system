@@ -86,7 +86,7 @@ const CardExample = ({ ...rest }) => (
       <Box gap="3xsmall">
         <>
           <DashedBox id="icon" margin={{ bottom: 'xsmall' }}>
-            <Notes color="blue" />
+            <Notes color="decorative-blue" />
           </DashedBox>
           <DashedBox id="title">
             <Heading level={3} margin="none">
