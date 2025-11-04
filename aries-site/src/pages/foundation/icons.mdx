@@ -23,6 +23,7 @@ Icons should support recognition, not create ambiguity. Familiar, universal symb
 
 The HPE icon library is semantically named to indicate each icon’s intended usage. Every icon includes metadata to improve discovery and provide additional context about its purpose.
 
+
 - Use icons only when their meaning is clear and purposeful.
 - Pair unfamiliar icons with a text label to aid comprehension.
 - If an icon always needs a label to be understood, consider using text alone.
@@ -30,15 +31,16 @@ The HPE icon library is semantically named to indicate each icon’s intended us
 - Keep icons visually consistent with the library’s size, and color standards.
 - Use decorative icons sparingly — they should enhance, not distract.
 
-  <Button
-    icon={<Figma color="plain" />}
-    label="Open in Figma"
-    target="_blank"
-    secondary
-    href="https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons-V2-%E2%80%93-Production?node-id=0-1"
-    rel="noreferrer noopener"
-    alignSelf="start"
-  />
+
+<Button
+  icon={<Figma color="plain" />}
+  label="Open in Figma"
+  target="_blank"
+  secondary
+  href="https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons-V2-%E2%80%93-Production?node-id=0-1"
+  rel="noreferrer noopener"
+  alignSelf="start"
+/>
 
 ### Developing with HPE Icons
 
@@ -64,7 +66,7 @@ The default icon size is medium. Icons can be scaled using predefined size optio
 ### Icon color
 
 Standalone icon components use the default color token **icon-default**.\
-Decorative icons may also use **icon-strong**, **icon-weak**, **icon-disabled**, or **icon-primary** to convey emphasis or state.\
+Decorative icons may also use **icon-strong**, **icon-weak**, **icon-disabled**, or **icon-primary** to convey emphasis or state.
 
 Non-semantic icons, such as brand or third-party SVGs, should display their native colors. To preserve their original styling, apply the prop **color="plain"**.
 
