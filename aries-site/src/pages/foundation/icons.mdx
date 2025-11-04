@@ -76,7 +76,7 @@ Non-semantic icons, such as brand or third-party SVGs, should display their nati
 
 ### Status icons
 
-Status icons are reserved for drawing attention to information about system health. They must be paired with the appropriate status color as defined by brand.
+Status icons are reserved for drawing attention to information about system health.
 
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconStatusExample.js">
   <IconStatusExample />
@@ -84,22 +84,12 @@ Status icons are reserved for drawing attention to information about system heal
 
 ### Aligning with text
 
-When icons are displayed inline with text in a row using `align="start"`, apply a height property to the icon.
-Set the height value to match the T-shirt size of the accompanying text — for example, use height="medium" when placed beside medium (default) text.
+When icons appear inline with text, set the `height` to match the text's size prop to ensure visual alignment.
 
-The height property is only required when the parent row uses `align="start"`.
-
-In the HPE theme, icons are sized relative to font size rather than line height. This provides a more balanced visual relationship between icons and text. Applying a height value ensures the icon receives the correct top and bottom padding to align visually with the text’s line height.
 
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/icons/IconHeightExample.js">
   <IconHeightExample />
 </Example>
-
-### Accessibility
-
-Each icon includes an aria-label to support screen readers.\
-Use the **a11yTitle** prop to override or customize the default label when needed.\
-Ensure icon colors maintain sufficient contrast against their background in accordance with WCAG guidelines.
 
 ### Icons within components
 
@@ -141,3 +131,13 @@ These icons represent actions that adjust or toggle the state of an individual c
 These icons support users by offering extra context, guidance, or help content.
 
 <IconInformationalExample />
+
+## Accessibility
+
+### Screen reader
+Each icon includes an aria-label to support screen readers.\
+Use the **a11yTitle** prop to override or customize the default label when needed.
+
+### Color contrast
+Ensure icon colors maintain sufficient contrast against their background in accordance with WCAG guidelines.
+
