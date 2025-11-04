@@ -2,7 +2,7 @@ export * from './AIGenFill';
 export * from './AIGen';
 export * from './AISystems';
 export * from './Sd';
-export * from './VMMaintenance';
+export * from './VmMaintenance';
 export * from './Accessibility';
 export * from './Achievement';
 export * from './Actions';
