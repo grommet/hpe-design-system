@@ -22,9 +22,12 @@ function getIconName(filename: string): string {
   return nameWithoutExt.charAt(0).toUpperCase() + nameWithoutExt.slice(1);
 }
 
-const iconFiles = Object.keys(allIcons).map(getIconFileName);
-const iconNames = Object.keys(iconFiles).map(getIconName);
+const icons: { [key: string]: string } = { };
 
-export const IconFiles = iconFiles;
-export const IconNames = iconNames;
-export default iconFiles;
+const iconFiles = Object.keys(allIcons).map(getIconFileName);
+
+iconFiles.forEach(fileName => {
+  icons[getIconName(fileName)] = fileName;
+}); 
+
+export default icons;
