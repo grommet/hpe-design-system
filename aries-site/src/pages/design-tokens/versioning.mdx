@@ -25,17 +25,35 @@ import { Example } from '../../layouts';
 
 ## Production-ready versions
 
+### ^2.0.0
+
+This release, referred to as "v2-Landmark," provides production-ready support for HPE's refreshed visual identity (October 2025 - present). It introduces the new Landmark color palette and the HPE Graphik font face to align with the updated brand expression.
+
+For Grommet applications, v2-Landmark is available by [grommet-theme-hpe v8.x](https://github.com/grommet/grommet-theme-hpe/releases/tag/v8.0.0)
+
+In the [HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this is the default theme.
+
 ### ^1.0.0
 
-This release provides production-ready support with styles in alignment with the latest HPE theme (February 2025 - present).
+<Notification
+  status="info"
+  message="This HPE theme was introduced in February 2025. Teams should coordinate with their product management and HPE brand for upgrade timelines to v2-Landmark."
+  width={{ max: 'xlarge' }}
+/>
+<br />
+This HPE theme was introduced in February 2025.
 
-In the [new HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this is the default theme.
+For Grommet applications, v1 is made available in grommet-theme-hpe versions [6.x](https://github.com/grommet/grommet-theme-hpe/releases/tag/v6.0.0) - [7.x](https://github.com/grommet/grommet-theme-hpe/releases/tag/v7.0.0).
+
+In the [HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this can be opted into by changing variables to use the "v1" modes. View the [Themes and modes](https://www.figma.com/design/2CGX8BHVhxV3VKhlymv36y/Guide---Themes-and-Modes?node-id=32-267&t=t0OeJSFRbRMEuDXv-0) file in Figma to learn more about opting into different theme versions.
 
 ### ^0.9.0
 
-This release provides production-ready support with styles in alignment with the previous HPE theme (May 2023 - January 2025 [grommet-theme-hpe v5](https://github.com/grommet/grommet-theme-hpe/releases/tag/v5.8.0)).
+This version served as the HPE theme from May 2023 through January 2025.
 
-In the [new HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this can be opted into by changing variables to use the "v0" modes.
+This version is available in [grommet-theme-hpe v5.x](https://github.com/grommet/grommet-theme-hpe/releases/tag/v5.8.0).
+
+In the [HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this can be opted into by changing variables to use the "v0" modes. View the [Themes and modes](https://www.figma.com/design/2CGX8BHVhxV3VKhlymv36y/Guide---Themes-and-Modes?m=auto&t=S46XDDtRKeksmQ1c-6) file in Figma to learn more about opting into different theme versions.
 
 <Notification
   status="info"
@@ -43,6 +61,14 @@ In the [new HPE Design System Figma Component Library](https://www.figma.com/des
   title="Recommendation"
   message="To ease adoption of hpe-design-tokens, it is recommended to use v0.9.0 for initial mapping of tokens to local components. This will achieve style parity with an application's current look and allow quality assurance against familiar styling. When ready, teams can simply upgrade to v1 to view the latest theme styles."
 />
+
+## Migration
+
+### Migrating from v1 to v2
+
+v2-Landmark introduces significant updates to align with HPE's refreshed visual identity. This is a major version change reflecting a new brand expression and includes breaking changes.
+
+A full list of changes and detailed instructions can be found in the [Migrating from hpe-design-tokens v1 to v2-Landmark guide](https://github.com/grommet/hpe-design-system/wiki/Migrating-from-hpe%E2%80%90design%E2%80%90tokens-v1-to-v2%E2%80%90Landmark) and the [grommet-theme-hpe v7 to v8 Migration Guide](https://github.com/grommet/grommet-theme-hpe/wiki/Migrating-from-HPE-Theme-7.x-to-8.x).
 
 ### Migrating from v0.9.0 to v1.0.0
 
