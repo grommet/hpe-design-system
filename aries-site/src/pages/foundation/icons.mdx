@@ -24,12 +24,13 @@ Icons should support recognition, not create ambiguity. Familiar, universal symb
 Icons in the HPE icon library are semantically named to indicate each icon’s intended usage. Every icon includes metadata to improve discovery and provide additional context about its purpose.
 
 
-- Use icons only when their meaning is clear and purposeful.
-- Pair unfamiliar icons with a text label to aid comprehension.
-- If an icon always needs a label to be understood, consider using text alone.
-- Avoid re-using the same symbol for different meanings across products.
+- Use icons only when their meaning is clear and supports the context.
+- Pair abstract icons with text labels to aid comprehension.
+- If an icon always requires a label to be understood, use text alone.
+- Avoid using the same symbol to represent different meanings across products.
 - Keep icons visually consistent with the library’s size, and color standards.
-- Use decorative icons sparingly — they should enhance, not distract.
+- Use decorative icons sparingly — they should support, not compete with, content.
+
 
 
 <Button
@@ -43,6 +44,10 @@ Icons in the HPE icon library are semantically named to indicate each icon’s i
 />
 
 ### Developing with HPE Icons
+
+Explore the [HPE Icons Storybook](https://hpe-design-icons-grommet.netlify.app/) for interactive examples and implementation details.
+
+
 
 For guidance on installing and migrating to use the @hpe-design/icons-grommet icons in your application, refer to the migration documentation.
 
@@ -135,8 +140,9 @@ These icons support users by offering extra context, guidance, or help content.
 ## Accessibility
 
 ### Screen reader
-Each icon includes an aria-label to support screen readers.\
-Use the **a11yTitle** prop to override or customize the default label when needed.
+Each icon includes an `aria-label` to support screen readers.\
+Use the `11yTitle` prop to override or customize the default label when needed.\
+Icons used for decorative purposes only should have `aria-hidden` to prevent labels with no meaning from being read by screen readers.
 
 ### Color contrast
 Ensure icon colors maintain sufficient contrast against their background in accordance with WCAG guidelines.
