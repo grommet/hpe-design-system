@@ -1,103 +1,104 @@
 import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   Box,
   Card,
-  Grid,
   Heading,
   PageContent,
   Paragraph,
-  ResponsiveContext,
-  Stack,
 } from 'grommet';
 
 import PropTypes from 'prop-types';
 
+// Main homepage for HPE Design System
 import { Meta } from '../components';
 import {
   Community,
   Featured,
-  Hero,
   Highlights,
   Quote,
   Video,
   WhatIs,
 } from '../components/home';
+import { Header } from '../layouts/main/Header';
 import { getPageDetails } from '../utils';
 
 const title = 'Home';
 const pageDetails = getPageDetails(title);
 
 // These make a box width limited to xxlarge but centered
+// Used to center sections with max width
 const widthProps = { margin: 'auto' };
 
-const Intro = ({ children }) => {
-  const size = useContext(ResponsiveContext);
-  return ['xsmall', 'small'].includes(size) ? (
-    <PageContent>
-      <Hero height={{ max: '292px' }} margin={{ bottom: '-24px' }} />
-      <Card background="none" elevation="none">
-        {children}
-      </Card>
-    </PageContent>
-  ) : (
-    <Stack guidingChild="last">
-      <PageContent
-        align="start"
-        justify="between"
-        direction="row"
-        fill
-        {...widthProps}
-      >
-        <Box width="xsmall" />
-        <Hero />
-      </PageContent>
-      <PageContent height={{ min: 'medium' }} justify="center" {...widthProps}>
-        <Grid
-          gap="xlarge"
-          columns={
-            ['xsmall', 'small'].includes(size) ? ['auto'] : ['3/4', 'auto']
-          }
-        >
-          <Card background="none" elevation="none">
-            {children}
-          </Card>
-          {!['xsmall', 'small'].includes(size) && (
-            <Card background="none" elevation="none" height="xsmall" />
-          )}
-        </Grid>
-      </PageContent>
-    </Stack>
-  );
-};
+// Intro section wrapper for hero content
+const Intro = ({ children }) => (
+  <PageContent>
+    <Card background="none" elevation="none">
+      {children}
+    </Card>
+  </PageContent>
+);
 
 Intro.propTypes = {
   children: PropTypes.node,
 };
 
-const Index = () => (
-  <>
-    <Meta title={title} description={pageDetails.seoDescription} />
-    <Box>
-      <Intro>
-        {/* custom width ensures "and deliver" is on second line */}
-        <Box width={{ max: '700px' }}>
-          <Heading margin="none" size="large">
-            Design, develop and deliver
-          </Heading>
-          <Paragraph size="xlarge">
-            Empower designers and developers to quickly create accessible
-            enterprise app experiences.
-          </Paragraph>
-        </Box>
-      </Intro>
-      <Featured {...widthProps} />
-      <WhatIs {...widthProps} />
-      <Video {...widthProps} />
-      <Highlights {...widthProps} />
-      <Quote />
-      <Community {...widthProps} />
-    </Box>
-  </>
-);
+// Homepage component with dark mode background switching
+const Index = () => {
+  // Get current theme mode for background switching
+  const theme = useContext(ThemeContext);
+  const isDark = theme?.dark;
+  // Use different background image for dark mode
+  const bgImage = isDark
+    ? 'url(/images/main-bg-dark.jpg)'
+    : 'url(/images/main-bg.jpg)';
+
+  return (
+    <>
+      <Meta title={title} description={pageDetails.seoDescription} />
+  {/* Homepage: header and hero share the same background image */}
+      <Box
+        fill
+        background={{
+          image: bgImage,
+          size: '100%',
+          position: 'center top',
+        }}
+      >
+    {/* Homepage header, contained and integrated with main-bg */}
+        <PageContent>
+          <Header background="transparent" />
+        </PageContent>
+        <Intro>
+    {/* custom width ensures "and deliver" is on second line */}
+          <Box style={{ maxWidth: 1103, margin: '56px auto' }}>
+            <Heading
+              margin="none"
+              size="medium"
+              textAlign="center"
+              style={{ maxWidth: 'none' }}
+            >
+              Design, develop and deliver
+            </Heading>
+            <Paragraph
+              size="xlarge"
+              textAlign="center"
+              style={{ maxWidth: 'none', fontSize: '2rem', lineHeight: '3rem' }}
+            >
+              Empower designers and developers to quickly create accessible
+              enterprise app experiences.
+            </Paragraph>
+          </Box>
+        </Intro>
+        <Featured {...widthProps} />
+        <WhatIs {...widthProps} />
+        <Video {...widthProps} />
+        <Highlights {...widthProps} />
+        <Quote />
+        <Community {...widthProps} />
+      </Box>
+    </>
+  );
+};
 
 export default Index;

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
@@ -8,7 +9,8 @@ import { ThemeModeToggle, AppIdentity } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
-const StyledHeader = ({ ...rest }) => {
+// Accept a background prop to allow transparent header on homepage
+const StyledHeader = ({ background = 'white', ...rest }) => {
   const pageDetails = getPageDetails('Home');
   const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
   const [showSearch, setShowSearch] = useState(false);
@@ -20,6 +22,7 @@ const StyledHeader = ({ ...rest }) => {
       pad={{
         vertical: 'medium',
       }}
+      background={background}
       {...rest}
     >
       <Link href="/" passHref legacyBehavior>
@@ -54,4 +57,7 @@ const StyledHeader = ({ ...rest }) => {
   );
 };
 
+StyledHeader.propTypes = {
+  background: PropTypes.string,
+};
 export { StyledHeader as Header };

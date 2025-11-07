@@ -160,11 +160,24 @@ export const Layout = ({
           <>
             <SkipLinks id="skip-links">
               {skiplinks.map(({ id, label }) => (
-                <SkipLink key={id} id={id} label={label} />
+                  <SkipLink
+                    key={id}
+                    id={id}
+                    label={label}
+                  />
               ))}
             </SkipLinks>
             <PageContent>
-              <Header fill="horizontal" alignSelf="center" />
+              {/* Only render Header for non-home pages.
+              Homepage header is be rendered in index.js
+              to have the same background as the hero. */}
+              {title && title.toLowerCase() !== 'home' && (
+                <Header
+                  fill="horizontal"
+                  alignSelf="center"
+                  background="transparent"
+                />
+              )}
             </PageContent>
             <MainContentWrapper>
               <Main overflow="visible">
