@@ -57,20 +57,21 @@ const Index = () => {
     <>
       <Meta title={title} description={pageDetails.seoDescription} />
   {/* Homepage: header and hero share the same background image */}
+  {/* The 34% background size covers widths from 768px to 3578px.
+  Recalculate when redesign implementation is done. */}
       <Box
         fill
         background={{
           image: bgImage,
-          size: '100%',
+          size: 'auto 34%',
           position: 'center top',
         }}
       >
-    {/* Homepage header, contained and integrated with main-bg */}
+    {/* Homepage header, contained and integrated with same background image */}
         <PageContent>
           <Header background="transparent" />
         </PageContent>
         <Intro>
-    {/* custom width ensures "and deliver" is on second line */}
           <Box style={{ maxWidth: 1103, margin: '56px auto' }}>
             <Heading
               margin="none"
