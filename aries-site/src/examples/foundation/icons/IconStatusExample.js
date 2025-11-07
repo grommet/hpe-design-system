@@ -16,6 +16,5 @@ export const IconStatusExample = () => (
     <StatusGood color="icon-ok" size="xxlarge" />
     <StatusInfo color="icon-info" size="xxlarge" />
     <StatusUnknown color="icon-unknown" size="xxlarge" />
-    <StatusDisabled color="icon-disabled" size="xxlarge" />
   </Box>
 );
