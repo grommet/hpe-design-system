@@ -5,81 +5,127 @@ import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
 import { DesignTokensTable } from '../../components';
 import { SpacingBestPractices } from '../../examples';
 
-## Foundational scale
+Layout and spacing tokens define the dimensional foundation for building consistent interfaces. These tokens control container sizes, spacing, corner radius, and border widths.
 
-Below is a snippet from Grommet's [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) theme file where the calculations and resulting pixel values for the t-shirt sizes driving the height/width for components such as [Box](/components/box) are defined. The `base.js` theme establishes many of the defaults leveraged across Grommet applications.
+## Current version: v7
 
-```
-// base.js in Grommet
+The v7 scale introduced intermediate sizes and renamed tokens for improved granularity and consistency. Built from dual base units (`24px` primary and `16px` supplementary), the scale follows a proportional doubling/halving pattern.
 
-xxsmall: `${baseSpacing * 2}px`, // 48px
-xsmall: `${baseSpacing * 4}px`, // 96px
-small: `${baseSpacing * 8}px`, // 192px
-medium: `${baseSpacing * 16}px`, // 384px
-large: `${baseSpacing * 32}px`, // 768px
-xlarge: `${baseSpacing * 48}px`, // 1152px
-xxlarge: `${baseSpacing * 64}px`, // 1536px
-full: '100%',
-```
+Primary ladder (24×2ⁿ) yields 24, 48, 96, 192, 384, 768, 1536. Supplementary ladder (16×2ⁿ) yields 16, 32, 64, 128, 256, 512, 1024. Interleaving creates a smooth progression without arbitrary values.
+
+**Note:** Version numbers refer to [Grommet HPE theme versions](https://github.com/grommet/grommet-theme-hpe/releases).
+
+**Key v7 improvements:**
+- Added 5 new intermediate sizes for finer control
+- Renamed tokens for clearer size progression (e.g., `xxsmall` → `5xsmall`)
+- Simplified border sizes, removed overly thick options
+- Added `none` and `default` values where appropriate
+
+See [T-shirt sizing foundation](/foundation/tshirt-sizing) for conceptual understanding of the scale principles.
 
 ## Spacing
 
-### Technical implementation
-
-Pad, gap, and margin are controlled by `edgeSize` and the corresponding pixel values also come from [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) in Grommet.
-
-```
-// base.js in Grommet
-
-edgeSize: {
-    none: '0px',
-    hair: '1px', // for Chart
-    xxsmall: `${baseSpacing / 8}px`, // 3
-    xsmall: `${baseSpacing / 4}px`, // 6
-    small: `${baseSpacing / 2}px`, // 12
-    medium: `${baseSpacing}px`, // 24
-    large: `${baseSpacing * 2}px`, // 48
-    xlarge: `${baseSpacing * 4}px`, // 96
-
-}
-```
+Spacing tokens control `pad`, `gap`, and `margin` through `edgeSize`.
 
 <ContentPane>
   <DesignTokensTable active="semantic.spacing" toolbar />
 </ContentPane>
 
+### v6 → v7 migration
+
+| v6 and below | v6 Value | v7 and above | v7 Value | Notes |
+|----------|----------|----------|----------|-------|
+| - | - | `none` | 0px | New zero spacing step |
+| - | - | `hair` | 1px | New minimal spacing step |
+| `xxsmall` | 3px | `5xsmall` | 3px | Renamed for clarity |
+| - | - | `4xsmall` | 4px | New intermediate size |
+| `xsmall` | 6px | `3xsmall` | 6px | Renamed for clarity |
+| - | - | `xxsmall` | 8px | New intermediate size |
+| `small` | 12px | `xsmall` | 12px | Renamed for clarity |
+| - | - | `small` | 16px | New intermediate size |
+| `medium` | 24px | `medium` | 24px | Unchanged |
+| - | - | `large` | 32px | New intermediate size |
+| `large` | 48px | `xlarge` | 48px | Renamed for clarity |
+| - | - | `xxlarge` | 64px | New intermediate size |
+| `xlarge` | 96px | `3xlarge` | 96px | Renamed for clarity |
+
 ## Containers
+
+Container tokens define `width` and `height` dimensions for components such as [Box](/components/box).
 
 <ContentPane>
   <DesignTokensTable active="semantic.container" />
 </ContentPane>
 
+### v6 → v7 migration
+
+| v6 and below | v6 Value | v7 and above | v7 Value | Notes |
+|----------|----------|----------|----------|-------|
+| `xxsmall` | 48px | `5xsmall` | 48px | Renamed for clarity |
+| - | - | `4xsmall` | 64px | New intermediate size |
+| `xsmall` | 96px | `3xsmall` | 96px | Renamed for clarity |
+| - | - | `xxsmall` | 128px | New intermediate size |
+| `small` | 192px | `xsmall` | 192px | Renamed for clarity |
+| - | - | `small` | 256px | New intermediate size |
+| `medium` | 384px | `medium` | 384px | Unchanged |
+| - | - | `large` | 512px | New intermediate size |
+| `large` | 768px | `xlarge` | 768px | Renamed for clarity |
+| `xlarge` | 1152px | `xxlarge` | 1024px | Value adjusted and renamed for clarity |
+| `xxlarge` | 1536px | `3xlarge` | 1536px | Renamed for clarity |
+
 ## Radius
+
+Radius tokens define corner rounding for elements.
 
 <ContentPane>
   <DesignTokensTable active="semantic.radius" toolbar />
 </ContentPane>
 
+### v6 → v7 migration
+
+| v6 and below | v6 Value | v7 and above | v7 Value | Notes |
+|----------|----------|----------|----------|-------|
+| - | - | `none` | 0px | New zero radius |
+| - | - | `hair` | 1px | New minimal radius |
+| - | - | `xxsmall` | 2px | New intermediate radius |
+| - | - | `xsmall` | 4px | New intermediate radius |
+| `small` | 2px | `medium` | 2px | Renamed for clarity |
+| `medium` | 4px | `xlarge` | 4px | Renamed for clarity |
+| `large` | 8px | `xxlarge` | 8px | Renamed for clarity |
+| `xlarge` | 16px | `xxlarge` | 16px | Consolidated naming |
+| - | - | `full` | 9999px | Fully rounded corner |
+
 ## Border width
 
-Border width tokens define the thickness of a border.
-
-### Technical implementation
-
-Border sizing is controlled by `borderSize`.
-
-```
-// base.js in Grommet
-
-borderSize: {
-    xsmall: '1px',
-    small: '2px',
-    medium: `${baseSpacing / 6}px`, // 4
-    large: `${baseSpacing / 2}px`, // 12
-    xlarge: `${baseSpacing}px`, // 24
-}
-```
+Border width tokens control border thickness through `borderSize`.
 
 <ContentPane>
   <DesignTokensTable active="semantic.borderWidth" toolbar />
 </ContentPane>
+
+### v6 → v7 migration
+
+| v6 and below | v6 Value | v7 and above | v7 Value | Notes |
+|----------|----------|----------|----------|-------|
+| - | - | `none` | 0px | New in v7 |
+| `xsmall` | 1px | `xsmall` | 1px | Unchanged |
+| `small` | 2px | `small` | 2px | Unchanged |
+| `medium` | 4px | `medium` | 4px | Unchanged |
+| `large` | 12px | `large` | 6px | Value adjusted |
+| `xlarge` | 24px | - | - | Removed, too thick |
+| - | - | `default` | 1px | New default value |
+
+## Migration guide
+
+Upgrading from v6 to v7 requires updating token names and reviewing sizing choices where intermediate sizes now exist.
+
+**Migration strategy:**
+1. **Spacing and containers**: Most v6 tokens map to renamed v7 equivalents (e.g., `small` → `xsmall`, `large` → `xlarge`)
+2. **Consider intermediate sizes**: New options like `small`, `large`, `xxsmall`, `xxlarge` may better fit your needs
+3. **Border widths**: Replace removed `large` (12px) and `xlarge` (24px) with smaller alternatives
+4. **Test responsive behavior**: The scale now steps down more granularly at breakpoints
+
+**Automated migration:**
+Use the codemods provided in the migration guide to update token references automatically.
+
+See the complete [v6 to v7 migration guide](https://github.com/grommet/hpe-design-system/blob/master/packages/codemods/migration_guides/MIGRATE_THEME_V6_TO_V7.md) for detailed instructions, code examples, and automated migration tools.
