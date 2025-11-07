@@ -4,7 +4,7 @@ import { ButtonSizingExample, SpacingBestPractices } from '../../examples';
 
 ## What is t-shirt sizing?
 
-T-shirt sizing is a tokenized scale that maps familiar clothing sizes (`small`, `medium`, `large`, etc.) to specific pixel values for component sizing and spacing.
+T-shirt sizing is a tokenized scale that maps familiar clothing sizes (`small`, `medium`, `large`, etc.) to specific pixel values for sizing and spacing.
 
 Prefer t‑shirt size tokens over hard pixel values. If a new value is needed, report it so it can be added as a token.
 
@@ -27,7 +27,7 @@ Built from dual base units: `24px` (primary) and `16px` (supplementary). The pri
 
 **Pixel progression:** 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536
 
-See [Layout and Spacing design tokens](/design-tokens/layout-and-spacing) for precise pixel values and implementation details.
+See [Layout and Spacing design tokens](/design-tokens/layout-and-spacing) for precise pixel values, implementation and versioning details.
 
 ## Composability
 
@@ -113,8 +113,7 @@ Control spacing using t-shirt sizes for `pad`, `gap`, `margin`, and `border`.
 
 ## Borders
 
-- Use named border sizes to reinforce scale consistency.
-- Avoid arbitrary pixel borders; Instead apply `border={{ size: 'small' }}`.
+Use named border size tokens to keep borders aligned with the scale. Avoid arbitrary pixel widths; apply them via the border prop, e.g. `border={{ size: 'small' }}`.
 
 ```
 <Box 
@@ -133,19 +132,15 @@ Control spacing using t-shirt sizes for `pad`, `gap`, `margin`, and `border`.
 
 ## Containers
 
-- Limit width/height constraints to named container tokens to preserve responsive flow.
-- Avoid unnecessary restriction; Instead favor [content-driven layouts](/templates/content-layouts#content-driven-layouts).
-- Provide 11 container tokens for varied layout needs.
+Use container size tokens for width and height constraints to preserve responsive flow. Avoid over‑constraining; prefer [content-driven layouts](/templates/content-layouts#content-driven-layouts).
 
 ## Radius
 
-- Use larger radius values for higher-level sections; Limit inner elements to smaller radii.
-- Prevent inconsistent corner treatment; Always apply a named radius token.
+Apply larger radius tokens to high‑level sections and smaller radii to inner elements to maintain visual hierarchy.
 
 ## Default Size
 
-- Recognize `medium` as the implicit `size` for components exposing `size`.
-- Omit `size="medium"` to reduce noise when default behavior is desired.
+Treat `medium` as the implicit size for components with a `size` prop; omit `size="medium"` when using the default to reduce noise.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"

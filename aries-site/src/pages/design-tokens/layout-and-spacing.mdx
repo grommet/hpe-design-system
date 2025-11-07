@@ -7,7 +7,45 @@ import { SpacingBestPractices } from '../../examples';
 
 Layout and spacing tokens define the dimensional foundation for building consistent interfaces. These tokens control container sizes, spacing, corner radius, and border widths.
 
-## Current version: v7
+
+## Spacing
+
+Spacing tokens control `pad`, `gap`, and `margin` through `edgeSize`.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.spacing" toolbar />
+</ContentPane>
+
+
+## Containers
+
+Container tokens define `width` and `height` dimensions for components such as [Box](/components/box).
+
+<ContentPane>
+  <DesignTokensTable active="semantic.container" />
+</ContentPane>
+
+
+## Radius
+
+Radius tokens define corner rounding for elements.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.radius" toolbar />
+</ContentPane>
+
+
+## Border width
+
+Border width tokens control border thickness through `borderSize`.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.borderWidth" toolbar />
+</ContentPane>
+
+## Versioning
+
+### Current version: v7
 
 The v7 scale introduced intermediate sizes and renamed tokens for improved granularity and consistency. Built from dual base units (`24px` primary and `16px` supplementary), the scale follows a proportional doubling/halving pattern.
 
@@ -23,15 +61,12 @@ Primary ladder (24×2ⁿ) yields 24, 48, 96, 192, 384, 768, 1536. Supplementary 
 
 See [T-shirt sizing foundation](/foundation/tshirt-sizing) for conceptual understanding of the scale principles.
 
-## Spacing
+### About v6
+Theme v6 used a single 24px base unit with a halving/doubling ladder for spacing (3 → 6 → 12 → 24 → 48 → 96), parallel container widths (48 → 96 → 192 → 384 → 768 → 1152 → 1536), four radius steps (2, 4, 8, 16), and five border widths (1, 2, 4, 12, 24), providing a compact, consistent token set.
 
-Spacing tokens control `pad`, `gap`, and `margin` through `edgeSize`.
+### v6 → v7 mappings
 
-<ContentPane>
-  <DesignTokensTable active="semantic.spacing" toolbar />
-</ContentPane>
-
-### v6 → v7 migration
+#### Spacing
 
 | v6 and below | v6 Value | v7 and above | v7 Value | Notes |
 |----------|----------|----------|----------|-------|
@@ -49,15 +84,7 @@ Spacing tokens control `pad`, `gap`, and `margin` through `edgeSize`.
 | - | - | `xxlarge` | 64px | New intermediate size |
 | `xlarge` | 96px | `3xlarge` | 96px | Renamed for clarity |
 
-## Containers
-
-Container tokens define `width` and `height` dimensions for components such as [Box](/components/box).
-
-<ContentPane>
-  <DesignTokensTable active="semantic.container" />
-</ContentPane>
-
-### v6 → v7 migration
+#### Containers
 
 | v6 and below | v6 Value | v7 and above | v7 Value | Notes |
 |----------|----------|----------|----------|-------|
@@ -73,15 +100,7 @@ Container tokens define `width` and `height` dimensions for components such as [
 | `xlarge` | 1152px | `xxlarge` | 1024px | Value adjusted and renamed for clarity |
 | `xxlarge` | 1536px | `3xlarge` | 1536px | Renamed for clarity |
 
-## Radius
-
-Radius tokens define corner rounding for elements.
-
-<ContentPane>
-  <DesignTokensTable active="semantic.radius" toolbar />
-</ContentPane>
-
-### v6 → v7 migration
+#### Radius
 
 | v6 and below | v6 Value | v7 and above | v7 Value | Notes |
 |----------|----------|----------|----------|-------|
@@ -95,15 +114,7 @@ Radius tokens define corner rounding for elements.
 | `xlarge` | 16px | `xxlarge` | 16px | Consolidated naming |
 | - | - | `full` | 9999px | Fully rounded corner |
 
-## Border width
-
-Border width tokens control border thickness through `borderSize`.
-
-<ContentPane>
-  <DesignTokensTable active="semantic.borderWidth" toolbar />
-</ContentPane>
-
-### v6 → v7 migration
+#### Border width
 
 | v6 and below | v6 Value | v7 and above | v7 Value | Notes |
 |----------|----------|----------|----------|-------|
@@ -115,7 +126,7 @@ Border width tokens control border thickness through `borderSize`.
 | `xlarge` | 24px | - | - | Removed, too thick |
 | - | - | `default` | 1px | New default value |
 
-## Migration guide
+### Migration guide
 
 Upgrading from v6 to v7 requires updating token names and reviewing sizing choices where intermediate sizes now exist.
 
@@ -129,3 +140,6 @@ Upgrading from v6 to v7 requires updating token names and reviewing sizing choic
 Use the codemods provided in the migration guide to update token references automatically.
 
 See the complete [v6 to v7 migration guide](https://github.com/grommet/hpe-design-system/blob/master/packages/codemods/migration_guides/MIGRATE_THEME_V6_TO_V7.md) for detailed instructions, code examples, and automated migration tools.
+
+
+
