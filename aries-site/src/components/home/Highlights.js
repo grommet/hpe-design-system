@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+// eslint-disable-next-line import/no-unresolved
+import * as tokens from 'hpe-design-tokens/docs';
 import {
   Box,
   Button,
@@ -9,6 +11,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
+import { LinkNext } from 'grommet-icons';
 
 import Link from 'next/link';
 
@@ -49,6 +52,9 @@ const HighlightsLayout = () => {
                 </Heading>
                 <Paragraph margin="none">{summary}</Paragraph>
               </Box>
+              <Box align="end" justify="start" height="xxsmall">
+                <Button icon={<LinkNext />} plain a11yTitle='Learn more'/>
+              </Box>
             </Box>
           </ContentPreviewCard>
         );
@@ -58,19 +64,22 @@ const HighlightsLayout = () => {
 };
 
 export const Highlights = ({ ...rest }) => (
-  <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+  <PageContent
+    background={{ fill: 'horizontal', color: 'background-back' }}
+    pad="xxlarge"
+  >
     <Box fill gap="medium" pad={{ vertical: 'xlarge' }} {...rest}>
       <Box justify="center" align="center" gap="xlarge">
-        <Heading margin="none" level={2} size="large">
-          Highlights
+        <Heading
+          margin="large"
+          level={3}
+          style={{
+            fontSize: tokens.dimension['hpe.text.4xlarge.fontSize']?.$value,
+            lineHeight: tokens.dimension['hpe.text.4xlarge.lineHeight']?.$value,
+          }}
+        >
+          System Assets
         </Heading>
-        <Box width="xlarge" pad={{ bottom: 'medium' }}>
-          <Paragraph size="xlarge" fill textAlign="center" margin="none">
-            The HPE Design System team is committed to conducting thorough
-            research so you don't have to think about it. Just find what you
-            need, design and deliver quickly!
-          </Paragraph>
-        </Box>
       </Box>
       <HighlightsLayout />
       <Box
@@ -80,7 +89,7 @@ export const Highlights = ({ ...rest }) => (
         pad={{ vertical: 'medium' }}
       >
         <Link href="/showmore" passHref legacyBehavior>
-          <Button primary label="Show me more" />
+          <Button secondary label="Show me more" />
         </Link>
       </Box>
     </Box>

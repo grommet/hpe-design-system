@@ -9,9 +9,9 @@ const FeaturedLayout = ({ ...rest }) => (
   <PageContent {...rest}>
     <Box align="center" justify="center" fill={false}>
       <Grid
-        columns={['384px', '384px']}
+        columns={['medium', 'medium']}
         gap="medium"
-        pad={{ bottom: '96px' }}
+        pad={{ bottom: '3xlarge' }}
         fill={false}
       >
         {featured.map(({ name, description, icon, url }) => (
@@ -19,7 +19,6 @@ const FeaturedLayout = ({ ...rest }) => (
             key={name}
             href={url || nameToPath(name)}
             pad="xlarge"
-            style={{ maxWidth: 436 }}
           >
             <Box
               width="100%"

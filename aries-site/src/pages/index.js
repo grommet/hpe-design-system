@@ -7,19 +7,13 @@ import {
   PageContent,
   Paragraph,
 } from 'grommet';
-
+// eslint-disable-next-line import/no-unresolved
+import * as tokens from 'hpe-design-tokens/docs';
 import PropTypes from 'prop-types';
-
 // Main homepage for HPE Design System
 import { Meta } from '../components';
-import {
-  Community,
-  Featured,
-  Highlights,
-  Quote,
-  Video,
-  WhatIs,
-} from '../components/home';
+import { Community, Featured, Highlights, Quote, WhatIs }
+ from '../components/home';
 import { Header } from '../layouts/main/Header';
 import { getPageDetails } from '../utils';
 
@@ -56,23 +50,22 @@ const Index = () => {
   return (
     <>
       <Meta title={title} description={pageDetails.seoDescription} />
-  {/* Homepage: header and hero share the same background image */}
-  {/* The 34% background size covers widths from 768px to 3578px.
-  Recalculate when redesign implementation is done. */}
+      {/* Homepage: header and hero share the same background image */}
+      {/* The 55% background size covers widths from 768px to 3578px.
+      Recalculate when redesign implementation is done. */}
       <Box
         fill
         background={{
           image: bgImage,
-          size: 'auto 34%',
+          size: 'auto 55%',
           position: 'center top',
         }}
       >
-    {/* Homepage header, contained and integrated with same background image */}
         <PageContent>
           <Header background="transparent" />
         </PageContent>
         <Intro>
-          <Box style={{ maxWidth: 1103, margin: '56px auto' }}>
+          <Box style={{ maxWidth: 1103, margin: '48px auto' }}>
             <Heading
               margin="none"
               size="medium"
@@ -84,16 +77,21 @@ const Index = () => {
             <Paragraph
               size="xlarge"
               textAlign="center"
-              style={{ maxWidth: 'none', fontSize: '2rem', lineHeight: '3rem' }}
+              style={{
+                maxWidth: 'none',
+                fontSize: tokens.dimension
+                ['hpe.text.3xlarge.fontSize']?.$value,
+                lineHeight: tokens.dimension
+                ['hpe.text.3xlarge.lineHeight']?.$value,
+              }}
             >
-              Empower designers and developers to quickly create accessible
-              enterprise app experiences.
+              Empower designers and developers to quickly create
+              accessible enterprise app experiences.
             </Paragraph>
           </Box>
         </Intro>
         <Featured {...widthProps} />
         <WhatIs {...widthProps} />
-        <Video {...widthProps} />
         <Highlights {...widthProps} />
         <Quote />
         <Community {...widthProps} />

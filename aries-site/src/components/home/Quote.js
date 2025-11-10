@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+// eslint-disable-next-line import/no-unresolved
+import * as tokens from 'hpe-design-tokens/docs';
 import {
   Avatar,
   Box,
@@ -10,18 +12,13 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { TextEmphasis } from 'aries-core';
-import { useDarkMode } from '../../utils';
 
 export const Quote = () => {
-  const darkMode = useDarkMode();
   const size = useContext(ResponsiveContext);
-
-  const quoteLines = `/static/images/quote-lines${
-    darkMode.value ? '-dark' : ''
-  }.svg`;
 
   return (
     <PageContent
+      fill
       direction={
         !['xsmall', 'small', 'medium'].includes(size) ? 'row' : 'column'
       }
@@ -29,49 +26,60 @@ export const Quote = () => {
       justify="center"
       pad="xlarge"
       overflow="hidden"
+      background={{ fill: 'horizontal', color: 'background-front' }}
     >
       <Box
         align="center"
         justify="center"
         gap="medium"
-        background={{
-          image: `url(${quoteLines})`,
-          size: 'auto',
-          position: 'top left',
-        }}
         pad={{ left: '3xlarge' }}
         flex={false}
       >
         <Avatar src="/static/images/t_harms_bio_image.png" size="149px" />
         <Box align="center">
-          <TextEmphasis size="xlarge">Tim Harms</TextEmphasis>
-          <Text size="xlarge">Creative Director, HPE Global Brand</Text>
+          <TextEmphasis
+style={{
+              fontSize: tokens.dimension['hpe.text.3xlarge.fontSize']
+              ?.$value,
+              lineHeight: tokens.dimension['hpe.text.3xlarge.lineHeight']
+              ?.$value,
+            }}>
+              Tim Harms</TextEmphasis>
+          <Text
+style={{
+              fontSize: tokens.dimension['hpe.text.3xlarge.fontSize']
+              ?.$value,
+              lineHeight: tokens.dimension['hpe.text.3xlarge.lineHeight']
+              ?.$value,
+            }}>Creative Director, HPE Global Brand</Text>
         </Box>
       </Box>
       <Stack alignSelf="center">
         <Box
-          border={{ size: '3px', color: 'text-weak' }}
           pad="medium"
           margin="xsmall"
           width={{ max: '678px' }}
         >
-          <Paragraph size="xxlarge" textAlign="center">
+          <Paragraph
+            textAlign='center'
+            style={{
+              fontSize: tokens.dimension
+              ['hpe.text.4xlarge.fontSize']
+              ?.$value,
+              lineHeight: tokens.dimension
+              ['hpe.text.4xlarge.lineHeight']
+              ?.$value,
+            }}
+          > 
             The HPE Design System empowers developers, designers and others to
             create consistent, accessible and flexible interfaces.
           </Paragraph>
         </Box>
-        <Box fill align="end" justify="end">
-          <Image
-            src={quoteLines}
-            margin={{ right: '-138px' }}
-            alt="quote lines"
-          />
-        </Box>
+        <Box fill align="end" justify="end" />
         <Box fill justify="between" pad={{ top: 'xlarge', bottom: 'xlarge' }}>
           <Box
-            background="background-back"
             width={{ max: 'fit-content' }}
-            style={{ marginLeft: '-8px' }}
+            style={{ marginLeft: '24px' }}
           >
             <Image
               src="/static/images/quote.svg"
@@ -81,10 +89,9 @@ export const Quote = () => {
             />
           </Box>
           <Box
-            background="background-back"
             width={{ max: 'fit-content' }}
             alignSelf="end"
-            style={{ marginRight: '-8px' }}
+            style={{ marginRight: '24px' }}
           >
             <Image
               src="/static/images/quote.svg"

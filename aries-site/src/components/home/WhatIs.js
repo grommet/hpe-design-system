@@ -1,101 +1,40 @@
+// eslint-disable-next-line import/no-unresolved
+import * as tokens from 'hpe-design-tokens/docs';
 import React from 'react';
 
-import {
-  Anchor,
-  Box,
-  Grid,
-  Heading,
-  Image,
-  PageContent,
-  Paragraph,
-} from 'grommet';
-import { useDarkMode } from '../../utils';
+import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
-const whatIsContent = [
-  {
-    image: {
-      src: '/whatis/base.svg',
-      alt: 'Base elements',
-    },
-    text: 'Base elements and styles form the rudiments of composition.',
-  },
-  {
-    image: {
-      src: '/whatis/combining.svg',
-      alt: 'Combining elements',
-    },
-    text: 'Combining base elements to make templates.',
-  },
-  {
-    image: {
-      src: '/whatis/tools.svg',
-      alt: 'Tools',
-    },
-    text: 'Use tools to help expand and connect elements.',
-  },
-  {
-    image: {
-      src: '/whatis/tailor.svg',
-      alt: 'Tailored solution',
-    },
-    text: 'Tailor the code, resources, and tools into one solution.',
-  },
-  {
-    image: {
-      src: '/whatis/app.svg',
-      alt: 'Application',
-    },
-    text: 'Put it all together to make an application.',
-  },
-];
-
-export const WhatIs = ({ ...rest }) => {
-  const darkMode = useDarkMode();
-
-  return (
-    <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+export const WhatIs = ({ ...rest }) => (
+  <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+    <Box
+      fill
+      pad={{ vertical: '192px' }}
+      gap="3xlarge"
+      {...rest}
+    >
       <Box
-        fill
-        pad={{
-          vertical: 'medium',
-        }}
-        gap="3xlarge"
-        {...rest}
+        justify="center"
+        align="center"
+        width="xlarge"
+        alignSelf="center"
       >
-        <Box justify="center" align="center" width="xlarge" alignSelf="center">
-          <Heading level={2} size="large">
-            What is the HPE Design System?
-          </Heading>
-          <Paragraph size="xlarge" fill textAlign="center" margin="none">
-            The HPE Design System was created to empower designers, developers,
-            and others in contributing to an evolving design language that
-            supports HPE's pursuit in making great customer app experiences. For
-            other contexts check&nbsp;
-            <Anchor href="https://brandcentral.hpe.com/home">
-              HPE Brand Central
-            </Anchor>
-            .
-          </Paragraph>
-        </Box>
-        <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
-          {whatIsContent.map(({ image, text }, index) => (
-            <Box key={`whatis-${index}`} width="120px">
-              <Box width="120px" height="120px">
-                <Image
-                  src={
-                    darkMode.value
-                      ? image.src.dark || image.src
-                      : image.src.light || image.src
-                  }
-                  fit="contain"
-                  alt={image.alt}
-                />
-              </Box>
-              <Paragraph size="small">{text}</Paragraph>
-            </Box>
-          ))}
-        </Grid>
+        <Heading
+          level={2}
+          size="large"
+          textAlign="center"
+          style={{
+            fontSize: tokens.dimension['hpe.text.4xlarge.fontSize']?.$value,
+            lineHeight: tokens.dimension['hpe.text.4xlarge.lineHeight']?.$value,
+          }}
+        >
+          What is the HPE Design System?
+        </Heading>
+        <Paragraph size="xxlarge" fill textAlign="center" margin="none">
+          The HPE Design System was created to empower designers, developers,
+          and others in contributing to an evolving design language that
+          supports HPE's pursuit in making great customer app experiences.
+        </Paragraph>
       </Box>
-    </PageContent>
-  );
-};
+    </Box>
+  </PageContent>
+);
