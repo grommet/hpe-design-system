@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
-import { ContentSection, Subsection } from '../../layouts';
+import { ContentSection, PageIntro, Subsection } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Foundation';
@@ -17,10 +17,14 @@ const Foundation = () => (
       canonicalUrl="https://design-system.hpe.design/foundation"
     />
     <PageContent gap="xlarge">
-      <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
-        <Heading margin="none">{title}</Heading>
-        <Paragraph size="large">{pageDetails.description}</Paragraph>
-      </Box>
+      <PageIntro>
+        <Box justify="center" fill>
+          <Heading margin="none">{title}</Heading>
+          <Paragraph size="large" fill>
+            {pageDetails.description}
+          </Paragraph>
+        </Box>
+      </PageIntro>
       <ContentSection>
         <Subsection level={2} name="Philosophy">
           <CardGrid
