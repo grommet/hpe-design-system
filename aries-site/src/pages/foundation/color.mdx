@@ -1,6 +1,7 @@
-import { Button } from 'grommet';
+import { Box, Button, Notification, Text, Meter } from 'grommet';
+import { Trigger } from '@hpe-design/icons-grommet';
 
-import { ColorSwatch } from '../../components';
+import { ColorSwatch, ColorPreview } from '../../components';
 import { ButtonRow } from '../../layouts';
 import {
   BackgroundDark,
@@ -31,6 +32,26 @@ import {
 
 {/* TODO replace with DS icon package when available */}
 import { Figma } from 'grommet-icons';
+
+<Notification
+  status="info"
+  message="For a list of all colors, please visit"
+  actions={[
+    { label: 'All design tokens', href: '/design-tokens/all-design-tokens' },
+  ]}
+  width={{ max: 'xlarge' }}
+/>
+
+## Applying color
+
+HPE colors are stored in the form of design tokens. Rather than applying RGB or hex values, we use semantic colors (otherwise called [semantic tokens](/design-tokens/overview#semantic-tokens)). Semantic color names describe when and where to apply them.
+
+Applying semantic colors as intended ensures your design:
+
+- Is aligned with the current theme and visual direction.
+- Is accessible.
+- Enables theme mode switching (light and dark. See [Theming]()).
+- Improves maintenance (when themes are updated, designs are synchronised with token updates. See [design tokens overview](/design-tokens/overview).)
 
 You will notice that the HPE Design System Color guidance is
 different from Brand Central. Prioritize the below HPE Design
