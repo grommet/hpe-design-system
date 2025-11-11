@@ -75,6 +75,95 @@ possible. Always use the `decorative.brand` token to maintain consistency across
 
 {/* <BrandColor /> */}
 
+### Backgrounds
+Background colors establish depth, hierarchy, and interaction feedback across surfaces.
+Our color palette is only impactful when used in the correct
+context. Accommodating both light and dark modes of a user
+experience with the appropriate color palette creates a
+successful customer experience.
+
+For more direction on how to use background colors within your
+layout, see [background colors guidance](/foundation/background-colors-guidance).
+
+- Start layouts with `color.background.back`; layer content surfaces with front and floating for elevation.
+- Include contrast background to separate dense regions; prefer contrast over borders in tight layouts.
+- Limit strong or xstrong variants to focal areas; pair with onStrong text and icon tokens for legibility.
+- Use selected background tokens for selection instead of ad‑hoc highlight.
+
+#### Overlay
+
+Overlay color dims inactive content to direct attention to an active layer.
+
+- Apply overlay behind modal, drawer, or dialog surfaces to reduce cognitive load.
+- Limit overlay opacity to preserve context; avoid fully obscuring underlying layout.
+- Prevent custom overlay hacks; use the theme-provided overlay color for consistency.
+
+### Borders
+Border colors delineate interactive areas and reinforce state when spacing alone is insufficient. Borders help differentiate elements and input fields from surrounding content. In light and dark modes the chosen strength should match density and emphasis; in many cases a border can be omitted when spacing or contrast already performs the job.
+
+- Use the default border token for neutral boundaries and dividers.
+- Apply selected border only when selection is not already clear from fill.
+- Add status borders sparingly to reinforce (not replace) text or icon messaging.
+- Omit borders where spacing or contrast background already separates content.
+
+
+### Text
+Text colors govern prominence and readability while signaling interaction or status.
+
+- Use default text for body copy; prefer strong only for headings and key figures.
+- Apply weak for supporting or secondary metadata; avoid weak on actionable labels.
+- Use primary text for interactive anchors; pair with its hover state for clarity.
+- Invert text on strong or selected backgrounds using the appropriate on* variant.
+- Use critical text for error messaging; pair with an icon for faster recognition.
+
+### Icon
+Icon colors mirror text hierarchy and must remain legible at small sizes.
+
+- Default to the standard icon color for regular interface glyphs.
+- Align icon severity with text severity (critical, warning, etc.) for multi‑channel signaling.
+- Invert icons on strong or selected backgrounds using on* variants.
+- Avoid decorative colors on functional icons; reserve decorative palette for illustration.
+
+### Decorative
+Decorative colors provide brand and accent without conveying status or interaction.
+
+- Use `decorative.brand` for brand anchors and signature accents.
+- Limit secondary decorative hues to illustration and non‑interactive ornamentation.
+- Avoid substituting decorative colors for status; use semantic text or foreground status tokens instead.
+
+### Data visualization (Dataviz)
+Dataviz colors differentiate categories and encode status without overwhelming perception.
+
+- Begin categorical series with the first token and proceed sequentially.
+- Limit visible category count; consider grouping beyond eight series.
+- Ensure label contrast using default or strong text.
+- Reserve status colors for threshold or state indicators; avoid for neutral series.
+- Use series colors in a consistent left‑to‑right order for comparability across views.
+- Consider consolidating very low-variance series into a single aggregate color; instead, use drill-down for detail.
+- When using Grommet DataChart, series colors are applied automatically in sequence to support consistent interpretation.
+
+### Focus
+Focus colors ensure clear keyboard and assistive navigation cues.
+
+- Render focus with outer ring plus support ring for clarity.
+- Never remove focus; adjust thickness or radius if necessary.
+- Limit glow effects that reduce crisp edge contrast.
+
+### Foreground
+Foreground colors fill graphic and quantitative regions (meters, progress, indicators) with semantic meaning.
+
+### Status colors
+Status colors reinforce state and feedback (error, warning, success, informational, unknown) across surfaces, text, icons, and data regions.
+
+- Use status color only when conveying state; avoid decorative substitution.
+- Pair status color with an icon or concise label for rapid scanning.
+- Limit multiple simultaneous status colors in a single dense region.
+
+- Use primary foreground for neutral or brand‑aligned progress.
+- Apply status foregrounds (critical, warning, unknown) only when encoding state; pair with text or icon.
+- Limit multiple status colors in one component; segment or use tooltips for complex breakdowns.
+- Avoid decorative fills for status; prefer semantic foreground set.
+
 ## Color accessibility
 
 Color accessibility ensures all users can perceive and understand content regardless of visual ability. HPE Design System prioritizes accessibility compliance through semantic color tokens.
@@ -104,122 +193,6 @@ Never rely solely on color to convey information. Always provide additional visu
 - Patterns or textures
 - Underlines for links
 
-## Background colors
 
-Our color palette is only impactful when used in the correct
-context. Accommodating both light and dark modes of a user
-experience with the appropriate color palette creates a
-successful customer experience.
-
-For more direction on how to use background colors within your
-layout, see [background colors guidance](/foundation/background-colors-guidance).
-
-### Background palette
-
-In light and dark modes, building depth with interface elements,
-and the background is key in making readability or text and key
-interactions key to driving users' success. The swatches below
-illustrate how to use color for your experiences.
-
-{/* <BackgroundLight />
-<br />
-<BackgroundDark /> */}
-
-### Contrast
-
-For times when you have more than two layers of content (e.g. a
-background and a styled UI element on top of it), you can use
-contrast to help add more layers of depth to your design,
-illustrate a visual separation, or show how stacked interface
-elements will look. By default, contrast will bump your
-background to a lighter or darker tint based on the theme and
-background.
-
-{/* <ContrastLight />
-<br />
-<ContrastDark /> */}
-
-## Border colors
-
-Using border colors properly ensures that the user is able to
-identify the state of various components. Borders help
-differentiate elements and input fields from surrounding
-content.
-
-### Border palette
-
-In light and dark modes, border is key in making separating
-input fields or layout elements from surrounding content.
-Depending on the context, a varying amount of strength is needed
-for the border to be effective, and in many cases there may be
-no border necessary.
-
-{/* <BordersLight />
-<br />
-<BordersDark /> */}
-
-## Text Colors
-
-Text needs to be legible in all contexts. Ensuring high contrast
-is met for accessibility and readability is important to
-delivering users a consistent reading experience throughout HPE.
-
-### Text color palette
-
-Text colors have two states when working on different background
-contexts; depending on background the text can invert to
-accomodate a dark mode. To ensure text maintains readability, we
-avoid color use with the exception of call to actions such as
-hyperlinks and anchors.
-
-{/* <TextLight />
-<br />
-<TextDark /> */}
-
-## Status colors
-
-{/* <StatusLight />
-<br />
-<StatusDark /> */}
-
-## Focus color
-
-Focus is critical to accessibility. When a user is navigating
-with keyboard, focus indicates which element on the page is
-active. Do not remove focus outline in your application, as this
-will compromise the accessibility of the application.
-
-{/* <FocusColor /> */}
-
-## Elevation
-
-Elevation creates depth between a foreground and background
-element. Depending on the desired contrast, varying strengths of
-elevation can be used. Elevation is implemented by default on
-certain elements such as
-[Menu](/components/menu) and [Select](/components/select).
-
-{/* <ElevationLight />
-<br />
-<ElevationDark /> */}
-
-## Overlay color
-
-When a [Layer](/components/layer) is
-open, this overlay extends over the rest of the application
-content. It creates a visual distinction between the active
-foreground Layer and the inactive background content. This is
-controlled by `layer.overlay.background` in the theme.
-
-{/* <Overlay /> */}
-
-## Graph colors
-
-Graph colors should be applied in order, starting with `graph-0` <ColorSwatch background="graph-0" />.
-This color order was selected to provide clear distinction
-between adjacent data. When using Grommet DataChart, graph
-colors will be applied in order by default.
-
-{/* <GraphColorsLight />
-<br />
-<GraphColorsDark /> */}
+{/* Former 'Border colors' section content merged above into 'Borders' */}
+{/* Former 'Graph colors' guidance merged into Dataviz subsection above */}
