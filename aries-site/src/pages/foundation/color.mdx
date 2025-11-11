@@ -44,7 +44,7 @@ import { Figma } from 'grommet-icons';
 
 ## Applying color
 
-HPE colors are stored in the form of design tokens. Rather than applying RGB or hex values, we use semantic colors (otherwise called [semantic tokens](/design-tokens/overview#semantic-tokens)). Semantic color names describe when and where to apply them.
+HPE colors are stored in the form of design tokens. Rather than applying RGB or hex values, use semantic colors (otherwise called [semantic tokens](/design-tokens/overview#semantic-tokens)). Semantic color names describe when and where to apply them.
 
 Applying semantic colors as intended ensures your design:
 
@@ -71,74 +71,38 @@ design for our app and web based experiences.
 HPE green symbolizes growth and vitality, commands attention and
 inspires action. Our green is an essential part of our brand
 identity and should be evident in every communication wherever
-possible. Always use the custom color specifications seen here
-to maintain consistency across channels and media.
+possible. Always use the `decorative.brand` token to maintain consistency across channels and media.
 
-<BrandColor />
+{/* <BrandColor /> */}
 
-### Core palette
+## Color accessibility
 
-HPE Core colors provide a set of swatches that compliment HPE
-Green and help establish the vibrant experience HPE embraces. We
-use "emphasis" as a way to show the importance and use the most
-vibrant hue on light or dark contexts. To maintain accessibility
-requirements, it's important to be mindful of how the aspects of
-the color library are used in conjunction with the Core colors.
+Color accessibility ensures all users can perceive and understand content regardless of visual ability. HPE Design System prioritizes accessibility compliance through semantic color tokens.
 
-<CorePalette />
+### Contrast requirements
 
-### Light palette
+Always meet WCAG 2.1 contrast standards for text and interactive elements:
 
-The light color palette provides a set of swatches which
-compliment HPE Core colors for use in combination with dark text
-to maintain color accessibility in your experience. Use these
-colors only when implementing a light theme.
+- Maintain a minimum 4.5:1 contrast ratio for normal text
+- Maintain a minimum 3:1 contrast ratio for large text (18px and above or 14px bold)
+- Ensure interactive elements meet a 3:1 contrast ratio against adjacent colors
 
-<LightPalette />
+Semantic color tokens are designed to meet these requirements when applied as intended.
 
-### Dark palette
+### Color pairing
 
-The dark color palette provides a set of swatches which
-compliment HPE Core colors for use in combination with light
-text to maintain color accessibility in your experience. Use
-these colors only when implementing a dark theme.
+Pair text and icon colors appropriately with background colors to maintain accessibility. Strong background colors require `onStrong` text and icon tokens.
 
-<DarkPalette />
+For detailed color pairing guidance, see [color pairing](/design-tokens/color-pairing).
 
-## Green color accessibility
+### Color as information
 
-The HPE Design System green <ColorSwatch background="green" /> ensures compliance with WCAG 2.1
-standards for distinguishable text and color ([see success criterion 1.4.1 and 1.4.3](https://www.w3.org/TR/WCAG21/#distinguishable)).
+Never rely solely on color to convey information. Always provide additional visual cues such as:
 
-With accessibility as one of its core principles, the HPE
-Design System focused on keeping accessibilty research and
-guidelines at the center of its color selection process.
-
-See details below on how to remain compliant in both light and
-dark theme modes.
-
-### Light mode
-
-AAA compliance is met for text on a light mode green background
-when using `text-strong` <ColorSwatch background={{color: "text-strong", dark: false}} /> color.
-This is ensured for text of size
-18px and above.
-
-If a font size is below 18px, AAA compliance will fail with
-default font weight on an HPE `green` <ColorSwatch background={{color: "green", dark: false}} />
-background. In this case,
-apply `weight="bold"` to meet AAA compliance.
-
-<LightModeContrast />
-
-### Dark mode
-
-AA compliance is met for text on a dark mode `green` <ColorSwatch background={{color: "green", dark: true}} /> background
-when using `text-strong` <ColorSwatch background={{color: "text-strong", dark: true}} /> color.
-To meet AAA compliance, use text
-`size="large"` and `weight="bold"`.
-
-<DarkModeContrast />
+- Text labels
+- Icons
+- Patterns or textures
+- Underlines for links
 
 ## Background colors
 
@@ -157,9 +121,9 @@ and the background is key in making readability or text and key
 interactions key to driving users' success. The swatches below
 illustrate how to use color for your experiences.
 
-<BackgroundLight />
+{/* <BackgroundLight />
 <br />
-<BackgroundDark />
+<BackgroundDark /> */}
 
 ### Contrast
 
@@ -171,9 +135,9 @@ elements will look. By default, contrast will bump your
 background to a lighter or darker tint based on the theme and
 background.
 
-<ContrastLight />
+{/* <ContrastLight />
 <br />
-<ContrastDark />
+<ContrastDark /> */}
 
 ## Border colors
 
@@ -190,25 +154,9 @@ Depending on the context, a varying amount of strength is needed
 for the border to be effective, and in many cases there may be
 no border necessary.
 
-<BordersLight />
+{/* <BordersLight />
 <br />
-<BordersDark />
-
-## Input colors
-
-Inputs that exist within FormFields have varying colors to
-suggest their state: enabled vs disabled, required, etc. The
-proper use of these colors ensures that the user can easily
-understand the state of the input.
-
-### Input palette
-
-In light and dark modes, input colors are key in providing the
-user with guidance on how they can interact with an input.
-
-<InputsLight />
-<br />
-<InputsDark />
+<BordersDark /> */}
 
 ## Text Colors
 
@@ -224,15 +172,15 @@ accomodate a dark mode. To ensure text maintains readability, we
 avoid color use with the exception of call to actions such as
 hyperlinks and anchors.
 
-<TextLight />
+{/* <TextLight />
 <br />
-<TextDark />
+<TextDark /> */}
 
 ## Status colors
 
-<StatusLight />
+{/* <StatusLight />
 <br />
-<StatusDark />
+<StatusDark /> */}
 
 ## Focus color
 
@@ -241,7 +189,7 @@ with keyboard, focus indicates which element on the page is
 active. Do not remove focus outline in your application, as this
 will compromise the accessibility of the application.
 
-<FocusColor />
+{/* <FocusColor /> */}
 
 ## Elevation
 
@@ -251,9 +199,9 @@ elevation can be used. Elevation is implemented by default on
 certain elements such as
 [Menu](/components/menu) and [Select](/components/select).
 
-<ElevationLight />
+{/* <ElevationLight />
 <br />
-<ElevationDark />
+<ElevationDark /> */}
 
 ## Overlay color
 
@@ -263,7 +211,7 @@ content. It creates a visual distinction between the active
 foreground Layer and the inactive background content. This is
 controlled by `layer.overlay.background` in the theme.
 
-<Overlay />
+{/* <Overlay /> */}
 
 ## Graph colors
 
@@ -272,6 +220,6 @@ This color order was selected to provide clear distinction
 between adjacent data. When using Grommet DataChart, graph
 colors will be applied in order by default.
 
-<GraphColorsLight />
+{/* <GraphColorsLight />
 <br />
-<GraphColorsDark />
+<GraphColorsDark /> */}
