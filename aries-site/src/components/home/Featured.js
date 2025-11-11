@@ -1,6 +1,13 @@
 import React, { useContext } from 'react';
 
-import { Box, Heading, PageContent, Paragraph, Button, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Heading,
+  PageContent,
+  Paragraph,
+  Button,
+  ResponsiveContext,
+} from 'grommet';
 import { featured } from '../../data';
 
 const FeaturedLayout = ({ ...rest }) => {

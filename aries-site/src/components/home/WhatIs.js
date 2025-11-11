@@ -5,7 +5,9 @@ import React from 'react';
 import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 export const WhatIs = ({ ...rest }) => (
-  <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+  <PageContent
+    background={{ fill: 'horizontal', color: 'background-front' }}
+  >
     <Box
       fill
       pad={{ vertical: '192px' }}
@@ -29,7 +31,11 @@ export const WhatIs = ({ ...rest }) => (
         >
           What is the HPE Design System?
         </Heading>
-        <Paragraph size="xxlarge" textAlign="center" margin={{ horizontal: 'xlarge' }}>
+        <Paragraph
+          size="xxlarge"
+          textAlign="center"
+          margin={{ horizontal: 'xlarge' }
+        }>
           The HPE Design System was created to empower designers, developers,
           and others in contributing to an evolving design language that
           supports HPE's pursuit in making great customer app experiences.
