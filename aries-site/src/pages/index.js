@@ -12,8 +12,9 @@ import * as tokens from 'hpe-design-tokens/docs';
 import PropTypes from 'prop-types';
 // Main homepage for HPE Design System
 import { Meta } from '../components';
-import { Community, CreativeToolkit, Featured, Highlights, Quote, WhatIs }
+import { Community, CreativeToolkit, Featured, Quote, WhatIs }
  from '../components/home';
+/* Including header here to share the same background image*/
 import { Header } from '../layouts/main/Header';
 import { getPageDetails } from '../utils';
 
@@ -49,15 +50,15 @@ const Index = () => {
 
   return (
     <>
-      <Meta title={title} description={pageDetails.seoDescription} />
-      {/* Homepage: header and hero share the same background image */}
-      {/* The 55% background size covers widths from 768px to 3578px.
-      Recalculate when redesign implementation is done. */}
+      <Meta title={title} description={pageDetails.seoDescription} />     
+      {/* The 43% background size covers widths from 768px to 3277px
+      background-size: 'cover'; will render it the size of the whole page
+      */}
       <Box
         fill
         background={{
           image: bgImage,
-          size: 'auto 55%',
+          size: 'auto 43%',
           position: 'center top',
         }}
       >

@@ -33,17 +33,23 @@ const CreativeToolkitLayout = () => {
             height="medium"
             width={!['xsmall', 'small'].includes(size) ? 'medium' : 'large'}
           >
-            <Box width="xxsmall" height="xsmall" align="center" justify="center">
+            <Box
+                width="xxsmall"
+                height="xsmall"
+                align="center"
+                justify="center"
+            >
               {image && (
                 <Image
-                  src={
-                    darkMode.value
-                      ? image.src.dark || image.src
-                      : image.src.light || image.src
-                  }
+                    src={
+                      darkMode.value
+                        ? image.src.dark || image.src
+                        : image.src.light || image.src
+                    }
                   alt={image.alt}
                   fit="contain"
-                  width={image.width || '128px'} // Use individual width or fallback
+                  // Use individual width or fallback
+                  width={image.width || '128px'} 
                 />
               )}
             </Box>

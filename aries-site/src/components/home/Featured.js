@@ -50,10 +50,18 @@ const FeaturedLayout = ({ ...rest }) => (
             >
               {/* Only buttons are clickable now */}
               {name === 'Design' && (
-                <Button secondary label="Start Designing" href='/foundation/designer-guidance'/>
+                <Button
+                  secondary
+                  label="Start Designing"
+                  href='/foundation/designer-guidance'
+                />
               )}
               {name === 'Develop' && (
-                <Button secondary label="Get the code" href='/foundation/developer-guidance'/>
+                <Button
+                  secondary
+                  label="Get the code"
+                  href='/foundation/developer-guidance'
+                />
               )}
             </Box>
           </Box>
