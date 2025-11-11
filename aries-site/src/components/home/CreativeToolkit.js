@@ -30,7 +30,7 @@ const CreativeToolkitLayout = () => {
             align="center"
             justify="center"
             gap="medium"
-            height="medium"
+            height="small"
             width={!['xsmall', 'small'].includes(size) ? 'medium' : 'large'}
           >
             <Box
@@ -69,9 +69,9 @@ const CreativeToolkitLayout = () => {
 export const CreativeToolkit = ({ ...rest }) => (
   <PageContent
     background={{ fill: 'horizontal', color: 'background-back' }}
-    pad="xxlarge"
+    pad="medium"
   >
-    <Box fill gap="medium" pad={{ vertical: 'xlarge' }} {...rest}>
+    <Box fill gap="medium" pad={{ vertical: 'medium' }} {...rest}>
       <Box justify="center" align="center" gap="xlarge">
         <Heading
           margin="large"

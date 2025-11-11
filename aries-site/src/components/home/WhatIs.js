@@ -29,7 +29,7 @@ export const WhatIs = ({ ...rest }) => (
         >
           What is the HPE Design System?
         </Heading>
-        <Paragraph size="xxlarge" fill textAlign="center" margin="none">
+        <Paragraph size="xxlarge" textAlign="center" margin={{ horizontal: 'xlarge' }}>
           The HPE Design System was created to empower designers, developers,
           and others in contributing to an evolving design language that
           supports HPE's pursuit in making great customer app experiences.

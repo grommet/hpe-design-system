@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { Meta } from '../components';
 import { Community, CreativeToolkit, Featured, Quote, WhatIs }
  from '../components/home';
-/* Including header here to share the same background image*/
+/* Including header here to share the same background image */
 import { Header } from '../layouts/main/Header';
 import { getPageDetails } from '../utils';
 

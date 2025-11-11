@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Box, Grid, Heading, PageContent, Paragraph, Button } from 'grommet';
+import { Box, Heading, PageContent, Paragraph, Button, ResponsiveContext } from 'grommet';
 import { featured } from '../../data';
 
-const FeaturedLayout = ({ ...rest }) => (
-  <PageContent {...rest}>
-    <Box align="center" justify="center" fill={false}>
-      <Grid
-        columns={['medium', 'medium']}
-        gap="medium"
-        pad={{ bottom: '3xlarge' }}
-        fill={false}
-      >
-        {featured.map(({ name, description, icon }) => (
-          <Box
-            key={name}
-            width="100%"
-            round="small"
-            align="center"
-            justify="center"
-            pad="xlarge"
-            background="background-front"
-          >
+const FeaturedLayout = ({ ...rest }) => {
+  const size = useContext(ResponsiveContext);
+
+  return (
+    <PageContent {...rest}>
+      <Box align="center" justify="center" fill={false}>
+        <Box
+          direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
+          gap="medium"
+          pad={{ bottom: '3xlarge' }}
+          justify="center"
+          align="center"
+        >
+          {featured.map(({ name, description, icon }) => (
+            <Box
+              key={name}
+              width={!['xsmall', 'small'].includes(size) ? 'medium' : 'large'}
+              round="small"
+              align="center"
+              justify="center"
+              pad="xlarge"
+              background="background-front"
+            >
             {/* Icon with background color */}
             <Box
               background="background-contrast"
               pad="medium"
               round="small"
               margin={{ bottom: 'small' }}
-              align="center"
               justify="center"
             >
               {icon}
@@ -37,7 +40,6 @@ const FeaturedLayout = ({ ...rest }) => (
               size="small"
               level={3}
               margin={{ top: 'xsmall', bottom: 'none' }}
-              textAlign="center"
             >
               {name}
             </Heading>
@@ -66,9 +68,10 @@ const FeaturedLayout = ({ ...rest }) => (
             </Box>
           </Box>
         ))}
-      </Grid>
-    </Box>
-  </PageContent>
-);
+        </Box>
+      </Box>
+    </PageContent>
+  );
+};
 
 export const Featured = ({ ...rest }) => <FeaturedLayout {...rest} />;
