@@ -1,8 +1,6 @@
 import React from 'react';
 
 import { Box, Grid, Heading, PageContent, Paragraph, Button } from 'grommet';
-import { ContentPreviewCard } from '../cards';
-import { nameToPath } from '../../utils';
 import { featured } from '../../data';
 
 const FeaturedLayout = ({ ...rest }) => (
@@ -14,54 +12,51 @@ const FeaturedLayout = ({ ...rest }) => (
         pad={{ bottom: '3xlarge' }}
         fill={false}
       >
-        {featured.map(({ name, description, icon, url }) => (
-          <ContentPreviewCard
+        {featured.map(({ name, description, icon }) => (
+          <Box
             key={name}
-            href={url || nameToPath(name)}
+            width="100%"
+            round="small"
+            align="center"
+            justify="center"
             pad="xlarge"
+            background="background-front"
           >
+            {/* Icon with background color */}
             <Box
-              width="100%"
+              background="background-contrast"
+              pad="medium"
               round="small"
+              margin={{ bottom: 'small' }}
               align="center"
               justify="center"
             >
-              {/* Icon with background color */}
-              <Box
-                background="background-contrast"
-                pad="medium"
-                round="small"
-                margin={{ bottom: 'small' }}
-                align="center"
-                justify="center"
-              >
-                {icon}
-              </Box>
-              <Heading
-                size="small"
-                level={3}
-                margin={{ top: 'xsmall', bottom: 'none' }}
-                textAlign="center"
-              >
-                {name}
-              </Heading>
-              <Paragraph size="xlarge" textAlign="center">
-                {description}
-              </Paragraph>
-              <Box
-                align="center"
-                margin={{ top: 'medium' }}
-              >
-                {/* Refactored to avoid nested ternary */}
-                {name === 'Design' && (
-                  <Button secondary label="Start Designing" />
-                )}
-                {name === 'Develop' && (
-                  <Button secondary label="Get the code" />
-                )}
-              </Box>
+              {icon}
             </Box>
-          </ContentPreviewCard>
+            <Heading
+              size="small"
+              level={3}
+              margin={{ top: 'xsmall', bottom: 'none' }}
+              textAlign="center"
+            >
+              {name}
+            </Heading>
+            <Paragraph size="xlarge" textAlign="center">
+              {description}
+            </Paragraph>
+            <Box
+              align="center"
+              margin={{ top: 'medium' }}
+            >
+              {/* Only buttons are clickable now */}
+              {name === 'Design' && (
+                <Button secondary label="Start Designing" href='/foundation/designer-guidance'/>
+              )}
+              {name === 'Develop' && (
+                <Button secondary label="Get the code" href='/foundation/developer-guidance'/>
+              )}
+            </Box>
+          </Box>
         ))}
       </Grid>
     </Box>

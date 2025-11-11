@@ -12,7 +12,7 @@ import * as tokens from 'hpe-design-tokens/docs';
 import PropTypes from 'prop-types';
 // Main homepage for HPE Design System
 import { Meta } from '../components';
-import { Community, Featured, Highlights, Quote, WhatIs }
+import { Community, CreativeToolkit, Featured, Highlights, Quote, WhatIs }
  from '../components/home';
 import { Header } from '../layouts/main/Header';
 import { getPageDetails } from '../utils';
@@ -92,7 +92,7 @@ const Index = () => {
         </Intro>
         <Featured {...widthProps} />
         <WhatIs {...widthProps} />
-        <Highlights {...widthProps} />
+        <CreativeToolkit {...widthProps} />
         <Quote />
         <Community {...widthProps} />
       </Box>
