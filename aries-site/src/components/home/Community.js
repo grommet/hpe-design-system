@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-
+// eslint-disable-next-line import/no-unresolved
+import * as tokens from 'hpe-design-tokens/docs';
 import {
   Box,
   Button,
@@ -91,7 +92,7 @@ const Feedback = () => (
 export const Community = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+    <PageContent background={{ fill: 'horizontal', color: 'background-back' }}>
       <Box
         fill="horizontal"
         pad={{
@@ -101,10 +102,17 @@ export const Community = ({ ...rest }) => {
         {...rest}
       >
         <Box width="xxlarge">
-          <Heading margin="none" level={2} size="large">
+          <Heading margin="none" level={2} size="xsmall">
             Community
           </Heading>
-          <Paragraph size="xlarge" fill>
+          <Paragraph
+            style={{
+              fontSize: tokens.dimension['hpe.text.3xlarge.fontSize']
+              ?.$value,
+              lineHeight: tokens.dimension['hpe.text.3xlarge.lineHeight']
+              ?.$value,
+            }}
+          >
             The HPE Design System is an open-source framework for designers and
             developers. We welcome feedback, ideas and appreciate your
             suggestions.
