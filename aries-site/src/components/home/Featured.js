@@ -27,7 +27,7 @@ const FeaturedLayout = ({ ...rest }) => {
             <Box
               key={name}
               width={!['xsmall', 'small'].includes(size) ? 'medium' : 'large'}
-              round="small"
+              round="xlarge"
               align="center"
               justify="center"
               pad="xlarge"
