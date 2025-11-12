@@ -395,7 +395,8 @@ export const foundation = [
       ),
     },
     seoDescription: `Learn how to pair colors correctly to ensure your design 
-    has sufficient contrast ratios and will remain accessible with color updates.`,
+    has sufficient contrast ratios and will remain accessible with color
+    updates.`,
     sections: [
       'Color pairing explained',
       'Accessible standard color pairings',
