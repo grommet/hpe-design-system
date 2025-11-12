@@ -25,7 +25,7 @@ const CreativeToolkitLayout = () => {
       align="center"
     >
       {toolkitItems.map(({ name, href, image }) => (
-        <ContentPreviewCard key={name} href={href} pad="medium">
+        <ContentPreviewCard key={name} href={href} pad="medium" round="xxlarge">
           <Box
             align="center"
             justify="center"
