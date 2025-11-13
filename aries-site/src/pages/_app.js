@@ -12,7 +12,6 @@ import { nameToSlug, getPageDetails } from '../utils';
 const slugToText = str => str.split('-').join(' ');
 
 const backgroundImages = {
-
   showmore: {
     src: { dark: '/cards-dark.svg', light: '/cards.svg' },
     alt: 'HPE Design System',
