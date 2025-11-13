@@ -244,10 +244,8 @@ export const foundation = [
     name: 'Icons',
     cardOrder: 8,
     category: 'Assets',
-    description: `Icons are an integral part of our visual storytelling style 
-    to represent objects, actions, programs and other communicative symbols. 
-    This clean, dynamic style remains flexible while retaining the voice of our 
-    brand.`,
+    description: `Icons visually communicate actions, objects, and states —
+      creating a consistent, recognizable language across our products.`,
     preview: {
       image: {
         src: {
