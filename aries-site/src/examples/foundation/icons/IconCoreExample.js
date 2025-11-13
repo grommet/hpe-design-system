@@ -146,16 +146,6 @@ export const IconControlsExample = () => (
       guidance="Use to decrease a value or quantity."
     />
     <CoreIcon
-      Icon={ZoomIn}
-      name="Zoom In"
-      guidance="Use to increase zoom level or enlarge content."
-    />
-    <CoreIcon
-      Icon={ZoomOut}
-      name="Zoom Out"
-      guidance="Use to decrease zoom level or reduce content size."
-    />
-    <CoreIcon
       Icon={Up}
       name="Up"
       guidance="Use to indicate collapsable content."
