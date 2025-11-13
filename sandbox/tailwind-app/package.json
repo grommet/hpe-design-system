@@ -13,6 +13,7 @@
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-switch": "^1.1.0",
+    "hpe-design-tokens": "workspace:*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

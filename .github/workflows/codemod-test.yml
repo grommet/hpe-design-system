@@ -14,8 +14,8 @@ jobs:
         with:
           node-version: 20
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
         working-directory: packages/codemods
       - name: Run tests
-        run: yarn test
+        run: pnpm test
         working-directory: packages/codemods

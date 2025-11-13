@@ -22,4 +22,4 @@ const mockSessionStorage = (() => {
   } as Storage;
 })();
 
-global.sessionStorage = mockSessionStorage;
+globalThis.sessionStorage = mockSessionStorage;

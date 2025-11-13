@@ -16,6 +16,12 @@ With npm:
 npm i hpe-design-tokens
 ```
 
+With pnpm:
+
+```
+pnpm i hpe-design-tokens
+```
+
 ## Usage
 
 For usage instructions, see [HPE Design System design tokens documentation](https://design-system.hpe.design/design-tokens).
