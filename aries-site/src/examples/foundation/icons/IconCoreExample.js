@@ -105,7 +105,7 @@ export const IconUIActionsExample = () => (
       Icon={Filter}
       name="Filter"
       guidance={
-        'Use to toggle filter controls for related content such as ' +
+        'Use to toggle filter controls for data collections such as ' +
         'lists, tables, or card grids.'
       }
     />
