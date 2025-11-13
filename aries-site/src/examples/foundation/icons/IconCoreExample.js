@@ -25,8 +25,6 @@ import {
   Search,
   Subtract,
   Trash,
-  ZoomIn,
-  ZoomOut,
 } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
