@@ -74,6 +74,7 @@ export const IconResourceActionsExample = () => (
     <CoreIcon
       Icon={Add}
       name="Add"
+      aliases={['Create']}
       guidance="Use to initiate the creation or addition of a new item."
     />
     <CoreIcon
@@ -84,6 +85,7 @@ export const IconResourceActionsExample = () => (
     <CoreIcon
       Icon={Trash}
       name="Trash"
+      aliases={['Delete']}
       guidance="Use to initiate the removal or deletion of content."
     />
   </Grid>
@@ -94,6 +96,7 @@ export const IconUIActionsExample = () => (
     <CoreIcon
       Icon={Close}
       name="Close"
+      aliases={['Remove', 'Cancel']}
       guidance="Use to dismiss or close layers, modals, or panels."
     />
     <CoreIcon
@@ -133,11 +136,13 @@ export const IconControlsExample = () => (
     <CoreIcon
       Icon={Add}
       name="Add"
+      aliases={['Increase', 'Zoom In']}
       guidance="Use to increase a value or quantity."
     />
     <CoreIcon
       Icon={Subtract}
       name="Subtract"
+      aliases={['Decrease', 'Zoom Out']}
       guidance="Use to decrease a value or quantity."
     />
     <CoreIcon
