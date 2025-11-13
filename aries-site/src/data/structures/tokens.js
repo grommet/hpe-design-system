@@ -72,34 +72,6 @@ export const tokens = [
     tags: [],
   },
   {
-    name: 'Color pairing',
-    type: 'Getting started',
-    description:
-      'To support color accessibility, there are foreground and background color pairings that ensure accessible color combinations.',
-    preview: {
-      component: () => (
-        <Box
-          background="background-neutral-xstrong"
-          pad="medium"
-          round="medium"
-        >
-          color.text.onStrong
-        </Box>
-      ),
-    },
-    seoDescription:
-      'To support color accessibility, there are foreground and background color pairings that ensure accessible color contrast combinations.',
-    sections: [],
-    relatedContent: [
-      'Color usage',
-      'Layout and spacing',
-      'Global',
-      'Element',
-      'All design tokens',
-    ],
-    tags: [],
-  },
-  {
     name: 'Layout and spacing',
     type: 'Getting started',
     description:
