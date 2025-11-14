@@ -24,11 +24,8 @@ catalogs:
     grommet: https://github.com/grommet/grommet/tarball/stable
     grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable
   
-  grommet-theme-hpe-v5:
-    grommet-theme-hpe: npm:grommet-theme-hpe@5.8.0
-  
   grommet-theme-hpe-v6:
-    grommet-theme-hpe: npm:grommet-theme-hpe@6
+    grommet-theme-hpe: ^6.0.0
   
   grommet-theme-hpe-v7:
     grommet-theme-hpe: ^7.0.0

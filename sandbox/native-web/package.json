@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "hpe-design-tokens": "workspace:*",
-    "prop-types": "^15.8.1"
+    "prop-types": "catalog:"
   }
 }
