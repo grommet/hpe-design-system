@@ -36,7 +36,9 @@ const CreativeToolkitLayout = () => {
               {image && (
                 <Image
                   src={image.src}
-                  alt={image.alt}
+                  // The image alt text is the same as the card's heading and thus redundant.
+                  // Because of that, we are treating as a decorative only image.
+                  alt=""
                   fit="contain"
                   width="xxsmall"
                 />
