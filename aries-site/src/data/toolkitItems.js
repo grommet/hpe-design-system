@@ -3,34 +3,24 @@ export const toolkitItems = [
     name: 'Foundation',
     href: '/foundation',
     image: {
-      src: {
-        light: '/creativetoolkitimages/foundation.svg',
-        dark: '/creativetoolkitimages/foundation-dark.svg',
-      },
+      src:  '/creativetoolkitimages/foundation.svg',
       alt: 'Foundation',
     },
+},
+{
+  name: 'Components',
+  href: '/components',
+  image: {
+    src: '/creativetoolkitimages/components.svg',
+    alt: 'Components',
   },
-  {
-    name: 'Components',
-    href: '/components',
-    image: {
-      src: {
-        light: '/creativetoolkitimages/components.svg',
-        dark: '/creativetoolkitimages/components-dark.svg',
-      },
-      alt: 'Components',
-      width: '158px',
-    },
+},
+{
+  name: 'Templates',
+  href: '/templates',
+  image: {
+    src: '/creativetoolkitimages/templates.svg',
+    alt: 'Templates',
   },
-  {
-    name: 'Templates',
-    href: '/templates',
-    image: {
-      src: {
-        light: '/creativetoolkitimages/templates.svg',
-        dark: '/creativetoolkitimages/templates-dark.svg',
-      },
-      alt: 'Templates',
-    },
-  },
+},
 ];

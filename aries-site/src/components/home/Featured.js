@@ -15,11 +15,15 @@ const FeaturedLayout = ({ ...rest }) => {
 
   return (
     <PageContent {...rest}>
-      <Box align="center" justify="center" fill={false}>
+      <Box
+        pad={{ bottom: '3xlarge' }}
+        align="center"
+        justify="center"
+        fill={false}>
         <Box
           direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
           gap="medium"
-          pad={{ bottom: '3xlarge' }}
+          margin={{ bottom: '3xlarge' }}
           justify="center"
           align="center"
         >
@@ -58,6 +62,7 @@ const FeaturedLayout = ({ ...rest }) => {
                 {name === 'Design' && (
                   <Button
                     secondary
+                    size="large"
                     label="Start Designing"
                     href="/foundation/designer-guidance"
                   />
@@ -65,6 +70,7 @@ const FeaturedLayout = ({ ...rest }) => {
                 {name === 'Develop' && (
                   <Button
                     secondary
+                    size="large"
                     label="Get the code"
                     href="/foundation/developer-guidance"
                   />

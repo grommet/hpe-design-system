@@ -48,7 +48,7 @@ export const Quote = () => {
         </Box>
         <Box fill align="end" justify="end" />
         <Box fill justify="between" pad={{ top: 'xlarge', bottom: 'xlarge' }}>
-          <Box width={{ max: 'fit-content' }} style={{ marginLeft: '24px' }}>
+          <Box width={{ max: 'fit-content' }}>
             <Image
               src="/static/images/quote.svg"
               width="40px"
@@ -59,7 +59,6 @@ export const Quote = () => {
           <Box
             width={{ max: 'fit-content' }}
             alignSelf="end"
-            style={{ marginRight: '24px' }}
           >
             <Image
               src="/static/images/quote.svg"

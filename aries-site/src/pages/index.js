@@ -24,7 +24,7 @@ const widthProps = { margin: 'auto' };
 
 // Intro section wrapper for hero content
 const Intro = ({ children }) => (
-  <PageContent>
+  <PageContent pad={{ top: '3xlarge' }}>
     <Card background="none" elevation="none">
       {children}
     </Card>
@@ -57,22 +57,26 @@ const Index = () => {
           image: bgImage,
           size: 'auto 50%',
           position: 'center top',
-        }}
+        }}        
       >
         <PageContent>
           <Header />
         </PageContent>
         <Intro>
-          <Box alignSelf="center" align="center" width={{ max: 'xxlarge' }}>
+          <Box
+            margin="large"
+            alignSelf="center"
+            align="center"
+            width={{ max: 'xxlarge' }}
+          >
             <Heading
-              margin="none"
+              margin="small"
               size="medium"
               textAlign="center"
-              style={{ maxWidth: 'none' }}
             >
               Design, develop and deliver
             </Heading>
-            <Paragraph size="xxlarge" textAlign="center">
+            <Paragraph margin="small" size="xxlarge" textAlign="center">
               Empower designers and developers to quickly create accessible
               enterprise app experiences.
             </Paragraph>

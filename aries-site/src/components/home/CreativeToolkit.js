@@ -1,13 +1,10 @@
 import React, { useContext } from 'react';
 import { Box, Heading, Image, PageContent, ResponsiveContext } from 'grommet';
 import { ContentPreviewCard } from '../cards';
-import { useDarkMode } from '../../utils';
-
 import { toolkitItems } from '../../data/toolkitItems';
 
 const CreativeToolkitLayout = () => {
   const size = useContext(ResponsiveContext);
-  const darkMode = useDarkMode();
 
   return (
     <Box
@@ -38,14 +35,10 @@ const CreativeToolkitLayout = () => {
             >
               {image && (
                 <Image
-                  src={
-                    darkMode.value
-                      ? image.src.dark || image.src
-                      : image.src.light || image.src
-                  }
+                  src={image.src}
                   alt={image.alt}
                   fit="contain"
-                  width={image.width || 'xxsmall'}
+                  width="xxsmall"
                 />
               )}
             </Box>
