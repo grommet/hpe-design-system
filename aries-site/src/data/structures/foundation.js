@@ -276,9 +276,10 @@ export const foundation = [
     name: 'Typography',
     cardOrder: 7,
     category: 'Assets',
-    description: `The HPE Graphik font is an integral part of our personality 
-    and design. When we’re making a statement, our visual language is clear, 
     recognized and understood.`,
+    description: `Typography is an essential part of establishing hierarchy
+and structure to a page, working in tandem with color and
+spacing.`,
     preview: {
       image: {
         src: {
