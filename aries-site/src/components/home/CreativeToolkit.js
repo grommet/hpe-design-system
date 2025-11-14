@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Heading, Image, PageContent, ResponsiveContext } from 'grommet';
 import { ContentPreviewCard } from '../cards';
 import { toolkitItems } from '../../data/toolkitItems';
 
-const CreativeToolkitLayout = () => {
+const CreativeToolkitLayout = ({ level }) => {
   const size = useContext(ResponsiveContext);
 
   return (
@@ -36,15 +37,16 @@ const CreativeToolkitLayout = () => {
               {image && (
                 <Image
                   src={image.src}
-                  // The image alt text is the same as the card's heading and thus redundant.
-                  // Because of that, we are treating as a decorative only image.
+                  // The image alt text is the same as the card's heading and
+                  // thus redundant. Because of that, we are treating as a
+                  // decorative only image.
                   alt=""
                   fit="contain"
                   width="xxsmall"
                 />
               )}
             </Box>
-            <Heading level={3} margin="none" alignSelf="center">
+            <Heading level={level} margin="none" alignSelf="center">
               {name}
             </Heading>
           </Box>
@@ -54,18 +56,31 @@ const CreativeToolkitLayout = () => {
   );
 };
 
-export const CreativeToolkit = ({ ...rest }) => (
-  <PageContent
-    background={{ fill: 'horizontal', color: 'background-back' }}
-    pad="3xlarge"
-  >
-    <Box fill gap="large" {...rest}>
-      <Box justify="center" align="center" gap="xlarge">
-        <Heading level={2} size="small" margin="large" textAlign="center">
-          Our Creative Toolkit
-        </Heading>
+CreativeToolkitLayout.propTypes = {
+  level: PropTypes.number.isRequired,
+};
+
+export const CreativeToolkit = ({ ...rest }) => {
+  const sectionHeadingLevel = 2;
+
+  return (
+    <PageContent
+      background={{ fill: 'horizontal', color: 'background-back' }}
+      pad="3xlarge"
+    >
+      <Box fill gap="large" {...rest}>
+        <Box justify="center" align="center" gap="xlarge">
+          <Heading
+            level={sectionHeadingLevel}
+            size="small"
+            margin="large"
+            textAlign="center"
+          >
+            Creative toolkit
+          </Heading>
+        </Box>
+        <CreativeToolkitLayout level={sectionHeadingLevel + 1} />
       </Box>
-      <CreativeToolkitLayout />
-    </Box>
-  </PageContent>
-);
+    </PageContent>
+  );
+};
