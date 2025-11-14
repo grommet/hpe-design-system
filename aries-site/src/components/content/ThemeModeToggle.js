@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Tip } from 'grommet';
-import { Moon, Sun } from '@hpe-design/icons-grommet';
+import { Sun, Moon } from '@hpe-design/icons-grommet';
 import { useDarkMode } from '../../utils';
 
 export const ThemeModeToggle = ({ active }) => {
   const darkMode = useDarkMode();
-  const label = darkMode.value ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+  const label = darkMode.value ? 'Switch to light mode' : 'Switch to dark mode';
   const icon = darkMode.value ? <Moon /> : <Sun />;
   return (
     <Tip content={label}>

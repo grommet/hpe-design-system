@@ -164,7 +164,16 @@ export const Layout = ({
               ))}
             </SkipLinks>
             <PageContent>
-              <Header fill="horizontal" alignSelf="center" />
+              {/* Only render Header for non-home pages.
+              Homepage header is be rendered in index.js
+              to have the same background as the hero. */}
+              {title && title.toLowerCase() !== 'home' && (
+                <Header
+                  background="background-back"
+                  fill="horizontal"
+                  alignSelf="center"
+                />
+              )}
             </PageContent>
             <MainContentWrapper>
               <Main overflow="visible">
