@@ -35,6 +35,22 @@ Intro.propTypes = {
   children: PropTypes.node,
 };
 
+// Hero section container with background image
+const Hero = ({ children, bgImage }) => (
+  <Box
+    background={{
+      image: bgImage,
+      size: 'cover',
+    }}>
+    {children}
+  </Box>
+);
+
+Hero.propTypes = {
+  children: PropTypes.node,
+  bgImage: PropTypes.string,
+};
+
 // Homepage component with dark mode background switching
 const Index = () => {
   // Get current theme mode for background switching
@@ -48,17 +64,7 @@ const Index = () => {
   return (
     <>
       <Meta title={title} description={pageDetails.seoDescription} />
-      {/* The 43% background size covers widths from 768px to 3277px
-      background-size: 'cover'; will render it the size of the whole page
-      */}
-      <Box
-        fill
-        background={{
-          image: bgImage,
-          size: 'auto 50%',
-          position: 'center top',
-        }}        
-      >
+      <Hero bgImage={bgImage}>
         <PageContent>
           <Header />
         </PageContent>
@@ -83,6 +89,8 @@ const Index = () => {
           </Box>
         </Intro>
         <Featured {...widthProps} />
+      </Hero>
+      <Box>
         <WhatIs {...widthProps} />
         <CreativeToolkit {...widthProps} />
         <Quote />
