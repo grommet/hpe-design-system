@@ -15,30 +15,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: '20.19.x'
+          cache: 'pnpm'
       - name: Install latest dependencies
-        run: yarn upgrade
+        run: pnpm upgrade
         working-directory: aries-site
       - name: Log Git Repository
         run: echo "$GITHUB_REPOSITORY"
       # Ensure a build of design tokens is available
       - name: Create design tokens build
-        run: yarn build
+        run: pnpm build
         working-directory: design-tokens
       - name: Create production build
-        run: yarn build
+        run: pnpm build
         working-directory: aries-site
       # Tests are only run on headless Chrome
       - name: Run e2e tests on Chrome
-        run: yarn test:ci
+        run: pnpm test:ci
         working-directory: aries-site
       - name: Run Applitools tests on Chrome
         if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
-        run: yarn test:applitools
+        run: pnpm test:applitools
         working-directory: aries-site
 
   batch-completion-notification:

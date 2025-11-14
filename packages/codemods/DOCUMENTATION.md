@@ -41,7 +41,7 @@ For contributing or customizing:
 ```bash
 git clone https://github.com/grommet/hpe-design-system.git
 cd hpe-design-system/packages/codemods
-yarn install
+pnpm install
 ```
 
 ## Quick Start
@@ -217,7 +217,7 @@ node bin/cli.js migrate-theme-v6-to-v7 src/
 
 ```bash
 # Run all tests
-yarn test
+pnpm test
 ```
 
 ### Test Coverage
@@ -303,14 +303,14 @@ hpe-design-system-codemods/
 
 ```bash
 # Install dependencies
-yarn install
+pnpm install
 
 # Run all tests
-yarn test
+pnpm test
 
 # Run tests for specific transform
-yarn test migrate-grommet-icons-to-hpe
-yarn test migrate-theme-v6-to-v7
+pnpm test migrate-grommet-icons-to-hpe
+pnpm test migrate-theme-v6-to-v7
 
 # Test local CLI
 node bin/cli.js --help

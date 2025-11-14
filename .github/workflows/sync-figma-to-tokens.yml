@@ -30,13 +30,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Upgrade stable branch dependencies
-        run: yarn upgrade grommet && yarn upgrade grommet-icons
+        run: pnpm upgrade grommet && pnpm upgrade grommet-icons
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Sync variables in Figma file to tokens
-        run: yarn sync-figma-to-tokens -- --output tokens
+        run: pnpm sync-figma-to-tokens -- --output tokens
         working-directory: design-tokens
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
@@ -48,10 +48,10 @@ jobs:
           FIGMA_PRIMITIVES_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_PRIMITIVES_COLLECTION_KEY }}
           FIGMA_GLOBAL_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_GLOBAL_COLLECTION_KEY }}
       - name: Format token files with prettier
-        run: yarn prettier tokens --write
+        run: pnpm prettier tokens --write
         working-directory: design-tokens
       - name: Build site search for pre-commit linting
-        run: yarn build-search
+        run: pnpm build-search
         working-directory: aries-site
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5

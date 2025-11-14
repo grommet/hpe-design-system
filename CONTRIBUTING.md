@@ -23,7 +23,7 @@ git clone https://github.com/grommet/hpe-design-system.git
 3. Install dependencies
 
 ```
-yarn install
+pnpm install
 ```
 
 4. Implement your changes

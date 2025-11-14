@@ -22,11 +22,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
         working-directory: design-tokens
 
       - name: Sync tokens to Figma file
-        run: yarn sync-tokens-to-figma
+        run: pnpm sync-tokens-to-figma
         working-directory: design-tokens
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
