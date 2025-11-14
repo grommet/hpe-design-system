@@ -1,4 +1,4 @@
-import { Box, Text, BoxProps } from 'grommet';
+import { Box, Text } from 'grommet';
 
 const ScaleCell = ({
   index,
@@ -6,24 +6,25 @@ const ScaleCell = ({
   count,
   size,
   ...rest
-}: {
-  index: number;
-  color: string;
-  count: number;
-  size: string;
-  children?: React.ReactNode;
-} & BoxProps) => {
+}) => {
   return (
     <Box
       height="5xsmall"
       width={size}
       background={{
-        color: color,
+        color,
         opacity: 1 - (index / count),
       }}
       {...rest}
     />
   );
+};
+
+ScaleCell.propTypes = {
+  index: Number,
+  color: String,
+  count: Number,
+  size: String,
 };
 
 const scaleCounts = {
