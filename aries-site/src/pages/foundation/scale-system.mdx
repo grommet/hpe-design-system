@@ -1,3 +1,5 @@
+import { ComposableScale } from '../../examples/foundation/scale-system';
+
 The scale defines how UI elements proportionally relate to one another, ensuring composability
 and harmony among layout elements. The system defines a base unit and scale ratio from which
 all steps of the scale are derived. Subsets of the scale are used to define spacing sizes and
@@ -29,5 +31,11 @@ The resulting scale steps: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 19
 ## Composability
 
 Each scale step may is divisible into halves, thirds, quarters, etc. Alternatively each step is
-composable from smaller steps. This means that spacing or container [t-shirt sizes](/foundation/tshirt-sizing) added together or
-subtracted from one another will be equal to another t-shirt size on the scale.
+composable from smaller steps. This means that spacing or container [t-shirt sizes](/foundation/tshirt-sizing) 
+added together or subtracted from one another will be equal to another t-shirt size on the scale.
+
+<figure style={{ display: 'contents'}}>
+  {/* TODO: Determine appropriate colors and/or how to represent proper text. Or, do we treat this as an illustration only? */} 
+  <ComposableScale />
+  <figcaption>Figure 1: Composable scale steps visualization</figcaption>
+</figure>
