@@ -529,7 +529,7 @@ export const foundation = [
     seoDescription:
       `Foundational scale defining the relations and proportions used in HPE 
       user interfaces.`,
-    sections: [],
+    sections: ['Principles', 'Foundational scale', 'Composability'],
     tags: [
       'scale system',
       'scale',
@@ -542,6 +542,9 @@ export const foundation = [
       'layout',
       'spacing',
       'base unit',
+    ],
+    relatedContent: [
+      'Tshirt sizing',
     ],
   },
 ];

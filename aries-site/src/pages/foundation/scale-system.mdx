@@ -1,0 +1,33 @@
+The scale defines how UI elements proportionally relate to one another, ensuring composability
+and harmony among layout elements. The system defines a base unit and scale ratio from which
+all steps of the scale are derived. Subsets of the scale are used to define spacing sizes and
+content container sizes.
+
+Additionally, the scale system allows the HPE Design System to provide turnkey solutions
+which automatically scale UIs dependent on viewport widths, devices, and user preferences.
+
+## Principles
+
+The following scale system has been built from the following principles:
+
+- **Proportional:** Use a natural ratio where each step in the scale is proportional all other steps.
+- **Composable:** Each scale step may is divisible into halves, thirds, quarters, etc. Inversely,
+  each step is composable from smaller steps.
+- **Flexible:** Scale may be divided into subsets, providing choices serving a variety of use cases.
+
+## Foundational scale
+
+The sizing scale consists of a primary scale based on the doubling/halving of a 24px base unit and
+a supplementary scale doubling/halving a 16px base unit.
+
+The resulting scale steps: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512,
+768, 1024, 1536.
+
+[Spacing](/add-link-here), [container](/add-link-here), [radius](/add-link-here), and
+[borderWidth](/add-link-here) design tokens are defined using subsets of this scale.
+
+## Composability
+
+Each scale step may is divisible into halves, thirds, quarters, etc. Alternatively each step is
+composable from smaller steps. This means that spacing or container [t-shirt sizes](/foundation/tshirt-sizing) added together or
+subtracted from one another will be equal to another t-shirt size on the scale.
