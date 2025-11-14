@@ -6,3 +6,4 @@ export * from './date-and-time';
 export * from './distinctive-brand-assets';
 export * from './typography';
 export * from './icons';
+export * from './scale-system';
