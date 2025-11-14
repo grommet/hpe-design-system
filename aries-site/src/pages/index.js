@@ -1,19 +1,16 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  Box,
-  Card,
-  Heading,
-  PageContent,
-  Paragraph,
-} from 'grommet';
-// eslint-disable-next-line import/no-unresolved
-import * as tokens from 'hpe-design-tokens/docs';
+import { Box, Card, Heading, PageContent, Paragraph } from 'grommet';
 import PropTypes from 'prop-types';
 // Main homepage for HPE Design System
 import { Meta } from '../components';
-import { Community, CreativeToolkit, Featured, Quote, WhatIs }
- from '../components/home';
+import {
+  Community,
+  CreativeToolkit,
+  Featured,
+  Quote,
+  WhatIs,
+} from '../components/home';
 /* Including header here to share the same background image */
 import { Header } from '../layouts/main/Header';
 import { getPageDetails } from '../utils';
@@ -50,7 +47,7 @@ const Index = () => {
 
   return (
     <>
-      <Meta title={title} description={pageDetails.seoDescription} />     
+      <Meta title={title} description={pageDetails.seoDescription} />
       {/* The 43% background size covers widths from 768px to 3277px
       background-size: 'cover'; will render it the size of the whole page
       */}
@@ -63,10 +60,10 @@ const Index = () => {
         }}
       >
         <PageContent>
-          <Header background="transparent" />
+          <Header />
         </PageContent>
         <Intro>
-          <Box style={{ maxWidth: 1103, margin: '48px auto' }}>
+          <Box alignSelf="center" align="center" width={{ max: 'xxlarge' }}>
             <Heading
               margin="none"
               size="medium"
@@ -75,19 +72,9 @@ const Index = () => {
             >
               Design, develop and deliver
             </Heading>
-            <Paragraph
-              size="xlarge"
-              textAlign="center"
-              style={{
-                maxWidth: 'none',
-                fontSize: tokens.dimension
-                ['hpe.text.3xlarge.fontSize']?.$value,
-                lineHeight: tokens.dimension
-                ['hpe.text.3xlarge.lineHeight']?.$value,
-              }}
-            >
-              Empower designers and developers to quickly create
-              accessible enterprise app experiences.
+            <Paragraph size="xxlarge" textAlign="center">
+              Empower designers and developers to quickly create accessible
+              enterprise app experiences.
             </Paragraph>
           </Box>
         </Intro>

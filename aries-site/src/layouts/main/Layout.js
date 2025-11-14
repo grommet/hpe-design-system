@@ -160,11 +160,7 @@ export const Layout = ({
           <>
             <SkipLinks id="skip-links">
               {skiplinks.map(({ id, label }) => (
-                  <SkipLink
-                    key={id}
-                    id={id}
-                    label={label}
-                  />
+                <SkipLink key={id} id={id} label={label} />
               ))}
             </SkipLinks>
             <PageContent>
@@ -173,9 +169,9 @@ export const Layout = ({
               to have the same background as the hero. */}
               {title && title.toLowerCase() !== 'home' && (
                 <Header
+                  background="background-back"
                   fill="horizontal"
                   alignSelf="center"
-                  background="transparent"
                 />
               )}
             </PageContent>

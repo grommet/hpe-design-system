@@ -1,13 +1,5 @@
 import React, { useContext } from 'react';
-// eslint-disable-next-line import/no-unresolved
-import * as tokens from 'hpe-design-tokens/docs';
-import {
-  Box,
-  Heading,
-  Image,
-  PageContent,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Heading, Image, PageContent, ResponsiveContext } from 'grommet';
 import { ContentPreviewCard } from '../cards';
 import { useDarkMode } from '../../utils';
 
@@ -34,29 +26,25 @@ const CreativeToolkitLayout = () => {
             width={!['xsmall', 'small'].includes(size) ? 'medium' : 'large'}
           >
             <Box
-                width="xxsmall"
-                height="xsmall"
-                align="center"
-                justify="center"
+              width="xxsmall"
+              height="xsmall"
+              align="center"
+              justify="center"
             >
               {image && (
                 <Image
-                    src={
-                      darkMode.value
-                        ? image.src.dark || image.src
-                        : image.src.light || image.src
-                    }
+                  src={
+                    darkMode.value
+                      ? image.src.dark || image.src
+                      : image.src.light || image.src
+                  }
                   alt={image.alt}
                   fit="contain"
-                  // Use individual width or fallback
-                  width={image.width || '128px'} 
+                  width={image.width || 'xxsmall'}
                 />
               )}
             </Box>
-            <Heading
-                level={4}
-                margin="none"
-                alignSelf="center">
+            <Heading level={3} margin="none" alignSelf="center">
               {name}
             </Heading>
           </Box>
@@ -73,14 +61,9 @@ export const CreativeToolkit = ({ ...rest }) => (
   >
     <Box fill gap="medium" pad={{ vertical: 'medium' }} {...rest}>
       <Box justify="center" align="center" gap="xlarge">
-        <Heading
-          margin="large"
-          level={3}
-          style={{
-            fontSize: tokens.dimension['hpe.text.4xlarge.fontSize']?.$value,
-            lineHeight: tokens.dimension['hpe.text.4xlarge.lineHeight']?.$value,
-          }}
-        >
+        <Heading size="large" level={2}>
+          {/* this font does not look correct think its grabbing
+           condensed from hpe pop */}
           Our Creative Toolkit
         </Heading>
       </Box>

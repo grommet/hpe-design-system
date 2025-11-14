@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-// eslint-disable-next-line import/no-unresolved
-import * as tokens from 'hpe-design-tokens/docs';
 import {
   Box,
   Button,
@@ -102,17 +100,11 @@ export const Community = ({ ...rest }) => {
         {...rest}
       >
         <Box width="xxlarge">
+          {/* is this coming through correctly? */}
           <Heading margin="none" level={2} size="xsmall">
             Community
           </Heading>
-          <Paragraph
-            style={{
-              fontSize: tokens.dimension['hpe.text.3xlarge.fontSize']
-              ?.$value,
-              lineHeight: tokens.dimension['hpe.text.3xlarge.lineHeight']
-              ?.$value,
-            }}
-          >
+          <Paragraph size="xxlarge" fill>
             The HPE Design System is an open-source framework for designers and
             developers. We welcome feedback, ideas and appreciate your
             suggestions.

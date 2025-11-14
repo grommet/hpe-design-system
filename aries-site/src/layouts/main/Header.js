@@ -10,7 +10,7 @@ import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
 // Accept a background prop to allow transparent header on homepage
-const StyledHeader = ({ background = 'white', ...rest }) => {
+const StyledHeader = ({ ...rest }) => {
   const pageDetails = getPageDetails('Home');
   const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
   const [showSearch, setShowSearch] = useState(false);
@@ -22,7 +22,6 @@ const StyledHeader = ({ background = 'white', ...rest }) => {
       pad={{
         vertical: 'medium',
       }}
-      background={background}
       {...rest}
     >
       <Link href="/" passHref legacyBehavior>

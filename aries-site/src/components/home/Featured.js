@@ -33,48 +33,45 @@ const FeaturedLayout = ({ ...rest }) => {
               pad="xlarge"
               background="background-front"
             >
-            {/* Icon with background color */}
-            <Box
-              background="background-contrast"
-              pad="medium"
-              round="small"
-              margin={{ bottom: 'small' }}
-              justify="center"
-            >
-              {icon}
+              {/* Icon with background color */}
+              <Box
+                background="background-contrast"
+                pad="medium"
+                round="small"
+                margin={{ bottom: 'small' }}
+                justify="center"
+              >
+                {icon}
+              </Box>
+              <Heading
+                size="small"
+                level={2}
+                margin={{ top: 'xsmall', bottom: 'none' }}
+              >
+                {name}
+              </Heading>
+              <Paragraph size="xlarge" textAlign="center">
+                {description}
+              </Paragraph>
+              <Box align="center" margin={{ top: 'medium' }}>
+                {/* Only buttons are clickable now */}
+                {name === 'Design' && (
+                  <Button
+                    secondary
+                    label="Start Designing"
+                    href="/foundation/designer-guidance"
+                  />
+                )}
+                {name === 'Develop' && (
+                  <Button
+                    secondary
+                    label="Get the code"
+                    href="/foundation/developer-guidance"
+                  />
+                )}
+              </Box>
             </Box>
-            <Heading
-              size="small"
-              level={3}
-              margin={{ top: 'xsmall', bottom: 'none' }}
-            >
-              {name}
-            </Heading>
-            <Paragraph size="xlarge" textAlign="center">
-              {description}
-            </Paragraph>
-            <Box
-              align="center"
-              margin={{ top: 'medium' }}
-            >
-              {/* Only buttons are clickable now */}
-              {name === 'Design' && (
-                <Button
-                  secondary
-                  label="Start Designing"
-                  href='/foundation/designer-guidance'
-                />
-              )}
-              {name === 'Develop' && (
-                <Button
-                  secondary
-                  label="Get the code"
-                  href='/foundation/developer-guidance'
-                />
-              )}
-            </Box>
-          </Box>
-        ))}
+          ))}
         </Box>
       </Box>
     </PageContent>
