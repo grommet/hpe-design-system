@@ -13,20 +13,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hpe-design/icons-grommet": "^1.0.1",
-    "grommet": "^2.37.0",
-    "grommet-icons": "^4.14.0",
+    "@hpe-design/icons-grommet": "catalog:",
+    "grommet": "catalog:",
+    "grommet-icons": "catalog:",
     "grommet-theme-hpe": "^6.0.0",
     "hpe-design-tokens": "workspace:*",
-    "prop-types": "^15.8.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "prop-types": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "react-router-dom": "^6.28.0",
-    "styled-components": "^6.1.17"
+    "styled-components": "catalog:"
   },
   "devDependencies": {
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

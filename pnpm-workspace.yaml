@@ -13,6 +13,11 @@ catalog:
   styled-components: ^6.1.17
   prop-types: ^15.8.1
   grommet-theme-hpe: ^8.0.0
+  grommet: ^2.51.0
+  grommet-icons: ^4.14.0
+  "@hpe-design/icons-grommet": ^1.0.1
+  "@types/react": ^19.1.10
+  "@types/react-dom": ^19.1.7
 
 catalogs:
   grommet-stable:
@@ -24,3 +29,6 @@ catalogs:
   
   grommet-theme-hpe-v6:
     grommet-theme-hpe: npm:grommet-theme-hpe@6
+  
+  grommet-theme-hpe-v7:
+    grommet-theme-hpe: ^7.0.0
