@@ -57,7 +57,7 @@ const CreativeToolkitLayout = () => {
 export const CreativeToolkit = ({ ...rest }) => (
   <PageContent
     background={{ fill: 'horizontal', color: 'background-back' }}
-    pad="medium"
+    pad="xlarge"
   >
     <Box fill gap="medium" pad={{ vertical: 'medium' }} {...rest}>
       <Box justify="center" align="center" gap="xlarge">
