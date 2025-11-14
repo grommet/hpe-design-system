@@ -55,7 +55,7 @@ const Index = () => {
         fill
         background={{
           image: bgImage,
-          size: 'auto 43%',
+          size: 'auto 50%',
           position: 'center top',
         }}
       >

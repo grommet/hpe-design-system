@@ -13,11 +13,16 @@ const CreativeToolkitLayout = () => {
     <Box
       direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
       gap="large"
+      margin={{ bottom: 'large' }}
       justify="center"
       align="center"
     >
       {toolkitItems.map(({ name, href, image }) => (
-        <ContentPreviewCard key={name} href={href} pad="medium" round="xxlarge">
+        <ContentPreviewCard
+          key={name}          
+          href={href}
+          pad="medium"
+          round="xxlarge">
           <Box
             align="center"
             justify="center"
@@ -57,13 +62,11 @@ const CreativeToolkitLayout = () => {
 export const CreativeToolkit = ({ ...rest }) => (
   <PageContent
     background={{ fill: 'horizontal', color: 'background-back' }}
-    pad="xlarge"
+    pad="3xlarge"
   >
-    <Box fill gap="medium" pad={{ vertical: 'medium' }} {...rest}>
+    <Box fill gap="large" {...rest}>
       <Box justify="center" align="center" gap="xlarge">
-        <Heading size="large" level={2}>
-          {/* this font does not look correct think its grabbing
-           condensed from hpe pop */}
+        <Heading level={2} size="small" margin="large" textAlign="center">
           Our Creative Toolkit
         </Heading>
       </Box>

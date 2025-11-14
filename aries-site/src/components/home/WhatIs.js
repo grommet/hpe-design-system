@@ -6,7 +6,7 @@ export const WhatIs = ({ ...rest }) => (
   <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
     <Box fill pad={{ vertical: '3xlarge' }} gap="3xlarge" {...rest}>
       <Box justify="center" align="center" width="xlarge" alignSelf="center">
-        <Heading level={2} size="small" margin="none" textAlign="center">
+        <Heading level={2} size="small" margin="large" textAlign="center">
           What is the HPE Design System?
         </Heading>
         <Paragraph size="xxlarge" textAlign="center">

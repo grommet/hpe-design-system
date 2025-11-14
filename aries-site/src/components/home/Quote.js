@@ -22,7 +22,7 @@ export const Quote = () => {
       }
       gap="xlarge"
       justify="center"
-      pad="xlarge"
+      pad="3xlarge"
       overflow="hidden"
       background={{ fill: 'horizontal', color: 'background-front' }}
     >
