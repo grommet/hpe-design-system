@@ -7,10 +7,10 @@
     "./*": "./dist/*.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "lint": "eslint . --max-warnings 0",
-    "check-types": "tsc --noEmit",
-    "test": "vitest"
+    "check-types": "npx tsc --noEmit",
+    "test": "npx vitest"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",

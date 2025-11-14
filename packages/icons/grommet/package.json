@@ -35,11 +35,11 @@
 		"LICENSE"
 	],
 	"scripts": {
-		"build": "vite build && npm run copy-types",
+		"build": "npx vite build && pnpm run copy-types",
 		"copy-types": "cp src/js/icons/index.d.ts dist/hpe-icons.d.ts",
-		"lint": "eslint .",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"lint": "npx eslint .",
+		"storybook": "npx storybook dev -p 6006",
+		"build-storybook": "npx storybook build"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0",

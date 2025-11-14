@@ -22,7 +22,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc && vite build"
+    "build": "npx tsc && npx vite build"
   },
   "devDependencies": {
     "typescript": "~5.8.3",
