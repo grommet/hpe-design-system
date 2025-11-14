@@ -6,3 +6,21 @@ packages:
   - 'design-tokens-manager'
   - 'design-tokens'
   - 'shared/*'
+
+catalog:
+  react: ^19.1.0
+  react-dom: ^19.1.0
+  styled-components: ^6.1.17
+  prop-types: ^15.8.1
+  grommet-theme-hpe: ^8.0.0
+
+catalogs:
+  grommet-stable:
+    grommet: https://github.com/grommet/grommet/tarball/stable
+    grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable
+  
+  grommet-theme-hpe-v5:
+    grommet-theme-hpe: npm:grommet-theme-hpe@5.8.0
+  
+  grommet-theme-hpe-v6:
+    grommet-theme-hpe: npm:grommet-theme-hpe@6
