@@ -252,10 +252,10 @@ importers:
         specifier: workspace:*
         version: link:../aries-core
       grommet:
-        specifier: https://github.com/grommet/grommet/tarball/stable
+        specifier: catalog:grommet-stable
         version: https://github.com/grommet/grommet/tarball/stable(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       grommet-icons:
-        specifier: https://github.com/grommet/grommet-icons/tarball/stable
+        specifier: catalog:grommet-stable
         version: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       hpe-design-tokens:
         specifier: ^2.1.0
@@ -264,13 +264,13 @@ importers:
         specifier: ^15.3.1
         version: 15.5.6(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       prop-types:
-        specifier: ^15.8.1
+        specifier: 'catalog:'
         version: 15.8.1
       react:
-        specifier: ^19.1.0
+        specifier: 'catalog:'
         version: 19.2.0
       react-dom:
-        specifier: ^19.1.0
+        specifier: 'catalog:'
         version: 19.2.0(react@19.2.0)
       react-ga:
         specifier: ^2.7.0
@@ -282,7 +282,7 @@ importers:
         specifier: ^4.0.0
         version: 4.0.1
       styled-components:
-        specifier: ^6.1.17
+        specifier: 'catalog:'
         version: 6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
     devDependencies:
       '@applitools/eyes-testcafe':
@@ -301,7 +301,7 @@ importers:
         specifier: ^2.1.4
         version: 2.1.4(@babel/core@7.28.5)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       grommet-theme-hpe:
-        specifier: ^8.0.0
+        specifier: 'catalog:'
         version: 8.0.0(@hpe-design/icons-grommet@1.0.1(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(grommet@https://github.com/grommet/grommet/tarball/stable(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       next-transpile-modules:
         specifier: ^10.0.1
@@ -10397,7 +10397,7 @@ snapshots:
 
   '@emnapi/runtime@1.7.0':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
     optional: true
 
   '@emotion/is-prop-valid@1.2.2':
@@ -11015,41 +11015,41 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@jsonjoy.com/base64@1.1.2(tslib@2.6.2)':
+  '@jsonjoy.com/base64@1.1.2(tslib@2.8.1)':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
-  '@jsonjoy.com/buffers@1.2.1(tslib@2.6.2)':
+  '@jsonjoy.com/buffers@1.2.1(tslib@2.8.1)':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
-  '@jsonjoy.com/codegen@1.0.0(tslib@2.6.2)':
+  '@jsonjoy.com/codegen@1.0.0(tslib@2.8.1)':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
-  '@jsonjoy.com/json-pack@1.21.0(tslib@2.6.2)':
+  '@jsonjoy.com/json-pack@1.21.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/base64': 1.1.2(tslib@2.6.2)
-      '@jsonjoy.com/buffers': 1.2.1(tslib@2.6.2)
-      '@jsonjoy.com/codegen': 1.0.0(tslib@2.6.2)
-      '@jsonjoy.com/json-pointer': 1.0.2(tslib@2.6.2)
-      '@jsonjoy.com/util': 1.9.0(tslib@2.6.2)
+      '@jsonjoy.com/base64': 1.1.2(tslib@2.8.1)
+      '@jsonjoy.com/buffers': 1.2.1(tslib@2.8.1)
+      '@jsonjoy.com/codegen': 1.0.0(tslib@2.8.1)
+      '@jsonjoy.com/json-pointer': 1.0.2(tslib@2.8.1)
+      '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
       hyperdyperid: 1.2.0
-      thingies: 2.5.0(tslib@2.6.2)
-      tree-dump: 1.1.0(tslib@2.6.2)
-      tslib: 2.6.2
+      thingies: 2.5.0(tslib@2.8.1)
+      tree-dump: 1.1.0(tslib@2.8.1)
+      tslib: 2.8.1
 
-  '@jsonjoy.com/json-pointer@1.0.2(tslib@2.6.2)':
+  '@jsonjoy.com/json-pointer@1.0.2(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/codegen': 1.0.0(tslib@2.6.2)
-      '@jsonjoy.com/util': 1.9.0(tslib@2.6.2)
-      tslib: 2.6.2
+      '@jsonjoy.com/codegen': 1.0.0(tslib@2.8.1)
+      '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
+      tslib: 2.8.1
 
-  '@jsonjoy.com/util@1.9.0(tslib@2.6.2)':
+  '@jsonjoy.com/util@1.9.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/buffers': 1.2.1(tslib@2.6.2)
-      '@jsonjoy.com/codegen': 1.0.0(tslib@2.6.2)
-      tslib: 2.6.2
+      '@jsonjoy.com/buffers': 1.2.1(tslib@2.8.1)
+      '@jsonjoy.com/codegen': 1.0.0(tslib@2.8.1)
+      tslib: 2.8.1
 
   '@kwsites/file-exists@1.1.1':
     dependencies:
@@ -11748,7 +11748,7 @@ snapshots:
       flat-cache: 3.2.0
       micromatch: 4.0.8
       react-docgen-typescript: 2.4.0(typescript@5.9.3)
-      tslib: 2.6.2
+      tslib: 2.8.1
       typescript: 5.9.3
       webpack: 5.102.1(@swc/core@1.15.1)(esbuild@0.25.12)(webpack-cli@5.1.4)
     transitivePeerDependencies:
@@ -12691,7 +12691,7 @@ snapshots:
 
   aria-hidden@1.2.6:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   aria-query@5.1.3:
     dependencies:
@@ -12809,7 +12809,7 @@ snapshots:
 
   ast-types@0.13.4:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   ast-types@0.16.1:
     dependencies:
@@ -13107,7 +13107,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   camelcase-css@2.0.1: {}
 
@@ -13658,7 +13658,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   dotenv@16.6.1: {}
 
@@ -14679,9 +14679,9 @@ snapshots:
     dependencies:
       is-glob: 4.0.3
 
-  glob-to-regex.js@1.2.0(tslib@2.6.2):
+  glob-to-regex.js@1.2.0(tslib@2.8.1):
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   glob-to-regexp@0.4.1: {}
 
@@ -16077,7 +16077,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   lowlight@1.20.0:
     dependencies:
@@ -16312,12 +16312,12 @@ snapshots:
 
   memfs@4.51.0:
     dependencies:
-      '@jsonjoy.com/json-pack': 1.21.0(tslib@2.6.2)
-      '@jsonjoy.com/util': 1.9.0(tslib@2.6.2)
-      glob-to-regex.js: 1.2.0(tslib@2.6.2)
-      thingies: 2.5.0(tslib@2.6.2)
-      tree-dump: 1.1.0(tslib@2.6.2)
-      tslib: 2.6.2
+      '@jsonjoy.com/json-pack': 1.21.0(tslib@2.8.1)
+      '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
+      glob-to-regex.js: 1.2.0(tslib@2.8.1)
+      thingies: 2.5.0(tslib@2.8.1)
+      tree-dump: 1.1.0(tslib@2.8.1)
+      tslib: 2.8.1
 
   memoizerific@1.11.3:
     dependencies:
@@ -16713,7 +16713,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   node-abort-controller@3.1.1: {}
 
@@ -16948,7 +16948,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   parent-module@1.0.1:
     dependencies:
@@ -16997,7 +16997,7 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   patch-package@8.0.1:
     dependencies:
@@ -17360,7 +17360,7 @@ snapshots:
     dependencies:
       react: 19.2.0
       react-style-singleton: 2.2.3(@types/react@19.2.4)(react@19.2.0)
-      tslib: 2.6.2
+      tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.2.4
 
@@ -17369,7 +17369,7 @@ snapshots:
       react: 19.2.0
       react-remove-scroll-bar: 2.3.8(@types/react@19.2.4)(react@19.2.0)
       react-style-singleton: 2.2.3(@types/react@19.2.4)(react@19.2.0)
-      tslib: 2.6.2
+      tslib: 2.8.1
       use-callback-ref: 1.3.3(@types/react@19.2.4)(react@19.2.0)
       use-sidecar: 1.1.3(@types/react@19.2.4)(react@19.2.0)
     optionalDependencies:
@@ -17405,7 +17405,7 @@ snapshots:
     dependencies:
       get-nonce: 1.0.1
       react: 19.2.0
-      tslib: 2.6.2
+      tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.2.4
 
@@ -17711,7 +17711,7 @@ snapshots:
 
   rxjs@7.8.2:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   safe-array-concat@1.1.3:
     dependencies:
@@ -18555,9 +18555,9 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  thingies@2.5.0(tslib@2.6.2):
+  thingies@2.5.0(tslib@2.8.1):
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   throat@5.0.0: {}
 
@@ -18644,9 +18644,9 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  tree-dump@1.1.0(tslib@2.6.2):
+  tree-dump@1.1.0(tslib@2.8.1):
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   tree-kill@1.2.2: {}
 
@@ -18875,7 +18875,7 @@ snapshots:
   use-callback-ref@1.3.3(@types/react@19.2.4)(react@19.2.0):
     dependencies:
       react: 19.2.0
-      tslib: 2.6.2
+      tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.2.4
 
@@ -18883,7 +18883,7 @@ snapshots:
     dependencies:
       detect-node-es: 1.1.0
       react: 19.2.0
-      tslib: 2.6.2
+      tslib: 2.8.1
     optionalDependencies:
       '@types/react': 19.2.4
 
