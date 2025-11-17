@@ -36,7 +36,7 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
       gap="xsmall"
       pad={{ top: 'medium', horizontal: 'medium', bottom: 'xsmall' }}
     >
-      <Icon size="xlarge"/>
+      <Icon size="xlarge" />
       <Box>
         <Heading level="4" margin="none" size="small">
           {name}
@@ -94,7 +94,7 @@ export const IconUIActionsExample = () => (
     <CoreIcon
       Icon={Close}
       name="Close"
-      aliases={['Remove', 'Cancel']}
+      aliases={['Cancel']}
       guidance="Use to dismiss or close layers, modals, or panels."
     />
     <CoreIcon
@@ -122,8 +122,7 @@ export const IconUIActionsExample = () => (
       Icon={Download}
       name="Download"
       guidance={
-        'Use to indicate that a file or resource is available to ' +
-        'download.'
+        'Use to indicate that a file or resource is available to ' + 'download.'
       }
     />
   </Grid>
@@ -153,13 +152,13 @@ export const IconControlsExample = () => (
       name="Down"
       guidance="Use to indicate expandable content."
     />
-    {/* The Design system doesnt have a custom design solution for
-    clearing input fields */}
-    {/* <CoreIcon
+    <CoreIcon
       Icon={Close}
       name="Close"
-      guidance="Use in in file input fields to clear them."
-    /> */}
+      aliases={['Remove', 'Clear']}
+      guidance={`Use to remove items such as a tag 
+        from a resource or a file from a file input.`}
+    />
   </Grid>
 );
 
