@@ -78,7 +78,7 @@ The library includes icons across multiple categories:
 
 ### Complete Icon List
 
-For a complete list of all 450+ available icons, explore the Storybook documentation or check the `src/js/icons/` directory.
+For a complete list of all 450+ available icons, explore the [Storybook](https://hpe-design-icons-grommet.netlify.app/) documentation or check the `src/js/icons/` directory.
 
 ## Development
 

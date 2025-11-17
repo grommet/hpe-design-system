@@ -376,6 +376,44 @@ export const foundation = [
     ],
   },
   {
+    name: 'Color pairing',
+    category: 'Assets',
+    cardOrder: 9,
+    description: `Pair colors correctly to ensure your design has sufficient 
+    contrast ratios and will remain so with color updates.`,
+    preview: {
+      component: () => (
+        <Box
+          background="background-neutral-xstrong"
+          pad="medium"
+          round="medium"
+        >
+          color.text.onStrong
+        </Box>
+      ),
+    },
+    seoDescription: `Learn how to pair colors correctly to ensure your design 
+    has sufficient contrast ratios and will remain accessible with color
+    updates.`,
+    sections: [
+      'Color pairing explained',
+      'Accessible standard color pairings',
+      'Strong background and onStrong colors',
+      'Specialty color pairings',
+    ],
+    relatedContent: ['Color', 'Background colors guidance', 'Accessibility'],
+    tags: [
+      'color pairing',
+      'color contrast',
+      'accessibility',
+      'standard backgrounds',
+      'strong backgrounds',
+      'onStrong colors',
+      'specialty colors',
+      'contrast ratios',
+    ],
+  },
+  {
     name: 'Tshirt sizing',
     render: 'T-shirt sizing',
     category: 'Philosophy',
