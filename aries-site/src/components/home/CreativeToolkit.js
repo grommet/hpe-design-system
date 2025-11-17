@@ -46,7 +46,12 @@ const CreativeToolkitLayout = ({ level }) => {
                 />
               )}
             </Box>
-            <Heading level={level} margin="none" alignSelf="center">
+            <Heading
+              level={level}
+              margin="none"
+              alignSelf="center"
+              size="small"
+            >
               {name}
             </Heading>
           </Box>
