@@ -1,18 +1,18 @@
 import { ComposableScale } from '../../examples/foundation/scale-system';
 
-The scale defines how UI elements proportionally relate to one another, ensuring composability
-and harmony among layout elements. The system defines a base unit and scale ratio from which
-all steps of the scale are derived. Subsets of the scale are used to define spacing sizes and
-content container sizes.
+The scale establishes how UI elements proportionally relate to one another, ensuring 
+composability and harmony within the layout. It defines a base unit and scale ratio from 
+which all steps of the scale are derived. Subsets of the scale are used to define spacing 
+sizes and content container sizes.
 
-Additionally, the scale system allows the HPE Design System to provide turnkey solutions
-which automatically scale UIs dependent on viewport widths, devices, and user preferences.
+Additionally, the scale system provides ready-to-use functionality that automatically 
+adapts UIs based on viewport width, device type, and user preferences.
 
 ## Principles
 
 The following scale system has been built from the following principles:
 
-- **Proportional:** Each step in the scale follows a consistent, natural ratio, ensuring all
+- **Proportional:** Each step in the scale follows a consistentatio, ensuring all
   steps are proportional to one another.
 - **Composable:** Each step in the scale is divisible into halves, thirds, quarters, and so on.
   Conversely, each step may be assembled from smaller increments.
@@ -23,20 +23,23 @@ The following scale system has been built from the following principles:
 
 ## Foundational scale
 
-The sizing scale consists of a primary scale based on the doubling/halving of a 24px base unit and
-a supplementary scale doubling/halving a 16px base unit.
+The scale system is built upon two interconnected scales:
+- **Primary scale**: Based on a 24px base unit, where each step is achieved by doubling or halving the previous value.
+- **Supplementary scale**: Based on a 16px base unit, following the same doubling and halving principle.
 
-The resulting scale steps: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512,
-768, 1024, 1536.
+The resulting scale steps: <br />
+1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536.
 
-[Spacing](/add-link-here), [container](/add-link-here), [radius](/add-link-here), and
-[borderWidth](/add-link-here) design tokens are defined using subsets of this scale.
+Design tokens for [spacing](/add-link-here), [containers](/add-link-here), 
+[border radius](/add-link-here), and [border width](/add-link-here) are defined as subsets of 
+this foundational scale.
 
 ## Composability
 
-Each scale step may is divisible into halves, thirds, quarters, etc. Alternatively each step is
-composable from smaller steps. This means that spacing or container [t-shirt sizes](/foundation/tshirt-sizing)
-added together or subtracted from one another will be equal to another t-shirt size on the scale.
+Each step in the scale is divisible into halves, thirds, or quarters. Conversely, each step can be 
+composed by combining smaller steps. This ensures that when you add or subtract spacing or 
+container [t-shirt sizes](/foundation/tshirt-sizing), the result is always another valid size on 
+the scale.
 
 <figure style={{ display: 'contents' }}>
   {/* TODO: Determine appropriate colors and/or how to represent proper text. Or, do we treat this as an illustration only? */}

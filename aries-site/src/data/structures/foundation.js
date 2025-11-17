@@ -515,7 +515,7 @@ export const foundation = [
     name: 'Scale system',
     category: 'Assets',
     cardOrder: 8,
-    description: `The foundational scale defining the relations 
+    description: `The foundational scale establishing the relationships 
     and proportions used to define the elements composing a UI.`,
     preview: {
       image: {
@@ -526,9 +526,8 @@ export const foundation = [
         alt: 'Boxes of increasing size representing the scale system',
       },
     },
-    seoDescription:
-      `Foundational scale defining the relations and proportions used in HPE 
-      user interfaces.`,
+    seoDescription: `The foundational scale establishing the relationships 
+    and proportions used to define the elements composing a UI.`,
     sections: ['Principles', 'Foundational scale', 'Composability'],
     tags: [
       'scale system',
@@ -543,8 +542,6 @@ export const foundation = [
       'spacing',
       'base unit',
     ],
-    relatedContent: [
-      'Tshirt sizing',
-    ],
+    relatedContent: ['Tshirt sizing'],
   },
 ];
