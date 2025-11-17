@@ -19,7 +19,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -27,24 +27,19 @@ jobs:
           cache: 'pnpm'
       - name: Install latest dependencies
         run: pnpm upgrade
-        working-directory: aries-site
       - name: Log Git Repository
         run: echo "$GITHUB_REPOSITORY"
       # Ensure a build of design tokens is available
       - name: Create design tokens build
-        run: pnpm build
-        working-directory: design-tokens
+        run: pnpm --filter hpe-design-tokens build
       - name: Create production build
-        run: pnpm build
-        working-directory: aries-site
+        run: pnpm --filter aries-site build
       # Tests are only run on headless Chrome
       - name: Run e2e tests on Chrome
-        run: pnpm test:ci
-        working-directory: aries-site
+        run: pnpm --filter aries-site test:ci
       - name: Run Applitools tests on Chrome
         if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
-        run: pnpm test:applitools
-        working-directory: aries-site
+        run: pnpm --filter aries-site test:applitools
 
   batch-completion-notification:
     needs: build-and-test

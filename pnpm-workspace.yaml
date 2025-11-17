@@ -8,13 +8,14 @@ packages:
   - 'shared/*'
 
 catalog:
+  grommet: ^2.51.0
+  grommet-icons: ^4.14.0
+  grommet-theme-hpe: ^8.0.0
+  prop-types: ^15.8.1
   react: ^19.1.0
   react-dom: ^19.1.0
   styled-components: ^6.1.17
-  prop-types: ^15.8.1
-  grommet-theme-hpe: ^8.0.0
-  grommet: ^2.51.0
-  grommet-icons: ^4.14.0
+  typescript: ^5.9.3
   "@hpe-design/icons-grommet": ^1.0.1
   "@types/react": ^19.1.10
   "@types/react-dom": ^19.1.7

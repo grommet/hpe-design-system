@@ -24,15 +24,15 @@
   "repository": "https://github.com/grommet/hpe-design-system",
   "homepage": "https://design-system.hpe.design/",
   "scripts": {
-    "prettier:check": "npx prettier --check src/",
-    "sync-tokens-to-figma": "npx tsx src/scripts/sync_tokens_to_figma.ts",
-    "sync-figma-to-tokens": "npx tsx src/scripts/sync_figma_to_tokens.ts",
-    "build-style-dictionary": "npx tsx src/scripts/build-style-dictionary.js",
+    "prettier:check": "prettier --check src/",
+    "sync-tokens-to-figma": "tsx src/scripts/sync_tokens_to_figma.ts",
+    "sync-figma-to-tokens": "tsx src/scripts/sync_figma_to_tokens.ts",
+    "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
     "build": "rm -rf ./dist && pnpm build-style-dictionary",
     "release-stable": "node src/scripts/release-stable.js  --branch=design-tokens-stable",
-    "paddingY:verify": "npx tsx src/scripts/verify-paddingY.ts",
-    "paddingY:update": "npx tsx src/scripts/update-paddingY.ts",
-    "test": "npx vitest --watch=false"
+    "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
+    "paddingY:update": "tsx src/scripts/update-paddingY.ts",
+    "test": "vitest --watch=false"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
@@ -47,7 +47,7 @@
     "style-dictionary": "^4.2.0",
     "style-dictionary-utils": "^3.0.0",
     "tsx": "^4.19.1",
-    "typescript": "^5.1.6",
+    "typescript": "catalog:",
     "vitest": "^3.0.9"
   }
 }

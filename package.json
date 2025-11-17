@@ -24,19 +24,14 @@
     "husky": "^8.0.0",
     "jest": "^27.5.1",
     "prettier": "^2.8.8",
-    "tsx": "^4.19.1"
+    "tsx": "^4.19.1",
+    "typescript": "catalog:"
   },
   "dependencies": {
-    "@changesets/cli": "^2.27.9",
-    "@hpe-design/icons-grommet": "catalog:",
-    "grommet": "catalog:grommet-stable",
-    "grommet-icons": "catalog:grommet-stable",
-    "grommet-theme-hpe": "^6.0.0",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "styled-components": "catalog:"
+    "@changesets/cli": "^2.27.9"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install", 
+    "build": "pnpm -r build"
   }
 }

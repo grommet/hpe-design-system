@@ -20,7 +20,7 @@
     "hpe-design-system-codemods": "bin/cli.js"
   },
   "scripts": {
-    "test": "npx vitest run"
+    "test": "vitest run"
   },
   "dependencies": {
     "jscodeshift": "^17.3.0"

@@ -22,10 +22,10 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "npx tsc && npx vite build"
+    "build": "tsc && vite build"
   },
   "devDependencies": {
-    "typescript": "~5.8.3",
+    "typescript": "catalog:",
     "vite": "^7.2.2",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-static-copy": "^2.3.2"

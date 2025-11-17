@@ -12,7 +12,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
@@ -22,5 +22,5 @@ jobs:
         run: pnpm install
         working-directory: packages/codemods
       - name: Run tests
-        run: pnpm test
+        run: pnpm --filter hpe-design-system-codemods test
         working-directory: packages/codemods
