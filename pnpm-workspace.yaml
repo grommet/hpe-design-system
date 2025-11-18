@@ -1,7 +1,7 @@
 packages:
   - 'aries-core'
   - 'aries-site'
-  - 'packages/*'
+  - 'packages/**'
   - 'sandbox/*'
   - 'design-tokens-manager'
   - 'design-tokens'
