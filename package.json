@@ -28,7 +28,11 @@
     "typescript": "catalog:"
   },
   "dependencies": {
-    "@changesets/cli": "^2.27.9"
+    "@changesets/cli": "^2.27.9",
+    "@hpe-design/icons-grommet": "catalog:",
+    "grommet": "catalog:",
+    "grommet-theme-hpe": "catalog:",
+    "styled-components": "catalog:"
   },
   "scripts": {
     "prepare": "husky install", 
