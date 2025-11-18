@@ -8,6 +8,8 @@ import { tokenFilesFromLocalVariables } from '../token_export.js';
 
 /**
  * Usage:
+ * This script pulls design tokens from Figma and writes 
+ * them to JSON files.
  *
  * // Defaults to writing to the tokens_new directory
  * npm run sync-figma-to-tokens
