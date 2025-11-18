@@ -16,6 +16,24 @@ import { tokenFilesFromLocalVariables } from '../token_export.js';
  * npm run sync-figma-to-tokens -- --output directory_name
  */
 
+/**
+ * Recursively sorts object keys alphabetically
+ */
+function sortObjectKeys(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map(sortObjectKeys);
+  } else if (obj !== null && typeof obj === 'object') {
+    const sortedObj: any = {};
+    Object.keys(obj)
+      .sort()
+      .forEach(key => {
+        sortedObj[key] = sortObjectKeys(obj[key]);
+      });
+    return sortedObj;
+  }
+  return obj;
+}
+
 async function main() {
   if (
     !process.env.PERSONAL_ACCESS_TOKEN ||
@@ -64,9 +82,10 @@ async function main() {
     }
 
     Object.entries(tokensFiles).forEach(([fileName, fileContent]) => {
+      const sortedContent = sortObjectKeys(fileContent);
       fs.writeFileSync(
         `${outputDir}/${dir}/${fileName}`,
-        `${JSON.stringify(fileContent, null, 2)}\n`,
+        `${JSON.stringify(sortedContent, null, 2)}\n`,
       );
       console.log(`Wrote ${fileName}`);
     });

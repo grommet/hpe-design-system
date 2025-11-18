@@ -1,1257 +1,1257 @@
 {
-  "spacing": {
-    "none": {
-      "$type": "number",
-      "$value": "{static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "hair": {
-      "$type": "number",
-      "$value": "{static.spacing.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "5xsmall": {
-      "$type": "number",
-      "$value": "{static.spacing.5xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "4xsmall": {
-      "$type": "number",
-      "$value": "{static.spacing.5xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "3xsmall": {
-      "$type": "number",
-      "$value": "{static.spacing.5xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xxsmall": {
-      "$type": "number",
-      "$value": "{static.spacing.4xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xsmall": {
-      "$type": "number",
-      "$value": "{static.spacing.3xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "small": {
-      "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "medium": {
-      "$type": "number",
-      "$value": "{static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "large": {
-      "$type": "number",
-      "$value": "{static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xlarge": {
-      "$type": "number",
-      "$value": "{static.spacing.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xxlarge": {
-      "$type": "number",
-      "$value": "{static.spacing.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "3xlarge": {
-      "$type": "number",
-      "$value": "{static.spacing.xlarge}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
-  "radius": {
-    "none": {
-      "$type": "number",
-      "$value": "{static.radius.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "hair": {
-      "$type": "number",
-      "$value": "{static.radius.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xxsmall": {
-      "$type": "number",
-      "$value": "{static.radius.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xsmall": {
-      "$type": "number",
-      "$value": "{static.radius.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "small": {
-      "$type": "number",
-      "$value": "{static.radius.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "medium": {
-      "$type": "number",
-      "$value": "{static.radius.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "large": {
-      "$type": "number",
-      "$value": "{static.radius.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xlarge": {
-      "$type": "number",
-      "$value": "{static.radius.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xxlarge": {
-      "$type": "number",
-      "$value": "{static.radius.xlarge}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "full": {
-      "$type": "number",
-      "$value": "{static.radius.full}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["CORNER_RADIUS"],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
   "borderWidth": {
-    "none": {
-      "$type": "number",
-      "$value": "{static.borderWidth.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xsmall": {
-      "$type": "number",
-      "$value": "{static.borderWidth.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "small": {
-      "$type": "number",
-      "$value": "{static.borderWidth.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "medium": {
-      "$type": "number",
-      "$value": "{static.borderWidth.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "large": {
-      "$type": "number",
-      "$value": "{static.borderWidth.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-          "codeSyntax": {}
-        }
-      }
-    },
     "default": {
-      "$type": "number",
-      "$value": "{static.borderWidth.xsmall}",
       "$description": "Default border-width for standard uses like border as visual separator.",
       "$extensions": {
         "com.figma": {
+          "codeSyntax": {},
           "hiddenFromPublishing": false,
-          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-          "codeSyntax": {}
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
         }
-      }
+      },
+      "$type": "number",
+      "$value": "{static.borderWidth.xsmall}"
+    },
+    "large": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.borderWidth.medium}"
+    },
+    "medium": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.borderWidth.small}"
+    },
+    "none": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.borderWidth.none}"
+    },
+    "small": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.borderWidth.xsmall}"
+    },
+    "xsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.borderWidth.xsmall}"
     }
   },
   "container": {
-    "5xsmall": {
-      "$type": "number",
-      "$value": "{static.container.5xsmall}",
+    "3xlarge": {
       "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
+          "codeSyntax": {},
           "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
+          "scopes": ["WIDTH_HEIGHT"]
         }
-      }
-    },
-    "4xsmall": {
+      },
       "$type": "number",
-      "$value": "{static.container.4xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
-        }
-      }
+      "$value": "{static.container.3xlarge}"
     },
     "3xsmall": {
-      "$type": "number",
-      "$value": "{static.container.3xsmall}",
       "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
+          "codeSyntax": {},
           "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
+          "scopes": ["WIDTH_HEIGHT"]
         }
-      }
-    },
-    "xxsmall": {
+      },
       "$type": "number",
-      "$value": "{static.container.xxsmall}",
+      "$value": "{static.container.3xsmall}"
+    },
+    "4xsmall": {
       "$description": "",
       "$extensions": {
         "com.figma": {
+          "codeSyntax": {},
           "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
+          "scopes": ["WIDTH_HEIGHT"]
         }
-      }
-    },
-    "xsmall": {
+      },
       "$type": "number",
-      "$value": "{static.container.xsmall}",
+      "$value": "{static.container.4xsmall}"
+    },
+    "5xsmall": {
       "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
+          "codeSyntax": {},
           "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
+          "scopes": ["WIDTH_HEIGHT"]
         }
-      }
+      },
+      "$type": "number",
+      "$value": "{static.container.5xsmall}"
+    },
+    "large": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.container.large}"
+    },
+    "medium": {
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.container.medium}"
     },
     "small": {
-      "$type": "number",
-      "$value": "{static.container.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
+          "codeSyntax": {},
           "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
+          "scopes": ["WIDTH_HEIGHT"]
         }
+      },
+      "$type": "number",
+      "$value": "{static.container.small}"
+    },
+    "xlarge": {
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.container.xlarge}"
+    },
+    "xsmall": {
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.container.xsmall}"
+    },
+    "xxlarge": {
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.container.xxlarge}"
+    },
+    "xxsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.container.xxsmall}"
+    }
+  },
+  "heading": {
+    "large": {
+      "fontSize": {
+        "$description": "Font size typically used on h2.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.300}"
+      },
+      "fontWeight": {
+        "$description": "Font weight typically used on h2.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.medium}"
+      },
+      "lineHeight": {
+        "$description": "Line height typically used on h2.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.100}"
       }
     },
     "medium": {
-      "$type": "number",
-      "$value": "{static.container.medium}",
-      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
-        }
+      "fontSize": {
+        "$description": "Font size typically used on h3.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.100}"
+      },
+      "fontWeight": {
+        "$description": "Font weight typically used on h3.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.medium}"
+      },
+      "lineHeight": {
+        "$description": "Line height typically used on h3.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.90}"
       }
     },
-    "large": {
-      "$type": "number",
-      "$value": "{static.container.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
-        }
+    "small": {
+      "fontSize": {
+        "$description": "Font size typically used on h4.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.80}"
+      },
+      "fontWeight": {
+        "$description": "Font weight typically used on h4.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.medium}"
+      },
+      "lineHeight": {
+        "$description": "Line height typically used on h4.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.80}"
       }
     },
     "xlarge": {
-      "$type": "number",
-      "$value": "{static.container.xlarge}",
-      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
-        }
+      "fontSize": {
+        "$description": "Font size typically used on h1.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.500}"
+      },
+      "fontWeight": {
+        "$description": "Font weight typically used on h1.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.medium}"
+      },
+      "lineHeight": {
+        "$description": "Line height typically used on h1.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.200}"
       }
     },
-    "xxlarge": {
-      "$type": "number",
-      "$value": "{static.container.xxlarge}",
-      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
-        }
+    "xsmall": {
+      "fontSize": {
+        "$description": "Font size typically used on h5.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.80}"
+      },
+      "fontWeight": {
+        "$description": "Font weight typically used on h5.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.semibold}"
+      },
+      "lineHeight": {
+        "$description": "Line height typically used on h5.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.80}"
       }
     },
-    "3xlarge": {
-      "$type": "number",
-      "$value": "{static.container.3xlarge}",
-      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["WIDTH_HEIGHT"],
-          "codeSyntax": {}
-        }
+    "xxsmall": {
+      "fontSize": {
+        "$description": "Font size typically used on h6.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.80}"
+      },
+      "fontWeight": {
+        "$description": "Font weight typically used on h6.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.semibold}"
+      },
+      "lineHeight": {
+        "$description": "Line height typically used on h6.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.80}"
       }
     }
   },
   "icon": {
-    "xsmall": {
+    "large": {
       "size": {
-        "$type": "number",
-        "$value": "{base.dimension.350}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
+            "scopes": ["WIDTH_HEIGHT"]
           }
-        }
-      }
-    },
-    "small": {
-      "size": {
+        },
         "$type": "number",
-        "$value": "{base.dimension.400}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.dimension.550}"
       }
     },
     "medium": {
       "size": {
-        "$type": "number",
-        "$value": "{base.dimension.450}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
+            "scopes": ["WIDTH_HEIGHT"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.450}"
       }
     },
-    "large": {
+    "small": {
       "size": {
-        "$type": "number",
-        "$value": "{base.dimension.550}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
+            "scopes": ["WIDTH_HEIGHT"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.400}"
       }
     },
     "xlarge": {
       "size": {
-        "$type": "number",
-        "$value": "{base.dimension.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
+            "scopes": ["WIDTH_HEIGHT"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.600}"
+      }
+    },
+    "xsmall": {
+      "size": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.350}"
       }
     },
     "xxlarge": {
       "size": {
-        "$type": "number",
-        "$value": "{base.dimension.900}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
+            "scopes": ["WIDTH_HEIGHT"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.900}"
       }
     }
   },
-  "text": {
-    "xsmall": {
-      "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.90}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
-          }
+  "radius": {
+    "full": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.90}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.regular}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
-        }
-      }
+      "$type": "number",
+      "$value": "{static.radius.full}"
     },
-    "small": {
-      "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.100}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
-          }
+    "hair": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.100}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.regular}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
-        }
-      }
-    },
-    "medium": {
-      "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.200}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.200}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.regular}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
-        }
-      }
+      "$type": "number",
+      "$value": "{static.radius.hair}"
     },
     "large": {
-      "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.400}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
-          }
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.300}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
+      "$type": "number",
+      "$value": "{static.radius.medium}"
+    },
+    "medium": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.regular}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
+      "$type": "number",
+      "$value": "{static.radius.small}"
+    },
+    "none": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
+      "$type": "number",
+      "$value": "{static.radius.none}"
+    },
+    "small": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
-      }
+      },
+      "$type": "number",
+      "$value": "{static.radius.xsmall}"
     },
     "xlarge": {
-      "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.500}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
-          }
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.400}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
+      "$type": "number",
+      "$value": "{static.radius.large}"
+    },
+    "xsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.regular}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
-        }
-      }
+      "$type": "number",
+      "$value": "{static.radius.xxsmall}"
     },
     "xxlarge": {
-      "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.600}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
-          }
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
         }
       },
-      "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.600}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.light}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
-        }
-      }
+      "$type": "number",
+      "$value": "{static.radius.xlarge}"
     },
+    "xxsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.radius.hair}"
+    }
+  },
+  "spacing": {
+    "3xlarge": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.xlarge}"
+    },
+    "3xsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.5xsmall}"
+    },
+    "4xsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.5xsmall}"
+    },
+    "5xsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.5xsmall}"
+    },
+    "hair": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.hair}"
+    },
+    "large": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.small}"
+    },
+    "medium": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.xsmall}"
+    },
+    "none": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.none}"
+    },
+    "small": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.xxsmall}"
+    },
+    "xlarge": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.medium}"
+    },
+    "xsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.3xsmall}"
+    },
+    "xxlarge": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.large}"
+    },
+    "xxsmall": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["GAP"]
+        }
+      },
+      "$type": "number",
+      "$value": "{static.spacing.4xsmall}"
+    }
+  },
+  "text": {
     "3xlarge": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.700}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
-      },
-      "lineHeight": {
+        },
         "$type": "number",
-        "$value": "{base.lineHeight.700}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.fontSize.700}"
       },
       "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.light}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_STYLE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.light}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.700}"
       },
       "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+            "scopes": ["ALL_SCOPES"]
           }
-        }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     },
     "4xlarge": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.800}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
-      },
-      "lineHeight": {
+        },
         "$type": "number",
-        "$value": "{base.lineHeight.800}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.fontSize.800}"
       },
       "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.light}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_STYLE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.light}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.800}"
       },
       "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+            "scopes": ["ALL_SCOPES"]
           }
-        }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     },
     "5xlarge": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.900}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
-      },
-      "lineHeight": {
+        },
         "$type": "number",
-        "$value": "{base.lineHeight.900}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.fontSize.900}"
       },
       "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.light}",
         "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_STYLE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.light}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.900}"
       },
       "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+            "scopes": ["ALL_SCOPES"]
           }
-        }
-      }
-    }
-  },
-  "heading": {
-    "xlarge": {
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.medium}",
-        "$description": "Font weight typically used on h1.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.500}",
-        "$description": "Font size typically used on h1.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.200}",
-        "$description": "Line height typically used on h1.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     },
     "large": {
-      "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.medium}",
-        "$description": "Font weight typically used on h2.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.300}",
-        "$description": "Font size typically used on h2.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.400}"
+      },
+      "fontWeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.regular}"
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.100}",
-        "$description": "Line height typically used on h2.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
+            "scopes": ["LINE_HEIGHT"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.300}"
+      },
+      "maxWidth": {
+        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"]
+          }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     },
     "medium": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.100}",
-        "$description": "Font size typically used on h3.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
-      },
-      "lineHeight": {
+        },
         "$type": "number",
-        "$value": "{base.lineHeight.90}",
-        "$description": "Line height typically used on h3.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.fontSize.200}"
       },
       "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.medium}",
-        "$description": "Font weight typically used on h3.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_STYLE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.regular}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.200}"
+      },
+      "maxWidth": {
+        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"]
+          }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     },
     "small": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.80}",
-        "$description": "Font size typically used on h4.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
-      },
-      "lineHeight": {
+        },
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
-        "$description": "Line height typically used on h4.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.fontSize.100}"
       },
       "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.medium}",
-        "$description": "Font weight typically used on h4.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_STYLE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.regular}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.100}"
+      },
+      "maxWidth": {
+        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"]
+          }
+        },
+        "$type": "string",
+        "$value": "25em"
+      }
+    },
+    "xlarge": {
+      "fontSize": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.fontSize.500}"
+      },
+      "fontWeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_STYLE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.regular}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.400}"
+      },
+      "maxWidth": {
+        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"]
+          }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     },
     "xsmall": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.80}",
-        "$description": "Font size typically used on h5.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
-      },
-      "lineHeight": {
+        },
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
-        "$description": "Line height typically used on h5.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.fontSize.90}"
       },
       "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.semibold}",
-        "$description": "Font weight typically used on h5.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_STYLE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.regular}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.90}"
+      },
+      "maxWidth": {
+        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"]
+          }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     },
-    "xxsmall": {
+    "xxlarge": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.80}",
-        "$description": "Font size typically used on h6.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_SIZE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_SIZE"]
           }
-        }
-      },
-      "lineHeight": {
+        },
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
-        "$description": "Line height typically used on h6.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["LINE_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
+        "$value": "{base.fontSize.600}"
       },
       "fontWeight": {
-        "$type": "number",
-        "$value": "{fontWeight.semibold}",
-        "$description": "Font weight typically used on h6.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
+            "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["FONT_STYLE"],
-            "codeSyntax": {}
+            "scopes": ["FONT_STYLE"]
           }
-        }
+        },
+        "$type": "number",
+        "$value": "{fontWeight.light}"
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.lineHeight.600}"
+      },
+      "maxWidth": {
+        "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"]
+          }
+        },
+        "$type": "string",
+        "$value": "25em"
       }
     }
   }
