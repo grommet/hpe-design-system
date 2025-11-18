@@ -8,7 +8,7 @@ export const featured = [
   },
   {
     name: 'Develop',
-    description: 'Find production-ready resources and build guidance.',
+    description: 'Find components, theming, and implementation guides.',
     icon: <Code size="xlarge" color="text-strong" aria-hidden="true" />,
   },
 ];
