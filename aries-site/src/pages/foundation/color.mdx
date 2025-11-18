@@ -50,133 +50,61 @@ Applying semantic colors as intended ensures your design:
 
 - Is aligned with the current theme and visual direction.
 - Is accessible.
-- Enables theme mode switching (light and dark. See [Theming]()).
+- Enables theme mode switching (light and dark).
 - Improves maintenance (when themes are updated, designs are synchronised with token updates. See [design tokens overview](/design-tokens/overview).)
 
-You will notice that the HPE Design System Color guidance is
-different from Brand Central. Prioritize the below HPE Design
-System color palette over Brand Central when identifying colors
-for your app or web based experience.
+The HPE Design System color palette and guidance differ from Brand Central. Prioritize the HPE Design System palette when selecting colors for app or web experiences.
 
 ## Color palettes
 
-Color is a key way we express our brand. Using color on
-interface elements, how typography is presented, displaying data
-visualizations, and adjusting context of the experience to light
-and dark are just some of the ways we illustrate inclusive
-design for our app and web based experiences.
+Color expresses brand, guides interaction, and supports accessibility. It shapes interface elements, typographic emphasis, data visualization clarity, and adaptation between light and dark modes. Applied intentionally, it reinforces inclusive design across HPE applications and web experiences.
 
-### Brand color
-
-HPE green symbolizes growth and vitality, commands attention and
-inspires action. Our green is an essential part of our brand
-identity and should be evident in every communication wherever
-possible. Always use the `decorative.brand` token to maintain consistency across channels and media.
-
-{/* <BrandColor /> */}
 
 ### Backgrounds
-Background colors establish depth, hierarchy, and interaction feedback across surfaces.
-Our color palette is only impactful when used in the correct
-context. Accommodating both light and dark modes of a user
-experience with the appropriate color palette creates a
-successful customer experience.
+Background colors establish depth, hierarchy, and cognitive grouping. Products typically begin with `color.background.back` as the base, then layer surfaces using `color.background.front` and `color.background.floating` to convey elevation. Use contrast background tokens to separate dense regions, preferring contrast backgrounds over borders in tight layouts to reduce visual noise.
 
-For more direction on how to use background colors within your
-layout, see [background colors guidance](/foundation/background-colors-guidance).
-
-- Start layouts with `color.background.back`; layer content surfaces with front and floating for elevation.
-- Include contrast background to separate dense regions; prefer contrast over borders in tight layouts.
-- Limit strong or xstrong variants to focal areas; pair with onStrong text and icon tokens for legibility.
-- Use selected background tokens for selection instead of ad‑hoc highlight.
+For more direction on how to use background colors, see [background colors guidance](/foundation/background-colors-guidance).
 
 #### Overlay
 
-Overlay color dims inactive content to direct attention to an active layer.
-
-- Apply overlay behind modal, drawer, or dialog surfaces to reduce cognitive load.
-- Limit overlay opacity to preserve context; avoid fully obscuring underlying layout.
-- Prevent custom overlay hacks; use the theme-provided overlay color for consistency.
+Overlay color dims inactive content to direct attention to an active layer; apply it behind modal, drawer, or dialog surfaces to reduce cognitive load using `color.background.overlay`.
 
 ### Borders
-Border colors delineate interactive areas and reinforce state when spacing alone is insufficient. Borders help differentiate elements and input fields from surrounding content. In light and dark modes the chosen strength should match density and emphasis; in many cases a border can be omitted when spacing or contrast already performs the job.
-
-- Use the default border token for neutral boundaries and dividers.
-- Apply selected border only when selection is not already clear from fill.
-- Add status borders sparingly to reinforce (not replace) text or icon messaging.
-- Omit borders where spacing or contrast background already separates content.
+Border colors delineate areas only when spacing or background contrast are insufficient. Use `color.border.default` for neutral boundaries and dividers, and omit borders where existing spacing or contrast already provides clear separation.
 
 
 ### Text
-Text colors govern prominence and readability while signaling interaction or status.
-
-- Use default text for body copy; prefer strong only for headings and key figures.
-- Apply weak for supporting or secondary metadata; avoid weak on actionable labels.
-- Use primary text for interactive anchors; pair with its hover state for clarity.
-- Invert text on strong or selected backgrounds using the appropriate on* variant.
-- Use critical text for error messaging; pair with an icon for faster recognition.
+Text colors convey prominence and readability. Use `color.text.default` for body copy, reserve strong for headings and key figures, and apply weak only to secondary metadata.
 
 ### Icon
-Icon colors mirror text hierarchy and must remain legible at small sizes.
-
-- Default to the standard icon color for regular interface glyphs.
-- Align icon severity with text severity (critical, warning, etc.) for multi‑channel signaling.
-- Invert icons on strong or selected backgrounds using on* variants.
-- Avoid decorative colors on functional icons; reserve decorative palette for illustration.
+Icon colors follow text hierarchy and must remain legible at small sizes. Prefer the same color emphasis between icon and text.
 
 ### Decorative
-Decorative colors provide brand and accent without conveying status or interaction.
+Decorative colors provide brand and accent without conveying status or interaction. Limit secondary decorative hues to illustration and non‑interactive ornamentation, and avoid substituting decorative colors for status; use semantic text or foreground status tokens instead.
 
-- Use `decorative.brand` for brand anchors and signature accents.
-- Limit secondary decorative hues to illustration and non‑interactive ornamentation.
-- Avoid substituting decorative colors for status; use semantic text or foreground status tokens instead.
-
-### Data visualization (Dataviz)
-Dataviz colors differentiate categories and encode status without overwhelming perception.
+### Data visualization
+Dataviz colors differentiate categories without overwhelming perception.
 
 - Begin categorical series with the first token and proceed sequentially.
-- Limit visible category count; consider grouping beyond eight series.
-- Ensure label contrast using default or strong text.
-- Reserve status colors for threshold or state indicators; avoid for neutral series.
 - Use series colors in a consistent left‑to‑right order for comparability across views.
 - Consider consolidating very low-variance series into a single aggregate color; instead, use drill-down for detail.
 - When using Grommet DataChart, series colors are applied automatically in sequence to support consistent interpretation.
-
-### Focus
-Focus colors ensure clear keyboard and assistive navigation cues.
-
-- Render focus with outer ring plus support ring for clarity.
-- Never remove focus; adjust thickness or radius if necessary.
-- Limit glow effects that reduce crisp edge contrast.
 
 ### Foreground
 Foreground colors fill graphic and quantitative regions (meters, progress, indicators) with semantic meaning.
 
 ### Status colors
-Status colors reinforce state and feedback (error, warning, success, informational, unknown) across surfaces, text, icons, and data regions.
+Status colors reinforce state and feedback (error, warning, success, informational, unknown) across surfaces, text and icons.
 
-- Use status color only when conveying state; avoid decorative substitution.
+- Use status color only when conveying semantic meaning; avoid decorative substitution.
 - Pair status color with an icon or concise label for rapid scanning.
-- Limit multiple simultaneous status colors in a single dense region.
 
-- Use primary foreground for neutral or brand‑aligned progress.
-- Apply status foregrounds (critical, warning, unknown) only when encoding state; pair with text or icon.
-- Limit multiple status colors in one component; segment or use tooltips for complex breakdowns.
-- Avoid decorative fills for status; prefer semantic foreground set.
+### Focus
+Focus provide clear visual cues for keyboard and assistive technology navigation by highlighting the currently active element, reinforcing accessible interaction.
 
 ## Color accessibility
 
 Color accessibility ensures all users can perceive and understand content regardless of visual ability. HPE Design System prioritizes accessibility compliance through semantic color tokens.
-
-### Contrast requirements
-
-Always meet WCAG 2.1 contrast standards for text and interactive elements:
-
-- Maintain a minimum 4.5:1 contrast ratio for normal text
-- Maintain a minimum 3:1 contrast ratio for large text (18px and above or 14px bold)
-- Ensure interactive elements meet a 3:1 contrast ratio against adjacent colors
-
-Semantic color tokens are designed to meet these requirements when applied as intended.
 
 ### Color pairing
 
