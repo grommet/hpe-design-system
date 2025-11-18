@@ -23,7 +23,6 @@ const CreativeToolkitLayout = ({ level }) => {
           round="xxlarge">
           <Box
             align="center"
-            justify="center"
             gap="medium"
             height="small"
             width={!['xsmall', 'small'].includes(size) ? 'medium' : 'large'}

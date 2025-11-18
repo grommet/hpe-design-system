@@ -66,7 +66,6 @@ export const Community = ({ ...rest }) => {
         {...rest}
       >
         <Box width="xxlarge">
-          {/* is this coming through correctly? */}
           <Heading margin="none" level={2} size="xsmall">
             Community
           </Heading>

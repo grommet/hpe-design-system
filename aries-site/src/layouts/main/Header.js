@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
@@ -9,7 +8,6 @@ import { ThemeModeToggle, AppIdentity } from '../../components';
 import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
-// Accept a background prop to allow transparent header on homepage
 const StyledHeader = ({ ...rest }) => {
   const pageDetails = getPageDetails('Home');
   const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
@@ -56,7 +54,4 @@ const StyledHeader = ({ ...rest }) => {
   );
 };
 
-StyledHeader.propTypes = {
-  background: PropTypes.string,
-};
 export { StyledHeader as Header };

@@ -71,7 +71,7 @@ const FeaturedLayout = ({ ...rest }) => {
                   <Button
                     secondary
                     size="large"
-                    label="Get the code"
+                    label="Start coding"
                     href="/foundation/developer-guidance"
                   />
                 )}
