@@ -511,4 +511,37 @@ export const foundation = [
       'timezone',
     ],
   },
+  {
+    name: 'Scale system',
+    category: 'Assets',
+    cardOrder: 8,
+    description: `The foundational scale establishing the relationships 
+    and proportions used to define the elements composing a UI.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-scalesystem.svg',
+          dark: '/foundationImages/foundation-preview-scalesystem-invert.svg',
+        },
+        alt: 'Boxes of increasing size representing the scale system',
+      },
+    },
+    seoDescription: `The foundational scale establishing the relationships 
+    and proportions used to define the elements composing a UI.`,
+    sections: ['Principles', 'Foundational scale', 'Composability'],
+    tags: [
+      'scale system',
+      'scale',
+      'proportion',
+      'consistency',
+      'modular scale',
+      't-shirt sizes',
+      'sizing',
+      'dimensions',
+      'layout',
+      'spacing',
+      'base unit',
+    ],
+    relatedContent: ['Tshirt sizing'],
+  },
 ];
