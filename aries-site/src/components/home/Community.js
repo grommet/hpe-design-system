@@ -66,7 +66,7 @@ export const Community = ({ ...rest }) => {
         {...rest}
       >
         <Box width="xxlarge">
-          <Heading margin="none" level={2} size="xsmall">
+          <Heading margin="none" level={2} size="small">
             Community
           </Heading>
           <Paragraph size="xxlarge" fill>
