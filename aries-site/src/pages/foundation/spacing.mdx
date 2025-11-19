@@ -32,11 +32,13 @@ and its content (padding), and within content subsections (gap).
     </Paragraph>
   }
 />
-
-<figure style={{ display: 'contents' }}>
+<br />
+<Example 
+  caption="Available spacing scale dimensions by t-shirt size"
+  height="none"
+>
   <SpacingScale />
-  <figcaption>Available spacing scale dimensions by t-shirt size</figcaption>
-</figure>
+</Example>
 
 <Button
   label="View spacing design tokens"
@@ -54,8 +56,7 @@ and its content (padding), and within content subsections (gap).
     height="none"
     bestPractice={{
       type: 'do',
-      message:
-        `Use spacing design tokens to style compositional or layout components 
+      message: `Use spacing design tokens to style compositional or layout components 
         like cards, layers, and grid spacing.`,
     }}
     width="100%"
