@@ -9,6 +9,8 @@ import {
   readJsonFiles,
 } from '../token_import.js';
 
+// This script pushes design tokens from JSON files to Figma design files
+
 async function main() {
   if (
     !process.env.PERSONAL_ACCESS_TOKEN ||
