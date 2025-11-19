@@ -1,7 +1,7 @@
 import { Button, Notification, Paragraph } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
-import { SpacingBestPractices } from '../../examples';
+import { SpacingBestPractices, SpacingScale } from '../../examples';
 
 Spacing sizes are a subset of the [scale system](/foundation/scale-system)
 using proximity principles to define relationships between content and create
@@ -22,7 +22,7 @@ and its content (padding), and within content subsections (gap).
 <Notification
   alignSelf="start"
   status="warning"
-  title="Prefer gap and padding over margin"
+  title="Avoid use of margin"
   message={
     <Paragraph margin="none">
       Use of margin can lead to unpredictable responsive and/or adaptive layouts
@@ -34,6 +34,7 @@ and its content (padding), and within content subsections (gap).
 />
 
 <figure style={{ display: 'contents' }}>
+  <SpacingScale />
   <figcaption>Available spacing scale dimensions by t-shirt size</figcaption>
 </figure>
 
