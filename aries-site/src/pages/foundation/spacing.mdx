@@ -1,7 +1,7 @@
-import { Button, Notification, Paragraph } from 'grommet';
+import { Notification, Paragraph } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
-import { SpacingBestPractices, SpacingScale } from '../../examples';
+import { SpacingBestPractices, SpacingScale, SpacingTokensCTA } from '../../examples';
 
 Spacing sizes are a subset of the [scale system](/foundation/scale-system)
 using proximity principles to define relationships between content and create
@@ -33,21 +33,14 @@ and its content (padding), and within content subsections (gap).
   }
 />
 <br />
-<Example 
+<Example
   caption="Available spacing scale dimensions by t-shirt size"
   height="none"
 >
   <SpacingScale />
 </Example>
 
-<Button
-  label="View spacing design tokens"
-  href="/design-tokens/layout-and-spacing#spacing"
-  icon={<LinkNext aria-hidden="true" />}
-  reverse
-  alignSelf="start"
-  secondary
-/>
+<SpacingTokensCTA />
 
 ## Spacing best practices
 
