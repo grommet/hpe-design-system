@@ -1,0 +1,51 @@
+import { Anchor, Notification, Paragraph } from 'grommet';
+import Link from 'next/link';
+import { ContainerTokensCTA } from '../../examples';
+
+Content container sizes are a subset of the [scale system](/foundation/scale-system)
+used to define content regions, containers, and establish page layout structure.
+
+[Container design tokens](/design-tokens/layout-and-spacing#containers) specify the
+minimum, maximum, or fixed height and width of content areas. They are commonly used
+to define the heights and widths of [Boxes](/components/box), columns and rows for
+[Grid](/components/grid) layouts, widths for [layers](/components/layer),
+[modals](/components/layer/center-layer), [cards](/components/card), and many more
+use cases. Additionally, design tokens specify [border widths](#border-widths) and
+[radii](#radius-sizes) for content areas.
+
+<Notification
+  alignSelf="start"
+  status="info"
+  title="Tip"
+  message={
+    <Paragraph margin="none">
+      Need more flexible dimensions for containers? Use t-shirt sizes to specify
+      min-max ranges which{' '}
+      <Link href="/components/grid#flexible-columns" passHref legacyBehavior>
+        <Anchor>allow containers to flex</Anchor>
+      </Link>{' '}
+      according to available screen real-estate. Alternatively, consider{' '}
+      <Link
+        href="/templates/content-layouts#content-driven-layouts"
+        passHref
+        legacyBehavior
+      >
+        <Anchor>content-driven layouts</Anchor>
+      </Link>{' '}
+      to avoid artificially restricting content.
+    </Paragraph>
+  }
+/>
+
+## Container sizes
+
+Content containers may be implemented as invisible bounding boxes defining layout 
+regions or visible surfaces on which content may be displayed. In either scenario, 
+t-shirt sizes specify container dimensions used when defining 
+[container-driven layouts](/templates/content-layouts#container-driven-layouts).
+
+<ContainerTokensCTA />
+
+## Border widths
+
+## Radius sizes

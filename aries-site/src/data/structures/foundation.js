@@ -492,7 +492,14 @@ export const foundation = [
       'T-shirt sizing for spacing and other styles',
       'Composability and scaling between t-shirt sizes',
     ],
-    relatedContent: ['Spacing', 'Box', 'Typography', 'Grid', 'DataTable'],
+    relatedContent: [
+      'Spacing',
+      'Content container sizes',
+      'Box',
+      'Typography',
+      'Grid',
+      'DataTable',
+    ],
     tags: [
       'sizing',
       't-shirt sizes',
@@ -542,9 +549,9 @@ export const foundation = [
       'spacing',
       'base unit',
     ],
-    relatedContent: ['Tshirt sizing', 'Spacing'],
+    relatedContent: ['Tshirt sizing', 'Spacing', 'Content container sizes'],
   },
-   {
+  {
     name: 'Spacing',
     category: 'Layout',
     cardOrder: 3,
@@ -556,19 +563,50 @@ export const foundation = [
           light: '/foundationImages/foundation-preview-spacing.svg',
           dark: '/foundationImages/foundation-preview-spacing-invert.svg',
         },
-        alt: 'Boxes of increasing size representing the scale system',
+        alt: 'Boxes with annotation showing spacing between them',
       },
     },
     seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to spacing 
     elements such as padding, margin, and gap.`,
     sections: ['Spacing scale', 'Spacing best practices'],
-    tags: [
-      'spacing',
-      'padding',
-      'margin',
-      'gap',
-      't-shirt sizes',
+    tags: ['spacing', 'padding', 'margin', 'gap', 't-shirt sizes'],
+    relatedContent: [
+      'Tshirt sizing',
+      'Scale system',
+      'Content container sizes',
     ],
-    relatedContent: ['Tshirt sizing', 'Scale system'],
+  },
+  {
+    name: 'Content container sizes',
+    category: 'Layout',
+    cardOrder: 4,
+    description: `T-shirt sizes (a.k.a. design tokens) applied to 
+    content containers and page layouts.`,
+    preview: {
+      image: {
+        src: {
+          // eslint-disable-next-line max-len
+          light:
+            '/foundationImages/foundation-preview-containersizing.svg',
+          // eslint-disable-next-line max-len
+          dark: '/foundationImages/foundation-preview-containersizing-invert.svg',
+        },
+        alt: 'Box with height and width annotations',
+      },
+    },
+    seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to 
+    content containers and page layouts.`,
+    sections: ['Container sizes', 'Border widths', 'Radius sizes'],
+    tags: [
+      'container sizes',
+      'content containers',
+      'border widths',
+      'radius sizes',
+      't-shirt sizes',
+      'sizing',
+      'dimensions',
+      'layout',
+    ],
+    relatedContent: ['Tshirt sizing', 'Scale system', 'Spacing'],
   },
 ];
