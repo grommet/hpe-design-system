@@ -12,23 +12,21 @@ export const ContainerSizes = () => {
   );
 
   return (
-    <Box direction="row" overflow="auto" flex={false}>
+    <Box direction="row" justify="between">
       <Box
-        pad={{ vertical: 'xlarge', left: 'xlarge' }}
-        align="center"
-        justify="center"
-        flex={false}
-        width="medium"
+        direction="row"
+        pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
+        height={{ max: 'large' }}
+        flex
         overflow="auto"
-        background="decorative-cyan"
       >
+        <Box flex />
         <Box
-          height={height}
-          width={width}
+          height={{ min: height, max: height }}
+          width={{ min: width, max: width }}
           border={{ color: 'decorative-blue', style: 'dashed', size: 'small' }}
-          responsive={false}
-          flex={false}
         />
+        <Box flex />
       </Box>
       <Box
         background="background-front"
