@@ -34,3 +34,19 @@ export const BorderWidthTokensCTA = () => (
     />
   </Link>
 );
+
+export const RadiusTokensCTA = () => (
+  <Link
+    href="/design-tokens/layout-and-spacing#radius"
+    passHref
+    legacyBehavior
+  >
+    <Button
+      label="View radius design tokens"
+      icon={<LinkNext aria-hidden="true" />}
+      reverse
+      alignSelf="start"
+      secondary
+    />
+  </Link>
+);
