@@ -1,13 +1,25 @@
-import { Button } from 'grommet';
+import { useContext } from 'react';
+import { Button, ThemeContext } from 'grommet';
+import { prism } from 'grommet-theme-hpe';
 import {
   HeadingExample,
   ParagraphExample,
   TextSizeExample,
 } from '../../examples';
-import { Example } from '../../layouts';
+import { BestPracticeGroup, Example } from '../../layouts';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 {/* TODO replace with DS icon package when available */}
 import { Figma } from 'grommet-icons';
+
+export const SyntaxHighlighterWrapper = ({ children, ...props }) => {
+  const theme = useContext(ThemeContext);
+  return (
+    <SyntaxHighlighter style={theme.dark ? prism.dark : prism.light} {...props}>
+      {children}
+    </SyntaxHighlighter>
+  );
+};
 
 Our typography is about more than words. It’s an integral part of our personality and design. When we’re making a statement, we want our visual language to be clear, recognized and understood.
 
@@ -36,6 +48,41 @@ Correctly implementing heading levels:
 - creates a clear HTML structure which is critical for use by assistive technologies
 
 If heading levels are not implemented in the correct hierarchy, users of screen readers and other assistive technologies will have a more effortful and difficult experience using the application.
+
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use the correct semantic heading element. Apply a heading token to achieve the desired visual style. Notice "heading-medium" applied to the h2 card title and h3 card title.',
+    }}
+    width="100%"
+  >
+    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
+      {`<h1 class="heading-xlarge">Page title</h1>
+<h2 class="card heading-medium">Card title</h2>
+<h2 class="heading-large">Section title</h2>
+<h3 class="card heading-medium">Another card title</h3>`}
+    </SyntaxHighlighterWrapper>
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Change the semantic level of a heading to adjust the visual styling. This can lead to accessibility issues and break the semantic structure of the page. Notice the incorrect jump from h1 to h3.`,
+    }}
+  >
+    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
+      {`<h1 class="heading-xlarge">Page title</h1>
+<h3 class="card heading-medium">Card title</h2>
+<h2 class="heading-large">Section title</h2>
+<h3 class="card heading-medium">Another card title</h3>`}
+    </SyntaxHighlighterWrapper>
+  </Example>
+</BestPracticeGroup>
+
 
 ### Best practices for headings
 

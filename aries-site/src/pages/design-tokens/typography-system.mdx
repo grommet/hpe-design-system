@@ -1,18 +1,8 @@
 import { useContext } from 'react';
 import { Markdown, Text, ThemeContext } from 'grommet';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
 import { DesignTokensTable } from '../../components';
-
-export const SyntaxHighlighterWrapper = ({ children, ...props }) => {
-  const theme = useContext(ThemeContext);
-  return (
-    <SyntaxHighlighter style={theme.dark ? prism.dark : prism.light} {...props}>
-      {children}
-    </SyntaxHighlighter>
-  );
-};
 
 There are two categories of typography design tokens: heading and text. Each are offered in a range of t-shirt sizes. At each t-shirt size, there is a defined font-size, font-weight, and line-height.
 
@@ -26,48 +16,11 @@ Heading design tokens should be used on HTML heading elements (h1-h6). Heading t
 
 Generally, an h1 should be styled with the "xlarge" token, an h2 with "large", and so on.
 
-However, the specific use of each token may vary depending on the design needs of the page. For example, it's often desirable for card titles within dashboard cards to have a consistent sizing, regardless of the semantic level of the title. In this case, keep the correct semantic level of the heading element, but apply the desired token to style the text.
-
 <ContentPane>
   <DesignTokensTable active="semantic.heading" toolbar />
 </ContentPane>
 
-### Heading best practices
 
-Always build a page following proper HTML structure. Use the appropriate heading element for each section of the page.
-
-<BestPracticeGroup>
-  <Example
-    height="none"
-    bestPractice={{
-      type: 'do',
-      message:
-        'Use the correct semantic heading element. Apply a heading token to achieve the desired visual style. Notice "heading-medium" applied to the h2 card title and h3 card title.',
-    }}
-    width="100%"
-  >
-    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
-      {`<h1 class="heading-xlarge">Page title</h1>
-<h2 class="card heading-medium">Card title</h2>
-<h2 class="heading-large">Section title</h2>
-<h3 class="card heading-medium">Another card title</h3>`}
-    </SyntaxHighlighterWrapper>
-  </Example>
-  <Example
-    height="none"
-    bestPractice={{
-      type: 'dont',
-      message: `Change the semantic level of a heading to adjust the visual styling. This can lead to accessibility issues and break the semantic structure of the page. Notice the incorrect jump from h1 to h3.`,
-    }}
-  >
-    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
-      {`<h1 class="heading-xlarge">Page title</h1>
-<h3 class="card heading-medium">Card title</h2>
-<h2 class="heading-large">Section title</h2>
-<h3 class="card heading-medium">Another card title</h3>`}
-    </SyntaxHighlighterWrapper>
-  </Example>
-</BestPracticeGroup>
 
 ## Text
 
