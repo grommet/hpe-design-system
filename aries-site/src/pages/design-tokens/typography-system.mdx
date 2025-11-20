@@ -26,22 +26,6 @@ Generally, an h1 should be styled with the "xlarge" token, an h2 with "large", a
 
 Text design tokens should be used for body text. Text tokens are offered in 10 sizes: "xsmall"-"6xl".
 
-While each text t-shirt sizes comes with a default font weight, the emphasis of text can be adjusted to suit the context by using the [fontWeight](/design-tokens/global#fontweight) design tokens.
-
 <ContentPane>
   <DesignTokensTable active="semantic.text" toolbar />
 </ContentPane>
-
-### Text best practices
-
-Use the t-shirt size `maxWidth` design token on paragraphs to limit the width of text to ensure readability.
-
-## Responsiveness
-
-The values of heading tokens automatically step down one t-shirt size at the `small` [breakpoint](/design-tokens/global#breakpoint). This ensures content scales appropriately as the screen size decreases.
-
-When utilizing the CSS files, a media query is included in the "dimension.small.css" file to adjust the token values at the `small` breakpoint.
-
-## Accessibility
-
-Typography desgin tokens use `rem` units to scale fonts according to a user's browser settings.
