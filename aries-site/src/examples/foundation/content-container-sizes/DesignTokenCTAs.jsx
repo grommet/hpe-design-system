@@ -5,12 +5,28 @@ import { LinkNext } from '@hpe-design/icons-grommet';
 
 export const ContainerTokensCTA = () => (
   <Link
-    href="/design-tokens/layout-and-spacing#content-container-sizes"
+    href="/design-tokens/layout-and-spacing#containers"
     passHref
     legacyBehavior
   >
     <Button
       label="View container design tokens"
+      icon={<LinkNext aria-hidden="true" />}
+      reverse
+      alignSelf="start"
+      secondary
+    />
+  </Link>
+);
+
+export const BorderWidthTokensCTA = () => (
+  <Link
+    href="/design-tokens/layout-and-spacing#border-width"
+    passHref
+    legacyBehavior
+  >
+    <Button
+      label="View border width design tokens"
       icon={<LinkNext aria-hidden="true" />}
       reverse
       alignSelf="start"
