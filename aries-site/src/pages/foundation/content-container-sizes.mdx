@@ -1,6 +1,7 @@
 import { Anchor, Notification, Paragraph } from 'grommet';
 import Link from 'next/link';
-import { ContainerTokensCTA } from '../../examples';
+import { Example } from '../../layouts';
+import { ContainerSizes, ContainerTokensCTA } from '../../examples';
 
 Content container sizes are a subset of the [scale system](/foundation/scale-system)
 used to define content regions, containers, and establish page layout structure.
@@ -43,6 +44,15 @@ Content containers may be implemented as invisible bounding boxes defining layou
 regions or visible surfaces on which content may be displayed. In either scenario, 
 t-shirt sizes specify container dimensions used when defining 
 [container-driven layouts](/templates/content-layouts#container-driven-layouts).
+
+<Example
+  caption="Available container size dimensions by t-shirt size"
+  width="100%"
+  height="100%"
+  pad="none"
+>
+  <ContainerSizes />
+</Example>
 
 <ContainerTokensCTA />
 
