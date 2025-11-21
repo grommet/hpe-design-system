@@ -112,6 +112,8 @@ export const tokens = [
     sections: [],
     relatedContent: [
       'Typography system',
+      'Spacing',
+      'Content container sizes',
       'All design tokens',
       'Using design tokens in code',
       'Using design tokens in Figma',
