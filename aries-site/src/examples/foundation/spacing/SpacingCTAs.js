@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button } from 'grommet';
+import { Anchor, Button } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 
 export const SpacingTokensCTA = () => (
@@ -16,5 +16,15 @@ export const SpacingTokensCTA = () => (
       alignSelf="start"
       secondary
     />
+  </Link>
+);
+
+export const ElementTokensCTA = () => (
+  <Link
+    href="/design-tokens/element"
+    passHref
+    legacyBehavior
+  >
+    <Anchor>element tokens</Anchor>
   </Link>
 );

@@ -1,23 +1,31 @@
-import { Notification, Paragraph } from 'grommet';
+import { Anchor, Notification, Paragraph } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
-import { SpacingBestPractices, SpacingScale, SpacingTokensCTA } from '../../examples';
+import {
+  ElementTokensCTA,
+  SpacingBestPractices,
+  SpacingScale,
+  SpacingTokensCTA,
+} from '../../examples';
 
-Spacing sizes are a subset of the [scale system](/foundation/scale-system)
-using proximity principles to define relationships between content and create
-hierarchy within a page. Spacing design tokens define the padding within, margin
-around, or gap between content.
+Spacing sizes are a subset of the [scale system](/foundation/scale-system),
+supporting proximity principles to shape relationships between content and establish
+hierarchy on a page. These principles are applied through
+[spacing design tokens](/design-tokens/layout-and-spacing#spacing), which define the
+padding within, margin around, and gap between content.
 
-Spacing guides users' eyes through the page, helping them understand the relationships
-between different elements. The HPE Design System minimizes use of borders to separate
-content. Instead spacing, typography, and background color are combined to create visual
-hierarchy.
+Effective spacing guides a user's eye through the interface, making it easier to
+understand how elements relate to one another. The HPE Design System minimizes use of
+borders to separate content. Instead spacing, typography, and background color are
+combined to create visual hierarchy.
 
 ## Spacing scale
 
-The following spacing scale may be applied to create separation between [content
-containers](/insert-link-when-available) (gap), between a content container's boundary
-and its content (padding), and within content subsections (gap).
+Use spacing to:
+
+- Create separation between [content containers](/foundation/content-container-sizing) (gaps).
+- Set space between a container's boundary and its content (padding).
+- Define spacing within subsections of content (gap).
 
 <Notification
   alignSelf="start"
@@ -25,10 +33,10 @@ and its content (padding), and within content subsections (gap).
   title="Avoid use of margin"
   message={
     <Paragraph margin="none">
-      Use of margin can lead to unpredictable responsive and/or adaptive layouts
-      and should be used with caution, if not avoided. All layouts may be
-      achieved using gap and padding, resulting in more flexible, predictable,
-      and maintainable layouts.
+      Relying on margin can lead to unpredictable responsive and/or adaptive
+      layouts and should be used with caution, if at all. Most layouts can be
+      achieved using only gap and padding, resulting in more flexible,
+      predictable, and maintainable designs.
     </Paragraph>
   }
 />
@@ -60,9 +68,14 @@ and its content (padding), and within content subsections (gap).
     height="none"
     bestPractice={{
       type: 'dont',
-      message: `Use spacing design tokens to style element-level components. 
-      Instead, use component-specific tokens or element tokens which ensure 
-      correct sizing of elements across screen sizes.`,
+      message: (
+        <Paragraph margin="none" size="small">
+          Use spacing design tokens to style element-level components. Instead,
+          use component-specific tokens or{' '}
+          <ElementTokensCTA /> to
+          ensure correct sizing of elements across screen sizes.
+        </Paragraph>
+      ),
     }}
   >
     <SpacingBestPractices bestPractice={false} />
