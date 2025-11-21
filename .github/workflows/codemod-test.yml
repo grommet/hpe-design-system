@@ -23,4 +23,3 @@ jobs:
         working-directory: packages/codemods
       - name: Run tests
         run: pnpm --filter hpe-design-system-codemods test
-        working-directory: packages/codemods
