@@ -211,10 +211,10 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/react':
-        specifier: ^19.1.10
+        specifier: 'catalog:'
         version: 19.2.5
       '@types/react-dom':
-        specifier: ^19.1.7
+        specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.5)
       babel-loader:
         specifier: ^8.2.5
