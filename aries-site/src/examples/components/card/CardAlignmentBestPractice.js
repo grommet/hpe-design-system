@@ -19,7 +19,7 @@ export const CardAlignmentBestPractice = ({ bestPractice = true }) => (
           business.
         </Paragraph>
       </Box>
-      <Button kind="cta-primary" label="Request a trial" />
+      <Button kind="primary" label="Request a trial" />
     </CardBody>
   </Card>
 );
