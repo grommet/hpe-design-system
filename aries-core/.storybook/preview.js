@@ -1,6 +1,6 @@
 import React from 'react';
 import { hpe } from 'grommet-theme-hpe';
-import { Grommet, Box } from 'grommet';
+import { Grommet } from 'grommet';
 
 export default {
   decorators: [

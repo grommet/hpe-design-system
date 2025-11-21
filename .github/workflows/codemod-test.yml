@@ -9,13 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
         working-directory: packages/codemods
       - name: Run tests
-        run: yarn test
-        working-directory: packages/codemods
+        run: pnpm --filter hpe-design-system-codemods test

@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, it, expect, beforeEach } from 'vitest';
-import { useSessionStorage } from '../useSessionStorage';
+import { useSessionStorage } from '../src/useSessionStorage';
 
 describe('useSessionStorage', () => {
   beforeEach(() => {
