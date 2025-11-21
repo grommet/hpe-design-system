@@ -167,6 +167,7 @@ export * from './DriveCage';
 export * from './Duplicate';
 export * from './Edit';
 export * from './Eject';
+export * from './Element';
 export * from './Elevator';
 export * from './EmergencyFill';
 export * from './Emergency';

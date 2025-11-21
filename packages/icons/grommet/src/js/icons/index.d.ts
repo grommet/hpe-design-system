@@ -179,6 +179,7 @@ export declare const DriveCage: Icon;
 export declare const Duplicate: Icon;
 export declare const Edit: Icon;
 export declare const Eject: Icon;
+export declare const Element: Icon;
 export declare const Elevator: Icon;
 export declare const EmergencyFill: Icon;
 export declare const Emergency: Icon;
