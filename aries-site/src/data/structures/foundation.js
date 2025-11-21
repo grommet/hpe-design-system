@@ -622,7 +622,7 @@ export const foundation = [
           // eslint-disable-next-line max-len
           dark: '/foundationImages/foundation-preview-componentsizing-invert.svg',
         },
-        alt: 'Box with height and width annotations',
+        alt: 'Avatars of 3 different sizes displayed in a row.',
       },
     },
     seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to 
