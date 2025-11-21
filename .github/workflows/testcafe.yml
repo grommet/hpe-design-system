@@ -26,12 +26,16 @@ jobs:
           node-version: '20.19.x'
           cache: 'pnpm'
       - name: Install latest dependencies
-        run: pnpm upgrade
+        run: pnpm install
       - name: Log Git Repository
         run: echo "$GITHUB_REPOSITORY"
       # Ensure a build of design tokens is available
       - name: Create design tokens build
         run: pnpm --filter hpe-design-tokens build
+      - name: Create shared hooks build
+        run: pnpm --filter "@shared/hooks" build
+      - name: Create aries-core build
+        run: pnpm --filter aries-core build
       - name: Create production build
         run: pnpm --filter aries-site build
       # Tests are only run on headless Chrome
