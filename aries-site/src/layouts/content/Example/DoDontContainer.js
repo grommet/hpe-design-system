@@ -33,9 +33,13 @@ export const DoDontContainer = ({
         />
         <Box>
           <TextEmphasis size="large">{label}</TextEmphasis>
-          <Paragraph size="small" margin="none">
-            {bestPracticeProp.message}
-          </Paragraph>
+          {typeof bestPracticeProp.message === 'string' ? (
+            <Paragraph size="small" margin="none">
+              {bestPracticeProp.message}
+            </Paragraph>
+          ) : (
+            bestPracticeProp.message
+          )}
         </Box>
       </Box>
     );
@@ -55,7 +59,7 @@ export const DoDontContainer = ({
 DoDontContainer.propTypes = {
   bestPractice: PropTypes.shape({
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   }),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };

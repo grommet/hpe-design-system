@@ -38,6 +38,12 @@ const Foundation = () => (
             headingLevel={3}
           />
         </Subsection>
+        <Subsection level={2} name="Layout">
+          <CardGrid
+            cards={cards.filter(card => card.category === 'Layout')}
+            headingLevel={3}
+          />
+        </Subsection>
       </ContentSection>
     </PageContent>
   </>

@@ -378,51 +378,6 @@ export const foundation = [
     ],
   },
   {
-    name: 'Tshirt sizing',
-    render: 'T-shirt sizing',
-    category: 'Philosophy',
-    cardOrder: 4,
-    description:
-      'Create consistent, composable interfaces with t-shirt sizing.',
-    preview: {
-      image: {
-        src: {
-          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
-          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
-        },
-        alt: 'HPE T-shirt Sizing Preview',
-      },
-    },
-    seoDescription:
-      'Create consistent, scalable interfaces with t-shirt sizing.',
-    sections: [
-      'What is t-shirt sizing',
-      'Why do we use t-shirt sizing',
-      'The base unit',
-      'T-shirt sizing for component dimensions',
-      'T-shirt sizing for spacing and other styles',
-      'Composability and scaling between t-shirt sizes',
-    ],
-    relatedContent: ['Box', 'Typography', 'Grid', 'DataTable'],
-    tags: [
-      'sizing',
-      't-shirt sizes',
-      'box sizes',
-      'layout sizes',
-      'box sizing',
-      'layout sizing',
-      'grid sizes',
-      'grid sizing',
-      'spacing',
-      'base spacing',
-      'base unit',
-      'border size',
-      'height',
-      'width',
-      'dimensions',
-    ],
-  },
-  {
     name: 'Voice and tone',
     category: 'Philosophy',
     cardOrder: 6,
@@ -512,9 +467,54 @@ export const foundation = [
     ],
   },
   {
+    name: 'Tshirt sizing',
+    render: 'T-shirt sizing',
+    category: 'Layout',
+    cardOrder: 1,
+    description:
+      'Create consistent, composable interfaces with t-shirt sizing.',
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
+          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
+        },
+        alt: 'HPE T-shirt Sizing Preview',
+      },
+    },
+    seoDescription:
+      'Create consistent, scalable interfaces with t-shirt sizing.',
+    sections: [
+      'What is t-shirt sizing',
+      'Why do we use t-shirt sizing',
+      'The base unit',
+      'T-shirt sizing for component dimensions',
+      'T-shirt sizing for spacing and other styles',
+      'Composability and scaling between t-shirt sizes',
+    ],
+    relatedContent: ['Spacing', 'Box', 'Typography', 'Grid', 'DataTable'],
+    tags: [
+      'sizing',
+      't-shirt sizes',
+      'box sizes',
+      'layout sizes',
+      'box sizing',
+      'layout sizing',
+      'grid sizes',
+      'grid sizing',
+      'spacing',
+      'base spacing',
+      'base unit',
+      'border size',
+      'height',
+      'width',
+      'dimensions',
+    ],
+  },
+  {
     name: 'Scale system',
-    category: 'Assets',
-    cardOrder: 8,
+    category: 'Layout',
+    cardOrder: 2,
     description: `The foundational scale establishing the relationships 
     and proportions used to define the elements composing a UI.`,
     preview: {
@@ -542,6 +542,33 @@ export const foundation = [
       'spacing',
       'base unit',
     ],
-    relatedContent: ['Tshirt sizing'],
+    relatedContent: ['Tshirt sizing', 'Spacing'],
+  },
+   {
+    name: 'Spacing',
+    category: 'Layout',
+    cardOrder: 3,
+    description: `T-shirt sizes (a.k.a. design tokens) applied to spacing 
+    elements such as padding, margin, and gap.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-spacing.svg',
+          dark: '/foundationImages/foundation-preview-spacing-invert.svg',
+        },
+        alt: 'Boxes of increasing size representing the scale system',
+      },
+    },
+    seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to spacing 
+    elements such as padding, margin, and gap.`,
+    sections: ['Spacing scale', 'Spacing best practices'],
+    tags: [
+      'spacing',
+      'padding',
+      'margin',
+      'gap',
+      't-shirt sizes',
+    ],
+    relatedContent: ['Tshirt sizing', 'Scale system'],
   },
 ];

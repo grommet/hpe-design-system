@@ -401,7 +401,7 @@ Example.propTypes = {
   background: PropTypes.string,
   bestPractice: PropTypes.shape({
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   }),
   caption: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   children: PropTypes.element,
