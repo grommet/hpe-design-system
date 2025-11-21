@@ -26,7 +26,7 @@ export const FeaturePromotionCard = () => (
     actions={
       <Button
         label="Launch demo"
-        kind="cta-primary"
+        kind="primary"
         reverse
         // tabIndex is -1 because the entire card is clickable
         tabIndex={-1}

@@ -16,7 +16,7 @@ export const TrialPromotionCard = () => (
     actions={
       <Button
         label="Take a test drive"
-        kind="cta-primary"
+        kind="primary"
         // tabIndex is -1 because the entire card is clickable
         tabIndex={-1}
       />
