@@ -1,16 +1,6 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
 
-const meta = {
-  title: 'Layouts/Box',
-  component: Box,
-  parameters: {
-    layout: 'centered',
-  },
-};
-
-export default meta;
-
 export const BoxStorybookExample = {
   render: () => (
     <Box direction="row-responsive" gap="medium" align="center">
@@ -25,11 +15,21 @@ export const BoxStorybookExample = {
       </Box>
     </Box>
   ),
+};
+
+// transform: (code, storyContext) => {
+//   const theme = storyContext.globals?.theme;
+//   const borderColor =
+//     theme === 'grommet' ? 'accent-1' : 'border-default';
+//   return code.replace(/border-default|accent-1/g, borderColor);
+// },
+
+export default {
+  title: 'Box',
   parameters: {
+    layout: 'centered',
     docs: {
-      source: {
-        state: 'open',
-      },
+      codePanel: true,
     },
   },
 };
