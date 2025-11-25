@@ -5,154 +5,25 @@ import { ButtonSizingExample, SpacingBestPractices } from '../../examples';
 ## What is t-shirt sizing?
 
 T-shirt sizing uses semantic names (a.k.a. design tokens) which map familiar clothing sizes (`small`, `medium`, `large`, etc.) to specific pixel values for sizing and spacing.
+T-shirt sizes apply to:
+- [Spacing](/foundation/spacing) (padding, margin, gap)
+- [Content containers](/foundation/content-container-sizes) (width, height, border, radius)
+- [Components](/foundation/component-sizes) (size property)
 
 Prefer t‑shirt size tokens over hard pixel values. If a new value is needed, report it so it can be added as a token.
 
 ## Benefits
 
-- Creates consistent interfaces across applications
-- Establishes common language between designers and developers
-- Enables responsive scaling across screen sizes
-- Maintains composability and scalability
+T-shirt tokens promote consistency, systematic UI delivery, and ensure harmony among 
+layout elements. Hardcoded and arbitrary pixel values should be avoided, as they are 
+inflexible and prevent additional benefits realized through t-shirt tokens, including:
 
-## The scale
-
-The sizing scale follows three core principles:
-
-- **Proportional**: Each step maintains a natural ratio to other steps
-- **Composable**: Each step divides into halves, thirds, quarters; combines from smaller steps
-- **Flexible**: Subsets serve various use cases from dense to spacious layouts
-
-Built from dual base units: `24px` (primary) and `16px` (supplementary). The primary and supplementary scales combine via doubling/halving to produce:
-
-**Pixel progression:** 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536
-
-See [Layout and Spacing design tokens](/design-tokens/layout-and-spacing) for precise pixel values, implementation and versioning details.
-
-## Composability
-
-Sizes maintain mathematical relationships for predictable combinations.
-
-```jsx
-// Spacing sizes double:
-xsmall (12px) + xsmall (12px) = medium (24px)
-medium (24px) + medium (24px) = xlarge (48px)
-
-// Container sizes follow the same pattern:
-xsmall (192px) + xsmall (192px) = medium (384px)
-medium (384px) + medium (384px) = xlarge (768px)
-
-// Intermediate sizes fill gaps:
-small (16px) = medium (24px) - xxsmall (8px)
-large (32px) = medium (24px) + xxsmall (8px)
-```
-
-## Component dimensions
-
-Control component size using:
-- `width` and `height` props ([Box](/components/box))
-- `size` prop ([Avatar](https://v2.grommet.io/avatar?theme=hpe), [DataTable](/components/datatable), [Text](/foundation/typography#text))
-- `row` and `column` dimensions ([Grid](/components/grid))
-
-Refer to [Grommet documentation](https://v2.grommet.io/) for component-specific sizing props.
-
-```
-<Box width="medium" height="small" />
-```
-
-<Box width="large">
-  <Image src="/box-sizing.png" alt="Demonstration of t-shirt sizing on Box" />
-</Box>
-
-## Spacing
-
-Spacing uses proximity principles to define relationships between content and create hierarchy within a page. [Spacing design tokens](/design-tokens/layout-and-spacing#spacing) define the padding within, margin around, or gap between content.
-
-Spacing guides users’ eyes through the page, helping them understand the relationships between different elements. The HPE Design System minimizes use of borders to separate content. Instead spacing, typography, and background color are combined to create visual hierarchy.
-
-
-- Spacing (`edgeSize`): Controls pad, gap, and margin
-
-```
-<Box
-    width="medium"
-    height="small"
-    pad="large"
-/>
-```
-
-<Box width="medium" margin={{bottom: 'large'}}>
-  <Image
-    src="/edge-sizing.png"
-    alt="Demonstration of t-shirt sizing for pad on Box"
-  />
-</Box>
-
-### Spacing best practices
-
-<BestPracticeGroup>
-  <Example
-    height="none"
-    bestPractice={{
-      type: 'do',
-      message:
-        'Use spacing design tokens to style compositional or layout components like cards, layers, and grid spacing.',
-    }}
-    width="100%"
-  >
-    <SpacingBestPractices />
-  </Example>
-  <Example
-    height="none"
-    bestPractice={{
-      type: 'dont',
-      message: `Use spacing design tokens to style element-level components. Instead use component-specific tokens or element tokens which will ensure correct sizing of elements across screen sizes.`,
-    }}
-  >
-    <SpacingBestPractices bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
-
-## Borders
-
-Use named border size tokens to keep borders aligned with the scale. Avoid arbitrary pixel widths; apply them via the border prop, e.g. `border={{ size: 'small' }}`.
-
-```
-<Box 
-  border={{ color: 'border', size: 'small' }}
-  width="medium"
-  height="small" 
-/>
-```
-
-<Box width="medium" margin={{bottom: 'large'}}>
-  <Image
-    src="/border-sizing.png"
-    alt="Demonstration of t-shirt sizing for border on Box"
-  />
-</Box>
-
-## Containers
-
-Containers define the minimum or maximum width or height for content areas.
-
-Container tokens are particularly useful when defining grid layouts. In other cases, consider the approach of [content-driven layouts](https://design-system.hpe.design/templates/content-layouts#content-driven-layouts) to avoid artificially restricting content.
-
-## Radius
-
-Apply larger radius tokens to high‑level sections and smaller radii to inner elements to maintain visual hierarchy.
-
-## Default size
-
-Treat `medium` as the implicit size for components with a `size` prop; omit `size="medium"` when using the default to reduce noise.
-
-<Example
-  docs="https://v2.grommet.io/button?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ButtonSizingExample.js"
-  height={{ min: 'small' }}
->
-  <ButtonSizingExample />
-</Example>
+- Establish shared vocabulary across designers, developers, and delivery teams.
+- Accelerate layout specification through reuse of predefined values.
+- Ensure UIs are composable using common, shared size definitions.
+- Facilitate responsive design.
+- Enable density modes and expanded user preferences.
+- Promote consistency, maintainability, and scalability through systematic reuse.
 
 ## Responsiveness
 
