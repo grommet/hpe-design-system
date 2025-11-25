@@ -495,6 +495,7 @@ export const foundation = [
     relatedContent: [
       'Spacing',
       'Content container sizes',
+      'Component sizes',
       'Box',
       'Typography',
       'Grid',
