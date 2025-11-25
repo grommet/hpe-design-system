@@ -1,30 +1,15 @@
-import { Anchor, Notification, Paragraph } from 'grommet';
-import Link from 'next/link';
+T-shirt sizes (design tokens) define component dimensions through the `size`
+property. Common options include `small`, `medium`, and `large`, with extended 
+ranges like `xxsmall` or `3xlarge` available for certain components. All 
+components share a common dimension lineage based on 
+[element design tokens](/design-tokens/element), ensuring standardized sizing 
+for core UI building blocks and consistent alignment across layouts.
 
-T-shirt size tokens define component dimensions via a component's size
-prop. Sizes are most often available in `small`, `medium`, and `large`, however
-may extend into `xxsmall` or `3xlarge` ranges for some components.
-
-Example components supporting t-shirt sizes include:
+Examples supporting t-shirt sizes include:
 
 - Typography - [Heading](/foundation/typography#heading), [Paragraph](/foundation/typography#paragraph), [Text](/foundation/typography#text)
 - Controls - [Anchor](/components/anchor), [Button](/components/button), [Pagination](/components/pagination)
 - Visualizations - [Avatar](/components/avatar), [Spinner](/components/spinner), [Tag](/components/tag)
-
-<Notification
-  alignSelf="start"
-  status="info"
-  title="Fan fact"
-  message={
-    <Paragraph margin="none">
-      All components share a common dimension lineage based on
-      <Link href="/design-tokens/element" passHref legacyBehavior>
-        <Anchor>element design tokens</Anchor>
-      </Link> resulting in standardized sizing for all core UI building blocks and
-      assured alignment in layouts.
-    </Paragraph>
-  }
-/>
 
 ## Default sizes
 
@@ -37,4 +22,5 @@ In the button example below, “Default” and size=”medium” produce the equ
 <Button label="Medium" primary size="medium" />
 ```
 
-Omitting the `size` prop when `medium` is appropriate. Omission reduces verbosity without altering appearance.
+Omit the `size` property when `medium` is appropriate. Omission reduces verbosity 
+without altering appearance.
