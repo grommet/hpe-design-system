@@ -1,5 +1,3 @@
-import { Anchor, Notification, Paragraph } from 'grommet';
-import Link from 'next/link';
 import { Example } from '../../layouts';
 import {
   BorderWidths,
@@ -21,36 +19,16 @@ to define the heights and widths of [Boxes](/components/box), columns and rows f
 use cases. Additionally, design tokens specify [border widths](#border-widths) and
 [radii](#radius-sizes) for content areas.
 
-<Notification
-  alignSelf="start"
-  status="info"
-  title="Tip"
-  message={
-    <Paragraph margin="none">
-      Need more flexible dimensions for containers? Use t-shirt sizes to specify
-      min-max ranges which{' '}
-      <Link href="/components/grid#flexible-columns" passHref legacyBehavior>
-        <Anchor>allow containers to flex</Anchor>
-      </Link>{' '}
-      according to available screen real-estate. Alternatively, consider{' '}
-      <Link
-        href="/templates/content-layouts#content-driven-layouts"
-        passHref
-        legacyBehavior
-      >
-        <Anchor>content-driven layouts</Anchor>
-      </Link>{' '}
-      to avoid artificially restricting content.
-    </Paragraph>
-  }
-/>
-
 ## Container sizes
 
 Content containers may be implemented as invisible bounding boxes defining layout
 regions or visible surfaces on which content may be displayed. In either scenario,
 t-shirt sizes specify container dimensions used when defining
 [container-driven layouts](/templates/content-layouts#container-driven-layouts).
+For more flexibility, t-shirt sizes can define minimum and maximum ranges so 
+containers [adjust to available screen space](/components/grid#flexible-columns). 
+To avoid restricting content unnecessarily, consider using 
+[content-driven layouts](/templates/content-layouts#content-driven-layouts) instead.
 
 <Example
   caption="Available container size dimensions by t-shirt size"
