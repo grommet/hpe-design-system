@@ -5,7 +5,7 @@ import { Box, Text } from 'grommet';
 import { Checkmark } from '@hpe-design/icons-grommet';
 
 // eslint-disable-next-line react/prop-types
-export const SpacingBestPractices = ({ bestPractice = true }) => {
+export const SpacingVsElementTokens = ({ bestPractice = true }) => {
   const highlightBorder = { style: 'dashed', color: 'brand' };
   if (!bestPractice) {
     return (
