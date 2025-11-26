@@ -20,6 +20,9 @@ export const DoDontContainer = ({
     } else if (bestPracticeProp.type === 'dont') {
       background = 'foreground-critical';
       label = "Don't";
+    } else if (bestPracticeProp.type === 'caution') {
+      background = 'foreground-warning';
+      label = 'Caution';
     }
 
     bestPractice = (
