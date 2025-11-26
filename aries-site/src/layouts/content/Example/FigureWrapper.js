@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Text } from 'grommet';
 
 const StyledFigure = styled.figure`
-  margin: 0;
+  display: contents;  
 `;
 
 const StyledCaption = ({ ...rest }) => (
