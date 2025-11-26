@@ -799,6 +799,22 @@
           }
         }
       },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for foreground regions communicating success, completion, or a normal/ok status. Often used to color values in a meter or progress bar. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.green.650}"
+          }
+        }
+      },
       "primary": {
         "DEFAULT": {
           "REST": {

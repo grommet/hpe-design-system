@@ -110,7 +110,7 @@
         }
       },
       "$type": "fontFamily",
-      "$value": "'Graphik', Arial, sans-serif"
+      "$value": "'HPE Graphik', Arial, sans-serif"
     }
   },
   "fontWeight": {

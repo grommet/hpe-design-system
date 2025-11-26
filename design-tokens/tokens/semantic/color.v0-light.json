@@ -526,7 +526,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.green1}"
+              "$value": "#ff8300"
             }
           }
         },
@@ -542,7 +542,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.darkblue1}"
+              "$value": "{deprecated.base.color.blue.700}"
             }
           }
         },
@@ -558,7 +558,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.gold1}"
+              "$value": "#7630ea"
             }
           }
         },
@@ -574,7 +574,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.purple1}"
+              "$value": "{deprecated.base.color.yellow.400}"
             }
           }
         },
@@ -590,7 +590,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.lightblue1}"
+              "$value": "{deprecated.base.color.teal.400}"
             }
           }
         },
@@ -606,7 +606,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.pink1}"
+              "$value": "{color.transparent}"
             }
           }
         },
@@ -622,7 +622,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.blue1}"
+              "$value": "{color.transparent}"
             }
           }
         },
@@ -638,7 +638,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.grape1}"
+              "$value": "{color.transparent}"
             }
           }
         }
@@ -796,6 +796,22 @@
             },
             "$type": "color",
             "$value": "{deprecated.base.color.red.600}"
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for foreground regions communicating success, completion, or a normal/ok status. Often used to color values in a meter or progress bar. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.green.550}"
           }
         }
       },
