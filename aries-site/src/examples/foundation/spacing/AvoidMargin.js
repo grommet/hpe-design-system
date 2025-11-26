@@ -34,7 +34,10 @@ const Placeholder = ({ width = '75%' }) => (
 const Example = ({ children }) => (
   <Box
     direction="row"
-    border={{ style: 'dotted', size: 'small' }}
+    border={{ 
+      style: 'dotted', 
+      size: 'medium',
+    }}
     width={{ min: '100%' }}
     align="start"
   >
