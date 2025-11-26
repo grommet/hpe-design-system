@@ -35,6 +35,7 @@ import {
   StatusLight,
   TextDark,
   TextLight,
+  BackgroundSwatch,
 } from '../../examples';
 
 {/* TODO replace with DS icon package when available */}
@@ -72,61 +73,7 @@ Background colors establish depth, hierarchy, and cognitive grouping. Products t
 
 For more direction on how to use background colors, see [background colors guidance](/foundation/background-colors-guidance).
 
-   <Box background="background-front" pad="medium" gap="medium" width={{max: "xlarge", min: "xsmall"}} round="medium">
-   <Grid columns="small" gap="medium">
-      <Box direction="row" gap="xsmall">
-        <Box
-          border="border-weak"
-          background="background-default"
-          width="5xsmall"
-          height="5xsmall"
-          round="small"
-        />
-        <Box justify="center">
-          <Text>color.background.default</Text>
-        </Box>
-      </Box>
-          <Box direction="row" gap="xsmall">
-        <Box
-          border="border-weak"
-          background="background-default"
-          width="5xsmall"
-          height="5xsmall"
-          round="small"
-        />
-        <Box justify="center">
-          <Text>color.background.default</Text>
-        </Box>
-      </Box>
-      <Box direction="row" gap="xsmall">
-        <Box
-          border="border-weak"
-          background="background-default"
-          width="5xsmall"
-          height="5xsmall"
-          round="small"
-        />
-        <Box justify="center">
-          <Text>color.background.default</Text>
-        </Box>
-      </Box>
-      <Box direction="row" gap="xsmall">
-        <Box
-          border="border-weak"
-          background="background-default"
-          width="5xsmall"
-          height="5xsmall"
-          round="small"
-        />
-        <Box justify="center">
-          <Text>color.background.default</Text>
-        </Box>
-      </Box>
-      </Grid>
-    </Box>
-
-
-
+<BackgroundSwatch />
 
 #### Overlay
 
@@ -134,7 +81,6 @@ Overlay color dims inactive content to direct attention to an active layer; appl
 
 ### Borders
 Border colors delineate areas only when spacing or background contrast are insufficient. Use `color.border.default` for neutral boundaries and dividers, and omit borders where existing spacing or contrast already provides clear separation.
-
 
 ### Text
 Text colors help create hierarchy and ensure readability. Use `color.text.default` for body copy and `color.text.heading` for headings. `color.text.strong` can be used to emphasize key figures or other important text. To de-emphasize content and create a clear visual hierarchy, apply `color.text.weak` to secondary information.
