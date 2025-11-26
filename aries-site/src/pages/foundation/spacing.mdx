@@ -2,10 +2,11 @@ import { Anchor, Notification, Paragraph } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
 import {
+  AvoidMargin,
   ElementTokensCTA,
-  SpacingBestPractices,
   SpacingScale,
   SpacingTokensCTA,
+  SpacingVsElementTokens,
 } from '../../examples';
 
 Spacing sizes are a subset of the [scale system](/foundation/scale-system),
@@ -62,7 +63,7 @@ Use spacing to:
     }}
     width="100%"
   >
-    <SpacingBestPractices />
+    <SpacingVsElementTokens />
   </Example>
   <Example
     height="none"
@@ -78,6 +79,30 @@ Use spacing to:
       ),
     }}
   >
-    <SpacingBestPractices bestPractice={false} />
+    <SpacingVsElementTokens bestPractice={false} />
   </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+<Example
+  height="none"
+  bestPractice={{
+    type: 'do',
+    message: `Use gap to create spacing between elements and padding within elements.`,
+  }}
+  width="100%"
+>
+  <AvoidMargin />
+</Example>
+<Example
+  height="none"
+  bestPractice={{
+    type: 'caution',
+    message: `Avoid use of margin to create spacing. Use of margin can lead to 
+    unpredictable responsive and/or adaptive layouts. Use gap and padding instead.`,
+  }}
+  width="100%"
+>
+  <AvoidMargin bestPractice={false} />
+</Example>
 </BestPracticeGroup>
