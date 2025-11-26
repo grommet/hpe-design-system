@@ -27,7 +27,7 @@ export const EventPromotionCard = () => {
       actions={
         <Button
           label="Register now"
-          kind="cta-primary"
+          kind="primary"
           reverse
           // tabIndex is -1 because the entire card is clickable
           tabIndex={-1}
