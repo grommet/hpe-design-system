@@ -1,4 +1,11 @@
-import { Box, Button, Notification, Text, Meter } from 'grommet';
+import { 
+  Box, 
+  Button, 
+  Notification, 
+  Text, 
+  Meter, 
+  Grid, 
+} from 'grommet';
 import { Trigger } from '@hpe-design/icons-grommet';
 
 import { ColorSwatch, ColorPreview } from '../../components';
@@ -64,6 +71,62 @@ Color expresses brand, guides interaction, and supports accessibility. It shapes
 Background colors establish depth, hierarchy, and cognitive grouping. Products typically begin with `color.background.back` as the base, then layer surfaces using `color.background.front` and `color.background.floating` to convey elevation. Use contrast background tokens to separate dense regions, preferring contrast backgrounds over borders in tight layouts to reduce visual noise.
 
 For more direction on how to use background colors, see [background colors guidance](/foundation/background-colors-guidance).
+
+   <Box background="background-front" pad="medium" gap="medium" width={{max: "xlarge", min: "xsmall"}} round="medium">
+   <Grid columns="small" gap="medium">
+      <Box direction="row" gap="xsmall">
+        <Box
+          border="border-weak"
+          background="background-default"
+          width="5xsmall"
+          height="5xsmall"
+          round="small"
+        />
+        <Box justify="center">
+          <Text>color.background.default</Text>
+        </Box>
+      </Box>
+          <Box direction="row" gap="xsmall">
+        <Box
+          border="border-weak"
+          background="background-default"
+          width="5xsmall"
+          height="5xsmall"
+          round="small"
+        />
+        <Box justify="center">
+          <Text>color.background.default</Text>
+        </Box>
+      </Box>
+      <Box direction="row" gap="xsmall">
+        <Box
+          border="border-weak"
+          background="background-default"
+          width="5xsmall"
+          height="5xsmall"
+          round="small"
+        />
+        <Box justify="center">
+          <Text>color.background.default</Text>
+        </Box>
+      </Box>
+      <Box direction="row" gap="xsmall">
+        <Box
+          border="border-weak"
+          background="background-default"
+          width="5xsmall"
+          height="5xsmall"
+          round="small"
+        />
+        <Box justify="center">
+          <Text>color.background.default</Text>
+        </Box>
+      </Box>
+      </Grid>
+    </Box>
+
+
+
 
 #### Overlay
 
