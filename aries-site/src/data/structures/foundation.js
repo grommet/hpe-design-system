@@ -34,7 +34,7 @@ export const foundation = [
       'accessible products',
       'WCAG',
       'WAVE',
-      'Web Acessibility Evaluation Tool',
+      'Web Accessibility Evaluation Tool',
       'plugins',
       'color contrast',
       'accessibility tools',
