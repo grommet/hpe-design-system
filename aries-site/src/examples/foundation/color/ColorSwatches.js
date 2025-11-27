@@ -22,9 +22,6 @@ ColorSwatch.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-// Create a component to handle the Grid and the Box around
-// the Grid, so that the code doesn't need to be duplicated
-// for each group of swatches.
 const SwatchGroup = ({ children }) => (
   <Box
     background="background-front"
@@ -41,6 +38,7 @@ const SwatchGroup = ({ children }) => (
 SwatchGroup.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
 
 export const BackgroundSwatch = () => (
   <SwatchGroup>
@@ -88,5 +86,35 @@ export const BorderSwatch = () => (
   </SwatchGroup>
 );
 
-// Create Swatches for Borders, Decorative, DataVis, etc.
-// export const BorderSwatch = () => ( ... );
+export const DecorativeSwatch = () => (
+  <SwatchGroup>
+    <ColorSwatch
+      background="brand"
+      text="color.decorative.brand"
+    />
+    <ColorSwatch
+      background="decorative-green"
+      text="color.decorative.green"
+    />
+    <ColorSwatch
+      background="decorative-purple"
+      text="color.decorative.purple"
+    />
+    <ColorSwatch
+      background="decorative-blue"
+      text="color.decorative.blue"
+    />
+        <ColorSwatch
+      background="decorative-neutral"
+      text="color.decorative.neutral"
+    />
+        <ColorSwatch
+      background="decorative-neutral-hover"
+      text="color.decorative.neutral-hover"
+    />
+        <ColorSwatch
+      background="decorative-cyan"
+      text="color.decorative.cyan"
+    />
+  </SwatchGroup>
+);
