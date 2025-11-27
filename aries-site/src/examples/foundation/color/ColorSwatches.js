@@ -1,10 +1,10 @@
 import { Box, Text, Grid } from 'grommet';
 import PropTypes from 'prop-types';
 
-const ColorSwatch = ({ background, border, text }) => (
+const ColorSwatch = ({ background, border, borderSize = 'xsmall', text }) => (
   <Box direction="row" gap="xsmall">
     <Box
-      border={border}
+      border={border ? { color: border, size: borderSize } : undefined}
       background={background}
       width="5xsmall"
       height="5xsmall"
@@ -18,6 +18,7 @@ const ColorSwatch = ({ background, border, text }) => (
 ColorSwatch.propTypes = {
   background: PropTypes.string.isRequired,
   border: PropTypes.string,
+  borderSize: PropTypes.string,
   text: PropTypes.string.isRequired,
 };
 
@@ -60,6 +61,29 @@ export const BackgroundSwatch = () => (
     <ColorSwatch
       background="background-screenOverlay"
       text="color.background.screenOverlay"
+    />
+  </SwatchGroup>
+);
+
+export const BorderSwatch = () => (
+  <SwatchGroup>
+    <ColorSwatch
+      background="background-default"
+      border="border-default"
+      borderSize="medium"
+      text="color.border.default"
+    />
+    <ColorSwatch
+      background="background-default"
+      border="border-weak"
+      borderSize="medium"
+      text="color.border.weak"
+    />
+    <ColorSwatch
+      background="background-default"
+      border="border-strong"
+      borderSize="medium"
+      text="color.border.strong"
     />
   </SwatchGroup>
 );
