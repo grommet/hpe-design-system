@@ -118,3 +118,40 @@ export const DecorativeSwatch = () => (
     />
   </SwatchGroup>
 );
+
+export const DataVisSwatch = () => (
+  <SwatchGroup>
+    <ColorSwatch
+      background="dataVis-categorical-10"
+      text="color.dataVis.categorical.10"
+    />
+        <ColorSwatch
+      background="dataVis-categorical-20"
+      text="color.dataVis.categorical.20"
+    />
+        <ColorSwatch
+      background="dataVis-categorical-30"
+      text="color.dataVis.categorical.30"
+    />
+        <ColorSwatch
+      background="dataVis-categorical-40"
+      text="color.dataVis.categorical.40"
+    />
+        <ColorSwatch
+      background="dataVis-categorical-50"
+      text="color.dataVis.categorical.50"
+    />
+        <ColorSwatch
+      background="dataVis-categorical-60"
+      text="color.dataVis.categorical.60"
+    />
+        <ColorSwatch
+      background="dataVis-categorical-70"
+      text="color.dataVis.categorical.70"
+    />
+        <ColorSwatch
+      background="dataVis-categorical-80"
+      text="color.dataVis.categorical.80"
+    />
+  </SwatchGroup>
+);
