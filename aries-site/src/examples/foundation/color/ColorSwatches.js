@@ -104,15 +104,15 @@ export const DecorativeSwatch = () => (
       background="decorative-blue"
       text="color.decorative.blue"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="decorative-neutral"
       text="color.decorative.neutral"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="decorative-neutral-hover"
       text="color.decorative.neutral-hover"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="decorative-cyan"
       text="color.decorative.cyan"
     />
@@ -125,33 +125,54 @@ export const DataVisSwatch = () => (
       background="dataVis-categorical-10"
       text="color.dataVis.categorical.10"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="dataVis-categorical-20"
       text="color.dataVis.categorical.20"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="dataVis-categorical-30"
       text="color.dataVis.categorical.30"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="dataVis-categorical-40"
       text="color.dataVis.categorical.40"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="dataVis-categorical-50"
       text="color.dataVis.categorical.50"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="dataVis-categorical-60"
       text="color.dataVis.categorical.60"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="dataVis-categorical-70"
       text="color.dataVis.categorical.70"
     />
-        <ColorSwatch
+    <ColorSwatch
       background="dataVis-categorical-80"
       text="color.dataVis.categorical.80"
+    />
+  </SwatchGroup>
+);
+
+export const ForegroundSwatch = () => (
+  <SwatchGroup>
+    <ColorSwatch
+      background="foreground-warning"
+      text="color.foreground.warning"
+    />
+    <ColorSwatch
+      background="foreground-critical"
+      text="color.foreground.critical"
+    />
+    <ColorSwatch
+      background="foreground-unknown"
+      text="color.foreground.unknown"
+    />
+    <ColorSwatch
+      background="foreground-primary"
+      text="color.foreground.primary"
     />
   </SwatchGroup>
 );
