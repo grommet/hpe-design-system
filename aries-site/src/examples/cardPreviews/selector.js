@@ -17,6 +17,7 @@ export const SelectorPreview = () => (
     tabIndex={-1}
     a11yTitle="Select service products"
     layout="grid"
+    defaultValue="green lake portal"
   >
     {services.map(datum => (
       <Selector
