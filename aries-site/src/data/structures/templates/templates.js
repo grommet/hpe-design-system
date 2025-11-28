@@ -426,8 +426,8 @@ export const templates = [
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-persistent.svg',
-          dark: '/templateImages/template-preview-persistent-invert.svg',
+          light: '/templateImages/template-preview-global-header.svg',
+          dark: '/templateImages/template-preview-global-header-invert.svg',
         },
         alt: 'HPE Design System Global Header',
         fit: 'contain',
@@ -991,6 +991,17 @@ export const templates = [
     sections: [],
     relatedContent: ['Pagination', 'Lists', 'Card', 'DataTable'],
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-scrolling-pagination.svg',
+          // eslint-disable-next-line max-len
+          dark: '/templateImages/template-preview-scrolling-pagination-invert.svg',
+        },
+        alt: 'Global notifications under HPE Global Application header.',
+        fit: 'contain',
+      },
+    },
   },
   {
     name: 'Global notifications',
