@@ -495,6 +495,7 @@ export const foundation = [
     relatedContent: [
       'Spacing',
       'Content container sizes',
+      'Component sizes',
       'Box',
       'Typography',
       'Grid',
@@ -586,8 +587,7 @@ export const foundation = [
       image: {
         src: {
           // eslint-disable-next-line max-len
-          light:
-            '/foundationImages/foundation-preview-containersizing.svg',
+          light: '/foundationImages/foundation-preview-containersizing.svg',
           // eslint-disable-next-line max-len
           dark: '/foundationImages/foundation-preview-containersizing-invert.svg',
         },
@@ -608,5 +608,39 @@ export const foundation = [
       'layout',
     ],
     relatedContent: ['Tshirt sizing', 'Scale system', 'Spacing'],
+  },
+  {
+    name: 'Component sizes',
+    category: 'Layout',
+    cardOrder: 5,
+    description: `T-shirt sizes (a.k.a. design tokens) applied to 
+    a wide variety of typography, control, and visualization components.`,
+    preview: {
+      image: {
+        src: {
+          // eslint-disable-next-line max-len
+          light: '/foundationImages/foundation-preview-componentsizing.svg',
+          // eslint-disable-next-line max-len
+          dark: '/foundationImages/foundation-preview-componentsizing-invert.svg',
+        },
+        alt: 'Avatars of 3 different sizes displayed in a row.',
+      },
+    },
+    seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to 
+    a wide variety of typography, control, and visualization components.`,
+    sections: ['Default size'],
+    tags: [
+      'component sizes',
+      't-shirt sizes',
+      'sizing',
+      'dimensions',
+      'layout',
+    ],
+    relatedContent: [
+      'Tshirt sizing',
+      'Scale system',
+      'Spacing',
+      'Content container sizes',
+    ],
   },
 ];
