@@ -680,7 +680,7 @@
         }
       },
       "$type": "number",
-      "$value": "{static.spacing.5xsmall}"
+      "$value": "{static.spacing.6xsmall}"
     },
     "5xsmall": {
       "$description": "",
@@ -692,7 +692,7 @@
         }
       },
       "$type": "number",
-      "$value": "{static.spacing.5xsmall}"
+      "$value": "{static.spacing.6xsmall}"
     },
     "6xsmall": {
       "$description": "",

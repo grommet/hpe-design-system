@@ -811,7 +811,7 @@
               }
             },
             "$type": "color",
-            "$value": "{base.color.green.650}"
+            "$value": "{deprecated.base.color.green.650}"
           }
         }
       },
