@@ -20,6 +20,9 @@ export const DoDontContainer = ({
     } else if (bestPracticeProp.type === 'dont') {
       background = 'foreground-critical';
       label = "Don't";
+    } else if (bestPracticeProp.type === 'caution') {
+      background = 'foreground-warning';
+      label = 'Caution';
     }
 
     bestPractice = (
@@ -33,9 +36,13 @@ export const DoDontContainer = ({
         />
         <Box>
           <TextEmphasis size="large">{label}</TextEmphasis>
-          <Paragraph size="small" margin="none">
-            {bestPracticeProp.message}
-          </Paragraph>
+          {typeof bestPracticeProp.message === 'string' ? (
+            <Paragraph size="small" margin="none">
+              {bestPracticeProp.message}
+            </Paragraph>
+          ) : (
+            bestPracticeProp.message
+          )}
         </Box>
       </Box>
     );
@@ -55,7 +62,7 @@ export const DoDontContainer = ({
 DoDontContainer.propTypes = {
   bestPractice: PropTypes.shape({
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   }),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
