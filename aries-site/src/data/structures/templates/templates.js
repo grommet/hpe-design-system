@@ -404,8 +404,8 @@ export const templates = [
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-form.svg',
-          dark: '/templateImages/template-preview-form-invert.svg',
+          light: '/templateImages/template-preview-child objects.svg',
+          dark: '/templateImages/template-preview-child objects-invert.svg',
         },
         alt: 'HPE Forms Preview',
         fit: 'contain',
