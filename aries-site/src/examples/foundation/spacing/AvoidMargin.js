@@ -4,7 +4,6 @@ import { dimension } from 'hpe-design-tokens/grommet';
 import { Box, Text } from 'grommet';
 
 const highlightBorder = {
-  style: 'dotted',
   color: 'decorative-purple',
   size: 'small',
 };
@@ -37,6 +36,7 @@ const Example = ({ children }) => (
     border={{ 
       style: 'dashed', 
       size: 'small',
+      color: 'border-strong',
     }}
     width={{ min: '100%' }}
     align="start"
