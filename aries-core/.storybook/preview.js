@@ -1,5 +1,6 @@
 import React from 'react';
 import { hpe } from 'grommet-theme-hpe';
+import { Grommet } from 'grommet';
 
 export default {
   decorators: [
@@ -8,9 +9,8 @@ export default {
       if (
         context.globals?.backgrounds?.value ===
         hpe.global.colors.background.dark
-      ) {
+      )
         mode = 'dark';
-      }
 
       return (
         <Grommet theme={hpe} themeMode={mode}>
