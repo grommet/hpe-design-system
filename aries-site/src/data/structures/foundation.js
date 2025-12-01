@@ -244,10 +244,8 @@ export const foundation = [
     name: 'Icons',
     cardOrder: 8,
     category: 'Assets',
-    description: `Icons are an integral part of our visual storytelling style 
-    to represent objects, actions, programs and other communicative symbols. 
-    This clean, dynamic style remains flexible while retaining the voice of our 
-    brand.`,
+    description: `Icons visually communicate actions, objects, and states —
+      creating a consistent, recognizable language across our products.`,
     preview: {
       image: {
         src: {
@@ -375,6 +373,44 @@ export const foundation = [
       'background-front',
       'background-contrast',
       'background-back',
+    ],
+  },
+  {
+    name: 'Color pairing',
+    category: 'Assets',
+    cardOrder: 9,
+    description: `Pair colors correctly to ensure your design has sufficient 
+    contrast ratios and will remain so with color updates.`,
+    preview: {
+      component: () => (
+        <Box
+          background="background-neutral-xstrong"
+          pad="medium"
+          round="medium"
+        >
+          color.text.onStrong
+        </Box>
+      ),
+    },
+    seoDescription: `Learn how to pair colors correctly to ensure your design 
+    has sufficient contrast ratios and will remain accessible with color
+    updates.`,
+    sections: [
+      'Color pairing explained',
+      'Accessible standard color pairings',
+      'Strong background and onStrong colors',
+      'Specialty color pairings',
+    ],
+    relatedContent: ['Color', 'Background colors guidance', 'Accessibility'],
+    tags: [
+      'color pairing',
+      'color contrast',
+      'accessibility',
+      'standard backgrounds',
+      'strong backgrounds',
+      'onStrong colors',
+      'specialty colors',
+      'contrast ratios',
     ],
   },
   {

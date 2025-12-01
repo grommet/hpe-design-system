@@ -12,40 +12,6 @@ import { nameToSlug, getPageDetails } from '../utils';
 const slugToText = str => str.split('-').join(' ');
 
 const backgroundImages = {
-  components: {
-    src: {
-      dark: '/components-dark.svg',
-      light: '/components-light.svg',
-    },
-    alt: 'HPE Design System Components',
-    fit: 'contain',
-    margin: { top: '-200px', left: '-75px' },
-    small: {
-      margin: { top: '-250px' },
-    },
-  },
-  foundation: {
-    src: {
-      dark: '/foundation-dark.svg',
-      light: '/foundation-light.svg',
-    },
-    alt: 'HPE Design System Foundation',
-    margin: { left: '-280px', top: '-175px' },
-    small: {
-      margin: { left: '0', top: '-300px' },
-    },
-  },
-  templates: {
-    src: {
-      dark: '/templates-dark.svg',
-      light: '/templates-light.svg',
-    },
-    alt: 'HPE Design System Templates',
-    margin: { left: '-300px', top: '-125px' },
-    small: {
-      margin: { left: '-25px', top: '-175px' },
-    },
-  },
   showmore: {
     src: { dark: '/cards-dark.svg', light: '/cards.svg' },
     alt: 'HPE Design System',
