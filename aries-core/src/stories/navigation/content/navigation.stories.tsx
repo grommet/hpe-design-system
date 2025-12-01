@@ -1,4 +1,4 @@
-import { use, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   AnnounceContext,
   Box,
@@ -15,7 +15,6 @@ import { Sidebar } from '@hpe-design/icons-grommet';
 import { useSessionStorage } from '@shared/hooks';
 import { NavigationMenu } from '../../js/components';
 import { AppHeader, Genie, Help, LayerHeader, navItems } from './content';
-import React from 'react';
 
 const gridAreas = [
   ['nav', 'header', 'context-pane'],
