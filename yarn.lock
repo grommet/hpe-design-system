@@ -2002,6 +2002,11 @@
   resolved "https://registry.yarnpkg.com/@hpe-design/icons-grommet/-/icons-grommet-1.0.1.tgz#17d9a34cac232b8becf171c2b0fbb1644033fcd4"
   integrity sha512-lv5SKWKiLxJCay0Ria7CfhWBuzA58YTG2rUAnvrgpKOU+87PqMoQ41fk0JMF/vjCgyY7Vz1ga7PjS3g25sRp2g==
 
+"@hpe-design/icons-grommet@^1.1.1":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@hpe-design/icons-grommet/-/icons-grommet-1.1.0.tgz#6f96cb7bf8244188fffa1a7e92f20c2bc51123e7"
+  integrity sha512-Mk+n0EXkJ32m6z91ZTrXiI1PCxHm4OjxNePt7dgJEMcE044qikhY8u8tGY4igdq0Des5J3DOqbE3YJvPg6U6oA==
+
 "@humanwhocodes/config-array@^0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.13.0.tgz#fb907624df3256d04b9aa2df50d7aa97ec648748"

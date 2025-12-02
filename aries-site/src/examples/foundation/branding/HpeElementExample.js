@@ -1,14 +1,13 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 
 export const HpeElementExample = () => {
   const textSize = 'small';
 
   return (
     <Box direction="row" align="center" gap="medium">
-      <Hpe color="brand" />
+      <Element color="brand" />
       <Box direction="row" gap="3xsmall">
         <Text size={textSize} weight="bold">
           HPE
