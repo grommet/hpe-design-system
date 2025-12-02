@@ -11,7 +11,7 @@ import {
 } from 'grommet';
 import { Iteration, Search as SearchIcon } from '@hpe-design/icons-grommet';
 import { SelectorGroup, Selector } from 'aries-core';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const services = [
   {

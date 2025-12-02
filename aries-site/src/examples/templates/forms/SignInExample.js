@@ -16,7 +16,7 @@ import {
 } from 'grommet';
 import { Close, Right, Alert } from '@hpe-design/icons-grommet';
 import { emailValidation } from './utils/FormValidation';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const ResetPassword = ({ closeLayer, email }) => {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });

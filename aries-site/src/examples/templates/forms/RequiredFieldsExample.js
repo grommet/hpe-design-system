@@ -15,7 +15,7 @@ import {
   TextArea,
 } from 'grommet';
 import { Alert } from '@hpe-design/icons-grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];

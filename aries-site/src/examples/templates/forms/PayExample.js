@@ -12,7 +12,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { CreditCard } from '@hpe-design/icons-grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const currentDate = new Date();
 const dateValidation = [
