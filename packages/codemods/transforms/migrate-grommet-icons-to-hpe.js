@@ -338,9 +338,9 @@ module.exports = function transformer(file, api, options) {
 
           if (iconName === 'Share' || iconName === 'share') {
             console.warn(
-              `⚠️  Warning: Please verify if "Share" is the correct usage
-                 in this case,
-                 or consider using "NewWindow" ` +
+              `⚠️  Warning: Verify if "Share" is the correct usage in this instance.
+              The previous "Share" glyph was often used to symbolize and "external link" opening a new browser window. 
+                 Use "NewWindow" if the usage is communicating an external link.` +
                 `as an alternative if applicable. (${file.path})`,
             );
           }
