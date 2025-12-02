@@ -341,7 +341,7 @@ module.exports = function transformer(file, api, options) {
               `⚠️  Warning: Please verify if "Share" is the correct usage
                  in this case,
                  or consider using "NewWindow" ` +
-                `as an alternative if applicable. (${file.path})`,
+                'as an alternative if applicable.',
             );
           }
 
