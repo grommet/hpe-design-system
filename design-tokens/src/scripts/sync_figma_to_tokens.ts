@@ -8,6 +8,8 @@ import { tokenFilesFromLocalVariables } from '../token_export.js';
 
 /**
  * Usage:
+ * This script pulls design tokens from Figma and writes 
+ * them to JSON files.
  *
  * // Defaults to writing to the tokens_new directory
  * npm run sync-figma-to-tokens
@@ -15,6 +17,24 @@ import { tokenFilesFromLocalVariables } from '../token_export.js';
  * // Writes to the specified directory
  * npm run sync-figma-to-tokens -- --output directory_name
  */
+
+/**
+ * Recursively sorts object keys alphabetically
+ */
+function sortObjectKeys(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map(sortObjectKeys);
+  } else if (obj !== null && typeof obj === 'object') {
+    const sortedObj: any = {};
+    Object.keys(obj)
+      .sort()
+      .forEach(key => {
+        sortedObj[key] = sortObjectKeys(obj[key]);
+      });
+    return sortedObj;
+  }
+  return obj;
+}
 
 async function main() {
   if (
@@ -64,9 +84,10 @@ async function main() {
     }
 
     Object.entries(tokensFiles).forEach(([fileName, fileContent]) => {
+      const sortedContent = sortObjectKeys(fileContent);
       fs.writeFileSync(
         `${outputDir}/${dir}/${fileName}`,
-        `${JSON.stringify(fileContent, null, 2)}\n`,
+        `${JSON.stringify(sortedContent, null, 2)}\n`,
       );
       console.log(`Wrote ${fileName}`);
     });

@@ -101,7 +101,7 @@ const CardExample = ({ ...rest }) => (
       <DashedBox id="cta-action" flex={false}>
         <Button
           label="Register now"
-          kind="cta-primary"
+          kind="primary"
           reverse
           // tabIndex is -1 because entire card is clickable
           tabIndex={-1}

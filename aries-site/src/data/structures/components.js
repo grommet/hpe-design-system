@@ -1997,10 +1997,7 @@ export const components = [
       'Grommet components are the building blocks of the HPE Design System.',
     preview: {
       image: {
-        src: {
-          light: '/components-light.svg',
-          dark: '/components-dark.svg',
-        },
+        src: '/creativetoolkitimages/components.svg',
         alt: 'Purple playing cards representing HPE Design System components',
         fit: 'contain',
       },
