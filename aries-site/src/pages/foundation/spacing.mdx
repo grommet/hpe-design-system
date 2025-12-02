@@ -1,4 +1,4 @@
-import { Anchor, Notification, Paragraph } from 'grommet';
+import { Paragraph } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
 import {
@@ -24,24 +24,10 @@ combined to create visual hierarchy.
 
 Use spacing to:
 
-- Create separation between [content containers](/foundation/content-container-sizing) (gaps).
+- Create separation between [content containers](/foundation/content-container-sizes) (gaps).
 - Set space between a container's boundary and its content (padding).
 - Define spacing within subsections of content (gap).
 
-<Notification
-  alignSelf="start"
-  status="warning"
-  title="Avoid use of margin"
-  message={
-    <Paragraph margin="none">
-      Relying on margin can lead to unpredictable responsive and/or adaptive
-      layouts and should be used with caution, if at all. Most layouts can be
-      achieved using only gap and padding, resulting in more flexible,
-      predictable, and maintainable designs.
-    </Paragraph>
-  }
-/>
-<br />
 <Example
   caption="Available spacing scale dimensions by t-shirt size"
   height="none"
