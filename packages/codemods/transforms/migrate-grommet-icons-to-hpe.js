@@ -68,6 +68,7 @@ const ICON_MAPPING = {
   HelpOption: 'Help',
   HomeOption: 'Home',
   HomeRounded: 'Home',
+  Hpe: 'Element',
   Indicator: 'Location',
   InstallOption: 'Install',
   Launch: 'Deploy',
@@ -332,6 +333,15 @@ module.exports = function transformer(file, api, options) {
               `⚠️  Warning: Icon "${iconName}" is deprecated with ` +
                 'no direct replacement. Please review usage and find a ' +
                 `suitable alternative. (${file.path})`,
+            );
+          }
+
+          if (iconName === 'Share' || iconName === 'share') {
+            console.warn(
+              `⚠️  Warning: Please verify if "Share" is the correct usage
+                 in this case,
+                 or consider using "NewWindow" ` +
+                `as an alternative if applicable. (${file.path})`,
             );
           }
 
