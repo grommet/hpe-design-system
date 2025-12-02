@@ -4,10 +4,20 @@ import { CreateCluster } from 'aries-site/src/examples/templates/forms/managing-
 import { CreateRole } from 'aries-site/src/examples/templates/forms/managing-child-objects/CreateRole';
 import { EditRole } from 'aries-site/src/examples/templates/forms/managing-child-objects/EditRole';
 
-export const OptionalChildren = () => <CreateRole />;
-export const RequiredChildren = () => <CreateCluster />;
-export const RemoveAllAction = () => <EditRole />;
-
-export default {
+const meta = {
   title: 'Managing Child Objects',
+};
+
+export default meta;
+
+export const OptionalChildren = {
+  render: () => <CreateRole />,
+};
+
+export const RequiredChildren = {
+  render: () => <CreateCluster />,
+};
+
+export const RemoveAllAction = {
+  render: () => <EditRole />,
 };

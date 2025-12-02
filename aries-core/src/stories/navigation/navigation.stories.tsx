@@ -28,7 +28,7 @@ const responsiveGridAreas = {
   ],
 };
 
-export const NavigationMenuExample = () => {
+const NavigationMenuExample = () => {
   const [contextContent, setContextContent] = useSessionStorage(
     'contextContent',
     '',
@@ -59,24 +59,11 @@ export const NavigationMenuExample = () => {
     layerClose: `${navTitle} navigation closed.`,
   };
 
-  // Remove layer when breakpoint changes to non-mobile
   useEffect(() => {
     if (!mobile && openLayer) {
       setOpenLayer(false);
     }
   }, [mobile, openLayer]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     if (openLayer) {
-  //       announce(messages.layerOpen, 'assertive', 1000);
-  //     } else {
-  //       announce(messages.layerClose, 'assertive', 1000);
-  //     }
-  //   }, 500);
-
-  //   return () => clearTimeout(timer);
-  // }, [openLayer, announce, messages]);
 
   return (
     <Grid
@@ -110,10 +97,9 @@ export const NavigationMenuExample = () => {
                   <NavigationMenu
                     {...navigationMenuProps}
                     gap="medium"
-                    width={undefined} // full width when in mobile
+                    width={undefined}
                     header={<LayerHeader onClose={() => setOpenLayer(false)} />}
                     onSelect={() => {
-                      // announce(messages.layerClose, 'assertive', 2000);
                       setOpenLayer(false);
                     }}
                   />
@@ -152,10 +138,16 @@ export const NavigationMenuExample = () => {
   );
 };
 
-export default {
+const meta = {
   title: 'Navigation',
   component: NavigationMenu,
   parameters: {
     layout: 'fullscreen',
   },
+};
+
+export default meta;
+
+export const Navigation = {
+  render: () => <NavigationMenuExample />,
 };
