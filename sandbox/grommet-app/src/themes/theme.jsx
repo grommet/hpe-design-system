@@ -19,8 +19,7 @@ import {
   Descending,
   Unsorted,
 } from '@hpe-design/icons-grommet';
-// TO DO replace when available
-import { Hpe } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 // import { hpe } from 'grommet-theme-hpe';
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
