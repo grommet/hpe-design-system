@@ -1,5 +1,27 @@
 # hpe-design-tokens
 
+## 2.2.0
+
+**Global**
+- Changed `fontStack.primary` from `'Graphik', Arial, sans-serif` to `'HPE Graphik', Arial, sans-serif`.
+
+**Primitive**
+- Added `static.spacing.6xsmall` with value `base.dimension.50`.
+
+**Dimension (default)**
+- Added `spacing.6xsmall` with value `static.spacing.6xsmall`.
+
+**Dimension (small)**
+- Added `spacing.6xsmall` with value `static.spacing.6xsmall`.
+- Changed `spacing.4xsmall` from `static.spacing.5xsmall` to `static.spacing.6xsmall`.
+- Changed `spacing.5xsmall` from `static.spacing.5xsmall` to `static.spacing.6xsmall`.
+
+**Color (light)**
+- Added `color.foreground.ok` with value `base.color.green.650`.
+
+**Color (dark)**
+- Added `color.foreground.ok` with value `base.color.green.550`.
+
 ## 2.1.0
 
 - Fixed an accessibility issue with the focus indicator in dark mode.
