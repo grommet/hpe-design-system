@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {
   AnnounceContext,
   Box,
@@ -58,12 +58,24 @@ const NavigationMenuExample = () => {
     layerOpen: `${navTitle} navigation opened.`,
     layerClose: `${navTitle} navigation closed.`,
   };
-
+  // Remove layer when breakpoint changes to non-mobile
   useEffect(() => {
     if (!mobile && openLayer) {
       setOpenLayer(false);
     }
   }, [mobile, openLayer]);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (openLayer) {
+  //       announce(messages.layerOpen, 'assertive', 1000);
+  //     } else {
+  //       announce(messages.layerClose, 'assertive', 1000);
+  //     }
+  //   }, 500);
+
+  //   return () => clearTimeout(timer);
+  // }, [openLayer, announce, messages]);
 
   return (
     <Grid
@@ -97,9 +109,10 @@ const NavigationMenuExample = () => {
                   <NavigationMenu
                     {...navigationMenuProps}
                     gap="medium"
-                    width={undefined}
+                    width={undefined} // full width when in mobile
                     header={<LayerHeader onClose={() => setOpenLayer(false)} />}
                     onSelect={() => {
+                      // announce(messages.layerClose, 'assertive', 2000);
                       setOpenLayer(false);
                     }}
                   />
