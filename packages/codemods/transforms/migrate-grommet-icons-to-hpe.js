@@ -196,7 +196,6 @@ const DEPRECATED_ICONS = new Set([
   'Heroku',
   'Horton',
   'Hp',
-  'Hpe',
   'HpeLabs',
   'Hpi',
   'Instagram',
@@ -336,15 +335,6 @@ module.exports = function transformer(file, api, options) {
             );
           }
 
-          if (iconName === 'Share' || iconName === 'share') {
-            console.warn(
-              `⚠️  Warning: Please verify if "Share" is the correct usage
-                 in this case,
-                 or consider using "NewWindow" ` +
-                'as an alternative if applicable.',
-            );
-          }
-
           // Check if icon needs to be remapped
           const newName = ICON_MAPPING[iconName] || iconName;
 
@@ -394,6 +384,14 @@ module.exports = function transformer(file, api, options) {
           if (specifier.type === 'ImportSpecifier') {
             const importedName = specifier.imported.name;
             const localName = specifier.local.name;
+
+            // Special warning for Share icon
+            if (importedName === 'Share') {
+              console.warn(
+                `⚠️  Warning: Please verify if "Share" is the correct usage in this case, or consider using "NewWindow" as an alternative if applicable.`,
+              );
+            }
+            ``;
 
             // Check if icon is deprecated
             if (DEPRECATED_ICONS.has(importedName)) {
