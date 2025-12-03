@@ -34,7 +34,8 @@ hpe-design-system/
 .prettierrc.js           // prettier (formatter) configuration based on @hpe/project-scripts
 package.json             // common dev deps and workspace-wide scripts WIP
 README.md                // workspace-wide information. shown in github
-yarn.lock                // the only lock file in the repo. all packages combined
+pnpm-lock.yaml           // the only lock file in the repo. all packages combined
+pnpm-workspace.yaml      // list of workspaces/packages and common dependency catalogs
 ```
 
 ## design-tokens structure
