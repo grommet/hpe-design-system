@@ -1,5 +1,6 @@
 import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+// changing this to @hpe icons is failing TODO
 import { Info } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
