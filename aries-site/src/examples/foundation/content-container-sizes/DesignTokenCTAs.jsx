@@ -3,50 +3,35 @@ import Link from 'next/link';
 import { Button } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 
-export const ContainerTokensCTA = () => (
-  <Link
-    href="/design-tokens/layout-and-spacing#containers"
-    passHref
-    legacyBehavior
-  >
+const RoutedButton = ({ href, label }) => (
+  <Link href={href} passHref >
     <Button
-      label="View container design tokens"
+      label={label}
       icon={<LinkNext aria-hidden="true" />}
       reverse
       alignSelf="start"
       secondary
     />
   </Link>
+);
+
+export const ContainerTokensCTA = () => (
+  <RoutedButton
+    href="/design-tokens/layout-and-spacing#container-sizes"
+    label="View container size design tokens"
+  />
 );
 
 export const BorderWidthTokensCTA = () => (
-  <Link
+ <RoutedButton
     href="/design-tokens/layout-and-spacing#border-width"
-    passHref
-    legacyBehavior
-  >
-    <Button
-      label="View border width design tokens"
-      icon={<LinkNext aria-hidden="true" />}
-      reverse
-      alignSelf="start"
-      secondary
-    />
-  </Link>
+    label="View border width design tokens"
+  />
 );
 
 export const RadiusTokensCTA = () => (
-  <Link
+  <RoutedButton
     href="/design-tokens/layout-and-spacing#radius"
-    passHref
-    legacyBehavior
-  >
-    <Button
-      label="View radius design tokens"
-      icon={<LinkNext aria-hidden="true" />}
-      reverse
-      alignSelf="start"
-      secondary
-    />
-  </Link>
+    label="View radius design tokens"
+  />
 );

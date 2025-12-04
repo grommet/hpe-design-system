@@ -15,7 +15,6 @@ export const BorderWidths = () => {
       <Box
         pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
         align="center"
-        justify="center"
         flex
       >
         <Box

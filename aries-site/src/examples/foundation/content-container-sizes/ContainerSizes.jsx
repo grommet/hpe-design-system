@@ -18,6 +18,7 @@ export const ContainerSizes = () => {
         pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
         height={{ max: 'large' }}
         flex
+        // allow overflow to demonstrate container sizes larger than the example area
         overflow="auto"
       >
         <Box flex />

@@ -6,9 +6,9 @@ export const RadiusSizes = () => {
   const [radius, setRadius] = React.useState('medium');
   const { data } = useDesignTokens('semantic.radius');
 
-  const radiusTokens = data.map(
+  const radiusTokens = data?.map(
     (token) => token.token.split('hpe.radius.')[1],
-  );
+  ) || [];
 
   return (
     <Box direction="row" justify="between">
