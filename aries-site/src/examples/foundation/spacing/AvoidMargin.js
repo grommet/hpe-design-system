@@ -48,7 +48,7 @@ const Example = ({ children }) => (
       />
     </Container>
     <Box
-      border={{ ...highlightBorder, side: 'vertical', style: 'solid' }}
+      border={{ ...highlightBorder, side: 'vertical' }}
       height={{ min: dimension.hpe.spacing.large }}
       flex={false}
       margin="5xsmall"
