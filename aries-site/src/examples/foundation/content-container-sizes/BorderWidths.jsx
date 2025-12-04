@@ -21,7 +21,7 @@ export const BorderWidths = () => {
         <Box
           height="xxsmall"
           width="xxsmall"
-          border={{ color: 'decorative-blue', style: 'solid', size: width }}
+          border={{ color: 'decorative-blue', size: width }}
         />
       </Box>
       <Box
