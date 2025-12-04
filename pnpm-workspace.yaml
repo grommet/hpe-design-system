@@ -16,17 +16,17 @@ catalog:
   react-dom: ^19.1.0
   styled-components: ^6.1.17
   typescript: ^5.9.3
-  "@hpe-design/icons-grommet": ^1.0.1
-  "@types/react": ^19.1.10
-  "@types/react-dom": ^19.1.7
+  '@hpe-design/icons-grommet': ^1.1.0
+  '@types/react': ^19.1.10
+  '@types/react-dom': ^19.1.7
 
 catalogs:
   grommet-stable:
     grommet: https://github.com/grommet/grommet/tarball/stable
     grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable
-  
+
   grommet-theme-hpe-v6:
     grommet-theme-hpe: ^6.0.0
-  
+
   grommet-theme-hpe-v7:
     grommet-theme-hpe: ^7.0.0

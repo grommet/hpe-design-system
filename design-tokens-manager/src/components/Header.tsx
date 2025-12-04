@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Header as GrommetHeader, Button, Box, Text } from 'grommet';
-import { Moon, Sun } from '@hpe-design/icons-grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import { Element, Moon, Sun } from '@hpe-design/icons-grommet';
 
 export const Header = ({
   setDarkMode,
@@ -15,7 +13,7 @@ export const Header = ({
     <GrommetHeader pad={{ vertical: 'small', horizontal: 'medium' }}>
       <Button as={Link} {...{ to: '/' }}>
         <Box direction="row" gap="xsmall">
-          <Hpe height="medium" color="brand" />
+          <Element height="medium" color="brand" />
           <Text weight={500} color="text-strong">
             HPE Design Tokens Manager
           </Text>
