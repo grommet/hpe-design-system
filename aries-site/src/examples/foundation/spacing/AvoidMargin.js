@@ -86,7 +86,7 @@ export const AvoidMargin = ({ bestPractice = true }) => {
     return (
       <Example>
         <Box
-          border={{ ...highlightBorder, side: 'vertical', style: 'solid' }}
+          border={{ ...highlightBorder, side: 'vertical' }}
           height={{ min: dimension.hpe.spacing.large }}
           flex={false}
           margin="5xsmall"
