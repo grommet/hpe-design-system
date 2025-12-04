@@ -14,7 +14,7 @@ hpe-design-system is a monorepo containing core assets and documentation for the
 - design-tokens: The source code for [hpe-design-tokens](https://www.npmjs.com/package/hpe-design-tokens).
 - aries-core: Used for accessibility testing.
 
-The monorepo is installed using [yarn](https://github.com/yarnpkg/yarn), and relies on [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
+The monorepo is installed using [pnpm](https://pnpm.io/), and relies on [pnpm workspaces](https://pnpm.io/workspaces).
 
 Packages are automatically linked together, meaning you can do cross-package work within the repo. woot-woot!
 
@@ -34,7 +34,8 @@ hpe-design-system/
 .prettierrc.js           // prettier (formatter) configuration based on @hpe/project-scripts
 package.json             // common dev deps and workspace-wide scripts WIP
 README.md                // workspace-wide information. shown in github
-yarn.lock                // the only lock file in the repo. all packages combined
+pnpm-lock.yaml           // the only lock file in the repo. all packages combined
+pnpm-workspace.yaml      // list of workspaces/packages and common dependency catalogs
 ```
 
 ## design-tokens structure
@@ -51,27 +52,27 @@ yarn.lock                // the only lock file in the repo. all packages combine
 ## Getting started
 
 ```
-yarn install
+pnpm install
 ```
 
-Running 'yarn install' anywhere in the monorepo hierarchy will always install ALL the modules in the workspaces.
+Running 'pnpm install' anywhere in the monorepo hierarchy will always install ALL the modules in the workspaces.
 
 Note: When installing, you may get and error saying "Integrity check failed for 'grommet' (computed integrity doesn't match our records...". 
-`aries-site` references the latest stable branch of grommet. Any new commits added to grommet's stable branch cause its SHA hash to be updated and become out of sync with the SHA in the yarn.lock file. 
+`aries-site` references the latest stable branch of grommet. Any new commits added to grommet's stable branch cause its SHA hash to be updated and become out of sync with the SHA in the pnpm-lock.yaml file. 
 
-To fetch the latest grommet stable, remove yarn.lock and clean yarn cache, then yarn install. For example: `rm yarn.lock && yarn cache clean && yarn install`
+To fetch the latest grommet stable, remove pnpm-lock.yam and clean cache (TBD), then pnpm install. For example: `rm pnpm-lock.yaml && pnpm install`
 
 Run aries-site in development mode:
 
 ```
 cd aries-site
-yarn start
+pnpm start
 ```
 
 Run in production mode:
 
 ```
-yarn start-server
+pnpm start-server
 ```
 
 

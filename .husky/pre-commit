@@ -5,19 +5,19 @@ __dirname="$(CDPATH= cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __rootDir="$(CDPATH= cd "$($__dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "..Running design token checks"
-cd design-tokens
-npm run test
-npm run paddingY:verify
-npm run build
-cd ${__rootDir}
+pnpm --filter hpe-design-tokens run test
+pnpm --filter hpe-design-tokens run paddingY:verify
+pnpm --filter hpe-design-tokens run build
+
 echo "..Running aries-site checks"
-cd aries-site
 echo "....Linting checks for aries-site"
-npm run lint-fix
-cd ${__rootDir}
-echo "..Running aries-core checks"
-cd aries-core
-echo "....Linting checks for aries-core"
-npm run lint-fix
-cd ${__rootDir}
+pnpm --filter aries-site run lint-fix
+
+# TODO: aries-core pulls in an eslint v9 version
+# that doesn't work with the eslintrc.js from the root.
+# It works with eslint v8 used elsewhere in the repo
+
+# echo "..Running aries-core checks"
+# pnpm --filter aries-core run lint-fix
+
 echo "Pre-commit checks completed."

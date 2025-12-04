@@ -10,18 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hpe-design/icons-grommet": "catalog:",
+    "grommet": "catalog:grommet-stable",
+    "grommet-icons": "catalog:grommet-stable",
     "grommet-theme-hpe-v5": "npm:grommet-theme-hpe@5.8.0",
     "grommet-theme-hpe-v6": "npm:grommet-theme-hpe@6",
     "gsap": "^3.12.5",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "hpe-design-tokens": "workspace:*",
+    "prop-types": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "react-gsap": "^3.2.1",
     "react-router-dom": "^7.5.2",
-    "styled-components": "^6.1.17"
+    "styled-components": "catalog:"
   },
   "devDependencies": {
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
