@@ -57,7 +57,10 @@ export const foundation = [
     constrain. It works across many touch points.`,
     preview: {
       image: {
-        src: '/foundationImages/foundation-preview-brand.svg',
+        src: {
+          light: '/foundationImages/foundation-preview-brand.svg',
+          dark: '/foundationImages/foundation-preview-brand-invert.svg',
+        },
         alt: 'HPE Our Brand Preview',
       },
     },
@@ -122,7 +125,10 @@ export const foundation = [
      with the HPE Design System library and HPE theme.`,
     preview: {
       image: {
-        src: '/extendImages/extend-preview-developer-guidance.svg',
+        src: {
+          dark: '/extendImages/extend-preview-developer-guidance-invert.svg',
+          light: '/extendImages/extend-preview-developer-guidance.svg',
+        },
         alt: 'HPE Developer Guidance Preview',
       },
     },

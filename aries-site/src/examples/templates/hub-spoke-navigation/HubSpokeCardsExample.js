@@ -13,6 +13,7 @@ import {
 } from 'grommet';
 import {
   Cluster,
+  Element,
   Left,
   Group,
   List as ListIcon,
@@ -25,8 +26,6 @@ import {
   ShieldSecurity,
   ListUnordered,
 } from '@hpe-design/icons-grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 
 // Mock application page data
@@ -250,7 +249,7 @@ const AppIdentity = ({ name, ...rest }) => (
       pad={{ vertical: 'xsmall' }}
       responsive={false}
     >
-      <Hpe color="brand" />
+      <Element color="brand" />
       <Box direction="row" gap="3xsmall" wrap>
         <Text color="text-strong" weight="bold">
           HPE

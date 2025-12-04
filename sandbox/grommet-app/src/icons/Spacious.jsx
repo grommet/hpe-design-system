@@ -1,4 +1,4 @@
-import { Blank } from 'grommet-icons';
+import { Blank } from '@hpe-design/icons-grommet';
 
 export const Spacious = ({ ...rest }) => (
   <Blank {...rest}>

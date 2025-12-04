@@ -2,12 +2,13 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
 // TODO replace with DS icon package when available
-import { Aruba, Hpe } from 'grommet-icons';
+import { Aruba } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 
 const brands = {
   hpe: {
     name: 'HPE',
-    logo: <Hpe color="brand" />,
+    logo: <Element color="brand" />,
   },
   aruba: {
     name: 'Aruba',

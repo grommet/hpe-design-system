@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React, { useContext, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {

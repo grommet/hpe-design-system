@@ -19,8 +19,7 @@ import {
   Descending,
   Unsorted,
 } from '@hpe-design/icons-grommet';
-// TO DO replace when available
-import { Hpe } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 // import { hpe } from 'grommet-theme-hpe';
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
@@ -858,9 +857,9 @@ const buildTheme = (tokens, flags) => {
     };
   });
 
-  const focusBoxShadowParts = global.hpe.focusIndicator.boxShadow
-    .trim()
-    .split(' ');
+  // const focusBoxShadowParts = global.hpe.focusIndicator.boxShadow
+  //   .trim()
+  //   .split(' ');
 
   return deepFreeze({
     defaultMode: 'light',
@@ -1032,8 +1031,8 @@ const buildTheme = (tokens, flags) => {
           offset: global.hpe.focusIndicator.outlineOffset,
         },
         shadow: {
-          color: focusBoxShadowParts[focusBoxShadowParts.length - 1],
-          size: focusBoxShadowParts[focusBoxShadowParts.length - 2],
+          color: global.hpe.focusIndicator.boxShadow.color, // focusBoxShadowParts[global.hpe.focusIndicator.boxShadowParts.length - 1],
+          size: global.hpe.focusIndicator.boxShadow.spread, // focusBoxShadowParts[focusBoxShadowParts.length - 2],
         },
         twoColor: true,
       },
