@@ -5,105 +5,106 @@
 
 @media (max-width: 768px) {
 :root {
-  --hpe-text-xsmall-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-small-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-medium-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-large-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-xxlarge-fontSize: 2rem;
-  --hpe-text-xxlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-3xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-4xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-text-5xlarge-fontSize: 4rem;
-  --hpe-text-5xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
-  --hpe-heading-xlarge-fontSize: 1.5rem; /** Font size typically used on h1. */
-  --hpe-heading-xlarge-lineHeight: 2rem; /** Line height typically used on h1. */
   --hpe-heading-large-fontSize: 1.375rem; /** Font size typically used on h2. */
   --hpe-heading-large-lineHeight: 1.75rem; /** Line height typically used on h2. */
   --hpe-heading-medium-fontSize: 1.125rem; /** Font size typically used on h3. */
   --hpe-heading-medium-lineHeight: 1.5rem; /** Line height typically used on h3. */
   --hpe-heading-small-fontSize: 1rem; /** Font size typically used on h4. */
   --hpe-heading-small-lineHeight: 1.25rem; /** Line height typically used on h4. */
+  --hpe-heading-xlarge-fontSize: 1.5rem; /** Font size typically used on h1. */
+  --hpe-heading-xlarge-lineHeight: 2rem; /** Line height typically used on h1. */
   --hpe-heading-xsmall-fontSize: 0.875rem; /** Font size typically used on h5. */
   --hpe-heading-xsmall-lineHeight: 1.125rem; /** Line height typically used on h5. */
   --hpe-heading-xxsmall-fontSize: 1rem; /** Font size typically used on h6. */
   --hpe-heading-xxsmall-lineHeight: 1.125rem; /** Line height typically used on h6. */
-  --hpe-radius-full: var(--hpe-static-radius-full);
-  --hpe-icon-xsmall-size: var(--hpe-base-dimension-300);
-  --hpe-icon-small-size: var(--hpe-base-dimension-350);
-  --hpe-icon-medium-size: var(--hpe-base-dimension-400);
-  --hpe-icon-large-size: var(--hpe-base-dimension-450);
-  --hpe-icon-xlarge-size: var(--hpe-base-dimension-500);
-  --hpe-icon-xxlarge-size: var(--hpe-base-dimension-800);
-  --hpe-text-xsmall-fontSize: var(--hpe-base-fontSize-80);
-  --hpe-text-xsmall-lineHeight: var(--hpe-base-lineHeight-90);
-  --hpe-text-xsmall-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-small-fontSize: var(--hpe-base-fontSize-90);
-  --hpe-text-small-lineHeight: var(--hpe-base-lineHeight-100);
-  --hpe-text-small-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-medium-fontSize: var(--hpe-base-fontSize-100);
-  --hpe-text-medium-lineHeight: var(--hpe-base-lineHeight-200);
-  --hpe-text-medium-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-large-fontSize: var(--hpe-base-fontSize-200);
-  --hpe-text-large-lineHeight: var(--hpe-base-lineHeight-300);
-  --hpe-text-large-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-xlarge-fontSize: var(--hpe-base-fontSize-300);
-  --hpe-text-xlarge-lineHeight: var(--hpe-base-lineHeight-400);
-  --hpe-text-xlarge-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-xxlarge-lineHeight: var(--hpe-base-lineHeight-600);
-  --hpe-text-xxlarge-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-3xlarge-fontSize: var(--hpe-base-fontSize-600);
-  --hpe-text-3xlarge-lineHeight: var(--hpe-base-lineHeight-700);
-  --hpe-text-3xlarge-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-4xlarge-fontSize: var(--hpe-base-fontSize-700);
-  --hpe-text-4xlarge-lineHeight: var(--hpe-base-lineHeight-800);
-  --hpe-text-4xlarge-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-text-5xlarge-lineHeight: var(--hpe-base-lineHeight-900);
-  --hpe-text-5xlarge-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-heading-xlarge-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h1. */
+  --hpe-text-3xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-4xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-5xlarge-fontSize: 4rem;
+  --hpe-text-5xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-large-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-medium-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-small-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-xsmall-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-xxlarge-fontSize: 2rem;
+  --hpe-text-xxlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
   --hpe-heading-large-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h2. */
   --hpe-heading-medium-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h3. */
   --hpe-heading-small-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h4. */
+  --hpe-heading-xlarge-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h1. */
   --hpe-heading-xsmall-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h5. */
   --hpe-heading-xxsmall-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h6. */
-  --hpe-spacing-none: var(--hpe-static-spacing-none);
-  --hpe-spacing-hair: var(--hpe-static-spacing-hair);
-  --hpe-spacing-5xsmall: var(--hpe-static-spacing-5xsmall);
-  --hpe-spacing-4xsmall: var(--hpe-static-spacing-5xsmall);
-  --hpe-spacing-3xsmall: var(--hpe-static-spacing-5xsmall);
-  --hpe-spacing-xxsmall: var(--hpe-static-spacing-4xsmall);
-  --hpe-spacing-xsmall: var(--hpe-static-spacing-3xsmall);
-  --hpe-spacing-small: var(--hpe-static-spacing-xxsmall);
-  --hpe-spacing-medium: var(--hpe-static-spacing-xsmall);
-  --hpe-spacing-large: var(--hpe-static-spacing-small);
-  --hpe-spacing-xlarge: var(--hpe-static-spacing-medium);
-  --hpe-spacing-xxlarge: var(--hpe-static-spacing-large);
-  --hpe-spacing-3xlarge: var(--hpe-static-spacing-xlarge);
-  --hpe-radius-none: var(--hpe-static-radius-none);
-  --hpe-radius-hair: var(--hpe-static-radius-hair);
-  --hpe-radius-xxsmall: var(--hpe-static-radius-hair);
-  --hpe-radius-xsmall: var(--hpe-static-radius-xxsmall);
-  --hpe-radius-small: var(--hpe-static-radius-xsmall);
-  --hpe-radius-medium: var(--hpe-static-radius-small);
-  --hpe-radius-large: var(--hpe-static-radius-medium);
-  --hpe-radius-xlarge: var(--hpe-static-radius-large);
-  --hpe-radius-xxlarge: var(--hpe-static-radius-xlarge);
-  --hpe-borderWidth-none: var(--hpe-static-borderWidth-none);
-  --hpe-borderWidth-xsmall: var(--hpe-static-borderWidth-xsmall);
-  --hpe-borderWidth-small: var(--hpe-static-borderWidth-xsmall);
-  --hpe-borderWidth-medium: var(--hpe-static-borderWidth-small);
-  --hpe-borderWidth-large: var(--hpe-static-borderWidth-medium);
+  --hpe-icon-large-size: var(--hpe-base-dimension-450);
+  --hpe-icon-medium-size: var(--hpe-base-dimension-400);
+  --hpe-icon-small-size: var(--hpe-base-dimension-350);
+  --hpe-icon-xlarge-size: var(--hpe-base-dimension-500);
+  --hpe-icon-xsmall-size: var(--hpe-base-dimension-300);
+  --hpe-icon-xxlarge-size: var(--hpe-base-dimension-800);
+  --hpe-radius-full: var(--hpe-static-radius-full);
+  --hpe-text-3xlarge-fontSize: var(--hpe-base-fontSize-600);
+  --hpe-text-3xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-3xlarge-lineHeight: var(--hpe-base-lineHeight-700);
+  --hpe-text-4xlarge-fontSize: var(--hpe-base-fontSize-700);
+  --hpe-text-4xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-4xlarge-lineHeight: var(--hpe-base-lineHeight-800);
+  --hpe-text-5xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-5xlarge-lineHeight: var(--hpe-base-lineHeight-900);
+  --hpe-text-large-fontSize: var(--hpe-base-fontSize-200);
+  --hpe-text-large-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-large-lineHeight: var(--hpe-base-lineHeight-300);
+  --hpe-text-medium-fontSize: var(--hpe-base-fontSize-100);
+  --hpe-text-medium-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-medium-lineHeight: var(--hpe-base-lineHeight-200);
+  --hpe-text-small-fontSize: var(--hpe-base-fontSize-90);
+  --hpe-text-small-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-small-lineHeight: var(--hpe-base-lineHeight-100);
+  --hpe-text-xlarge-fontSize: var(--hpe-base-fontSize-300);
+  --hpe-text-xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-xlarge-lineHeight: var(--hpe-base-lineHeight-400);
+  --hpe-text-xsmall-fontSize: var(--hpe-base-fontSize-80);
+  --hpe-text-xsmall-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-xsmall-lineHeight: var(--hpe-base-lineHeight-90);
+  --hpe-text-xxlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-xxlarge-lineHeight: var(--hpe-base-lineHeight-600);
   --hpe-borderWidth-default: var(--hpe-static-borderWidth-xsmall); /** Default border-width for standard uses like border as visual separator. */
-  --hpe-container-5xsmall: var(--hpe-static-container-5xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-4xsmall: var(--hpe-static-container-4xsmall);
-  --hpe-container-3xsmall: var(--hpe-static-container-3xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-xxsmall: var(--hpe-static-container-xxsmall);
-  --hpe-container-xsmall: var(--hpe-static-container-xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-small: var(--hpe-static-container-small);
-  --hpe-container-medium: var(--hpe-static-container-medium); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-large: var(--hpe-static-container-large);
-  --hpe-container-xlarge: var(--hpe-static-container-xlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-xxlarge: var(--hpe-static-container-xxlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-borderWidth-large: var(--hpe-static-borderWidth-medium);
+  --hpe-borderWidth-medium: var(--hpe-static-borderWidth-small);
+  --hpe-borderWidth-none: var(--hpe-static-borderWidth-none);
+  --hpe-borderWidth-small: var(--hpe-static-borderWidth-xsmall);
+  --hpe-borderWidth-xsmall: var(--hpe-static-borderWidth-xsmall);
   --hpe-container-3xlarge: var(--hpe-static-container-3xlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-3xsmall: var(--hpe-static-container-3xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-4xsmall: var(--hpe-static-container-4xsmall);
+  --hpe-container-5xsmall: var(--hpe-static-container-5xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-large: var(--hpe-static-container-large);
+  --hpe-container-medium: var(--hpe-static-container-medium); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-small: var(--hpe-static-container-small);
+  --hpe-container-xlarge: var(--hpe-static-container-xlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-xsmall: var(--hpe-static-container-xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-xxlarge: var(--hpe-static-container-xxlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-xxsmall: var(--hpe-static-container-xxsmall);
+  --hpe-radius-hair: var(--hpe-static-radius-hair);
+  --hpe-radius-large: var(--hpe-static-radius-medium);
+  --hpe-radius-medium: var(--hpe-static-radius-small);
+  --hpe-radius-none: var(--hpe-static-radius-none);
+  --hpe-radius-small: var(--hpe-static-radius-xsmall);
+  --hpe-radius-xlarge: var(--hpe-static-radius-large);
+  --hpe-radius-xsmall: var(--hpe-static-radius-xxsmall);
+  --hpe-radius-xxlarge: var(--hpe-static-radius-xlarge);
+  --hpe-radius-xxsmall: var(--hpe-static-radius-hair);
+  --hpe-spacing-3xlarge: var(--hpe-static-spacing-xlarge);
+  --hpe-spacing-3xsmall: var(--hpe-static-spacing-5xsmall);
+  --hpe-spacing-4xsmall: var(--hpe-static-spacing-6xsmall);
+  --hpe-spacing-5xsmall: var(--hpe-static-spacing-6xsmall);
+  --hpe-spacing-6xsmall: var(--hpe-static-spacing-6xsmall);
+  --hpe-spacing-hair: var(--hpe-static-spacing-hair);
+  --hpe-spacing-large: var(--hpe-static-spacing-small);
+  --hpe-spacing-medium: var(--hpe-static-spacing-xsmall);
+  --hpe-spacing-none: var(--hpe-static-spacing-none);
+  --hpe-spacing-small: var(--hpe-static-spacing-xxsmall);
+  --hpe-spacing-xlarge: var(--hpe-static-spacing-medium);
+  --hpe-spacing-xsmall: var(--hpe-static-spacing-3xsmall);
+  --hpe-spacing-xxlarge: var(--hpe-static-spacing-large);
+  --hpe-spacing-xxsmall: var(--hpe-static-spacing-4xsmall);
 }
 }

@@ -5,38 +5,38 @@
 
 export default {
   "hpe": {
+    "breakpoint": {
+      "large": "1440px",
+      "medium": "1080px",
+      "small": "768px",
+      "xsmall": "576px"
+    },
     "focusIndicator": {
+      "boxShadow": {
+        "blur": 0,
+        "color": "{color.focus.support.DEFAULT.REST}",
+        "offsetX": 0,
+        "offsetY": 0,
+        "spread": "{focusIndicator.outlineOffset}"
+      },
       "outline": {
         "color": "focus",
         "width": "2px",
         "style": "solid"
       },
-      "outlineOffset": "2px",
-      "boxShadow": {
-        "offsetX": 0,
-        "offsetY": 0,
-        "blur": 0,
-        "spread": "{focusIndicator.outlineOffset}",
-        "color": "{color.focus.support}"
-      }
+      "outlineOffset": "2px"
     },
     "fontStack": {
-      "primary": "'Graphik', Arial, sans-serif"
-    },
-    "breakpoint": {
-      "xsmall": "576px",
-      "small": "768px",
-      "medium": "1080px",
-      "large": "1440px"
+      "primary": "'HPE Graphik', Arial, sans-serif"
     },
     "fontWeight": {
-      "thin": 100,
-      "light": 300,
-      "regular": 400,
-      "medium": 500,
-      "semibold": 600,
+      "black": 900,
       "bold": 700,
-      "black": 900
+      "light": 300,
+      "medium": 500,
+      "regular": 400,
+      "semibold": 600,
+      "thin": 100
     }
   }
 }
