@@ -18,16 +18,15 @@ export const ContainerSizes = () => {
         pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
         height={{ max: 'large' }}
         flex
-        // allow overflow to demonstrate container sizes larger than the example area
         overflow="auto"
       >
-        <Box flex />
+        <Box flex /> {/* to center the container, which justify content properly when overflowing */}
         <Box
           height={{ min: height, max: height }}
           width={{ min: width, max: width }}
           border={{ color: 'decorative-blue', style: 'dashed', size: 'small' }}
         />
-        <Box flex />
+        <Box flex /> {/* to center the container */}
       </Box>
       <Box
         background="background-front"
