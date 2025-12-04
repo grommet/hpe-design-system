@@ -1,5 +1,17 @@
 import { Box, Text, Grid } from 'grommet';
 import PropTypes from 'prop-types';
+import { useDesignTokens } from '../../../components/content/designTokenUtils';
+
+// Fetch color tokens once at module level
+const useColorTokens = () => {
+  const { data: colorTokens } = useDesignTokens('semantic.color');
+  return colorTokens;
+};
+
+const pickTokens = (tokens, tokenNameList) => {
+  const tokenSubset = tokens.filter(token => tokenNameList.includes(token.id));
+  return tokenSubset;
+};
 
 const ColorSwatch = ({ background, border, borderSize = 'xsmall', text }) => (
   <Box direction="row" gap="xsmall">
@@ -39,140 +51,113 @@ SwatchGroup.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+export const BackgroundSwatch = () => {
+  const colorTokens = useColorTokens();
 
-export const BackgroundSwatch = () => (
-  <SwatchGroup>
+  const backgroundTokens = colorTokens.filter(token =>
+    token.id.startsWith('hpe.color.background.'),
+  );
+
+  const sampleBackgroundTokens = pickTokens(backgroundTokens, [
+    'hpe.color.background.default',
+    'hpe.color.background.back',
+    'hpe.color.background.front',
+    'hpe.color.background.screenOverlay',
+  ]);
+
+  const swatchList = sampleBackgroundTokens.map(token => (
     <ColorSwatch
-      background="background-default"
-      border="border-weak"
-      text="color.background.default"
+      key={token.id}
+      background={token.value}
+      border={
+        ['hpe.color.background.default', 'hpe.color.background.front'].includes(
+          token.id,
+        )
+          ? 'border-weak'
+          : undefined
+      }
+      text={token.token.split('hpe.color.')[1] || token.token}
     />
+  ));
+
+  return <SwatchGroup>{swatchList}</SwatchGroup>;
+};
+
+export const BorderSwatch = () => {
+  const colorTokens = useColorTokens();
+
+  const borderTokens = colorTokens.filter(token =>
+    token.id.startsWith('hpe.color.border.'),
+  );
+
+  const sampleBorderTokens = pickTokens(borderTokens, [
+    'hpe.color.border.default',
+    'hpe.color.border.weak',
+    'hpe.color.border.strong',
+  ]);
+
+  const swatchList = sampleBorderTokens.map(token => (
     <ColorSwatch
-      background="background-back"
-      text="color.background.back"
-    />
-    <ColorSwatch
+      key={token.id}
       background="background-front"
-      border="border-weak"
-      text="color.background.front"
+      border={token.value}
+      borderSize="small"
+      text={token.token.split('hpe.color.')[1] || token.token}
     />
-    <ColorSwatch
-      background="background-screenOverlay"
-      text="color.background.screenOverlay"
-    />
-  </SwatchGroup>
-);
+  ));
 
-export const BorderSwatch = () => (
-  <SwatchGroup>
-    <ColorSwatch
-      background="background-default"
-      border="border-default"
-      borderSize="medium"
-      text="color.border.default"
-    />
-    <ColorSwatch
-      background="background-default"
-      border="border-weak"
-      borderSize="medium"
-      text="color.border.weak"
-    />
-    <ColorSwatch
-      background="background-default"
-      border="border-strong"
-      borderSize="medium"
-      text="color.border.strong"
-    />
-  </SwatchGroup>
-);
+  return <SwatchGroup>{swatchList}</SwatchGroup>;
+};
 
-export const DecorativeSwatch = () => (
-  <SwatchGroup>
-    <ColorSwatch
-      background="brand"
-      text="color.decorative.brand"
-    />
-    <ColorSwatch
-      background="decorative-green"
-      text="color.decorative.green"
-    />
-    <ColorSwatch
-      background="decorative-purple"
-      text="color.decorative.purple"
-    />
-    <ColorSwatch
-      background="decorative-blue"
-      text="color.decorative.blue"
-    />
-    <ColorSwatch
-      background="decorative-neutral"
-      text="color.decorative.neutral"
-    />
-    <ColorSwatch
-      background="decorative-neutral-hover"
-      text="color.decorative.neutral-hover"
-    />
-    <ColorSwatch
-      background="decorative-cyan"
-      text="color.decorative.cyan"
-    />
-  </SwatchGroup>
-);
+export const DecorativeSwatch = () => {
+  const colorTokens = useColorTokens();
 
-export const DataVisSwatch = () => (
-  <SwatchGroup>
-    <ColorSwatch
-      background="dataVis-categorical-10"
-      text="color.dataVis.categorical.10"
-    />
-    <ColorSwatch
-      background="dataVis-categorical-20"
-      text="color.dataVis.categorical.20"
-    />
-    <ColorSwatch
-      background="dataVis-categorical-30"
-      text="color.dataVis.categorical.30"
-    />
-    <ColorSwatch
-      background="dataVis-categorical-40"
-      text="color.dataVis.categorical.40"
-    />
-    <ColorSwatch
-      background="dataVis-categorical-50"
-      text="color.dataVis.categorical.50"
-    />
-    <ColorSwatch
-      background="dataVis-categorical-60"
-      text="color.dataVis.categorical.60"
-    />
-    <ColorSwatch
-      background="dataVis-categorical-70"
-      text="color.dataVis.categorical.70"
-    />
-    <ColorSwatch
-      background="dataVis-categorical-80"
-      text="color.dataVis.categorical.80"
-    />
-  </SwatchGroup>
-);
+  const decorativeTokens = colorTokens.filter(token =>
+    token.id.startsWith('hpe.color.decorative.'),
+  );
 
-export const ForegroundSwatch = () => (
-  <SwatchGroup>
+  const swatchList = decorativeTokens.map(token => (
     <ColorSwatch
-      background="foreground-warning"
-      text="color.foreground.warning"
+      key={token.id}
+      background={token.value}
+      text={token.token.split('hpe.color.')[1] || token.token}
     />
+  ));
+
+  return <SwatchGroup>{swatchList}</SwatchGroup>;
+};
+
+export const DataVisSwatch = () => {
+  const colorTokens = useColorTokens();
+
+  const dataVisTokens = colorTokens.filter(token =>
+    token.id.startsWith('hpe.color.dataVis.'),
+  );
+
+  const swatchList = dataVisTokens.map(token => (
     <ColorSwatch
-      background="foreground-critical"
-      text="color.foreground.critical"
+      key={token.id}
+      background={token.value}
+      text={token.token.split('hpe.color.')[1] || token.token}
     />
+  ));
+
+  return <SwatchGroup>{swatchList}</SwatchGroup>;
+};
+
+export const ForegroundSwatch = () => {
+  const colorTokens = useColorTokens();
+
+  const foregroundTokens = colorTokens.filter(token =>
+    token.id.startsWith('hpe.color.foreground.'),
+  );
+  const swatchList = foregroundTokens.map(token => (
     <ColorSwatch
-      background="foreground-unknown"
-      text="color.foreground.unknown"
+      key={token.id}
+      background={token.value}
+      text={token.token.split('hpe.color.')[1] || token.token}
     />
-    <ColorSwatch
-      background="foreground-primary"
-      text="color.foreground.primary"
-    />
-  </SwatchGroup>
-);
+  ));
+
+  return <SwatchGroup>{swatchList}</SwatchGroup>;
+};
