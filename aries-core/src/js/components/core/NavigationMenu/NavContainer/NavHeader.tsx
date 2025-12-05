@@ -32,11 +32,15 @@ export const NavHeader = ({
   return (
     <Box
       direction="row"
-      align="center"
+      align="center" // Keeps heading vertically centered regardless of length
       background="background-front"
-      gap="medium"
+      gap="xxsmall"
       justify="between"
-      pad="xsmall"
+      pad={{
+        top: 'xsmall',
+        bottom: 'xxsmall',
+        horizontal: 'small', // figma has this at element.medium.paddingX.default which is 18px, not sure why. Are element tokens supported in grommet-theme-hpe?
+      }}
       style={{
         position: 'sticky',
         top: 0,
@@ -49,7 +53,7 @@ export const NavHeader = ({
         aria-controls={open ? navigationId : undefined}
         aria-expanded={open}
         active={open}
-        alignSelf="end"
+        alignSelf="start" // don't center align when in multi-line heading. Positioning needs to be inline with GlobalHeader elements
         autoFocus={autoFocus}
         icon={<SidebarIcon aria-hidden />}
         onClick={() => setOpen(!open)}
