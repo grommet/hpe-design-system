@@ -43,7 +43,7 @@ export const NavigationMenuExample = () => {
   const announce = useContext(AnnounceContext);
 
   const mobile = breakpoint === 'xsmall';
-  const navTitle = 'Services & Tools & Resources';
+  const navTitle = 'Services';
 
   const navigationMenuProps = {
     title: navTitle,
