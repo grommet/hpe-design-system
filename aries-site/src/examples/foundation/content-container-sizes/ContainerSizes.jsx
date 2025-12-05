@@ -20,7 +20,10 @@ export const ContainerSizes = () => {
         flex
         overflow="auto"
       >
-        <Box flex /> {/* to center the container, which justify content properly when overflowing */}
+        {/*
+          center the container, which justify content properly when overflowing
+        */}
+        <Box flex />
         <Box
           height={{ min: height, max: height }}
           width={{ min: width, max: width }}
