@@ -16,8 +16,9 @@ export const navItems: NavItemType[] = [
   },
   {
     label: 'Adoption',
+    url: '/adoption',
     children: [
-      { label: 'Teams', url: '/adoption' },
+      { label: 'Teams', url: '/teams' },
       { label: 'Adoption Levels', url: '/adoption-levels' },
     ],
   },
