@@ -1,16 +1,27 @@
-import { Button } from 'grommet';
+import { useContext } from 'react';
+import { Button, ThemeContext } from 'grommet';
+import { prism } from 'grommet-theme-hpe';
 import {
   HeadingExample,
   ParagraphExample,
   TextSizeExample,
 } from '../../examples';
-import { Example } from '../../layouts';
+import { BestPracticeGroup, Example } from '../../layouts';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 {/* TODO replace with DS icon package when available */}
 import { Figma } from 'grommet-icons';
 
-Our typography is about more than words. It’s an integral part of our personality and design. When we’re making a statement, we want our visual language to be clear, recognized and understood.
+export const SyntaxHighlighterWrapper = ({ children, ...props }) => {
+  const theme = useContext(ThemeContext);
+  return (
+    <SyntaxHighlighter style={theme.dark ? prism.dark : prism.light} {...props}>
+      {children}
+    </SyntaxHighlighter>
+  );
+};
 
+Typography is about more than words. It is an integral part of brand personality and design. When making a statement, the visual language should be clear, recognizable, and easy to understand. For specific design token values and implementation details, see the [Typography system](/design-tokens/typography-system).
 ## HPE Graphik styles
 
 The weights and styles shown are part of the HPE Design System theme. HPE Graphik comes in a variety of weights. For digital experiences we use Light, Regular, Medium, Semibold and Bold weights at a variety of scales to compliment the content in a given design.
@@ -24,9 +35,9 @@ The weights and styles shown are part of the HPE Design System theme. HPE Graphi
   <HeadingExample />
 </Example>
 
-### Semantic usage of heading levels
+### Best practices for headings
 
-For accessibility reasons, always ensure [semantically correct heading levels](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#Usage_notes) are applied.
+For accessibility, ensure each page follows proper HTML structure by applying [semantically correct heading levels](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#Usage_notes) and using the appropriate heading element for every section.
 
 Heading levels create a scaffold of a web page's content structure by defining the main page title, page sections, and subsections of those sections.
 
@@ -36,19 +47,53 @@ Correctly implementing heading levels:
 - creates a clear HTML structure which is critical for use by assistive technologies
 
 If heading levels are not implemented in the correct hierarchy, users of screen readers and other assistive technologies will have a more effortful and difficult experience using the application.
+Headings beyond level 3 are rarely needed and often signal overly dense content. Before introducing levels 4–6, review whether the information can be simplified or reorganized into clearer sections.
 
-### Best practices for headings
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use the correct semantic heading element. Apply a heading token to achieve the desired visual style. Notice "heading-medium" applied to the h2 card title and h3 card title.',
+    }}
+    width="100%"
+  >
+    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
+      {`<h1 class="heading-xlarge">Page title</h1>
+<h2 class="card heading-medium">Card title</h2>
+<h2 class="heading-large">Section title</h2>
+<h3 class="card heading-medium">Another card title</h3>`}
+    </SyntaxHighlighterWrapper>
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Change the semantic level of a heading to adjust the visual styling. This can lead to accessibility issues and break the semantic structure of the page. Notice the incorrect jump from h1 to h3.`,
+    }}
+  >
+    <SyntaxHighlighterWrapper tabIndex="0" wrapLongLines language="javascript">
+      {`<h1 class="heading-xlarge">Page title</h1>
+<h3 class="card heading-medium">Card title</h2>
+<h2 class="heading-large">Section title</h2>
+<h3 class="card heading-medium">Another card title</h3>`}
+    </SyntaxHighlighterWrapper>
+  </Example>
+</BestPracticeGroup>
 
-- Each web page should only have a single `h1`: `<Heading level={1} />`.
-- The main page sections following the page title should receive `level={2}`.
-- Any sub-topics of sections with `level={2}` should receive `level={3}`.
-- Never skip heading levels. For example, a heading with `level={3}` must always following a heading with `level={2}` but can never immediately proceed a heading with `level={1}`.
-- Do not use semantically incorrect headings to achieve a desired style. Instead, apply the semantically correct heading and let the size of the heading be determined by the theme.
-- It is rare that you should need to use a Heading level greater than 3, as this indicates the information on that page may be very dense. Before implementing heading levels 4-6, consider if there is a more concise way to present the page information or to separate it into more sections
+### Styling exceptions
+
+Some components may require visual consistency regardless of heading level. For example, card titles in dashboard layouts often need to share the same text size even if their semantic levels differ. In these cases, keep the correct semantic heading level, but apply the appropriate [design token to style the text](/design-tokens/typography-system#text).
 - For Card specific guidance, see [card titles](/components/card#card-titles) documentation.
 - For Layer specific guidance, see [layer titles](/components/layer#layer-titles) documentation.
+### Heading levels
+{/* Future enhancement: Add syntax examples for non-Grommet implementations */}
+Use `level={1}` for the single `<h1>` on the page. Follow with `level={2}` for main sections and `level={3}` for subsections. See the example below for a recommended structure.
 
-Below is an example of how Heading levels should be implemented for a page called "Page title" with 3 topics called Topic A, Topic B, and Topic C. Each topic has 2 subtopics.
+
+
+Below is an example showing proper heading levels for a page with three topics, each with two subtopics.
 
 ```
 <Heading level={1}>Page title</Heading>
@@ -67,9 +112,9 @@ Below is an example of how Heading levels should be implemented for a page calle
 
 ```
 
-When implementing heading levels, always use the correct semantic heading level. This maintains a well structured HTML document, needed by assistive technologies.
-
 ## Paragraph
+
+Paragraphs represent blocks of flowing text and are styled using [Text design tokens](/design-tokens/typography-system#text) for font size, weight, and line height. Paragraphs differ from standard text by providing a maximum width [limiting line length for optimal readability](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html). Implementations should reference the `maxWidth` associated with each corresponding Text t-shirt size.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/foundation/typography/ParagraphExample.js"
@@ -86,6 +131,16 @@ When implementing heading levels, always use the correct semantic heading level.
 >
   <TextSizeExample />
 </Example>
+
+### Text best practices
+
+Use the t-shirt size `maxWidth` design token on paragraphs to limit the width of text to ensure readability.
+
+While each text t-shirt sizes comes with a default font weight, the emphasis of text can be adjusted to suit the context by using the [fontWeight](/design-tokens/global#fontweight) design tokens.
+
+## Accessibility
+
+[Typography desgin tokens](/design-tokens/typography-system) use `rem` units to scale fonts according to a user's browser settings.
 
 ## Font delivery
 
