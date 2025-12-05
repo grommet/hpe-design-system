@@ -107,7 +107,7 @@ export const NavList = ({
     <List
       data={adjustedItems}
       defaultItemProps={{
-        pad: { vertical: 'xsmall' },
+        pad: { vertical: '3xsmall' },
         role: 'none',
       }}
       role="menubar"
