@@ -1,13 +1,37 @@
-import { EmptyState } from 'aries-core'
-import { InProgress } from '@hpe-design/icons-grommet'
+import { Box, Image } from 'grommet';
+import { Example, BestPracticeGroup } from '../../layouts';
+import { ButtonSizingExample, SpacingBestPractices } from '../../examples';
 
-<TshirtEmptyState />
+## What is t-shirt sizing?
 
-export const TshirtEmptyState = () => (
-  <EmptyState
-    level={2}
-    title="Update in progress"
-    description="This page is temporarily unavailable. Updated content is being prepared supporting the v2-Landmark theme."
-    icon={<InProgress size="xxlarge" />}
-  />
-)
+T-shirt sizing uses semantic names (a.k.a. design tokens) which map familiar clothing sizes (`small`, `medium`, `large`, etc.) to specific pixel values for sizing and spacing.
+T-shirt sizes apply to:
+- [Spacing](/foundation/spacing) (padding, margin, gap)
+- [Content containers](/foundation/content-container-sizes) (width, height, border, radius)
+- [Components](/foundation/component-sizes) (size property)
+
+Use t-shirt sizes rather than hard pixel values. If a new value is needed, report it 
+so that it may be evaluated and added as a design token if appropriate.
+
+## Benefits
+
+T-shirt sizes promote consistency, systematic UI delivery, and ensure harmony among 
+layout elements. Hardcoded and arbitrary pixel values should be avoided, as they are 
+inflexible and fail to realize the benefits provided by t-shirt sizes, including:
+
+- Establish shared vocabulary across designers, developers, and delivery teams.
+- Accelerate layout specification through reuse of predefined values.
+- Ensure UIs are composable using common, shared size definitions.
+- Facilitate responsive design.
+- Enable density modes and expanded user preferences.
+- Promote consistency, maintainability, and scalability through systematic reuse.
+
+## Responsiveness
+
+Layouts should be designed with responsiveness in mind to meet a user wherever they are &mdash; whether on a desktop, tablet, or mobile device.
+
+The values of semantic spacing and radius design tokens step down in size at the `small` [breakpoint](/design-tokens/global#breakpoint). This retains appropriate proportions between shape, spacing, and content as the screen size decreases.
+
+When utilizing the CSS files, a media query is included in the `dimension.small.css` file to adjust the token values at the `small` breakpoint.
+
+To further refine layouts for different screen sizes, various [breakpoints](/design-tokens/global#breakpoint) can be used to instruct logic for layout adjustments.

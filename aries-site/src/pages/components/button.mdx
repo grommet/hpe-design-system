@@ -6,7 +6,7 @@ import {
 import {
   ButtonBadCancelPreview,
   ButtonBadGroupPreview,
-  ButtonBadSignUpCTAsPreview,
+  ButtonBadSignUpPreview,
   ButtonBadgeExample,
   ButtonBusyExample,
   ButtonBusySimpleExample,
@@ -14,13 +14,12 @@ import {
   ButtonExample,
   ButtonGoodCancelPreview,
   ButtonGoodLongTitlePreview,
-  ButtonGoodSignUpCTAPreview,
+  ButtonGoodSignUpPreview,
   ButtonIconExample,
   ButtonLeftAlignExample,
   ButtonRightAlignExample,
   ButtonStatesExample,
   ButtonSizingExample,
-  CTAButtonExample,
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
@@ -146,34 +145,11 @@ For buttons with icons ONLY, it is important that you show the two following ele
 
 Primary buttons highlight actions on a page delivering the most benefit to users. They are helpful in enabling users’ goals, unlocking new value by enabling a new experience, capability, or creation of something which hadn’t previously existed.
 
-Primary buttons have increased visual weight through placement and contrast, drawing users’ attention by distinguishing the button from surrounding content. At HPE there are two kinds of primary buttons, a CTA button and a primary action button. Learn more about the purpose behind each and when to apply them.
-
-### When to use a CTA button
-
-Call to action (CTA) buttons entice a user down a curated path leading to incremental value. A primary call to action is meant to encourage the most desired action you want visitors to take, leading prospects and customers towards conversion, whether that be to learn more, register, test drive and even buy a product.
-
-Specifically, CTA buttons should be used when a prospective or current HPE customer will gain value from HPE's edge-to-cloud promise. This occurs in marketing contexts such as:
-
-- Within .com experiences such as highlighting an event or allowing a user to launch an HPE application.
-- Within enterprise application where a service, feature, trial opportunity, or event is being promoted.
-
-Because a CTA button is very visually prominent:
-
-- Only use one CTA button per context to highlight the main action.
-- Generally, there should only be a single CTA button for a page region. However, this is not a firm rule and should be handled on a case-by-case basis.
-  - For example, it may be appropriate for multiple cards within a single region to each have their own CTA button.
-
-### When not to use a CTA button
-
-If there is not a need to highlight an action, it is appropriate to use other controls.
-
-- For example, enabling a new feature could be presented on a dashboard with a CTA button but it also could be presented in a menu or as a toggle in a settings page. This decision is to be determined by the designer based on the use case.
-
-If you have questions about your use case, feel free to reach out in the #hpe-design-system channel on [Grommet Slack](https://grommet.slack.com).
+Primary buttons have increased visual weight through placement and contrast, drawing users’ attention by distinguishing the button from surrounding content.
 
 ### When to use a primary action button
 
-Primary action buttons are used within enterprise applications. They are meant to assist - as opposed to CTA buttons, which intend to entice - and are designed to maximize a user’s experience by highlighting the most common or important action on a page and allowing the user to accomplish a goal or task.
+Primary action buttons are used within enterprise applications. They are meant to assist and are designed to maximize a user’s experience by highlighting the most common or important action on a page and allowing the user to accomplish a goal or task.
 
 Actions supported by primary action buttons are numerous and may be constructive or destructive in nature. Example actions include: create, schedule, deploy, add, save, and depending on context could even be cancel or delete.
 
@@ -183,7 +159,7 @@ There are a couple "flavors" of button depending on use case.
 
 ### Primary button
 
-Used for key actions on the page. Primary buttons can also be referred to as “Brand” or “CTA (Call to Action)” and should only be used once per page. All other supporting actions should use [Default button](#default-button). Consider that the 80% use case for some pages is visualization and not action. In cases like these, a call to action is inappropriate and a secondary button can be used.
+Used for the key action on the page, and should only appear once. All other supporting actions should use [Default button](#default-button). Consider that the 80% use case for some pages is visualization and not action. In cases like these, a secondary button can be used.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/PrimaryButtonExample.js"
@@ -203,22 +179,6 @@ Secondary buttons are used to represent calls to action that are either in suppo
   height={{ min: 'small' }}
 >
   <SecondaryButtonExample />
-</Example>
-
-### CTA button
-
-CTA buttons should be used whenever a prospect or customer is unlocking new value from HPE’s edge-to-cloud promise. Read [when to use a CTA button](/components/button?q=butt#when-to-use-a-cta-button) for detailed guidance on usage.
-
-<Example
-  componentName="Button"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/CTAButtonExample.js"
-  designer="https://designer.grommet.io/button?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
-  docs="https://v2.grommet.io/button?theme=hpe#props"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=4489%3A78687&t=yv7DUusmUWV5I7hQ-1"
-  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Button/Button.js"
-  height={{ min: 'small' }}
->
-  <CTAButtonExample />
 </Example>
 
 ### Toolbar button
@@ -359,7 +319,7 @@ On screen widths of less than or equal to 576px (Grommet "small"), it is best to
         'On small resolutions, full-width buttons help users more easily identify and interact with actions on smaller browser widths and when using the press gesture.',
     }}
   >
-    <ButtonGoodSignUpCTAPreview />
+    <ButtonGoodSignUpPreview />
   </Example>
   <Example
     bestPractice={{
@@ -368,7 +328,7 @@ On screen widths of less than or equal to 576px (Grommet "small"), it is best to
         'On small resolutions, keeping button widths smaller lessen their visual impact and makes it more difficult for users to interact with them on smaller browser widths.',
     }}
   >
-    <ButtonBadSignUpCTAsPreview />
+    <ButtonBadSignUpPreview />
   </Example>
 </BestPracticeGroup>
 

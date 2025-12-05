@@ -14,13 +14,12 @@ import {
   PageHeader,
 } from 'grommet';
 import {
+  Element,
   User,
   Help,
   Menu as MenuIcon,
   Notification,
 } from '@hpe-design/icons-grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
 import { ContentPane } from '../../../layouts';
 
 export const ContentSpinnerExample = () => {
@@ -40,7 +39,7 @@ export const ContentSpinnerExample = () => {
             pad={{ vertical: 'xsmall' }}
             responsive={false}
           >
-            <Hpe color="brand" height="medium" />
+            <Element color="brand" height="medium" />
             <Box direction="row" gap="3xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
