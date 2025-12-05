@@ -8,7 +8,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 import { ShippingInfomation, ContactInformation } from './Shipping';
 
 export const ShippingExample = () => {
