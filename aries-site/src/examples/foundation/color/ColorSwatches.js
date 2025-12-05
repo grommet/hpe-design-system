@@ -1,17 +1,20 @@
 import { Box, Text, Grid } from 'grommet';
 import PropTypes from 'prop-types';
+import { Add } from '@hpe-design/icons-grommet';
 import { useDesignTokens } from '../../../components/content/designTokenUtils';
 
 // Fetch color tokens once at module level
 const useColorTokens = () => {
   const { data: colorTokens } = useDesignTokens('semantic.color');
-  return colorTokens;
+  return colorTokens ?? [];
 };
 
-const pickTokens = (tokens, tokenNameList) => {
-  const tokenSubset = tokens.filter(token => tokenNameList.includes(token.id));
-  return tokenSubset;
-};
+const filterByPrefix = (tokens, prefix) =>
+  tokens.filter(t => t.id.startsWith(prefix));
+
+const pickTokens = (tokens, ids) => tokens.filter(t => ids.includes(t.id));
+
+const getLabel = token => token.token.split('hpe.color.')[1] || token.token;
 
 const ColorSwatch = ({ background, border, borderSize = 'xsmall', text }) => (
   <Box direction="row" gap="xsmall">
@@ -51,13 +54,44 @@ SwatchGroup.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+const TokenSwatchList = ({
+  tokens,
+  border,
+  borderSize,
+  component = ColorSwatch,
+  background = token => token.value,
+}) => (
+  <SwatchGroup>
+    {tokens.map(token => {
+      const label = getLabel(token);
+      const Comp = component;
+      return (
+        <Comp
+          key={token.id}
+          background={background(token)}
+          border={border?.(token)}
+          borderSize={borderSize}
+          color={token.value}
+          text={label}
+        />
+      );
+    })}
+  </SwatchGroup>
+);
+
+TokenSwatchList.propTypes = {
+  tokens: PropTypes.array.isRequired,
+  background: PropTypes.func,
+  border: PropTypes.func,
+  borderSize: PropTypes.string,
+  component: PropTypes.elementType,
+};
+
 export const BackgroundSwatch = () => {
-  const colorTokens = useColorTokens();
-
-  const backgroundTokens = colorTokens.filter(token =>
-    token.id.startsWith('hpe.color.background.'),
+  const backgroundTokens = filterByPrefix(
+    useColorTokens(),
+    'hpe.color.background.',
   );
-
   const sampleBackgroundTokens = pickTokens(backgroundTokens, [
     'hpe.color.background.default',
     'hpe.color.background.back',
@@ -65,99 +99,183 @@ export const BackgroundSwatch = () => {
     'hpe.color.background.screenOverlay',
   ]);
 
-  const swatchList = sampleBackgroundTokens.map(token => (
-    <ColorSwatch
-      key={token.id}
-      background={token.value}
-      border={
-        ['hpe.color.background.default', 'hpe.color.background.front'].includes(
-          token.id,
-        )
-          ? 'border-weak'
-          : undefined
-      }
-      text={token.token.split('hpe.color.')[1] || token.token}
-    />
-  ));
+  const border = token =>
+    ['hpe.color.background.default', 'hpe.color.background.front'].includes(
+      token.id,
+    )
+      ? 'border-weak'
+      : undefined;
 
-  return <SwatchGroup>{swatchList}</SwatchGroup>;
+  return <TokenSwatchList tokens={sampleBackgroundTokens} border={border} />;
 };
 
 export const BorderSwatch = () => {
-  const colorTokens = useColorTokens();
-
-  const borderTokens = colorTokens.filter(token =>
-    token.id.startsWith('hpe.color.border.'),
-  );
-
+  const borderTokens = filterByPrefix(useColorTokens(), 'hpe.color.border.');
   const sampleBorderTokens = pickTokens(borderTokens, [
     'hpe.color.border.default',
     'hpe.color.border.weak',
     'hpe.color.border.strong',
   ]);
 
-  const swatchList = sampleBorderTokens.map(token => (
-    <ColorSwatch
-      key={token.id}
-      background="background-front"
-      border={token.value}
+  return (
+    <TokenSwatchList
+      tokens={sampleBorderTokens}
+      background={() => 'background-front'}
+      border={t => t.value}
       borderSize="small"
-      text={token.token.split('hpe.color.')[1] || token.token}
     />
-  ));
-
-  return <SwatchGroup>{swatchList}</SwatchGroup>;
-};
-
-export const DecorativeSwatch = () => {
-  const colorTokens = useColorTokens();
-
-  const decorativeTokens = colorTokens.filter(token =>
-    token.id.startsWith('hpe.color.decorative.'),
   );
-
-  const swatchList = decorativeTokens.map(token => (
-    <ColorSwatch
-      key={token.id}
-      background={token.value}
-      text={token.token.split('hpe.color.')[1] || token.token}
-    />
-  ));
-
-  return <SwatchGroup>{swatchList}</SwatchGroup>;
 };
+
+export const DecorativeSwatch = () => (
+  <TokenSwatchList
+    tokens={filterByPrefix(useColorTokens(), 'hpe.color.decorative.')}
+  />
+);
+
+export const ForegroundSwatch = () => (
+  <TokenSwatchList
+    tokens={filterByPrefix(useColorTokens(), 'hpe.color.foreground.')}
+  />
+);
 
 export const DataVisSwatch = () => {
-  const colorTokens = useColorTokens();
+  const dataVisTokens = filterByPrefix(useColorTokens(), 'hpe.color.dataVis.');
 
-  const dataVisTokens = colorTokens.filter(token =>
-    token.id.startsWith('hpe.color.dataVis.'),
+  // Sort tokens to ensure correct order
+  const sortedTokens = [...dataVisTokens].sort((a, b) => {
+    const num = id => parseInt(id.match(/\d+/)?.[0] ?? '0', 10);
+    return num(a.id) - num(b.id);
+  });
+
+  // Split into two columns for top-to-bottom, left-to-right flow
+  const midpoint = Math.ceil(sortedTokens.length / 2);
+  const left = sortedTokens.slice(0, midpoint);
+  const right = sortedTokens.slice(midpoint);
+
+  return (
+    <SwatchGroup>
+      <Box direction="column" gap="medium">
+        {left.map(t => (
+          <ColorSwatch key={t.id} background={t.value} text={getLabel(t)} />
+        ))}
+      </Box>
+      <Box direction="column" gap="medium">
+        {right.map(t => (
+          <ColorSwatch key={t.id} background={t.value} text={getLabel(t)} />
+        ))}
+      </Box>
+    </SwatchGroup>
   );
-
-  const swatchList = dataVisTokens.map(token => (
-    <ColorSwatch
-      key={token.id}
-      background={token.value}
-      text={token.token.split('hpe.color.')[1] || token.token}
-    />
-  ));
-
-  return <SwatchGroup>{swatchList}</SwatchGroup>;
 };
 
-export const ForegroundSwatch = () => {
+const TextColorSwatch = ({ color, text }) => (
+  <Box direction="row" gap="small" align="center">
+    <Text size="xlarge" weight="bold" color={color}>
+      Aa
+    </Text>
+    <Text>{text}</Text>
+  </Box>
+);
+TextColorSwatch.propTypes = {
+  color: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+export const TextSwatch = () => {
+  const textTokens = filterByPrefix(useColorTokens(), 'hpe.color.text.');
+  const sampleTextTokens = pickTokens(textTokens, [
+    'hpe.color.text.default',
+    'hpe.color.text.strong',
+    'hpe.color.text.weak',
+  ]);
+
+  return (
+    <TokenSwatchList tokens={sampleTextTokens} component={TextColorSwatch} />
+  );
+};
+
+const IconColorSwatch = ({ color, text }) => (
+  <Box direction="row" gap="small" align="center">
+    <Add color={color} size="medium" />
+    <Text>{text}</Text>
+  </Box>
+);
+IconColorSwatch.propTypes = {
+  color: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+export const IconSwatch = () => {
+  const iconTokens = filterByPrefix(useColorTokens(), 'hpe.color.icon.');
+  const sampleIconTokens = pickTokens(iconTokens, [
+    'hpe.color.icon.default',
+    'hpe.color.icon.strong',
+    'hpe.color.icon.weak',
+  ]);
+
+  return (
+    <TokenSwatchList tokens={sampleIconTokens} component={IconColorSwatch} />
+  );
+};
+
+const StatusColorSwatch = ({
+  iconColor,
+  backgroundColor,
+  iconText,
+  backgroundText,
+}) => (
+  <Box direction="row" gap="small" align="center">
+    <Box
+      background={backgroundColor}
+      align="center"
+      justify="center"
+      round="small"
+      pad="5xsmall"
+      width="5xsmall"
+      height="5xsmall"
+    >
+      <Box background={iconColor} round="full" width="24px" height="24px" />
+    </Box>
+    <Box>
+      <Text>{iconText}</Text>
+      <Text>{backgroundText}</Text>
+    </Box>
+  </Box>
+);
+StatusColorSwatch.propTypes = {
+  iconColor: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+  iconText: PropTypes.string.isRequired,
+  backgroundText: PropTypes.string.isRequired,
+};
+
+export const StatusSwatch = () => {
   const colorTokens = useColorTokens();
 
-  const foregroundTokens = colorTokens.filter(token =>
-    token.id.startsWith('hpe.color.foreground.'),
-  );
-  const swatchList = foregroundTokens.map(token => (
-    <ColorSwatch
-      key={token.id}
-      background={token.value}
-      text={token.token.split('hpe.color.')[1] || token.token}
-    />
-  ));
+  const statusTypes = ['ok', 'warning', 'critical', 'info', 'unknown'];
+
+  const swatchList = statusTypes
+    .map(status => {
+      const iconToken = colorTokens.find(
+        token => token.id === `hpe.color.icon.${status}`,
+      );
+      const backgroundToken = colorTokens.find(
+        token => token.id === `hpe.color.background.${status}`,
+      );
+      if (!iconToken || !backgroundToken) return null;
+
+      return (
+        <StatusColorSwatch
+          key={status}
+          iconColor={`icon-${status}`}
+          backgroundColor={`background-${status}`}
+          iconText={`icon.${status}`}
+          backgroundText={`background.${status}`}
+        />
+      );
+    })
+    .filter(Boolean);
 
   return <SwatchGroup>{swatchList}</SwatchGroup>;
 };

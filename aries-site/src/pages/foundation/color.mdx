@@ -8,7 +8,6 @@ import {
 } from 'grommet';
 import { Trigger } from '@hpe-design/icons-grommet';
 
-import { ColorSwatch, ColorPreview } from '../../components';
 import { ButtonRow } from '../../layouts';
 import {
   BackgroundDark,
@@ -40,6 +39,9 @@ import {
   DecorativeSwatch,
   DataVisSwatch,
   ForegroundSwatch,
+  TextSwatch,
+  IconSwatch,
+  StatusSwatch,
 } from '../../examples';
 
 {/* TODO replace with DS icon package when available */}
@@ -91,8 +93,12 @@ Border colors delineate areas only when spacing or background contrast are insuf
 ### Text
 Text colors help create hierarchy and ensure readability. Use `color.text.default` for body copy and `color.text.heading` for headings. `color.text.strong` can be used to emphasize key figures or other important text. To de-emphasize content and create a clear visual hierarchy, apply `color.text.weak` to secondary information.
 
+<TextSwatch />
+
 ### Icon
 Icon colors follow text hierarchy and must remain legible at small sizes. Match an icon's color emphasis with its accompanying text.
+
+<IconSwatch />
 
 ### Decorative
 Decorative colors provide brand and accent without conveying status or interaction. Limit secondary decorative hues to illustration and non‑interactive ornamentation. Avoid substituting decorative colors for status; use semantic text or foreground status design tokens instead.
@@ -118,6 +124,8 @@ Status colors reinforce state and feedback (critical, warning, ok, informational
 
 - Use status color only when conveying semantic meaning; avoid decorative substitution.
 - Pair status color with an icon or concise label for rapid scanning.
+
+<StatusSwatch />
 
 ### Focus
 Focus provide clear visual cues for keyboard and assistive technology navigation by highlighting the currently active element, reinforcing accessible interaction.
