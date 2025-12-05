@@ -30,11 +30,11 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Upgrade stable branch dependencies
-        run: pnpm upgrade grommet && pnpm upgrade grommet-icons
-
       - name: Install dependencies
         run: pnpm install
+
+      - name: Upgrade stable branch dependencies
+        run: pnpm upgrade grommet && pnpm upgrade grommet-icons
 
       - name: Sync variables in Figma file to tokens
         run: pnpm sync-figma-to-tokens -- --output tokens

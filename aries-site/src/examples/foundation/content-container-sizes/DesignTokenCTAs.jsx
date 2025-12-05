@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Button } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
 
+// eslint-disable-next-line react/prop-types
 const RoutedButton = ({ href, label }) => (
   <Link href={href} passHref >
     <Button
