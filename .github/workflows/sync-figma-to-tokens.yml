@@ -38,7 +38,7 @@ jobs:
 
       - name: Sync variables in Figma file to tokens
         run: pnpm sync-figma-to-tokens -- --output tokens
-        working-directory: design-tokens
+        working-directory: packages/hpe-design-tokens
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
           FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
@@ -50,10 +50,9 @@ jobs:
           FIGMA_GLOBAL_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_GLOBAL_COLLECTION_KEY }}
       - name: Format token files with prettier
         run: pnpm prettier tokens --write
-        working-directory: design-tokens
+        working-directory: packages/hpe-design-tokens
       - name: Build site search for pre-commit linting
-        run: pnpm build-search
-        working-directory: aries-site
+        run: pnpm --filter aries-site build-search
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

@@ -245,7 +245,7 @@ importers:
         version: 5.9.3
       typescript-eslint:
         specifier: ^8.39.1
-        version: 8.47.0(eslint@8.57.1)(typescript@5.9.3)
+        version: 8.47.0(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)
       webpack:
         specifier: ^5.75.0
         version: 5.102.1(@swc/core@1.15.2)(esbuild@0.25.12)(webpack-cli@5.1.4)
@@ -338,51 +338,6 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(testcafe@3.7.2)
 
-  design-tokens:
-    devDependencies:
-      '@babel/preset-env':
-        specifier: ^7.26.0
-        version: 7.28.5(@babel/core@7.28.5)
-      '@babel/preset-typescript':
-        specifier: ^7.26.0
-        version: 7.28.5(@babel/core@7.28.5)
-      '@types/node':
-        specifier: ^20.4.5
-        version: 20.19.25
-      axios:
-        specifier: ^1.6.0
-        version: 1.13.2(debug@4.4.3)
-      del:
-        specifier: ^6.1.1
-        version: 6.1.1
-      dotenv:
-        specifier: ^16.3.1
-        version: 16.6.1
-      fs-extra:
-        specifier: ^11.2.0
-        version: 11.3.2
-      prettier:
-        specifier: 3.0.0
-        version: 3.0.0
-      simple-git:
-        specifier: ^3.24.0
-        version: 3.30.0
-      style-dictionary:
-        specifier: ^4.2.0
-        version: 4.4.0
-      style-dictionary-utils:
-        specifier: ^3.0.0
-        version: 3.3.2(style-dictionary@4.4.0)
-      tsx:
-        specifier: ^4.19.1
-        version: 4.20.6
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
-      vitest:
-        specifier: ^3.0.9
-        version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
-
   design-tokens-manager:
     dependencies:
       '@hpe-design/icons-grommet':
@@ -399,7 +354,7 @@ importers:
         version: 6.5.1(grommet-icons@4.14.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(grommet@2.51.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../design-tokens
+        version: link:../packages/hpe-design-tokens
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -455,6 +410,51 @@ importers:
     devDependencies:
       vitest:
         specifier: ^3.2.4
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
+
+  packages/hpe-design-tokens:
+    devDependencies:
+      '@babel/preset-env':
+        specifier: ^7.26.0
+        version: 7.28.5(@babel/core@7.28.5)
+      '@babel/preset-typescript':
+        specifier: ^7.26.0
+        version: 7.28.5(@babel/core@7.28.5)
+      '@types/node':
+        specifier: ^20.4.5
+        version: 20.19.25
+      axios:
+        specifier: ^1.6.0
+        version: 1.13.2(debug@4.4.3)
+      del:
+        specifier: ^6.1.1
+        version: 6.1.1
+      dotenv:
+        specifier: ^16.3.1
+        version: 16.6.1
+      fs-extra:
+        specifier: ^11.2.0
+        version: 11.3.2
+      prettier:
+        specifier: 3.0.0
+        version: 3.0.0
+      simple-git:
+        specifier: ^3.24.0
+        version: 3.30.0
+      style-dictionary:
+        specifier: ^4.2.0
+        version: 4.4.0
+      style-dictionary-utils:
+        specifier: ^3.0.0
+        version: 3.3.2(style-dictionary@4.4.0)
+      tsx:
+        specifier: ^4.19.1
+        version: 4.20.6
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vitest:
+        specifier: ^3.0.9
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
 
   packages/icons/core:
@@ -560,7 +560,7 @@ importers:
         version: 3.13.0
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../../design-tokens
+        version: link:../../packages/hpe-design-tokens
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -609,7 +609,7 @@ importers:
     dependencies:
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../../design-tokens
+        version: link:../../packages/hpe-design-tokens
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -631,7 +631,7 @@ importers:
         version: 1.2.6(@types/react-dom@19.2.3(@types/react@19.2.5))(@types/react@19.2.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../../design-tokens
+        version: link:../../packages/hpe-design-tokens
       react:
         specifier: 'catalog:'
         version: 19.2.0
@@ -705,7 +705,7 @@ importers:
         version: 5.9.3
       typescript-eslint:
         specifier: ^8.40.0
-        version: 8.47.0(eslint@8.57.1)(typescript@5.9.3)
+        version: 8.47.0(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
@@ -12585,7 +12585,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 6.0.0
-      '@types/node': 20.14.5
+      '@types/node': 20.19.25
 
   '@types/graceful-fs@4.1.9':
     dependencies:
@@ -12743,23 +12743,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/eslint-plugin@8.47.0(@typescript-eslint/parser@8.47.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)':
-    dependencies:
-      '@eslint-community/regexpp': 4.12.2
-      '@typescript-eslint/parser': 8.47.0(eslint@8.57.1)(typescript@5.9.3)
-      '@typescript-eslint/scope-manager': 8.47.0
-      '@typescript-eslint/type-utils': 8.47.0(eslint@8.57.1)(typescript@5.9.3)
-      '@typescript-eslint/utils': 8.47.0(eslint@8.57.1)(typescript@5.9.3)
-      '@typescript-eslint/visitor-keys': 8.47.0
-      eslint: 8.57.1
-      graphemer: 1.4.0
-      ignore: 7.0.5
-      natural-compare: 1.4.0
-      ts-api-utils: 2.1.0(typescript@5.9.3)
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
   '@typescript-eslint/eslint-plugin@8.47.0(@typescript-eslint/parser@8.47.0(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.2
@@ -12786,18 +12769,6 @@ snapshots:
       debug: 4.4.3
       eslint: 8.57.1
     optionalDependencies:
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@typescript-eslint/parser@8.47.0(eslint@8.57.1)(typescript@5.9.3)':
-    dependencies:
-      '@typescript-eslint/scope-manager': 8.47.0
-      '@typescript-eslint/types': 8.47.0
-      '@typescript-eslint/typescript-estree': 8.47.0(typescript@5.9.3)
-      '@typescript-eslint/visitor-keys': 8.47.0
-      debug: 4.4.3
-      eslint: 8.57.1
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -12845,18 +12816,6 @@ snapshots:
       eslint: 8.57.1
       ts-api-utils: 1.4.3(typescript@5.9.3)
     optionalDependencies:
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@typescript-eslint/type-utils@8.47.0(eslint@8.57.1)(typescript@5.9.3)':
-    dependencies:
-      '@typescript-eslint/types': 8.47.0
-      '@typescript-eslint/typescript-estree': 8.47.0(typescript@5.9.3)
-      '@typescript-eslint/utils': 8.47.0(eslint@8.57.1)(typescript@5.9.3)
-      debug: 4.4.3
-      eslint: 8.57.1
-      ts-api-utils: 2.1.0(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -12918,17 +12877,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
-
-  '@typescript-eslint/utils@8.47.0(eslint@8.57.1)(typescript@5.9.3)':
-    dependencies:
-      '@eslint-community/eslint-utils': 4.9.0(eslint@8.57.1)
-      '@typescript-eslint/scope-manager': 8.47.0
-      '@typescript-eslint/types': 8.47.0
-      '@typescript-eslint/typescript-estree': 8.47.0(typescript@5.9.3)
-      eslint: 8.57.1
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
 
   '@typescript-eslint/utils@8.47.0(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)':
     dependencies:
@@ -19515,17 +19463,6 @@ snapshots:
   typedarray-to-buffer@3.1.5:
     dependencies:
       is-typedarray: 1.0.0
-
-  typescript-eslint@8.47.0(eslint@8.57.1)(typescript@5.9.3):
-    dependencies:
-      '@typescript-eslint/eslint-plugin': 8.47.0(@typescript-eslint/parser@8.47.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
-      '@typescript-eslint/parser': 8.47.0(eslint@8.57.1)(typescript@5.9.3)
-      '@typescript-eslint/typescript-estree': 8.47.0(typescript@5.9.3)
-      '@typescript-eslint/utils': 8.47.0(eslint@8.57.1)(typescript@5.9.3)
-      eslint: 8.57.1
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
 
   typescript-eslint@8.47.0(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3):
     dependencies:
