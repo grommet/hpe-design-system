@@ -39,7 +39,7 @@ export const NavHeader = ({
       pad={{
         top: 'xsmall',
         bottom: 'xxsmall',
-        horizontal: 'small', // figma has this at element.medium.paddingX.default which is 18px, not sure why. Are element tokens supported in grommet-theme-hpe?
+        horizontal: open ? 'small' : undefined, // figma has this at element.medium.paddingX.default which is 18px, not sure why. Are element tokens supported in grommet-theme-hpe?
       }}
       style={{
         position: 'sticky',
