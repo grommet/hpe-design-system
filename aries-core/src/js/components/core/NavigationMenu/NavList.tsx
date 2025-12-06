@@ -156,6 +156,7 @@ export const NavList = ({
               aria-haspopup={!!item.children}
               aria-expanded={expandedItem}
               active={active}
+              aria-current={active ? 'page' : undefined}
               onClick={() => {
                 if (item.url) { 
                   onSelectItem(item);
