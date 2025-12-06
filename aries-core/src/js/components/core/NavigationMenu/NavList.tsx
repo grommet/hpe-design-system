@@ -1,7 +1,7 @@
-import { AnnounceContext, Collapsible, Keyboard, List } from 'grommet';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { AnnounceContext, Collapsible, List } from 'grommet';
 import { Down, Up } from '@hpe-design/icons-grommet';
 import { NavItem, NavItemType } from './NavItem/NavItem';
-import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
@@ -86,6 +86,12 @@ export const NavList = ({
     });
   };
 
+  const onSelectItem = (item: NavItemWithLevel) => {
+    setActiveItem?.(item.label);
+    onSelect?.();
+    announce(`Selected ${item.label}.`, 'assertive', 2000);
+  };
+
   const onEscape = (
     event: React.KeyboardEvent<HTMLButtonElement>,
     { expandedItem, item }: { expandedItem: boolean; item: NavItemWithLevel },
@@ -107,7 +113,7 @@ export const NavList = ({
     <List
       data={adjustedItems}
       defaultItemProps={{
-        pad: { vertical: 'xsmall' },
+        pad: { vertical: '3xsmall' },
         role: 'none',
       }}
       role="menubar"
@@ -126,6 +132,8 @@ export const NavList = ({
             onEscape(event, { expandedItem, item });
           },
         };
+
+        const active = activeItem === item.label;
 
         if (item.children) {
           result = (
@@ -147,7 +155,12 @@ export const NavList = ({
               }
               aria-haspopup={!!item.children}
               aria-expanded={expandedItem}
+              active={active}
+              aria-current={active ? 'page' : undefined}
               onClick={() => {
+                if (item.url) { 
+                  onSelectItem(item);
+                }
                 updateExpanded(item);
                 // announce(
                 //   `${item.label} menu ${
@@ -177,17 +190,13 @@ export const NavList = ({
             </NavItem>
           );
         } else {
-          const active = activeItem === item.label;
-
           result = (
             <NavItem
               {...navItemProps}
               active={active}
               aria-current={active ? 'page' : undefined}
               onClick={() => {
-                setActiveItem?.(item.label);
-                onSelect?.();
-                announce(`Selected ${item.label}.`, 'assertive', 2000);
+                onSelectItem(item);
               }}
             />
           );

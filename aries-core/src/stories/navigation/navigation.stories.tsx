@@ -21,7 +21,7 @@ const gridAreas = [
   ['nav', 'main', 'context-pane'],
 ];
 
-const responsiveGridAreas = {
+const responsiveGridAreas: Record<string, string[][]> = {
   xsmall: [
     ['nav', 'header', 'context-pane'],
     ['main', 'main', 'context-pane'],

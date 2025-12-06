@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { Grommet } from 'grommet';
+import { AnnounceContext, Grommet } from 'grommet';
 import { NavigationMenu } from '../NavigationMenu';
 import { NavItemType } from '../NavItem/NavItem';
 
@@ -59,115 +59,197 @@ const renderNavigationMenu = (props: any = {}) => {
 };
 
 describe('NavigationMenu', () => {
-  describe('Keyboard navigation', () => {
-    it('should focus on immediate parent when pressing Escape in a nested submenu', async () => {
-      const user = userEvent.setup();
-      renderNavigationMenu();
-
-      // First, expand the "Products" menu
-      const productsButton = screen.getByRole('menuitem', { name: /products/i });
-      await user.click(productsButton);
-
-      // Wait for the submenu to appear and expand "Hardware"
-      const hardwareButton = screen.getByRole('menuitem', { name: /hardware/i });
-      await user.click(hardwareButton);
-
-      // Navigate to a deeply nested item (Servers)
-      const serversButton = screen.getByRole('menuitem', { name: /servers/i });
+  describe('Rendering', () => {
+    it('should render custom header if provided', () => {
+      renderNavigationMenu({ header: <div data-testid="custom-header">Custom Header</div> });
       
-      // Focus on the servers button using user interaction
-      await user.click(serversButton);
-      expect(serversButton).toHaveFocus();
-
-      // Press Escape - should focus on Hardware (immediate parent)
-      await user.keyboard('{Escape}');
-      
-      // Check that focus moved to Hardware button (immediate parent)
-      expect(hardwareButton).toHaveFocus();
+      expect(screen.getByTestId('custom-header')).toBeInTheDocument();
+      // Default header title should not be present
+      expect(screen.queryByRole('heading', { name: /navigation menu/i })).not.toBeInTheDocument();
     });
 
-    it('should focus on grandparent after two Escape presses in deeply nested menu', async () => {
-      const user = userEvent.setup();
+    it('should render items with href when url is provided', () => {
       renderNavigationMenu();
-
-      // Expand Products menu
-      const productsButton = screen.getByRole('menuitem', { name: /products/i });
-      await user.click(productsButton);
-
-      // Expand Hardware submenu
-      const hardwareButton = screen.getByRole('menuitem', { name: /hardware/i });
-      await user.click(hardwareButton);
-
-      // Focus on a deeply nested item
-      const storageButton = screen.getByRole('menuitem', { name: /storage/i });
-      await user.click(storageButton);
-      expect(storageButton).toHaveFocus();
-
-      // First Escape - should focus on Hardware (immediate parent)
-      await user.keyboard('{Escape}');
-      expect(hardwareButton).toHaveFocus();
-
-      // Second Escape - should focus on Products (grandparent)
-      await user.keyboard('{Escape}');
-      expect(productsButton).toHaveFocus();
+      
+      const homeButton = screen.getByRole('menuitem', { name: /home/i });
+      expect(homeButton).toHaveAttribute('href', '/home');
+      
+      const servicesButton = screen.getByRole('menuitem', { name: /services/i });
+      expect(servicesButton).toHaveAttribute('href', '/services');
     });
 
-    it('should collapse submenu when pressing Escape on parent item', async () => {
-      const user = userEvent.setup();
-      renderNavigationMenu();
+    it('should highlight active item correctly', () => {
+      renderNavigationMenu({ activeItem: 'Home' });
+      
+      const homeButton = screen.getByRole('menuitem', { name: /home/i });
+      expect(homeButton).toHaveAttribute('aria-current', 'page');
+    });
 
-      // Expand Products menu
-      const productsButton = screen.getByRole('menuitem', { name: /products/i });
-      await user.click(productsButton);
-
-      // Verify submenu is open by checking if Hardware is visible
+    it('should expand parent menus of active item', async () => {
+      // Set deeply nested item as active
+      renderNavigationMenu({ activeItem: 'Servers' });
+      
+      // Parent menus should be expanded to show the active item
       expect(screen.getByRole('menuitem', { name: /hardware/i })).toBeInTheDocument();
-
-      // Press Escape on the Products button
-      await user.keyboard('{Escape}');
-
-      // Verify submenu is collapsed - Hardware should no longer be visible
-      expect(screen.queryByRole('menuitem', { name: /hardware/i })).not.toBeInTheDocument();
-    });
-
-    it('should handle Escape in second-level menu correctly', async () => {
-      const user = userEvent.setup();
-      renderNavigationMenu();
-
-      // Expand Products menu
-      const productsButton = screen.getByRole('menuitem', { name: /products/i });
-      await user.click(productsButton);
-
-      // Focus on Software (second-level item without children)
-      const softwareButton = screen.getByRole('menuitem', { name: /software/i });
-      await user.click(softwareButton);
-      expect(softwareButton).toHaveFocus();
-
-      // Press Escape - should focus on Products (immediate parent)
-      await user.keyboard('{Escape}');
-      expect(productsButton).toHaveFocus();
+      expect(screen.getByRole('menuitem', { name: /servers/i })).toBeInTheDocument();
+      
+      const serversButton = screen.getByRole('menuitem', { name: /servers/i });
+      expect(serversButton).toHaveAttribute('aria-current', 'page');
     });
   });
 
-  describe('Menu expansion and collapse', () => {
-    it('should expand and collapse menus when clicked', async () => {
-      const user = userEvent.setup();
-      renderNavigationMenu();
+  describe('Interactions', () => {
+    describe('Mouse', () => {
+      it('should expand and collapse menus when clicked', async () => {
+        const user = userEvent.setup();
+        renderNavigationMenu();
+  
+        const productsButton = screen.getByRole('menuitem', { name: /products/i });
+  
+        // Initially, submenu should be collapsed
+        expect(screen.queryByRole('menuitem', { name: /hardware/i })).not.toBeInTheDocument();
+  
+        // Click to expand
+        await user.click(productsButton);
+        expect(screen.getByRole('menuitem', { name: /hardware/i })).toBeInTheDocument();
+  
+        // Click to collapse
+        await user.click(productsButton);
+        expect(screen.queryByRole('menuitem', { name: /hardware/i })).not.toBeInTheDocument();
+      });
 
-      const productsButton = screen.getByRole('menuitem', { name: /products/i });
+      it('should toggle menu open/close when header button is clicked', async () => {
+        const user = userEvent.setup();
+        renderNavigationMenu();
+    
+        // Default is open
+        expect(screen.getByRole('navigation')).toBeInTheDocument();
+        
+        // Find toggle button by its accessible name (from tip)
+        const closeButton = screen.getByRole('button', { name: /close navigation/i });
+        expect(closeButton).toHaveAttribute('aria-expanded', 'true');
+        
+        await user.click(closeButton);
+        
+        // Should be closed
+        expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
+        
+        // Button should now be "Open navigation"
+        const openButton = screen.getByRole('button', { name: /open navigation/i });
+        expect(openButton).toHaveAttribute('aria-expanded', 'false');
+        
+        await user.click(openButton);
+        expect(screen.getByRole('navigation')).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: /close navigation/i })).toHaveAttribute('aria-expanded', 'true');
+      });
 
-      // Initially, submenu should be collapsed
-      expect(screen.queryByRole('menuitem', { name: /hardware/i })).not.toBeInTheDocument();
-
-      // Click to expand
-      await user.click(productsButton);
-      expect(screen.getByRole('menuitem', { name: /hardware/i })).toBeInTheDocument();
-
-      // Click to collapse
-      await user.click(productsButton);
-      expect(screen.queryByRole('menuitem', { name: /hardware/i })).not.toBeInTheDocument();
+      it('should call onSelect and setActiveItem when an item is clicked', async () => {
+        const user = userEvent.setup();
+        const onSelect = jest.fn();
+        const setActiveItem = jest.fn();
+        
+        renderNavigationMenu({ onSelect, setActiveItem });
+        
+        const item = screen.getByRole('menuitem', { name: /home/i });
+        await user.click(item);
+        
+        expect(onSelect).toHaveBeenCalledTimes(1);
+        expect(setActiveItem).toHaveBeenCalledWith('Home');
+      });
     });
 
+    describe('Keyboard', () => {
+      it('should focus on immediate parent when pressing Escape in a nested submenu', async () => {
+        const user = userEvent.setup();
+        renderNavigationMenu();
+  
+        // First, expand the "Products" menu
+        const productsButton = screen.getByRole('menuitem', { name: /products/i });
+        await user.click(productsButton);
+  
+        // Wait for the submenu to appear and expand "Hardware"
+        const hardwareButton = screen.getByRole('menuitem', { name: /hardware/i });
+        await user.click(hardwareButton);
+  
+        // Navigate to a deeply nested item (Servers)
+        const serversButton = screen.getByRole('menuitem', { name: /servers/i });
+        
+        // Focus on the servers button using user interaction
+        await user.click(serversButton);
+        expect(serversButton).toHaveFocus();
+  
+        // Press Escape - should focus on Hardware (immediate parent)
+        await user.keyboard('{Escape}');
+        
+        // Check that focus moved to Hardware button (immediate parent)
+        expect(hardwareButton).toHaveFocus();
+      });
+  
+      it('should focus on grandparent after two Escape presses in deeply nested menu', async () => {
+        const user = userEvent.setup();
+        renderNavigationMenu();
+  
+        // Expand Products menu
+        const productsButton = screen.getByRole('menuitem', { name: /products/i });
+        await user.click(productsButton);
+  
+        // Expand Hardware submenu
+        const hardwareButton = screen.getByRole('menuitem', { name: /hardware/i });
+        await user.click(hardwareButton);
+  
+        // Focus on a deeply nested item
+        const storageButton = screen.getByRole('menuitem', { name: /storage/i });
+        await user.click(storageButton);
+        expect(storageButton).toHaveFocus();
+  
+        // First Escape - should focus on Hardware (immediate parent)
+        await user.keyboard('{Escape}');
+        expect(hardwareButton).toHaveFocus();
+  
+        // Second Escape - should focus on Products (grandparent)
+        await user.keyboard('{Escape}');
+        expect(productsButton).toHaveFocus();
+      });
+  
+      it('should collapse submenu when pressing Escape on parent item', async () => {
+        const user = userEvent.setup();
+        renderNavigationMenu();
+  
+        // Expand Products menu
+        const productsButton = screen.getByRole('menuitem', { name: /products/i });
+        await user.click(productsButton);
+  
+        // Verify submenu is open by checking if Hardware is visible
+        expect(screen.getByRole('menuitem', { name: /hardware/i })).toBeInTheDocument();
+  
+        // Press Escape on the Products button
+        await user.keyboard('{Escape}');
+  
+        // Verify submenu is collapsed - Hardware should no longer be visible
+        expect(screen.queryByRole('menuitem', { name: /hardware/i })).not.toBeInTheDocument();
+      });
+  
+      it('should handle Escape in second-level menu correctly', async () => {
+        const user = userEvent.setup();
+        renderNavigationMenu();
+  
+        // Expand Products menu
+        const productsButton = screen.getByRole('menuitem', { name: /products/i });
+        await user.click(productsButton);
+  
+        // Focus on Software (second-level item without children)
+        const softwareButton = screen.getByRole('menuitem', { name: /software/i });
+        await user.click(softwareButton);
+        expect(softwareButton).toHaveFocus();
+  
+        // Press Escape - should focus on Products (immediate parent)
+        await user.keyboard('{Escape}');
+        expect(productsButton).toHaveFocus();
+      });
+    });
+  });
+
+  describe('Accessibility', () => {
     it('should show correct aria-expanded state', async () => {
       const user = userEvent.setup();
       renderNavigationMenu();
@@ -185,28 +267,23 @@ describe('NavigationMenu', () => {
       await user.click(productsButton);
       expect(productsButton).toHaveAttribute('aria-expanded', 'false');
     });
-  });
 
-  describe('Active item handling', () => {
-    it('should highlight active item correctly', () => {
-      renderNavigationMenu({ activeItem: 'Home' });
-      
-      const homeButton = screen.getByRole('menuitem', { name: /home/i });
-      expect(homeButton).toHaveAttribute('aria-current', 'page');
-    });
-
-    it('should expand parent menus of active item', async () => {
+    it('should announce selection', async () => {
       const user = userEvent.setup();
+      const announce = jest.fn();
       
-      // Set deeply nested item as active
-      renderNavigationMenu({ activeItem: 'Servers' });
+      render(
+        <Grommet theme={testTheme}>
+          <AnnounceContext.Provider value={announce}>
+            <NavigationMenu items={nestedMenuItems} title="Navigation Menu" />
+          </AnnounceContext.Provider>
+        </Grommet>
+      );
       
-      // Parent menus should be expanded to show the active item
-      expect(screen.getByRole('menuitem', { name: /hardware/i })).toBeInTheDocument();
-      expect(screen.getByRole('menuitem', { name: /servers/i })).toBeInTheDocument();
+      const item = screen.getByRole('menuitem', { name: /home/i });
+      await user.click(item);
       
-      const serversButton = screen.getByRole('menuitem', { name: /servers/i });
-      expect(serversButton).toHaveAttribute('aria-current', 'page');
+      expect(announce).toHaveBeenCalledWith('Selected Home.', 'assertive', 2000);
     });
   });
 });

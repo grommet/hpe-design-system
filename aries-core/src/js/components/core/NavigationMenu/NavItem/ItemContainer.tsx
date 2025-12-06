@@ -6,6 +6,7 @@ interface ItemContainerProps {
   children: React.ReactNode;
   gap?: string;
   hover: boolean;
+  round?: string;
 }
 
 export const ItemContainer = ({
@@ -13,13 +14,15 @@ export const ItemContainer = ({
   children,
   gap = "3xsmall",
   hover,
+  round = 'small',
   ...rest
 }: ItemContainerProps) => {
+  
   return (
     <Box
       direction="row"
       background={active ? 'background-active' : undefined}
-      round="xsmall"
+      round={round}
       responsive={false}
       {...rest}
     >
@@ -28,8 +31,12 @@ export const ItemContainer = ({
         align="center"
         background={hover ? 'background-hover' : undefined}
         gap={gap}
-        pad={{ vertical: "3xsmall", left: "3xsmall", right: "xsmall" }}
-        round="xsmall"
+        pad={{ 
+          vertical: "3xsmall", // figma is using element tokens here which are not available in grommet-theme-hpe
+          left: "3xsmall", // figma is using element tokens here which are not available in grommet-theme-hpe
+          right: "xxsmall" // figma is using element tokens here which are not available in grommet-theme-hpe
+        }}
+        round={round}
         responsive={false}
         flex
       >
