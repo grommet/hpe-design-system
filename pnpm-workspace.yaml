@@ -1,10 +1,10 @@
 packages:
-  - aries-core
-  - aries-site
-  - packages/**
-  - sandbox/*
-  - design-tokens-manager
-  - shared/*
+  - 'apps/*'
+  - 'aries-core'
+  - 'aries-site'
+  - 'packages/**'
+  - 'sandbox/*'
+  - 'shared/*'
 
 catalog:
   '@hpe-design/icons-grommet': ^1.1.0

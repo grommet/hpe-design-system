@@ -3,9 +3,19 @@ import React from 'react';
 import { ColumnSettingsExample } from 'aries-site/src/examples/templates/table-customization/components/ColumnSettingsExample';
 import { TableCustomizationExample } from 'aries-site/src/examples/templates/table-customization/components/TableCustomizationExample';
 
-export const ColumnSettings = () => <ColumnSettingsExample />;
-export const TableCustomization = () => <TableCustomizationExample />;
-
-export default {
+const meta = {
   title: 'DataTable Customization',
+  parameters: {
+    layout: 'centered',
+  },
+};
+
+export default meta;
+
+export const ColumnSettings = {
+  render: () => <ColumnSettingsExample />,
+};
+
+export const TableCustomization = {
+  render: () => <TableCustomizationExample />,
 };

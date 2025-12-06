@@ -12,7 +12,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const SettingsExample = () => {
   const [formValues, setFormValues] = React.useState({
