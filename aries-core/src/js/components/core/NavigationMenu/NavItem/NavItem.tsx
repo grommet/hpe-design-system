@@ -51,7 +51,13 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
         <Keyboard onEsc={onEsc as KeyboardType | undefined}>
           <Button
             plain
-            onClick={onClick}
+            href={url}
+            onClick={(e) => {
+              e.preventDefault(); // Caller handles navigation
+              if (typeof onClick === 'function') {
+                onClick();
+              }
+            }}
             role="menuitem"
             ref={ref as any}
             {...(rest as any)}
