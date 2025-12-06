@@ -190,8 +190,6 @@ export const NavList = ({
             </NavItem>
           );
         } else {
-          // const active = activeItem === item.label;
-
           result = (
             <NavItem
               {...navItemProps}
