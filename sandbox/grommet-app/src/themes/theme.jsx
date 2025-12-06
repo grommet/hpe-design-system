@@ -1181,14 +1181,14 @@ const buildTheme = (tokens, flags) => {
       // TO DO add cta-primary variant
       'cta-primary': {
         ...buttonKindTheme.primary,
-        icon: <Hpe />,
+        icon: <Element />,
         reverse: true,
         extend: '',
       },
       // TO DO add cta-alternate variant
       'cta-alternate': {
         ...buttonKindTheme.secondary,
-        icon: <Hpe color="icon-brand" />,
+        icon: <Element color="icon-brand" />,
         reverse: true,
       },
       ...buttonKindTheme,
