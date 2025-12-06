@@ -40,7 +40,7 @@ jobs:
           pnpm release-stable
         working-directory: design-tokens
         env:
-          GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN_NEW }}
+          GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
       # If stable is successfully update, push the same updates to Figma
       - name: Sync tokens to Figma file
         run: pnpm sync-tokens-to-figma
