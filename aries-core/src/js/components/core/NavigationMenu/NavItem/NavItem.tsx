@@ -1,4 +1,4 @@
-import { Button, Keyboard } from 'grommet';
+import { Button } from 'grommet';
 import { KeyboardType } from 'grommet/utils';
 import { forwardRef } from 'react';
 import { ItemContainer } from './ItemContainer';
@@ -48,37 +48,40 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
   ) => {
     return (
       <>
-        <Keyboard onEsc={onEsc as KeyboardType | undefined}>
-          <Button
-            plain
-            href={url}
-            onClick={(e) => {
-              e.preventDefault(); // Caller handles navigation
-              if (typeof onClick === 'function') {
-                onClick();
-              }
-            }}
-            role="menuitem"
-            ref={ref as any}
-            {...(rest as any)}
-          >
-            {({ hover }) => {
-              return (
-                <ItemContainer
-                  active={active as boolean | undefined}
-                  gap={level ? indent[level as keyof typeof indent] : undefined}
-                  hover={hover}
-                >
-                  <ItemLabel
-                    icon={icon as React.ReactNode}
-                    label={label as string}
-                  />
-                  {actions as React.ReactNode}
-                </ItemContainer>
-              );
-            }}
-          </Button>
-        </Keyboard>
+        <Button
+          plain
+          href={url}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape' && onEsc) {
+              (onEsc as (event: React.KeyboardEvent) => void)(event);
+            }
+          }}
+          onClick={(e) => {
+            e.preventDefault(); // Caller handles navigation
+            if (typeof onClick === 'function') {
+              onClick();
+            }
+          }}
+          role="menuitem"
+          ref={ref as any}
+          {...(rest as any)}
+        >
+          {({ hover }) => {
+            return (
+              <ItemContainer
+                active={active as boolean | undefined}
+                gap={level ? indent[level as keyof typeof indent] : undefined}
+                hover={hover}
+              >
+                <ItemLabel
+                  icon={icon as React.ReactNode}
+                  label={label as string}
+                />
+                {actions as React.ReactNode}
+              </ItemContainer>
+            );
+          }}
+        </Button>
         {children}
       </>
     );
