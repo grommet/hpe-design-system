@@ -5773,7 +5773,6 @@ packages:
 
   grommet-theme-hpe@6.5.1:
     resolution: {integrity: sha512-0ObM7dEGlhECYlrupxrjR+Z/kIoYxJD/tVFEh/vawpO4jU05LKRRKvkM97vrKFqAP9N64mbc52Tk17tJnSrwKw==}
-    version: 6.5.1
     peerDependencies:
       grommet: ^2.45.1
       grommet-icons: ^4.12.4
