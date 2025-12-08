@@ -143,18 +143,20 @@ describe('NavigationMenu', () => {
         expect(screen.getByRole('button', { name: /close navigation/i })).toHaveAttribute('aria-expanded', 'true');
       });
 
-      it('should call onSelect and setActiveItem when an item is clicked', async () => {
+      it('should call onSelect when an item is clicked', async () => {
         const user = userEvent.setup();
         const onSelect = jest.fn();
-        const setActiveItem = jest.fn();
         
-        renderNavigationMenu({ onSelect, setActiveItem });
+        renderNavigationMenu({ onSelect });
         
         const item = screen.getByRole('menuitem', { name: /home/i });
         await user.click(item);
         
         expect(onSelect).toHaveBeenCalledTimes(1);
-        expect(setActiveItem).toHaveBeenCalledWith('Home');
+        expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({
+          label: 'Home',
+          url: '/home',
+        }));
       });
     });
 

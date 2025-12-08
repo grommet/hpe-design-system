@@ -8,16 +8,14 @@ type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 interface NavListProps {
   items: NavItemWithLevel[];
   activeItem?: string;
-  setActiveItem?: (item: string | undefined) => void;
-  onSelect?: () => void;
   onEscapeToParent?: () => void;
+  onSelect?: (item: NavItemType) => void;
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
 export const NavList = ({
   items,
   activeItem,
-  setActiveItem,
   onSelect,
   onEscapeToParent,
   ...rest
@@ -87,8 +85,7 @@ export const NavList = ({
   };
 
   const onSelectItem = (item: NavItemWithLevel) => {
-    setActiveItem?.(item.label);
-    onSelect?.();
+    onSelect?.(item);
     announce(`Selected ${item.label}.`, 'assertive', 2000);
   };
 
@@ -177,7 +174,6 @@ export const NavList = ({
                   aria-labelledby={item.label}
                   items={item.children}
                   activeItem={activeItem}
-                  setActiveItem={setActiveItem}
                   onSelect={onSelect}
                   onEscapeToParent={() => {
                     // Collapse this parent menu and focus on it

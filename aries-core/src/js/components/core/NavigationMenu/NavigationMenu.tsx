@@ -6,18 +6,16 @@ import { NavList } from './NavList';
 
 interface NavigationMenuProps extends BoxProps {
   activeItem?: string;
-  setActiveItem?: (item: string | undefined) => void;
   header?: React.ReactNode;
   items: NavItemType[];
   open?: boolean;
   setOpen?: (open: boolean) => void;
   title?: string;
-	onSelect?: () => void;
+  onSelect?: (item: NavItemType) => void;
 }
 
 export const NavigationMenu = ({
   activeItem,
-  setActiveItem,
   header,
   items,
   open: openProp = true,
@@ -55,7 +53,6 @@ export const NavigationMenu = ({
           <NavList
             items={items}
             activeItem={activeItem}
-            setActiveItem={setActiveItem}
             onSelect={onSelect}
           />
         </Nav>

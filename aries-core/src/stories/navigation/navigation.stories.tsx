@@ -44,12 +44,15 @@ export const NavigationMenuExample = () => {
 
   const mobile = breakpoint === 'xsmall';
   const navTitle = 'Services';
+  const onSelect = (item: any) => {
+    setActiveItem(item.label);
+  };
 
   const navigationMenuProps = {
     title: navTitle,
     activeItem,
-    setActiveItem,
     items: navItems,
+    onSelect,
     open,
     setOpen,
   };
@@ -117,9 +120,13 @@ export const NavigationMenuExample = () => {
                         title={navigationMenuProps.title}
                       />
                     }
-                    onSelect={() => {
-                      // announce(messages.layerClose, 'assertive', 2000);
-                      setOpenLayer(false);
+                    onSelect={item => {
+                      onSelect(item);
+                      // Close the layer when an item is selected, unless it has children
+                      if (!item.children) {
+                        // announce(messages.layerClose, 'assertive', 2000);
+                        setOpenLayer(false);
+                      }
                     }}
                   />
                 </Box>
