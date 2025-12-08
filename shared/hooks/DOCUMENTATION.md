@@ -158,7 +158,7 @@ For older browsers or environments without sessionStorage, the hook will work as
 
 ```bash
 cd shared/hooks
-yarn build
+pnpm build
 ```
 
 This compiles TypeScript to JavaScript and generates type definitions in the `dist/` directory.
@@ -167,7 +167,7 @@ This compiles TypeScript to JavaScript and generates type definitions in the `di
 
 ```bash
 cd shared/hooks
-yarn test
+pnpm test
 ```
 
 Tests are written using Vitest and React Testing Library.
@@ -176,14 +176,14 @@ Tests are written using Vitest and React Testing Library.
 
 ```bash
 cd shared/hooks
-yarn lint
+pnpm lint
 ```
 
 ### Type Checking
 
 ```bash
 cd shared/hooks
-yarn check-types
+pnpm check-types
 ```
 
 ## Project Structure
@@ -211,8 +211,8 @@ When adding a new hook to this package:
 2. Export it from `src/index.ts`
 3. Add comprehensive tests in `__tests__/`
 4. Update this documentation
-5. Run `yarn build` to compile
-6. Run `yarn test` to ensure all tests pass
+5. Run `pnpm build` to compile
+6. Run `pnpm test` to ensure all tests pass
 
 ### Hook Guidelines
 

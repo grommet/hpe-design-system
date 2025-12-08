@@ -14,7 +14,7 @@ import {
   PageContent,
   Toolbar,
 } from 'grommet';
-import { ContentPane } from '../../../../layouts';
+import { ContentPane } from '../../../../layouts/content/ContentPane';
 
 const COLUMNS = [
   { property: 'name', header: 'Name', primary: true, pin: true },

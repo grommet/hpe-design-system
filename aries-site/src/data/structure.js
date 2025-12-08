@@ -58,11 +58,9 @@ export const structure = [
     icon: (_, color) => <Grow color={color} aria-hidden="true" />,
     preview: {
       image: {
-        src: {
-          light: '/components-light.svg',
-          dark: '/components-dark.svg',
-        },
+        src: '/creativetoolkitimages/components.svg',
         alt: 'HPE Cards Preview',
+        fit: 'contain',
       },
     },
     seoDescription:
@@ -79,11 +77,9 @@ export const structure = [
     ),
     preview: {
       image: {
-        src: {
-          light: '/templates-light.svg',
-          dark: '/templates-dark.svg',
-        },
+        src: '/creativetoolkitimages/templates.svg',
         alt: 'HPE Cards Preview',
+        fit: 'contain',
       },
     },
     seoDescription:
@@ -103,11 +99,9 @@ export const structure = [
     ),
     preview: {
       image: {
-        src: {
-          light: '/components-light.svg',
-          dark: '/components-dark.svg',
-        },
+        src: '/creativetoolkitimages/components.svg',
         alt: 'HPE Cards Preview',
+        fit: 'contain',
       },
     },
     seoDescription:
@@ -131,11 +125,9 @@ export const structure = [
     icon: (_, color) => <Cube color={color} aria-hidden="true" />,
     preview: {
       image: {
-        src: {
-          light: '/components-light.svg',
-          dark: '/components-dark.svg',
-        },
+        src: '/creativetoolkitimages/components.svg',
         alt: 'HPE Cards Preview',
+        fit: 'contain',
       },
     },
     seoDescription:

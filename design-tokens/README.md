@@ -4,6 +4,12 @@ Design tokens for use with the HPE Design System.
 
 ## Install
 
+With pnpm:
+
+```
+pnpm i hpe-design-tokens
+```
+
 With yarn:
 
 ```

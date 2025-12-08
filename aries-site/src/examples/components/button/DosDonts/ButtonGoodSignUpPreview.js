@@ -14,7 +14,7 @@ import {
 } from 'grommet';
 import { ContentPane } from '../../../../layouts';
 
-export const ButtonGoodSignUpCTAPreview = () => {
+export const ButtonGoodSignUpPreview = () => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
     // Your submission logic here

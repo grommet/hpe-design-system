@@ -1,7 +1,7 @@
 {
   "name": "hpe-design-tokens",
   "description": "Design tokens for use with the HPE Design System.",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "license": "Apache-2.0",
   "type": "module",
   "module": "./dist/esm/index.js",
@@ -28,7 +28,7 @@
     "sync-tokens-to-figma": "tsx src/scripts/sync_tokens_to_figma.ts",
     "sync-figma-to-tokens": "tsx src/scripts/sync_figma_to_tokens.ts",
     "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
-    "build": "rm -rf ./dist && yarn build-style-dictionary",
+    "build": "rm -rf ./dist && pnpm build-style-dictionary",
     "release-stable": "node src/scripts/release-stable.js  --branch=design-tokens-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
     "paddingY:update": "tsx src/scripts/update-paddingY.ts",
@@ -47,7 +47,7 @@
     "style-dictionary": "^4.2.0",
     "style-dictionary-utils": "^3.0.0",
     "tsx": "^4.19.1",
-    "typescript": "^5.1.6",
+    "typescript": "catalog:",
     "vitest": "^3.0.9"
   }
 }

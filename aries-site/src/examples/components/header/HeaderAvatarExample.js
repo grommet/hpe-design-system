@@ -1,7 +1,6 @@
 import React from 'react';
 import { Avatar, Box, Button, Header, Text } from 'grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 
 export const HeaderAvatarExample = () => (
   <Header fill="horizontal">
@@ -15,7 +14,7 @@ export const HeaderAvatarExample = () => (
         pad={{ vertical: 'xsmall' }}
         responsive={false}
       >
-        <Hpe color="brand" />
+        <Element color="brand" />
         <Box direction="row" gap="3xsmall" wrap>
           <Text color="text-strong" weight="bold">
             HPE

@@ -1,7 +1,7 @@
 {
 	"name": "@hpe-design/icons-grommet",
 	"description": "HPE Icons for use with Grommet and the HPE Design System.",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"license": "Apache-2.0",
 	"repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons/grommet",
 	"type": "module",
@@ -35,7 +35,7 @@
 		"LICENSE"
 	],
 	"scripts": {
-		"build": "vite build && npm run copy-types",
+		"build": "vite build && pnpm run copy-types",
 		"copy-types": "cp src/js/icons/index.d.ts dist/hpe-icons.d.ts",
 		"lint": "eslint .",
 		"storybook": "storybook dev -p 6006",
@@ -52,20 +52,20 @@
 		"@storybook/react": "^8.6.14",
 		"@storybook/react-vite": "^8.6.14",
 		"@storybook/test": "^8.6.14",
-		"@types/react": "^19.1.10",
-		"@types/react-dom": "^19.1.7",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "^5.0.0",
 		"eslint": "^9.33.0",
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"eslint-plugin-react-refresh": "^0.4.20",
 		"globals": "^16.3.0",
-		"grommet-theme-hpe": "^7.0.0",
+		"grommet-theme-hpe": "catalog:grommet-theme-hpe-v7",
 		"minimatch": "^10.0.3",
-		"react": "^18.0.0 || ^19.0.0",
-		"styled-components": "^6.0.0",
+		"react": "^18.0.0 || ^19.2.1 || ^19.0.1 || ^19.1.2",
 		"storybook": "^8.6.14",
-		"typescript": "~5.8.3",
+		"styled-components": "catalog:",
+		"typescript": "catalog:",
 		"typescript-eslint": "^8.39.1",
-		"vite": "^7.1.2"
+		"vite": "^7.2.2"
 	}
 }

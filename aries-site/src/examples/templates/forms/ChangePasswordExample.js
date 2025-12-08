@@ -9,7 +9,7 @@ import {
   ResponsiveContext,
   TextInput,
 } from 'grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const passwordRulesWeak = [
   {

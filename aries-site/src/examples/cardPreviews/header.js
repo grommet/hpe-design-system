@@ -1,8 +1,6 @@
 import React from 'react';
 import { Box, Header, Button, Text } from 'grommet';
-import { Menu } from '@hpe-design/icons-grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import { Menu, Element } from '@hpe-design/icons-grommet';
 
 export const HeaderPreview = () => (
   <Header
@@ -12,7 +10,7 @@ export const HeaderPreview = () => (
     fill="horizontal"
   >
     <Box direction="row" gap="xsmall">
-      <Hpe color="brand" height="medium" />
+      <Element color="brand" height="medium" />
       <Box align="center" gap="3xsmall" direction="row">
         <Text color="text-strong" weight="bold">
           HPE

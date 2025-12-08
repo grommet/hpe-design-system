@@ -1,0 +1,48 @@
+import { ComposableScale } from '../../examples/foundation/scale-system';
+
+The scale establishes how UI elements proportionally relate to one another, ensuring 
+composability and harmony within the layout. It defines a base unit and scale ratio from 
+which all steps of the scale are derived. Subsets of the scale are used to define spacing 
+sizes and content container sizes.
+
+Additionally, the scale system provides ready-to-use functionality that automatically 
+adapts UIs based on viewport width, device type, and user preferences.
+
+## Principles
+
+The scale system has been built from the following principles:
+
+- **Proportional:** Each step in the scale follows a consistent ratio, ensuring all
+  steps are proportional to one another.
+- **Composable:** Each step in the scale is divisible into halves, thirds, quarters, and so on.
+  Conversely, each step may be assembled from smaller increments.
+- **Flexible:** Subsets of the scale accommodate a wide range of use cases, from small spacing needs
+  to large containers and layouts.
+- **Harmonious:** The scale promotes visual harmony and balance across UI elements by ensuring
+  consistent sizing relationships.
+
+## Foundational scale
+
+The scale system is built upon two interconnected scales:
+- **Primary scale**: Based on a 24px base unit, where each step is achieved by doubling or halving the previous value.
+- **Supplementary scale**: Based on a 16px base unit, following the same doubling and halving principle.
+
+The resulting scale steps: <br />
+1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536.
+
+Design tokens for [spacing](/design-tokens/layout-and-spacing#spacing), [containers](/design-tokens/layout-and-spacing#containers), 
+[border radius](/design-tokens/layout-and-spacing#radius), and [border width](/design-tokens/layout-and-spacing#border-width) are defined as subsets of 
+this foundational scale.
+
+## Composability
+
+Each step in the scale is divisible into halves, thirds, or quarters. Conversely, each step can be 
+composed by combining smaller steps. This ensures that when you add or subtract spacing or 
+container [t-shirt sizes](/foundation/tshirt-sizing), the result is always another valid size on 
+the scale.
+
+<figure style={{ display: 'contents' }}>
+  {/* TODO: Determine appropriate colors and/or how to represent proper text. Or, do we treat this as an illustration only? */}
+  <ComposableScale />
+  <figcaption>Figure 1: Composable scale steps visualization</figcaption>
+</figure>
