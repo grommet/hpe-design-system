@@ -158,7 +158,7 @@ export const NavList = ({
               active={active}
               aria-current={active ? 'page' : undefined}
               onClick={() => {
-                if (item.url) { 
+                if (item.url) {
                   onSelectItem(item);
                 }
                 updateExpanded(item);
