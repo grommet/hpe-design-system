@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, Heading, List } from 'grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const movies = [
   { title: 'Ponyo', genre: 'Fantasy/Adventure' },

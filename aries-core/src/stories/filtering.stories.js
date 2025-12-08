@@ -5,11 +5,24 @@ import { FilteringTable } from 'aries-site/src/examples/templates/filtering/Filt
 import { FilteringLists } from 'aries-site/src/examples/templates/filtering/FilteringLists/FilteringLists';
 import { QuickFilterToolbar } from 'aries-site/src/examples/templates/filtering/QuickFilterToolbar';
 
-export const FilterCards = () => <FilteringCards />;
-export const FilterTable = () => <FilteringTable />;
-export const FilterLists = () => <FilteringLists />;
-export const QuickFilter = () => <QuickFilterToolbar />;
-
-export default {
+const meta = {
   title: 'Filtering',
+};
+
+export default meta;
+
+export const FilterCards = {
+  render: () => <FilteringCards />,
+};
+
+export const FilterTable = {
+  render: () => <FilteringTable />,
+};
+
+export const FilterLists = {
+  render: () => <FilteringLists />,
+};
+
+export const QuickFilter = {
+  render: () => <QuickFilterToolbar />,
 };

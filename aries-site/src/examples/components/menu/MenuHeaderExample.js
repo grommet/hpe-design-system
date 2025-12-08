@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Header, Menu, Text, ResponsiveContext } from 'grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 
 export const MenuHeaderExample = () => {
   const items = [
@@ -24,7 +23,7 @@ export const MenuHeaderExample = () => {
           pad={{ vertical: 'xsmall' }}
           responsive={false}
         >
-          <Hpe color="brand" height="medium" />
+          <Element color="brand" height="medium" />
           {!['xsmall', 'small'].includes(size) && (
             <Box direction="row" gap="3xsmall" wrap>
               <Text color="text-strong" weight="bold">

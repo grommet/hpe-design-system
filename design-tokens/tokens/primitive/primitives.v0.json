@@ -3021,6 +3021,18 @@
         "$type": "number",
         "$value": "{base.dimension.75}"
       },
+      "6xsmall": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.50}"
+      },
       "hair": {
         "$description": "",
         "$extensions": {

@@ -11,12 +11,11 @@ import {
 } from 'grommet';
 import {
   Chat,
+  Element,
   Notification,
   Search as SearchIcon,
   User,
 } from '@hpe-design/icons-grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
 
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-complex-example',
@@ -69,7 +68,7 @@ export const HeaderSearchActionsExample = () => (
         pad={{ vertical: 'xsmall' }}
         responsive={false}
       >
-        <Hpe color="brand" />
+        <Element color="brand" />
         <Box direction="row" gap="3xsmall" wrap>
           <Text color="text-strong" weight="bold">
             HPE
