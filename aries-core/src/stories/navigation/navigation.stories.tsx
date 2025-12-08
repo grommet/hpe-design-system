@@ -1,4 +1,4 @@
-import { use, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {
   AnnounceContext,
   Box,
@@ -28,7 +28,7 @@ const responsiveGridAreas: Record<string, string[][]> = {
   ],
 };
 
-export const NavigationMenuExample = () => {
+const NavigationMenuExample = () => {
   const [contextContent, setContextContent] = useSessionStorage(
     'contextContent',
     '',
@@ -61,7 +61,6 @@ export const NavigationMenuExample = () => {
     layerOpen: `${navTitle} navigation opened.`,
     layerClose: `${navTitle} navigation closed.`,
   };
-
   // Remove layer when breakpoint changes to non-mobile
   useEffect(() => {
     if (!mobile && openLayer) {
@@ -164,10 +163,16 @@ export const NavigationMenuExample = () => {
   );
 };
 
-export default {
+const meta = {
   title: 'Navigation',
   component: NavigationMenu,
   parameters: {
     layout: 'fullscreen',
   },
+};
+
+export default meta;
+
+export const Navigation = {
+  render: () => <NavigationMenuExample />,
 };

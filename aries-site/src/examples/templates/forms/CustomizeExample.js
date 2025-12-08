@@ -11,7 +11,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const CustomizeExample = () => {
   const [formValues, setFormValues] = React.useState({});

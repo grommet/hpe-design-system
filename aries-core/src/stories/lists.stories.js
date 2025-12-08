@@ -8,14 +8,36 @@ import { ListNameOptionActionExample } from 'aries-site/src/examples/templates/l
 import { ListOrderExample } from 'aries-site/src/examples/templates/list-views/ListOrderExample';
 import { ListScreenExample } from 'aries-site/src/examples/templates/list-views/ListScreenExample';
 
-export const IconIdentifier = () => <ListIconIdentifierExample />;
-export const ImageIdentifier = () => <ListImageIdentifierExample />;
-export const NameDescriptionOption = () => <ListNameDescriptionOptionExample />;
-export const Name = () => <ListNameExample />;
-export const NameOptionAction = () => <ListNameOptionActionExample />;
-export const Order = () => <ListOrderExample />;
-export const Screen = () => <ListScreenExample />;
-
-export default {
+const meta = {
   title: 'Lists',
+};
+
+export default meta;
+
+export const IconIdentifier = {
+  render: () => <ListIconIdentifierExample />,
+};
+
+export const ImageIdentifier = {
+  render: () => <ListImageIdentifierExample />,
+};
+
+export const NameDescriptionOption = {
+  render: () => <ListNameDescriptionOptionExample />,
+};
+
+export const Name = {
+  render: () => <ListNameExample />,
+};
+
+export const NameOptionAction = {
+  render: () => <ListNameOptionActionExample />,
+};
+
+export const Order = {
+  render: () => <ListOrderExample />,
+};
+
+export const Screen = {
+  render: () => <ListScreenExample />,
 };

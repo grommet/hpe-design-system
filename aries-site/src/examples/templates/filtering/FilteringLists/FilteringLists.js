@@ -21,7 +21,7 @@ import {
   StatusCritical,
   StatusGood,
 } from '@hpe-design/icons-grommet';
-import { ContentPane } from '../../../../layouts';
+import { ContentPane } from '../../../../layouts/content/ContentPane';
 import { orders } from './mockData';
 
 const statusIcons = {

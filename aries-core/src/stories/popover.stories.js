@@ -3,9 +3,16 @@ import React from 'react';
 import { PopoverInlineExample } from 'aries-site/src/examples/templates/popover/PopoverInlineExample';
 import { PopoverSimpleExample } from 'aries-site/src/examples/templates/popover/PopoverSimpleExample';
 
-export const PopoverInline = () => <PopoverInlineExample />;
-export const PopoverSimple = () => <PopoverSimpleExample />;
-
-export default {
+const meta = {
   title: 'Popover',
+};
+
+export default meta;
+
+export const PopoverInline = {
+  render: () => <PopoverInlineExample />,
+};
+
+export const PopoverSimple = {
+  render: () => <PopoverSimpleExample />,
 };

@@ -21,7 +21,7 @@ import {
   passwordRequirements,
   passwordRulesStrong,
 } from './utils/FormValidation';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
