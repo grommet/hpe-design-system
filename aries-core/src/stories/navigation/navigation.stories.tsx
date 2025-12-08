@@ -111,7 +111,12 @@ export const NavigationMenuExample = () => {
                     {...navigationMenuProps}
                     gap="medium"
                     width={undefined} // full width when in mobile
-                    header={<LayerHeader onClose={() => setOpenLayer(false)} />}
+                    header={
+                      <LayerHeader
+                        onClose={() => setOpenLayer(false)}
+                        title={navigationMenuProps.title}
+                      />
+                    }
                     onSelect={() => {
                       // announce(messages.layerClose, 'assertive', 2000);
                       setOpenLayer(false);
