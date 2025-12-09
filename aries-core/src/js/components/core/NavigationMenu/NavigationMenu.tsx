@@ -9,7 +9,6 @@ interface NavigationMenuProps extends BoxProps {
   header?: React.ReactNode;
   items: NavItemType[];
   open?: boolean;
-  setOpen?: (open: boolean) => void;
   title?: string;
   onSelect?: (item: NavItemType) => void;
 }
@@ -19,7 +18,6 @@ export const NavigationMenu = ({
   header,
   items,
   open: openProp = true,
-  setOpen: setOpenProp,
   onSelect,
   title,
   ...rest
@@ -38,7 +36,7 @@ export const NavigationMenu = ({
       header={header}
       navigationId={navigationId}
       open={open}
-      setOpen={setOpenProp || setOpen}
+      setOpen={setOpen}
       title={title}
       overflow="auto"
       {...rest}

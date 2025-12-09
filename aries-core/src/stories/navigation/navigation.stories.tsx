@@ -54,7 +54,6 @@ const NavigationMenuExample = () => {
     items: navItems,
     onSelect,
     open,
-    setOpen,
   };
 
   const messages = {
