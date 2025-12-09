@@ -20,9 +20,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "types": ["jest", "node"]
   },
-  "types": ["jest", "node"],
   "include": [
     "src/**/*",
     "**/*.ts",
