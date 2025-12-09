@@ -52,7 +52,7 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
           href={url}
           onKeyDown={event => {
             if (event.key === 'Escape' && onEsc) {
-              (onEsc as (event: React.KeyboardEvent) => void)(event);
+              onEsc(event);
             }
           }}
           onClick={e => {
