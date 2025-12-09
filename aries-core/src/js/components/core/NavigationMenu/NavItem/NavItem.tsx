@@ -50,14 +50,14 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
         <Button
           plain
           href={url}
-          onKeyDown={(event) => {
+          onKeyDown={event => {
             if (event.key === 'Escape' && onEsc) {
               (onEsc as (event: React.KeyboardEvent) => void)(event);
             }
           }}
-          onClick={(e) => {
-            e.preventDefault(); // Caller handles navigation
+          onClick={e => {
             if (typeof onClick === 'function') {
+              e.preventDefault(); // Prevent browser default navigation if custom onClick is provided
               onClick();
             }
           }}
