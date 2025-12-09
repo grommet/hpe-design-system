@@ -158,6 +158,59 @@ describe('NavigationMenu', () => {
           url: '/home',
         }));
       });
+
+      it('should handle parent item with both url and children', async () => {
+        const user = userEvent.setup();
+        const onSelect = jest.fn();
+        
+        const itemsWithUrlParent: NavItemType[] = [
+          {
+            label: 'Documentation',
+            url: '/docs',
+            children: [
+              { label: 'Get Started', url: '/docs/get-started' }
+            ]
+          }
+        ];
+
+        const { rerender } = renderNavigationMenu({ items: itemsWithUrlParent, onSelect });
+        
+        const parentItem = screen.getByRole('menuitem', { name: /documentation/i });
+        
+        // Verify it has href
+        expect(parentItem).toHaveAttribute('href', '/docs');
+
+        // Initially collapsed
+        expect(screen.queryByRole('menuitem', { name: /get started/i })).not.toBeInTheDocument();
+        
+        // Click parent
+        await user.click(parentItem);
+        
+        // Verify onSelect called
+        expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({
+          label: 'Documentation',
+          url: '/docs'
+        }));
+
+        // Verify expansion
+        expect(screen.getByRole('menuitem', { name: /get started/i })).toBeInTheDocument();
+
+        // Verify active state
+        rerender(
+          <Grommet theme={testTheme}>
+            <NavigationMenu 
+              items={itemsWithUrlParent}
+              open={true}
+              title="Navigation Menu"
+              onSelect={onSelect}
+              activeItem="Documentation"
+            />
+          </Grommet>
+        );
+        
+        const activeParent = screen.getByRole('menuitem', { name: /documentation/i });
+        expect(activeParent).toHaveAttribute('aria-current', 'page');
+      });
     });
 
     describe('Keyboard', () => {
