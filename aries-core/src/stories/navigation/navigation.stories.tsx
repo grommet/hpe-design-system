@@ -13,7 +13,7 @@ import {
 } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
 import { useSessionStorage } from '@shared/hooks';
-import { NavigationMenu } from '../../js/components';
+import { NavigationMenu, NavItemType } from '../../js/components';
 import { AppHeader, Genie, Help, LayerHeader, navItems } from './content';
 
 const gridAreas = [
@@ -44,7 +44,7 @@ const NavigationMenuExample = () => {
 
   const mobile = breakpoint === 'xsmall';
   const navTitle = 'Services';
-  const onSelect = (item: any) => {
+  const onSelect = (item: NavItemType) => {
     setActiveItem(item.label);
   };
 

@@ -86,7 +86,9 @@ export const NavList = ({
 
   const onSelectItem = (item: NavItemWithLevel) => {
     onSelect?.(item);
-    announce(`Selected ${item.label}.`, 'assertive', 2000);
+    if (announce) {
+      announce(`Selected ${item.label}.`, 'assertive', 2000);
+    }
   };
 
   const onEscape = (
