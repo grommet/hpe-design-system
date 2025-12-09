@@ -65,13 +65,14 @@ To fetch the latest grommet stable, remove pnpm-lock.yam and clean cache (TBD), 
 Run aries-site in development mode:
 
 ```
-pnpm --filter aries-site start
+pnpm start:aries-site
 ```
 
 Run in production mode:
 
 ```
-pnpm --filter aries-site start-server
+cd aries-site
+pnpm start-server
 ```
 
 
