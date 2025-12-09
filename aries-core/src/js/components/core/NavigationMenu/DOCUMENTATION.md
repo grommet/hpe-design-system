@@ -44,7 +44,7 @@ The root component that provides the complete navigation interface with collapsi
 - `items: NavItemType[]` - Array of navigation items to display
 - `open: boolean` - Controls whether the navigation is expanded or collapsed
 - `title?: string` - Title text displayed in the navigation header
-- `onSelect?: (item: NavItemType) => void` - Callback function triggered when an item is selected
+- `onSelect?: ({ item, event }: { item: NavItemType; event: React.MouseEvent | React.KeyboardEvent }) => void` - Callback function triggered when an item is selected
 
 **Features:**
 
@@ -94,7 +94,7 @@ The main container component that manages navigation state and renders navigatio
 
 - `items: NavItemWithLevel[]` - Array of navigation items
 - `activeItem?: string` - Currently active item label
-- `onSelect?: (item: NavItemType) => void` - Callback when an item is selected
+- `onSelect?: ({ item, event }: { item: NavItemType; event: React.MouseEvent | React.KeyboardEvent }) => void` - Callback when an item is selected
 - `...rest` - Additional props for accessibility (role, aria-labelledby, etc.)
 
 **Features:**
@@ -262,8 +262,36 @@ const hierarchicalNavItems: NavItemType[] = [
   open={isOpen}
   header={<CustomHeaderComponent />}
   activeItem={activeItem}
-  onSelect={(item) => console.log('Item selected:', item)}
+  onSelect={({ item }) => console.log('Item selected:', item)}
 />
+```
+
+### Custom Routing (Client-side Navigation)
+
+You can prevent the default browser navigation and handle routing manually (e.g., with Next.js router or React Router) by using the `event` object passed to `onSelect`.
+
+```tsx
+import { useRouter } from 'next/router';
+
+const MyNavigation = () => {
+  const router = useRouter();
+
+  return (
+    <NavigationMenu
+      items={navItems}
+      open={true}
+      title="App Navigation"
+      onSelect={({ item, event }) => {
+        // Prevent full page reload
+        event.preventDefault();
+        // Handle client-side routing
+        if (item.url) {
+          router.push(item.url);
+        }
+      }}
+    />
+  );
+};
 ```
 
 ### Using NavList Directly (Advanced)
@@ -274,7 +302,7 @@ For more direct control, you can use NavList without the NavigationMenu wrapper:
 <NavList
   items={navItems}
   activeItem="Button"
-  onSelect={(item) => console.log('Item selected:', item)}
+  onSelect={({ item }) => console.log('Item selected:', item)}
 />
 ```
 

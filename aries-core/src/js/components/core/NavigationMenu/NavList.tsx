@@ -9,7 +9,13 @@ interface NavListProps {
   items: NavItemWithLevel[];
   activeItem?: string;
   onEscapeToParent?: () => void;
-  onSelect?: (item: NavItemType) => void;
+  onSelect?: ({
+    item,
+    event,
+  }: {
+    item: NavItemType;
+    event: React.MouseEvent | React.KeyboardEvent;
+  }) => void;
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
@@ -84,8 +90,11 @@ export const NavList = ({
     });
   };
 
-  const onSelectItem = (item: NavItemWithLevel) => {
-    onSelect?.(item);
+  const onSelectItem = (
+    item: NavItemWithLevel,
+    event: React.MouseEvent | React.KeyboardEvent,
+  ) => {
+    onSelect?.({ item, event });
     if (announce) {
       announce(`Selected ${item.label}.`, 'assertive', 2000);
     }
@@ -156,10 +165,10 @@ export const NavList = ({
               aria-expanded={expandedItem}
               active={active}
               aria-current={active ? 'page' : undefined}
-              onClick={() => {
+              onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
                 // Parent items with URLs are navigable and expandable
                 if (item.url) {
-                  onSelectItem(item);
+                  onSelectItem(item, event);
                 }
                 updateExpanded(item);
                 // announce(
@@ -194,8 +203,8 @@ export const NavList = ({
               {...navItemProps}
               active={active}
               aria-current={active ? 'page' : undefined}
-              onClick={() => {
-                onSelectItem(item);
+              onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
+                onSelectItem(item, event);
               }}
             />
           );

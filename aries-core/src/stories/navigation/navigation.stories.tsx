@@ -44,8 +44,9 @@ const NavigationMenuExample = () => {
 
   const mobile = breakpoint === 'xsmall';
   const navTitle = 'Services';
-  const onSelect = (item: NavItemType) => {
-    setActiveItem(item.label);
+  const onSelect = ({ item, event }: { item: NavItemType; event: React.MouseEvent | React.KeyboardEvent }) => {
+    event.preventDefault();
+    setActiveItem(item.label); // or router.push(item.url) for navigation
   };
 
   const navigationMenuProps = {
@@ -118,8 +119,8 @@ const NavigationMenuExample = () => {
                         title={navigationMenuProps.title}
                       />
                     }
-                    onSelect={item => {
-                      onSelect(item);
+                    onSelect={({ item, event }) => {
+                      onSelect({ item, event });
                       // Close the layer when an item is selected, unless it has children
                       if (!item.children) {
                         // announce(messages.layerClose, 'assertive', 2000);

@@ -10,7 +10,13 @@ interface NavigationMenuProps extends BoxProps {
   items: NavItemType[];
   open?: boolean;
   title?: string;
-  onSelect?: (item: NavItemType) => void;
+  onSelect?: ({
+    item,
+    event,
+  }: {
+    item: NavItemType;
+    event: React.MouseEvent | React.KeyboardEvent;
+  }) => void;
 }
 
 export const NavigationMenu = ({

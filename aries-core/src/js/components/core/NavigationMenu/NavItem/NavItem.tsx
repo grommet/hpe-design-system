@@ -17,8 +17,8 @@ interface NavItemProps {
   icon?: React.ReactNode;
   label: string;
   level?: 1 | 2;
-  onClick?: () => void;
   onEsc?: (event: React.KeyboardEvent) => void;
+  onSelect?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   url?: string;
   [key: string]: unknown; // For additional props like 'id', 'aria-label', etc.
 }
@@ -38,8 +38,8 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
       icon,
       label,
       level,
-      onClick,
       onEsc,
+      onSelect,
       url,
       ...rest
     },
@@ -56,9 +56,8 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
             }
           }}
           onClick={e => {
-            if (typeof onClick === 'function') {
-              e.preventDefault(); // Prevent browser default navigation if custom onClick is provided
-              onClick();
+            if (typeof onSelect === 'function') {
+              onSelect(e);
             }
           }}
           role="menuitem"

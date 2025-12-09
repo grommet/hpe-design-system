@@ -153,10 +153,15 @@ describe('NavigationMenu', () => {
         await user.click(item);
         
         expect(onSelect).toHaveBeenCalledTimes(1);
-        expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({
-          label: 'Home',
-          url: '/home',
-        }));
+        expect(onSelect).toHaveBeenCalledWith(
+          expect.objectContaining({
+            item: expect.objectContaining({
+              label: 'Home',
+              url: '/home',
+            }),
+            event: expect.anything(),
+          }),
+        );
       });
 
       it('should handle parent item with both url and children', async () => {
@@ -187,10 +192,15 @@ describe('NavigationMenu', () => {
         await user.click(parentItem);
         
         // Verify onSelect called
-        expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({
-          label: 'Documentation',
-          url: '/docs'
-        }));
+        expect(onSelect).toHaveBeenCalledWith(
+          expect.objectContaining({
+            item: expect.objectContaining({
+              label: 'Documentation',
+              url: '/docs',
+            }),
+            event: expect.anything(),
+          }),
+        );
 
         // Verify expansion
         expect(screen.getByRole('menuitem', { name: /get started/i })).toBeInTheDocument();
