@@ -71,8 +71,8 @@ pnpm start:aries-site
 Run in production mode:
 
 ```
-cd aries-site
-pnpm start-server
+pnpm build
+pnpm --filter aries-site start-server
 ```
 
 

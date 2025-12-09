@@ -5,10 +5,9 @@
   "license": "Apache-2.0",
   "main": "src/js/index.js",
   "scripts": {
-    "build-design-tokens": "cd ../design-tokens && pnpm build",
-    "build-shared-hooks": "cd ../shared/hooks && pnpm build",
+    "build-design-tokens": "pnpm --filter hpe-design-tokens build",
+    "build-shared-hooks": "pnpm --filter '@shared/hooks' build",
     "build-site-search": "cd ../aries-site && node src/scripts/site-contents.mjs",
-    "xbuild": "pnpm build-design-tokens && pnpm build-shared-hooks && webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
     "build": "webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",

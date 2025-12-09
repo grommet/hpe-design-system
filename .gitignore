@@ -3,7 +3,7 @@
 
 # testing
 /coverage
-*/src/tests/build
+**/src/tests/build
 
 #lock files
 *package-lock.json

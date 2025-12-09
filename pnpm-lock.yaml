@@ -139,7 +139,7 @@ importers:
         version: 6.5.1(grommet-icons@4.14.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(styled-components@6.1.19(react-dom@19.2.1(react@19.2.1))(react@19.2.1)))(grommet@2.51.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(styled-components@6.1.19(react-dom@19.2.1(react@19.2.1))(react@19.2.1)))(react@19.2.1)(styled-components@6.1.19(react-dom@19.2.1(react@19.2.1))(react@19.2.1))
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../../design-tokens
+        version: link:../../packages/hpe-design-tokens
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -393,7 +393,17 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(testcafe@3.7.2)
 
-  design-tokens:
+  packages/codemods:
+    dependencies:
+      jscodeshift:
+        specifier: ^17.3.0
+        version: 17.3.0(@babel/preset-env@7.28.5(@babel/core@7.28.5))
+    devDependencies:
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
+
+  packages/hpe-design-tokens:
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.26.0
@@ -436,16 +446,6 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.0.9
-        version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
-
-  packages/codemods:
-    dependencies:
-      jscodeshift:
-        specifier: ^17.3.0
-        version: 17.3.0(@babel/preset-env@7.28.5(@babel/core@7.28.5))
-    devDependencies:
-      vitest:
-        specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
 
   packages/icons/core:
@@ -551,7 +551,7 @@ importers:
         version: 3.13.0
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../../design-tokens
+        version: link:../../packages/hpe-design-tokens
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -600,7 +600,7 @@ importers:
     dependencies:
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../../design-tokens
+        version: link:../../packages/hpe-design-tokens
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -622,7 +622,7 @@ importers:
         version: 1.2.6(@types/react-dom@19.2.3(@types/react@19.2.5))(@types/react@19.2.5)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       hpe-design-tokens:
         specifier: workspace:*
-        version: link:../../design-tokens
+        version: link:../../packages/hpe-design-tokens
       react:
         specifier: 'catalog:'
         version: 19.2.1
@@ -12699,7 +12699,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 6.0.0
-      '@types/node': 20.14.5
+      '@types/node': 20.19.25
 
   '@types/graceful-fs@4.1.9':
     dependencies:

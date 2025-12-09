@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "pnpm build-search && next build",
-    "build-design-tokens": "cd ../design-tokens && pnpm build",
+    "build-design-tokens": "pnpm --filter hpe-design-tokens build",
     "export": "pnpm build",
     "postexport": "node next.postexport.js",
     "start": "pnpm build-search && next",
