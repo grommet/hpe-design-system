@@ -157,6 +157,7 @@ export const NavList = ({
               active={active}
               aria-current={active ? 'page' : undefined}
               onClick={() => {
+                // Parent items with URLs are navigable and expandable
                 if (item.url) {
                   onSelectItem(item);
                 }

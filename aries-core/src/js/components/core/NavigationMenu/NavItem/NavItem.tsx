@@ -1,5 +1,4 @@
 import { Button } from 'grommet';
-import { KeyboardType } from 'grommet/utils';
 import { forwardRef } from 'react';
 import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';
@@ -19,7 +18,7 @@ interface NavItemProps {
   label: string;
   level?: 1 | 2;
   onClick?: () => void;
-  onEsc?: KeyboardType | undefined;
+  onEsc?: (event: React.KeyboardEvent) => void;
   url?: string;
   [key: string]: unknown; // For additional props like 'id', 'aria-label', etc.
 }
