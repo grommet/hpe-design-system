@@ -448,7 +448,7 @@ importers:
         specifier: ^3.0.9
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
 
-  packages/icons/core:
+  packages/icons-svg:
     devDependencies:
       typescript:
         specifier: 'catalog:'
