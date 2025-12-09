@@ -143,6 +143,46 @@ describe('NavigationMenu', () => {
         expect(screen.getByRole('button', { name: /close navigation/i })).toHaveAttribute('aria-expanded', 'true');
       });
 
+      it('should allow default browser navigation when preventDefault is not called', async () => {
+        const user = userEvent.setup();
+        const onSelect = jest.fn();
+        
+        renderNavigationMenu({ onSelect });
+        
+        const item = screen.getByRole('menuitem', { name: /home/i });
+        await user.click(item);
+        
+        // Verify onSelect was called
+        expect(onSelect).toHaveBeenCalled();
+        
+        // Get the event object passed to the callback
+        const event = onSelect.mock.calls[0][0].event;
+        
+        // Verify preventDefault was NOT called (defaultPrevented should be false)
+        expect(event.defaultPrevented).toBe(false);
+      });
+
+      it('should prevent default browser navigation when preventDefault is called', async () => {
+        const user = userEvent.setup();
+        const onSelect = jest.fn(({ event }) => {
+          event.preventDefault();
+        });
+        
+        renderNavigationMenu({ onSelect });
+        
+        const item = screen.getByRole('menuitem', { name: /home/i });
+        await user.click(item);
+        
+        // Verify onSelect was called
+        expect(onSelect).toHaveBeenCalled();
+        
+        // Get the event object passed to the callback
+        const event = onSelect.mock.calls[0][0].event;
+        
+        // Verify preventDefault WAS called (defaultPrevented should be true)
+        expect(event.defaultPrevented).toBe(true);
+      });
+
       it('should call onSelect when an item is clicked', async () => {
         const user = userEvent.setup();
         const onSelect = jest.fn();
