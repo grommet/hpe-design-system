@@ -260,6 +260,7 @@ StatusColorSwatch.propTypes = {
 export const StatusSwatch = () => {
   const colorTokens = useColorTokens();
 
+  // Status colors are assembled across a variety of tokens which do not allow for easy programmatic selection from their namespace. @oliverHPE suggested a possible solution is to introduce a token $subtype in the future.
   const statusTypes = ['ok', 'warning', 'critical', 'info', 'unknown'];
 
   const swatchList = statusTypes
