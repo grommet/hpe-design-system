@@ -155,7 +155,7 @@ export const DataVisSwatch = () => {
     return num(a.id) - num(b.id);
   });
 
-  // Split into two columns for top-to-bottom, left-to-right flow
+  // Split into two columns so that they are able to be read top-to-bottom in each column.
   const midpoint = Math.ceil(sortedTokens.length / 2);
   const left = sortedTokens.slice(0, midpoint);
   const right = sortedTokens.slice(midpoint);
