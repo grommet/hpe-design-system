@@ -1,59 +1,59 @@
 import { DiagramPreview, Example } from '../../layouts';
-import { AscendingNavigationAnatomy } from '../../examples';
+import { 
+  AscendingNavigationAnatomy, 
+  AscendingNavigationExample 
+  } from '../../examples';
 import { Text } from 'grommet';
 
-When an application’s hierarchy is well designed, the ascending button will typically take the user
-back to the previous page they came from.
+The `parent` property on [PageHeader](https://design-system.hpe.design/components/PageHeader) generates a link to the immediate upstream page in the hierarchy.
 
-<Example
-  caption="Example of an ascending button."
-  plain
-  pad="xsmall"
-  previewWidth="medium"
-  height={{ min: 'xsmall' }}
->
-  <DiagramPreview
-    src={{
-      dark: '/templateImages/ascending-button-preview-invert.svg',
-      light: '/templateImages/ascending-button-preview.svg',
-    }}
-    alt="ascending button in an application"
-  />
-</Example>
-
-## Guidance
-
-- Follows the [default button styling](https://design-system.hpe.design/components/button#default-button) with a "FormPrevious" icon.
-- Displayed below the Header and aligned to the left with the pages content.
-
-## When to use
-
-- To allow users to return to the parent (hub) screen when on a details (child/spoke) page.
-- To visually communicate the parent page for the user’s current page.
-
-## Example
-
-Ascending Navigation provides an easy way for a user to move from a child page up to a parent page.
 
 <Example
   caption={
     <>
       <Text margin={{ top: 'xsmall' }} size="small">
         {' '}
-        1. A preview of Users detail view (child page).
+        1. Page loads on <strong>Overview</strong> child page
       </Text>
       <br></br>
       <Text margin={{ top: 'xsmall' }} size="small">
         {' '}
-        2. A preview of Ascending Navigation to the parent page utilizing the ascending
-        button.
+        2. Interacting with the <strong>Ascending Navigation</strong> link brings the user to the home page.
       </Text>
     </>
   }
   plain
-  pad="xsmall"
-  previewWidth="xlarge"
-  height={{ min: 'xsmall' }}
+  pad={{
+    bottom: "xlarge"
+  }}
+  previewWidth="full"  
 >
-  <AscendingNavigationAnatomy />
+  <AscendingNavigationExample />
 </Example>
+
+```txt
+<PageHeader 
+  parent={ <Anchor label="Home" icon={<Left />} />} 
+  title="Example page title" 
+  subtitle="Im a direct child of the homepage"
+/>
+```
+
+ 
+## Guidance
+- Renders as a standard anchor link using [default anchor styling](https://design-system.hpe.design/components/anchor).
+- Should be paired with a [**Left**](https://hpe-design-icons-grommet.netlify.app/?path=/story/icons-hpe-icons-for-grommet--default&args=iconName:Left) icon to clearly communicate backward navigation.
+- Keep the label short and contextual, match the parent name to set navigation expectaions.
+- Use only one ascending link per page.
+- Avoid using ascending navigation on top-level pages since there is no upstream destination.
+
+
+## When to use
+
+Use ascending navigation when your product has a parent/child or hub/spoke page structure and users may need to return to the parent context.
+
+- Detail pages that roll up into an overview page
+- Spoke pages that sit under a central hub
+- Nested workflows where returning to previous context is important
+
+
