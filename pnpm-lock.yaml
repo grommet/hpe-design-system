@@ -514,7 +514,7 @@ importers:
         specifier: ^7.2.2
         version: 7.2.2(@types/node@20.19.25)(jiti@1.21.7)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
 
-  packages/icons/core:
+  packages/icons-svg:
     devDependencies:
       typescript:
         specifier: 'catalog:'
