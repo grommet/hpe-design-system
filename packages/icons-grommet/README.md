@@ -109,7 +109,7 @@ pnpm build
 ## Package Structure
 
 ```
-packages/icons/grommet/
+packages/icons-grommet/
 ├── dist/                    # Built library files
 │   ├── hpe-icons.js        # Main entry point (ES modules)
 │   ├── hpe-icons.cjs       # CommonJS build
