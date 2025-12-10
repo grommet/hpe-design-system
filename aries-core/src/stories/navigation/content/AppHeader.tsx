@@ -3,18 +3,14 @@ import { AIGen, Help } from '@hpe-design/icons-grommet';
 import { ButtonGroup } from '../../../js/components';
 
 interface AppHeaderProps {
-  contextContent: string;
-  setContextContent: (content: string) => void;
-  setActiveItem: (item: string) => void;
+  contextContent?: string;
+  setContextContent: (value: string) => void;
+  setActiveItem: (value: string) => void;
   [key: string]: unknown; // For additional props like 'background', 'pad', etc.
 }
 
-export const AppHeader = ({
-  contextContent,
-  setContextContent,
-  setActiveItem,
-  ...rest
-}: AppHeaderProps) => {
+export const AppHeader = ({ contextContent, setContextContent, setActiveItem, ...rest }: AppHeaderProps) => {
+
   return (
     <Header pad="xsmall" {...rest}>
       <Button onClick={() => setActiveItem('Home')} plain>
