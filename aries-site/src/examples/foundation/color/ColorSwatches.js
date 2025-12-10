@@ -1,12 +1,19 @@
+import { useContext } from 'react';
 import { Box, Text, Grid } from 'grommet';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 import { Add } from '@hpe-design/icons-grommet';
-import { useDesignTokens } from '../../../components/content/designTokenUtils';
+import {
+  structuredTokens,
+  getTokens,
+} from '../../../components/content/designTokenUtils';
 
-// Fetch color tokens once at module level
+// Fetch theme aware color tokens
 const useColorTokens = () => {
-  const { data: colorTokens } = useDesignTokens('semantic.color');
-  return colorTokens ?? [];
+  const theme = useContext(ThemeContext);
+  const themeMode = theme?.dark ? 'dark' : 'light';
+  const colorTokens = getTokens(structuredTokens.semantic.color, themeMode);
+  return colorTokens;
 };
 
 const filterByPrefix = (tokens, prefix) =>
