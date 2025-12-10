@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Button, Footer, Text } from 'grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 
 const footerButtons = [
   {
@@ -28,7 +27,7 @@ export const DashboardFooter = () => {
       wrap
     >
       <Box direction="row" gap="medium">
-        <Hpe color="plain" />
+        <Element color="plain" />
         <Text size="small">
           © {year} Hewlett Packard Enterprise Development LP
         </Text>

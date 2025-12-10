@@ -57,7 +57,10 @@ export const foundation = [
     constrain. It works across many touch points.`,
     preview: {
       image: {
-        src: '/foundationImages/foundation-preview-brand.svg',
+        src: {
+          light: '/foundationImages/foundation-preview-brand.svg',
+          dark: '/foundationImages/foundation-preview-brand-invert.svg',
+        },
         alt: 'HPE Our Brand Preview',
       },
     },
@@ -122,7 +125,10 @@ export const foundation = [
      with the HPE Design System library and HPE theme.`,
     preview: {
       image: {
-        src: '/extendImages/extend-preview-developer-guidance.svg',
+        src: {
+          dark: '/extendImages/extend-preview-developer-guidance-invert.svg',
+          light: '/extendImages/extend-preview-developer-guidance.svg',
+        },
         alt: 'HPE Developer Guidance Preview',
       },
     },
@@ -244,10 +250,8 @@ export const foundation = [
     name: 'Icons',
     cardOrder: 8,
     category: 'Assets',
-    description: `Icons are an integral part of our visual storytelling style 
-    to represent objects, actions, programs and other communicative symbols. 
-    This clean, dynamic style remains flexible while retaining the voice of our 
-    brand.`,
+    description: `Icons visually communicate actions, objects, and states —
+      creating a consistent, recognizable language across our products.`,
     preview: {
       image: {
         src: {
@@ -378,48 +382,41 @@ export const foundation = [
     ],
   },
   {
-    name: 'Tshirt sizing',
-    render: 'T-shirt sizing',
-    category: 'Philosophy',
-    cardOrder: 4,
-    description:
-      'Create consistent, composable interfaces with t-shirt sizing.',
+    name: 'Color pairing',
+    category: 'Assets',
+    cardOrder: 9,
+    description: `Pair colors correctly to ensure your design has sufficient 
+    contrast ratios and will remain so with color updates.`,
     preview: {
-      image: {
-        src: {
-          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
-          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
-        },
-        alt: 'HPE T-shirt Sizing Preview',
-      },
+      component: () => (
+        <Box
+          background="background-neutral-xstrong"
+          pad="medium"
+          round="medium"
+        >
+          color.text.onStrong
+        </Box>
+      ),
     },
-    seoDescription:
-      'Create consistent, scalable interfaces with t-shirt sizing.',
+    seoDescription: `Learn how to pair colors correctly to ensure your design 
+    has sufficient contrast ratios and will remain accessible with color
+    updates.`,
     sections: [
-      'What is t-shirt sizing',
-      'Why do we use t-shirt sizing',
-      'The base unit',
-      'T-shirt sizing for component dimensions',
-      'T-shirt sizing for spacing and other styles',
-      'Composability and scaling between t-shirt sizes',
+      'Color pairing explained',
+      'Accessible standard color pairings',
+      'Strong background and onStrong colors',
+      'Specialty color pairings',
     ],
-    relatedContent: ['Box', 'Typography', 'Grid', 'DataTable'],
+    relatedContent: ['Color', 'Background colors guidance', 'Accessibility'],
     tags: [
-      'sizing',
-      't-shirt sizes',
-      'box sizes',
-      'layout sizes',
-      'box sizing',
-      'layout sizing',
-      'grid sizes',
-      'grid sizing',
-      'spacing',
-      'base spacing',
-      'base unit',
-      'border size',
-      'height',
-      'width',
-      'dimensions',
+      'color pairing',
+      'color contrast',
+      'accessibility',
+      'standard backgrounds',
+      'strong backgrounds',
+      'onStrong colors',
+      'specialty colors',
+      'contrast ratios',
     ],
   },
   {
@@ -509,6 +506,183 @@ export const foundation = [
       'ISO8601',
       'locale',
       'timezone',
+    ],
+  },
+  {
+    name: 'Tshirt sizing',
+    render: 'T-shirt sizing',
+    category: 'Layout',
+    cardOrder: 1,
+    description:
+      'Create consistent, composable interfaces with t-shirt sizing.',
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
+          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
+        },
+        alt: 'HPE T-shirt Sizing Preview',
+      },
+    },
+    seoDescription:
+      'Create consistent, scalable interfaces with t-shirt sizing.',
+    sections: [
+      'What is t-shirt sizing',
+      'Why do we use t-shirt sizing',
+      'The base unit',
+      'T-shirt sizing for component dimensions',
+      'T-shirt sizing for spacing and other styles',
+      'Composability and scaling between t-shirt sizes',
+    ],
+    relatedContent: [
+      'Spacing',
+      'Content container sizes',
+      'Component sizes',
+      'Box',
+      'Typography',
+      'Grid',
+      'DataTable',
+    ],
+    tags: [
+      'sizing',
+      't-shirt sizes',
+      'box sizes',
+      'layout sizes',
+      'box sizing',
+      'layout sizing',
+      'grid sizes',
+      'grid sizing',
+      'spacing',
+      'base spacing',
+      'base unit',
+      'border size',
+      'height',
+      'width',
+      'dimensions',
+    ],
+  },
+  {
+    name: 'Scale system',
+    category: 'Layout',
+    cardOrder: 2,
+    description: `The foundational scale establishing the relationships 
+    and proportions used to define the elements composing a UI.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-scalesystem.svg',
+          dark: '/foundationImages/foundation-preview-scalesystem-invert.svg',
+        },
+        alt: 'Boxes of increasing size representing the scale system',
+      },
+    },
+    seoDescription: `The foundational scale establishing the relationships 
+    and proportions used to define the elements composing a UI.`,
+    sections: ['Principles', 'Foundational scale', 'Composability'],
+    tags: [
+      'scale system',
+      'scale',
+      'proportion',
+      'consistency',
+      'modular scale',
+      't-shirt sizes',
+      'sizing',
+      'dimensions',
+      'layout',
+      'spacing',
+      'base unit',
+    ],
+    relatedContent: ['Tshirt sizing', 'Spacing', 'Content container sizes'],
+  },
+  {
+    name: 'Spacing',
+    category: 'Layout',
+    cardOrder: 3,
+    description: `T-shirt sizes (a.k.a. design tokens) applied to spacing 
+    elements such as padding, margin, and gap.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-spacing.svg',
+          dark: '/foundationImages/foundation-preview-spacing-invert.svg',
+        },
+        alt: 'Boxes with annotation showing spacing between them',
+      },
+    },
+    seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to spacing 
+    elements such as padding, margin, and gap.`,
+    sections: ['Spacing scale', 'Spacing best practices'],
+    tags: ['spacing', 'padding', 'margin', 'gap', 't-shirt sizes'],
+    relatedContent: [
+      'Tshirt sizing',
+      'Scale system',
+      'Content container sizes',
+    ],
+  },
+  {
+    name: 'Content container sizes',
+    category: 'Layout',
+    cardOrder: 4,
+    description: `T-shirt sizes (a.k.a. design tokens) applied to 
+    content containers and page layouts.`,
+    preview: {
+      image: {
+        src: {
+          // eslint-disable-next-line max-len
+          light: '/foundationImages/foundation-preview-containersizing.svg',
+          // eslint-disable-next-line max-len
+          dark: '/foundationImages/foundation-preview-containersizing-invert.svg',
+        },
+        alt: 'Box with height and width annotations',
+      },
+    },
+    seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to 
+    content containers and page layouts.`,
+    sections: ['Container sizes', 'Border widths', 'Radius sizes'],
+    tags: [
+      'container sizes',
+      'content containers',
+      'border widths',
+      'radius sizes',
+      't-shirt sizes',
+      'sizing',
+      'dimensions',
+      'layout',
+    ],
+    relatedContent: ['Tshirt sizing', 'Scale system', 'Spacing'],
+  },
+  {
+    name: 'Component sizes',
+    category: 'Layout',
+    cardOrder: 5,
+    description: `T-shirt sizes (a.k.a. design tokens) applied to 
+    a wide variety of typography, control, and visualization components.`,
+    preview: {
+      image: {
+        src: {
+          // eslint-disable-next-line max-len
+          light: '/foundationImages/foundation-preview-componentsizing.svg',
+          // eslint-disable-next-line max-len
+          dark: '/foundationImages/foundation-preview-componentsizing-invert.svg',
+        },
+        alt: 'Avatars of 3 different sizes displayed in a row.',
+      },
+    },
+    seoDescription: `T-shirt sizes (a.k.a. design tokens) applied to 
+    a wide variety of typography, control, and visualization components.`,
+    sections: ['Default size'],
+    tags: [
+      'component sizes',
+      't-shirt sizes',
+      'sizing',
+      'dimensions',
+      'layout',
+    ],
+    relatedContent: [
+      'Tshirt sizing',
+      'Scale system',
+      'Spacing',
+      'Content container sizes',
     ],
   },
 ];

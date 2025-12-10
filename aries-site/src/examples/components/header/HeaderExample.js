@@ -9,9 +9,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Search as SearchIcon } from '@hpe-design/icons-grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import { Search as SearchIcon, Element } from '@hpe-design/icons-grommet';
 
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-icon-example',
@@ -43,7 +41,7 @@ export const HeaderExample = () => {
           pad={{ vertical: '3xsmall' }}
           responsive={false}
         >
-          <Hpe color="brand" height="medium" />
+          <Element color="brand" height="medium" />
           {(!['xsmall', 'small'].includes(size) ||
             (['xsmall', 'small'].includes(size) && !focused)) && (
             <Box direction="row" gap="3xsmall" wrap>

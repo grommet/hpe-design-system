@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box } from 'grommet';
-// TODO replace with DS icon package when available
-import { Hpe, Hpi } from 'grommet-icons';
+import { Achievement, Aid, Alarm, Element } from '@hpe-design/icons-grommet';
 
 export const IconPlainExample = () => (
   <Box direction="row-responsive" gap="medium">
-    <Hpe color="plain" size="large" />
-    <Hpi color="plain" size="large" />
+    <Achievement color="icon-weak" size="xxlarge" />
+    <Aid color="icon-default" size="xxlarge" />
+    <Alarm color="icon-strong" size="xxlarge" />
+    <Element color="plain" size="xxlarge" />
   </Box>
 );

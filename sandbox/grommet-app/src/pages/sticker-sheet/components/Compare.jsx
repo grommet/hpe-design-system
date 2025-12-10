@@ -35,7 +35,6 @@ export const Compare = ({ children, ...rest }) => {
         <Box
           align="start"
           style={
-            // eslint-disable-next-line no-nested-ternary
             mode === 'Compare diffs'
               ? { opacity: 0.5, filter: 'invert(1)', color: 'green' }
               : mode === 'next'

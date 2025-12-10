@@ -4,7 +4,7 @@ on:
     branches:
       - design-tokens-alpha
     paths:
-      - design-tokens/**
+      - packages/hpe-design-tokens/**
 
 jobs:
   sync-tokens-to-figma:
@@ -15,19 +15,19 @@ jobs:
         with:
           node-version: '20.19.x'
 
-      - name: Set NPM version
-        run: npm install -g npm@9.5.1
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
       - name: Clone repo
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: yarn install
-        working-directory: design-tokens
+        run: pnpm install
 
       - name: Sync tokens to Figma file
-        run: yarn sync-tokens-to-figma
-        working-directory: design-tokens
+        run: pnpm --filter hpe-design-tokens sync-tokens-to-figma
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
           FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}

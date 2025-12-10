@@ -12,11 +12,15 @@ import {
   Page,
   PageContent,
 } from 'grommet';
-import { Monitor, More, User, System } from '@hpe-design/icons-grommet';
-// TODO replace with DS icon package when available
-import { Hpe } from 'grommet-icons';
+import {
+  Element,
+  Monitor,
+  More,
+  User,
+  System,
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const data = [
   {
@@ -126,7 +130,7 @@ const AppHeaderExample = () => (
         pad={{ vertical: 'xsmall' }}
         responsive={false}
       >
-        <Hpe color="plain" height="medium" />
+        <Element color="plain" height="medium" />
         <Box direction="row" gap="3xsmall" wrap>
           <Text weight="bold" color="text-strong">
             HPE

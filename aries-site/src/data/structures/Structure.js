@@ -10,7 +10,11 @@ export class Structure extends Array {
   }
 
   sortByCardOrder() {
-    return this.sort((a, b) => a.cardOrder - b.cardOrder);
+    return this.sort((a, b) => {
+      if (a.cardOrder === undefined) return 1;
+      if (b.cardOrder === undefined) return -1;
+      return a.cardOrder - b.cardOrder;
+  });
   }
 
   sortByCategory(weights) {

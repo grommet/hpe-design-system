@@ -1,0 +1,1677 @@
+{
+  "color": {
+    "background": {
+      "DEFAULT": {
+        "active": {
+          "$description": "Standard active state color",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.opacity6}"
+        },
+        "hover": {
+          "$description": "Generic hover state of components that have no fill in their resting state. For example, menu items.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.opacity6}"
+        }
+      },
+      "back": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.1300}"
+          }
+        }
+      },
+      "contrast": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.opacity12}"
+          },
+          "hover": {
+            "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.opacity20}"
+          }
+        }
+      },
+      "critical": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "#552120"
+          }
+        }
+      },
+      "default": {
+        "REST": {
+          "$description": "Default background color to be used on containers.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+            }
+          },
+          "$type": "color",
+          "$value": "{deprecated.base.color.grey.1300}"
+        }
+      },
+      "disabled": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Disabled background color. Using disabled colors ensures that disabled components are consistently styled.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.opacity7}"
+          }
+        }
+      },
+      "floating": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.1100}"
+          }
+        }
+      },
+      "front": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.1200}"
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "#1e363d"
+          }
+        }
+      },
+      "neutral": {
+        "xstrong": {
+          "REST": {
+            "$description": "Highest emphasis variant of neutral palette.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.50}"
+          },
+          "hover": {
+            "$description": "Hover variant of background-neutral-xstrong.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.200}"
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "#1b5245"
+          }
+        }
+      },
+      "primary": {
+        "strong": {
+          "REST": {
+            "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "#007c60"
+          },
+          "hover": {
+            "$description": "Hover variant of background-primary.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "#00513f"
+          }
+        },
+        "xstrong": {
+          "REST": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.1000}"
+          }
+        }
+      },
+      "screenOverlay": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "The background color for the overlay that sits behind modal layers.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.black.opacity12}"
+          }
+        }
+      },
+      "selected": {
+        "primary": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "Lower emphasis variant of background-selected-strong.",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                }
+              },
+              "$type": "color",
+              "$value": "{deprecated.base.color.green.1000}"
+            },
+            "hover": {
+              "$description": "Hover variant of background-selected-weak.",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                }
+              },
+              "$type": "color",
+              "$value": "{deprecated.base.color.green.900}"
+            }
+          },
+          "strong": {
+            "REST": {
+              "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.background.primary.strong.REST}"
+            },
+            "hover": {
+              "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.background.primary.strong.hover}"
+            }
+          }
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.opacity6}"
+          }
+        }
+      },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "#3c361e"
+          }
+        }
+      }
+    },
+    "border": {
+      "critical": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for borders communicating errors or danger. Keywords: status, critical",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.foreground.critical.DEFAULT.REST}"
+          }
+        }
+      },
+      "default": {
+        "REST": {
+          "$description": "Default border color.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.opacity36}"
+        }
+      },
+      "disabled": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.opacity12}"
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for borders communicating neutral information. Keyword: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.border.default.REST}"
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for borders communicating success. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.border.default.REST}"
+          }
+        }
+      },
+      "selected": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Selected border color. Used for ‘selected’ state.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.foreground.primary.DEFAULT.REST}"
+          }
+        }
+      },
+      "strong": {
+        "REST": {
+          "$description": "Emphasized variant of border color.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["STROKE_COLOR"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.opacity72}"
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for borders communicating an unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.border.default.REST}"
+          }
+        }
+      },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for borders communicating warning or caution. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.border.default.REST}"
+          }
+        }
+      },
+      "weak": {
+        "REST": {
+          "$description": "Subtle variant of border color for reduced visual emphasis.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.opacity12}"
+        }
+      }
+    },
+    "dataVis": {
+      "categorical": {
+        "10": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "#7372cf"
+            }
+          }
+        },
+        "20": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{deprecated.base.color.dataVis.gold2}"
+            }
+          }
+        },
+        "30": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{deprecated.base.color.dataVis.pink2}"
+            }
+          }
+        },
+        "40": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{deprecated.base.color.dataVis.lightblue1}"
+            }
+          }
+        },
+        "50": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "#a68a74"
+            }
+          }
+        },
+        "60": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "#b889ff"
+            }
+          }
+        },
+        "70": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "#4d8da8"
+            }
+          }
+        },
+        "80": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{deprecated.base.color.dataVis.purple3}"
+            }
+          }
+        }
+      }
+    },
+    "decorative": {
+      "blue": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.blue.700}"
+          }
+        }
+      },
+      "brand": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "The brand color.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.green.600}"
+          }
+        }
+      },
+      "cyan": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.transparent}"
+          }
+        }
+      },
+      "green": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.700}"
+          }
+        }
+      },
+      "neutral": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Highest emphasis variant of neutral palette.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.500}"
+          },
+          "hover": {
+            "$description": "Highest emphasis variant of neutral palette.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.400}"
+          }
+        }
+      },
+      "purple": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.purple.900}"
+          }
+        }
+      }
+    },
+    "focus": {
+      "$description": "The primary outer ring of the focus indicator, used to define the overall area of the focused element.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["STROKE_COLOR"]
+        }
+      },
+      "$type": "color",
+      "$value": "#004233",
+      "support": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.100}"
+          }
+        }
+      }
+    },
+    "foreground": {
+      "critical": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.red.550}"
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for foreground regions communicating success, completion, or a normal/ok status. Often used to color values in a meter or progress bar. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.500}"
+          }
+        }
+      },
+      "primary": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.500}"
+          }
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.700}"
+          }
+        }
+      },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.orange.600}"
+          }
+        }
+      }
+    },
+    "icon": {
+      "critical": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for icons communicating errors or danger. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.foreground.critical.DEFAULT.REST}"
+          }
+        }
+      },
+      "default": {
+        "REST": {
+          "$description": "Default icon color that is accessible on standard background colors.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.100}"
+        }
+      },
+      "disabled": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.opacity24}"
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for icons communicating neutral information. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.blue.400}"
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for icons communicating success. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.500}"
+          }
+        }
+      },
+      "onPrimaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.100}"
+          }
+        }
+      },
+      "onSelectedPrimary": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Icon color to be used for icon sitting on non-strong background-selected variants.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.icon.strong.REST}"
+          }
+        }
+      },
+      "onSelectedPrimaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Icon color to be used for icon sitting on background-selected-strong.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.100}"
+          }
+        }
+      },
+      "onStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "TEXT_FILL",
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.1200}"
+          }
+        }
+      },
+      "primary": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.500}"
+          },
+          "hover": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.450}"
+          }
+        }
+      },
+      "strong": {
+        "REST": {
+          "$description": "Emphasized icon color for increased visual prominence.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.100}"
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for icons communicating unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.600}"
+          }
+        }
+      },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for icons communicating warning or caution. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.orange.600}"
+          }
+        }
+      },
+      "weak": {
+        "REST": {
+          "$description": "Subtle icon color for reduced visual prominence.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+            }
+          },
+          "$type": "color",
+          "$value": "{color.text.weak.REST}"
+        }
+      }
+    },
+    "text": {
+      "anchor": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color for anchors.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.primary.DEFAULT.REST}"
+          },
+          "hover": {
+            "$description": "Text color for anchors on hover.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.primary.DEFAULT.hover}"
+          }
+        }
+      },
+      "critical": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for text on standard backgrounds communicating errors or danger. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.foreground.critical.DEFAULT.REST}"
+          }
+        }
+      },
+      "default": {
+        "REST": {
+          "$description": "Default text color that is accessible on standard background colors.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.100}"
+        }
+      },
+      "disabled": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Disabled color for text. Using disabled colors ensures that disabled components are consistently styled.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.opacity24}"
+          }
+        }
+      },
+      "heading": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color for headings.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.strong.REST}"
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for text on standard backgrounds communicating neutral information. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for text on standard backgrounds communicating success. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        }
+      },
+      "onCritical": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used on background-critical.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        },
+        "strong": {
+          "REST": {
+            "$description": "Emphasized variant of text color to be used on background-critical.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.strong.REST}"
+          }
+        }
+      },
+      "onInfo": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used on background-info.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        },
+        "strong": {
+          "REST": {
+            "$description": "Emphasized variant of text color to be used on background-info.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.strong.REST}"
+          }
+        }
+      },
+      "onOk": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used on background-ok.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        },
+        "strong": {
+          "REST": {
+            "$description": "Emphasized variant of text color to be used on background-ok.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.strong.REST}"
+          }
+        }
+      },
+      "onPrimaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.100}"
+          }
+        }
+      },
+      "onSelectedPrimary": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.strong.REST}"
+          }
+        }
+      },
+      "onSelectedPrimaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used for text sitting on background-selected-strong.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.white.100}"
+          }
+        }
+      },
+      "onStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used on strong backgrounds. For example, background-neutral-xstrong.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.grey.1200}"
+          }
+        }
+      },
+      "onUnknown": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used on background-unknown.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        },
+        "strong": {
+          "REST": {
+            "$description": "Emphasized variant of text color to be used on background-unknown.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.strong.REST}"
+          }
+        }
+      },
+      "onWarning": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Text color to be used on background-warning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        },
+        "strong": {
+          "REST": {
+            "$description": "Emphasized variant of text color to be used on background-warning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.strong.REST}"
+          }
+        }
+      },
+      "placeholder": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Placeholder text color.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.weak.REST}"
+          }
+        }
+      },
+      "primary": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.500}"
+          },
+          "hover": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.450}"
+          }
+        }
+      },
+      "strong": {
+        "REST": {
+          "$description": "Emphasized text color for increased visual prominence.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["SHAPE_FILL", "TEXT_FILL"]
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.white.100}"
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for text on standard backgrounds communicating an unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        }
+      },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for text on standard backgrounds communicating warning or caution. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.text.default.REST}"
+          }
+        }
+      },
+      "weak": {
+        "REST": {
+          "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"]
+            }
+          },
+          "$type": "color",
+          "$value": "#ffffff9c"
+        }
+      }
+    },
+    "transparent": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"]
+        }
+      },
+      "$type": "color",
+      "$value": "#00000000"
+    }
+  },
+  "fig": {
+    "deprecated": {
+      "color": {
+        "decorative": {
+          "orange": {
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.orange.700}"
+          },
+          "red": {
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.red.850}"
+          },
+          "teal": {
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.teal.700}"
+          },
+          "yellow": {
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{deprecated.base.color.yellow.700}"
+          }
+        }
+      }
+    }
+  },
+  "shadow": {
+    "large": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"]
+        }
+      },
+      "$type": "shadow",
+      "$value": [
+        {
+          "blur": "{static.spacing.medium}",
+          "color": "{base.color.black.opacity48}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.xsmall}",
+          "spread": "{static.spacing.none}"
+        }
+      ]
+    },
+    "medium": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"]
+        }
+      },
+      "$type": "shadow",
+      "$value": [
+        {
+          "blur": "{static.spacing.xsmall}",
+          "color": "{base.color.black.opacity36}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.3xsmall}",
+          "spread": "{static.spacing.none}"
+        }
+      ]
+    },
+    "small": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"]
+        }
+      },
+      "$type": "shadow",
+      "$value": [
+        {
+          "blur": "{base.dimension.100}",
+          "color": "{base.color.black.opacity24}",
+          "offsetX": 0,
+          "offsetY": "{base.dimension.50}",
+          "spread": 0
+        }
+      ]
+    }
+  }
+}

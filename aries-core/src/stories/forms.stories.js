@@ -13,19 +13,56 @@ import { CustomizeExample } from 'aries-site/src/examples/templates/forms/Custom
 import { CharacterCounterExample } from 'aries-site/src/examples/templates/forms/CharacterCounterExample';
 import { ChangePasswordExample } from 'aries-site/src/examples/templates/forms/ChangePasswordExample';
 
-export const ChangePassword = () => <ChangePasswordExample />;
-export const CharacterCounter = () => <CharacterCounterExample />;
-export const Customize = () => <CustomizeExample />;
-export const RequiredFields = () => <RequiredFieldsExample />;
-export const Pay = () => <PayExample />;
-export const Settings = () => <SettingsExample />;
-export const Shipping = () => <ShippingExample />;
-export const SignIn = () => <SignInExample />;
-export const SignUp = () => <SignUpExample />;
-export const SimpleSignUp = () => <SimpleSignUpExample />;
-export const SingleFormField = () => <SingleFormFieldExample />;
-export const Sort = () => <SortExample />;
-
-export default {
+const meta = {
   title: 'Forms',
+};
+
+export default meta;
+
+export const ChangePassword = {
+  render: () => <ChangePasswordExample />,
+};
+
+export const CharacterCounter = {
+  render: () => <CharacterCounterExample />,
+};
+
+export const Customize = {
+  render: () => <CustomizeExample />,
+};
+
+export const RequiredFields = {
+  render: () => <RequiredFieldsExample />,
+};
+
+export const Pay = {
+  render: () => <PayExample />,
+};
+
+export const Settings = {
+  render: () => <SettingsExample />,
+};
+
+export const Shipping = {
+  render: () => <ShippingExample />,
+};
+
+export const SignIn = {
+  render: () => <SignInExample />,
+};
+
+export const SignUp = {
+  render: () => <SignUpExample />,
+};
+
+export const SimpleSignUp = {
+  render: () => <SimpleSignUpExample />,
+};
+
+export const SingleFormField = {
+  render: () => <SingleFormFieldExample />,
+};
+
+export const Sort = {
+  render: () => <SortExample />,
 };

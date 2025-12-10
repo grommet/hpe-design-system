@@ -256,6 +256,7 @@ export default {
   Duplicate: ['add', 'copy', 'duplicate', 'clone'],
   Edit: ['change', 'core', 'draw', 'modify', 'pen', 'pencil'],
   Eject: ['media', 'player', 'eject', 'remove'],
+  Element: ['HPE', 'element', 'brand'],
   Elevator: ['down', 'lift', 'up', 'transportation', 'elevator'],
   Emergency: ['emergency', 'alert', 'critical'],
   EmergencyFill: ['emergency', 'alert', 'critical'],

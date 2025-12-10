@@ -17,6 +17,8 @@ HPE Icons optimized for React applications with Grommet integration. This packag
 npm install @hpe-design/icons-grommet
 # or
 yarn add @hpe-design/icons-grommet
+# or
+pnpm install @hpe-design/icons-grommet
 ```
 
 ## Usage
@@ -87,22 +89,22 @@ For a complete list of all 450+ available icons, explore the [Storybook](https:/
 To explore all available icons and their usage:
 
 ```bash
-yarn storybook
+pnpm storybook
 ```
 
 ### Building
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ### Scripts
 
-- `yarn build` - Build the library for production (uses Vite)
-- `yarn copy-types` - Copy TypeScript definitions to dist
-- `yarn lint` - Run ESLint
-- `yarn storybook` - Start Storybook for icon exploration
-- `yarn build-storybook` - Build Storybook for deployment
+- `pnpm build` - Build the library for production (uses Vite)
+- `pnpm copy-types` - Copy TypeScript definitions to dist
+- `pnpm lint` - Run ESLint
+- `pnpm storybook` - Start Storybook for icon exploration
+- `pnpm build-storybook` - Build Storybook for deployment
 
 ## Package Structure
 

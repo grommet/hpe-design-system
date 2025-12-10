@@ -1,0 +1,814 @@
+{
+  "element": {
+    "large": {
+      "borderWidth": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{borderWidth.default}"
+      },
+      "fontSize": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.large.fontSize}"
+      },
+      "height": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.1200}"
+      },
+      "icon": {
+        "size": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"]
+            }
+          },
+          "$type": "number",
+          "$value": "{icon.large.size}"
+        }
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.large.lineHeight}"
+      },
+      "minHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.1200}"
+      },
+      "paddingX": {
+        "default": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{base.dimension.450}"
+        },
+        "narrow": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{base.dimension.225}"
+        },
+        "wide": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{base.dimension.600}"
+        }
+      },
+      "paddingY": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": 9
+      },
+      "textToElementX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.xsmall}"
+      },
+      "textToIconX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.3xsmall}"
+      },
+      "width": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.1200}"
+      }
+    },
+    "medium": {
+      "borderWidth": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{borderWidth.default}"
+      },
+      "fontSize": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.medium.fontSize}"
+      },
+      "height": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.900}"
+      },
+      "icon": {
+        "size": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"]
+            }
+          },
+          "$type": "number",
+          "$value": "{icon.medium.size}"
+        }
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.medium.lineHeight}"
+      },
+      "minHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.900}"
+      },
+      "paddingX": {
+        "default": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": 10
+        },
+        "narrow": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": 5
+        },
+        "wide": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{base.dimension.450}"
+        }
+      },
+      "paddingY": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": 5
+      },
+      "textToElementX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.xsmall}"
+      },
+      "textToIconX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.3xsmall}"
+      },
+      "width": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.900}"
+      }
+    },
+    "small": {
+      "borderWidth": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.borderWidth.default}"
+      },
+      "fontSize": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.small.fontSize}"
+      },
+      "height": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.700}"
+      },
+      "icon": {
+        "size": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"]
+            }
+          },
+          "$type": "number",
+          "$value": "{icon.small.size}"
+        }
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.small.lineHeight}"
+      },
+      "minHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.700}"
+      },
+      "paddingX": {
+        "default": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{static.spacing.3xsmall}"
+        },
+        "narrow": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{static.spacing.5xsmall}"
+        },
+        "wide": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{static.spacing.xsmall}"
+        }
+      },
+      "paddingY": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": 3
+      },
+      "textToElementX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.xsmall}"
+      },
+      "textToIconX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.3xsmall}"
+      },
+      "width": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.700}"
+      }
+    },
+    "xlarge": {
+      "borderWidth": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{borderWidth.default}"
+      },
+      "fontSize": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.xlarge.fontSize}"
+      },
+      "height": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.1800}"
+      },
+      "icon": {
+        "size": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"]
+            }
+          },
+          "$type": "number",
+          "$value": "{icon.xlarge.size}"
+        }
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.xlarge.lineHeight}"
+      },
+      "minHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.1800}"
+      },
+      "paddingX": {
+        "default": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{base.dimension.600}"
+        },
+        "narrow": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{base.dimension.500}"
+        },
+        "wide": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": 32
+        }
+      },
+      "paddingY": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": 20
+      },
+      "textToElementX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.xsmall}"
+      },
+      "textToIconX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.3xsmall}"
+      },
+      "width": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.1800}"
+      }
+    },
+    "xsmall": {
+      "borderWidth": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{borderWidth.default}"
+      },
+      "fontSize": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.xsmall.fontSize}"
+      },
+      "height": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.600}"
+      },
+      "icon": {
+        "size": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"]
+            }
+          },
+          "$type": "number",
+          "$value": "{icon.xsmall.size}"
+        }
+      },
+      "lineHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{text.xsmall.lineHeight}"
+      },
+      "minHeight": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.600}"
+      },
+      "paddingX": {
+        "default": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{static.spacing.3xsmall}"
+        },
+        "narrow": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{static.spacing.5xsmall}"
+        },
+        "wide": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"]
+            }
+          },
+          "$type": "number",
+          "$value": "{base.dimension.225}"
+        }
+      },
+      "paddingY": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": 3
+      },
+      "textToElementX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.5xsmall}"
+      },
+      "textToIconX": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"]
+          }
+        },
+        "$type": "number",
+        "$value": "{static.spacing.5xsmall}"
+      },
+      "width": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": "{base.dimension.600}"
+      }
+    }
+  }
+}

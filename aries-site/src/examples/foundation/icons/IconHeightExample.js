@@ -7,17 +7,27 @@ export const IconHeightExample = () => (
     <Box direction="row" gap="xsmall" align="start">
       <Add height="medium" />
       <Paragraph margin="none">
-        Here is a paragraph alongside an icon. The parent Box has
-        direction="row" and align="start" applied. Adding height="medium" to the
-        icon is necessary to ensure it aligns with the first line of text.
+        The icon uses height="medium" to align with the first line of text
       </Paragraph>
     </Box>
     <Box direction="row" gap="xsmall" align="start">
       <Add />
       <Paragraph margin="none">
-        Here is another paragraph. In this case, the icon does not have
-        height="medium" applied. Notice how the icon does not vertically align
-        with the first line of text.
+        Without height="medium", the icon no longer aligns with the
+        first line of text.
+      </Paragraph>
+    </Box>
+      <Box direction="row" gap="xsmall" align="start">
+      <Add size="large" height="large" />
+      <Paragraph margin="none" size="large">
+        The icon uses height="large" to align with paragraph size=large
+      </Paragraph>
+    </Box>
+    <Box direction="row" gap="xsmall" align="start">
+      <Add size="large"/>
+      <Paragraph margin="none" size="large">
+        Without height=&quot;large&quot;, the icon no longer aligns with the
+        first line of text.
       </Paragraph>
     </Box>
   </Box>
