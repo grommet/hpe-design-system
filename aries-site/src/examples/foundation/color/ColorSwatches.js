@@ -200,6 +200,7 @@ export const TextSwatch = () => {
     'hpe.color.text.default',
     'hpe.color.text.strong',
     'hpe.color.text.weak',
+    'hpe.color.text.heading',
   ]);
 
   return (
