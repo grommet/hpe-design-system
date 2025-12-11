@@ -62,8 +62,9 @@ SwatchGroup.propTypes = {
 };
 
 const TokenSwatchList = ({
-  tokens,
+  color,
   border,
+  tokens,
   borderSize,
   component = ColorSwatch,
   background = token => token.value,
@@ -78,7 +79,7 @@ const TokenSwatchList = ({
           background={background(token)}
           border={border?.(token)}
           borderSize={borderSize}
-          color={token.value}
+          color={color ? color(token) : token.value}
           text={label}
         />
       );
@@ -91,6 +92,7 @@ TokenSwatchList.propTypes = {
   background: PropTypes.func,
   border: PropTypes.func,
   borderSize: PropTypes.string,
+  color: PropTypes.func,
   component: PropTypes.elementType,
 };
 
@@ -113,7 +115,7 @@ export const BackgroundSwatch = () => {
       ? 'border-weak'
       : undefined;
 
-  return <TokenSwatchList tokens={sampleBackgroundTokens} border={border} />;
+  return <TokenSwatchList border={border} tokens={sampleBackgroundTokens} />;
 };
 
 export const BorderSwatch = () => {
@@ -126,10 +128,10 @@ export const BorderSwatch = () => {
 
   return (
     <TokenSwatchList
-      tokens={sampleBorderTokens}
       background={() => 'background-front'}
       border={t => t.value}
       borderSize="small"
+      tokens={sampleBorderTokens}
     />
   );
 };
@@ -155,7 +157,8 @@ export const DataVisSwatch = () => {
     return num(a.id) - num(b.id);
   });
 
-  // Split into two columns so that they are able to be read top-to-bottom in each column.
+  // Split into two columns so that they are able
+  // to be read top-to-bottom in each column.
   const midpoint = Math.ceil(sortedTokens.length / 2);
   const left = sortedTokens.slice(0, midpoint);
   const right = sortedTokens.slice(midpoint);
@@ -176,14 +179,16 @@ export const DataVisSwatch = () => {
   );
 };
 
-const TextColorSwatch = ({ color, text }) => (
-  <Box direction="row" gap="small" align="center">
-    <Text size="xlarge" weight="bold" color={color}>
-      Aa
-    </Text>
-    <Text>{text}</Text>
-  </Box>
-);
+const TextColorSwatch = ({ color, text }) => {
+  return (
+    <Box direction="row" gap="small" align="center">
+      <Text size="xlarge" weight="bold" color={color}>
+        Aa
+      </Text>
+      <Text>{text}</Text>
+    </Box>
+  );
+};
 TextColorSwatch.propTypes = {
   color: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
@@ -198,7 +203,11 @@ export const TextSwatch = () => {
   ]);
 
   return (
-    <TokenSwatchList tokens={sampleTextTokens} component={TextColorSwatch} />
+    <TokenSwatchList
+      color={token => token.value}
+      component={TextColorSwatch}
+      tokens={sampleTextTokens}
+    />
   );
 };
 
@@ -222,7 +231,11 @@ export const IconSwatch = () => {
   ]);
 
   return (
-    <TokenSwatchList tokens={sampleIconTokens} component={IconColorSwatch} />
+    <TokenSwatchList
+      color={token => token.value}
+      component={IconColorSwatch}
+      tokens={sampleIconTokens}
+    />
   );
 };
 
@@ -260,7 +273,9 @@ StatusColorSwatch.propTypes = {
 export const StatusSwatch = () => {
   const colorTokens = useColorTokens();
 
-  // Status colors are assembled across a variety of tokens which do not allow for easy programmatic selection from their namespace. @oliverHPE suggested a possible solution is to introduce a token $subtype in the future.
+  // Status colors are assembled across a variety of tokens which  do not
+  // allow for easy programmatic selection from their namespace.
+  // A possible solution is to introduce a token $subtype in the future.
   const statusTypes = ['ok', 'warning', 'critical', 'info', 'unknown'];
 
   const swatchList = statusTypes
