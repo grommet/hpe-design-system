@@ -30,13 +30,13 @@ export const learn = [
     render: 'Grid fundamentals: part one',
     type: 'Getting started',
     description:
-      'Use Grid to display a collection of products, similar to that of an e-commerce website.',
+      'Learn how to use Grid for laying out content in responsive designs.',
     preview: {
       component: () => <GridPreview />,
       background: 'background-front',
     },
     seoDescription:
-      'Use Grid to display a collection of products, similar to that of an e-commerce website.',
+      'Learn how to use Grid for laying out content in responsive designs.',
     sections: [],
     relatedContent: ['Grid', 'Box'],
     tags: ['grid', 'layout', 'fundamentals'],
