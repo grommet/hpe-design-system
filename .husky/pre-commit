@@ -1,9 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-__dirname="$(CDPATH= cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-__rootDir="$(CDPATH= cd "$($__dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 echo "..Running design token checks"
 pnpm --filter hpe-design-tokens run test
 pnpm --filter hpe-design-tokens run paddingY:verify
@@ -13,11 +10,7 @@ echo "..Running aries-site checks"
 echo "....Linting checks for aries-site"
 pnpm --filter aries-site run lint-fix
 
-# TODO: aries-core pulls in an eslint v9 version
-# that doesn't work with the eslintrc.js from the root.
-# It works with eslint v8 used elsewhere in the repo
-
-# echo "..Running aries-core checks"
-# pnpm --filter aries-core run lint-fix
+echo "..Running aries-core checks"
+pnpm --filter aries-core run lint-fix
 
 echo "Pre-commit checks completed."
