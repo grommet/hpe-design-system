@@ -1,5 +1,5 @@
 import { Button, Header, Heading } from 'grommet';
-import { Close } from '@hpe-design/icons-grommet';
+import { Sidebar } from '@hpe-design/icons-grommet';
 
 interface LayerHeaderProps {
   onClose: () => void;
@@ -23,7 +23,8 @@ export const LayerHeader = ({ onClose, title, ...rest }: LayerHeaderProps) => {
         {title}
       </Heading>
       <Button
-        icon={<Close aria-hidden={true} />}
+        active
+        icon={<Sidebar aria-hidden={true} style={{ rotate: '180deg' }} />}
         a11yTitle="Close navigation menu"
         onClick={onClose}
       />

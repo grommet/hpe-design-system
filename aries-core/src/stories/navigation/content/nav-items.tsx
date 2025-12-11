@@ -23,7 +23,7 @@ export const navItems: NavItemType[] = [
     ],
   },
   {
-    label: 'Products',
+    label: 'Products, Services & Solutions',
     children: [
       {
         label: 'Storage',
@@ -43,7 +43,7 @@ export const navItems: NavItemType[] = [
         icon: <Servers aria-hidden="true" />,
       },
       {
-        label: 'Networking',
+        label: 'Networking & Data Delivery',
         children: [
           { label: 'VPC', url: '/vpc' },
           { label: 'Load Balancers', url: '/load-balancers' },
