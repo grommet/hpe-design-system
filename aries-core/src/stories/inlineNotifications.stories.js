@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
 import { FormValidation } from 'aries-site/src/examples/templates/inline-notifications/InlineFormValidation';

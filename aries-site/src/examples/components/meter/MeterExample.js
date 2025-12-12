@@ -9,7 +9,6 @@ export const MeterExample = () => {
       <Stack anchor="center">
         <Meter
           type="circle"
-          background="light-2"
           value={meterValue}
           size="xsmall"
         />
