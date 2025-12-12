@@ -19,18 +19,17 @@ import { hpe } from 'grommet-theme-hpe';
 
 // HPE Icons
 import {
-  Apps,
-  Catalog,
+  Announce,
   Help,
   Left,
   LinkNext,
   Home,
+  Template,
 } from '@hpe-design/icons-grommet';
 
-
 const sections = [
-  { id: 'overview', label: 'Overview', icon: <Apps size="small" /> },
-  { id: 'components', label: 'Components', icon: <Catalog size="small" /> },
+  { id: 'overview', label: 'Overview', icon: <Announce size="small" /> },
+  { id: 'components', label: 'Components', icon: <Template size="small" /> },
   { id: 'help', label: 'Help', icon: <Help size="small" /> },
 ];
 
@@ -103,14 +102,7 @@ export const AscendingNavigationExample = () => {
                   />
                 ) : undefined
               }
-              actions={
-                !isHome && (
-                  <Button
-                    label="Primary"
-                    primary
-                  />
-                )
-              }
+              actions={!isHome && <Button label="Primary" primary />}
             />
 
             {/* SECTION CONTENT */}
@@ -121,7 +113,7 @@ export const AscendingNavigationExample = () => {
                   <Paragraph>
                     Use the navigation in the header or the cards below to
                     explore different sections of this demo app. While on any
-                    nested page the <strong>Ascending navigation</strong> will 
+                    nested page the <strong>Ascending navigation</strong> will
                     bring you home.
                   </Paragraph>
                   <Grid columns="small" gap="small">
@@ -152,9 +144,10 @@ export const AscendingNavigationExample = () => {
                           </Box>
 
                           <Paragraph>
-                            This is the home page of your HPE Design
-                            System demo app.
+                            This leads to the {section.label} page of your HPE
+                            Design System demo app.
                           </Paragraph>
+                          
                         </Card>
                       );
                     })}
@@ -165,37 +158,34 @@ export const AscendingNavigationExample = () => {
               {/* OVERVIEW PAGE CONTENT */}
               {activeSection === 'overview' && (
                 <Paragraph>
-                    This overview page can describe the purpose of your app or
-                    design system. It’s separate from the Home landing page.
-                  </Paragraph>
+                  This overview page can describe the purpose of your app or
+                  design system. It’s a child of the Home page.
+                </Paragraph>
               )}
 
               {/* COMPONENTS PAGE CONTENT */}
               {activeSection === 'components' && (
                 <>
                   <Text weight="bold">Components in use in this example:</Text>
-                  <Paragraph>• Header, Nav, Anchor, Button</Paragraph>
-                  <Paragraph>• Page, PageContent, PageHeader</Paragraph>
-                  <Paragraph>• Box, Text, Paragraph</Paragraph>
-    
+                  <Paragraph margin="none">
+                    • Page, PageContent, PageHeader
+                  </Paragraph>
+                  <Paragraph margin="none">
+                    • Box, Header, Nav, Button
+                  </Paragraph>
+                  <Paragraph margin="none">• Text, Paragraph, Anchor</Paragraph>
                 </>
               )}
 
               {/* HELP PAGE CONTENT */}
               {activeSection === 'help' && (
                 <>
-                  <Text weight="bold">Help</Text>
-                  <Paragraph>To run this in CodeSandbox:</Paragraph>
-                  <Paragraph>
+                  <Text weight="bold">To create this demo application:</Text>
+                  <Paragraph margin="none">
                     1. Create a React sandbox. <br />
                     2. Install <code>grommet</code>,{' '}
                     <code>grommet-theme-hpe</code>,{' '}
                     <code>@hpe-design/icons-grommet</code>. <br />
-                    3. Replace your <code>App.js</code> with this file.
-                  </Paragraph>
-                  <Paragraph>
-                    From here you can extend the pages, add routing, or wire
-                    real content.
                   </Paragraph>
                 </>
               )}
