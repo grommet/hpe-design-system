@@ -1,12 +1,12 @@
 import { Box, Button } from 'grommet';
-import { AIGen, Help } from '@hpe-design/icons-grommet';
+import { AIGen, Help, User } from '@hpe-design/icons-grommet';
 import { ButtonGroup } from '../../../js/components';
 
 export const ContextControls = ({ contextContent, setContextContent, ...rest }: { contextContent?: string; setContextContent: (value: string) => void; [key: string]: unknown; }) => {
   return (
     <ButtonGroup {...rest}>
       <Button
-        a11yTitle="Show help content"
+        a11yTitle={contextContent === 'help' ? "Hide help content" : "Show help content"}
         icon={<Help aria-hidden={true} />}
         active={contextContent === 'help'}
         onClick={() =>
@@ -14,11 +14,19 @@ export const ContextControls = ({ contextContent, setContextContent, ...rest }: 
         }
       />
       <Button
-        a11yTitle="Show genie content"
+        a11yTitle={contextContent === 'genie' ? "Hide genie content" : "Show genie content"}
         icon={<AIGen aria-hidden={true} />}
         active={contextContent === 'genie'}
         onClick={() =>
           setContextContent(contextContent === 'genie' ? '' : 'genie')
+        }
+      />
+      <Button
+        a11yTitle={contextContent === 'user-preferences' ? "Hide user preferences" : "Show user preferences"}
+        icon={<User aria-hidden={true} />}
+        active={contextContent === 'user-preferences'}
+        onClick={() =>
+          setContextContent(contextContent === 'user-preferences' ? '' : 'user-preferences')
         }
       />
     </ButtonGroup>
