@@ -30,6 +30,7 @@ export const NavigationMenu = ({
 }: NavigationMenuProps) => {
   const [open, setOpen] = useState<boolean>(openProp);
   const navigationId = 'navigation-menu';
+  const menuTitle = title ? `${title}` : 'Navigation Menu';
 
   useEffect(() => {
     if (openProp !== undefined) {
@@ -51,10 +52,11 @@ export const NavigationMenu = ({
         <Nav
           id={navigationId}
           hidden={!open}
-          a11yTitle={title ? `${title}` : 'Navigation menu'}
+          a11yTitle={menuTitle}
           gap="3xsmall"
         >
           <NavList
+            a11yTitle={menuTitle}
             items={items}
             activeItem={activeItem}
             onSelect={onSelect}
