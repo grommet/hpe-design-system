@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@hpe-design/icons-grommet": "catalog:",
-    "grommet": "catalog:",
+    "grommet": "catalog:grommet-stable",
     "grommet-icons": "catalog:",
     "grommet-theme-hpe": "catalog:",
     "prop-types": "catalog:",
