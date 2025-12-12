@@ -18,7 +18,6 @@ export const StatusIndicatorPreview = () => (
       <StatusWarning color="status-warning" />
       <StatusCritical color="status-critical" />
       <StatusUnknown color="status-unknown" />
-      <Info color="icon-info" />
     </Box>
   </Box>
 );
