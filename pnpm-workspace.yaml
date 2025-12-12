@@ -14,8 +14,8 @@ catalog:
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.0.0
   prop-types: ^15.8.1
-  react: ^19.2.1
-  react-dom: ^19.2.1
+  react: ^19.2.3
+  react-dom: ^19.2.3
   styled-components: ^6.1.17
   typescript: ^5.9.3
 
