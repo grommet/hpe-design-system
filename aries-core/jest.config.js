@@ -1,11 +1,14 @@
 module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    '<rootDir>/src/js/components/core/NavigationMenu/__tests__/setup.ts',
+    '<rootDir>/src/js/setupTests.ts',
   ],
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.(ts|tsx|js|jsx)',
     '<rootDir>/src/**/*.(test|spec).(ts|tsx|js|jsx)',
+  ],
+  testPathIgnorePatterns: [
+    '/node_modules/',
   ],
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': [

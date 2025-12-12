@@ -16,13 +16,14 @@ export const navItems: NavItemType[] = [
   },
   {
     label: 'Adoption',
+    url: '/adoption',
     children: [
-      { label: 'Teams', url: '/adoption' },
+      { label: 'Teams', url: '/teams' },
       { label: 'Adoption Levels', url: '/adoption-levels' },
     ],
   },
   {
-    label: 'Products',
+    label: 'Products, Services & Solutions',
     children: [
       {
         label: 'Storage',
@@ -42,7 +43,7 @@ export const navItems: NavItemType[] = [
         icon: <Servers aria-hidden="true" />,
       },
       {
-        label: 'Networking',
+        label: 'Networking & Data Delivery',
         children: [
           { label: 'VPC', url: '/vpc' },
           { label: 'Load Balancers', url: '/load-balancers' },

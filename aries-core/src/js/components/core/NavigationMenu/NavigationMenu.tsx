@@ -6,28 +6,31 @@ import { NavList } from './NavList';
 
 interface NavigationMenuProps extends BoxProps {
   activeItem?: string;
-  setActiveItem?: (item: string | undefined) => void;
   header?: React.ReactNode;
   items: NavItemType[];
   open?: boolean;
-  setOpen?: (open: boolean) => void;
   title?: string;
-	onSelect?: () => void;
+  onSelect?: ({
+    item,
+    event,
+  }: {
+    item: NavItemType;
+    event: React.MouseEvent | React.KeyboardEvent;
+  }) => void;
 }
 
 export const NavigationMenu = ({
   activeItem,
-  setActiveItem,
   header,
   items,
   open: openProp = true,
-  setOpen: setOpenProp,
   onSelect,
   title,
   ...rest
 }: NavigationMenuProps) => {
   const [open, setOpen] = useState<boolean>(openProp);
   const navigationId = 'navigation-menu';
+  const menuTitle = title ? `${title}` : 'Navigation Menu';
 
   useEffect(() => {
     if (openProp !== undefined) {
@@ -40,7 +43,7 @@ export const NavigationMenu = ({
       header={header}
       navigationId={navigationId}
       open={open}
-      setOpen={setOpenProp || setOpen}
+      setOpen={setOpen}
       title={title}
       overflow="auto"
       {...rest}
@@ -49,13 +52,13 @@ export const NavigationMenu = ({
         <Nav
           id={navigationId}
           hidden={!open}
-          a11yTitle={title ? `${title}` : 'Navigation menu'}
+          a11yTitle={menuTitle}
           gap="3xsmall"
         >
           <NavList
+            a11yTitle={menuTitle}
             items={items}
             activeItem={activeItem}
-            setActiveItem={setActiveItem}
             onSelect={onSelect}
           />
         </Nav>
