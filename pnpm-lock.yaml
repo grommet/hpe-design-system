@@ -43,9 +43,6 @@ catalogs:
       specifier: ^5.9.3
       version: 5.9.3
   grommet-stable:
-    grommet:
-      specifier: https://github.com/grommet/grommet/tarball/stable
-      version: 2.52.0
     grommet-icons:
       specifier: https://github.com/grommet/grommet-icons/tarball/stable
       version: 4.14.0
@@ -196,14 +193,14 @@ importers:
         specifier: 'catalog:'
         version: 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet:
-        specifier: catalog:grommet-stable
-        version: https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        specifier: 'catalog:'
+        version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-icons:
         specifier: 'catalog:'
         version: 4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-theme-hpe:
         specifier: 'catalog:'
-        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -335,8 +332,8 @@ importers:
         specifier: workspace:*
         version: link:../aries-core
       grommet:
-        specifier: catalog:grommet-stable
-        version: https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        specifier: 'catalog:'
+        version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-icons:
         specifier: catalog:grommet-stable
         version: https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -385,7 +382,7 @@ importers:
         version: 2.1.4(@babel/core@7.28.5)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-theme-hpe:
         specifier: 'catalog:'
-        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       next-transpile-modules:
         specifier: ^10.0.1
         version: 10.0.1
@@ -541,17 +538,17 @@ importers:
         specifier: 'catalog:'
         version: 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet:
-        specifier: catalog:grommet-stable
-        version: https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        specifier: 'catalog:'
+        version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-icons:
         specifier: catalog:grommet-stable
         version: https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-theme-hpe-v5:
         specifier: npm:grommet-theme-hpe@5.8.0
-        version: grommet-theme-hpe@5.8.0(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        version: grommet-theme-hpe@5.8.0(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-theme-hpe-v6:
         specifier: npm:grommet-theme-hpe@6
-        version: grommet-theme-hpe@6.5.1(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        version: grommet-theme-hpe@6.5.1(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       gsap:
         specifier: ^3.12.5
         version: 3.13.0
@@ -5795,7 +5792,6 @@ packages:
 
   grommet-theme-hpe@8.0.0:
     resolution: {integrity: sha512-dgFU2Jxg9DPEepHJY5E+B4R3nQEKcmZmhGj/Tzmn6Ci1PD+ZnzRpn7htTOyeTJUMo7axGpYFS8oFhCg+O4BfEQ==}
-    version: 8.0.0
     peerDependencies:
       '@hpe-design/icons-grommet': ^1.0.1
       grommet: ^2.50.0
@@ -5812,15 +5808,6 @@ packages:
 
   grommet@2.52.0:
     resolution: {integrity: sha512-q5Dh0O4QpkKz9fWrOboe+A8G086jNFUz80mPt2mMDhm3wW+YLBrHmwPEzGF8Tu4h1eSfrY7YzdZylVWEr+Zovg==}
-    engines: {node: '>= 16'}
-    peerDependencies:
-      react: ^16.6.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react-dom: ^16.6.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      styled-components: ^5.1.0 || ^6.0.0
-
-  grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable:
-    resolution: {tarball: https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable}
-    version: 2.52.0
     engines: {node: '>= 16'}
     peerDependencies:
       react: ^16.6.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -15592,9 +15579,9 @@ snapshots:
       react-dom: 19.2.3(react@19.2.3)
       styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
-  grommet-theme-hpe@5.8.0(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
+  grommet-theme-hpe@5.8.0(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
     dependencies:
-      grommet: https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      grommet: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-icons: https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       react: 19.2.3
       styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -15607,9 +15594,9 @@ snapshots:
       react: 19.2.3
       styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
-  grommet-theme-hpe@6.5.1(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
+  grommet-theme-hpe@6.5.1(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
     dependencies:
-      grommet: https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      grommet: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-icons: https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       hpe-design-tokens: 1.4.1
       react: 19.2.3
@@ -15627,14 +15614,6 @@ snapshots:
     dependencies:
       '@hpe-design/icons-grommet': 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
-      hpe-design-tokens: 2.1.0
-      react: 19.2.3
-      styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-
-  grommet-theme-hpe@8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
-    dependencies:
-      '@hpe-design/icons-grommet': 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
-      grommet: https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       hpe-design-tokens: 2.1.0
       react: 19.2.3
       styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -15658,16 +15637,6 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.1(react@19.2.3)
       styled-components: 6.1.19(react-dom@19.2.1(react@19.2.3))(react@19.2.3)
-
-  grommet@https://codeload.github.com/grommet/grommet/legacy.tar.gz/refs/heads/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
-    dependencies:
-      '@emotion/is-prop-valid': 1.4.0
-      grommet-icons: 4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
-      markdown-to-jsx: 7.4.4(react@19.2.3)
-      prop-types: 15.8.1
-      react: 19.2.3
-      react-dom: 19.2.3(react@19.2.3)
-      styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
   gsap@3.13.0: {}
 
