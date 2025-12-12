@@ -3,7 +3,7 @@
 	"description": "HPE Icons for use with Grommet and the HPE Design System.",
 	"version": "1.1.0",
 	"license": "Apache-2.0",
-	"repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons/grommet",
+	"repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons-grommet",
 	"type": "module",
 	"sideEffects": false,
 	"main": "./dist/hpe-icons.cjs",

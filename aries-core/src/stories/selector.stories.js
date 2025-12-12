@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
 import { SimpleSelector } from 'aries-site/src/examples/templates/selector/SelectorSimple';

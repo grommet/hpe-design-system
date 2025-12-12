@@ -3,7 +3,7 @@
   "description": "HPE Icons in SVG format for use with the HPE Design System.",
   "version": "0.1.0",
   "license": "Apache-2.0",
-  "repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons/core",
+  "repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons-svg",
   "type": "module",
   "exports": {
     ".": {

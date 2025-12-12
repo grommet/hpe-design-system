@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
 import { BannerContentLayoutExample } from 'aries-site/src/examples/templates/global-banner-notifications/BannerContentLayoutExample';
