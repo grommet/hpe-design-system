@@ -1,9 +1,9 @@
-import { Box, Heading } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
 
 export const Help = ({ ...rest }) => {
   return (
-    <Box pad="medium" {...rest}>
-      <Heading level={3}>My help content</Heading>
+    <Box {...rest}>
+      <Paragraph>My help content</Paragraph>
     </Box>
   );
 };

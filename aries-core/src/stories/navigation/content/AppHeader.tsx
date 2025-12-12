@@ -1,6 +1,7 @@
 import { Button, Header, Text } from 'grommet';
 import { AIGen, Help } from '@hpe-design/icons-grommet';
 import { ButtonGroup } from '../../../js/components';
+import { ContextControls } from './ContextControls';
 
 interface AppHeaderProps {
   contextContent?: string;
@@ -12,30 +13,16 @@ interface AppHeaderProps {
 export const AppHeader = ({ contextContent, setContextContent, setActiveItem, ...rest }: AppHeaderProps) => {
 
   return (
-    <Header pad="xsmall" {...rest}>
+    <Header height={{min: '5xsmall'}} pad={{horizontal: 'medium', vertical: '3xsmall'}} {...rest}>
       <Button onClick={() => setActiveItem('Home')} plain>
         <Text>
           <Text weight="bold">HPE</Text> Design System
         </Text>
       </Button>
-      <ButtonGroup>
-        <Button
-          a11yTitle="Toggle help content"
-          icon={<Help aria-hidden={true} />}
-          active={contextContent === 'help'}
-          onClick={() =>
-            setContextContent(contextContent === 'help' ? '' : 'help')
-          }
-        />
-        <Button
-          a11yTitle="Toggle genie content"
-          icon={<AIGen aria-hidden={true} />}
-          active={contextContent === 'genie'}
-          onClick={() =>
-            setContextContent(contextContent === 'genie' ? '' : 'genie')
-          }
-        />
-      </ButtonGroup>
+      {contextContent === '' && <ContextControls
+        contextContent={contextContent}
+        setContextContent={setContextContent}
+      />}
     </Header>
   );
 };

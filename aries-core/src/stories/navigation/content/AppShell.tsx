@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Grid, Main, ResponsiveContext } from 'grommet';
 import { AppHeader } from './AppHeader';
-import { Genie } from './Genie';
-import { Help } from './Help';
+import { ContextPane } from './ContextPane';
 
 const gridAreas = [
   ['nav', 'header', 'context-pane'],
@@ -32,7 +31,7 @@ export const AppShell = ({
   setActiveItem,
 }: AppShellProps) => {
   const breakpoint = useContext(ResponsiveContext);
-  
+
   return (
     <Grid
       areas={responsiveGridAreas[breakpoint] || gridAreas}
@@ -61,12 +60,15 @@ export const AppShell = ({
       >
         {mainContent}
       </Main>
-      {contextContent && (
-        <Box gridArea="context-pane" as="aside" background="background-front">
-          {contextContent === 'help' && <Help />}
-          {contextContent === 'genie' && <Genie />}
-        </Box>
-      )}
+      <ContextPane
+        gridArea="context-pane"
+        as="aside"
+        background="background-front"
+        border={{ color: 'border-weak', side: 'left' }}
+        title={contextContent || ''}
+        contextContent={contextContent}
+        setContextContent={setContextContent}
+      />
     </Grid>
   );
 };
