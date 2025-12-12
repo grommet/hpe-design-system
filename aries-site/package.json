@@ -14,7 +14,7 @@
     "grommet": "catalog:grommet-stable",
     "grommet-icons": "catalog:grommet-stable",
     "hpe-design-tokens": "^2.1.0",
-    "next": "^15.5.7",
+    "next": "15.5.9",
     "prop-types": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
