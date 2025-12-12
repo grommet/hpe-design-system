@@ -496,7 +496,7 @@ importers:
         specifier: ^10.0.3
         version: 10.1.1
       react:
-        specifier: ^18.0.0 || ^19.2.3 || ^19.0.3 || ^19.1.4
+        specifier: 'catalog:'
         version: 19.2.3
       storybook:
         specifier: ^8.6.14
