@@ -37,7 +37,7 @@
 	"scripts": {
 		"build": "vite build && pnpm run copy-types",
 		"copy-types": "cp src/js/icons/index.d.ts dist/hpe-icons.d.ts",
-		"lint": "eslint .",
+		"lint": "eslint -v .",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"
 	},
@@ -61,7 +61,7 @@
 		"globals": "^16.3.0",
 		"grommet-theme-hpe": "catalog:grommet-theme-hpe-v7",
 		"minimatch": "^10.0.3",
-		"react": "^18.0.0 || ^19.2.1 || ^19.0.1 || ^19.1.2",
+		"react": "^18.0.0 || ^19.2.3 || ^19.0.3 || ^19.1.4",
 		"storybook": "^8.6.14",
 		"styled-components": "catalog:",
 		"typescript": "catalog:",
