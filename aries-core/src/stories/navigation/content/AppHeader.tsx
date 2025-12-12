@@ -1,7 +1,8 @@
-import { Button, Header, Text } from 'grommet';
+import { Box, Button, Header, Text, TextInput } from 'grommet';
 import { AIGen, Help } from '@hpe-design/icons-grommet';
 import { ButtonGroup } from '../../../js/components';
 import { ContextControls } from './ContextControls';
+import { Search } from 'grommet-icons';
 
 interface AppHeaderProps {
   contextContent?: string;
@@ -19,6 +20,9 @@ export const AppHeader = ({ contextContent, setContextContent, setActiveItem, ..
           <Text weight="bold">HPE</Text> Design System
         </Text>
       </Button>
+      <Box background='background-contrast' round="large" pad={{ horizontal: 'none' }} width="medium">
+      <TextInput icon={<Search aria-hidden="true" />} plain />
+      </Box>
       {contextContent === '' && <ContextControls
         contextContent={contextContent}
         setContextContent={setContextContent}
