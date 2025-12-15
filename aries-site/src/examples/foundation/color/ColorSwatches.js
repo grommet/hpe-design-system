@@ -101,6 +101,8 @@ export const BackgroundSwatch = () => {
     useColorTokens(),
     'hpe.color.background.',
   );
+  // Choosing to highlight most frequently used backgrounds and use
+  // cross-link to all background colors reference table for full list.
   const sampleBackgroundTokens = pickTokens(backgroundTokens, [
     'hpe.color.background.default',
     'hpe.color.background.back',
@@ -120,6 +122,8 @@ export const BackgroundSwatch = () => {
 
 export const BorderSwatch = () => {
   const borderTokens = filterByPrefix(useColorTokens(), 'hpe.color.border.');
+  // Choosing to highlight most frequently used border colors and use
+  // cross-link to all border colors reference table for full list.
   const sampleBorderTokens = pickTokens(borderTokens, [
     'hpe.color.border.default',
     'hpe.color.border.weak',
@@ -196,6 +200,8 @@ TextColorSwatch.propTypes = {
 
 export const TextSwatch = () => {
   const textTokens = filterByPrefix(useColorTokens(), 'hpe.color.text.');
+  // Choosing to highlight most frequently used text color and use
+  // cross-link to all text colors reference table for full list.
   const sampleTextTokens = pickTokens(textTokens, [
     'hpe.color.text.default',
     'hpe.color.text.strong',
@@ -225,6 +231,10 @@ IconColorSwatch.propTypes = {
 
 export const IconSwatch = () => {
   const iconTokens = filterByPrefix(useColorTokens(), 'hpe.color.icon.');
+  // Choosing to highlight most frequently used icon colors 
+  // implementors are likely to use and not speak to tokens embedded 
+  // elsewhere in the system. Use cross-link to all background colors 
+  // reference table for full list.
   const sampleIconTokens = pickTokens(iconTokens, [
     'hpe.color.icon.default',
     'hpe.color.icon.strong',
