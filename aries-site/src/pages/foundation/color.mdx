@@ -1,13 +1,117 @@
-import { EmptyState } from 'aries-core'
-import { InProgress } from '@hpe-design/icons-grommet'
+import { 
+  Notification, 
+} from 'grommet';
 
-<ColorEmptyState />
+import { 
+  BackgroundSwatch,
+  BorderSwatch,
+  DataVisSwatch,
+  DecorativeSwatch,
+  ForegroundSwatch,
+  IconSwatch,
+  StatusSwatch,
+  TextSwatch,
+} from '../../examples';
 
-export const ColorEmptyState = () => (
-  <EmptyState
-    level={2}
-    title="Update in progress"
-    description="This page is temporarily unavailable. Updated content is being prepared supporting the v2-Landmark theme."
-    icon={<InProgress size="xxlarge" />}
-  />
-)
+
+<Notification
+  status="info"
+  message="For a list of all colors, please visit"
+  actions={[
+    { label: 'view all color tokens and values', href: '/design-tokens/all-design-tokens' },
+  ]}
+  width={{ max: 'xlarge' }}
+/>
+
+## Applying color
+
+HPE colors are stored in the form of design tokens. Rather than applying RGB or hex values, use semantic colors (otherwise called [semantic tokens](/design-tokens/overview#semantic-tokens)). Semantic color names describe when and where to apply them.
+
+Applying semantic colors as intended ensures your design:
+
+- Is aligned with the current theme and visual direction.
+- Is accessible.
+- Enables theme mode switching (light and dark).
+- Improves maintenance (when themes are updated, designs are synchronised with token updates. See [design tokens overview](/design-tokens/overview).)
+
+The HPE Design System color palette and guidance differ from [Brand Central](https://brandcentral.hpe.com/brand-central/content/color). In partnership with HPE Brand, the HPE Design System extends brand colors to serve digital product use cases. Prioritize the HPE Design System palette when selecting colors for app or web experiences.
+
+## Color palettes
+
+Color expresses brand, guides interaction, and supports accessibility. It shapes interface elements, typographic emphasis, data visualization clarity, and adaptation between light and dark modes. Applied intentionally, it reinforces inclusive design across HPE applications and web experiences.
+
+
+### Backgrounds
+Background colors establish depth, hierarchy, and cognitive grouping. Products typically begin with `color.background.back` as the base, then layer surfaces using `color.background.front` and `color.background.floating` to convey elevation. Use contrast background tokens to separate dense regions, preferring contrast backgrounds over borders in tight layouts to reduce visual noise.
+
+For more direction on how to use background colors, see [background colors guidance](/foundation/background-colors-guidance).
+
+<BackgroundSwatch />
+
+#### Overlay
+
+The overlay color dims inactive content to direct attention to an active layer. Apply it behind center layer, side drawer layer, or dialog surfaces to reduce cognitive load using `color.background.screenOverlay`.
+
+### Borders
+Border colors delineate areas only when spacing or background contrast are insufficient. Use `color.border.default` for neutral boundaries and dividers, and omit borders where existing spacing or contrast already provides clear separation.
+
+<BorderSwatch />
+
+### Text
+Text colors help create hierarchy and ensure readability. Use `color.text.default` for body copy and `color.text.heading` for headings. `color.text.strong` can be used to emphasize key figures or other important text. To de-emphasize content and create a clear visual hierarchy, apply `color.text.weak` to secondary information.
+
+<TextSwatch />
+
+### Icon
+Icon colors follow text hierarchy and must remain legible at small sizes. Match an icon's color emphasis with its accompanying text.
+
+<IconSwatch />
+
+### Decorative
+Decorative colors provide brand and accent without conveying status. Limit secondary decorative hues to illustration and non‑interactive ornamentation. Avoid substituting decorative colors for status; use semantic text or foreground status design tokens instead.
+
+<DecorativeSwatch />
+
+### Data visualization
+Data visualization colors differentiate categories without overwhelming perception. This palette has been crafted to ensure each series is visually distinct and color blind friendly. Apply data visualization colors according to the following guidelines:
+
+- Begin categorical series with the first design token and proceed sequentially.
+- Consider consolidating series with limited data into an "other" category represented by a single data visualization color; provide the ability to drill-down to view detail.
+- When using HPE Design System DataChart, series colors are applied automatically in sequence to support consistent interpretation.
+
+<DataVisSwatch />
+
+### Foreground
+Foreground colors fill graphic and quantitative regions (meters, progress, indicators) with semantic meaning.
+
+<ForegroundSwatch />
+
+### Status colors
+Status colors reinforce state and feedback (critical, warning, ok, informational, unknown) across surfaces, text and icons.
+
+- Use status color only when conveying semantic meaning; avoid decorative substitution.
+- Pair status color with an icon or concise label for rapid scanning and to meet accessibility.
+
+<StatusSwatch />
+
+### Focus
+Focus provides clear visual cues for keyboard and assistive technology navigation by highlighting the currently active element, reinforcing accessible interaction.
+
+## Accessibility
+
+Color accessibility ensures all users can perceive and understand content regardless of visual ability. The HPE Design System prioritizes accessibility compliance through semantic color tokens.
+
+### Color pairing
+
+Pair text and icon colors appropriately with background colors to maintain accessibility. Strong background colors require `onStrong` text and icon tokens.
+
+For detailed color pairing guidance, see [color pairing](/foundation/color-pairing).
+
+### Color as information
+
+Never rely solely on color to convey information. Always provide additional visual cues such as:
+
+- Text labels
+- Icons
+- Patterns or textures
+- Underlines for links
