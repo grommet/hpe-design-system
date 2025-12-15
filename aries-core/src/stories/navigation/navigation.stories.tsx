@@ -13,7 +13,7 @@ import {
 } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
 import { useSessionStorage } from '@shared/hooks';
-import { NavigationMenu } from '../../js/components';
+import { NavigationMenu, NavItemType } from '../../js/components';
 import { AppHeader, Genie, Help, LayerHeader, navItems } from './content';
 
 const gridAreas = [
@@ -21,7 +21,7 @@ const gridAreas = [
   ['nav', 'main', 'context-pane'],
 ];
 
-const responsiveGridAreas = {
+const responsiveGridAreas: Record<string, string[][]> = {
   xsmall: [
     ['nav', 'header', 'context-pane'],
     ['main', 'main', 'context-pane'],
@@ -44,14 +44,17 @@ const NavigationMenuExample = () => {
 
   const mobile = breakpoint === 'xsmall';
   const navTitle = 'Services';
+  const onSelect = ({ item, event }: { item: NavItemType; event: React.MouseEvent | React.KeyboardEvent }) => {
+    event.preventDefault();
+    setActiveItem(item.label); // or router.push(item.url) for navigation
+  };
 
   const navigationMenuProps = {
     title: navTitle,
     activeItem,
-    setActiveItem,
     items: navItems,
+    onSelect,
     open,
-    setOpen,
   };
 
   const messages = {
@@ -110,10 +113,19 @@ const NavigationMenuExample = () => {
                     {...navigationMenuProps}
                     gap="medium"
                     width={undefined} // full width when in mobile
-                    header={<LayerHeader onClose={() => setOpenLayer(false)} />}
-                    onSelect={() => {
-                      // announce(messages.layerClose, 'assertive', 2000);
-                      setOpenLayer(false);
+                    header={
+                      <LayerHeader
+                        onClose={() => setOpenLayer(false)}
+                        title={navigationMenuProps.title}
+                      />
+                    }
+                    onSelect={({ item, event }) => {
+                      onSelect({ item, event });
+                      // Close the layer when an item is selected, unless it has children
+                      if (!item.children) {
+                        // announce(messages.layerClose, 'assertive', 2000);
+                        setOpenLayer(false);
+                      }
                     }}
                   />
                 </Box>

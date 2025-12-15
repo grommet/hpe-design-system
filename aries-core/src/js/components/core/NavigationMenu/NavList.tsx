@@ -1,23 +1,27 @@
-import { AnnounceContext, Collapsible, Keyboard, List } from 'grommet';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { AnnounceContext, Collapsible, List } from 'grommet';
 import { Down, Up } from '@hpe-design/icons-grommet';
 import { NavItem, NavItemType } from './NavItem/NavItem';
-import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
 interface NavListProps {
   items: NavItemWithLevel[];
   activeItem?: string;
-  setActiveItem?: (item: string | undefined) => void;
-  onSelect?: () => void;
   onEscapeToParent?: () => void;
+  onSelect?: ({
+    item,
+    event,
+  }: {
+    item: NavItemType;
+    event: React.MouseEvent | React.KeyboardEvent;
+  }) => void;
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
 export const NavList = ({
   items,
   activeItem,
-  setActiveItem,
   onSelect,
   onEscapeToParent,
   ...rest
@@ -86,6 +90,16 @@ export const NavList = ({
     });
   };
 
+  const onSelectItem = (
+    item: NavItemWithLevel,
+    event: React.MouseEvent | React.KeyboardEvent,
+  ) => {
+    onSelect?.({ item, event });
+    if (announce) {
+      announce(`Selected ${item.label}.`, 'assertive', 2000);
+    }
+  };
+
   const onEscape = (
     event: React.KeyboardEvent<HTMLButtonElement>,
     { expandedItem, item }: { expandedItem: boolean; item: NavItemWithLevel },
@@ -107,7 +121,7 @@ export const NavList = ({
     <List
       data={adjustedItems}
       defaultItemProps={{
-        pad: { vertical: 'xsmall' },
+        pad: { vertical: '3xsmall' },
         role: 'none',
       }}
       role="menubar"
@@ -126,6 +140,8 @@ export const NavList = ({
             onEscape(event, { expandedItem, item });
           },
         };
+
+        const active = activeItem === item.label;
 
         if (item.children) {
           result = (
@@ -147,7 +163,13 @@ export const NavList = ({
               }
               aria-haspopup={!!item.children}
               aria-expanded={expandedItem}
-              onClick={() => {
+              active={active}
+              aria-current={active ? 'page' : undefined}
+              onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
+                // Parent items with URLs are navigable and expandable
+                if (item.url) {
+                  onSelectItem(item, event);
+                }
                 updateExpanded(item);
                 // announce(
                 //   `${item.label} menu ${
@@ -164,7 +186,6 @@ export const NavList = ({
                   aria-labelledby={item.label}
                   items={item.children}
                   activeItem={activeItem}
-                  setActiveItem={setActiveItem}
                   onSelect={onSelect}
                   onEscapeToParent={() => {
                     // Collapse this parent menu and focus on it
@@ -177,17 +198,13 @@ export const NavList = ({
             </NavItem>
           );
         } else {
-          const active = activeItem === item.label;
-
           result = (
             <NavItem
               {...navItemProps}
               active={active}
               aria-current={active ? 'page' : undefined}
-              onClick={() => {
-                setActiveItem?.(item.label);
-                onSelect?.();
-                announce(`Selected ${item.label}.`, 'assertive', 2000);
+              onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
+                onSelectItem(item, event);
               }}
             />
           );

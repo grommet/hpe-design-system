@@ -40,12 +40,11 @@ The root component that provides the complete navigation interface with collapsi
 **Props:**
 
 - `activeItem?: string` - The ID of the currently active navigation item
-- `setActiveItem?: (item: string | undefined) => void` - Callback to handle active item changes
 - `header?: React.ReactNode` - Custom header content for the navigation
-- `items: NavItem[]` - Array of navigation items to display
+- `items: NavItemType[]` - Array of navigation items to display
 - `open: boolean` - Controls whether the navigation is expanded or collapsed
 - `title?: string` - Title text displayed in the navigation header
-- `onSelect?: () => void` - Callback function triggered when an item is selected
+- `onSelect?: ({ item, event }: { item: NavItemType; event: React.MouseEvent | React.KeyboardEvent }) => void` - Callback function triggered when an item is selected
 
 **Features:**
 
@@ -63,7 +62,6 @@ The root component that provides the complete navigation interface with collapsi
   open={isOpen}
   title="Main Navigation"
   activeItem={currentActiveItem}
-  setActiveItem={setCurrentActiveItem}
   onSelect={handleItemSelect}
 />
 ```
@@ -96,8 +94,7 @@ The main container component that manages navigation state and renders navigatio
 
 - `items: NavItemWithLevel[]` - Array of navigation items
 - `activeItem?: string` - Currently active item label
-- `setActiveItem?: (item: string | undefined) => void` - Callback to set active item
-- `onSelect?: () => void` - Callback when an item is selected
+- `onSelect?: ({ item, event }: { item: NavItemType; event: React.MouseEvent | React.KeyboardEvent }) => void` - Callback when an item is selected
 - `...rest` - Additional props for accessibility (role, aria-labelledby, etc.)
 
 **Features:**
@@ -221,7 +218,6 @@ const basicNavItems: NavItemType[] = [
   open={isOpen}
   title="Main Menu"
   activeItem="Dashboard"
-  setActiveItem={setActiveItem}
   onSelect={handleItemSelect}
 />;
 ```
@@ -254,7 +250,6 @@ const hierarchicalNavItems: NavItemType[] = [
   open={isOpen}
   title="HPE Design System"
   activeItem="Button"
-  setActiveItem={setActiveItem}
   onSelect={handleItemSelect}
 />;
 ```
@@ -267,9 +262,36 @@ const hierarchicalNavItems: NavItemType[] = [
   open={isOpen}
   header={<CustomHeaderComponent />}
   activeItem={activeItem}
-  setActiveItem={setActiveItem}
-  onSelect={() => console.log('Item selected')}
+  onSelect={({ item }) => console.log('Item selected:', item)}
 />
+```
+
+### Custom Routing (Client-side Navigation)
+
+You can prevent the default browser navigation and handle routing manually (e.g., with Next.js router or React Router) by using the `event` object passed to `onSelect`.
+
+```tsx
+import { useRouter } from 'next/router';
+
+const MyNavigation = () => {
+  const router = useRouter();
+
+  return (
+    <NavigationMenu
+      items={navItems}
+      open={true}
+      title="App Navigation"
+      onSelect={({ item, event }) => {
+        // Prevent full page reload
+        event.preventDefault();
+        // Handle client-side routing
+        if (item.url) {
+          router.push(item.url);
+        }
+      }}
+    />
+  );
+};
 ```
 
 ### Using NavList Directly (Advanced)
@@ -280,8 +302,7 @@ For more direct control, you can use NavList without the NavigationMenu wrapper:
 <NavList
   items={navItems}
   activeItem="Button"
-  setActiveItem={setActiveItem}
-  onSelect={() => console.log('Item selected')}
+  onSelect={({ item }) => console.log('Item selected:', item)}
 />
 ```
 
@@ -293,7 +314,6 @@ For more direct control, you can use NavList without the NavigationMenu wrapper:
   open={isOpen}
   title="Accessible Navigation"
   activeItem={activeItem}
-  setActiveItem={setActiveItem}
 />
 ```
 
@@ -303,7 +323,6 @@ For more direct control, you can use NavList without the NavigationMenu wrapper:
 <NavList
   items={navItems}
   activeItem={activeItem}
-  setActiveItem={setActiveItem}
   role="navigation"
   aria-label="Main navigation"
 />
@@ -326,8 +345,8 @@ sequenceDiagram
 
     User->>NavItem: Click item
     NavItem->>NavList: onClick()
-    NavList->>NavigationMenu: setActiveItem() via props
-    NavigationMenu->>State: activeItem updated
+    NavList->>NavigationMenu: onSelect() via props
+    NavigationMenu->>State: activeItem updated (by parent)
     State->>NavigationMenu: Re-render with new activeItem
     NavigationMenu->>NavList: Pass updated activeItem
     NavList->>NavList: parentsToExpand calculated

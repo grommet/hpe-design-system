@@ -1,5 +1,4 @@
-import { Button, Keyboard } from 'grommet';
-import { KeyboardType } from 'grommet/utils';
+import { Button } from 'grommet';
 import { forwardRef } from 'react';
 import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';
@@ -18,8 +17,8 @@ interface NavItemProps {
   icon?: React.ReactNode;
   label: string;
   level?: 1 | 2;
-  onClick?: () => void;
-  onEsc?: KeyboardType | undefined;
+  onEsc?: (event: React.KeyboardEvent) => void;
+  onSelect?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   url?: string;
   [key: string]: unknown; // For additional props like 'id', 'aria-label', etc.
 }
@@ -39,8 +38,8 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
       icon,
       label,
       level,
-      onClick,
       onEsc,
+      onSelect,
       url,
       ...rest
     },
@@ -48,31 +47,39 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
   ) => {
     return (
       <>
-        <Keyboard onEsc={onEsc as KeyboardType | undefined}>
-          <Button
-            plain
-            onClick={onClick}
-            role="menuitem"
-            ref={ref as any}
-            {...(rest as any)}
-          >
-            {({ hover }) => {
-              return (
-                <ItemContainer
-                  active={active as boolean | undefined}
-                  gap={level ? indent[level as keyof typeof indent] : undefined}
-                  hover={hover}
-                >
-                  <ItemLabel
-                    icon={icon as React.ReactNode}
-                    label={label as string}
-                  />
-                  {actions as React.ReactNode}
-                </ItemContainer>
-              );
-            }}
-          </Button>
-        </Keyboard>
+        <Button
+          plain
+          href={url}
+          onKeyDown={event => {
+            if (event.key === 'Escape' && onEsc) {
+              onEsc(event);
+            }
+          }}
+          onClick={e => {
+            if (typeof onSelect === 'function') {
+              onSelect(e);
+            }
+          }}
+          role="menuitem"
+          ref={ref as any}
+          {...(rest as any)}
+        >
+          {({ hover }) => {
+            return (
+              <ItemContainer
+                active={active as boolean | undefined}
+                gap={level ? indent[level as keyof typeof indent] : undefined}
+                hover={hover}
+              >
+                <ItemLabel
+                  icon={icon as React.ReactNode}
+                  label={label as string}
+                />
+                {actions as React.ReactNode}
+              </ItemContainer>
+            );
+          }}
+        </Button>
         {children}
       </>
     );
