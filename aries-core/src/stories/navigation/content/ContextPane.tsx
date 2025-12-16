@@ -26,7 +26,7 @@ export const ContextPane = ({
   if (!contextContent) return null;
 
   return (
-    <Box width={{min: 'small'}}{...rest}>
+    <Box width={{min: 'small'}} {...rest}>
       <Header pad={{vertical: '3xsmall', horizontal: 'xsmall'}}>
         <ContextControls
           contextContent={contextContent}

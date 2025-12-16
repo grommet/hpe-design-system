@@ -32,6 +32,11 @@ export const AppShell = ({
 }: AppShellProps) => {
   const breakpoint = useContext(ResponsiveContext);
 
+  // Only round the top-right corner of the main content when the context pane is visible
+  const mainRound = contextContent
+    ? { corner: 'top', size: 'small' }
+    : { corner: 'top-left', size: 'small' };
+
   return (
     <Grid
       areas={responsiveGridAreas[breakpoint] || gridAreas}
@@ -53,18 +58,13 @@ export const AppShell = ({
         setContextContent={setContextContent}
         setActiveItem={setActiveItem}
       />
-      <Main
-        gridArea="main"
-        background="background-back"
-        round={{ corner: 'top-left', size: 'medium' }}
-      >
+      <Main gridArea="main" background="background-back" round={mainRound}>
         {mainContent}
       </Main>
       <ContextPane
         gridArea="context-pane"
         as="aside"
         background="background-front"
-        border={{ color: 'border-weak', side: 'left' }}
         title={contextContent || ''}
         contextContent={contextContent}
         setContextContent={setContextContent}
