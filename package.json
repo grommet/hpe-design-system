@@ -24,7 +24,6 @@
     "husky": "^8.0.0",
     "jest": "^27.5.1",
     "prettier": "^2.8.8",
-    "repomix": "catalog:",
     "tsx": "^4.19.1",
     "typescript": "catalog:"
   },

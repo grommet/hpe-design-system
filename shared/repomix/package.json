@@ -1,0 +1,15 @@
+{
+  "name": "repomix",
+  "version": "0.1.0",
+  "description": "Assist generative AI by generating codebase context with Repomix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "repomix": "catalog:"
+  }
+}
