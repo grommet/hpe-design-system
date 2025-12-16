@@ -4,19 +4,19 @@ packages:
   - 'aries-site'
   - 'packages/**'
   - 'sandbox/*'
-  - 'design-tokens'
   - 'shared/*'
 
 catalog:
   '@hpe-design/icons-grommet': ^1.1.0
   '@types/react': ^19.1.10
   '@types/react-dom': ^19.1.7
+  eslint: ^8.39.0
   grommet: ^2.51.0
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.0.0
   prop-types: ^15.8.1
-  react: ^19.2.1
-  react-dom: ^19.2.1
+  react: ^19.2.3
+  react-dom: ^19.2.3
   styled-components: ^6.1.17
   typescript: ^5.9.3
 

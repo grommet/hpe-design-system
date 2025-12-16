@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
 import { CreateCluster } from 'aries-site/src/examples/templates/forms/managing-child-objects/CreateCluster';

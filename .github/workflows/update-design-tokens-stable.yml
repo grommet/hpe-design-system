@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths:
-      - design-tokens/**
+      - packages/hpe-design-tokens/**
 
 jobs:
   update-design-tokens-stable:
@@ -28,23 +28,19 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        working-directory: design-tokens
 
       - name: Build
-        run: pnpm build
-        working-directory: design-tokens
+        run: pnpm --filter hpe-design-tokens build
       - name: Update design-tokens-stable
         run: |
           git config --global user.name "Grommet Community Bot"
           git config --global user.email "grommet@hpe.com"
-          pnpm release-stable
-        working-directory: design-tokens
+          pnpm --filter hpe-design-tokens release-stable
         env:
-          GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN_NEW }}
+          GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
       # If stable is successfully update, push the same updates to Figma
       - name: Sync tokens to Figma file
-        run: pnpm sync-tokens-to-figma
-        working-directory: design-tokens
+        run: pnpm --filter hpe-design-tokens sync-tokens-to-figma
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
           FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
