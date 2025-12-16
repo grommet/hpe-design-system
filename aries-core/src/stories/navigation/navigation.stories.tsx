@@ -49,7 +49,7 @@ const NavigationPanel = ({
     layerOpen: `${navTitle} navigation opened.`,
     layerClose: `${navTitle} navigation closed.`,
   };
-  
+
   // Remove layer when breakpoint changes to non-mobile
   useEffect(() => {
     if (!mobile && openLayer) {

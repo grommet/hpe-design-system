@@ -2,7 +2,7 @@ import { Box, BoxProps, Button, Header, Heading } from 'grommet';
 import { ContextControls } from './ContextControls';
 import { Genie } from './Genie';
 import { Help } from './Help';
-import { Close, User } from 'grommet-icons/icons';
+import { Close } from 'grommet-icons/icons';
 import { UserPreferences } from './UserPreferences';
 
 interface ContextPaneProps extends BoxProps {
