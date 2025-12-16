@@ -2,7 +2,8 @@ import { Box, BoxProps, Button, Header, Heading } from 'grommet';
 import { ContextControls } from './ContextControls';
 import { Genie } from './Genie';
 import { Help } from './Help';
-import { Close } from 'grommet-icons/icons';
+import { Close, User } from 'grommet-icons/icons';
+import { UserPreferences } from './UserPreferences';
 
 interface ContextPaneProps extends BoxProps {
   title: string;
@@ -15,7 +16,7 @@ const sentenceCase = (str: string | number) => {
   if (typeof adjustedStr === 'number') adjustedStr = adjustedStr.toString();
   adjustedStr = adjustedStr.toLowerCase();
   return adjustedStr.charAt(0).toUpperCase() + adjustedStr.slice(1);
-}
+};
 
 export const ContextPane = ({
   title,
@@ -26,8 +27,8 @@ export const ContextPane = ({
   if (!contextContent) return null;
 
   return (
-    <Box width={{min: 'small'}} {...rest}>
-      <Header pad={{vertical: '3xsmall', horizontal: 'xsmall'}}>
+    <Box width={{ min: 'small' }} {...rest}>
+      <Header pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}>
         <ContextControls
           contextContent={contextContent}
           setContextContent={setContextContent}
@@ -38,13 +39,16 @@ export const ContextPane = ({
           onClick={() => {
             setContextContent('');
           }}
-          size='small'
+          size="small"
         />
       </Header>
       <Box pad={{ horizontal: 'medium', vertical: 'xsmall' }}>
-        <Heading level={2} size="small" margin="none">{sentenceCase(title)}</Heading>
+        <Heading level={2} size="small" margin="none">
+          {sentenceCase(title)}
+        </Heading>
         {contextContent === 'help' && <Help />}
         {contextContent === 'genie' && <Genie />}
+        {contextContent === 'user-preferences' && <UserPreferences />}
       </Box>
     </Box>
   );

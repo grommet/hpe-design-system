@@ -49,6 +49,7 @@ const NavigationPanel = ({
     layerOpen: `${navTitle} navigation opened.`,
     layerClose: `${navTitle} navigation closed.`,
   };
+  
   // Remove layer when breakpoint changes to non-mobile
   useEffect(() => {
     if (!mobile && openLayer) {
@@ -117,14 +118,19 @@ const NavigationMenuExample = () => {
     'activeItem',
     'Home',
   );
-   const [contextContent, setContextContent] = useSessionStorage(
-      'contextContent',
-      '',
-    );
+  const [contextContent, setContextContent] = useSessionStorage(
+    'contextContent',
+    '',
+  );
 
   return (
     <AppShell
-      navigationMenu={<NavigationPanel activeItem={activeItem} setActiveItem={setActiveItem} />}
+      navigationMenu={
+        <NavigationPanel
+          activeItem={activeItem}
+          setActiveItem={setActiveItem}
+        />
+      }
       mainContent={
         <Page>
           <PageContent pad="medium" gap="medium">

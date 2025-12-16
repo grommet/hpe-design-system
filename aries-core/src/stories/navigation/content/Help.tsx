@@ -1,4 +1,4 @@
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Paragraph } from 'grommet';
 
 export const Help = ({ ...rest }) => {
   return (

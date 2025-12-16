@@ -1,8 +1,5 @@
-import { Box, Button, Header, Text, TextInput } from 'grommet';
-import { AIGen, Help } from '@hpe-design/icons-grommet';
-import { ButtonGroup } from '../../../js/components';
+import { Button, Header, Text } from 'grommet';
 import { ContextControls } from './ContextControls';
-import { Search } from 'grommet-icons';
 
 interface AppHeaderProps {
   contextContent?: string;
@@ -42,7 +39,7 @@ export const AppHeader = ({
           type="search"
         />
       </Box> */}
-      {contextContent === '' && (
+      {!contextContent && (
         <ContextControls
           contextContent={contextContent}
           setContextContent={setContextContent}

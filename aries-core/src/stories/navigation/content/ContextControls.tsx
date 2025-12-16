@@ -1,12 +1,24 @@
-import { Box, Button } from 'grommet';
+import { Button } from 'grommet';
 import { AIGen, Help, User } from '@hpe-design/icons-grommet';
 import { ButtonGroup } from '../../../js/components';
 
-export const ContextControls = ({ contextContent, setContextContent, ...rest }: { contextContent?: string; setContextContent: (value: string) => void; [key: string]: unknown; }) => {
+interface ContextControlsProps {
+  contextContent?: string;
+  setContextContent: (value: string) => void;
+  [key: string]: unknown;
+}
+
+export const ContextControls = ({
+  contextContent,
+  setContextContent,
+  ...rest
+}: ContextControlsProps) => {
   return (
     <ButtonGroup {...rest}>
       <Button
-        a11yTitle={contextContent === 'help' ? "Hide help content" : "Show help content"}
+        a11yTitle={
+          contextContent === 'help' ? 'Hide help content' : 'Show help content'
+        }
         icon={<Help aria-hidden={true} />}
         active={contextContent === 'help'}
         onClick={() =>
@@ -14,7 +26,11 @@ export const ContextControls = ({ contextContent, setContextContent, ...rest }: 
         }
       />
       <Button
-        a11yTitle={contextContent === 'genie' ? "Hide genie content" : "Show genie content"}
+        a11yTitle={
+          contextContent === 'genie'
+            ? 'Hide genie content'
+            : 'Show genie content'
+        }
         icon={<AIGen aria-hidden={true} />}
         active={contextContent === 'genie'}
         onClick={() =>
@@ -22,11 +38,17 @@ export const ContextControls = ({ contextContent, setContextContent, ...rest }: 
         }
       />
       <Button
-        a11yTitle={contextContent === 'user-preferences' ? "Hide user preferences" : "Show user preferences"}
+        a11yTitle={
+          contextContent === 'user-preferences'
+            ? 'Hide user preferences'
+            : 'Show user preferences'
+        }
         icon={<User aria-hidden={true} />}
         active={contextContent === 'user-preferences'}
         onClick={() =>
-          setContextContent(contextContent === 'user-preferences' ? '' : 'user-preferences')
+          setContextContent(
+            contextContent === 'user-preferences' ? '' : 'user-preferences',
+          )
         }
       />
     </ButtonGroup>
