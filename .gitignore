@@ -34,3 +34,11 @@ report*
 .tailwind-app
 .vscode
 *storybook.log
+
+# AI context
+/contexts
+/prompts
+repomix.config.*
+repomix.config.*
+repomix.config.*
+.repomixignore
