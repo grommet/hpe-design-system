@@ -1,6 +1,7 @@
 export * from './DataTableAnatomy';
 export * from './DataTableExample';
 export * from './DataTableEmptyCellExample';
+export * from './DataTableFilterExample';
 export * from './DataTableSortable';
 export * from './DataTableFixedHeaderExample';
 export * from './DataTableMultiSelectExample';

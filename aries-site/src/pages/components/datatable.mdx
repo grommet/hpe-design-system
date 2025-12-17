@@ -7,6 +7,7 @@ import {
   DataTableAnatomy,
   DataTableExample,
   DataTableEmptyCellExample,
+  DataTableFilterExample,
   DataTableFixedHeaderExample,
   DataTableMultiSelectExample,
   DataTableResizeColumnsExample,
@@ -75,38 +76,47 @@ quickly as possible.
 
 ### Narrowing a result set
 
-When a user is looking to focus on a group of records sharing similar characteristics,
-providing thoughtful filter controls allows for incremental reduction of the DataTable's
-result set.
+When users want to focus on a subset of records that share similar characteristics, 
+filter controls enable progressive narrowing of the DataTable’s results.
 
-- Provide filter controls.
-- Filter control input types should be chosen to best fit the data type and breadth of values.
+- Provide filter controls to allow users to scope the visible result set.
+- Choose filter controls that align with the data type and value range,
+  keeping filtering predictable and efficient.
 
-<ExampleImagePreview
-  label="Learn more about providing a great filter experience"
-  href="/templates/filtering"
-  src="/static/images/Filtering_Data_Tables.png"
-  alt="Example demonstrating how to find a record of interest with a Table"
-/>
+<Example
+  docs="https://v2.grommet.io/data"
+  template
+  height="auto"
+  showResponsiveControls={['fullScreen']}
+>
+  <DataTableFilterExample />
+</Example>
+
+<Anchor label="Learn more about providing a great filter experience"
+  href="/templates/filtering" />
 
 ### Browsing a result set
 
-Sometimes users are "checking up on things" or do not have specific records
-in mind. In this case, they are assessing the state of their records and the
-user experience objective is to facilitate the scanning of records to identify
-potential outliers or records which the user is unaware need attention or action.
+Sometimes users are in a browsing or exploratory mode
+ and do not have specific records in mind. In these cases, 
+ they are assessing the overall state of their data. 
+ The primary experience goal is to support quick scanning, 
+ enabling users to easily spot outliers, trends, or records 
+ that may require attention or action—especially those they 
+ were not previously aware of.
 
-- Use infinite scroll. In this scenario, infinite scroll removes friction,
-  allowing users to browse records effortlessly.
-- Consider adding column data types such as status indicators or meters
-  which call attention to records needing attention.
+#### Options to enhance browsing experince
 
-<ExampleImagePreview
-  label="Using infinite scroll with tables"
-  href="/components/pagination#when-to-use-pagination"
-  src="/static/images/Browsing_For_Outliers.png"
-  alt="Example demonstrating how to find a record of interest with a Table"
-/>
+- Make columns sortable to allow users to order records by value, 
+  helping them more easily compare data and identify patterns, 
+  outliers, or priority items.
+- Use meaningful column data types—such as status indicators, 
+  badges, or meters—to visually surface records that may 
+  require attention or action.
+- Use infinite scroll when supporting exploratory browsing. 
+  It reduces friction and allows users to move through large sets of 
+  records without interrupting their scanning flow.
+
 
 ### Assembling a data set
 
