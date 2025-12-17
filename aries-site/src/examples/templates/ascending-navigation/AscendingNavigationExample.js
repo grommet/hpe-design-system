@@ -61,7 +61,7 @@ export const AscendingNavigationExample = () => {
       <Box
         background="background-back"
         width="full"
-        border={{ color: 'border', size: 'xsmall' }}
+        border={{ color: 'border-weak', size: 'xsmall' }}
         pad={{ bottom: 'xlarge' }}
       >
       <Header
