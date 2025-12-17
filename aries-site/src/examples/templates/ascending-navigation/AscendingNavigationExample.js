@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import {
-  Box,
-  Nav,
   Anchor,
+  Box,
+  Button,
+  Grommet,
   Header,
+  Markdown,
   PageContent,
   PageHeader,
-  Text,
   Paragraph,
-  Button,
+  Text,
 } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import { Left, Home } from '@hpe-design/icons-grommet';
 
-import { NavigationButton } from './components/NavigationButton';
+import { components } from '../../../components/content/MarkdownComponents';
 import { HomeContent } from './components/HomeContent';
-import { sections, sectionConfig } from './data/sections';
+import { sectionConfig } from './data/sections';
 
 export const AscendingNavigationExample = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -33,30 +35,35 @@ export const AscendingNavigationExample = () => {
     components: (
       <>
         <Text weight="bold">Components in use in this example:</Text>
-        <Paragraph margin="none">• Page, PageContent, PageHeader</Paragraph>
-        <Paragraph margin="none">• Box, Header, Nav, Button</Paragraph>
-        <Paragraph margin="none">• Text, Paragraph, Anchor</Paragraph>
+        <Markdown components={components}>
+          {`- \`Page\`, \`PageContent\`, \`PageHeader\`
+- \`Box\`, \`Header\`, \`Nav\`, \`Button\`  
+- \`Text\`, \`Paragraph\`, \`Anchor\``}
+        </Markdown>
       </>
     ),
     help: (
       <>
         <Text weight="bold">To create this demo application:</Text>
-        <Paragraph margin="none">1. Create a React sandbox.</Paragraph>
-        <Paragraph margin="none">
-          2. Install <code>grommet</code>, <code>grommet-theme-hpe</code>,{' '}
-          <code>@hpe-design/icons-grommet</code>.
-        </Paragraph>
+        <Markdown components={components}>
+          {
+          `1. Create a React sandbox
+2. Install \`grommet\`, \`grommet-theme-hpe\`, \`@hpe-design/icons-grommet\`
+3. Replace your App.js with this template`
+}
+        </Markdown>
       </>
     ),
   };
 
   return (
-    <Box
-      background="background-back"
-      width="full"
-      border={{ color: 'border', size: 'xsmall' }}
-      pad={{ bottom: 'xlarge' }}
-    >
+    <Grommet theme={hpe}>
+      <Box
+        background="background-back"
+        width="full"
+        border={{ color: 'border', size: 'xsmall' }}
+        pad={{ bottom: 'xlarge' }}
+      >
       <Header
         pad={{ horizontal: 'medium', vertical: 'small' }}
         background="background-front"
@@ -68,17 +75,6 @@ export const AscendingNavigationExample = () => {
           hoverIndicator="background"
           a11yTitle="Go to Home page"
         />
-
-        <Nav direction="row" gap="xxsmall">
-          {sections.map(section => (
-            <NavigationButton
-              key={section.id}
-              section={section}
-              isActive={activeSection === section.id}
-              onClick={setActiveSection}
-            />
-          ))}
-        </Nav>
       </Header>
       <Box>
         <PageContent gap="small">
@@ -102,5 +98,6 @@ export const AscendingNavigationExample = () => {
         </PageContent>
       </Box>
     </Box>
+    </Grommet>
   );
 };
