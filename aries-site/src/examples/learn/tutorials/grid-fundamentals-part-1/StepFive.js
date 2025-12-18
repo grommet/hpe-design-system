@@ -27,9 +27,13 @@ const ProductsPage = () => {
 
 export const App = () => {
   return (
-    <Grommet theme={hpe} background={{ color: 'transparent' }}>
-      <Box pad="small" round="small" background={{ color: 'background-back' }} 
-      border={{ color: 'border-weak' }}>
+    <Grommet theme={hpe}>
+      <Box
+        pad="small"
+        round="small"
+        background={{ color: 'background-back' }}
+        border={{ color: 'border-weak' }}
+      >
         <ProductsPage />
       </Box>
     </Grommet>
