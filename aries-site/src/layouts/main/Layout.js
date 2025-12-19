@@ -82,12 +82,46 @@ export const Layout = ({
 
   const onSubmit = useCallback(
     value => {
-      const data = {
-        values: {
-          QID1: value.value['like-rating'] === 'like' ? 1 : 2,
-          QID2_TEXT: value.value['text-area'],
-          Q_URL: `https://design-system.hpe.design${router.route}`,
-        },
+      const payload = {
+        responses: [
+          {
+            questionID: 150486413,
+            questionCode: '150486413',
+            answerValues: [
+              {
+                answerID: 804422208,
+                // eslint-disable-next-line max-len
+                answerText:
+                  value.value['like-rating'] === 'like' ? 'Like' : 'Dislike',
+              },
+            ],
+          },
+          {
+            questionID: 150486415,
+            questionCode: '150486415',
+            answerValues: [
+              {
+                answerID: 804422211,
+                value: {
+                  text: value.value['text-area'],
+                },
+              },
+            ],
+          },
+          {
+            questionID: 148339832,
+            questionCode: '148339832',
+            answerValues: [
+              {
+                answerID: 804422212,
+                value: {
+                  text: `https://design-system.hpe.design${router.route}`,
+                },
+              },
+            ],
+          },
+        ],
+        utctimestamp: Math.floor(Date.now() / 1000),
       };
       // using next js env variables for url & api token
       // https://nextjs.org/docs/basic-features/environment-variables
@@ -96,16 +130,21 @@ export const Layout = ({
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          'X-API-TOKEN': process.env.NEXT_PUBLIC_FEEDBACK_APP_API_TOKEN,
+          'api-key': process.env.NEXT_PUBLIC_FEEDBACK_APP_API_TOKEN,
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       })
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
         .then(() => {
           closeFeedbackModal();
         })
         .catch(error => {
-          console.error('Error:', error);
+          console.error('Error submitting feedback:', error);
         });
     },
     [router.route],
@@ -259,6 +298,15 @@ export const Layout = ({
                   about this page.`,
                 }}
               />
+              {/* <Question
+                name="email"
+                kind="textInput"
+                label="Email (optional)"
+                formProps={{
+                  help: `Please leave your email if you would
+                   like direct follow up from a team member.`,
+                }}
+              /> */}
             </Feedback>
           </>
         </Page>
