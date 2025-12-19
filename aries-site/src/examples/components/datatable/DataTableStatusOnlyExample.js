@@ -16,12 +16,6 @@ import { ReverseAnchor } from '../../templates/ReverseAnchor';
 import data from '../../../data/mockData/statusState.json';
 import { getStatusIcon } from './utils/statusIcon';
 
-// statusOnlyData - remove the state property from each item
-const statusOnlyData = data.statusState.map(datum => {
-  const { state, ...rest } = datum;
-  return rest;
-});
-
 const columns = [
   {
     property: 'status',
@@ -48,6 +42,24 @@ const columns = [
 
 const collectionId = 'datatable-status-only-heading';
 
+const renderDetailValue = (key, value) => {
+  if (key === 'status') {
+    return (
+      <Box direction="row" align="center" gap="xsmall">
+        {React.createElement(getStatusIcon(value), {
+          color: `status-${value}`,
+          size: 'small',
+        })}
+        <Text>{value}</Text>
+      </Box>
+    );
+  }
+  if (value === '') {
+    return '--';
+  }
+  return value;
+};
+
 // designSystemDemo is used for DS site only, can be removed in production.
 export const DataTableStatusOnlyExample = ({
   designSystemDemo,
@@ -73,7 +85,7 @@ export const DataTableStatusOnlyExample = ({
       >
         <DataTable
           aria-describedby={collectionId}
-          data={statusOnlyData}
+          data={data.statusState}
           columns={[
             {
               primary: true,
@@ -94,7 +106,7 @@ export const DataTableStatusOnlyExample = ({
   ) : (
     <ContentPane gap="medium">
       <PageHeader
-        title={`Server: ${pageDetails.name}`}
+        title={pageDetails.name}
         parent={
           <ReverseAnchor
             label="Servers"
@@ -110,10 +122,13 @@ export const DataTableStatusOnlyExample = ({
           Details
         </Heading>
         {adjustedPageDetails && (
-          <NameValueList nameProps={{ width: ['5xsmall', '3xsmall'] }}>
+          <NameValueList>
             {Object.entries(adjustedPageDetails).map(([key, value]) => (
-              <NameValuePair key={key} name={key}>
-                {value === '' ? '--' : value}
+              <NameValuePair
+                key={key}
+                name={key.charAt(0).toUpperCase() + key.slice(1)}
+              >
+                {renderDetailValue(key, value)}
               </NameValuePair>
             ))}
           </NameValueList>

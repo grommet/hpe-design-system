@@ -5,32 +5,32 @@
       "name": "HPE_SG18600",
       "status": "ok",
       "state": "Running",
-      "serial": "RSRMVXU4",
-      "power": "On"
+      "power": "On",
+      "serial": "RSRMVXU4"
     },
     {
       "id": "OID445929",
       "name": "HPE_APOLLO6500",
       "status": "warning",
       "state": "Update in progress",
-      "serial": "RSKRMUCY",
-      "power": "On"
+      "power": "On",
+      "serial": "RSKRMUCY"
     },
     {
       "id": "OID125430",
       "name": "Not set",
       "status": "unknown",
       "state": "Not connected",
-      "serial": "JGEFZUAZ",
-      "power": ""
+      "power": "",
+      "serial": "JGEFZUAZ"
     },
     {
       "id": "OID235772",
       "name": "HPE_SUPERDOME",
       "status": "critical",
       "state": "Reset failed",
-      "serial": "H9GJTZH4",
-      "power": ""
+      "power": "",
+      "serial": "H9GJTZH4"
     }
   ]
 }
