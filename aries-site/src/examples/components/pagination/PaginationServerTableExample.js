@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
-import { StatusCritical } from 'grommet-icons';
+import { StatusCritical } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 const columns = [
   {
     property: 'name',
     header: 'Name',
-    size: 'small',
+    size: 'xsmall',
     primary: true,
   },
   {
     property: 'rocket',
     header: 'Rocket',
-    size: 'small',
+    size: 'xsmall',
     render: datum => <Text key={datum.rocket.name}>{datum.rocket.name}</Text>,
     align: 'end',
   },
   {
     property: 'success',
     header: 'Success',
-    size: 'xsmall',
+    size: '3xsmall',
     align: 'end',
     sortable: false,
     render: datum => {
@@ -37,13 +37,13 @@ const columns = [
             plain
             content={content}
             dropProps={{
-              round: 'medium',
-              pad: 'small',
+              round: 'xlarge',
+              pad: 'xsmall',
               background: 'background-back',
             }}
           >
             <Box>
-              <StatusCritical color="red" />
+              <StatusCritical color="status-critical" />
             </Box>
           </Tip>
         );
@@ -111,7 +111,7 @@ export const PaginationServerTableExample = () => {
         step={limit}
         onSort={opts => setSort(opts)}
         fill
-        gap="small"
+        gap="xsmall"
       />
       {numberItems > limit && (
         <Box
@@ -119,7 +119,7 @@ export const PaginationServerTableExample = () => {
           fill="horizontal"
           border="top"
           justify="end"
-          pad={{ vertical: 'xsmall' }}
+          pad={{ vertical: '3xsmall' }}
         >
           <Text>
             Showing {pageResultStart}-{pageResultEnd} of {numberItems}

@@ -17,38 +17,7 @@ const primaryColors = [
   },
 ];
 
-const coreColors = [
-  {
-    name: 'purple!',
-    value: 'purple!',
-    hex: colors['purple!'],
-  },
-  {
-    name: 'teal!',
-    value: 'teal!',
-    hex: colors['teal!'],
-  },
-  {
-    name: 'blue!',
-    value: 'blue!',
-    hex: colors['blue!'],
-  },
-  {
-    name: 'red!',
-    value: 'red!',
-    hex: colors['red!'],
-  },
-  {
-    name: 'orange!',
-    value: 'orange!',
-    hex: colors['orange!'],
-  },
-  {
-    name: 'yellow!',
-    value: 'yellow!',
-    hex: colors['yellow!'],
-  },
-];
+const coreColors = [];
 
 const lightColors = [
   {
@@ -62,29 +31,9 @@ const lightColors = [
     hex: colors.purple.light,
   },
   {
-    name: 'teal',
-    value: colors.teal.light,
-    hex: colors.teal.light,
-  },
-  {
     name: 'blue',
     value: colors.blue.light,
     hex: colors.blue.light,
-  },
-  {
-    name: 'red',
-    value: colors.red.light,
-    hex: colors.red.light,
-  },
-  {
-    name: 'orange',
-    value: colors.orange.light,
-    hex: colors.orange.light,
-  },
-  {
-    name: 'yellow',
-    value: colors.yellow.light,
-    hex: colors.yellow.light,
   },
 ];
 
@@ -100,29 +49,9 @@ const darkColors = [
     hex: colors.purple.dark,
   },
   {
-    name: 'teal',
-    value: colors.teal.dark,
-    hex: colors.teal.dark,
-  },
-  {
     name: 'blue',
     value: colors.blue.dark,
     hex: colors.blue.dark,
-  },
-  {
-    name: 'red',
-    value: colors.red.dark,
-    hex: colors.red.dark,
-  },
-  {
-    name: 'orange',
-    value: colors.orange.dark,
-    hex: colors.orange.dark,
-  },
-  {
-    name: 'yellow',
-    value: colors.yellow.dark,
-    hex: colors.yellow.dark,
   },
 ];
 

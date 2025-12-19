@@ -14,7 +14,7 @@ export const DoubleConfirmation = ({ title, ...rest }) => {
           title={`Discard ${title}?`}
           subtitle="Your changes will not be applied."
         />
-        <Box direction="row" gap="small" justify="end">
+        <Box direction="row" gap="xsmall" justify="end">
           <Button label="Cancel" onClick={cancelConfirmation} />
           <Button label="Discard" primary onClick={acceptConfirmation} />
         </Box>

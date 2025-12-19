@@ -16,7 +16,7 @@ export const DataChartExample = () => (
       {
         property: 'date',
         render: date => (
-          <Text margin={{ horizontal: 'xsmall' }}>
+          <Text margin={{ horizontal: '3xsmall' }}>
             {new Date(date).toLocaleDateString('en-US', {
               month: 'numeric',
               day: 'numeric',

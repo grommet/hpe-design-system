@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Grid, Diagram, Stack, Text } from 'grommet';
-import { Close, StatusCriticalSmall } from 'grommet-icons';
+import { Close, StatusCritical } from '@hpe-design/icons-grommet';
 
 import { Annotation } from '../../../layouts';
 
@@ -49,14 +49,14 @@ const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={[
       '12px',
-      'xxsmall',
-      'small',
-      'xxsmall',
-      ['xsmall', 'large'],
+      '5xsmall',
       'xsmall',
+      '5xsmall',
+      ['3xsmall', 'xlarge'],
+      '3xsmall',
     ]}
     justify="center"
-    gap={{ row: 'small' }}
+    gap={{ row: 'xsmall' }}
     fill
     {...rest}
   />
@@ -67,7 +67,7 @@ const AnatomyBox = ({ children, id, ...rest }) => (
     id={id}
     justify="center"
     fill="horizontal"
-    pad={{ vertical: 'xsmall' }}
+    pad={{ vertical: '3xsmall' }}
     background="validation-critical"
     {...rest}
   >
@@ -76,7 +76,7 @@ const AnatomyBox = ({ children, id, ...rest }) => (
 );
 
 export const BannerNotificationDiagram = () => (
-  <Stack margin={{ bottom: 'small' }}>
+  <Stack margin={{ bottom: 'xsmall' }}>
     <AnatomyGrid>
       <Box />
       <Annotation id={1} target="1" />
@@ -86,7 +86,7 @@ export const BannerNotificationDiagram = () => (
       <Annotation id={4} target="4" />
       <AnatomyBox />
       <AnatomyBox align="center">
-        <StatusCriticalSmall id="status-indicator" color="red" />
+        <StatusCritical id="status-indicator" color="status-critical" />
       </AnatomyBox>
       <AnatomyBox>
         <Text id="content" alignSelf="center">

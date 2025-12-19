@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import {
   Box,
   Button,
@@ -10,7 +9,9 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { ChatOption, Info, Slack } from 'grommet-icons';
+import { ChatConversation, Info } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Slack } from 'grommet-icons';
 
 const LinkButton = props => (
   <Button
@@ -31,47 +32,13 @@ const SlackOption = () => (
       <Text>Specific questions? Want feedback or advice?</Text>
     </Box>
     <LinkButton
-      icon={<ChatOption />}
+      icon={<ChatConversation />}
       label="Join us on Slack"
       href="https://slack-invite.grommet.io/"
       primary
     />
   </Box>
 );
-
-// const Roadmap = () => (
-//   <Box gap="medium">
-//     <Map size="large" color="text-strong" />
-//     <Box>
-//       <Heading level={3} margin="none" size="small">
-//         Roadmap
-//       </Heading>
-//       <Text>Stay in the loop and checkout what's next!</Text>
-//     </Box>
-//     <LinkButton
-//       label="View roadmap"
-//       href="https://github.com/orgs/grommet/projects/11?fullscreen=true"
-//       secondary
-//     />
-//   </Box>
-// );
-
-// const Backlog = () => (
-//   <Box gap="medium">
-//     <Github size="large" color="text-strong" />
-//     <Box>
-//       <Heading level={3} margin="none" size="small">
-//         Backlog
-//       </Heading>
-//       <Text>Eager to know what's marinating in the back?</Text>
-//     </Box>
-//     <LinkButton
-//       label="View backlog"
-//       href="https://github.com/orgs/grommet/projects/10"
-//       secondary
-//     />
-//   </Box>
-// );
 
 const Feedback = () => (
   <Box gap="medium">
@@ -89,20 +56,20 @@ const Feedback = () => (
 export const Community = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+    <PageContent background={{ fill: 'horizontal', color: 'background-back' }}>
       <Box
         fill="horizontal"
         pad={{
-          vertical: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
+          vertical: !['xsmall', 'small'].includes(size) ? '3xlarge' : 'xlarge',
         }}
-        gap="large"
+        gap="xlarge"
         {...rest}
       >
-        <Box width="xlarge">
-          <Heading margin="none" level={2} size="large">
+        <Box width="xxlarge">
+          <Heading margin="none" level={2} size="small">
             Community
           </Heading>
-          <Paragraph size="xlarge" fill>
+          <Paragraph size="xxlarge" fill>
             The HPE Design System is an open-source framework for designers and
             developers. We welcome feedback, ideas and appreciate your
             suggestions.
@@ -111,7 +78,7 @@ export const Community = ({ ...rest }) => {
         <Grid
           columns="medium"
           rows={[['auto', 'full']]}
-          gap={{ row: 'large', column: 'small' }}
+          gap={{ row: 'xlarge', column: 'xsmall' }}
           fill
         >
           <SlackOption />

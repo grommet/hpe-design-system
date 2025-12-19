@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TextInput } from 'grommet';
-import { Search } from 'grommet-icons';
+import { Search } from '@hpe-design/icons-grommet';
 
 export const TextInputLabeledByExample = () => {
   const StyledTextInput = styled(TextInput).attrs(() => ({

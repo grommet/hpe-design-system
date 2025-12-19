@@ -8,7 +8,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
+import { StatusGood, StatusWarning } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 import ServerGroups from '../../../data/mockData/serverGroups.json';
@@ -43,14 +43,14 @@ const formatData = dataSet =>
       case 'OK':
         adjustedDatum.status = {
           label: 'ok',
-          icon: StatusGoodSmall,
+          icon: StatusGood,
           color: 'status-ok',
         };
         break;
       case 'Warning':
         adjustedDatum.status = {
           label: 'warning',
-          icon: StatusWarningSmall,
+          icon: StatusWarning,
           color: 'status-warning',
         };
         break;
@@ -102,7 +102,7 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
               property: 'status.label',
               header: 'Status',
               render: datum => (
-                <Box direction="row" align="center" gap="xsmall">
+                <Box direction="row" align="center" gap="3xsmall">
                   <datum.status.icon color={datum.status.color} size="small" />
                   <Text>{datum.status.label}</Text>
                 </Box>

@@ -7,9 +7,9 @@ const contentAreaProps = {
   height: undefined,
 };
 
-const columns = 'small';
-const rows = 'xsmall';
-const gap = 'small';
+const columns = 'xsmall';
+const rows = '3xsmall';
+const gap = 'xsmall';
 
 export const FluidGrid1 = () => (
   <Grid columns={columns} rows={rows} gap={gap}>

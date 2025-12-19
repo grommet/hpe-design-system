@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'grommet';
-import { Next } from 'grommet-icons';
+import { Right } from '@hpe-design/icons-grommet';
 
 export const ButtonPreview = () => (
-  <Button label="Button" icon={<Next />} reverse tabIndex={-1} />
+  <Button label="Button" icon={<Right />} reverse tabIndex={-1} />
 );

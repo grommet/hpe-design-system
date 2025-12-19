@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 // App.js
 import React from 'react';
-import { Grommet, Box, Heading, Text, ThemeContext, Grid } from 'grommet';
+import { Grommet, Heading, ThemeContext, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
 import productList from './product-list.json';
@@ -14,7 +14,7 @@ const ProductsPage = () => {
   return (
     <>
       <Heading level={1}>Products</Heading>
-      <Grid columns={minColumnWidth} gap="small">
+      <Grid columns={minColumnWidth} gap="xsmall">
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}

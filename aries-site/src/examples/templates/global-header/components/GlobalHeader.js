@@ -13,8 +13,8 @@ export const GlobalHeader = () => {
       justify="between"
       fill="horizontal"
       pad={{
-        horizontal: !['xsmall', 'small'].includes(size) ? 'medium' : 'small',
-        vertical: 'small',
+        horizontal: !['xsmall', 'small'].includes(size) ? 'medium' : 'xsmall',
+        vertical: 'xsmall',
       }}
     >
       <AppIdentity title="Service Name" brand="hpe" />

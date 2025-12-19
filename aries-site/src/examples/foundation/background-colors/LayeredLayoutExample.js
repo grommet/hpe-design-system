@@ -22,7 +22,7 @@ export const LayeredLayoutExample = () => {
             border={{ color: 'border-weak', side: 'bottom' }}
             background="background-back"
             fill="horizontal"
-            pad={{ horizontal: 'medium', vertical: 'small' }}
+            pad={{ horizontal: 'medium', vertical: 'xsmall' }}
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
@@ -36,10 +36,10 @@ export const LayeredLayoutExample = () => {
             <Grid
               columns={
                 !['xsmall', 'small'].includes(size)
-                  ? 'small'
+                  ? 'xsmall'
                   : { count: 2, size: 'auto' }
               }
-              gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
+              gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'xsmall'}
             >
               {data.map((datum, index) => (
                 <Card
@@ -52,7 +52,7 @@ export const LayeredLayoutExample = () => {
             greater detail behind this summary information.
             `);
                   }}
-                  height="small"
+                  height="xsmall"
                 />
               ))}
             </Grid>
@@ -70,7 +70,7 @@ const AppContainer = ({ ...rest }) => {
       direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
-      width={{ max: 'xxlarge' }}
+      width={{ max: '3xlarge' }}
       {...rest}
     />
   );

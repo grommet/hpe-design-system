@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Header, Menu, Text, ResponsiveContext } from 'grommet';
-import { Hpe } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 
 export const MenuHeaderExample = () => {
   const items = [
@@ -12,7 +12,7 @@ export const MenuHeaderExample = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Header pad="small" fill="horizontal">
+    <Header pad="xsmall" fill="horizontal">
       <Button>
         <Box
           direction="row"
@@ -20,12 +20,12 @@ export const MenuHeaderExample = () => {
           gap="medium"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
-          pad={{ vertical: 'small' }}
+          pad={{ vertical: 'xsmall' }}
           responsive={false}
         >
-          <Hpe color="brand" height="medium" />
+          <Element color="brand" height="medium" />
           {!['xsmall', 'small'].includes(size) && (
-            <Box direction="row" gap="xsmall" wrap>
+            <Box direction="row" gap="3xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
               </Text>

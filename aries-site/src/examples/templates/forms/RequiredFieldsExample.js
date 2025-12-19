@@ -14,8 +14,8 @@ import {
   TextInput,
   TextArea,
 } from 'grommet';
-import { CircleAlert } from 'grommet-icons';
-import { ContentPane } from '../../../layouts';
+import { Alert } from '@hpe-design/icons-grommet';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];
@@ -49,8 +49,8 @@ export const RequiredFieldsExample = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -63,7 +63,7 @@ export const RequiredFieldsExample = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           messages={{
@@ -149,12 +149,12 @@ export const RequiredFieldsExample = () => {
             <Box
               margin={{ top: 'medium', bottom: 'medium' }}
               round="4px"
-              pad="small"
+              pad="xsmall"
               background="validation-critical"
               direction="row"
-              gap="xsmall"
+              gap="3xsmall"
             >
-              <CircleAlert size="small" />
+              <Alert size="small" />
               <Text size="xsmall">
                 The name of the superhero is already being used. Provide a
                 unique name.
@@ -163,7 +163,7 @@ export const RequiredFieldsExample = () => {
           )}
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-            margin={{ top: 'medium', bottom: 'small' }}
+            margin={{ top: 'medium', bottom: 'xsmall' }}
           >
             <Button label="Create" primary type="submit" />
           </Box>

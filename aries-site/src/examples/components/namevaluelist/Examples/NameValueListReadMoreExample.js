@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Button, NameValueList, NameValuePair } from 'grommet';
-import { Down, Up } from 'grommet-icons';
+import { Down, Up } from '@hpe-design/icons-grommet';
 import { contentTruncationData } from '../data';
 
 export const NameValueListReadMoreExample = () => {
@@ -19,9 +19,9 @@ export const NameValueListReadMoreExample = () => {
     .toString();
 
   return (
-    <Box pad="small">
+    <Box pad="xsmall">
       <NameValueList
-        nameProps={{ width: ['xsmall', 'small'] }}
+        nameProps={{ width: ['3xsmall', 'xsmall'] }}
         valueProps={{ width: ['auto', 'medium'] }}
       >
         <NameValuePair name="State">

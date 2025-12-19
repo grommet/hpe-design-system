@@ -10,7 +10,7 @@ import {
   TextInput,
 } from 'grommet';
 import { ButtonGroup } from 'aries-core';
-import { ContentPane } from '../../../../layouts';
+import { ContentPane } from '../../../../layouts/content/ContentPane';
 import { FormChildObjects } from '../../FormChildObject';
 
 const permissionTemplate = {
@@ -121,7 +121,7 @@ export const CreateRole = () => {
           >
             <TextInput id="role-name" name="role-name" />
           </FormField>
-          <Box gap="small">
+          <Box gap="xsmall">
             <Box>
               <Heading level={3} margin="none">
                 Permissions

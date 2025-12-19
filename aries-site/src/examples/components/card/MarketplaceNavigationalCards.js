@@ -24,7 +24,7 @@ export const MarketplaceNavigationalCards = () => {
           <Card
             key={index}
             icon={
-              <Box height="xxsmall" align="start">
+              <Box height="5xsmall" align="start">
                 <Image
                   src={product.icon}
                   alt={`${product.title} logo`}
@@ -36,9 +36,9 @@ export const MarketplaceNavigationalCards = () => {
             subtitle={`By ${product.author}`}
             description={product.description}
             actions={
-              <Box direction="row" gap="xsmall" wrap>
+              <Box direction="row" gap="3xsmall" wrap>
                 {product.tags?.map((tag, j) => (
-                  <Tag value={tag} key={j} margin={{ bottom: 'xsmall' }} />
+                  <Tag value={tag} key={j} margin={{ bottom: '3xsmall' }} />
                 ))}
               </Box>
             }

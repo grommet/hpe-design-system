@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Heading } from 'grommet';
-import { Link as LinkIcon } from 'grommet-icons';
+import { Link as LinkIcon } from '@hpe-design/icons-grommet';
 
 import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';
 
-export const SubsectionHeader = ({ children, level }) => {
+export const SubsectionHeader = ({ headingSize, children, level }) => {
   const [over, setOver] = useState(false);
   const id = nameToSlug(children);
   return (
     <Box
       direction="row"
       align="center"
-      gap="small"
+      gap="xsmall"
       id={id}
-      margin={{ top: level === 3 ? 'medium' : 'large' }}
+      margin={{ top: level === 3 ? 'medium' : 'xlarge' }}
       onMouseOver={() => setOver(true)}
       onFocus={() => setOver(true)}
       onMouseOut={() => setOver(false)}
       onBlur={() => setOver(false)}
     >
-      <Heading margin={{ vertical: 'small' }} level={level}>
+      <Heading size={headingSize} margin={{ vertical: 'xsmall' }} level={level}>
         <HighlightPhrase size="inherit">{children}</HighlightPhrase>
       </Heading>
       <Button
@@ -41,4 +41,5 @@ export const SubsectionHeader = ({ children, level }) => {
 SubsectionHeader.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   level: PropTypes.number,
+  headingSize: PropTypes.string,
 };

@@ -5,7 +5,13 @@ import { Grid } from 'grommet';
 import { ContentCard } from '.';
 import { nameToPath } from '../../utils';
 
-export const CardGrid = ({ cards, headingLevel, minimal, ...rest }) => (
+export const CardGrid = ({
+  cards,
+  headingLevel,
+  headingSize,
+  minimal,
+  ...rest
+}) => (
   <Grid
     columns="medium"
     rows={[['auto', 'full']]}
@@ -24,6 +30,7 @@ export const CardGrid = ({ cards, headingLevel, minimal, ...rest }) => (
             topic={topic}
             minimal={minimal}
             level={headingLevel}
+            size={headingSize}
           />
         );
       })}
@@ -38,4 +45,5 @@ CardGrid.propTypes = {
   ),
   headingLevel: PropTypes.number,
   minimal: PropTypes.bool,
+  headingSize: PropTypes.string,
 };

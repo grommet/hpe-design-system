@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircleInformation } from 'grommet-icons';
+import { Alert } from '@hpe-design/icons-grommet';
 import {
   Box,
   Button,
@@ -32,10 +32,11 @@ export const FormValidation = () => {
             label="Use manager"
           />
         </FormField>
-        <Box gap="small" pad={{ top: 'medium' }}>
+        <Box gap="xsmall" pad={{ top: 'medium' }}>
           <Notification
             status="critical"
-            icon={<CircleInformation height="medium" />}
+            // TODO investigate why we need height here
+            icon={<Alert height="medium" />}
             message={`That cluster name is already being used. 
               Please provide a unique name.`}
           />

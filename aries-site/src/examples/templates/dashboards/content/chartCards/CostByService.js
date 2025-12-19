@@ -163,7 +163,7 @@ export const CostByService = ({ period, notification }) => {
               />
             </Box>
             <NameValueList
-              valueProps={{ width: ['xsmall', 'auto'] }}
+              valueProps={{ width: ['3xsmall', 'auto'] }}
               pairProps={{ direction: 'column' }}
               layout="grid"
               gridArea="measure"

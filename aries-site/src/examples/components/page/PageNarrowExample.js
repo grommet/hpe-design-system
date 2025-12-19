@@ -22,8 +22,8 @@ import { ContentPane } from '../../../layouts';
 import { demoStyle } from './demoStyle';
 
 export const PageNarrowExample = () => (
-  <Page kind="narrow" flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
-    <PageContent gap="large" {...demoStyle}>
+  <Page kind="narrow" flex="grow" pad={{ vertical: 'xlarge' }} {...demoStyle}>
+    <PageContent gap="xlarge" {...demoStyle}>
       <PageHeader
         title="Narrow page"
         actions={[<Button key="Action A" secondary label="Action A" />]}

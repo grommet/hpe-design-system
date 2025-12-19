@@ -1,4 +1,4 @@
-import { Link as LinkIcon } from 'grommet-icons';
+import { Link as LinkIcon } from '@hpe-design/icons-grommet';
 import { SectionCards } from '../../../components/cards';
 
 const guides = [
@@ -32,6 +32,7 @@ const guidesSeeAllContent = {
 export const GuideSection = () => (
   <SectionCards
     headingLevel={3}
+    headingSize="small"
     items={guides}
     seeAllContent={guidesSeeAllContent}
   />

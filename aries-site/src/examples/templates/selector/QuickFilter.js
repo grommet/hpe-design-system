@@ -19,9 +19,9 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
+import { StatusCritical, StatusGood } from '@hpe-design/icons-grommet';
 import { SelectorGroup, Selector } from 'aries-core';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const buildQuery = view => {
   const query = {};
@@ -124,13 +124,13 @@ const columns = [
     render: datum => {
       const icon =
         datum.success === 'Failed' ? (
-          <StatusCriticalSmall color="status-critical" height="medium" />
+          <StatusCritical color="status-critical" height="medium" />
         ) : (
-          <StatusGoodSmall color="status-ok" height="medium" />
+          <StatusGood color="status-ok" height="medium" />
         );
 
       return (
-        <Box direction="row" align="center" gap="xsmall">
+        <Box direction="row" align="center" gap="3xsmall">
           {icon}
           <Text>{datum.success}</Text>
         </Box>
@@ -215,13 +215,13 @@ const QuickFilters = ({ value: selectedValue, setValue, counts }) => {
       columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
     >
       <Selector
-        icon={<StatusCriticalSmall color="status-critical" height="medium" />}
+        icon={<StatusCritical color="status-critical" height="medium" />}
         title="Failed launches"
         value="success.failed"
         description={<Text size="xlarge">{counts?.failed}</Text>}
       />
       <Selector
-        icon={<StatusGoodSmall color="status-ok" height="medium" />}
+        icon={<StatusGood color="status-ok" height="medium" />}
         title="Successful launches"
         value="success.successful"
         description={<Text size="xlarge">{counts?.successful}</Text>}
@@ -346,7 +346,7 @@ export const QuickFilter = () => {
                 summary
                 stepOptions
                 border="top"
-                pad={{ vertical: 'xsmall', horizontal: 'small' }}
+                pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}
               />
             </Box>
           </Data>

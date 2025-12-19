@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from 'grommet';
-import { CircleInformation, Next } from 'grommet-icons';
+import { Info, Right } from '@hpe-design/icons-grommet';
 import { Activity, ActivityFeed } from '../components';
 
 const MOCK_DATA = require('../../../../data/mockData/activities.json');
@@ -115,7 +115,7 @@ export const RecentActivity = () => {
             <Activity
               key={activity.title}
               title={activity.title}
-              icon={<CircleInformation size="small" />}
+              icon={<Info size="small" />}
               message={activity.message}
               timestamp={activity.mostRecent}
               detailUrl={activity.selfUri}
@@ -128,7 +128,7 @@ export const RecentActivity = () => {
 const FeedFooter = () => (
   <Button
     label="View all"
-    icon={<Next />}
+    icon={<Right />}
     onClick={() => {
       // eslint-disable-next-line no-alert
       alert(`

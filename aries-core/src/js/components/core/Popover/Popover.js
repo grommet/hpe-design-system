@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, Drop } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 
 export const Popover = ({
   a11yTitle,
@@ -25,11 +25,11 @@ export const Popover = ({
       {...rest}
     >
       <Box
-        gap="xsmall"
-        pad={{ vertical: 'small', left: 'small', right: 'xsmall' }}
+        gap="3xsmall"
+        pad={{ vertical: 'xsmall', left: 'xsmall', right: '3xsmall' }}
         direction="row"
       >
-        <Box flex gap="small">
+        <Box flex gap="xsmall">
           {title}
           {children}
           {footer}

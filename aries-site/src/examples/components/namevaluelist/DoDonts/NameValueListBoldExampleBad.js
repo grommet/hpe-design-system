@@ -3,8 +3,8 @@ import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 import { languageData } from '../data';
 
 export const NameValueListBoldExampleBad = () => (
-  <Box pad="small">
-    <NameValueList nameProps={{ width: 'xsmall' }}>
+  <Box pad="xsmall">
+    <NameValueList nameProps={{ width: '3xsmall' }}>
       {Object.entries(languageData).map(([name, value]) => (
         <NameValuePair key={name} name={<Text>{name}</Text>}>
           <Text weight="bold">{value}</Text>

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
 import { FormValidation } from 'aries-site/src/examples/templates/inline-notifications/InlineFormValidation';
@@ -6,12 +7,28 @@ import { PageBannerExample } from 'aries-site/src/examples/templates/inline-noti
 import { PromotionExample } from 'aries-site/src/examples/templates/inline-notifications/PromotionExample';
 import { StatusUpdateExample } from 'aries-site/src/examples/templates/inline-notifications/StatusUpdateExample';
 
-export const InlineFormValidation = () => <FormValidation />;
-export const InlineNotification = () => <InlineNotificationExample />;
-export const PageBanner = () => <PageBannerExample />;
-export const Promotion = () => <PromotionExample />;
-export const StatusUpdate = () => <StatusUpdateExample />;
-
-export default {
+const meta = {
   title: 'Inline Notifications',
+};
+
+export default meta;
+
+export const InlineFormValidation = {
+  render: () => <FormValidation />,
+};
+
+export const InlineNotification = {
+  render: () => <InlineNotificationExample />,
+};
+
+export const PageBanner = {
+  render: () => <PageBannerExample />,
+};
+
+export const Promotion = {
+  render: () => <PromotionExample />,
+};
+
+export const StatusUpdate = {
+  render: () => <StatusUpdateExample />,
 };

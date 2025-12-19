@@ -51,14 +51,14 @@ export const FilterCheckBoxGroup = ({ attr }) => {
   return (
     <Box
       flex={false}
-      margin={options.length > max ? { bottom: 'small' } : undefined}
+      margin={options.length > max ? { bottom: 'xsmall' } : undefined}
     >
       <FormField
         htmlFor={property}
         name={property}
         label={label}
         flex={false}
-        width={{ max: 'medium', min: 'small' }}
+        width={{ max: 'medium', min: 'xsmall' }}
         {...contentProps}
       >
         <CheckBoxGroup

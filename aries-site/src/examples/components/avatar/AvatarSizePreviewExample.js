@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Avatar, Box, Text } from 'grommet';
 
 export const AvatarSizePreviewExample = () => (
-  <Box direction="row-responsive" gap="large">
+  <Box direction="row-responsive" gap="xlarge">
     <AvatarContainer
       alt="Eric Soderberg image"
       size="small"
@@ -11,14 +11,19 @@ export const AvatarSizePreviewExample = () => (
       title="Small avatar with profile picture"
     />
     <AvatarContainer
-      background="green"
+      // TODO: Consider a different background here.
+      // Temporary solution until there is a wider
+      // range of colors in the theme.
+      background="decorative-green"
       alt="Avatar containing initial letters J and S"
       title="Medium avatar with initials"
     >
-      JS
+      <Text size="large" color="text-strong">
+        JS
+      </Text>
     </AvatarContainer>
     <AvatarContainer
-      round="medium"
+      round="xlarge"
       alt="shape logo"
       size="large"
       src="/Shape.svg"
@@ -36,7 +41,7 @@ const AvatarContainer = ({
   src,
   title,
 }) => (
-  <Box direction="column" align="center" gap="small" width="small">
+  <Box direction="column" align="center" gap="xsmall" width="xsmall">
     <Avatar
       round={round}
       a11yTitle={alt}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Header, Heading, Paragraph } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 
 export const LayerHeader = ({
   closeId,
@@ -11,7 +11,7 @@ export const LayerHeader = ({
   subtitle,
   ...rest
 }) => (
-  <Header flex={false} align="start" gap="small" justify="between" {...rest}>
+  <Header flex={false} align="start" gap="xsmall" justify="between" {...rest}>
     <Box>
       <Heading id="layer-title" level={2} margin="none">
         {title}

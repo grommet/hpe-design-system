@@ -24,7 +24,12 @@ export const PageContainerInteractive = () => (
     {/* ContentArea is specific for the Design System site and is used
      as a visual aid to help present layout concepts. Remove ContentAreas from
      your implementation. */}
-    <ContentArea title="Global Header" background="status-unknown" />
+    <ContentArea
+      title="Global Header"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-neutral', opacity: 'weak' }}
+    />
     {/* PageContainer is a context provider which specifies the page's 
       max-width, margins, and horizontal alignment for its children. 
       Possible values for `kind` are wide, narrow, and full. This implementation
@@ -37,7 +42,12 @@ export const PageContainerInteractive = () => (
         <PageChildren />
       </ContentArea>
     </Page>
-    <ContentArea title="Global Footer" background="status-unknown" />
+    <ContentArea
+      title="Global Footer"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-neutral', opacity: 'weak' }}
+    />
   </AppContainer>
 );
 
@@ -49,7 +59,9 @@ const PageChildren = () => (
         //  demonstration. Remove from your implementation.
         as={ContentArea}
         title="Page Header"
-        background="purple!"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-purple', opacity: 'weak' }}
         border
       >
         {/* Typically, the Header will contain elements such as the page's h1,
@@ -58,7 +70,9 @@ const PageChildren = () => (
       <Main
         as={ContentArea}
         title="Other Content"
-        background="orange"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
         border
         fill={false}
       >

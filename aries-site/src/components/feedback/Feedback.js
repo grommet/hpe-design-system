@@ -11,7 +11,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { Close } from 'grommet-icons/icons/Close';
+import { Close } from '@hpe-design/icons-grommet';
 
 const Announcer = ({ announce, message, mode, role }) => {
   const theme = useContext(ThemeContext);
@@ -107,7 +107,7 @@ export const Feedback = ({
         position={
           !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
         }
-        margin={{ vertical: 'xlarge', horizontal: 'medium' }}
+        margin={{ vertical: '3xlarge', horizontal: 'medium' }}
         modal={false}
         onEsc={onClose}
         {...layerProps}

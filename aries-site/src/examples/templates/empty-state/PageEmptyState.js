@@ -7,7 +7,7 @@ import {
 } from 'grommet';
 
 import { ListingEmptyState } from './ListingEmptyState';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const PageEmptyState = ({ ...rest }) => {
   return (

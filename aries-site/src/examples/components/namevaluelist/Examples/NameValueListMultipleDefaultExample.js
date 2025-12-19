@@ -8,7 +8,7 @@ import {
   Tab,
   Tabs,
 } from 'grommet';
-import { StatusGoodSmall } from 'grommet-icons';
+import { StatusGood } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../../layouts';
 import { kubernetesData, serverData, tagsData } from '../data';
 
@@ -29,8 +29,8 @@ export const NameValueListMultipleDefaultExample = () => {
                 {Object.entries(serverData).map(([name, value]) => (
                   <NameValuePair key={name} name={name}>
                     {name === 'Health' ? (
-                      <Box align="center" gap="xsmall" direction="row">
-                        <StatusGoodSmall size="small" color="status-ok" />
+                      <Box align="center" gap="3xsmall" direction="row">
+                        <StatusGood size="small" color="status-ok" />
                         {value}
                       </Box>
                     ) : (
@@ -67,10 +67,10 @@ export const NameValueListMultipleDefaultExample = () => {
           </Box>
         </Tab>
         <Tab title="Policies">
-          <Box margin="small">Policies information</Box>
+          <Box margin="xsmall">Policies information</Box>
         </Tab>
         <Tab title="Services">
-          <Box margin="small">Services information</Box>
+          <Box margin="xsmall">Services information</Box>
         </Tab>
       </Tabs>
     </>

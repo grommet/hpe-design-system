@@ -12,7 +12,7 @@ const connections = [
 
 export const FeedbackAnatomy = () => {
   const columns = [
-    ['auto', 'xxsmall'],
+    ['auto', '5xsmall'],
     ['auto', 'medium'],
   ];
   const areas = [
@@ -64,7 +64,7 @@ const FeedbackContent = () => (
       border={{ style: 'dashed' }}
       align="center"
       justify="center"
-      height="xsmall"
+      height="3xsmall"
     >
       Body containing feedback questions.
     </Box>

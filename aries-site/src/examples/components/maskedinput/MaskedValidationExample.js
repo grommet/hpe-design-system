@@ -49,7 +49,7 @@ export const MaskedValidationExample = () => (
         mask={maskIp}
       />
     </FormField>
-    <Box direction="row" gap="small">
+    <Box direction="row" gap="xsmall">
       <Button type="submit" label="Validate" primary />
       <Button type="reset" label="Reset" />
     </Box>

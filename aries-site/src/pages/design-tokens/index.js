@@ -24,7 +24,7 @@ const Tokens = () => (
       canonicalUrl="https://design-system.hpe.design/design-tokens"
     />
     <PageContent>
-      <Box pad={{ vertical: 'medium' }} justify="center" width="large">
+      <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
         <Notification
@@ -38,7 +38,7 @@ const Tokens = () => (
           ]}
         />
       </Box>
-      <Data data={cards} pad={{ bottom: 'large' }}>
+      <Data data={cards} pad={{ bottom: 'xlarge' }}>
         <DataContext.Consumer>
           {({ data }) => {
             const gettingStarted = data.filter(
@@ -60,7 +60,7 @@ const Tokens = () => (
             ];
 
             return (
-              <Box gap="large" pad={{ top: 'medium' }}>
+              <Box gap="xlarge" pad={{ top: 'medium' }}>
                 {results.map((type, index) =>
                   type.data?.length ? (
                     <Box gap="medium" key={index}>
@@ -75,7 +75,7 @@ const Tokens = () => (
                         {type.data.map(item => (
                           <ContentCard
                             key={item.name}
-                            pad="small"
+                            pad="xsmall"
                             topic={item}
                             href={item.href || nameToPath(item.name)}
                             level={3}

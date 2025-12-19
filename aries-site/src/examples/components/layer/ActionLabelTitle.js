@@ -10,7 +10,7 @@ export const ActionLabelTitle = ({ bestPractice = true }) => (
     <Box pad="medium" border={{ style: 'dashed' }}>
       Body content goes here.
     </Box>
-    <Box direction="row" gap="small">
+    <Box direction="row" gap="xsmall">
       <Button label={`${bestPractice ? 'Create' : 'Add'} pipeline`} primary />
       <Button label="Cancel" />
     </Box>

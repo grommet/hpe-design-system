@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, Text, Diagram, Stack } from 'grommet';
-import { Map, List, Table } from 'grommet-icons';
+import { Map, List, Table } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
@@ -51,10 +51,10 @@ const AnatomyBox = ({ id, children, ...rest }) => {
     <Box
       id={id}
       fill="horizontal"
-      pad="xsmall"
+      pad="3xsmall"
       justify="center"
       align="center"
-      gap="xsmall"
+      gap="3xsmall"
       direction="row"
       {...rest}
     >

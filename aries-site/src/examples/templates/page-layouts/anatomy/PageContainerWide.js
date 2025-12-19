@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Box, Diagram, Stack, ThemeContext } from 'grommet';
-import { LinkPrevious, LinkNext } from 'grommet-icons';
+import { LinkPrev, LinkNext } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { ContentArea } from './components';
 
@@ -37,10 +37,16 @@ export const PageContainerWide = () => {
       justify="between"
       fill="vertical"
       margin={{ horizontal: annotationMargin }}
-      pad={{ top: 'xlarge' }}
+      pad={{ top: '3xlarge' }}
     >
-      <LinkPrevious id="left-edge" color="text-strong" />
-      <Box id="label" pad={{ horizontal: 'xsmall' }} background="orange">
+      <LinkPrev id="left-edge" color="text-strong" />
+      <Box
+        id="label"
+        pad={{ horizontal: '3xsmall' }}
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-blue', opacity: 'weak' }}
+      >
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
       <LinkNext id="right-edge" color="text-strong" />
@@ -53,13 +59,15 @@ export const PageContainerWide = () => {
         title="App Container"
         border
         flex={false}
-        gap="small"
+        gap="xsmall"
         round="xsmall"
         width={diagramWidth}
       >
         <ContentArea
           title="Global Header"
-          background="status-unknown"
+          // TODO: Using opacity weak is a temporary solution until
+          // we have a wider range of colors in the theme.
+          background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />
         <Stack>
@@ -69,19 +77,23 @@ export const PageContainerWide = () => {
               alignSelf="center"
               border
               flex={false}
-              gap="small"
+              gap="xsmall"
               width={PAGE_CONTAINER_SCALE}
             >
               <ContentArea
                 title="Page Header"
-                background="purple!"
+                // TODO: Using opacity weak is a temporary solution until
+                // we have a wider range of colors in the theme.
+                background={{ color: 'decorative-purple', opacity: 'weak' }}
                 flex={false}
               />
               <ContentArea
                 title="Other Content"
-                background="orange"
+                // TODO: Using opacity weak is a temporary solution until
+                // we have a wider range of colors in the theme.
+                background={{ color: 'decorative-blue', opacity: 'weak' }}
                 border
-                height="small"
+                height="xsmall"
               />
             </ContentArea>
           </ContentArea>
@@ -89,7 +101,9 @@ export const PageContainerWide = () => {
         </Stack>
         <ContentArea
           title="Global Footer"
-          background="status-unknown"
+          // TODO: Using opacity weak is a temporary solution until
+          // we have a wider range of colors in the theme.
+          background={{ color: 'decorative-neutral', opacity: 'weak' }}
           flex={false}
         />
       </ContentArea>

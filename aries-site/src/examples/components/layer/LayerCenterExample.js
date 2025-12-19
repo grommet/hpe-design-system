@@ -8,7 +8,7 @@ import {
   Text,
   Paragraph,
 } from 'grommet';
-import { Alert, Close, MailOption } from 'grommet-icons';
+import { Alert, Close, Mail } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 export const LayerCenterExample = () => {
@@ -30,9 +30,9 @@ export const LayerCenterExample = () => {
             pad="medium"
           >
             <Box justify="between" direction="row">
-              <Box flex={false} gap="small" direction="row">
+              <Box flex={false} gap="xsmall" direction="row">
                 <Box justify="center">
-                  <MailOption />
+                  <Mail />
                 </Box>
                 <Heading level={2} margin="none">
                   Modal dialog
@@ -59,8 +59,8 @@ export const LayerCenterExample = () => {
           >
             <Box
               direction="row"
-              gap="small"
-              pad={{ vertical: 'small', horizontal: 'medium' }}
+              gap="xsmall"
+              pad={{ vertical: 'xsmall', horizontal: 'medium' }}
               background="background-contrast"
             >
               <Alert color="status-critical" />

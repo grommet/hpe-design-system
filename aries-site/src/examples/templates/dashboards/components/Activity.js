@@ -12,7 +12,7 @@ export const Activity = ({
 
   return (
     <Grid columns={['auto', 'flex']} rows={['auto', 'auto']}>
-      <Box justify="center" pad={{ right: 'xsmall' }}>
+      <Box justify="center" pad={{ right: '3xsmall' }}>
         {icon}
       </Box>
       <TextEmphasis>{title}</TextEmphasis>

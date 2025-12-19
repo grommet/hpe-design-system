@@ -12,7 +12,7 @@ export const BestPracticeGroup = ({ ...rest }) => {
   return (
     <Grid
       columns={column}
-      gap={!['xsmall', 'small'].includes(size) ? 'large' : 'none'}
+      gap={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'none'}
       {...rest}
     />
   );

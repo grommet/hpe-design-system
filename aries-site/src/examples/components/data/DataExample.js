@@ -103,9 +103,9 @@ export const DataExample = () => {
 
 const ResultsWrapper = ({ ...rest }) => (
   // style needed to ensure pagination controls stay aligned with datatable
-  <Box align="start">
+  (<Box align="start">
     <Box style={{ display: 'inline-block' }} {...rest} />
-  </Box>
+  </Box>)
 );
 
 const step = 10;
@@ -120,8 +120,8 @@ const Pagination = () => {
         border="top"
         direction="row"
         justify="between"
-        gap="small"
-        pad={{ vertical: 'xsmall', horizontal: 'small' }}
+        gap="xsmall"
+        pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}
         // in order to align with DataTable
         flex="grow"
         width="0"

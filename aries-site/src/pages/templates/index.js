@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
-import { PageIntro } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Templates';
@@ -16,16 +15,17 @@ const Templates = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/templates"
     />
-    <PageContent gap="large">
-      <PageIntro>
-        <Box justify="center" fill>
-          <Heading margin="none">{title}</Heading>
-          <Paragraph size="large" fill>
-            {pageDetails.description}
-          </Paragraph>
-        </Box>
-      </PageIntro>
-      <CardGrid cards={cards} pad={{ bottom: 'large' }} headingLevel={2} />
+    <PageContent gap="xlarge">
+      <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
+        <Heading margin="none">{title}</Heading>
+        <Paragraph size="large">{pageDetails.description}</Paragraph>
+      </Box>
+      <CardGrid
+        cards={cards}
+        pad={{ bottom: 'xlarge' }}
+        headingSize="small"
+        headingLevel={2}
+      />
     </PageContent>
   </>
 );

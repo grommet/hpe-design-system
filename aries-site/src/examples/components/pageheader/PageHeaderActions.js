@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Page, PageContent, PageHeader } from 'grommet';
-import { Pin } from 'grommet-icons';
+import { Pin } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { FilterServers, ReverseAnchor } from '../../templates';
 import { ContentPane } from '../../../layouts';
 
 export const PageHeaderActions = ({ bestPractice = true }) => (
   <Page>
-    <Box align="center" pad="small" background="background-front" flex={false}>
+    <Box align="center" pad="xsmall" background="background-front" flex={false}>
       <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>
@@ -30,7 +30,7 @@ PageHeaderActions.propTypes = {
 };
 
 const PageActions = ({ bestPractice }) => (
-  <Box direction="row" gap="small">
+  <Box direction="row" gap="xsmall">
     <Button a11yTitle="Pin" icon={<Pin />} />
     {!bestPractice ? <Button label="Add server" secondary /> : undefined}
   </Box>

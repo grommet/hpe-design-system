@@ -13,7 +13,7 @@ export const CenterLayerAnatomy = ({ informational }) => {
     connection(id, informational ? 'layer-close-button' : 'layer-actions'),
   ];
 
-  let rows = ['24px', '37px', '24px', '24px', 'small', '24px'];
+  let rows = ['24px', '37px', '24px', '24px', 'xsmall', '24px'];
   if (!informational) {
     rows = [...rows, '36px', '24px'];
   }
@@ -65,14 +65,14 @@ const LayerContent = ({ informational, ...rest }) => (
     />
     <Box
       border={{ style: 'dashed' }}
-      height="small"
+      height="xsmall"
       align="center"
       justify="center"
     >
       Layer body content goes here.
     </Box>
     {!informational ? (
-      <Box direction="row" gap="small" justify="end" flex={false}>
+      <Box direction="row" gap="xsmall" justify="end" flex={false}>
         <Button label="Cancel" />
         <Button label="Confirm action" primary id="layer-actions" />
       </Box>

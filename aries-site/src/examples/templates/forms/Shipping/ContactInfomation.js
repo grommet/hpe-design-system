@@ -5,7 +5,7 @@ import { emailMask, emailValidation, phoneMask } from '../utils/FormValidation';
 
 export const ContactInformation = ({ name }) => (
   <Box>
-    <Text size="large" margin={{ vertical: 'small' }}>
+    <Text size="large" margin={{ vertical: 'xsmall' }}>
       Contact information
     </Text>
     <FormField

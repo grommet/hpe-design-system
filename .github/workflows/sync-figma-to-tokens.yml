@@ -23,21 +23,22 @@ jobs:
         with:
           node-version: '20.19.x'
 
-      - name: Set NPM version
-        run: npm install -g npm@9.5.1
-
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - name: Clone repo
         uses: actions/checkout@v3
 
-      - name: Upgrade stable branch dependencies
-        run: yarn upgrade grommet && yarn upgrade grommet-icons
-
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
+
+      - name: Upgrade stable branch dependencies
+        run: pnpm upgrade grommet && pnpm upgrade grommet-icons
 
       - name: Sync variables in Figma file to tokens
-        run: yarn sync-figma-to-tokens -- --output tokens
-        working-directory: design-tokens
+        run: pnpm sync-figma-to-tokens -- --output tokens
+        working-directory: packages/hpe-design-tokens
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
           FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
@@ -48,11 +49,10 @@ jobs:
           FIGMA_PRIMITIVES_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_PRIMITIVES_COLLECTION_KEY }}
           FIGMA_GLOBAL_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_GLOBAL_COLLECTION_KEY }}
       - name: Format token files with prettier
-        run: yarn prettier tokens --write
-        working-directory: design-tokens
+        run: pnpm prettier tokens --write
+        working-directory: packages/hpe-design-tokens
       - name: Build site search for pre-commit linting
-        run: yarn build-search
-        working-directory: aries-site
+        run: pnpm --filter aries-site build-search
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

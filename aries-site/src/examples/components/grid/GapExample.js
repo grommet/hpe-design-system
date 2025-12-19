@@ -4,9 +4,9 @@ import { contentAreaProps as props } from './utils';
 
 const contentAreaProps = { ...props, height: undefined };
 
-const columns = ['medium', 'xsmall'];
-const rows = ['xsmall', 'xsmall'];
-const gap = { column: 'medium', row: 'xsmall' };
+const columns = ['medium', '3xsmall'];
+const rows = ['3xsmall', '3xsmall'];
+const gap = { column: 'medium', row: '3xsmall' };
 
 export const GapExample = () => (
   <Grid columns={columns} rows={rows} gap={gap}>

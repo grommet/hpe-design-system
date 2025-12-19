@@ -191,7 +191,7 @@ const columns = [
     property: 'purchaseOrder',
     header: 'P.O. #',
     render: datum => <Text truncate="tip">{datum.purchaseOrder}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
     align: 'end',
   },
   {
@@ -203,7 +203,7 @@ const columns = [
     property: 'service',
     header: 'Service',
     render: datum => <Text truncate="tip">{datum.service}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'tenant',
@@ -234,7 +234,7 @@ export const DataTableMultiSelectExample = () => {
       </Heading>
       <Box>
         <TableControls selected={selected} />
-        <Box height={{ max: 'large' }} overflow="auto">
+        <Box height={{ max: 'xlarge' }} overflow="auto">
           <DataTable
             aria-describedby="orders-heading"
             data={data}
@@ -275,7 +275,7 @@ const TableControls = ({ selected }) => {
       direction="row"
       fill="horizontal"
       justify="between"
-      pad={{ vertical: 'small' }}
+      pad={{ vertical: 'xsmall' }}
       flex={false}
     >
       <Box justify="center">

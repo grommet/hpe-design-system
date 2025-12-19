@@ -8,11 +8,11 @@ export const StickyHeaderExample = () => (
       <Header
         background="background-front"
         fill="horizontal"
-        pad="small"
+        pad="xsmall"
         // remove dashed border in prod, for demo purposes only
         border={{ color: 'border', style: 'dashed' }}
         // remove height="xxsmall" in prod, for demo purposes only
-        height="xxsmall"
+        height="5xsmall"
       >
         <TextEmphasis>Header</TextEmphasis>
       </Header>
@@ -20,22 +20,22 @@ export const StickyHeaderExample = () => (
         <Main
           fill={undefined}
           flex={false}
-          pad="small"
+          pad="xsmall"
           // remove dashed border in prod, for demo purposes only
           border={{ color: 'border', style: 'dashed' }}
           // remove height="xlarge" in prod, for demo purposes only
-          height="xlarge"
+          height="xxlarge"
         >
           <TextEmphasis>Main</TextEmphasis>
         </Main>
         <Footer
           background="background-front"
           fill="horizontal"
-          pad="small"
+          pad="xsmall"
           // remove dashed border in prod, for demo purposes only
           border={{ color: 'border', style: 'dashed' }}
           // remove height="xxmsmall" in prod, for demo purposes only
-          height="xxsmall"
+          height="5xsmall"
         >
           <TextEmphasis>Footer</TextEmphasis>
         </Footer>
@@ -51,7 +51,7 @@ const AppContainer = ({ ...rest }) => {
       direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
-      width={{ max: 'xxlarge' }}
+      width={{ max: '3xlarge' }}
       {...rest}
     />
   );

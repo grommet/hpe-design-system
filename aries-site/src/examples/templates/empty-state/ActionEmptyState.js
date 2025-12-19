@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { EmptyState } from 'aries-core';
 import { Anchor, Box, Button, Grid, ResponsiveContext } from 'grommet';
-import { Checkmark, Search } from 'grommet-icons';
+import { Checkmark, Search } from '@hpe-design/icons-grommet';
 
 export const ActionEmptyState = () => {
   const breakpoint = useContext(ResponsiveContext);
@@ -10,16 +10,16 @@ export const ActionEmptyState = () => {
       columns={
         ['xsmall', 'small'].includes(breakpoint)
           ? ['auto']
-          : { count: 2, size: 'small' }
+          : { count: 2, size: 'xsmall' }
       }
-      gap="xlarge"
+      gap="3xlarge"
     >
       <EmptyState
         title="Success"
         description="Your message was successfully delivered."
-        icon={<Checkmark color="green" />}
+        icon={<Checkmark color="icon-ok" />}
         actions={
-          <Box align="center" gap="small">
+          <Box align="center" gap="xsmall">
             <Button label="Return to dashboard" primary />
             <Anchor label="When will I hear back?" />
           </Box>
@@ -30,7 +30,7 @@ export const ActionEmptyState = () => {
         title="All notifications cleared"
         description={`There are no further notifications 
         for you to view.`}
-        icon={<Checkmark color="green" />}
+        icon={<Checkmark color="icon-ok" />}
         level={2}
       />
       <EmptyState

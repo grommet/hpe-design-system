@@ -34,7 +34,7 @@ export const LayerAnatomy = () => {
     '37px',
     '25px',
     '24px',
-    'small',
+    'xsmall',
     '24px',
     '74px',
     '24px',
@@ -63,8 +63,8 @@ export const LayerAnatomy = () => {
       '37px',
       '25px',
       '24px',
-      'xsmall',
-      'xsmall',
+      '3xsmall',
+      '3xsmall',
       '24px',
       '74px',
       '24px',
@@ -91,7 +91,7 @@ export const LayerAnatomy = () => {
         columns={columns}
         rows={rows}
         areas={areas}
-        gap={{ column: 'large' }}
+        gap={{ column: 'xlarge' }}
       >
         <Annotation
           alignSelf="center"
@@ -156,7 +156,7 @@ const LayerContent = ({ ...rest }) => (
   <Card
     id="layer-container"
     alignSelf="start"
-    round="small"
+    round="medium"
     elevation="large"
     {...rest}
   >
@@ -165,17 +165,17 @@ const LayerContent = ({ ...rest }) => (
         border={{ style: 'dashed' }}
         subtitle="An optional, concise subtitle for added context."
       />
-      <Box pad="small" id="first-gap" />
+      <Box pad="xsmall" id="first-gap" />
       <Box
         id="layer-body"
         border={{ style: 'dashed' }}
-        height="small"
+        height="xsmall"
         align="center"
         justify="center"
       >
         Body
       </Box>
-      <Box pad="small" id="layer-gap" />
+      <Box pad="xsmall" id="layer-gap" />
       <Box
         id="layer-footer"
         border={{ style: 'dashed' }}
@@ -186,7 +186,7 @@ const LayerContent = ({ ...rest }) => (
       >
         Footer
       </Box>
-      <Box pad="small" id="bottom-pad" />
+      <Box pad="xsmall" id="bottom-pad" />
     </CardBody>
   </Card>
 );

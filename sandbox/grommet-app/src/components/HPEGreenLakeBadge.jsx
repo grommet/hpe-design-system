@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { Tween } from 'react-gsap';

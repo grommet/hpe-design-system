@@ -49,7 +49,7 @@ export const StepContent = ({ onSubmit }) => {
       align="center"
       pad={
         !['xsmall', 'small'].includes(size)
-          ? { vertical: 'large' }
+          ? { vertical: 'xlarge' }
           : { vertical: 'medium' }
       }
       overflow="auto"
@@ -67,11 +67,11 @@ export const StepContent = ({ onSubmit }) => {
         pad={
           ['xsmall', 'small'].includes(size)
             ? { horizontal: 'medium' }
-            : 'xxsmall'
+            : '5xsmall'
         }
       >
         <StepHeader />
-        <Box margin={{ top: 'small' }}>
+        <Box margin={{ top: 'xsmall' }}>
           <Form
             // needed to associate form submit button with form
             // since submit button lives outside form tag

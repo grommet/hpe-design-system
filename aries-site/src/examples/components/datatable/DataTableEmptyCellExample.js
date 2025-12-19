@@ -202,9 +202,9 @@ const columns = [
     units: 'TiB',
     render: datum => (
       // bytes to tebibytes
-      <Text a11yTitle={!datum.size ? 'No value' : undefined}>
+      (<Text a11yTitle={!datum.size ? 'No value' : undefined}>
         {datum.size ? (datum.size / 2 ** 40).toFixed([1]) : '--'}
-      </Text>
+      </Text>)
     ),
     align: 'end',
   },
@@ -214,9 +214,9 @@ const columns = [
     units: 'B',
     render: datum => (
       // bytes to tebibytes
-      <Text a11yTitle={!datum.pinnable ? 'No value' : undefined}>
+      (<Text a11yTitle={!datum.pinnable ? 'No value' : undefined}>
         {datum.pinnable ? (datum.pinnable / 2 ** 40).toFixed([1]) : '--'}
-      </Text>
+      </Text>)
     ),
     align: 'end',
   },
@@ -225,16 +225,16 @@ const columns = [
     header: 'Pinned',
     units: '%',
     render: datum => (
-      <Box gap="xsmall" direction="row">
-        <Box pad={{ vertical: 'xsmall' }}>
+      <Box gap="3xsmall" direction="row">
+        <Box pad={{ vertical: '3xsmall' }}>
           <Meter
             alignSelf="center"
             values={[
               { value: datum.pinned / datum.pinnable, color: 'graph-2' },
             ]}
             max={1}
-            thickness="small"
-            size="small"
+            thickness="xsmall"
+            size="xsmall"
           />
         </Box>
         <Text>{((datum.pinned / datum.pinnable) * 10).toFixed(0)}%</Text>

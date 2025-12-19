@@ -1,14 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, ResponsiveContext } from 'grommet';
-import {
-  Document,
-  DocumentText,
-  Expand,
-  Github,
-  Grommet,
-  Figma,
-} from 'grommet-icons';
+import { Document, DocumentText, Expand } from '@hpe-design/icons-grommet';
+// // TODO replace with DS icon package when available
+import { Github, Grommet, Figma } from 'grommet-icons';
 
 export const ExampleControls = ({
   componentName,
@@ -39,10 +34,10 @@ export const ExampleControls = ({
             color: 'border-weak',
           },
         ],
-        pad: { horizontal: 'medium', vertical: 'small' },
+        pad: { horizontal: 'medium', vertical: 'xsmall' },
       }
     : {
-        pad: { vertical: 'small' },
+        pad: { vertical: 'xsmall' },
       };
 
   return (
@@ -51,7 +46,7 @@ export const ExampleControls = ({
       align="start"
       gap="medium"
       justify="between"
-      round={{ corner: 'bottom', size: 'small' }}
+      round={{ corner: 'bottom', size: 'medium' }}
       {...boxProps}
     >
       <Box direction="row" wrap>

@@ -2,7 +2,9 @@ import React, { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Box, Button, Grid, Heading, Layer, ResponsiveContext } from 'grommet';
-import { ChatOption, Contact, Close, Github } from 'grommet-icons';
+import { ChatConversation, Contact, Close } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Github } from 'grommet-icons';
 import { SubsectionText } from '.';
 
 const HeadingContext = createContext({});
@@ -10,7 +12,7 @@ const HeadingContext = createContext({});
 const Subscribe = () => {
   const { level } = useContext(HeadingContext);
   return (
-    <Box gap="small">
+    <Box gap="xsmall">
       <Contact size="large" />
       <Heading level={level} margin="none">
         Stay up-to-date
@@ -36,8 +38,8 @@ const JoinConversation = () => {
   const { level } = useContext(HeadingContext);
 
   return (
-    <Box gap="small">
-      <ChatOption size="large" />
+    <Box gap="xsmall">
+      <ChatConversation size="large" />
       <Heading level={level} margin="none">
         Join the conversation
       </Heading>
@@ -63,7 +65,7 @@ const Contribute = () => {
   const { level } = useContext(HeadingContext);
 
   return (
-    <Box gap="small">
+    <Box gap="xsmall">
       <Github size="large" />
       <Heading level={level} margin="none">
         Contribute
@@ -92,14 +94,14 @@ export const FeedbackOptions = ({ level }) => {
 
   return (
     <HeadingContext.Provider value={contextValue}>
-      <Box flex={false} width="xlarge">
+      <Box flex={false} width="xxlarge">
         <Grid
           columns={
             !['xsmall', 'small'].includes(size)
-              ? { count: 'fit', size: 'small' }
+              ? { count: 'fit', size: 'xsmall' }
               : 'auto'
           }
-          gap="large"
+          gap="xlarge"
         >
           <JoinConversation />
           <Contribute />
@@ -127,7 +129,7 @@ export const SubmitFeedback = () => {
 
   return (
     <>
-      <Box direction="row" gap="small">
+      <Box direction="row" gap="xsmall">
         <Button label="Leave feedback" onClick={onOpen} primary />
         <Button
           alignSelf="start"
@@ -155,7 +157,7 @@ export const SubmitFeedback = () => {
             </Box>
             <Box
               flex
-              pad={{ horizontal: 'large', bottom: 'large' }}
+              pad={{ horizontal: 'xlarge', bottom: 'xlarge' }}
               overflow="auto"
             >
               <FeedbackOptions />

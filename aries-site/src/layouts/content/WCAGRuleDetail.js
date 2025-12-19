@@ -10,24 +10,24 @@ import {
   Text,
 } from 'grommet';
 import {
-  StatusGoodSmall,
-  StatusCriticalSmall,
-  StatusWarningSmall,
-  CircleInformation,
-  ShareRounded,
-} from 'grommet-icons';
+  StatusGood,
+  StatusCritical,
+  StatusWarning,
+  Info,
+  NewWindow,
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const getStatusIcon = status => {
   switch (status) {
     case 'failed':
-      return <StatusCriticalSmall alt="" color="status-critical" />;
+      return <StatusCritical alt="" color="status-critical" />;
     case 'conditional':
-      return <CircleInformation alt="" />;
+      return <Info alt="" />;
     case 'AAA not achieved':
-      return <StatusWarningSmall alt="" color="status-warning" />;
+      return <StatusWarning alt="" color="status-warning" />;
     default:
-      return <StatusGoodSmall alt="" color="status-ok" />;
+      return <StatusGood alt="" color="status-ok" />;
   }
 };
 
@@ -50,14 +50,14 @@ const WCAGAccessibilityCardView = ({
   const descriptionEndsWithColon = ruleDescription.endsWith(':');
   return (
     <Box
-      pad={{ vertical: 'small', horizontal: 'medium' }}
+      pad={{ vertical: 'xsmall', horizontal: 'medium' }}
       background="background-front"
-      round="small"
+      round="medium"
       justify="between"
       direction="row"
-      gap="small"
+      gap="xsmall"
     >
-      <Box flex gap="small">
+      <Box flex gap="xsmall">
         <Paragraph margin="none">
           <TextEmphasis>{ruleName}. </TextEmphasis>
           {!descriptionEndsWithColon ? (
@@ -75,7 +75,7 @@ const WCAGAccessibilityCardView = ({
             </Text>
           )}
         </Paragraph>
-        <Box alignSelf="start" direction="row" align="center" gap="small">
+        <Box alignSelf="start" direction="row" align="center" gap="xsmall">
           <Tag size="small" value={`WCAG ${version} ${level}`} />
           <Anchor
             target="_blank"
@@ -85,7 +85,7 @@ const WCAGAccessibilityCardView = ({
           />
         </Box>
       </Box>
-      <Box alignSelf="start" align="center" direction="row" gap="xsmall">
+      <Box alignSelf="start" align="center" direction="row" gap="3xsmall">
         {getStatusIcon(status)}
         <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
       </Box>
@@ -124,23 +124,23 @@ export const WCAGRuleDetail = ({ rules, version }) => {
 
   return (
     <Box pad={{ vertical: 'medium' }} gap="medium">
-      <Box gap="xxsmall" direction="row">
+      <Box gap="5xsmall" direction="row">
         <Text>Grouped by</Text>
         <Anchor
           label="accessibility principles"
           href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
           target="_blank"
-          icon={<ShareRounded />}
+          icon={<NewWindow />}
           reverse
           rel="noopener noreferrer"
         />
       </Box>
-      <Box width="large">
+      <Box width="xlarge">
         {Object.keys(groupedRules).map(group => (
           <Accordion key={group} multiple>
             <AccordionPanel
               label={
-                <Box gap="small" align="center" direction="row">
+                <Box gap="xsmall" align="center" direction="row">
                   {getStatusIcon(
                     groupedRules[group].reduce(
                       (worst, item) => {
@@ -152,13 +152,17 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                       { status: 'passed' },
                     ).status,
                   )}
-                  <Heading margin={{ vertical: 'small' }} level={4}>
+                  <Heading
+                    size="small"
+                    margin={{ vertical: 'xsmall' }}
+                    level={4}
+                  >
                     {group}
                   </Heading>
                 </Box>
               }
             >
-              <Box pad={{ vertical: 'small' }} gap="small">
+              <Box pad={{ vertical: 'xsmall' }} gap="xsmall">
                 {groupedRules[group].length === 0 && (
                   <Paragraph>
                     At this time, there are no WCAG '{group}' rules applicable

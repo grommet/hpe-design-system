@@ -1,17 +1,17 @@
 import React from 'react';
 import { Box, Header, Button, Text } from 'grommet';
-import { Hpe, Menu } from 'grommet-icons';
+import { Menu, Element } from '@hpe-design/icons-grommet';
 
 export const HeaderPreview = () => (
   <Header
     border={{ color: 'background-contrast', side: 'bottom' }}
-    pad={{ horizontal: 'xsmall' }}
+    pad={{ horizontal: '3xsmall' }}
     background="background-front"
     fill="horizontal"
   >
-    <Box direction="row" gap="small">
-      <Hpe color="brand" height="medium" />
-      <Box align="center" gap="xsmall" direction="row">
+    <Box direction="row" gap="xsmall">
+      <Element color="brand" height="medium" />
+      <Box align="center" gap="3xsmall" direction="row">
         <Text color="text-strong" weight="bold">
           HPE
         </Text>

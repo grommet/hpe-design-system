@@ -10,7 +10,7 @@ import {
   ResponsiveContext,
   Stack,
 } from 'grommet';
-import { CircleInformation } from 'grommet-icons';
+import { Info } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 
@@ -59,8 +59,8 @@ export const EmptyStateAnatomy = () => {
         gap={{ column: 'medium' }}
       >
         <Box gap="medium" align="center" flex={false} gridArea="emptyState">
-          <CircleInformation size="xlarge" id="icon" />
-          <Box align="center" gap="xsmall">
+          <Info size="xlarge" id="icon" />
+          <Box align="center" gap="3xsmall">
             <Heading id="heading" margin="none" level={2}>
               No items exist
             </Heading>
@@ -68,7 +68,7 @@ export const EmptyStateAnatomy = () => {
               Once an item is created, it will be displayed here.
             </Paragraph>
           </Box>
-          <Box align="center" gap="small">
+          <Box align="center" gap="xsmall">
             <Button id="action" label="New item" primary />
             <Anchor id="anchor" label="What is an item?" />
           </Box>

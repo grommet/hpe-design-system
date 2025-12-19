@@ -15,7 +15,7 @@ import {
   ThemeContext,
 } from 'grommet';
 
-import { Down, Next } from 'grommet-icons';
+import { Down, Right } from '@hpe-design/icons-grommet';
 import { AppResults } from './AppResults';
 
 const allApps = require('../../../../data/mockData/applications.json');
@@ -44,8 +44,8 @@ export const ContainerDrivenLayout = () => {
     <Page
       background="background-back"
       flex="grow"
-      gap="large"
-      pad={{ bottom: 'large' }}
+      gap="xlarge"
+      pad={{ bottom: 'xlarge' }}
     >
       <PageContent
         background={{
@@ -59,7 +59,7 @@ export const ContainerDrivenLayout = () => {
           title="App catalog"
           subtitle={`Browse, search, and discover all the wonderful apps we 
           have for you.`}
-          pad={{ vertical: 'large' }}
+          pad={{ vertical: 'xlarge' }}
         />
       </PageContent>
       <PageContent>
@@ -94,11 +94,11 @@ const Filter = ({ label, expand, setExpand, property }) => {
     <>
       <Button
         label={label}
-        icon={expand ? <Down /> : <Next />}
+        icon={expand ? <Down /> : <Right />}
         onClick={() => setExpand(!expand)}
       />
       <Collapsible open={expand}>
-        <Box pad={{ left: 'medium', top: 'xsmall' }}>
+        <Box pad={{ left: 'medium', top: '3xsmall' }}>
           <DataFilter property={property} />
         </Box>
       </Collapsible>
@@ -128,9 +128,9 @@ const ContentLayout = () => {
     <Box
       direction="column"
       align="start"
-      gap="small"
+      gap="xsmall"
       background="background-front"
-      pad={{ right: 'small', vertical: 'small' }}
+      pad={{ right: 'xsmall', vertical: 'xsmall' }}
       round="xsmall"
     >
       <Filter

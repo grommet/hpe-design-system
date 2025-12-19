@@ -19,7 +19,7 @@ export const EventPromotionCard = () => {
       pretitle={pretitle}
       subtitle={subtitle}
       media={
-        <Box height="small">
+        <Box height="xsmall">
           <Image src={src} alt={alt} fit={fit} />
         </Box>
       }
@@ -27,7 +27,7 @@ export const EventPromotionCard = () => {
       actions={
         <Button
           label="Register now"
-          kind="cta-primary"
+          kind="primary"
           reverse
           // tabIndex is -1 because the entire card is clickable
           tabIndex={-1}

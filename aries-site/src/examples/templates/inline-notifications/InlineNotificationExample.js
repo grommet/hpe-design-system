@@ -8,7 +8,7 @@ import {
   Paragraph,
   TextInput,
 } from 'grommet';
-import { Copy } from 'grommet-icons';
+import { Copy } from '@hpe-design/icons-grommet';
 import {
   ButtonGroup,
   ModalBody,
@@ -58,7 +58,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
           target={containerRef && containerRef.current}
           title="Access token created"
         >
-          <ModalBody gap="small">
+          <ModalBody gap="xsmall">
             <Paragraph margin="none">
               You successfully created an access token for{' '}
               <TextEmphasis>{credentialName}</TextEmphasis>.
@@ -84,7 +84,6 @@ export const InlineNotificationExample = ({ containerRef }) => {
                   id="access-token"
                   readOnly
                   value={accessToken}
-                  background="blue"
                 />
               </FormField>
               <Button
@@ -96,7 +95,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
                   content: copyTip,
                 }}
                 // margin aligns button with form fields bottom margin
-                margin={{ bottom: 'xsmall' }}
+                margin={{ bottom: '3xsmall' }}
               />
             </Box>
           </ModalBody>

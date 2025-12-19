@@ -11,20 +11,20 @@ import {
   Text,
 } from 'grommet';
 import {
-  StatusCriticalSmall,
-  StatusWarningSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusWarning,
+  StatusGood,
+  StatusUnknown,
+} from '@hpe-design/icons-grommet';
 import { FilterServers } from '../../templates/filtering';
 
 export const CardFilteringBestPractice = ({ bestPractice = true }) => (
   <Page>
-    <PageContent pad={bestPractice ? { bottom: 'large' } : undefined}>
+    <PageContent pad={bestPractice ? { bottom: 'xlarge' } : undefined}>
       <PageHeader title="Servers" />
       <Box gap="medium">
         <FilterBar bestPractice={bestPractice} />
-        <FilterServers height="small" />
+        <FilterServers height="xsmall" />
       </Box>
     </PageContent>
   </Page>
@@ -38,28 +38,28 @@ const statuses = [
   {
     name: 'Critical',
     count: 5,
-    icon: <StatusCriticalSmall color="status-critical" size="small" />,
+    icon: <StatusCritical color="status-critical" size="small" />,
   },
   {
     name: 'Warning',
     count: 4,
-    icon: <StatusWarningSmall color="status-warning" size="small" />,
+    icon: <StatusWarning color="status-warning" size="small" />,
   },
   {
     name: 'Good',
     count: 43,
-    icon: <StatusGoodSmall color="status-ok" size="small" />,
+    icon: <StatusGood color="status-ok" size="small" />,
   },
   {
     name: 'Unknown',
     count: 5,
-    icon: <StatusUnknownSmall color="status-unknown" size="small" />,
+    icon: <StatusUnknown color="status-unknown" size="small" />,
   },
 ];
 
 const FilterBar = ({ bestPractice }) => {
   const content = (
-    <Box direction="row" gap="small">
+    <Box direction="row" gap="xsmall">
       {statuses.map((status, index) => (
         <Box
           round="xsmall"
@@ -72,11 +72,11 @@ const FilterBar = ({ bestPractice }) => {
             <Box
               align="center"
               direction="row"
-              gap="small"
-              pad={{ horizontal: 'medium', vertical: 'small' }}
+              gap="xsmall"
+              pad={{ horizontal: 'medium', vertical: 'xsmall' }}
             >
               <Text size="3xl">{status.count}</Text>
-              <Box direction="row" align="center" gap="xsmall">
+              <Box direction="row" align="center" gap="3xsmall">
                 {status.icon}
                 <Text>{status.name}</Text>
               </Box>

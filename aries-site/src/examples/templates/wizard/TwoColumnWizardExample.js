@@ -13,7 +13,12 @@ import {
   TextArea,
   TextInput,
 } from 'grommet';
-import { Checkmark, ContactInfo, Stakeholder, UserAdd } from 'grommet-icons';
+import {
+  Checkmark,
+  Contact,
+  Stakeholder,
+  UserAdd,
+} from '@hpe-design/icons-grommet';
 import {
   CancellationLayer,
   Error,
@@ -39,7 +44,7 @@ const StepOne = () => {
     <Box
       direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column-reverse'}
       margin={{ bottom: 'medium' }}
-      gap={['xsmall', 'small'].includes(size) ? 'small' : undefined}
+      gap={['xsmall', 'small'].includes(size) ? 'xsmall' : undefined}
       justify="between"
       wrap
     >
@@ -85,7 +90,7 @@ const StepOne = () => {
           {!valid && <Error>There is an error with one or more inputs.</Error>}
         </Box>
       </Box>
-      <Box flex width={{ max: 'xxsmall' }} />
+      <Box flex width={{ max: '5xsmall' }} />
       <Guidance />
     </Box>
   );
@@ -141,10 +146,10 @@ const data = [
 ];
 
 const StepThree = () => (
-  <Box gap="small">
-    <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+  <Box gap="xsmall">
+    <List data={data} pad={{ horizontal: 'none', vertical: 'xsmall' }}>
       {(datum, index) => (
-        <Box key={index} direction="row" gap="small" align="center">
+        <Box key={index} direction="row" gap="xsmall" align="center">
           <Checkmark color="text-strong" size="small" />
           <Text color="text-strong" weight={500}>
             {datum}
@@ -264,11 +269,11 @@ const Guidance = () => {
       background="background-contrast"
       gap="medium"
       pad="medium"
-      round="small"
+      round="medium"
       flex
       width={
         !['xsmall', 'small'].includes(size)
-          ? { min: 'small', max: 'medium' }
+          ? { min: 'xsmall', max: 'medium' }
           : '100%'
       }
     >
@@ -276,15 +281,15 @@ const Guidance = () => {
         When guidance is required for the form or content of the wizard, you
         might consider a two-column format.
       </Text>
-      <Box direction="row" gap="small">
+      <Box direction="row" gap="xsmall">
         <Stakeholder color="text-strong" />
         <Text color="text-strong">Instruction for the first field.</Text>
       </Box>
-      <Box direction="row" gap="small">
-        <ContactInfo color="text-strong" />
+      <Box direction="row" gap="xsmall">
+        <Contact color="text-strong" />
         <Text color="text-strong">Instruction for the next field.</Text>
       </Box>
-      <Box direction="row" gap="small">
+      <Box direction="row" gap="xsmall">
         <UserAdd color="text-strong" />
         <Text color="text-strong">
           Some information that helps to complete the next field.

@@ -4,7 +4,7 @@ import { Box, Button, Tip, Text } from 'grommet';
 export const TipSimpleExample = () => (
   <Tip
     content={
-      <Box width={{ max: 'small' }} round="xsmall">
+      <Box width={{ max: 'xsmall' }} round="xsmall">
         <Text>This is a Tip</Text>
       </Box>
     }

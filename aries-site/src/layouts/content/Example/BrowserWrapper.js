@@ -23,17 +23,19 @@ export const BrowserWrapper = forwardRef(
           <Box
             direction="row"
             flex={false}
-            gap="xsmall"
+            gap="3xsmall"
             /* This Box represents a header of a browser application window. 
             The selected background color provides better contrast between the 
             header and the examples being showcased. */
             background={{ color: 'border-weak' }}
             align="center"
-            pad="small"
+            pad="xsmall"
           >
-            <Box round pad="xsmall" background="red" />
-            <Box round pad="xsmall" background="yellow" />
-            <Box round pad="xsmall" background="green" />
+            {/* TODO consider revisiting these colors when
+       we have more tokens available */}
+            <Box round pad="3xsmall" background="foreground-critical" />
+            <Box round pad="3xsmall" background="foreground-warning" />
+            <Box round pad="3xsmall" background="foreground-primary" />
           </Box>
         )}
         <Box

@@ -16,7 +16,7 @@ export const ActivityFeed = ({ children, title, footer: footerContent }) => {
   return (
     <Card>
       <CardHeader
-        pad={{ horizontal: header.pad, top: header.pad, bottom: 'small' }}
+        pad={{ horizontal: header.pad, top: header.pad, bottom: 'xsmall' }}
       >
         <Heading margin="none" level={2}>
           {title}

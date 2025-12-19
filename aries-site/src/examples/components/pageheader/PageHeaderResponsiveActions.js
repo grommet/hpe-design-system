@@ -20,10 +20,10 @@ import { ReverseAnchor } from '../../templates';
 const pageHeaderSiteTheme = {
   pageHeader: {
     medium: {
-      columns: [['small', 'flex'], 'auto'],
+      columns: [['xsmall', 'flex'], 'auto'],
     },
     large: {
-      columns: [['small', 'flex'], 'auto'],
+      columns: [['xsmall', 'flex'], 'auto'],
     },
     xlarge: {
       columns: [['medium', 'flex'], 'auto'],
@@ -63,7 +63,7 @@ export const Actions = ({ bestPractice = true, primaryAction = true }) => {
       direction={
         ['xsmall', 'small'].includes(breakpoint) ? 'row-reverse' : 'row'
       }
-      gap="small"
+      gap="xsmall"
     >
       {collapsedActions && <ActionMenu items={collapsedActions} />}
       {displayedActions.map((action, index) => (

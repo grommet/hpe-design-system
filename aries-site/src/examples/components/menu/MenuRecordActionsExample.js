@@ -1,11 +1,11 @@
 import { Box, Heading, List, Menu, Notification, Text } from 'grommet';
 import {
   More,
-  StatusCriticalSmall,
-  StatusGoodSmall,
-  StatusUnknownSmall,
-  StatusWarningSmall,
-} from 'grommet-icons';
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 import { useState } from 'react';
 
 import { TextEmphasis } from 'aries-core';
@@ -16,19 +16,19 @@ const serverGroups = require('../../../data/mockData/serverGroups.json').groups;
 const STATUS_MAP = {
   Critical: {
     label: 'Critical',
-    icon: <StatusCriticalSmall color="status-critical" size="small" />,
+    icon: <StatusCritical color="status-critical" size="small" />,
   },
   Warning: {
     label: 'Warning',
-    icon: <StatusWarningSmall color="status-warning" size="small" />,
+    icon: <StatusWarning color="status-warning" size="small" />,
   },
   OK: {
     label: 'Okay',
-    icon: <StatusGoodSmall color="status-ok" size="small" />,
+    icon: <StatusGood color="status-ok" size="small" />,
   },
   Unknown: {
     label: 'Unknown',
-    icon: <StatusUnknownSmall color="status-unknown" size="small" />,
+    icon: <StatusUnknown color="status-unknown" size="small" />,
   },
 };
 
@@ -41,23 +41,23 @@ export const MenuRecordActionsExample = () => {
 
   return (
     <>
-      <Box gap="small" width="medium">
+      <Box gap="xsmall" width="medium">
         <Heading level={2} size="small" margin="none">
           Server groups
         </Heading>
         <List
           data={serverGroups}
           defaultItemProps={{
-            pad: { vertical: 'small' },
+            pad: { vertical: 'xsmall' },
           }}
         >
           {(datum, index) => (
             <Box direction="row" justify="between" align="start">
-              <Box gap="xsmall" fill>
+              <Box gap="3xsmall" fill>
                 <TextEmphasis>{datum.name}</TextEmphasis>
-                <Box gap="xxsmall">
+                <Box gap="5xsmall">
                   <Text>{datum.servers.length} Servers</Text>
-                  <Box direction="row" gap="xsmall" align="center">
+                  <Box direction="row" gap="3xsmall" align="center">
                     {STATUS_MAP[datum.status].icon}
                     {STATUS_MAP[datum.status].label}
                   </Box>

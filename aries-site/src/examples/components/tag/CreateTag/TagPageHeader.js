@@ -4,7 +4,7 @@ import { TextEmphasis } from 'aries-core';
 
 export const TagPageHeader = ({ description }) => (
   <Box gap="medium" flex={false}>
-    <Box gap="xsmall" flex={false}>
+    <Box gap="3xsmall" flex={false}>
       <PageHeader
         title="Create and assign tags"
         subtitle={

@@ -8,7 +8,7 @@ import {
   Layer,
   ResponsiveContext,
 } from 'grommet';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 import { useFilters } from '.';
 import { FilterCheckBoxGroup, FilterRangeSelector } from './filterTypes';
 
@@ -86,8 +86,8 @@ export const FiltersLayer = () => {
         </Box>
         <Footer
           justify="start"
-          gap="small"
-          pad={{ horizontal: 'medium', bottom: 'small' }}
+          gap="xsmall"
+          pad={{ horizontal: 'medium', bottom: 'xsmall' }}
         >
           <Button
             label="Apply filters"

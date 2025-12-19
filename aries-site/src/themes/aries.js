@@ -1,5 +1,6 @@
 import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
+// changing this to @hpe icons is failing TODO
 import { Info } from 'grommet-icons';
 
 export const aries = deepMerge(hpe, {
@@ -9,7 +10,7 @@ export const aries = deepMerge(hpe, {
   // to be quickly tested
   buttonGroup: {
     // any Box props
-    gap: 'small',
+    gap: 'xsmall',
   },
   feedback: {
     closeButton: {
@@ -23,7 +24,7 @@ export const aries = deepMerge(hpe, {
       align: 'start',
       direction: 'row',
       justify: 'between',
-      gap: 'xsmall',
+      gap: '3xsmall',
     },
     heading: {
       level: 2,
@@ -37,7 +38,7 @@ export const aries = deepMerge(hpe, {
       },
       direction: 'row',
       justify: 'start',
-      gap: 'xsmall',
+      gap: '3xsmall',
     },
     success: {
       color: 'text-strong',
@@ -48,13 +49,8 @@ export const aries = deepMerge(hpe, {
 });
 
 export const ariesPop = deepMerge(aries, {
-  ...hpePop,
-  anchor: {
-    // rely on base anchor styling to meet color contrast on background-back
-    size: {
-      large: undefined,
-      xlarge: undefined,
-    },
+  heading: {
+    ...hpePop.heading,
   },
   // this is producing a console warning because it's not a supported status
   // proposing that notification should be more flexible to allow other statuses
@@ -62,8 +58,7 @@ export const ariesPop = deepMerge(aries, {
     learn: {
       icon: Info,
       background: {
-        color: 'status-warning',
-        opacity: 'weak',
+        color: 'background-warning',
       },
       color: 'text',
       toast: {

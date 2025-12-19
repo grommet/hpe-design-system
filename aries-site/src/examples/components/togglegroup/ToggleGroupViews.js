@@ -10,7 +10,7 @@ import {
   Toolbar,
   ToggleGroup,
 } from 'grommet';
-import { Apps, Table, List as ListIcon } from 'grommet-icons';
+import { Apps, Table, List as ListIcon } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 import { columns, fetchLaunches, formatData } from './utils';
 import { CardView } from './CardView';
@@ -84,7 +84,7 @@ export const ToggleGroupViews = () => {
         )}
         {value === 'card' && <CardView />}
         {value === 'list' && <ListView />}
-        <Pagination summary stepOptions border="top" pad="xsmall" />
+        <Pagination summary stepOptions border="top" pad="3xsmall" />
       </Data>
     </ContentPane>
   );

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Header, Heading, Text } from 'grommet';
-import { Up, Down } from 'grommet-icons';
+import { Up, Down } from '@hpe-design/icons-grommet';
 
 export const ChildHeader = ({
   // annotationIds are for documentation demo purposes only.
@@ -23,10 +23,10 @@ export const ChildHeader = ({
       id={annotationIds?.container}
       background={background}
       border={borderStyle}
-      height={{ min: 'xxsmall' }}
+      height={{ min: '5xsmall' }}
       onMouseEnter={() => setBackground('background-contrast')}
       onMouseLeave={() => setBackground(null)}
-      pad="small"
+      pad="xsmall"
       {...rest}
     >
       <Box>

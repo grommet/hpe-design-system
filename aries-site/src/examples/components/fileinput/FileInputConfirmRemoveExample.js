@@ -16,7 +16,7 @@ export const FileInputConfirmRemoveExample = () => {
         confirmRemove={({ onConfirm, onCancel }) => (
           <Layer onClickOutside={onCancel} onEsc={onCancel}>
             <Box pad="medium" gap="medium" width={{ min: 'medium' }}>
-              <Box gap="xsmall">
+              <Box gap="3xsmall">
                 <Heading level={2} margin="none">
                   Remove file?
                 </Heading>

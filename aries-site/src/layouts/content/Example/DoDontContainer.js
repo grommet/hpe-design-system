@@ -15,27 +15,34 @@ export const DoDontContainer = ({
   const size = useContext(ResponsiveContext);
   if (bestPracticeProp) {
     if (bestPracticeProp.type === 'do') {
-      background = 'green!';
+      background = 'foreground-primary';
       label = 'Do';
     } else if (bestPracticeProp.type === 'dont') {
-      background = 'red';
+      background = 'foreground-critical';
       label = "Don't";
+    } else if (bestPracticeProp.type === 'caution') {
+      background = 'foreground-warning';
+      label = 'Caution';
     }
 
     bestPractice = (
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <Box
-          pad="xsmall"
+          pad="3xsmall"
           background={background}
           fill="horizontal"
-          margin={{ top: 'small' }}
+          margin={{ top: 'xsmall' }}
           round="xxsmall"
         />
         <Box>
           <TextEmphasis size="large">{label}</TextEmphasis>
-          <Paragraph size="small" margin="none">
-            {bestPracticeProp.message}
-          </Paragraph>
+          {typeof bestPracticeProp.message === 'string' ? (
+            <Paragraph size="small" margin="none">
+              {bestPracticeProp.message}
+            </Paragraph>
+          ) : (
+            bestPracticeProp.message
+          )}
         </Box>
       </Box>
     );
@@ -55,7 +62,7 @@ export const DoDontContainer = ({
 DoDontContainer.propTypes = {
   bestPractice: PropTypes.shape({
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   }),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };

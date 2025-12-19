@@ -14,9 +14,9 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Close, Next, CircleAlert } from 'grommet-icons';
+import { Close, Right, Alert } from '@hpe-design/icons-grommet';
 import { emailValidation } from './utils/FormValidation';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const ResetPassword = ({ closeLayer, email }) => {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });
@@ -33,7 +33,7 @@ const ResetPassword = ({ closeLayer, email }) => {
       <Box
         direction="row"
         justify="end"
-        pad={{ horizontal: 'small', top: 'small' }}
+        pad={{ horizontal: 'xsmall', top: 'xsmall' }}
       >
         <Button
           a11yTitle="Close reset password form"
@@ -118,8 +118,8 @@ export const SignInExample = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -133,7 +133,7 @@ export const SignInExample = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           validate="blur"
@@ -180,29 +180,29 @@ export const SignInExample = () => {
               align="center"
               background="validation-critical"
               direction="row"
-              gap="xsmall"
+              gap="3xsmall"
               margin={{ top: 'medium', bottom: 'medium' }}
-              pad="small"
+              pad="xsmall"
               round="4px"
             >
-              <CircleAlert size="small" />
+              <Alert size="small" />
               <Text size="xsmall">Invalid credentials.</Text>
             </Box>
           )}
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-            margin={{ top: 'medium', bottom: 'small' }}
+            margin={{ top: 'medium', bottom: 'xsmall' }}
           >
             <Button
               label="Sign In"
-              icon={<Next />}
+              icon={<Right />}
               reverse
               primary
               type="submit"
             />
           </Box>
         </Form>
-        <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
+        <Box align="start" margin={{ top: 'medium', bottom: 'xsmall' }}>
           <Anchor label="Forgot password?" onClick={onForgotPassword} />
           {showForgotPassword && (
             <Layer modal onClickOutside={onClose} onEsc={onClose}>

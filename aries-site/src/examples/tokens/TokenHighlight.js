@@ -25,7 +25,7 @@ export const TokenHighlight = ({ highlight }) => {
             size="large"
             color={
               highlight === 'all' || highlight?.includes(part)
-                ? 'purple!'
+                ? 'text-strong'
                 : 'text-weak'
             }
           >

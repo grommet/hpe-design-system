@@ -1,18 +1,18 @@
 import { Box, Grid } from 'grommet';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
-const demoStyle = { border: { style: 'dashed' }, pad: 'xsmall' };
+const demoStyle = { border: { style: 'dashed' }, pad: '3xsmall' };
 
 const parentGrid = {
-  columns: ['small', 'flex'],
+  columns: ['xsmall', 'flex'],
   gap: 'medium',
 };
 
 export const NestedGrid = () => (
   <ContentArea title="Parent Grid" {...demoStyle}>
     <Grid columns={parentGrid.columns} gap={parentGrid.gap}>
-      <ContentArea background="orange" {...demoStyle} />
-      <Box gap="small">
+      <ContentArea background="decorative-blue" {...demoStyle} />
+      <Box gap="xsmall">
         <NestedGridA />
         <NestedGridB />
       </Box>
@@ -21,9 +21,9 @@ export const NestedGrid = () => (
 );
 
 const nestedGridA = {
-  columns: ['xxsmall', 'flex'],
-  rows: 'xsmall',
-  gap: 'small',
+  columns: ['5xsmall', 'flex'],
+  rows: '3xsmall',
+  gap: 'xsmall',
 };
 
 const NestedGridA = () => (
@@ -33,8 +33,8 @@ const NestedGridA = () => (
       rows={nestedGridA.rows}
       gap={nestedGridA.gap}
     >
-      <ContentArea background="orange" {...demoStyle} />
-      <ContentArea background="orange" {...demoStyle} />
+      <ContentArea background="decorative-blue" {...demoStyle} />
+      <ContentArea background="decorative-blue" {...demoStyle} />
     </Grid>
   </ContentArea>
 );
@@ -42,7 +42,7 @@ const NestedGridA = () => (
 const nestedGridB = {
   columns: ['60%', 'flex'],
   rows: 'auto',
-  gap: 'small',
+  gap: 'xsmall',
 };
 
 const NestedGridB = () => (
@@ -52,10 +52,14 @@ const NestedGridB = () => (
       rows={nestedGridB.rows}
       gap={nestedGridB.gap}
     >
-      <ContentArea background="orange" height="small" {...demoStyle} />
-      <Box gap="xsmall">
-        <ContentArea border background="orange" height="xxsmall" />
-        <ContentArea border background="orange" height="xsmall" />
+      <ContentArea
+        background="decorative-blue"
+        height="xsmall"
+        {...demoStyle}
+      />
+      <Box gap="3xsmall">
+        <ContentArea border background="decorative-blue" height="5xsmall" />
+        <ContentArea border background="decorative-blue" height="3xsmall" />
       </Box>
     </Grid>
   </ContentArea>

@@ -1,0 +1,13 @@
+import React, { forwardRef } from 'react';
+
+import { StyledIcon } from '../StyledIcon';
+
+const Ascending = forwardRef((props, ref) => (
+  <StyledIcon ref={ref} viewBox="0 0 24 24" a11yTitle="Ascending" {...props}>
+    <path d="M17.507 8.09277C17.8973 8.48325 17.8973 9.11635 17.507 9.50684C17.1165 9.8972 16.4835 9.89714 16.093 9.50684L13.0002 6.41406V20C13.0002 20.5522 12.5523 20.9998 12.0002 21C11.448 20.9998 11.0002 20.5522 11.0002 20V6.41406L7.9074 9.50684C7.51694 9.89731 6.88388 9.89718 6.49334 9.50684C6.10292 9.11631 6.10286 8.48327 6.49334 8.09277L12.0002 2.58594L17.507 8.09277Z" fill="#000" />
+  </StyledIcon>
+));
+
+Ascending.displayName = 'Ascending';
+
+export { Ascending };

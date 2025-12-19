@@ -1,17 +1,21 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
 import { Avatar, Box, Button, Sidebar } from 'grommet';
-import { Clock, Apps, Terminal, Chat, StatusUnknown } from 'grommet-icons';
+import {
+  Clock,
+  Apps,
+  Console,
+  Chat,
+  StatusUnknown,
+} from '@hpe-design/icons-grommet';
 
 export const SidebarExample = () => {
-  const theme = useContext(ThemeContext);
   return (
     <Sidebar
-      background={{ color: !theme.dark ? 'background' : 'blue', dark: true }}
       pad="medium"
+      background="background-contrast"
       flex={false}
       // height for demo purposes only, remove in production
-      height="large"
+      height="xlarge"
     >
       <Avatar
         margin={{ bottom: 'medium' }}
@@ -20,7 +24,7 @@ export const SidebarExample = () => {
       <Box flex="grow">
         <Button a11yTitle="Clock" icon={<Clock />} />
         <Button a11yTitle="Apps" icon={<Apps />} />
-        <Button a11yTitle="Terminal" icon={<Terminal />} />
+        <Button a11yTitle="Terminal" icon={<Console />} />
       </Box>
       <Box>
         <Button a11yTitle="Chat" icon={<Chat />} />

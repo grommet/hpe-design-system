@@ -15,13 +15,13 @@ export const FooterExample = () => {
     <Footer
       direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
       align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
-      pad={{ horizontal: 'medium', vertical: 'small' }}
+      pad={{ horizontal: 'medium', vertical: 'xsmall' }}
       fill="horizontal"
     >
       <Box
         direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
         align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
-        gap="xsmall"
+        gap="3xsmall"
       >
         <Text size="small">
           &copy; {year} Hewlett Packard Enterprise Development LP
@@ -30,7 +30,7 @@ export const FooterExample = () => {
       <Box
         direction="row"
         align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
-        gap="xsmall"
+        gap="3xsmall"
         wrap
       >
         {footerLinks.map(link => (

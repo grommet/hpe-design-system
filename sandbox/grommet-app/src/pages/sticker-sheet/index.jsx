@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React, { useContext, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -12,7 +11,7 @@ import {
   Tab,
   Tabs,
 } from 'grommet';
-import { Previous } from 'grommet-icons';
+import { Left } from '@hpe-design/icons-grommet';
 import { themes } from '../../themes/theme';
 import { ModeContext, TabContent } from './components';
 import {
@@ -89,7 +88,7 @@ const StickerSheet = () => {
 
   return (
     <Grommet
-      theme={themes.v1}
+      theme={themes.v2}
       background="background-back"
       themeMode={theme.dark ? 'dark' : 'light'}
     >
@@ -100,9 +99,7 @@ const StickerSheet = () => {
               title="Sticker sheet"
               subtitle={`To be used for visual regression comparisons from 
             current theme to the next.`}
-              parent={
-                <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
-              }
+              parent={<Anchor as={Link} to="/" label="Home" icon={<Left />} />}
               // hide actions from demo deploy
               // actions={
               //   <Box direction="row" gap="xsmall">

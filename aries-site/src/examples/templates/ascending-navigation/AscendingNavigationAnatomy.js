@@ -41,9 +41,9 @@ const AnatomyGrid = ({ ...rest }) => {
       columns={
         !['xsmall', 'small'].includes(size)
           ? ['medium', 'medium']
-          : ['small', 'small']
+          : ['xsmall', 'xsmall']
       }
-      rows={['xxsmall', 'auto']}
+      rows={['5xsmall', 'auto']}
       gap="none"
       justify="center"
       {...rest}

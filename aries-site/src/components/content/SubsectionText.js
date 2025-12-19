@@ -17,7 +17,9 @@ const StyledBox = styled(Box)`
         theme.global.colors.border[theme.dark ? 'dark' : 'light']};
     border-radius: 4px;
     padding: 0px 3px;
-    font-family: Metric;
+    // TODO: get the font-family from the theme when it's available
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.9em;
   }
 `;
 
@@ -34,7 +36,7 @@ export const SubsectionText = ({
   accessibility,
   ...rest
 }) => (
-  <StyledBox gap="xsmall" width="large" margin={{ bottom: 'medium' }}>
+  <StyledBox gap="3xsmall" width="xlarge" margin={{ bottom: 'medium' }}>
     <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest}>
       <HighlightPhrase size={size || TEXT_SIZE[level]}>
         {children}

@@ -8,10 +8,10 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import {
-  StatusGoodSmall,
-  StatusWarningSmall,
-  StatusCriticalSmall,
-} from 'grommet-icons';
+  StatusGood,
+  StatusWarning,
+  StatusCritical,
+} from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 const data = [
@@ -91,13 +91,13 @@ const columns = [
     property: 'percent',
     header: '% complete',
     render: datum => (
-      <Box gap="xsmall" direction="row">
-        <Box pad={{ vertical: 'xsmall' }}>
+      <Box gap="3xsmall" direction="row">
+        <Box pad={{ vertical: '3xsmall' }}>
           <Meter
             alignSelf="center"
             values={[{ value: datum.percent, color: 'graph-2' }]}
-            thickness="small"
-            size="small"
+            thickness="xsmall"
+            size="xsmall"
           />
         </Box>
         <Text>{datum.percent.toFixed(0)}%</Text>
@@ -108,7 +108,7 @@ const columns = [
     property: 'status.value',
     header: 'Status',
     render: datum => (
-      <Box direction="row" align="center" gap="xsmall">
+      <Box direction="row" align="center" gap="3xsmall">
         <datum.status.icon color={datum.status.color} size="small" />
         <Text>{datum.status.label}</Text>
       </Box>
@@ -124,7 +124,7 @@ const formatData = dataSet =>
       case 'ok':
         adjustedDatum.status = {
           label: datum.status,
-          icon: StatusGoodSmall,
+          icon: StatusGood,
           value: 0,
           color: 'status-ok',
         };
@@ -132,7 +132,7 @@ const formatData = dataSet =>
       case 'warning':
         adjustedDatum.status = {
           label: datum.status,
-          icon: StatusWarningSmall,
+          icon: StatusWarning,
           value: 1,
           color: 'status-warning',
         };
@@ -140,7 +140,7 @@ const formatData = dataSet =>
       case 'critical':
         adjustedDatum.status = {
           label: datum.status,
-          icon: StatusCriticalSmall,
+          icon: StatusCritical,
           value: 2,
           color: 'status-critical',
         };

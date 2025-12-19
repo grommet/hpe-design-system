@@ -11,11 +11,11 @@ import {
 } from 'grommet';
 import {
   Chat,
-  Hpe,
+  Element,
   Notification,
   Search as SearchIcon,
   User,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 
 const StyledTextInput = styled(TextInput).attrs(() => ({
   'aria-labelledby': 'search-complex-example',
@@ -65,11 +65,11 @@ export const HeaderSearchActionsExample = () => (
         gap="medium"
         // pad maintains accessible hit target
         // non-responsive maintains same dimensions for mobile
-        pad={{ vertical: 'small' }}
+        pad={{ vertical: 'xsmall' }}
         responsive={false}
       >
-        <Hpe color="brand" />
-        <Box direction="row" gap="xsmall" wrap>
+        <Element color="brand" />
+        <Box direction="row" gap="3xsmall" wrap>
           <Text color="text-strong" weight="bold">
             HPE
           </Text>

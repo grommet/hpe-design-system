@@ -45,8 +45,8 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xxsmall', ['small', 'medium']]}
-    gap={{ column: 'small', row: 'medium' }}
+    columns={['5xsmall', ['xsmall', 'medium']]}
+    gap={{ column: 'xsmall', row: 'medium' }}
     justify="center"
     {...rest}
   />
@@ -74,8 +74,8 @@ export const NameValueListAnatomy = () => (
         could use gridAreas, but felt heavy for this need. */}
         <Box />
         <Annotation id={1} target="1" />
-        <AnatomyBox id="nameVisual" background="orange" />
-        <AnatomyBox id="name" background="orange" />
+        <AnatomyBox id="nameVisual" background="decorative-blue" />
+        <AnatomyBox id="name" background="decorative-blue" />
         <Annotation id={3} target="3" />
       </AnatomyGrid>
       <AnatomyGrid>
@@ -83,8 +83,8 @@ export const NameValueListAnatomy = () => (
         could use gridAreas, but felt heavy for this need. */}
         <Box />
         <Annotation id={2} target="2" />
-        <AnatomyBox id="valueVisual" background="purple!" />
-        <AnatomyBox id="value" background="purple!" />
+        <AnatomyBox id="valueVisual" background="decorative-purple" />
+        <AnatomyBox id="value" background="decorative-purple" />
         <Annotation id={4} target="3" />
       </AnatomyGrid>
     </Box>

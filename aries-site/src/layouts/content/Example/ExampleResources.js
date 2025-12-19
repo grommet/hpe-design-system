@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Stack, ThemeContext } from 'grommet';
-import { Copy, Github } from 'grommet-icons';
+import { Copy } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Github } from 'grommet-icons';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 import {
@@ -103,7 +105,7 @@ export const ExampleResources = ({
     );
   }
   return (
-    <Box gap="medium" margin={{ top: 'large' }}>
+    <Box gap="medium" margin={{ top: 'xlarge' }}>
       {details && (
         <CollapsibleSection
           label={{ closed: 'Show Details', open: 'Hide Details' }}
@@ -121,7 +123,7 @@ export const ExampleResources = ({
           onClick={() => setCodeOpen(!codeOpen)}
         >
           {Array.isArray(code) && (
-            <Box direction="row" gap="small" flex={false} wrap>
+            <Box direction="row" gap="xsmall" flex={false} wrap>
               {code.map((file, index) => (
                 <Button
                   active={activeCode === file}

@@ -12,9 +12,9 @@ export const Identifier = ({
 }) => (
   <Box align="center" {...rest}>
     {children}
-    <Box direction="row" align="center" justify="center" gap="xsmall">
+    <Box direction="row" align="center" justify="center" gap="3xsmall">
       {level ? (
-        <Heading level={level} margin="none">
+        <Heading size={size} level={level} margin="none">
           {title}
         </Heading>
       ) : (

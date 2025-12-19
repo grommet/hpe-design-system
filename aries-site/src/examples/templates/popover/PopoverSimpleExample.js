@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import { Popover } from 'aries-core';
 import { Button, Box, Paragraph, Text } from 'grommet';
-import { CircleInformation } from 'grommet-icons';
+import { Info } from '@hpe-design/icons-grommet';
 
 export const PopoverSimpleExample = () => {
   const [showPopover, setShowPopover] = useState(false);
@@ -22,7 +22,7 @@ export const PopoverSimpleExample = () => {
       <Button
         align="center"
         justify="start"
-        icon={<CircleInformation aria-hidden />}
+        icon={<Info aria-hidden />}
         onClick={handleButtonClick}
         ref={targetRef}
         aria-expanded={showPopover}

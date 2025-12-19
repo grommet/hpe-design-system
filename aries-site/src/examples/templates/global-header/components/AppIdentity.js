@@ -1,10 +1,12 @@
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Box, ResponsiveContext, Text } from 'grommet';
+// TODO replace with DS icon package when available
 import { Aruba, Hpe } from 'grommet-icons';
 import { UserContext, MenuLayer } from '.';
 
 const brands = {
+  // todo replace with logo
   hpe: {
     name: 'HPE',
     logo: <Hpe color="brand" />,
@@ -24,7 +26,7 @@ export const AppIdentity = forwardRef(
       <Box
         align="center"
         direction="row"
-        gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
+        gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'xsmall'}
       >
         {/* menu is only available when user is logged in */}
         {user && <MenuLayer />}
@@ -35,7 +37,7 @@ export const AppIdentity = forwardRef(
             gap="medium"
             // pad maintains accessible hit target
             // non-responsive maintains same dimensions for mobile
-            pad={{ vertical: 'small' }}
+            pad={{ vertical: 'xsmall' }}
             responsive={false}
           >
             {/* If user is logged in, show the application specific logo.
@@ -43,10 +45,10 @@ export const AppIdentity = forwardRef(
             show HPE logo */}
             {brand && user ? brands[brand].logo : brands.hpe.logo}
             {!logoOnly && (
-              <Box direction="row" gap="xsmall" wrap>
+              <Box direction="row" gap="3xsmall" wrap>
                 {user ? (
                   // user is signed in, display service name
-                  <Box direction="row" gap="xsmall">
+                  <Box direction="row" gap="3xsmall">
                     <Text weight="bold" color="text-strong">
                       {brands[brand].name}
                     </Text>

@@ -10,7 +10,7 @@ import { NotificationTag } from '../../layouts/content/NotificationTag';
 import { ViewContext } from '../../pages/_app';
 
 export const ContentCard = forwardRef(
-  ({ level, topic, minimal, ...rest }, ref) => {
+  ({ level, topic, minimal, size, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
 
@@ -25,7 +25,7 @@ export const ContentCard = forwardRef(
 
     return (
       <LinkCard fill pad="medium" ref={ref} {...rest}>
-        <CardBody gap="large">
+        <CardBody gap="xlarge">
           {!minimal && (
             <PreviewImageCard
               pad={preview?.pad || 'none'}
@@ -56,12 +56,13 @@ export const ContentCard = forwardRef(
                 ))}
             </PreviewImageCard>
           )}
-          <Box gap="small">
+          <Box gap="xsmall">
             <Identifier
               title={render || name}
               align="start"
-              gap="xsmall"
+              gap="3xsmall"
               level={level}
+              size="small"
             >
               {parent && parent.icon && !minimal && (
                 <Box
@@ -70,13 +71,18 @@ export const ContentCard = forwardRef(
                   fill="horizontal"
                   justify="between"
                 >
-                  <Box gap="xsmall" direction="row" align="center">
+                  <Box gap="3xsmall" direction="row" align="center">
                     {parent.icon('small', parent.color)}
                     <Text>{parent.name}</Text>
                   </Box>
+                  {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
                   {showUpdate && changeKind === 'Update' && (
                     <NotificationTag
-                      backgroundColor="teal"
+                      backgroundColor={{
+                        color: 'decorative-cyan',
+                        opacity: 'weak',
+                      }}
                       a11yTitle={`There have been updates for ${
                         render || name
                       }`}
@@ -84,9 +90,14 @@ export const ContentCard = forwardRef(
                       size="small"
                     />
                   )}
+                  {/* TODO: Using opacity weak is a temporary solution until
+        we have a wider range of colors in the theme. */}
                   {showUpdate && changeKind === 'New' && (
                     <NotificationTag
-                      backgroundColor="purple"
+                      backgroundColor={{
+                        color: 'decorative-purple',
+                        opacity: 'weak',
+                      }}
                       a11yTitle={`There's a new item called ${render || name}`}
                       value="New!"
                       size="small"
@@ -106,6 +117,7 @@ export const ContentCard = forwardRef(
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 ContentCard.propTypes = {
+  size: PropTypes.string,
   level: PropTypes.number,
   minimal: PropTypes.bool,
   topic: PropTypes.shape({

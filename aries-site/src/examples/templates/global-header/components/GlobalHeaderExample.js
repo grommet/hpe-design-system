@@ -5,7 +5,7 @@ import { MockGlobalHeader } from './MockGlobalHeader';
 export const GlobalHeaderExample = () =>  (
   <Box
     background="background"
-    width={{ max: 'xxlarge' }}
+    width={{ max: '3xlarge' }}
     margin="auto"
     fill
   >

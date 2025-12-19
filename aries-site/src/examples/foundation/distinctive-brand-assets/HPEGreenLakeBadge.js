@@ -10,8 +10,8 @@ export const HPEGreenLakeBadge = () => {
       flex={false}
       background="background-front"
       pad="medium"
-      height="xsmall"
-      width={{ max: 'small' }}
+      height="3xsmall"
+      width={{ max: 'xsmall' }}
     >
       <Image
         alt="HPE GreenLake badge"

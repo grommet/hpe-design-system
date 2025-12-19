@@ -44,7 +44,7 @@ export const CardContentBestPractice = ({ bestPractice = true }) => {
           title="Manage account"
           subtitle="Manage your HPE Common Cloud account"
         />
-        <Grid align="start" columns={columns[breakpoint]} gap="large">
+        <Grid align="start" columns={columns[breakpoint]} gap="xlarge">
           <LeftPanel bestPractice={bestPractice} />
           <Grid columns={activitiesColumns[breakpoint]} gap="medium">
             {activities.map((activity, index) => (
@@ -77,7 +77,7 @@ CardContentBestPractice.propTypes = {
 const LeftPanel = ({ bestPractice }) => {
   const content = (
     <Box gap="medium">
-      <Box alignSelf="start" height="xxsmall">
+      <Box alignSelf="start" height="5xsmall">
         <Image
           alignSelf="start"
           src="/acme.svg"

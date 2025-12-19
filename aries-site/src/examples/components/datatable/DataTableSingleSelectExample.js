@@ -19,32 +19,32 @@ const columns = [
     property: 'orderName',
     header: 'Name',
     render: datum => <Text truncate="tip">{datum.orderName}</Text>,
-    size: 'small',
+    size: 'xsmall',
   },
   {
     property: 'purchaseOrder',
     header: 'P.O. #',
     render: datum => <Text truncate="tip">{datum.purchaseOrder}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
     align: 'end',
   },
   {
     property: 'state',
     header: 'State',
     render: datum => <Text truncate="tip">{datum.state}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'service',
     header: 'Service',
     render: datum => <Text truncate="tip">{datum.service}</Text>,
-    size: 'small',
+    size: 'xsmall',
   },
   {
     property: 'tenant',
     header: 'Tenant',
     render: datum => <Text truncate="tip">{datum.tenant}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'contact.email',
@@ -101,12 +101,12 @@ export const DataTableSingleSelectExample = () => {
           />
         }
       />
-      <Box gap="small">
+      <Box gap="xsmall">
         <Heading level={2} margin="none">
           Details
         </Heading>
         {pageDetails && (
-          <NameValueList nameProps={{ width: ['xxsmall', 'xsmall'] }}>
+          <NameValueList nameProps={{ width: ['5xsmall', '3xsmall'] }}>
             {Object.entries(pageDetails).map(([key, value]) => (
               <NameValuePair key={key} name={key}>
                 {value}

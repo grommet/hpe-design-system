@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Box, Heading, List, Text } from 'grommet';
-import { User, SettingsOption, Analytics, Grow, Spa, Gem } from 'grommet-icons';
+import {
+  User,
+  Settings,
+  Analytics,
+  Grow,
+  Spa,
+  Gem,
+} from '@hpe-design/icons-grommet';
 import { SelectorGroup, Selector } from 'aries-core';
 
 const data = [
@@ -16,7 +23,7 @@ const data = [
     value: 'option 2',
     title: 'Option 2',
     description: 'This is a description.',
-    icon: <SettingsOption height="medium" />,
+    icon: <Settings height="medium" />,
   },
   {
     value: 'option 3',
@@ -47,9 +54,9 @@ const MiniSelector = ({ value, title, indicator = false }) => {
       value={value}
       title={<Text size="small">{title}</Text>}
       indicator={indicator}
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
-      round="large"
-      margin={{ bottom: 'xsmall' }}
+      pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
+      round="xxlarge"
+      margin={{ bottom: '3xsmall' }}
     />
   );
 };
@@ -67,10 +74,10 @@ const ProductSelector = ({ children, value, title, icon, price }) => {
         align="center"
         justify="between"
         gap="medium"
-        pad="small"
+        pad="xsmall"
         flex="grow"
       >
-        <Box align="center" gap="xsmall">
+        <Box align="center" gap="3xsmall">
           {icon}
           <Text color="text-strong" weight={500} size="xxlarge">
             {title}
@@ -96,7 +103,7 @@ ProductSelector.propTypes = {
 export const TEMP = () => {
   const [selected, setSelected] = useState();
   return (
-    <Box pad="large" gap="large">
+    <Box pad="xlarge" gap="xlarge">
       <Text>uncontrolled configurable</Text>
       <SelectorGroup>
         {data.map(datum => (
@@ -194,7 +201,7 @@ export const TEMP = () => {
         <Heading level={4}>
           Menu of dynamic options within a support chat experience
         </Heading>
-        <SelectorGroup layout="fit" gap="xsmall">
+        <SelectorGroup layout="fit" gap="3xsmall">
           {supportOptions.map(datum => (
             <MiniSelector
               key={datum.value}
@@ -209,7 +216,7 @@ export const TEMP = () => {
           Menu of many dynamic options within a support chat experiencew which
           we wouldn't want to do but we are stress testing
         </Heading>
-        <SelectorGroup layout="fit" gap="xsmall">
+        <SelectorGroup layout="fit" gap="3xsmall">
           {supportOptions.map((datum, index) => (
             <MiniSelector key={index} value={datum.value} title={datum.title} />
           ))}
@@ -235,7 +242,7 @@ export const TEMP = () => {
           estate (this needs some work, but hopefully you get the idea where we
           might go. Don't let it hold up PR)
         </Heading>
-        <SelectorGroup multiple layout="fit" gap="xsmall">
+        <SelectorGroup multiple layout="fit" gap="3xsmall">
           {supportOptions.map(datum => (
             <MiniSelector
               key={datum.value}

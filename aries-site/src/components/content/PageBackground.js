@@ -17,8 +17,8 @@ export const PageBackground = ({ backgroundImage }) => {
     // the margin shifts are relative to the width of
     // the content as opposed to the entire window
     <Box
-      width={{ max: 'xxlarge' }}
-      pad={{ horizontal: 'xlarge' }}
+      width={{ max: '3xlarge' }}
+      pad={{ horizontal: '3xlarge' }}
       margin="auto"
       direction={position === 'right' ? 'row' : 'column'}
       justify={position === 'right' ? 'between' : undefined}
@@ -27,13 +27,13 @@ export const PageBackground = ({ backgroundImage }) => {
       {/* Landing page uses Grid because otherwise it will span
       too far behind the text */}
       {!useGrid ? (
-        <Box margin={margin} width={{ max: 'large' }} style={style}>
+        <Box margin={margin} width={{ max: 'xlarge' }} style={style}>
           <Image src={src[themeMode]} alt={alt} fit="contain" />
         </Box>
       ) : (
         <Box height={{ min: 'medium' }} justify="center">
           <Grid
-            gap={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
+            gap={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'medium'}
             columns={{
               count: 'fit',
               size: !['xsmall', 'small'].includes(size) ? 'medium' : 'fill',

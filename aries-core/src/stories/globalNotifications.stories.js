@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
 import { BannerContentLayoutExample } from 'aries-site/src/examples/templates/global-banner-notifications/BannerContentLayoutExample';
@@ -7,13 +8,32 @@ import { BannerNotificationInfo } from 'aries-site/src/examples/templates/global
 import { BannerNotificationWarning } from 'aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarning';
 import { BannerNotificationWarningClose } from 'aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarningClose';
 
-export const ContentLayout = () => <BannerContentLayoutExample />;
-export const Critical = () => <BannerNotificationCritical />;
-export const CriticalClose = () => <BannerNotificationCriticalClose />;
-export const Info = () => <BannerNotificationInfo />;
-export const Warning = () => <BannerNotificationWarning />;
-export const WarningClose = () => <BannerNotificationWarningClose />;
-
-export default {
+const meta = {
   title: 'Global Notifications',
+};
+
+export default meta;
+
+export const ContentLayout = {
+  render: () => <BannerContentLayoutExample />,
+};
+
+export const Critical = {
+  render: () => <BannerNotificationCritical />,
+};
+
+export const CriticalClose = {
+  render: () => <BannerNotificationCriticalClose />,
+};
+
+export const Info = {
+  render: () => <BannerNotificationInfo />,
+};
+
+export const Warning = {
+  render: () => <BannerNotificationWarning />,
+};
+
+export const WarningClose = {
+  render: () => <BannerNotificationWarningClose />,
 };

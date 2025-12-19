@@ -290,8 +290,8 @@
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
-    "status": "failed",
-    "notes": "groupby expand/collapse does not receive indicator when navigating with keyboard"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.4.8",

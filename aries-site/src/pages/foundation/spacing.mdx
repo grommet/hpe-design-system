@@ -1,0 +1,94 @@
+import { Paragraph } from 'grommet';
+import { LinkNext } from '@hpe-design/icons-grommet';
+import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
+import {
+  AvoidMargin,
+  ElementTokensCTA,
+  SpacingScale,
+  SpacingTokensCTA,
+  SpacingVsElementTokens,
+} from '../../examples';
+
+Spacing sizes are a subset of the [scale system](/foundation/scale-system),
+supporting proximity principles to shape relationships between content and establish
+hierarchy on a page. These principles are applied through
+[spacing design tokens](/design-tokens/layout-and-spacing#spacing), which define the
+padding within, margin around, and gap between content.
+
+Effective spacing guides a user's eye through the interface, making it easier to
+understand how elements relate to one another. The HPE Design System minimizes use of
+borders to separate content. Instead spacing, typography, and background color are
+combined to create visual hierarchy.
+
+## Spacing scale
+
+Use spacing to:
+
+- Create separation between [content containers](/foundation/content-container-sizes) (gaps).
+- Set space between a container's boundary and its content (padding).
+- Define spacing within subsections of content (gap).
+
+<Example
+  caption="Available spacing scale dimensions by t-shirt size"
+  height="none"
+>
+  <SpacingScale />
+</Example>
+
+<SpacingTokensCTA />
+
+## Spacing best practices
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message: `Use spacing design tokens to style compositional or layout components 
+        like cards, layers, and grid spacing.`,
+    }}
+    width="100%"
+  >
+    <SpacingVsElementTokens />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: (
+        <Paragraph margin="none" size="small">
+          Use spacing design tokens to style element-level components. Instead,
+          use component-specific tokens or{' '}
+          <ElementTokensCTA /> to
+          ensure correct sizing of elements across screen sizes.
+        </Paragraph>
+      ),
+    }}
+  >
+    <SpacingVsElementTokens bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+<Example
+  height="none"
+  bestPractice={{
+    type: 'do',
+    message: `Use gap to create spacing between elements and padding within elements.`,
+  }}
+  width="100%"
+>
+  <AvoidMargin />
+</Example>
+<Example
+  height="none"
+  bestPractice={{
+    type: 'caution',
+    message: `Avoid use of margin to create spacing. Use of margin can lead to 
+    unpredictable responsive and/or adaptive layouts. Use gap and padding instead.`,
+  }}
+  width="100%"
+>
+  <AvoidMargin bestPractice={false} />
+</Example>
+</BestPracticeGroup>

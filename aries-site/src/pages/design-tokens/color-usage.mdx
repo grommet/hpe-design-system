@@ -1,5 +1,5 @@
 import { Box, Notification, Text, Meter } from 'grommet';
-import { Trigger } from 'grommet-icons';
+import { Trigger } from '@hpe-design/icons-grommet';
 import { ColorPreview } from '../../components';
 
 <Notification
@@ -8,19 +8,8 @@ import { ColorPreview } from '../../components';
   actions={[
     { label: 'All design tokens', href: '/design-tokens/all-design-tokens' },
   ]}
-  width={{ max: 'large' }}
+  width={{ max: 'xlarge' }}
 />
-
-## Applying color
-
-HPE colors are stored in the form of design tokens. Rather than applying RGB or hex values, we use semantic colors (otherwise called [semantic tokens](/design-tokens/overview#semantic-tokens)). Semantic color names describe when and where to apply them.
-
-Applying semantic colors as intended ensures your design:
-
-- Is aligned with the current theme and visual direction.
-- Is accessible.
-- Enables theme mode switching (light and dark. See [Theming]()).
-- Improves maintenance (when themes are updated, designs are synchronised with token updates. See [design tokens overview](/design-tokens/overview).)
 
 ## Color names
 
@@ -47,7 +36,7 @@ The anatomical part of an element to be styled.
 | <ColorPreview datum={{value: 'background-front'}} border="border-selected" /> | border     | Borders around elements, dividers and rules. |
 | <Text size="xlarge">Aa</Text>                                                 | text       | Typography, such as paragraphs or labels.    |
 | <Trigger size="xlarge" />                                                     | icon       | Iconography.                                 |
-| <Box width="xsmall" ><Meter value={30}  thickness='small' round /></Box>      | foreground | Foreground graphics.                         |
+| <Box width="3xsmall" ><Meter value={30}  thickness='small' round /></Box>      | foreground | Foreground graphics.                         |
 
 ### Variant
 
@@ -83,8 +72,8 @@ Background color variants may have a range of shades.
 <Notification
   status="info"
   message="Note, for proper color contrast, strong background colors should always be paired with onStrong text and icon colors. See"
-  actions={[{ label: 'Color pairing', href: '/design-tokens/color-pairing' }]}
-  width={{ max: 'large' }}
+  actions={[{ label: 'Color pairing', href: '/foundation/color-pairing' }]}
+  width={{ max: 'xlarge' }}
   margin={{ bottom: 'medium' }}
 />
 

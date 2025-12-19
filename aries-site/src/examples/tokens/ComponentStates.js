@@ -23,7 +23,7 @@ const FocusButton = styled(Button)`
 
 // eslint-disable-next-line react/prop-types
 export const ButtonStates = ({ size, tabIndex }) => (
-  <Box direction="row" gap="small">
+  <Box direction="row" gap="xsmall">
     <Button label="Rest" tabIndex={tabIndex} size={size} primary />
     <HoverButton label="Hover" tabIndex={tabIndex} size={size} primary />
     <FocusButton label="Focus" tabIndex={tabIndex} size={size} primary />
@@ -34,7 +34,7 @@ export const ComponentStates = () => {
   return (
     <Box gap="medium">
       <ButtonStates />
-      <Box direction="row" gap="small">
+      <Box direction="row" gap="xsmall">
         <FormField label="Label" htmlFor="name" name="name">
           <TextInput id="name" name="name" />
         </FormField>

@@ -14,7 +14,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
       onEsc={() => onSetOpen(false)}
       {...rest}
     >
-      <Box pad="large" gap="medium" width="large">
+      <Box pad="xlarge" gap="medium" width="xlarge">
         <>
           <Heading level={2} margin="none">
             Cancel
@@ -27,7 +27,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
         </Text>
         <Box
           as="footer"
-          gap="small"
+          gap="xsmall"
           direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
           align="center"
           justify="end"

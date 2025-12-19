@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Search as SearchIcon } from '@hpe-design/icons-grommet';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
 import { getPageDetails, nameToPath } from '../../utils';
@@ -25,7 +25,7 @@ const StyledHeader = ({ ...rest }) => {
       <Link href="/" passHref legacyBehavior>
         <AppIdentity brand="hpe" logo={false} title="Design System" />
       </Link>
-      <Box direction="row" align="center" gap="xsmall">
+      <Box direction="row" align="center" gap="3xsmall">
         {!['xsmall', 'small'].includes(size) &&
           navItems.map(item => (
             <Link

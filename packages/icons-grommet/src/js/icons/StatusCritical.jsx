@@ -1,0 +1,13 @@
+import React, { forwardRef } from 'react';
+
+import { StyledIcon } from '../StyledIcon';
+
+const StatusCritical = forwardRef((props, ref) => (
+  <StyledIcon ref={ref} viewBox="0 0 24 24" a11yTitle="StatusCritical" {...props}>
+    <path d="M10.8477 0.477286C11.4841 -0.159096 12.5159 -0.159095 13.1523 0.477287L23.5227 10.8477C24.1591 11.4841 24.1591 12.5159 23.5227 13.1523L13.1523 23.5227C12.5159 24.1591 11.4841 24.1591 10.8477 23.5227L0.477286 13.1523C-0.159096 12.5159 -0.159095 11.4841 0.477287 10.8477L10.8477 0.477286Z" fill="#EC3331" />
+  </StyledIcon>
+));
+
+StatusCritical.displayName = 'StatusCritical';
+
+export { StatusCritical };

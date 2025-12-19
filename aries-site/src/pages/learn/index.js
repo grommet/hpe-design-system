@@ -25,11 +25,11 @@ const Learn = () => (
       canonicalUrl="https://design-system.hpe.design/learn"
     />
     <PageContent>
-      <Box pad={{ vertical: 'medium' }} justify="center" width="large">
+      <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
-      <Data data={cards} pad={{ bottom: 'large' }}>
+      <Data data={cards} pad={{ bottom: 'xlarge' }}>
         <DataSearch width={{ max: 'medium', width: '100%' }} />
         <DataSummary />
         <DataContext.Consumer>
@@ -65,7 +65,7 @@ const Learn = () => (
             ];
 
             return (
-              <Box gap="large" pad={{ top: 'medium' }}>
+              <Box gap="xlarge" pad={{ top: 'medium' }}>
                 {results.map((type, index) =>
                   type.data?.length ? (
                     <Box gap="medium" key={index}>
@@ -80,7 +80,7 @@ const Learn = () => (
                         {type.data.map(item => (
                           <ContentCard
                             key={item.name}
-                            pad="small"
+                            pad="xsmall"
                             topic={item}
                             href={item.href || nameToPath(item.name)}
                             level={3}

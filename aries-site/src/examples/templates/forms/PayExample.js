@@ -11,8 +11,8 @@ import {
   TextInput,
   ResponsiveContext,
 } from 'grommet';
-import { Apple, CreditCard } from 'grommet-icons';
-import { ContentPane } from '../../../layouts';
+import { CreditCard } from '@hpe-design/icons-grommet';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const currentDate = new Date();
 const dateValidation = [
@@ -101,8 +101,8 @@ export const PayExample = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -116,7 +116,7 @@ export const PayExample = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           messages={{
@@ -133,15 +133,14 @@ export const PayExample = () => {
               type="button"
               primary
               color="background-neutral-xstrong"
-              icon={<Apple />}
-              gap="xxsmall"
+              gap="5xsmall"
               size="large"
             />
           </Box>
-          <Box margin="small" align="center">
+          <Box margin="xsmall" align="center">
             <Text>or</Text>
           </Box>
-          <Text size="large" margin={{ bottom: 'small', top: 'none' }}>
+          <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
             Credit card information
           </Text>
           <FormField
@@ -195,7 +194,7 @@ export const PayExample = () => {
           </Box>
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-            margin={{ top: 'small', bottom: 'small' }}
+            margin={{ top: 'xsmall', bottom: 'xsmall' }}
           >
             <Button label="Checkout" primary type="submit" />
           </Box>

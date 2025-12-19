@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
+// TODO replace with DS icon package when available
 import { Figma, Grommet } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import { IconCircle, IconTriangle } from '../icons';
@@ -29,22 +30,22 @@ const StatusBadge = ({ status, type }) => (
   <Box direction="row">
     <Box
       background="background-front"
-      pad={{ vertical: 'xsmall', horizontal: 'small' }}
+      pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}
       round={{ corner: 'left', size: 'xsmall' }}
       direction="row"
     >
-      <Box direction="row" gap="xsmall" align="center">
+      <Box direction="row" gap="3xsmall" align="center">
         {types[type].icon}
         <TextEmphasis>{type && types[type].name}</TextEmphasis>
       </Box>
     </Box>
     <Box
       background="background-contrast"
-      pad={{ vertical: 'xsmall', horizontal: 'small' }}
+      pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}
       round={{ corner: 'right', size: 'xsmall' }}
       direction="row"
       align="center"
-      gap="small"
+      gap="xsmall"
     >
       {statuses[status[type]].icon}
       <TextEmphasis>{status[type]}</TextEmphasis>

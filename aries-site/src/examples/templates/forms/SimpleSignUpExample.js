@@ -14,14 +14,14 @@ import {
   TextInput,
   ResponsiveContext,
 } from 'grommet';
-import { FormCheckmark } from 'grommet-icons';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
   emailMask,
   emailValidation,
   passwordRequirements,
   passwordRulesStrong,
 } from './utils/FormValidation';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -53,8 +53,8 @@ export const SimpleSignUpExample = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -68,7 +68,7 @@ export const SimpleSignUpExample = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           validate="blur"
@@ -120,16 +120,16 @@ export const SimpleSignUpExample = () => {
                     formValues.password.length === 0
                   ) {
                     return (
-                      <Box direction="row" gap="xsmall">
+                      <Box direction="row" gap="3xsmall">
                         <Text size="xsmall">{rule.message}</Text>
                       </Box>
                     );
                   }
                   return (
-                    <Box direction="row" gap="xsmall">
+                    <Box direction="row" gap="3xsmall">
                       {formValues.password && rule.valid && (
                         <Box alignSelf="center">
-                          <FormCheckmark size="small" />
+                          <Checkmark size="small" />
                         </Box>
                       )}
                       <Text size="xsmall">{rule.message}</Text>
@@ -172,7 +172,7 @@ export const SimpleSignUpExample = () => {
           </FormField>
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-            margin={{ top: 'medium', bottom: 'small' }}
+            margin={{ top: 'medium', bottom: 'xsmall' }}
           >
             <Button label="Sign Up" primary type="submit" />
           </Box>

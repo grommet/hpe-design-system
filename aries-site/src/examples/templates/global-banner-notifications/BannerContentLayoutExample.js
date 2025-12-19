@@ -12,7 +12,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { HelpOption, HomeRounded } from 'grommet-icons';
+import { Help, Home } from '@hpe-design/icons-grommet';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
@@ -20,19 +20,25 @@ export const BannerContentLayoutExample = () => (
   <AppContainer>
     <Box>
       <ContentArea
-        pad={{ horizontal: 'large', vertical: 'small' }}
+        pad={{ horizontal: 'xlarge', vertical: 'xsmall' }}
         direction="row"
         icon
         title="HPE Service Name"
         gap="none"
         justify="between"
       >
-        <Box align="center" direction="row" gap="small">
+        <Box align="center" direction="row" gap="xsmall">
           <>
-            <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
-            <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
+            <Button icon={<Help />} a11yTitle="Help" title="Help" />
+            <Button icon={<Home />} a11yTitle="Home" title="Home" />
           </>
-          <Avatar background="purple!" flex={false}>
+          <Avatar
+            // TODO: Consider a different background here.
+            // Temporary solution until there is a wider
+            // range of colors in the theme.
+            background="decorative-green"
+            flex={false}
+          >
             <Text size="small" color="text-strong">
               JS
             </Text>
@@ -41,7 +47,7 @@ export const BannerContentLayoutExample = () => (
       </ContentArea>
       <Notification
         status="warning"
-        message={`Your supscription will expire in 7 days. Renew your 
+        message={`Your subscription will expire in 7 days. Renew your 
             subscription to ensure you don't lose access.`}
         onClose={() => {}}
         actions={[
@@ -134,5 +140,5 @@ const Content = () => {
 };
 
 const ContentBlock = ({ ...rest }) => (
-  <ContentArea height="small" round="small" {...rest} />
+  <ContentArea height="xsmall" round="medium" {...rest} />
 );

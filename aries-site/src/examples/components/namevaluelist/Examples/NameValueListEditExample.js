@@ -119,7 +119,7 @@ export const NameValueListEditExample = () => {
             ))}
             <Box
               direction="row"
-              gap="small"
+              gap="xsmall"
               align="center"
               margin={{ top: 'medium' }}
             >

@@ -8,7 +8,6 @@ export * from './ButtonLeftAlignExample';
 export * from './ButtonRightAlignExample';
 export * from './ButtonSizingExample';
 export * from './ButtonStatesExample';
-export * from './CTAButtonExample';
 export * from './DefaultButtonExample';
 export * from './DosDonts';
 export * from './PrimaryButtonExample';

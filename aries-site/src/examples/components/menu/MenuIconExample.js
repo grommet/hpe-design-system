@@ -1,15 +1,15 @@
 import React from 'react';
 import { Box, List, Menu } from 'grommet';
-import { More } from 'grommet-icons';
+import { More } from '@hpe-design/icons-grommet';
 
 export const MenuIconExample = () => {
   const data = ['User 1', 'User 2', 'User 3'];
 
   return (
-    <Box width={{ max: 'large' }} fill>
+    <Box width={{ max: 'xlarge' }} fill>
       <List
         data={data}
-        pad="small"
+        pad="xsmall"
         action={() => (
           <Box direction="row" align="center" gap="medium">
             <Menu

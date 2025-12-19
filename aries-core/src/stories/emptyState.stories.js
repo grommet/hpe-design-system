@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
 import { ActionEmptyState } from 'aries-site/src/examples/templates/empty-state/ActionEmptyState';
@@ -7,13 +8,32 @@ import { ErrorManagementEmptyState } from 'aries-site/src/examples/templates/emp
 import { LayerEmptyState } from 'aries-site/src/examples/templates/empty-state/LayerEmptyState';
 import { PageEmptyState } from 'aries-site/src/examples/templates/empty-state/PageEmptyState';
 
-export const Action = () => <ActionEmptyState />;
-export const Card = () => <CardEmptyState />;
-export const EmptyState = () => <EmptyStateExample />;
-export const ErrorManagement = () => <ErrorManagementEmptyState />;
-export const Layer = () => <LayerEmptyState />;
-export const Page = () => <PageEmptyState />;
-
-export default {
+const meta = {
   title: 'Empty State',
+};
+
+export default meta;
+
+export const Action = {
+  render: () => <ActionEmptyState />,
+};
+
+export const Card = {
+  render: () => <CardEmptyState />,
+};
+
+export const EmptyState = {
+  render: () => <EmptyStateExample />,
+};
+
+export const ErrorManagement = {
+  render: () => <ErrorManagementEmptyState />,
+};
+
+export const Layer = {
+  render: () => <LayerEmptyState />,
+};
+
+export const Page = {
+  render: () => <PageEmptyState />,
 };

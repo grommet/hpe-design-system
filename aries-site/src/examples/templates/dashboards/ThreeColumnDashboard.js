@@ -14,8 +14,8 @@ import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 export const ThreeColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent gap="large">
+    <Page pad={{ bottom: '3xlarge' }}>
+      <PageContent gap="xlarge">
         <PageHeader title="Dashboard" />
         <Content />
       </PageContent>

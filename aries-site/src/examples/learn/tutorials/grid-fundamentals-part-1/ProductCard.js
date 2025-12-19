@@ -11,7 +11,7 @@ import {
   Paragraph,
   Text,
 } from 'grommet';
-import { Favorite } from 'grommet-icons';
+import { Favorite } from '@hpe-design/icons-grommet';
 
 const currencyFormatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -27,10 +27,10 @@ export const ProductCard = ({ level, product, ...rest }) => {
       </CardHeader>
       <CardBody justify="between" gap="medium">
         <Box gap="medium">
-          <Box height="small">
+          <Box height="xsmall">
             <Image src={product.image} alt={product.name} fit="cover" />
           </Box>
-          <Box gap="small">
+          <Box gap="xsmall">
             <Heading level={level} margin="none">
               {product.name}
             </Heading>

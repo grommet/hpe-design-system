@@ -15,8 +15,13 @@ import {
   Toolbar,
 } from 'grommet';
 import { TextEmphasis } from 'aries-core';
-import { Deliver, Package, StatusCritical, StatusGood } from 'grommet-icons';
-import { ContentPane } from '../../../../layouts';
+import {
+  Deliver,
+  Package,
+  StatusCritical,
+  StatusGood,
+} from '@hpe-design/icons-grommet';
+import { ContentPane } from '../../../../layouts/content/ContentPane';
 import { orders } from './mockData';
 
 const statusIcons = {
@@ -66,12 +71,12 @@ const Orders = () => {
       flex
       overflow="auto"
       // xxsmall pad allows for List to receive focus properly
-      pad="xxsmall"
+      pad="5xsmall"
     >
       <List
         aria-label="Orders"
         action={(item, index) => (
-          <Box key={index} align="center" direction="row" gap="small">
+          <Box key={index} align="center" direction="row" gap="xsmall">
             {!['xsmall', 'small'].includes(breakpoint) && (
               <Text color="text-strong">{item.status}</Text>
             )}
@@ -88,7 +93,7 @@ const Orders = () => {
         }}
       >
         {(datum, index) => (
-          <Box gap="xsmall" justify="between" key={index}>
+          <Box gap="3xsmall" justify="between" key={index}>
             <TextEmphasis size="large">{datum.name}</TextEmphasis>
             <Text color="text-strong">
               {datum.tenant} | {datum.service}

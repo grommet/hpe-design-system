@@ -5,7 +5,7 @@ import { Card } from '../../templates';
 import { activities } from './data';
 
 export const CardSpacingBestPractice = ({ bestPractice = true }) => (
-  <Grid gap={!bestPractice ? 'small' : 'medium'} columns="medium">
+  <Grid gap={!bestPractice ? 'xsmall' : 'medium'} columns="medium">
     {activities.map((activity, index) => (
       <Card
         key={index}

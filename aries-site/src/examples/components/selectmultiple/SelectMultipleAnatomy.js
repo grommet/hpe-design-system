@@ -9,7 +9,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Up } from 'grommet-icons';
+import { Up } from '@hpe-design/icons-grommet';
 
 const options = [];
 for (let i = 1; i <= 10; i += 1) options.push(`User ${i}`);
@@ -35,7 +35,7 @@ const areas = [
 
 export const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xsmall', 'medium', 'xsmall']}
+    columns={['3xsmall', 'medium', '3xsmall']}
     rows={rows}
     areas={areas}
     justify="center"
@@ -59,7 +59,7 @@ export const SelectMultipleInput = ({ id, ...rest }) => (
           id={id}
           background="background-front"
           direction="row"
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
           justify="between"
           round="xxsmall"
         >
@@ -76,7 +76,7 @@ SelectMultipleInput.propTypes = {
 };
 
 const Highlight = ({ ...rest }) => (
-  <Box pad={{ horizontal: 'xsmall' }} border={{ style: 'dashed' }} {...rest} />
+  <Box pad={{ horizontal: '3xsmall' }} border={{ style: 'dashed' }} {...rest} />
 );
 
 const DropElement = ({ ...rest }) => (
@@ -84,7 +84,7 @@ const DropElement = ({ ...rest }) => (
     width="medium"
     background="background-front"
     elevation="medium"
-    pad="xsmall"
+    pad="3xsmall"
     round="xxsmall"
     {...rest}
   />
@@ -94,7 +94,9 @@ export const SelectMultipleSelected = ({ id, ...rest }) => (
   <DropElement {...rest}>
     <Highlight
       id={id}
-      background="validation-ok"
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-green', opacity: 'weak' }}
       direction="row"
       justify="between"
       align="center"
@@ -111,8 +113,14 @@ SelectMultipleSelected.propTypes = {
 };
 
 export const SelectMultipleSearch = ({ id, ...rest }) => (
-  <DropElement pad={{ horizontal: 'xsmall' }} {...rest}>
-    <Highlight id={id} background="teal" pad="none">
+  <DropElement pad={{ horizontal: '3xsmall' }} {...rest}>
+    <Highlight
+      id={id}
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-blue', opacity: 'weak' }}
+      pad="none"
+    >
       <TextInput placeholder="Search" />
     </Highlight>
   </DropElement>
@@ -123,8 +131,13 @@ SelectMultipleSearch.propTypes = {
 };
 
 export const SelectMultipleLimit = ({ id, limit, ...rest }) => (
-  <DropElement pad={{ horizontal: 'xsmall', top: 'xsmall' }} {...rest}>
-    <Highlight id={id} background="validation-warning">
+  <DropElement pad={{ horizontal: '3xsmall', top: '3xsmall' }} {...rest}>
+    <Highlight
+      id={id}
+      // TODO: Using opacity weak is a temporary solution until
+      // we have a wider range of colors in the theme.
+      background={{ color: 'decorative-cyan', opacity: 'weak' }}
+    >
       <Text size="small">{`Select up to ${limit}`}</Text>
     </Highlight>
   </DropElement>
@@ -137,18 +150,24 @@ SelectMultipleLimit.propTypes = {
 
 export const SelectMultipleOptions = ({ id, ...rest }) => (
   <DropElement {...rest}>
-    <Highlight id={id} background="background-back" pad="xsmall">
+    <Highlight id={id} background="background-back" pad="3xsmall">
       {options.map(label => (
         <Highlight
           id={label === highlightedOption ? 'listItem' : undefined}
-          background={label === highlightedOption ? 'yellow' : undefined}
+          background={
+            label === highlightedOption
+              ? // TODO: Using opacity weak is a temporary solution until
+                // we have a wider range of colors in the theme.
+                { color: 'decorative-purple', opacity: 'weak' }
+              : undefined
+          }
           pad="none"
           key={label}
         >
           <CheckBox
             label={label}
             checked={selected.includes(label)}
-            pad="xsmall"
+            pad="3xsmall"
           />
         </Highlight>
       ))}

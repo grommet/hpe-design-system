@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { Text } from 'grommet';
 
 const StyledFigure = styled.figure`
-  margin: 0;
+  display: contents;  
 `;
 
 const StyledCaption = ({ ...rest }) => (
-  <Text as="figcaption" margin={{ top: 'xsmall' }} size="small" {...rest} />
+  <Text as="figcaption" margin={{ top: '3xsmall' }} size="small" {...rest} />
 );
 
 export const FigureWrapper = ({ caption, children }) => (

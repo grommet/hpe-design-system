@@ -10,7 +10,7 @@ export const PreviewImageCard = ({
   <Card
     background={background}
     elevation="none"
-    height="small"
+    height="xsmall"
     round="xsmall"
     style={{ position: 'relative' }}
     {...rest}

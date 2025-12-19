@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, Heading, List } from 'grommet';
-import { ContentPane } from '../../../layouts';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const movies = [
   { title: 'Ponyo', genre: 'Fantasy/Adventure' },
@@ -20,7 +20,7 @@ export const ListOrderExample = () => {
 
   return (
     <ContentPane role="application">
-      <Box gap="small" width="large">
+      <Box gap="xsmall" width="xlarge">
         <Box direction="row" justify="between">
           <Heading level={2} margin="none">
             Favorite movies

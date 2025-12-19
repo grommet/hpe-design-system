@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -15,8 +15,9 @@ import {
   TableHeader,
   TableRow,
   Text,
+  ThemeContext,
 } from 'grommet';
-import { Copy } from 'grommet-icons';
+import { Copy } from '@hpe-design/icons-grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 
@@ -61,26 +62,18 @@ CopyCodeButton.propTypes = {
   code: PropTypes.string.isRequired,
 };
 
-export const components = {
-  blockquote: props => (
-    <Box width="large">
-      <Paragraph
-        margin={{ top: 'large', bottom: 'none', left: 'large' }}
-        size="xxlarge"
-        {...props}
-      />
-    </Box>
-  ),
-  pre: ({ children, ...rest }) => (
+const PreComponent = ({ children, ...rest }) => {
+  const theme = useContext(ThemeContext);
+  return (
     <Box
-      width="large"
+      width="xlarge"
       round="xsmall"
       overflow="auto"
       margin={{ bottom: 'medium' }}
     >
       <Stack anchor="top-right">
         <SyntaxHighlighter
-          style={prism.light}
+          style={theme.dark ? prism.dark : prism.light}
           wrapLongLines
           language="javascript"
           {...rest}
@@ -90,7 +83,24 @@ export const components = {
         <CopyCodeButton code={children?.props?.children} />
       </Stack>
     </Box>
+  );
+};
+
+PreComponent.propTypes = {
+  children: PropTypes.node,
+};
+
+export const components = {
+  blockquote: props => (
+    <Box width="xlarge">
+      <Paragraph
+        margin={{ top: 'xlarge', bottom: 'none', left: 'xlarge' }}
+        size="xxlarge"
+        {...props}
+      />
+    </Box>
   ),
+  pre: PreComponent,
   p: SubsectionText,
   a: props =>
     internalLink.test(props.href) ? (
@@ -123,10 +133,10 @@ export const components = {
       {...props}
     />
   ),
-  h1: props => <Heading margin={{ vertical: 'small' }} level={1} {...props} />,
-  h2: props => <SubsectionHeader level={2} {...props} />,
-  h3: props => <SubsectionHeader level={3} {...props} />,
-  h4: props => <SubsectionHeader level={4} {...props} />,
+  h1: props => <Heading margin={{ vertical: 'xsmall' }} level={1} {...props} />,
+  h2: props => <SubsectionHeader headingSize="small" level={2} {...props} />,
+  h3: props => <SubsectionHeader headingSize="small" level={3} {...props} />,
+  h4: props => <SubsectionHeader headingSize="small" level={4} {...props} />,
   hr: () => (
     <Box
       as="hr"
@@ -140,11 +150,11 @@ export const components = {
   table: props => (
     <Box
       align="start"
-      width={{ max: 'xlarge' }}
+      width={{ max: 'xxlarge' }}
       margin={{ bottom: 'medium' }}
       overflow="auto"
     >
-      <Box background="background-front" pad="medium" round="small">
+      <Box background="background-front" pad="medium" round="medium">
         <Table {...props} />
       </Box>
     </Box>
@@ -156,14 +166,14 @@ export const components = {
       border={{ side: 'bottom', color: 'border-weak' }}
       verticalAlign="top"
       width={{ max: 'medium' }}
-      pad={{ vertical: 'small', horizontal: 'small' }}
+      pad={{ vertical: 'xsmall', horizontal: 'xsmall' }}
       {...props}
     />
   ),
   th: props => (
     <TableCell
       scope="col"
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
       {...props}
     >
       <TextEmphasis>{props.children}</TextEmphasis>

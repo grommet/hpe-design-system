@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Box, Paragraph, Text } from 'grommet';
-import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
+import { StatusCritical, StatusGood } from '@hpe-design/icons-grommet';
 
 const buildQuery = view => {
   const query = {};
@@ -87,13 +87,13 @@ export const columns = [
     render: datum => {
       const icon =
         datum.success === 'Failed' ? (
-          <StatusCriticalSmall color="status-critical" height="medium" />
+          <StatusCritical color="status-critical" height="medium" />
         ) : (
-          <StatusGoodSmall color="status-ok" height="medium" />
+          <StatusGood color="status-ok" height="medium" />
         );
 
       return (
-        <Box direction="row" align="center" gap="xsmall">
+        <Box direction="row" align="center" gap="3xsmall">
           {icon}
           <Text>{datum.success}</Text>
         </Box>
@@ -134,6 +134,6 @@ export const columns = [
       }
       return '--';
     },
-    size: 'small',
+    size: 'xsmall',
   },
 ];

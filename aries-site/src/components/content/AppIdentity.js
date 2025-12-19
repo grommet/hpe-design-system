@@ -1,12 +1,14 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text } from 'grommet';
-import { Aruba, Hpe } from 'grommet-icons';
+// TODO replace with DS icon package when available
+import { Aruba } from 'grommet-icons';
+import { Element } from '@hpe-design/icons-grommet';
 
 const brands = {
   hpe: {
     name: 'HPE',
-    logo: <Hpe color="brand" height="medium" />,
+    logo: <Element color="brand" height="medium" />,
   },
   aruba: {
     name: 'Aruba',
@@ -29,12 +31,12 @@ export const AppIdentity = forwardRef(
           gap="medium"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
-          pad={{ vertical: 'small' }}
+          pad={{ vertical: 'xsmall' }}
           responsive={false}
         >
           {brand && logo && brands[brand].logo}
           {!logoOnly && (
-            <Box direction="row" gap="xsmall" wrap>
+            <Box direction="row" gap="3xsmall" wrap>
               <Text weight="bold" size={textSize} color="text-strong">
                 {brands[brand].name}
               </Text>

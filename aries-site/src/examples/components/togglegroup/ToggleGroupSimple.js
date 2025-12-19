@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, ToggleGroup } from 'grommet';
-import { List, Table, MapLocation } from 'grommet-icons';
+import { List, Table, Map } from '@hpe-design/icons-grommet';
 
 const options = [
   {
@@ -14,14 +14,14 @@ const options = [
     tip: 'Table',
   },
   {
-    icon: <MapLocation a11yTitle="Map view" />,
+    icon: <Map a11yTitle="Map view" />,
     value: 'map',
     tip: 'Map',
   },
 ];
 
 export const ToggleGroupSimple = () => (
-  <Box gap="large" pad="large">
+  <Box gap="xlarge" pad="xlarge">
     <ToggleGroup
       a11yTitle="Choose view"
       options={options}

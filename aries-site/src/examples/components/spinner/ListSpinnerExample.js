@@ -6,7 +6,7 @@ import {
   Desktop,
   User,
   System,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const data = [
@@ -38,7 +38,7 @@ const data = [
 ];
 
 export const ListSpinnerExample = () => (
-  <Box pad="small" gap="small" width={{ max: 'xxlarge' }} margin="auto" fill>
+  <Box pad="xsmall" gap="xsmall" width={{ max: '3xlarge' }} margin="auto" fill>
     <List
       data={data}
       action={item => <Text key={item.name}>{item.option}</Text>}
@@ -48,7 +48,7 @@ export const ListSpinnerExample = () => (
       }}
     >
       {datum => (
-        <Box key={datum.name} direction="row" gap="small" align="center">
+        <Box key={datum.name} direction="row" gap="xsmall" align="center">
           {datum.icon}
           <TextEmphasis>{datum.name}</TextEmphasis>
         </Box>

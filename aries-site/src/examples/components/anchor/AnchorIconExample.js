@@ -1,11 +1,11 @@
 import React from 'react';
 import { Anchor } from 'grommet';
-import { ShareRounded } from 'grommet-icons';
+import { NewWindow } from '@hpe-design/icons-grommet';
 
 export const AnchorIconExample = () => (
   <Anchor
     label="Submit a support request"
-    icon={<ShareRounded />}
+    icon={<NewWindow />}
     target="_blank"
     rel="noopener norefferer"
     href="#"

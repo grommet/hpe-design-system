@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, Page, PageContent, Stack } from 'grommet';
 import { LayerHeader } from 'aries-core';
-import { Close } from 'grommet-icons';
+import { Close } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 
@@ -70,17 +70,19 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
     <Box
       direction="row"
       flex={false}
-      gap="xsmall"
+      gap="3xsmall"
       /* This Box represents a header of a browser application window. 
             The selected background color provides better contrast between the 
             header and the examples being showcased. */
       background={{ color: 'border-weak' }}
       align="center"
-      pad="small"
+      pad="xsmall"
     >
-      <Box round pad="xsmall" background="red" />
-      <Box round pad="xsmall" background="yellow" />
-      <Box round pad="xsmall" background="green" />
+      {/* TODO consider revisiting these colors when
+       we have more tokens available */}
+      <Box round pad="3xsmall" background="foreground-critical" />
+      <Box round pad="3xsmall" background="foreground-warning" />
+      <Box round pad="3xsmall" background="foreground-primary" />
     </Box>
     <Page background="background-front" id="layer-container">
       <Button alignSelf="end" a11yTitle="Close" icon={<Close />} id={closeId} />
@@ -91,14 +93,14 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
         <LayerHeader />
         <Box
           border={{ style: 'dashed' }}
-          height="small"
+          height="xsmall"
           align="center"
           justify="center"
         >
           Layer body content goes here.
         </Box>
         {!informational ? (
-          <Box direction="row" gap="small" flex={false}>
+          <Box direction="row" gap="xsmall" flex={false}>
             <Button label="Confirm action" primary />
             <Button label="Cancel" id="layer-actions" />
           </Box>

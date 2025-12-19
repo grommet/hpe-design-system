@@ -1,6 +1,6 @@
 import React from 'react';
 import { Anchor, Box, Button, Diagram, Grid, Stack, Paragraph } from 'grommet';
-import { FormClose, StatusWarningSmall } from 'grommet-icons';
+import { Close, StatusWarning } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
@@ -24,10 +24,10 @@ const NotificationContent = ({ ...rest }) => (
   >
     <Box
       direction="row"
-      gap="xsmall"
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      gap="3xsmall"
+      pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
     >
-      <StatusWarningSmall
+      <StatusWarning
         gridArea="icon"
         id="icon"
         color="status-warning"
@@ -37,7 +37,7 @@ const NotificationContent = ({ ...rest }) => (
         <TextEmphasis id="title" alignSelf="start">
           Title
         </TextEmphasis>
-        <Box direction="row" gap="xsmall">
+        <Box direction="row" gap="3xsmall">
           <Paragraph id="message" margin="none">
             Message
           </Paragraph>
@@ -50,15 +50,15 @@ const NotificationContent = ({ ...rest }) => (
         alignSelf="start"
         hoverIndicator
         plain
-        icon={<FormClose color="text-strong" />}
+        icon={<Close color="text-strong" />}
       />
     </Box>
   </Box>
 );
 
 export const InlineNotificationAnatomy = () => {
-  const columns = ['xxsmall', 'auto', 'auto', 'auto', 'flex', 'auto'];
-  const rows = ['xxsmall', 'auto', 'auto', 'xxsmall'];
+  const columns = ['5xsmall', 'auto', 'auto', 'auto', 'flex', 'auto'];
+  const rows = ['5xsmall', 'auto', 'auto', '5xsmall'];
   const areas = [
     [
       'empty-1-1',

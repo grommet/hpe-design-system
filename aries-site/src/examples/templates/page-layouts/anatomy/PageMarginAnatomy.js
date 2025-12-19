@@ -10,7 +10,7 @@ const MarginText = ({ label }) => (
 );
 
 const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
-  <Box gap="small" width={width}>
+  <Box gap="xsmall" width={width}>
     <Box direction="row" justify="between">
       <MarginText label={marginLabel} />
       <MarginText label={marginLabel} />
@@ -36,7 +36,9 @@ const GridViewPort = ({ columns, label, marginLabel, rows, width }) => (
         align="center"
         justify="center"
         round="xsmall"
-        background="status-unknown"
+        // TODO: Using opacity weak is a temporary solution until
+        // we have a wider range of colors in the theme.
+        background={{ color: 'decorative-neutral', opacity: 'weak' }}
         border={{ style: 'dashed' }}
       >
         <TextEmphasis>{label}</TextEmphasis>
@@ -60,12 +62,12 @@ export const PageMarginAnatomy = () => {
     theme.global.edgeSize.medium,
   ];
   const smallColumns = [
-    theme.global.edgeSize.small,
+    theme.global.edgeSize.xsmall,
     'auto',
-    theme.global.edgeSize.small,
+    theme.global.edgeSize.xsmall,
   ];
   return (
-    <Box gap="large" direction="row-responsive">
+    <Box gap="xlarge" direction="row-responsive">
       <GridViewPort
         columns={largeColumns}
         rows={RowSizes}
@@ -78,7 +80,7 @@ export const PageMarginAnatomy = () => {
         rows={RowSizes}
         label="Small viewport"
         marginLabel="24"
-        width="small"
+        width="xsmall"
       />
     </Box>
   );

@@ -9,7 +9,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { LinkNext } from 'grommet-icons';
+import { LinkNext } from '@hpe-design/icons-grommet';
 import { Example } from '../../../layouts';
 
 const columns = {
@@ -56,7 +56,7 @@ export const CardTypes = () => {
 
 const Type = ({ description, href, preview, title }) => (
   <Box>
-    <Box gap="xsmall">
+    <Box gap="3xsmall">
       <Heading level={3} margin="none">
         {title}
       </Heading>
@@ -66,7 +66,7 @@ const Type = ({ description, href, preview, title }) => (
           <Button
             a11yTitle={`Read ${title} guidance`}
             alignSelf="start"
-            margin={{ vertical: 'small' }}
+            margin={{ vertical: 'xsmall' }}
             label="Read guidance"
             icon={<LinkNext aria-hidden="true" />}
             reverse

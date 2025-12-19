@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Heading, Grid, ResponsiveContext, Tag } from 'grommet';
-import { User } from 'grommet-icons';
+import { User } from '@hpe-design/icons-grommet';
 import { Card } from '../../templates';
 
 const products = [
@@ -43,13 +43,13 @@ export const TagMetaData = () => {
               recruitment process including consulting with HR
               and business partners.`}
             actions={
-              <Box direction="row" gap="xsmall" wrap>
+              <Box direction="row" gap="3xsmall" wrap>
                 {product.tags?.map((tag, j) => (
                   <Tag
                     name={tag.name ? tag.name : undefined}
                     value={tag.value ? tag.value : tag}
                     key={j}
-                    margin={{ bottom: 'xsmall' }}
+                    margin={{ bottom: '3xsmall' }}
                   />
                 ))}
               </Box>

@@ -11,7 +11,9 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
-import { Aruba, Close, Menu } from 'grommet-icons';
+import { Close, Menu } from '@hpe-design/icons-grommet';
+// TODO replace with DS icon package when available
+import { Aruba } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 
 export const MenuLayer = () => {
@@ -20,7 +22,7 @@ export const MenuLayer = () => {
 
   const pad = {
     horizontal: 'medium',
-    vertical: 'small',
+    vertical: 'xsmall',
   };
   return (
     <>
@@ -68,17 +70,21 @@ const SidebarHeader = () => (
   <Box
     align="start"
     border={{ color: 'border-weak', side: 'bottom' }}
-    pad={{ top: 'small', bottom: 'medium' }}
+    pad={{ top: 'xsmall', bottom: 'medium' }}
     gap="medium"
     flex={false}
   >
-    <Box gap="xsmall">
+    <Box gap="3xsmall">
       <Avatar
-        background="status-unknown"
+        // TODO: Revisit when we have more
+        // token colors available.
+        background="decorative-green"
         flex={false}
-        margin={{ bottom: 'xsmall' }}
+        margin={{ bottom: '3xsmall' }}
       >
-        <Text size="large">A</Text>
+        <Text size="large" color="text-strong">
+          A
+        </Text>
       </Avatar>
       <TextEmphasis>AT&T Corporation</TextEmphasis>
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
@@ -107,15 +113,15 @@ NavButton.propTypes = {
 };
 
 const SidebarFooter = () => (
-  <Footer pad={{ bottom: 'small' }}>
+  <Footer pad={{ bottom: 'xsmall' }}>
     <Box fill="horizontal" gap="medium">
-      <Box border={{ side: 'bottom' }} pad={{ bottom: 'xsmall' }}>
+      <Box border={{ side: 'bottom' }} pad={{ bottom: '3xsmall' }}>
         <Text size="xsmall">Last Visited</Text>
       </Box>
       <Button>
-        <Box direction="row" gap="small">
-          <Box background="orange!" pad="small" round="small">
-            <Aruba color="background" />
+        <Box direction="row" gap="xsmall">
+          <Box pad="xsmall" round="medium">
+            <Aruba />
           </Box>
           <Box>
             <TextEmphasis size="xsmall">Aruba Network Manager</TextEmphasis>

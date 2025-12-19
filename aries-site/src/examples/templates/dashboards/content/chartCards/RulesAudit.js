@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Meter, NameValueList, Text } from 'grommet';
-import { Calendar } from 'grommet-icons';
+import { Calendar } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { ChartCard, Measure, MeterGroup } from '../../components';
 import { defaultWindow, DEMO_DATE, REPORT_WINDOW_MAP } from './utils';
@@ -89,7 +89,7 @@ export const RulesAudit = ({ period }) => {
   }, [rules]);
 
   const nextScheduledAudit = nextAudit && (
-    <Box direction="row" gap="xsmall">
+    <Box direction="row" gap="3xsmall">
       {/* Placing the icon within a Text component ensures the icon is 
       aligned with the accompanying Text's line height, even when lengthy 
       text may wrap. */}
@@ -111,9 +111,9 @@ export const RulesAudit = ({ period }) => {
     <ChartCard title="Compliance" subtitle={period} footer={nextScheduledAudit}>
       <Box gap="medium">
         <NameValueList
-         valueProps={{ width: ['xsmall', 'auto'] }}
-         pairProps={{ direction: 'column' }}
-         layout="grid"
+          valueProps={{ width: ['3xsmall', 'auto'] }}
+          pairProps={{ direction: 'column' }}
+          layout="grid"
         >
           <Measure
             gridArea="rules"
@@ -158,7 +158,7 @@ const AuditResultsChart = ({ data, ...rest }) => (
               label: `${datum.result[0].toUpperCase()}${datum.result.slice(1)}`,
             },
           ]}
-          thickness="small"
+          thickness="xsmall"
         />
         <Box align="end">
           <Text>{datum.count}</Text>

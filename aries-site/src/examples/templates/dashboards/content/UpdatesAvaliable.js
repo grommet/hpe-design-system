@@ -28,7 +28,7 @@ export const UpdatesAvaliable = () => {
         { label: 'Move', onClick: () => {} },
         { label: 'Share', onClick: () => {} },
       ]}
-      background="validation-warning"
+      background="background-front"
       title="Updates available!"
     >
       {updates && (

@@ -24,8 +24,8 @@ import {
 export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent gap="large">
+    <Page pad={{ bottom: '3xlarge' }}>
+      <PageContent gap="xlarge">
         <PageHeader title="Dashboard" />
         <Content />
       </PageContent>
@@ -38,16 +38,16 @@ const parentGrid = {
   columns: {
     xsmall: '100%',
     small: '100%',
-    medium: ['auto', ['small', 'medium']],
-    large: ['auto', ['small', 'medium']],
+    medium: ['auto', ['xsmall', 'medium']],
+    large: ['auto', ['xsmall', 'medium']],
     xlarge: ['auto', 'medium'],
   },
   gap: {
-    xsmall: 'large',
-    small: 'large',
+    xsmall: 'xlarge',
+    small: 'xlarge',
     medium: 'medium',
-    large: 'large',
-    xlarge: 'large',
+    large: 'xlarge',
+    xlarge: 'xlarge',
   },
 };
 
@@ -58,9 +58,9 @@ const firstChildGrid = {
     medium: '100%',
     large: [
       ['medium', 'auto'],
-      ['small', 'medium'],
+      ['xsmall', 'medium'],
     ],
-    xlarge: ['auto', ['small', 'medium']],
+    xlarge: ['auto', ['xsmall', 'medium']],
   },
   gap: 'medium',
 };
@@ -101,8 +101,8 @@ const Content = () => {
       {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
       {['xsmall', 'small'].includes(size) && <RecentActivity />}
-      <Box gap="large">
-        <Box gap="small">
+      <Box gap="xlarge">
+        <Box gap="xsmall">
           <Heading level={2} margin="none">
             Servers
           </Heading>
@@ -111,7 +111,7 @@ const Content = () => {
             <ServerAttention />
           </Grid>
         </Box>
-        <Box gap="small">
+        <Box gap="xsmall">
           <Heading level={2} margin="none">
             Firmware
           </Heading>
@@ -128,7 +128,7 @@ const Content = () => {
         </Box>
       </Box>
       {!['xsmall', 'small'].includes(size) && (
-        <Box gap="large">
+        <Box gap="xlarge">
           {/* fragment is used to create a gap spacing element 
             for alignment to column 1 */}
           <></>

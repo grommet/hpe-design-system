@@ -36,7 +36,7 @@ const columns = [
   {
     property: 'publisher',
     header: 'Publisher',
-    size: 'small',
+    size: 'xsmall',
   },
   {
     property: 'delivery',
@@ -63,7 +63,7 @@ export const QuickFilterToolbar = () => (
           <ComposedToolbar />
           <DataSummary />
           <DataTable aria-describedby="storage-heading" columns={columns} />
-          <Box border="top" pad={{ vertical: 'xsmall' }}>
+          <Box border="top" pad={{ vertical: '3xsmall' }}>
             <Pagination summary stepOptions />
           </Box>
         </Data>
@@ -82,7 +82,7 @@ const ComposedToolbar = () => {
           <DataFilter
             property="delivery"
             // override HPE theme margin to align with search + filter
-            contentProps={{ margin: { bottom: 'none', top: 'xsmall' } }}
+            contentProps={{ margin: { bottom: 'none', top: '3xsmall' } }}
             // override Grommet theme margin to align with search + filter
             margin="none"
           >

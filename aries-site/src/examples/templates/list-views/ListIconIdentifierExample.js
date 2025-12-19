@@ -6,7 +6,7 @@ import {
   Desktop,
   User,
   System,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const data = [
@@ -38,7 +38,7 @@ const data = [
 ];
 
 export const ListIconIdentifierExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+  <Box width={{ max: '3xlarge' }} margin="auto" fill>
     <List
       aria-label="User status"
       data={data}
@@ -49,7 +49,7 @@ export const ListIconIdentifierExample = () => (
       }}
     >
       {datum => (
-        <Box key={datum.name} direction="row" gap="small" align="center">
+        <Box key={datum.name} direction="row" gap="xsmall" align="center">
           {datum.icon}
           <TextEmphasis>{datum.name}</TextEmphasis>
         </Box>

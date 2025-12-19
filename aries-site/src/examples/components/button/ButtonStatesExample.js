@@ -7,7 +7,7 @@ export const ButtonStatesExample = () => {
   return (
     <Box
       direction={!['xsmall', 'small'].includes(size) ? 'column' : 'row'}
-      gap={!['xsmall', 'small'].includes(size) ? 'small' : 'medium'}
+      gap={!['xsmall', 'small'].includes(size) ? 'xsmall' : 'medium'}
     >
       <Box
         direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}

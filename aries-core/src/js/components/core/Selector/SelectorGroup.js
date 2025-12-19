@@ -83,9 +83,9 @@ const SelectorGroup = ({
         <Grid
           columns={{
             count: 'fit',
-            size: ['small', 'flex'],
+            size: ['xsmall', 'flex'],
           }}
-          gap="small"
+          gap="xsmall"
           role="group"
           {...rest}
         >
@@ -93,7 +93,7 @@ const SelectorGroup = ({
         </Grid>
       )}
       {layout === 'fit' && (
-        <Box role="group" direction="row" gap="xsmall" wrap {...rest}>
+        <Box role="group" direction="row" gap="3xsmall" wrap {...rest}>
           {children}
         </Box>
       )}

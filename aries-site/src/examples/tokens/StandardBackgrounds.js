@@ -8,41 +8,46 @@ export const StandardBackgrounds = () => {
       alignSelf="start"
       background="background-contrast"
       margin={{ bottom: 'medium' }}
-      gap="small"
+      gap="xsmall"
       width={{ max: 'medium' }}
     >
-      <Box pad="small" round="small" background="background-back" width="large">
+      <Box
+        pad="xsmall"
+        round="medium"
+        background="background-back"
+        width="xlarge"
+      >
         <Text>color.background.back</Text>
       </Box>
       <Box
-        pad="small"
-        round="small"
+        pad="xsmall"
+        round="medium"
         background="background-default"
-        width="large"
+        width="xlarge"
       >
         <Text>color.background.default</Text>
       </Box>
       <Box
-        pad="small"
-        round="small"
+        pad="xsmall"
+        round="medium"
         background="background-front"
-        width="large"
+        width="xlarge"
       >
         <Text>color.background.front</Text>
       </Box>
       <Box
-        pad="small"
-        round="small"
+        pad="xsmall"
+        round="medium"
         background="background-contrast"
-        width="large"
+        width="xlarge"
       >
         <Text>color.background.contrast</Text>
       </Box>
       <Box
-        pad="small"
-        round="small"
+        pad="xsmall"
+        round="medium"
         background="background-floating"
-        width="large"
+        width="xlarge"
       >
         <Text>color.background.floating</Text>
       </Box>

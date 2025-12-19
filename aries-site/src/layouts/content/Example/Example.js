@@ -16,7 +16,7 @@ import {
   ResponsiveContext,
   ThemeContext,
 } from 'grommet';
-import { Contract } from 'grommet-icons';
+import { Contract } from '@hpe-design/icons-grommet';
 import { aries } from '../../../themes/aries';
 // import { scaled } from '../../../themes/scaled';
 import {
@@ -260,7 +260,7 @@ export const Example = ({
       code={code}
       github={github}
       details={details}
-      margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
+      margin={showResponsiveControls ? { top: '3xsmall' } : undefined}
       horizontalLayout={horizontalLayout}
       relevantComponents={relevantComponents}
     />
@@ -270,8 +270,8 @@ export const Example = ({
     <>
       <Box
         width={previewWidth || undefined}
-        margin={{ vertical: 'small' }}
-        gap="large"
+        margin={{ vertical: 'xsmall' }}
+        gap="xlarge"
       >
         <>
           {/* For use with templates or page layouts to toggle between laptop,
@@ -319,7 +319,7 @@ export const Example = ({
                     ? 'between'
                     : 'end'
                 }
-                pad="xxsmall"
+                pad="5xsmall"
                 background="#111"
               >
                 {(template || screenContainer || showResponsiveControls) && (
@@ -401,7 +401,7 @@ Example.propTypes = {
   background: PropTypes.string,
   bestPractice: PropTypes.shape({
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   }),
   caption: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   children: PropTypes.element,

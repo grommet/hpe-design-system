@@ -16,15 +16,15 @@ export const StatusBar = ({ children, title, menuItems, ...rest }) => {
   return (
     <Card {...rest}>
       <CardHeader
-        pad={{ horizontal: header.pad, top: header.pad, bottom: 'small' }}
+        pad={{ horizontal: header.pad, top: header.pad, bottom: 'xsmall' }}
       >
         <DashboardCardHeader title={title} level={3} menuItems={menuItems} />
       </CardHeader>
       <CardBody>
         <Grid
           align={undefined}
-          columns={{ count: 'fit', size: ['xsmall', 'auto'] }}
-          gap={{ column: 'large', row: 'medium' }}
+          columns={{ count: 'fit', size: ['3xsmall', 'auto'] }}
+          gap={{ column: 'xlarge', row: 'medium' }}
           margin="none"
         >
           {children}

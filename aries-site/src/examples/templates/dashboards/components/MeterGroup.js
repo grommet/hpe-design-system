@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { Grid } from 'grommet';
 
-const columns = ['xxsmall', 'auto', 'xxsmall'];
+const columns = ['5xsmall', 'auto', '5xsmall'];
 
-export const MeterGroup = ({ children, gap = 'small', ...rest }) => (
+export const MeterGroup = ({ children, gap = 'xsmall', ...rest }) => (
   <Grid columns={columns} rows="auto" gap={gap} {...rest}>
     {children}
   </Grid>
