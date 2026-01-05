@@ -4,13 +4,13 @@ import { AppHeader } from './AppHeader';
 import { ContextPane } from './ContextPane';
 
 const gridAreas = [
-  ['nav', 'header', 'context-pane'],
+  ['nav', 'header', 'header'],
   ['nav', 'main', 'context-pane'],
 ];
 
 const responsiveGridAreas: Record<string, string[][]> = {
   xsmall: [
-    ['nav', 'header', 'context-pane'],
+    ['nav', 'header', 'header'],
     ['main', 'main', 'context-pane'],
   ],
 };

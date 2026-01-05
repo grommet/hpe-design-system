@@ -28,11 +28,10 @@ export const ContextPane = ({
 
   return (
     <Box width={{ min: 'small' }} {...rest}>
-      <Header pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}>
-        <ContextControls
-          contextContent={contextContent}
-          setContextContent={setContextContent}
-        />
+      <Header pad={{ vertical: '3xsmall', left: 'medium',right: 'xsmall' }}>
+         <Heading level={2} size="small" margin="none">
+          {sentenceCase(title)}
+        </Heading>
         <Button
           a11yTitle="Close context pane"
           icon={<Close aria-hidden="true" />}
@@ -42,10 +41,7 @@ export const ContextPane = ({
           size="small"
         />
       </Header>
-      <Box pad={{ horizontal: 'medium', vertical: 'xsmall' }}>
-        <Heading level={2} size="small" margin="none">
-          {sentenceCase(title)}
-        </Heading>
+      <Box pad={{ horizontal: 'medium', bottom: 'xsmall' }}>
         {contextContent === 'help' && <Help />}
         {contextContent === 'genie' && <Genie />}
         {contextContent === 'user-preferences' && <UserPreferences />}

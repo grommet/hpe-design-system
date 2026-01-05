@@ -39,13 +39,10 @@ export const AppHeader = ({
           type="search"
         />
       </Box> */}
-      {/* ContextControls are transferred to the ContextPane when contextContent exists. */}
-      {!contextContent && (
-        <ContextControls
-          contextContent={contextContent}
-          setContextContent={setContextContent}
-        />
-      )}
+      <ContextControls
+        contextContent={contextContent}
+        setContextContent={setContextContent}
+      />
     </Header>
   );
 };
