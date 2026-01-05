@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Box, Grid, Main, ResponsiveContext, type BoxProps } from 'grommet';
 import { AppHeader } from './AppHeader';
 import { ContextPane } from './ContextPane';
@@ -31,6 +31,7 @@ export const AppShell = ({
   setActiveItem,
 }: AppShellProps) => {
   const breakpoint = useContext(ResponsiveContext);
+  const contextControlRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   // Only round the top-right corner of the main content when the context pane is visible
   const mainRound: BoxProps['round'] = contextContent
@@ -57,6 +58,7 @@ export const AppShell = ({
         contextContent={contextContent}
         setContextContent={setContextContent}
         setActiveItem={setActiveItem}
+        contextControlRefs={contextControlRefs}
       />
       <Main gridArea="main" background="background-back" round={mainRound}>
         {mainContent}
@@ -68,6 +70,7 @@ export const AppShell = ({
         title={contextContent || ''}
         contextContent={contextContent}
         setContextContent={setContextContent}
+        contextControlRefs={contextControlRefs}
       />
     </Grid>
   );

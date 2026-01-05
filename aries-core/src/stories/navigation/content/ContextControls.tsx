@@ -5,17 +5,22 @@ import { ButtonGroup } from '../../../js/components';
 interface ContextControlsProps {
   contextContent?: string;
   setContextContent: (value: string) => void;
+  contextControlRefs?: React.MutableRefObject<Record<string, HTMLButtonElement | null>>;
   [key: string]: unknown;
 }
 
 export const ContextControls = ({
   contextContent,
   setContextContent,
+  contextControlRefs,
   ...rest
 }: ContextControlsProps) => {
   return (
     <ButtonGroup {...rest}>
       <Button
+        ref={(el) => {
+          if (contextControlRefs) contextControlRefs.current['help'] = el;
+        }}
         a11yTitle={
           contextContent === 'help' ? 'Hide help content' : 'Show help content'
         }
@@ -27,6 +32,9 @@ export const ContextControls = ({
         size="small"
       />
       <Button
+        ref={(el) => {
+          if (contextControlRefs) contextControlRefs.current['genie'] = el;
+        }}
         a11yTitle={
           contextContent === 'genie'
             ? 'Hide genie content'
@@ -40,6 +48,10 @@ export const ContextControls = ({
         size="small"
       />
       <Button
+        ref={(el) => {
+          if (contextControlRefs)
+            contextControlRefs.current['user-preferences'] = el;
+        }}
         a11yTitle={
           contextContent === 'user-preferences'
             ? 'Hide user preferences'

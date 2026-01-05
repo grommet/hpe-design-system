@@ -5,6 +5,7 @@ interface AppHeaderProps {
   contextContent?: string;
   setContextContent: (value: string) => void;
   setActiveItem: (value: string) => void;
+  contextControlRefs?: React.RefObject<Record<string, HTMLButtonElement | null>>;
   [key: string]: unknown; // For additional props like 'background', 'pad', etc.
 }
 
@@ -12,6 +13,7 @@ export const AppHeader = ({
   contextContent,
   setContextContent,
   setActiveItem,
+  contextControlRefs,
   ...rest
 }: AppHeaderProps) => {
   return (
@@ -42,6 +44,7 @@ export const AppHeader = ({
       <ContextControls
         contextContent={contextContent}
         setContextContent={setContextContent}
+        contextControlRefs={contextControlRefs}
       />
     </Header>
   );

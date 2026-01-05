@@ -9,6 +9,7 @@ interface ContextPaneProps extends BoxProps {
   title: string;
   contextContent?: string;
   setContextContent: (value: string) => void;
+  contextControlRefs?: React.MutableRefObject<Record<string, HTMLButtonElement | null>>;
 }
 
 const sentenceCase = (str: string | number) => {
@@ -22,6 +23,7 @@ export const ContextPane = ({
   title,
   contextContent,
   setContextContent,
+  contextControlRefs,
   ...rest
 }: ContextPaneProps) => {
   if (!contextContent) return null;
@@ -36,7 +38,11 @@ export const ContextPane = ({
           a11yTitle="Close context pane"
           icon={<Close aria-hidden="true" />}
           onClick={() => {
+            const previousContent = contextContent;
             setContextContent('');
+            if (previousContent && contextControlRefs) {
+              contextControlRefs.current[previousContent]?.focus();
+            }
           }}
           size="small"
         />
