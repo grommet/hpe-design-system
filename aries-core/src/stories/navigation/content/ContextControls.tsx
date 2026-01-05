@@ -24,6 +24,7 @@ export const ContextControls = ({
         onClick={() =>
           setContextContent(contextContent === 'help' ? '' : 'help')
         }
+        size="small"
       />
       <Button
         a11yTitle={
@@ -36,6 +37,7 @@ export const ContextControls = ({
         onClick={() =>
           setContextContent(contextContent === 'genie' ? '' : 'genie')
         }
+        size="small"
       />
       <Button
         a11yTitle={
@@ -50,6 +52,7 @@ export const ContextControls = ({
             contextContent === 'user-preferences' ? '' : 'user-preferences',
           )
         }
+        size="small"
       />
     </ButtonGroup>
   );
