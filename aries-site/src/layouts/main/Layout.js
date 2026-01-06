@@ -52,7 +52,6 @@ export const Layout = ({
   }, []);
 
   const router = useRouter();
-  // const announce = useContext(AnnounceContext);
   const relatedContent = titleProp && getRelatedContent(titleProp);
   // Allow proper capitalization to be used
   const {
