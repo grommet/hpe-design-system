@@ -21,8 +21,6 @@ export const UserFeedback = () => {
 
   const onSubmit = useCallback(
     value => {
-      console.log('Feedback value submitted:', value);
-      console.log('Current page route:', router.route);
       const data = {
         values: {
           QID1: value.value['like-rating'] === 'like' ? 1 : 2,
@@ -94,7 +92,7 @@ export const UserFeedback = () => {
           label="Any additional comments?"
           formProps={{
             help: `Here's your chance to tell us your thoughts 
-                        about this page.`,
+            about this page.`,
           }}
         />
       </FeedbackModal>
