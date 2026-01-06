@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
 export const DataTableAnatomy = () => (
-  <Box width="medium" margin={{ bottom: 'medium' }}>
+  <Box width="xlarge" margin={{ bottom: 'medium' }}>
     <AnatomySection
       background={{ color: 'decorative-green', opacity: 'weak' }}
       gap="3xsmall"
@@ -29,7 +29,7 @@ export const DataTableAnatomy = () => (
       // TODO: Using opacity weak is a temporary solution until
       // we have a wider range of colors in the theme.
       background={{ color: 'decorative-purple', opacity: 'weak' }}
-      margin={{ bottom: '5xsmall' }}
+      margin={{ bottom: 'xsmall' }}
     >
       <AnatomyLabel>Table header</AnatomyLabel>
     </AnatomySection>
@@ -38,7 +38,7 @@ export const DataTableAnatomy = () => (
       // we have a wider range of colors in the theme.
       background={{ color: 'decorative-blue', opacity: 'weak' }}
       height="xsmall"
-      margin={{ bottom: '5xsmall' }}
+      margin={{ bottom: 'xsmall' }}
     >
       <AnatomyLabel>Table body</AnatomyLabel>
     </AnatomySection>
