@@ -73,8 +73,8 @@ export const DataTableStatusOnlyExample = ({
     <ContentPane gap="medium">
       <Heading id={collectionId} level={3} margin="none">
         {clickable
-          ? 'Using only status columns with state in detail page'
-          : 'Using single columns for status and state'}
+          ? 'Status only column - click a row to view state information'
+          : 'Combined status and state column'}
       </Heading>
       <Box
         // Height is restricted to keep inline doc page examples more compact.

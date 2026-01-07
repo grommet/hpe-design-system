@@ -41,7 +41,7 @@ export const DataTableStatusStateExample = ({ designSystemDemo }) => {
   return (
     <ContentPane gap="medium">
       <Heading id="datatable-state-status-heading" level={3} margin="none">
-        Separating status and state columns
+        Separate status and state columns
       </Heading>
       <Box
         // Height is restricted to keep inline doc page examples more compact.
