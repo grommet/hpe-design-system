@@ -5,6 +5,7 @@ import {
   PaginationTableExample,
   PaginationServerTableExample,
   DataTableAnatomy,
+  DataTableCombinedStatusStateExample,
   DataTableExample,
   DataTableEmptyCellExample,
   DataTableFilterExample,
@@ -13,7 +14,7 @@ import {
   DataTableResizeColumnsExample,
   DataTableSingleSelectExample,
   DataTableSortable,
-  DataTableStatusStateExample,
+  DataTableSeparateStatusStateExample,
   DataTableStatusOnlyExample,
   DataTableSummaryExample,
   DataTableVerticalListExample,
@@ -247,11 +248,11 @@ When status and state are distinct and independent from each other, display them
 - Clearly visually separates and labels status and state to avoid false associations.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableStatusStateExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableSeparateStatusStateExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
 >
-  <DataTableStatusStateExample />
+  <DataTableSeparateStatusStateExample />
 </Example>
 
 #### 2. Status only column
@@ -278,11 +279,11 @@ When the status and state are coupled, they may be displayed as a single element
 - **_Note: A single column is rarely used. Ensure false associations are not created when status and state are not coupled._**
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableStatusOnlyExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableCombinedStatusStateExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
   showResponsiveControls={['laptop', 'mobile']}
 >
-  <DataTableStatusOnlyExample clickable={false} />
+  <DataTableCombinedStatusStateExample />
 </Example>
 
 ## DataTable behaviors & actions

@@ -15,14 +15,10 @@ const columns = [
       return (
         <Box direction="row" align="center" gap="xsmall">
           <StatusIconComponent color={`status-${datum.status}`} size="small" />
-          <Text>{datum.status}</Text>
+          <Text>{datum.state}</Text>
         </Box>
       );
     },
-  },
-  {
-    property: 'state',
-    header: 'State',
   },
   {
     property: 'serial',
@@ -35,13 +31,17 @@ const columns = [
 ];
 
 // designSystemDemo is used for DS site only, can be removed in production.
-export const DataTableStatusStateExample = ({ designSystemDemo }) => {
+export const DataTableCombinedStatusStateExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
     <ContentPane gap="medium">
-      <Heading id="datatable-state-status-heading" level={3} margin="none">
-        Separate status and state columns
+      <Heading
+        id="datatable-combined-status-state-heading"
+        level={3}
+        margin="none"
+      >
+        Combined status and state column
       </Heading>
       <Box
         // Height is restricted to keep inline doc page examples more compact.
@@ -51,7 +51,7 @@ export const DataTableStatusStateExample = ({ designSystemDemo }) => {
         overflow="auto"
       >
         <DataTable
-          aria-describedby="datatable-state-status-heading"
+          aria-describedby="datatable-combined-status-state-heading"
           data={data.statusState}
           columns={[
             {
@@ -70,6 +70,6 @@ export const DataTableStatusStateExample = ({ designSystemDemo }) => {
   );
 };
 
-DataTableStatusStateExample.propTypes = {
+DataTableCombinedStatusStateExample.propTypes = {
   designSystemDemo: PropTypes.bool,
 };
