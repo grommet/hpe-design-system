@@ -86,6 +86,12 @@ export const Layout = ({
 
   return (
     <>
+      <Meta
+        title={title}
+        render={render}
+        description={seoDescription}
+        canonicalUrl={`https://design-system.hpe.design${router.route}`}
+      />
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
@@ -94,12 +100,6 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <Page>
-          <Meta
-            title={title}
-            render={render}
-            description={seoDescription}
-            canonicalUrl={`https://design-system.hpe.design${router.route}`}
-          />
           <>
             <SkipLinks id="skip-links">
               {skiplinks.map(({ id, label }) => (
