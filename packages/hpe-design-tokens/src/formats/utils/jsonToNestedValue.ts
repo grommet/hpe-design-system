@@ -40,7 +40,7 @@ export const jsonToNestedValue = (
   ) {
     Object.entries(token).forEach(([key, value]) => {
       if (key === 'focus') {
-        nextObj['focus'] = value['DEFAULT'];
+        nextObj['focus'] = value['DEFAULT']['REST'];
         nextObj['focus-support'] = value['support'];
       }
     });
