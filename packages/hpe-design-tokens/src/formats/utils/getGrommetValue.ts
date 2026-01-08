@@ -68,9 +68,9 @@ export const getGrommetValue = (token: any, dictionary: any) => {
   } else result = token.$value;
 
   // Temporary fix for focusIndicator box shadow in grommet theme
-  if (token.$type === 'shadow' && token.name.includes('focusIndicator')) {
-    result = token.original.$value[0];
-  }
+  // if (token.$type === 'shadow' && token.name.includes('focusIndicator')) {
+  //   result = token.original.$value[0];
+  // }
 
   return result;
 };
