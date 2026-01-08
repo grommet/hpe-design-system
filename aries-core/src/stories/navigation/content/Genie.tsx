@@ -1,9 +1,9 @@
-import { Box, Heading } from 'grommet';
+import { Box, Paragraph } from 'grommet';
 
 export const Genie = ({ ...rest }) => {
   return (
-    <Box pad="medium" {...rest}>
-      <Heading level={3}>My genie content</Heading>
+    <Box {...rest}>
+      <Paragraph>My genie content</Paragraph>
     </Box>
   );
 };
