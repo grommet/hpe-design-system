@@ -16,7 +16,7 @@ import {
 import {
   ContentSection,
   DocsPageHeader,
-  Header,
+  AppHeader,
   FeedbackSection,
   InPageNavigation,
   RelatedContent,
@@ -111,7 +111,7 @@ export const Layout = ({
               Homepage header is be rendered in index.js
               to have the same background as the hero. */}
               {title && title.toLowerCase() !== 'home' && (
-                <Header
+                <AppHeader
                   background="background-back"
                   fill="horizontal"
                   alignSelf="center"

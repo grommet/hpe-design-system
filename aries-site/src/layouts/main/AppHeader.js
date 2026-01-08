@@ -54,4 +54,4 @@ const StyledHeader = ({ ...rest }) => {
   );
 };
 
-export { StyledHeader as Header };
+export { StyledHeader as AppHeader };
