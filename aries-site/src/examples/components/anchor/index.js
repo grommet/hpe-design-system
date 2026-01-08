@@ -5,3 +5,4 @@ export * from './AnchorExternalExample';
 export * from './AnchorIconExample';
 export * from './AnchorGoodExample';
 export * from './AnchorInlineExample';
+export * from './AnchorPlayground';

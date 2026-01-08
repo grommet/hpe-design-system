@@ -2,6 +2,7 @@ export * from './AppIdentity';
 export * from './CollapsibleSection';
 export * from './ColorCompliance';
 export * from './ColorSwatch';
+export * from './ComponentPlayground';
 export * from './DecisionTree';
 export * from './DesignTokensTable';
 export * from './DesignTokenContext';
