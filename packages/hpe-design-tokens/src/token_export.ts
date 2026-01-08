@@ -47,6 +47,9 @@ function tokenValueFromVariable(
         const temp = aliasedName.replaceAll('-', '/').split('/');
         if (!exceptionColors.includes(temp.join('/'))) {
           // last element of name should be interaction
+          // Added exception for color/focus so that REST gets
+          // added, issue to revisit this here:
+          // https://github.com/grommet/hpe-design-system/issues/5676
           if (
             !interactions.includes(temp[temp.length - 1]) ||
             temp.join('/') === 'color/focus'
@@ -246,6 +249,9 @@ export function tokenFilesFromLocalVariables(
           const temp = variable.name.replaceAll('-', '/').split('/');
           if (!exceptionColors.includes(temp.join('/'))) {
             // last element of name should be interaction
+            // Added exception for color/focus so that REST gets
+            // added, issue to revisit this here:
+            // https://github.com/grommet/hpe-design-system/issues/5676
             if (
               !interactions.includes(temp[temp.length - 1]) ||
               temp.join('/') === 'color/focus'
