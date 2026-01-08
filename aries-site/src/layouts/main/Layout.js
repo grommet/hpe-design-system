@@ -1,8 +1,4 @@
-import React, {
-  Fragment,
-  useEffect,
-  useContext,
-} from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
@@ -21,15 +17,11 @@ import {
   ContentSection,
   DocsPageHeader,
   Header,
-  Head,
   FeedbackSection,
   InPageNavigation,
   RelatedContent,
 } from '..';
-import {
-  Meta,
-  PageBackground,
-} from '../../components';
+import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
@@ -64,7 +56,7 @@ export const Layout = ({
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
-  
+
   const match = siteContents.find(item =>
     item?.name === 'Index'
       ? item?.parent?.toLowerCase() === title?.toLowerCase()
@@ -102,9 +94,6 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <Page>
-          {/* I think Head is redundant at this point, 
-              but left it as is for now */}
-          <Head title={title} />
           <Meta
             title={title}
             render={render}
