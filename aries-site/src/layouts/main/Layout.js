@@ -108,7 +108,7 @@ export const Layout = ({
             </SkipLinks>
             <PageContent>
               {/* Only render Header for non-home pages.
-              Homepage header is be rendered in index.js
+              Homepage header is rendered in index.js
               to have the same background as the hero. */}
               {title && title.toLowerCase() !== 'home' && (
                 <AppHeader
