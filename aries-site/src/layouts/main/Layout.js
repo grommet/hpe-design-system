@@ -1,8 +1,4 @@
-import React, {
-  Fragment,
-  useEffect,
-  useContext,
-} from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
@@ -20,16 +16,12 @@ import {
 import {
   ContentSection,
   DocsPageHeader,
-  Header,
-  Head,
+  AppHeader,
   FeedbackSection,
   InPageNavigation,
   RelatedContent,
 } from '..';
-import {
-  Meta,
-  PageBackground,
-} from '../../components';
+import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
@@ -64,7 +56,7 @@ export const Layout = ({
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
-  
+
   const match = siteContents.find(item =>
     item?.name === 'Index'
       ? item?.parent?.toLowerCase() === title?.toLowerCase()
@@ -94,6 +86,12 @@ export const Layout = ({
 
   return (
     <>
+      <Meta
+        title={title}
+        render={render}
+        description={seoDescription}
+        canonicalUrl={`https://design-system.hpe.design${router.route}`}
+      />
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
@@ -102,15 +100,6 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <Page>
-          {/* I think Head is redundant at this point, 
-              but left it as is for now */}
-          <Head title={title} />
-          <Meta
-            title={title}
-            render={render}
-            description={seoDescription}
-            canonicalUrl={`https://design-system.hpe.design${router.route}`}
-          />
           <>
             <SkipLinks id="skip-links">
               {skiplinks.map(({ id, label }) => (
@@ -119,10 +108,10 @@ export const Layout = ({
             </SkipLinks>
             <PageContent>
               {/* Only render Header for non-home pages.
-              Homepage header is be rendered in index.js
+              Homepage header is rendered in index.js
               to have the same background as the hero. */}
               {title && title.toLowerCase() !== 'home' && (
-                <Header
+                <AppHeader
                   background="background-back"
                   fill="horizontal"
                   alignSelf="center"
