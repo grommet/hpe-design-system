@@ -49,7 +49,7 @@ function tokenValueFromVariable(
           // last element of name should be interaction
           if (
             !interactions.includes(temp[temp.length - 1]) ||
-            aliasedName === 'color/focus'
+            temp.join('/') === 'color/focus'
           ) {
             temp.push('REST');
           }
@@ -248,7 +248,7 @@ export function tokenFilesFromLocalVariables(
             // last element of name should be interaction
             if (
               !interactions.includes(temp[temp.length - 1]) ||
-              adjustedName === 'color/focus'
+              temp.join('/') === 'color/focus'
             ) {
               temp.push('REST');
             }
