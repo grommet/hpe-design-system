@@ -71,7 +71,7 @@ const NavigationPanel = ({
 
   return mobile ? (
     <>
-      <Box justify="center" fill pad={{ horizontal: '3xsmall' }}>
+      <Box justify="center" fill pad={{ horizontal: 'xxsmall' }}>
         <Button
           a11yTitle="Open navigation menu"
           icon={<Sidebar />}
