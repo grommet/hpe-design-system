@@ -44,7 +44,13 @@ const NavigationMenuExample = () => {
 
   const mobile = breakpoint === 'xsmall';
   const navTitle = 'Services';
-  const onSelect = ({ item, event }: { item: NavItemType; event: React.MouseEvent | React.KeyboardEvent }) => {
+  const onSelect = ({
+    item,
+    event,
+  }: {
+    item: NavItemType;
+    event: React.MouseEvent | React.KeyboardEvent;
+  }) => {
     event.preventDefault();
     setActiveItem(item.label); // or router.push(item.url) for navigation
   };

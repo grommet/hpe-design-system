@@ -15,7 +15,7 @@ import {
   ModalDialog,
   ModalFooter,
   TextEmphasis,
-} from 'aries-core';
+} from '@shared/aries-core';
 
 const credentialName = 'fleetscale-qa-credentials';
 const DEMO_API_TOKEN =
