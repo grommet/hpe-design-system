@@ -15,9 +15,9 @@ export const templates = [
     name: 'Ascending navigation',
     available: true,
     cardOrder: 101,
-    description: `The Ascending Button for Navigation allows
-    the user to navigate to a parent page from a child page
-    by moving upward in the application or website hierarchy.`,
+    description: `Ascending navigation enables users 
+    to move up one level in an application’s hierarchy, 
+    from a child page back to its parent.`,
     preview: {
       image: {
         src: {
