@@ -40,13 +40,13 @@ export const DataTableCombinedStatusStateExample = ({ designSystemDemo }) => {
         level={3}
         margin="none"
       >
-        Combined status and state column
+        Servers
       </Heading>
       <Box
         // Height is restricted to keep inline doc page examples more compact.
         // In production, DataTable height should follow height guidelines.
         // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
-        height={designSystemDemo ? undefined : 'medium'}
+        height={designSystemDemo ? undefined : 'small'}
         overflow="auto"
       >
         <DataTable
@@ -61,7 +61,6 @@ export const DataTableCombinedStatusStateExample = ({ designSystemDemo }) => {
             },
             ...columns,
           ]}
-          fill
           sortable
         />
       </Box>

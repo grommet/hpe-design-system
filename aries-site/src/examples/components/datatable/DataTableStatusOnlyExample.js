@@ -69,13 +69,13 @@ export const DataTableStatusOnlyExample = ({
   return !pageDetails.id ? (
     <ContentPane gap="medium">
       <Heading id={collectionId} level={3} margin="none">
-        Status only column
+        Servers
       </Heading>
       <Box
         // Height is restricted to keep inline doc page examples more compact.
         // In production, DataTable height should follow height guidelines.
         // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
-        height={designSystemDemo ? undefined : 'medium'}
+        height={designSystemDemo ? undefined : 'small'}
         overflow="auto"
       >
         <DataTable
@@ -90,7 +90,6 @@ export const DataTableStatusOnlyExample = ({
             },
             ...columns,
           ]}
-          fill
           sortable
           onClickRow={
             clickable ? ({ datum }) => setPageDetails(datum) : undefined
