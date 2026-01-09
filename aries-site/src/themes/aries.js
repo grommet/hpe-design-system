@@ -31,6 +31,7 @@ export const aries = deepMerge(hpe, {
       margin: {
         vertical: 'none',
       },
+      size: 'xsmall',
     },
     footer: {
       pad: {

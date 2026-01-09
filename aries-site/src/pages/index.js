@@ -12,7 +12,7 @@ import {
   WhatIs,
 } from '../components/home';
 /* Including header here to share the same background image */
-import { Header } from '../layouts/main/Header';
+import { AppHeader } from '../layouts/main';
 import { getPageDetails } from '../utils';
 
 const title = 'Home';
@@ -66,7 +66,7 @@ const Index = () => {
       <Meta title={title} description={pageDetails.seoDescription} />
       <Hero bgImage={bgImage}>
         <PageContent>
-          <Header />
+          <AppHeader />
         </PageContent>
         <Intro>
           <Box

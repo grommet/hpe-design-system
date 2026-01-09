@@ -136,8 +136,8 @@ export const NavList = ({
           label: item.label,
           url: item.url,
           icon: item.icon,
-          onEsc: (event: React.KeyboardEvent<HTMLButtonElement>) => {
-            onEscape(event, { expandedItem, item });
+          onEsc: (event: React.KeyboardEvent<Element>) => {
+            onEscape(event as React.KeyboardEvent<HTMLButtonElement>, { expandedItem, item });
           },
         };
 

@@ -1,11 +1,11 @@
 import { Button, Header, Text } from 'grommet';
-import { AIGen, Help } from '@hpe-design/icons-grommet';
-import { ButtonGroup } from '../../../js/components';
+import { ContextControls } from './ContextControls';
 
 interface AppHeaderProps {
-  contextContent: string;
-  setContextContent: (content: string) => void;
-  setActiveItem: (item: string) => void;
+  contextContent?: string;
+  setContextContent: (value: string) => void;
+  setActiveItem: (value: string) => void;
+  contextControlRefs?: React.RefObject<Record<string, HTMLButtonElement | null>>;
   [key: string]: unknown; // For additional props like 'background', 'pad', etc.
 }
 
@@ -13,33 +13,39 @@ export const AppHeader = ({
   contextContent,
   setContextContent,
   setActiveItem,
+  contextControlRefs,
   ...rest
 }: AppHeaderProps) => {
   return (
-    <Header pad="xsmall" {...rest}>
+    <Header
+      height={{ min: '5xsmall' }}
+      pad={{ horizontal: 'medium', vertical: '3xsmall' }}
+      {...rest}
+    >
       <Button onClick={() => setActiveItem('Home')} plain>
         <Text>
           <Text weight="bold">HPE</Text> Design System
         </Text>
       </Button>
-      <ButtonGroup>
-        <Button
-          a11yTitle="Toggle help content"
-          icon={<Help aria-hidden={true} />}
-          active={contextContent === 'help'}
-          onClick={() =>
-            setContextContent(contextContent === 'help' ? '' : 'help')
-          }
+      {/* TODO: Add mock search to AppHeader layout */}
+      {/* <Box
+        background="background-contrast"
+        round="large"
+        pad={{ horizontal: 'none' }}
+        width="medium"
+      >
+        <TextInput
+          aria-label="Search"
+          icon={<Search aria-hidden="true" />}
+          plain
+          type="search"
         />
-        <Button
-          a11yTitle="Toggle genie content"
-          icon={<AIGen aria-hidden={true} />}
-          active={contextContent === 'genie'}
-          onClick={() =>
-            setContextContent(contextContent === 'genie' ? '' : 'genie')
-          }
-        />
-      </ButtonGroup>
+      </Box> */}
+      <ContextControls
+        contextContent={contextContent}
+        setContextContent={setContextContent}
+        contextControlRefs={contextControlRefs}
+      />
     </Header>
   );
 };
