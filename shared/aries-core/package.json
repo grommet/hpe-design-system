@@ -7,7 +7,7 @@
   "scripts": {
     "build-design-tokens": "pnpm --filter hpe-design-tokens build",
     "build-shared-hooks": "pnpm --filter '@shared/hooks' build",
-    "build-site-search": "cd ../../aries-site && node src/scripts/site-contents.mjs",
+    "build-site-search": "pnpm --filter aries-site build-search",
     "build": "webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
