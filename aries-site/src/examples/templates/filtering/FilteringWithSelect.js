@@ -17,7 +17,7 @@ import {
   Toolbar,
 } from 'grommet';
 import { More, StatusGood, StatusWarning } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const allData = [
   { name: 'Apex-Server', status: 'Ready' },

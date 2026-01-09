@@ -10,7 +10,7 @@ import {
   Text,
   ThemeContext,
 } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { DashboardCardHeader } from '.';
 
 export const ItemCountList = ({

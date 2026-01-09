@@ -10,7 +10,7 @@ import {
   TextArea,
   Select,
 } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { useConfirmation } from './components';
 
 const options = ['Any', 'None', 'Any Scheduled'];

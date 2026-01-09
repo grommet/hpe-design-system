@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from 'react';
-import { Popover } from 'aries-core';
+import { Popover } from '@shared/aries-core';
 import {
   Anchor,
   Grid,

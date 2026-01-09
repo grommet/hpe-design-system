@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Meter, NameValueList, Text } from 'grommet';
 import { Calendar } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { ChartCard, Measure, MeterGroup } from '../../components';
 import { defaultWindow, DEMO_DATE, REPORT_WINDOW_MAP } from './utils';
 

@@ -9,7 +9,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 export const Quote = () => {
   const size = useContext(ResponsiveContext);

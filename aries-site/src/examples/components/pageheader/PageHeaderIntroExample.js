@@ -6,7 +6,7 @@ import {
   ResponsiveContext,
   PageHeader,
 } from 'grommet';
-import { ActionMenu } from 'aries-core';
+import { ActionMenu } from '@shared/aries-core';
 
 import { ExportDataContainer } from '../../templates/export-data';
 

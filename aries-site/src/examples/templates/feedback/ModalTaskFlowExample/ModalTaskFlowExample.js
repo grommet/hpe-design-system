@@ -2,7 +2,7 @@
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AnnounceContext, Box, Button } from 'grommet';
-import { ModalDialog } from 'aries-core';
+import { ModalDialog } from '@shared/aries-core';
 import { config, PowerOnFlow } from './PowerOnFlow';
 import { TaskFlowFeedback } from './TaskFlowFeedback';
 

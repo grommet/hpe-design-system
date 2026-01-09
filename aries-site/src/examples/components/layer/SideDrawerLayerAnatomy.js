@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Card, CardBody, Diagram, Grid, Stack } from 'grommet';
-import { LayerHeader } from 'aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import { ThemeContext } from 'styled-components';
 import { Annotation } from '../../../layouts';
 import { connection, useDarkMode } from '../../../utils';

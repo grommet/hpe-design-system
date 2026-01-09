@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Form, FormField, RadioButtonGroup } from 'grommet';
-import { ButtonGroup, ModalBody, ModalDialog, ModalFooter } from 'aries-core';
+import {
+  ButtonGroup,
+  ModalBody,
+  ModalDialog,
+  ModalFooter,
+} from '@shared/aries-core';
 
 import PropTypes from 'prop-types';
 

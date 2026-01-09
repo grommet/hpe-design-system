@@ -1,7 +1,7 @@
 import { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, NameValuePair, Text } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const NameType = PropTypes.shape({
     label: PropTypes.oneOfType([

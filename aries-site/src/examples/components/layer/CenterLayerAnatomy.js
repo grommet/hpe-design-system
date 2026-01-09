@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
-import { LayerHeader } from 'aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 import { LayerContainer } from './components/LayerContainer';

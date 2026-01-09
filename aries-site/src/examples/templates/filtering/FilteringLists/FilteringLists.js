@@ -14,7 +14,7 @@ import {
   Text,
   Toolbar,
 } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import {
   Deliver,
   Package,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { EmptyState } from 'aries-core';
+import { EmptyState } from '@shared/aries-core';
 import { Button } from 'grommet';
 import { Info } from '@hpe-design/icons-grommet';
 

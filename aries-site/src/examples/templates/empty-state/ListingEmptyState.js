@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'grommet';
 import { Note } from '@hpe-design/icons-grommet';
-import { EmptyState } from 'aries-core';
+import { EmptyState } from '@shared/aries-core';
 
 export const ListingEmptyState = ({ alignEmptyState }) => {
   return (

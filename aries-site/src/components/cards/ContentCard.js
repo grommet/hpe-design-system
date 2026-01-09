@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, CardBody, Image, Text } from 'grommet';
-import { Identifier } from 'aries-core';
+import { Identifier } from '@shared/aries-core';
 import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
 import { useDarkMode } from '../../utils';

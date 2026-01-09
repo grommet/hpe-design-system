@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, PageHeader, Text } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 export const TagPageHeader = ({ description }) => (
   <Box gap="medium" flex={false}>

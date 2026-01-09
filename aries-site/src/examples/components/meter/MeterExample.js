@@ -1,4 +1,4 @@
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { Box, Meter, Stack } from 'grommet';
 
 export const MeterExample = () => {

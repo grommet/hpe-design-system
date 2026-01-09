@@ -8,7 +8,7 @@ import {
   Stack,
   ResponsiveContext,
 } from 'grommet';
-import { LayerHeader } from 'aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 

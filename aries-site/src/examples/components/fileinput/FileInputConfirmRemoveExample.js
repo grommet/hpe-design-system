@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, FileInput, Heading, Layer, Paragraph } from 'grommet';
-import { ButtonGroup } from 'aries-core';
+import { ButtonGroup } from '@shared/aries-core';
 
 export const FileInputConfirmRemoveExample = () => {
   const [numFiles, setNumFiles] = useState(0);

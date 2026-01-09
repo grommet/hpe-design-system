@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, Button } from 'grommet';
-import { ButtonGroup } from 'aries-core';
+import { ButtonGroup } from '@shared/aries-core';
 import { FormChildObject } from './FormChildObject';
 
 export const FormChildObjects = ({

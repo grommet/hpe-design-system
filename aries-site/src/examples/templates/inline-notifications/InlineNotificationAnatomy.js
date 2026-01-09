@@ -1,7 +1,7 @@
 import React from 'react';
 import { Anchor, Box, Button, Diagram, Grid, Stack, Paragraph } from 'grommet';
 import { Close, StatusWarning } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 

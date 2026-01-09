@@ -11,6 +11,6 @@ echo "....Linting checks for aries-site"
 pnpm --filter aries-site run lint-fix
 
 echo "..Running aries-core checks"
-pnpm --filter aries-core run lint-fix
+pnpm --filter "@shared/aries-core" run lint-fix
 
 echo "Pre-commit checks completed."

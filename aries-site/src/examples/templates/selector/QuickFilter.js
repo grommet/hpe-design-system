@@ -20,7 +20,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { StatusCritical, StatusGood } from '@hpe-design/icons-grommet';
-import { SelectorGroup, Selector } from 'aries-core';
+import { SelectorGroup, Selector } from '@shared/aries-core';
 import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const buildQuery = view => {

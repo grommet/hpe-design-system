@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Grid, Text, ThemeContext } from 'grommet';
 import PropTypes from 'prop-types';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const MarginText = ({ label }) => (
   <Box border="bottom">

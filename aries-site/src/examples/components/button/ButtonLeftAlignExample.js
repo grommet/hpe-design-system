@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Header } from 'grommet';
-import { ButtonGroup, TextEmphasis } from 'aries-core';
+import { ButtonGroup, TextEmphasis } from '@shared/aries-core';
 
 export const ButtonLeftAlignExample = () => (
   <Box width="xlarge" gap="medium" pad="xsmall">

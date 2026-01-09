@@ -18,7 +18,7 @@ import {
   DataFilters,
   DataSummary,
 } from 'grommet';
-import { LayerHeader } from 'aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import applications from '../../../data/mockData/applications.json';
 import {
   ConfirmationContext,

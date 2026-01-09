@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, DataTable } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const data = [
   {

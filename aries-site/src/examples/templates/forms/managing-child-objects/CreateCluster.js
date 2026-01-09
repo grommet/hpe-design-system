@@ -11,7 +11,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { ButtonGroup } from 'aries-core';
+import { ButtonGroup } from '@shared/aries-core';
 import { ContentPane } from '../../../../layouts/content/ContentPane';
 import { FormChildObjects } from '../../FormChildObject';
 

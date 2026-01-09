@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { EmptyState } from 'aries-core';
+import { EmptyState } from '@shared/aries-core';
 import { Anchor, Box, Button, Grid, ResponsiveContext } from 'grommet';
 import { AccessDenied, ListingEmptyState } from '.';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SelectorGroup, Selector } from 'aries-core';
+import { SelectorGroup, Selector } from '@shared/aries-core';
 
 const services = [
   {

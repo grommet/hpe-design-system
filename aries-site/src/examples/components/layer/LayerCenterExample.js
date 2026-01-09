@@ -9,7 +9,7 @@ import {
   Paragraph,
 } from 'grommet';
 import { Alert, Close, Mail } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 export const LayerCenterExample = () => {
   const [open, setOpen] = useState(false);

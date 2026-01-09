@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Paragraph } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 export const UpdateItem = ({ title, description }) => {
   // HPE Design System guidance for string length

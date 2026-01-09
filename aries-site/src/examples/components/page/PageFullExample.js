@@ -13,7 +13,7 @@ import {
 } from 'grommet';
 import { Bookmark } from '@hpe-design/icons-grommet';
 
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import serverhealth from '../../../data/mockData/serverhealth.json';
 import { StatusIndicator } from '../../templates';
 import { ContentPane } from '../../../layouts';

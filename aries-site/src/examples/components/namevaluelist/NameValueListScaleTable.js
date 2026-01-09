@@ -10,7 +10,7 @@ import {
   Text,
 } from 'grommet';
 import { Checkmark } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const CheckmarkIcon = () => <Checkmark size="small" color="text-strong" />;
 

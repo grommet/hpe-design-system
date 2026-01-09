@@ -11,7 +11,7 @@ import {
 } from 'grommet';
 import { Close } from '@hpe-design/icons-grommet';
 
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { SearchInput, SearchResult } from '.';
 
 const defaultPage = { begin: 0, end: 4 };

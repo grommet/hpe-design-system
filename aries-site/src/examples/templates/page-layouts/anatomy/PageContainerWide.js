@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Box, Diagram, Stack, ThemeContext } from 'grommet';
 import { LinkPrev, LinkNext } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { ContentArea } from './components';
 
 const connections = [

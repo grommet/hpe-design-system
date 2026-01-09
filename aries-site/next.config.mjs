@@ -2,7 +2,7 @@ import createTM from 'next-transpile-modules';
 import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 
-const withTM = createTM(['aries-core']);
+const withTM = createTM(['@shared/aries-core']);
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {

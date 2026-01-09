@@ -35,7 +35,7 @@ jobs:
       - name: Create shared hooks build
         run: pnpm --filter "@shared/hooks" build
       - name: Create aries-core build
-        run: pnpm --filter aries-core build
+        run: pnpm --filter "@shared/aries-core" build
       - name: Create production build
         run: pnpm --filter aries-site build
       # Tests are only run on headless Chrome

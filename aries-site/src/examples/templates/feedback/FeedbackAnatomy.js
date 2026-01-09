@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Diagram, Grid, Header, Heading, Stack } from 'grommet';
-import { ButtonGroup } from 'aries-core';
+import { ButtonGroup } from '@shared/aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
 

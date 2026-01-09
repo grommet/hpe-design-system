@@ -8,7 +8,7 @@ import {
 } from '@hpe-design/icons-grommet';
 import { useState } from 'react';
 
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { DestructiveConfirmation } from '../../templates';
 
 const serverGroups = require('../../../data/mockData/serverGroups.json').groups;
