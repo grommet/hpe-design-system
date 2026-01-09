@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Header, Menu, Nav, ResponsiveContext } from 'grommet';
-// eslint-disable-next-line max-len
-import { AppIdentity } from '@shared/aries-core/src/js/components/helpers/AppIdentity';
+import { AppIdentity } from '@shared/aries-core';
 
 const items = [
   { label: 'Label 1' },
