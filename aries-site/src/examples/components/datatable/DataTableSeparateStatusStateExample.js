@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 import { Box, DataTable, Heading, Text, ResponsiveContext } from 'grommet';
 import { ContentPane } from '../../../layouts';
 import data from '../../../data/mockData/statusState.json';
-import { getStatusIcon } from './utils/statusIcon';
+import { StatusIcon } from './StatusIcon';
 
 const columns = [
   {
     property: 'status',
     header: 'Status',
     render: datum => {
-      const StatusIconComponent = getStatusIcon(datum.status);
       return (
         <Box direction="row" align="center" gap="xsmall">
-          <StatusIconComponent color={`status-${datum.status}`} size="small" />
+          <StatusIcon status={datum.status} />
           <Text>{datum.status}</Text>
         </Box>
       );

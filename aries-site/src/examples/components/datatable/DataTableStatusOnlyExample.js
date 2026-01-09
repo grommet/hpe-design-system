@@ -14,17 +14,16 @@ import {
 import { ContentPane } from '../../../layouts';
 import { ReverseAnchor } from '../../templates/ReverseAnchor';
 import data from '../../../data/mockData/statusState.json';
-import { getStatusIcon } from './utils/statusIcon';
+import { StatusIcon } from './StatusIcon';
 
 const columns = [
   {
     property: 'status',
     header: 'Status',
     render: datum => {
-      const StatusIconComponent = getStatusIcon(datum.status);
       return (
         <Box direction="row" align="center" gap="xsmall">
-          <StatusIconComponent color={`status-${datum.status}`} size="small" />
+          <StatusIcon status={datum.status} />
           <Text>{datum.status}</Text>
         </Box>
       );
@@ -43,13 +42,11 @@ const columns = [
 const collectionId = 'datatable-status-only-heading';
 
 const renderDetailValue = (key, value) => {
+  console.log('key,value', key, value);
   if (key === 'status') {
     return (
       <Box direction="row" align="center" gap="xsmall">
-        {React.createElement(getStatusIcon(value), {
-          color: `status-${value}`,
-          size: 'small',
-        })}
+        <StatusIcon status={value} />
         <Text>{value}</Text>
       </Box>
     );
