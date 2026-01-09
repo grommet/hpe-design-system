@@ -107,7 +107,7 @@ export const DataTableSingleSelectExample = () => {
           Details
         </Heading>
         {pageDetails && (
-          <NameValueList nameProps={{ width: ['5xsmall', '3xsmall'] }}>
+          <NameValueList>
             {Object.entries(pageDetails).map(([key, value]) => (
               <NameValuePair key={key} name={key}>
                 {value === '' ? '--' : value}
