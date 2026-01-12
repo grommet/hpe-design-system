@@ -5,6 +5,8 @@ import {
   Button,
   CheckBox,
   Select,
+  Tab,
+  Tabs,
   Text,
   TextInput,
   Heading,
@@ -25,9 +27,13 @@ export const ComponentPlayground = ({
 }) => {
   const [componentProps, setComponentProps] = useState(defaultProps);
   const [copied, setCopied] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
   const handlePropChange = (propName, value) => {
-    setComponentProps(prev => ({ ...prev, [propName]: value }));
+    setComponentProps(prev => {
+      const newProps = { ...prev, [propName]: value };
+      return newProps;
+    });
   };
 
   const generateCode = () => {
@@ -68,8 +74,8 @@ export const ComponentPlayground = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const renderControl = control => {
-    const { name, type, options, label } = control;
+  const renderControl = (control, isLast = false) => {
+    const { name, type, options, displayLabel } = control;
 
     let controlElement;
 
@@ -77,6 +83,8 @@ export const ComponentPlayground = ({
       case 'text':
         controlElement = (
           <TextInput
+            id={`playground-${name}`}
+            name={name}
             value={
               componentProps[name] !== undefined &&
               componentProps[name] !== null
@@ -84,8 +92,9 @@ export const ComponentPlayground = ({
                 : ''
             }
             onChange={event => handlePropChange(name, event.target.value)}
-            placeholder={`Enter ${label || name}`}
+            placeholder={`Enter ${displayLabel || name}`}
             size="small"
+            focusIndicator
           />
         );
         break;
@@ -96,7 +105,7 @@ export const ComponentPlayground = ({
             options={options || []}
             value={componentProps[name] || ''}
             onChange={({ option }) => handlePropChange(name, option)}
-            placeholder={`Select ${label || name}`}
+            placeholder={`Select ${displayLabel || name}`}
             size="small"
           />
         );
@@ -139,11 +148,11 @@ export const ComponentPlayground = ({
         direction="row"
         align="center"
         justify="between"
-        pad={{ vertical: 'xsmall' }}
-        border={{ side: 'bottom', color: 'border-weak' }}
+        pad={{ vertical: 'xxsmall', horizontal: 'xxsmall' }}
+        border={!isLast ? { side: 'bottom', color: 'border-weak' } : undefined}
       >
         <Text size="small" weight={500}>
-          {label || name}
+          {displayLabel || name}
         </Text>
         <Box width="medium">{controlElement}</Box>
       </Box>
@@ -152,21 +161,29 @@ export const ComponentPlayground = ({
 
   // Dynamically import icon if needed
   const ComponentWithIcon = () => {
+    const propsToRender = { ...componentProps };
+
+    // Add onClick handler to prevent default behavior for interactive components
+    if (!propsToRender.onClick) {
+      propsToRender.onClick = e => {
+        e.preventDefault();
+        e.stopPropagation();
+      };
+    }
+
     if (componentProps.icon) {
       const icons = require('@hpe-design/icons-grommet');
       const IconComponent = icons[componentProps.icon];
-      const propsToRender = { ...componentProps };
       if (IconComponent) {
         propsToRender.icon = <IconComponent />;
       }
-      return <Component {...propsToRender} />;
     }
-    return <Component {...componentProps} />;
+
+    return <Component {...propsToRender} />;
   };
 
   return (
     <Box
-      background="background-front"
       pad="medium"
       round="small"
       gap="medium"
@@ -189,40 +206,56 @@ export const ComponentPlayground = ({
         <ComponentWithIcon />
       </Box>
 
-      {/* Controls */}
-      <Box gap="small">
-        <Text weight="bold">Props</Text>
-        <Box border={{ color: 'border-weak' }} round="xsmall" overflow="hidden">
-          {controls.map(control => renderControl(control))}
-        </Box>
-      </Box>
-
-      {/* Code Output */}
-      <Box gap="small">
-        <Box direction="row" justify="between" align="center">
-          <Text weight="bold">Code</Text>
-          <Button
-            icon={<Copy />}
-            label={copied ? 'Copied!' : 'Copy'}
-            onClick={handleCopy}
-            size="small"
-            secondary
-          />
-        </Box>
-        <Box
-          background="background-contrast"
-          pad="small"
-          round="xsmall"
-          overflow="auto"
-        >
-          <Text
-            size="small"
-            style={{ fontFamily: 'monospace', whiteSpace: 'pre' }}
+      {/* Tabs for Props and Code */}
+      <Tabs activeIndex={activeTab} onActive={setActiveTab} justify="start">
+        <Tab title="Props">
+          <Box
+            border={{ color: 'border-weak' }}
+            round="xsmall"
+            overflow={{ vertical: 'auto' }}
+            height={{ max: 'medium' }}
+            pad={{ vertical: 'xsmall' }}
+            margin={{ top: 'small' }}
           >
-            {generateCode()}
-          </Text>
-        </Box>
-      </Box>
+            {(() => {
+              const visibleControls = controls.filter(
+                control =>
+                  !control.showWhen || control.showWhen(componentProps),
+              );
+              return visibleControls.map((control, index) =>
+                renderControl(control, index === visibleControls.length - 1),
+              );
+            })()}
+          </Box>
+        </Tab>
+
+        <Tab title="Code">
+          <Box gap="small">
+            <Box direction="row" justify="end" align="center">
+              <Button
+                icon={<Copy />}
+                label={copied ? 'Copied!' : 'Copy'}
+                onClick={handleCopy}
+                size="small"
+                secondary
+              />
+            </Box>
+            <Box
+              background="background-contrast"
+              pad="small"
+              round="xsmall"
+              overflow="auto"
+            >
+              <Text
+                size="small"
+                style={{ fontFamily: 'monospace', whiteSpace: 'pre' }}
+              >
+                {generateCode()}
+              </Text>
+            </Box>
+          </Box>
+        </Tab>
+      </Tabs>
     </Box>
   );
 };
@@ -234,8 +267,9 @@ ComponentPlayground.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       type: PropTypes.oneOf(['text', 'select', 'checkbox', 'icon']).isRequired,
-      label: PropTypes.string,
+      displayLabel: PropTypes.string,
       options: PropTypes.array,
+      showWhen: PropTypes.func,
     }),
   ).isRequired,
 };

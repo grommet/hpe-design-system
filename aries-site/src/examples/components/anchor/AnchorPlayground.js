@@ -1,20 +1,18 @@
 import React from 'react';
 import { Anchor } from 'grommet';
-import {
-  ComponentPlayground,
-} from '../../../components/content/ComponentPlayground';
+import { ComponentPlayground } from '../../../components/content/ComponentPlayground';
 
 export const AnchorPlayground = () => {
   const anchorControls = [
     {
       name: 'label',
       type: 'text',
-      label: 'Label',
+      displayLabel: 'Label',
     },
     {
       name: 'icon',
       type: 'icon',
-      label: 'Icon',
+      displayLabel: 'Icon',
       options: [
         { label: 'None', value: null },
         { label: 'NewWindow', value: 'NewWindow' },
@@ -25,13 +23,13 @@ export const AnchorPlayground = () => {
     {
       name: 'size',
       type: 'select',
-      label: 'Size',
+      displayLabel: 'Size',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
     },
     {
       name: 'disabled',
       type: 'checkbox',
-      label: 'Disabled',
+      displayLabel: 'Disabled',
     },
   ];
 

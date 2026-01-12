@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Button } from 'grommet';
 import { ComponentPlayground } from '../../../components/content/ComponentPlayground';
@@ -10,12 +11,12 @@ export const ButtonPlayground = () => {
     {
       name: 'label',
       type: 'text',
-      label: 'Label',
+      displayLabel: 'Button Label',
     },
     {
       name: 'icon',
       type: 'icon',
-      label: 'Icon',
+      displayLabel: 'Icon',
       options: [
         { label: 'None', value: null },
         { label: 'Add', value: 'Add' },
@@ -29,66 +30,67 @@ export const ButtonPlayground = () => {
     {
       name: 'primary',
       type: 'checkbox',
-      label: 'Primary',
+      displayLabel: 'Primary',
     },
     {
       name: 'secondary',
       type: 'checkbox',
-      label: 'Secondary',
+      displayLabel: 'Secondary',
     },
     {
       name: 'disabled',
       type: 'checkbox',
-      label: 'Disabled',
+      displayLabel: 'Disabled',
     },
     {
       name: 'active',
       type: 'checkbox',
-      label: 'Active',
+      displayLabel: 'Active',
     },
     {
       name: 'busy',
       type: 'checkbox',
-      label: 'Busy',
+      displayLabel: 'Busy',
     },
     {
       name: 'reverse',
       type: 'checkbox',
-      label: 'Reverse',
+      displayLabel: 'Reverse',
     },
     {
       name: 'size',
       type: 'select',
-      label: 'Size',
+      displayLabel: 'Size',
       options: ['small', 'medium', 'large'],
     },
     {
       name: 'alignSelf',
       type: 'select',
-      label: 'Align Self',
+      displayLabel: 'Align Self',
       options: ['start', 'center', 'end', 'stretch'],
     },
     {
       name: 'justify',
       type: 'select',
-      label: 'Justify',
+      displayLabel: 'Justify',
       options: ['start', 'center', 'end', 'between', 'around'],
     },
     {
       name: 'gap',
       type: 'select',
-      label: 'Gap',
+      displayLabel: 'Gap',
       options: ['xxsmall', 'xsmall', 'small', 'medium', 'large'],
+      showWhen: props => props.icon && props.label,
     },
     {
       name: 'badge',
       type: 'checkbox',
-      label: 'Badge',
+      displayLabel: 'Badge',
     },
     {
       name: 'tip',
       type: 'text',
-      label: 'Tip',
+      displayLabel: 'Tooltip',
     },
   ];
 
