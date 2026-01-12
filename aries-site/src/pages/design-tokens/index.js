@@ -11,6 +11,7 @@ import {
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
+import { ContentSection } from '../../layouts';
 
 const title = 'Design tokens';
 const pageDetails = getPageDetails(title);
@@ -23,7 +24,7 @@ const Tokens = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/design-tokens"
     />
-    <PageContent>
+    <PageContent gap="medium">
       <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
@@ -60,32 +61,34 @@ const Tokens = () => (
             ];
 
             return (
-              <Box gap="xlarge" pad={{ top: 'medium' }}>
-                {results.map((type, index) =>
-                  type.data?.length ? (
-                    <Box gap="medium" key={index}>
-                      <Heading level={2} margin="none">
-                        {type.heading}
-                      </Heading>
-                      <Grid
-                        columns="medium"
-                        rows={[['auto', 'full']]}
-                        gap="medium"
-                      >
-                        {type.data.map(item => (
-                          <ContentCard
-                            key={item.name}
-                            pad="xsmall"
-                            topic={item}
-                            href={item.href || nameToPath(item.name)}
-                            level={3}
-                          />
-                        ))}
-                      </Grid>
-                    </Box>
-                  ) : null,
-                )}
-              </Box>
+              <ContentSection>
+                <Box gap="xlarge">
+                  {results.map((type, index) =>
+                    type.data?.length ? (
+                      <Box gap="medium" key={index}>
+                        <Heading level={2} margin="none">
+                          {type.heading}
+                        </Heading>
+                        <Grid
+                          columns="medium"
+                          rows={[['auto', 'full']]}
+                          gap="medium"
+                        >
+                          {type.data.map(item => (
+                            <ContentCard
+                              key={item.name}
+                              pad="xsmall"
+                              topic={item}
+                              href={item.href || nameToPath(item.name)}
+                              level={3}
+                            />
+                          ))}
+                        </Grid>
+                      </Box>
+                    ) : null,
+                  )}
+                </Box>
+              </ContentSection>
             );
           }}
         </DataContext.Consumer>

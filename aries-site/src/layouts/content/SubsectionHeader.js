@@ -1,21 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Box, Button, Heading } from 'grommet';
 import { Link as LinkIcon } from '@hpe-design/icons-grommet';
 
 import { HighlightPhrase } from '../../components';
 import { nameToSlug } from '../../utils';
 
+const StyledSubsectionBox = styled(Box)`
+  &[data-is-first="true"] {
+    margin-top: 0 !important;
+  }
+`;
+
 export const SubsectionHeader = ({ headingSize, children, level }) => {
   const [over, setOver] = useState(false);
+  const [isFirst, setIsFirst] = useState(false);
+  const boxRef = useRef(null);
   const id = nameToSlug(children);
+
+  useEffect(() => {
+    if (boxRef.current) {
+      // Check if there's a previous sibling with the header attribute
+      const previousHeader = boxRef.current.previousElementSibling;
+      const hasPreviousHeader =
+        previousHeader &&
+        previousHeader.getAttribute('data-subsection-header') === 'true';
+      setIsFirst(!hasPreviousHeader);
+    }
+  }, []);
+
   return (
-    <Box
+    <StyledSubsectionBox
+      ref={boxRef}
+      data-subsection-header="true"
+      data-is-first={isFirst}
       direction="row"
       align="center"
       gap="xsmall"
       id={id}
-      margin={{ top: level === 3 ? 'medium' : 'xlarge' }}
+      margin={
+        isFirst
+          ? { top: 'none' }
+          : { top: level === 3 ? 'medium' : 'xlarge' }
+      }
       onMouseOver={() => setOver(true)}
       onFocus={() => setOver(true)}
       onMouseOut={() => setOver(false)}
@@ -34,7 +62,7 @@ export const SubsectionHeader = ({ headingSize, children, level }) => {
           navigator.clipboard.writeText(window.location.href);
         }}
       />
-    </Box>
+    </StyledSubsectionBox>
   );
 };
 
