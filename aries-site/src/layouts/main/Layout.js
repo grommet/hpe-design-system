@@ -106,7 +106,6 @@ export const Layout = ({
                 <SkipLink key={id} id={id} label={label} />
               ))}
             </SkipLinks>
-            <PageContent>
               {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
@@ -117,7 +116,6 @@ export const Layout = ({
                   alignSelf="center"
                 />
               )}
-            </PageContent>
             <MainContentWrapper>
               <Main overflow="visible">
                 {/* row-reverse direction, tab through ToC first */}
