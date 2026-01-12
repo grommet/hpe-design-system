@@ -1,0 +1,69 @@
+import PropTypes from 'prop-types';
+import {
+  Box,
+  SkipLinkTarget,
+} from 'grommet';
+import {
+  ContentSection,
+  DocsPageHeader,
+  InPageNavigation,
+  RelatedContent,
+  FeedbackSection,
+  UpdateNotification,
+} from '..';
+
+export const DocsLayout = ({
+  title,
+  topic,
+  render,
+  headings,
+  relatedContent,
+  children,
+  pageUpdateReady,
+  showInPageNav,
+  contentHistory,
+  // ...rest
+}) => {
+  return (
+    <>
+      {showInPageNav ? (
+        <Box pad={{ left: 'xlarge' }}>
+          <SkipLinkTarget id="toc" label="Table of Contents" />
+          <InPageNavigation title={title} headings={headings} />
+        </Box>
+      ) : undefined}
+      <Box
+        width={
+          showInPageNav
+            ? 'calc(100% - 192px)' // 192px = small t-shirt size
+            : '100%'
+        }
+      >
+        <SkipLinkTarget id="main" label="Main Content" />
+        <ContentSection pad={{ top: 'none' }}>
+          <DocsPageHeader title={title} topic={topic} render={render} />
+          {pageUpdateReady && contentHistory[title]?.update && (
+            <UpdateNotification name={title} />
+          )}
+          {children}
+        </ContentSection>
+        {relatedContent.length > 0 && (
+          <RelatedContent relatedContent={relatedContent} title={title} />
+        )}
+        <FeedbackSection />
+      </Box>
+    </>
+  );
+};
+
+DocsLayout.propTypes = {
+  children: PropTypes.node,
+  contentHistory: PropTypes.objectOf(PropTypes.object),
+  headings: PropTypes.arrayOf(PropTypes.array),
+  pageUpdateReady: PropTypes.bool,
+  relatedContent: PropTypes.arrayOf(PropTypes.object),
+  render: PropTypes.bool,
+  showInPageNav: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  topic: PropTypes.string,
+};
