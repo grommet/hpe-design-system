@@ -23,7 +23,6 @@ export const DocsLayout = ({
   pageUpdateReady,
   showInPageNav,
   contentHistory,
-  // ...rest
 }) => {
   return (
     /* row-reverse direction, tab through ToC first */
@@ -45,7 +44,7 @@ export const DocsLayout = ({
           )}
           {children}
         </ContentSection>
-        {relatedContent && relatedContent.length > 0 && (
+        {relatedContent?.length > 0 && (
           <RelatedContent relatedContent={relatedContent} title={title} />
         )}
         <FeedbackSection />
