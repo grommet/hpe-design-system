@@ -37,7 +37,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
-    "@types/node": "^20.4.5",
+    "@types/node": "catalog:",
     "axios": "^1.6.0",
     "del": "^6.1.1",
     "dotenv": "^16.3.1",
