@@ -1,6 +1,11 @@
 import { Page, PageContent, PageHeader } from 'grommet';
 import { useSessionStorage } from '@shared/hooks';
-import { AppShell, NavigationPanel, navItems } from './content';
+import {
+  AppShell,
+  NavigationPanel,
+  navItems,
+  navItemsSubheadings,
+} from './content';
 
 const NavigationMenuExample = () => {
   const [activeItem, setActiveItem] = useSessionStorage<string | undefined>(
@@ -54,7 +59,7 @@ const NavigationMenuSubheadings = () => {
         <NavigationPanel
           activeItem={activeItem}
           setActiveItem={setActiveItem}
-          items={navItems}
+          items={navItemsSubheadings}
           expanded={expanded}
         />
       }

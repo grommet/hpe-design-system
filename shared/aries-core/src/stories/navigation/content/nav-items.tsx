@@ -72,3 +72,52 @@ export const navItems: NavItemType[] = [
     ],
   },
 ];
+
+export const navItemsSubheadings = [
+  {
+    label: 'Home',
+    url: '/',
+  },
+  {
+    label: 'Components',
+    url: '/components',
+    children: [
+      {
+        label: 'Layouts',
+        type: 'group',
+        children: [
+          {
+            label: 'Box',
+            url: '/components/box',
+          },
+          {
+            label: 'Card',
+            url: '/components/card',
+          },
+          {
+            label: 'Grid',
+            url: '/components/grid',
+          },
+        ],
+      },
+      {
+        label: 'Controls',
+        type: 'group',
+        children: [
+          {
+            label: 'Anchor',
+            url: '/components/anchor',
+          },
+          {
+            label: 'Button',
+            url: '/components/button',
+          },
+          {
+            label: 'Menu',
+            url: '/components/menu',
+          },
+        ],
+      },
+    ],
+  },
+];

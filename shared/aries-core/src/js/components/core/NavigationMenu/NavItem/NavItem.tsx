@@ -8,6 +8,7 @@ export type NavItemType = {
   url?: string;
   icon?: React.ReactNode;
   children?: NavItemType[];
+  type?: 'group' | 'item';
 };
 
 interface NavItemProps {
