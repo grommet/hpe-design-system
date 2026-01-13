@@ -33,11 +33,7 @@ export const DocsLayout = ({
         </Box>
       )}
       <Box
-        width={
-          showInPageNav
-            ? 'calc(100% - 192px)' // 192px = small t-shirt size
-            : '100%'
-        }
+        fill="horizontal"
       >
         <SkipLinkTarget id="main" label="Main content" />
         <ContentSection pad={{ top: 'none' }}>
