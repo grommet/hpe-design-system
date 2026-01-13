@@ -10,7 +10,7 @@ import {
   Spa,
   Gem,
 } from '@hpe-design/icons-grommet';
-import { SelectorGroup, Selector } from 'aries-core';
+import { SelectorGroup, Selector } from '@shared/aries-core';
 
 const data = [
   {

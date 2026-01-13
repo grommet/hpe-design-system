@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Box, Button, Form, FormField, StarRating, TextArea } from 'grommet';
-import { ButtonGroup, TextEmphasis } from 'aries-core';
+import { ButtonGroup, TextEmphasis } from '@shared/aries-core';
 
 // These credentials will be supplied when working with HPE GreenLake
 // Experience Management COE team and should likely be stored in

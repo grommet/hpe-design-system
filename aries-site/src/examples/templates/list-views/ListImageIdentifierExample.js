@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Image, List, Text } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const data = [
   {

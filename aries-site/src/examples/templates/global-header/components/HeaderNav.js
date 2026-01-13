@@ -9,7 +9,7 @@ import {
   Text,
 } from 'grommet';
 import { Help, Home } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { UserContext } from '.';
 
 export const HeaderNav = () => {

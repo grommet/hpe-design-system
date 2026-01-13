@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Box, Footer, Main, ResponsiveContext } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 export const HeaderFooterExample = () => (
   <AppContainer>

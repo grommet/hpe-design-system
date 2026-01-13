@@ -26,7 +26,7 @@ import {
   Subtract,
   Trash,
 } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const CoreIcon = ({ Icon, name, aliases, guidance }) => (
   <Card elevation={false}>
