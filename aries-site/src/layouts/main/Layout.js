@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import {
-  Box,
   Main,
   Page,
   PageContent,
@@ -110,28 +109,25 @@ export const Layout = ({
             )}
             <MainContentWrapper>
               <Main overflow="visible">
-                {/* row-reverse direction, tab through ToC first */}
-                <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
-                  {layout !== 'plain' ? (
-                    <DocsLayout
-                      title={title}
-                      topic={topic}
-                      render={render}
-                      headings={headings}
-                      relatedContent={relatedContent}
-                      showInPageNav={showInPageNav}
-                      pageUpdateReady={pageUpdateReady}
-                      contentHistory={contentHistory}
-                    >
-                      {children}
-                    </DocsLayout>
-                  ) : (
-                    <>
-                      <SkipLinkTarget id="main" label="Main content" />
-                      {children}
-                    </>
-                  )}
-                </Box>
+                {layout !== 'plain' ? (
+                  <DocsLayout
+                    title={title}
+                    topic={topic}
+                    render={render}
+                    headings={headings}
+                    relatedContent={relatedContent}
+                    showInPageNav={showInPageNav}
+                    pageUpdateReady={pageUpdateReady}
+                    contentHistory={contentHistory}
+                  >
+                    {children}
+                  </DocsLayout>
+                ) : (
+                  <>
+                    <SkipLinkTarget id="main" label="Main content" />
+                    {children}
+                  </>
+                )}
               </Main>
             </MainContentWrapper>
             <UserFeedback />

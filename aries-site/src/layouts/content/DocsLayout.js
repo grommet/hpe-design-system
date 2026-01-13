@@ -25,7 +25,8 @@ export const DocsLayout = ({
   // ...rest
 }) => {
   return (
-    <>
+    /* row-reverse direction, tab through ToC first */
+    <Box direction="row-reverse">
       {showInPageNav && (
         <Box pad={{ left: 'xlarge' }}>
           <SkipLinkTarget id="toc" label="Table of Contents" />
@@ -48,7 +49,7 @@ export const DocsLayout = ({
         )}
         <FeedbackSection />
       </Box>
-    </>
+    </Box>
   );
 };
 
