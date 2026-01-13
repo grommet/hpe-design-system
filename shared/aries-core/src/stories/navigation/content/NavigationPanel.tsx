@@ -6,18 +6,20 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
-import { useSessionStorage } from '@shared/hooks';
 import { NavigationMenu, NavItemType } from '../../../js/components';
-import { AppShell, LayerHeader, navItems } from '../content';
+import { LayerHeader } from '../content';
 
 export const NavigationPanel = ({
   activeItem,
   setActiveItem,
+  items,
+  expanded = true,
 }: {
   activeItem: string | undefined;
   setActiveItem: React.Dispatch<React.SetStateAction<string | undefined>>;
+  items: NavItemType[];
+  expanded?: boolean;
 }) => {
-  const [open] = useSessionStorage<boolean>('open', true);
   const [openLayer, setOpenLayer] = useState<boolean>(false);
   const breakpoint = useContext(ResponsiveContext);
 
@@ -37,9 +39,9 @@ export const NavigationPanel = ({
   const navigationMenuProps = {
     title: navTitle,
     activeItem,
-    items: navItems,
+    items,
     onSelect,
-    open,
+    open: expanded,
   };
 
   const messages = {
