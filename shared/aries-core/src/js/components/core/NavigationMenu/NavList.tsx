@@ -157,6 +157,12 @@ export const NavList = ({
     const active = activeItem === item.label;
 
     if (item.type === 'group') {
+      const indentation = {
+        0: 'medium',
+        1: 'large',
+        2: 'xlarge',
+      }
+
       const headerId = `${item.label
         .replace(/\s+/g, '-')
         .toLowerCase()}-heading`;
@@ -164,7 +170,8 @@ export const NavList = ({
         <Box role="none">
           <Box
             direction="row"
-            pad={{ horizontal: 'large', top: 'small', bottom: 'xsmall' }}
+            pad={{ left: indentation[item.level || 0], top: 'small', bottom: 'xsmall' }}
+            border={{ side: 'top', color: 'border-weak' }}
             role="presentation"
           >
             <Text

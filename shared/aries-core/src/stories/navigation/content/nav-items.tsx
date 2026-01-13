@@ -120,4 +120,58 @@ export const navItemsSubheadings = [
       },
     ],
   },
+  {
+    label: 'Design tokens',
+    url: '/design-tokens',
+    children: [
+      {
+        label: 'Getting started',
+        type: 'group',
+        children: [
+          {
+            label: 'Overview',
+            url: '/design-tokens/getting-started',
+          },
+          {
+            label: 'Color usage',
+            url: '/design-tokens/color-usage',
+          },
+          {
+            label: 'Component states',
+            url: '/design-tokens/component-states',
+          },
+          {
+            label: 'Element tokens',
+            url: '/design-tokens/element',
+          },
+          {
+            label: 'Global tokens',
+            url: '/design-tokens/global',
+          },
+        ],
+      },
+      {
+        label: 'Building with design tokens',
+        type: 'group',
+        children: [
+          {
+            label: 'All design tokens',
+            url: '/design-tokens/all-tokens',
+          },
+          {
+            label: 'Using design tokens in code',
+            url: '/design-tokens/using-in-code',
+          },
+          {
+            label: 'Using design tokens in Figma',
+            url: '/design-tokens/using-in-figma',
+          },
+          {
+            label: 'Versioning',
+            url: '/design-tokens/versioning',
+          },
+        ],
+      },
+    ],
+  },
 ];

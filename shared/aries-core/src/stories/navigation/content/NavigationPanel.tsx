@@ -1,10 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import {
-  Box,
-  Button,
-  Layer,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Button, Layer, ResponsiveContext } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
 import { NavigationMenu, NavItemType } from '../../../js/components';
 import { LayerHeader } from '../content';
