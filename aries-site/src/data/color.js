@@ -1,4 +1,4 @@
-import { aries as theme } from '../themes/aries';
+import { hpe as theme } from 'grommet-theme-hpe';
 
 /*
  * The following is holding content until Content Management Solution
