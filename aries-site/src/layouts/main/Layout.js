@@ -92,19 +92,19 @@ export const Layout = ({
         {backgroundImage && (
           <PageBackground backgroundImage={backgroundImage} />
         )}
-        <Page>
-          <>
-            {/* Only render Header for non-home pages.
+        <>
+          {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
-            {title && title.toLowerCase() !== 'home' && (
-              <AppHeader
-                background="background-back"
-                fill="horizontal"
-                alignSelf="center"
-              />
-            )}
-            <Main overflow="visible">
+          {title && title.toLowerCase() !== 'home' && (
+            <AppHeader
+              background="background-back"
+              fill="horizontal"
+              alignSelf="center"
+            />
+          )}
+          <Main overflow="visible">
+            <Page>
               {layout !== 'plain' ? (
                 <DocsLayout
                   title={title}
@@ -124,10 +124,10 @@ export const Layout = ({
                   {children}
                 </>
               )}
-            </Main>
-            <UserFeedback />
-          </>
-        </Page>
+            </Page>
+          </Main>
+          <UserFeedback />
+        </>
       </Stack>
     </>
   );

@@ -1,7 +1,14 @@
 import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Box, Button, Header, PageContent, ResponsiveContext } from 'grommet';
+import {
+  Box,
+  Button,
+  Header,
+  Page,
+  PageContent,
+  ResponsiveContext,
+} from 'grommet';
 import { Search as SearchIcon } from '@hpe-design/icons-grommet';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
@@ -16,43 +23,45 @@ const StyledHeader = ({ ...rest }) => {
   const router = useRouter();
 
   return (
-    <PageContent>
-      <Header
-        pad={{
-          vertical: 'medium',
-        }}
-        {...rest}
-      >
-        <Link href="/" passHref legacyBehavior>
-          <AppIdentity brand="hpe" logo={false} title="Design System" />
-        </Link>
-        <Box direction="row" align="center" gap="3xsmall">
-          {!['xsmall', 'small'].includes(size) &&
-            navItems.map(item => (
-              <Link
-                key={item.name}
-                href={nameToPath(item.name)}
-                passHref
-                legacyBehavior
-              >
-                <Button
+    <Page>
+      <PageContent>
+        <Header
+          pad={{
+            vertical: 'medium',
+          }}
+          {...rest}
+        >
+          <Link href="/" passHref legacyBehavior>
+            <AppIdentity brand="hpe" logo={false} title="Design System" />
+          </Link>
+          <Box direction="row" align="center" gap="3xsmall">
+            {!['xsmall', 'small'].includes(size) &&
+              navItems.map(item => (
+                <Link
                   key={item.name}
-                  label={item.name}
-                  active={router.pathname === nameToPath(item.name)}
-                />
-              </Link>
-            ))}
-          <Button
-            a11yTitle="Search"
-            id="search-button"
-            icon={<SearchIcon />}
-            onClick={() => setShowSearch(true)}
-          />
-          {showSearch && <Search setOpen={setShowSearch} />}
-          <ThemeModeToggle />
-        </Box>
-      </Header>
-    </PageContent>
+                  href={nameToPath(item.name)}
+                  passHref
+                  legacyBehavior
+                >
+                  <Button
+                    key={item.name}
+                    label={item.name}
+                    active={router.pathname === nameToPath(item.name)}
+                  />
+                </Link>
+              ))}
+            <Button
+              a11yTitle="Search"
+              id="search-button"
+              icon={<SearchIcon />}
+              onClick={() => setShowSearch(true)}
+            />
+            {showSearch && <Search setOpen={setShowSearch} />}
+            <ThemeModeToggle />
+          </Box>
+        </Header>
+      </PageContent>
+    </Page>
   );
 };
 
