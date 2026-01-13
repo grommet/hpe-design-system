@@ -97,11 +97,7 @@ export const Layout = ({
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
           {title && title.toLowerCase() !== 'home' && (
-            <AppHeader
-              background="background-back"
-              fill="horizontal"
-              alignSelf="center"
-            />
+            <AppHeader />
           )}
           <Main overflow="visible">
             <Page>
