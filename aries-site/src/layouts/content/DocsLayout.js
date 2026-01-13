@@ -26,12 +26,12 @@ export const DocsLayout = ({
 }) => {
   return (
     <>
-      {showInPageNav ? (
+      {showInPageNav && (
         <Box pad={{ left: 'xlarge' }}>
           <SkipLinkTarget id="toc" label="Table of Contents" />
           <InPageNavigation title={title} headings={headings} />
         </Box>
-      ) : undefined}
+      )}
       <Box
         width={
           showInPageNav
