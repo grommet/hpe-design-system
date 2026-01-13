@@ -47,7 +47,7 @@ export const DocsLayout = ({
           )}
           {children}
         </ContentSection>
-        {relatedContent.length > 0 && (
+        {relatedContent && relatedContent.length > 0 && (
           <RelatedContent relatedContent={relatedContent} title={title} />
         )}
         <FeedbackSection />
