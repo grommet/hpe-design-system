@@ -5,7 +5,6 @@ import { initialize, pageview } from 'react-ga';
 import {
   Main,
   Page,
-  PageContent,
   ResponsiveContext,
   SkipLinkTarget,
   SkipLink,
@@ -44,8 +43,6 @@ export const Layout = ({
     render,
   } = getPageDetails(titleProp);
   const layout = isLanding ? 'plain' : pageLayout;
-
-  const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
 
   const match = siteContents.find(item =>
@@ -107,29 +104,27 @@ export const Layout = ({
                 alignSelf="center"
               />
             )}
-            <MainContentWrapper>
-              <Main overflow="visible">
-                {layout !== 'plain' ? (
-                  <DocsLayout
-                    title={title}
-                    topic={topic}
-                    render={render}
-                    headings={headings}
-                    relatedContent={relatedContent}
-                    showInPageNav={showInPageNav}
-                    pageUpdateReady={pageUpdateReady}
-                    contentHistory={contentHistory}
-                  >
-                    {children}
-                  </DocsLayout>
-                ) : (
-                  <>
-                    <SkipLinkTarget id="main" label="Main content" />
-                    {children}
-                  </>
-                )}
-              </Main>
-            </MainContentWrapper>
+            <Main overflow="visible">
+              {layout !== 'plain' ? (
+                <DocsLayout
+                  title={title}
+                  topic={topic}
+                  render={render}
+                  headings={headings}
+                  relatedContent={relatedContent}
+                  showInPageNav={showInPageNav}
+                  pageUpdateReady={pageUpdateReady}
+                  contentHistory={contentHistory}
+                >
+                  {children}
+                </DocsLayout>
+              ) : (
+                <>
+                  <SkipLinkTarget id="main" label="Main content" />
+                  {children}
+                </>
+              )}
+            </Main>
             <UserFeedback />
           </>
         </Page>
