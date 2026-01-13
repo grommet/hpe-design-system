@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Header, Text } from 'grommet';
@@ -30,22 +30,8 @@ export const Subsection = ({
   ...rest
 }) => {
   const [over, setOver] = useState(false);
-  const [isFirst, setIsFirst] = useState(false);
-  const boxRef = useRef(null);
   const parent = topic && getPageDetails(topic);
   const id = nameToSlug(name);
-
-  useEffect(() => {
-    if (boxRef.current) {
-      // Check if there's a previous section sibling (another Subsection)
-      const previousSection = boxRef.current.previousElementSibling;
-      const hasPreviousSubsection =
-        previousSection &&
-        previousSection.tagName === 'SECTION' &&
-        previousSection !== boxRef.current.parentElement;
-      setIsFirst(!hasPreviousSubsection);
-    }
-  }, []);
 
   const firstChild = React.Children.map(children, (child, index) => {
     if (index === 0) {
@@ -72,18 +58,11 @@ export const Subsection = ({
     },
   );
 
-  const getTopMargin = () => {
-    if (isFirst) return 'none';
-    return level === 3 ? 'medium' : 'xlarge';
-  };
-
   return (
     <Box
-      ref={boxRef}
       as="section"
-      data-subsection="true"
       id={id}
-      margin={{ bottom: 'xsmall', top: getTopMargin() }}
+      margin="none"
       fill="horizontal"
       gap={gap}
       onMouseOver={() => setOver(true)}

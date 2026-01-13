@@ -22,24 +22,26 @@ const Foundation = () => (
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
       <ContentSection>
-        <Subsection level={2} name="Philosophy">
-          <CardGrid
-            cards={cards.filter(card => card.category === 'Philosophy')}
-            headingLevel={3}
-          />
-        </Subsection>
-        <Subsection level={2} name="Assets">
-          <CardGrid
-            cards={cards.filter(card => card.category === 'Assets')}
-            headingLevel={3}
-          />
-        </Subsection>
-        <Subsection level={2} name="Layout">
-          <CardGrid
-            cards={cards.filter(card => card.category === 'Layout')}
-            headingLevel={3}
-          />
-        </Subsection>
+        <Box gap="xlarge">
+          <Subsection level={2} name="Philosophy">
+            <CardGrid
+              cards={cards.filter(card => card.category === 'Philosophy')}
+              headingLevel={3}
+            />
+          </Subsection>
+          <Subsection level={2} name="Assets">
+            <CardGrid
+              cards={cards.filter(card => card.category === 'Assets')}
+              headingLevel={3}
+            />
+          </Subsection>
+          <Subsection level={2} name="Layout">
+            <CardGrid
+              cards={cards.filter(card => card.category === 'Layout')}
+              headingLevel={3}
+            />
+          </Subsection>
+        </Box>
       </ContentSection>
     </PageContent>
   </>
