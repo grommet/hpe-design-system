@@ -39,7 +39,7 @@ export const DocsLayout = ({
             : '100%'
         }
       >
-        <SkipLinkTarget id="main" label="Main Content" />
+        <SkipLinkTarget id="main" label="Main content" />
         <ContentSection pad={{ top: 'none' }}>
           <DocsPageHeader title={title} topic={topic} render={render} />
           {pageUpdateReady && contentHistory[title]?.update && (

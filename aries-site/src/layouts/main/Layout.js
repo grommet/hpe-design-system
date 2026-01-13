@@ -127,7 +127,7 @@ export const Layout = ({
                     </DocsLayout>
                   ) : (
                     <>
-                      <SkipLinkTarget id="main" />
+                      <SkipLinkTarget id="main" label="Main content" />
                       {children}
                     </>
                   )}
