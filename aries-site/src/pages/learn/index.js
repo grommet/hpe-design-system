@@ -68,7 +68,7 @@ const Learn = () => (
               <Box gap="xlarge" pad={{ top: 'medium' }}>
                 {results.map((type, index) =>
                   type.data?.length ? (
-                    <Box gap="medium" key={index}>
+                    <Box gap="xsmall" key={index}>
                       <Heading level={2} margin="none">
                         {type.heading}
                       </Heading>
