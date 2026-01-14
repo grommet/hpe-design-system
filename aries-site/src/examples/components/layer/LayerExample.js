@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AnnounceContext, Button, Box, Layer } from 'grommet';
-import { LayerHeader } from 'aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import { LayerForm } from './ConfigurationForm';
 import {
   ConfirmationProvider,

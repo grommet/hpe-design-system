@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Spinner, Text } from 'grommet';
 import { StatusGood } from '@hpe-design/icons-grommet';
-import { ButtonGroup, ModalBody, ModalFooter } from 'aries-core';
+import { ButtonGroup, ModalBody, ModalFooter } from '@shared/aries-core';
 
 const steps = {
   'confirm-power-on': {

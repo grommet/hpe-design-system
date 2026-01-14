@@ -1,6 +1,5 @@
 packages:
   - 'apps/*'
-  - 'aries-core'
   - 'aries-site'
   - 'packages/**'
   - 'sandbox/*'
@@ -8,6 +7,7 @@ packages:
 
 catalog:
   '@hpe-design/icons-grommet': ^1.1.0
+  '@types/node': ^20.4.5
   '@types/react': ^19.1.10
   '@types/react-dom': ^19.1.7
   eslint: ^8.39.0

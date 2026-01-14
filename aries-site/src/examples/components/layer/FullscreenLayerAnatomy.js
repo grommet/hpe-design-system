@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, Page, PageContent, Stack } from 'grommet';
-import { LayerHeader } from 'aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import { Close } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
