@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Page, PageContent, PageHeader } from 'grommet';
-import { EmptyState, ModalDialog } from 'aries-core';
+import { EmptyState, ModalDialog } from '@shared/aries-core';
 import { Lock } from '@hpe-design/icons-grommet';
 
 export const LayerEmptyState = ({ containerRef }) => {

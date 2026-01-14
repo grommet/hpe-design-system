@@ -1,5 +1,5 @@
+import React from 'react';
 import { Button } from 'grommet';
-import { forwardRef } from 'react';
 import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';
 
@@ -29,29 +29,26 @@ const indent = {
   2: 'medium',
 };
 
-export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
-  (
-    {
-      active,
-      actions,
-      children,
-      icon,
-      label,
-      level,
-      onEsc,
-      onSelect,
-      url,
-      ...rest
-    },
-    ref,
-  ) => {
+export const NavItem = ({
+  active,
+  actions,
+  children,
+  icon,
+  label,
+  level,
+  onEsc,
+  onSelect,
+  url,
+  ref,
+  ...rest
+}: NavItemProps & { ref?: React.Ref<HTMLButtonElement> }) => {
     return (
       <>
         <Button
           plain
           href={url}
           onKeyDown={event => {
-            if (event.key === 'Escape' && onEsc) {
+            if (event.key === 'Escape' && typeof onEsc === 'function') {
               onEsc(event);
             }
           }}
@@ -83,5 +80,4 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
         {children}
       </>
     );
-  },
-);
+  };

@@ -12,7 +12,7 @@ import {
   Tab,
   Tabs,
 } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { ReverseAnchor } from '../ReverseAnchor';
 import { Card } from '../Card';
 

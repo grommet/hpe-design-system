@@ -9,7 +9,7 @@ import {
   Page,
   PageContent,
 } from 'grommet';
-import { ButtonGroup, ModalDialog } from 'aries-core';
+import { ButtonGroup, ModalDialog } from '@shared/aries-core';
 
 export const ButtonBusyExample = ({ containerRef }) => {
   const [busy, setBusy] = useState(false);

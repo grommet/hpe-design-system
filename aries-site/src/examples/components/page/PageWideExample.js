@@ -19,7 +19,7 @@ import { More } from '@hpe-design/icons-grommet';
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
 // your implementation.
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { demoStyle } from './demoStyle';
 
 export const PageWideExample = () => (
