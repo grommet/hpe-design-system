@@ -17,6 +17,6 @@
   --hpe-fontWeight-regular: 400; /** The default font-weight for most text. */
   --hpe-fontWeight-semibold: 600;
   --hpe-fontWeight-thin: 100; /** Thin is rarely, if at all, used. */
-  --hpe-focusIndicator-boxShadow: 0 0 0 var(--hpe-focusIndicator-outlineOffset) #ffffff ;
+  --hpe-focusIndicator-boxShadow: 0 0 0 var(--hpe-focusIndicator-outlineOffset) var(--hpe-color-focus-support) ;
   --hpe-focusIndicator-outline: var(--hpe-base-dimension-50) solid var(--hpe-color-focus);
 }

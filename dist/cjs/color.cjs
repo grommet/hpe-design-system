@@ -63,6 +63,7 @@ module.exports = {
         "neutral-hover": "var(--hpe-color-decorative-neutral-hover)",
         "purple": "var(--hpe-color-decorative-purple)"
       },
+      "focus": "var(--hpe-color-focus)",
       "foreground": {
         "critical": "var(--hpe-color-foreground-critical)",
         "ok": "var(--hpe-color-foreground-ok)",
@@ -118,7 +119,8 @@ module.exports = {
         "warning": "var(--hpe-color-text-warning)",
         "weak": "var(--hpe-color-text-weak)"
       },
-      "transparent": "var(--hpe-color-transparent)"
+      "transparent": "var(--hpe-color-transparent)",
+      "focus-support": "var(--hpe-color-focus-support)"
     },
     "shadow": {
       "large": "var(--hpe-shadow-large)",

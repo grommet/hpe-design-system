@@ -63,6 +63,7 @@ module.exports = {
         "neutral-hover": "#606a70",
         "purple": "#7764fc"
       },
+      "focus": "#292d3a",
       "foreground": {
         "critical": "#ec3331",
         "ok": "#009a71",
@@ -118,7 +119,8 @@ module.exports = {
         "warning": "#3e4550",
         "weak": "#606a70"
       },
-      "transparent": "rgba(0, 0, 0, 0)"
+      "transparent": "rgba(0, 0, 0, 0)",
+      "focus-support": "#ffffff"
     },
     "shadow": {
       "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.24) ",

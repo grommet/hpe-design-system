@@ -14,7 +14,7 @@ module.exports = {
     "focusIndicator": {
       "boxShadow": {
         "blur": 0,
-        "color": "{color.focus.support.DEFAULT.REST}",
+        "color": "{color.focus.support}",
         "offsetX": 0,
         "offsetY": 0,
         "spread": "{focusIndicator.outlineOffset}"

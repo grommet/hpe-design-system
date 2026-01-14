@@ -2345,26 +2345,6 @@ export default {
     },
     "$type": "color",
     "$value": "#ffffff",
-    "support": {
-      "DEFAULT": {
-        "REST": {
-          "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
-          "$extensions": {
-            "com.figma": {
-              "codeSyntax": {},
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "STROKE_COLOR"
-              ]
-            }
-          },
-          "$type": "color",
-          "$value": "#292d3a",
-          "filePath": "tokens/semantic/color.dark.json",
-          "isSource": true
-        }
-      }
-    },
     "filePath": "tokens/semantic/color.dark.json",
     "isSource": true,
     "original": {
@@ -2379,38 +2359,64 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{base.color.white.100}",
-      "support": {
-        "DEFAULT": {
-          "REST": {
-            "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
-            "$extensions": {
-              "com.figma": {
-                "codeSyntax": {},
-                "hiddenFromPublishing": false,
-                "scopes": [
-                  "STROKE_COLOR"
-                ]
-              }
-            },
-            "$type": "color",
-            "$value": "{base.color.grey.1000}",
-            "filePath": "tokens/semantic/color.dark.json",
-            "isSource": true
-          }
-        }
-      }
+      "$value": "{base.color.white.100}"
     },
     "name": "hpe.color.focus",
     "attributes": {
       "category": "color",
-      "type": "focus"
+      "type": "focus",
+      "item": "DEFAULT",
+      "subitem": "REST"
     },
     "path": [
       "color",
-      "focus"
+      "focus",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.focus}"
+    "key": "{color.focus.DEFAULT.REST}"
+  },
+  "hpe.color.focus.support": {
+    "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "codeSyntax": {},
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR"
+        ]
+      }
+    },
+    "$type": "color",
+    "$value": "#292d3a",
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
+          ]
+        }
+      },
+      "$type": "color",
+      "$value": "{base.color.grey.1000}"
+    },
+    "name": "hpe.color.focus.support",
+    "attributes": {
+      "category": "color",
+      "type": "focus",
+      "item": "support"
+    },
+    "path": [
+      "color",
+      "focus",
+      "support"
+    ],
+    "key": "{color.focus.support}"
   },
   "hpe.color.foreground.critical": {
     "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status",

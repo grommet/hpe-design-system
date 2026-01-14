@@ -63,6 +63,7 @@ export default {
         "neutral-hover": "#d4d8db",
         "purple": "#7764fc"
       },
+      "focus": "#ffffff",
       "foreground": {
         "critical": "#fc6161",
         "ok": "#05cc93",
@@ -118,7 +119,8 @@ export default {
         "warning": "#e6e8e9",
         "weak": "#b1b9be"
       },
-      "transparent": "rgba(0, 0, 0, 0)"
+      "transparent": "rgba(0, 0, 0, 0)",
+      "focus-support": "#292d3a"
     },
     "shadow": {
       "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.48) ",
