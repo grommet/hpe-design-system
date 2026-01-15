@@ -1,10 +1,4 @@
-import React, {
-  Fragment,
-  useEffect,
-  useContext,
-  useCallback,
-  useState,
-} from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
@@ -22,24 +16,18 @@ import {
 import {
   ContentSection,
   DocsPageHeader,
-  Header,
-  Head,
+  AppHeader,
   FeedbackSection,
   InPageNavigation,
   RelatedContent,
 } from '..';
-import {
-  Meta,
-  PageBackground,
-  FeedbackButton,
-  Feedback,
-  Question,
-} from '../../components';
+import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
+import { UserFeedback } from './UserFeedback';
 
 export const Layout = ({
   backgroundImage,
@@ -56,7 +44,6 @@ export const Layout = ({
   }, []);
 
   const router = useRouter();
-  // const announce = useContext(AnnounceContext);
   const relatedContent = titleProp && getRelatedContent(titleProp);
   // Allow proper capitalization to be used
   const {
@@ -69,47 +56,6 @@ export const Layout = ({
 
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
-  const [open, setOpen] = useState(false);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
-
-  // Want to show Thank you message so close the modal after 2 seconds
-  const closeFeedbackModal = () => {
-    setTimeout(() => {
-      setOpen(false);
-    }, 2000);
-  };
-
-  const onSubmit = useCallback(
-    value => {
-      const data = {
-        values: {
-          QID1: value.value['like-rating'] === 'like' ? 1 : 2,
-          QID2_TEXT: value.value['text-area'],
-          Q_URL: `https://design-system.hpe.design${router.route}`,
-        },
-      };
-      // using next js env variables for url & api token
-      // https://nextjs.org/docs/basic-features/environment-variables
-      fetch(`${process.env.NEXT_PUBLIC_FEEDBACK_API_POST}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'X-API-TOKEN': process.env.NEXT_PUBLIC_FEEDBACK_APP_API_TOKEN,
-        },
-        body: JSON.stringify(data),
-      })
-        .then(response => response.json())
-        .then(() => {
-          closeFeedbackModal();
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    },
-    [router.route],
-  );
 
   const match = siteContents.find(item =>
     item?.name === 'Index'
@@ -140,6 +86,12 @@ export const Layout = ({
 
   return (
     <>
+      <Meta
+        title={title}
+        render={render}
+        description={seoDescription}
+        canonicalUrl={`https://design-system.hpe.design${router.route}`}
+      />
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
@@ -148,15 +100,6 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <Page>
-          {/* I think Head is redundant at this point, 
-              but left it as is for now */}
-          <Head title={title} />
-          <Meta
-            title={title}
-            render={render}
-            description={seoDescription}
-            canonicalUrl={`https://design-system.hpe.design${router.route}`}
-          />
           <>
             <SkipLinks id="skip-links">
               {skiplinks.map(({ id, label }) => (
@@ -165,10 +108,10 @@ export const Layout = ({
             </SkipLinks>
             <PageContent>
               {/* Only render Header for non-home pages.
-              Homepage header is be rendered in index.js
+              Homepage header is rendered in index.js
               to have the same background as the hero. */}
               {title && title.toLowerCase() !== 'home' && (
-                <Header
+                <AppHeader
                   background="background-back"
                   fill="horizontal"
                   alignSelf="center"
@@ -225,41 +168,7 @@ export const Layout = ({
                 </Box>
               </Main>
             </MainContentWrapper>
-            <FeedbackButton
-              margin={{ vertical: 'medium', horizontal: 'medium' }}
-              elevation="large"
-              onClick={onOpen}
-              label="Feedback"
-              primary
-              a11yTitle="This button launches a modal to give feedback."
-            />
-            <Feedback
-              show={open}
-              messages={{
-                submit: 'Submit feedback',
-                cancel: 'No thanks',
-                successful: 'Thank you!',
-              }}
-              modal
-              onClose={onClose}
-              title="We’d love your feedback"
-              onSubmit={onSubmit}
-            >
-              <Question
-                label="Was this page helpful?"
-                kind="thumbs"
-                name="like-rating"
-              />
-              <Question
-                name="text-area"
-                kind="textArea"
-                label="Any additional comments?"
-                formProps={{
-                  help: `Here's your chance to tell us your thoughts 
-                  about this page.`,
-                }}
-              />
-            </Feedback>
+            <UserFeedback />
           </>
         </Page>
       </Stack>

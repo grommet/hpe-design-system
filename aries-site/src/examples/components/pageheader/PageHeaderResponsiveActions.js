@@ -9,7 +9,7 @@ import {
   ResponsiveContext,
   ThemeContext,
 } from 'grommet';
-import { ActionMenu } from 'aries-core';
+import { ActionMenu } from '@shared/aries-core';
 import { groupActions } from './utils';
 import { ReverseAnchor } from '../../templates';
 

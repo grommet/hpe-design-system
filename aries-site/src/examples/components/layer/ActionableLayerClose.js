@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
-import { LayerHeader } from 'aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import { LayerContainer } from './components/LayerContainer';
 
 export const ActionableLayerClose = () => (

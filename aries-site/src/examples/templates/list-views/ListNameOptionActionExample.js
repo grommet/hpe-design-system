@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, List, Menu, Text } from 'grommet';
 import { More, StatusGood, StatusCritical } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 const data = [
   {

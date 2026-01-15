@@ -11,7 +11,7 @@ const interactions = ['hover', 'focus', 'active'];
  * Supported color prominence modifiers
  */
 const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
-const exceptionColors = ['color/focus', 'color/transparent'];
+const exceptionColors = ['color/focus/support', 'color/transparent'];
 
 function tokenTypeFromVariable(variable: Variable) {
   if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
@@ -47,7 +47,13 @@ function tokenValueFromVariable(
         const temp = aliasedName.replaceAll('-', '/').split('/');
         if (!exceptionColors.includes(temp.join('/'))) {
           // last element of name should be interaction
-          if (!interactions.includes(temp[temp.length - 1])) {
+          // Added exception for color/focus so that REST gets
+          // added, issue to revisit this here:
+          // https://github.com/grommet/hpe-design-system/issues/5676
+          if (
+            !interactions.includes(temp[temp.length - 1]) ||
+            temp.join('/') === 'color/focus'
+          ) {
             temp.push('REST');
           }
           // second to last element of name should be prominence
@@ -243,7 +249,13 @@ export function tokenFilesFromLocalVariables(
           const temp = variable.name.replaceAll('-', '/').split('/');
           if (!exceptionColors.includes(temp.join('/'))) {
             // last element of name should be interaction
-            if (!interactions.includes(temp[temp.length - 1])) {
+            // Added exception for color/focus so that REST gets
+            // added, issue to revisit this here:
+            // https://github.com/grommet/hpe-design-system/issues/5676
+            if (
+              !interactions.includes(temp[temp.length - 1]) ||
+              temp.join('/') === 'color/focus'
+            ) {
               temp.push('REST');
             }
             // second to last element of name should be prominence

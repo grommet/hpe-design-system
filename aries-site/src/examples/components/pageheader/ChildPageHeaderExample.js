@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Page, PageContent, PageHeader } from 'grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { FilterServers, ReverseAnchor } from '../../templates';
 import { ContentPane } from '../../../layouts';
 

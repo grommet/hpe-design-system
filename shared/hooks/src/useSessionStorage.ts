@@ -28,7 +28,10 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
         sessionStorage.setItem(key, JSON.stringify(valueToStore));
       }
     } catch (error) {
-      console.error(`Failed to write to sessionStorage for key '${key}':`, error);
+      console.error(
+        `Failed to write to sessionStorage for key '${key}':`,
+        error,
+      );
     }
   };
 
