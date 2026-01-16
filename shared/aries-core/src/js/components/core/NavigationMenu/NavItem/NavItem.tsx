@@ -72,6 +72,7 @@ export const NavItem = ({
                 <ItemLabel
                   icon={icon as React.ReactNode}
                   label={label as string}
+                  color={hover ? 'text-strong' : 'text'}
                 />
                 {actions as React.ReactNode}
               </ItemContainer>

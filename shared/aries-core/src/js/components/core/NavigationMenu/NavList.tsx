@@ -178,7 +178,6 @@ export const NavList = ({
               id={headerId}
               size="xsmall"
               weight="bold"
-              color="text-strong"
               role="heading"
               aria-level={3}
             >
