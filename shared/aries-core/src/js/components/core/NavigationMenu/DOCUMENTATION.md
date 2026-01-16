@@ -369,11 +369,9 @@ For more direct control, you can use NavList without the NavigationMenu wrapper:
 
 ```mermaid
 sequenceDiagram
-   role="group"` on grouped item containers
-- `role="heading"` on group headings
-- `aria-haspopup` for items with children
-- `aria-expanded` for collapsible items
-- `aria-labelledby` for nested menus and group
+    participant User
+    participant NavigationMenu
+    participant NavContainer
     participant NavList
     participant NavItem
     participant State
