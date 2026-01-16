@@ -161,7 +161,7 @@ export const NavList = ({
         0: 'medium',
         1: 'large',
         2: 'xlarge',
-      }
+      };
 
       const headerId = `${item.label
         .replace(/\s+/g, '-')
@@ -170,8 +170,11 @@ export const NavList = ({
         <Box role="none">
           <Box
             direction="row"
-            pad={{ left: indentation[item.level || 0], top: 'small', bottom: 'xsmall' }}
-            border={{ side: 'top', color: 'border-weak' }}
+            pad={{
+              left: indentation[item.level || 0],
+              top: 'xxsmall',
+              bottom: '5xsmall',
+            }}
             role="presentation"
           >
             <Text
@@ -184,7 +187,11 @@ export const NavList = ({
               {item.label}
             </Text>
           </Box>
-          <Box role="group" aria-labelledby={headerId}>
+          <Box
+            role="group"
+            aria-labelledby={headerId}
+            border={{ side: 'bottom', color: 'border-weak' }}
+          >
             {item.children?.map(child => (
               <Box key={child.label} pad={{ vertical: '3xsmall' }}>
                 {renderItem(child)}
