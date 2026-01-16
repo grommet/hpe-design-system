@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { act } from 'react';
 import { Button } from 'grommet';
 import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';
@@ -72,7 +72,7 @@ export const NavItem = ({
                 <ItemLabel
                   icon={icon as React.ReactNode}
                   label={label as string}
-                  color={hover ? 'text-strong' : 'text'}
+                  color={hover || active ? 'text-strong' : 'text'}
                 />
                 {actions as React.ReactNode}
               </ItemContainer>
