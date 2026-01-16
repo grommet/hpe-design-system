@@ -699,6 +699,7 @@ export const components = [
     relatedContent: ['CheckBoxGroup', 'Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
+      pad: 'small',
     },
     tags: [
       'check box',
@@ -1384,6 +1385,7 @@ export const components = [
     sections: [],
     preview: {
       component: () => <RangeInputPreview />,
+      pad: 'small',
     },
     tags: [
       'slider',
