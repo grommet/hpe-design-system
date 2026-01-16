@@ -1,4 +1,3 @@
-import React, { act } from 'react';
 import { Button } from 'grommet';
 import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';

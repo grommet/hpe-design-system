@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { AnnounceContext, Box, Collapsible, List, Text } from 'grommet';
+import { AnnounceContext, Collapsible, List } from 'grommet';
 import { Down, Up } from '@hpe-design/icons-grommet';
 import { NavItem, NavItemType } from './NavItem';
 import { NavGroup } from './NavGroup';

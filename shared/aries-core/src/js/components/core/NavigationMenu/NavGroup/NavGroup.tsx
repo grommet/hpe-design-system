@@ -1,4 +1,4 @@
-import { Box, Text } from 'grommet';
+import { Box } from 'grommet';
 import { NavItemWithLevel } from '../NavList';
 import { GroupHeading } from './GroupHeading';
 
@@ -7,11 +7,6 @@ interface NavGroupProps {
   render: (item: NavItemWithLevel) => React.ReactNode;
   defaultItemProps?: { [key: string]: any };
 }
-
-const indentation = {
-  1: 'medium',
-  2: 'large',
-};
 
 export const NavGroup = ({ item, render, defaultItemProps }: NavGroupProps) => {
   const headerId = `${item.label.replace(/\s+/g, '-').toLowerCase()}-heading`;
