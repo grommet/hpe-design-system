@@ -42,14 +42,14 @@ export const NavList = ({
             ...item,
             children: item.children.map(child => ({
               ...child,
-              level: item.level,
+              level: (item.level || 0),
             })),
           });
         } else {
           // Standard expandable parent
           adjusted.push({
             ...item,
-            level: item.level || 1,
+            level: item.level,
             children: item.children.map(child => ({
               ...child,
               level: (item.level || 0) + 1,
@@ -158,9 +158,9 @@ export const NavList = ({
 
     if (item.type === 'group') {
       const indentation = {
-        0: 'medium',
-        1: 'large',
-        2: 'xlarge',
+        0: 'small',
+        1: 'medium',
+        2: 'large',
       };
 
       const headerId = `${item.label

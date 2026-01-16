@@ -17,12 +17,12 @@ export const ItemLabel = ({ icon, label, color = labelColor }: ItemLabelProps) =
 
   return (
     <Box direction="row" gap="xxsmall" flex>
-      <Box
+      {adjIcon && <Box
         pad={{ top: '4xsmall' }} // aligning icon with label text
         flex={false}
       >
         {adjIcon}
-      </Box>
+      </Box>}
       <Text color={color}>{label}</Text>
     </Box>
   );
