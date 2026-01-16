@@ -115,7 +115,7 @@ The library includes icons across multiple categories:
 
 ### Complete Icon List
 
-For a complete list of all 450+ available icons, explore the [Storybook](https://hpe-design-icons-grommet.netlify.app/) documentation, check the `src/js/icons/` directory, or view them in [figma](https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons-V2-%E2%80%93-Production?node-id=0-1&p=f&t=mNw0UO3QFOK9NJfd-0).
+For a complete list of all 450+ available icons, explore the [Storybook](https://hpe-design-icons-grommet.netlify.app/) documentation, check the `src/js/icons/` directory, or view them in [Figma](https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons-V2-%E2%80%93-Production?node-id=0-1&p=f&t=mNw0UO3QFOK9NJfd-0).
 
 ## Development
 
