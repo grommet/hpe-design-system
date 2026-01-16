@@ -62,7 +62,7 @@ export const NavItem = ({
           ref={ref as any}
           {...(rest as any)}
         >
-          {({ hover }) => {
+          {({ hover, focus }) => {
             return (
               <ItemContainer
                 active={active as boolean | undefined}
@@ -72,7 +72,7 @@ export const NavItem = ({
                 <ItemLabel
                   icon={icon as React.ReactNode}
                   label={label as string}
-                  color={hover || active ? 'text-strong' : 'text'}
+                  color={hover || focus || active ? 'text-strong' : 'text'}
                 />
                 {actions as React.ReactNode}
               </ItemContainer>
