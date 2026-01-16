@@ -1,10 +1,15 @@
 import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { AnnounceContext, Box, Collapsible, List, Text } from 'grommet';
 import { Down, Up } from '@hpe-design/icons-grommet';
-import { NavItem, NavItemType } from './NavItem/NavItem';
+import { NavItem, NavItemType } from './NavItem';
+import { NavGroup } from './NavGroup';
 
-type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
+export type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
+const defaultItemProps = {
+  pad: { vertical: '3xsmall' },
+  role: 'none',
+};
 interface NavListProps {
   items: NavItemWithLevel[];
   activeItem?: string;
@@ -157,48 +162,13 @@ export const NavList = ({
     const active = activeItem === item.label;
 
     if (item.type === 'group') {
-      const indentation = {
-        0: 'small',
-        1: 'medium',
-        2: 'large',
-      };
-
-      const headerId = `${item.label
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-heading`;
       return (
-        <Box role="none">
-          <Box
-            direction="row"
-            pad={{
-              left: indentation[item.level || 0],
-              top: 'xxsmall',
-              bottom: '5xsmall',
-            }}
-            role="presentation"
-          >
-            <Text
-              id={headerId}
-              size="xsmall"
-              weight="bold"
-              role="heading"
-              aria-level={3}
-            >
-              {item.label}
-            </Text>
-          </Box>
-          <Box
-            role="group"
-            aria-labelledby={headerId}
-            border={{ side: 'bottom', color: 'border-weak' }}
-          >
-            {item.children?.map(child => (
-              <Box key={child.label} pad={{ vertical: '3xsmall' }}>
-                {renderItem(child)}
-              </Box>
-            ))}
-          </Box>
-        </Box>
+        <NavGroup
+          key={item.label}
+          item={item}
+          render={item => renderItem(item)}
+          defaultItemProps={defaultItemProps}
+        />
       );
     }
 
@@ -266,10 +236,7 @@ export const NavList = ({
   return (
     <List
       data={adjustedItems}
-      defaultItemProps={{
-        pad: { vertical: '3xsmall' },
-        role: 'none',
-      }}
+      defaultItemProps={defaultItemProps}
       role="menubar"
       {...rest}
     >
