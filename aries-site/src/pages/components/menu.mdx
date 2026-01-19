@@ -93,15 +93,45 @@ A menu styled to integrate seamlessly with a toolbar.
 
 ## Organizing menu items
 
-Allow a user to quickly locate the menu item they desire by organizing menu items
-through thoughtful ordering and grouping.
+Help users quickly locate the desired menu item by applying thoughtful ordering and grouping:
 
-### Guiding principles
+- Group related items together for easier scanning. Use a divider to seperate groups.
+- Prioritize frequently used actions by placing them at the top.
+- Place destructive actions last in a distinct, consistent location to ensure intentionality.
 
-- Make it easy for the user to scan by grouping related items and placing more
-  frequently used actions at the top of the menu.
-- Ensure intentionality, by placing destructive actions in a distinct, consistent
-  location at the end of the menu.
+### Common groupings in HPE applications
+In many HPE applications, customers configure, modify, and act upon resources in their environment. For these contexts, menu items typically fall into three groups:
+
+#### Configuring
+
+Actions allowing a user to set and modify attributes of a resource.
+
+- View [resource] details
+- Edit [resource]
+- Add [item] to [resource]
+- Remove [item] from [resource]
+- Assign [resource] to [another resource]
+- Add [resource] to group
+
+#### Executing
+
+Actions providing the ability for a user to act upon a resource.
+
+- Launch [resource]
+- Power on/off [resource]
+- Reset [resource]
+- Update/upgrade software/firmware version for [resource]
+
+#### Transferring
+
+Actions enabling a user to share or consume data related to a resource.
+
+- Download [resource] data
+- Share [resource] with [user]
+- Send [resource] to [user]
+- Notify [user] about [resource]
+
+
 
 ### Grouping
 
@@ -189,42 +219,7 @@ Selecting a dangerous action should lead to double confirmation.
   </Example>
 </BestPracticeGroup>
 
-### Common groupings in HPE applications
 
-Many HPE applications provide the ability for customers to configure, modify,
-and act upon resources in their environment.
-
-For applications in this context, groups of menu items can be thought of as
-[configuring](#configuring), [executing](#executing), or [transferring](#transferring).
-
-#### Configuring
-
-Actions allowing a user to set and modify attributes of a resource.
-
-- View [resource] details
-- Edit [resource]
-- Add [item] to [resource]
-- Remove [item] from [resource]
-- Assign [resource] to [another resource]
-- Add [resource] to group
-
-#### Executing
-
-Actions providing the ability for a user to act upon a resource.
-
-- Launch [resource]
-- Power on/off [resource]
-- Reset [resource]
-- Update/upgrade software/firmware version for [resource]
-
-#### Transferring
-
-Actions enabling a user to share or consume data related to a resource.
-
-- Download [resource] data
-- Share [resource] with [user]
-- Send [resource] to [user]
-- Notify [user] about [resource]
 
 #### Batch actions menu related to a selection of servers
 
