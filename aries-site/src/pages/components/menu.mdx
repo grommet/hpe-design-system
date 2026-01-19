@@ -131,18 +131,11 @@ Actions enabling a user to share or consume data related to a resource.
 - Send [resource] to [user]
 - Notify [user] about [resource]
 
+## Dos and Do nots
 
-
-### Grouping
-
-Group related menu items. Use separator lines to create visually distinct groups
-of related menu items.
-
-Create separate groups for menu items initiating actions and items setting
-attributes. Menu items become unpredictable when the behavior of grouped items
-varies.
-
-Menu items should only be grouped if there are two or more related items.
+[Placeholder for select DO AND DONT]
+[Placeholder for divider DO AND DONT]
+[Placeholder for too many items DO AND DONT]
 
 <BestPracticeGroup>
   <Example
@@ -172,27 +165,6 @@ Menu items should only be grouped if there are two or more related items.
   </Example>
 </BestPracticeGroup>
 
-### Ordering
-
-Frequency of use should guide the order in which menu items are presented.
-
-When menu items are grouped, order items within that group by frequency.
-Additionally, place the most frequently used group at the top of the menu.
-This anticipates what the user is looking for and allows them to locate the
-item as their eye scans the items top to bottom.
-
-Exception: [Dangerous actions](#dangerous-actions) should be placed as the
-last item in the menu.
-
-### Dangerous actions
-
-Dangerous or destructive actions altering a state which cannot
-be recovered, such as delete, should be placed as the last item in the menu
-with a visual separator for the dangerous actions grouping so that they are
-distinct from all other actions.
-
-Selecting a dangerous action should lead to double confirmation.
-
 <BestPracticeGroup>
   <Example
     bestPractice={{
@@ -218,110 +190,6 @@ Selecting a dangerous action should lead to double confirmation.
     </Box>
   </Example>
 </BestPracticeGroup>
-
-
-
-#### Batch actions menu related to a selection of servers
-
-The table menu's batch actions are grouped by executing and configuration actions.
-The executing actions group is ordered first because the actions in it are the
-most frequently used.
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuBatchActionsExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/servers.json',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/menu/MenuBatchActionsExample.js"
-  height={{ min: 'small' }}
->
-  <MenuBatchActionsExample />
-</Example>
-
-#### Actions menu related to an individual record
-
-Each server group has a menu whose actions have been grouped by configuration,
-executing, and dangerous actions. The configuration actions group is ordered first
-because adjusting and viewing the group are the most frequently used. The delete
-group action is ordered last since deleting the group is a destructive action and
-cannot be recovered.
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuRecordActionsExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/data/mockData/serverGroups.json',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/menu/MenuRecordActionsExample.js"
-  height={{ min: 'medium' }}
->
-  <MenuRecordActionsExample />
-</Example>
-
-## Variants
-
-There are various places a Menu may be useful within an application. If the user is going to be selecting from a list of options to execute an action, Menu is a good component to use. The usage of labels and icons allow a menu to be versatile for different layout contexts.
-
-### Within a header
-
-A menu can be used in a [Header](/components/header) to group related actions.
-The default Menu should be used in all instances unless the Menu is contained within a toolbar, in which case see [Menu within a toolbar](#within-a-toolbar) guidance.
-
-<Example
-  docs="https://v2.grommet.io/menu?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuHeaderExample.js"
-  height={{ min: 'small' }}
-  width="100%"
->
-  <MenuHeaderExample />
-</Example>
-
-### Within a toolbar
-
-Use `kind="toolbar"` when the Menu is placed in row with other toolbar controls like search or filter.
-In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ToolbarButtonExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FilterControls.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/Filters.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/ResultsSummary.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/SearchFilter.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FilterControls/FiltersContext.js',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/button/ToolbarButtonExample.js"
-  height={{ min: 'small' }}
-  width="100%"
->
-  <ToolbarButtonExample />
-</Example>
-
-### With custom icon
-
-Adding an icon prop changes the icon that appears on the menu. In some contexts, it may be appropriate to use a more specific or alternate icon. Here is an example Menu being used in a [List](/templates/lists) to indicate actions that can be performed on list items.
-
-<Example
-  docs="https://v2.grommet.io/menu?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuIconExample.js"
-  height={{ min: 'small' }}
-  width="100%"
->
-
-  <MenuIconExample />
-</Example>
-
-### Disabled
-
-Used to indicate that a Menu cannot be interacted with.
-
-<Example
-  docs="https://v2.grommet.io/menu?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/menu/MenuDisabledExample.js"
-  height={{ min: 'small' }}
->
-  <MenuDisabledExample />
-</Example>
 
 ## Accessibility
 
