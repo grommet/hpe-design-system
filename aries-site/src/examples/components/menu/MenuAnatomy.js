@@ -39,7 +39,7 @@ const connections = [
     toTarget: 'menu-icon',
   },
   {
-    anchor: 'horizontal',
+    anchor: 'vertical',
     type,
     color,
     thickness,
@@ -55,7 +55,7 @@ const connections = [
     toTarget: 'menu-item',
   },
   {
-    anchor: 'horizontal',
+    anchor: 'vertical',
     type,
     color,
     thickness,
@@ -63,7 +63,7 @@ const connections = [
     toTarget: 'item-label',
   },
   {
-    anchor: 'horizontal',
+    anchor: 'vertical',
     type,
     color,
     thickness,
@@ -83,6 +83,7 @@ const connections = [
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['xsmall', '48px']}
+    // eslint-disable-next-line max-len
     rows={['auto', '36px', '36px', '56px', '36px', '8px', '36px', '36px', '36px', 'auto']}
     areas={[
       ['annotations-top', 'annotations-top'],
