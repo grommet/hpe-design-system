@@ -1,0 +1,58 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: pocketbase-app
+  annotations:
+    run.googleapis.com/ingress: all
+    run.googleapis.com/execution-environment: gen2
+spec:
+  template:
+    metadata:
+      annotations:
+        # Allow higher memory and CPU allocation
+        run.googleapis.com/memory: "2Gi"
+        run.googleapis.com/cpu: "1000m"
+        # Set longer timeout for Cloud Storage mounting
+        run.googleapis.com/timeout: "900s"
+        # Limit to 1 instance for SQLite compatibility
+        autoscaling.knative.dev/maxScale: "1"
+    spec:
+      # Use the service account with Cloud Storage permissions
+      serviceAccountName: pocketbase-service-account@hpe-design-system-adoption.iam.gserviceaccount.com
+      containers:
+      - image: gcr.io/hpe-design-system-adoption/pocketbase-app:latest
+        env:
+        - name: GCS_BUCKET_NAME
+          value: "ds-pocketbase"
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        # Use Cloud Storage volume mounting
+        volumeMounts:
+        - name: gcs-data
+          mountPath: /app/pb_data
+        startupProbe:
+          httpGet:
+            path: /api/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 20
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 8080
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+      # Cloud Storage volume configuration
+      volumes:
+      - name: gcs-data
+        csi:
+          driver: gcsfuse.run.googleapis.com
+          volumeAttributes:
+            bucketName: ds-pocketbase
