@@ -247,6 +247,9 @@ importers:
       '@testing-library/testcafe':
         specifier: ^5.0.1
         version: 5.0.1(testcafe@3.7.2)
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.5
       axe-core:
         specifier: ^4.9.0
         version: 4.11.0

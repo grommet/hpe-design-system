@@ -10,6 +10,7 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
+  Grid,
 } from 'grommet';
 import { AppHeader, DocsLayout } from '..';
 import { Meta, PageBackground } from '../../components';
@@ -18,6 +19,14 @@ import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
+import { Navigation } from '../navigation';
+
+const gridAreas = [
+  ['nav', 'header', 'context-pane'],
+  ['nav', 'main', 'context-pane'],
+];
+const gridColumns = ['auto', 'flex', 'auto'];
+const gridRows = ['auto', 'flex'];
 
 export const Layout = ({
   backgroundImage,
@@ -92,14 +101,15 @@ export const Layout = ({
         {backgroundImage && (
           <PageBackground backgroundImage={backgroundImage} />
         )}
-        <>
+        <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
           {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
           {title && title.toLowerCase() !== 'home' && (
-            <AppHeader />
+            <AppHeader gridArea="header" background="decorative-blue" />
           )}
-          <Main overflow="visible">
+          <Navigation gridArea="nav" as="aside" background="decorative-cyan" />
+          <Main overflow="visible" gridArea="main">
             <Page>
               {layout !== 'plain' ? (
                 <DocsLayout
@@ -123,7 +133,7 @@ export const Layout = ({
             </Page>
           </Main>
           <UserFeedback />
-        </>
+        </Grid>
       </Stack>
     </>
   );
