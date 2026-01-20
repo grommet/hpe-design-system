@@ -39,7 +39,7 @@ const connections = [
     toTarget: 'menu-icon',
   },
   {
-    anchor: 'vertical',
+    anchor: 'horizontal',
     type,
     color,
     thickness,
@@ -84,15 +84,14 @@ const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['xsmall', '48px']}
     // eslint-disable-next-line max-len
-    rows={['auto', '36px', '36px', '56px', '36px', '8px', '36px', '36px', '36px', 'auto']}
+    rows={['auto', '36px', '35px', '56px', '20px', '40px', '76px', '36px', ]}
     areas={[
       ['annotations-top', 'annotations-top'],
       ['menu-area', 'annotation-1'],
       ['menu-area', 'annotation-2'],
       ['menu-area', 'empty-1'],
       ['menu-area', 'annotation-4'],
-      ['menu-area', 'empty-3'],
-      ['menu-area', 'empty-4'],
+      ['menu-area', 'empty-2'],
       ['menu-area', 'annotation-3'],
       ['annotations-bottom', 'annotations-bottom'],
     ]}
@@ -190,9 +189,6 @@ export const MenuAnatomy = () => {
         {/* Empty boxes for grid spacing */}
         <Box gridArea="empty-1" />
         <Box gridArea="empty-2" />
-        <Box gridArea="empty-3" />
-        <Box gridArea="empty-4" />
-
         {/* Menu component */}
         <Box
           gridArea="menu-area"
@@ -231,8 +227,8 @@ export const MenuAnatomy = () => {
             style={{
               position: 'absolute',
               top: '225px',
-              left: '18px',
-              width: '120px',
+              left: '26px',
+              width: '125px',
               height: '1px',
               pointerEvents: 'none',
             }}
