@@ -50,8 +50,8 @@ export const foundation = [
   },
   {
     name: 'Our brand',
-    category: 'Assets',
-    cardOrder: 4,
+    category: 'HPE Brand',
+    cardOrder: 1,
     description: `The Element is about focus. It creates momentum and 
     energy. It is a building block. It can move, change, expand, and 
     constrain. It works across many touch points.`,
@@ -72,8 +72,8 @@ export const foundation = [
   },
   {
     name: 'Distinctive brand assets',
-    category: 'Assets',
-    cardOrder: 5,
+    category: 'HPE Brand',
+    cardOrder: 2,
     description: `Our distinctive brand assets are comprised of 
     the top elements that are always used, along with several optional 
     components that can be added.`,
@@ -119,8 +119,8 @@ export const foundation = [
   },
   {
     name: 'Developer guidance',
-    category: 'Philosophy',
-    cardOrder: 1,
+    category: 'Getting started',
+    cardOrder: 2,
     description: `Resources for setting up your application
      with the HPE Design System library and HPE theme.`,
     preview: {
@@ -146,8 +146,8 @@ export const foundation = [
   },
   {
     name: 'Designer guidance',
-    category: 'Philosophy',
-    cardOrder: 2,
+    category: 'Getting started',
+    cardOrder: 1,
     description: `Starter files, patterns, interactions, and workflows on
        how to succeed using the design resources from HPE Design
         System and the HPE Brand.`,
@@ -175,8 +175,8 @@ export const foundation = [
   },
   {
     name: 'Color',
-    cardOrder: 5,
-    category: 'Assets',
+    cardOrder: 1,
+    category: 'Color',
     description: `Bringing out the depth and dimension of our identity, 
     the HPE Design System use of color evokes energy and inspiration.`,
     preview: {
@@ -248,8 +248,8 @@ export const foundation = [
   },
   {
     name: 'Icons',
-    cardOrder: 8,
-    category: 'Assets',
+    cardOrder: 3,
+    category: 'HPE Brand',
     description: `Icons visually communicate actions, objects, and states —
       creating a consistent, recognizable language across our products.`,
     preview: {
@@ -278,8 +278,8 @@ export const foundation = [
   },
   {
     name: 'Typography',
-    cardOrder: 7,
-    category: 'Assets',
+    cardOrder: 4,
+    category: 'HPE Brand',
     description: `The HPE Graphik font is an integral part of our personality 
     and design. When we’re making a statement, our visual language is clear, 
     recognized and understood.`,
@@ -317,7 +317,7 @@ export const foundation = [
   {
     name: 'Philosophy and principles',
     category: 'Philosophy',
-    cardOrder: 0,
+    cardOrder: 1,
     description: 'What the HPE Design System is and why we’re creating it.',
     preview: {
       image: {
@@ -346,8 +346,8 @@ export const foundation = [
   },
   {
     name: 'Background colors guidance',
-    category: 'Assets',
-    cardOrder: 6,
+    category: 'Color',
+    cardOrder: 3,
     description: `Leverage HPE background colors to seamlessly style 
     your layout.`,
     preview: {
@@ -383,8 +383,8 @@ export const foundation = [
   },
   {
     name: 'Color pairing',
-    category: 'Assets',
-    cardOrder: 9,
+    category: 'Color',
+    cardOrder: 2,
     description: `Pair colors correctly to ensure your design has sufficient 
     contrast ratios and will remain so with color updates.`,
     preview: {
@@ -421,8 +421,8 @@ export const foundation = [
   },
   {
     name: 'Voice and tone',
-    category: 'Philosophy',
-    cardOrder: 6,
+    category: 'HPE Brand',
+    cardOrder: 5,
     description: `Deliver clear, consistent experiences to HPE customers by 
     following guidelines for the voice and tone of text-based user interface 
     elements.`,
@@ -476,8 +476,8 @@ export const foundation = [
   },
   {
     name: 'Date and time',
-    category: 'Philosophy',
-    cardOrder: 3,
+    category: 'HPE Brand',
+    cardOrder: 6,
     description:
       'General guidelines on how to display and format date and time.',
     preview: {
