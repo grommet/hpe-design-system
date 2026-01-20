@@ -106,7 +106,7 @@ export const Meta = ({
       <meta key="segment" name="segment" content={segment} />
       <meta key="lifecycle" name="lifecycle" content={lifecycle} />
       <meta key="page_content" name="page_content" content={pageContent} />
-      <meta httpEquiv="Content-Security-Policy" content={csp} />
+      {/* <meta httpEquiv="Content-Security-Policy" content={csp} /> */}
     </Head>
   );
 };
