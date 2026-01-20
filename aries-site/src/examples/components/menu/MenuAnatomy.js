@@ -84,7 +84,7 @@ const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['xsmall', '48px']}
     // eslint-disable-next-line max-len
-    rows={['auto', '36px', '35px', '56px', '20px', '40px', '76px', '36px', ]}
+    rows={['auto', '36px', '35px', '56px', '20px', '40px', '76px', '36px' ]}
     areas={[
       ['annotations-top', 'annotations-top'],
       ['menu-area', 'annotation-1'],
