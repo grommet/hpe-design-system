@@ -106,9 +106,9 @@ export const Layout = ({
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
           {title && title.toLowerCase() !== 'home' && (
-            <AppHeader gridArea="header" background="decorative-blue" />
+            <AppHeader gridArea="header" />
           )}
-          <Navigation gridArea="nav" as="aside" background="decorative-cyan" />
+          <Navigation gridArea="nav" as="aside" background="background-front" />
           <Main overflow="visible" gridArea="main">
             <Page>
               {layout !== 'plain' ? (
