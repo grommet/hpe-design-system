@@ -23,7 +23,7 @@ const connections = [
     toTarget: 'menu-button',
   },
   {
-    anchor: 'horizontal',
+    anchor: 'vertical',
     type,
     color,
     thickness,
@@ -84,7 +84,7 @@ const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['xsmall', '48px']}
     // eslint-disable-next-line max-len
-    rows={['auto', '36px', '35px', '56px', '20px', '40px', '76px', '36px' ]}
+    rows={['auto', '36px', '36px', '42px', '36px', '50px', '56px', '36px' ]}
     areas={[
       ['annotations-top', 'annotations-top'],
       ['menu-area', 'annotation-1'],
@@ -189,6 +189,41 @@ export const MenuAnatomy = () => {
         {/* Empty boxes for grid spacing */}
         <Box gridArea="empty-1" />
         <Box gridArea="empty-2" />
+
+        {/* Hidden reference elements for Diagram annotations */}
+        <Box
+          style={{
+            position: 'absolute',
+            visibility: 'hidden',
+            pointerEvents: 'none',
+          }}
+        >
+          <Box
+            id="first-item"
+            style={{ position: 'absolute', top: '116px', left: '0' }}
+          />
+          <Box
+            id="menu-item"
+            style={{ position: 'absolute', top: '340px', left: '0' }}
+          />
+          <Box
+            id="item-label"
+            style={{
+              position: 'absolute',
+              top: '168px',
+              left: '10px',
+            }}
+          />
+          <Box
+            id="item-icon"
+            style={{
+              position: 'absolute',
+              top: '168px',
+              left: '50px',
+            }}
+          />
+        </Box>
+
         {/* Menu component */}
         <Box
           gridArea="menu-area"
