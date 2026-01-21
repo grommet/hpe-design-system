@@ -16,6 +16,14 @@ const learn = Structure.from(learnArr);
 const tokens = Structure.from(tokensArr);
 const templates = Structure.from(templatesArr);
 
+const foundationCategoryOrder = [
+  'Getting started',
+  'Philosophy',
+  'Our brand',
+  'Color',
+  'Layout',
+];
+
 export const structure = [
   {
     name: 'Home',
@@ -45,16 +53,15 @@ export const structure = [
     ),
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
-    categoryOrder: [
-      'Getting started',
-      'Philosophy',
-      'Our brand',
-      'Color',
-      'Layout',
-    ],
+    categoryOrder: foundationCategoryOrder,
     pages: foundation
       .sortByCardOrder()
-      .sortByCategory({ Assets: 1, Philosophy: 0 })
+      .sortByCategory(
+        foundationCategoryOrder.reduce((acc, item, index) => {
+          acc[item] = index;
+          return acc;
+        }, {}),
+      )
       .map(page => page.name),
   },
   {
