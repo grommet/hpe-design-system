@@ -26,6 +26,7 @@ export interface PageDetails {
   sections?: string[];
   relatedContent?: string[];
   tags?: string[];
+  cardOrder?: number;
 }
 
 export declare const structure: PageDetails[];

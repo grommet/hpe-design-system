@@ -45,7 +45,14 @@ export const navItems: NavItemType[] = structure
     const children: NavItemType[] = groupKeys.sort().map(category => ({
       label: category,
       type: 'group',
-      children: groups[category].sort((a, b) => a.label.localeCompare(b.label)),
+      children: groups[category].sort((a, b) => {
+        const detailsA = pageDetails[a.label];
+        const detailsB = pageDetails[b.label];
+        const orderA = detailsA?.cardOrder ?? Number.MAX_SAFE_INTEGER;
+        const orderB = detailsB?.cardOrder ?? Number.MAX_SAFE_INTEGER;
+
+        return orderA - orderB || a.label.localeCompare(b.label);
+      }),
     }));
 
     return {
