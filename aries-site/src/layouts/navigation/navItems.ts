@@ -42,18 +42,37 @@ export const navItems: NavItemType[] = structure
     }
 
     // Sort categories and create grouped children
-    const children: NavItemType[] = groupKeys.sort().map(category => ({
-      label: category,
-      type: 'group',
-      children: groups[category].sort((a, b) => {
-        const detailsA = pageDetails[a.label];
-        const detailsB = pageDetails[b.label];
-        const orderA = detailsA?.cardOrder ?? Number.MAX_SAFE_INTEGER;
-        const orderB = detailsB?.cardOrder ?? Number.MAX_SAFE_INTEGER;
+    const children: NavItemType[] = groupKeys
+      .sort((a, b) => {
+        const { categoryOrder } = page;
+        if (categoryOrder) {
+          const indexA = categoryOrder.indexOf(a);
+          const indexB = categoryOrder.indexOf(b);
 
-        return orderA - orderB || a.label.localeCompare(b.label);
-      }),
-    }));
+          if (indexA > -1 && indexB > -1) {
+            return indexA - indexB;
+          }
+          if (indexA > -1) {
+            return -1;
+          }
+          if (indexB > -1) {
+            return 1;
+          }
+        }
+        return a.localeCompare(b);
+      })
+      .map(category => ({
+        label: category,
+        type: 'group',
+        children: groups[category].sort((a, b) => {
+          const detailsA = pageDetails[a.label];
+          const detailsB = pageDetails[b.label];
+          const orderA = detailsA?.cardOrder ?? Number.MAX_SAFE_INTEGER;
+          const orderB = detailsB?.cardOrder ?? Number.MAX_SAFE_INTEGER;
+
+          return orderA - orderB || a.label.localeCompare(b.label);
+        }),
+      }));
 
     return {
       label: page.name,

@@ -45,6 +45,13 @@ export const structure = [
     ),
     seoDescription:
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
+    categoryOrder: [
+      'Getting started',
+      'Philosophy',
+      'Our brand',
+      'Color',
+      'Layout',
+    ],
     pages: foundation
       .sortByCardOrder()
       .sortByCategory({ Assets: 1, Philosophy: 0 })

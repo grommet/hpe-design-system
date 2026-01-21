@@ -27,6 +27,7 @@ export interface PageDetails {
   relatedContent?: string[];
   tags?: string[];
   cardOrder?: number;
+  categoryOrder?: string[];
 }
 
 export declare const structure: PageDetails[];
