@@ -1,7 +1,8 @@
-// import {
-//   addons,
-//   // useGlobals
-// } from 'storybook/manager-api';
+import {
+  addons,
+  // useGlobals
+} from 'storybook/manager-api';
+import { lightTheme } from './yourTheme';
 // import { createStorybookTheme } from './yourTheme';
 
 // // const MyAddonPanel = () => {
@@ -36,3 +37,34 @@
 
 //   return null; // This component might just run side effects
 // };
+
+// addons.setConfig({
+//   // navSize: 300,
+//   // bottomPanelHeight: 300,
+//   // rightPanelWidth: 300,
+//   // panelPosition: 'bottom',
+//   // enableShortcuts: true,
+//   // showToolbar: true,
+//   theme: lightTheme,
+//   // selectedPanel: undefined,
+//   // initialActive: 'sidebar',
+//   // layoutCustomisations: {
+//   //   showSidebar(state: State, defaultValue: boolean) {
+//   //     return state.storyId === 'landing' ? false : defaultValue;
+//   //   },
+//   //   showToolbar(state: State, defaultValue: boolean) {
+//   //     return state.viewMode === 'docs' ? false : defaultValue;
+//   //   },
+//   // },
+//   // sidebar: {
+//   //   showRoots: false,
+//   //   collapsedRoots: ['other'],
+//   // },
+//   // toolbar: {
+//   //   title: { hidden: false },
+//   //   zoom: { hidden: false },
+//   //   eject: { hidden: false },
+//   //   copy: { hidden: false },
+//   //   fullscreen: { hidden: false },
+//   // },
+// });

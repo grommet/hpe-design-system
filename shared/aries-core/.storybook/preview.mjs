@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { hpe } from 'grommet-theme-hpe';
 import { Grommet, Box } from 'grommet';
 import { themes } from '@storybook/theming';
 // import { withThemeByClassName } from '@storybook/addon-themes';
-import { lightTheme, darkTheme, lightStorybookTheme, darkStorybookTheme } from './yourTheme';
+import {
+  lightTheme,
+  darkTheme,
+  lightStorybookTheme,
+  darkStorybookTheme,
+} from './yourTheme';
 import { global, light, dark, components } from 'hpe-design-tokens/grommet';
 import { useIsDarkMode } from './darkModeHooks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { withThemeFromGlobals } from '@storybook/addon-themes';
+import { useGlobals } from '@storybook/preview-api';
 
 export default {
   decorators: [
@@ -30,21 +36,35 @@ export default {
     //   // storageKey: 'storybook-theme-storage-key', // Optional: Persist selection
     // }),
     (Story, context) => {
-      let mode = 'light';
-      const isDarkMode = useIsDarkMode();
-      console.log('here', isDarkMode);
-      console.log('context.globals ', context.globals);
-      // console.log(context.globals);
-      if (context.globals?.backgrounds?.value === 'dark') mode = 'dark';
-      // console.log('mode ', mode);
+      // let mode = 'light';
+      // const isDarkMode = useIsDarkMode();
+      // console.log('here', isDarkMode);
+      // console.log('context.globals ', context.globals);
+      // // console.log(context.globals);
+      // if (context.globals?.backgrounds?.value === 'dark') mode = 'dark';
+      // // console.log('mode ', mode);
+      const isDark = useIsDarkMode();
+      const [globals, updateGlobals] = useGlobals();
+
+      useEffect(() => {
+        updateGlobals({
+          backgrounds: isDark
+            ? { value: dark.hpe.color.background.front }
+            : { value: light.hpe.color.background.front },
+        });
+      }, [isDark, updateGlobals]);
+
+      const mode = isDark ? 'dark' : 'light';
+
       return (
         <Grommet
           theme={hpe}
           themeMode={mode}
+          full
           background={
-            mode === 'light'
-              ? light.hpe.color.background.front
-              : dark.hpe.color.background.front
+            isDark
+              ? dark.hpe.color.background.front
+              : light.hpe.color.background.front
           }
         >
           <Story />
@@ -53,6 +73,7 @@ export default {
     },
   ],
   parameters: {
+    layout: 'fullscreen',
     toolbar: {
       title: { hidden: true },
       zoom: { hidden: true },
@@ -66,13 +87,13 @@ export default {
     },
     measure: { disable: true },
     outline: { disable: true },
-    backgrounds: {
-      options: {
-        light: { name: 'light', value: light.hpe.color.background.front },
-        dark: { name: 'dark', value: dark.hpe.color.background.front },
-      },
-      initialValue: 'light',
-    },
+    // backgrounds: {
+    //   options: {
+    //     light: { name: 'light', value: light.hpe.color.background.front },
+    //     dark: { name: 'dark', value: dark.hpe.color.background.front },
+    //   },
+    //   initialValue: 'light',
+    // },
     actions: {
       disable: true,
     },
@@ -92,14 +113,30 @@ export default {
     //   ],
     // },
     darkMode: {
-      // stylePreview: true,
+      stylePreview: true,
       // classTarget: 'html',
       dark: {
         ...themes.dark,
         base: 'dark',
         brandTitle: 'HPE Design System Storybook',
         brandUrl: 'https://design-system.hpe.design',
-        appBg: '#1A1A2E',
+        brandTarget: '_self',
+        appBg: dark.hpe.color.background.default,
+        appContentBg: dark.hpe.color.background.default,
+        appHoverBg: dark.hpe.color.background.active,
+        fontBase: global.hpe.fontStack.primary,
+        colorSecondary: dark.hpe.color.background['primary-strong'],
+        textColor: dark.hpe.color.text.default,
+        textMutedColor: dark.hpe.color.text.weak,
+        barTextColor: dark.hpe.color.text.default,
+        barSelectedColor: dark.hpe.color.text.primary,
+        barHoverColor: dark.hpe.color.text['primary-hover'],
+        booleanBg: dark.hpe.color.background.default,
+        booleanSelectedBg: dark.hpe.color.background.active,
+        inputTextColor: dark.hpe.color.text.default,
+        inputBorder: dark.hpe.color.border.default,
+        inputBorderRadius:
+          components.hpe.formField.default.medium.input.container.borderRadius,
       },
       light: {
         ...themes.normal,

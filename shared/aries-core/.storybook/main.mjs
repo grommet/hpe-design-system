@@ -21,7 +21,10 @@ const config = {
     getAbsolutePath('@storybook/addon-themes'),
     '@vueless/storybook-dark-mode',
   ],
-  features: { interactions: false },
+  features: {
+    interactions: false,
+    backgrounds: false,
+  },
   framework: {
     name: getAbsolutePath('@storybook/react-webpack5'),
     options: {
