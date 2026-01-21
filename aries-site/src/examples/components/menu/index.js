@@ -1,4 +1,3 @@
-export * from './MenuAnatomy';
 export * from './MenuBatchActionsExample';
 export * from './MenuDangerousExample';
 export * from './MenuDisabledExample';
