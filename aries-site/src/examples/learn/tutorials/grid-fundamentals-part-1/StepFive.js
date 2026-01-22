@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 // App.js
 import React from 'react';
-import { Grommet, Heading, ThemeContext, Grid, Box } from 'grommet';
+import { Grommet, Text, ThemeContext, Grid, Box } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
 import productList from './product-list.json';
@@ -13,9 +13,16 @@ const ProductsPage = () => {
 
   return (
     <>
-      <Heading level={1} margin={{ bottom: 'small', top: 'none' }}>
+      {/* Using Text instead of Heading to avoid multiple h1s on
+          the tutorial page. In the CodeSandbox example, 
+          users will use <Heading level={1}>Products</Heading> */}
+      <Text
+        weight={500}
+        size="xxlarge"
+        margin={{ bottom: 'small', top: 'none' }}
+      >
         Products
-      </Heading>
+      </Text>
       <Grid columns={minColumnWidth} gap="xsmall">
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
