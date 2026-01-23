@@ -47,6 +47,7 @@ const connections = [
     thickness,
     fromTarget: '3',
     toTarget: 'menu-item-target',
+    toTarget: 'menu-item-target',
   },
   {
     anchor: 'vertical',
