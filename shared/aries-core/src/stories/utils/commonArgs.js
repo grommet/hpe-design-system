@@ -1,19 +1,12 @@
-export const backgroundColors = [
-  'background',
-  'background-active',
-  'background-back',
-  'background-critical',
-  'background-contrast',
-  'background-default',
-  'background-front',
-  'background-info',
-  'background-neutral-xstrong',
-  'background-ok',
-  'background-primary-strong',
-  'background-primary-xstrong',
-  'background-unknown',
-  'background-warning',
-];
+import { colors, hpe } from 'grommet-theme-hpe';
+
+export const backgroundColors = Object.keys(colors)
+  .filter(key => key.split('-')[0] === 'background')
+  .sort();
+
+export const borderSizes = Object.keys(hpe.global.borderSize);
+
+export const spacingSizes = Object.keys(hpe.global.edgeSize);
 
 export const tShirtSizes = [
   'xsmall',
@@ -23,45 +16,6 @@ export const tShirtSizes = [
   'xlarge',
 ];
 
-export const spacingSizes = [
-  'hair',
-  '5xsmall',
-  '4xsmall',
-  '3xsmall',
-  'xxsmall',
-  'xsmall',
-  'small',
-  'medium',
-  'large',
-  'xlarge',
-  'xxlarge',
-  '3xlarge',
-];
+export const radiusSizes = Object.keys(hpe.global.radius);
 
-export const radiusSizes = [
-  'none',
-  'hair',
-  'xxsmall',
-  'xsmall',
-  'small',
-  'medium',
-  'large',
-  'xlarge',
-  'xxlarge',
-];
-
-export const borderSizes = ['none', 'xsmall', 'small', 'medium', 'large'];
-
-export const containerSizes = [
-  '5xsmall',
-  '4xsmall',
-  '3xsmall',
-  'xxsmall',
-  'xsmall',
-  'small',
-  'medium',
-  'large',
-  'xlarge',
-  'xxlarge',
-  '3xlarge',
-];
+export const containerSizes = Object.keys(hpe.global.size);
