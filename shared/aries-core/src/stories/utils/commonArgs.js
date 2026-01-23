@@ -16,7 +16,6 @@ export const backgroundColors = [
 ];
 
 export const tShirtSizes = [
-  'undefined',
   'xsmall',
   'small',
   'medium',
