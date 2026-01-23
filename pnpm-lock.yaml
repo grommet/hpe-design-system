@@ -636,6 +636,9 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.5)
+      '@vueless/storybook-dark-mode':
+        specifier: ^10.0.6
+        version: 10.0.6(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       babel-loader:
         specifier: ^8.2.5
         version: 8.4.1(@babel/core@7.28.5)(webpack@5.102.1)
@@ -3778,6 +3781,12 @@ packages:
   '@vue/shared@3.5.24':
     resolution: {integrity: sha512-9cwHL2EsJBdi8NY22pngYYWzkTDhld6fAD6jlaeloNGciNSJL6bLpbxVgXl96X00Jtc6YWQv96YA/0sxex/k1A==}
 
+  '@vueless/storybook-dark-mode@10.0.6':
+    resolution: {integrity: sha512-n8Lfk1x25Gc7Q4Ip46S+GV3kgKo4i7K0dVxB6MwvINWc3BWRqcxj+n8rDRxnb6BsyriPRNi5m6QKOGukyLisiA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      storybook: ^10.0.0
+
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
 
@@ -6756,6 +6765,9 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
+
+  lodash-es@4.17.23:
+    resolution: {integrity: sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==}
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -13215,6 +13227,12 @@ snapshots:
 
   '@vue/shared@3.5.24': {}
 
+  '@vueless/storybook-dark-mode@10.0.6(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      lodash-es: 4.17.23
+      storybook: 10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+
   '@webassemblyjs/ast@1.14.1':
     dependencies:
       '@webassemblyjs/helper-numbers': 1.13.2
@@ -16876,6 +16894,8 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
+
+  lodash-es@4.17.23: {}
 
   lodash.debounce@4.0.8: {}
 
