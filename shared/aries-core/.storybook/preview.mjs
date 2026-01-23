@@ -5,7 +5,7 @@ import { useIsDarkMode } from './darkModeHooks';
 
 export default {
   decorators: [
-    (Story, context) => {
+    Story => {
       const isDark = useIsDarkMode();
 
       const mode = isDark ? 'dark' : 'light';
