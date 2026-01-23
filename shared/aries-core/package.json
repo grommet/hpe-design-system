@@ -15,7 +15,7 @@
     "release-stable": "babel-node ./tools/release-stable",
     "storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && storybook dev -p 6006",
     "build-storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && pnpm build-site-search && storybook build",
-    "chromatic": "pnpm build-design-tokens && pnpm build-shared-hooks && chromatic --exit-zero-on-changes"
+    "chromatic": "pnpm build-storybook && chromatic --exit-zero-on-changes"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
