@@ -14,7 +14,8 @@
     "test": "jest",
     "release-stable": "babel-node ./tools/release-stable",
     "storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && storybook dev -p 6006",
-    "build-storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && pnpm build-site-search && storybook build"
+    "build-storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && pnpm build-site-search && storybook build",
+    "chromatic": "pnpm build-design-tokens && pnpm build-shared-hooks && chromatic --project-token=chpt_465954b6a5707dd --exit-zero-on-changes"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
@@ -39,6 +40,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "babel-loader": "^8.2.5",
+    "chromatic": "^13.3.5",
     "del": "^6.1.1",
     "dotenv": "^8.2.0",
     "eslint": "catalog:",
