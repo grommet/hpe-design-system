@@ -64,7 +64,7 @@ const connections = [
     color,
     thickness,
     fromTarget: '3',
-    toTarget: 'menu-item',
+    toTarget: 'menu-item-target',
   },
   {
     anchor: 'vertical',
@@ -88,7 +88,7 @@ const connections = [
     color,
     thickness,
     fromTarget: '4',
-    toTarget: 'divider',
+    toTarget: 'divider-target',
   },
 ];
 
@@ -96,7 +96,7 @@ const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['xsmall', '48px']}
     // eslint-disable-next-line max-len
-    rows={['auto', '36px', '36px', '42px', '36px', '50px', '56px', '36px' ]}
+    rows={['auto', '36px', '46px', '36px', '49px', '40px', '56px', '36px' ]}
     areas={[
       ['annotations-top', 'annotations-top'],
       ['menu-area', 'annotation-1'],
@@ -139,9 +139,17 @@ const MenuItemTrailingIcon = ({ id, pad, label, icon }) => (
     gap="xsmall"
     align="center"
     justify="between"
+    style={{ position: 'relative' }}
   >
     <MenuText id="item-label">{label}</MenuText>
     {icon}
+    {/* Invisible anchor to nudge the diagram endpoint */}
+    <Box
+      id="menu-item-target"
+      width="1px"
+      height="1px"
+      style={{ position: 'absolute', bottom: '4px', right: '20px' }}
+    />
   </Box>
 );
 
@@ -194,7 +202,7 @@ export const MenuAnatomy = () => {
     menuTheme?.group?.separator?.size || 'hair';
   const topAnnotations = [
     { id: '1a', margin: { left: '28px' } },
-    { id: '1b', margin: { left: '8px' } },
+    { id: '1b', margin: { left: '2px' } },
   ];
   const sideAnnotations = [
     { id: '1', gridArea: 'annotation-1', alignSelf: 'center' },
@@ -202,7 +210,10 @@ export const MenuAnatomy = () => {
     { id: '4', gridArea: 'annotation-4', alignSelf: 'center' },
     { id: '3', gridArea: 'annotation-3', alignSelf: 'top' },
   ];
-  const bottomAnnotations = [{ id: '3a' }, { id: '3b' }];
+  const bottomAnnotations = [
+    { id: '3a', margin: { left: '36px' } },
+    { id: '3b', margin: { left: '22px' } },
+  ];
 
   return (
     <Stack margin={{ bottom: 'medium' }} interactiveChild="last">
@@ -237,10 +248,10 @@ export const MenuAnatomy = () => {
           direction="row" 
           gap="small" 
           justify="start"
-          pad={{ top: 'small' }}
+          pad={{ top: 'xsmall' }}
         >
-          {bottomAnnotations.map(({ id }) => (
-            <Annotation key={id} id={id} target={id} />
+          {bottomAnnotations.map(({ id, margin }) => (
+            <Annotation key={id} id={id} target={id} margin={margin} />
           ))}
         </Box>
 
@@ -248,7 +259,7 @@ export const MenuAnatomy = () => {
         <Box gridArea="empty-1" />
         <Box gridArea="empty-2" />
 
-        {/* Menu anatomy mock (inline to avoid scroll-position drift) */}
+        {/* Menu anatomy mockup */}
         <Box
           gridArea="menu-area"
           align="start"
@@ -287,7 +298,15 @@ export const MenuAnatomy = () => {
               background={separatorColor}
               height={separatorSize}
               margin={{ vertical: 'xsmall' }}
-            />
+              style={{ position: 'relative' }}
+            >
+              <Box
+                id="divider-target"
+                width="1px"
+                height="1px"
+                style={{ position: 'absolute', top: '9px', left: '150px' }}
+              />
+            </Box>
             <Box gap={groupGap}>
               <MenuItem pad={itemPad}>Action</MenuItem>
               <MenuItemWithLeadingIcon
