@@ -211,8 +211,8 @@ export const MenuAnatomy = () => {
     { id: '3', gridArea: 'annotation-3', alignSelf: 'top' },
   ];
   const bottomAnnotations = [
-    { id: '3a', margin: { left: '36px' } },
-    { id: '3b', margin: { left: '22px' } },
+    { id: '3a', margin: { left: '38px' } },
+    { id: '3b', margin: { left: '20px' } },
   ];
 
   return (
