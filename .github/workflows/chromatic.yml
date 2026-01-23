@@ -40,7 +40,12 @@ jobs:
       - name: Create aries-core build
         run: pnpm --filter "@shared/aries-core" build
 
+      # Run Chromatic using the official action for better GitHub integration
       - name: Run Chromatic
-        run: pnpm --filter "@shared/aries-core" chromatic
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: shared/aries-core
+          buildScriptName: build-storybook
+          exitZeroOnChanges: true
+          autoAcceptChanges: master
