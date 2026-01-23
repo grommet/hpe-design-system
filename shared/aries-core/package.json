@@ -38,6 +38,7 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@vueless/storybook-dark-mode": "^10.0.6",
     "babel-loader": "^8.2.5",
     "del": "^6.1.1",
     "dotenv": "^8.2.0",
