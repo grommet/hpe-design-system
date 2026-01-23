@@ -19,12 +19,6 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    backgrounds: {
-      values: [
-        { name: 'light', value: hpe.global.colors.background.light },
-        { name: 'dark', value: hpe.global.colors.background.dark },
-      ],
-    },
     actions: {
       disable: true,
     },
