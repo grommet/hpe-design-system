@@ -1,20 +1,10 @@
 // App.js
-import { Grommet, Box, Text, Grid } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
+import { Box, Text, Heading, Grid } from 'grommet';
 
 const ProductsPage = () => {
   return (
     <>
-      {/* Using Text instead of Heading to avoid multiple h1s on
-          the tutorial page. In the CodeSandbox example, 
-          users will use <Heading level={1}>Products</Heading> */}
-      <Text
-        weight={500}
-        size="xxlarge"
-        margin={{ bottom: 'small', top: 'none' }}
-      >
-        Products
-      </Text>
+      <Heading level={1}>Products</Heading>
       <Grid columns={{ count: 3, size: 'auto' }}>
         {/* TODO: Using opacity weak is a temporary solution until 
         we have a wider range of colors in the theme. */}
@@ -73,15 +63,8 @@ const ProductsPage = () => {
 
 export const App = () => {
   return (
-    <Grommet theme={hpe}>
-      <Box
-        pad="small"
-        round="small"
-        background={{ color: 'background-back' }}
-        border={{ color: 'border-weak' }}
-      >
+  
         <ProductsPage />
-      </Box>
-    </Grommet>
+
   );
 };

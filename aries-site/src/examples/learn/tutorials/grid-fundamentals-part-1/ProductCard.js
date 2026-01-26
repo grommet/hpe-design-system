@@ -23,7 +23,10 @@ export const ProductCard = ({ level, product, ...rest }) => {
     <Card as="section" level={level} {...rest}>
       <CardHeader pad={{ horizontal: 'medium', top: 'medium' }}>
         <Box />
-        <Button icon={<Favorite />} a11yTitle="Add to favorites" />
+        <Button
+          icon={<Favorite aria-hidden="true" />}
+          a11yTitle="Add to favorites"
+        />
       </CardHeader>
       <CardBody justify="between" gap="small">
         <Box gap="medium">

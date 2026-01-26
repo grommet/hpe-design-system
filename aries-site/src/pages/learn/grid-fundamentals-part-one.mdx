@@ -1,4 +1,5 @@
 import { Anchor, Box, Image, Notification, Paragraph } from 'grommet';
+import { Example } from '../../layouts';
 import {
   GridStepOne,
   StepTwo,
@@ -101,8 +102,14 @@ it to `{ count: 3, size: 'auto' }`.
 ```
 
 Now the boxes are displayed in a grid with three columns.
-
-<GridStepOne />
+<Example 
+height="auto" 
+width="100%" 
+pad="medium"  
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <GridStepOne />
+</Example>
 
 ## Add product content
 
@@ -188,7 +195,14 @@ Then, replace the placeholder content with the following:
 
 Now the products are displayed in the grid with three columns.
 
-<StepTwo />
+<Example 
+height="auto" 
+width="100%" 
+pad="medium"  
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <StepTwo />
+</Example>
 
 ## Responsive columns
 
@@ -222,7 +236,14 @@ being a minimum width of the t-shirt size 'medium'.
 Notice how the number of columns changes as the browser window is resized. The Grid is now
 responsive.
 
-<StepThree />
+<Example 
+height="auto" 
+width="100%" 
+pad="medium"  
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <StepThree />
+</Example>
 
 ## Polishing the layout
 
@@ -235,7 +256,14 @@ between the products by adding `gap="xsmall"` to the Grid.
 </Grid>
 ```
 
-<StepFour />
+<Example 
+height="auto" 
+width="100%" 
+pad="medium"  
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <StepFour />
+</Example>
 
 <br />
 
@@ -273,7 +301,14 @@ const ProductsPage = () => {
 Congratulations! You have completed the tutorial and have a great start on a very
 respectable product catalog.
 
-<StepFive />
+<Example 
+height="auto" 
+width="100%" 
+pad="medium"  
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <StepFive />
+</Example>
 
 ## Summary
 
