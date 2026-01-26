@@ -68,7 +68,7 @@ Icons respect Grommet's theming system. All icons respect semantic icon colors p
 
 Any 24x24px SVG may be converted to an icon using the `<Blank>` icon. For example:
 
-If an icon is decorative and does not need to be read out by assisstive technologies, use `<Blank />` with default properties. If the icon should be read out by assisstive technologies, apply `aria-hidden={undefined}` and an appropriate `a11yTitle` to `<Blank />`.
+If an icon is decorative and does not need to be read out by assistive technologies, use `<Blank />` with default properties. If the icon should be read out by assistive technologies, apply `aria-hidden={undefined}` and an appropriate `a11yTitle` to `<Blank />`.
 
 ```javascript
 import React from 'react';
