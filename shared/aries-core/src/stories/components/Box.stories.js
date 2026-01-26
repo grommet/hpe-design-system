@@ -47,6 +47,9 @@ const meta = {
       control: { type: 'select' },
       options: radiusSizes,
     },
+    skeleton: {
+      control: { type: 'boolean' },
+    },
     width: {
       control: { type: 'select' },
       options: containerSizes,
