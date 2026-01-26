@@ -7,14 +7,13 @@
   "scripts": {
     "build-design-tokens": "pnpm --filter hpe-design-tokens build",
     "build-shared-hooks": "pnpm --filter '@shared/hooks' build",
-    "build-site-search": "pnpm --filter aries-site build-search",
     "build": "webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
     "test": "jest",
     "release-stable": "babel-node ./tools/release-stable",
     "storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && storybook dev -p 6006",
-    "build-storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && pnpm build-site-search && storybook build",
+    "build-storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && storybook build",
     "chromatic": "pnpm build-storybook && chromatic --exit-zero-on-changes"
   },
   "devDependencies": {
