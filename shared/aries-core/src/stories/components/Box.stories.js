@@ -12,24 +12,16 @@ const meta = {
   title: 'Components/Box',
   component: Box,
   argTypes: {
-    direction: {
-      control: { type: 'select' },
-      options: ['row', 'column', 'row-responsive'],
-    },
-    gap: {
-      control: { type: 'select' },
-      options: spacingSizes,
-    },
-    pad: {
-      control: { type: 'select' },
-      options: spacingSizes,
-    },
     background: {
       control: { type: 'select' },
       options: backgroundColors,
     },
     border: {
       control: { type: 'boolean' },
+    },
+    direction: {
+      control: { type: 'select' },
+      options: ['row', 'column', 'row-responsive'],
     },
     elevation: {
       control: { type: 'select' },
@@ -39,9 +31,17 @@ const meta = {
       control: { type: 'select' },
       options: [true, false, 'horizontal', 'vertical'],
     },
+    gap: {
+      control: { type: 'select' },
+      options: spacingSizes,
+    },
     height: {
       control: { type: 'select' },
       options: containerSizes,
+    },
+    pad: {
+      control: { type: 'select' },
+      options: spacingSizes,
     },
     round: {
       control: { type: 'select' },
