@@ -11,21 +11,17 @@ const ProductsPage = () => {
   const minColumnWidth = midSize('small', 'medium', themeContext);
 
   return (
-    <>
+    <section>
       <Heading level={1}>Products</Heading>
       <Grid columns={minColumnWidth} gap="xsmall">
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}
       </Grid>
-    </>
+    </section>
   );
 };
 
 export const App = () => {
-  return (
-
-        <ProductsPage />
-
-  );
+  return <ProductsPage />;
 };

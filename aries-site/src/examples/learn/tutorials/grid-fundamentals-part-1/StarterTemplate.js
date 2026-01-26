@@ -7,9 +7,5 @@ const ProductsPage = () => {
 };
 
 export const App = () => {
-  return (
-
-        <ProductsPage />
-  
-  );
+  return <ProductsPage />;
 };

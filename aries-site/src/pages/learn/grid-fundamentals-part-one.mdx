@@ -64,8 +64,6 @@ Now that you have the Grid in place, let's add some placeholder content. Replace
 
 ```js
 <Grid>
-  {/* TODO: Using opacity weak is a temporary solution until 
-  we have a wider range of colors in the theme. */}
   <Box background={{color: "decorative-blue", opacity: 'weak'}} border pad="medium" align="center">
     <Text size="large">Product 1</Text>
   </Box>
@@ -103,11 +101,8 @@ it to `{ count: 3, size: 'auto' }`.
 
 Now the boxes are displayed in a grid with three columns.
 <Example 
-height="auto" 
-width="100%" 
-pad="medium"  
 showResponsiveControls={['laptop', 'mobile']}
-overflow="auto"
+pad="small"
 >
   <GridStepOne />
 </Example>
@@ -197,11 +192,8 @@ Then, replace the placeholder content with the following:
 Now the products are displayed in the grid with three columns.
 
 <Example 
-height="auto" 
-width="100%" 
-pad="medium"  
 showResponsiveControls={['laptop', 'mobile']}
-overflow="auto"
+pad="small"
 >
   <StepTwo />
 </Example>
@@ -239,11 +231,8 @@ Notice how the number of columns changes as the browser window is resized. The G
 responsive.
 
 <Example 
-height="auto" 
-width="100%" 
-pad="medium"  
+pad="small"
 showResponsiveControls={['laptop', 'mobile']}
-overflow="auto"
 >
   <StepThree />
 </Example>
@@ -260,11 +249,8 @@ between the products by adding `gap="xsmall"` to the Grid.
 ```
 
 <Example 
-height="auto" 
-width="100%" 
-pad="medium"  
+pad="small"
 showResponsiveControls={['laptop', 'mobile']}
-overflow="auto"
 >
   <StepFour />
 </Example>
@@ -306,11 +292,8 @@ Congratulations! You have completed the tutorial and have a great start on a ver
 respectable product catalog.
 
 <Example 
-height="auto" 
-width="100%" 
-pad="medium"  
+pad="small"
 showResponsiveControls={['laptop', 'mobile']}
-overflow="auto"
 >
   <StepFive />
 </Example>
