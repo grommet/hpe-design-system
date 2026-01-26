@@ -1,29 +1,11 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  Grid,
-  Diagram,
-  Stack,
-  ThemeContext,
-  Text,
-} from 'grommet';
-import { Add, Down } from '@hpe-design/icons-grommet';
+import { Box, Button, Grid, Diagram, Stack, ThemeContext } from 'grommet';
+import { Add } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
 const thickness = 'hair';
 const type = 'direct';
-const menuTextStyle = {
-  fontSize: '16px',
-  lineHeight: '1.5rem',
-  fontWeight: 500,
-};
-const nonInteractiveStyle = {
-  pointerEvents: 'none',
-  userSelect: 'none',
-};
 
 const connections = [
   {
@@ -94,231 +76,116 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xsmall', '48px']}
-    // eslint-disable-next-line max-len
-    rows={['auto', '36px', '46px', '36px', '49px', '40px', '56px', '36px' ]}
-    areas={[
-      ['annotations-top', 'annotations-top'],
-      ['menu-area', 'annotation-1'],
-      ['menu-area', 'annotation-2'],
-      ['menu-area', 'empty-1'],
-      ['menu-area', 'annotation-4'],
-      ['menu-area', 'empty-2'],
-      ['menu-area', 'annotation-3'],
-      ['annotations-bottom', 'annotations-bottom'],
+    columns={['max-content', 'max-content', '5xsmall']}
+    rows={[
+      '5xsmall',
+      'flex',
+      'flex',
+      'flex',
+      'flex',
+      'flex',
+      'flex',
+      'flex',
+      'flex',
+      'flex',
+      '5xsmall',
     ]}
-    gap="xsmall"
+    areas={[
+      ['annotation-1a', 'annotation-1b', 'empty-0'],
+      ['menu-area', 'menu-area', 'annotation-1'],
+      ['menu-area', 'menu-area', 'empty-1'],
+      ['menu-area', 'menu-area', 'annotation-2'],
+      ['menu-area', 'menu-area', 'empty-2'],
+      ['menu-area', 'menu-area', 'empty-3'],
+      ['menu-area', 'menu-area', 'annotation-4'],
+      ['menu-area', 'menu-area', 'empty-4'],
+      ['menu-area', 'menu-area', 'empty-5'],
+      ['menu-area', 'menu-area', 'annotation-3'],
+      ['annotation-3a', 'annotation-3b', 'empty-6'],
+    ]}
+    align="center"
+    justify="center"
     {...rest}
   />
 );
 
-const MenuText = ({ children, ...rest }) => (
-  <Text style={menuTextStyle} {...rest}>
-    {children}
-  </Text>
-);
+const MenuItem = ({ ...rest }) => {
+  const theme = useContext(ThemeContext);
 
-const MenuItem = ({ id, pad, children }) => (
-  <Box id={id} pad={pad}>
-    <MenuText>{children}</MenuText>
-  </Box>
-);
-
-const MenuItemWithLeadingIcon = ({ pad, icon, label }) => (
-  <Box pad={pad} direction="row" gap="xsmall" align="center">
-    {icon}
-    <MenuText>{label}</MenuText>
-  </Box>
-);
-
-const MenuItemTrailingIcon = ({ id, pad, label, icon }) => (
-  <Box
-    id={id}
-    pad={pad}
-    direction="row"
-    gap="xsmall"
-    align="center"
-    justify="between"
-    style={{ position: 'relative' }}
-  >
-    <MenuText id="item-label">{label}</MenuText>
-    {icon}
-    {/* Invisible anchor to nudge the diagram endpoint */}
-    <Box
-      id="menu-item-target"
-      width="1px"
-      height="1px"
-      style={{ position: 'absolute', bottom: '4px', right: '20px' }}
+  return (
+    <Button
+      kind="option"
+      align="start"
+      tabIndex={-1}
+      {...theme.menu.item}
+      {...rest}
     />
-  </Box>
-);
-
-MenuText.propTypes = {
-  children: PropTypes.node,
-};
-
-MenuItem.propTypes = {
-  id: PropTypes.string,
-  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  children: PropTypes.node,
-};
-
-MenuItemWithLeadingIcon.propTypes = {
-  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  icon: PropTypes.node,
-  label: PropTypes.string.isRequired,
-};
-
-MenuItemTrailingIcon.propTypes = {
-  id: PropTypes.string,
-  pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  label: PropTypes.string.isRequired,
-  icon: PropTypes.node,
+  );
 };
 
 export const MenuAnatomy = () => {
   const theme = useContext(ThemeContext);
   const menuTheme = theme?.menu || {};
-  const dropTheme = theme?.drop || {};
-  const dropBackground =
-    menuTheme?.drop?.background || dropTheme?.background || 'background-front';
-  const dropRound =
-    dropTheme?.border?.radius || menuTheme?.container?.round || 'xsmall';
-  const dropElevation = dropTheme?.shadowSize || 'medium';
-  const dropMargin = dropTheme?.margin || { top: 'xsmall' };
-  const groupPad =
-    menuTheme?.group?.container?.pad ||
-    menuTheme?.container?.pad ||
-    { horizontal: 'medium', vertical: 'xsmall' };
-  const groupGap =
-    menuTheme?.group?.container?.gap || menuTheme?.container?.gap || 'none';
-  const itemPad = menuTheme?.item?.pad || {
-    horizontal: 'medium',
-    vertical: 'xsmall',
-  };
-  const separatorColor =
-    menuTheme?.group?.separator?.color || 'border-weak';
-  const separatorSize =
-    menuTheme?.group?.separator?.size || 'hair';
-  const topAnnotations = [
-    { id: '1a', margin: { left: '28px' } },
-    { id: '1b', margin: { left: '2px' } },
-  ];
-  const sideAnnotations = [
-    { id: '1', gridArea: 'annotation-1', alignSelf: 'center' },
-    { id: '2', gridArea: 'annotation-2', alignSelf: 'center' },
-    { id: '4', gridArea: 'annotation-4', alignSelf: 'center' },
-    { id: '3', gridArea: 'annotation-3', alignSelf: 'top' },
-  ];
-  const bottomAnnotations = [
-    { id: '3a', margin: { left: '38px' } },
-    { id: '3b', margin: { left: '20px' } },
+  const dropTheme = theme?.global.drop || {};
+
+  const annotations = [
+    { id: '1', gridArea: 'annotation-1', target: '1' },
+    { id: '1a', gridArea: 'annotation-1a', target: '1a' },
+    { id: '1b', gridArea: 'annotation-1b', target: '1b' },
+    { id: '2', gridArea: 'annotation-2', target: '2' },
+    { id: '3', gridArea: 'annotation-3', target: '3' },
+    { id: '3a', gridArea: 'annotation-3a', target: '3a' },
+    { id: '3b', gridArea: 'annotation-3b', target: '3b' },
+    { id: '4', gridArea: 'annotation-4', target: '4' },
   ];
 
   return (
     <Stack margin={{ bottom: 'medium' }} interactiveChild="last">
       <AnatomyGrid>
-        {/* Annotations on top */}
-        <Box 
-          gridArea="annotations-top" 
-          direction="row" 
-          gap="small" 
-          justify="start"
-          pad={{ bottom: 'small' }}
-        >
-          {topAnnotations.map(({ id, margin }) => (
-            <Annotation key={id} id={id} target={id} margin={margin} />
-          ))}
-        </Box>
-
-        {/* Annotations on right side */}
-        {sideAnnotations.map(({ id, gridArea, alignSelf }) => (
+        {annotations.map(({ id, gridArea, target, rest }) => (
           <Annotation
             key={id}
             id={id}
-            target={id}
+            target={target}
             gridArea={gridArea}
-            alignSelf={alignSelf}
+            {...rest}
           />
         ))}
 
-        {/* Annotations below */}
-        <Box 
-          gridArea="annotations-bottom" 
-          direction="row" 
-          gap="small" 
-          justify="start"
-          pad={{ top: 'xsmall' }}
-        >
-          {bottomAnnotations.map(({ id, margin }) => (
-            <Annotation key={id} id={id} target={id} margin={margin} />
-          ))}
-        </Box>
-
-        {/* Empty boxes for grid spacing */}
-        <Box gridArea="empty-1" />
-        <Box gridArea="empty-2" />
-
         {/* Menu anatomy mockup */}
-        <Box
-          gridArea="menu-area"
-          align="start"
-          justify="start"
-          style={nonInteractiveStyle}
-          onClick={(e) => e.preventDefault()}
-        >
+        <Box gridArea="menu-area" align="start">
           <Button
             id="menu-button"
-            label={
-              <MenuText id="menu-label">Menu</MenuText>
-            }
-            icon={<Down id="menu-icon" />}
+            label={<Box id="menu-label">Menu</Box>}
+            icon={<Box id="menu-icon">{menuTheme.icons?.down.render()}</Box>}
             reverse
-            gap="xsmall"
+            tabIndex={-1}
           />
           <Box
             id="drop-container"
-            background={dropBackground}
-            elevation={dropElevation}
-            round={dropRound}
-            margin={dropMargin}
-            pad={groupPad}
-            gap={groupGap}
-            width="160px"
+            {...dropTheme}
+            border={undefined}
+            elevation={dropTheme.shadowSize}
+            round={dropTheme.border.radius}
           >
-            <Box gap={groupGap}>
-              <MenuItem id="first-item" pad={itemPad}>
-                Action
-              </MenuItem>
-              <MenuItem pad={itemPad}>Action</MenuItem>
-              <MenuItem pad={itemPad}>Action</MenuItem>
+            <Box {...menuTheme.container} {...menuTheme.group.container}>
+              <MenuItem id="first-item" label="Action" />
+              <MenuItem label="Action" />
+              <MenuItem label="Action" />
             </Box>
             <Box
-              id="divider"
-              background={separatorColor}
-              height={separatorSize}
-              margin={{ vertical: 'xsmall' }}
-              style={{ position: 'relative' }}
-            >
-              <Box
-                id="divider-target"
-                width="1px"
-                height="1px"
-                style={{ position: 'absolute', top: '9px', left: '150px' }}
-              />
-            </Box>
-            <Box gap={groupGap}>
-              <MenuItem pad={itemPad}>Action</MenuItem>
-              <MenuItemWithLeadingIcon
-                pad={itemPad}
-                icon={<Add />}
-                label="Action"
-              />
-              <MenuItemTrailingIcon
-                id="menu-item"
-                pad={itemPad}
-                label="Action"
+              id="divider-target"
+              {...menuTheme.group.separator}
+              border={{ ...menuTheme.group.separator, side: 'top' }}
+            />
+            <Box {...menuTheme.container} {...menuTheme.group.container}>
+              <MenuItem label="Action" />
+              <MenuItem icon={<Add />} label="Action" />
+              <MenuItem
+                id="menu-item-target"
+                label={<Box id="item-label">Action</Box>}
                 icon={<Add id="item-icon" />}
+                reverse
               />
             </Box>
           </Box>
