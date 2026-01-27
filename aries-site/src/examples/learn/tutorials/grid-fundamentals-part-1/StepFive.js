@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
-// App.js
 import React from 'react';
-import { ThemeContext, Grid, Heading } from 'grommet';
+import { ThemeContext, Grid, Heading, Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
 import productList from './product-list.json';
 import { midSize } from './utils';
@@ -11,17 +10,21 @@ const ProductsPage = () => {
   const minColumnWidth = midSize('small', 'medium', themeContext);
 
   return (
-    <section>
+    <>
       <Heading level={1}>Products</Heading>
       <Grid columns={minColumnWidth} gap="xsmall">
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}
       </Grid>
-    </section>
+    </>
   );
 };
 
 export const App = () => {
-  return <ProductsPage />;
+  return (
+    <Grommet theme={hpe}>
+      <ProductsPage />
+    </Grommet>
+  );
 };

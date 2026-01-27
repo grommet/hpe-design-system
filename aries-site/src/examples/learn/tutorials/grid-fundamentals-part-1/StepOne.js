@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-// App.js
-import { Box, Text, Heading, Grid } from 'grommet';
+import { Box, Text, Heading, Grid, Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 
 const PRODUCTS = Array.from({ length: 7 }, (_, i) => ({
   id: i + 1,
@@ -20,17 +20,21 @@ const ProductCard = ({ name }) => (
 
 const ProductsPage = () => {
   return (
-    <section>
+    <>
       <Heading level={1}>Products</Heading>
       <Grid columns={{ count: 3, size: 'auto' }}>
         {PRODUCTS.map(product => (
           <ProductCard key={product.id} name={product.name} />
         ))}
       </Grid>
-    </section>
+    </>
   );
 };
 
 export const App = () => {
-  return <ProductsPage />;
+  return (
+    <Grommet theme={hpe}>
+      <ProductsPage />
+    </Grommet>
+  );
 };

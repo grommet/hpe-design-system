@@ -1,22 +1,25 @@
-/* eslint-disable no-unused-vars */
-// App.js
-import { Heading, Grid } from 'grommet';
+import { Heading, Grid, Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
 import productList from './product-list.json';
 
 const ProductsPage = () => {
   return (
-    <section>
+    <>
       <Heading level={1}>Products</Heading>
       <Grid columns={{ count: 3, size: 'auto' }}>
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}
       </Grid>
-    </section>
+    </>
   );
 };
 
 export const App = () => {
-  return <ProductsPage />;
+  return (
+    <Grommet theme={hpe}>
+      <ProductsPage />
+    </Grommet>
+  );
 };

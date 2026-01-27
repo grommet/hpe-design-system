@@ -1,11 +1,14 @@
-/* eslint-disable no-unused-vars */
-// App.js
-import { Grommet, Text, Box } from 'grommet';
+import { Text, Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 
 const ProductsPage = () => {
   return <Text>hello world</Text>;
 };
 
 export const App = () => {
-  return <ProductsPage />;
+  return (
+    <Grommet theme={hpe}>
+      <ProductsPage />
+    </Grommet>
+  );
 };
