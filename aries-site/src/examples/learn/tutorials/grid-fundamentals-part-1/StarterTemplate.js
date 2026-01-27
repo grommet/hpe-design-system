@@ -1,4 +1,4 @@
-import { Text, Grommet } from 'grommet';
+import { Grommet, Text } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 
 const ProductsPage = () => {
