@@ -107,6 +107,7 @@ export const boxArgs = {
   height: heightArg,
   overflow: overflowArg,
   round: roundArg,
+  pad: padArg,
   skeleton: skeletonArg,
   width: widthArg,
 };

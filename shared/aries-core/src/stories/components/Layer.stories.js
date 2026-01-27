@@ -12,7 +12,7 @@ const meta = {
     },
     animation: {
       control: { type: 'select' },
-      options: ['fadeIn', 'slide', 'true', 'false'],
+      options: ['fadeIn', 'slide'],
     },
     background: backgroundArg,
     full: fillArg,
