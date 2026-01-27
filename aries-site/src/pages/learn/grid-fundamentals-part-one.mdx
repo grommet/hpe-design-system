@@ -1,4 +1,5 @@
 import { Anchor, Box, Image, Notification, Paragraph } from 'grommet';
+import { Example } from '../../layouts';
 import {
   GridStepOne,
   StepTwo,
@@ -15,15 +16,7 @@ to:
 - Allow the number of grid columns to adapt to a variety of screen widths.
 - Allow the items to adapt and flex within the available space.
 
-At the end of this tutorial, you will have built this:
-
-<Box align="start" height="xlarge">
-  <Image
-    alt="Image of a web page display product cards arranged in a grid."
-    src="/learnImages/grid-fundamentals-part-1/what-we-are-building.png"
-    fit="contain"
-  />
-</Box>
+At the end of this tutorial, you will have built [a grid of product cards](#final-layout).
 
 ## Prerequisites
 
@@ -71,8 +64,6 @@ Now that you have the Grid in place, let's add some placeholder content. Replace
 
 ```js
 <Grid>
-        {/* TODO: Using opacity weak is a temporary solution until
-            we have a wider range of colors in the theme. */}
   <Box background={{color: "decorative-blue", opacity: 'weak'}} border pad="medium" align="center">
     <Text size="large">Product 1</Text>
   </Box>
@@ -112,8 +103,12 @@ it to `{ count: 3, size: 'auto' }`.
 ```
 
 Now the boxes are displayed in a grid with three columns.
-
-<GridStepOne />
+<Example 
+showResponsiveControls={['laptop', 'mobile']}
+pad="small"
+>
+  <GridStepOne />
+</Example>
 
 ## Add product content
 
@@ -199,7 +194,13 @@ Then, replace the placeholder content with the following:
 
 Now the products are displayed in the grid with three columns.
 
-<StepTwo />
+<Example 
+showResponsiveControls={['laptop', 'mobile']}
+pad="small"
+overflow="auto"
+>
+  <StepTwo />
+</Example>
 
 ## Responsive columns
 
@@ -233,7 +234,13 @@ being a minimum width of the t-shirt size 'medium'.
 Notice how the number of columns changes as the browser window is resized. The Grid is now
 responsive.
 
-<StepThree />
+<Example 
+pad="small"
+overflow="auto"
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <StepThree />
+</Example>
 
 ## Polishing the layout
 
@@ -246,7 +253,13 @@ between the products by adding `gap="xsmall"` to the Grid.
 </Grid>
 ```
 
-<StepFour />
+<Example 
+pad="small"
+overflow="auto"
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <StepFour />
+</Example>
 
 <br />
 
@@ -279,10 +292,18 @@ const ProductsPage = () => {
   </Grid>
 ```
 
+## Final layout
+
 Congratulations! You have completed the tutorial and have a great start on a very
 respectable product catalog.
 
-<StepFive />
+<Example 
+pad="small"
+overflow="auto"
+showResponsiveControls={['laptop', 'mobile']}
+>
+  <StepFive />
+</Example>
 
 ## Summary
 
