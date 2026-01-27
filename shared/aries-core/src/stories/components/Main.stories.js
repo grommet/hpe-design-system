@@ -16,7 +16,7 @@ export const BasicMain = {
   render: args => (
     <Box fill>
       <Header background="background-contrast" pad="medium">
-        <Heading level={3} margin="none">
+        <Heading level={1} margin="none">
           Header
         </Heading>
       </Header>
