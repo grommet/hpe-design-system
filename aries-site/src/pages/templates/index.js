@@ -15,7 +15,7 @@ const Templates = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/templates"
     />
-    <PageContent gap="medium">
+    <PageContent>
       <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>

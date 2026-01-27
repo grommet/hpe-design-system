@@ -24,7 +24,7 @@ const Tokens = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/design-tokens"
     />
-    <PageContent gap="medium">
+    <PageContent>
       <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
@@ -61,33 +61,31 @@ const Tokens = () => (
             ];
 
             return (
-              <ContentSection>
-                <Box gap="xlarge">
-                  {results.map((type, index) =>
-                    type.data?.length ? (
-                      <Box gap="xsmall" key={index}>
-                        <Heading level={2} margin="none">
-                          {type.heading}
-                        </Heading>
-                        <Grid
-                          columns="medium"
-                          rows={[['auto', 'full']]}
-                          gap="medium"
-                        >
-                          {type.data.map(item => (
-                            <ContentCard
-                              key={item.name}
-                              pad="xsmall"
-                              topic={item}
-                              href={item.href || nameToPath(item.name)}
-                              level={3}
-                            />
-                          ))}
-                        </Grid>
-                      </Box>
-                    ) : null,
-                  )}
-                </Box>
+              <ContentSection gap="xlarge">
+                {results.map((type, index) =>
+                  type.data?.length ? (
+                    <Box gap="xsmall" key={index}>
+                      <Heading level={2} margin="none">
+                        {type.heading}
+                      </Heading>
+                      <Grid
+                        columns="medium"
+                        rows={[['auto', 'full']]}
+                        gap="medium"
+                      >
+                        {type.data.map(item => (
+                          <ContentCard
+                            key={item.name}
+                            pad="xsmall"
+                            topic={item}
+                            href={item.href || nameToPath(item.name)}
+                            level={3}
+                          />
+                        ))}
+                      </Grid>
+                    </Box>
+                  ) : null,
+                )}
               </ContentSection>
             );
           }}

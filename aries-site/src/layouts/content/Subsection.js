@@ -62,7 +62,6 @@ export const Subsection = ({
     <Box
       as="section"
       id={id}
-      margin="none"
       fill="horizontal"
       gap={gap}
       onMouseOver={() => setOver(true)}
