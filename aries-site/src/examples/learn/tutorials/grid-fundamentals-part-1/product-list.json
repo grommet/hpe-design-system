@@ -40,5 +40,12 @@
     "price": "356.00",
     "description": "This rubber fish is guaranteed to float and guaranteed to make your aquarium look more exotic.",
     "image": "/learnImages/grid-fundamentals-part-1/david-clode-EDfZ0Sjmp_w-unsplash.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Miniture Tea Set",
+    "price": "899.00",
+    "description": "Oooooh. So tiny. So cute. This miniture tea set will put a smile on your face.",
+    "image": "/learnImages/grid-fundamentals-part-1/gabriella-clare-marino-EGXpSrG02sU-unsplash.jpg"
   }
 ]
