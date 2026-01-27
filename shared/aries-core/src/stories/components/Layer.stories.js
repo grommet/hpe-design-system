@@ -40,7 +40,7 @@ export const LayerExample = {
             </Heading>
             <Button
               aria-label="Close layer"
-              icon={<Close />}
+              icon={<Close aria-hidden />}
               onClick={() => {}}
             />
           </Box>
