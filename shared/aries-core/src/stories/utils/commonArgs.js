@@ -14,41 +14,6 @@ export const radiusSizes = Object.keys(hpe.global.radius);
 
 export const containerSizes = Object.keys(hpe.global.size);
 
-export const fillArg = {
-  control: { type: 'select' },
-  options: [true, false, 'horizontal', 'vertical'],
-};
-
-export const gapArg = {
-  control: { type: 'select' },
-  options: spacingSizes,
-};
-
-export const backgroundArg = {
-  control: { type: 'select' },
-  options: backgroundColors,
-};
-
-export const heightArg = {
-  control: { type: 'select' },
-  options: containerSizes,
-};
-
-export const padArg = {
-  control: { type: 'select' },
-  options: spacingSizes,
-};
-
-export const roundArg = {
-  control: { type: 'select' },
-  options: radiusSizes,
-};
-
-export const widthArg = {
-  control: { type: 'select' },
-  options: containerSizes,
-};
-
 export const alignArg = {
   control: { type: 'select' },
   options: ['start', 'center', 'end', 'stretch', 'baseline'],
@@ -57,6 +22,11 @@ export const alignArg = {
 export const alignContentArg = {
   control: { type: 'select' },
   options: ['start', 'center', 'end', 'between', 'around', 'evenly', 'stretch'],
+};
+
+export const backgroundArg = {
+  control: { type: 'select' },
+  options: backgroundColors,
 };
 
 export const borderArg = {
@@ -68,8 +38,58 @@ export const elevationArg = {
   options: tShirtSizes,
 };
 
+export const fillArg = {
+  control: { type: 'select' },
+  options: [true, false, 'horizontal', 'vertical'],
+};
+
+export const gapArg = {
+  control: { type: 'select' },
+  options: spacingSizes,
+};
+
+export const heightArg = {
+  control: { type: 'select' },
+  options: containerSizes,
+};
+
+export const justifyArg = {
+  control: { type: 'select' },
+  options: ['start', 'center', 'end', 'stretch'],
+};
+
+export const justifyContentArg = {
+  control: { type: 'select' },
+  options: ['start', 'center', 'end', 'between', 'around', 'evenly', 'stretch'],
+};
+
+export const marginArg = {
+  control: { type: 'select' },
+  options: spacingSizes,
+};
+
+export const padArg = {
+  control: { type: 'select' },
+  options: spacingSizes,
+};
+
+export const overflowArg = {
+  control: { type: 'select' },
+  options: ['auto', 'hidden', 'scroll', 'visible'],
+};
+
+export const roundArg = {
+  control: { type: 'select' },
+  options: radiusSizes,
+};
+
 export const skeletonArg = {
   control: { type: 'boolean' },
+};
+
+export const widthArg = {
+  control: { type: 'select' },
+  options: containerSizes,
 };
 
 export const boxArgs = {
@@ -85,6 +105,7 @@ export const boxArgs = {
   fill: fillArg,
   gap: gapArg,
   height: heightArg,
+  overflow: overflowArg,
   round: roundArg,
   skeleton: skeletonArg,
   width: widthArg,

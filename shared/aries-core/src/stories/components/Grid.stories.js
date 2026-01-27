@@ -1,75 +1,44 @@
 import React from 'react';
 import { Grid, Box, Text } from 'grommet';
 import {
-  spacingSizes,
-  containerSizes,
+  alignArg,
+  alignContentArg,
   fillArg,
   gapArg,
   heightArg,
+  justifyArg,
+  justifyContentArg,
+  marginArg,
+  padArg,
+  widthArg,
 } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Grid',
   component: Grid,
   argTypes: {
-    align: {
-      control: { type: 'select' },
-      options: ['start', 'center', 'end', 'stretch', 'baseline'],
-    },
-    alignContent: {
-      control: { type: 'select' },
-      options: [
-        'start',
-        'center',
-        'end',
-        'between',
-        'around',
-        'evenly',
-        'stretch',
-      ],
-    },
+    align: alignArg,
+    alignContent: alignContentArg,
     columns: {
       control: { type: 'object' },
     },
     fill: fillArg,
     gap: gapArg,
     height: heightArg,
-    justify: {
-      control: { type: 'select' },
-      options: ['start', 'center', 'end', 'stretch'],
-    },
-    justifyContent: {
-      control: { type: 'select' },
-      options: [
-        'start',
-        'center',
-        'end',
-        'between',
-        'around',
-        'evenly',
-        'stretch',
-      ],
-    },
-    margin: {
-      control: { type: 'select' },
-      options: spacingSizes,
-    },
-    pad: {
-      control: { type: 'select' },
-      options: spacingSizes,
-    },
+    justify: justifyArg,
+    justifyContent: justifyContentArg,
+    margin: marginArg,
+    pad: padArg,
     rows: {
       control: { type: 'object' },
     },
-    width: {
-      control: { type: 'select' },
-      options: containerSizes,
-    },
+    width: widthArg,
   },
 };
 
 export default meta;
 
+// eslint-disable-next-line react/prop-types
 const GridItem = ({ children, ...props }) => (
   <Box background="background-contrast" pad="small" round="small" {...props}>
     <Text>{children}</Text>
@@ -90,42 +59,6 @@ export const BasicGrid = {
     gap: 'small',
   },
   name: 'Grid',
-};
-
-// export const ResponsiveColumns = {
-//   render: args => (
-//     <Grid {...args}>
-//       <GridItem>Responsive 1</GridItem>
-//       <GridItem>Responsive 2</GridItem>
-//       <GridItem>Responsive 3</GridItem>
-//       <GridItem>Responsive 4</GridItem>
-//     </Grid>
-//   ),
-//   args: {
-//     columns: {
-//       xsmall: ['auto'],
-//       small: ['auto', 'auto'],
-//       medium: ['auto', 'auto', 'auto'],
-//       large: ['auto', 'auto', 'auto', 'auto'],
-//     },
-//     gap: 'medium',
-//   },
-//   name: 'Responsive Columns',
-// };
-
-export const FlexibleSizing = {
-  render: args => (
-    <Grid {...args}>
-      <GridItem>1/3 width</GridItem>
-      <GridItem>2/3 width</GridItem>
-    </Grid>
-  ),
-  args: {
-    columns: ['1/3', '2/3'],
-    gap: 'medium',
-    height: 'medium',
-  },
-  name: 'Flexible Sizing',
 };
 
 export const WithAreas = {

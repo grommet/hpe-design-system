@@ -6,12 +6,7 @@ const meta = {
   title: 'Components/Footer',
   component: Footer,
   argTypes: {
-    background: { ...boxArgs.background },
-    gap: { ...boxArgs.gap },
-    fill: { ...boxArgs.fill },
-    height: { ...boxArgs.height },
-    pad: { ...boxArgs.pad },
-    width: { ...boxArgs.width },
+    ...boxArgs,
   },
 };
 
