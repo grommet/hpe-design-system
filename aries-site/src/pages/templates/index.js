@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
+import { ContentSection } from '../../layouts';
 import { getCards, getPageDetails } from '../../utils';
 
 const title = 'Templates';
@@ -20,12 +21,14 @@ const Templates = () => (
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
-      <CardGrid
-        cards={cards}
-        pad={{ bottom: 'xlarge' }}
-        headingSize="small"
-        headingLevel={2}
-      />
+      <ContentSection>
+        <CardGrid
+          cards={cards}
+          pad={{ bottom: 'xlarge' }}
+          headingSize="small"
+          headingLevel={2}
+        />
+      </ContentSection>
     </PageContent>
   </>
 );
