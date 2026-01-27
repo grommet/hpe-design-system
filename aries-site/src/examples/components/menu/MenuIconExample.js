@@ -6,15 +6,9 @@ export const MenuIconExample = () => {
   const items = [{ label: 'Action' }, { label: 'Action' }, { label: 'Action' }];
 
   return (
-    <Grid
-      columns="3xsmall"
-      gap="medium"
-      height="xsmall"
-      align="start"
-      justify="start"
-    >
-      <Menu open icon={<More />} hoverIndicator items={items} />
-      <Menu open icon={<Settings />} hoverIndicator items={items} />
+    <Grid columns="3xsmall" gap="medium" align="start" justify="start">
+      <Menu icon={<More />} hoverIndicator items={items} />
+      <Menu icon={<Settings />} hoverIndicator items={items} />
     </Grid>
   );
 };

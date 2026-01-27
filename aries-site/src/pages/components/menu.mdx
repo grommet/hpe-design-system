@@ -1,4 +1,4 @@
-import { Box } from 'grommet';
+import { Box, Paragraph, Anchor } from 'grommet';
 import { AccessibilitySection, BestPracticeGroup, Example } from '../../layouts';
 import {
   MenuExample,
@@ -6,10 +6,13 @@ import {
   MenuDangerousExample,
   MenuDefaultExample,
   MenuDisabledExample,
+  MenuDividersExample,
   MenuGroupingExample,
   MenuHeaderExample,
   MenuIconExample,
+  MenuItemCountExample,
   MenuRecordActionsExample,
+  MenuSelectValueExample,
   MenuToolbarExample,
   ToolbarButtonExample,
 } from '../../examples';
@@ -135,34 +138,52 @@ Actions enabling a user to share or consume data related to a resource.
 
 ## Dos and Do nots
 
-[Placeholder for select DO AND DONT]
-[Placeholder for divider DO AND DONT]
-[Placeholder for too many items DO AND DONT]
-
 <BestPracticeGroup>
   <Example
     bestPractice={{
       type: 'do',
-      message:
-        'Leave actions in a single group when there is only 1 menu item in each category.',
+      message: 'Use menu to display actions.',
     }}
   >
     {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
-    <Box height="xsmall">
-      <MenuGroupingExample />
+    <Box height="small">
+      <MenuSelectValueExample />
     </Box>
   </Example>
   <Example
     bestPractice={{
       type: 'dont',
-      message: `Don't add a separator between groups when there is only 1 menu item in 
-      each category. A single dangerous actions is the exception and should be placed 
-      in a distinct group.`,
+      message: <Paragraph size='small' margin="none">Don't use menu to select a value. Use <Anchor label='Select' href="/components/select"/> instead.</Paragraph>,
     }}
   >
     {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
-    <Box height="xsmall">
-      <MenuGroupingExample bestPractice={false} />
+    <Box height="small">
+      <MenuSelectValueExample bestPractice={false} />
+    </Box>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use dividers to organize groups.',
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="small">
+      <MenuDividersExample />
+    </Box>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't use dividers as individual item separators.`,
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="small">
+      <MenuDividersExample bestPractice={false} />
     </Box>
   </Example>
 </BestPracticeGroup>
@@ -189,6 +210,31 @@ Actions enabling a user to share or consume data related to a resource.
     {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
     <Box height="small">
       <MenuDangerousExample bestPractice={false} />
+    </Box>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Keep the number of items to a minimum. This allows the user to easily understand the scope of the actions they can perform.',
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="small">
+      <MenuItemCountExample />
+    </Box>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'caution',
+      message: `Avoid adding too many options under one menu. This can make the actions hard to scan.`,
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="small">
+      <MenuItemCountExample bestPractice={false} />
     </Box>
   </Example>
 </BestPracticeGroup>
