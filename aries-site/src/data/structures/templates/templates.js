@@ -50,7 +50,6 @@ export const templates = [
     to the user experience.`,
     preview: {
       component: () => <ContentLayoutPreview />,
-      background: 'background-front',
     },
     sections: [
       'Designing for Responsiveness',
@@ -232,7 +231,6 @@ export const templates = [
     more related options to access information, filter, and make selections.`,
     preview: {
       component: () => <SelectorPreview />,
-      background: 'background-front',
     },
     seoDescription: `A selection control that allows users to choose one or
     more related options to access information, filter, and make selections`,
@@ -253,7 +251,6 @@ export const templates = [
      related to a specific UI element.`,
     preview: {
       component: () => <PopoverPreview />,
-      background: 'background-front',
     },
     seoDescription: `A Popover is an overlay presenting contextual information
      related to a specific UI element. It is revealed and closed by click
@@ -278,7 +275,6 @@ export const templates = [
     data-driven decisions by collecting feedback directly from users.`,
     preview: {
       component: () => <FeedbackPreview />,
-      background: 'background-front',
     },
     seoDescription: `Improve customer experiences and make impactful,
     data-driven decisions by collecting feedback directly from users.
@@ -753,7 +749,6 @@ export const templates = [
       requiring a user's action.`,
     preview: {
       component: () => <StatusIndicatorPreview />,
-      background: 'background-front',
     },
     seoDescription: `Highlight notification messages and alerts which 
       require a user's attention. Status indicators provide peace-of-mind 
