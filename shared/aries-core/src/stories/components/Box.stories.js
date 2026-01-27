@@ -11,15 +11,13 @@ const meta = {
 export default meta;
 
 export const Default = {
-  render: args => {
-    return (
-      <Box {...args}>
-        <Text>First item</Text>
-        <Text>Second item</Text>
-        <Text>Third item</Text>
-      </Box>
-    );
-  },
+  render: args => (
+    <Box {...args}>
+      <Text>First item</Text>
+      <Text>Second item</Text>
+      <Text>Third item</Text>
+    </Box>
+  ),
   args: {
     direction: 'column',
     pad: 'medium',

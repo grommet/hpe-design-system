@@ -59,27 +59,33 @@ export const alignContentArg = {
   options: ['start', 'center', 'end', 'between', 'around', 'evenly', 'stretch'],
 };
 
+export const borderArg = {
+  control: { type: 'boolean' },
+};
+
+export const elevationArg = {
+  control: { type: 'select' },
+  options: tShirtSizes,
+};
+
+export const skeletonArg = {
+  control: { type: 'boolean' },
+};
+
 export const boxArgs = {
   align: alignArg,
   alignContent: alignContentArg,
   background: backgroundArg,
-  border: {
-    control: { type: 'boolean' },
-  },
+  border: borderArg,
   direction: {
     control: { type: 'select' },
     options: ['row', 'column', 'row-responsive'],
   },
-  elevation: {
-    control: { type: 'select' },
-    options: tShirtSizes,
-  },
+  elevation: elevationArg,
   fill: fillArg,
   gap: gapArg,
   height: heightArg,
   round: roundArg,
-  skeleton: {
-    control: { type: 'boolean' },
-  },
+  skeleton: skeletonArg,
   width: widthArg,
 };
