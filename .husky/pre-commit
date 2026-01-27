@@ -8,7 +8,7 @@ pnpm --filter hpe-design-tokens run build
 
 echo "..Running aries-site checks"
 echo "....Linting checks for aries-site"
-pnpm --filter "apps/aries-site" run lint-fix
+pnpm --filter aries-site run lint-fix
 
 echo "..Running aries-core checks"
 pnpm --filter "@shared/aries-core" run lint-fix

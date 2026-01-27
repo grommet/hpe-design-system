@@ -37,13 +37,13 @@ jobs:
       - name: Create aries-core build
         run: pnpm --filter "@shared/aries-core" build
       - name: Create production build
-        run: pnpm --filter "apps/aries-site" build
+        run: pnpm --filter aries-site build
       # Tests are only run on headless Chrome
       - name: Run e2e tests on Chrome
-        run: pnpm --filter "apps/aries-site" test:ci
+        run: pnpm --filter aries-site test:ci
       - name: Run Applitools tests on Chrome
         if: ${{ github.event.pull_request.head.repo.full_name == 'grommet/hpe-design-system' }}
-        run: pnpm --filter "apps/aries-site" test:applitools
+        run: pnpm --filter aries-site test:applitools
 
   batch-completion-notification:
     needs: build-and-test
