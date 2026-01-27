@@ -100,7 +100,7 @@ export const DataTableStatusOnlyExample = ({
   ) : (
     <ContentPane gap="medium">
       <PageHeader
-        title={`Server name: ${pageDetails.name}`}
+        title={pageDetails.name}
         parent={
           <ReverseAnchor
             label="Servers"
