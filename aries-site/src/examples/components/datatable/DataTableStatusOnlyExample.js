@@ -42,7 +42,6 @@ const columns = [
 const collectionId = 'datatable-status-only-heading';
 
 const renderDetailValue = (key, value) => {
-  console.log('key,value', key, value);
   if (key === 'status') {
     return (
       <Box direction="row" align="center" gap="xsmall">
