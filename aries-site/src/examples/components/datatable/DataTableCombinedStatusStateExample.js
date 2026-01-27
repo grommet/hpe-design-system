@@ -48,6 +48,7 @@ export const DataTableCombinedStatusStateExample = ({ designSystemDemo }) => {
         // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
         height={designSystemDemo ? undefined : 'small'}
         overflow="auto"
+        alignSelf="start"
       >
         <DataTable
           aria-describedby="datatable-combined-status-state-heading"
