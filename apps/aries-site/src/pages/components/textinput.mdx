@@ -1,0 +1,127 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  TextInputExample,
+  TextInputDisabledExample,
+  TextInputLabeledByExample,
+  TextInputPasswordExample,
+  TextInputReadOnlyExample,
+  TextInputSuggestionsExample,
+  TextInputValidationExample,
+} from '../../examples';
+
+<Example
+  componentName="TextInput"
+  designer="https://designer.grommet.io/textinput?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/textinput/TextInputExample.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3026-1767&t=ZqPsisuevR3KPp96-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/TextInput/TextInput.js"
+>
+  <TextInputExample />
+</Example>
+
+## Guidance
+
+The TextInput component allows the user to input shorter forms of data and content. Passwords and tags can also be used with the TextInput component. Style can be variable, based upon the use case and customer need that will elicit user confidence in success.
+
+## About TextInput
+
+Text input fields perform text validation. Some use cases for TextInput include username fields, password fields, and search fields. In some cases, it may be beneficial to use an icon to reinforce the context. One example when an icon would be useful would be a search input.
+
+There are many ways to give the user hints about how to properly fill out a text input. In addition to the label, placeholder text can help guide the user. When you want to place syntax restrictions on the input, such as an email address or phone number, consider using [MaskedInput](/components/maskedinput).
+
+A TextInput display the following states: enabled, focused, focused with value, validation, and disabled.
+
+## Variants
+
+A TextInput's visual state informs the user of its ability to be interacted with or if any validation errors have occured.
+
+### Password
+
+Used to maintain the privacy of the password, PIN, or any credentials allowing access to an account a user has entered. This is achieved by applying type="password" to the TextInput.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/textinput/TextInputPasswordExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputPasswordExample />
+</Example>
+
+### With suggestions
+
+Used to prompt users with available options or suggestions. Suggestions may persist regardless of what the user has entered or may be filtered based on what the user has typed. One common use case for suggestions would be to display prior values for the same field.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/textinput/TextInputSuggestionsExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputSuggestionsExample />
+</Example>
+
+### Labeled by icon
+
+Some situations may need TextInput without a visual label, such as when implementing a search field. To meet accessibility requirements, the TextInput may be labeled by another visual context such as an icon with an id.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/textinput/TextInputLabeledByExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputLabeledByExample />
+</Example>
+
+### Validation
+
+Used to indicate that a TextInput does not meet the validation requirements of its bounding FormField. Click the Validate button while the TextInput is empty to see the validation state.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/textinput/TextInputValidationExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputValidationExample />
+</Example>
+
+### Disabled
+
+Used to indicate that a TextInput cannot be interacted with. When an input is disabled, it will not receive tab focus and will not be submitted with form data.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/textinput/TextInputDisabledExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputDisabledExample />
+</Example>
+
+### Readonly
+
+Used to indicate that a TextInput cannot be edited. When an input is readonly, it will still receive tab focus and be submitted with form data.
+
+Apply `readOnlyCopy` to TextInput to display a copy button in the input.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/textinput/TextInputReadOnlyExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputReadOnlyExample />
+</Example>
+
+## Accessibility
+
+In every case possible, TextInput should be used inside of a FormField to ensure that a label is appropriately paired with the input. This behavior is important to screen reader users who need to know to which context the TextInput is referring.
+
+If you need to use TextInput outside of the context of a FormField, it is important to make sure the TextInput is labeled in an alternate way to meet accessibility requirements. One approach is to use another visual indicator, such as the TextInput's icon, to serve as the label. See how this is done in the [Labeled by icon](#labeled-by-icon) example.
+
+Placeholder text does not serve as a sufficient means of meeting accessibility requirements for labels. To meet accessbility requirements, placeholder text should be used in conjunction with a label or aria-labelledby attribute.
+
+While Grommet's TextInput supports a `defaultSuggestion` prop, it is not recommended for use because it can lead to potential "context changes" on screen readers such as VoiceOver. This would fail [WCAG 3.2.1](https://www.w3.org/TR/WCAG22/#on-focus).
+
+Instead, order the suggestions such that the most relevant or likely are at the top.
+
+### WCAG compliance
+
+<AccessibilitySection title="TextInput" />

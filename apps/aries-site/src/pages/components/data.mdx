@@ -1,0 +1,27 @@
+import { Example } from '../../layouts';
+import { DataExample } from '../../examples/components/';
+
+Data is the orchestrator for a set of subcomponents. These components work together to create the entirety of the experience, we like to refer to them as "Data and friends".
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/data/DataExample.js"
+  docs="https://v2.grommet.io/data"
+  template
+  height="auto"
+  showResponsiveControls={['fullScreen']}
+>
+  <DataExample />
+</Example>
+
+For additional guidance on filtering patterns, see the [filtering documentation](/templates/filtering).
+
+## How to use
+
+There are two main ways to build with Data and friends:
+
+| Approach          | Definition                                                                                                                                                     | Notes                                                                                                             |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Configurable**  | This approach relies solely on the properties available on the Data component itself.                                                                          | --                                                                                                                |
+| **Compositional** | This approach allows you to import the subcomponents directly to compose your layout, while still leveraging some of the properties on Data for configuration. | This approach is most useful when you want to add additional controls to the toolbar beyond search and filtering. |
+
+To learn more about how to build with Data and friends in Grommet, check out the [how-to guides on the Learn page](/learn).

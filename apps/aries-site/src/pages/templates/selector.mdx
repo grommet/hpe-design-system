@@ -1,0 +1,89 @@
+import { Notification } from 'grommet';
+import { Example } from '../../layouts';
+import {
+  SimpleSelector,
+  QuickFilter,
+  SupportSelector,
+  SelectorAnatomy,
+} from '../../examples';
+
+<Example
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2916-5&t=odY81eDKItjB8SI2-1"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/selector/SimpleSelector.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/Selector.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/SelectorGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-core/src/js/components/core/Selector"
+  width="100%"
+>
+  <SimpleSelector />
+</Example>
+
+## Use cases
+
+### Quick filtering
+
+Enables users to efficiently filter data using intuitive visual options, ensuring the presented view is both relevant and beneficial to the workflow.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/selector/QuickFilter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/Selector.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/SelectorGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-core/src/js/components/core/Selector"
+  width="100%"
+>
+  <QuickFilter />
+</Example>
+
+### Quick option selection
+
+Helps users quickly navigate through choices, ensuring they find the relevant options with ease, is commonly observed in support and onboarding processes.
+
+<Example
+  height={{ min: 'xsmall' }}
+  width="100%"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/selector/SupportSelector.js',
+  ]}
+  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/selector/SupportSelector.js"
+>
+  <SupportSelector />
+</Example>
+
+## Anatomy
+
+<Example caption="Diagram illustrating the 4 parts of a Selector." plain>
+  <SelectorAnatomy />
+</Example>
+
+| Label  | Region                  | Purpose                                                                                      | Required | Notes                                                                                                                                                                    |
+| :----: | ----------------------- | -------------------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1**  | **Container**           | Provides distinct boundary representing the option as a distinct choice.                     | Required | --                                                                                                                                                                       |
+| **2**  | **Selection Indicator** | Provides additional visual prominence and distinction between selected and unselected state. | Optional | For single it will be rounded for multiple squared off                                                                                                                   |
+| **3**  | **Identifier**          | Clearly labels what is being selected.                                                       |    --    | --                                                                                                                                                                       |
+| **3a** | **Icon**                | A unique icon that assists the user in identifying their desired selection.                  | Optional | Consider only using if the icon is well-known, recognizable, and understood, with correct a11yTitle.                                                                     |
+| **3b** | **Title**               | Clear succinct label.                                                                        | Required | --                                                                                                                                                                       |
+| **3c** | **Description**         | Provides additional detail if the title is insufficient on its own.                          | Optional | --                                                                                                                                                                       |
+| **4**  | **Body**                | Flexible content section which can be tailored to the use case.                              | Optional | May be used in addition to or in place of the Identifier. If used in place of the Identifier, it should satisfy the criteria of clearly labeling what is being selected. |
+
+## Types
+
+### Single select
+
+With single selection, only one option can be selected at a time. This is the default behavior.
+
+### Multiple select
+
+With multiple selection, multiple options can be selected on at the same time.
+
+## Accessibility
+
+Avoid placing interactive elements inside a Selector. This interferes with selection, breaks expected keyboard and screen reader behavior, and creates accessibility issues due to nested interactive elements.
+
+| Key             | Interaction                                                                |     |
+| --------------- | -------------------------------------------------------------------------- | --- |
+| **Tab**         | Used to navigate to the Selector group, and elements within the container. |     |
+| **Space/Enter** | Selects button with focus.                                                 |     |

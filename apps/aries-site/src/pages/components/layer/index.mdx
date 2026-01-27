@@ -1,0 +1,345 @@
+import { Button, Notification } from 'grommet';
+import { AccessibilitySection, BestPracticeGroup, Example, StyleTable } from '../../../layouts';
+import {
+  ActionLabels,
+  ActionLabelTitle,
+  DoubleConfirmationAnatomy,
+  DoubleConfirmationBestPractice,
+  ConfigurationForm,
+  LayerAnatomy,
+  LayerExample,
+  LayerCenterExample,
+  LayerNotificationExample,
+  LayerSideDrawerExample,
+  LayerStickyExample,
+  LayerStickyScrollExample,
+  ActionableLayerClose,
+  InformationalLayerClose,
+  LayerTypes,
+} from '../../../examples';
+import { Checkmark } from '@hpe-design/icons-grommet';
+
+<Example
+  componentName="Layer"
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/layer/LayerExample.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2567-534&t=6zfWJlYNDdZ4YwHx-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Layer/Layer.js"
+>
+  <LayerExample />
+</Example>
+
+## When to use
+
+A layer should be used to present information or task flows to the user without navigating them away from their current context.
+
+## Anatomy
+
+Basic anatomy and spacing that apply to all [layer types](#types-of-layers).
+
+<Example plain>
+  <LayerAnatomy />
+</Example>
+
+| Label  | Region       | Purpose                                                |                  Required                   | Notes                                                                      |
+| ------ | ------------ | ------------------------------------------------------ | :-----------------------------------------: | -------------------------------------------------------------------------- |
+| **1**  | **Header**   | Identifies the layer.                                  | <Checkmark a11yTitle="true" size="small" /> | --                                                                         |
+| **1a** | **Title**    | A short, descriptive title identifying the layer.      | <Checkmark a11yTitle="true" size="small" /> | Implemented as a Heading level 2.                                          |
+| **1b** | **Subtitle** | Any additional context or information about the layer. |                  Optional                   | --                                                                         |
+| **2**  | **Body**     | Any additional content.                                |                  Optional                   | --                                                                         |
+| **3**  | **Footer**   | Contains layer actions.                                |                  Optional                   | The ordering and alignment of footer actions depends on the type of layer. |
+
+<StyleTable
+  data={[
+    {
+      label: 4,
+      property: 'pad',
+      value: 'medium',
+    },
+    {
+      label: 5,
+      property: 'gap',
+      value: 'medium',
+    },
+    {
+      label: 6,
+      property: 'round',
+      value: 'small',
+    },
+    {
+      label: 7,
+      property: 'elevation',
+      value: 'large',
+    },
+  ]}
+/>
+
+## Types of layers
+
+Different use cases and content warrant different layer types. Learn more about each type below.
+
+<LayerTypes />
+
+## Layer closing behavior
+
+Depending on whether a layer is [informational](#informational) or [actionable](#actionable), the elements and interactions that close a layer differ.
+
+### Informational
+
+Informational layers do not require any actions from the user, and therefore do not contain any actions.
+
+The following should cause an informational layer to close:
+
+1. Clicking the [close icon](/foundation/icons#ui-actions) button the layer's header.
+1. Clicking outside of the layer, `onClickOutside`.
+1. Pressing the Escape key, `onEsc`.
+
+Learn more about the specifics of [informational center layers](/components/layer/center-layer#informational), [informational side drawer layers](/components/layer/side-drawer-layer#informational), and [informational fullscreen layers](/components/layer/fullscreen-layer#informational).
+
+### Actionable
+
+Actionable layers require the user to either accept or apply the action prompt in the layer or cancel the action.
+
+The following should cause an actionable layer to close:
+
+1. Clicking the [close icon](/foundation/icons#ui-actions) button in the layer's header.
+   - Note: Actionable center layers should not include a close button in the layer's header. Center layers generally present confirmations, therefor the user should intentionally choose between accepting or cancelling the layer's action prompt.
+1. Clicking the cancel button in the layer's footer.
+1. Pressing the Escape key, `onEsc`.
+1. Clicking an affirmative action such as "save" or "apply."
+
+Clicks outside of an actionable layer, `onClickOutside`, should not close the layer. Actionable layers present an 'apply' or 'do not apply' choice for which a user should make an intentional choice. Clicks outside of layer do not indicate intent and therefore should not close the layer.
+
+Use of a double confirmation may be desirable as part of the layer's closing behavior in some instances. See more detail about [when to use double confirmation](#double-confirmations).
+
+Learn more about the specifics of [actionable center layers](/components/layer/center-layer#actionable), [actionable side drawer layers](/components/layer/side-drawer-layer#actionable), and [actionable fullscreen layers](/components/layer/fullscreen-layer#actionable).
+
+### Double confirmations
+
+When closing out of an actionable layer containing editable or configurable information, the behavior should err on preventing a user's unintentional loss of work by presenting a double confirmation.
+
+A double confirmation should be shown when data has been edited or changed and the user closes the layer by using the [close icon](/foundation/icons#ui-actions) button, cancel button, or Escape key; a double confirmation is not needed upon affirmative actions like 'save' or 'apply'.
+
+| Layer state                             | Confirmation type   | Notes                                                                                                                                                                                         |
+| --------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| User has not input or changed any data. | No confirmation     | The user will not lose anything if the layer closes immediately.                                                                                                                              |
+| User has input or changed data.         | Double confirmation | The double confirmation should show when the user clicks the "X" or Cancel button, or presses the Escape key. This short confirmation ensures that user's work won't unintentionally be lost. |
+
+#### Double confirmation anatomy
+
+A double confirmation appears as a center [modal](#modal-vs-non-modal). This placement puts the confirmation at the center of the user's attention, reinforcing the importance of the dialog's prompt and minimizing distractions from other page content.
+
+<Example plain>
+  <DoubleConfirmationAnatomy />
+</Example>
+
+| Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
+| ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
+| **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
+| **1b** | **Subtitle** | To clarify that changes will not be saved.                           | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
+| **2**  | **Footer **  | Contains two actions: "Cancel" and "Discard"                         | <Checkmark a11yTitle="true" size="small" /> | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Lead with the single action that needs to be confirmed. In most cases, this is "Discard" followed by a noun of what will be discarded.',
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Avoid unnecessary instructions which create uncertainty about what will happen. Avoid phrasing which question the user's intent; instead use phrasing which trusts the intent and confirms.`,
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message: 'Align the primary action verb with the title.',
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t change the primary action to something generic like "Yes". The user should know the consequence of the button by the label alone.`,
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice bestPractice="badLabel" />
+  </Example>
+</BestPracticeGroup>
+
+#### Double confirmation example
+
+The example below demonstrates how a double confirmation is only used if the layer's content has been changed or edited. A double confirmation is not used if no changes have been made. This behavior errs on preventing unintentional loss of work that a user has done.
+
+First, click "Add application" then click the close button in the layer header. Notice how the layer immediately closes.
+
+Next, click "Add application" again and this time type something into the "Title" input. Now, click the close button. Notice how a double confirmation appears.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/layer/ConfigurationForm.js"
+  height={{ min: 'xsmall' }}
+  template
+  showResponsiveControls={[]}
+>
+  <ConfigurationForm />
+</Example>
+
+## Modal vs. non-modal
+
+While layer is the component that drives the layout, elevation, positioning on the screen, modal vs. non-modal effects the behavior to dismiss the layer and interactivity of outside content.
+
+Modal is a specific HTML behavior that excludes interaction with outside elements until it is dismissed.
+
+Non-modal means that the outside content can still be interacted with while the layer is open.
+
+### Modal
+
+When a layer is modal, a translucent overlay appears behind the layer and covers the rest of the page content to block the user from interacting with the page until the layer is closed.
+
+Actionable layers should always be modal to ensure user focus is on the layer content and required actions. Modal is the default behavior of a layer.
+
+### Non-modal
+
+When a layer is non-modal, there is no translucent overlay that covers the page content, and the page can still be interacted with.
+
+Informational layers can be non-modal. To implement, apply `modal={false}` to the layer.
+
+## Action label conventions
+
+If a layer contains footer actions, the primary action should be labeled using verb + noun format (e.g., "Apply filters").
+
+The noun may be omitted from actions labels beyond the primary action if the action is clear and unambiguous (e.g. "Reset" instead of "Reset filters").
+
+When in doubt, follow the verb + noun convention to ensure clarity. See [button labeling guidance](/components/button#button-labeling) for more details.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'When secondary actions are clear and unambiguous, you can omit the noun. In this case, "filters" is not repeated for the reset action.',
+    }}
+    width="100%"
+  >
+    <ActionLabels />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t remove the noun from the primary action as this can cause ambiguity about what the actions refer to.`,
+    }}
+    width="100%"
+  >
+    <ActionLabels bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+### Aligning to layer title
+
+The primary action verb should match the verb in the layer's title.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message: `Match the primary action verb to that of the layer's title.`,
+    }}
+    width="100%"
+  >
+    <ActionLabelTitle />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a different verb for the primary action than the layer title's verb.`,
+    }}
+    width="100%"
+  >
+    <ActionLabelTitle bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+## Accessibility
+
+### Layer titles
+
+- Layer headings should be semantically correct.
+- Treat a Layer as if it were a stand alone page, with the exception that the first heading within a Layer should be an `h2` or `<Heading level={2} />`.
+- All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
+
+### Announcing layer open and close
+
+It is critical that users of assisstive technologies are informed when a layer opens and closes. The approach to implementation differs. depending on if a layer is [modal](#modal-layers) or [non-modal](#non-modal-layers).
+
+#### Modal layers
+
+For modal layers, use [AnnounceContext](https://v2.grommet.io/announcecontext) to ensure it is clear that the layer has opened or closed.
+
+There should be an announcement:
+
+1. When the layer opens.
+1. When the layer closes, specifying if the prompt has been accepted or cancelled.
+
+```
+  // Announce on mount
+  const announce = useContext(AnnounceContext);
+  useEffect(() => {
+    announce(`[Insert layer title] modal opened.`, 'assertive');
+  }, [announce]);
+```
+
+```
+  // An announce on the Cancel button clarifies that
+  // the layer has been closed and the layer's prompt
+  // has been cancelled.
+  <Button
+    label="Cancel"
+    onClick={() => {
+      announce(`${title} modal cancelled and closed.`, 'assertive');
+      onClose();
+    }}
+  />
+```
+
+#### Non-modal layers
+
+When using a Layer with `modal={false}`, it is critical that the focus is moved to the "Close" button inside the Layer. Give the close button an `a11yTitle` that provides the user with context that they are in a Layer.
+
+For example, implementation of this "Close" button for a Layer would be:
+
+```
+<Button
+  a11yTitle={`You are in a layer containing a form to add new hosts.
+  To close this layer, press Enter.`}
+  icon={<Close />}
+  onClick={() => setShowLayer(false)}
+  autoFocus
+/>
+```
+### WCAG compliance
+
+<AccessibilitySection title='layer' />

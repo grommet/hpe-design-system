@@ -1,0 +1,161 @@
+import { Anchor as GrommetAnchor } from 'grommet';
+import { BestPracticeGroup, Example, AccessibilitySection } from '../../layouts';
+import {
+  AnchorExample,
+  AnchorBadExample,
+  AnchorDisabledExample,
+  AnchorExternalExample,
+  AnchorIconExample,
+  AnchorGoodExample,
+  AnchorInlineExample,
+  SignUpExample,
+} from '../../examples';
+
+<Example
+  componentName="Anchor"
+  designer="https://designer.grommet.io/anchor?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/anchor?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/anchor/AnchorExample.js"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Anchor/Anchor.js"
+>
+  <AnchorExample />
+</Example>
+
+## Guidance
+
+Anchors should be used when an element with a link is intended to appear visually like a traditional browser link, text with a simple underline.
+
+### Usage of Anchor vs. Button
+
+When deciding whether to use Anchor or Button, consider the visual appearance of the element. If the element will look like a traditional browser link, use Anchor. If there will be background or border styling, use [Button](/components/button).
+
+Semantically, if you apply an href to either an Anchor or a Button, both will appear as an anchor tag in the DOM. This is why it is important to consider the visual appearance of the element when deciding whether to use Anchor or Button.
+
+Here are some contexts in which Anchor should be used:
+
+- as inline text links
+- to add links to resources within contexts such as a form
+
+If a clickable element is intended to appear with a background color, border, of hover style, implement this using [Button](/components/button). Use buttons when you are performing an action, such as: "submit," "merge," "create new," "upload," or if you are using a combination of icon and label.
+
+### Anchor Labeling
+
+It is important that your anchor clearly states to what content the anchor leads. For example, labels such as "Account Information" or "How to change account credentials" are both effective labels that allow the user to have confidence in where the anchor will lead them.
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use label text that is descriptive about where the anchor will lead the user.',
+    }}
+  >
+    <AnchorGoodExample />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Use vague text like "Click here" because it doesn't provide meaning to users that rely on screen readers.`,
+    }}
+  >
+    <AnchorBadExample />
+  </Example>
+</BestPracticeGroup>
+
+## Variants
+
+Anchors are used primarily in text heavy contexts. Here are some ways
+to use them.
+
+### Inline anchor
+
+Anchors are most commonly used as inline elements to bring users to other pages within an application or to external links.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/anchor/AnchorInlineExample.js"
+  docs="https://v2.grommet.io/anchor?theme=hpe#props"
+>
+  <AnchorInlineExample />
+</Example>
+
+### Anchor to external site
+
+Using the 'target' and 'rel' props allow you to create smooth user experiences while maintaining security of your application.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/anchor/AnchorExternalExample.js"
+  docs="https://v2.grommet.io/anchor?theme=hpe#props"
+>
+  <AnchorExternalExample />
+</Example>
+
+### Anchor in a form
+
+Using an Anchor within a [Form](/templates/forms) can link users to additional information that may be secondary to form content.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/SignUpExample.js"
+  docs="https://v2.grommet.io/anchor?theme=hpe#props"
+>
+  <SignUpExample />
+</Example>
+
+### Anchor with icon
+
+In some instances, it can be beneficial to pair an anchor with an icon. For example, it can be helpful to give the user a visual cue when linking to an external page that the anchor will open in a new tab.
+
+The position of the icon can be controlled with the `reverse` prop on Anchor.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/anchor/AnchorIconExample.js"
+  docs="https://v2.grommet.io/anchor?theme=hpe#props"
+>
+  <AnchorIconExample />
+</Example>
+
+### Disabled anchor
+
+Used to indicate that an anchor cannot be interacted with.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/anchor/AnchorDisabledExample.js"
+  docs="https://v2.grommet.io/anchor?theme=hpe#props"
+>
+  <AnchorDisabledExample />
+</Example>
+
+## Accessibility
+### A11y guidance
+The following guidance should be considered for each instance of the component and is the responsibility of the implementer. WCAG criteria provided directly by the Grommet component are summarized under [WCAG compliance](#wcag-compliance).
+
+**Use 'target' and 'rel' props when linking externally:**
+
+If clicking an Anchor leads to an external URL, apply these props to the anchor:
+
+- target="\_blank"
+- rel="noopener"
+
+The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page?
+
+The "\_blank" target causes the link to open in a new tab, so the user doesn't lose their place on the application. Adding the "noopener" property prevents the newly opened page from gaining access to the original page which helps maintain the security of your application.
+
+**Use clear Anchor labels:**
+
+It is important to make sure the label of the anchor will allow screen reader users to know where the anchor will lead.
+
+Unhelpful Anchor label:
+
+- Read more <GrommetAnchor label="here" />
+
+The word "here" is vague. A screen reader user may not know the context of "here".
+
+Helpful Anchor label:
+
+- Read more <GrommetAnchor label="Anchor documentation" />
+
+This clearly states the type of content to which the Anchor relates.
+
+### WCAG compliance
+  <AccessibilitySection title='anchor' />

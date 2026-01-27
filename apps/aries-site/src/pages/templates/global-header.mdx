@@ -1,0 +1,204 @@
+import { Box, Button, Image, Notification } from 'grommet';
+import { Apps, Language, Search, Shop } from '@hpe-design/icons-grommet';
+import { GlobalHeaderExample } from '../../examples';
+import { DiagramPreview, Example } from '../../layouts';
+
+{/* TODO replace with DS icon package when available */}
+import { Figma } from 'grommet-icons';
+
+<Example
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2860-270&t=9Kvc9d8gzK405Y1J-1"
+  height={{ min: 'xsmall' }}
+  width="100%"
+>
+  <hpe-global-header kind="glcp" />
+</Example>
+
+## When to use
+
+For all products that exist within the HPE GreenLake ecosystem, Global Header with the HPE GreenLake badge should be used.
+
+If a product does not exist within the HPE GreenLake ecosystem, use the [HPE Common Header and Footer Web Service](#hpe-common-header-and-footer-web-service).
+
+## Implementing the Global Header
+
+### For designers
+
+The Global Header is published as a Figma component in the HPE Design System Component Library.
+
+<Button
+  alignSelf="start"
+  label="View Global Header in Figma"
+  icon={<Figma color="plain" />}
+  href="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2860-270&t=9Kvc9d8gzK405Y1J-1"
+  secondary
+/>
+
+### For developers
+
+The HPE GreenLake Global Header is an innersource project that is currently in development by an HPE GreenLake engineering team. The header is delivered as a Web Component, which can be easily consumed by any UI framework.
+
+Documentation can be found on the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/guides/internal/front-end/greenlake_header/).
+
+For additional questions, feel free to reach out on Slack in the #greenlake-header-support channel.
+
+## HPE Common Header and Footer Web Service
+
+For HPE applications that exist outside of the HPE GreenLake ecosystem, the HPE Common Header and Footer Web Service provides a tunable, yet consistent header and footer. It is provided as a service and injected into your application at run-time.
+
+<Box direction="row" gap="medium" pad={{ bottom: 'xlarge' }}>
+  <Button
+    label="View implementation details"
+    href="https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php"
+    target="_blank"
+    rel="noreferrer  noopener"
+    secondary
+  />
+  <Button
+    label="Contact development team"
+    href="mailto:hpecom-cross-platform-development@hpe.com?subject=Common%20Header-Footer%20Service"
+    secondary
+  />
+</Box>
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/global-header/components/GlobalHeaderExample.js',
+  ]}
+  width="100%"
+  screenContainer
+>
+  <GlobalHeaderExample />
+</Example>
+
+### Guidelines
+
+The HPE Common Header is a standardized header to be used across applications. HPE [provides an implementation](https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php)
+to be referenced from your application. Both the header and footer are customizable, allowing consumers to choose various features to enable such as country selector,
+shopping cart, HPE passport login, privacy statement links, theme mode, and more.
+
+Each site or application will have different needs. Some header options may not make sense for some
+sites. The following sections will help you decide which options to include.
+
+### What makes up the HPE Common Header?
+
+The full common header with all options enabled looks like this:
+
+<Example previewWidth="3xlarge" height="3xsmall" plain>
+  <DiagramPreview
+    src={{
+      dark: '/templateImages/globalheader-full.svg',
+      light: '/templateImages/globalheader-full.svg',
+    }}
+    alt="HPE Common Header"
+  />
+</Example>
+
+To configure what parts are shown in the common header for your site, go to the
+[HPE Common HFWS test page](https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php?version=latest.r&cc_ll=us%2Fen&header_logo=&slim_footer=true&hide_search=true&hide_cart=true&hide_country_selector=true&hide_sign_in=true).
+There you can choose various options and hit `Submit`. The common header at the top
+of that page will change to include those options, and the code sample on that page will
+change to declare the chosen options as parameters in
+`<script src="https://h50007.www5.hpe.com/hfws/us/en/hpe/latest.r/root?...">` element that
+configures the header.
+
+You can then copy the URL from that `<script>` and use it in the code sample at the top of
+this page to configure the common header and footer for your site.
+
+Let's take a closer look at each part of the common header and footer.
+
+#### App identity
+
+Most sites should choose the default which will be the HPE logo for regular mode or the HPE GreenLake logo for
+`console` mode. You can force it to use one or the other by specifically choosing HPE versus HPE GreenLake if
+needed.
+
+![HPE logo](/templateImages/globalheader-hpe.png)
+
+![HPE GreenLake logo](/templateImages/globalheader-greenlake.png)
+
+#### Header main navigation
+
+The main navigation in the center of the header provide marketing content. The links allow users to find
+HPE products, contact support and get more information about HPE. These should also typically be enabled
+for most sites.
+
+![Global Header Main Navigation example](/templateImages/globalheader-nav.png)
+
+#### Search
+
+<Search /> The *Search* icon allows the user to search hpe.com.{' '}
+
+#### Shopping cart
+
+<Shop /> The *Shopping Cart* icon goes to the HPE shopping cart for buy.hpe.com.
+This should only be enabled for sites which have products or solutions for sale.
+
+#### Country selector
+
+<Language /> The country selector allows the user to go to a language-specific
+version of hpe.com. This should be disabled for most sites since the link really
+only takes you back to hpe.com instead of staying on your site.
+
+#### Sign in
+
+![Sign In button](/templateImages/globalheader-sign-in.png)
+Sign in allows the user to sign in to their HPE Passport account for hpe.com. Enable this
+option if your site uses features that require a Passport login.
+
+#### Cube menu
+
+<Apps /> The *Cube Menu* allows access to HPE services available to the
+user such as HPE GreenLake and other Cloud console applications as well as
+general HPE links for HPE content like developer.hpe.com, education.hpe.com,
+etc. This menu should be enabled to allow access to other HPE sites and
+applications.
+
+#### Color scheme
+
+**Color Scheme** allows implementors to choose either a light or dark variant of the header/footer.
+The color scheme you choose should be harmonious with the primary background of your application's
+header and avoid stark contrast which interrupts a user's visual flow. If your application supports
+light and dark modes, consider setting the `color_scheme` parameter with a value of either `light`
+or `dark` in alignment with the user's preference.
+
+### What makes up the HPE Common Footer?
+
+The common footer contains links for privacy information and various opt-out and choices required by
+European GDPR standards as well US and other privacy requirements. In general these links should
+be enabled for customer-facing sites.
+
+#### Privacy link
+
+The _Privacy_ link goes to HPE's Privacy Statement which explains how HPE manages and protects a users
+information and respects the relevant privacy standards like GDPR, APEC, etc.
+
+#### Terms of Use link
+
+The _Terms of Use_ link goes to the legal statement that governs the user's activity on HPE's websites.
+
+#### Ad Choices and Cookies link
+
+The _Ad Choices and Cookies_ link goes to the section of the _Privacy Statement_ that explains how
+cookies are used as well as how you can opt-out of targetted advertisements and analytics data
+such as Google Analytics and Adobe Analytics.
+
+#### Do Not Sell My Personal Information link
+
+The _Do Not Sell My Personal Information_ link goes to information on how to opt-out of any sale
+of personal collected by automatic data collection tools.
+
+<Box direction="row" gap="medium">
+  <Button
+    label="View implementation details"
+    href="https://h50007.www5.hpe.com/hfws-test-pages/common-hfws-test-page.php"
+    target="_blank"
+    rel="noreferrer  noopener"
+    secondary
+  />
+  <Button
+    label="Contact development team"
+    href="mailto:hpecom-cross-platform-development@hpe.com?subject=Common%20Header-Footer%20Service"
+    secondary
+  />
+</Box>

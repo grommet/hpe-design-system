@@ -1,0 +1,41 @@
+import { Notification } from 'grommet';
+import { Example, AccessibilitySection } from '../../layouts';
+import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
+
+<Example
+  componentName="Skeleton"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/skeleton/DashBoardSkeletonExample.js"
+  grommetSource="https://github.com/grommet/grommet/tree/master/src/js/components/Skeleton/Skeleton.js"
+  docs="https://v2.grommet.io/skeleton?theme=hpe#props"
+  height="500px"
+  align="start"
+  overflow="auto"
+  width="100%"
+>
+  <DashBoardSkeletonExample />
+</Example>
+
+### Use When
+- Waiting for content to be returned and displayed to a user, to provide a sense of page structure and minimize layout shifts.
+
+#### Don't Use When
+- Indicating the status for an ongoing activity where the result will be success or failure. Use [Busy Button](/components/button?q=button#busy-buttonn), [Spinner](/components/spinner) or Progress Bar (coming soon) instead.
+
+### Anatomy
+
+<Example plain>
+  <SkeletonAnatomy />
+</Example>
+
+
+Skeletons come in three different shapes - circular, rounded, and rectangular. The shape, size, and elevation of a Skeleton are all dependent on the UI elements that are loading. 
+Grommet has added `skeleton` property in order to make it easy to switch between a skeleton state and data-rich state for a variety of components.
+The components that currently support skeleton are:
+- Text, Paragraph, Heading
+- Button
+- Box, Card, Pageheader, Footer, Header
+
+## Accessibility
+
+### WCAG compliance
+  <AccessibilitySection title='skeleton' />

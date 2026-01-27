@@ -1,0 +1,74 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  ToggleGroupAnatomy,
+  ToggleGroupSimple,
+  ToggleGroupViews,
+} from '../../examples';
+
+<Example
+  componentName="ToggleGroup"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/ToggleGroupSimple.js"
+  docs="https://v2.grommet.io/togglegroup?theme=hpe"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3778-6628&t=ZqPsisuevR3KPp96-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/ToggleGroup/ToggleGroup.js"
+  height={{ min: 'xsmall' }}
+>
+  <ToggleGroupSimple />
+</Example>
+
+## Use cases
+
+### Toggling views
+
+Typically used in a data collection toolbar to allow the user to switch between different data presentations such as map, list, chart, and table.
+
+<Example
+  width="100%"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/ToggleGroupViews.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/CardView.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/ListView.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/utils.js',
+  ]}
+>
+  <ToggleGroupViews />
+</Example>
+
+## Anatomy
+
+<Example
+  caption="Diagram illustrating the three parts composing a ToggleGroup; a container holding the related options, plus a label and icon for each option."
+  plain
+>
+  <ToggleGroupAnatomy />
+</Example>
+
+| Label | Region        | Purpose                                                      | Required | Notes                                                       |
+| :---: | ------------- | ------------------------------------------------------------ | :------: | ----------------------------------------------------------- |
+| **1** | **Container** | Organizes children, how they appear and spaced.              | Required | --                                                          |
+| **2** | **Label**     | Describes what the button will do when selected.             | Optional | If no label is shown, icon is required.                     |
+| **3** | **Icon**      | Used to visually represent text label with or without label. | Optional | a11yTitle required. If no icon is shown, label is required. |
+
+## Types
+
+### Single select
+
+With single selection, where only one button can be toggled on at a time. This is the default behavior.
+
+### Multiple select
+
+With multiple selection, multiple buttons can be toggled on at the same time.
+
+## Accessibility
+
+In icon-only cases, ensure each icon has a clear `aria-label`.
+
+| Key                   | Interaction                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Tab**               | If nothing is toggled on, focuses on the first button in the group. Otherwise, focuses on the first button that is toggled on. |
+| **Left/Right Arrows** | Moves to other available buttons.                                                                                              |
+| **Space/Enter**       | Selects button with focus.                                                                                                     |
+
+### WCAG compliance
+
+<AccessibilitySection title="ToggleGroup" />

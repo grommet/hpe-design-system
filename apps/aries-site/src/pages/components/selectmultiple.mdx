@@ -1,0 +1,68 @@
+import { Example, AccessibilitySection } from '../../layouts';
+import {
+  SelectMultipleAnatomyExample,
+  SelectMultipleSimpleExample,
+} from '../../examples';
+
+The SelectMultiple component is typically used as a form element but can also be leveraged for user experiences that include searching or narrowing down data. It contains an optional search field. When within a form, the SelectMultiple will support labels, error and disabled states.
+
+<Example
+  componentName="SelectMultiple"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/selectmultiple/SelectMultipleSimpleExample.js"
+  docs="https://v2.grommet.io/selectmultiple?theme=hpe#props"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=4373-49682&t=ZqPsisuevR3KPp96-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/SelectMultiple/SelectMultiple.js"
+>
+  <SelectMultipleSimpleExample />
+</Example>
+
+## When to use
+
+When multiple selections can be made in a list that contains 5 or more items.
+
+## When not to use
+
+- For lists that offer less than 5 options, consider using a [CheckBoxGroup](/components/checkboxgroup) instead.
+- When only a single selection is permitted, use the [Select](/components/select) component instead.
+
+## Anatomy
+
+<Example
+  plain
+  caption="Diagram illustrating the various elements composing SelectMultiple."
+>
+  <SelectMultipleAnatomyExample />
+</Example>
+
+1. **Select**: Displays current input value and control to open/close options drop.
+1. **Selection Summary**: Succinct presentation of what a user can do, has done, and/or reset to default state.
+1. **Search (optional)**: Helps narrow down or quickly find options corresponding to the entered keyword.
+1. **Help Text (optional)**
+1. **List**: Available options from which the user can choose
+1. **List Item**: Clearly displays available option and its selected state.
+
+## Sizing and scrolling
+
+- Depending on the length of the dropdown list, the height of the SelectMultiple can be increased or decreased as needed with the `dropHeight` prop.
+- For lists with more than 10 items, consider setting a max height to ensure optimum readability and scannability of list items.
+- It is recommended to show approximately 10-15 items before enabling a scroll. Showing more than that will potentially increase the cognitive load on the user.
+
+## Best practices
+
+- Always use a label unless there is something else (such as preceding body text or headers) that makes that SelectMultiple’s purpose perfectly clear.
+- Ordering of lists - chronological/recency
+- Search: Consider including a search if your list is 10 items or longer to make it easier to browse options.
+
+## Accessibility
+
+To properly associate FormField `label` with Grommet's SelectMultiple component, ensure the SelectMultiple has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
+
+```
+<FormField label="Select option" htmlFor="selectmultiple__input">
+  <SelectMultiple id="selectmultiple" options={['Option 1', 'Option 2']} />
+</FormField>
+```
+
+### WCAG compliance
+
+<AccessibilitySection title="selectmultiple" />

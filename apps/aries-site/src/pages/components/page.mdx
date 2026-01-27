@@ -1,0 +1,184 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  PageBackGroundExample,
+  PageExample,
+  PageFullExample,
+  PageNarrowExample,
+  SinglePageContent,
+  PageWideExample,
+} from '../../examples';
+
+Page makes it easy to implement [page layouts](/templates/page-layouts) uniformly across HPE
+applications. Two components, Page and PageContent, work together to ensure HPE theme-defined
+padding, horizontal alignment, max-width, and responsive behaviors are applied in a consistent,
+turnkey manner.
+
+{/* height, width, and screenContainer.scale value chosen to best visually represent the example */}
+
+<Example
+  docs="https://v2.grommet.io/page?theme=hpe"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  width="100%"
+>
+  <PageExample />
+</Example>
+
+## Page and PageContent working together
+
+Page is the outer layout component and provides the desired layout context.
+Page’s `kind` determines which theme-defined alignment, padding, and min/max-widths
+are applied to its PageContent children.
+
+As a child of Page, PageContent consumes and adheres to the
+layout styling provided by its parent Page.
+
+```
+<Page kind="wide">
+  <PageContent>
+
+    /* All contents within me will respect the
+     * max-width, alignment, and padding specified
+     * by Page's context. */
+
+  </PageContent>
+
+  /* Contents outside of PageContent are not bound by
+   * Page's context. */
+
+</Page>
+```
+
+<br />
+
+In most cases, all content on a page can be wrapped in a [single PageContent component](#example-content-within-a-single-pagecontent).
+However, designs using [differing background colors](#example-page-with-full-width-background) to delineate page
+sections may accomplish this by applying a PageContent per desired section.
+
+## Example: content within a single PageContent
+
+All content is placed within a single PageContent component.
+
+{/* height, width, and screenContainer.scale value chosen to best visually represent the example */}
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/page/SinglePageContent.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/FilterControls/FilterControls.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/FilterControls/FiltersContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/PageHeader/PageHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/data/mockData/trainingDataSets.json',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/page/SinglePageContent.js"
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+>
+  <SinglePageContent />
+</Example>
+
+## Example: Page with full-width background
+
+Use cases where an application needs a background to span the entire width of a page section
+is achieved by setting `background={{ fill: "horizontal", ...additional properties }}` on
+PageContent.
+
+This treatment is often seen on marketing sites where backgrounds help visually
+block content sections. This might also be seen in a context such as an app-store catalog where
+the hero section might have an image spanning.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/page/PageBackGroundExample.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/page/PageBackGroundExample.js"
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+>
+  <PageBackGroundExample />
+</Example>
+
+## Variants
+
+### Wide
+
+"Wide" is Page's default `kind`. The vast majority of pages in HPE applications will
+likely use Page's "wide" variant.
+
+See [page layouts](/templates/page-layouts#page-kinds) for specifications
+and [content layouts](/templates/content-layouts) for templates and guidance
+on responsive designs.
+{/* height, width value chosen to best visually represent the example */}
+
+<Example
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/page/PageWideExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/PageHeader/PageHeader.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/page/PageWideExample.js"
+  height="650px"
+  width="100%"
+  screenContainer
+>
+  <PageWideExample />
+</Example>
+
+### Narrow
+
+Narrow is for use cases where the desire is to provide a user with singular, focused content or objective,
+such as editing field values of an object or stepping through a [wizard-based task flow](/templates/wizard).
+A "narrow" page layout limits the page content's width to `large` and positions the content at the center
+of the page.
+
+See [page layouts](/templates/page-layouts#page-kinds) for specifications
+and use-case guidance.
+
+{/* height, width value chosen to best visually represent the example */}
+
+<Example
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/page/PageNarrowExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/PageHeader/PageHeader.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/page/PageNarrowExample.js"
+  height="650px"
+  width="100%"
+  screenContainer
+>
+  <PageNarrowExample />
+</Example>
+
+### Full
+
+"Full" is helpful in situations like presenting a monitoring dashboard filled with a
+collection of key performance indicators or an interface allowing a user to browse
+resources displayed on a geographic map. This option allows the page's content to occupy the entire width of the browser window.
+If the window's width exceeds the available content, the content is left aligned.
+
+See [page layouts](/templates/page-layouts#page-kinds) for specifications
+and use-case guidance.
+
+{/* height, width value chosen to best visually represent the example */}
+
+<Example
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/page/PageFullExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/PageHeader/PageHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/StatusIndicator/StatusIndicator.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/components/page/PageuPageFullExample.js"
+  height="650px"
+  width="100%"
+  screenContainer
+>
+  <PageFullExample />
+</Example>
+
+## Accessibility
+### WCAG compliance
+  <AccessibilitySection title='page' />
+

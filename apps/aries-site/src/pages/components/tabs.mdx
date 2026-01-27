@@ -1,0 +1,127 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  TabsExample,
+  TabStatesExample,
+  TabWithIconExample,
+  TabResponsiveExample,
+} from '../../examples';
+import { Notification } from 'grommet';
+
+<Example
+  componentName="Tabs"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/tabs/TabsExample.js"
+  designer="https://designer.grommet.io/tabs?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/tabs?theme=hpe#props"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=59-31&t=ZqPsisuevR3KPp96-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tabs/Tabs.js"
+  template
+  height={{ min: 'xsmall' }}
+  showResponsiveControls={[]}
+>
+  <TabsExample />
+</Example>
+
+## Guidance
+
+Tabs can be used to rapidly navigate between different content while maintaining the existing context. The Tabs component serves as the outer wrapper and contains individual Tab components as children.
+
+### Usage
+
+To create a set of Tabs, use the Tabs component as the outer wrapper with Tab components as its children. Providing a title prop to a Tab will populate the text on the actual tab. The children of each Tab will be the content that displays when the given tab is active.
+
+**It is recommended that you do not use more than 5 tabs in a group.** In order to create the most effective user experience, keep the number of tabs to a minimum. This allows the user to easily understand the scope of the information presented to them. With more tabs, the information can become overwhelming.
+
+**Keep labels short.** Using a simple, concise label such as "Settings" or "Notifications" helps the user easily decide which tab contains the content they need. Longer labels may clutter the layout and create a more effortful experience for the user.
+
+**If using Tabs as a navigation structure, be sure to connect them to
+the browser location.** This will allow proper active styling and routing to function.
+
+**If using Tabs as a navigation structure, don't use them in conjunction with other navigation structures.** Combining multiple navigation structures creates a confusing experience for the user. It can lead to difficulties in navigating through an application and in ability to remember where desired content lives.
+
+### Alignment
+
+To maintain a clean, consistent presentation, all content should be aligned to the left edge of the Tabs component.
+
+- Apply `justify="start"` to left-align the tabs and have their bottom border extend the full-width of the parent container.
+- Content within the Tab should be flush with the left edge of the Tabs component and have a vertical padding of `medium` to provide spacing and room for the content to breathe.
+
+### Responsive Tabs
+
+When horizontal space is limited, only the Tabs that fit will be displayed. The remaining Tabs can be accessed by using the previous and next arrows or with the keyboard.
+
+#### Responsive behavior
+
+- Previous and next arrows will be present if the horizontal Tabs are fully outside the viewport.
+- Previous and next arrows are disabled if the horizontal Tab has no more Tabs to view towards the left or right.
+- Clicking on the previous and next arrows will show additional Tabs. At `xsmall` and `small` [breakpoints](/templates/content-layouts?q=responsive#breakpoints) the arrows will show 1 additional Tab. At `medium`, `large`, or `xlarge` [breakpoints](/templates/content-layouts?q=responsive#breakpoints), clicking the arrows will show 3 additional Tabs.
+
+<Notification
+  width="xlarge"
+  status="info"
+  message="Resize your window to see how Tabs adapts when there is not enough room to display all of the Tabs."
+/>
+
+<Example
+  docs="https://v2.grommet.io/tabs?theme=hpe#tabs.step"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/tabs/TabResponsive.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/tabs/TabResponsive.js"
+  height={{ min: 'xsmall' }}
+  width="100%"
+  showResponsiveControls={['desktop', 'laptop', 'mobile']}
+>
+  <TabResponsiveExample />
+</Example>
+
+### Avoid vertical tabs
+
+Considering the UX principles of consistency, simplicity, hierarchy, and responsiveness, the HPE Design System does not support or recommend the use of vertical tabs because they:
+
+- Break general layout conventions which aim to give the main content priority of horizontal screen real estate over navigational regions.
+- Create unneccessary complexity in a page layout by nesting navigation alongside content, introducing a more complex information hierarchy than needed.
+- Respond poorly at smaller resolutions, requiring them to reflow horizontally or collapse into a menu.
+
+Instead, it is recommended to use horizontal tabs already implemented in the Design System as they allow for a more simple page layout and information architecture and respond better on smaller resolutions.
+
+## Variants
+
+Tabs can be used to control what information is presented to a user at a given time. They are effective for grouping information and allowing users to move between those groups without leaving their existing context.
+
+### Tabs with icons
+
+An icon can be used on a Tab to provide additional context about the information contained within the tab. It is recommended that an icon is used in conjunction with a title to ensure the context of the tab is clear.
+
+<Example
+  docs="https://v2.grommet.io/tabs?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/tabs/TabWithIconExample.js"
+  template
+  height={{ min: 'xsmall' }}
+  showResponsiveControls={[]}
+>
+  <TabWithIconExample />
+</Example>
+
+### Tab states
+
+An individual Tab can take on various states: enabled, hover, and active. The styling of a tab differs between each of these states as an indicator to the user.
+
+<Example
+  docs="https://v2.grommet.io/tabs?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/tabs/TabStatesExample.js"
+  template
+  height={{ min: 'xsmall' }}
+  showResponsiveControls={[]}
+>
+  <TabStatesExample />
+</Example>
+
+## Accessibility
+
+Accessibility features such as role and aria-selected are built into Tabs. When a tab is selected, aria-selected is switched to true and toggled to false for all other tabs within the group.
+
+If you would like to provide a custom aria-label for screen reader users, you can do so by providing a string to the a11yTitle prop.
+
+### WCAG compliance
+
+<AccessibilitySection title="tabs" />

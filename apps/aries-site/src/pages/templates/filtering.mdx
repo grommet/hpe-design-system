@@ -1,0 +1,123 @@
+import { Text } from 'grommet';
+import { Example } from '../../layouts';
+import {
+  FilteringCards,
+  FilteringLists,
+  FilteringTable,
+  QuickFilterToolbar,
+} from '../../examples';
+
+export const DataSummaryExample = ({ filters }) => (
+  <Text>
+    {filters ? 'X results of ' : undefined}Y items
+    <Text margin={{ horizontal: 'xsmall' }}>|</Text>Z selected
+  </Text>
+);
+
+For details on the components that make up the filtering experience, see [Data documentation](/components/data), [DataFilters documentation](/components/datafilters), [DataSummary documentation](/components/datasummary), and [DataSearch documentation](/components/datasearch).
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/FilteringCards/FilteringCards.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/FilteringCards/mockData.js',
+  ]}
+  docs="https://v2.grommet.io/data"
+  showResponsiveControls={['fullScreen']}
+  template
+>
+  <FilteringCards />
+</Example>
+
+## When to use
+
+Filtering allows data to be narrowed down around a set of specified parameters. When users may not have a specific record in mind but are seeking to group data around a certain set of attributes, filtering allows the user to narrow the data and take action on relevant records.
+
+If a user will likely be looking for a specific record as opposed to groups of data, consider implementing search.
+
+## Placement
+
+Filter controls should live above the data content and facilitate a user's ability to locate and take actions against records of interest.
+
+## Presentation
+
+The way filters are displayed is dependent on the number of filters, data types of the content, and the use case.
+
+- In most cases, filters should be [presented in a side-drawer layer](#filters-in-a-layer) that can be opened by a button with Filter icon.
+- At times, it may be helpful to expose a [frequently used filter in the toolbar](#exposed-filter-in-toolbar) directly.
+
+Filter types should suit both the type of data and number of options available. For example, rendering numeric data as a RangeSelector is more beneficial than rendering it as a CheckBoxGroup because it allows the user to more efficiently define a desired range.
+
+When building with [Data and friends](/components/data), a smart default input for a given property will be determined based on the type of data and the number of options. For details on which/how the default input type is chosen, see [DataFilter documentation](/components/datafilter).
+
+While the default input types are intended as smart defaults for the 80% case, other input types can be used if it better suits the use case.
+
+## Results
+
+Results should live below the controls and display any records that meet the filter criteria.
+Depending on the data types and use case, results may be represented by a
+[List](/templates/lists), [Cards](/components/card), or [DataTable](/components/datatable).
+
+## Data summary
+
+The summary displayed beneath the filter controls should always reflect the user's actions. When [filtering is combined with selection](#selectable-results), the summary text should adjust for the following scenarios.
+
+| State                                | Summary                        | Notes                                                                                                  |
+| ------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **No filters, no selections**        | Y items                        | Y is the total number of items in the dataset.                                                         |
+| **Filters applied, no selections**   | X results of Y items           | X is the number of items that meet the filter criteria. Y is the total number of items in the dataset. |
+| **No filters, selections made**      | <DataSummaryExample />         | Z is the total number of items selected.                                                               |
+| **Filters applied, selections made** | <DataSummaryExample filters /> | Z is the total number of items selected.                                                               |
+
+When building with Grommet, [DataSummary](/components/datasummary) manages these messages automatically.
+
+## Pagination
+
+For large data sets, it can be helpful to paginate the data and display pagination controls underneath the results. For details on pagination behavior, see [Pagination documentation](/components/pagination).
+
+## Examples
+
+### Filters in a layer
+
+When applying many filters at once, it is helpful to present them in a consolidated layer.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/FilteringLists/FilteringLists.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/FilteringLists/mockData.js',
+  ]}
+  docs="https://v2.grommet.io/data"
+  showResponsiveControls={['fullScreen']}
+  template
+>
+  <FilteringLists />
+</Example>
+
+### Exposed filter in toolbar
+
+If it's expected that a specific filter or filters will be most frequently used, the filter can be exposed in the toolbar. Use your understanding of the use case to determine if this will aid the user's goal.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/QuickFilterToolbar.js"
+  docs="https://v2.grommet.io/data"
+  template
+  height="auto"
+  showResponsiveControls={['fullScreen']}
+>
+  <QuickFilterToolbar />
+</Example>
+
+### Selectable results
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/FilteringTable/FilteringTable.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/FilteringTable/FilterServers.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/filtering/FilteringTable/mockData.js',
+  ]}
+  docs="https://v2.grommet.io/data"
+  showResponsiveControls={false}
+  width="100%"
+  template
+>
+  <FilteringTable />
+</Example>

@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
-import { TwoColumnWizardExample } from 'aries-site/src/examples/templates/wizard/TwoColumnWizardExample';
-import { WizardValidationExample } from 'aries-site/src/examples/templates/wizard/WizardValidationExample';
+import { TwoColumnWizardExample } from 'apps/aries-site/src/examples/templates/wizard/TwoColumnWizardExample';
+import { WizardValidationExample } from 'apps/aries-site/src/examples/templates/wizard/WizardValidationExample';
 
 const meta = {
   title: 'Wizard',

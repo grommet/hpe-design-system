@@ -1,12 +1,12 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
-import { BannerContentLayoutExample } from 'aries-site/src/examples/templates/global-banner-notifications/BannerContentLayoutExample';
-import { BannerNotificationCritical } from 'aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCritical';
-import { BannerNotificationCriticalClose } from 'aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCriticalClose';
-import { BannerNotificationInfo } from 'aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationInfo';
-import { BannerNotificationWarning } from 'aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarning';
-import { BannerNotificationWarningClose } from 'aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarningClose';
+import { BannerContentLayoutExample } from 'apps/aries-site/src/examples/templates/global-banner-notifications/BannerContentLayoutExample';
+import { BannerNotificationCritical } from 'apps/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCritical';
+import { BannerNotificationCriticalClose } from 'apps/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCriticalClose';
+import { BannerNotificationInfo } from 'apps/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationInfo';
+import { BannerNotificationWarning } from 'apps/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarning';
+import { BannerNotificationWarningClose } from 'apps/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarningClose';
 
 const meta = {
   title: 'Global Notifications',

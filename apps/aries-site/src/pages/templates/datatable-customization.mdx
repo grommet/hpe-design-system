@@ -1,0 +1,65 @@
+import {
+  TableCustomizationExample,
+  ColumnSettingsExample,
+} from '../../examples';
+import { Example } from '../../layouts';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/table-customization/components/TableCustomizationExample.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/table-customization/components"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3940-3554&t=9Kvc9d8gzK405Y1J-1"
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+>
+  <TableCustomizationExample />
+</Example>
+
+## Guidelines
+
+For complex data tables with many columns, the user will need the ability to
+configure which columns they want to see and the order in which these columns appear.
+
+This functionality is handled by a dropdown that contains two tabs: one for selecting
+which columns should appear in the DataTable and another for ordering the columns.
+
+## Anatomy of a customizable DataTable
+
+### An action to manage column visibility and order controls
+
+Since we want to customize the data table itself, we have separate controls for changing
+which columns are shown in the data table and their order. Place a button with a `Manage columns`
+icon to the right of the search and filter controls. These view controls change what items
+are shown in the data table or how they are presented rather than changing the items themselves.
+The right aligned `Actions` menu is mainly for actions which modify items in the data table.
+
+### Column visibility
+
+Clicking on the `Manage columns` button opens a dropdown which has two tabs. The first tab should
+be active and labeled "Select columns." The tab content should consist of a Search input
+and a CheckBoxGroup that lists all possible table columns.
+
+When a column in the list is checked, it is visible in the data table. When it is unchecked,
+it is removed from the data table. When a column from the data table is required, display it as checked and disabled. Adjustments to the table data should occur immediately as
+the user checks or unchecks a column, as opposed to waiting until the dropdown closes.
+
+The user can also search for a specific column by typing in the Search input.
+
+<Example 
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/table-customization/components/ColumnSettingsExample.js"
+
+height="none">
+    <ColumnSettingsExample />
+</Example>
+
+### Column order
+
+The second tab of the dropdown should be labeled "Order columns." It contains a
+list of the selected columns from the "Select columns" tab. A user can reorder the
+columns either by dragging and dropping the column names in the list or by using
+the move up/move down buttons that are present next to each column name.
+
+Similar to column selection, the reordering of the data table columns should take
+place immediately, as opposed to waiting until the dropdown closes.
