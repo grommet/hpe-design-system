@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Collapsible } from 'grommet';
 import { Down, Up } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 
 export const CollapsibleSection = ({ label, onClick, ...rest }) => {
   const [open, setOpen] = useState(false);

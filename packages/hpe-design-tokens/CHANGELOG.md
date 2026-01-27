@@ -1,5 +1,9 @@
 # hpe-design-tokens
 
+## 2.2.1
+
+- Fixed bug where `color.focus` and `color.focus.support` were not defined correctly. https://github.com/grommet/hpe-design-system/pull/5668
+
 ## 2.2.0
 
 **Global**

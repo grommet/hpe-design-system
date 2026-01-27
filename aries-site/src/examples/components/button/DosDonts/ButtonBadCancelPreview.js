@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Heading, Header, Paragraph } from 'grommet';
-import { ButtonGroup } from 'aries-core';
+import { ButtonGroup } from '@shared/aries-core';
 
 export const ButtonBadCancelPreview = () => (
   <Box width="xlarge" gap="medium" pad="xsmall">
