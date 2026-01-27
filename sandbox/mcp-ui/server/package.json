@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite-node src/index.ts",
+    "dev": "vite-node src/server.ts",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mcp-ui/server": "^6.0.0",
+    "@modelcontextprotocol/sdk": "^1.25.3",
     "cors": "^2.8.6",
     "express": "^5.2.1"
   },
