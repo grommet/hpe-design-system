@@ -18,7 +18,7 @@ const Components = () => (
     />
     <PageContent>
       <Box pad={{ vertical: 'medium' }} justify="center" width="xlarge">
-        <Heading margin="none">Title</Heading>
+        <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
       <ContentSection gap="xlarge">
