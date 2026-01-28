@@ -1,8 +1,6 @@
-import createTM from 'next-transpile-modules';
 import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 
-const withTM = createTM(['aries-core']);
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
@@ -23,11 +21,10 @@ const nextConfig = {
     styledComponents: true,
   },
   output: 'export',
-  swcMinify: true,
+  // Use Next.js 15's built-in transpilePackages instead of next-transpile-modules
+  transpilePackages: ['aries-core'],
 };
 
-const plugins = [withTM, withMDX];
-
-const config = () => plugins.reduce((acc, next) => next(acc), nextConfig);
+const config = () => withMDX(nextConfig);
 
 export default config;

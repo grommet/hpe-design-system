@@ -53,11 +53,12 @@ const data = [
   },
 ];
 
-export const PageOneContent = ({ onNavigate }) => {
+export const PageOneContent = () => {
   return (
     <Box pad="medium">
       <DataTable
         data={data}
+        aria-describedby='Example user data'
         columns={[
           {
             property: 'select',
