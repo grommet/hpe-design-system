@@ -142,7 +142,7 @@ export const MenuAnatomy = () => {
   return (
     <Stack margin={{ bottom: 'medium' }} interactiveChild="last">
       <AnatomyGrid>
-        {annotations.map(({ id, gridArea, target, rest }) => (
+        {annotations.map(({ id, gridArea, target, ...rest }) => (
           <Annotation
             key={id}
             id={id}
