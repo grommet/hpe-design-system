@@ -17,8 +17,6 @@ export const SectionCard = ({ section, onClick }) => (
       <LinkNext height="xxlarge" />
     </Box>
 
-    <Paragraph>
-      This leads to the {section.label} page of your HPE Design System demo app.
-    </Paragraph>
+    <Paragraph alignSelf="top">{section.subtitle}</Paragraph>
   </Card>
 );

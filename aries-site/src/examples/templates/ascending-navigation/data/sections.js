@@ -1,17 +1,29 @@
-import { Announce, Help, Template } from '@hpe-design/icons-grommet';
-
-export const sections = [
-  { id: 'overview', label: 'Overview', icon: <Announce size="small" /> },
-  { id: 'components', label: 'Components', icon: <Template size="small" /> },
-  { id: 'help', label: 'Help', icon: <Help size="small" /> },
-];
+import { User, Home, Help, Template } from '@hpe-design/icons-grommet';
 
 export const sectionConfig = {
-  home: { label: 'Home', subtitle: 'HPE Design System demo.' },
-  overview: { label: 'Overview', subtitle: 'This is the overview section.' },
-  components: {
-    label: 'Components',
-    subtitle: 'This is the components section.',
+  home: {
+    label: 'Identity & access',
+    subtitle: 'Securely manage users and access to resources.',
+    details: 'Securely Lorem ipsum dolor.',
+    icon: <Home size="large" />,
   },
-  help: { label: 'Help', subtitle: 'This is the help section.' },
+  pageOne: {
+    label: 'Users',
+    subtitle:
+      'Invite users to your organization and assign access to resources.',
+    details: 'Securely Lorem ipsum dolor.',
+    icon: <User size="large" />,
+  },
+  pageTwo: {
+    label: 'Hardware',
+    subtitle: 'This is hardware section.',
+    details: 'Securely Lorem ipsum dolor.',
+    icon: <Template size="large" />,
+  },
+  pageThree: {
+    label: 'Help',
+    subtitle: 'This is the help section.',
+    details: 'Securely Lorem ipsum dolor.',
+    icon: <Help size="large" />,
+  },
 };

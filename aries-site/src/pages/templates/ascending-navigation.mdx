@@ -7,34 +7,15 @@ import { Text } from 'grommet';
 The `parent` property on [PageHeader](https://design-system.hpe.design/components/PageHeader) generates a link to the immediate upstream page in the hierarchy.
 
 
-<Example
-  caption={
-    <>
-      <Text margin={{ top: 'xsmall' }} size="small">
-        {' '}
-        1. Page loads on <strong>Overview</strong> child page
-      </Text>
-      <br></br>
-      <Text margin={{ top: 'xsmall' }} size="small">
-        {' '}
-        2. Interacting with the <strong>Ascending Navigation</strong> link brings the user to the home page.
-      </Text>
-    </>
-  }
-  plain
-  pad={{
-    bottom: "xlarge"
-  }}
-  previewWidth="full"  
->
+<Example pad='small'>
   <AscendingNavigationExample />
 </Example>
 
-```txt
+```jsx
 <PageHeader 
-  parent={ <Anchor label="Home" icon={<Left />} a11yTitle="Link to the home page" />} 
-  title="Example page title" 
-  subtitle="I'm a direct child of the homepage"
+  parent={ <Anchor label='Home' icon={<Left />} a11yTitle='Link to the home page' />} 
+  title='Example page title' 
+  subtitle='I'm a direct child of the homepage'
 />
 ```
  
