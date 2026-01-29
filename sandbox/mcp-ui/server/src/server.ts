@@ -1,11 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import {
+  registerAppTool,
+  registerAppResource,
+} from '@modelcontextprotocol/ext-apps/server';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js';
 import { createUIResource } from '@mcp-ui/server';
 import { randomUUID } from 'node:crypto';
-import { error } from 'node:console';
+import { z } from 'zod';
+import { example01Resource } from './resources/example01.ts';
 
 const app = express();
 const port = 3000;
@@ -74,6 +79,46 @@ app.post('/mcp', async (req, res) => {
 
         return {
           content: [uiResource],
+        };
+      },
+    );
+
+    // Register additional app tools or resources as needed
+    // Example: registerAppTool(mcpServer, myCustomTool);
+    // Example: registerAppResource(mcpServer, myCustomResource);
+
+    // Register resource handler
+    registerAppResource(
+      mcpServer,
+      'example01',
+      example01Resource.resource.uri,
+      {},
+      async () => {
+        return {
+          contents: [example01Resource.resource],
+        };
+      },
+    );
+
+    // Register tool with _meta.ui.resourceUri
+    registerAppTool(
+      mcpServer,
+      'show_example01',
+      {
+        title: 'Show Example 01',
+        description: 'Tool to show example01 UI resource.',
+        inputSchema: {
+          query: z.string().describe('User query'),
+        },
+        _meta: {
+          ui: {
+            resourceUri: example01Resource.resource.uri,
+          },
+        },
+      },
+      async ({ query }: { query: string }) => {
+        return {
+          content: [{ type: 'text', text: `Processing: ${query}` }],
         };
       },
     );
