@@ -1,6 +1,5 @@
 import React from 'react';
 import { Page, PageContent, PageHeader, Box, Heading, Text } from 'grommet';
-import { boxArgs } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Page',
@@ -10,7 +9,6 @@ const meta = {
       control: { type: 'select' },
       options: ['wide', 'narrow', 'full'],
     },
-    ...boxArgs,
   },
 };
 
