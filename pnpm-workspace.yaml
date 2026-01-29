@@ -1,6 +1,5 @@
 packages:
   - 'apps/*'
-  - 'aries-site'
   - 'packages/**'
   - 'sandbox/*'
   - 'shared/*'

@@ -1,0 +1,119 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  CheckBoxGroupDisabledExample,
+  CheckBoxGroupDescriptionExample,
+  CheckBoxGroupObjectExample,
+  CheckBoxGroupSimpleExample,
+  CheckBoxGroupScrollExample,
+  CheckBoxGroupValidationExample,
+} from '../../examples/components/checkboxgroup';
+
+<Example
+  componentName="CheckBoxGroup"
+  docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupSimpleExample.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3026-1769&t=ZqPsisuevR3KPp96-1"
+  designer="https://designer.grommet.io/checkboxgroup?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/CheckBoxGroup/CheckBoxGroup.js"
+>
+  <CheckBoxGroupSimpleExample />
+</Example>
+
+## Guidance
+
+CheckBoxGroup should be used to present a group of options to the user. The user can select a single or multiple options.
+
+### Best practices
+
+- CheckBoxGroup should be used to select zero or more options from a list.
+- In a CheckBoxGroup, options are independent from one another.
+- Settings changed by checkboxes should not take effect until the user clicks to proceed.
+- It is recommended to have only 4 or fewer options in a CheckBoxGroup.
+- Use [SelectMultiple](/components/selectmultiple#best-practices) when multiple selections can be made in a list containing 5-9 items; use [SelectMultiple](/components/selectmultiple#best-practices) with search when containing 10 or more items.
+
+### Usage
+
+**The dos for CheckBoxGroup:**
+
+- Always label CheckBoxGroups with short and concise labels.
+- Give every CheckBox in the group a short, but descriptive value.
+- Clearly separate Checkbox Groups from other groups on the same page.
+- Organize Checkboxes in a logical order by grouping related options.
+- Consider placing most common options first in the group.
+
+**The don'ts for CheckBoxGroup:**
+
+- Don’t align checkboxes horizontally in a group.
+- When only one item can be selected from a list, use the [Select](/components/select) component instead.
+- When multiple selections can be made in a list that contains 5 or more items, use [SelectMultiple](/components/SelectMultiple).
+
+
+## Variants
+
+CheckBoxGroup contains multiple checkboxes and has various states. When enabled, CheckBoxGroup should always allow one or more options to be selected.
+
+### With description
+
+Adding a description provides the user additional information about the context or purpose of the CheckBoxGroup.
+
+<Example
+  docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupDescriptionExample.js"
+  height={{ min: 'small' }}
+>
+  <CheckBoxGroupDescriptionExample />
+</Example>
+
+### Validation
+
+Validation is used to show that the CheckBoxGroup does not meet the validation requirements of its bounding FormField.
+
+<Example
+  docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupValidationExample.js"
+  height={{ min: 'small' }}
+>
+  <CheckBoxGroupValidationExample />
+</Example>
+
+### With options as array of objects
+
+CheckBoxGroup options are typically an array of strings, but they can also be an array of objects.
+
+<Example
+  docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupObjectExample.js"
+  height={{ min: 'small' }}
+>
+  <CheckBoxGroupObjectExample />
+</Example>
+
+### Disabled
+
+Used to indicate that CheckBoxGroup cannot be interacted with.
+
+<Example
+  docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupDisabledExample.js"
+  height={{ min: 'small' }}
+>
+  <CheckBoxGroupDisabledExample />
+</Example>
+
+### Scroll
+
+When many options are available and vertical space is limited, a scrollable checkbox group may be considered.
+
+<Example
+  docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupDescriptionExample.js"
+  height={{ min: 'small' }}
+>
+  <CheckBoxGroupScrollExample />
+</Example>
+
+## Accessibility
+When using multiple checkboxes in a single FormField, use a CheckBoxGroup. If you're using a single checkbox, use [CheckBox](/components/checkbox).
+
+### WCAG compliance
+  <AccessibilitySection title='checkboxgroup' />

@@ -1,0 +1,329 @@
+import {
+  ChangePasswordExample,
+  CharacterCounterExample,
+  ColumnFormDo,
+  ColumnFormDont,
+  CustomizeExample,
+  FormPresentationDecisionTree,
+  FullPageFormExample,
+  RequiredFieldsExample,
+  PayExample,
+  SettingsExample,
+  ShippingExample,
+  SignInExample,
+  SimpleSignUpExample,
+  SignUpExample,
+  SingleFormFieldExample,
+  SortExample,
+} from '../../../examples';
+import { ExampleImagePreview } from '../../../components';
+import { Image } from 'grommet';
+import { BestPracticeGroup, Example } from '../../../layouts';
+import { formLayouts } from '../../../data/structures';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/SimpleSignUpExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
+  docs="https://v2.grommet.io/form?theme=hpe"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <SimpleSignUpExample />
+</Example>
+
+## When to use
+
+To efficiently capture information necessary for completing a task.
+
+## When not to use
+
+Complicated processes where the user might need guidance at various stages, or when the form would be intimidatingly long. In these cases use a [Wizard](https://design-system.hpe.design/templates/wizard?q=error#guidance).
+
+## Do's
+
+**Required fields**
+
+- Ask only for the required information. Keep the fields to a minimum to allow the user to finish their task as quickly as possible.
+- List only the most common field requirements below the relevant field.
+- Use asterisks for required fields when the form has more than two required fields and/or has optional fields.
+- Asterisks for required fields should be the same color as label field.
+
+**Format and fields**
+
+- User-entered input must be encoded to prevent [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) and [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
+- Wrap all input elements within a FormField `<FormField label="Username"><TextInput /></FormField>`
+- Reveal fields progressively so the user is not overwhelmed.
+- Write in sentence case (capitalize the first letter and all following letters should be lowercase).
+- Fill in default values for as many fields as possible.
+- Use clear, concise labels for each field.
+- Write helpful placeholder text inside the fields.
+- If the user will likely have doubts about how to complete an input, include helpful text below the field, such as [password requirements](#sign-up) or [additional resources](#customize) on a field's context.
+- Place the submit, reset, and cancel buttons at the bottom left of the form. [See responsive button behavior](https://design-system.hpe.design/components/button#responsiveness).
+- Use specific labels on buttons that tell the user what action to expect.
+
+**Actions after the user submits information**
+
+- Provide feedback when the form is submitted successfully (e.g. notification, success page, green check mark, etc.).
+- [In the case of an error](#required-vs-optional-fields), red highlight the field where the error occurred.
+- List all errors and the corrective action the user must take. Place inline when possible. Otherwise, list above the submit button.
+- Allow the user to continue navigating through the application immediately.
+
+## Don'ts
+
+**Required fields**
+
+- Use asterisks for sign up and sign in forms. This can be implemented using `required={{ indicator: false }}`.
+- Use red asterisks, because has shown to actually decrease success in filling out the form.
+- List rejection criteria that the user is unlikely to input (ex. double hyphens, starting with a space, etc.). Only alert them when they type the error.
+
+**Format and fields**
+
+- Have more than two optional fields.
+- Repeat the field label as placeholder text.
+- Use generic labels on buttons, such as “Yes," or "No." Instead use labels such as "Save," "Publish," "Create Project," etc.
+- Restrict resource naming. Allow spaces, punctuation and unicode characters (ex. Björk Guðmundsdóttir, 联想, John Q. Public, etc.).
+
+## Accessibility
+
+Form inputs must be accompanied by a label that identifies itself to screen readers. Placing all inputs within a Grommet FormField and applying the guidance below play a big role in ensuring the inputs are accessible.
+
+**FormFields must include:**
+
+- A "for" property that matches the `id` of its child input. If using Grommet, this is applied with the `htmlFor` property.
+
+```
+<FormField
+  label="Username"
+  htmlFor="example-username"
+  name="example-username"
+  >
+   <TextInput id="example-username" name="example-username" />
+</FormField>
+```
+
+- A `name` property applied on both the FormField and its child input element.
+- A clear, concise label.
+- Ensure that users can tab through fields and buttons in a logical order and not have to use arrow keys.
+
+[View the accessibility guidance page if you'd like to use simulators, testing tools, and other resources](https://design-system.hpe.design/foundation/accessibility?q=acce).
+
+## Terms and conditions
+
+Users must actively check a box next to a statement that shows they have agreed to the Terms and Conditions when signing up for an account. For easy access and quick reference, the legal agreement is a simple link in the text.
+
+## Single field forms
+
+- For [single form fields](#single-required-formfield) (ex: delete confirmation request), use an asterisk to denote that it is a "required" field. This can avoid user confusion and reduce the chance of "required" input error.
+
+## Use cases
+
+### Sign up
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/SignUpExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <SignUpExample />
+</Example>
+
+### Sign in
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/SignInExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <SignInExample />
+</Example>
+
+### Filter
+
+To learn about filtering, read the [filtering documentation](/templates/filtering).
+
+### Sort
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/SortExample.js">
+  <SortExample />
+</Example>
+
+### Change password
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/ChangePasswordExample.js">
+  <ChangePasswordExample />
+</Example>
+
+### Settings
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/SettingsExample.js"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <SettingsExample />
+</Example>
+
+### Pay
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/PayExample.js"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <PayExample />
+</Example>
+
+### Shipping
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/ShippingExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/Shipping/ShippingInformation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/Shipping/ContactInformation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/utils/FormValidation.js',
+  ]}
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <ShippingExample />
+</Example>
+
+### Customize
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/CustomizeExample.js">
+  <CustomizeExample />
+</Example>
+
+## Required vs optional fields
+
+For standard forms, use an asterisk(\*) to indicate required field/controls.
+
+**Please note that at this time we do not have use cases that require labeling a form field as optional. If you feel you have a use case that would need to be labeled as optional, please contact us to discuss further.**
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/RequiredFieldsExample.js"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <RequiredFieldsExample />
+</Example>
+
+### Single required FormField
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/SingleFormFieldExample.js">
+  <SingleFormFieldExample />
+</Example>
+
+### Fields with character limits
+
+**When to use**
+
+In cases where the user is given an opportunity to express themselves or would likely exceed a field's character limit. Examples include some description fields, feedback, feature requests, reporting issues, etc.
+
+In general, exceeding the character limit should be an infrequent experience for users. If users are constantly exceeding the character limit, this may be an indication that the design should be altered to accommodate the needs of the user.
+
+**Interaction guidance**
+
+- Allow the user to keep typing beyond the limit as opposed to cutting them off. This allows the user to decide which portion of content should be removed to meet the character limit.
+- Do not show character counter by default. Instead, display it once a threshold has been reached (e.g., 75% of limit has been reached). The threshold may vary depending on the size of the limit. For example, if the limit is small (such as 50 characters), then a threshold of 50% may be appropriate. If the limit is larger (2000 characters), then a larger threshold like 80% may be appropriate.
+- If the user has exceeded the limit and attempts to submit the form, the client-side validation will stop the form submission from proceeding.
+
+**Formatting**
+
+- Left-align the character counter beneath the input so it is consistent with the alignment of other contextual form field elements like label and help text.
+- If the 80% case of users won't run into the character limit, don’t use the help text beneath the form field label to state the limit. This adds unnecessary clutter to the screen. However, if it is valuable for the user to know the limit in advance (such as knowing a support request has a max of 1000 characters), the help text can be used.
+- When the max has not been reached, format the message as “X characters left". This message format removes the need for the user to compute how many characters are remaining.
+- When the max has been exceeded, format the message as “X characters over limit” and apply “error” validation to the form field.
+
+**Accessibility**
+
+- Announce the max character allowed before the user begins typing.
+- Announce when the user has typed beyond the threshold of the max allowed.
+
+**Example**
+
+For demonstration purposes, the character limit is 40 characters and a threshold of 50%. So, the character counter will be displayed when 20 or more characters have been entered.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/forms/CharacterCounterExample.js">
+  <CharacterCounterExample />
+</Example>
+
+### Exceptions and how to address them
+
+- A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is standard practice.
+
+  - For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
+
+- Forms with minimal fields are optimal, but occasionally, capturing extra information would be highly beneficial for the user. The following are some options for addressing these cases:
+
+  - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, provide a form that allows the user to add helpful, optional information at another time. An example of a helpful but not required field could be asking for someone's official title or role. If it is not necessary to capture this information right away on a sign-in form, offer this "role" or "title" field in profile settings.
+
+<ExampleImagePreview
+  label="Forms where 'asterisk' can be skipped"
+  src="/form-example-nonrequired.png"
+  href="#sign-in"
+  alt="HPE Design System Form where required can be skipped"
+/>
+
+## Where to present a form
+
+There are several placement options when presenting a form, but when should a particular
+placement be chosen and why? On a dedicated page? Within a layer? If within a layer, which
+type?
+
+<FormPresentationDecisionTree />
+
+## Full-page forms
+
+A full-page form is used to display information free from interuption. They may be presented
+on a dedicated page or within a fullscreen layer.
+
+**Best practices for full-page forms:**
+
+- When using a full-page form use a single-column form layout to create a clear focused path
+  to complete for the user.
+- When using a full-page form avoid using multi-column layouts, which can cause users to skip
+  important fields, input data in the wrong field, or simply hinder efficiency which leads to
+  frustration or even abandonment.
+- When using a single form page, use no more than 10 form fields in the same viewport so that
+  users are not intimidated by seeing a long page filled with form fields and sections. Instead,
+  consider breaking the form up into logical sections and present them one at a time.
+
+### Avoid using multiple column layouts
+
+Using single-column layouts creates clear paths for users. Multi-column layouts can
+inadvertently cause users to skip important fields, input data in the wrong field,
+or simply prevent efficient progress; all of which can lead users to abandon forms.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'One column layer to create a clear path to completion for the user.',
+    }}
+  >
+    <ColumnFormDo />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Avoid using multiple-column form layout.`,
+    }}
+  >
+    <ColumnFormDont />
+  </Example>
+</BestPracticeGroup>
+
+## Managing child objects within a form
+
+Applications often have scenarios where an object has multiple child objects, such as:
+
+- Creating an account with multiple contacts, each with their own contact detail.
+- Creating a cluster to perform a workload, dependent on setting and specifying
+  parameters for each resource composing the cluster.
+- Configuring permissions for a role, for which each permission has its own set of parameters.
+
+See [managing child objects](/templates/forms/managing-child-objects) to see how a user
+can easily show and hide a child object's detail as needed.

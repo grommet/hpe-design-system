@@ -1,0 +1,84 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import { ExampleImagePreview } from '../../components';
+import {
+  PaginationAnatomy,
+  PaginationCardsExample,
+  PaginationExample,
+  ToggleGroupViews,
+} from '../../examples';
+
+<Example
+  componentName="Pagination"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/pagination/PaginationTableExample.js"
+  docs="https://v2.grommet.io/pagination?theme=hpe#props"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3268-271&t=ZqPsisuevR3KPp96-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Pagination/Pagination.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  height={{ min: '3xsmall' }}
+>
+  <PaginationExample />
+</Example>
+
+## Use cases
+
+### Managing datasets
+
+Common ways to display datasets include, DataTable, List & Cards. Pagination can be attached to any of these options, allowing the user to browse the returned data in smaller segmented views.
+
+<Example
+  width="100%"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/ToggleGroupViews.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/CardView.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/ListView.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/togglegroup/utils.js',
+  ]}
+>
+  <ToggleGroupViews />
+</Example>
+
+## Anatomy
+
+<Example
+  caption="Diagram illustrating the parts composing Pagination."
+  plain
+>
+  <PaginationAnatomy />
+</Example>
+
+| Label | Region          | Purpose                                                                            | Required | Notes                                                                                                                                      |
+| :---: | --------------- | ---------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1** | **Container**   | Organizes its children, where they appear, how they adapt responsively.            | Required | --                                                                                                                                         |
+| **2** | **Summary**     | Provide clarity on what range of items are in view.                                | Optional | --                                                                                                   |
+| **3** | **StepOptions** | Displays the current number of items within a page and allows the user to modify.  | Optional | Step defaults to 10. Dropdown options default to 10, 25, 50, 100. The default step and step options can be customized to fit the use case. |
+| **4** | **Navigation**  | Allow user to jump to a specific page.                                             | Required | --                                                                               |
+
+## Types
+
+### Default navigation
+
+The standard navigation in the Pagination component displays up to 7 buttons, including Edge Pages (first and last), Middle Pages (maximum of 3 pages) and Arrow Buttons (previous and next).
+
+### Custom navigation
+
+The navigation in the Pagination component can be customized to better fit different use cases. The following settings can be adjusted:  
+- [Middle pages](https://v2.grommet.io/pagination?theme=hpe#numberMiddlePages): adjusts the number of visible pages between the edge pages.  
+- [Edge pages](https://v2.grommet.io/pagination?theme=hpe#numberEdgePages): adjusts the number of visible edge pages.  
+
+## Accessibility
+
+Below are some accessibility requirements that ensure pagination is accessible for screen readers and keyboard navigation.
+
+If your team is developing with Grommet, these considerations are already handled, so no further action is required from your team.
+
+1. Wrap pagination links in a `<nav>` element.
+2. Provide an `aria-label="pagination navigaton"` and `role="navigation"`.
+3. Individual page buttons should have an `aria-label` that reads "Go to page X", where X is the page that will be navigated to upon selection.
+4. The active page button should have `aria-current="true"`.
+5. The next/previous arrow buttons should have `aria-label` that reads "Go to next page" and "Go to previous page", respectively.
+
+For more detailed documentation on these requirements, you can read more about [accessible pagination](https://www.a11ymatters.com/pattern/pagination/).
+
+### WCAG compliance
+<AccessibilitySection title='pagination' />
+

@@ -1,0 +1,498 @@
+import { Checkmark } from '@hpe-design/icons-grommet';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
+import { ColorSwatch, ExampleImagePreview } from '../../components';
+import {
+  NameValueListAlignmentPreview,
+  NameValueListAnatomy,
+  NameValueListAnatomyPreview,
+  NameValueListBoldExampleBad,
+  NameValueListBoldExampleGood,
+  NameValueListDetailPage,
+  NameValueListDefaultExample,
+  NameValueListEditExample,
+  NameValueListEditHorizontalExample,
+  NameValueListFontWeightPreview,
+  NameValueListFontWeightSecondPreview,
+  NameValueListGridExample,
+  NameValueListHeadingPreview,
+  NameValueListIconNamePreview,
+  NameValueListIconValuePreview,
+  NameValueListMultipleDefaultExample,
+  NameValueListPairPropsExample,
+  NameValueListReadMoreExample,
+  NameValueListSimpleExample,
+  NameValueListSummaryExample,
+  NameValueListTextBadExample,
+  NameValueListTextGoodExample,
+  NameValueListWeightBadExample,
+  NameValueListWeightGoodExample,
+  NameValueListWizard,
+} from '../../examples';
+
+<Example
+  componentName="NameValueList"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDefaultExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2853-3&t=odY81eDKItjB8SI2-1"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDefaultExample.js"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/NameValueList/NameValueList.js"
+  height={{ min: 'small' }}
+>
+  <NameValueListDefaultExample />
+</Example>
+
+## When to use
+
+Consider using a NameValueList for the following use cases:
+
+- Displaying a list of name and value pairs.
+- Presenting metadata in a clear, scannable and consistent way.
+- Decreasing the time taken to review data.
+
+## Anatomy of a NameValuePair
+
+<Example
+  caption="Diagram illustrating the four parts composing a NameValuePair."
+  plain
+>
+  <NameValueListAnatomy />
+</Example>
+
+A NameValuePair is a set of two related elements: a name, which identifies a data item, and a value, which is the description of that data.
+
+1. **Name**  
+   A name is a unique indentifier or term referring to a data item. This is typically a constant. In general, name labels are displayed in sentence case (the first letter is a capital and the following words are in lowercase).
+
+2. **Value**  
+   Value is the description of data or a pointer to the location of that data. The format of the value can vary, depending on the data set. Content can include: single line description, multi line description, anchors, array or list of items.
+
+<Example
+  caption="Example showing that value can include different types of content."
+  pad="xsmall"
+  previewWidth="xlarge"
+  height={{ min: 'xsmall' }}
+>
+  <NameValueListAnatomyPreview />
+</Example>
+
+3. **Supporting icons/visuals (optional)**  
+   Icons may be included to visually support the name or value. It is recommended not to use icons for both name and value at the same time. This can cause unnecessary visual noise and distract from vital information.
+
+<Example
+  caption="Example showing supporting icons for value."
+  previewWidth="medium"
+  pad="3xsmall"
+  height={{ min: 'xsmall' }}
+>
+  <NameValueListIconValuePreview />
+</Example>
+
+<Example
+  caption="Example showing supporting icons for name."
+  previewWidth="medium"
+  pad="3xsmall"
+  height={{ min: 'xsmall' }}
+>
+  <NameValueListIconNamePreview />
+</Example>
+
+## Variants
+
+### Horizontal (default)
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSimpleExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSimpleExample.js"
+  height={{ min: 'small' }}
+>
+  <NameValueListSimpleExample />
+</Example>
+
+### Vertical
+
+The pairProps direction determines how the name and value are aligned. If you want the name to be on top of the value, apply `pairProps={{direction: 'column'}}`.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListPairPropsExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListPairPropsExample.js"
+  height={{ min: 'small' }}
+>
+  <NameValueListPairPropsExample />
+</Example>
+
+### Grid
+
+{/* width to be removed once we audit example layouts */}
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListGridExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListGridExample.js"
+  height={{ min: 'small' }}
+  showResponsiveControls={false}
+  pad="xlarge"
+  width="xxlarge"
+  template
+>
+  <NameValueListGridExample />
+</Example>
+
+### Multiple NameValueLists on a single page
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  height={{ min: 'xsmall' }}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListMultipleDefaultExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListMultipleDefaultExample.js"
+  template
+  showResponsiveControls={false}
+  width="xxlarge"
+  pad="xlarge"
+>
+  <NameValueListMultipleDefaultExample />
+</Example>
+
+### Name-Value pair as a read-only display for text inputs
+
+In some cases, NameValuePairs may be used as read-only display for text inputs that are editable inline. Here, the name and value text styling should match the Text Input component (sans border).
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js"
+  height={{ min: 'xsmall' }}
+  pad="xlarge"
+  showResponsiveControls={false}
+  template
+>
+  <NameValueListEditExample />
+</Example>
+
+### Name-Value Pair as a read-only display in horizontal
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditHorizontalExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/components/NameValueListFormField.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/components/NameValueListFormLabel.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditHorizontalExample.js"
+  height={{ min: 'small' }}
+  pad="xlarge"
+  showResponsiveControls={false}
+  template
+>
+  <NameValueListEditHorizontalExample />
+</Example>
+
+## Content truncation
+
+When presenting a value as a list of items, the list may be truncated and
+accompanied by a Button to expand it, displaying all items.
+
+When delimited, content exceeding 192 characters should be truncated.
+
+For vertical lists:
+
+- 7+ items should be truncated, displaying the first 3 items with a "Show all" button.
+- For 6 or fewer items, show all items and do not truncate.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#pairProps"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListReadMoreExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <NameValueListReadMoreExample />
+</Example>
+
+## Name-Value pair with empty value
+
+If the value of a name-value pair is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values, without increasing cognitive load.
+
+To inform assistive-technology users of an empty state, add an `a11yTitle="No value"` to the Text component that would otherwise render the data.
+
+Depending on the use case, it may or may not be necessary to render a name-value pair with an empty value to the user.
+
+### When to display “empty value” name-value pairs
+
+In certain scenarios, it is important to display to a user that a certain name-value pair does not have a value. These scenarios include:
+
+**Review/Edit pages** - when a user has made configuration selections (such as in a [Wizard](/templates/wizard)) or is editing configurations (such as settings), all name-value pairs should be visible so the user knows which options they have and have not configured.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/NameValueListWizard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/wizard/components/WizardContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/wizard/components/WizardHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/wizard/components/StepHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/wizard/components/StepContent.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/wizard/components/StepFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/NameValuelistWizard"
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  showResponsiveControls={['laptop', 'mobile']}
+  screenContainer
+>
+  <NameValueListWizard />
+</Example>
+
+**Detail pages** - these kinds of pages provide the most granular level of information about a device, server, etc. and should display all name-value pairs.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe"
+  height={{ min: 'xsmall' }}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDetailPage.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListDetailPage.js"
+  template
+  showResponsiveControls={false}
+  width="xxlarge"
+  pad="xlarge"
+>
+  <NameValueListDetailPage />
+</Example>
+
+### When to omit “Empty value” name-value pairs
+
+In certain scenarios, it is not necessary to display name-value pairs that don’t have a value. These scenarios include:
+
+**Public-facing profiles** - For instances where a profile is outwardly facing, only name-value pairs with values should be displayed. The complete list of possible entries should only be viewable when a user goes to edit their profile.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListEditExample.js"
+  height={{ min: 'xsmall' }}
+  pad="xlarge"
+  showResponsiveControls={false}
+  template
+>
+  <NameValueListEditExample />
+</Example>
+
+**Summaries (such as dashboard cards)** - Summaries are intended to display information-salient content, often in areas with restricted screen real estate. Given this, name-value pairs without a value should be omitted.
+
+<Example
+  docs="https://v2.grommet.io/namevaluelist?theme=hpe#layout"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSummaryExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/namevaluelist/data.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/Examples/NameValueListSummaryExample.js"
+  height={{ min: 'xsmall' }}
+  pad="xlarge"
+  showResponsiveControls={false}
+  template
+>
+  <NameValueListSummaryExample />
+</Example>
+
+## Hierarchy
+
+A successful NameValueList is scannable and easy to grasp. Consider the following methods
+to imply hierarchy: [order](#order), [headings](#headings), [scale](#scale),
+[font weight](#font-weight), [color](#color).
+
+### Order
+
+- Having a logical order of a name-value list ensures a more scannable display of data.
+- Depending on content displayed, consider ordering by name (alphabetical order) or by importance of information (most relevant to less relevant).
+- Always establish the structure of your data upfront.
+
+### Headings
+
+- Use headings to define a name-value List and/or for grouping multiple name-value lists within a single screen.
+- For accessibility reasons, always ensure semantically correct heading levels are applied. See [best practices for applying headings](/foundation/typography#semantic-usage-of-heading-levels).
+
+<Example
+  caption="Example showing an h2 (Heading level 2) applied to a vertical NameValueList."
+  pad="xsmall"
+  previewWidth="xlarge"
+  height={{ min: 'xsmall' }}
+>
+  <NameValueListHeadingPreview />
+</Example>
+
+### Scale
+
+- Default font size for a NameValueList is “medium” (18px).
+- Font-size options for displaying name and value include small, medium and large.
+- Additional sizes xl and xxl can be opted for displaying value content, depending on styling needs (such as for displaying on a dashboard page layout).
+- The size of name can differ from value.
+- Name should never be scaled bigger than its value.
+
+| Text size        | Name                            | Value                           |
+| ---------------- | ------------------------------- | ------------------------------- |
+| xsmall           | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| small            | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| medium (default) | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| large            | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| xlarge           | n/a                             | <Checkmark aria-label="true" /> |
+| xxlarge          | n/a                             | <Checkmark aria-label="true" /> |
+
+<BestPracticeGroup>
+  <Example
+    height="xsmall"
+    bestPractice={{
+      type: 'do',
+      message:
+        'In this example, names are listed in xsmall size with values displayed in default font-size.',
+    }}
+  >
+    <NameValueListTextGoodExample />
+  </Example>
+  <Example
+    height="xsmall"
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t scale names bigger than their value.`,
+    }}
+  >
+    <NameValueListTextBadExample />
+  </Example>
+</BestPracticeGroup>
+
+### Font weight
+
+Making the font bolder or thinner is another way to create hierarchy that’s easily identifiable.
+
+- Typically, use a bold weight on names to increase scanability within the list
+- In some cases, a value may be displayed in a bold weight to draw the reader’s attention. An example of this application might be a dashboard page.
+- Don’t use bold text for both name and value at the same time.
+- Don’t use a bold font-weight for any long format content as this can be very hard to read and overwhelm the user.
+
+<Example
+  caption="Example showing a horizontal NameValueList where the names are in a bold font-weight."
+  previewWidth="xlarge"
+  height="none"
+  pad="xsmall"
+  width="xlarge"
+>
+  <NameValueListFontWeightPreview />
+</Example>
+
+<Example
+  caption="Example showing a grid NameValueList where the values are in a bold font-weight."
+  previewWidth="xlarge"
+  width="xlarge"
+  height="none"
+  pad="xsmall"
+>
+  <NameValueListFontWeightSecondPreview />
+</Example>
+
+<BestPracticeGroup>
+  <Example
+    pad="xsmall"
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'In this example, the bolded names lend to the visual hierarchy of the content displayed and makes it easier to scan.',
+    }}
+  >
+    <NameValueListWeightGoodExample />
+  </Example>
+  <Example
+    pad="xsmall"
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a bold font-weight for both name and value. In this example, the hierarchy and flow of information is not clear which can cause the reader to be overwhelmed by the data presented.`,
+    }}
+  >
+    <NameValueListWeightBadExample />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    pad="xsmall"
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message: 'Keep long format content in a regular font-weight (not bold).',
+    }}
+  >
+    <NameValueListBoldExampleGood />
+  </Example>
+  <Example
+    pad="xsmall"
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Never use bold font-weight to display long format content – this can decrease readability.`,
+    }}
+  >
+    <NameValueListBoldExampleBad />
+  </Example>
+</BestPracticeGroup>
+
+### Color
+
+Options for text color include the default `text` <ColorSwatch background="text" /> (default for Name-Value pairs) and `text-strong` <ColorSwatch background="text-strong" /> .
+
+### Responsiveness
+
+All types of NameValueLists will change to a single column NameValueList on smaller viewports. View this behavior by reducing your window screen until the layout of an example shifts to single column.
+
+### Name-value alignment
+
+By default, both the name and the value are left aligned. This can be changed through `nameProps` and `valueProps` by setting [align](https://v2.grommet.io/namevaluelist?theme=hpe#nameProps) to the desired value, such as `end`.
+No matter what alignment is chosen, always opt for a consistent presentation across a single NameValueList or NameValueLists on a single page.
+
+<Example
+  caption="Example showing a horizontal NameValueList with name aligned to the left (default)."
+  pad="xsmall"
+  previewWidth="xlarge"
+  height="none"
+>
+  <NameValueListAlignmentPreview />
+</Example>
+
+### Controlling the width of the name and value
+
+The width of name is set to "small" by default to accommodate a reasonable width for common data names. However, if all names are short, it may be appropriate to adjust the name width to something smaller. This can be easily changed through `nameProps`. For example `nameProps={{width: 'xsmall'}}`.
+The width of value is set to medium by default to aid readability of content. However, if necessary, the width of value can also be adjusted with `valueProps`. For example, `valueProps={{width: 'large'}}`
+
+## Accessibility
+
+### WCAG compliance
+
+<AccessibilitySection title="namevaluelist" />

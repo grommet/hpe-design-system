@@ -1,0 +1,116 @@
+import { Anchor, Text } from 'grommet';
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  HeaderExample,
+  HeaderActionExample,
+  HeaderNavigationExample,
+  HeaderAvatarExample,
+  HeaderSearchActionsExample,
+  PageHeaderIntroExample,
+} from '../../examples';
+
+Header is extremely versatile and can be built by mixing and matching a variety of components to provide users with relevant, interactive elements to navigate through or engage with an application.
+
+<Example
+  componentName="Header"
+  designer="https://designer.grommet.io/header?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/header?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/header/HeaderExample.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2860-270&t=6zfWJlYNDdZ4YwHx-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Header/Header.js"
+  width="100%"
+>
+  <HeaderExample />
+</Example>
+
+## When to use
+
+Header is used to set the context for an application or a specific page within an application. It is a flexible element that can be composed of a variety of components to aid the user experience in an application.
+
+**Common use cases include:**
+
+- [Global header](#global-header)
+- [App header](#app-header)
+- [Page header](#page-header)
+
+## When not to use
+
+Do not use Header just as a means to display content in a row. The Header component translates to a `<header>` in the DOM, so do not use Header in instances that do not align with the [HTML header spec](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header).
+
+## Anatomy
+
+While Header is flexible in its composition, these anatomical elements are the most common:
+
+- [Button](/components/button)
+- [Menu](/components/menu)
+- [Search](/components/search)
+- [Heading](/foundation/typography#heading)
+- [Avatar](/components/avatar)
+
+## Content restrictions
+
+Keep Header contents to a limited set of elements in order to:
+
+- Provide the user with relevant, helpful actions regarding the application or page.
+- Layout smoothly and responsively across all browser widths.
+
+## Variants
+
+There are various action elements that may live in a Header, depending on the application or page context.
+
+### Global header
+
+The Global Header, also known as the HPE Common Header and Footer Web Service, provides a tunable, yet consistent header and footer to be used across all HPE applications. For guidance, see documentation for [Global Header](/templates/global-header).
+
+### App header
+
+An app header provides additional navigational structure that is app-specific.
+
+If the application is not contained within the GreenLake ecosystem, the app header should contain an app identity on the left side of the header that:
+
+1. Contains brand logo and application/service name
+2. Links to the landing page of your application
+
+On wider screens, the navigational buttons should display in a row. On mobile, these items will be collapsed into a [Menu](/components/menu).
+
+**Some elements that are appropriate for an app header include:**
+
+- Application navigation structure
+- Profile Avatar button that leads to account information
+- Search field that searches entirety of the application
+
+<Example
+  componentName="Header"
+  designer="https://designer.grommet.io/header?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/header?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/header/HeaderNavigationExample.js"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Header/Header.js"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <HeaderNavigationExample />
+</Example>
+
+### Page header
+
+A PageHeader is a standardized layout component that sets the context for a single page within an application. For guidance, see documentation for [PageHeader](/components/pageheader).
+
+<Example
+  componentName="PageHeader"
+  docs="https://v2.grommet.io/pageheader?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/aries-site/src/examples/components/pageheader/PageHeaderIntroExample.js"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/PageHeader/PageHeader.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2705-520&t=6zfWJlYNDdZ4YwHx-1"
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <PageHeaderIntroExample />
+</Example>
+
+## Accessibility
+
+When using Header as a navigation structure, use [Buttons](/components/button) as your navigational elements and wrap them in a `Nav` component. This allows screen readers to identify this as a navigation region. For guidance, check out this example of an [app header](#app-header).
+
+### WCAG compliance
+
+<AccessibilitySection title="header" />

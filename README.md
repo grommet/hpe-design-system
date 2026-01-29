@@ -10,9 +10,9 @@ https://design-system.hpe.design/
 
 hpe-design-system is a monorepo containing core assets and documentation for the HPE Design System.
 
-- aries-site: The documentation site for the design system.
-- design-tokens: The source code for [hpe-design-tokens](https://www.npmjs.com/package/hpe-design-tokens).
-- aries-core: Used for accessibility testing.
+- aries-site (apps/aries-site): The documentation site for the design system.
+- design-tokens (packages/hpe-design-tokens): The source code for [hpe-design-tokens](https://www.npmjs.com/package/hpe-design-tokens).
+- aries-core (shared/aries-core): Used for accessibility testing.
 
 The monorepo is installed using [pnpm](https://pnpm.io/), and relies on [pnpm workspaces](https://pnpm.io/workspaces).
 
