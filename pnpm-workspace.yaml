@@ -2,7 +2,7 @@ packages:
   - 'apps/*'
   - 'aries-site'
   - 'packages/**'
-  - 'sandbox/*'
+  - 'sandbox/**'
   - 'shared/*'
 
 catalog:
