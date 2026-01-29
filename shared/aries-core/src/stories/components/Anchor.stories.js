@@ -1,10 +1,8 @@
 import React from 'react';
 import { Anchor, Box } from 'grommet';
 import {
-  alignArg,
   disabledArg,
   labelArg,
-  weightArg,
   gapArg,
   tShirtSizes,
   iconArg,
@@ -14,13 +12,14 @@ const meta = {
   title: 'Components/Anchor',
   component: Anchor,
   argTypes: {
-    align: alignArg,
     disabled: disabledArg,
     gap: gapArg,
     icon: iconArg,
     label: labelArg,
-    size: tShirtSizes,
-    weight: weightArg,
+    size: {
+      control: { type: 'select' },
+      options: tShirtSizes,
+    },
     reverse: {
       control: { type: 'boolean' },
       options: [true, false],

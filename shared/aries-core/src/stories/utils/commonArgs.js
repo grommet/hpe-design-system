@@ -82,11 +82,6 @@ export const skeletonArg = {
   control: { type: 'boolean' },
 };
 
-export const weightArg = {
-  control: { type: 'select' },
-  options: ['normal', 'bold', 100, 200, 300, 400, 500, 600, 700, 800, 900],
-};
-
 export const iconArg = {
   control: { type: 'select' },
   options: ['none', ...Object.keys(Icons)],
