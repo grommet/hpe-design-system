@@ -14,6 +14,11 @@ export const radiusSizes = Object.keys(hpe.global.radius);
 
 export const containerSizes = Object.keys(hpe.global.size);
 
+export const disabledArg = {
+  control: { type: 'boolean' },
+  options: [true, false],
+};
+
 export const fillArg = {
   control: { type: 'select' },
   options: [true, false, 'horizontal', 'vertical'],
@@ -37,6 +42,10 @@ export const heightArg = {
 export const padArg = {
   control: { type: 'select' },
   options: spacingSizes,
+};
+
+export const labelArg = {
+  control: { type: 'text' },
 };
 
 export const roundArg = {
@@ -70,6 +79,11 @@ export const elevationArg = {
 
 export const skeletonArg = {
   control: { type: 'boolean' },
+};
+
+export const weightArg = {
+  control: { type: 'select' },
+  options: ['normal', 'bold', 100, 200, 300, 400, 500, 600, 700, 800, 900],
 };
 
 export const boxArgs = {
