@@ -10,8 +10,12 @@ import {
   Text,
   TextInput,
   Heading,
+  ToggleGroup,
+  ResponsiveContext,
+  Grommet,
 } from 'grommet';
-import { Copy } from '@hpe-design/icons-grommet';
+import { Copy, Moon } from '@hpe-design/icons-grommet';
+import { hpe } from 'grommet-theme-hpe';
 import { CodeEditor } from './CodeEditor';
 
 const ICON_OPTIONS = [
@@ -32,6 +36,12 @@ export const ComponentPlayground = ({
   const [code, setCode] = useState('');
   const [isCodeManuallyEdited, setIsCodeManuallyEdited] = useState(false);
   const [codeError, setCodeError] = useState(null);
+  const [layout, setLayout] = useState('right'); // 'bottom', 'left', or 'right'
+  const [previewTheme, setPreviewTheme] = useState('light'); // 'light' or 'dark'
+
+  const togglePreviewTheme = () => {
+    setPreviewTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   const handlePropChange = (propName, value) => {
     setComponentProps(prev => {
@@ -274,77 +284,221 @@ export const ComponentPlayground = ({
   };
 
   return (
-    <Box
-      pad="medium"
-      round="small"
-      gap="medium"
-      border={{ color: 'border', size: 'xsmall' }}
-    >
-      <Heading level={3} margin="none" size="small">
-        Interactive Playground
-      </Heading>
+    <ResponsiveContext.Consumer>
+      {size => {
+        const isSmallScreen =
+          size === 'small' || size === 'xsmall' || size === 'medium';
+        const effectiveLayout = isSmallScreen ? 'bottom' : layout;
 
-      {/* Preview Area */}
-      <Box
-        background="background-back"
-        pad="large"
-        round="xsmall"
-        align="center"
-        justify="center"
-        border={{ color: 'border-weak', size: 'xsmall' }}
-        height={{ min: 'small' }}
-      >
-        <ComponentWithIcon />
-      </Box>
-
-      {/* Tabs for Props and Code */}
-      <Tabs activeIndex={activeTab} onActive={setActiveTab} justify="start">
-        <Tab title="Props">
+        return (
           <Box
-            border={{ color: 'border-weak' }}
-            round="xsmall"
-            overflow={{ vertical: 'auto' }}
-            height={{ max: 'medium' }}
-            pad={{ vertical: 'xsmall' }}
-            margin={{ top: 'small' }}
+            pad="medium"
+            round="small"
+            gap="medium"
+            border={{ color: 'border', size: 'xsmall' }}
           >
-            {(() => {
-              const visibleControls = controls.filter(
-                control =>
-                  !control.showWhen || control.showWhen(componentProps),
-              );
-              return visibleControls.map((control, index) =>
-                renderControl(control, index === visibleControls.length - 1),
-              );
-            })()}
-          </Box>
-        </Tab>
-
-        <Tab title="Code">
-          <Box gap="small">
-            <Box direction="row" justify="end" align="center">
-              <Button
-                icon={<Copy />}
-                label={copied ? 'Copied!' : 'Copy'}
-                onClick={handleCopy}
-                size="small"
-                secondary
-              />
-            </Box>
-            {codeError && (
-              <Box background="status-critical" pad="small" round="xsmall">
-                <Text size="small" color="text-strong">
-                  {codeError}
-                </Text>
+            <Box direction="row" justify="between" align="center">
+              <Heading level={3} margin="none" size="small">
+                Interactive Playground
+              </Heading>
+              <Box direction="row" gap="small" align="center">
+                <Button
+                  icon={<Moon />}
+                  tip={
+                    previewTheme === 'dark'
+                      ? 'Switch preview to light mode'
+                      : 'Switch preview to dark mode'
+                  }
+                  onClick={togglePreviewTheme}
+                  secondary
+                />
+                {!isSmallScreen && (
+                  <ToggleGroup
+                    value={layout}
+                    onToggle={event => setLayout(event.value)}
+                    options={[
+                      { label: 'Bottom', value: 'bottom' },
+                      { label: 'Left', value: 'left' },
+                      { label: 'Right', value: 'right' },
+                    ]}
+                  />
+                )}
               </Box>
-            )}
-            <Box background="background-contrast" round="xsmall">
-              <CodeEditor code={code} onChange={handleCodeChange} />
+            </Box>
+
+            <Box
+              direction={effectiveLayout === 'bottom' ? 'column' : 'row'}
+              gap="medium"
+            >
+              {/* Controls on the left */}
+              {effectiveLayout === 'left' && (
+                <Box flex={{ grow: 0, shrink: 0, basis: '400px' }}>
+                  <Box direction="row" justify="space-between" align="start">
+                    <Tabs
+                      activeIndex={activeTab}
+                      onActive={setActiveTab}
+                      justify="start"
+                      flex
+                    >
+                      <Tab title="Props">
+                        <Box
+                          border={{ color: 'border-weak' }}
+                          round="xsmall"
+                          overflow={{ vertical: 'auto' }}
+                          height={{ max: 'medium' }}
+                          pad={{ vertical: 'xsmall' }}
+                          margin={{ top: 'small' }}
+                        >
+                          {(() => {
+                            const visibleControls = controls.filter(
+                              control =>
+                                !control.showWhen ||
+                                control.showWhen(componentProps),
+                            );
+                            return visibleControls.map((control, index) =>
+                              renderControl(
+                                control,
+                                index === visibleControls.length - 1,
+                              ),
+                            );
+                          })()}
+                        </Box>
+                      </Tab>
+
+                      <Tab title="Code">
+                        <Box gap="small">
+                          {codeError && (
+                            <Box
+                              background="status-critical"
+                              pad="small"
+                              round="xsmall"
+                            >
+                              <Text size="small" color="text-strong">
+                                {codeError}
+                              </Text>
+                            </Box>
+                          )}
+                          <Box background="background-contrast" round="xsmall">
+                            <CodeEditor
+                              code={code}
+                              onChange={handleCodeChange}
+                            />
+                          </Box>
+                        </Box>
+                      </Tab>
+                    </Tabs>
+                    {activeTab === 1 && (
+                      <Button
+                        icon={<Copy />}
+                        label={copied ? 'Copied!' : 'Copy'}
+                        onClick={handleCopy}
+                        size="small"
+                        secondary
+                      />
+                    )}
+                  </Box>
+                </Box>
+              )}
+
+              {/* Preview Area */}
+              <Box
+                background="background-back"
+                pad="large"
+                round="xsmall"
+                align="center"
+                justify="center"
+                border={{ color: 'border-weak', size: 'xsmall' }}
+                height={{ min: 'small' }}
+                width={
+                  effectiveLayout !== 'bottom'
+                    ? { min: 'small', max: 'medium' }
+                    : undefined
+                }
+                flex={
+                  effectiveLayout !== 'bottom' ? { grow: 0, shrink: 1 } : false
+                }
+              >
+                <Grommet theme={hpe} themeMode={previewTheme}>
+                  <ComponentWithIcon />
+                </Grommet>
+              </Box>
+
+              {/* Tabs for Props and Code - Bottom or Right */}
+              {(effectiveLayout === 'bottom' ||
+                effectiveLayout === 'right') && (
+                <Box
+                  direction="row"
+                  justify="space-between"
+                  align="start"
+                  fill
+                  margin={{ bottom: 'small' }}
+                >
+                  <Tabs
+                    activeIndex={activeTab}
+                    onActive={setActiveTab}
+                    justify="start"
+                    flex
+                  >
+                    <Tab title="Props">
+                      <Box
+                        border={{ color: 'border-weak' }}
+                        round="xsmall"
+                        overflow={{ vertical: 'auto' }}
+                        height={{ max: 'medium' }}
+                        pad={{ vertical: 'xsmall' }}
+                        margin={{ top: 'small' }}
+                      >
+                        {(() => {
+                          const visibleControls = controls.filter(
+                            control =>
+                              !control.showWhen ||
+                              control.showWhen(componentProps),
+                          );
+                          return visibleControls.map((control, index) =>
+                            renderControl(
+                              control,
+                              index === visibleControls.length - 1,
+                            ),
+                          );
+                        })()}
+                      </Box>
+                    </Tab>
+
+                    <Tab title="Code">
+                      <Box gap="small">
+                        {codeError && (
+                          <Box
+                            background="status-critical"
+                            pad="small"
+                            round="xsmall"
+                          >
+                            <Text size="small" color="text-strong">
+                              {codeError}
+                            </Text>
+                          </Box>
+                        )}
+                        <Box background="background-contrast" round="xsmall">
+                          <CodeEditor code={code} onChange={handleCodeChange} />
+                        </Box>
+                      </Box>
+                    </Tab>
+                  </Tabs>
+                  {activeTab === 1 && (
+                    <Button
+                      icon={<Copy />}
+                      label={copied ? 'Copied!' : 'Copy'}
+                      onClick={handleCopy}
+                      size="small"
+                      secondary
+                    />
+                  )}
+                </Box>
+              )}
             </Box>
           </Box>
-        </Tab>
-      </Tabs>
-    </Box>
+        );
+      }}
+    </ResponsiveContext.Consumer>
   );
 };
 
