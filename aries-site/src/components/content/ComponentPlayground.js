@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -12,6 +12,7 @@ import {
   Heading,
 } from 'grommet';
 import { Copy } from '@hpe-design/icons-grommet';
+import { CodeEditor } from './CodeEditor';
 
 const ICON_OPTIONS = [
   { label: 'None', value: null },
@@ -28,6 +29,9 @@ export const ComponentPlayground = ({
   const [componentProps, setComponentProps] = useState(defaultProps);
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
+  const [code, setCode] = useState('');
+  const [isCodeManuallyEdited, setIsCodeManuallyEdited] = useState(false);
+  const [codeError, setCodeError] = useState(null);
 
   const handlePropChange = (propName, value) => {
     setComponentProps(prev => {
@@ -68,8 +72,95 @@ export const ComponentPlayground = ({
 <${componentName}${propsCode} />`;
   };
 
+  // Update code when componentProps change, unless user manually edited it
+  useEffect(() => {
+    if (!isCodeManuallyEdited) {
+      const newCode = generateCode();
+      setCode(newCode);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [componentProps, isCodeManuallyEdited]);
+
+  const handleCodeChange = newCode => {
+    setCode(newCode);
+    setIsCodeManuallyEdited(true);
+
+    // Validate code syntax
+    const componentName = Component.displayName || 'Component';
+    const componentRegex = new RegExp(
+      `<${componentName}([^/>]*)(/>|>.*?</${componentName}>)`,
+      's',
+    );
+
+    // Check for basic JSX syntax errors
+    if (
+      newCode.includes(`<${componentName}`) &&
+      !componentRegex.test(newCode)
+    ) {
+      setCodeError('Syntax Error: Incomplete or malformed JSX tag');
+      return;
+    }
+
+    // Check for unclosed quotes
+    const quoteMatches = newCode.match(/"/g);
+    if (quoteMatches && quoteMatches.length % 2 !== 0) {
+      setCodeError('Syntax Error: Unclosed quote');
+      return;
+    }
+
+    // Check for unclosed braces in JSX
+    const braceMatches = newCode.match(/\{/g);
+    const closeBraceMatches = newCode.match(/\}/g);
+    if ((braceMatches?.length || 0) !== (closeBraceMatches?.length || 0)) {
+      setCodeError('Syntax Error: Unclosed brace');
+      return;
+    }
+
+    // Clear error if validation passes
+    setCodeError(null);
+
+    // Parse the code to extract props
+    try {
+      const match = newCode.match(componentRegex);
+
+      if (match) {
+        const propsString = match[1];
+        const newProps = {};
+
+        // Parse label="value"
+        const labelMatch = propsString.match(/label="([^"]*)"/);
+        if (labelMatch) newProps.label = labelMatch[1];
+
+        // Parse href="value"
+        const hrefMatch = propsString.match(/href="([^"]*)"/);
+        if (hrefMatch) newProps.href = hrefMatch[1];
+
+        // Parse size="value"
+        const sizeMatch = propsString.match(/size="([^"]*)"/);
+        if (sizeMatch) newProps.size = sizeMatch[1];
+
+        // Parse icon={<IconName />}
+        const iconMatch = propsString.match(/icon=\{<(\w+)\s*\/>\}/);
+        if (iconMatch) newProps.icon = iconMatch[1];
+
+        // Parse boolean props (just the prop name without =)
+        const boolProps = ['disabled', 'primary', 'secondary', 'reverse'];
+        boolProps.forEach(prop => {
+          if (new RegExp(`\\b${prop}\\b(?!=)`).test(propsString)) {
+            newProps[prop] = true;
+          }
+        });
+
+        setComponentProps(prev => ({ ...prev, ...newProps }));
+      }
+    } catch (error) {
+      // If parsing fails, just keep the code change
+      setCodeError(`Error: ${error.message}`);
+    }
+  };
+
   const handleCopy = () => {
-    navigator.clipboard.writeText(generateCode());
+    navigator.clipboard.writeText(code || generateCode());
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -240,18 +331,15 @@ export const ComponentPlayground = ({
                 secondary
               />
             </Box>
-            <Box
-              background="background-contrast"
-              pad="small"
-              round="xsmall"
-              overflow="auto"
-            >
-              <Text
-                size="small"
-                style={{ fontFamily: 'monospace', whiteSpace: 'pre' }}
-              >
-                {generateCode()}
-              </Text>
+            {codeError && (
+              <Box background="status-critical" pad="small" round="xsmall">
+                <Text size="small" color="text-strong">
+                  {codeError}
+                </Text>
+              </Box>
+            )}
+            <Box background="background-contrast" round="xsmall">
+              <CodeEditor code={code} onChange={handleCodeChange} />
             </Box>
           </Box>
         </Tab>

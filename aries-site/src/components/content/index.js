@@ -1,4 +1,5 @@
 export * from './AppIdentity';
+export * from './CodeEditor';
 export * from './CollapsibleSection';
 export * from './ColorCompliance';
 export * from './ColorSwatch';
