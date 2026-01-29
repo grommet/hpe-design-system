@@ -1,4 +1,5 @@
 import { Box } from 'grommet';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import { AccessibilitySection, BestPracticeGroup, Example } from '../../layouts';
 import {
   MenuAnatomy,
@@ -80,16 +81,16 @@ For more details on grouping and ordering, see [Organizing menu items](#organizi
   <MenuAnatomy />
 </Example>
 
-| Label | Region              | Purpose                                                                            | Required | Notes                                                                                                                                      |
-| :---: | ------------------- | ---------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **1** | **Menu Button**     | Opens the menu when clicked.                                                       | Required | Can include a label, icon, or both.                                                                                                        |
-| **1a** | **Button label**   | Describes the menu's function or the category of actions.                          | Optional | --                                                                                                                                         |
-| **1b** | **Button icon**    | Provides a visual cue that the menu can be opened or closed.                       | Optional | Typically an arrow or chevron to indicate expand/collapse. For icon-only menus, the icon represents the menu's purpose or the type of actions (e.g., settings gear, overflow dots). |
-| **2** | **Drop container**  | Holds and displays the list of menu items when the menu is expanded.              | Required | --                                                                                                                                         |
-| **3** | **Menu item**       | Represents an individual action within the menu.                                   | Required | <span style={{ display: 'inline' }}>Items should be organized logically (see [Organizing Menu Items](#organizing-menu-items)).</span>        |
-| **3a** | **Item label**     | Communicates the specific action to the user.                                      | Required | --                                                                                                                                         |
-| **3b** | **Item icon**      | Provides a quick visual reference for the action.                                  | Optional | --                                                                                                                                         |
-| **4** | **Divider**         | Separates groups of related actions.                                               | Optional | --                                                                                                                                         |
+| Label | Region              | Purpose                                                                            | Required                                                 | Notes                                                                                                                                      |
+| :---: | ------------------- | ---------------------------------------------------------------------------------- | :------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1** | **Menu Button**     | Opens the menu when clicked.                                                       | <span><Checkmark a11yTitle="true" size="small" /></span> | Can include a label, icon, or both.                                                                                                        |
+| **1a** | **Button label**   | Describes the menu's function or the category of actions.                          | Optional                                                 | --                                                                                                                                         |
+| **1b** | **Button icon**    | Provides a visual cue that the menu can be opened or closed.                       | Optional                                                 | Typically an arrow or chevron to indicate expand/collapse. For icon-only menus, the icon represents the menu's purpose or the type of actions (e.g., settings gear, overflow dots). |
+| **2** | **Drop container**  | Holds and displays the list of menu items when the menu is expanded.               | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                                                         |
+| **3** | **Menu item**       | Represents an individual action within the menu.                                   | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Items should be organized logically (see [Organizing menu items](#organizing-menu-items)).</span>        |
+| **3a** | **Item label**     | Communicates the specific action to the user.                                      | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                                                         |
+| **3b** | **Item icon**      | Provides a quick visual reference for the action.                                  | Optional                                                 | --                                                                                                                                         |
+| **4** | **Divider**         | Separates groups of related actions.                                               | Optional                                                 | --                                                                                                                                         |
 
 ## Types
 
