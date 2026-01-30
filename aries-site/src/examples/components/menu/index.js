@@ -1,7 +1,6 @@
 export * from './MenuBatchActionsExample';
 export * from './MenuDangerousExample';
 export * from './MenuDisabledExample';
-export * from './MenuDividersExample';
 export * from './MenuExample';
 export * from './MenuGroupingExample';
 export * from './MenuHeaderExample';
