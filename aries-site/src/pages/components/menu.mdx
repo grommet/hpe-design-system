@@ -1,15 +1,19 @@
-import { Box } from 'grommet';
-import { AccessibilitySection, BestPracticeGroup, Example } from '../../layouts';
+import { Box, Paragraph, Anchor } from 'grommet';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
 import {
   MenuExample,
   MenuBatchActionsExample,
   MenuDangerousExample,
-  MenuDisabledExample,
-  MenuGroupingExample,
+  MenuDividersExample,
   MenuHeaderExample,
   MenuIconExample,
+  MenuItemCountExample,
   MenuRecordActionsExample,
-  ToolbarButtonExample,
+  MenuSelectValueExample,
 } from '../../examples';
 
 <Example
@@ -26,6 +30,7 @@ import {
 ## Use Cases
 
 ### Presenting application-level navigation and tasks
+
 Use Menu within the header to organize and present application-level navigation or related user tasks in a single, easily accessible location.
 
 <Example
@@ -38,7 +43,8 @@ Use Menu within the header to organize and present application-level navigation 
 </Example>
 
 ### Grouping batch actions for data sets
-Use Menu within a toolbar to present batch actions for data collection objects or records alongside other controls, ensuring equal prominence and visual alignment. Apply kind="toolbar" in these cases. 
+
+Use Menu within a toolbar to present batch actions for data collection objects or records alongside other controls, ensuring equal prominence and visual alignment. Apply kind="toolbar" in these cases.
 In this example, actions are grouped into executing and configuration categories, with executing actions first because they are most frequently used. For more details on grouping and ordering, see [Organizing menu items](#organizing-menu-items).
 
 <Example
@@ -54,9 +60,10 @@ In this example, actions are grouped into executing and configuration categories
 </Example>
 
 ### Grouping item-specific actions
-Use a menu within each list item when you need to provide actions for an individual object or record. 
-When space is limited and actions are easily recognized by their icon, use the icon-only version of the menu. 
-In this example, actions are grouped into configuration, executing, and dangerous categories, with configuration first and delete last. 
+
+Use a menu within each list item when you need to provide actions for an individual object or record.
+When space is limited and actions are easily recognized by their icon, use the icon-only version of the menu.
+In this example, actions are grouped into configuration, executing, and dangerous categories, with configuration first and delete last.
 For more details on grouping and ordering, see [Organizing menu items](#organizing-menu-items).
 
 <Example
@@ -77,16 +84,19 @@ For more details on grouping and ordering, see [Organizing menu items](#organizi
 ## Types
 
 ### Default
+
 A standard dropdown menu that displays a clear, text-based list of actions when triggered.
 
 [Placeholder space for the example]
 
-### Icon only 
+### Icon only
+
 A compact menu represented by an icon, such as “more” or “settings”, ideal for space-constrained layouts where actions are easily recognized visually.
 
 [Placeholder space for the example]
 
 ### Toolbar
+
 A menu styled to integrate seamlessly with a toolbar.
 
 [Placeholder space for the example]
@@ -100,6 +110,7 @@ Help users quickly locate the desired menu item by applying thoughtful ordering 
 - Place destructive actions last in a distinct, consistent location to ensure intentionality.
 
 ### Common groupings in HPE applications
+
 In many HPE applications, customers configure, modify, and act upon resources in their environment. For these contexts, menu items typically fall into three groups:
 
 #### Configuring
@@ -133,34 +144,57 @@ Actions enabling a user to share or consume data related to a resource.
 
 ## Dos and Do nots
 
-[Placeholder for select DO AND DONT]
-[Placeholder for divider DO AND DONT]
-[Placeholder for too many items DO AND DONT]
-
 <BestPracticeGroup>
   <Example
     bestPractice={{
       type: 'do',
-      message:
-        'Leave actions in a single group when there is only 1 menu item in each category.',
+      message: 'Use menu to display actions.',
     }}
   >
     {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
-    <Box height="xsmall">
-      <MenuGroupingExample />
+    <Box height="medium">
+      <MenuSelectValueExample />
     </Box>
   </Example>
   <Example
     bestPractice={{
       type: 'dont',
-      message: `Don't add a separator between groups when there is only 1 menu item in 
-      each category. A single dangerous actions is the exception and should be placed 
-      in a distinct group.`,
+      message: (
+        <Paragraph size="small" margin="none">
+          Don't use menu to select a value. Use{' '}
+          <Anchor label="Select" href="/components/select" /> instead.
+        </Paragraph>
+      ),
     }}
   >
     {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
-    <Box height="xsmall">
-      <MenuGroupingExample bestPractice={false} />
+    <Box height="medium">
+      <MenuSelectValueExample bestPractice={false} />
+    </Box>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use dividers to organize groups.',
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="medium">
+      <MenuDividersExample />
+    </Box>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't use dividers as individual item separators.`,
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="medium">
+      <MenuDividersExample bestPractice={false} />
     </Box>
   </Example>
 </BestPracticeGroup>
@@ -191,7 +225,34 @@ Actions enabling a user to share or consume data related to a resource.
   </Example>
 </BestPracticeGroup>
 
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Keep the number of items to a minimum. This allows the user to easily understand the scope of the actions they can perform.',
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="medium">
+      <MenuItemCountExample />
+    </Box>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'caution',
+      message: `Avoid adding too many options under one menu. This can make the actions hard to scan.`,
+    }}
+  >
+    {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
+    <Box height="medium">
+      <MenuItemCountExample bestPractice={false} />
+    </Box>
+  </Example>
+</BestPracticeGroup>
+
 ## Content guidelines
+
 - Give the menu a clear title. Instead of labeling the menu as "Menu", provide a name that conveys its purpose. For example, a label of "Account information" would be appropriate if the menu items associated were actions such as "Change username" or "Reset password".
 - Keep labels short. Using a simple, concise label for menu items, such as "Settings" or "Logout", helps the user easily understand the action that will be performed when they click.
 
@@ -202,4 +263,5 @@ Accessibility features such as screen reader messages are automatically built in
 An icon may be used on the menu button to provide additional context about the action. It is recommended that an icon is used in conjunction with text to ensure the context of the menu button is clear. However, there may be cases where an icon alone is sufficient. For example, highly familiar action indicators, such as this example of [Menu with custom icon](#with-custom-icon) demonstrate when an icon only may be sufficient.
 
 ### WCAG compliance
-  <AccessibilitySection title='menu' />
+
+<AccessibilitySection title="menu" />
