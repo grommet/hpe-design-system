@@ -10,7 +10,7 @@
 
 # production
 *dist
-**/out
+/apps/docs/out
 *.next
 *storybook-static
 **/src/data/search
