@@ -1,7 +1,7 @@
 import React from 'react';
 /* eslint-disable max-len */
 // eslint-disable-next-line import/no-unresolved
-import { CodeBlockExample } from 'apps/aries-site/src/examples/templates/code-blocks/CodeBlocks';
+import { CodeBlockExample } from 'apps/docs/src/examples/templates/code-blocks/CodeBlocks';
 
 const meta = {
   title: 'Code Blocks',

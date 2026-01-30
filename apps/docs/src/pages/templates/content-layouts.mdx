@@ -1,0 +1,182 @@
+import { useContext } from 'react';
+import { Grid, ResponsiveContext } from 'grommet';
+import { CardGrid, ContentCard } from '../../components';
+import { DiagramPreview, Example } from '../../layouts';
+import { contentLayouts } from '../../data/structures';
+import {
+  ContainerDrivenLayout,
+  ContentDrivenLayout,
+  NestedGrid,
+  ResponsiveContentLayoutExample,
+} from '../../examples';
+
+Content layouts may be applied across different levels of information hierarchy. At a page
+template level, it can help with the layout of page sections. At an page section level, it can
+coordinate how a title, piece of content, and related actions should be laid out in relation to
+each other.
+
+Understanding [Grid](/components/grid) is the key to creating successful content layouts.
+
+Looking for a quick start? [Jump to layout templates](#templates).
+
+## Responsive design
+
+Layouts should be adaptable to different screen sizes. Our goal as designers and
+developers at HPE should be to create optimal and accessible user experiences regardless
+of screen size or resolution.
+
+### Breakpoints
+
+A breakpoint is a point at which some change in the page design is likely to occur.
+
+For designers, breakpoints can help stress test and validate UX decisions around page
+layouts.
+
+See the table below for breakpoints defined by the HPE Design System. Keep in mind that
+these breakpoints are not meant to target every single existing device &mdash; we understand
+that technology is ever evolving. Instead, the ranges defined here help build a strong
+foundation to account for diverse use cases when creating responsive designs.
+
+| Breakpoint | Range (width in pixels) |
+| ---------- | ----------------------- |
+| **xsmall** | 576 and below           |
+| **small**  | 577 - 768               |
+| **medium** | 769 - 1080              |
+| **large**  | 1081 - 1439             |
+| **xlarge** | 1440 and above          |
+
+### Prioritizing content needs
+
+Focusing on content needs allows for optimal user experiences to be created. Thinking
+about which pieces of content a user will likely need and want to interact with first informs
+how the items on the page should be ordered.
+
+Specifying layout content in this way will also ensure that it is interepreted
+appropriately by screen readers for visually impaired users.
+
+The example below has content labeled by its priority. Resize your browser window and
+notice the content layout adjust, ensuring content is ordered as desired across window
+widths.
+
+{/* height, width value chosen to best visually represent the example */}
+
+<Example
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/PageHeader/PageHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/components/AppContainer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/anatomy/components/ContentArea.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/content-layouts/ResponsiveContentLayoutExample.js"
+  height="650px"
+  width="100%"
+  screenContainer
+>
+  <ResponsiveContentLayoutExample />
+</Example>
+
+## Implementing content layouts
+
+The following discusses three approaches for building responsive content layouts. All approaches
+may be mixed and matched as desired.
+
+- [Container-driven](#container-driven-layouts)
+- [Content-driven](#content-driven-layouts)
+- [Nested grids](#nested-grids)
+
+These approaches take full advantage of Grid's flexibility which provides designers and
+developers great control and ability to execute layouts regardless of the user's screen size.
+For greater detail about Grid's properties and key concepts visit [getting to know Grid](/components/grid#getting-to-know-grid).
+
+Additionally, a can't miss tool for designers is [Layout Templates in Figma](https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=4040-6121&t=r7Bf1k6QfmCKSMhJ-1) which provides Grid-based layout templates for each [responsive breakpoint](#breakpoints) and [page layout kind](/templates/page-layouts#page-kinds).
+
+### Container-driven layouts
+
+Container-driven layouts drive the layout from the outside-in. They begin by defining
+regions in which the content will live, whether those regions are [fixed, flexible, or fluid](/components/grid#background),
+and how those regions are [prioritized](#prioritizing-content-needs) at each responsive breakpoint.
+
+Container-driven layouts are useful for defining larger layouts, such as at the page level,
+but can be useful for defining smaller sub-regions as well. The best use of available screen
+real-estate can be achieved by combining a container-driven page layout with components
+such as Cards which have been built to have adaptive layouts themselves.
+
+The following example takes a container-driven approach, implementing an app-catalog
+consisting of a filters region and a results region.
+
+Key aspects to the approach are:
+
+- At larger breakpoints, the content layout will be a two-column layout; a single column
+  at smaller breakpoints.
+- The filters region will be fixed-width when in a two-column layout and [flex-width](/components/grid#flexible-columns)
+  when in a single column. The results region always uses a [fluid grid](/components/grid#fluid-grids).
+- The filters region are prioritized over the results region because the filters are needed to control
+  the results.
+
+{/* height, width value chosen to best visually represent the example */}
+
+<Example
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/ContainerDrivenLayout/ContainerDrivenLayout.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/ContainerDrivenLayout/AppResults.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/data/mockData/applications.json',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/content-layouts/ContainerDrivenLayout/ContainerDrivenLayout.js"
+  height="650px"
+  width="100%"
+  screenContainer
+>
+  <ContainerDrivenLayout />
+</Example>
+
+### Content-driven layouts
+
+Content-driven layouts are driven from the inside-out, allowing the container to respond
+and adapt to things like user entered content, like names. The layout is custom fit to
+the content it holds.
+
+The content-driven approach is useful for layouts such as modal dialogs or side drawer
+content within a layer, where the content should occupy the space it needs and not be
+awkwardly constrained by its layout container.
+
+The following example takes a content-driven approach, implementing a modal dialog
+displaying content returned from a server with an unknown length.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <ContentDrivenLayout />
+</Example>
+
+### Nested grids
+
+When dealing with complex layouts, it is helpful to simplify them by thinking of them
+as nested grids. Any column or grid area may be a grid itself.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/NestedGrid.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/content-layouts/NestedGrid.js"
+  caption="Diagram illustrating how Grids may be nested inside one another."
+  width="100%"
+>
+  <NestedGrid />
+</Example>
+
+## Templates
+
+Responsive, customizable layout templates to help you jumpstart your application design and development.
+This work is in progress. More templates coming soon.
+
+<CardGrid cards={contentLayouts} headingLevel={3} />

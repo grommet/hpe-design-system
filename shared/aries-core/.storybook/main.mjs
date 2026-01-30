@@ -54,7 +54,7 @@ const config = {
       ...config.resolve,
       alias: {
         ...config.resolve.alias,
-        'apps/aries-site': resolve(__dirname, '../../../apps/aries-site'),
+        'apps/docs': resolve(__dirname, '../../../apps/docs'),
       },
       fallback: {
         fs: false,

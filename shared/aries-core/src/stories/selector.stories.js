@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
-import { SimpleSelector } from 'apps/aries-site/src/examples/templates/selector/SelectorSimple';
-import { QuickFilter as QuickFilterExample } from 'apps/aries-site/src/examples/templates/selector/QuickFilter';
-import { SupportSelector } from 'apps/aries-site/src/examples/templates/selector/SupportSelector';
+import { SimpleSelector } from 'apps/docs/src/examples/templates/selector/SelectorSimple';
+import { QuickFilter as QuickFilterExample } from 'apps/docs/src/examples/templates/selector/QuickFilter';
+import { SupportSelector } from 'apps/docs/src/examples/templates/selector/SupportSelector';
 
 const meta = {
   title: 'Selector',
