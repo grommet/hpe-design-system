@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
-import { boxArgs } from '../utils/commonArgs';
+import { boxArgs } from '../utils/commonArgs.ts';
 
 const meta = {
   title: 'Components/Box',
