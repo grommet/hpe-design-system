@@ -13,7 +13,7 @@
 */out
 *.next
 *storybook-static
-*/src/data/search
+**/src/data/search
 
 # yalc
 .yalc/
