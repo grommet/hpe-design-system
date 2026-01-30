@@ -9,8 +9,9 @@ export const MenuDangerousExample = ({ bestPractice = true }) => {
   const [toast, setToast] = useState(false);
 
   const items = [
-    { label: 'Edit' },
-    { label: 'View servers' },
+    { label: 'View details', onClick: () => {} },
+    { label: 'Edit profile', onClick: () => {} },
+    { label: 'Apply blueprint', onClick: () => {} },
     {
       label: 'Delete',
       onClick: () => {

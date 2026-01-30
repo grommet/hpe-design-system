@@ -1,14 +1,31 @@
 import React from 'react';
-import { Grid, Menu } from 'grommet';
-import { More, Settings } from '@hpe-design/icons-grommet';
+import { Box, List, Menu } from 'grommet';
+import { More } from '@hpe-design/icons-grommet';
 
 export const MenuIconExample = () => {
-  const items = [{ label: 'Action' }, { label: 'Action' }, { label: 'Action' }];
+  const data = ['User 1', 'User 2', 'User 3'];
 
   return (
-    <Grid columns="3xsmall" gap="medium" align="start" justify="start">
-      <Menu icon={<More />} hoverIndicator items={items} />
-      <Menu icon={<Settings />} hoverIndicator items={items} />
-    </Grid>
+    <Box width={{ max: 'xlarge' }} fill>
+      <List
+        data={data}
+        pad="xsmall"
+        action={() => (
+          <Box direction="row" align="center" gap="medium">
+            <Menu
+              icon={<More />}
+              hoverIndicator
+              items={[{ label: 'Deactivate' }, { label: 'Suspend' }]}
+            />
+          </Box>
+        )}
+      >
+        {(datum, index) => (
+          <Box key={index} direction="row" align="center" justify="between">
+            {datum}
+          </Box>
+        )}
+      </List>
+    </Box>
   );
 };
