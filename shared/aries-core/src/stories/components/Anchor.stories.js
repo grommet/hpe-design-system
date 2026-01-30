@@ -31,10 +31,10 @@ export default meta;
 
 export const Default = {
   render: args => {
-    const { pad, icon, label, ...anchorProps } = args;
+    const { icon, label, ...anchorProps } = args;
     const IconComponent = icon;
     return (
-      <Box pad={pad}>
+      <Box pad="medium">
         <Anchor
           href="#"
           icon={IconComponent ? <IconComponent /> : undefined}
