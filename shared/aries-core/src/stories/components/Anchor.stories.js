@@ -45,7 +45,6 @@ export const Default = {
     );
   },
   args: {
-    pad: 'medium',
     label: 'Link',
   },
   name: 'Anchor',
