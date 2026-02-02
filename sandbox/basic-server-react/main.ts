@@ -12,7 +12,13 @@ export async function startStreamableHTTPServer(
   const port = parseInt(process.env.PORT ?? '3001', 10);
 
   const app = createMcpExpressApp({ host: '0.0.0.0' });
-  app.use(cors());
+  app.use(
+    cors({
+      origin: '*',
+      allowedHeaders: ['Content-Type', 'Accept', 'mcp-protocol-version'],
+      exposedHeaders: ['mcp-protocol-version'],
+    }),
+  );
 
   app.all('/mcp', async (req: Request, res: Response) => {
     const server = createServer();
@@ -56,6 +62,7 @@ export async function startStreamableHTTPServer(
   const shutdown = () => {
     console.log('Shutting down server...');
     httpServer.close(() => process.exit(0));
+    return void 0;
   };
 
   process.on('SIGINT', shutdown);
