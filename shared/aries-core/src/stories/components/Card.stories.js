@@ -9,18 +9,25 @@ import {
   Text,
   Box,
 } from 'grommet';
-import { boxArgs } from '../utils/commonArgs';
+import {
+  backgroundArg,
+  elevationArg,
+  fillArg,
+  heightArg,
+  padArg,
+  widthArg,
+} from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Card',
   component: Card,
   argTypes: {
-    background: { ...boxArgs.background },
-    elevation: { ...boxArgs.elevation },
-    fill: { ...boxArgs.fill },
-    height: { ...boxArgs.height },
-    pad: { ...boxArgs.pad },
-    width: { ...boxArgs.width },
+    background: backgroundArg,
+    elevation: elevationArg,
+    fill: fillArg,
+    height: heightArg,
+    pad: padArg,
+    width: widthArg,
   },
 };
 
