@@ -11,6 +11,19 @@ export const spacingSizes = Object.keys(hpe.global.edgeSize);
 
 export const tShirtSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 
+export const textSizes = [
+  'xsmall',
+  'small',
+  'medium',
+  'large',
+  'xlarge',
+  'xxlarge',
+  '3xl',
+  '4xl',
+  '5xl',
+  '6xl',
+];
+
 export const radiusSizes = Object.keys(hpe.global.radius);
 
 export const containerSizes = Object.keys(hpe.global.size);
@@ -46,6 +59,10 @@ export const padArg = {
 };
 
 export const labelArg = {
+  control: { type: 'text' },
+};
+
+export const a11yTitleArg = {
   control: { type: 'text' },
 };
 
