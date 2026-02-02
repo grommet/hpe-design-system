@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mcp-ui/client": "^6.0.0",
+    "@modelcontextprotocol/ext-apps": "^1.0.1",
+    "@modelcontextprotocol/sdk": "^1.25.3",
     "react": "catalog:",
     "react-dom": "catalog:"
   },

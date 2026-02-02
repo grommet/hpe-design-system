@@ -4,13 +4,22 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import {
   registerAppTool,
   registerAppResource,
+  RESOURCE_MIME_TYPE,
 } from '@modelcontextprotocol/ext-apps/server';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
-import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js';
+import {
+  isInitializeRequest,
+  type ReadResourceResult,
+} from '@modelcontextprotocol/sdk/types.js';
 import { createUIResource } from '@mcp-ui/server';
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { example01Resource } from './resources/example01.ts';
+import { example02Resource } from './resources/example02.ts';
+
+const DIST_DIR = path.join(import.meta.dirname, 'resources');
 
 const app = express();
 const port = 3000;
@@ -19,7 +28,7 @@ app.use(
   cors({
     origin: '*',
     exposedHeaders: ['Mcp-Session-Id'],
-    allowedHeaders: ['Content-Type', 'Mcp-Session-Id'],
+    allowedHeaders: ['Content-Type', 'Mcp-Session-Id', 'mcp-protocol-version'],
   }),
 );
 app.use(express.json());
@@ -123,6 +132,50 @@ app.post('/mcp', async (req, res) => {
       },
     );
 
+    registerAppTool(
+      mcpServer,
+      'show_example02',
+      {
+        title: 'Show Example 02',
+        description: 'Tool to show example02 UI resource.',
+        inputSchema: {
+          query: z.string().describe('User query'),
+        },
+        _meta: {
+          ui: {
+            resourceUri: example02Resource.resource.uri,
+          },
+        },
+      },
+      async ({ query }: { query: string }) => {
+        return {
+          content: [{ type: 'text', text: `Processing: ${query}` }],
+        };
+      },
+    );
+
+    registerAppResource(
+      mcpServer,
+      'example02',
+      example02Resource.resource.uri,
+      { mimeType: RESOURCE_MIME_TYPE },
+      async (): Promise<ReadResourceResult> => {
+        const html = await fs.readFile(
+          path.join(DIST_DIR, 'example02.html'),
+          'utf-8',
+        );
+        return {
+          contents: [
+            {
+              uri: example02Resource.resource.uri,
+              mimeType: RESOURCE_MIME_TYPE,
+              text: html,
+            },
+          ],
+        };
+      },
+    );
+
     // Connect MCP server to the transport
     await mcpServer.connect(transport);
   } else {
@@ -146,7 +199,7 @@ const handleSessionRequest = (req: express.Request, res: express.Response) => {
   transport.handleRequest(req, res);
 };
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.send('Hello World!');
 });
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sandbox MCP UI Proxy</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sandbox MCP UI Proxy</h1>
+    <p>This is a proxy HTML file for the MCP UI sandbox.</p>
+    <script>
+      // Sandbox proxy implementation for MCP Apps
+      // Receives HTML content from the host and renders it securely
+      window.addEventListener('message', (event) => {
+        const { data } = event;
+
+        if (!data || typeof data !== 'object') return;
+
+        // Handle resource ready notification (HTML content to render)
+        if (data.method === 'ui/notifications/sandbox-resource-ready') {
+          const { html } = data.params || {};
+
+          if (html) {}
+            // Replace the body content with the received HTML
+            document.open();
+            document.write(html);
+            document.close();
+          }
+        } 
+      );
+
+      window.parent.postMessage(
+        {
+          method: 'ui/notifications/sandbox-proxy-ready',
+          params: {},
+        },
+        '*'
+      );
+    </script>
+  </body>
+</html>

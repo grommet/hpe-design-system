@@ -91,7 +91,7 @@ importers:
         version: 8.10.2(eslint@8.57.1)
       eslint-plugin-grommet:
         specifier: https://github.com/grommet/eslint-plugin-grommet/tarball/stable
-        version: https://github.com/grommet/eslint-plugin-grommet/tarball/stable(eslint@8.57.1)
+        version: https://codeload.github.com/grommet/eslint-plugin-grommet/legacy.tar.gz/refs/heads/stable(eslint@8.57.1)
       eslint-plugin-import:
         specifier: ^2.26.0
         version: 2.32.0(eslint@8.57.1)
@@ -477,6 +477,15 @@ importers:
 
   sandbox/mcp-ui/client:
     dependencies:
+      '@mcp-ui/client':
+        specifier: ^6.0.0
+        version: 6.0.0(@preact/signals-core@1.12.2)(hono@4.11.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@modelcontextprotocol/ext-apps':
+        specifier: ^1.0.1
+        version: 1.0.1(@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@3.25.76))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@3.25.76)
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.25.3
+        version: 1.25.3(hono@4.11.7)(zod@3.25.76)
       react:
         specifier: 'catalog:'
         version: 19.2.3
@@ -523,6 +532,9 @@ importers:
 
   sandbox/mcp-ui/server:
     dependencies:
+      '@hpe-design/icons-grommet':
+        specifier: 'catalog:'
+        version: 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       '@mcp-ui/server':
         specifier: ^6.0.0
         version: 6.0.0(hono@4.11.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@4.3.6)
@@ -532,15 +544,24 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.25.3
         version: 1.25.3(hono@4.11.7)(zod@4.3.6)
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.5
       cors:
         specifier: ^2.8.6
         version: 2.8.6
       express:
         specifier: ^5.2.1
         version: 5.2.1
-      zod:
-        specifier: ^4.3.6
-        version: 4.3.6
+      grommet:
+        specifier: 'catalog:'
+        version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      grommet-theme-hpe:
+        specifier: 'catalog:'
+        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      react:
+        specifier: 'catalog:'
+        version: 19.2.3
     devDependencies:
       '@types/cors':
         specifier: ^2.8.19
@@ -563,6 +584,9 @@ importers:
       vite-node:
         specifier: ^5.3.0
         version: 5.3.0(@types/node@20.19.25)(jiti@1.21.7)(lightningcss@1.31.1)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1)
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
 
   sandbox/native-web:
     dependencies:
@@ -2664,6 +2688,12 @@ packages:
   '@manypkg/get-packages@1.1.3':
     resolution: {integrity: sha512-fo+QhuU3qE/2TQMQmbVMqaQ6EWbMhi4ABWP+O4AM1NqPBuy0OrApV5LO6BrrgnhtAHS2NH6RrVk9OL181tTi8A==}
 
+  '@mcp-ui/client@6.0.0':
+    resolution: {integrity: sha512-dHIQGjFOoBWBntSRUJH5YFeq7xi2rEPS0EwokeNAnMg6xrjGjvNd6vTWDHFRC04OlO/ogvM1r5+xUoo0OETaaQ==}
+    peerDependencies:
+      react: ^18 || ^19
+      react-dom: ^18 || ^19
+
   '@mcp-ui/server@6.0.0':
     resolution: {integrity: sha512-j+/RWpap7CumQorWxkM9mFlm5IK3n2TvUAG/5zmARiuo6TKxn5WCLT3wXo3+hZ1YvZD0CS0VP11/SdeTmfQyIw==}
 
@@ -2881,6 +2911,31 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@preact/signals-core@1.12.2':
+    resolution: {integrity: sha512-5Yf8h1Ke3SMHr15xl630KtwPTW4sYDFkkxS0vQ8UiQLWwZQnrF9IKaVG1mN5VcJz52EcWs2acsc/Npjha/7ysA==}
+
+  '@quilted/events@2.1.3':
+    resolution: {integrity: sha512-4fHaSLND8rmZ+tce9/4FNmG5UWTRpFtM54kOekf3tLON4ZLLnYzjjldELD35efd7+lT5+E3cdkacqc56d+kCrQ==}
+    engines: {node: '>=14.0.0'}
+
+  '@quilted/threads@3.3.1':
+    resolution: {integrity: sha512-0ASnjTH+hOu1Qwzi9NnsVcsbMhWVx8pEE8SXIHknqcc/1rXAU0QlKw9ARq0W43FAdzyVeuXeXtZN27ZC0iALKg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@preact/signals-core': ^1.8.0
+    peerDependenciesMeta:
+      '@preact/signals-core':
+        optional: true
+
+  '@r2wc/core@1.3.0':
+    resolution: {integrity: sha512-aPBnND92Itl+SWWbWyyxdFFF0+RqKB6dptGHEdiPB8ZvnHWHlVzOfEvbEcyUYGtB6HBdsfkVuBiaGYyBFVTzVQ==}
+
+  '@r2wc/react-to-web-component@2.1.0':
+    resolution: {integrity: sha512-m/PzgUOEiL1HxmvfP5LgBLqB7sHeRj+d1QAeZklwS4OEI2HUU+xTpT3hhJipH5DQoFInDqDTfe0lNFFKcrqk4w==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
@@ -3155,6 +3210,31 @@ packages:
   '@remix-run/router@1.23.1':
     resolution: {integrity: sha512-vDbaOzF7yT2Qs4vO6XV1MHcJv+3dgR1sT+l3B8xxOVhUC336prMvqrvsLL/9Dnw2xr6Qhz4J0dmS0llNAbnUmQ==}
     engines: {node: '>=14.0.0'}
+
+  '@remote-dom/core@1.10.1':
+    resolution: {integrity: sha512-MlbUOGuHjOrB7uOkaYkIoLUG8lDK8/H1D7MHnGkgqbG6jwjwQSlGPHhbwnD6HYWsTGpAPOP02Byd8wBt9U6TEw==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@preact/signals-core': ^1.3.0
+      preact: '*'
+    peerDependenciesMeta:
+      '@preact/signals-core':
+        optional: true
+      preact:
+        optional: true
+
+  '@remote-dom/polyfill@1.5.1':
+    resolution: {integrity: sha512-eaWdIVKZpNfbqspKkRQLVxiFv/7vIw8u0FVA5oy52YANFbO/WVT0GU+PQmRt/QUSijaB36HBAqx7stjo8HGpVQ==}
+    engines: {node: '>=14.0.0'}
+
+  '@remote-dom/react@1.2.2':
+    resolution: {integrity: sha512-PkvioODONTr1M0StGDYsR4Ssf5M0Rd4+IlWVvVoK3Zrw8nr7+5mJkgNofaj/z7i8Aep78L28PCW8/WduUt4unA==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@rolldown/binding-android-arm64@1.0.0-beta.50':
     resolution: {integrity: sha512-XlEkrOIHLyGT3avOgzfTFSjG+f+dZMw+/qd+Y3HLN86wlndrB/gSimrJCk4gOhr1XtRtEKfszpadI3Md4Z4/Ag==}
@@ -4016,6 +4096,9 @@ packages:
   '@types/prettier@2.7.3':
     resolution: {integrity: sha512-+68kP9yzs4LMp7VNh8gdzMSPZFL44MLGqiHWvttYJe+6qnuVr4Ek9wSBQoveqY/r+LwjCcU29kNVkidwim+kYA==}
 
+  '@types/prop-types@15.7.15':
+    resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
+
   '@types/qs@6.14.0':
     resolution: {integrity: sha512-eOunJqu0K1923aExK6y8p6fsihYEn/BYuQ4g0CxAAgFc4b/ZLN4CrsRZ55srTdqoiLzU2B2evC+apEIxprEzkQ==}
 
@@ -4026,6 +4109,9 @@ packages:
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
     peerDependencies:
       '@types/react': ^19.2.0
+
+  '@types/react@18.3.27':
+    resolution: {integrity: sha512-cisd7gxkzjBKU2GgdYrTdtQx1SORymWyaAFhaxQPK9bYO9ot3Y5OikQRvY0VYQtvwjeQnizCINJAenh/V7MK2w==}
 
   '@types/react@19.2.5':
     resolution: {integrity: sha512-keKxkZMqnDicuvFoJbzrhbtdLSPhj/rZThDlKWCDbgXmUg0rEUFtRssDXKYmtXluZlIqiC5VqkCgRwzuyLHKHw==}
@@ -5765,8 +5851,8 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
 
-  eslint-plugin-grommet@https://github.com/grommet/eslint-plugin-grommet/tarball/stable:
-    resolution: {tarball: https://github.com/grommet/eslint-plugin-grommet/tarball/stable}
+  eslint-plugin-grommet@https://codeload.github.com/grommet/eslint-plugin-grommet/legacy.tar.gz/refs/heads/stable:
+    resolution: {tarball: https://codeload.github.com/grommet/eslint-plugin-grommet/legacy.tar.gz/refs/heads/stable}
     version: 0.2.0
     engines: {node: '>=16'}
     peerDependencies:
@@ -6500,6 +6586,9 @@ packages:
 
   hpe-design-tokens@2.1.0:
     resolution: {integrity: sha512-BBePwTRthtBJb+Bz8SwxM5h0M6mVLh8f8/YCqCLLEs0elePFVmXZ0RokPIYVakUWgCze1l5CTOMjAiKfyXrJQQ==}
+
+  htm@3.1.1:
+    resolution: {integrity: sha512-983Vyg8NwUE7JkZ6NmOqpCZ+sh1bKv2iYTlUkzlWmA5JD2acKoxd4KVxbMmxX/85mtfdnDmTFoNKcg5DGAvxNQ==}
 
   html-encoding-sniffer@2.0.1:
     resolution: {integrity: sha512-D5JbOMBIR/TVZkubHT+OyT2705QvogUW4IBn6nHd756OwieSF9aDYFj4dv6HHEVGYbHaLETa3WggZYWWMyy3ZQ==}
@@ -10412,6 +10501,9 @@ packages:
     peerDependencies:
       zod: ^3.25.0 || ^4.0.0
 
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
+
   zod@4.3.6:
     resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
@@ -12550,6 +12642,24 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
+  '@mcp-ui/client@6.0.0(@preact/signals-core@1.12.2)(hono@4.11.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      '@modelcontextprotocol/ext-apps': 0.3.1(@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@3.25.76))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@3.25.76)
+      '@modelcontextprotocol/sdk': 1.25.3(hono@4.11.7)(zod@3.25.76)
+      '@quilted/threads': 3.3.1(@preact/signals-core@1.12.2)
+      '@r2wc/react-to-web-component': 2.1.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@remote-dom/core': 1.10.1(@preact/signals-core@1.12.2)
+      '@remote-dom/react': 1.2.2(@preact/signals-core@1.12.2)(react@19.2.3)
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - '@cfworker/json-schema'
+      - '@preact/signals-core'
+      - hono
+      - preact
+      - supports-color
+
   '@mcp-ui/server@6.0.0(hono@4.11.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@4.3.6)':
     dependencies:
       '@modelcontextprotocol/ext-apps': 0.3.1(@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@4.3.6))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@4.3.6)
@@ -12643,10 +12753,60 @@ snapshots:
 
   '@microsoft/tsdoc@0.16.0': {}
 
+  '@modelcontextprotocol/ext-apps@0.3.1(@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@3.25.76))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@3.25.76)':
+    dependencies:
+      '@modelcontextprotocol/sdk': 1.25.3(hono@4.11.7)(zod@3.25.76)
+      zod: 3.25.76
+    optionalDependencies:
+      '@oven/bun-darwin-aarch64': 1.3.8
+      '@oven/bun-darwin-x64': 1.3.8
+      '@oven/bun-darwin-x64-baseline': 1.3.8
+      '@oven/bun-linux-aarch64': 1.3.8
+      '@oven/bun-linux-aarch64-musl': 1.3.8
+      '@oven/bun-linux-x64': 1.3.8
+      '@oven/bun-linux-x64-baseline': 1.3.8
+      '@oven/bun-linux-x64-musl': 1.3.8
+      '@oven/bun-linux-x64-musl-baseline': 1.3.8
+      '@oven/bun-windows-x64': 1.3.8
+      '@oven/bun-windows-x64-baseline': 1.3.8
+      '@rollup/rollup-darwin-arm64': 4.57.0
+      '@rollup/rollup-darwin-x64': 4.57.0
+      '@rollup/rollup-linux-arm64-gnu': 4.57.0
+      '@rollup/rollup-linux-x64-gnu': 4.57.0
+      '@rollup/rollup-win32-arm64-msvc': 4.57.0
+      '@rollup/rollup-win32-x64-msvc': 4.57.0
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+
   '@modelcontextprotocol/ext-apps@0.3.1(@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@4.3.6))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@4.3.6)':
     dependencies:
       '@modelcontextprotocol/sdk': 1.25.3(hono@4.11.7)(zod@4.3.6)
       zod: 4.3.6
+    optionalDependencies:
+      '@oven/bun-darwin-aarch64': 1.3.8
+      '@oven/bun-darwin-x64': 1.3.8
+      '@oven/bun-darwin-x64-baseline': 1.3.8
+      '@oven/bun-linux-aarch64': 1.3.8
+      '@oven/bun-linux-aarch64-musl': 1.3.8
+      '@oven/bun-linux-x64': 1.3.8
+      '@oven/bun-linux-x64-baseline': 1.3.8
+      '@oven/bun-linux-x64-musl': 1.3.8
+      '@oven/bun-linux-x64-musl-baseline': 1.3.8
+      '@oven/bun-windows-x64': 1.3.8
+      '@oven/bun-windows-x64-baseline': 1.3.8
+      '@rollup/rollup-darwin-arm64': 4.57.0
+      '@rollup/rollup-darwin-x64': 4.57.0
+      '@rollup/rollup-linux-arm64-gnu': 4.57.0
+      '@rollup/rollup-linux-x64-gnu': 4.57.0
+      '@rollup/rollup-win32-arm64-msvc': 4.57.0
+      '@rollup/rollup-win32-x64-msvc': 4.57.0
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+
+  '@modelcontextprotocol/ext-apps@1.0.1(@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@3.25.76))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(zod@3.25.76)':
+    dependencies:
+      '@modelcontextprotocol/sdk': 1.25.3(hono@4.11.7)(zod@3.25.76)
+      zod: 3.25.76
     optionalDependencies:
       '@oven/bun-darwin-aarch64': 1.3.8
       '@oven/bun-darwin-x64': 1.3.8
@@ -12692,6 +12852,28 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.57.0
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
+
+  '@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@3.25.76)':
+    dependencies:
+      '@hono/node-server': 1.19.9(hono@4.11.7)
+      ajv: 8.17.1
+      ajv-formats: 3.0.1(ajv@8.17.1)
+      content-type: 1.0.5
+      cors: 2.8.6
+      cross-spawn: 7.0.6
+      eventsource: 3.0.7
+      eventsource-parser: 3.0.6
+      express: 5.2.1
+      express-rate-limit: 7.5.1(express@5.2.1)
+      jose: 6.1.3
+      json-schema-typed: 8.0.2
+      pkce-challenge: 5.0.1
+      raw-body: 3.0.2
+      zod: 3.25.76
+      zod-to-json-schema: 3.25.1(zod@3.25.76)
+    transitivePeerDependencies:
+      - hono
+      - supports-color
 
   '@modelcontextprotocol/sdk@1.25.3(hono@4.11.7)(zod@4.3.6)':
     dependencies:
@@ -12813,6 +12995,26 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@preact/signals-core@1.12.2': {}
+
+  '@quilted/events@2.1.3':
+    dependencies:
+      '@preact/signals-core': 1.12.2
+
+  '@quilted/threads@3.3.1(@preact/signals-core@1.12.2)':
+    dependencies:
+      '@quilted/events': 2.1.3
+    optionalDependencies:
+      '@preact/signals-core': 1.12.2
+
+  '@r2wc/core@1.3.0': {}
+
+  '@r2wc/react-to-web-component@2.1.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      '@r2wc/core': 1.3.0
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
 
   '@radix-ui/number@1.1.1': {}
 
@@ -13052,6 +13254,26 @@ snapshots:
   '@radix-ui/rect@1.1.1': {}
 
   '@remix-run/router@1.23.1': {}
+
+  '@remote-dom/core@1.10.1(@preact/signals-core@1.12.2)':
+    dependencies:
+      '@remote-dom/polyfill': 1.5.1
+      htm: 3.1.1
+    optionalDependencies:
+      '@preact/signals-core': 1.12.2
+
+  '@remote-dom/polyfill@1.5.1': {}
+
+  '@remote-dom/react@1.2.2(@preact/signals-core@1.12.2)(react@19.2.3)':
+    dependencies:
+      '@remote-dom/core': 1.10.1(@preact/signals-core@1.12.2)
+      '@types/react': 18.3.27
+      htm: 3.1.1
+    optionalDependencies:
+      react: 19.2.3
+    transitivePeerDependencies:
+      - '@preact/signals-core'
+      - preact
 
   '@rolldown/binding-android-arm64@1.0.0-beta.50':
     optional: true
@@ -13959,6 +14181,8 @@ snapshots:
 
   '@types/prettier@2.7.3': {}
 
+  '@types/prop-types@15.7.15': {}
+
   '@types/qs@6.14.0': {}
 
   '@types/range-parser@1.2.7': {}
@@ -13966,6 +14190,11 @@ snapshots:
   '@types/react-dom@19.2.3(@types/react@19.2.5)':
     dependencies:
       '@types/react': 19.2.5
+
+  '@types/react@18.3.27':
+    dependencies:
+      '@types/prop-types': 15.7.15
+      csstype: 3.2.3
 
   '@types/react@19.2.5':
     dependencies:
@@ -16063,7 +16292,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-grommet@https://github.com/grommet/eslint-plugin-grommet/tarball/stable(eslint@8.57.1):
+  eslint-plugin-grommet@https://codeload.github.com/grommet/eslint-plugin-grommet/legacy.tar.gz/refs/heads/stable(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
       requireindex: 1.1.0
@@ -17089,6 +17318,8 @@ snapshots:
   hpe-design-tokens@1.4.1: {}
 
   hpe-design-tokens@2.1.0: {}
+
+  htm@3.1.1: {}
 
   html-encoding-sniffer@2.0.1:
     dependencies:
@@ -21981,6 +22212,10 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
+  zod-to-json-schema@3.25.1(zod@3.25.76):
+    dependencies:
+      zod: 3.25.76
+
   zod-to-json-schema@3.25.1(zod@4.3.6):
     dependencies:
       zod: 4.3.6
@@ -21988,6 +22223,8 @@ snapshots:
   zod-validation-error@4.0.2(zod@4.3.6):
     dependencies:
       zod: 4.3.6
+
+  zod@3.25.76: {}
 
   zod@4.3.6: {}
 

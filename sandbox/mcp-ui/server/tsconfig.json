@@ -7,6 +7,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     
     /* Bundler mode */
     "moduleResolution": "NodeNext",
