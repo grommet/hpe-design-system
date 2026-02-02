@@ -1,11 +1,14 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext, TextArea } from 'grommet';
+import { ThemeContext, Box, TextArea } from 'grommet';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { prism } from 'grommet-theme-hpe';
 
 export const CodeEditor = ({ code, onChange }) => {
   const theme = useContext(ThemeContext);
   const textareaRef = useRef(null);
   const cursorPositionRef = useRef(null);
+  const isDark = theme.dark;
 
   useEffect(() => {
     // Restore cursor position after render
@@ -23,25 +26,60 @@ export const CodeEditor = ({ code, onChange }) => {
   };
 
   return (
-    <TextArea
-      ref={textareaRef}
-      value={code}
-      onChange={handleChange}
-      rows={10}
+    <Box
       style={{
-        fontFamily:
-          'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
-        fontSize: 14,
-        backgroundColor: theme.global.colors['background-front'],
-        color: theme.global.colors.text,
-        border: `1px solid ${theme.global.colors.border}`,
-        borderRadius: theme.global.edgeSize.xsmall,
-        padding: '12px',
-        resize: 'vertical',
-        whiteSpace: 'pre',
-        overflowX: 'auto',
+        position: 'relative',
+        display: 'grid',
+        gridTemplateAreas: '"code"',
       }}
-    />
+    >
+      {/* Syntax highlighted background */}
+      <Box
+        style={{
+          gridArea: 'code',
+          pointerEvents: 'none',
+          overflow: 'hidden',
+        }}
+      >
+        <SyntaxHighlighter
+          language="jsx"
+          style={isDark ? prism.dark : prism.light}
+          customStyle={{
+            margin: 0,
+            padding: '12px',
+            background: 'transparent',
+            fontSize: 14,
+            fontFamily:
+              'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
+            minHeight: '240px',
+          }}
+        >
+          {code || ' '}
+        </SyntaxHighlighter>
+      </Box>
+      {/* Transparent textarea overlay */}
+      <TextArea
+        ref={textareaRef}
+        value={code}
+        onChange={handleChange}
+        rows={10}
+        style={{
+          gridArea: 'code',
+          fontFamily:
+            'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
+          fontSize: 14,
+          backgroundColor: 'transparent',
+          color: 'transparent',
+          caretColor: theme.global.colors.text,
+          border: 'none',
+          padding: '12px',
+          resize: 'vertical',
+          whiteSpace: 'pre',
+          overflowX: 'auto',
+          minHeight: '240px',
+        }}
+      />
+    </Box>
   );
 };
 

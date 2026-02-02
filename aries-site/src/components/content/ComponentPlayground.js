@@ -161,7 +161,8 @@ export const ComponentPlayground = ({
           }
         });
 
-        setComponentProps(prev => ({ ...prev, ...newProps }));
+        // Replace props entirely when code is manually edited
+        setComponentProps(newProps);
       }
     } catch (error) {
       // If parsing fails, just keep the code change
@@ -318,7 +319,6 @@ export const ComponentPlayground = ({
                     onToggle={event => setLayout(event.value)}
                     options={[
                       { label: 'Bottom', value: 'bottom' },
-                      { label: 'Left', value: 'left' },
                       { label: 'Right', value: 'right' },
                     ]}
                   />
@@ -330,77 +330,6 @@ export const ComponentPlayground = ({
               direction={effectiveLayout === 'bottom' ? 'column' : 'row'}
               gap="medium"
             >
-              {/* Controls on the left */}
-              {effectiveLayout === 'left' && (
-                <Box flex={{ grow: 0, shrink: 0, basis: '400px' }}>
-                  <Box direction="row" justify="space-between" align="start">
-                    <Tabs
-                      activeIndex={activeTab}
-                      onActive={setActiveTab}
-                      justify="start"
-                      flex
-                    >
-                      <Tab title="Props">
-                        <Box
-                          border={{ color: 'border-weak' }}
-                          round="xsmall"
-                          overflow={{ vertical: 'auto' }}
-                          height={{ max: 'medium' }}
-                          pad={{ vertical: 'xsmall' }}
-                          margin={{ top: 'small' }}
-                        >
-                          {(() => {
-                            const visibleControls = controls.filter(
-                              control =>
-                                !control.showWhen ||
-                                control.showWhen(componentProps),
-                            );
-                            return visibleControls.map((control, index) =>
-                              renderControl(
-                                control,
-                                index === visibleControls.length - 1,
-                              ),
-                            );
-                          })()}
-                        </Box>
-                      </Tab>
-
-                      <Tab title="Code">
-                        <Box gap="small">
-                          {codeError && (
-                            <Box
-                              background="status-critical"
-                              pad="small"
-                              round="xsmall"
-                            >
-                              <Text size="small" color="text-strong">
-                                {codeError}
-                              </Text>
-                            </Box>
-                          )}
-                          <Box background="background-contrast" round="xsmall">
-                            <CodeEditor
-                              code={code}
-                              onChange={handleCodeChange}
-                            />
-                          </Box>
-                        </Box>
-                      </Tab>
-                    </Tabs>
-                    {activeTab === 1 && (
-                      <Button
-                        icon={<Copy />}
-                        label={copied ? 'Copied!' : 'Copy'}
-                        onClick={handleCopy}
-                        size="small"
-                        secondary
-                      />
-                    )}
-                  </Box>
-                </Box>
-              )}
-
-              {/* Preview Area */}
               <Box
                 background="background-back"
                 pad="large"
@@ -408,7 +337,11 @@ export const ComponentPlayground = ({
                 align="center"
                 justify="center"
                 border={{ color: 'border-weak', size: 'xsmall' }}
-                height={{ min: 'small' }}
+                height={
+                  effectiveLayout === 'bottom'
+                    ? { min: 'small' }
+                    : { min: 'small' }
+                }
                 width={
                   effectiveLayout !== 'bottom'
                     ? { min: 'small', max: 'medium' }
@@ -423,14 +356,12 @@ export const ComponentPlayground = ({
                 </Grommet>
               </Box>
 
-              {/* Tabs for Props and Code - Bottom or Right */}
               {(effectiveLayout === 'bottom' ||
                 effectiveLayout === 'right') && (
                 <Box
                   direction="row"
                   justify="space-between"
                   align="start"
-                  fill
                   margin={{ bottom: 'small' }}
                 >
                   <Tabs
