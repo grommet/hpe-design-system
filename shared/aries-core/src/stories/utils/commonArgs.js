@@ -33,6 +33,11 @@ export const borderArg = {
   control: { type: 'boolean' },
 };
 
+export const directionArg = {
+  control: { type: 'select' },
+  options: ['row', 'column', 'row-responsive'],
+};
+
 export const elevationArg = {
   control: { type: 'select' },
   options: tShirtSizes,
@@ -97,10 +102,7 @@ export const boxArgs = {
   alignContent: alignContentArg,
   background: backgroundArg,
   border: borderArg,
-  direction: {
-    control: { type: 'select' },
-    options: ['row', 'column', 'row-responsive'],
-  },
+  direction: directionArg,
   elevation: elevationArg,
   fill: fillArg,
   gap: gapArg,

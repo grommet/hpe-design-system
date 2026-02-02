@@ -1,12 +1,26 @@
 import React from 'react';
 import { Main, Header, Footer, Box, Heading, Text } from 'grommet';
-import { boxArgs } from '../utils/commonArgs';
+import {
+  backgroundArg,
+  padArg,
+  alignArg,
+  borderArg,
+  gapArg,
+  heightArg,
+  skeletonArg,
+} from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Main',
   component: Main,
   argTypes: {
-    ...boxArgs,
+    pad: padArg,
+    background: backgroundArg,
+    align: alignArg,
+    border: borderArg,
+    gap: gapArg,
+    height: heightArg,
+    skeleton: skeletonArg,
   },
 };
 

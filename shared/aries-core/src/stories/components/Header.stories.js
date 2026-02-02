@@ -1,13 +1,27 @@
 import React from 'react';
 import { Header, Button, Avatar, Box, Text } from 'grommet';
 import { Element } from '@hpe-design/icons-grommet';
-import { boxArgs } from '../utils/commonArgs';
+import {
+  backgroundArg,
+  borderArg,
+  padArg,
+  directionArg,
+  elevationArg,
+  heightArg,
+  skeletonArg,
+} from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Header',
   component: Header,
   argTypes: {
-    ...boxArgs,
+    background: backgroundArg,
+    pad: padArg,
+    border: borderArg,
+    direction: directionArg,
+    elevation: elevationArg,
+    height: heightArg,
+    skeleton: skeletonArg,
   },
 };
 

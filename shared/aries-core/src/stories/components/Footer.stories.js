@@ -1,12 +1,30 @@
 import React from 'react';
 import { Footer, Text, Box, Button } from 'grommet';
-import { boxArgs } from '../utils/commonArgs';
+import {
+  backgroundArg,
+  padArg,
+  alignArg,
+  borderArg,
+  directionArg,
+  elevationArg,
+  heightArg,
+  widthArg,
+  skeletonArg,
+} from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Footer',
   component: Footer,
   argTypes: {
-    ...boxArgs,
+    background: backgroundArg,
+    pad: padArg,
+    align: alignArg,
+    border: borderArg,
+    direction: directionArg,
+    elevation: elevationArg,
+    height: heightArg,
+    width: widthArg,
+    skeleton: skeletonArg,
   },
 };
 

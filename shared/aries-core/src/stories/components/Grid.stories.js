@@ -1,8 +1,6 @@
 import React from 'react';
 import { Grid, Box, Text } from 'grommet';
 import {
-  alignArg,
-  alignContentArg,
   fillArg,
   gapArg,
   heightArg,
@@ -17,8 +15,6 @@ const meta = {
   title: 'Components/Grid',
   component: Grid,
   argTypes: {
-    align: alignArg,
-    alignContent: alignContentArg,
     columns: {
       control: { type: 'object' },
     },
