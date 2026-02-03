@@ -64,6 +64,41 @@ All Grommet icon components support the following props:
 
 Icons respect Grommet's theming system. All icons respect semantic icon colors provided by `hpe-design-tokens` and/or `grommet-theme-hpe`.
 
+### Create Your Own Icon
+
+Any 24x24px SVG may be converted to an icon using the `<Blank>` icon. For example:
+
+If an icon is decorative and does not need to be read out by assistive technologies, use `<Blank />` with default properties. If the icon should be read out by assistive technologies, apply `aria-hidden={undefined}` and an appropriate `a11yTitle` to `<Blank />`. `aria-hidden={undefined}` allows screenreaders to pick up on the icon within the dom and an `aria-label` or `a11yTitle` tells screenreaders how the icon should be announced.
+
+```javascript
+import React from 'react';
+import { Blank } from 'grommet-icons';
+
+export const MyIcon = (props) => (
+  <Blank {...props}>
+    {/* your 24x24 svg goes here - e.g. here's a 24x24px circle */}
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="12" cy="12" r="5" />
+    </svg>
+  </Blank>
+);
+
+export const MyOtherIcon = (props) => (
+  <Blank a11yTitle="Descriptive icon name" aria-hidden={undefined} {...props}>
+    {/* your 24x24 svg goes here - e.g. here's a 24x24px circle */}
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="12" cy="12" r="5" />
+    </svg>
+  </Blank>
+);
+```
+
 ## Available Icons
 
 ### Categories
@@ -80,7 +115,7 @@ The library includes icons across multiple categories:
 
 ### Complete Icon List
 
-For a complete list of all 450+ available icons, explore the [Storybook](https://hpe-design-icons-grommet.netlify.app/) documentation or check the `src/js/icons/` directory.
+For a complete list of all 450+ available icons, explore the [Storybook](https://hpe-design-icons-grommet.netlify.app/) documentation, check the `src/js/icons/` directory, or view them in [Figma](https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons-V2-%E2%80%93-Production?node-id=0-1&p=f&t=mNw0UO3QFOK9NJfd-0).
 
 ## Development
 

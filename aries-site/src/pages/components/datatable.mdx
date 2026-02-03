@@ -5,6 +5,7 @@ import {
   PaginationTableExample,
   PaginationServerTableExample,
   DataTableAnatomy,
+  DataTableCombinedStatusStateExample,
   DataTableExample,
   DataTableEmptyCellExample,
   DataTableFixedHeaderExample,
@@ -12,6 +13,8 @@ import {
   DataTableResizeColumnsExample,
   DataTableSingleSelectExample,
   DataTableSortable,
+  DataTableSeparateStatusStateExample,
+  DataTableStatusOnlyExample,
   DataTableSummaryExample,
   DataTableVerticalListExample,
 } from '../../examples';
@@ -68,45 +71,42 @@ finding a customer's record to review their chat history, tracking a particular 
 status, etc., the user experience objective is to enable a user to locate that record as
 quickly as possible.
 
-- Use Search. This is often the quickest, most efficient method for users to find a record of interest.
+- Use [Search](/components/datasearch). This is often the quickest, most efficient method for users to find a record of interest.
 - As backup, use sortable columns coupled with paginated results. This combination
   provides users with the knowledge of alpha-numeric range, enabling an
   educated guess as to the record's location in the sort.
 
 ### Narrowing a result set
 
-When a user is looking to focus on a group of records sharing similar characteristics,
-providing thoughtful filter controls allows for incremental reduction of the DataTable's
-result set.
+When users want to focus on a subset of records that share similar characteristics, 
+[filter controls](/components/datafilters) enable progressive narrowing of the DataTable’s results.
 
-- Provide filter controls.
-- Filter control input types should be chosen to best fit the data type and breadth of values.
+- Provide filter controls to allow users to scope the visible result set.
+- Choose filter controls that align with the data type and value range,
+  keeping filtering predictable and efficient.
 
-<ExampleImagePreview
-  label="Learn more about providing a great filter experience"
-  href="/templates/filtering"
-  src="/static/images/Filtering_Data_Tables.png"
-  alt="Example demonstrating how to find a record of interest with a Table"
-/>
+Learn more about providing a great [filter experience](/templates/filtering).
 
 ### Browsing a result set
 
-Sometimes users are "checking up on things" or do not have specific records
-in mind. In this case, they are assessing the state of their records and the
-user experience objective is to facilitate the scanning of records to identify
-potential outliers or records which the user is unaware need attention or action.
+Sometimes users are in a browsing or exploratory mode
+ and do not have specific records in mind. In these cases, 
+ they are assessing the overall state of their data. 
+ The primary experience goal is to support quick scanning, 
+ enabling users to easily spot outliers, trends, or records 
+ that may require attention or action - especially those they 
+ were not previously aware of.
 
-- Use infinite scroll. In this scenario, infinite scroll removes friction,
-  allowing users to browse records effortlessly.
-- Consider adding column data types such as status indicators or meters
-  which call attention to records needing attention.
+#### Options to enhance browsing experience
 
-<ExampleImagePreview
-  label="Using infinite scroll with tables"
-  href="/components/pagination#when-to-use-pagination"
-  src="/static/images/Browsing_For_Outliers.png"
-  alt="Example demonstrating how to find a record of interest with a Table"
-/>
+- Make columns [sortable](/components/datasort) to allow users to order records by value, 
+  helping them more easily compare data and identify patterns, 
+  outliers, or priority items.
+- Use meaningful column data types - such as [status indicators](/templates/status-indicator), 
+  badges, or meters - to visually surface records that may 
+  require attention or action.
+- When a data set is large, [pagination](/components/pagination) segments the records into fixed pages, 
+  while infinite scroll enables continuous exploratory scanning.
 
 ### Assembling a data set
 
@@ -193,11 +193,11 @@ Wrapping should be used when:
 
 ### Handling empty cells
 
-If the value of a cell is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values while also maintaing the scanablility across rows and columns.
+If the value of a cell is empty, use `--` in place of where a value would appear. This visual indicator aids the user in identifying fields that do not have values while also maintaining the scanability across rows and columns.
 
 Because the HPE theme does not have borders or background color differences to differentiate between rows and columns, a visual indicator in empty cells is necessary to maintain readability and scanability.
 
-For empty cells, add an `a11yTitle="No value"` to the Text component that would otherwise render the data to ensure users of assisstive technology are informed of the empty state.
+For empty cells, add an `a11yTitle="No value"` to the Text component that would otherwise render the data to ensure users of assistive technology are informed of the empty state.
 
 <Example
   componentName="DataTable"
@@ -238,12 +238,13 @@ When status and state are distinct and independent from each other, display them
 - Allows columns to be sorted independently from each other.
 - Clearly visually separates and labels status and state to avoid false associations.
 
-<Box width="xlarge">
-  <Image
-    src="/static/images/datatable-separate-columns-status-state.svg"
-    alt="Example of a data table showing separate columns for status and state"
-  />
-</Box>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableSeparateStatusStateExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <DataTableSeparateStatusStateExample />
+</Example>
 
 #### 2. Status only column
 
@@ -251,12 +252,13 @@ When status and state are distinct and independent from each other, display them
 - Used in situations where horizontal screen real-estate is an issue.
 - If displaying state is required, provide the user the ability to view the record's detail. State may be displayed once the user selects the row for more information.
 
-<Box width="xlarge">
-  <Image
-    src="/static/images/datatable-only-status-column.svg"
-    alt="Example showing a status column in the data table pointing to the state within the details"
-  />
-</Box>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableStatusOnlyExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <DataTableStatusOnlyExample />
+</Example>
 
 #### 3. Combined column
 
@@ -267,12 +269,13 @@ When the status and state are coupled, they may be displayed as a single element
 - Status and State are sorted together rather than individually.
 - **_Note: A single column is rarely used. Ensure false associations are not created when status and state are not coupled._**
 
-<Box width="xlarge">
-  <Image
-    src="/static/images/datatable-combined-column-status-state.svg"
-    alt="Example of a data table showing combined column for status and state"
-  />
-</Box>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableCombinedStatusStateExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <DataTableCombinedStatusStateExample />
+</Example>
 
 ## DataTable behaviors & actions
 
@@ -306,7 +309,7 @@ dragging the right side of its header to the left or to the right to expand the 
 
 ### Searching and filtering
 
-Complimenatary elements such as search or filters should be guided by the task the user
+Complementary elements such as search or filters should be guided by the task the user
 is setting out to accomplish.
 
 - Looking for a specific record? --> Search.
@@ -406,7 +409,7 @@ Should be guided by the task the user is setting out to accomplish.
   - Perhaps I am reviewing a customer's account history. I am not looking for
     a particular record, rather I am in scanning mode, trying to get a sense of
     the volume and types of interaction with a customer over time. Infinite Scroll
-    creates a nice, frictionless experirence for this to occur.
+    creates a nice, frictionless experience for this to occur.
 - Searching for a specific record? --> It depends.
   - Do you have a good search experience? --> Infinite Scroll
   - Do you have a performant API?
@@ -433,6 +436,7 @@ When a column has multi-line data, it may improve readability to align the data 
 </Example>
 
 ## Accessibility
+
 To ensure screen readers are able to associate a page heading with a given DataTable, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the data table, it will announce the Heading content which provides the user with better context about the table data and purpose.
 
 For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
@@ -441,10 +445,9 @@ For example, if on the Heading you apply `id="storage-pools-heading"`, on the Da
 <Heading id="storage-pools-heading">Storage pools</Heading>
 <DataTable aria-describedBy="storage-pools-heading" />
 ```
+
 ### WCAG compliance
-  <AccessibilitySection title='datatable' />
-
-
+<AccessibilitySection title="datatable" />
 
 {/* To be added. Placeholders for future content. */}
 

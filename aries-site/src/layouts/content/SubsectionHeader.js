@@ -15,7 +15,6 @@ export const SubsectionHeader = ({ headingSize, children, level }) => {
       align="center"
       gap="xsmall"
       id={id}
-      margin={{ top: level === 3 ? 'medium' : 'xlarge' }}
       onMouseOver={() => setOver(true)}
       onFocus={() => setOver(true)}
       onMouseOut={() => setOver(false)}

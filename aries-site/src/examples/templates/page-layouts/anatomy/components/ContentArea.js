@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Box, ThemeContext } from 'grommet';
 import { Element } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { aries } from '../../../../../themes/aries';
 
 export const ContentArea = ({
