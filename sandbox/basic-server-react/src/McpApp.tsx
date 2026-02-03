@@ -27,6 +27,7 @@ const AppContent = ({
 
   useEffect(() => {
     if (toolResult) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setServerTime(extractTime(toolResult));
     }
   }, [toolResult]);
@@ -149,7 +150,14 @@ function McpApp() {
         console.log('Tool call was cancelled:', params.reason);
       };
       app.onerror = error => {
-        console.error('App error:', error);
+        // Filter out the "unknown message ID" errors during initialization
+        // common during MCP app initialization due to React's development 
+        // mode running effects twice
+        // "Unknown message ID" warnings occur during the initial protocol 
+        // handshake when React's Strict Mode causes duplicate initialization attempts.
+        if (!error.message?.includes('unknown message ID')) {
+          console.error('App error:', error);
+        }
       };
       app.onhostcontextchanged = context => {
         console.log('Host context changed:', context);
