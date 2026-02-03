@@ -18,13 +18,13 @@ export const MenuItemCountExample = ({ bestPractice = true }) => (
               { label: 'View servers' },
               { label: 'Add servers' },
               { label: 'Remove servers' },
+              { label: 'Restart servers' },
             ],
             [
               { label: 'Update firmware' },
               { label: 'Update BIOS settings' },
-              { label: 'Action' },
-              { label: 'Action' },
             ],
+            [{ label: 'Delete' }],
           ]
     }
   />
