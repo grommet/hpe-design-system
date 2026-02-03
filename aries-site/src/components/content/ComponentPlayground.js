@@ -37,6 +37,7 @@ export const ComponentPlayground = ({
   const [isCodeManuallyEdited, setIsCodeManuallyEdited] = useState(false);
   const [codeError, setCodeError] = useState(null);
   const [layout, setLayout] = useState('right'); // 'bottom', 'left', or 'right'
+  // eslint-disable-next-line max-len
   const [previewTheme, setPreviewTheme] = useState('light'); // 'light' or 'dark'
 
   const togglePreviewTheme = () => {
@@ -298,18 +299,21 @@ export const ComponentPlayground = ({
             gap="medium"
             border={{ color: 'border', size: 'xsmall' }}
           >
-            <Box direction="row" justify="between" align="center">
-              <Heading level={3} margin="none" size="small">
-                Interactive Playground
-              </Heading>
-              <Box direction="row" gap="small" align="center">
+            <Box direction="row" justify="between" alignSelf="end">
+              <Box direction="row" gap="small" align="end">
                 <Button
                   icon={<Moon />}
-                  tip={
+                  a11yTitle={
                     previewTheme === 'dark'
                       ? 'Switch preview to light mode'
                       : 'Switch preview to dark mode'
                   }
+                  tip={{
+                    content:
+                      previewTheme === 'dark'
+                        ? 'Switch preview to light mode'
+                        : 'Switch preview to dark mode',
+                  }}
                   onClick={togglePreviewTheme}
                   secondary
                 />
@@ -329,46 +333,52 @@ export const ComponentPlayground = ({
             <Box
               direction={effectiveLayout === 'bottom' ? 'column' : 'row'}
               gap="medium"
+              fill="horizontal"
             >
               <Box
-                background="background-back"
-                pad="large"
-                round="xsmall"
                 align="center"
                 justify="center"
-                border={{ color: 'border-weak', size: 'xsmall' }}
                 height={
                   effectiveLayout === 'bottom'
                     ? { min: 'small' }
                     : { min: 'small' }
                 }
-                width={
-                  effectiveLayout !== 'bottom'
-                    ? { min: 'small', max: 'medium' }
-                    : undefined
-                }
                 flex={
-                  effectiveLayout !== 'bottom' ? { grow: 0, shrink: 1 } : false
+                  effectiveLayout !== 'bottom' ? { grow: 1, shrink: 1 } : false
                 }
               >
-                <Grommet theme={hpe} themeMode={previewTheme}>
-                  <ComponentWithIcon />
+                <Grommet
+                  theme={hpe}
+                  themeMode={previewTheme}
+                  style={{ width: '100%', height: '100%' }}
+                >
+                  <Box
+                    background="background-back"
+                    fill
+                    align="center"
+                    justify="center"
+                    border={{ color: 'border-weak', size: 'xsmall' }}
+                    round="xsmall"
+                  >
+                    <ComponentWithIcon />
+                  </Box>
                 </Grommet>
               </Box>
 
               {(effectiveLayout === 'bottom' ||
                 effectiveLayout === 'right') && (
                 <Box
-                  direction="row"
-                  justify="space-between"
-                  align="start"
                   margin={{ bottom: 'small' }}
+                  flex={
+                    effectiveLayout !== 'bottom'
+                      ? { grow: 1, shrink: 1 }
+                      : false
+                  }
                 >
                   <Tabs
                     activeIndex={activeTab}
                     onActive={setActiveTab}
                     justify="start"
-                    flex
                   >
                     <Tab title="Props">
                       <Box
@@ -396,7 +406,7 @@ export const ComponentPlayground = ({
                     </Tab>
 
                     <Tab title="Code">
-                      <Box gap="small">
+                      <Box gap="small" margin={{ top: 'small' }}>
                         {codeError && (
                           <Box
                             background="status-critical"
@@ -408,21 +418,33 @@ export const ComponentPlayground = ({
                             </Text>
                           </Box>
                         )}
-                        <Box background="background-contrast" round="xsmall">
+                        <Box
+                          background="background-contrast"
+                          round="xsmall"
+                          style={{ position: 'relative' }}
+                        >
+                          <Box
+                            style={{
+                              position: 'absolute',
+                              top: '12px',
+                              right: '12px',
+                              zIndex: 1,
+                            }}
+                          >
+                            <Button
+                              icon={<Copy />}
+                              a11yTitle={copied ? 'Copied!' : 'Copy code'}
+                              tip={copied ? 'Copied!' : 'Copy code'}
+                              onClick={handleCopy}
+                              size="small"
+                              secondary
+                            />
+                          </Box>
                           <CodeEditor code={code} onChange={handleCodeChange} />
                         </Box>
                       </Box>
                     </Tab>
                   </Tabs>
-                  {activeTab === 1 && (
-                    <Button
-                      icon={<Copy />}
-                      label={copied ? 'Copied!' : 'Copy'}
-                      onClick={handleCopy}
-                      size="small"
-                      secondary
-                    />
-                  )}
                 </Box>
               )}
             </Box>
