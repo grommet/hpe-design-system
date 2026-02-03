@@ -6,7 +6,6 @@ import {
   borderArg,
   padArg,
   directionArg,
-  elevationArg,
   heightArg,
   skeletonArg,
 } from '../utils/commonArgs';
@@ -19,7 +18,6 @@ const meta = {
     pad: padArg,
     border: borderArg,
     direction: directionArg,
-    elevation: elevationArg,
     height: heightArg,
     skeleton: skeletonArg,
   },
