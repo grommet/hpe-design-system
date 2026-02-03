@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Box, DataTable, CheckBox, Avatar, Text } from 'grommet';
+import { useState } from 'react';
+import { Box, DataTable, Avatar, Text } from 'grommet';
 
 const data = [
   {
@@ -54,18 +55,16 @@ const data = [
 ];
 
 export const PageOneContent = () => {
+  const [selected, setSelected] = useState([]);
+
   return (
-    <Box pad="medium">
+    <Box>
       <DataTable
         data={data}
         aria-describedby='Example user data'
+        select={selected}
+        onSelect={setSelected}
         columns={[
-          {
-            property: 'select',
-            header: '',
-            render: () => <CheckBox />,
-            // size: "xsmall",
-          },
           {
             property: 'name',
             header: 'User name',

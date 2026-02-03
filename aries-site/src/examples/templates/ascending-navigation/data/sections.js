@@ -1,29 +1,29 @@
-import { User, Home, Help, Template } from '@hpe-design/icons-grommet';
+import { User, Home, Template } from '@hpe-design/icons-grommet';
 
 export const sectionConfig = {
   home: {
     label: 'Identity & access',
-    subtitle: 'Securely manage users and access to resources.',
-    details: 'Securely Lorem ipsum dolor.',
+    subtitle:
+      'Manage users, servers, and permissions across your system.',
+    details:
+      'Control who and what can access your systems. Manage users, servers, '
+      + 'roles, and permissions in one place.',
     icon: <Home size="large" />,
   },
   pageOne: {
     label: 'Users',
-    subtitle:
-      'Invite users to your organization and assign access to resources.',
-    details: 'Securely Lorem ipsum dolor.',
+    subtitle: 'Manage users and their access.',
+    details:
+      'Invite teammates, assign roles, and review permissions in one place. '
+      + 'Use roles to ensure people only have access to what they need.',
     icon: <User size="large" />,
   },
   pageTwo: {
-    label: 'Hardware',
-    subtitle: 'This is hardware section.',
-    details: 'Securely Lorem ipsum dolor.',
+    label: 'Servers',
+    subtitle: 'Manage all of your HPE servers.',
+    details:
+      'See all servers at a glance, check status and performance, and take '
+      + 'action when needed.',
     icon: <Template size="large" />,
-  },
-  pageThree: {
-    label: 'Help',
-    subtitle: 'This is the help section.',
-    details: 'Securely Lorem ipsum dolor.',
-    icon: <Help size="large" />,
   },
 };

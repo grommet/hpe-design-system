@@ -1,18 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import {
-  Anchor,
-  Box,
-  Button,
-  Header,
-  PageContent,
-  PageHeader,
-} from 'grommet';
+import { Anchor, Box, Button, PageContent, PageHeader } from 'grommet';
 import { Left, Home } from '@hpe-design/icons-grommet';
 import { HomeContent } from './components/HomeContent';
 import { PageOneContent } from './components/PageOneContent';
 import { PageTwoContent } from './components/PageTwoContent';
-import { PageThreeContent } from './components/PageThreeContent';
 import { sectionConfig } from './data/sections';
 
 export const AscendingNavigationExample = () => {
@@ -24,43 +16,30 @@ export const AscendingNavigationExample = () => {
     home: <HomeContent onNavigate={setActivePage} />,
     pageOne: <PageOneContent onNavigate={setActivePage} />,
     pageTwo: <PageTwoContent onNavigate={setActivePage} />,
-    pageThree: <PageThreeContent onNavigate={setActivePage} />,
   };
 
   return (
-    <>
-      <Header
-        pad={{ horizontal: 'medium', vertical: 'small' }}
-        background="background-front"
-      >
-        <Button
-          default
-          icon={<Home aria-hidden="true" />}
-          onClick={() => setActivePage('home')}
-          a11yTitle="Go to Home page"
+    <PageContent gap="xsmall" kind="full">
+      <Box width="xlarge">
+        <PageHeader
+          title={page.label}
+          subtitle={page.subtitle}
+          size="large"
+          parent={
+            activePage !== 'home' ? (
+              <Anchor
+                label="Identity & access"
+                icon={<Left />}
+                onClick={() => setActivePage('home')}
+              />
+            ) : undefined
+          }
+          actions={
+            activePage !== 'home' && <Button label="Primary action" primary />
+          }
         />
-      </Header>
-      <Box>
-        <PageContent gap="small">
-          <PageHeader
-            title={page.label}
-            subtitle={page.subtitle}
-            parent={
-              activePage !== 'home' ? (
-                <Anchor
-                  label="Home"
-                  icon={<Left />}
-                  onClick={() => setActivePage('home')}
-                />
-              ) : undefined
-            }
-            actions={
-              activePage !== 'home' && <Button label="Primary" primary />
-            }
-          />
-          <Box gap="small">{sectionContent[activePage]}</Box>
-        </PageContent>
+        <Box gap="small">{sectionContent[activePage]}</Box>
       </Box>
-    </>
+    </PageContent>
   );
 };
