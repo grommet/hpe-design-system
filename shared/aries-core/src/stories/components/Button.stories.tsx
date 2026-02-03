@@ -118,10 +118,7 @@ export const Primary = {
     primary: true,
   },
   render: (args: any) => {
-    const IconComponent = args.icon;
-    return (
-      <Button {...args} icon={IconComponent ? <IconComponent /> : undefined} />
-    );
+    return <Button {...args} />;
   },
 } satisfies Story;
 
@@ -133,10 +130,7 @@ export const Secondary = {
     secondary: true,
   },
   render: (args: any) => {
-    const IconComponent = args.icon;
-    return (
-      <Button {...args} icon={IconComponent ? <IconComponent /> : undefined} />
-    );
+    return <Button {...args} />;
   },
 } satisfies Story;
 
@@ -147,9 +141,6 @@ export const Default = {
     label: 'Default',
   },
   render: (args: any) => {
-    const IconComponent = args.icon;
-    return (
-      <Button {...args} icon={IconComponent ? <IconComponent /> : undefined} />
-    );
+    return <Button {...args} />;
   },
 } satisfies Story;

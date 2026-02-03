@@ -1,5 +1,6 @@
+import React from 'react';
 import { colors, hpe } from 'grommet-theme-hpe';
-import * as Icons from '@hpe-design/icons-grommet';
+import * as Icons from 'grommet-icons';
 
 export const backgroundColors = Object.keys(colors)
   .filter(key => key.split('-')[0] === 'background')
@@ -79,7 +80,8 @@ export const iconArg = {
   mapping: {
     none: undefined,
     ...Object.keys(Icons).reduce((acc, iconName) => {
-      acc[iconName] = Icons[iconName];
+      const IconComponent = Icons[iconName];
+      acc[iconName] = React.createElement(IconComponent);
       return acc;
     }, {}),
   },
