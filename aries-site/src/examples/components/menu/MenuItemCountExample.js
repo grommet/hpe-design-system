@@ -18,9 +18,9 @@ export const MenuItemCountExample = ({ bestPractice = true }) => (
               { label: 'View servers' },
               { label: 'Add servers' },
               { label: 'Remove servers' },
-              { label: 'Restart servers' },
             ],
             [
+              { label: 'Reset servers' },
               { label: 'Update firmware' },
               { label: 'Update BIOS settings' },
             ],
