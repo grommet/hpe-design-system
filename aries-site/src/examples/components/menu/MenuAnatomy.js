@@ -38,7 +38,7 @@ const connections = [
     color,
     thickness,
     fromTarget: '2',
-    toTarget: 'first-item',
+    toTarget: 'drop-container',
   },
   {
     anchor: 'horizontal',
@@ -153,23 +153,30 @@ export const MenuAnatomy = () => {
         ))}
 
         {/* Menu anatomy mockup */}
-        <Box gridArea="menu-area" align="start">
+        <Box gridArea="menu-area" align="start" >
+          {/* Adding bounding box to add dotted outline for clarity */}
+          <Box border={{ style: 'dotted' }} round="small">
           <Button
+            round="small"
             id="menu-button"
             label={<Box id="menu-label">Menu</Box>}
             icon={<Box id="menu-icon">{menuTheme.icons?.down.render()}</Box>}
             reverse
             tabIndex={-1}
           />
+          </Box>
           <Box
-            id="drop-container"
             {...dropTheme}
             border={undefined}
             elevation={dropTheme.shadowSize}
             round={dropTheme.border.radius}
           >
-            <Box {...menuTheme.container} {...menuTheme.group.container}>
-              <MenuItem id="first-item" label="Action" />
+            <Box
+            {...menuTheme.container}
+            {...menuTheme.group.container}
+            id="drop-container"
+            >
+              <MenuItem label="Action" />
               <MenuItem label="Action" />
               <MenuItem label="Action" />
             </Box>
@@ -181,12 +188,14 @@ export const MenuAnatomy = () => {
             <Box {...menuTheme.container} {...menuTheme.group.container}>
               <MenuItem label="Action" />
               <MenuItem icon={<Add />} label="Action" />
-              <MenuItem
-                id="menu-item-target"
-                label={<Box id="item-label">Action</Box>}
-                icon={<Add id="item-icon" />}
-                reverse
-              />
+              <Box border={{ style: 'dotted' }} round="small">
+                <MenuItem
+                  id="menu-item-target"
+                  label={<Box id="item-label">Action</Box>}
+                  icon={<Add id="item-icon" />}
+                  reverse
+                />
+              </Box>
             </Box>
           </Box>
         </Box>
