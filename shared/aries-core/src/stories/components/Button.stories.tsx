@@ -51,6 +51,7 @@ const meta = {
       description:
         'Click handler. Not setting this property and not specifying a href causes the Button to be disabled.',
     },
+    // TODO: Verify it 'plain' is an argType to include
     plain: {
       control: { type: 'boolean' },
       description:
