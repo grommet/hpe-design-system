@@ -1,3 +1,4 @@
+import React from 'react';
 import { colors, hpe } from 'grommet-theme-hpe';
 import * as Icons from '@hpe-design/icons-grommet';
 
@@ -9,20 +10,11 @@ export const borderSizes = Object.keys(hpe.global.borderSize);
 
 export const spacingSizes = Object.keys(hpe.global.edgeSize);
 
-export const tShirtSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
+export const tShirtSizes = Object.keys(hpe.button.size);
 
-export const textSizes = [
-  'xsmall',
-  'small',
-  'medium',
-  'large',
-  'xlarge',
-  'xxlarge',
-  '3xl',
-  '4xl',
-  '5xl',
-  '6xl',
-];
+export const textSizes = Object.keys(hpe.text).filter(
+  key => !['extend', 'skeleton'].includes(key),
+);
 
 export const radiusSizes = Object.keys(hpe.global.radius);
 
@@ -71,6 +63,16 @@ export const roundArg = {
   options: radiusSizes,
 };
 
+export const textSizesArg = {
+  control: { type: 'select' },
+  options: textSizes,
+};
+
+export const reverseArg = {
+  control: { type: 'boolean' },
+  options: [true, false],
+};
+
 export const widthArg = {
   control: { type: 'select' },
   options: containerSizes,
@@ -105,7 +107,8 @@ export const iconArg = {
   mapping: {
     none: undefined,
     ...Object.keys(Icons).reduce((acc, iconName) => {
-      acc[iconName] = Icons[iconName];
+      const IconComponent = Icons[iconName];
+      acc[iconName] = React.createElement(IconComponent);
       return acc;
     }, {}),
   },
