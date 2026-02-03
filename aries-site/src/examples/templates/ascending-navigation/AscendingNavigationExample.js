@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Anchor, Box, Button, PageContent, PageHeader } from 'grommet';
-import { Left, Home } from '@hpe-design/icons-grommet';
+import { Left } from '@hpe-design/icons-grommet';
 import { HomeContent } from './components/HomeContent';
 import { PageOneContent } from './components/PageOneContent';
 import { PageTwoContent } from './components/PageTwoContent';
