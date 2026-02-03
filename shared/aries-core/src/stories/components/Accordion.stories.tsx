@@ -7,13 +7,14 @@ const meta = {
   title: 'Components/Accordion',
   component: Accordion,
   argTypes: {
-    // TODO: Verify "align" or "alighSelf" as correct arg name
+    // TODO: Verify "align" or "alignSelf" as correct arg name
     align: alignArg,
     animate: {
-      control: 'boolean',
+      control: { type: 'boolean' },
+      description: 'Transition content in and out with a slide down animation.',
     },
     margin: {
-      control: 'select',
+      control: { type: 'select' },
       options: [
         'none',
         'xxsmall',
@@ -24,9 +25,11 @@ const meta = {
         'xlarge',
         'responsive',
       ],
+      description: 'The amount of margin around the component.',
     },
     multiple: {
-      control: 'boolean',
+      control: { type: 'boolean' },
+      description: 'Allow multiple panels to be opened at once.',
     },
     width: {
       control: { type: 'select' },
@@ -40,6 +43,7 @@ const meta = {
         'full',
         'auto',
       ],
+      description: 'The width of the component.',
     },
   },
 } satisfies Meta<typeof Accordion>;
@@ -50,6 +54,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   name: 'Accordion',
+  // Sets default args for argTypes, story specific args
   args: {
     align: 'stretch',
     animate: true,
