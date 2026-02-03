@@ -6,7 +6,7 @@ export const MenuDefaultExample = () => {
 
   return (
     <Box direction="row" align="start">
-      <Menu label="Menu" items={items} />
+      <Menu label="Actions" items={items} />
     </Box>
   );
 };
