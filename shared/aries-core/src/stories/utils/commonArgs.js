@@ -1,4 +1,5 @@
 import { colors, hpe } from 'grommet-theme-hpe';
+import * as Icons from '@hpe-design/icons-grommet';
 
 export const backgroundColors = Object.keys(colors)
   .filter(key => key.split('-')[0] === 'background')
@@ -70,6 +71,18 @@ export const elevationArg = {
 
 export const skeletonArg = {
   control: { type: 'boolean' },
+};
+
+export const iconArg = {
+  control: { type: 'select' },
+  options: ['none', ...Object.keys(Icons)],
+  mapping: {
+    none: undefined,
+    ...Object.keys(Icons).reduce((acc, iconName) => {
+      acc[iconName] = Icons[iconName];
+      return acc;
+    }, {}),
+  },
 };
 
 export const boxArgs = {
