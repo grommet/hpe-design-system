@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Grid, Diagram, Stack, ThemeContext } from 'grommet';
-import { Add, Left } from '@hpe-design/icons-grommet';
+import { Add } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
