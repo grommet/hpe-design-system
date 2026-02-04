@@ -1,4 +1,5 @@
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Grid, Box, Text } from 'grommet';
 import {
   fillArg,
@@ -33,16 +34,16 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-// eslint-disable-next-line react/prop-types
-const GridItem = ({ children, ...props }) => (
+const GridItem = ({ children, ...props }: any) => (
   <Box background="background-contrast" pad="small" round="small" {...props}>
     <Text>{children}</Text>
   </Box>
 );
 
-export const BasicGrid = {
-  render: args => (
+export const BasicGrid: Story = {
+  render: (args: any) => (
     <Grid {...args}>
       <GridItem>Item 1</GridItem>
       <GridItem>Item 2</GridItem>
@@ -57,8 +58,8 @@ export const BasicGrid = {
   name: 'Grid',
 };
 
-export const WithAreas = {
-  render: args => (
+export const WithAreas: Story = {
+  render: (args: any) => (
     <Grid {...args}>
       <GridItem gridArea="header">Header</GridItem>
       <GridItem gridArea="sidebar">Sidebar</GridItem>

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Footer, Text, Box, Button } from 'grommet';
 import {
   backgroundArg,
@@ -27,11 +28,12 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const BasicFooter = {
-  render: args => {
+export const BasicFooter: Story = {
+  render: (args: any) => {
     const year = new Date().getFullYear();
-    const footerLinks = [
+    const footerLinks: Array<{ label: string }> = [
       { label: 'Terms' },
       { label: 'Privacy' },
       { label: 'Security' },

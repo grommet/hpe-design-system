@@ -1,4 +1,5 @@
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import {
   Card,
   CardBody,
@@ -35,9 +36,10 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const BasicCard = {
-  render: args => (
+export const BasicCard: Story = {
+  render: (args: any) => (
     <Card {...args}>
       <CardHeader pad="medium">
         <Box direction="row" align="center" gap="small">
