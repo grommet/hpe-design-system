@@ -1,13 +1,13 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
-import { ListIconIdentifierExample } from 'aries-site/src/examples/templates/list-views/ListIconIdentifierExample';
-import { ListImageIdentifierExample } from 'aries-site/src/examples/templates/list-views/ListImageIdentifierExample';
-import { ListNameDescriptionOptionExample } from 'aries-site/src/examples/templates/list-views/ListNameDescriptionOptionExample';
-import { ListNameExample } from 'aries-site/src/examples/templates/list-views/ListNameExample';
-import { ListNameOptionActionExample } from 'aries-site/src/examples/templates/list-views/ListNameOptionActionExample';
-import { ListOrderExample } from 'aries-site/src/examples/templates/list-views/ListOrderExample';
-import { ListScreenExample } from 'aries-site/src/examples/templates/list-views/ListScreenExample';
+import { ListIconIdentifierExample } from 'apps/docs/src/examples/templates/list-views/ListIconIdentifierExample';
+import { ListImageIdentifierExample } from 'apps/docs/src/examples/templates/list-views/ListImageIdentifierExample';
+import { ListNameDescriptionOptionExample } from 'apps/docs/src/examples/templates/list-views/ListNameDescriptionOptionExample';
+import { ListNameExample } from 'apps/docs/src/examples/templates/list-views/ListNameExample';
+import { ListNameOptionActionExample } from 'apps/docs/src/examples/templates/list-views/ListNameOptionActionExample';
+import { ListOrderExample } from 'apps/docs/src/examples/templates/list-views/ListOrderExample';
+import { ListScreenExample } from 'apps/docs/src/examples/templates/list-views/ListScreenExample';
 
 const meta = {
   title: 'Lists',

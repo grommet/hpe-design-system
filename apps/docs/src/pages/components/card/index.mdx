@@ -1,0 +1,128 @@
+import { AccessibilitySection, BestPracticeGroup, Example } from '../../../layouts';
+import { ExampleImagePreview } from '../../../components';
+import {
+  CardAlignmentBestPractice,
+  CardContentBestPractice,
+  CardKitchenSink,
+  CardTypes,
+  CardFilteringBestPractice,
+  CardSpacingBestPractice,
+} from '../../../examples';
+
+<Example
+  componentName="Card"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/card/CardKitchenSink.js"
+  docs="https://v2.grommet.io/card?theme=hpe#props"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Card/Card.js"
+>
+  <CardKitchenSink />
+</Example>
+
+## Principles
+
+Cards are containers that display content and actions on a single topic. They should be easy to scan for relevant and actionable information.
+
+**Contained** - A card is identifiable as a single, contained unit.
+
+**Independent** - A card can stand alone, without relying on surrounding elements for context.
+
+**Individual** - A card cannot merge with another card, or divide into multiple cards.
+
+**Summarized** - A card by nature has limited real estate, so it should present summarized information.
+
+Cards should be used when:
+
+- Presenting high-level, summarized pieces of information.
+- Presenting an item, or collection of items, which can best be consumed visually.
+
+In all cases the presentation allows users to quickly scan the content and navigate to underlying detail if desired.
+
+## Types of cards
+
+A card is a rich, flexible UI component; its anatomy, visual/interactive treatments, and relationship to its peers help to establish and reinforce its purpose. The following are distinct types of cards that have unique purposes and best practices.
+
+<CardTypes />
+
+## Formatting
+
+### Alignment
+
+Use left-alignment whenever possible in order to optimize readability.
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Left-align text and content.',
+    }}
+    height={{ min: 'xsmall' }}
+  >
+    <CardAlignmentBestPractice />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't center text and content. This hurts readability.`,
+    }}
+    width="100%"
+    height={{ min: 'xsmall' }}
+  >
+    <CardAlignmentBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+### Spacing
+
+Follow the [proximity principle](https://www.nngroup.com/articles/gestalt-proximity/) 
+when applying spacing between a group of cards and between other content sections. Apply 
+a uniform gap between cards so that they are perceived as belonging to the same group. This 
+spacing should be less than the gap between other content sections.  
+
+<Example
+  width="100%"
+  height={{ min: 'xsmall' }}
+>
+  <CardSpacingBestPractice />
+</Example>
+
+## Interactions
+
+### Mouse
+
+- If a card does not contain an action behavior, do not provide hover feedback.
+- If a card has a singular action behavior, the entire card may be clickable. 
+Apply a `pointer` cursor and `large` elevation for the hover state.
+- If a card contains multiple interactive elements, provide hover feedback on the interactive elements, not the card itself.
+
+### Keyboard
+
+| Key         | Interaction                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| Tab         | Move forward through the cards (if entire card is clickable) or through logical order of the interactive elements.    |
+| Shift + Tab | Move backward through the cards (if entire card is clickable) or through logical order of the interactive elements.   |
+| Enter       | Perform the card action (if entire card is clickable) or the corresponding action of the focused interactive element. |
+
+## Accessibility
+
+### Card titles
+
+Card titles should use a Heading of the correct [semantic heading level](/foundation/typography#semantic-usage-of-heading-levels) 
+based on where the card is in the document. For example, a card nested under a 
+Heading level 2 should use a Heading level 3 for its title (Note: If desired, 
+a heading's size may be adjusted to achieve the desired aethetic, but always use 
+the proper level).
+
+Text should not be used for the card titles. Assistive technologies rely on HTML 
+heading or aria-labels for understanding a card's title.
+
+### Card sections
+
+When cards are presenting as a group, they should function as a list.
+
+- Apply `as="ul"` or `as="ol"` (depending on if the list is orderded or not) to the cards' layout container (whether that be a [Grid](/components/grid), [List](/templates/lists), or other layout component).
+  - Some default browser padding may need to be overridden. This can be done by applying `pad="none"`, or the desired padding, to the container.
+- Apply `as="li"` to the individual cards.
+
+### WCAG compliance
+
+<AccessibilitySection title='card' />

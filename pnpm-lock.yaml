@@ -190,7 +190,7 @@ importers:
         specifier: ^5.2.0
         version: 5.4.21(@types/node@20.19.25)(terser@5.44.1)
 
-  aries-site:
+  apps/docs:
     dependencies:
       '@hpe-design/icons-grommet':
         specifier: 'catalog:'
@@ -206,7 +206,7 @@ importers:
         version: 14.2.33(@mdx-js/loader@3.1.1(webpack@5.102.1))(@mdx-js/react@3.1.1(@types/react@19.2.5)(react@19.2.3))
       '@shared/aries-core':
         specifier: workspace:*
-        version: link:../shared/aries-core
+        version: link:../../shared/aries-core
       grommet:
         specifier: 'catalog:'
         version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
