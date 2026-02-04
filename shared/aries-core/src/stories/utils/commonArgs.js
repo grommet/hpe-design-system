@@ -1,4 +1,6 @@
+import React from 'react';
 import { colors, hpe } from 'grommet-theme-hpe';
+import * as Icons from '@hpe-design/icons-grommet';
 
 export const backgroundColors = Object.keys(colors)
   .filter(key => key.split('-')[0] === 'background')
@@ -8,11 +10,19 @@ export const borderSizes = Object.keys(hpe.global.borderSize);
 
 export const spacingSizes = Object.keys(hpe.global.edgeSize);
 
-export const tShirtSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
+export const tShirtSizes = Object.keys(hpe.button.size);
+
+export const textSizes = Object.keys(hpe.text).filter(
+  key => !['extend', 'skeleton'].includes(key),
+);
 
 export const radiusSizes = Object.keys(hpe.global.radius);
 
 export const containerSizes = Object.keys(hpe.global.size);
+
+export const a11yTitleArg = {
+  control: { type: 'text' },
+};
 
 export const alignArg = {
   control: { type: 'select' },
@@ -38,6 +48,11 @@ export const directionArg = {
   options: ['row', 'column', 'row-responsive'],
 };
 
+export const disabledArg = {
+  control: { type: 'boolean' },
+  options: [true, false],
+};
+
 export const elevationArg = {
   control: { type: 'select' },
   options: tShirtSizes,
@@ -45,7 +60,7 @@ export const elevationArg = {
 
 export const fillArg = {
   control: { type: 'select' },
-  options: [true, false, 'horizontal', 'vertical'],
+  options: ['true', 'false', 'horizontal', 'vertical'],
 };
 
 export const gapArg = {
@@ -68,12 +83,11 @@ export const justifyContentArg = {
   options: ['start', 'center', 'end', 'between', 'around', 'evenly', 'stretch'],
 };
 
-export const marginArg = {
-  control: { type: 'select' },
-  options: spacingSizes,
+export const labelArg = {
+  control: { type: 'text' },
 };
 
-export const padArg = {
+export const marginArg = {
   control: { type: 'select' },
   options: spacingSizes,
 };
@@ -83,9 +97,19 @@ export const overflowArg = {
   options: ['auto', 'hidden', 'scroll', 'visible'],
 };
 
+export const padArg = {
+  control: { type: 'select' },
+  options: spacingSizes,
+};
+
 export const responsiveArg = {
   control: { type: 'select' },
   options: [true, false, 'container'],
+};
+
+export const reverseArg = {
+  control: { type: 'boolean' },
+  options: [true, false],
 };
 
 export const roundArg = {
@@ -97,9 +121,27 @@ export const skeletonArg = {
   control: { type: 'boolean' },
 };
 
+export const textSizesArg = {
+  control: { type: 'select' },
+  options: textSizes,
+};
+
 export const widthArg = {
   control: { type: 'select' },
   options: containerSizes,
+};
+
+export const iconArg = {
+  control: { type: 'select' },
+  options: ['none', ...Object.keys(Icons)],
+  mapping: {
+    none: undefined,
+    ...Object.keys(Icons).reduce((acc, iconName) => {
+      const IconComponent = Icons[iconName];
+      acc[iconName] = React.createElement(IconComponent);
+      return acc;
+    }, {}),
+  },
 };
 
 export const boxArgs = {
