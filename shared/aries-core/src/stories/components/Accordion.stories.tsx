@@ -7,8 +7,6 @@ const meta = {
   title: 'Components/Accordion',
   component: Accordion,
   argTypes: {
-    // TODO: Verify "align" or "alignSelf" as correct arg name
-    align: alignArg,
     animate: {
       control: { type: 'boolean' },
     },
@@ -31,7 +29,6 @@ export const Default = {
   name: 'Accordion',
   // Sets default args for argTypes, story specific args
   args: {
-    align: 'stretch',
     animate: true,
     margin: 'none',
     multiple: false,
