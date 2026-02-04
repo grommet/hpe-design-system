@@ -94,6 +94,11 @@ export const borderArg: BooleanControlArg = {
   control: { type: 'boolean' },
 };
 
+export const directionArg: SelectControlArg = {
+  control: { type: 'select' },
+  options: ['row', 'column', 'row-responsive'],
+};
+
 export const elevationArg: SelectControlArg = {
   control: { type: 'select' },
   options: tShirtSizes,
@@ -108,14 +113,12 @@ export const boxArgs: Record<string, ControlArg> = {
   alignContent: alignContentArg,
   background: backgroundArg,
   border: borderArg,
-  direction: {
-    control: { type: 'select' },
-    options: ['row', 'column', 'row-responsive'],
-  },
+  direction: directionArg,
   elevation: elevationArg,
   fill: fillArg,
   gap: gapArg,
   height: heightArg,
+  pad: padArg,
   round: roundArg,
   skeleton: skeletonArg,
   width: widthArg,
