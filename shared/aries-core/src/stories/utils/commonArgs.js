@@ -1,6 +1,6 @@
 import React from 'react';
 import { colors, hpe } from 'grommet-theme-hpe';
-import * as Icons from 'grommet-icons';
+import * as Icons from '@hpe-design/icons-grommet';
 
 export const backgroundColors = Object.keys(colors)
   .filter(key => key.split('-')[0] === 'background')
@@ -10,45 +10,18 @@ export const borderSizes = Object.keys(hpe.global.borderSize);
 
 export const spacingSizes = Object.keys(hpe.global.edgeSize);
 
-export const tShirtSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
+export const tShirtSizes = Object.keys(hpe.button.size);
+
+export const textSizes = Object.keys(hpe.text).filter(
+  key => !['extend', 'skeleton'].includes(key),
+);
 
 export const radiusSizes = Object.keys(hpe.global.radius);
 
 export const containerSizes = Object.keys(hpe.global.size);
 
-export const fillArg = {
-  control: { type: 'select' },
-  options: [true, false, 'horizontal', 'vertical'],
-};
-
-export const gapArg = {
-  control: { type: 'select' },
-  options: spacingSizes,
-};
-
-export const backgroundArg = {
-  control: { type: 'select' },
-  options: backgroundColors,
-};
-
-export const heightArg = {
-  control: { type: 'select' },
-  options: containerSizes,
-};
-
-export const padArg = {
-  control: { type: 'select' },
-  options: spacingSizes,
-};
-
-export const roundArg = {
-  control: { type: 'select' },
-  options: radiusSizes,
-};
-
-export const widthArg = {
-  control: { type: 'select' },
-  options: containerSizes,
+export const a11yTitleArg = {
+  control: { type: 'text' },
 };
 
 export const alignArg = {
@@ -61,8 +34,23 @@ export const alignContentArg = {
   options: ['start', 'center', 'end', 'between', 'around', 'evenly', 'stretch'],
 };
 
+export const backgroundArg = {
+  control: { type: 'select' },
+  options: backgroundColors,
+};
+
 export const borderArg = {
   control: { type: 'boolean' },
+};
+
+export const directionArg = {
+  control: { type: 'select' },
+  options: ['row', 'column', 'row-responsive'],
+};
+
+export const disabledArg = {
+  control: { type: 'boolean' },
+  options: [true, false],
 };
 
 export const elevationArg = {
@@ -70,8 +58,77 @@ export const elevationArg = {
   options: tShirtSizes,
 };
 
+export const fillArg = {
+  control: { type: 'select' },
+  options: ['true', 'false', 'horizontal', 'vertical'],
+};
+
+export const gapArg = {
+  control: { type: 'select' },
+  options: spacingSizes,
+};
+
+export const heightArg = {
+  control: { type: 'select' },
+  options: containerSizes,
+};
+
+export const justifyArg = {
+  control: { type: 'select' },
+  options: ['start', 'center', 'end', 'stretch'],
+};
+
+export const justifyContentArg = {
+  control: { type: 'select' },
+  options: ['start', 'center', 'end', 'between', 'around', 'evenly', 'stretch'],
+};
+
+export const labelArg = {
+  control: { type: 'text' },
+};
+
+export const marginArg = {
+  control: { type: 'select' },
+  options: spacingSizes,
+};
+
+export const overflowArg = {
+  control: { type: 'select' },
+  options: ['auto', 'hidden', 'scroll', 'visible'],
+};
+
+export const padArg = {
+  control: { type: 'select' },
+  options: spacingSizes,
+};
+
+export const responsiveArg = {
+  control: { type: 'select' },
+  options: [true, false, 'container'],
+};
+
+export const reverseArg = {
+  control: { type: 'boolean' },
+  options: [true, false],
+};
+
+export const roundArg = {
+  control: { type: 'select' },
+  options: radiusSizes,
+};
+
 export const skeletonArg = {
   control: { type: 'boolean' },
+};
+
+export const textSizesArg = {
+  control: { type: 'select' },
+  options: textSizes,
+};
+
+export const widthArg = {
+  control: { type: 'select' },
+  options: containerSizes,
 };
 
 export const iconArg = {
@@ -92,15 +149,15 @@ export const boxArgs = {
   alignContent: alignContentArg,
   background: backgroundArg,
   border: borderArg,
-  direction: {
-    control: { type: 'select' },
-    options: ['row', 'column', 'row-responsive'],
-  },
+  direction: directionArg,
   elevation: elevationArg,
   fill: fillArg,
   gap: gapArg,
   height: heightArg,
+  overflow: overflowArg,
+  responsive: responsiveArg,
   round: roundArg,
+  pad: padArg,
   skeleton: skeletonArg,
   width: widthArg,
 };
