@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { Grid, Box, Text, GridExtendedProps } from 'grommet';
+import { Grid, Box, Text, GridExtendedProps, BoxExtendedProps } from 'grommet';
 import {
   fillArg,
   gapArg,
@@ -36,7 +36,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const GridItem = ({ children, ...props }: any) => (
+const GridItem = ({ children, ...props }: BoxExtendedProps) => (
   <Box background="background-contrast" pad="small" round="small" {...props}>
     <Text>{children}</Text>
   </Box>
