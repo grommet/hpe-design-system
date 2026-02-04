@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Page,
-  PageContent,
-  PageHeader,
-  Box,
-  Heading,
-  Paragraph,
-} from 'grommet';
+import { Page, PageContent, PageHeader, Heading, Paragraph } from 'grommet';
 
 const meta = {
   title: 'Components/Page',

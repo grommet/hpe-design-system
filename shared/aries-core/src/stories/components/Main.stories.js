@@ -1,5 +1,5 @@
 import React from 'react';
-import { Main, Header, Footer, Box, Heading, Text } from 'grommet';
+import { Main, Heading, Text } from 'grommet';
 import {
   backgroundArg,
   padArg,
