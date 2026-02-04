@@ -32,10 +32,10 @@ export default meta;
 export const LayerExample = {
   render: args => {
     return (
-      <Layer {...args}>
+      <Layer as="section" {...args}>
         <Box pad="medium" gap="small" width="medium">
           <Box direction="row" align="center" justify="between">
-            <Heading level={3} margin="none">
+            <Heading level={1} margin="none" size="medium">
               Confirmation
             </Heading>
             <Button

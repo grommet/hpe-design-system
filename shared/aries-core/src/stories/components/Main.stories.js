@@ -28,20 +28,10 @@ export default meta;
 
 export const BasicMain = {
   render: args => (
-    <Box fill>
-      <Header background="background-contrast" pad="medium">
-        <Heading level={1} margin="none">
-          Header
-        </Heading>
-      </Header>
-      <Main {...args}>
-        <Heading level={2}>Main Content</Heading>
-        <Text>This is the primary content area of the page.</Text>
-      </Main>
-      <Footer background="background-contrast" pad="medium">
-        <Text>Footer</Text>
-      </Footer>
-    </Box>
+    <Main {...args}>
+      <Heading level={1}>Main Content</Heading>
+      <Text>This is the primary content area of the page.</Text>
+    </Main>
   ),
   args: {
     pad: 'medium',

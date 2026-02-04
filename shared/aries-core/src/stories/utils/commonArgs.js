@@ -83,6 +83,11 @@ export const overflowArg = {
   options: ['auto', 'hidden', 'scroll', 'visible'],
 };
 
+export const responsiveArg = {
+  control: { type: 'select' },
+  options: [true, false, 'container'],
+};
+
 export const roundArg = {
   control: { type: 'select' },
   options: radiusSizes,
@@ -108,6 +113,7 @@ export const boxArgs = {
   gap: gapArg,
   height: heightArg,
   overflow: overflowArg,
+  responsive: responsiveArg,
   round: roundArg,
   pad: padArg,
   skeleton: skeletonArg,

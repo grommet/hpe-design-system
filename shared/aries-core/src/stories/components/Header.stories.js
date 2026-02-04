@@ -21,6 +21,9 @@ const meta = {
     height: heightArg,
     skeleton: skeletonArg,
   },
+  globals: {
+    background: { value: 'background-back' },
+  },
 };
 
 export default meta;
@@ -29,7 +32,7 @@ export const NavigationHeader = {
   render: args => (
     <Header {...args}>
       <Box direction="row" align="center" gap="medium">
-        <Element />
+        <Element color="decorative-brand" />
         <Box direction="row" gap="xsmall">
           <Button label="Dashboard" />
           <Button label="Analytics" />

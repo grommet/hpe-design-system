@@ -39,11 +39,9 @@ export const BasicFooter = {
     ];
     return (
       <Footer {...args}>
-        <Box gap="3xsmall">
-          <Text size="small">
-            &copy; {year} Hewlett Packard Enterprise Development LP
-          </Text>
-        </Box>
+        <Text size="small">
+          &copy; {year} Hewlett Packard Enterprise Development LP
+        </Text>
         <Box direction="row" gap="3xsmall" wrap>
           {footerLinks.map(link => (
             <Button key={link.label} label={link.label} />

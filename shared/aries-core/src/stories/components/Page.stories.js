@@ -1,5 +1,12 @@
 import React from 'react';
-import { Page, PageContent, PageHeader, Box, Heading, Text } from 'grommet';
+import {
+  Page,
+  PageContent,
+  PageHeader,
+  Box,
+  Heading,
+  Paragraph,
+} from 'grommet';
 
 const meta = {
   title: 'Components/Page',
@@ -22,10 +29,10 @@ export const DefaultPage = {
           title="Page Title"
           subtitle="A description of what this page is about"
         />
-        <Box gap="medium">
-          <Heading level={2}>Content Section</Heading>
-          <Text>This is the main content of the page.</Text>
-        </Box>
+        <Heading level={2} margin="none">
+          Content Section
+        </Heading>
+        <Paragraph>This is the main content of the page.</Paragraph>
       </PageContent>
     </Page>
   ),

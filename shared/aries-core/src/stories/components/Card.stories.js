@@ -29,6 +29,9 @@ const meta = {
     pad: padArg,
     width: widthArg,
   },
+  globals: {
+    background: { value: 'background-back' },
+  },
 };
 
 export default meta;
