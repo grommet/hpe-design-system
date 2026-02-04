@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Accordion, AccordionPanel, Box } from 'grommet';
-import { alignArg } from '../utils/commonArgs';
+import { spacingSizes, alignArg, widthArg } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Accordion',
@@ -11,40 +11,15 @@ const meta = {
     align: alignArg,
     animate: {
       control: { type: 'boolean' },
-      description: 'Transition content in and out with a slide down animation.',
     },
     margin: {
       control: { type: 'select' },
-      options: [
-        'none',
-        'xxsmall',
-        'xsmall',
-        'small',
-        'medium',
-        'large',
-        'xlarge',
-        'responsive',
-      ],
-      description: 'The amount of margin around the component.',
+      options: spacingSizes,
     },
     multiple: {
       control: { type: 'boolean' },
-      description: 'Allow multiple panels to be opened at once.',
     },
-    width: {
-      control: { type: 'select' },
-      options: [
-        'xxsmall',
-        'xsmall',
-        'small',
-        'medium',
-        'large',
-        'xlarge',
-        'full',
-        'auto',
-      ],
-      description: 'The width of the component.',
-    },
+    width: widthArg,
   },
 } satisfies Meta<typeof Accordion>;
 
