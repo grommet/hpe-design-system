@@ -126,7 +126,6 @@ export const responsiveArg: ArgType = {
 
 export const reverseArg: ArgType = {
   control: { type: 'boolean' },
-  options: [true, false],
 };
 
 export const roundArg: ArgType = {
