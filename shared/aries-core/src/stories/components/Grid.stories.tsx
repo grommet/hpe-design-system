@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { Grid, Box, Text } from 'grommet';
+import { Grid, Box, Text, GridExtendedProps } from 'grommet';
 import {
   fillArg,
   gapArg,
@@ -59,7 +59,7 @@ export const BasicGrid: Story = {
 };
 
 export const WithAreas: Story = {
-  render: (args: any) => (
+  render: (args: GridExtendedProps) => (
     <Grid {...args}>
       <GridItem gridArea="header">Header</GridItem>
       <GridItem gridArea="sidebar">Sidebar</GridItem>

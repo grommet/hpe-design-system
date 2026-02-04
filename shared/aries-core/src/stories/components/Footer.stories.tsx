@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { Footer, Text, Box, Button } from 'grommet';
+import { Footer, Text, Box, Button, BoxTypes } from 'grommet';
 import {
   backgroundArg,
   padArg,
@@ -31,7 +31,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const BasicFooter: Story = {
-  render: (args: any) => {
+  render: (args: BoxTypes) => {
     const year = new Date().getFullYear();
     const footerLinks: Array<{ label: string }> = [
       { label: 'Terms' },

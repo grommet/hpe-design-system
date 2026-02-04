@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, PageContent, PageHeader, Heading, Paragraph } from 'grommet';
+import { Page, PageContent, PageHeader, Heading, Paragraph, PageExtendedProps } from 'grommet';
 import type { StoryObj } from '@storybook/react';
 
 const meta = {
@@ -17,7 +17,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const DefaultPage: Story = {
-  render: (args: any) => (
+  render: (args: PageExtendedProps) => (
     <Page {...args}>
       <PageContent>
         <PageHeader

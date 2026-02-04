@@ -9,6 +9,7 @@ import {
   Heading,
   Text,
   Box,
+  BoxTypes,
 } from 'grommet';
 import {
   backgroundArg,
@@ -39,7 +40,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const BasicCard: Story = {
-  render: (args: any) => (
+  render: (args: BoxTypes) => (
     <Card {...args}>
       <CardHeader pad="medium">
         <Box direction="row" align="center" gap="small">
