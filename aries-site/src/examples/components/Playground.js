@@ -1,8 +1,8 @@
 import React from 'react';
 import { Anchor, Box, Text } from 'grommet';
+import { anchorArgTypes } from '@shared/aries-core/src/stories/components/Anchor.stories';
+import { boxArgTypes } from '@shared/aries-core/src/stories/components/Box.stories';
 import { ComponentPlayground } from '../../components/content/ComponentPlayground';
-import { anchorArgTypes } from '../../../../shared/aries-core/src/stories/components/Anchor.stories';
-import { boxArgTypes } from '../../../../shared/aries-core/src/stories/components/Box.stories';
 
 // Component configurations
 const COMPONENT_CONFIGS = {
