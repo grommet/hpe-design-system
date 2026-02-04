@@ -1,86 +1,114 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext, Box, TextArea } from 'grommet';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { prism } from 'grommet-theme-hpe';
+import { ThemeContext, Box } from 'grommet';
+import { EditorView, keymap } from '@codemirror/view';
+import { EditorState } from '@codemirror/state';
+import { javascript } from '@codemirror/lang-javascript';
+import { oneDark } from '@codemirror/theme-one-dark';
+import { githubLight } from '@uiw/codemirror-theme-github';
+import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 
 export const CodeEditor = ({ code, onChange }) => {
   const theme = useContext(ThemeContext);
-  const textareaRef = useRef(null);
-  const cursorPositionRef = useRef(null);
+  const editorRef = useRef(null);
+  const viewRef = useRef(null);
+  const onChangeRef = useRef(onChange);
   const isDark = theme.dark;
 
+  // Keep onChange ref updated
   useEffect(() => {
-    // Restore cursor position after render
-    if (textareaRef.current && cursorPositionRef.current !== null) {
-      textareaRef.current.selectionStart = cursorPositionRef.current;
-      textareaRef.current.selectionEnd = cursorPositionRef.current;
-      cursorPositionRef.current = null;
+    onChangeRef.current = onChange;
+  }, [onChange]);
+
+  useEffect(() => {
+    if (!editorRef.current) return;
+
+    const backgroundColor = isDark
+      ? theme.global.colors['background-front'] || '#1e1e1e'
+      : theme.global.colors['background-front'] || '#ffffff';
+
+    const customTheme = EditorView.theme(
+      {
+        '&': {
+          height: '100%',
+          fontSize: '14px',
+        },
+        '.cm-editor': {
+          backgroundColor:
+            typeof backgroundColor === 'string'
+              ? backgroundColor
+              : isDark
+              ? '#1e1e1e'
+              : '#ffffff',
+        },
+        '.cm-scroller': {
+          fontFamily:
+            'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
+          backgroundColor:
+            typeof backgroundColor === 'string'
+              ? backgroundColor
+              : isDark
+              ? '#1e1e1e'
+              : '#ffffff',
+        },
+        '.cm-content': {
+          backgroundColor:
+            typeof backgroundColor === 'string'
+              ? backgroundColor
+              : isDark
+              ? '#1e1e1e'
+              : '#ffffff',
+        },
+        '.cm-gutters': {
+          display: 'none',
+        },
+      },
+      { dark: isDark },
+    );
+
+    // Create editor state
+    const state = EditorState.create({
+      doc: code,
+      extensions: [
+        customTheme,
+        keymap.of([...defaultKeymap, indentWithTab]),
+        javascript({ jsx: true }),
+        isDark ? oneDark : githubLight,
+        EditorView.updateListener.of(update => {
+          if (update.docChanged) {
+            onChangeRef.current(update.state.doc.toString());
+          }
+        }),
+      ],
+    });
+
+    // Create editor view
+    const view = new EditorView({
+      state,
+      parent: editorRef.current,
+    });
+
+    viewRef.current = view;
+
+    return () => {
+      view.destroy();
+    };
+  }, [isDark]); // Recreate when theme changes
+
+  // Update document when code prop changes externally
+  useEffect(() => {
+    if (viewRef.current && code !== viewRef.current.state.doc.toString()) {
+      viewRef.current.dispatch({
+        changes: {
+          from: 0,
+          to: viewRef.current.state.doc.length,
+          insert: code,
+        },
+      });
     }
   }, [code]);
 
-  const handleChange = e => {
-    // Save cursor position before update
-    cursorPositionRef.current = e.target.selectionStart;
-    onChange(e.target.value);
-  };
-
-  return (
-    <Box
-      style={{
-        position: 'relative',
-        display: 'grid',
-        gridTemplateAreas: '"code"',
-      }}
-    >
-      {/* Syntax highlighted background */}
-      <Box
-        style={{
-          gridArea: 'code',
-          pointerEvents: 'none',
-          overflow: 'hidden',
-        }}
-      >
-        <SyntaxHighlighter
-          language="jsx"
-          style={isDark ? prism.dark : prism.light}
-          customStyle={{
-            margin: 0,
-            padding: '12px',
-            background: 'transparent',
-            fontSize: 14,
-            fontFamily:
-              'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
-            minHeight: '240px',
-          }}
-        >
-          {code || ' '}
-        </SyntaxHighlighter>
-      </Box>
-      {/* Transparent textarea overlay */}
-      <TextArea
-        ref={textareaRef}
-        value={code}
-        onChange={handleChange}
-        rows={10}
-        style={{
-          gridArea: 'code',
-          fontFamily:
-            'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
-          fontSize: 14,
-          backgroundColor: 'transparent',
-          color: 'transparent',
-          caretColor: theme.global.colors.text,
-          border: 'none',
-          padding: '12px',
-          resize: 'vertical',
-          whiteSpace: 'pre',
-          overflowX: 'auto',
-          minHeight: '240px',
-        }}
-      />
-    </Box>
-  );
+  return <Box ref={editorRef} style={{ height: '100%' }} />;
 };
 
 CodeEditor.propTypes = {

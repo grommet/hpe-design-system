@@ -136,32 +136,43 @@ export const ComponentPlayground = ({
 
       if (match) {
         const propsString = match[1];
-        const newProps = {};
+        const newProps = { ...defaultProps }; // Start with default props
 
-        // Parse label="value"
-        const labelMatch = propsString.match(/label="([^"]*)"/);
-        if (labelMatch) newProps.label = labelMatch[1];
-
-        // Parse href="value"
-        const hrefMatch = propsString.match(/href="([^"]*)"/);
-        if (hrefMatch) newProps.href = hrefMatch[1];
-
-        // Parse size="value"
-        const sizeMatch = propsString.match(/size="([^"]*)"/);
-        if (sizeMatch) newProps.size = sizeMatch[1];
+        // Parse all string props: propName="value"
+        const stringPropRegex = /(\w+)="([^"]*)"/g;
+        let stringMatch;
+        // eslint-disable-next-line no-cond-assign
+        while ((stringMatch = stringPropRegex.exec(propsString)) !== null) {
+          const [, propName, propValue] = stringMatch;
+          newProps[propName] = propValue;
+        }
 
         // Parse icon={<IconName />}
         const iconMatch = propsString.match(/icon=\{<(\w+)\s*\/>\}/);
-        if (iconMatch) newProps.icon = iconMatch[1];
+        if (iconMatch) {
+          // eslint-disable-next-line prefer-destructuring
+          newProps.icon = iconMatch[1];
+        } else if (!propsString.includes('icon=')) {
+          // If icon prop is not in the code, ensure it's not in newProps
+          delete newProps.icon;
+        }
 
         // Parse boolean props (just the prop name without =)
-        const boolProps = ['disabled', 'primary', 'secondary', 'reverse'];
+        // Get all possible boolean props from controls
+        const boolProps = controls
+          .filter(c => c.type === 'checkbox')
+          .map(c => c.name);
+
         boolProps.forEach(prop => {
-          if (new RegExp(`\\b${prop}\\b(?!=)`).test(propsString)) {
+          const hasProp = new RegExp(`\\b${prop}\\b(?!=)`).test(propsString);
+          if (hasProp) {
             newProps[prop] = true;
+          } else if (defaultProps[prop] === undefined) {
+            newProps[prop] = false;
           }
         });
 
+        console.log('Parsed props from code:', newProps);
         // Replace props entirely when code is manually edited
         setComponentProps(newProps);
       }
@@ -266,7 +277,8 @@ export const ComponentPlayground = ({
   const ComponentWithIcon = () => {
     const propsToRender = { ...componentProps };
 
-    // Add onClick handler to prevent default behavior for interactive components
+    // Add onClick handler to prevent default behavior for interactive
+    // components
     if (!propsToRender.onClick) {
       propsToRender.onClick = e => {
         e.preventDefault();
@@ -333,7 +345,6 @@ export const ComponentPlayground = ({
             <Box
               direction={effectiveLayout === 'bottom' ? 'column' : 'row'}
               gap="medium"
-              fill="horizontal"
             >
               <Box
                 align="center"
@@ -343,9 +354,8 @@ export const ComponentPlayground = ({
                     ? { min: 'small' }
                     : { min: 'small' }
                 }
-                flex={
-                  effectiveLayout !== 'bottom' ? { grow: 1, shrink: 1 } : false
-                }
+                width={effectiveLayout !== 'bottom' ? '40%' : undefined}
+                flex={effectiveLayout !== 'bottom' ? { shrink: 0 } : false}
               >
                 <Grommet
                   theme={hpe}
@@ -368,17 +378,15 @@ export const ComponentPlayground = ({
               {(effectiveLayout === 'bottom' ||
                 effectiveLayout === 'right') && (
                 <Box
-                  margin={{ bottom: 'small' }}
-                  flex={
-                    effectiveLayout !== 'bottom'
-                      ? { grow: 1, shrink: 1 }
-                      : false
-                  }
+                  width={effectiveLayout !== 'bottom' ? '50%' : undefined}
+                  flex={effectiveLayout !== 'bottom' ? { shrink: 0 } : false}
+                  height={{ max: 'large' }}
                 >
                   <Tabs
                     activeIndex={activeTab}
                     onActive={setActiveTab}
                     justify="start"
+                    flex
                   >
                     <Tab title="Props">
                       <Box
@@ -406,12 +414,13 @@ export const ComponentPlayground = ({
                     </Tab>
 
                     <Tab title="Code">
-                      <Box gap="small" margin={{ top: 'small' }}>
+                      <Box margin={{ top: 'small' }} fill>
                         {codeError && (
                           <Box
                             background="status-critical"
                             pad="small"
                             round="xsmall"
+                            margin={{ bottom: 'small' }}
                           >
                             <Text size="small" color="text-strong">
                               {codeError}
@@ -419,8 +428,10 @@ export const ComponentPlayground = ({
                           </Box>
                         )}
                         <Box
-                          background="background-contrast"
+                          background="background-front"
                           round="xsmall"
+                          fill
+                          overflow="auto"
                           style={{ position: 'relative' }}
                         >
                           <Box
@@ -428,7 +439,7 @@ export const ComponentPlayground = ({
                               position: 'absolute',
                               top: '12px',
                               right: '12px',
-                              zIndex: 1,
+                              zIndex: 2,
                             }}
                           >
                             <Button

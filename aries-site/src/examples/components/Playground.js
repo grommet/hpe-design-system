@@ -1,8 +1,8 @@
 import React from 'react';
 import { Anchor, Box, Text } from 'grommet';
-import { ComponentPlayground } from '../../../components/content/ComponentPlayground';
-import { anchorArgTypes } from '../../../../../shared/aries-core/src/stories/components/Anchor.stories';
-import { boxArgTypes } from '../../../../../shared/aries-core/src/stories/components/Box.stories';
+import { ComponentPlayground } from '../../components/content/ComponentPlayground';
+import { anchorArgTypes } from '../../../../shared/aries-core/src/stories/components/Anchor.stories';
+import { boxArgTypes } from '../../../../shared/aries-core/src/stories/components/Box.stories';
 
 // Component configurations
 const COMPONENT_CONFIGS = {
@@ -96,8 +96,14 @@ export const Playground = ({ component: componentName }) => {
   );
 
   // Set display name for code generation
-  config.component.displayName =
+  const displayName =
     componentName.charAt(0).toUpperCase() + componentName.slice(1);
+  config.component.displayName = displayName;
+
+  // If using customRender, set its displayName too
+  if (config.customRender) {
+    config.customRender.displayName = displayName;
+  }
 
   return (
     <ComponentPlayground

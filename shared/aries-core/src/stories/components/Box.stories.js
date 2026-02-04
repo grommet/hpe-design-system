@@ -2,10 +2,12 @@ import React from 'react';
 import { Box, Text } from 'grommet';
 import { boxArgs } from '../utils/commonArgs';
 
+export const boxArgTypes = boxArgs;
+
 const meta = {
   title: 'Components/Box',
   component: Box,
-  argTypes: boxArgs,
+  argTypes: boxArgTypes,
 };
 
 export default meta;
