@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Grid, Diagram, Stack, ThemeContext } from 'grommet';
-import { Add } from '@hpe-design/icons-grommet';
+import { Add, Left } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
@@ -154,9 +154,13 @@ export const MenuAnatomy = () => {
 
         {/* Menu anatomy mockup */}
         <Box gridArea="menu-area" align="start" >
-          {/* Adding bounding box to add dotted outline for clarity */}
-          <Box border={{ style: 'dotted' }} round="small">
-          <Button
+          {/* Adding bounding box to add dashed outline for clarity */}
+          <Box
+          border={{ style: 'dashed' }}
+          round="small"
+          margin={dropTheme.margin}
+          >
+          <Button            
             round="small"
             id="menu-button"
             label={<Box id="menu-label">Menu</Box>}
@@ -188,7 +192,7 @@ export const MenuAnatomy = () => {
             <Box {...menuTheme.container} {...menuTheme.group.container}>
               <MenuItem label="Action" />
               <MenuItem icon={<Add />} label="Action" />
-              <Box border={{ style: 'dotted' }} round="small">
+              <Box border={{ style: 'dashed' }} round="small">
                 <MenuItem
                   id="menu-item-target"
                   label={<Box id="item-label">Action</Box>}
