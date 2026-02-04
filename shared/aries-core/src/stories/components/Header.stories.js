@@ -30,10 +30,10 @@ export const NavigationHeader = {
     <Header {...args}>
       <Box direction="row" align="center" gap="medium">
         <Element />
-        <Box direction="row" gap="medium">
-          <Button label="Dashboard" plain />
-          <Button label="Analytics" plain />
-          <Button label="Settings" plain />
+        <Box direction="row" gap="xsmall">
+          <Button label="Dashboard" />
+          <Button label="Analytics" />
+          <Button label="Settings" />
         </Box>
       </Box>
       <Avatar background="decorative-green">
