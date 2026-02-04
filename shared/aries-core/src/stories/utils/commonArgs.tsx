@@ -67,7 +67,6 @@ export const directionArg: ArgType = {
 
 export const disabledArg: ArgType = {
   control: { type: 'boolean' },
-  options: [true, false],
 };
 
 export const elevationArg: ArgType = {
