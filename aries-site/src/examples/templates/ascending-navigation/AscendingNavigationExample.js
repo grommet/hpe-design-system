@@ -37,7 +37,7 @@ export const AscendingNavigationExample = () => {
           actions={
             activePage !== 'home' && <Button label={page.action} primary />
           }
-          pad={{top:'none', bottom: 'medium', horizontal: 'none'}}
+          pad={{ top: 'none', bottom: 'medium', horizontal: 'none' }}
         />
         <Box gap="small">{sectionContent[activePage]}</Box>
       </Box>
