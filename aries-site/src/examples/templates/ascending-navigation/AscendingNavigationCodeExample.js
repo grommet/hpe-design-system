@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
-import { PageHeader } from 'grommet';
+import React from 'react';
+import { Anchor, Button, PageHeader } from 'grommet';
 import { Left } from '@hpe-design/icons-grommet';
 
 export const AscendingNavigationCodeExample = () => {
