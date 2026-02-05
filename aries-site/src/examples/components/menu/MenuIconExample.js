@@ -7,8 +7,8 @@ export const MenuIconExample = () => {
 
   return (
     <Box direction="row" align="start" gap="small">
-      <Menu icon={<More />} hoverIndicator items={items} />
-      <Menu icon={<Settings />} hoverIndicator items={items} />
+      <Menu icon={<More />} items={items} />
+      <Menu icon={<Settings />} items={items} />
     </Box>
   );
 };
