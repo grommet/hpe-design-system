@@ -6,12 +6,7 @@ export const PopoverPreview = () => {
   return (
     <>
       <Button icon={<Info />} a11yTitle="informational help" tabIndex={-1} />
-      <Box
-        background="background-front"
-        pad="xsmall"
-        round="xxsmall"
-        elevation="medium"
-      >
+      <Box pad="xsmall" round="xxsmall" elevation="medium">
         <Paragraph size="small" margin="none">
           This is a popover
         </Paragraph>

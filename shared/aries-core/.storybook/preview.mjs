@@ -1,35 +1,30 @@
 import React from 'react';
 import { hpe } from 'grommet-theme-hpe';
 import { Grommet } from 'grommet';
-import { useIsDarkMode } from './darkModeHooks';
 
 export default {
   decorators: [
     (Story, context) => {
-      const isDark = useIsDarkMode();
-
-      const mode = isDark ? 'dark' : 'light';
+      let mode = 'light';
+      if (
+        context.globals?.backgrounds?.value ===
+        hpe.global.colors.background.dark
+      )
+        mode = 'dark';
 
       return (
-        <Grommet full theme={hpe} themeMode={mode} background={context.globals.background?.value}>
+        <Grommet theme={hpe} themeMode={mode}>
           <Story />
         </Grommet>
       );
     },
   ],
   parameters: {
-    layout: 'fullscreen',
-    actions: {
-      disable: true,
-    },
-    interactions: {
-      disable: true,
-    },
-    controls: {
-      disableSaveFromUI: true,
-    },
-    docs: {
-      codePanel: true,
+    backgrounds: {
+      values: [
+        { name: 'light', value: hpe.global.colors.background.light },
+        { name: 'dark', value: hpe.global.colors.background.dark },
+      ],
     },
   },
 };

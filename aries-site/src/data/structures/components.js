@@ -57,6 +57,7 @@ export const components = [
     ],
     preview: {
       component: () => <AnchorPreview />,
+      background: 'background-front',
     },
     relatedContent: ['Button', 'Typography', 'Forms'],
     tags: [
@@ -93,6 +94,7 @@ export const components = [
     ],
     preview: {
       component: () => <AvatarPreview />,
+      background: 'background-front',
     },
     relatedContent: ['PageHeader', 'Box', 'DataTable', 'Card'],
     tags: ['logo', 'image'],
@@ -123,6 +125,7 @@ export const components = [
     ],
     preview: {
       component: () => <ButtonPreview />,
+      background: 'background-front',
     },
     tags: [
       'buttons',
@@ -301,6 +304,7 @@ export const components = [
     sections: ['Tabs with icons', 'Tab states'],
     preview: {
       component: () => <TabsPreview />,
+      background: 'background-front',
     },
     relatedContent: ['Button', 'Menu'],
     tags: [
@@ -342,6 +346,7 @@ export const components = [
     ],
     preview: {
       component: () => <DateInputPreview />,
+      background: 'background-front',
     },
     tags: [
       'date input',
@@ -418,7 +423,7 @@ export const components = [
     sections: [],
     preview: {
       component: () => <TextAreaPreview />,
-      pad: 'small',
+      background: 'background-front',
     },
     relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
     tags: [
@@ -459,6 +464,7 @@ export const components = [
     ],
     preview: {
       component: () => <TextInputPreview />,
+      background: 'background-front',
     },
     relatedContent: ['Forms', 'TextArea', 'MaskedInput'],
     tags: [
@@ -561,7 +567,7 @@ export const components = [
     ],
     preview: {
       component: () => <SearchPreview />,
-      pad: 'small',
+      background: 'background-front',
     },
     relatedContent: ['TextInput', 'Header'],
     tags: [
@@ -588,6 +594,7 @@ export const components = [
     sections: ['When to use Select', 'Multi-Select', 'Select with Search'],
     preview: {
       component: () => <SelectPreview />,
+      background: 'background-front',
     },
     relatedContent: [
       'Forms',
@@ -643,6 +650,7 @@ export const components = [
     ],
     preview: {
       component: () => <SelectPreview />,
+      background: 'background-front',
     },
     relatedContent: [
       'Forms',
@@ -699,7 +707,7 @@ export const components = [
     relatedContent: ['CheckBoxGroup', 'Forms', 'RadioButtonGroup', 'Select'],
     preview: {
       component: () => <CheckBoxPreview />,
-      pad: 'small',
+      background: 'background-front',
     },
     tags: [
       'check box',
@@ -734,6 +742,7 @@ export const components = [
     relatedContent: ['Forms', 'RadioButtonGroup', 'CheckBox', 'Select'],
     preview: {
       component: () => <CheckBoxGroupPreview />,
+      background: 'background-front',
     },
     tags: [
       'checkbox',
@@ -878,6 +887,7 @@ export const components = [
     ],
     preview: {
       component: () => <MenuPreview />,
+      background: 'background-front',
     },
     relatedContent: ['Header', 'Dashboards', 'Select'],
     tags: [
@@ -913,6 +923,7 @@ export const components = [
     sections: [],
     preview: {
       component: () => <BoxPreview />,
+      background: 'background-front',
     },
     tags: [
       'sections',
@@ -941,6 +952,7 @@ export const components = [
     a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
     preview: {
       component: () => <GridPreview />,
+      background: 'background-front',
     },
     seoDescription: `Grids are a layout's best friend. From scaffolding page layouts to organizing elements within 
     a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
@@ -1188,7 +1200,7 @@ export const components = [
     ],
     preview: {
       component: () => <MaskedInputPreview />,
-      pad: 'small',
+      background: 'background-front',
     },
     relatedContent: ['TextInput', 'Forms', 'Select', 'DateInput'],
     tags: [
@@ -1227,7 +1239,7 @@ export const components = [
     seoDescription: 'A NameValueList displays a group of NameValuePairs.',
     preview: {
       component: () => <NameValueListPreview />,
-      pad: 'small',
+      background: 'background-front',
     },
     sections: [
       'Anatomy of a NameValuePair',
@@ -1357,6 +1369,7 @@ export const components = [
     sections: ['When to use RadioButtonGroup'],
     preview: {
       component: () => <RadioButtonGroupPreview />,
+      background: 'background-front',
     },
     relatedContent: ['CheckBoxGroup', 'Select', 'Forms'],
     tags: [
@@ -1385,7 +1398,7 @@ export const components = [
     sections: [],
     preview: {
       component: () => <RangeInputPreview />,
-      pad: 'small',
+      background: 'background-front',
     },
     tags: [
       'slider',
@@ -1476,7 +1489,7 @@ export const components = [
       'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',
     preview: {
       component: () => <SkeletonPreview />,
-      pad: 'small',
+      background: 'background-front',
     },
     seoDescription:
       'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
@@ -1618,6 +1631,7 @@ export const components = [
     organization, searching, and filtering of resources.`,
     preview: {
       component: () => <TagPreview />,
+      background: 'background-front',
     },
     seoDescription: `Tags are metadata attributes that facilitate identification, 
     organization, searching, and filtering resources. See HPE tag styling and how we create and assign tags.`,

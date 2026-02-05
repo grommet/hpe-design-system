@@ -17,6 +17,7 @@ export const learn = [
       'Build a hero section to learn about fundamental Box properties.',
     preview: {
       component: () => <BoxPreview />,
+      background: 'background-front',
     },
     seoDescription:
       'Build a hero section to learn about fundamental Box properties.',
@@ -29,12 +30,13 @@ export const learn = [
     render: 'Grid fundamentals: part one',
     type: 'Getting started',
     description:
-      'Learn how to use Grid for laying out content in responsive designs.',
+      'Use Grid to display a collection of products, similar to that of an e-commerce website.',
     preview: {
       component: () => <GridPreview />,
+      background: 'background-front',
     },
     seoDescription:
-      'Learn how to use Grid for laying out content in responsive designs.',
+      'Use Grid to display a collection of products, similar to that of an e-commerce website.',
     sections: [],
     relatedContent: ['Grid', 'Box'],
     tags: ['grid', 'layout', 'fundamentals'],
@@ -46,6 +48,7 @@ export const learn = [
     type: 'How-to guides',
     preview: {
       component: () => <DataHowTo />,
+      background: 'background-front',
     },
     seoDescription:
       'This how-to guide shows you how to use the Data component to easily add searching and filtering to a DataTable.',
@@ -60,6 +63,7 @@ export const learn = [
     type: 'How-to guides',
     preview: {
       component: () => <DataHowToAddAdditionalControls />,
+      background: 'background-front',
     },
     seoDescription:
       'This how-to guide shows you how compose a Toolbar when controls beyond search and filter are needed.',

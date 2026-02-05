@@ -62,6 +62,7 @@ export const Subsection = ({
     <Box
       as="section"
       id={id}
+      margin={{ bottom: 'xsmall' }}
       fill="horizontal"
       gap={gap}
       onMouseOver={() => setOver(true)}

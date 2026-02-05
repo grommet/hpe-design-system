@@ -47,9 +47,8 @@ const columns = [
     size: '3xsmall',
   },
   {
-    property: 'email',
+    property: 'contact.email',
     header: 'Contact',
-    render: datum => <Text truncate="tip">{datum.email}</Text>,
   },
   {
     property: 'orderDate',
@@ -102,15 +101,15 @@ export const DataTableSingleSelectExample = () => {
           />
         }
       />
-      <Box gap="xsmall" height="medium" overflow="auto">
+      <Box gap="xsmall">
         <Heading level={2} margin="none">
           Details
         </Heading>
         {pageDetails && (
-          <NameValueList>
+          <NameValueList nameProps={{ width: ['5xsmall', '3xsmall'] }}>
             {Object.entries(pageDetails).map(([key, value]) => (
               <NameValuePair key={key} name={key}>
-                {value === '' ? '--' : value}
+                {value}
               </NameValuePair>
             ))}
           </NameValueList>

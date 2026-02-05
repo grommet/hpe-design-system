@@ -4,16 +4,15 @@ import { Grid, Box } from 'grommet';
 export const GridPreview = () => (
     <Grid
       fill
-      border={{ color: 'background-back', size: 'xlarge' }}
       columns={{
         count: 4,
         size: 'auto',
       }}
-      gap="small"
+      gap="xsmall"
     >
-      <Box fill background="background-front" />
-      <Box background="background-front" />
-      <Box background="background-front" />
-      <Box background="background-front" />
+      <Box fill background="background-back" />
+      <Box background="background-back" />
+      <Box background="background-back" />
+      <Box background="background-back" />
     </Grid>
   );

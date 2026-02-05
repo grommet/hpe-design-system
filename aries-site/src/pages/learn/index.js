@@ -11,7 +11,6 @@ import {
   Paragraph,
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
-import { ContentSection, Subsection } from '../../layouts';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
 
 const title = 'Learn';
@@ -30,7 +29,7 @@ const Learn = () => (
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
-      <Data data={cards}>
+      <Data data={cards} pad={{ bottom: 'xlarge' }}>
         <DataSearch width={{ max: 'medium', width: '100%' }} />
         <DataSummary />
         <DataContext.Consumer>
@@ -38,9 +37,7 @@ const Learn = () => (
             const gettingStarted = data.filter(
               datum => datum.type === 'Getting started',
             );
-            const howTo = data.filter(
-              datum => datum.type === 'How-to guides',
-            );
+            const howTo = data.filter(datum => datum.type === 'How-to guides');
             const explanations = data.filter(
               datum => datum.type === 'Explanations',
             );
@@ -68,10 +65,13 @@ const Learn = () => (
             ];
 
             return (
-              <ContentSection gap="xlarge">
+              <Box gap="xlarge" pad={{ top: 'medium' }}>
                 {results.map((type, index) =>
                   type.data?.length ? (
-                    <Subsection key={index} name={type.heading}>
+                    <Box gap="medium" key={index}>
+                      <Heading level={2} margin="none">
+                        {type.heading}
+                      </Heading>
                       <Grid
                         columns="medium"
                         gap="medium"
@@ -87,10 +87,10 @@ const Learn = () => (
                           />
                         ))}
                       </Grid>
-                    </Subsection>
+                    </Box>
                   ) : null,
                 )}
-              </ContentSection>
+              </Box>
             );
           }}
         </DataContext.Consumer>

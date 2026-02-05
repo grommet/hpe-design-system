@@ -41,8 +41,7 @@ const Hero = ({ children, bgImage }) => (
     background={{
       image: bgImage,
       size: 'cover',
-    }}
-  >
+    }}>
     {children}
   </Box>
 );
@@ -66,7 +65,9 @@ const Index = () => {
     <>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Hero bgImage={bgImage}>
-        <AppHeader />
+        <PageContent>
+          <AppHeader />
+        </PageContent>
         <Intro>
           <Box
             margin="large"
@@ -74,7 +75,11 @@ const Index = () => {
             align="center"
             width={{ max: 'xxlarge' }}
           >
-            <Heading margin="small" size="medium" textAlign="center">
+            <Heading
+              margin="small"
+              size="medium"
+              textAlign="center"
+            >
               Design, develop and deliver
             </Heading>
             <Paragraph margin="small" size="xxlarge" textAlign="center">
