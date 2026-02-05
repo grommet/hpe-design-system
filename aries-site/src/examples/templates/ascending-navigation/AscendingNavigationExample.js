@@ -28,15 +28,16 @@ export const AscendingNavigationExample = () => {
           parent={
             activePage !== 'home' ? (
               <Anchor
-                label="Identity & access"
+                label={sectionConfig.home.label}
                 icon={<Left />}
                 onClick={() => setActivePage('home')}
               />
             ) : undefined
           }
           actions={
-            activePage !== 'home' && <Button label="Primary action" primary />
+            activePage !== 'home' && <Button label={page.action} primary />
           }
+          pad={{top:'none', bottom: 'medium', horizontal: 'none'}}
         />
         <Box gap="small">{sectionContent[activePage]}</Box>
       </Box>

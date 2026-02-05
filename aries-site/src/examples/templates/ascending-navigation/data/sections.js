@@ -2,7 +2,7 @@ import { User, Home, Template } from '@hpe-design/icons-grommet';
 
 export const sectionConfig = {
   home: {
-    label: 'Identity & access',
+    label: 'Manage account',
     subtitle:
       'Manage users, servers, and permissions across your system.',
     details:
@@ -12,6 +12,7 @@ export const sectionConfig = {
   },
   pageOne: {
     label: 'Users',
+    action: 'Add user',
     subtitle: 'Manage users and their access.',
     details:
       'Invite teammates, assign roles, and review permissions in one place. '
@@ -20,7 +21,8 @@ export const sectionConfig = {
   },
   pageTwo: {
     label: 'Servers',
-    subtitle: 'Manage all of your HPE servers.',
+    action: 'Add server',
+    subtitle: 'Manage HPE servers and their status.',
     details:
       'See all servers at a glance, check status and performance, and take '
       + 'action when needed.',
