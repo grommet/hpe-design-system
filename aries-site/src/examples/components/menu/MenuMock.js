@@ -36,7 +36,7 @@ export const MenuMock = ({ label, items, iconDown }) => {
   const dropTheme = theme?.global.drop || {};
 
   // Check if items is grouped (array of arrays) or flat (array of objects)
-  const isGrouped = items.length > 0 && Array.isArray(items[0]);
+  const isGrouped = items?.length > 0 && Array.isArray(items[0]);
 
   return (
     <Box align="start">
