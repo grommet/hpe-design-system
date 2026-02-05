@@ -20,7 +20,7 @@ export const AscendingNavigationExample = () => {
 
   return (
     <PageContent gap="xsmall" kind="full">
-      <Box width="xlarge">
+      <Box width="xlarge" pad={{ bottom: 'xxlarge' }}>
         <PageHeader
           title={page.label}
           subtitle={page.subtitle}
@@ -37,7 +37,6 @@ export const AscendingNavigationExample = () => {
           actions={
             activePage !== 'home' && <Button label={page.action} primary />
           }
-          pad={{ top: 'none', bottom: 'medium', horizontal: 'none' }}
         />
         <Box gap="small">{sectionContent[activePage]}</Box>
       </Box>

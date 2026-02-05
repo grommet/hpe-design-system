@@ -7,17 +7,14 @@ import { Text } from 'grommet';
 The `parent` property on [PageHeader](https://design-system.hpe.design/components/PageHeader) generates a link to the immediate upstream page in the hierarchy.
 
 
-<Example pad='small'>
+<Example 
+  pad='small'
+  code='https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ascending-navigation/AscendingNavigationCodeExample.js'
+>
   <AscendingNavigationExample />
 </Example>
 
-```jsx
-<PageHeader 
-  parent={ <Anchor label='Home' icon={<Left />} a11yTitle='Link to the home page' />} 
-  title='Example page title' 
-  subtitle='I'm a direct child of the homepage'
-/>
-```
+
  
 ## Guidance
 - Renders as a standard anchor link using [default anchor styling](https://design-system.hpe.design/components/anchor).
