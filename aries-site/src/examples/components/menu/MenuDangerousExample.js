@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
-import { Menu, Notification } from 'grommet';
+import { Notification } from 'grommet';
 
 import { useState } from 'react';
 import { DestructiveConfirmation } from '../../templates';
+import { MenuMock } from './MenuMock';
 
 export const MenuDangerousExample = ({ bestPractice = true }) => {
   const [showModal, setShowModal] = useState(false);
   const [toast, setToast] = useState(false);
 
   const items = [
-    { label: 'View details', onClick: () => {} },
-    { label: 'Edit profile', onClick: () => {} },
-    { label: 'Apply blueprint', onClick: () => {} },
+    { label: 'Edit' },
+    { label: 'View servers' },
     {
       label: 'Delete',
       onClick: () => {
@@ -23,9 +23,8 @@ export const MenuDangerousExample = ({ bestPractice = true }) => {
 
   return (
     <>
-      <Menu
+      <MenuMock
         label="Actions"
-        open
         items={
           bestPractice
             ? [items.slice(0, items.length - 1), items.slice(-1)]

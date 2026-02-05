@@ -1,21 +1,31 @@
 import PropTypes from 'prop-types';
-import { Menu } from 'grommet';
+import { MenuMock } from './MenuMock';
 
 export const MenuGroupingExample = ({ bestPractice = true }) => (
-  <Menu
-    label="Actions"
-    open
+  <MenuMock
+    label="Servers"
     items={
       bestPractice
         ? [
-            { label: 'View', onClick: () => {} },
-            { label: 'Add to group', onClick: () => {} },
-            { label: 'Update firmware', onClick: () => {} },
+            [
+              { label: 'Edit' },
+              {
+                label: 'View servers',
+              },
+              { label: 'Add servers' },
+              { label: 'Remove servers' },
+            ],
+            [{ label: 'Update firmware' }, { label: 'Update BIOS settings' }],
+            [{ label: 'Delete' }],
           ]
         : [
-            [{ label: 'View', onClick: () => {} }],
-            [{ label: 'Add to group', onClick: () => {} }],
-            [{ label: 'Update firmware', onClick: () => {} }],
+            [{ label: 'Edit' }],
+            [{ label: 'View servers' }],
+            [{ label: 'Add servers' }],
+            [{ label: 'Remove servers' }],
+            [{ label: 'Update firmware' }],
+            [{ label: 'Update BIOS settings' }],
+            [{ label: 'Delete' }],
           ]
     }
   />
