@@ -62,7 +62,7 @@ export const MenuMock = ({ label, items, iconDown }) => {
                   border={{ ...menuTheme.group.separator, side: 'top' }}
                 />
               )}
-              <Box {...menuTheme.container} {...menuTheme.group.container}>
+              <Box {...menuTheme.container} {...menuTheme.group?.container}>
                 {group.map((item, itemIndex) => (
                   <MenuItem
                     key={itemIndex}
