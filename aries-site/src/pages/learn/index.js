@@ -11,6 +11,7 @@ import {
   Paragraph,
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
+import { ContentSection, Subsection } from '../../layouts';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
 
 const title = 'Learn';
@@ -29,7 +30,7 @@ const Learn = () => (
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
-      <Data data={cards} pad={{ bottom: 'xlarge' }}>
+      <Data data={cards}>
         <DataSearch width={{ max: 'medium', width: '100%' }} />
         <DataSummary />
         <DataContext.Consumer>
@@ -37,7 +38,9 @@ const Learn = () => (
             const gettingStarted = data.filter(
               datum => datum.type === 'Getting started',
             );
-            const howTo = data.filter(datum => datum.type === 'How-to guides');
+            const howTo = data.filter(
+              datum => datum.type === 'How-to guides',
+            );
             const explanations = data.filter(
               datum => datum.type === 'Explanations',
             );
@@ -65,13 +68,10 @@ const Learn = () => (
             ];
 
             return (
-              <Box gap="xlarge" pad={{ top: 'medium' }}>
+              <ContentSection gap="xlarge">
                 {results.map((type, index) =>
                   type.data?.length ? (
-                    <Box gap="medium" key={index}>
-                      <Heading level={2} margin="none">
-                        {type.heading}
-                      </Heading>
+                    <Subsection key={index} name={type.heading}>
                       <Grid
                         columns="medium"
                         gap="medium"
@@ -87,10 +87,10 @@ const Learn = () => (
                           />
                         ))}
                       </Grid>
-                    </Box>
+                    </Subsection>
                   ) : null,
                 )}
-              </Box>
+              </ContentSection>
             );
           }}
         </DataContext.Consumer>

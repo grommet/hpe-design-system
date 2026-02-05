@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
-// App.js
-import React from 'react';
-import { Grommet, Box, Heading, Text, ThemeContext, Grid } from 'grommet';
+import { Heading, Grid, Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { ProductCard } from './ProductCard';
 import productList from './product-list.json';

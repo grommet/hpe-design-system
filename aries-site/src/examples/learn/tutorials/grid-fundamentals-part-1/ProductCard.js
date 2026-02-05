@@ -23,9 +23,12 @@ export const ProductCard = ({ level, product, ...rest }) => {
     <Card as="section" level={level} {...rest}>
       <CardHeader pad={{ horizontal: 'medium', top: 'medium' }}>
         <Box />
-        <Favorite />
+        <Button
+          icon={<Favorite aria-hidden="true" />}
+          a11yTitle="Add to favorites"
+        />
       </CardHeader>
-      <CardBody justify="between" gap="medium">
+      <CardBody justify="between" gap="small">
         <Box gap="medium">
           <Box height="xsmall">
             <Image src={product.image} alt={product.name} fit="cover" />
@@ -37,11 +40,15 @@ export const ProductCard = ({ level, product, ...rest }) => {
             <Paragraph margin="none">{product.description}</Paragraph>
           </Box>
         </Box>
-        <Text weight={500} color="text-strong">
+      </CardBody>
+      <CardFooter
+        pad={{ horizontal: 'medium', bottom: 'medium' }}
+        justify="between"
+        align="center"
+      >
+        <Text weight={500} color="text-strong" size="large">
           {currencyFormatter.format(product.price)}
         </Text>
-      </CardBody>
-      <CardFooter pad={{ horizontal: 'medium', bottom: 'medium' }}>
         <Button label="Add to cart" secondary />
       </CardFooter>
     </Card>
