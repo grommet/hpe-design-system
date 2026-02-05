@@ -33,10 +33,10 @@ export const MenuDangerousExample = ({ bestPractice = true }) => {
       />
       {showModal && (
         <DestructiveConfirmation
-          title="Delete profile"
-          message={`This will permanently delete this profile, 
+          title="Delete server"
+          message={`This will permanently delete this server, 
           including all history, located at:`}
-          path="/servers/profiles/KCHDvfcByKvvjymNheg"
+          path="/servers/KCHDvfcByKvvjymNheg"
           setShowModal={setShowModal}
           setToast={setToast}
         />
@@ -45,7 +45,7 @@ export const MenuDangerousExample = ({ bestPractice = true }) => {
         <Notification
           toast
           status="normal"
-          message="Profile deleted."
+          message="Server deleted."
           onClose={() => setToast(false)}
         />
       )}
