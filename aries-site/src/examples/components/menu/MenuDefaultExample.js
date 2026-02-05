@@ -1,12 +1,8 @@
 import React from 'react';
-import { Box, Menu } from 'grommet';
+import { Menu } from 'grommet';
 
 export const MenuDefaultExample = () => {
   const items = [{ label: 'Action' }, { label: 'Action' }, { label: 'Action' }];
 
-  return (
-    <Box direction="row" align="start">
-      <Menu label="Actions" items={items} />
-    </Box>
-  );
+  return <Menu label="Actions" items={items} alignSelf="start" />;
 };

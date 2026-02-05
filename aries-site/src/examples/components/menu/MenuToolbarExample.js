@@ -1,12 +1,10 @@
 import React from 'react';
-import { Box, Menu } from 'grommet';
+import { Menu } from 'grommet';
 
 export const MenuToolbarExample = () => {
   const items = [{ label: 'Action' }, { label: 'Action' }, { label: 'Action' }];
 
   return (
-    <Box direction="row" align="start">
-      <Menu kind="toolbar" label="Actions" items={items} />
-    </Box>
+    <Menu kind="toolbar" label="Actions" items={items} alignSelf="start" />
   );
 };
