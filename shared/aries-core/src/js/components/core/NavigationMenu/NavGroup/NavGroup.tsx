@@ -19,8 +19,11 @@ export const NavGroup = ({ item, render, defaultItemProps }: NavGroupProps) => {
         aria-labelledby={headerId}
         border={{ side: 'bottom', color: 'border-weak' }}
       >
-        {item.children?.map((child, index) => (
-          <Box key={`${child.label}-${index}`} {...defaultItemProps}>
+        {item.children?.map(child => (
+          <Box
+            key={child.id}
+            {...defaultItemProps}
+          >
             {render(child)}
           </Box>
         ))}
