@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { Box, Pagination, PaginationType } from 'grommet';
+import { Pagination, PaginationType } from 'grommet';
 
 const meta = {
   title: 'Components/Pagination',
@@ -50,10 +50,6 @@ export const DefaultPagination: Story = {
     stepOptions: false,
     summary: false,
   },
-  render: (args: PaginationType) => (
-    <Box pad="medium" gap="medium">
-      <Pagination {...args} />
-    </Box>
-  ),
+  render: (args: PaginationType) => <Pagination {...args} />,
   name: 'Pagination',
 };
