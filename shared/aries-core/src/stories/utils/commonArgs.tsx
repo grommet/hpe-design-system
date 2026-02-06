@@ -118,6 +118,10 @@ export const padArg: ArgType = {
   options: spacingSizes,
 };
 
+export const placeholderArg: ArgType = {
+  control: { type: 'text' },
+};
+
 export const responsiveArg: ArgType = {
   control: { type: 'select' },
   options: [true, false, 'container'],
