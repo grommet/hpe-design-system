@@ -25,7 +25,7 @@ export const Default: Story = {
   },
   args: {
     a11yTitle: 'Image of Shimi',
-    src: '//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80',
+    src: 'https://gravatar.com/enthusiastmindfully0911fd96ed',
   },
   name: 'Avatar',
 };
