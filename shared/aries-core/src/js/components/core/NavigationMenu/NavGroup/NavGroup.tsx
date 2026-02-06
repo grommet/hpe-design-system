@@ -12,7 +12,7 @@ export const NavGroup = ({ item, render, defaultItemProps }: NavGroupProps) => {
   const headerId = `${item.label.replace(/\s+/g, '-').toLowerCase()}-heading`;
 
   return (
-    <Box role="none">
+    <Box>
       <GroupHeading id={headerId} item={item} />
       <Box
         role="group"
