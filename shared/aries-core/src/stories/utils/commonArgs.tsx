@@ -32,9 +32,10 @@ export const containerSizes: string[] = Object.keys(
 );
 
 interface ArgType {
-  control: { type: string };
+  control?: { type: string } | false;
   options?: (string | boolean)[];
   mapping?: Record<string, React.ReactElement | undefined>;
+  type?: string;
 }
 
 export const a11yTitleArg: ArgType = {
@@ -108,6 +109,11 @@ export const marginArg: ArgType = {
   options: spacingSizes,
 };
 
+export const onChangeArg: ArgType = {
+  type: 'function',
+  control: false,
+};
+
 export const overflowArg: ArgType = {
   control: { type: 'select' },
   options: ['auto', 'hidden', 'scroll', 'visible'],
@@ -116,6 +122,10 @@ export const overflowArg: ArgType = {
 export const padArg: ArgType = {
   control: { type: 'select' },
   options: spacingSizes,
+};
+
+export const placeholderArg: ArgType = {
+  control: { type: 'text' },
 };
 
 export const responsiveArg: ArgType = {
