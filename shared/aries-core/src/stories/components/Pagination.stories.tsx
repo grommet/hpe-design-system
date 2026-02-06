@@ -1,0 +1,59 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { Box, Pagination, PaginationType } from 'grommet';
+
+const meta = {
+  title: 'Components/Pagination',
+  component: Pagination,
+  argTypes: {
+    numberEdgePages: {
+      control: { type: 'number', min: 1, max: 10 },
+    },
+    numberItems: {
+      control: { type: 'number', min: 1, max: 100 },
+    },
+    numberMiddlePages: {
+      control: { type: 'number', min: 0, max: 100 },
+    },
+    page: {
+      control: { type: 'number', min: 1, max: 100 },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
+    },
+    step: {
+      control: { type: 'select' },
+      options: [10, 20, 50, 100],
+      description: 'Number of items per page',
+    },
+    stepOptions: {
+      control: { type: 'boolean' },
+    },
+    summary: {
+      control: { type: 'boolean' },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const DefaultPagination: Story = {
+  args: {
+    numberEdgePages: undefined,
+    numberItems: 100,
+    numberMiddlePages: undefined,
+    page: 1,
+    size: undefined,
+    step: 10,
+    stepOptions: false,
+    summary: false,
+  },
+  render: (args: PaginationType) => (
+    <Box pad="medium" gap="medium">
+      <Pagination {...args} />
+    </Box>
+  ),
+  name: 'Pagination',
+};
