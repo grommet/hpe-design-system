@@ -7,10 +7,10 @@ const meta = {
   title: 'Components/Tabs',
   component: Tabs,
   argTypes: {
+    alignControls: alignArg,
     activeIndex: {
       control: { type: 'number', min: 0, max: 2 },
     },
-    alignControls: alignArg,
     margin: marginArg,
   },
 };
@@ -46,6 +46,8 @@ export const BasicTabs: Story = {
   // @ts-ignore
   args: {
     alignControls: 'start',
+    activeIndex: undefined,
+    margin: undefined,
   },
   name: 'Tabs',
 };
