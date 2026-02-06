@@ -25,7 +25,7 @@ export const Default: Story = {
   },
   args: {
     a11yTitle: 'Image of Jessica',
-    src: 'https://gravatar.com/enthusiastmindfully0911fd96ed',
+    src: 'https://1.gravatar.com/avatar/5134a384e69b1f9e2ff2f792145b240d714b79c4a0d49ae02874eb5e96802fd8?size=256&d=initials',
   },
   name: 'Avatar',
 };
