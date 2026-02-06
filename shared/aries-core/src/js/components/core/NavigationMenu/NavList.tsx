@@ -146,7 +146,7 @@ export const NavList = ({
   const renderItem = (item: NavItemWithLevel) => {
     const expandedItem = expanded.includes(item.label);
     const navItemProps = {
-      id: item.label,
+      id: item.id,
       level: item.level,
       label: item.label,
       url: item.url,
