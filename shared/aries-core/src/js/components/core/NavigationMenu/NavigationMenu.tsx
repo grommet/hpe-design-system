@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { type BoxProps, Nav } from 'grommet';
 import { NavItemType } from './NavItem/NavItem';
 import { NavContainer } from './NavContainer';
@@ -75,7 +75,7 @@ export const NavigationMenu = ({
   const menuTitle = title ? `${title}` : 'Navigation Menu';
 
   // Add unique Id to each item for aria and key purposes
-  const items = assignUniqueIds(itemsProp);
+  const items = useMemo(() => assignUniqueIds(itemsProp), [itemsProp]);
 
   useEffect(() => {
     if (openProp !== undefined) {
