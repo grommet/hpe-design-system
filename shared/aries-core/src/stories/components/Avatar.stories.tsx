@@ -24,7 +24,7 @@ export const Default: Story = {
     return <Avatar {...args} />;
   },
   args: {
-    a11yTitle: 'Image of Shimi',
+    a11yTitle: 'Image of Jessica',
     src: 'https://gravatar.com/enthusiastmindfully0911fd96ed',
   },
   name: 'Avatar',
