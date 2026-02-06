@@ -535,7 +535,7 @@ describe('NavigationMenu', () => {
       expect(ids).toContain('overview-2');
     });
 
-    it('should assign hierarchical IDs to nested items', () => {
+    it('should assign hierarchical IDs to nested items', async () => {
       const nestedItems: NavItemType[] = [
         {
           label: 'Components',
@@ -550,7 +550,7 @@ describe('NavigationMenu', () => {
       
       // Expand the parent to access children
       const componentsButton = screen.getByRole('menuitem', { name: /components/i });
-      userEvent.click(componentsButton);
+      await userEvent.click(componentsButton);
       
       const boxButton = screen.getByRole('menuitem', { name: /box/i });
       const cardButton = screen.getByRole('menuitem', { name: /card/i });
@@ -560,7 +560,7 @@ describe('NavigationMenu', () => {
       expect(cardButton.id).toBe('components-card');
     });
 
-    it('should handle mixed scenarios with existing IDs and collisions in nested items', () => {
+    it('should handle mixed scenarios with existing IDs and collisions in nested items', async () => {
       const mixedItems: NavItemType[] = [
         {
           label: 'Components',
@@ -585,8 +585,8 @@ describe('NavigationMenu', () => {
       const componentsButton = screen.getByRole('menuitem', { name: /^components$/i });
       const designTokensButton = screen.getByRole('menuitem', { name: /design tokens/i });
       
-      userEvent.click(componentsButton);
-      userEvent.click(designTokensButton);
+      await userEvent.click(componentsButton);
+      await userEvent.click(designTokensButton);
       
       // Check parent IDs
       expect(componentsButton.id).toBe('components-custom');
