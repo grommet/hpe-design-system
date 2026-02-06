@@ -1,8 +1,50 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { type BoxProps, Nav } from 'grommet';
 import { NavItemType } from './NavItem/NavItem';
 import { NavContainer } from './NavContainer';
 import { NavList } from './NavList';
+
+const assignUniqueIds = (
+  items: NavItemType[],
+  parentPath = '',
+  seenIds = new Set<string>(),
+): NavItemType[] => {
+  return items.map(item => {
+    if (item.id) {
+      // Use existing ID if provided
+      seenIds.add(item.id);
+      return {
+        ...item,
+        children: item.children
+          ? assignUniqueIds(item.children, `${parentPath}${item.id}-`, seenIds)
+          : undefined,
+      };
+    }
+
+    // Create stable ID based on hierarchical path
+    const baseId = `${parentPath}${item.label
+      .replace(/\s+/g, '-')
+      .toLowerCase()}`;
+    let uniqueId = baseId;
+    let counter = 1;
+
+    // Handle collisions by appending counter
+    while (seenIds.has(uniqueId)) {
+      uniqueId = `${baseId}-${counter}`;
+      counter++;
+    }
+
+    seenIds.add(uniqueId);
+
+    return {
+      ...item,
+      id: uniqueId,
+      children: item.children
+        ? assignUniqueIds(item.children, `${uniqueId}-`, seenIds)
+        : undefined,
+    };
+  });
+};
 
 interface NavigationMenuProps extends BoxProps {
   activeItem?: string;
@@ -22,7 +64,7 @@ interface NavigationMenuProps extends BoxProps {
 export const NavigationMenu = ({
   activeItem,
   header,
-  items,
+  items: itemsProp,
   open: openProp = true,
   onSelect,
   title,
@@ -31,6 +73,9 @@ export const NavigationMenu = ({
   const [open, setOpen] = useState<boolean>(openProp);
   const navigationId = 'navigation-menu';
   const menuTitle = title ? `${title}` : 'Navigation Menu';
+
+  // Add unique Id to each item for aria and key purposes
+  const items = useMemo(() => assignUniqueIds(itemsProp), [itemsProp]);
 
   useEffect(() => {
     if (openProp !== undefined) {

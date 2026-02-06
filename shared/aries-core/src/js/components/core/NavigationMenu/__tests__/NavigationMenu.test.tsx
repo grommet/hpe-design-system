@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { AnnounceContext, Grommet } from 'grommet';
@@ -389,6 +389,252 @@ describe('NavigationMenu', () => {
       await user.click(item);
       
       expect(announce).toHaveBeenCalledWith('Selected Home.', 'assertive', 2000);
+    });
+  });
+
+  describe('Grouping', () => {
+    const groupedItems: NavItemType[] = [
+      {
+        label: 'Components',
+        children: [
+          {
+            label: 'Layout',
+            type: 'group',
+            children: [
+              { label: 'Box', url: '/box' },
+              { label: 'Grid', url: '/grid' },
+            ],
+          },
+          {
+            label: 'Controls',
+            type: 'group',
+            children: [
+              { label: 'Button', url: '/button' },
+            ],
+          },
+        ],
+      },
+    ];
+
+    it('should render group headers correctly', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      // Open the parent menu first
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+      expect(layoutHeader).toBeInTheDocument();
+      expect(layoutHeader).toHaveAttribute('aria-level', '3');
+    });
+
+    it('should render group children within group container', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+      const layoutGroup = screen.getByRole('group', { name: /layout/i });
+
+      expect(layoutGroup).toBeInTheDocument();
+      expect(layoutGroup).toHaveAttribute('aria-labelledby', layoutHeader.id);
+
+      const boxItem = within(layoutGroup).getByRole('menuitem', { name: /box/i });
+      expect(boxItem).toBeInTheDocument();
+    });
+
+    it('should not allow interaction with group headers', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+
+      // Should not be a button
+      expect(layoutHeader.tagName).not.toBe('BUTTON');
+
+      // Ensure it doesn't have button role either
+      expect(
+        screen.queryByRole('button', { name: /layout/i }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should allow interaction with group children', async () => {
+      const user = userEvent.setup();
+      const onSelect = jest.fn();
+      renderNavigationMenu({ items: groupedItems, onSelect });
+
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+      const childItem = screen.getByRole('menuitem', { name: /box/i });
+      await user.click(childItem);
+
+      expect(onSelect).toHaveBeenCalledWith(
+        expect.objectContaining({
+          item: expect.objectContaining({
+            label: 'Box',
+            url: '/box',
+          }),
+        }),
+      );
+    });
+  });
+
+  describe('Unique ID Assignment', () => {
+    it('should assign unique IDs to items without IDs', () => {
+      const itemsWithoutIds: NavItemType[] = [
+        { label: 'Components' },
+        { label: 'Design Tokens' }
+      ];
+      
+      renderNavigationMenu({ items: itemsWithoutIds });
+      
+      // Check that elements have been assigned IDs
+      const componentsButton = screen.getByRole('menuitem', { name: /components/i });
+      const designTokensButton = screen.getByRole('menuitem', { name: /design tokens/i });
+      
+      expect(componentsButton).toHaveAttribute('id');
+      expect(designTokensButton).toHaveAttribute('id');
+      
+      // IDs should be different
+      expect(componentsButton.id).not.toBe(designTokensButton.id);
+    });
+
+    it('should preserve existing IDs when provided', () => {
+      const itemsWithIds: NavItemType[] = [
+        { label: 'Components', id: 'custom-components-id' },
+        { label: 'Design Tokens' }
+      ];
+      
+      renderNavigationMenu({ items: itemsWithIds });
+      
+      const componentsButton = screen.getByRole('menuitem', { name: /components/i });
+      expect(componentsButton).toHaveAttribute('id', 'custom-components-id');
+    });
+
+    it('should handle duplicate labels by creating unique IDs', () => {
+      const itemsWithDuplicateLabels: NavItemType[] = [
+        { label: 'Overview' },
+        { label: 'Overview' },
+        { label: 'Overview' }
+      ];
+      
+      renderNavigationMenu({ items: itemsWithDuplicateLabels });
+      
+      const overviewButtons = screen.getAllByRole('menuitem', { name: /overview/i });
+      expect(overviewButtons).toHaveLength(3);
+      
+      // All should have unique IDs
+      const ids = overviewButtons.map(button => button.id);
+      expect(new Set(ids).size).toBe(3);
+      
+      // Should follow pattern: overview, overview-1, overview-2
+      expect(ids).toContain('overview');
+      expect(ids).toContain('overview-1');
+      expect(ids).toContain('overview-2');
+    });
+
+    it('should assign hierarchical IDs to nested items', async () => {
+      const nestedItems: NavItemType[] = [
+        {
+          label: 'Components',
+          children: [
+            { label: 'Box' },
+            { label: 'Card' }
+          ]
+        }
+      ];
+      
+      renderNavigationMenu({ items: nestedItems });
+      
+      // Expand the parent to access children
+      const componentsButton = screen.getByRole('menuitem', { name: /components/i });
+      await userEvent.click(componentsButton);
+      
+      const boxButton = screen.getByRole('menuitem', { name: /box/i });
+      const cardButton = screen.getByRole('menuitem', { name: /card/i });
+      
+      // Child IDs should include parent context
+      expect(boxButton.id).toBe('components-box');
+      expect(cardButton.id).toBe('components-card');
+    });
+
+    it('should handle mixed scenarios with existing IDs and collisions in nested items', async () => {
+      const mixedItems: NavItemType[] = [
+        {
+          label: 'Components',
+          id: 'components-custom',
+          children: [
+            { label: 'Overview' }, // Should become components-custom-overview
+            { label: 'Overview' }  // Should become components-custom-overview-1
+          ]
+        },
+        {
+          label: 'Design Tokens',
+          children: [
+            { label: 'Overview', id: 'tokens-overview' }, // Should preserve custom ID
+            { label: 'Colors' }  // Should become design-tokens-colors
+          ]
+        }
+      ];
+      
+      renderNavigationMenu({ items: mixedItems });
+      
+      // Expand both parents
+      const componentsButton = screen.getByRole('menuitem', { name: /^components$/i });
+      const designTokensButton = screen.getByRole('menuitem', { name: /design tokens/i });
+      
+      await userEvent.click(componentsButton);
+      await userEvent.click(designTokensButton);
+      
+      // Check parent IDs
+      expect(componentsButton.id).toBe('components-custom');
+      expect(designTokensButton.id).toBe('design-tokens');
+      
+      // Check nested items
+      const overviewButtons = screen.getAllByRole('menuitem', { name: /overview/i });
+      const colorsButton = screen.getByRole('menuitem', { name: /colors/i });
+      
+      const overviewIds = overviewButtons.map(btn => btn.id);
+      expect(overviewIds).toContain('components-custom-overview');
+      expect(overviewIds).toContain('components-custom-overview-1');
+      expect(overviewIds).toContain('tokens-overview'); // Preserved custom ID
+      
+      expect(colorsButton.id).toBe('design-tokens-colors');
+    });
+
+    it('should create stable IDs that do not depend on array position', () => {
+      const originalItems: NavItemType[] = [
+        { label: 'Home' },
+        { label: 'Components' },
+        { label: 'Design Tokens' }
+      ];
+      
+      const reorderedItems: NavItemType[] = [
+        { label: 'Design Tokens' },
+        { label: 'Home' },
+        { label: 'Components' }
+      ];
+      
+      // Render with original order
+      const { unmount } = renderNavigationMenu({ items: originalItems });
+      const originalHomeId = screen.getByRole('menuitem', { name: /home/i }).id;
+      const originalComponentsId = screen.getByRole('menuitem', { name: /components/i }).id;
+      const originalTokensId = screen.getByRole('menuitem', { name: /design tokens/i }).id;
+      
+      unmount();
+      
+      // Render with reordered items
+      renderNavigationMenu({ items: reorderedItems });
+      const reorderedHomeId = screen.getByRole('menuitem', { name: /home/i }).id;
+      const reorderedComponentsId = screen.getByRole('menuitem', { name: /components/i }).id;
+      const reorderedTokensId = screen.getByRole('menuitem', { name: /design tokens/i }).id;
+      
+      // IDs should be the same regardless of position
+      expect(reorderedHomeId).toBe(originalHomeId);
+      expect(reorderedComponentsId).toBe(originalComponentsId);
+      expect(reorderedTokensId).toBe(originalTokensId);
     });
   });
 });
