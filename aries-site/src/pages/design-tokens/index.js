@@ -11,6 +11,7 @@ import {
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
+import { ContentSection, Subsection } from '../../layouts';
 
 const title = 'Design tokens';
 const pageDetails = getPageDetails(title);
@@ -38,7 +39,7 @@ const Tokens = () => (
           ]}
         />
       </Box>
-      <Data data={cards} pad={{ bottom: 'xlarge' }}>
+      <Data data={cards}>
         <DataContext.Consumer>
           {({ data }) => {
             const gettingStarted = data.filter(
@@ -60,13 +61,10 @@ const Tokens = () => (
             ];
 
             return (
-              <Box gap="xlarge" pad={{ top: 'medium' }}>
+              <ContentSection gap="xlarge">
                 {results.map((type, index) =>
                   type.data?.length ? (
-                    <Box gap="medium" key={index}>
-                      <Heading level={2} margin="none">
-                        {type.heading}
-                      </Heading>
+                    <Subsection key={index} name={type.heading}>
                       <Grid
                         columns="medium"
                         rows={[['auto', 'full']]}
@@ -82,10 +80,10 @@ const Tokens = () => (
                           />
                         ))}
                       </Grid>
-                    </Box>
+                    </Subsection>
                   ) : null,
                 )}
-              </Box>
+              </ContentSection>
             );
           }}
         </DataContext.Consumer>

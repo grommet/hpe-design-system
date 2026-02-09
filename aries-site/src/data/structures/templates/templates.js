@@ -50,7 +50,6 @@ export const templates = [
     to the user experience.`,
     preview: {
       component: () => <ContentLayoutPreview />,
-      background: 'background-front',
     },
     sections: [
       'Designing for Responsiveness',
@@ -232,7 +231,6 @@ export const templates = [
     more related options to access information, filter, and make selections.`,
     preview: {
       component: () => <SelectorPreview />,
-      background: 'background-front',
     },
     seoDescription: `A selection control that allows users to choose one or
     more related options to access information, filter, and make selections`,
@@ -253,7 +251,6 @@ export const templates = [
      related to a specific UI element.`,
     preview: {
       component: () => <PopoverPreview />,
-      background: 'background-front',
     },
     seoDescription: `A Popover is an overlay presenting contextual information
      related to a specific UI element. It is revealed and closed by click
@@ -278,7 +275,6 @@ export const templates = [
     data-driven decisions by collecting feedback directly from users.`,
     preview: {
       component: () => <FeedbackPreview />,
-      background: 'background-front',
     },
     seoDescription: `Improve customer experiences and make impactful,
     data-driven decisions by collecting feedback directly from users.
@@ -404,8 +400,8 @@ export const templates = [
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-form.svg',
-          dark: '/templateImages/template-preview-form-invert.svg',
+          light: '/templateImages/template-preview-child objects.svg',
+          dark: '/templateImages/template-preview-child objects-invert.svg',
         },
         alt: 'HPE Forms Preview',
         fit: 'contain',
@@ -426,8 +422,8 @@ export const templates = [
     preview: {
       image: {
         src: {
-          light: '/templateImages/template-preview-persistent.svg',
-          dark: '/templateImages/template-preview-persistent-invert.svg',
+          light: '/templateImages/template-preview-global-header.svg',
+          dark: '/templateImages/template-preview-global-header-invert.svg',
         },
         alt: 'HPE Design System Global Header',
         fit: 'contain',
@@ -753,7 +749,6 @@ export const templates = [
       requiring a user's action.`,
     preview: {
       component: () => <StatusIndicatorPreview />,
-      background: 'background-front',
     },
     seoDescription: `Highlight notification messages and alerts which 
       require a user's attention. Status indicators provide peace-of-mind 
@@ -991,6 +986,17 @@ export const templates = [
     sections: [],
     relatedContent: ['Pagination', 'Lists', 'Card', 'DataTable'],
     tags: ['scrolling', 'scroll regions', 'pagination', 'scroll vs. paginate'],
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-scrolling-pagination.svg',
+          // eslint-disable-next-line max-len
+          dark: '/templateImages/template-preview-scrolling-pagination-invert.svg',
+        },
+        alt: 'Global notifications under HPE Global Application header.',
+        fit: 'contain',
+      },
+    },
   },
   {
     name: 'Global notifications',

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-import { Popover } from 'aries-core';
+import { Popover } from '@shared/aries-core';
 import { Button, Box, Paragraph, Text } from 'grommet';
 import { Info } from '@hpe-design/icons-grommet';
 
