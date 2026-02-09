@@ -7,7 +7,7 @@ const meta = {
   component: ToggleGroup,
   argTypes: {
     multiple: {
-      control: { type: 'object' },
+      control: { type: 'boolean' },
     },
     options: {
       control: { type: 'object' },
