@@ -21,7 +21,7 @@ import { Copy } from '@hpe-design/icons-grommet';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'grommet-theme-hpe';
 
-import { TextEmphasis } from 'aries-core';
+import { TextEmphasis } from '@shared/aries-core';
 import { SubsectionHeader } from '../../layouts';
 import { SubsectionText } from '.';
 

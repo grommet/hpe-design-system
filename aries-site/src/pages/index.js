@@ -12,7 +12,7 @@ import {
   WhatIs,
 } from '../components/home';
 /* Including header here to share the same background image */
-import { Header } from '../layouts/main/Header';
+import { AppHeader } from '../layouts/main';
 import { getPageDetails } from '../utils';
 
 const title = 'Home';
@@ -41,7 +41,8 @@ const Hero = ({ children, bgImage }) => (
     background={{
       image: bgImage,
       size: 'cover',
-    }}>
+    }}
+  >
     {children}
   </Box>
 );
@@ -65,9 +66,7 @@ const Index = () => {
     <>
       <Meta title={title} description={pageDetails.seoDescription} />
       <Hero bgImage={bgImage}>
-        <PageContent>
-          <Header />
-        </PageContent>
+        <AppHeader />
         <Intro>
           <Box
             margin="large"
@@ -75,11 +74,7 @@ const Index = () => {
             align="center"
             width={{ max: 'xxlarge' }}
           >
-            <Heading
-              margin="small"
-              size="medium"
-              textAlign="center"
-            >
+            <Heading margin="small" size="medium" textAlign="center">
               Design, develop and deliver
             </Heading>
             <Paragraph margin="small" size="xxlarge" textAlign="center">

@@ -14,6 +14,11 @@ import {
 import applications from '../../../data/mockData/applications.json';
 
 export const ToolbarExample = () => {
+  const items = [
+    { label: 'View details', onClick: () => {} },
+    { label: 'Edit profile', onClick: () => {} },
+    { label: 'Apply blueprint', onClick: () => {} },
+  ];
   return (
     <Data data={applications}>
       <Toolbar gap="medium">
@@ -25,7 +30,7 @@ export const ToolbarExample = () => {
         <DataView />
         <DataTableColumns options={[]} drop />
         <Box flex align="end">
-          <Menu label="Actions" kind="toolbar" items={[]} />
+          <Menu label="Actions" kind="toolbar" items={items} />
         </Box>
       </Toolbar>
       <DataSummary />
