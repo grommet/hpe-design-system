@@ -116,7 +116,7 @@ export const marginArg: ArgType = {
   options: spacingSizes,
 };
 
-export const onChangeArg: ArgType = {
+export const functionArg: ArgType = {
   type: 'function',
   control: false,
 };

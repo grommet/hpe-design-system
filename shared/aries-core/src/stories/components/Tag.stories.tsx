@@ -5,7 +5,6 @@ import {
   textSizesArg,
   a11yTitleArg,
   backgroundArg,
-  onChangeArg,
 } from '../utils/commonArgs';
 
 const meta = {
@@ -15,8 +14,6 @@ const meta = {
     a11yTitle: a11yTitleArg,
     background: backgroundArg,
     name: labelArg,
-    onClick: onChangeArg,
-    onRemove: onChangeArg,
     size: textSizesArg,
     value: labelArg,
   },
@@ -31,8 +28,6 @@ export const Default = {
     a11yTitle: undefined,
     background: undefined,
     name: 'name',
-    onClick: undefined,
-    onRemove: undefined,
     size: 'small',
     value: 'value',
   },
