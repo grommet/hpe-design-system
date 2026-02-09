@@ -10,11 +10,13 @@ import {
   MenuExample,
   MenuBatchActionsExample,
   MenuDangerousExample,
+  MenuDefaultExample,
   MenuDisabledExample,
   MenuGroupingExample,
   MenuHeaderExample,
   MenuIconExample,
   MenuRecordActionsExample,
+  MenuToolbarExample,
 } from '../../examples';
 
 <Example
@@ -45,7 +47,7 @@ Use Menu within the header to organize and present application-level navigation 
 
 ### Grouping batch actions for data sets
 
-Use Menu within a toolbar to present batch actions for data collection objects or records alongside other controls, ensuring equal prominence and visual alignment. Apply `kind="toolbar"` in these cases.
+Use Menu within a toolbar to present batch actions for data collection objects or records alongside other controls, ensuring equal prominence and visual alignment. Apply kind=`"toolbar"` in these cases.
 In this example, actions are grouped into executing and configuration categories, with executing actions first because they are most frequently used. For more details on grouping and ordering, see [Organizing menu items](#organizing-menu-items).
 
 <Example
@@ -101,19 +103,19 @@ For more details on grouping and ordering, see [Organizing menu items](#organizi
 
 A standard dropdown menu that displays a clear, text-based list of actions when triggered.
 
-[Placeholder space for the example]
+<MenuDefaultExample />
 
 ### Icon only
 
 A compact menu represented by an icon, such as “more” or “settings”, ideal for space-constrained layouts where actions are easily recognized visually.
 
-[Placeholder space for the example]
+<MenuIconExample />
 
 ### Toolbar
 
 A menu styled to integrate seamlessly with a toolbar.
 
-[Placeholder space for the example]
+<MenuToolbarExample />
 
 ## Organizing menu items
 
@@ -230,4 +232,5 @@ An icon may be used on the menu button to provide additional context about the a
 ### WCAG compliance
 
 {' '}
+
 <AccessibilitySection title="menu" />
