@@ -1,25 +1,25 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { ToggleGroup, ToggleGroupExtendedProps } from 'grommet';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ToggleGroup } from 'grommet';
 
 const meta = {
   title: 'Components/ToggleGroup',
   component: ToggleGroup,
   argTypes: {
     multiple: {
-      control: { type: 'boolean' },
+      control: { type: 'object' },
     },
     options: {
       control: { type: 'object' },
     },
   },
-};
+} satisfies Meta<typeof ToggleGroup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: ToggleGroupExtendedProps) => {
+export const Default = {
+  render: args => {
     return <ToggleGroup {...args} />;
   },
   args: {
@@ -31,4 +31,4 @@ export const Default: Story = {
     ],
   },
   name: 'ToggleGroup',
-};
+} satisfies Story;
