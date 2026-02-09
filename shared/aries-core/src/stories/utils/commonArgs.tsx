@@ -3,6 +3,20 @@ import { colors, hpe } from 'grommet-theme-hpe';
 import * as Icons from '@hpe-design/icons-grommet';
 import { ThemeType } from 'grommet';
 
+interface ArgType {
+  control?:
+    | false
+    | { type: 'text' }
+    | { type: 'boolean' }
+    | { type: 'number'; min?: number; max?: number; step?: number }
+    | { type: 'select'; options?: any[] }
+    | { type: 'object' };
+  options?: any[];
+  mapping?: Record<string, any>;
+  type?: 'function';
+  action?: string;
+}
+
 export const backgroundColors: string[] = Object.keys(colors)
   .filter(key => key.split('-')[0] === 'background')
   .sort();
@@ -30,12 +44,6 @@ export const radiusSizes: string[] = Object.keys(
 export const containerSizes: string[] = Object.keys(
   (hpe as ThemeType).global?.size ?? {},
 );
-
-interface ArgType {
-  control: { type: string };
-  options?: (string | boolean)[];
-  mapping?: Record<string, React.ReactElement | undefined>;
-}
 
 export const a11yTitleArg: ArgType = {
   control: { type: 'text' },
@@ -76,7 +84,7 @@ export const elevationArg: ArgType = {
 
 export const fillArg: ArgType = {
   control: { type: 'select' },
-  options: ['true', 'false', 'horizontal', 'vertical'],
+  options: [true, false, 'horizontal', 'vertical'],
 };
 
 export const gapArg: ArgType = {
@@ -108,6 +116,11 @@ export const marginArg: ArgType = {
   options: spacingSizes,
 };
 
+export const functionArg: ArgType = {
+  type: 'function',
+  control: false,
+};
+
 export const overflowArg: ArgType = {
   control: { type: 'select' },
   options: ['auto', 'hidden', 'scroll', 'visible'],
@@ -116,6 +129,10 @@ export const overflowArg: ArgType = {
 export const padArg: ArgType = {
   control: { type: 'select' },
   options: spacingSizes,
+};
+
+export const placeholderArg: ArgType = {
+  control: { type: 'text' },
 };
 
 export const responsiveArg: ArgType = {
