@@ -2,7 +2,11 @@ import React from 'react';
 import { Menu } from 'grommet';
 
 export const MenuDefaultExample = () => {
-  const items = [{ label: 'Action' }, { label: 'Action' }, { label: 'Action' }];
+  const items = [
+    { label: 'Edit' },
+    { label: 'View servers' },
+    { label: 'Add servers' },
+  ];
 
-  return <Menu label="Actions" items={items} alignSelf="start" />;
+  return <Menu label="Servers" items={items} alignSelf="start" />;
 };
