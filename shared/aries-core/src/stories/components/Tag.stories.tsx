@@ -23,6 +23,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default = {
+  name: 'Tag',
   render: args => <Tag {...args} />,
   args: {
     a11yTitle: undefined,
