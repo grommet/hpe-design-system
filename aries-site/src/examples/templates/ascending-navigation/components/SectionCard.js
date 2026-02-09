@@ -7,6 +7,7 @@ export const SectionCard = ({ section, onClick }) => (
     <Box direction="row" fill justify="between">
       <Heading
         level="2"
+        size='small'
         margin={{
           horizontal: 'none',
           vertical: '3xsmall',
@@ -17,8 +18,6 @@ export const SectionCard = ({ section, onClick }) => (
       <LinkNext height="xxlarge" />
     </Box>
 
-    <Paragraph>
-      This leads to the {section.label} page of your HPE Design System demo app.
-    </Paragraph>
+    <Paragraph alignSelf="top">{section.subtitle}</Paragraph>
   </Card>
 );
