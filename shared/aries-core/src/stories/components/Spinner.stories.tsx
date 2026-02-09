@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Spinner } from 'grommet';
-import { sizeArg } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Spinner',
   component: Spinner,
   argTypes: {
-    size: sizeArg,
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large', 'xlarge'],
+    },
   },
 } satisfies Meta<typeof Spinner>;
 

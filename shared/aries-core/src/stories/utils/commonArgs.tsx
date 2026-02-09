@@ -149,11 +149,6 @@ export const roundArg: ArgType = {
   options: radiusSizes,
 };
 
-export const sizeArg: ArgType = {
-  control: { type: 'select' },
-  options: tShirtSizes,
-};
-
 export const skeletonArg: ArgType = {
   control: { type: 'boolean' },
 };
