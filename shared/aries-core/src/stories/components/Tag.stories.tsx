@@ -1,11 +1,11 @@
-import React from 'react';
-import { Tag, TagProps } from 'grommet';
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Tag } from 'grommet';
 import {
   labelArg,
   textSizesArg,
   a11yTitleArg,
   backgroundArg,
+  onChangeArg,
 } from '../utils/commonArgs';
 
 const meta = {
@@ -15,24 +15,25 @@ const meta = {
     a11yTitle: a11yTitleArg,
     background: backgroundArg,
     name: labelArg,
-    onClick: {
-      type: 'function',
-      control: false,
-    },
+    onClick: onChangeArg,
+    onRemove: onChangeArg,
     size: textSizesArg,
     value: labelArg,
   },
-};
+} satisfies Meta<typeof Tag>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: TagProps) => <Tag {...args} />,
+export const Default = {
+  render: args => <Tag {...args} />,
   args: {
+    a11yTitle: undefined,
+    background: undefined,
     name: 'name',
-    value: 'value',
+    onClick: undefined,
+    onRemove: undefined,
     size: 'small',
+    value: 'value',
   },
-  name: 'Tag',
-};
+} satisfies Story;
