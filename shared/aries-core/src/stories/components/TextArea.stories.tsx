@@ -1,10 +1,8 @@
-import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { TextArea, TextAreaProps } from 'grommet';
+import type { Meta, StoryObj } from '@storybook/react';
+import { TextArea } from 'grommet';
 import {
   a11yTitleArg,
   fillArg,
-  onChangeArg,
   placeholderArg,
   textSizesArg,
 } from '../utils/commonArgs';
@@ -18,7 +16,10 @@ const meta = {
     name: {
       control: { type: 'text' },
     },
-    onChange: onChangeArg,
+    onChange: {
+      control: false,
+      type: 'function',
+    },
     placeholder: placeholderArg,
     resize: {
       control: { type: 'select' },
@@ -29,23 +30,22 @@ const meta = {
       control: { type: 'text' },
     },
   },
-};
+} satisfies Meta<typeof TextArea>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: TextAreaProps) => {
-    return <TextArea {...args} />;
-  },
+export const Default = {
+  name: 'TextArea',
+  render: args => <TextArea {...args} />,
   args: {
-    placeholder: 'Enter multiple lines of text here...',
     a11yTitle: 'Text area input field',
     fill: false,
     name: 'textArea',
+    onChange: undefined,
+    placeholder: 'Enter multiple lines of text here...',
     resize: true,
     size: 'medium',
     value: '',
   },
-  name: 'TextArea',
-};
+} satisfies Story;
