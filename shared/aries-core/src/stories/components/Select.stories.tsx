@@ -1,6 +1,5 @@
-import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { Select, SelectProps } from 'grommet';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Select } from 'grommet';
 import {
   a11yTitleArg,
   disabledArg,
@@ -23,7 +22,6 @@ const meta = {
     name: {
       control: { type: 'text' },
     },
-    onChange: onChangeArg,
     open: {
       control: { type: 'boolean' },
     },
@@ -33,18 +31,23 @@ const meta = {
     placeholder: placeholderArg,
     size: textSizesArg,
   },
-};
+} satisfies Meta<typeof Select>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: SelectProps) => {
-    return <Select {...args} />;
-  },
+export const Default = {
+  name: 'Select',
+  render: args => <Select {...args} />,
   args: {
+    a11yTitle: undefined,
+    clear: false,
+    defaultValue: '',
+    disabled: false,
+    name: 'select',
+    open: false,
     options: ['small', 'medium', 'large'],
     placeholder: 'Select an option...',
+    size: 'medium',
   },
-  name: 'Select',
-};
+} satisfies Story;
