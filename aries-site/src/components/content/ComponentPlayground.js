@@ -29,6 +29,7 @@ export const ComponentPlayground = ({
   component: Component,
   defaultProps = {},
   controls = [],
+  codeTemplate,
 }) => {
   const [componentProps, setComponentProps] = useState(defaultProps);
   const [copied, setCopied] = useState(false);
@@ -52,6 +53,11 @@ export const ComponentPlayground = ({
   };
 
   const generateCode = () => {
+    // Use custom code template if provided
+    if (codeTemplate) {
+      return codeTemplate(componentProps);
+    }
+
     const propsString = Object.entries(componentProps)
       .filter(
         ([, value]) => value !== null && value !== undefined && value !== '',
@@ -469,6 +475,7 @@ export const ComponentPlayground = ({
 ComponentPlayground.propTypes = {
   component: PropTypes.elementType.isRequired,
   defaultProps: PropTypes.object,
+  codeTemplate: PropTypes.func, // Function that takes props and returns code string
   controls: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

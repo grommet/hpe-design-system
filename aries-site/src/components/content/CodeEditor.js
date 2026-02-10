@@ -4,8 +4,6 @@ import { ThemeContext, Box } from 'grommet';
 import { EditorView, keymap } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
 import { javascript } from '@codemirror/lang-javascript';
-import { oneDark } from '@codemirror/theme-one-dark';
-import { githubLight } from '@uiw/codemirror-theme-github';
 import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 import { prism } from 'grommet-theme-hpe';
 
