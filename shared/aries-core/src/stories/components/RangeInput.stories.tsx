@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import type { StoryObj } from '@storybook/react';
-import { RangeInput, RangeInputExtendedProps } from 'grommet';
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { RangeInput } from 'grommet';
 import { a11yTitleArg, disabledArg } from '../utils/commonArgs';
 
 const meta = {
@@ -28,13 +28,14 @@ const meta = {
       control: { type: 'number' },
     },
   },
-};
+} satisfies Meta<typeof RangeInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: RangeInputExtendedProps) => {
+export const Default = {
+  name: 'RangeInput',
+  render: args => {
     const [value, setValue] = useState(args.value || 50);
 
     return (
@@ -54,8 +55,8 @@ export const Default: Story = {
     max: 100,
     min: 0,
     name: 'rangeInput',
+    onChange: undefined,
     step: 1,
     value: 50,
   },
-  name: 'RangeInput',
-};
+} satisfies Story;

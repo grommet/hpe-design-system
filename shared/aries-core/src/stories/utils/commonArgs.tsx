@@ -32,9 +32,17 @@ export const containerSizes: string[] = Object.keys(
 );
 
 interface ArgType {
-  control: { type: string };
-  options?: (string | boolean)[];
-  mapping?: Record<string, React.ReactElement | undefined>;
+  control?:
+    | false
+    | { type: 'text' }
+    | { type: 'boolean' }
+    | { type: 'number'; min?: number; max?: number; step?: number }
+    | { type: 'select'; options?: any[] }
+    | { type: 'object' };
+  options?: any[];
+  mapping?: Record<string, any>;
+  type?: 'function';
+  action?: string;
 }
 
 export const a11yTitleArg: ArgType = {
