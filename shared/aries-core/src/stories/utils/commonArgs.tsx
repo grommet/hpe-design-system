@@ -77,6 +77,10 @@ export const disabledArg: ArgType = {
   control: { type: 'boolean' },
 };
 
+export const dropAlignArg: ArgType = {
+  control: { type: 'object' },
+};
+
 export const elevationArg: ArgType = {
   control: { type: 'select' },
   options: tShirtSizes,
