@@ -1,6 +1,7 @@
 export * from './MenuAnatomy';
 export * from './MenuBatchActionsExample';
 export * from './MenuDangerousExample';
+export * from './MenuDefaultExample';
 export * from './MenuDisabledExample';
 export * from './MenuExample';
 export * from './MenuGroupingExample';
@@ -9,3 +10,4 @@ export * from './MenuIconExample';
 export * from './MenuItemCountExample';
 export * from './MenuRecordActionsExample';
 export * from './MenuSelectValueExample';
+export * from './MenuToolbarExample';
