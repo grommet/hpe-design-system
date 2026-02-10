@@ -3,11 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TextInput } from 'grommet';
 import { Search } from '@hpe-design/icons-grommet';
 import {
-  dropAlignArg,
   iconArg,
   placeholderArg,
   reverseArg,
-  widthArg,
   heightArg,
 } from '../utils/commonArgs';
 
@@ -18,7 +16,6 @@ const meta = {
     defaultSuggestion: {
       control: { type: 'number' },
     },
-    dropAlign: dropAlignArg,
     dropHeight: heightArg,
     icon: iconArg,
     placeholder: placeholderArg,
@@ -30,7 +27,6 @@ const meta = {
       control: { type: 'select' },
       options: ['start', 'center', 'end'],
     },
-    width: widthArg,
   },
 } satisfies Meta<typeof TextInput>;
 
@@ -42,13 +38,11 @@ export const SearchExample = {
   render: args => <TextInput {...args} />,
   args: {
     defaultSuggestion: undefined,
-    dropAlign: { top: 'bottom', left: 'left' },
     dropHeight: undefined,
     icon: <Search />,
     placeholder: 'Search',
     reverse: true,
     suggestions: ['Suggestion 1', 'Suggestion 2', 'Suggestion 3'],
     textAlign: undefined,
-    width: undefined,
   },
 } satisfies Story;
