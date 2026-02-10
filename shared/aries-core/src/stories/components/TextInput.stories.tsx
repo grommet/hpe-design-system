@@ -12,18 +12,14 @@ const meta = {
   component: TextInput,
   argTypes: {
     a11yTitle: a11yTitleArg,
-    onChange: {
-      control: false,
-      type: 'function',
+    defaultValue: {
+      control: { type: 'text' },
     },
     placeholder: placeholderArg,
     readOnlyCopy: {
       control: { type: 'boolean' },
     },
     size: textSizesArg,
-    value: {
-      control: { type: 'text' },
-    },
     width: widthArg,
   },
 } satisfies Meta<typeof TextInput>;
@@ -36,11 +32,10 @@ export const Default = {
   render: args => <TextInput {...args} />,
   args: {
     a11yTitle: 'Text input field',
-    onChange: undefined,
+    defaultValue: '',
     placeholder: 'Enter text here...',
     readOnlyCopy: false,
     size: 'medium',
-    value: '',
     width: 'medium',
   },
 } satisfies Story;

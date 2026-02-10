@@ -12,13 +12,12 @@ const meta = {
   component: TextArea,
   argTypes: {
     a11yTitle: a11yTitleArg,
+    defaultValue: {
+      control: { type: 'text' },
+    },
     fill: fillArg,
     name: {
       control: { type: 'text' },
-    },
-    onChange: {
-      control: false,
-      type: 'function',
     },
     placeholder: placeholderArg,
     resize: {
@@ -26,9 +25,6 @@ const meta = {
       options: [true, false, 'vertical', 'horizontal'],
     },
     size: textSizesArg,
-    value: {
-      control: { type: 'text' },
-    },
   },
 } satisfies Meta<typeof TextArea>;
 
@@ -40,12 +36,11 @@ export const Default = {
   render: args => <TextArea {...args} />,
   args: {
     a11yTitle: 'Text area input field',
+    defaultValue: '',
     fill: false,
     name: 'textArea',
-    onChange: undefined,
     placeholder: 'Enter multiple lines of text here...',
     resize: true,
     size: 'medium',
-    value: '',
   },
 } satisfies Story;
