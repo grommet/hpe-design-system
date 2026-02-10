@@ -1,6 +1,5 @@
-import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { NameValueList, NameValuePair, NameValueListProps } from 'grommet';
+import type { Meta, StoryObj } from '@storybook/react';
+import { NameValueList, NameValuePair } from 'grommet';
 import { alignArg } from '../utils/commonArgs';
 
 const sampleData = {
@@ -30,28 +29,27 @@ const meta = {
       control: { type: 'object' },
     },
   },
-};
+} satisfies Meta<typeof NameValueList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: NameValueListProps) => {
-    return (
-      <NameValueList {...args}>
-        {Object.entries(sampleData).map(([name, value]) => (
-          <NameValuePair key={name} name={name}>
-            {value}
-          </NameValuePair>
-        ))}
-      </NameValueList>
-    );
-  },
+export const Default = {
+  name: 'NameValueList',
+  render: args => (
+    <NameValueList {...args}>
+      {Object.entries(sampleData).map(([name, value]) => (
+        <NameValuePair key={name} name={name}>
+          {value}
+        </NameValuePair>
+      ))}
+    </NameValueList>
+  ),
   args: {
+    align: undefined,
     layout: 'column',
     nameProps: { width: 'xsmall', align: 'end' },
     pairProps: { direction: 'row' },
     valueProps: { width: 'large', align: 'start' },
   },
-  name: 'NameValueList',
-};
+} satisfies Story;
