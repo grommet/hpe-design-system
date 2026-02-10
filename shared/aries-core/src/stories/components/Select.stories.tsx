@@ -15,13 +15,7 @@ const meta = {
     clear: {
       control: { type: 'boolean' },
     },
-    defaultValue: {
-      control: { type: 'text' },
-    },
     disabled: disabledArg,
-    name: {
-      control: { type: 'text' },
-    },
     open: {
       control: { type: 'boolean' },
     },
@@ -40,11 +34,9 @@ export const Default = {
   name: 'Select',
   render: args => <Select {...args} />,
   args: {
-    a11yTitle: undefined,
+    a11yTitle: 'Select a size',
     clear: false,
-    defaultValue: '',
     disabled: false,
-    name: 'select',
     open: false,
     options: ['small', 'medium', 'large'],
     placeholder: 'Select an option...',
