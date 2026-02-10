@@ -1,6 +1,5 @@
-import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { Skeleton, SkeletonProps } from 'grommet';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Skeleton } from 'grommet';
 import {
   a11yTitleArg,
   heightArg,
@@ -19,15 +18,14 @@ const meta = {
     round: roundArg,
     width: widthArg,
   },
-};
+} satisfies Meta<typeof Skeleton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: SkeletonProps) => {
-    return <Skeleton {...args} />;
-  },
+export const Default = {
+  name: 'Skeleton',
+  render: args => <Skeleton {...args} />,
   args: {
     a11yTitle: 'Loading content',
     height: 'xxsmall',
@@ -35,5 +33,4 @@ export const Default: Story = {
     round: 'xsmall',
     width: 'medium',
   },
-  name: 'Skeleton',
-};
+} satisfies Story;
