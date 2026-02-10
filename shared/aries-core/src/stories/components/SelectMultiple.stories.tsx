@@ -1,11 +1,11 @@
-import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { SelectMultiple, SelectMultipleProps } from 'grommet';
+import type { Meta, StoryObj } from '@storybook/react';
+import { SelectMultiple } from 'grommet';
 import {
   a11yTitleArg,
   disabledArg,
   textSizesArg,
   placeholderArg,
+  widthArg,
 } from '../utils/commonArgs';
 
 const meta = {
@@ -25,16 +25,16 @@ const meta = {
     },
     placeholder: placeholderArg,
     size: textSizesArg,
+    width: widthArg,
   },
-};
+} satisfies Meta<typeof SelectMultiple>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  render: (args: SelectMultipleProps) => {
-    return <SelectMultiple {...args} />;
-  },
+export const Default = {
+  name: 'SelectMultiple',
+  render: args => <SelectMultiple {...args} />,
   args: {
     a11yTitle: 'Multiple selection',
     defaultValue: undefined,
@@ -43,6 +43,6 @@ export const Default: Story = {
     options: ['small', 'medium', 'large', 'xlarge'],
     placeholder: 'Select multiple options...',
     size: 'medium',
+    width: 'medium',
   },
-  name: 'SelectMultiple',
-};
+} satisfies Story;
