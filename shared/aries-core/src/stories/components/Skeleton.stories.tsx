@@ -3,6 +3,7 @@ import { Skeleton } from 'grommet';
 import {
   a11yTitleArg,
   heightArg,
+  marginArg,
   padArg,
   roundArg,
   widthArg,
@@ -14,6 +15,7 @@ const meta = {
   argTypes: {
     a11yTitle: a11yTitleArg,
     height: heightArg,
+    margin: marginArg,
     pad: padArg,
     round: roundArg,
     width: widthArg,
@@ -29,7 +31,8 @@ export const Default = {
   args: {
     a11yTitle: 'Loading content',
     height: 'xxsmall',
-    pad: undefined,
+    margin: 'small',
+    pad: 'small',
     round: 'xsmall',
     width: 'medium',
   },
