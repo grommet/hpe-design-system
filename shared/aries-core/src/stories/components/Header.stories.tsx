@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header, Button, Avatar, Box, Text } from 'grommet';
+import type { StoryObj } from '@storybook/react';
+import { Header, Button, Avatar, Box, Text, HeaderExtendedProps } from 'grommet';
 import { Element } from '@hpe-design/icons-grommet';
 import {
   backgroundArg,
@@ -27,9 +28,10 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const NavigationHeader = {
-  render: args => (
+export const NavigationHeader: Story = {
+  render: (args: HeaderExtendedProps) => (
     <Header {...args}>
       <Box direction="row" align="center" gap="medium">
         <Element color="decorative-brand" />

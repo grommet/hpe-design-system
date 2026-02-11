@@ -1,5 +1,6 @@
 import React from 'react';
-import { Layer, Box, Button, Heading, Text } from 'grommet';
+import type { StoryObj } from '@storybook/react';
+import { Layer, Box, Button, Heading, Text, LayerExtendedProps } from 'grommet';
 import { Close } from '@hpe-design/icons-grommet';
 import { backgroundArg, fillArg, marginArg } from '../utils/commonArgs';
 
@@ -28,10 +29,13 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const LayerExample = {
-  render: args => {
+export const LayerExample: Story = {
+  render: (args: LayerExtendedProps) => {
     return (
+      // LayerExtendedProps doesn't include "as" prop, hence the ts-ignore
+      // @ts-ignore
       <Layer as="section" {...args}>
         <Box pad="medium" gap="small" width="medium">
           <Box direction="row" align="center" justify="between">

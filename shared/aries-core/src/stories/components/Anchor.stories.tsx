@@ -1,5 +1,6 @@
 import React from 'react';
-import { Anchor } from 'grommet';
+import type { StoryObj } from '@storybook/react';
+import { Anchor, AnchorType } from 'grommet';
 import {
   disabledArg,
   labelArg,
@@ -26,9 +27,10 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default = {
-  render: args => {
+export const Default: Story = {
+  render: (args: AnchorType) => {
     return <Anchor {...args} />;
   },
   args: {
