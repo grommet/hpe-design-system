@@ -1,4 +1,5 @@
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import {
   Card,
   CardBody,
@@ -8,6 +9,7 @@ import {
   Heading,
   Text,
   Box,
+  BoxTypes,
 } from 'grommet';
 import {
   backgroundArg,
@@ -35,9 +37,10 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const BasicCard = {
-  render: args => (
+export const BasicCard: Story = {
+  render: (args: BoxTypes) => (
     <Card {...args}>
       <CardHeader pad="medium">
         <Box direction="row" align="center" gap="small">

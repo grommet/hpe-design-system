@@ -1,5 +1,7 @@
 import React from 'react';
-import { Main, Heading, Text } from 'grommet';
+import { Main, Heading, Text, BoxExtendedProps } from 'grommet';
+import type { StoryObj } from '@storybook/react';
+
 import {
   backgroundArg,
   padArg,
@@ -25,9 +27,10 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const BasicMain = {
-  render: args => (
+export const BasicMain: Story = {
+  render: (args: BoxExtendedProps) => (
     <Main {...args}>
       <Heading level={1}>Main Content</Heading>
       <Text>This is the primary content area of the page.</Text>

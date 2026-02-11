@@ -1,20 +1,19 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Box, Text } from 'grommet';
+import type { StoryObj } from '@storybook/react';
+import { Box, Text, BoxTypes } from 'grommet';
 import { boxArgs } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Box',
   component: Box,
   argTypes: boxArgs,
-} satisfies Meta<typeof Box>;
+};
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
-  render: args => (
+export const Default: Story = {
+  render: (args: BoxTypes) => (
     <Box {...args}>
       <Text>First item</Text>
       <Text>Second item</Text>
@@ -26,4 +25,4 @@ export const Default = {
     pad: 'medium',
   },
   name: 'Box',
-} satisfies Story;
+};
