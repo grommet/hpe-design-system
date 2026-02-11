@@ -1,32 +1,32 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from 'grommet';
-import { tShirtSizes, iconArg } from '../utils/commonArgs';
+import {
+  a11yTitleArg,
+  disabledArg,
+  fillArg,
+  iconArg,
+  labelArg,
+  tShirtSizes,
+} from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Button',
   component: Button,
-  // TODO: Verify if 'centered' is appropriate for Button stories, currently does not work as expected due to theme overrides
+  // TODO: Currently does not work as expected due to theme overrides, when supported, remove comments
   // parameters: {
   //   layout: 'centered',
   // },
   argTypes: {
-    a11yTitle: {
-      control: { type: 'text' },
-    },
+    a11yTitle: a11yTitleArg,
     active: {
       control: { type: 'boolean' },
     },
     busy: {
       control: { type: 'boolean' },
     },
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    fill: {
-      control: { type: 'boolean' },
-      options: [true, false, 'horizontal', 'vertical'],
-    },
+    disabled: disabledArg,
+    fill: fillArg,
     href: {
       control: { type: 'text' },
     },
@@ -35,9 +35,7 @@ const meta = {
       control: { type: 'radio' },
       options: ['primary', 'secondary', 'default'],
     },
-    label: {
-      control: { type: 'text' },
-    },
+    label: labelArg,
     // NOTE: onClick is not added to controls as it is a function, I did not add any condition checks with href as it says in the description
     onClick: {
       type: 'function',
@@ -78,7 +76,7 @@ export const Default = {
     size: 'medium',
     success: false,
   },
-  render: (args: any) => {
+  render: args => {
     return <Button {...args} />;
   },
 } satisfies Story;
