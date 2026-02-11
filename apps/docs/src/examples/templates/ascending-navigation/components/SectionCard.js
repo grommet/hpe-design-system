@@ -7,7 +7,7 @@ export const SectionCard = ({ section, onClick }) => (
     <Box direction="row" fill justify="between">
       <Heading
         level="2"
-        size='small'
+        size="small"
         margin={{
           horizontal: 'none',
           vertical: '3xsmall',

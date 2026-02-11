@@ -61,7 +61,7 @@ export const PageOneContent = () => {
     <Box>
       <DataTable
         data={data}
-        aria-describedby='Example user data'
+        aria-describedby="Example user data"
         select={selected}
         onSelect={setSelected}
         columns={[
