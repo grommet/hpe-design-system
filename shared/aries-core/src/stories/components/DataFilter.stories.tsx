@@ -7,7 +7,8 @@ const meta = {
   component: DataFilter,
   argTypes: {
     property: {
-      control: { type: 'text' },
+      control: { type: 'select' },
+      options: ['name', 'location', 'date', 'percent', 'paid'],
     },
     range: {
       control: { type: 'object' },
