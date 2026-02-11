@@ -20,9 +20,9 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   name: 'RadioButtonGroup',
   render: args => <RadioButtonGroup {...args} />,
+  // @ts-ignore
   args: {
     disabled: false,
-    name: 'radio-button-group',
     options: ['Option 1', 'Option 2', 'Option 3'],
   },
 } satisfies Story;
