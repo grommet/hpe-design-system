@@ -1,0 +1,95 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  SelectDisabledExample,
+  SelectExample,
+  SelectSearchExample,
+  SelectValidationExample,
+} from '../../examples';
+
+<Example
+  componentName="Select"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectExample.js"
+  designer="https://designer.grommet.io/select?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3237-3123&t=ZqPsisuevR3KPp96-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Select/Select.js"
+>
+  <SelectExample />
+</Example>
+
+## Guidance
+
+Select is a flexible input element able to serve a wide variety of use cases. Though flexible, asking "is Select the best tool in this circumstance?" is a healthy exercise. Variants of Select, such as [Select with Search](#select-with-search), or alternatives like [RadioButtonGroup](/components/radiobuttongroup), [MaskedInput](/components/maskedinput), or [TextInput with suggestions](/components/textinput#textinput-with-suggestions) may be more appropriate for crafting an elegant user experience.
+
+### When to use Select
+
+Because Select is flexible and familiar, the following questions are helpful to consider alternatives and/or confirm that Select is the most appropriate element:
+
+- Is there a need to conserve screen space? Select may be appropriate.
+- Ensuring collection of standardized values? Select may be appropriate.
+- Are there less than five options? Consider a [CheckBoxGroup](/components/checkboxgroup) or [RadioButtonGroup](/components/radiobuttongroup) as they may be more efficient for users. Select can hide information and requires extra clicks/taps for users to access that information.
+- Are there a large number of options? Lengthy scrolling can be problematic for users. Consider [Select with Search](#select-with-search) or [TextInput with suggestions](/components/textinput#textinput-with-suggestions).
+- Is the select for a State/Province in the context of collecting an address? Consider only asking for ZIP/Postal Code and automatically determining City, State, Country, etc. without user input.
+- Are the values in list well known and understood, such as Year? Consider [TextInput with suggestions](/components/textinput#textinput-with-suggestions) or [MaskedInput](/components/maskedinput).
+
+### Selecting multiple options
+
+If multiple selections are permitted and there are more than 5 options, use [SelectMultiple](/components/selectmultiple). Otherwise, consider using [CheckBoxGroup](/components/checkboxgroup).
+
+## Variants
+
+The Select input is flexible and may be extended to allow for multi-select, search, and create options.
+
+### Select with search
+
+Allow users to quickly find their desired option by incorporating Search within the Select component.
+
+Select with search is especially useful when presenting lengthy options lists such as when selecting from countries or regions. [TextInput with suggestions](/components/textinput#textinput-with-suggestions) and [MaskedInput](/components/maskedinput) are also worth considering in circumstances where values are well known.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectSearchExample.js"
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <SelectSearchExample />
+</Example>
+
+### Validation
+
+Validation styling calls visual attention to the Select input with an error and should be accompanied by text instructing the user how to resolve. A "required" input error is the most common with Select since the available options are typically pre-defined.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectValidationExample.js"
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <SelectValidationExample />
+</Example>
+
+### Disabled
+
+Indicates that the Select input exists but cannot be interacted with until a precondition is met.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectDisabledExample.js"
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <SelectDisabledExample />
+</Example>
+
+## Accessibility
+
+Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
+
+To properly associate FormField `label` with Grommet's Select component, ensure the Select has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
+
+```
+<FormField label="Select option" htmlFor="select__input">
+  <Select id="select" options={['Option 1', 'Option 2']} />
+</FormField>
+```
+
+### WCAG compliance
+
+<AccessibilitySection title="select" />
