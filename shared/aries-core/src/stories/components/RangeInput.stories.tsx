@@ -15,9 +15,6 @@ const meta = {
     min: {
       control: { type: 'number' },
     },
-    name: {
-      control: { type: 'text' },
-    },
     onChange: {
       action: 'changed',
     },
@@ -54,7 +51,6 @@ export const Default = {
     disabled: false,
     max: 100,
     min: 0,
-    name: 'rangeInput',
     onChange: undefined,
     step: 1,
     value: 50,
