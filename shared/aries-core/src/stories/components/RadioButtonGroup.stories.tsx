@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   name: 'RadioButtonGroup',
   render: args => <RadioButtonGroup {...args} />,
-  // @ts-ignore
+  // @ts-ignore in grommet name is required but for the story we don't need it
   args: {
     disabled: false,
     options: ['Option 1', 'Option 2', 'Option 3'],
