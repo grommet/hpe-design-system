@@ -1,1 +1,2 @@
-export * from './AscendingNavigationAnatomy';
+export * from './AscendingNavigationExample';
+export * from './AscendingNavigationCodeExample';
