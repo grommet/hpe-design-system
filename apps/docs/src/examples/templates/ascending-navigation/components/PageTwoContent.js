@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { Box, DataTable, Text } from 'grommet';
+import { DataTable, Text } from 'grommet';
 
 const data = [
   {
@@ -72,39 +72,37 @@ export const PageTwoContent = () => {
   const [selected, setSelected] = useState([]);
 
   return (
-    <Box>
-      <DataTable
-        data={data}
-        aria-describedby="Server data table"
-        select={selected}
-        onSelect={setSelected}
-        columns={[
-          {
-            property: 'displayName',
-            header: 'Name',
-            primary: true,
-            render: datum => <Text>{datum.displayName}</Text>,
-          },
-          {
-            property: 'serialNumber',
-            header: 'Serial Number',
-          },
-          {
-            property: 'model',
-            header: 'Model',
-            render: datum => <Text>{datum.model || '—'}</Text>,
-          },
-          {
-            property: 'powerState',
-            header: 'Power',
-          },
-          {
-            property: 'health',
-            header: 'Health',
-            render: datum => <Text>{datum.health?.summary}</Text>,
-          },
-        ]}
-      />
-    </Box>
+    <DataTable
+      data={data}
+      aria-describedby="Server data table"
+      select={selected}
+      onSelect={setSelected}
+      columns={[
+        {
+          property: 'displayName',
+          header: 'Name',
+          primary: true,
+          render: datum => <Text>{datum.displayName}</Text>,
+        },
+        {
+          property: 'serialNumber',
+          header: 'Serial Number',
+        },
+        {
+          property: 'model',
+          header: 'Model',
+          render: datum => <Text>{datum.model || '—'}</Text>,
+        },
+        {
+          property: 'powerState',
+          header: 'Power',
+        },
+        {
+          property: 'health',
+          header: 'Health',
+          render: datum => <Text>{datum.health?.summary}</Text>,
+        },
+      ]}
+    />
   );
 };

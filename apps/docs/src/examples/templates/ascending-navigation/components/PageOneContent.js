@@ -58,39 +58,35 @@ export const PageOneContent = () => {
   const [selected, setSelected] = useState([]);
 
   return (
-    <Box>
-      <DataTable
-        data={data}
-        aria-describedby="User management table"
-        select={selected}
-        onSelect={setSelected}
-        columns={[
-          {
-            property: 'name',
-            header: 'User name',
-            primary: true,
-            render: datum => (
-              <Box direction="row" gap="small" align="center">
-                <Avatar background="decorative-green">
-                  <Text color="text-strong">
-                    {datum.initials}
-                  </Text>
-                </Avatar>
-                <Text>{datum.name}</Text>
-              </Box>
-            ),
-          },
-          {
-            property: 'email',
-            header: 'Email',
-          },
-          {
-            property: 'status',
-            header: 'Status',
-            render: datum => <Text>{datum.status}</Text>,
-          },
-        ]}
-      />
-    </Box>
+    <DataTable
+      data={data}
+      aria-describedby="User management table"
+      select={selected}
+      onSelect={setSelected}
+      columns={[
+        {
+          property: 'name',
+          header: 'User name',
+          primary: true,
+          render: datum => (
+            <Box direction="row" gap="small" align="center">
+              <Avatar background="decorative-green">
+                <Text color="text-strong">{datum.initials}</Text>
+              </Avatar>
+              <Text>{datum.name}</Text>
+            </Box>
+          ),
+        },
+        {
+          property: 'email',
+          header: 'Email',
+        },
+        {
+          property: 'status',
+          header: 'Status',
+          render: datum => <Text>{datum.status}</Text>,
+        },
+      ]}
+    />
   );
 };
