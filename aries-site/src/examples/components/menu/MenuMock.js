@@ -30,7 +30,7 @@ MenuItem.propTypes = {
 // MenuMock component that replicates Menu visual presentation
 // without using the actual Menu component
 
-export const MenuMock = ({ label, items, iconDown }) => {
+export const MenuMock = ({ label, items, icon: iconProp }) => {
   const theme = useContext(ThemeContext);
   const menuTheme = theme?.menu || {};
   const dropTheme = theme?.global.drop || {};
