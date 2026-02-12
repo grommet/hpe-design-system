@@ -14,9 +14,7 @@ const meta = {
   argTypes: {
     a11yTitle: a11yTitleArg,
     disabled: disabledArg,
-    icon: {
-      control: { type: 'boolean' },
-    },
+
     items: {
       control: { type: 'object' },
     },
@@ -38,7 +36,6 @@ export const Default = {
   args: {
     a11yTitle: undefined,
     disabled: false,
-    icon: false,
     items: [
       { label: 'Profile', onClick: () => {} },
       { label: 'Settings', onClick: () => {} },
