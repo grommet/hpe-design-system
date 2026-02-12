@@ -10,9 +10,9 @@ https://design-system.hpe.design/
 
 hpe-design-system is a monorepo containing core assets and documentation for the HPE Design System.
 
-- aries-site: The documentation site for the design system.
-- design-tokens: The source code for [hpe-design-tokens](https://www.npmjs.com/package/hpe-design-tokens).
-- aries-core: Used for accessibility testing.
+- docs (apps/docs): The documentation site for the design system.
+- design-tokens (packages/hpe-design-tokens): The source code for [hpe-design-tokens](https://www.npmjs.com/package/hpe-design-tokens).
+- aries-core (shared/aries-core): Used for accessibility testing.
 
 The monorepo is installed using [pnpm](https://pnpm.io/), and relies on [pnpm workspaces](https://pnpm.io/workspaces).
 
@@ -41,14 +41,14 @@ pnpm-workspace.yaml      // list of workspaces/packages and common dependency ca
 ## design-tokens structure
 
 - `design-tokens/`
-   - `tokens/`: The design tokens source files.
-   - `src/`:
-      - `formats/`: Custom [style-dictionary format functions](https://styledictionary.com/reference/hooks/formats/).
-      - `scripts/`: Build, pre-commit, and Github Actions related scripts.
-      - `tests/`: Vitests that run pre-commit to ensure no unexpected changes to tokens output formats. These tests do not test the actual design token outputs, but rather use mock design token objects to ensure predictable, consistent output.
-      - `transforms/`: Custom [style-dictionary transforms](https://styledictionary.com/reference/hooks/transforms/).
-      - `types/`: Type declarations for package exports. These should be enhanced in future to include auto-generated type definitions that match the full outputs.
-    
+  - `tokens/`: The design tokens source files.
+  - `src/`:
+    - `formats/`: Custom [style-dictionary format functions](https://styledictionary.com/reference/hooks/formats/).
+    - `scripts/`: Build, pre-commit, and Github Actions related scripts.
+    - `tests/`: Vitests that run pre-commit to ensure no unexpected changes to tokens output formats. These tests do not test the actual design token outputs, but rather use mock design token objects to ensure predictable, consistent output.
+    - `transforms/`: Custom [style-dictionary transforms](https://styledictionary.com/reference/hooks/transforms/).
+    - `types/`: Type declarations for package exports. These should be enhanced in future to include auto-generated type definitions that match the full outputs.
+
 ## Getting started
 
 ```
@@ -57,22 +57,20 @@ pnpm install
 
 Running 'pnpm install' anywhere in the monorepo hierarchy will always install ALL the modules in the workspaces.
 
-Note: When installing, you may get and error saying "Integrity check failed for 'grommet' (computed integrity doesn't match our records...". 
-`aries-site` references the latest stable branch of grommet. Any new commits added to grommet's stable branch cause its SHA hash to be updated and become out of sync with the SHA in the pnpm-lock.yaml file. 
+Note: When installing, you may get and error saying "Integrity check failed for 'grommet' (computed integrity doesn't match our records...".
+`docs` references the latest stable branch of grommet. Any new commits added to grommet's stable branch cause its SHA hash to be updated and become out of sync with the SHA in the pnpm-lock.yaml file.
 
 To fetch the latest grommet stable, remove pnpm-lock.yam and clean cache (TBD), then pnpm install. For example: `rm pnpm-lock.yaml && pnpm install`
 
-Run aries-site in development mode:
+Run docs in development mode:
 
 ```
-pnpm start:aries-site
+pnpm start:docs
 ```
 
 Run in production mode:
 
 ```
 pnpm build
-pnpm --filter aries-site start-server
+pnpm --filter docs start-server
 ```
-
-

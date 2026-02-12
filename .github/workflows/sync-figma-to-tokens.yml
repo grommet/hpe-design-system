@@ -52,7 +52,7 @@ jobs:
         run: pnpm prettier tokens --write
         working-directory: packages/hpe-design-tokens
       - name: Build site search for pre-commit linting
-        run: pnpm --filter aries-site build-search
+        run: pnpm --filter docs build-search
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
