@@ -61,7 +61,7 @@ export const PageOneContent = () => {
     <Box>
       <DataTable
         data={data}
-        aria-describedby="Example user data"
+        aria-describedby="User management table"
         select={selected}
         onSelect={setSelected}
         columns={[
@@ -71,8 +71,10 @@ export const PageOneContent = () => {
             primary: true,
             render: datum => (
               <Box direction="row" gap="small" align="center">
-                <Avatar background="brand" size="small">
-                  {datum.initials}
+                <Avatar background="dark-2" size="small">
+                  <Text size="medium" color="text-strong">
+                    {datum.initials}
+                  </Text>
                 </Avatar>
                 <Text>{datum.name}</Text>
               </Box>

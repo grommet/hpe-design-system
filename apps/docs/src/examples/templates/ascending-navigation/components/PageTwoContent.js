@@ -75,7 +75,7 @@ export const PageTwoContent = () => {
     <Box>
       <DataTable
         data={data}
-        aria-describedby="Example user data"
+        aria-describedby="Server data table"
         select={selected}
         onSelect={setSelected}
         columns={[
