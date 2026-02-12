@@ -1,59 +1,28 @@
-import { DiagramPreview, Example } from '../../layouts';
-import { AscendingNavigationAnatomy } from '../../examples';
+import { Example } from '../../layouts';
+import { 
+  AscendingNavigationExample 
+  } from '../../examples';
 import { Text } from 'grommet';
 
-When an application’s hierarchy is well designed, the ascending button will typically take the user
-back to the previous page they came from.
 
-<Example
-  caption="Example of an ascending button."
-  plain
-  pad="xsmall"
-  previewWidth="medium"
-  height={{ min: 'xsmall' }}
+
+<Example 
+  pad='small'
+  code='https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/ascending-navigation/AscendingNavigationCodeExample.js'
 >
-  <DiagramPreview
-    src={{
-      dark: '/templateImages/ascending-button-preview-invert.svg',
-      light: '/templateImages/ascending-button-preview.svg',
-    }}
-    alt="ascending button in an application"
-  />
+  <AscendingNavigationExample />
 </Example>
 
-## Guidance
 
-- Follows the [default button styling](https://design-system.hpe.design/components/button#default-button) with a "FormPrevious" icon.
-- Displayed below the Header and aligned to the left with the pages content.
+ 
+## Guidance
+- The `parent` property on [PageHeader](/components/pageheader) generates a link to the immediate upstream page in the hierarchy. See [reverse anchor](/components/pageheader#reverse-anchor) for more details.
+- Match the label to the parent page's name to set navigation expectations.
+- Use only one ascending link per page.
 
 ## When to use
 
-- To allow users to return to the parent (hub) screen when on a details (child/spoke) page.
-- To visually communicate the parent page for the user’s current page.
+Use ascending navigation when your product has a parent/child or hub/spoke page structure and users may need to return to the parent context.
 
-## Example
 
-Ascending Navigation provides an easy way for a user to move from a child page up to a parent page.
 
-<Example
-  caption={
-    <>
-      <Text margin={{ top: 'xsmall' }} size="small">
-        {' '}
-        1. A preview of Users detail view (child page).
-      </Text>
-      <br></br>
-      <Text margin={{ top: 'xsmall' }} size="small">
-        {' '}
-        2. A preview of Ascending Navigation to the parent page utilizing the ascending
-        button.
-      </Text>
-    </>
-  }
-  plain
-  pad="xsmall"
-  previewWidth="xlarge"
-  height={{ min: 'xsmall' }}
->
-  <AscendingNavigationAnatomy />
-</Example>
