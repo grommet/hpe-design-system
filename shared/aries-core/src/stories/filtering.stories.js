@@ -1,10 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
-import { FilteringCards } from 'aries-site/src/examples/templates/filtering/FilteringCards/FilteringCards';
-import { FilteringTable } from 'aries-site/src/examples/templates/filtering/FilteringTable/FilteringTable';
-import { FilteringLists } from 'aries-site/src/examples/templates/filtering/FilteringLists/FilteringLists';
-import { QuickFilterToolbar } from 'aries-site/src/examples/templates/filtering/QuickFilterToolbar';
+import { FilteringCards } from 'apps/docs/src/examples/templates/filtering/FilteringCards/FilteringCards';
+import { FilteringTable } from 'apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable';
+import { FilteringLists } from 'apps/docs/src/examples/templates/filtering/FilteringLists/FilteringLists';
+import { QuickFilterToolbar } from 'apps/docs/src/examples/templates/filtering/QuickFilterToolbar';
 
 const meta = {
   title: 'Filtering',
