@@ -157,6 +157,11 @@ export const skeletonArg: ArgType = {
   control: { type: 'boolean' },
 };
 
+export const textAlignArg: ArgType = {
+  control: { type: 'select' },
+  options: ['start', 'center', 'end'],
+};
+
 export const textSizesArg: ArgType = {
   control: { type: 'select' },
   options: textSizes,

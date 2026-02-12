@@ -7,6 +7,7 @@ import {
   placeholderArg,
   reverseArg,
   heightArg,
+  textAlignArg,
 } from '../utils/commonArgs';
 
 const meta = {
@@ -23,10 +24,7 @@ const meta = {
     suggestions: {
       control: { type: 'object' },
     },
-    textAlign: {
-      control: { type: 'select' },
-      options: ['start', 'center', 'end'],
-    },
+    textAlign: textAlignArg,
   },
 } satisfies Meta<typeof TextInput>;
 
