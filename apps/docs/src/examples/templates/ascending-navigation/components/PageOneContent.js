@@ -71,8 +71,8 @@ export const PageOneContent = () => {
             primary: true,
             render: datum => (
               <Box direction="row" gap="small" align="center">
-                <Avatar background="dark-2" size="small">
-                  <Text size="medium" color="text-strong">
+                <Avatar background="decorative-green" size="medium">
+                  <Text color="text-strong">
                     {datum.initials}
                   </Text>
                 </Avatar>
