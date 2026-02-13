@@ -86,7 +86,7 @@ export const NavList = ({
           // If type is group, we traverse down but do NOT add this item
           // to 'parents' list because groups are not collapsible/expandable.
           const currentParents =
-            item.type === 'group' ? parents : [...parents, item.label];
+            item.type === 'group' || !item.id ? parents : [...parents, item.id];
 
           const result = findParents(item.children, target, currentParents);
           if (result) {
@@ -108,11 +108,13 @@ export const NavList = ({
   }, [parentsToExpand]);
 
   const updateExpanded = (item: NavItemWithLevel) => {
+    if (!item.id) return;
+    
     setExpanded(prev => {
-      if (prev.includes(item.label)) {
-        return prev.filter(i => i !== item.label);
+      if (prev.includes(item.id)) {
+        return prev.filter(i => i !== item.id);
       }
-      return [...prev, item.label];
+      return [...prev, item.id];
     });
   };
 
@@ -214,8 +216,10 @@ export const NavList = ({
               onEscapeToParent={() => {
                 // Collapse this parent menu and focus on it
                 updateExpanded(item);
-                const parentElement = item.id ? parentRefs.current.get(item.id) : null;
-                parentElement?.focus();
+                if (item.id) {
+                  const parentElement = parentRefs.current.get(item.id);
+                  parentElement?.focus();
+                }
               }}
             />
           </Collapsible>
