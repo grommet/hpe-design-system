@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataSearch, DataSort, DataSummary, Toolbar } from 'grommet';
-import { gapArg } from '../utils/commonArgs';
 
 // Mock data for the toolbar example
 const mockApplications = [
@@ -37,9 +36,6 @@ const mockApplications = [
 const meta = {
   title: 'Components/Toolbar',
   component: Toolbar,
-  argTypes: {
-    gap: gapArg,
-  },
   parameters: {
     layout: 'padded',
   },
@@ -50,9 +46,6 @@ type Story = StoryObj<typeof meta>;
 
 export const WithDataControls: Story = {
   name: 'Toolbar with Data Controls',
-  args: {
-    gap: 'small',
-  },
   render: args => {
     return (
       <Data data={mockApplications}>
