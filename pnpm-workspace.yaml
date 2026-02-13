@@ -1,8 +1,8 @@
 packages:
-  - 'apps/*'
-  - 'packages/**'
-  - 'sandbox/*'
-  - 'shared/*'
+  - apps/*
+  - packages/**
+  - sandbox/*
+  - shared/*
 
 catalog:
   '@hpe-design/icons-grommet': ^1.1.0
@@ -10,7 +10,7 @@ catalog:
   '@types/react': ^19.1.10
   '@types/react-dom': ^19.1.7
   eslint: ^8.39.0
-  grommet: ^2.51.0
+  grommet: ^2.52.0
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.0.0
   prop-types: ^15.8.1
