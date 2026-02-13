@@ -27,7 +27,7 @@ export const GroupHeading = ({ id, item }: GroupHeadingProps) => {
           size="xsmall"
           weight="bold"
           role="heading"
-          aria-level={3}
+          aria-level={3} // TODO: Consider making this dynamic based on nesting level or allowing it to be passed in as a prop for more flexibility.
         >
           {item.label}
         </Text>

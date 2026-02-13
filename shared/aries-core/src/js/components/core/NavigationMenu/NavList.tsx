@@ -47,7 +47,7 @@ export const NavList = ({
             ...item,
             children: item.children.map(child => ({
               ...child,
-              level: (item.level || 0),
+              level: item.level || 0,
             })),
           });
         } else {
@@ -109,14 +109,12 @@ export const NavList = ({
 
   const updateExpanded = (item: NavItemWithLevel) => {
     if (!item.id) return;
-    
-    setExpanded(prev => {
-      if (!item.id) return prev;
-      if (prev.includes(item.id)) {
-        return prev.filter(i => i !== item.id);
-      }
-      return [...prev, item.id];
-    });
+
+    setExpanded(prev =>
+      prev.includes(item.id!)
+        ? prev.filter(id => id !== item.id)
+        : [...prev, item.id!],
+    );
   };
 
   const onSelectItem = (
@@ -180,7 +178,7 @@ export const NavList = ({
         <NavItem
           ref={(el: HTMLButtonElement | null) => {
             if (!item.id) return;
-            
+
             if (el) {
               parentRefs.current.set(item.id, el);
             } else {
