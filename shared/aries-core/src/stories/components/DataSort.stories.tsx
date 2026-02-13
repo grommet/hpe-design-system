@@ -30,7 +30,14 @@ export const Default = {
       ]}
     >
       <DataSort {...args} />
-      <DataTable />
+      <DataTable
+        columns={[
+          {
+            property: 'name',
+            header: 'Name',
+          },
+        ]}
+      />
     </Data>
   ),
   args: {
