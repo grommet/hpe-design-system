@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Button, ThemeContext } from 'grommet';
+import { Box, Button, ThemeContext } from 'grommet';
 import { prism } from 'grommet-theme-hpe';
 import {
   HeadingExample,
@@ -22,6 +22,7 @@ export const SyntaxHighlighterWrapper = ({ children, ...props }) => {
 };
 
 Typography is about more than words. It is an integral part of brand personality and design. When making a statement, the visual language should be clear, recognizable, and easy to understand. For specific design token values and implementation details, see the [Typography system](/design-tokens/typography-system).
+
 ## HPE Graphik styles
 
 The weights and styles shown are part of the HPE Design System theme. HPE Graphik comes in a variety of weights. For digital experiences we use Light, Regular, Medium, Semibold and Bold weights at a variety of scales to compliment the content in a given design.
@@ -85,13 +86,14 @@ Headings beyond level 3 are rarely needed and often signal overly dense content.
 ### Styling exceptions
 
 Some components may require visual consistency regardless of heading level. For example, card titles in dashboard layouts often need to share the same text size even if their semantic levels differ. In these cases, keep the correct semantic heading level, but apply the appropriate [design token to style the text](/design-tokens/typography-system#text).
+
 - For Card specific guidance, see [card titles](/components/card#card-titles) documentation.
 - For Layer specific guidance, see [layer titles](/components/layer#layer-titles) documentation.
+
 ### Heading levels
+
 {/* Future enhancement: Add syntax examples for non-Grommet implementations */}
 Use `level={1}` for the single `<h1>` on the page. Follow with `level={2}` for main sections and `level={3}` for subsections. See the example below for a recommended structure.
-
-
 
 Below is an example showing proper heading levels for a page with three topics, each with two subtopics.
 
@@ -148,7 +150,70 @@ In most cases, teams should point to the web-hosted version of the HPE Graphik f
 
 For Grommet-based teams, these CDN URLs are already included in grommet-theme-hpe.
 
-For non-Grommet teams, the appropriate CDN URLs and font-face definitions can be found in [grommet-theme-hpe](https://github.com/grommet/grommet-theme-hpe/blob/master/src/js/themes/hpe.js) by searching for `@font-face`.
+For non-Grommet teams, the appropriate CDN URLs and font-face definitions are included below.
+
+<Box height="medium">
+```css
+@font-face {
+  font-family: "HPE Graphik";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Regular-Web.woff2") format('woff2');
+}
+@font-face {
+  font-family: "HPE Graphik";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Regular-Web.woff2") format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: "HPE Graphik";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Bold-Web.woff2") format('woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: "HPE Graphik";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Semibold-Web.woff2") format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: "HPE Graphik";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Medium-Web.woff2") format('woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: "HPE Graphik";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Extralight-Web.woff2") format('woff2');
+  font-weight: 100;
+}
+@font-face {
+  font-family: "GraphikXXCondensed";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphikXXCondensed-Regular-Web.woff2") format('woff2');
+}
+@font-face {
+  font-family: "GraphikXXCondensed";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphikXXCondensed-Regular-Web.woff2") format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: "GraphikXXCondensed";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphikXXCondensed-Bold-Web.woff2") format('woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: "GraphikXXCondensed";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphikXXCondensed-Semibold-Web.woff2") format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: "GraphikXXCondensed";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphikXXCondensed-Medium-Web.woff2") format('woff2');
+  font-weight: 500;
+}
+@font-face {
+  font-family: "GraphikXXCondensed";
+  src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphikXXCondensed-Extralight-Web.woff2") format('woff2');
+  font-weight: 100;
+}
+```
+</Box>
 
 ### Fonts for offline usage
 
