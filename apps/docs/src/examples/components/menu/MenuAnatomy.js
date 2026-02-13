@@ -1,7 +1,13 @@
 import React, { useContext } from 'react';
-import { Box, Button, Grid, Diagram, Stack, ThemeContext } from 'grommet';
+import { Box, Grid, Diagram, Stack, ThemeContext } from 'grommet';
 import { Add } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
+import {
+  MockMenuItem,
+  MockMenuContainer,
+  MockMenuGroup,
+  MockMenuButton,
+} from './MenuMockComponents';
 
 const color = 'border';
 const thickness = 'hair';
@@ -109,20 +115,6 @@ const AnatomyGrid = ({ ...rest }) => (
   />
 );
 
-const MenuItem = ({ ...rest }) => {
-  const theme = useContext(ThemeContext);
-
-  return (
-    <Button
-      kind="option"
-      align="start"
-      tabIndex={-1}
-      {...theme.menu.item}
-      {...rest}
-    />
-  );
-};
-
 export const MenuAnatomy = () => {
   const theme = useContext(ThemeContext);
   const menuTheme = theme?.menu || {};
@@ -153,55 +145,39 @@ export const MenuAnatomy = () => {
         ))}
 
         {/* Menu anatomy mockup */}
-        <Box gridArea="menu-area" align="start" >
+        <Box gridArea="menu-area" align="start">
           {/* Adding bounding box to add dashed outline for clarity */}
           <Box
-          border={{ style: 'dashed' }}
-          round="small"
-          margin={dropTheme.margin}
-          >
-          <Button            
+            border={{ style: 'dashed' }}
             round="small"
-            id="menu-button"
-            label={<Box id="menu-label">Menu</Box>}
-            icon={<Box id="menu-icon">{menuTheme.icons?.down.render()}</Box>}
-            reverse
-            tabIndex={-1}
-          />
-          </Box>
-          <Box
-            {...dropTheme}
-            border={undefined}
-            elevation={dropTheme.shadowSize}
-            round={dropTheme.border.radius}
+            margin={dropTheme.margin}
           >
-            <Box
-            {...menuTheme.container}
-            {...menuTheme.group.container}
-            id="drop-container"
-            >
-              <MenuItem label="Action" />
-              <MenuItem label="Action" />
-              <MenuItem label="Action" />
-            </Box>
-            <Box
-              id="divider-target"
-              {...menuTheme.group.separator}
-              border={{ ...menuTheme.group.separator, side: 'top' }}
+            <MockMenuButton
+              round="small"
+              id="menu-button"
+              label={<Box id="menu-label">Menu</Box>}
+              iconDown={<Box id="menu-icon">{menuTheme.icons?.down}</Box>}
             />
-            <Box {...menuTheme.container} {...menuTheme.group.container}>
-              <MenuItem label="Action" />
-              <MenuItem icon={<Add />} label="Action" />
+          </Box>
+          <MockMenuContainer>
+            <MockMenuGroup id="drop-container">
+              <MockMenuItem label="Action" />
+              <MockMenuItem label="Action" />
+              <MockMenuItem label="Action" />
+            </MockMenuGroup>
+            <MockMenuGroup showDivider dividerProps={{ id: 'divider-target' }}>
+              <MockMenuItem label="Action" />
+              <MockMenuItem icon={<Add />} label="Action" />
               <Box border={{ style: 'dashed' }} round="small">
-                <MenuItem
+                <MockMenuItem
                   id="menu-item-target"
                   label={<Box id="item-label">Action</Box>}
                   icon={<Add id="item-icon" />}
                   reverse
                 />
               </Box>
-            </Box>
-          </Box>
+            </MockMenuGroup>
+          </MockMenuContainer>
         </Box>
       </AnatomyGrid>
       <Diagram connections={connections} />
