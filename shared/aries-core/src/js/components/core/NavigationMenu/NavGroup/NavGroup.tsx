@@ -9,7 +9,7 @@ interface NavGroupProps {
 }
 
 export const NavGroup = ({ item, render, defaultItemProps }: NavGroupProps) => {
-  const headerId = `${item.label.replace(/\s+/g, '-').toLowerCase()}-heading`;
+  const headerId = `${item.id}-heading`;
 
   return (
     <Box>

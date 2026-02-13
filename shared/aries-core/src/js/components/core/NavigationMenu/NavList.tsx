@@ -144,7 +144,7 @@ export const NavList = ({
   };
 
   const renderItem = (item: NavItemWithLevel) => {
-    const expandedItem = expanded.includes(item.label);
+    const expandedItem = item.id ? expanded.includes(item.id) : false;
     const navItemProps = {
       id: item.id,
       level: item.level,
@@ -176,10 +176,12 @@ export const NavList = ({
       return (
         <NavItem
           ref={(el: HTMLButtonElement | null) => {
+            if (!item.id) return;
+            
             if (el) {
-              parentRefs.current.set(item.label, el);
+              parentRefs.current.set(item.id, el);
             } else {
-              parentRefs.current.delete(item.label);
+              parentRefs.current.delete(item.id);
             }
           }}
           {...navItemProps}
@@ -205,14 +207,14 @@ export const NavList = ({
           <Collapsible open={expandedItem}>
             <NavList
               role="menu"
-              aria-labelledby={item.label}
+              aria-labelledby={item.id}
               items={item.children}
               activeItem={activeItem}
               onSelect={onSelect}
               onEscapeToParent={() => {
                 // Collapse this parent menu and focus on it
                 updateExpanded(item);
-                const parentElement = parentRefs.current.get(item.label);
+                const parentElement = item.id ? parentRefs.current.get(item.id) : null;
                 parentElement?.focus();
               }}
             />

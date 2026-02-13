@@ -73,7 +73,7 @@ export const navItems: NavItemType[] = [
   },
 ];
 
-export const navItemsSubheadings = [
+export const navItemsSubheadings: NavItemType[] = [
   {
     label: 'Home',
     url: '/',
