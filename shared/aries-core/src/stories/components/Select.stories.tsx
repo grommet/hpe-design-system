@@ -3,7 +3,6 @@ import { Select } from 'grommet';
 import {
   a11yTitleArg,
   disabledArg,
-  textSizesArg,
   placeholderArg,
 } from '../utils/commonArgs';
 
@@ -23,7 +22,6 @@ const meta = {
       control: { type: 'object' },
     },
     placeholder: placeholderArg,
-    size: textSizesArg,
   },
 } satisfies Meta<typeof Select>;
 
@@ -40,6 +38,5 @@ export const Default = {
     open: false,
     options: ['small', 'medium', 'large'],
     placeholder: 'Select an option...',
-    size: 'medium',
   },
 } satisfies Story;
