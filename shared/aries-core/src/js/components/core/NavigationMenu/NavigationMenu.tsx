@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { type BoxProps, Nav } from 'grommet';
-import { NavItemType } from './NavItem/NavItem';
+import { NavItemType } from './NavItem';
 import { NavContainer } from './NavContainer';
 import { NavList } from './NavList';
 
