@@ -11,12 +11,26 @@ const assignUniqueIds = (
 ): NavItemType[] => {
   return items.map(item => {
     if (item.id) {
-      // Use existing ID if provided
-      seenIds.add(item.id);
+       // Use existing ID if provided and ensure uniqueness
+      let explicitId = item.id;
+      if (seenIds.has(explicitId)) {
+        const baseId = explicitId;
+        let counter = 1;
+        while (seenIds.has(explicitId)) {
+          explicitId = `${baseId}-${counter}`;
+          counter++;
+        }
+        console.warn(
+          `NavigationMenu: duplicate item id "${item.id}" detected. ` +
+            `Using disambiguated id "${explicitId}" instead.`,
+        );
+      }
+      seenIds.add(explicitId);
       return {
         ...item,
+        id: explicitId,
         children: item.children
-          ? assignUniqueIds(item.children, `${parentPath}${item.id}-`, seenIds)
+          ? assignUniqueIds(item.children, `${parentPath}${explicitId}-`, seenIds)
           : undefined,
       };
     }

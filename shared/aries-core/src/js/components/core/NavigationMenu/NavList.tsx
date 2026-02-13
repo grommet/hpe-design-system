@@ -111,6 +111,7 @@ export const NavList = ({
     if (!item.id) return;
     
     setExpanded(prev => {
+      if (!item.id) return prev;
       if (prev.includes(item.id)) {
         return prev.filter(i => i !== item.id);
       }
@@ -166,7 +167,7 @@ export const NavList = ({
     if (item.type === 'group') {
       return (
         <NavGroup
-          key={item.label}
+          key={item.id}
           item={item}
           render={item => renderItem(item)}
           defaultItemProps={defaultItemProps}
