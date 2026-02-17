@@ -30,7 +30,18 @@ export const Default = {
       ]}
     >
       <DataTableGroupBy {...args} drop />
-      <DataTable />
+      <DataTable
+        columns={[
+          {
+            property: 'name',
+            header: 'Name',
+          },
+          {
+            property: 'country',
+            header: 'Country',
+          },
+        ]}
+      />
     </Data>
   ),
   args: {
