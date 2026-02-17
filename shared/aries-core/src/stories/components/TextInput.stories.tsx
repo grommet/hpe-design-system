@@ -1,32 +1,46 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { TextInput } from 'grommet';
-import { placeholderArg, widthArg } from '../utils/commonArgs';
+import { Search } from '@hpe-design/icons-grommet';
+import {
+  iconArg,
+  placeholderArg,
+  reverseArg,
+  heightArg,
+  textAlignArg,
+} from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/TextInput',
   component: TextInput,
   argTypes: {
-    defaultValue: {
-      control: { type: 'text' },
+    defaultSuggestion: {
+      control: { type: 'number' },
     },
+    dropHeight: heightArg,
+    icon: iconArg,
     placeholder: placeholderArg,
-    readOnlyCopy: {
-      control: { type: 'boolean' },
+    reverse: reverseArg,
+    suggestions: {
+      control: { type: 'object' },
     },
-    width: widthArg,
+    textAlign: textAlignArg,
   },
 } satisfies Meta<typeof TextInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
-  name: 'TextInput',
+export const SearchExample = {
+  name: 'Search',
   render: args => <TextInput {...args} />,
   args: {
-    defaultValue: '',
-    placeholder: 'Enter text here...',
-    readOnlyCopy: false,
-    width: 'medium',
+    defaultSuggestion: undefined,
+    dropHeight: undefined,
+    icon: <Search />,
+    placeholder: 'Search',
+    reverse: true,
+    suggestions: ['Suggestion 1', 'Suggestion 2', 'Suggestion 3'],
+    textAlign: undefined,
   },
 } satisfies Story;
