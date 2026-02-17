@@ -3,11 +3,11 @@ import { Box, Grid, Diagram, Stack, ThemeContext } from 'grommet';
 import { Add } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 import {
-  MockMenuItem,
-  MockMenuContainer,
-  MockMenuGroup,
-  MockMenuButton,
-} from './MenuMockComponents';
+  MenuMockButton,
+  MenuMockContainer,
+  MenuMockItem,
+  MenuMockGroup,
+} from './MenuMock';
 
 const color = 'border';
 const thickness = 'hair';
@@ -152,32 +152,33 @@ export const MenuAnatomy = () => {
             round="small"
             margin={dropTheme.margin}
           >
-            <MockMenuButton
+            <MenuMockButton
               round="small"
               id="menu-button"
               label={<Box id="menu-label">Menu</Box>}
-              iconDown={<Box id="menu-icon">{menuTheme.icons?.down}</Box>}
+              icon={<Box id="menu-icon">{menuTheme.icons?.down.render()}</Box>}
             />
           </Box>
-          <MockMenuContainer>
-            <MockMenuGroup id="drop-container">
-              <MockMenuItem label="Action" />
-              <MockMenuItem label="Action" />
-              <MockMenuItem label="Action" />
-            </MockMenuGroup>
-            <MockMenuGroup showDivider dividerProps={{ id: 'divider-target' }}>
-              <MockMenuItem label="Action" />
-              <MockMenuItem icon={<Add />} label="Action" />
+          <MenuMockContainer>
+            <MenuMockGroup id="drop-container">
+              <MenuMockItem label="Action" />
+              <MenuMockItem label="Action" />
+              <MenuMockItem label="Action" />
+            </MenuMockGroup>
+            <MenuMockGroup showDivider dividerProps={{ id: 'divider-target' }}>
+              <MenuMockItem label="Action" />
+              <MenuMockItem icon={<Add />} label="Action" />
+              {/* Adding bounding box to add dashed outline for clarity */}
               <Box border={{ style: 'dashed' }} round="small">
-                <MockMenuItem
+                <MenuMockItem
                   id="menu-item-target"
                   label={<Box id="item-label">Action</Box>}
                   icon={<Add id="item-icon" />}
                   reverse
                 />
               </Box>
-            </MockMenuGroup>
-          </MockMenuContainer>
+            </MenuMockGroup>
+          </MenuMockContainer>
         </Box>
       </AnatomyGrid>
       <Diagram connections={connections} />
