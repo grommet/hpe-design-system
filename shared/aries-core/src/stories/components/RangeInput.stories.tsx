@@ -15,9 +15,6 @@ const meta = {
     min: {
       control: { type: 'number' },
     },
-    onChange: {
-      action: 'changed',
-    },
     step: {
       control: { type: 'number' },
     },
@@ -48,7 +45,6 @@ export const Default = {
     disabled: false,
     max: 100,
     min: 0,
-    onChange: undefined,
     step: 1,
   },
 } satisfies Story;
