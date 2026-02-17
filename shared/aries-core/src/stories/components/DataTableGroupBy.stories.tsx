@@ -29,7 +29,7 @@ export const Default = {
         { id: 5, name: 'Maggie', country: 'USA' },
       ]}
     >
-      <DataTableGroupBy {...args} drop />
+      <DataTableGroupBy {...args} />
       <DataTable
         columns={[
           {
