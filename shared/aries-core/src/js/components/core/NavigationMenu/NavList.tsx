@@ -4,7 +4,7 @@ import { Down, Up } from '@hpe-design/icons-grommet';
 import { NavItem, NavItemType } from './NavItem';
 import { NavGroup } from './NavGroup';
 
-export type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
+export type NavItemWithLevel = NavItemType & { level?: 0 | 1 | 2 };
 
 const defaultItemProps = {
   pad: { vertical: '3xsmall' },
