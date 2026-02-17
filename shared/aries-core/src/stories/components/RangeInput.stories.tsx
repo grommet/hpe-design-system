@@ -21,9 +21,6 @@ const meta = {
     step: {
       control: { type: 'number' },
     },
-    value: {
-      control: { type: 'number' },
-    },
   },
 } satisfies Meta<typeof RangeInput>;
 
@@ -53,6 +50,5 @@ export const Default = {
     min: 0,
     onChange: undefined,
     step: 1,
-    value: 50,
   },
 } satisfies Story;
