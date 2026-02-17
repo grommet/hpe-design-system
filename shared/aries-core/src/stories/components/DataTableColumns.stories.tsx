@@ -8,6 +8,12 @@ const meta = {
   argTypes: {
     drop: {
       control: { type: 'boolean' },
+      description: 'Whether to show the controls via a DropButton.',
+    },
+    options: {
+      control: { type: 'object' },
+      description:
+        'The set of possible columns. Can be array of strings or objects with label, property, disabled, and pinned properties.',
     },
   },
 } satisfies Meta<typeof DataTableColumns>;
@@ -43,34 +49,32 @@ export const Default = {
         },
       ]}
     >
-      <DataTableColumns
-        {...args}
-        options={[
-          {
-            property: 'name',
-            label: 'Name',
-          },
-          {
-            property: 'location',
-            label: 'Location',
-          },
-          {
-            property: 'date',
-            label: 'Date',
-          },
-          {
-            property: 'percent',
-            label: 'Percent',
-          },
-          {
-            property: 'paid',
-            label: 'Paid',
-          },
-        ]}
-      />
+      <DataTableColumns {...args} />
     </Data>
   ),
   args: {
-    drop: true,
+    drop: false,
+    options: [
+      {
+        property: 'name',
+        label: 'Name',
+      },
+      {
+        property: 'location',
+        label: 'Location',
+      },
+      {
+        property: 'date',
+        label: 'Date',
+      },
+      {
+        property: 'percent',
+        label: 'Percent',
+      },
+      {
+        property: 'paid',
+        label: 'Paid',
+      },
+    ],
   },
 } satisfies Story;
