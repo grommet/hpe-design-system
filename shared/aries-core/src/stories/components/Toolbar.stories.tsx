@@ -37,7 +37,7 @@ const meta = {
   title: 'Components/Toolbar',
   component: Toolbar,
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Toolbar>;
 
@@ -45,16 +45,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithDataControls: Story = {
-  name: 'Toolbar with Data Controls',
+  name: 'Toolbar',
   render: args => {
     return (
-      <Data data={mockApplications}>
-        <Toolbar {...args}>
-          <DataSearch />
-          <DataSort drop />
-        </Toolbar>
-        <DataSummary />
-      </Data>
+      <Toolbar {...args}>
+        <DataSearch />
+        <DataSort drop />
+      </Toolbar>
     );
   },
 };
