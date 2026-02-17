@@ -17,7 +17,10 @@ export const Default = {
   name: 'DataView',
   render: args => (
     <Data
-      data={[{ age: 12 }, { age: 91 }]}
+      data={[
+        { id: 1, name: 'Person 1', age: 12 },
+        { id: 2, name: 'Person 2', age: 91 },
+      ]}
       views={[
         { name: 'oldest', sort: { property: 'age', direction: 'desc' } },
         { name: 'youngest', sort: { property: 'age', direction: 'asc' } },
@@ -26,7 +29,18 @@ export const Default = {
       <Toolbar>
         <DataView {...args} />
       </Toolbar>
-      <DataTable />
+      <DataTable
+        columns={[
+          {
+            property: 'name',
+            header: 'Name',
+          },
+          {
+            property: 'age',
+            header: 'Age',
+          },
+        ]}
+      />
     </Data>
   ),
   args: {},
