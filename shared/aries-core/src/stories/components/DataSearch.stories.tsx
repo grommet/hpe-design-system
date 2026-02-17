@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataSearch, DataTable, Toolbar } from 'grommet';
+import { Data, DataSearch, DataTable } from 'grommet';
 
 const meta = {
   title: 'Components/DataSearch',
@@ -9,10 +9,6 @@ const meta = {
     drop: {
       control: { type: 'boolean' },
       description: 'Whether to show the search via a DropButton.',
-    },
-    responsive: {
-      control: { type: 'boolean' },
-      description: 'Whether the search is responsive.',
     },
     updateOn: {
       control: { type: 'select' },
@@ -31,16 +27,24 @@ export const Default = {
   render: args => (
     <Data
       data={[
-        { name: 'Scott' },
-        { name: 'Matt' },
-        { name: 'Jessica' },
-        { name: 'Mike' },
-        { name: 'Julia' },
-        { name: 'Seamus' },
+        { id: 1, name: 'Scott' },
+        { id: 2, name: 'Matt' },
+        { id: 3, name: 'Jessica' },
+        { id: 4, name: 'Mike' },
+        { id: 5, name: 'Julia' },
+        { id: 6, name: 'Seamus' },
       ]}
     >
       <DataSearch {...args} />
-      <DataTable />
+      <DataTable
+        columns={[
+          {
+            property: 'name',
+            header: 'Name',
+          },
+        ]}
+        primaryKey="id"
+      />
     </Data>
   ),
   args: {
