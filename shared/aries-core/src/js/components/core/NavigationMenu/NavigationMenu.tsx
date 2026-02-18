@@ -1,8 +1,64 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { type BoxProps, Nav } from 'grommet';
-import { NavItemType } from './NavItem/NavItem';
+import { NavItemType } from './NavItem';
 import { NavContainer } from './NavContainer';
 import { NavList } from './NavList';
+
+const assignUniqueIds = (
+  items: NavItemType[],
+  parentPath = '',
+  seenIds = new Set<string>(),
+): NavItemType[] => {
+  return items.map(item => {
+    if (item.id) {
+       // Use existing ID if provided and ensure uniqueness
+      let explicitId = item.id;
+      if (seenIds.has(explicitId)) {
+        const baseId = explicitId;
+        let counter = 1;
+        while (seenIds.has(explicitId)) {
+          explicitId = `${baseId}-${counter}`;
+          counter++;
+        }
+        console.warn(
+          `NavigationMenu: duplicate item id "${item.id}" detected. ` +
+            `Using disambiguated id "${explicitId}" instead.`,
+        );
+      }
+      seenIds.add(explicitId);
+      return {
+        ...item,
+        id: explicitId,
+        children: item.children
+          ? assignUniqueIds(item.children, `${parentPath}${explicitId}-`, seenIds)
+          : undefined,
+      };
+    }
+
+    // Create stable ID based on hierarchical path
+    const baseId = `${parentPath}${item.label
+      .replace(/\s+/g, '-')
+      .toLowerCase()}`;
+    let uniqueId = baseId;
+    let counter = 1;
+
+    // Handle collisions by appending counter
+    while (seenIds.has(uniqueId)) {
+      uniqueId = `${baseId}-${counter}`;
+      counter++;
+    }
+
+    seenIds.add(uniqueId);
+
+    return {
+      ...item,
+      id: uniqueId,
+      children: item.children
+        ? assignUniqueIds(item.children, `${uniqueId}-`, seenIds)
+        : undefined,
+    };
+  });
+};
 
 interface NavigationMenuProps extends BoxProps {
   activeItem?: string;
@@ -22,7 +78,7 @@ interface NavigationMenuProps extends BoxProps {
 export const NavigationMenu = ({
   activeItem,
   header,
-  items,
+  items: itemsProp,
   open: openProp = true,
   onSelect,
   title,
@@ -31,6 +87,9 @@ export const NavigationMenu = ({
   const [open, setOpen] = useState<boolean>(openProp);
   const navigationId = 'navigation-menu';
   const menuTitle = title ? `${title}` : 'Navigation Menu';
+
+  // Add unique Id to each item for aria and key purposes
+  const items = useMemo(() => assignUniqueIds(itemsProp), [itemsProp]);
 
   useEffect(() => {
     if (openProp !== undefined) {
