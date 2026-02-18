@@ -7,5 +7,7 @@ export * from './MenuExample';
 export * from './MenuGroupingExample';
 export * from './MenuHeaderExample';
 export * from './MenuIconExample';
+export * from './MenuItemCountExample';
 export * from './MenuRecordActionsExample';
+export * from './MenuSelectValueExample';
 export * from './MenuToolbarExample';
