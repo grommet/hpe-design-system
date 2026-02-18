@@ -13,10 +13,6 @@ const meta = {
   component: SelectMultiple,
   argTypes: {
     a11yTitle: a11yTitleArg,
-    defaultValue: {
-      control: { type: 'object' },
-      description: 'Initially selected value.',
-    },
     disabled: disabledArg,
     help: {
       control: { type: 'text' },
@@ -66,7 +62,6 @@ export const Default = {
   render: args => <SelectMultiple {...args} />,
   args: {
     a11yTitle: 'Multiple selection',
-    defaultValue: undefined,
     disabled: false,
     help: undefined,
     limit: undefined,
