@@ -21,12 +21,12 @@ export const Default = {
   render: args => (
     <Data
       data={[
-        { name: 'Scott' },
-        { name: 'Matt' },
-        { name: 'Jessica' },
-        { name: 'Mike' },
-        { name: 'Julia' },
-        { name: 'Seamus' },
+        { id: 1, name: 'Scott' },
+        { id: 2, name: 'Matt' },
+        { id: 3, name: 'Jessica' },
+        { id: 4, name: 'Mike' },
+        { id: 5, name: 'Julia' },
+        { id: 6, name: 'Seamus' },
       ]}
     >
       <DataSort {...args} />
@@ -37,6 +37,7 @@ export const Default = {
             header: 'Name',
           },
         ]}
+        primaryKey="id"
       />
     </Data>
   ),
