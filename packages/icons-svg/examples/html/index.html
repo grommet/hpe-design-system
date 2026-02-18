@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@hpe-design/icons-svg — HTML Examples</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        color: #333;
+      }
+      h2 { border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+      .demo {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+      .icon-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 0.75rem;
+        color: #666;
+      }
+
+      /* -----------------------------------------------------------------------
+         SVG icons use fill="currentColor", so setting `color` on any ancestor
+         controls the icon colour when the SVG is rendered inline.
+      ----------------------------------------------------------------------- */
+      .icon { width: 24px; height: 24px; }
+      .icon-blue  { color: #0073e7; }
+      .icon-green { color: #00c781; }
+      .icon-red   { color: #ff5757; }
+      .icon-large { width: 48px; height: 48px; }
+    </style>
+  </head>
+  <body>
+    <h1>@hpe-design/icons-svg</h1>
+    <p>HTML usage examples for HPE SVG icons.</p>
+
+    <!-- =====================================================================
+         Approach 1: <img> tag
+         Simple, but fill="currentColor" has no effect — the icon will always
+         render in its default colour. Use this only when you don't need colour
+         control via CSS.
+    ====================================================================== -->
+    <h2>Approach 1 — &lt;img&gt; tag (no CSS colour control)</h2>
+    <div class="demo">
+      <div class="icon-wrapper">
+        <img
+          src="/node_modules/@hpe-design/icons-svg/dist/add.svg"
+          alt="Add"
+          class="icon"
+        />
+        <span>add</span>
+      </div>
+      <div class="icon-wrapper">
+        <img
+          src="/node_modules/@hpe-design/icons-svg/dist/close.svg"
+          alt="Close"
+          class="icon"
+        />
+        <span>close</span>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         Approach 2: Inline SVG via fetch
+         Inject SVG markup directly into the DOM so that fill="currentColor"
+         inherits the CSS `color` property from the element or its ancestors.
+    ====================================================================== -->
+    <h2>Approach 2 — Inline SVG via fetch (full CSS colour control)</h2>
+    <div class="demo" id="inline-demo">Loading…</div>
+
+    <!-- =====================================================================
+         Approach 3: CSS mask
+         Works with a plain <div> + background-color. Useful when you need a
+         solid-colour icon without injecting SVG markup, but it doesn't support
+         multi-colour icons.
+    ====================================================================== -->
+    <h2>Approach 3 — CSS mask (solid colour, no SVG injection)</h2>
+    <style>
+      .icon-mask {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-color: currentColor; /* set via `color` on the element */
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+      }
+      .icon-mask-search {
+        -webkit-mask-image: url('/node_modules/@hpe-design/icons-svg/dist/search.svg');
+        mask-image: url('/node_modules/@hpe-design/icons-svg/dist/search.svg');
+      }
+      .icon-mask-home {
+        -webkit-mask-image: url('/node_modules/@hpe-design/icons-svg/dist/home.svg');
+        mask-image: url('/node_modules/@hpe-design/icons-svg/dist/home.svg');
+      }
+    </style>
+    <div class="demo">
+      <div class="icon-wrapper">
+        <span class="icon-mask icon-mask-search icon-blue"></span>
+        <span>search (blue)</span>
+      </div>
+      <div class="icon-wrapper">
+        <span class="icon-mask icon-mask-home icon-green" style="width:32px;height:32px"></span>
+        <span>home (green, 32 px)</span>
+      </div>
+    </div>
+
+    <script>
+      // Approach 2: fetch SVG content and inject inline
+      async function loadInlineSVG(iconName) {
+        const res = await fetch(
+          `/node_modules/@hpe-design/icons-svg/dist/${iconName}.svg`,
+        );
+        return res.text();
+      }
+
+      const icons = [
+        { name: 'add',     label: 'add (blue)',   cssClass: 'icon-blue'  },
+        { name: 'close',   label: 'close (red)',  cssClass: 'icon-red'   },
+        { name: 'search',  label: 'search (green)',cssClass: 'icon-green' },
+        { name: 'settings',label: 'settings (large)', cssClass: 'icon-large icon-blue' },
+      ];
+
+      async function renderInlineIcons() {
+        const container = document.getElementById('inline-demo');
+        container.innerHTML = '';
+        for (const { name, label, cssClass } of icons) {
+          const svgContent = await loadInlineSVG(name);
+          const wrapper = document.createElement('div');
+          wrapper.className = 'icon-wrapper';
+          wrapper.innerHTML = `
+            <span class="icon ${cssClass}">${svgContent}</span>
+            <span>${label}</span>
+          `;
+          container.appendChild(wrapper);
+        }
+      }
+
+      renderInlineIcons();
+    </script>
+  </body>
+</html>

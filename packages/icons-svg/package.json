@@ -22,12 +22,15 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "test": "vitest --watch=false"
   },
   "devDependencies": {
+    "@types/node": "catalog:",
     "typescript": "catalog:",
     "vite": "^7.2.2",
     "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-static-copy": "^2.3.2"
+    "vite-plugin-static-copy": "^2.3.2",
+    "vitest": "^3.0.9"
   }
 }

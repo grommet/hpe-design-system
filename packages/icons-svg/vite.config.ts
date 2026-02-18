@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import dts from 'vite-plugin-dts';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
@@ -27,5 +27,9 @@ export default defineConfig({
     },
     outDir: 'dist',
     emptyOutDir: true,
+  },
+  test: {
+    environment: 'node',
+    include: ['src/tests/**/*.test.ts'],
   },
 });

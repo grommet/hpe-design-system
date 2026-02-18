@@ -10,31 +10,43 @@ npm install @hpe-design/icons-svg
 
 ## Usage
 
-### Importing Individual SVG Icons
+### Approach 1 — Import as URL (`<img>` tag)
 
-You can import individual SVG files directly from the package:
+The simplest approach. The icon is treated as a static asset and resolves to a URL.
 
-*Note: this doesn't let you style the color as easily with CSS and you have to use something like `filter` to adjust the color* 
+> ⚠️ **`fill="currentColor"` has no effect when rendered via `<img>`.** To change the colour you must use a CSS `filter`. Use Approach 2 if you need CSS colour control.
 
 ```javascript
-// Import as a URL/path
 import addIcon from '@hpe-design/icons-svg/add.svg';
 import closeIcon from '@hpe-design/icons-svg/close.svg';
-import searchIcon from '@hpe-design/icons-svg/search.svg';
 
 // Use in your HTML
 const iconElement = `<img src="${addIcon}" alt="Add" class="icon" />`;
 ```
 
-### Loading SVG as Raw String
+### Approach 2 — Inline SVG (full CSS colour control)
 
-You can also load SVG content as raw strings for dynamic usage:
+Inject the SVG markup directly into the DOM so that `fill="currentColor"` inherits the CSS `color` property from any ancestor element.
+
+**Option A — Raw import (Vite only):**
+
+The `?raw` query suffix is a [Vite built-in](https://vite.dev/guide/assets#importing-asset-as-string) that returns the file content as a string.
 
 ```javascript
-// Using fetch to load SVG content
+// Vite only — no additional configuration required
+import addIcon from '@hpe-design/icons-svg/add.svg?raw';
+
+document.getElementById('icon-container').innerHTML = addIcon;
+```
+
+**Option B — Dynamic fetch (framework-agnostic):**
+
+```javascript
 async function loadIcon(iconName) {
-  const response = await fetch(`/node_modules/@hpe-design/icons-svg/${iconName}.svg`);
-  return await response.text();
+  // In a bundled app the icons are served from your build output.
+  // Adjust the base path to match your asset serving setup.
+  const response = await fetch(`/assets/${iconName}.svg`);
+  return response.text();
 }
 
 // Usage
@@ -43,16 +55,11 @@ loadIcon('add').then(svgContent => {
 });
 ```
 
-You can also load the svg as a raw string with a bundler setup to allow raw imports like:
-```javascript
-import addIcon from "@hpe-design/icons-svg/add.svg?raw"
-
-document.getElementById('icon-container').innerHTML = addIcon;
-```
-
 ### Styling Icons with CSS
 
-All icons use `fill="currentColor"`, making them easy to style with CSS. They can simply inherit the current foreground `color` from their parent, or you can give them a specific color:
+Most icons use `fill="currentColor"`, making them easy to style with CSS when rendered as **inline SVG** (Approach 2). The icon inherits the foreground `color` from its parent element.
+
+> **Note:** CSS `color`-based styling does not apply when icons are rendered via an `<img>` tag (Approach 1).
 
 ```css
 /* Basic icon styling */
@@ -111,17 +118,16 @@ All icons use `fill="currentColor"`, making them easy to style with CSS. They ca
   .icon {
     color: #ffffff;
   }
-  
+
   .icon-button {
     color: #cccccc;
   }
-  
+
   .icon-button:hover {
     color: #4d9fff;
   }
 }
 ```
-
 
 ## Available Icons
 
@@ -147,23 +153,9 @@ import addIcon from '@hpe-design/icons-svg/add.svg';
 const iconUrl: string = addIcon;
 ```
 
-## Webpack Configuration
+## Bundler Configuration
 
-If you're using Webpack, you might need to configure it to handle SVG imports:
-
-```javascript
-// webpack.config.js
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: ['@svgr/webpack', 'url-loader'],
-      },
-    ],
-  },
-};
-```
+Detailed, annotated configuration examples for **Vite** and **Webpack** (including how to support both URL and raw-string imports in the same project) can be found in [`examples/bundlers/`](./examples/bundlers/).
 
 ## Browser Support
 
@@ -173,7 +165,6 @@ These SVG icons work in all modern browsers that support SVG:
 - Firefox 3+
 - Safari 3.2+
 - Edge 12+
-- Internet Explorer 9+
 
 ## Performance Tips
 

@@ -395,6 +395,9 @@ importers:
 
   packages/icons-svg:
     devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.19.25
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -407,6 +410,9 @@ importers:
       vite-plugin-static-copy:
         specifier: ^2.3.2
         version: 2.3.2(vite@7.2.2(@types/node@20.19.25)(jiti@1.21.7)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))
+      vitest:
+        specifier: ^3.0.9
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
 
   sandbox/grommet-app:
     dependencies:
