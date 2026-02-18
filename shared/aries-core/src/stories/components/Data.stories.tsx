@@ -80,7 +80,7 @@ const columns = [
   {
     property: 'date',
     header: 'Date',
-    render: (datum) =>
+    render: datum =>
       datum.date && new Date(datum.date).toLocaleDateString('en-US'),
     align: 'end',
   },
@@ -96,7 +96,7 @@ const columns = [
   {
     property: 'paid',
     header: 'Paid',
-    render: (datum) => amountFormatter.format(datum.paid / 100),
+    render: datum => amountFormatter.format(datum.paid / 100),
     align: 'end',
     aggregate: 'sum',
     footer: { aggregate: true },
@@ -107,9 +107,165 @@ const meta = {
   title: 'Components/Data',
   component: Data,
   argTypes: {
+    data: {
+      control: { type: 'object' },
+      description: 'Array of data objects.',
+      table: {
+        type: { summary: 'array' },
+        defaultValue: {
+          summary: `[
+  {
+    id: 1, 
+    name: 'Scott', 
+    age: 24,
+    siblings: ['Scarlet', 'Scout'],
+    contact: {
+      company: 'Acme, Inc.',
+      social: '@scotty',
+    },
+  },
+  {
+    id: 2, 
+    name: 'Zelsa', 
+    age: 91,
+    siblings: ['Zack', 'Zoe', 'Zelda', 'Zed', 'Ziggy'],
+    contact: {
+      company: 'Retired',
+    },
+  },
+]`,
+        },
+      },
+    },
+    defaultView: {
+      control: { type: 'object' },
+      description: 'The default view of the data.',
+      table: {
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: `{
+  properties: {
+    country: ['US', 'UK'],
+    age: {
+      min: 22,
+      max: 56,
+    },
+  },
+  search: 'com',
+  sort: {
+    property: 'date',
+    direction: 'desc',
+  },
+  page: 1,
+  step: 50,
+  columns: ['country']
+}`,
+        },
+      },
+    },
+    properties: {
+      control: { type: 'object' },
+      description:
+        "This describes the objects found in 'data', sort of a schema. Using this property allows the caller to specify how the label renders and which properties should be filterable, searchable, sortable, and badgeable.",
+      table: {
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: `{
+  location: {
+    label: 'Location',
+    sort: false,
+    options: ['Fort Collins', 'Palo Alto', 'Boise', 'San Francisco'],
+  },
+  name: {
+    filter: false,
+  },
+  paid: {
+    search: false,
+    label: 'Paid',
+  },
+  percent: {
+    search: false,
+    label: 'Percent',
+  },
+  date: {
+    label: 'Date',
+  },
+}`,
+        },
+      },
+    },
     toolbar: {
-      control: { type: 'boolean' },
-      description: 'Whether to show the toolbar with data controls.',
+      control: { type: 'select' },
+      options: [true, false, 'search', 'filters', 'view'],
+      description:
+        "Whether to include a toolbar and what to put in it. Setting it to 'true' will include a Toolbar containing both DataSearch and DataFilters with layer prop.",
+      table: {
+        type: { summary: 'boolean | string' },
+        defaultValue: { summary: 'true' },
+      },
+    },
+    view: {
+      control: { type: 'object' },
+      description: 'The current view of the data.',
+      table: {
+        type: { summary: 'string | object' },
+        defaultValue: {
+          summary: `{
+  properties: {
+    country: ['US', 'UK'],
+    age: {
+      min: 22,
+      max: 56,
+    },
+  },
+  search: 'com',
+  sort: {
+    property: 'date',
+    direction: 'desc',
+  },
+  page: 1,
+  step: 50,
+  columns: ['country']
+}`,
+        },
+      },
+    },
+    views: {
+      control: { type: 'object' },
+      description: 'The set of predefined views of the data.',
+      table: {
+        type: { summary: 'array' },
+        defaultValue: {
+          summary: `[
+  {
+    name: 'My location',
+    properties: {
+      location: ['San Francisco'],
+    },
+  },
+  {
+    name: 'Recent entries',
+    sort: {
+      property: 'date',
+      direction: 'desc',
+    },
+  },
+  {
+    name: 'High performers',
+    properties: {
+      percent: {
+        min: 60,
+        max: 100,
+      },
+    },
+    sort: {
+      property: 'percent',
+      direction: 'desc',
+    },
+  },
+]`,
+        },
+      },
     },
   },
 } satisfies Meta<typeof Data>;
@@ -120,11 +276,78 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   name: 'Data',
   render: args => (
-    <Data data={DATA} {...args}>
+    <Data data={args.data || DATA} {...args}>
       <DataTable alignSelf="start" columns={columns} />
     </Data>
   ),
   args: {
+    data: DATA,
+    defaultView: {
+      properties: {
+        location: ['Fort Collins', 'Palo Alto'],
+      },
+      sort: {
+        property: 'date',
+        direction: 'desc',
+      },
+    },
+    filteredTotal: 8,
+    id: 'data_example',
+    properties: {
+      location: {
+        label: 'Location',
+        sort: false,
+        options: ['Fort Collins', 'Palo Alto', 'Boise', 'San Francisco'],
+      },
+      name: {
+        filter: false,
+      },
+      paid: {
+        search: false,
+        label: 'Paid',
+      },
+      percent: {
+        search: false,
+        label: 'Percent',
+      },
+      date: {
+        label: 'Date',
+      },
+    },
     toolbar: true,
+    view: {
+      sort: {
+        property: 'percent',
+        direction: 'desc',
+      },
+    },
+    views: [
+      {
+        name: 'My location',
+        properties: {
+          location: ['San Francisco'],
+        },
+      },
+      {
+        name: 'Recent entries',
+        sort: {
+          property: 'date',
+          direction: 'desc',
+        },
+      },
+      {
+        name: 'High performers',
+        properties: {
+          percent: {
+            min: 60,
+            max: 100,
+          },
+        },
+        sort: {
+          property: 'percent',
+          direction: 'desc',
+        },
+      },
+    ],
   },
 } satisfies Story;
