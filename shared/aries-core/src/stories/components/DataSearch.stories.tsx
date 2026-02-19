@@ -49,7 +49,6 @@ export const Default = {
   ),
   args: {
     drop: false,
-    responsive: true,
     updateOn: 'change',
   },
 } satisfies Story;
