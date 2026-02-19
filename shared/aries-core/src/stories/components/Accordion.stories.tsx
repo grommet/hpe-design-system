@@ -3,6 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Accordion, AccordionPanel, Box } from 'grommet';
 import { spacingSizes, alignArg, widthArg } from '../utils/commonArgs';
 
+// Fix for Storybook displaying <React.ForwardRef> instead of component name
+Accordion.displayName = 'Accordion';
+
 const meta = {
   title: 'Components/Accordion',
   component: Accordion,
