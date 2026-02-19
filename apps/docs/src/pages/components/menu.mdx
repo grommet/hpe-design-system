@@ -49,7 +49,7 @@ Use Menu within the header to organize and present application-level navigation 
 
 ### Grouping batch actions for data sets
 
-Use Menu within a toolbar to present batch actions for data collection objects or records alongside other controls, ensuring equal prominence and visual alignment. Apply kind=`"toolbar"` in these cases.
+Use Menu within a toolbar to present batch actions for data collection objects or records alongside other controls, ensuring equal prominence and visual alignment. Apply `kind = "toolbar"` in these cases.
 In this example, actions are grouped into executing and configuration categories, with executing actions first because they are most frequently used. For more details on grouping and ordering, see [Organizing menu items](#organizing-menu-items).
 
 <Example
@@ -66,7 +66,7 @@ In this example, actions are grouped into executing and configuration categories
 
 ### Grouping item-specific actions
 
-Use a menu within each list item when you need to provide actions for an individual object or record.
+Use Menu within each list item when you need to provide actions for an individual object or record.
 When space is limited and actions are easily recognized by their icon, use the icon-only version of the Menu.
 In this example, actions are grouped into configuration, executing, and dangerous categories, with configuration first and delete last.
 For more details on grouping and ordering, see [Organizing menu items](#organizing-menu-items).
@@ -90,7 +90,7 @@ For more details on grouping and ordering, see [Organizing menu items](#organizi
 
 | Label  | Region             | Purpose                                                              |                         Required                         | Notes                                                                                                                                                                               |
 | :----: | ------------------ | -------------------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1**  | **Menu Button**    | Opens the menu when clicked.                                         | <span><Checkmark a11yTitle="true" size="small" /></span> | Can include a label, icon, or both.                                                                                                                                                 |
+| **1**  | **Menu button**    | Opens the menu when clicked.                                         | <span><Checkmark a11yTitle="true" size="small" /></span> | Can include a label, icon, or both.                                                                                                                                                 |
 | **1a** | **Button label**   | Describes the menu's function or the category of actions.            |                         Optional                         | --                                                                                                                                                                                  |
 | **1b** | **Button icon**    | Provides a visual cue that the menu can be opened or closed.         |                         Optional                         | Typically an arrow or chevron to indicate expand/collapse. For icon-only menus, the icon represents the menu's purpose or the type of actions (e.g., settings gear, overflow dots). |
 | **2**  | **Drop container** | Holds and displays the list of menu items when the menu is expanded. | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                                                                                                  |
@@ -222,7 +222,7 @@ Actions enabling a user to share or consume data related to a resource.
     bestPractice={{
       type: 'do',
       message:
-        'Always separate a dangerous action into its own group and place it at the end. Clicking on a dangerous action should lead to a double confirmation.',
+        'Separate a dangerous action into its own group and place it at the end. Clicking on a dangerous action should lead to a double confirmation.',
     }}
   >
     {/* Box allows menu to be presented with drop open, overriding Example align/justify center */}
