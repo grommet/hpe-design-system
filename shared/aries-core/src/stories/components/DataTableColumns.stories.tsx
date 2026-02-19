@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataTableColumns, Toolbar } from 'grommet';
+import { Data, DataTableColumns, DataTable } from 'grommet';
 
 const meta = {
   title: 'Components/DataTableColumns',
@@ -50,6 +50,30 @@ export const Default = {
       ]}
     >
       <DataTableColumns {...args} />
+      <DataTable
+        columns={[
+          {
+            property: 'name',
+            header: 'Name',
+          },
+          {
+            property: 'location',
+            header: 'Location',
+          },
+          {
+            property: 'date',
+            header: 'Date',
+          },
+          {
+            property: 'percent',
+            header: 'Percent',
+          },
+          {
+            property: 'paid',
+            header: 'Paid',
+          },
+        ]}
+      />
     </Data>
   ),
   args: {
