@@ -184,6 +184,7 @@ export type NavItemType = {
   url?: string; // Navigation URL
   icon?: React.ReactNode; // Display icon
   children?: NavItemType[]; // Nested items
+  type?: 'group' | 'item'; // Optional grouping type
 };
 ```
 
@@ -250,6 +251,42 @@ const hierarchicalNavItems: NavItemType[] = [
   open={isOpen}
   title="HPE Design System"
   activeItem="Button"
+  onSelect={handleItemSelect}
+/>;
+```
+
+### Grouped Navigation Menu
+
+```tsx
+const groupedNavItems: NavItemType[] = [
+  {
+    label: 'Components',
+    children: [
+      {
+        label: 'Layout',
+        type: 'group',
+        children: [
+          { label: 'Box', url: '/components/box' },
+          { label: 'Grid', url: '/components/grid' },
+          { label: 'Layer', url: '/components/layer' },
+        ],
+      },
+      {
+        label: 'Controls',
+        type: 'group',
+        children: [
+          { label: 'Button', url: '/components/button' },
+          { label: 'CheckBox', url: '/components/checkbox' },
+        ],
+      },
+    ],
+  },
+];
+
+<NavigationMenu
+  items={groupedNavItems}
+  open={isOpen}
+  title="Grouped Components"
   onSelect={handleItemSelect}
 />;
 ```

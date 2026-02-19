@@ -1,28 +1,29 @@
 import React from 'react';
 import { Box, Text } from 'grommet';
 
-const labelColor = 'text-strong';
+const labelColor = 'text';
 interface ItemLabelProps {
   icon: React.ReactNode;
   label: string;
+  color?: string;
 }
 
-export const ItemLabel = ({ icon, label }: ItemLabelProps) => {
+export const ItemLabel = ({ icon, label, color = labelColor }: ItemLabelProps) => {
   const adjIcon = React.isValidElement(icon)
     ? React.cloneElement(icon as React.ReactElement<{ color?: string }>, {
-        color: labelColor,
+        color,
       })
     : icon;
 
   return (
     <Box direction="row" gap="xxsmall" flex>
-      <Box
-        pad={{ top: '5xsmall' }} // aligning icon with label text
+      {adjIcon && <Box
+        pad={{ top: '4xsmall' }} // aligning icon with label text
         flex={false}
       >
         {adjIcon}
-      </Box>
-      <Text color={labelColor}>{label}</Text>
+      </Box>}
+      <Text color={color}>{label}</Text>
     </Box>
   );
 };
