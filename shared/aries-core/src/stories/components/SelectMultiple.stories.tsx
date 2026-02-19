@@ -3,7 +3,6 @@ import { SelectMultiple } from 'grommet';
 import {
   a11yTitleArg,
   disabledArg,
-  textSizesArg,
   placeholderArg,
   marginArg,
 } from '../utils/commonArgs';
