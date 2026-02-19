@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataFilter, DataFilters } from 'grommet';
+import { Data, DataFilter, DataFilters, DataTable } from 'grommet';
 
 const meta = {
   title: 'Components/DataFilters',
@@ -58,6 +58,30 @@ export const Default = {
         <DataFilter property="percent" />
         <DataFilter property="paid" />
       </DataFilters>
+      <DataTable
+        columns={[
+          {
+            property: 'name',
+            header: 'Name',
+          },
+          {
+            property: 'location',
+            header: 'Location',
+          },
+          {
+            property: 'date',
+            header: 'Date',
+          },
+          {
+            property: 'percent',
+            header: 'Percent',
+          },
+          {
+            property: 'paid',
+            header: 'Paid',
+          },
+        ]}
+      />
     </Data>
   ),
   args: {
