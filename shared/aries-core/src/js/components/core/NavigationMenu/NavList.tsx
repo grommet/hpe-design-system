@@ -79,7 +79,7 @@ export const NavList = ({
       parents: string[] = [],
     ): string[] | null => {
       for (const item of itemsList) {
-        if (item.label === target) {
+        if ((item.url && item.url === target) || (!item.url && item.label === target)) {
           return parents;
         }
         if (item.children) {
@@ -160,7 +160,9 @@ export const NavList = ({
       },
     };
 
-    const active = activeItem === item.label;
+    const active = item.url
+      ? activeItem === item.url
+      : activeItem === item.label;
 
     if (item.type === 'group') {
       return (
