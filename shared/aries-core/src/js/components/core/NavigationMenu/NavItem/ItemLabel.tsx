@@ -11,7 +11,7 @@ interface ItemLabelProps {
 export const ItemLabel = ({ icon, label, color = labelColor }: ItemLabelProps) => {
   const adjIcon = React.isValidElement(icon)
     ? React.cloneElement(icon as React.ReactElement<{ color?: string }>, {
-        color: color,
+        color,
       })
     : icon;
 

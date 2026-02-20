@@ -9,18 +9,21 @@ interface NavGroupProps {
 }
 
 export const NavGroup = ({ item, render, defaultItemProps }: NavGroupProps) => {
-  const headerId = `${item.label.replace(/\s+/g, '-').toLowerCase()}-heading`;
+  const headerId = `${item.id}-heading`;
 
   return (
-    <Box role="none">
+    <Box>
       <GroupHeading id={headerId} item={item} />
       <Box
         role="group"
         aria-labelledby={headerId}
         border={{ side: 'bottom', color: 'border-weak' }}
       >
-        {item.children?.map((child, index) => (
-          <Box key={`${child.label}-${index}`} {...defaultItemProps}>
+        {item.children?.map(child => (
+          <Box
+            key={child.id}
+            {...defaultItemProps}
+          >
             {render(child)}
           </Box>
         ))}

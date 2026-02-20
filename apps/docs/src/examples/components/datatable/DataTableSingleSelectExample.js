@@ -1,0 +1,121 @@
+import React from 'react';
+import {
+  Box,
+  DataTable,
+  Heading,
+  NameValueList,
+  NameValuePair,
+  PageHeader,
+  ResponsiveContext,
+  Text,
+} from 'grommet';
+
+import { ContentPane } from '../../../layouts';
+import { ReverseAnchor } from '../../templates/ReverseAnchor';
+import data from '../../../data/mockData/orders.json';
+
+const columns = [
+  {
+    property: 'orderName',
+    header: 'Name',
+    render: datum => <Text truncate="tip">{datum.orderName}</Text>,
+    size: 'xsmall',
+  },
+  {
+    property: 'purchaseOrder',
+    header: 'P.O. #',
+    render: datum => <Text truncate="tip">{datum.purchaseOrder}</Text>,
+    size: '3xsmall',
+    align: 'end',
+  },
+  {
+    property: 'state',
+    header: 'State',
+    render: datum => <Text truncate="tip">{datum.state}</Text>,
+    size: '3xsmall',
+  },
+  {
+    property: 'service',
+    header: 'Service',
+    render: datum => <Text truncate="tip">{datum.service}</Text>,
+    size: 'xsmall',
+  },
+  {
+    property: 'tenant',
+    header: 'Tenant',
+    render: datum => <Text truncate="tip">{datum.tenant}</Text>,
+    size: '3xsmall',
+  },
+  {
+    property: 'email',
+    header: 'Contact',
+    render: datum => <Text truncate="tip">{datum.email}</Text>,
+  },
+  {
+    property: 'orderDate',
+    header: 'Order date',
+    render: datum =>
+      datum.orderDate && new Date(datum.orderDate).toLocaleDateString(),
+    align: 'end',
+  },
+];
+
+const collectionId = 'orders-heading';
+
+export const DataTableSingleSelectExample = () => {
+  const size = React.useContext(ResponsiveContext);
+  const [pageDetails, setPageDetails] = React.useState({});
+
+  return !pageDetails.id ? (
+    <ContentPane gap="medium">
+      <Heading id={collectionId} level={3} margin="none">
+        Orders
+      </Heading>
+      <Box overflow="auto">
+        <DataTable
+          aria-describedby={collectionId}
+          data={data.orders}
+          columns={[
+            {
+              property: 'id',
+              header: 'Id',
+              pin: ['xsmall', 'small'].includes(size),
+            },
+            ...columns,
+          ]}
+          onClickRow={({ datum }) => setPageDetails(datum)}
+          pin={['xsmall', 'small'].includes(size)}
+        />
+      </Box>
+    </ContentPane>
+  ) : (
+    <ContentPane gap="medium">
+      <PageHeader
+        title={`Order number: ${pageDetails.id}`}
+        parent={
+          <ReverseAnchor
+            label="Orders"
+            onClick={() => {
+              setPageDetails({});
+            }}
+            href={`#${collectionId}`}
+          />
+        }
+      />
+      <Box gap="xsmall" height="medium" overflow="auto">
+        <Heading level={2} margin="none">
+          Details
+        </Heading>
+        {pageDetails && (
+          <NameValueList>
+            {Object.entries(pageDetails).map(([key, value]) => (
+              <NameValuePair key={key} name={key}>
+                {value === '' ? '--' : value}
+              </NameValuePair>
+            ))}
+          </NameValueList>
+        )}
+      </Box>
+    </ContentPane>
+  );
+};

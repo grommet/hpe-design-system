@@ -3,6 +3,7 @@ import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';
 
 export type NavItemType = {
+  id?: string; // Added optional id for better key management
   label: string;
   url?: string;
   icon?: React.ReactNode;

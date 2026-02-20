@@ -47,7 +47,7 @@ export const NavList = ({
             ...item,
             children: item.children.map(child => ({
               ...child,
-              level: (item.level || 0),
+              level: item.level || 0,
             })),
           });
         } else {
@@ -86,7 +86,7 @@ export const NavList = ({
           // If type is group, we traverse down but do NOT add this item
           // to 'parents' list because groups are not collapsible/expandable.
           const currentParents =
-            item.type === 'group' ? parents : [...parents, item.label];
+            item.type === 'group' || !item.id ? parents : [...parents, item.id];
 
           const result = findParents(item.children, target, currentParents);
           if (result) {
@@ -108,12 +108,13 @@ export const NavList = ({
   }, [parentsToExpand]);
 
   const updateExpanded = (item: NavItemWithLevel) => {
-    setExpanded(prev => {
-      if (prev.includes(item.label)) {
-        return prev.filter(i => i !== item.label);
-      }
-      return [...prev, item.label];
-    });
+    if (!item.id) return;
+
+    setExpanded(prev =>
+      prev.includes(item.id!)
+        ? prev.filter(id => id !== item.id)
+        : [...prev, item.id!],
+    );
   };
 
   const onSelectItem = (
@@ -144,9 +145,9 @@ export const NavList = ({
   };
 
   const renderItem = (item: NavItemWithLevel) => {
-    const expandedItem = expanded.includes(item.label);
+    const expandedItem = item.id ? expanded.includes(item.id) : false;
     const navItemProps = {
-      id: item.label,
+      id: item.id,
       level: item.level,
       label: item.label,
       url: item.url,
@@ -164,7 +165,7 @@ export const NavList = ({
     if (item.type === 'group') {
       return (
         <NavGroup
-          key={item.label}
+          key={item.id}
           item={item}
           render={item => renderItem(item)}
           defaultItemProps={defaultItemProps}
@@ -176,10 +177,12 @@ export const NavList = ({
       return (
         <NavItem
           ref={(el: HTMLButtonElement | null) => {
+            if (!item.id) return;
+
             if (el) {
-              parentRefs.current.set(item.label, el);
+              parentRefs.current.set(item.id, el);
             } else {
-              parentRefs.current.delete(item.label);
+              parentRefs.current.delete(item.id);
             }
           }}
           {...navItemProps}
@@ -205,15 +208,17 @@ export const NavList = ({
           <Collapsible open={expandedItem}>
             <NavList
               role="menu"
-              aria-labelledby={item.label}
+              aria-labelledby={item.id}
               items={item.children}
               activeItem={activeItem}
               onSelect={onSelect}
               onEscapeToParent={() => {
                 // Collapse this parent menu and focus on it
                 updateExpanded(item);
-                const parentElement = parentRefs.current.get(item.label);
-                parentElement?.focus();
+                if (item.id) {
+                  const parentElement = parentRefs.current.get(item.id);
+                  parentElement?.focus();
+                }
               }}
             />
           </Collapsible>
