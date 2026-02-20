@@ -3,11 +3,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { DataTable } from 'grommet';
 import {
   a11yTitleArg,
+  alignArg,
   fillArg,
   functionArg,
   marginArg,
   padArg,
   placeholderArg,
+  // sizeArg,
+  // textArg,
+  // numberArg,
 } from '../utils/commonArgs';
 
 // Create a typed wrapper to avoid generic type issues
@@ -64,24 +68,41 @@ const meta = {
   title: 'Components/DataTable',
   component: TypedDataTable,
   argTypes: {
-    a11yTitle: a11yTitleArg,
-    alignSelf: alignSelfArg,
-    allowSelectAll: booleanArg,
-    columns: objectArg,
-    data: objectArg,
-    disabled: objectArg,
+    // alignSelf: alignArg,
+    allowSelectAll: {
+      control: { type: 'boolean' },
+    },
+    columns: {
+      control: { type: 'object' },
+    },
+    data: {
+      control: { type: 'object' },
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
     fill: fillArg,
-    groupBy: textArg,
+    groupBy: {
+      control: { type: 'text' },
+    },
     margin: marginArg,
     onClickRow: functionArg,
     pad: padArg,
-    paginate: booleanArg,
-    pin: booleanArg,
+    paginate: {
+      control: { type: 'boolean' },
+    },
+    pin: {
+      control: { type: 'boolean' },
+    },
     placeholder: placeholderArg,
-    resizeable: booleanArg,
-    size: sizeArg,
-    sortable: booleanArg,
-    step: numberArg,
+    resizeable: {
+      control: { type: 'boolean' },
+    },
+    // size: sizeArg,
+    sortable: {
+      control: { type: 'boolean' },
+    },
+    // step: numberArg,
   },
 } as Meta<typeof TypedDataTable>;
 
