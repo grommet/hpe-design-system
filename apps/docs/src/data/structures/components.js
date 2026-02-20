@@ -864,7 +864,7 @@ export const components = [
     accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
-      'A menu presents a set of related actions for a user to choose from.',
+      'A menu presents a set of related actions from which a user may choose.',
     seoDescription:
       'Menu contains a list of actions. See some best UX practices .',
     sections: [
