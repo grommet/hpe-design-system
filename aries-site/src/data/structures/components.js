@@ -174,6 +174,7 @@ export const components = [
         alt: 'HPE Cards Preview',
       },
     },
+    pages: ['Call to action card', 'Navigational card'],
     relatedContent: ['Lists', 'Dashboards', 'Navigation'],
     sections: [
       'Principles',

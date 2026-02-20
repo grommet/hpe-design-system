@@ -24,6 +24,14 @@ const foundationCategoryOrder = [
   'Layout',
 ];
 
+const componentCategoryOrder = [
+  'Layouts',
+  'Controls',
+  'Inputs',
+  'Data',
+  'Visualizations',
+];
+
 export const structure = [
   {
     name: 'Home',
@@ -69,7 +77,11 @@ export const structure = [
     },
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: components.sortByName().map(page => page.name),
+    categoryOrder: componentCategoryOrder,
+    pages: components.sortByCategory(componentCategoryOrder.reduce((acc, item, index) => {
+      acc[item] = index;
+      return acc;
+    }, {})).sortByName().map(page => page.name),
   },
   {
     name: 'Templates',
@@ -132,12 +144,6 @@ export const structure = [
     seoDescription:
       'Something missing or looking for more information? Get in touch to help make the HPE Design System better.',
     pages: [],
-  },
-  {
-    name: 'Show More',
-    seoDescription:
-      "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and its partners share a single language for application, web, and digital experiences.",
-    pages: ['Foundation', 'Components', 'Templates', 'Learn'],
   },
   {
     name: 'Whats New',

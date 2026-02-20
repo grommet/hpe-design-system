@@ -9,6 +9,7 @@ export interface PageDetails {
    * Only present on "Hub" or "Category" pages (e.g. Home, Foundation).
    */
   pages?: string[];
+  parentPage?: string;
   color?: string;
   icon?: (size?: string, color?: string) => React.ReactNode;
   preview?: {

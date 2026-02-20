@@ -8,75 +8,57 @@ const pageDetails = structure.reduce((acc, item) => {
   return acc;
 }, {} as { [key: string]: PageDetails });
 
-export const navItems: NavItemType[] = structure
-  .filter(page => Array.isArray(page.pages)) // Only include sections (items that can have subpages)
-  .map(page => {
-    const groups: { [key: string]: NavItemType[] } = {};
+const hasChildren = (page: PageDetails) => {
+  return Array.isArray(page.pages) && page.pages.length > 0;
+};
 
-    page.pages?.forEach(pageName => {
+const excludePages = ['Card']; // Pages with children to exclude from top-level navigation
+
+// Recursive function to build nav items, handling nested pages
+const buildNavItems = (pages: string[]): NavItemType[] => {
+  return pages
+    .map(pageName => {
       const details = pageDetails[pageName];
-      // Only valid pages that exist in structure
-      if (details) {
-        const category = details.category || 'Other';
+      if (!details) return null; // Skip if page details are missing
+      if (details.parentPage) return null; // Skip if this page is a child (will be handled in its parent)
 
-        if (!groups[category]) {
-          groups[category] = [];
-        }
+      const navItem: NavItemType = {
+        label: pageName,
+      };
 
-        groups[category].push({
-          label: pageName,
-          url: nameToPath(pageName),
-        });
+      if (hasChildren(details)) {
+        navItem.children = buildNavItems(details.pages!);
+      } else {
+        navItem.url = nameToPath(pageName);
       }
-    });
 
-    const groupKeys = Object.keys(groups);
+      return navItem;
+    })
+    .filter(Boolean) as NavItemType[];
+};
 
-    // If we only have "Other" (uncategorized), return flat list preserving original order
-    if (groupKeys.length === 1 && groupKeys[0] === 'Other') {
-      return {
+export const navItems: NavItemType[] = structure
+  .filter(page => hasChildren(page) && !excludePages.includes(page.name)) // Only include top-level sections with children
+  .map(page => {
+    console.log('Processing page:', page.name); // Debug log to check page processing
+    let navItem;
+    if (page.name === 'Home') {
+      navItem = {
         label: page.name,
         url: nameToPath(page.name),
-        children: groups['Other'],
+      };
+    } else {
+      navItem = {
+        label: page.name,
+        // url: nameToPath(page.name),
+        children: [
+          {
+            label: 'Overview',
+            url: nameToPath(page.name),
+          },
+          ...buildNavItems(page.pages!),
+        ],
       };
     }
-
-    // Sort categories and create grouped children
-    const children: NavItemType[] = groupKeys
-      .sort((a, b) => {
-        const { categoryOrder } = page;
-        if (categoryOrder) {
-          const indexA = categoryOrder.indexOf(a);
-          const indexB = categoryOrder.indexOf(b);
-
-          if (indexA > -1 && indexB > -1) {
-            return indexA - indexB;
-          }
-          if (indexA > -1) {
-            return -1;
-          }
-          if (indexB > -1) {
-            return 1;
-          }
-        }
-        return a.localeCompare(b);
-      })
-      .map(category => ({
-        label: category,
-        type: 'group',
-        children: groups[category].sort((a, b) => {
-          const detailsA = pageDetails[a.label];
-          const detailsB = pageDetails[b.label];
-          const orderA = detailsA?.cardOrder ?? Number.MAX_SAFE_INTEGER;
-          const orderB = detailsB?.cardOrder ?? Number.MAX_SAFE_INTEGER;
-
-          return orderA - orderB || a.label.localeCompare(b.label);
-        }),
-      }));
-
-    return {
-      label: page.name,
-      url: nameToPath(page.name),
-      children,
-    };
+    return navItem;
   });

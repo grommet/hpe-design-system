@@ -9,6 +9,17 @@ export const Navigation = ({ ...rest }) => {
   const router = useRouter();
   const sendAnalytics = useAnalytics();
 
+  // Listen for route changes to update active item in navigation
+  router.events.on('routeChangeComplete', url => {
+    const matchedItem = navItems
+      .flatMap(item => item.children || [])
+      .find(item => item.url === url);
+
+    if (matchedItem) {
+      setActiveItem(matchedItem.label);
+    }
+  });
+
   const handleSelect = ({ item, event }) => {
     event.preventDefault();
     router.push(item.url);
