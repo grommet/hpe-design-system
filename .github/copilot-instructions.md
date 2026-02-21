@@ -67,6 +67,25 @@ pnpm --filter hpe-design-tokens sync-tokens-to-figma   # JSON files → Figma
 - **Dark mode**: Implemented via `ThemeMode` component (`apps/docs/src/layouts/main/ThemeMode.js`); token files have separate `.light.json`/`.dark.json` variants.
 - Docs site uses `output: 'export'` (static HTML) in `apps/docs/next.config.mjs` — no server-side rendering at runtime.
 
+## Pull Request Conventions
+
+**Branch naming** (descriptive, kebab-case, optionally prefixed by area):
+
+```
+docs/colors-layering-update
+templates/replace-dashboard-card-image
+remove-unused-icons
+```
+
+**PR title** format: `[{project}] {subject} – {describe what changed}`
+
+- `[Docs] Colors – Moved background layering approach from tokens to foundations`
+- `[Design Tokens] Colors – Updated brand palette and spacing scale`
+- `[Icons Grommet] Library – Added new status icons`
+- `[Codemod] T-shirt – Added mod for calendar sizes`
+
+**PR description**: Complete all sections of the PR template. Link closing issues with `Closes #1234` (auto-closes on merge); use a plain link for related-but-not-closing issues.
+
 ## Versioning & Publishing
 
 - Changesets (`@changesets/cli`) manages versioning for publishable packages (`hpe-design-tokens`, `@hpe-design/icons-grommet`, `hpe-design-system-codemods`).
