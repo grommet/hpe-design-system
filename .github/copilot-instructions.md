@@ -104,4 +104,3 @@ remove-unused-icons
 - Page shell (header, theme toggle): `apps/docs/src/layouts/main/`
 - Style Dictionary build config: `packages/hpe-design-tokens/src/scripts/build-style-dictionary.js`
 - Custom SD formats/transforms: `packages/hpe-design-tokens/src/formats/` and `packages/hpe-design-tokens/src/transforms/`
-- Custom SD formats/transforms: `packages/hpe-design-tokens/src/formats/` and `src/transforms/`
