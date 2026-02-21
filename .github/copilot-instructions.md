@@ -24,8 +24,8 @@ Shared dependency versions are managed through `pnpm-workspace.yaml` `catalog:` 
 pnpm install                          # install all workspace deps (run from anywhere)
 pnpm start:docs                       # dev server for docs site (Next.js)
 pnpm --filter hpe-design-tokens build # rebuild tokens (required after token file changes)
-pnpm --filter "@hpe-design/icons-grommet" storybook  # icons Storybook
-pnpm --filter "@shared/aries-core" storybook         # component Storybook
+pnpm storybook:icons-grommet                          # icons Storybook
+pnpm storybook:core                                   # component Storybook
 pnpm --filter docs test:ci            # run TestCafe e2e tests (headless)
 pnpm --filter "@shared/hooks" test    # Vitest unit tests for hooks
 ```
