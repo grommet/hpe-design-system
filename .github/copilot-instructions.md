@@ -9,6 +9,7 @@ pnpm workspace with five workspace roots (`apps/*`, `packages/**`, `sandbox/*`, 
 | `apps/docs`                  | `docs`                       | Next.js 15 documentation site (static export) |
 | `packages/hpe-design-tokens` | `hpe-design-tokens`          | Design tokens built with Style Dictionary v4  |
 | `packages/icons-grommet`     | `@hpe-design/icons-grommet`  | HPE icons for Grommet (Vite build)            |
+| `packages/icons-svg`         | `@hpe-design/icons-svg`      | HPE icons in raw SVG format (Vite build)      |
 | `packages/codemods`          | `hpe-design-system-codemods` | JSCodeshift transforms for migrations         |
 | `shared/aries-core`          | `@shared/aries-core`         | Shared React components + Storybook           |
 | `shared/hooks`               | `@shared/hooks`              | Shared React hooks (TypeScript, Vitest)       |
