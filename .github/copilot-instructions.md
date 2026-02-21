@@ -2,7 +2,7 @@
 
 ## Monorepo Overview
 
-pnpm workspace with five workspace roots (`apps/*`, `packages/**`, `sandbox/*`, `shared/*`). Key packages:
+pnpm workspace with four workspace roots (`apps/*`, `packages/**`, `sandbox/*`, `shared/*`). Key packages:
 
 | Path                         | Package                      | Purpose                                       |
 | ---------------------------- | ---------------------------- | --------------------------------------------- |
