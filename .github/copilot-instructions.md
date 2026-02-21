@@ -7,6 +7,7 @@ pnpm workspace with five workspace roots (`apps/*`, `packages/**`, `sandbox/*`, 
 | Path                         | Package                      | Purpose                                       |
 | ---------------------------- | ---------------------------- | --------------------------------------------- |
 | `apps/docs`                  | `docs`                       | Next.js 15 documentation site (static export) |
+| `apps/design-tokens-manager` | `design-tokens-manager`      | Vite app for browsing/managing design tokens  |
 | `packages/hpe-design-tokens` | `hpe-design-tokens`          | Design tokens built with Style Dictionary v4  |
 | `packages/icons-grommet`     | `@hpe-design/icons-grommet`  | HPE icons for Grommet (Vite build)            |
 | `packages/icons-svg`         | `@hpe-design/icons-svg`      | HPE icons in raw SVG format (Vite build)      |
@@ -23,12 +24,16 @@ Shared dependency versions are managed through `pnpm-workspace.yaml` `catalog:` 
 ```bash
 pnpm install                          # install all workspace deps (run from anywhere)
 pnpm start:docs                       # dev server for docs site (Next.js)
+pnpm start:design-tokens-manager      # dev server for design tokens manager
+pnpm start:grommet-app                # dev server for grommet sandbox app
 pnpm --filter hpe-design-tokens build # rebuild tokens (required after token file changes)
-pnpm storybook:icons-grommet                          # icons Storybook
-pnpm storybook:core                                   # component Storybook
+pnpm storybook:icons-grommet          # icons Storybook
+pnpm storybook:core                   # component Storybook (builds tokens + hooks first)
 pnpm --filter docs test:ci            # run TestCafe e2e tests (headless)
 pnpm --filter "@shared/hooks" test    # Vitest unit tests for hooks
 ```
+
+**`pnpm install` gotcha**: the `grommet` stable tarball SHA can go stale, causing an integrity check failure. Fix: `rm pnpm-lock.yaml && pnpm install`.
 
 **Pre-commit hooks** run ESLint, Prettier, and TestCafe e2e tests via Husky. TestCafe launches real browser windows — **keep browser windows in focus** or tests will stall/timeout (>2.5 min = browser is minimized).
 
@@ -44,11 +49,11 @@ Component documentation follows a strict three-part pattern:
 
 ## Design Token Architecture
 
-Tokens follow W3C Design Token Community Group format (`$type`, `$value`, `$description`). Three layers:
+Tokens follow W3C Design Token Community Group format (`$type`, `$value`, `$description`). Three layers under `packages/hpe-design-tokens/tokens/`:
 
-- `tokens/primitive/` — raw values (colors, sizes)
-- `tokens/semantic/` — contextual references (`color.light.json`, `color.dark.json`, `dimension.default.json`)
-- `tokens/component/` — component-specific tokens
+- `primitive/` — raw values (colors, sizes)
+- `semantic/` — contextual references (`color.light.json`, `color.dark.json`, `dimension.default.json`)
+- `component/` — component-specific tokens
 
 Versioned variants exist (`.v0`, `.v1`, current) for migration compatibility. The build is run via Style Dictionary: `pnpm --filter hpe-design-tokens build`. Token outputs land in `packages/hpe-design-tokens/dist/` as ESM, CJS, CSS vars, and a Grommet-compatible format.
 
@@ -88,7 +93,7 @@ remove-unused-icons
 
 ## Versioning & Publishing
 
-- Changesets (`@changesets/cli`) manages versioning for publishable packages (`hpe-design-tokens`, `@hpe-design/icons-grommet`, `hpe-design-system-codemods`).
+- Changesets (`@changesets/cli`) manages versioning for publishable packages (`hpe-design-tokens`, `@hpe-design/icons-grommet`, `@hpe-design/icons-svg`, `hpe-design-system-codemods`).
 - The `design-tokens-stable` branch tracks stable token releases.
 - `pnpm-workspace.yaml` catalogs (`grommet-stable`, `grommet-theme-hpe-v6`, `grommet-theme-hpe-v7`) allow consuming specific Grommet versions per package.
 
@@ -98,4 +103,5 @@ remove-unused-icons
 - Docs layout components (`Example`, `ContentSection`, etc.): `apps/docs/src/layouts/content/`
 - Page shell (header, theme toggle): `apps/docs/src/layouts/main/`
 - Style Dictionary build config: `packages/hpe-design-tokens/src/scripts/build-style-dictionary.js`
+- Custom SD formats/transforms: `packages/hpe-design-tokens/src/formats/` and `packages/hpe-design-tokens/src/transforms/`
 - Custom SD formats/transforms: `packages/hpe-design-tokens/src/formats/` and `src/transforms/`
