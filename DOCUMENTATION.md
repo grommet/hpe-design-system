@@ -43,8 +43,8 @@ This repository is a [pnpm workspace](https://pnpm.io/workspaces) monorepo conta
 | Package | Description |
 |---|---|
 | `sandbox/grommet-app` | Vite + React prototype for testing components and tokens against multiple theme versions |
-| `sandbox/mcp-ui` | Future development — not active |
-
+| `sandbox/native-web` | Native web/vanilla JS prototype |
+| `sandbox/tailwind-app` | Tailwind CSS prototype |
 ---
 
 ## Architecture Diagram
