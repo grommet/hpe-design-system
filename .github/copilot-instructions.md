@@ -15,7 +15,8 @@ pnpm workspace with four workspace roots (`apps/*`, `packages/**`, `sandbox/*`, 
 | `shared/aries-core`          | `@shared/aries-core`         | Shared React components + Storybook           |
 | `shared/hooks`               | `@shared/hooks`              | Shared React hooks (TypeScript, Vitest)       |
 | `sandbox/grommet-app`        | —                            | Prototype app for testing components/tokens   |
-| `sandbox/mcp-ui`             | —                            | Future development — do not treat as active   |
+| `sandbox/native-web`         | —                            | Prototype sandbox app (native-web)            |
+| `sandbox/tailwind-app`       | —                            | Prototype sandbox app (Tailwind)              |
 
 Shared dependency versions are managed through `pnpm-workspace.yaml` `catalog:` entries — use `catalog:` references in `package.json` instead of pinned versions for shared deps like `grommet`, `react`, `styled-components`.
 
