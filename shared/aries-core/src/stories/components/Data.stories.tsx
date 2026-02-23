@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataTable, Text, Box, Meter } from 'grommet';
+import { Data, DataTable, DataTableProps, Text, Box, Meter } from 'grommet';
 
 const amountFormatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
