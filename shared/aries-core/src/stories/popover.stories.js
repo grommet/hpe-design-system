@@ -5,7 +5,7 @@ import { PopoverInlineExample } from 'apps/docs/src/examples/templates/popover/P
 import { PopoverSimpleExample } from 'apps/docs/src/examples/templates/popover/PopoverSimpleExample';
 
 const meta = {
-  title: 'Popover',
+  title: 'Patterns/Popover',
 };
 
 export default meta;

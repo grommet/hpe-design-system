@@ -9,7 +9,7 @@ import { BannerNotificationWarning } from 'apps/docs/src/examples/templates/glob
 import { BannerNotificationWarningClose } from 'apps/docs/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarningClose';
 
 const meta = {
-  title: 'Global Notifications',
+  title: 'Patterns/Global Notifications',
 };
 
 export default meta;
