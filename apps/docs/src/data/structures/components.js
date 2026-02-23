@@ -864,7 +864,7 @@ export const components = [
     accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
-      'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
+      'A menu presents a set of related actions from which a user may choose.',
     seoDescription:
       'Menu contains a list of actions. See some best UX practices .',
     sections: [
