@@ -66,7 +66,9 @@ const DATA = [
   },
 ];
 
-const columns = [
+type Datum = (typeof DATA)[number];
+
+const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'name',
     header: <Text>Name with extra</Text>,
