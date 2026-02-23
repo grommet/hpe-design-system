@@ -36,25 +36,25 @@ const DATA = [
     name: 'Alan',
     location: 'San Francisco',
     date: '2023-07-02',
-    percent: 20,
+    percent: '20%',
   },
   {
     name: 'Bryan',
     location: 'Fort Collins',
     date: '2023-06-05',
-    percent: 30,
+    percent: '30%',
   },
   {
     name: 'Chris',
     location: 'Palo Alto',
     date: '2023-06-11',
-    percent: 40,
+    percent: '40%',
   },
   {
     name: 'Eric',
     location: 'San Francisco',
     date: '2023-06-13',
-    percent: 80,
+    percent: '80%',
   },
 ];
 
