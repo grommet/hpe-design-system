@@ -293,8 +293,6 @@ export const Default = {
         direction: 'desc',
       },
     },
-    filteredTotal: 8,
-    id: 'data_example',
     properties: {
       location: {
         label: 'Location',
