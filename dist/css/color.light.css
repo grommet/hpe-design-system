@@ -210,7 +210,7 @@
   --hpe-color-foreground-primary: var(--hpe-base-color-green-800);
   --hpe-color-foreground-unknown: var(--hpe-base-color-grey-600); /** Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status */
   --hpe-color-foreground-warning: var(--hpe-base-color-orange-600); /** Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status */
-  --hpe-color-icon-critical: var(--hpe-base-color-red-600); /** Use for icons communicating errors or danger. Keywords: status */
+  --hpe-color-icon-critical: var(--hpe-base-color-red-800); /** Use for icons communicating errors or danger. Keywords: status */
   --hpe-color-icon-info: var(--hpe-base-color-blue-700); /** Use for icons communicating neutral information. Keywords: status */
   --hpe-color-icon-ok: var(--hpe-base-color-green-650); /** Use for icons communicating success. Keywords: status */
   --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-white-100); /** Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
@@ -269,6 +269,7 @@
   --hpe-formField-default-input-container-hover-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-container-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-container-disabled-rest-background: var(--hpe-color-transparent);
+  --hpe-formField-default-input-group-container-disabled-rest-borderColor: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-container-rest-borderColor: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-disabled-rest-borderColor: var(--hpe-color-transparent);
@@ -355,12 +356,10 @@
   --hpe-button-primary-rest-background: var(--hpe-color-background-neutral-xstrong);
   --hpe-button-primary-rest-iconColor: var(--hpe-color-icon-onStrong);
   --hpe-button-primary-rest-textColor: var(--hpe-color-text-onStrong);
-  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-neutral-xstrong-hover);
-  --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onStrong);
-  --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onStrong);
-  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-neutral-xstrong);
-  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onStrong);
-  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onStrong);
+  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-contrast-hover);
+  --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-strong);
+  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-contrast);
+  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-strong);
   --hpe-button-secondary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-secondary-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-secondary-hover-background: var(--hpe-color-background-contrast-hover);
@@ -425,7 +424,6 @@
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-contrast);
   --hpe-formField-default-input-container-readOnly-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-formField-default-input-container-rest-borderColor: var(--hpe-color-border-default);
-  --hpe-formField-default-input-group-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-group-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-group-container-error-rest-borderColor: var(--hpe-color-border-critical);
   --hpe-formField-default-input-group-container-hover-borderColor: var(--hpe-formField-default-input-group-container-rest-borderColor);
@@ -490,6 +488,8 @@
   --hpe-button-default-selected-hover-iconColor: var(--hpe-button-default-selected-rest-iconColor);
   --hpe-button-default-selected-hover-textColor: var(--hpe-button-default-selected-rest-textColor);
   --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-strong);
+  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
   --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);

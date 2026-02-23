@@ -6927,7 +6927,7 @@ export default {
         "codeSyntax": {},
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "CORNER_RADIUS"
         ]
       }
     },
@@ -6942,7 +6942,7 @@ export default {
           "codeSyntax": {},
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "CORNER_RADIUS"
           ]
         }
       },
@@ -7431,7 +7431,7 @@ export default {
         "codeSyntax": {},
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "GAP"
         ]
       }
     },
@@ -7446,7 +7446,7 @@ export default {
           "codeSyntax": {},
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ]
         }
       },
@@ -7473,7 +7473,7 @@ export default {
         "codeSyntax": {},
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "GAP"
         ]
       }
     },
@@ -7488,7 +7488,7 @@ export default {
           "codeSyntax": {},
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ]
         }
       },
@@ -7641,7 +7641,7 @@ export default {
         "codeSyntax": {},
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "GAP"
         ]
       }
     },
@@ -7656,7 +7656,7 @@ export default {
           "codeSyntax": {},
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ]
         }
       },
@@ -7767,7 +7767,7 @@ export default {
         "codeSyntax": {},
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "GAP"
         ]
       }
     },
@@ -7782,7 +7782,7 @@ export default {
           "codeSyntax": {},
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ]
         }
       },
@@ -7893,7 +7893,7 @@ export default {
         "codeSyntax": {},
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "GAP"
         ]
       }
     },
@@ -7908,7 +7908,7 @@ export default {
           "codeSyntax": {},
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ]
         }
       },
@@ -7935,7 +7935,7 @@ export default {
         "codeSyntax": {},
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "GAP"
         ]
       }
     },
@@ -7950,7 +7950,7 @@ export default {
           "codeSyntax": {},
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ]
         }
       },

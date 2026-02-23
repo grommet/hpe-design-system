@@ -383,18 +383,18 @@ export default {
         },
         "selected": {
           "hover": {
-            "background": "background-neutral-xstrong-hover",
+            "background": "background-contrast-hover",
             "borderColor": "transparent",
             "fontWeight": 500,
-            "iconColor": "icon-onStrong",
-            "textColor": "text-onStrong"
+            "iconColor": "icon-strong",
+            "textColor": "text-strong"
           },
           "rest": {
-            "background": "background-neutral-xstrong",
+            "background": "background-contrast",
             "borderColor": "transparent",
             "fontWeight": 500,
-            "iconColor": "icon-onStrong",
-            "textColor": "text-onStrong"
+            "iconColor": "icon-strong",
+            "textColor": "text-strong"
           }
         },
         "small": {
@@ -1101,7 +1101,7 @@ export default {
               "disabled": {
                 "rest": {
                   "background": "transparent",
-                  "borderColor": "border-disabled"
+                  "borderColor": "transparent"
                 }
               },
               "error": {

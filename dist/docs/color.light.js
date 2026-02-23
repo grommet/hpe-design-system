@@ -2682,7 +2682,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#ec3331",
+    "$value": "#cc1f1a",
     "filePath": "tokens/semantic/color.light.json",
     "isSource": true,
     "original": {
@@ -2699,7 +2699,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{base.color.red.600}"
+      "$value": "{base.color.red.800}"
     },
     "name": "hpe.color.icon.critical",
     "attributes": {

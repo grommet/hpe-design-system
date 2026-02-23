@@ -11617,7 +11617,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#3e4550",
+    "$value": "rgba(0, 0, 0, 0.08)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11633,7 +11633,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.neutral.xstrong.hover}"
+      "$value": "{color.background.contrast.DEFAULT.hover}"
     },
     "name": "hpe.button.primary.selected.hover.background",
     "attributes": {
@@ -11760,7 +11760,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11777,7 +11777,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.icon.onStrong.DEFAULT.REST}"
+      "$value": "{color.icon.strong.REST}"
     },
     "name": "hpe.button.primary.selected.hover.iconColor",
     "attributes": {
@@ -11808,7 +11808,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11823,7 +11823,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.text.onStrong.DEFAULT.REST}"
+      "$value": "{color.text.strong.REST}"
     },
     "name": "hpe.button.primary.selected.hover.textColor",
     "attributes": {
@@ -11855,7 +11855,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#292d3a",
+    "$value": "rgba(0, 0, 0, 0.04)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11871,7 +11871,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.neutral.xstrong.REST}"
+      "$value": "{color.background.contrast.DEFAULT.REST}"
     },
     "name": "hpe.button.primary.selected.rest.background",
     "attributes": {
@@ -11998,7 +11998,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -12015,7 +12015,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.icon.onStrong.DEFAULT.REST}"
+      "$value": "{color.icon.strong.REST}"
     },
     "name": "hpe.button.primary.selected.rest.iconColor",
     "attributes": {
@@ -12046,7 +12046,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -12061,7 +12061,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.text.onStrong.DEFAULT.REST}"
+      "$value": "{color.text.strong.REST}"
     },
     "name": "hpe.button.primary.selected.rest.textColor",
     "attributes": {
@@ -30834,7 +30834,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#ec3331",
+    "$value": "#cc1f1a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -30928,7 +30928,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#ec3331",
+    "$value": "#cc1f1a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -32035,7 +32035,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
+    "$value": "rgba(0, 0, 0, 0)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -32051,7 +32051,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.border.disabled.DEFAULT.REST}"
+      "$value": "{color.transparent}"
     },
     "name": "hpe.formField.default.input.group.container.disabled.rest.borderColor",
     "attributes": {

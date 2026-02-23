@@ -72,7 +72,7 @@ module.exports = {
         "warning": "#d36d00"
       },
       "icon": {
-        "critical": "#ec3331",
+        "critical": "#cc1f1a",
         "default": "#3e4550",
         "disabled": "rgba(0, 0, 0, 0.24)",
         "info": "#0055da",
