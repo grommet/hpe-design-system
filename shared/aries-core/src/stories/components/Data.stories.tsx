@@ -278,7 +278,7 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   name: 'Data',
   render: args => (
-    <Data data={args.data || DATA} {...args}>
+    <Data {...args}>
       <DataTable alignSelf="start" columns={columns} />
     </Data>
   ),
