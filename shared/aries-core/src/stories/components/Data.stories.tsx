@@ -114,55 +114,6 @@ const meta = {
       description: 'Array of data objects.',
       table: {
         type: { summary: 'array' },
-        defaultValue: {
-          summary: `[
-  {
-    id: 1, 
-    name: 'Scott', 
-    age: 24,
-    siblings: ['Scarlet', 'Scout'],
-    contact: {
-      company: 'Acme, Inc.',
-      social: '@scotty',
-    },
-  },
-  {
-    id: 2, 
-    name: 'Zelsa', 
-    age: 91,
-    siblings: ['Zack', 'Zoe', 'Zelda', 'Zed', 'Ziggy'],
-    contact: {
-      company: 'Retired',
-    },
-  },
-]`,
-        },
-      },
-    },
-    defaultView: {
-      control: { type: 'object' },
-      description: 'The default view of the data.',
-      table: {
-        type: { summary: 'object' },
-        defaultValue: {
-          summary: `{
-  properties: {
-    country: ['US', 'UK'],
-    age: {
-      min: 22,
-      max: 56,
-    },
-  },
-  search: 'com',
-  sort: {
-    property: 'date',
-    direction: 'desc',
-  },
-  page: 1,
-  step: 50,
-  columns: ['country']
-}`,
-        },
       },
     },
     properties: {
@@ -171,29 +122,6 @@ const meta = {
         "This describes the objects found in 'data', sort of a schema. Using this property allows the caller to specify how the label renders and which properties should be filterable, searchable, sortable, and badgeable.",
       table: {
         type: { summary: 'object' },
-        defaultValue: {
-          summary: `{
-  location: {
-    label: 'Location',
-    sort: false,
-    options: ['Fort Collins', 'Palo Alto', 'Boise', 'San Francisco'],
-  },
-  name: {
-    filter: false,
-  },
-  paid: {
-    search: false,
-    label: 'Paid',
-  },
-  percent: {
-    search: false,
-    label: 'Percent',
-  },
-  date: {
-    label: 'Date',
-  },
-}`,
-        },
       },
     },
     toolbar: {
@@ -203,7 +131,6 @@ const meta = {
         "Whether to include a toolbar and what to put in it. Setting it to 'true' will include a Toolbar containing both DataSearch and DataFilters with layer prop.",
       table: {
         type: { summary: 'boolean | string' },
-        defaultValue: { summary: 'true' },
       },
     },
     view: {
@@ -211,25 +138,6 @@ const meta = {
       description: 'The current view of the data.',
       table: {
         type: { summary: 'string | object' },
-        defaultValue: {
-          summary: `{
-  properties: {
-    country: ['US', 'UK'],
-    age: {
-      min: 22,
-      max: 56,
-    },
-  },
-  search: 'com',
-  sort: {
-    property: 'date',
-    direction: 'desc',
-  },
-  page: 1,
-  step: 50,
-  columns: ['country']
-}`,
-        },
       },
     },
     views: {
@@ -237,36 +145,6 @@ const meta = {
       description: 'The set of predefined views of the data.',
       table: {
         type: { summary: 'array' },
-        defaultValue: {
-          summary: `[
-  {
-    name: 'My location',
-    properties: {
-      location: ['San Francisco'],
-    },
-  },
-  {
-    name: 'Recent entries',
-    sort: {
-      property: 'date',
-      direction: 'desc',
-    },
-  },
-  {
-    name: 'High performers',
-    properties: {
-      percent: {
-        min: 60,
-        max: 100,
-      },
-    },
-    sort: {
-      property: 'percent',
-      direction: 'desc',
-    },
-  },
-]`,
-        },
       },
     },
   },
@@ -284,15 +162,6 @@ export const Default = {
   ),
   args: {
     data: DATA,
-    defaultView: {
-      properties: {
-        location: ['Fort Collins', 'Palo Alto'],
-      },
-      sort: {
-        property: 'date',
-        direction: 'desc',
-      },
-    },
     properties: {
       location: {
         label: 'Location',
