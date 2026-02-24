@@ -158,6 +158,7 @@ export const LayerAnatomy = () => {
               subtitle="A form for entering the details needed to create a new pipeline."
               onClose={() => {}}
               border={{ style: 'dashed' }}
+              round="small"
             />
             <Box
               id="layer-body"
@@ -165,6 +166,7 @@ export const LayerAnatomy = () => {
               align="center"
               justify="center"
               pad="3xsmall"
+              round="small"
             >
               Body
             </Box>
@@ -173,6 +175,7 @@ export const LayerAnatomy = () => {
               border={{ style: 'dashed' }}
               justify="end"
               gap="small"
+              round="small"
             >
               <Button id="layer-cancel" label="Cancel" />
               <Button id="layer-confirm" label="Create pipeline" primary />
