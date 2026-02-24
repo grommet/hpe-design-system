@@ -59,7 +59,7 @@ const DATA = [
 ];
 
 const meta = {
-  title: 'Components/Data & friends/DataTable',
+  title: 'Components/Data',
   component: TypedDataTable,
   argTypes: {
     columns: {
@@ -102,7 +102,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const DataTableExample = {
   name: 'DataTable',
   render: args => <TypedDataTable {...args} />,
   args: {

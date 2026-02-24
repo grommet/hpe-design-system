@@ -106,7 +106,7 @@ const columns: DataTableProps<Datum>['columns'] = [
 ];
 
 const meta = {
-  title: 'Components/Data & friends/Data',
+  title: 'Components/Data',
   component: Data,
   argTypes: {
     data: {
@@ -153,7 +153,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const DataExample = {
   name: 'Data',
   render: args => (
     <Data {...args}>

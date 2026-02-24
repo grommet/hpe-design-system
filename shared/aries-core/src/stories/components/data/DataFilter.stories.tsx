@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataFilter, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/Data & friends/DataFilter',
+  title: 'Components/Data',
   component: DataFilter,
   argTypes: {
     property: {
@@ -19,7 +19,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const DataFilterExample = {
   name: 'DataFilter',
   render: args => (
     <Data

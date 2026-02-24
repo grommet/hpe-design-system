@@ -11,7 +11,12 @@ export default {
       const mode = isDark ? 'dark' : 'light';
 
       return (
-        <Grommet full theme={hpe} themeMode={mode} background={context.globals.background?.value}>
+        <Grommet
+          full
+          theme={hpe}
+          themeMode={mode}
+          background={context.globals.background?.value}
+        >
           <Story />
         </Grommet>
       );
@@ -30,6 +35,26 @@ export default {
     },
     docs: {
       codePanel: true,
+    },
+    options: {
+      storySort: {
+        order: [
+          'Components',
+          [
+            'Accordion',
+            'Anchor',
+            'Avatar',
+            'Box',
+            'Button',
+            'Card',
+            'CheckBox',
+            'CheckBoxGroup',
+            'Data',
+            'DateInput',
+            '*',
+          ],
+        ],
+      },
     },
   },
 };

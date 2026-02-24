@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataTableColumns, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/Data & friends/DataTableColumns',
+  title: 'Components/Data',
   component: DataTableColumns,
   argTypes: {
     drop: {
@@ -21,7 +21,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const DataTableColumnsExample = {
   name: 'DataTableColumns',
   render: args => (
     <Data
