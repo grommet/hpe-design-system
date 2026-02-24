@@ -149,8 +149,7 @@ export const LayerAnatomy = () => {
               id="layer-header"
               closeId="layer-close"
               title="Create pipeline"
-              subtitle="A form for entering the details needed to create a new 
-              pipeline."
+              subtitle="A form for entering the details needed to create a new pipeline."
               onClose={() => {}}
               border={{ style: 'dashed' }}
             />
