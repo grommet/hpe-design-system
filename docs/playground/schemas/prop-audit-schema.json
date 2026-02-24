@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Design System Playground Prop Audit",
+  "type": "object",
+  "required": ["component", "props"],
+  "properties": {
+    "component": { "type": "string" },
+    "props": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "prop",
+          "type",
+          "purpose",
+          "group",
+          "dependsOn",
+          "exclusiveWith",
+          "uiControl",
+          "defaultInPlayground",
+          "omitWhenDefault"
+        ],
+        "properties": {
+          "prop": { "type": "string" },
+          "type": { "type": "string" },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "preview-user",
+              "control-implementor",
+              "layout-positional",
+              "relationship",
+              "event"
+            ]
+          },
+          "group": { "type": "string" },
+          "dependsOn": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "exclusiveWith": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "priority": { "type": "number" },
+          "uiControl": { "type": "string" },
+          "defaultInPlayground": {},
+          "omitWhenDefault": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

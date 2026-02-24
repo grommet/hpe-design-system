@@ -1,0 +1,412 @@
+{
+  "component": "Button",
+  "schemaVersion": 2,
+  "source": "docs/playground/source/Button.d.ts",
+  "atomicDependencies": ["Box", "Tip", "Skeleton"],
+  "formFieldCompatible": false,
+  "props": [
+    {
+      "prop": "a11yTitle",
+      "type": "A11yTitleType",
+      "purpose": "control-implementor",
+      "group": "Accessibility",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "alignSelf",
+      "type": "AlignSelfType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "badge",
+      "type": "boolean | number | { background?: BackgroundType; max?: number; value?: boolean | number } | JSX.Element",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "composite",
+      "modes": [
+        { "id": "dot", "label": "Dot", "shape": "true", "description": "Renders as a simple dot indicator, no value" },
+        { "id": "counter", "label": "Counter", "shape": "{ value: number, max: number }", "description": "Renders as a numbered badge; displays n+ when value exceeds max" }
+      ],
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "children",
+      "type": "React.ReactNode | (state) => React.ReactNode",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": ["label"],
+      "uiControl": "slot",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "busy",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": ["success", "disabled"],
+      "suppressedWhen": [{ "prop": "href", "condition": "truthy", "reason": "anchor buttons navigate rather than trigger async actions" }],
+      "uiControl": "toggle",
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "gridArea",
+      "type": "GridAreaType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "margin",
+      "type": "MarginType",
+      "purpose": "layout-positional",
+      "group": "Spacing",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "active",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": ["disabled"],
+      "uiControl": "toggle",
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "color",
+      "type": "ColorType",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "disabled",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": ["active", "busy", "success"],
+      "uiControl": "toggle",
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "fill",
+      "type": "FillType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "focusIndicator",
+      "type": "boolean | 'inset'",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "defaultInPlayground": true,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "gap",
+      "type": "GapType",
+      "purpose": "layout-positional",
+      "group": "Spacing",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "hoverIndicator",
+      "type": "HoverIndicatorType",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "href",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "justify",
+      "type": "'around' | 'between' | 'center' | 'end' | 'evenly' | 'start' | 'stretch'",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "defaultInPlayground": "center",
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "target",
+      "type": "'_self' | '_blank' | '_parent' | '_top' | string",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": ["href"],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "defaultInPlayground": "_self",
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "icon",
+      "type": "JSX.Element",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "slot",
+      "atomicComponent": "Icon",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "kind",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": ["primary", "secondary", "plain"],
+      "uiControl": "select",
+      "priority": 1,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true,
+      "playgroundNote": "API inconsistency: primary and secondary are boolean props, but toolbar uses kind='toolbar'. In the playground these are unified as a single kind Select to avoid confusing the user.",
+      "collaborationRequired": true
+    },
+    {
+      "prop": "label",
+      "type": "React.ReactNode",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": ["children"],
+      "uiControl": "text",
+      "priority": 1,
+      "defaultInPlayground": "Button",
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "messages",
+      "type": "{ busy?: string; success?: string }",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": ["busy", "success"],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "pad",
+      "type": "PadType",
+      "purpose": "layout-positional",
+      "group": "Spacing",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "plain",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "priority": 4,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "primary",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": ["secondary", "kind", "plain"],
+      "uiControl": "toggle",
+      "priority": 2,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true,
+      "playgroundNote": "Unified with secondary and kind='toolbar' into a single kind Select in the playground."
+    },
+    {
+      "prop": "reverse",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Layout",
+      "dependsOn": ["icon", "label"],
+      "dependsOnNote": "Only meaningful when BOTH icon and label are present. Has no visible effect on an icon-only button.",
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "secondary",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": ["primary", "kind", "plain"],
+      "uiControl": "toggle",
+      "priority": 3,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true,
+      "playgroundNote": "Unified with primary and kind='toolbar' into a single kind Select in the playground."
+    },
+    {
+      "prop": "size",
+      "type": "'small' | 'medium' | 'large' | string",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "success",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": ["busy", "disabled"],
+      "suppressedWhen": [{ "prop": "href", "condition": "truthy", "reason": "anchor buttons navigate rather than trigger async actions" }],
+      "uiControl": "toggle",
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "tip",
+      "type": "TipProps | string",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "composite",
+      "modes": [
+        { "id": "simple", "label": "Simple", "shape": "string", "description": "Plain text tooltip" },
+        { "id": "configured", "label": "Configured", "shape": "{ content: ReactNode, dropProps: DropProps }", "description": "Content with positioning control; needs collaborative UI to expose dropProps" }
+      ],
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "type",
+      "type": "'button' | 'reset' | 'submit'",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": ["href"],
+      "uiControl": "select",
+      "defaultInPlayground": "button",
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "as",
+      "type": "PolymorphicType",
+      "purpose": "control-implementor",
+      "group": "Advanced",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onClick",
+      "type": "(event: React.MouseEvent) => void",
+      "purpose": "event",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    }
+  ],
+  "patterns": [
+    {
+      "id": "icon-only",
+      "label": "Icon only",
+      "description": "A button with an icon but no label. Not a prop — it is a usage combination: icon set, label omitted.",
+      "requires": { "icon": "set", "label": "omitted" },
+      "enforces": [{ "prop": "a11yTitle", "required": true, "reason": "No visible label means screen readers need an explicit description" }],
+      "hides": ["reverse"],
+      "collaborationRequired": false
+    },
+    {
+      "id": "kind-variants",
+      "label": "Kind variants",
+      "description": "primary, secondary, and toolbar are mutually exclusive appearance variants. primary and secondary are boolean props; toolbar uses kind='toolbar'. In the playground these are collapsed into a single Select.",
+      "collaborationRequired": true,
+      "collaborationNote": "The API inconsistency (booleans vs kind string) must be resolved at codegen time: selecting 'primary' emits primary, selecting 'toolbar' emits kind=\"toolbar\"."
+    },
+    {
+      "id": "link-button",
+      "label": "Link button",
+      "description": "When href is set the button renders as a styled anchor tag. busy and success are suppressed; target becomes relevant.",
+      "requires": { "href": "set" },
+      "suppresses": ["busy", "success"],
+      "reveals": ["target"],
+      "collaborationRequired": false
+    }
+  ],
+  "collaborationPolicy": "Where collaborationRequired is true, the playground UI cannot be fully derived from this schema alone. The control shape, codegen mapping, or interaction rules need to be agreed with the implementor before building."
+}

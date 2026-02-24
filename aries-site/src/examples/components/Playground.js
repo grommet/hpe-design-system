@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Anchor, Box, Text } from 'grommet';
 import { anchorArgTypes } from '@shared/aries-core/src/stories/components/Anchor.stories';
 import { boxArgTypes } from '@shared/aries-core/src/stories/components/Box.stories';
@@ -112,4 +114,8 @@ export const Playground = ({ component: componentName }) => {
       controls={controls}
     />
   );
+};
+
+Playground.propTypes = {
+  component: PropTypes.string.isRequired,
 };

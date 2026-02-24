@@ -1,0 +1,68 @@
+{
+  "component": "Tip",
+  "source": "docs/playground/source/Tip.d.ts",
+  "atomicDependencies": ["Drop"],
+  "formFieldCompatible": false,
+  "props": [
+    {
+      "prop": "children",
+      "type": "React.ReactNode",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "slot",
+      "atomicComponent": "ReactNode",
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "content",
+      "type": "React.ReactNode",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "slot",
+      "atomicComponent": "ReactNode",
+      "defaultInPlayground": "Tooltip content",
+      "omitWhenDefault": false
+    },
+    {
+      "prop": "defaultVisible",
+      "type": "boolean",
+      "purpose": "preview-user",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "dropProps",
+      "type": "DropType",
+      "purpose": "layout-positional",
+      "group": "Positioning",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "plain",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    }
+  ]
+}

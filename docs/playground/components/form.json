@@ -1,0 +1,129 @@
+{
+  "component": "Form",
+  "source": "docs/playground/source/Form.d.ts",
+  "atomicDependencies": ["FormField"],
+  "formFieldCompatible": false,
+  "note": "Form is the wrapper/controller component. It provides FormContext to all child FormField components, connecting name, value, validate, and error state automatically.",
+  "props": [
+    {
+      "prop": "value",
+      "type": "T (generic object)",
+      "purpose": "relationship",
+      "group": "Composition",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "errors",
+      "type": "{}",
+      "purpose": "control-implementor",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "infos",
+      "type": "{}",
+      "purpose": "control-implementor",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": ["errors"],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "validate",
+      "type": "'blur' | 'submit' | 'change'",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "atomicComponent": null,
+      "defaultInPlayground": "submit",
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "kind",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "messages",
+      "type": "{ invalid?: string; required?: string }",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onChange",
+      "type": "(value: T, options: { touched?: Record<string, boolean> }) => void",
+      "purpose": "event",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onSubmit",
+      "type": "(event: FormExtendedEvent<T>) => void",
+      "purpose": "event",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onReset",
+      "type": "(event: React.SyntheticEvent) => any",
+      "purpose": "event",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onValidate",
+      "type": "(validationResults: { errors: Record<string, any>; infos: Record<string, any>; valid: boolean }) => void",
+      "purpose": "event",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    }
+  ]
+}

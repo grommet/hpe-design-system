@@ -1,0 +1,118 @@
+{
+  "component": "Drop",
+  "source": "docs/playground/source/Drop.d.ts",
+  "atomicDependencies": ["Box"],
+  "formFieldCompatible": false,
+  "props": [
+    {
+      "prop": "target",
+      "type": "object",
+      "purpose": "layout-positional",
+      "group": "Positioning",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "priority": 1,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "align",
+      "type": "{ top?: 'top' | 'bottom'; bottom?: 'top' | 'bottom'; right?: 'left' | 'right'; left?: 'left' | 'right' }",
+      "purpose": "layout-positional",
+      "group": "Positioning",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "priority": 2,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "stretch",
+      "type": "boolean | 'align'",
+      "purpose": "layout-positional",
+      "group": "Positioning",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "inline",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "plain",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "restrictFocus",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": ["trapFocus"],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "trapFocus",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": ["restrictFocus"],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": true,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onClickOutside",
+      "type": "React.MouseEventHandler<HTMLDocument>",
+      "purpose": "event",
+      "group": "Events",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onEsc",
+      "type": "KeyboardType",
+      "purpose": "event",
+      "group": "Events",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    }
+  ]
+}

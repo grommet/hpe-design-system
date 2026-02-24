@@ -1,0 +1,129 @@
+{
+  "component": "Paragraph",
+  "source": "docs/playground/source/Paragraph.d.ts",
+  "atomicDependencies": [],
+  "formFieldCompatible": false,
+  "props": [
+    {
+      "prop": "size",
+      "type": "'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge' | string",
+      "purpose": "control-implementor",
+      "group": "Typography",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "atomicComponent": null,
+      "priority": 1,
+      "defaultInPlayground": "medium",
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "textAlign",
+      "type": "TextAlignType",
+      "purpose": "control-implementor",
+      "group": "Typography",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "color",
+      "type": "ColorType",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "fill",
+      "type": "boolean",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "maxLines",
+      "type": "number",
+      "purpose": "control-implementor",
+      "group": "Typography",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "number",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "responsive",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": true,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "margin",
+      "type": "MarginType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "alignSelf",
+      "type": "AlignSelfType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "gridArea",
+      "type": "GridAreaType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "a11yTitle",
+      "type": "A11yTitleType",
+      "purpose": "control-implementor",
+      "group": "Accessibility",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    }
+  ]
+}

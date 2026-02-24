@@ -1,0 +1,130 @@
+{
+  "component": "Skeleton",
+  "source": "docs/playground/source/Skeleton.d.ts",
+  "atomicDependencies": [],
+  "formFieldCompatible": false,
+  "props": [
+    {
+      "prop": "width",
+      "type": "WidthType",
+      "purpose": "control-implementor",
+      "group": "Size",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "priority": 1,
+      "defaultInPlayground": "medium",
+      "omitWhenDefault": false
+    },
+    {
+      "prop": "height",
+      "type": "HeightType",
+      "purpose": "control-implementor",
+      "group": "Size",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "priority": 2,
+      "defaultInPlayground": "xsmall",
+      "omitWhenDefault": false
+    },
+    {
+      "prop": "round",
+      "type": "RoundType",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "colors",
+      "type": "SkeletonColorsType",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "pad",
+      "type": "PadType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "margin",
+      "type": "MarginType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "alignSelf",
+      "type": "AlignSelfType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "gridArea",
+      "type": "GridAreaType",
+      "purpose": "layout-positional",
+      "group": "Layout",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "as",
+      "type": "PolymorphicType",
+      "purpose": "control-implementor",
+      "group": "Advanced",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "a11yTitle",
+      "type": "A11yTitleType",
+      "purpose": "control-implementor",
+      "group": "Accessibility",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    }
+  ]
+}

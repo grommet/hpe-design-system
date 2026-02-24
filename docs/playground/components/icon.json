@@ -1,0 +1,59 @@
+{
+  "component": "Icon",
+  "source": "docs/playground/source/Icon.d.ts",
+  "note": "HPE Design System uses @hpe-design/icons-grommet (packages/icons-grommet), NOT grommet-icons. All icons are ForwardRefExoticComponents extending StyledIconProps.",
+  "atomicDependencies": [],
+  "formFieldCompatible": false,
+  "props": [
+    {
+      "prop": "size",
+      "type": "string | number",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "select",
+      "atomicComponent": null,
+      "priority": 1,
+      "defaultInPlayground": "medium",
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "color",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Appearance",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "priority": 2,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "a11yTitle",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Accessibility",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "viewBox",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Advanced",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    }
+  ]
+}

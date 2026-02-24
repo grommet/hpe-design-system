@@ -1,0 +1,105 @@
+{
+  "component": "CheckBoxGroup",
+  "source": "docs/playground/source/CheckBoxGroup.d.ts",
+  "atomicDependencies": ["CheckBox", "Box"],
+  "formFieldCompatible": true,
+  "note": "CheckBoxGroup extends BoxProps for layout. Each option can be a string or a CheckBoxProps object for per-option configuration.",
+  "props": [
+    {
+      "prop": "options",
+      "type": "(CheckBoxType | string)[]",
+      "purpose": "preview-user",
+      "group": "Content",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": ["Option 1", "Option 2", "Option 3"],
+      "omitWhenDefault": false
+    },
+    {
+      "prop": "value",
+      "type": "(number | string)[]",
+      "purpose": "preview-user",
+      "group": "Content",
+      "dependsOn": ["options"],
+      "exclusiveWith": ["defaultValue"],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "defaultValue",
+      "type": "(number | string)[]",
+      "purpose": "control-implementor",
+      "group": "Content",
+      "dependsOn": ["options"],
+      "exclusiveWith": ["value"],
+      "uiControl": "json",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "disabled",
+      "type": "boolean",
+      "purpose": "control-implementor",
+      "group": "State",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "toggle",
+      "atomicComponent": null,
+      "defaultInPlayground": false,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "labelKey",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Advanced",
+      "dependsOn": ["options"],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "valueKey",
+      "type": "string",
+      "purpose": "control-implementor",
+      "group": "Advanced",
+      "dependsOn": ["options"],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "name",
+      "type": "string",
+      "purpose": "relationship",
+      "group": "Composition",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "text",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    },
+    {
+      "prop": "onChange",
+      "type": "(event?: { value: string; option: string | CheckBoxProps }) => void",
+      "purpose": "event",
+      "group": "Behavior",
+      "dependsOn": [],
+      "exclusiveWith": [],
+      "uiControl": "event",
+      "atomicComponent": null,
+      "defaultInPlayground": null,
+      "omitWhenDefault": true
+    }
+  ]
+}

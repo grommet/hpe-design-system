@@ -221,6 +221,7 @@ export const Example = ({
             ? background
             : undefined
         }
+        fill={height ? 'vertical' : undefined}
         screen={screen}
         width={screen === screens.mobile ? 'medium' : width}
         ref={inlineRef}

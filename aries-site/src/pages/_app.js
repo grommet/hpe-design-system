@@ -201,6 +201,12 @@ function App({ Component, pageProps, router }) {
     return { contentHistory, pageUpdateReady, setPageUpdateReady };
   }, [contentHistory, pageUpdateReady]);
 
+  // Pages can export a `getLayout` function to opt out of the site layout.
+  // e.g. for full-screen playground pages: `Page.getLayout = page => page;`
+  if (Component.getLayout) {
+    return Component.getLayout(<Component {...pageProps} />);
+  }
+
   return (
     <ThemeMode>
       <ViewContext.Provider value={viewContextValue}>

@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types, max-len */
 import React from 'react';
 import { Button } from 'grommet';
 import { ComponentPlayground } from '../../../components/content/ComponentPlayground';

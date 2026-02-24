@@ -20,7 +20,7 @@ export const CodeEditor = ({ code, onChange }) => {
   }, [onChange]);
 
   useEffect(() => {
-    if (!editorRef.current) return;
+    if (!editorRef.current) return undefined;
 
     const backgroundColor = isDark
       ? theme.global.colors['background-front'] || '#1e1e1e'
@@ -28,6 +28,7 @@ export const CodeEditor = ({ code, onChange }) => {
 
     // Get HPE prism theme colors
     const hpePrismTheme = isDark ? prism.dark : prism.light;
+    const bgFallback = isDark ? '#1e1e1e' : '#ffffff';
 
     const customTheme = EditorView.theme(
       {
@@ -39,22 +40,18 @@ export const CodeEditor = ({ code, onChange }) => {
           backgroundColor:
             typeof backgroundColor === 'string'
               ? backgroundColor
-              : isDark
-              ? '#1e1e1e'
-              : '#ffffff',
+              : bgFallback,
           color:
             hpePrismTheme['pre[class*="language-"]']?.color ||
             (isDark ? '#f8f8f2' : '#000000'),
         },
         '.cm-scroller': {
-          fontFamily:
-            'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
+          // eslint-disable-next-line max-len
+          fontFamily: 'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
           backgroundColor:
             typeof backgroundColor === 'string'
               ? backgroundColor
-              : isDark
-              ? '#1e1e1e'
-              : '#ffffff',
+              : bgFallback,
         },
         '.cm-content': {
           backgroundColor: 'transparent',
