@@ -17,7 +17,7 @@ export default {
           themeMode={mode}
           background={context.globals.background?.value}
         >
-          <Box pad="large" align="center" fill>
+          <Box pad="large" fill>
             <Story />
           </Box>
         </Grommet>
