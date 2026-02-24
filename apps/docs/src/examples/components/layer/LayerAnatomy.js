@@ -19,7 +19,7 @@ const type = 'direct';
 const connections = [
   {
     anchor: 'horizontal',
-    type,
+    type: 'rectilinear',
     color,
     thickness,
     fromTarget: '1',
@@ -59,7 +59,7 @@ const connections = [
   },
   {
     anchor: 'horizontal',
-    type,
+    type: 'rectilinear',
     color,
     thickness,
     fromTarget: '3',
@@ -67,7 +67,7 @@ const connections = [
   },
   {
     anchor: 'vertical',
-    type,
+    type: 'rectilinear',
     color,
     thickness,
     fromTarget: '3a',
@@ -75,7 +75,7 @@ const connections = [
   },
   {
     anchor: 'vertical',
-    type,
+    type: 'rectilinear',
     color,
     thickness,
     fromTarget: '3b',
@@ -85,30 +85,32 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['5xsmall', 'medium', '3xsmall']}
+    columns={['36px', 'medium', '36px']}
     rows={[
-      '5xsmall',
-      'flex',
-      'flex',
-      'flex',
-      'flex',
-      'flex',
-      'flex',
-      '5xsmall',
+      '24px',
+      '36px',
+      '46px',
+      '24px',
+      '36px',
+      '24px',
+      '38px',
+      '24px',
+      '64px',
     ]}
     areas={[
+      ['empty-0', 'layer-area', 'empty-1'],
       ['annotation-1a', 'layer-area', 'annotation-1c'],
       ['annotation-1b', 'layer-area', 'annotation-1'],
-      ['empty-0', 'layer-area', 'empty-1'],
-      ['empty-2', 'layer-area', 'annotation-2'],
-      ['empty-3', 'layer-area', 'empty-4'],
+      ['empty-2', 'layer-area', 'empty-3'],
+      ['empty-4', 'layer-area', 'annotation-2'],
       ['empty-5', 'layer-area', 'annotation-3'],
       ['empty-6', 'layer-area', 'empty-7'],
-      ['empty-8', 'annotation-3b', 'annotation-3a'],
+      ['empty-8', 'layer-area', 'empty-9'],
+      ['empty-10', 'annotation-3b', 'annotation-3a'],
     ]}
     align="center"
     justify="center"
-    columnGap="large"
+    gap={{ column: 'xlarge' }}
     {...rest}
   />
 );
@@ -132,6 +134,7 @@ export const LayerAnatomy = () => {
           <Annotation
             key={id}
             id={id}
+            alignSelf={`${['3a', '3b'].includes(id) ? 'end' : 'center'}`}
             target={target}
             gridArea={gridArea}
             {...rest}
@@ -142,11 +145,13 @@ export const LayerAnatomy = () => {
           gridArea="layer-area"
           background="background-front"
           round="small"
+          alignSelf="start"
+          justifySelf="start"
           elevation="large"
         >
           <CardBody pad="medium" gap="medium">
             <LayerHeader
-              id="layer-header"
+              headerId="layer-header"
               closeId="layer-close"
               title="Create pipeline"
               // eslint-disable-next-line max-len
