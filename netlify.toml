@@ -1,2 +1,6 @@
+[build]
+  command = "pnpm --filter aries-site export"
+  publish = "aries-site/out"
+
 [build.environment]
   YARN_FLAGS = "--update-checksums"
