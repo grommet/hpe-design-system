@@ -1,26 +1,28 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataFilter, DataTable } from 'grommet';
+import { Data, DataTableColumns, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataFilter',
-  component: DataFilter,
+  title: 'Components/Data & friends/DataTableColumns',
+  component: DataTableColumns,
   argTypes: {
-    property: {
-      control: { type: 'select' },
-      options: ['name', 'location', 'date', 'percent', 'paid'],
+    drop: {
+      control: { type: 'boolean' },
+      description: 'Whether to show the controls via a DropButton.',
     },
-    range: {
+    options: {
       control: { type: 'object' },
+      description:
+        'The set of possible columns. Can be array of strings or objects with label, property, disabled, and pinned properties.',
     },
   },
-} satisfies Meta<typeof DataFilter>;
+} satisfies Meta<typeof DataTableColumns>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default = {
-  name: 'DataFilter',
+  name: 'DataTableColumns',
   render: args => (
     <Data
       data={[
@@ -47,7 +49,7 @@ export const Default = {
         },
       ]}
     >
-      <DataFilter {...args} />
+      <DataTableColumns {...args} />
       <DataTable
         columns={[
           {
@@ -75,7 +77,28 @@ export const Default = {
     </Data>
   ),
   args: {
-    property: 'location',
-    range: undefined,
+    drop: false,
+    options: [
+      {
+        property: 'name',
+        label: 'Name',
+      },
+      {
+        property: 'location',
+        label: 'Location',
+      },
+      {
+        property: 'date',
+        label: 'Date',
+      },
+      {
+        property: 'percent',
+        label: 'Percent',
+      },
+      {
+        property: 'paid',
+        label: 'Paid',
+      },
+    ],
   },
 } satisfies Story;

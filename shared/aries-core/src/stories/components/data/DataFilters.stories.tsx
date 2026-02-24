@@ -1,28 +1,31 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataTableColumns, DataTable } from 'grommet';
+import { Data, DataFilter, DataFilters, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataTableColumns',
-  component: DataTableColumns,
+  title: 'Components/Data & friends/DataFilters',
+  component: DataFilters,
   argTypes: {
+    clearFilters: {
+      control: { type: 'boolean' },
+    },
     drop: {
       control: { type: 'boolean' },
-      description: 'Whether to show the controls via a DropButton.',
     },
-    options: {
-      control: { type: 'object' },
-      description:
-        'The set of possible columns. Can be array of strings or objects with label, property, disabled, and pinned properties.',
+    heading: {
+      control: { type: 'text' },
+    },
+    layer: {
+      control: { type: 'boolean' },
     },
   },
-} satisfies Meta<typeof DataTableColumns>;
+} satisfies Meta<typeof DataFilters>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default = {
-  name: 'DataTableColumns',
+  name: 'DataFilters',
   render: args => (
     <Data
       data={[
@@ -49,7 +52,12 @@ export const Default = {
         },
       ]}
     >
-      <DataTableColumns {...args} />
+      <DataFilters {...args}>
+        <DataFilter property="name" />
+        <DataFilter property="location" />
+        <DataFilter property="percent" />
+        <DataFilter property="paid" />
+      </DataFilters>
       <DataTable
         columns={[
           {
@@ -77,28 +85,9 @@ export const Default = {
     </Data>
   ),
   args: {
+    clearFilters: false,
     drop: false,
-    options: [
-      {
-        property: 'name',
-        label: 'Name',
-      },
-      {
-        property: 'location',
-        label: 'Location',
-      },
-      {
-        property: 'date',
-        label: 'Date',
-      },
-      {
-        property: 'percent',
-        label: 'Percent',
-      },
-      {
-        property: 'paid',
-        label: 'Paid',
-      },
-    ],
+    heading: 'Filters',
+    layer: true,
   },
 } satisfies Story;

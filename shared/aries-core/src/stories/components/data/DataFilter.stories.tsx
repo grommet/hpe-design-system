@@ -1,31 +1,26 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataFilter, DataFilters, DataTable } from 'grommet';
+import { Data, DataFilter, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataFilters',
-  component: DataFilters,
+  title: 'Components/Data & friends/DataFilter',
+  component: DataFilter,
   argTypes: {
-    clearFilters: {
-      control: { type: 'boolean' },
+    property: {
+      control: { type: 'select' },
+      options: ['name', 'location', 'date', 'percent', 'paid'],
     },
-    drop: {
-      control: { type: 'boolean' },
-    },
-    heading: {
-      control: { type: 'text' },
-    },
-    layer: {
-      control: { type: 'boolean' },
+    range: {
+      control: { type: 'object' },
     },
   },
-} satisfies Meta<typeof DataFilters>;
+} satisfies Meta<typeof DataFilter>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default = {
-  name: 'DataFilters',
+  name: 'DataFilter',
   render: args => (
     <Data
       data={[
@@ -52,12 +47,7 @@ export const Default = {
         },
       ]}
     >
-      <DataFilters {...args}>
-        <DataFilter property="name" />
-        <DataFilter property="location" />
-        <DataFilter property="percent" />
-        <DataFilter property="paid" />
-      </DataFilters>
+      <DataFilter {...args} />
       <DataTable
         columns={[
           {
@@ -85,9 +75,7 @@ export const Default = {
     </Data>
   ),
   args: {
-    clearFilters: false,
-    drop: false,
-    heading: 'Filters',
-    layer: true,
+    property: 'location',
+    range: undefined,
   },
 } satisfies Story;

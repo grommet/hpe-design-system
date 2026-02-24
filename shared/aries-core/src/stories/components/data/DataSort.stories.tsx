@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataSort, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataSort',
+  title: 'Components/Data & friends/DataSort',
   component: DataSort,
   argTypes: {
     drop: {

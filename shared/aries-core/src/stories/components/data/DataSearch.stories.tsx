@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataSearch, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataSearch',
+  title: 'Components/Data & friends/DataSearch',
   component: DataSearch,
   argTypes: {
     drop: {

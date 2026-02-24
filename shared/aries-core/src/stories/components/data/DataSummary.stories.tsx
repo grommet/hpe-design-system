@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataSummary } from 'grommet';
 
 const meta = {
-  title: 'Components/DataSummary',
+  title: 'Components/Data & friends/DataSummary',
   component: DataSummary,
   argTypes: {},
 } satisfies Meta<typeof DataSummary>;

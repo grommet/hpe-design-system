@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataTableGroupBy, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataTableGroupBy',
+  title: 'Components/Data & friends/DataTableGroupBy',
   component: DataTableGroupBy,
   argTypes: {
     options: {

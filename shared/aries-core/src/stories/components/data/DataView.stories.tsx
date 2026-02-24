@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataView, DataTable, Toolbar } from 'grommet';
 
 const meta = {
-  title: 'Components/DataView',
+  title: 'Components/Data & friends/DataView',
   component: DataView,
   argTypes: {
     // DataView has no props to control

@@ -106,7 +106,7 @@ const columns: DataTableProps<Datum>['columns'] = [
 ];
 
 const meta = {
-  title: 'Components/Data',
+  title: 'Components/Data & friends/Data',
   component: Data,
   argTypes: {
     data: {

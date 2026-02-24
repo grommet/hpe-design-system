@@ -6,7 +6,7 @@ import {
   fillArg,
   padArg,
   placeholderArg,
-} from '../utils/commonArgs';
+} from '../../utils/commonArgs';
 
 // Create a typed wrapper to avoid generic type issues
 const TypedDataTable = DataTable as any;
@@ -59,7 +59,7 @@ const DATA = [
 ];
 
 const meta = {
-  title: 'Components/DataTable',
+  title: 'Components/Data & friends/DataTable',
   component: TypedDataTable,
   argTypes: {
     columns: {
