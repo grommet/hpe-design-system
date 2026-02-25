@@ -1,2 +1,14 @@
-[build.environment]
-  YARN_FLAGS = "--update-checksums"
+[build]
+  ignore = '''
+    if [ "$CONTEXT" = "deploy-preview" ]; then
+      if [ "$BRANCH" = "master" ]; then
+        exit 1
+      fi
+
+      case "$BRANCH" in
+        wip-*) exit 1 ;;
+        *) exit 0 ;;
+      esac
+    fi
+    exit 1
+  '''
