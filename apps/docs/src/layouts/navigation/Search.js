@@ -5,27 +5,28 @@ import { Layer, ResponsiveContext } from 'grommet';
 import { getSearchSuggestions, nameToPath } from '../../utils';
 import { internalLink } from '../../components';
 import { SearchResult, SearchResults } from '.';
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import { siteContents } from '../../data/search/contentForSearch';
 
-const allSuggestions = getSearchSuggestions.filter(item => 
-  item.value.searchable || item.value.searchable === undefined,
-).map(page => {
-  const { label, value } = page;
-  const match = siteContents.find(item => item.name === value.name);
-  if (match) {
-    const { parent, path, content } = match;
-    return {
-      label,
-      value: {
-        ...value,
-        parent,
-        path,
-        content,
-      },
-    };
-  }
-  return page;
-});
+const allSuggestions = getSearchSuggestions
+  .filter(item => item.value.searchable || item.value.searchable === undefined)
+  .map(page => {
+    const { label, value } = page;
+    const match = siteContents.find(item => item.name === value.name);
+    if (match) {
+      const { parent, path, content } = match;
+      return {
+        label,
+        value: {
+          ...value,
+          parent,
+          path,
+          content,
+        },
+      };
+    }
+    return page;
+  });
 
 /*
  * Construct an object where 'label' is the displayed element and
