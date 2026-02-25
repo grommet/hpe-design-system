@@ -102,7 +102,7 @@ const meta = {
 } satisfies Meta<typeof DataTable<Datum>>;
 
 export default meta;
-type Story = StoryObj<DataTableProps<Datum>>;
+type Story = StoryObj<typeof meta>;
 
 export const Default = {
   name: 'DataTable',
