@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { DataTable, DataTableProps } from 'grommet';
+import { DataTable, type DataTableProps } from 'grommet';
 import {
   containerSizes,
   fillArg,
