@@ -262,8 +262,8 @@ export const ButtonPlaygroundTwo = () => {
           </Text>
 
           <SectionDivider label="Content" />
-          <FormField label="Label">
-            <TextInput value={label} onChange={(e) => setLabel(e.target.value)} placeholder="Button text" disabled={iconOnly} />
+          <FormField label="Label" name="label" htmlFor="button-playground-label">
+            <TextInput id="button-playground-label" name="label" value={label} onChange={(e) => setLabel(e.target.value)} placeholder="Button text" disabled={iconOnly} />
           </FormField>
           <NestedBox>
             <CheckBox label="Icon only" checked={iconOnly} onChange={(e) => { const c = e.target.checked; setIconOnly(c); if (c && !iconName) setIconName('Add'); }} />
@@ -299,8 +299,8 @@ options={ICON_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }
           <CheckBox label="Tip" checked={tipEnabled} onChange={(e) => setTipEnabled(e.target.checked)} />
           {tipEnabled && (
             <NestedBox>
-              <FormField label="Content">
-                <TextInput value={tipContent} onChange={(e) => setTipContent(e.target.value)} placeholder="Tooltip text" />
+              <FormField label="Content" name="tipContent" htmlFor="button-playground-tip-content">
+                <TextInput id="button-playground-tip-content" name="tipContent" value={tipContent} onChange={(e) => setTipContent(e.target.value)} placeholder="Tooltip text" />
               </FormField>
               <FormField label="Position">
                 <Select
@@ -319,11 +319,11 @@ options={TIP_POSITION_OPTIONS.map((o, i) => ({ label: o.label, value: i }))}
               </Box>
               {badgeMode === 'value' && (
                 <>
-                  <FormField label="Value">
-                    <TextInput type="number" value={badgeValue} onChange={(e) => setBadgeValue(clamp(toInt(e.target.value, 0), 0, 9999))} />
+                  <FormField label="Value" name="badgeValue" htmlFor="button-playground-badge-value">
+                    <TextInput id="button-playground-badge-value" name="badgeValue" type="number" value={badgeValue} onChange={(e) => setBadgeValue(clamp(toInt(e.target.value, 0), 0, 9999))} />
                   </FormField>
-                  <FormField label="Max (displays n+ above this)">
-                    <TextInput type="number" value={badgeMax} onChange={(e) => setBadgeMax(clamp(toInt(e.target.value, 1), 1, 9999))} />
+                  <FormField label="Max (displays n+ above this)" name="badgeMax" htmlFor="button-playground-badge-max">
+                    <TextInput id="button-playground-badge-max" name="badgeMax" type="number" value={badgeMax} onChange={(e) => setBadgeMax(clamp(toInt(e.target.value, 1), 1, 9999))} />
                   </FormField>
                 </>
               )}
@@ -331,8 +331,8 @@ options={TIP_POSITION_OPTIONS.map((o, i) => ({ label: o.label, value: i }))}
           )}
 
           <SectionDivider label="Link Behavior" />
-          <FormField label="href" help="When set, button renders as a styled <a> tag">
-            <TextInput value={href} onChange={(e) => setHref(e.target.value)} placeholder="https://example.com" />
+          <FormField label="href" name="href" htmlFor="button-playground-href" help="When set, button renders as a styled <a> tag">
+            <TextInput id="button-playground-href" name="href" value={href} onChange={(e) => setHref(e.target.value)} placeholder="https://example.com" />
           </FormField>
           {href && (
             <NestedBox>
@@ -341,8 +341,8 @@ options={TIP_POSITION_OPTIONS.map((o, i) => ({ label: o.label, value: i }))}
           )}
 
           <SectionDivider label="Accessibility" />
-          <FormField label="a11yTitle" help="Custom label for screen readers">
-            <TextInput value={a11yTitle} onChange={(e) => setA11yTitle(e.target.value)} />
+          <FormField label="a11yTitle" name="a11yTitle" htmlFor="button-playground-a11y-title" help="Custom label for screen readers">
+            <TextInput id="button-playground-a11y-title" name="a11yTitle" value={a11yTitle} onChange={(e) => setA11yTitle(e.target.value)} />
           </FormField>
         </Form>
       </Box>
