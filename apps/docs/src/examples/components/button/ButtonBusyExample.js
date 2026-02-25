@@ -26,7 +26,7 @@ export const ButtonBusyExample = ({ containerRef }) => {
       <PageContent align="center" justify="center" fill>
         <Button
           alignSelf="center"
-          label="Reset example"
+          label="View example"
           onClick={() => setShowLayer(true)}
           secondary
         />
