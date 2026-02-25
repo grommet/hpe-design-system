@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
-import { Menu, Notification } from 'grommet';
+import { Notification } from 'grommet';
 
 import { useState } from 'react';
 import { DestructiveConfirmation } from '../../templates';
+import { MenuMock } from './MenuMock';
 
 export const MenuDangerousExample = ({ bestPractice = true }) => {
   const [showModal, setShowModal] = useState(false);
   const [toast, setToast] = useState(false);
 
   const items = [
-    { label: 'View details', onClick: () => {} },
-    { label: 'Edit profile', onClick: () => {} },
-    { label: 'Apply blueprint', onClick: () => {} },
+    { label: 'Edit' },
+    { label: 'View servers' },
     {
       label: 'Delete',
       onClick: () => {
@@ -23,9 +23,8 @@ export const MenuDangerousExample = ({ bestPractice = true }) => {
 
   return (
     <>
-      <Menu
+      <MenuMock
         label="Actions"
-        open
         items={
           bestPractice
             ? [items.slice(0, items.length - 1), items.slice(-1)]
@@ -34,10 +33,10 @@ export const MenuDangerousExample = ({ bestPractice = true }) => {
       />
       {showModal && (
         <DestructiveConfirmation
-          title="Delete profile"
-          message={`This will permanently delete this profile, 
+          title="Delete server"
+          message={`This will permanently delete this server, 
           including all history, located at:`}
-          path="/servers/profiles/KCHDvfcByKvvjymNheg"
+          path="/servers/KCHDvfcByKvvjymNheg"
           setShowModal={setShowModal}
           setToast={setToast}
         />
@@ -46,7 +45,7 @@ export const MenuDangerousExample = ({ bestPractice = true }) => {
         <Notification
           toast
           status="normal"
-          message="Profile deleted."
+          message="Server deleted."
           onClose={() => setToast(false)}
         />
       )}

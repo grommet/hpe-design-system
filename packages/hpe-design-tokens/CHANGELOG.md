@@ -1,5 +1,11 @@
 # hpe-design-tokens
 
+## 2.2.2
+
+- Changed `primary` Button `selected`/`active` state styling tokens in `component.default.json` to mirror `secondary` Button styling.
+- Changed `icon.critical` in light mode from `red.600` to `red.800`, aligning it with `border.critical` and `text.critical`.
+- Changed `hpe.formField.default.input.group.container.disabled.rest.borderColor` from `border.disabled` to `color.transparent`.
+
 ## 2.2.1
 
 - Fixed bug where `color.focus` and `color.focus.support` were not defined correctly. https://github.com/grommet/hpe-design-system/pull/5668

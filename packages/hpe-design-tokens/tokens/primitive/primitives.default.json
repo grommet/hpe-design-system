@@ -2845,7 +2845,7 @@
           "com.figma": {
             "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"]
+            "scopes": ["CORNER_RADIUS"]
           }
         },
         "$type": "number",
@@ -2991,7 +2991,7 @@
           "com.figma": {
             "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"]
+            "scopes": ["GAP"]
           }
         },
         "$type": "number",
@@ -3003,7 +3003,7 @@
           "com.figma": {
             "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"]
+            "scopes": ["GAP"]
           }
         },
         "$type": "number",
@@ -3051,7 +3051,7 @@
           "com.figma": {
             "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"]
+            "scopes": ["GAP"]
           }
         },
         "$type": "number",
@@ -3087,7 +3087,7 @@
           "com.figma": {
             "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"]
+            "scopes": ["GAP"]
           }
         },
         "$type": "number",
@@ -3123,7 +3123,7 @@
           "com.figma": {
             "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"]
+            "scopes": ["GAP"]
           }
         },
         "$type": "number",
@@ -3135,7 +3135,7 @@
           "com.figma": {
             "codeSyntax": {},
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"]
+            "scopes": ["GAP"]
           }
         },
         "$type": "number",
