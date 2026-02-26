@@ -6,7 +6,7 @@ import { ThreeColumnDashboard } from 'apps/docs/src/examples/templates/dashboard
 import { TwoColumnDashboard } from 'apps/docs/src/examples/templates/dashboards/TwoColumnDashboard';
 
 const meta = {
-  title: 'Dashboards',
+  title: 'Patterns/Dashboards',
   parameters: {
     layout: 'fullscreen',
   },
