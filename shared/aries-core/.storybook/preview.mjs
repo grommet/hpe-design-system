@@ -1,6 +1,6 @@
 import React from 'react';
 import { hpe } from 'grommet-theme-hpe';
-import { Grommet } from 'grommet';
+import { Grommet, Box } from 'grommet';
 import { useIsDarkMode } from './darkModeHooks';
 
 export default {
@@ -17,13 +17,15 @@ export default {
           themeMode={mode}
           background={context.globals.background?.value}
         >
-          <Story />
+          <Box pad="large" fill>
+            <Story />
+          </Box>
         </Grommet>
       );
     },
   ],
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
     actions: {
       disable: true,
     },

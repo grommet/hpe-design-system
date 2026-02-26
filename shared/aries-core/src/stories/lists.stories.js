@@ -10,7 +10,7 @@ import { ListOrderExample } from 'apps/docs/src/examples/templates/list-views/Li
 import { ListScreenExample } from 'apps/docs/src/examples/templates/list-views/ListScreenExample';
 
 const meta = {
-  title: 'Lists',
+  title: 'Patterns/Lists',
 };
 
 export default meta;

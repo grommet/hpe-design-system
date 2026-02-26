@@ -5,7 +5,7 @@ import { TwoColumnWizardExample } from 'apps/docs/src/examples/templates/wizard/
 import { WizardValidationExample } from 'apps/docs/src/examples/templates/wizard/WizardValidationExample';
 
 const meta = {
-  title: 'Wizard',
+  title: 'Patterns/Wizard',
 };
 
 export default meta;

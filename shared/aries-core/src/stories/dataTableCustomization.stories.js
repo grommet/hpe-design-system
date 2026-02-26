@@ -5,7 +5,7 @@ import { ColumnSettingsExample } from 'apps/docs/src/examples/templates/table-cu
 import { TableCustomizationExample } from 'apps/docs/src/examples/templates/table-customization/components/TableCustomizationExample';
 
 const meta = {
-  title: 'DataTable Customization',
+  title: 'Patterns/DataTable Customization',
   parameters: {
     layout: 'centered',
   },
