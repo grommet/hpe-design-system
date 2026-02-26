@@ -69,9 +69,9 @@ const columns: DataTableProps<Datum>['columns'] = [
     header: <Text>Name with extra</Text>,
     primary: true,
     footer: 'Total',
-    render: datum => (
-      <Text a11yTitle={!datum.name ? 'No value' : undefined} truncate>
-        {datum.name || '--'}
+   render: ({ name }) => (
+      <Text a11yTitle={!name ? 'No value' : undefined} truncate>
+        {name || '--'}
       </Text>
     ),
   },
