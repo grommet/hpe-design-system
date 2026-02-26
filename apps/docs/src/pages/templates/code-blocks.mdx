@@ -1,0 +1,49 @@
+import { Example } from '../../layouts';
+import { CodeBlockExample } from '../../examples';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/code-blocks/CodeBlocks.js',
+  ]}
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <CodeBlockExample />
+</Example>
+
+## Guidance
+
+Code blocks can be created using the [react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter) tool.
+
+Prism or Highlighter.js can be used with react-syntax-highlighter. Highlighter.js is the default, however it can have trouble highlighting JSX, so it is recommended to use Prism instead.
+Prism with react-syntax-highlighter supports syntax highlighting for [hundreds of languages](https://github.com/react-syntax-highlighter/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_PRISM.MD).
+
+react-syntax-highlighter can be installed with the following command:
+
+For yarn users: `yarn add react-syntax-highlighter`
+
+For npm users: `npm install react-syntax-highlighter --save`
+
+For pnpm users: `pnpm install react-syntax-highlighter`
+
+Import the react-syntax-highlighter specifying Prism as the highlighter with the following:
+
+`import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';`
+
+### Theming
+
+The theme exported from [grommet-hpe-theme](https://raw.githubusercontent.com/grommet/grommet-theme-hpe/master/src/js/themes/prism.js) should be used to style code blocks.
+
+### Scrolling
+
+Horizontal scrolling should be avoided where possible.
+
+Vertical scrolling within the code block container is encouraged when a code block is long.
+
+### Line wrapping
+
+Long lines should wrap to avoid horizontal scrolling. This option can be specified with `wrapLongLines`.
+
+### Tab index
+
+To ensure the code block is accessible to keyboard users the `tabIndex` should be set to 0.

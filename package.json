@@ -35,9 +35,9 @@
     "styled-components": "catalog:"
   },
   "scripts": {
-    "prepare": "husky install", 
+    "prepare": "husky install",
     "build": "pnpm -r build",
-    "start:aries-site": "pnpm --filter aries-site start",
+    "start:docs": "pnpm --filter docs start",
     "start:design-tokens-manager": "pnpm --filter design-tokens-manager dev",
     "start:grommet-app": "pnpm --filter grommet-app dev",
     "storybook:icons-grommet": "pnpm --filter \"@hpe-design/icons-grommet\" storybook",
