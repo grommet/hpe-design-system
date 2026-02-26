@@ -69,18 +69,18 @@ const columns: DataTableProps<Datum>['columns'] = [
     header: <Text>Name with extra</Text>,
     primary: true,
     footer: 'Total',
-    render: datum => (
-      <Text a11yTitle={!datum.name ? 'No value' : undefined} truncate>
-        {datum.name || '--'}
+   render: ({ name }) => (
+      <Text a11yTitle={!name ? 'No value' : undefined} truncate>
+        {name || '--'}
       </Text>
     ),
   },
   {
     property: 'location',
     header: 'Location',
-    render: datum => (
-      <Text a11yTitle={!datum.location ? 'No value' : undefined} truncate>
-        {datum.location || '--'}
+ render: ({ location }) => (
+      <Text a11yTitle={!location ? 'No value' : undefined} truncate>
+        {location || '--'}
       </Text>
     ),
   },
@@ -89,7 +89,8 @@ const columns: DataTableProps<Datum>['columns'] = [
     header: 'Date',
     render: datum => {
       const value =
-        datum.date && new Date(datum.date).toLocaleDateString('en-US');
+    render: ({ date }) => {
+      const value = date && new Date(date).toLocaleDateString('en-US');
 
       return (
         <Text a11yTitle={!value ? 'No value' : undefined} truncate>
@@ -102,20 +103,21 @@ const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'percent',
     header: 'Percent Complete',
-    render: ({ percent }) => (
-      <Box gap="xsmall" direction="row" align="center">
-        <Box pad={{ vertical: 'xsmall' }}>
-          <Meter
-            values={[{ value: percent }]}
-            thickness="xsmall"
-            size="small"
-          />
+        render: ({ percent }) =>
+      percent !== undefined ? (
+        <Box gap="xsmall" direction="row" align="center">
+          <Box pad={{ vertical: 'xsmall' }}>
+            <Meter
+              values={[{ value: percent }]}
+              thickness="xsmall"
+              size="small"
+            />
+          </Box>
+          <Text>{`${percent}%`}</Text>
         </Box>
-        <Text>
-          {percent !== undefined ? `${percent}%` : '--'}
-        </Text>
-      </Box>
-    ),
+      ) : (
+        <Text a11yTitle={!percent ? 'No value' : undefined}>--</Text>
+      ),
   },
 ]
 
