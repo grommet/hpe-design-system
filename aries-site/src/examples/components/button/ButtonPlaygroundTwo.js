@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -158,6 +158,13 @@ const generateCode = ({
   return `${imports.join('\n')}\n\n${lines.join('\n')}`;
 };
 
+// Container width breakpoints (px)
+// < STACK_BREAKPOINT  → stacked single column
+// < WIDE_BREAKPOINT   → side-by-side, narrow controls (letterbox)
+// >= WIDE_BREAKPOINT  → side-by-side, wider controls (fullscreen)
+const STACK_BREAKPOINT = 600;
+const WIDE_BREAKPOINT = 900;
+
 // --- main component ---
 export const ButtonPlaygroundTwo = () => {
   const [label, setLabel] = useState('Button');
@@ -181,6 +188,24 @@ export const ButtonPlaygroundTwo = () => {
   const [targetBlank, setTargetBlank] = useState(false);
   const [a11yTitle, setA11yTitle] = useState('');
   const [copied, setCopied] = useState(false);
+
+  // --- container-aware layout ---
+  const containerRef = useRef(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return undefined;
+    const observer = new ResizeObserver(([entry]) => {
+      setContainerWidth(entry.contentRect.width);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Three layout tiers based on the container's own width
+  const isNarrow = containerWidth > 0 && containerWidth < STACK_BREAKPOINT;
+  const isWide = containerWidth >= WIDE_BREAKPOINT;
 
   const toggleBusy = (checked) => { setBusy(checked); if (checked) { setSuccess(false); setDisabled(false); } };
   const toggleSuccess = (checked) => { setSuccess(checked); if (checked) { setBusy(false); setDisabled(false); } };
@@ -227,20 +252,37 @@ export const ButtonPlaygroundTwo = () => {
     });
   }, [code]);
 
-  return (
-    <Grid
-      fill
-      rows={['flex', 'minmax(120px, 160px)']}
-      columns={['flex', 'medium']}
-      areas={[
+  // Wide:   preview | controls (full height)   +  code   | controls
+  // Narrow: preview / controls / code  (stacked)
+  const gridRows = isNarrow
+    ? ['minmax(140px, 180px)', 'flex', 'minmax(80px, 120px)']
+    : ['flex', 'minmax(120px, 160px)'];
+  // stacked | letterbox ['flex','small'] | fullscreen ['flex','medium']
+  // eslint-disable-next-line no-nested-ternary
+  const gridColumns = isNarrow ? ['flex'] : isWide ? ['flex', 'medium'] : ['flex', 'small'];
+  const gridAreas = isNarrow
+    ? [
+        { name: 'main', start: [0, 0], end: [0, 0] },
+        { name: 'side', start: [0, 1], end: [0, 1] },
+        { name: 'code', start: [0, 2], end: [0, 2] },
+      ]
+    : [
         { name: 'main', start: [0, 0], end: [0, 0] },
         { name: 'side', start: [1, 0], end: [1, 1] },
         { name: 'code', start: [0, 1], end: [0, 1] },
-      ]}
+      ];
+
+  return (
+    <Grid
+      ref={containerRef}
+      fill
+      rows={gridRows}
+      columns={gridColumns}
+      areas={gridAreas}
       style={{ minHeight: 0, minWidth: 0 }}
     >
       {/* LEFT MAIN — centered button preview */}
-      <Box gridArea="main" align="center" justify="center" pad="large">
+      <Box gridArea="main" align="center" justify="center" pad="large" background="background-front" >
         <Button {...previewProps} />
       </Box>
 
