@@ -2,11 +2,6 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Data, DataTable, DataTableProps, Text, Box, Meter } from 'grommet';
 
-const amountFormatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
-
 const DATA = [
   {
     name: 'Alan',
@@ -74,36 +69,55 @@ const columns: DataTableProps<Datum>['columns'] = [
     header: <Text>Name with extra</Text>,
     primary: true,
     footer: 'Total',
+    render: datum => (
+      <Text a11yTitle={!datum.name ? 'No value' : undefined} truncate>
+        {datum.name || '--'}
+      </Text>
+    ),
   },
   {
     property: 'location',
     header: 'Location',
+    render: datum => (
+      <Text a11yTitle={!datum.location ? 'No value' : undefined} truncate>
+        {datum.location || '--'}
+      </Text>
+    ),
   },
   {
     property: 'date',
     header: 'Date',
-    render: datum =>
-      datum.date && new Date(datum.date).toLocaleDateString('en-US'),
+    render: datum => {
+      const value =
+        datum.date && new Date(datum.date).toLocaleDateString('en-US');
+
+      return (
+        <Text a11yTitle={!value ? 'No value' : undefined} truncate>
+          {value || '--'}
+        </Text>
+      );
+    },
     align: 'end',
   },
   {
     property: 'percent',
     header: 'Percent Complete',
     render: ({ percent }) => (
-      <Box pad={{ vertical: 'xsmall' }}>
-        <Meter values={[{ value: percent }]} thickness="small" size="small" />
+      <Box gap="xsmall" direction="row" align="center">
+        <Box pad={{ vertical: 'xsmall' }}>
+          <Meter
+            values={[{ value: percent }]}
+            thickness="xsmall"
+            size="small"
+          />
+        </Box>
+        <Text>
+          {percent !== undefined ? `${percent}%` : '--'}
+        </Text>
       </Box>
     ),
   },
-  {
-    property: 'paid',
-    header: 'Paid',
-    render: datum => amountFormatter.format(datum.paid / 100),
-    align: 'end',
-    aggregate: 'sum',
-    footer: { aggregate: true },
-  },
-];
+]
 
 const meta = {
   title: 'Components/Data',
