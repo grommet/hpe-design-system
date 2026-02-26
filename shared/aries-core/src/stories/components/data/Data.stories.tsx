@@ -69,7 +69,7 @@ const columns: DataTableProps<Datum>['columns'] = [
     header: <Text>Name with extra</Text>,
     primary: true,
     footer: 'Total',
-   render: ({ name }) => (
+    render: ({ name }) => (
       <Text a11yTitle={!name ? 'No value' : undefined} truncate>
         {name || '--'}
       </Text>
@@ -78,7 +78,7 @@ const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'location',
     header: 'Location',
- render: ({ location }) => (
+    render: ({ location }) => (
       <Text a11yTitle={!location ? 'No value' : undefined} truncate>
         {location || '--'}
       </Text>
@@ -87,8 +87,6 @@ const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'date',
     header: 'Date',
-    render: datum => {
-      const value =
     render: ({ date }) => {
       const value = date && new Date(date).toLocaleDateString('en-US');
 
@@ -103,8 +101,10 @@ const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'percent',
     header: 'Percent Complete',
-        render: ({ percent }) =>
-      percent !== undefined ? (
+    render: ({ percent }) => {
+      const hasValidPercent = typeof percent === 'number' && percent > 0;
+
+      return hasValidPercent ? (
         <Box gap="xsmall" direction="row" align="center">
           <Box pad={{ vertical: 'xsmall' }}>
             <Meter
@@ -116,10 +116,11 @@ const columns: DataTableProps<Datum>['columns'] = [
           <Text>{`${percent}%`}</Text>
         </Box>
       ) : (
-        <Text a11yTitle={!percent ? 'No value' : undefined}>--</Text>
-      ),
+        <Text a11yTitle="No value">--</Text>
+      );
+    },
   },
-]
+];
 
 const meta = {
   title: 'Components/Data',
