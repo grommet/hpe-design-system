@@ -78,9 +78,9 @@ const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'location',
     header: 'Location',
-    render: datum => (
-      <Text a11yTitle={!datum.location ? 'No value' : undefined} truncate>
-        {datum.location || '--'}
+ render: ({ location }) => (
+      <Text a11yTitle={!location ? 'No value' : undefined} truncate>
+        {location || '--'}
       </Text>
     ),
   },
