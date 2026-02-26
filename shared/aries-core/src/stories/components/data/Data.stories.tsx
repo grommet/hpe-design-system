@@ -89,7 +89,8 @@ const columns: DataTableProps<Datum>['columns'] = [
     header: 'Date',
     render: datum => {
       const value =
-        datum.date && new Date(datum.date).toLocaleDateString('en-US');
+    render: ({ date }) => {
+      const value = date && new Date(date).toLocaleDateString('en-US');
 
       return (
         <Text a11yTitle={!value ? 'No value' : undefined} truncate>
