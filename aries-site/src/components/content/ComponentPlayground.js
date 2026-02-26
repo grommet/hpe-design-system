@@ -9,7 +9,6 @@ import {
   Tabs,
   Text,
   TextInput,
-  Heading,
   ToggleGroup,
   ResponsiveContext,
   Grommet,
@@ -475,7 +474,8 @@ export const ComponentPlayground = ({
 ComponentPlayground.propTypes = {
   component: PropTypes.elementType.isRequired,
   defaultProps: PropTypes.object,
-  codeTemplate: PropTypes.func, // Function that takes props and returns code string
+  // Function that takes props and returns code string
+  codeTemplate: PropTypes.func,
   controls: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

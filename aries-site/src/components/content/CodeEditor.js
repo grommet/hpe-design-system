@@ -20,7 +20,7 @@ export const CodeEditor = ({ code, onChange }) => {
   }, [onChange]);
 
   useEffect(() => {
-    if (!editorRef.current) return;
+    if (!editorRef.current) return undefined;
 
     const backgroundColor = isDark
       ? theme.global.colors['background-front'] || '#1e1e1e'
@@ -29,6 +29,13 @@ export const CodeEditor = ({ code, onChange }) => {
     // Get HPE prism theme colors
     const hpePrismTheme = isDark ? prism.dark : prism.light;
 
+    const fallbackBg = isDark ? '#1e1e1e' : '#ffffff';
+    const resolvedBg =
+      typeof backgroundColor === 'string' ? backgroundColor : fallbackBg;
+    const monospaceFontFamily =
+      'ui-monospace, SFMono-Regular, SF Mono, ' +
+      'Consolas, Liberation Mono, Menlo, monospace';
+
     const customTheme = EditorView.theme(
       {
         '&': {
@@ -36,25 +43,14 @@ export const CodeEditor = ({ code, onChange }) => {
           fontSize: '14px',
         },
         '.cm-editor': {
-          backgroundColor:
-            typeof backgroundColor === 'string'
-              ? backgroundColor
-              : isDark
-              ? '#1e1e1e'
-              : '#ffffff',
+          backgroundColor: resolvedBg,
           color:
             hpePrismTheme['pre[class*="language-"]']?.color ||
             (isDark ? '#f8f8f2' : '#000000'),
         },
         '.cm-scroller': {
-          fontFamily:
-            'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
-          backgroundColor:
-            typeof backgroundColor === 'string'
-              ? backgroundColor
-              : isDark
-              ? '#1e1e1e'
-              : '#ffffff',
+          fontFamily: monospaceFontFamily,
+          backgroundColor: resolvedBg,
         },
         '.cm-content': {
           backgroundColor: 'transparent',
@@ -161,7 +157,8 @@ export const CodeEditor = ({ code, onChange }) => {
     return () => {
       view.destroy();
     };
-  }, [isDark]); // Recreate when theme changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDark]); // Recreate when theme changes; code updates handled separately
 
   // Update document when code prop changes externally
   useEffect(() => {

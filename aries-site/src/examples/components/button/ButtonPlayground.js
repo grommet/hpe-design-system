@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Button } from 'grommet';
-import { ComponentPlayground } from '../../../components/content/ComponentPlayground';
+import {
+  ComponentPlayground,
+} from '../../../components/content/ComponentPlayground';
 
 // Set display name for code generation
 Button.displayName = 'Button';

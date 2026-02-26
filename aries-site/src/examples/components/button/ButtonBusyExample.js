@@ -14,7 +14,7 @@ import { ButtonGroup, ModalDialog } from '@shared/aries-core';
 export const ButtonBusyExample = ({ containerRef }) => {
   const [busy, setBusy] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [showLayer, setShowLayer] = useState(true);
+  const [showLayer, setShowLayer] = useState(false);
 
   const onClose = () => {
     setShowLayer(false);

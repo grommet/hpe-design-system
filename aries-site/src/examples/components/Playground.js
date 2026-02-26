@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Anchor, Box, Text } from 'grommet';
-import { anchorArgTypes } from '@shared/aries-core/src/stories/components/Anchor.stories';
-import { boxArgTypes } from '@shared/aries-core/src/stories/components/Box.stories';
-import { ComponentPlayground } from '../../components/content/ComponentPlayground';
+import { anchorArgTypes } from
+  '@shared/aries-core/src/stories/components/Anchor.stories';
+import { boxArgTypes } from
+  '@shared/aries-core/src/stories/components/Box.stories';
+import {
+  ComponentPlayground,
+} from '../../components/content/ComponentPlayground';
 
 // Component configurations
 const COMPONENT_CONFIGS = {
@@ -82,6 +87,7 @@ const transformArgTypesToControls = (argTypes, componentName) => {
 };
 
 export const Playground = ({ component: componentName }) => {
+
   const config = COMPONENT_CONFIGS[componentName.toLowerCase()];
 
   if (!config) {
@@ -112,4 +118,8 @@ export const Playground = ({ component: componentName }) => {
       controls={controls}
     />
   );
+};
+
+Playground.propTypes = {
+  component: PropTypes.string.isRequired,
 };

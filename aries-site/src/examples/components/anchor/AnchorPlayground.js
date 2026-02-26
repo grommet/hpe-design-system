@@ -9,7 +9,9 @@ import {
   boxArgTypes,
   Default as BoxDefault,
 } from '@shared/aries-core/src/stories/components/Box.stories';
-import { ComponentPlayground } from '../../../components/content/ComponentPlayground';
+import {
+  ComponentPlayground,
+} from '../../../components/content/ComponentPlayground';
 
 // Extract code from story render function
 const getCodeFromStoryRender = (storyRender, props) => {
