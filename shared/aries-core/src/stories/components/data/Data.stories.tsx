@@ -101,10 +101,8 @@ const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'percent',
     header: 'Percent Complete',
-    render: ({ percent }) => {
-      const hasValidPercent = typeof percent === 'number' && percent > 0;
-
-      return hasValidPercent ? (
+    render: ({ percent }) =>
+      percent !== undefined ? (
         <Box gap="xsmall" direction="row" align="center">
           <Box pad={{ vertical: 'xsmall' }}>
             <Meter
@@ -117,8 +115,7 @@ const columns: DataTableProps<Datum>['columns'] = [
         </Box>
       ) : (
         <Text a11yTitle="No value">--</Text>
-      );
-    },
+      ),
   },
 ];
 
