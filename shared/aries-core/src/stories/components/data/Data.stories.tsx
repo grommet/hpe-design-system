@@ -103,20 +103,21 @@ const columns: DataTableProps<Datum>['columns'] = [
   {
     property: 'percent',
     header: 'Percent Complete',
-    render: ({ percent }) => (
-      <Box gap="xsmall" direction="row" align="center">
-        <Box pad={{ vertical: 'xsmall' }}>
-          <Meter
-            values={[{ value: percent }]}
-            thickness="xsmall"
-            size="small"
-          />
+        render: ({ percent }) =>
+      percent !== undefined ? (
+        <Box gap="xsmall" direction="row" align="center">
+          <Box pad={{ vertical: 'xsmall' }}>
+            <Meter
+              values={[{ value: percent }]}
+              thickness="xsmall"
+              size="small"
+            />
+          </Box>
+          <Text>{`${percent}%`}</Text>
         </Box>
-        <Text>
-          {percent !== undefined ? `${percent}%` : '--'}
-        </Text>
-      </Box>
-    ),
+      ) : (
+        <Text a11yTitle={!percent ? 'No value' : undefined}>--</Text>
+      ),
   },
 ]
 
