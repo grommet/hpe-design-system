@@ -34,7 +34,7 @@ const mockApplications = [
 ];
 
 const meta = {
-  title: 'Components/Toolbar',
+  title: 'Components/Data',
   component: Toolbar,
   parameters: {
     layout: 'fullscreen',

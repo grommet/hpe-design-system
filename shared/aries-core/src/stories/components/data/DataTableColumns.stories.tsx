@@ -1,31 +1,28 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Data, DataFilter, DataFilters, DataTable } from 'grommet';
+import { Data, DataTableColumns, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataFilters',
-  component: DataFilters,
+  title: 'Components/Data',
+  component: DataTableColumns,
   argTypes: {
-    clearFilters: {
-      control: { type: 'boolean' },
-    },
     drop: {
       control: { type: 'boolean' },
+      description: 'Whether to show the controls via a DropButton.',
     },
-    heading: {
-      control: { type: 'text' },
-    },
-    layer: {
-      control: { type: 'boolean' },
+    options: {
+      control: { type: 'object' },
+      description:
+        'The set of possible columns. Can be array of strings or objects with label, property, disabled, and pinned properties.',
     },
   },
-} satisfies Meta<typeof DataFilters>;
+} satisfies Meta<typeof DataTableColumns>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
-  name: 'DataFilters',
+export const DataTableColumnsExample = {
+  name: 'DataTableColumns',
   render: args => (
     <Data
       data={[
@@ -52,12 +49,7 @@ export const Default = {
         },
       ]}
     >
-      <DataFilters {...args}>
-        <DataFilter property="name" />
-        <DataFilter property="location" />
-        <DataFilter property="percent" />
-        <DataFilter property="paid" />
-      </DataFilters>
+      <DataTableColumns {...args} />
       <DataTable
         columns={[
           {
@@ -85,9 +77,28 @@ export const Default = {
     </Data>
   ),
   args: {
-    clearFilters: false,
     drop: false,
-    heading: 'Filters',
-    layer: true,
+    options: [
+      {
+        property: 'name',
+        label: 'Name',
+      },
+      {
+        property: 'location',
+        label: 'Location',
+      },
+      {
+        property: 'date',
+        label: 'Date',
+      },
+      {
+        property: 'percent',
+        label: 'Percent',
+      },
+      {
+        property: 'paid',
+        label: 'Paid',
+      },
+    ],
   },
 } satisfies Story;

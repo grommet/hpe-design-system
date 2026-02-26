@@ -38,5 +38,25 @@ export default {
     docs: {
       codePanel: true,
     },
+    options: {
+      storySort: {
+        order: [
+          'Components',
+          [
+            'Accordion',
+            'Anchor',
+            'Avatar',
+            'Box',
+            'Button',
+            'Card',
+            'CheckBox',
+            'CheckBoxGroup',
+            'Data',
+            'DateInput',
+            '*',
+          ],
+        ],
+      },
+    },
   },
 };
