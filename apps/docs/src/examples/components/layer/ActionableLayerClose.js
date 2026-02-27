@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
-import { LayerContainer } from './components/LayerContainer';
+import { LayerContainer } from './LayerContainer';
 
 export const ActionableLayerClose = () => (
   <LayerContainer margin={{ bottom: 'medium' }} width={{ max: 'medium' }}>

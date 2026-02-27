@@ -4,6 +4,7 @@ export * from './Card';
 export * from './code-blocks';
 export * from './content-layouts';
 export * from './dashboards';
+export * from './double-confirmation';
 export * from './drill-down-navigation';
 export * from './empty-state';
 export * from './feedback';

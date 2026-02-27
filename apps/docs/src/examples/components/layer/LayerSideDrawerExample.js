@@ -16,6 +16,37 @@ import {
   Text,
 } from 'grommet';
 
+export const LayerSideDrawerExample = () => {
+  const [open, setOpen] = useState(false);
+  const size = useContext(ResponsiveContext);
+  const onOpen = () => setOpen(true);
+  const onClose = () => setOpen(undefined);
+
+  return (
+    <>
+      <Box align="start">
+        <Button label="Show me the side drawer" onClick={onOpen} primary />
+      </Box>
+      {open && (
+        <Layer
+          position="right"
+          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
+          onEsc={onClose}
+        >
+          <Box
+            fill="vertical"
+            overflow="auto"
+            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
+            pad="medium"
+          >
+            <LayerForm setOpen={value => setOpen(value)} />
+          </Box>
+        </Layer>
+      )}
+    </>
+  );
+};
+
 const LayerForm = ({ setOpen }) => {
   // eslint-disable-next-line no-unused-vars
   const onSubmit = ({ value, touched }) => {
@@ -108,35 +139,4 @@ const LayerForm = ({ setOpen }) => {
 
 LayerForm.propTypes = {
   setOpen: PropTypes.func.isRequired,
-};
-
-export const LayerSideDrawerExample = () => {
-  const [open, setOpen] = useState(false);
-  const size = useContext(ResponsiveContext);
-  const onOpen = () => setOpen(true);
-  const onClose = () => setOpen(undefined);
-
-  return (
-    <>
-      <Box align="start">
-        <Button label="Show me the side drawer" onClick={onOpen} primary />
-      </Box>
-      {open && (
-        <Layer
-          position="right"
-          full={!['xsmall', 'small'].includes(size) ? 'vertical' : true}
-          onEsc={onClose}
-        >
-          <Box
-            fill="vertical"
-            overflow="auto"
-            width={!['xsmall', 'small'].includes(size) ? 'medium' : undefined}
-            pad="medium"
-          >
-            <LayerForm setOpen={value => setOpen(value)} />
-          </Box>
-        </Layer>
-      )}
-    </>
-  );
 };

@@ -1,17 +1,7 @@
-import React from 'react';
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  Diagram,
-  Grid,
-  Heading,
-  Stack,
-  Paragraph,
-} from 'grommet';
+import { Diagram, Grid, Stack } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
+import { DoubleConfirmationCardAnatomy } from './DoubleConfirmationCards';
 
 const connections = [
   connection('1a-confirmation', 'confirmation-title'),
@@ -58,43 +48,9 @@ export const DoubleConfirmationAnatomy = () => {
           target="2"
           gridArea="annotation-2"
         />
-        <LayerContent gridArea="layer" />
+        <DoubleConfirmationCardAnatomy gridArea="layer" />
       </Grid>
       <Diagram connections={connections} />
     </Stack>
   );
 };
-
-const LayerContent = ({ ...rest }) => (
-  <Card
-    id="layer-container"
-    alignSelf="start"
-    round="medium"
-    elevation="large"
-    {...rest}
-  >
-    <CardBody pad={{ top: 'medium', horizontal: 'medium' }}>
-      <Box>
-        <Heading id="confirmation-title" level={2} margin="none">
-          Discard "Add application"?
-        </Heading>
-        <Paragraph id="confirmation-subtitle" margin="none">
-          Your changes will not be applied.
-        </Paragraph>
-      </Box>
-      <Box pad="xsmall" />
-      <Box
-        id="confirmation-footer"
-        direction="row"
-        border={{ style: 'dashed' }}
-        justify="end"
-        flex={false}
-        gap="xsmall"
-      >
-        <Button label="Cancel" />
-        <Button label="Discard" primary />
-      </Box>
-      <Box pad="xsmall" id="bottom-pad" />
-    </CardBody>
-  </Card>
-);

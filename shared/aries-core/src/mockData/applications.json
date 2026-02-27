@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "title": "scikit-learn",
+    "publisher": "scikit-learn",
+    "categories": ["Machine learning", "Developer tools"],
+    "rating": 4.8,
+    "pricing": "Free",
+    "delivery": "Package manager"
+  },
+  {
+    "id": 2,
+    "title": "Personalizer",
+    "publisher": "Acme Software Co.",
+    "categories": ["Machine learning", "Developer tools"],
+    "rating": 4.1,
+    "pricing": "Free trial",
+    "delivery": "Web application"
+  },
+  {
+    "id": 3,
+    "title": "SuperLearner",
+    "publisher": "Acme Software Co.",
+    "categories": ["Machine learning"],
+    "rating": 4.5,
+    "pricing": "Free trial",
+    "delivery": "Web application"
+  },
+  {
+    "id": 4,
+    "title": "Data Analytics Acceleration Library",
+    "publisher": "Acme Software Co.",
+    "categories": ["Machine learning", "Data analytics"],
+    "rating": 4.5,
+    "pricing": "Free trial",
+    "delivery": "Web application"
+  },
+  {
+    "id": 5,
+    "title": "Python machine-learning",
+    "publisher": "Open Source Library",
+    "categories": ["Machine learning", "Developer tools"],
+    "rating": 4.7,
+    "pricing": "Free",
+    "delivery": "Package manager"
+  },
+  {
+    "id": 6,
+    "title": "GoLearn",
+    "publisher": "Open Source Library",
+    "categories": [
+      "Machine learning",
+      "Developer tools",
+      "Data analytics",
+      "Big Data"
+    ],
+    "rating": 4.1,
+    "pricing": "Free",
+    "delivery": "Package manager"
+  },
+  {
+    "id": 7,
+    "title": "PyTorch",
+    "publisher": "PyTorch",
+    "categories": ["Machine learning", "Developer tools"],
+    "rating": 4.6,
+    "pricing": "Free",
+    "delivery": "Package manager"
+  },
+  {
+    "id": 8,
+    "title": "Forecast",
+    "publisher": "Acme Software Co.",
+    "categories": ["Machine learning", "Data analytics", "Big Data"],
+    "rating": 3.8,
+    "pricing": "Annual license",
+    "delivery": "License key"
+  },
+  {
+    "id": 9,
+    "title": "MLlib",
+    "publisher": "The Apache Software Foundation",
+    "categories": ["Machine learning"],
+    "rating": 4.1,
+    "pricing": "Free",
+    "delivery": "Package manager"
+  },
+  {
+    "id": 10,
+    "title": "Kubeflow",
+    "publisher": "Kubeflow",
+    "categories": ["Machine learning"],
+    "rating": 4.4,
+    "pricing": "Free trial",
+    "delivery": "Web application"
+  },
+  {
+    "id": 11,
+    "title": "Application Dynamics",
+    "publisher": "Acme Software Co.",
+    "categories": ["Monitoring"],
+    "rating": 4.3,
+    "pricing": "Annual license",
+    "delivery": "License key"
+  },
+  {
+    "id": 12,
+    "title": "DataDolphin",
+    "publisher": "Acme Software Co.",
+    "categories": ["Monitoring"],
+    "rating": 4.3,
+    "pricing": "Monthly subscription",
+    "delivery": "Web application"
+  },
+  {
+    "id": 13,
+    "title": "Instant Observer",
+    "publisher": "Acme Software Co.",
+    "categories": ["Monitoring"],
+    "rating": 4.5,
+    "pricing": "Monthly subscription",
+    "delivery": "Web application"
+  },
+  {
+    "id": 14,
+    "title": "Glass",
+    "publisher": "Acme Software Co.",
+    "categories": ["Monitoring", "Developer tools"],
+    "rating": 4.5,
+    "pricing": "Monthly subscription",
+    "delivery": "Web application"
+  },
+  {
+    "id": 15,
+    "title": "Datablocks",
+    "publisher": "Open Source Library",
+    "categories": ["Data analytics", "Big Data"],
+    "rating": 4.4,
+    "pricing": "Free",
+    "delivery": "Package manager"
+  },
+  {
+    "id": 16,
+    "title": "MATLAB",
+    "publisher": "MathWorks",
+    "categories": ["Data analytics", "Big Data"],
+    "rating": 4.5,
+    "pricing": "Annual license",
+    "delivery": "License key"
+  },
+  {
+    "id": 17,
+    "title": "Cottage",
+    "publisher": "Acme Software Co.",
+    "categories": ["Data analytics", "Big Data"],
+    "rating": 4.5,
+    "pricing": "Monthly subscription",
+    "delivery": "Web application"
+  },
+  {
+    "id": 18,
+    "title": "Vault",
+    "publisher": "Acme Software Co.",
+    "categories": ["Data Protection", "Database"],
+    "rating": 4.2,
+    "pricing": "Monthly subscription",
+    "delivery": "Web application"
+  },
+  {
+    "id": 19,
+    "title": "Security Suite",
+    "publisher": "Acme Software Co.",
+    "categories": ["Data Protection"],
+    "rating": 4.3,
+    "pricing": "Annual license",
+    "delivery": "License key"
+  },
+  {
+    "id": 20,
+    "title": "DBShield",
+    "publisher": "Acme Software Co.",
+    "categories": ["Data Protection", "Database"],
+    "rating": 4.9,
+    "pricing": "Monthly subscription",
+    "delivery": "Web application"
+  },
+  {
+    "id": 21,
+    "title": "Padlock",
+    "publisher": "Acme Software Co.",
+    "categories": ["Data Protection", "Database"],
+    "rating": 4.2,
+    "pricing": "Monthly subscription",
+    "delivery": "Web application"
+  }
+]
