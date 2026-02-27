@@ -11,6 +11,7 @@
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.1.4",
     "@shared/aries-core": "workspace:*",
+    "@shared/hooks": "workspace:*",
     "grommet": "catalog:",
     "grommet-icons": "catalog:grommet-stable",
     "hpe-design-tokens": "^2.1.0",

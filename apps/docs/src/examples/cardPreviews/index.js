@@ -18,6 +18,7 @@ export * from './datatablecolumns';
 export * from './datatablegroupby';
 export * from './dataview';
 export * from './dateinput';
+export * from './double-confirmation';
 export * from './feedback';
 export * from './footer';
 export * from './grid';

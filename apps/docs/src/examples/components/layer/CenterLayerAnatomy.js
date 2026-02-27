@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
+import { LayerContainer } from './LayerContainer';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
-import { LayerContainer } from './components/LayerContainer';
 
 export const CenterLayerAnatomy = ({ informational }) => {
   const breakpoint = useContext(ResponsiveContext);

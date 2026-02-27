@@ -1,0 +1,108 @@
+import { Box, Paragraph, Anchor } from 'grommet';
+import { Checkmark } from '@hpe-design/icons-grommet';
+import { BestPracticeGroup, Example } from '../../layouts';
+import { DoubleConfirmationConfigurationForm } from '@shared/aries-core';
+import {
+  DoubleConfirmationAnatomy,
+  DoubleConfirmationBestPractice,
+  DoubleConfirmationExample,
+  DoubleConfirmationCard,
+} from '../../examples';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/double-confirmation/DoubleConfirmationExample.js',
+  ]}
+  docs="https://v2.grommet.io/layer?theme=hpe"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=HyIjeuKiU9srGEhS-1"
+>
+  <DoubleConfirmationExample />
+</Example>
+
+## Use cases
+
+### Confirming unsaved changes
+
+Use this pattern when closing a layer could result in losing unsaved or newly entered information. In this example, the layer closes immediately when no changes have been made, but triggers a double confirmation when the form contains edits, helping prevent unintended loss of input.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/DoubleConfirmation/DoubleConfirmationConfigurationForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/Layer/LayerHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/Layer/LayerForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/DoubleConfirmation/DoubleConfirmation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/hooks/src/useConfirmation.tsx',
+    ]}
+  height={{ min: 'medium' }}
+  template
+  showHeader
+  showResponsiveControls={['laptop', 'mobile']}
+
+>
+
+  <DoubleConfirmationConfigurationForm />
+</Example>
+
+## Anatomy
+
+Diagram illustrating the parts composing a double confirmation.
+
+<Example plain>
+  <DoubleConfirmationAnatomy />
+</Example>
+
+| Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
+| ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
+| **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
+| **1b** | **Subtitle** | To clarify that changes will not be saved.                           | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
+| **2**  | **Footer**   | Contains two actions: "Cancel" and "Discard"                         | <Checkmark a11yTitle="true" size="small" /> | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
+
+## Dos and Do nots
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Lead with the single action that needs to be confirmed. In most cases, this is "Discard" followed by a noun of what will be discarded.',
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Avoid unnecessary instructions which create uncertainty about what will happen. Avoid phrasing which question the user's intent; instead use phrasing which trusts the intent and confirms.`,
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message: 'Align the primary action verb with the title.',
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t change the primary action to something generic like "Yes". The user should know the consequence of the button by the label alone.`,
+    }}
+    width="100%"
+  >
+    <DoubleConfirmationBestPractice bestPractice="badLabel" />
+  </Example>
+</BestPracticeGroup>

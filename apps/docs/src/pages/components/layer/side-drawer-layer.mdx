@@ -1,11 +1,11 @@
 import { Example } from '../../../layouts';
 import {
-  ConfigurationForm,
   DataFiltersAnatomy,
-  SideDrawerLayerAnatomy,
   FilteringTable,
   LayerStickyExample,
+  SideDrawerLayerAnatomy,
 } from '../../../examples';
+import { DoubleConfirmationConfigurationForm } from '@shared/aries-core';
 import { Checkmark } from '@hpe-design/icons-grommet';
 
 ## Anatomy
@@ -121,17 +121,20 @@ In order to maximize screen real-estate when content is scrollable, the header m
 <Example
   docs="https://v2.grommet.io/layer?theme=hpe#props"
   code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/ConfigurationForm.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/Layer/LayerHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/ConfirmationContext.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/DoubleConfirmation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/DoubleConfirmation/DoubleConfirmationConfigurationForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/Layer/LayerHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/Layer/LayerForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/DoubleConfirmation/DoubleConfirmation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/hooks/src/useConfirmation.tsx',
   ]}
-  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/components/layer/ConfigurationForm.js"
+  github="https://github.com/grommet/hpe-design-system/blob/master/shared/aries-core/src/js/components/layouts/DoubleConfirmation/DoubleConfirmationConfigurationForm.js"
   height={{ min: 'small' }}
   template
-  showResponsiveControls={[]}
+  showResponsiveControls={['laptop', 'mobile']}
+
 >
-  <ConfigurationForm />
+
+  <DoubleConfirmationConfigurationForm />
 </Example>
 
 ### Filtering
