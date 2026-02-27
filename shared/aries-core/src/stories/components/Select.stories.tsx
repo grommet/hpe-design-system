@@ -1,7 +1,8 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Select } from 'grommet';
 import {
-  a11yTitleArg,
+  ariaLabelArg,
   disabledArg,
   placeholderArg,
 } from '../utils/commonArgs';
@@ -10,7 +11,7 @@ const meta = {
   title: 'Components/Select',
   component: Select,
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     clear: {
       control: { type: 'boolean' },
     },
@@ -32,7 +33,7 @@ export const Default = {
   name: 'Select',
   render: args => <Select {...args} />,
   args: {
-    a11yTitle: 'Select a size',
+    'aria-label': 'Select a size',
     clear: false,
     disabled: false,
     open: false,

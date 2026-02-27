@@ -1,7 +1,8 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { SelectMultiple } from 'grommet';
 import {
-  a11yTitleArg,
+  ariaLabelArg,
   disabledArg,
   placeholderArg,
   marginArg,
@@ -11,7 +12,7 @@ const meta = {
   title: 'Components/SelectMultiple',
   component: SelectMultiple,
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     disabled: disabledArg,
     help: {
       control: { type: 'text' },
@@ -60,7 +61,7 @@ export const Default = {
   name: 'SelectMultiple',
   render: args => <SelectMultiple {...args} />,
   args: {
-    a11yTitle: 'Multiple selection',
+    'aria-label': 'Multiple selection',
     disabled: false,
     help: undefined,
     limit: undefined,

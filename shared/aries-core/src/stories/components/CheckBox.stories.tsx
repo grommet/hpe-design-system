@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CheckBox } from 'grommet';
 import {
   labelArg,
-  a11yTitleArg,
+  ariaLabelArg,
   disabledArg,
   fillArg,
   padArg,
@@ -14,7 +14,7 @@ const meta = {
   title: 'Components/CheckBox',
   component: CheckBox,
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     checked: {
       control: { type: 'boolean' },
     },
@@ -39,7 +39,7 @@ export const Default = {
   name: 'CheckBox',
   render: args => <CheckBox {...args} />,
   args: {
-    a11yTitle: undefined,
+    'aria-label': undefined,
     checked: false,
     disabled: false,
     fill: false,

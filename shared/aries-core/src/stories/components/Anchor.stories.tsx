@@ -7,14 +7,14 @@ import {
   textSizesArg,
   reverseArg,
   iconArg,
-  a11yTitleArg,
+  ariaLabelArg,
 } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Anchor',
   component: Anchor,
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     disabled: disabledArg,
     icon: iconArg,
     label: labelArg,
@@ -34,9 +34,9 @@ export const Default: Story = {
     return <Anchor {...args} />;
   },
   args: {
-    label: 'Link',
+    'aria-label': 'Navigate to link',
     href: '#',
-    a11yTitle: 'Navigate to link',
+    label: 'Link',
   },
   name: 'Anchor',
 };
