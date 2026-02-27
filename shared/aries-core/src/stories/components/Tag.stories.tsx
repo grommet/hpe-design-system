@@ -1,12 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tag } from 'grommet';
-import {
-  labelArg,
-  textSizesArg,
-  ariaLabelArg,
-  backgroundArg,
-} from '../utils/commonArgs';
+import { labelArg, textSizesArg, backgroundArg } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Tag',
