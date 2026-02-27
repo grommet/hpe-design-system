@@ -8,14 +8,17 @@ import {
   Form,
   FormField,
   Grid,
+  Grommet,
   Select,
   Text,
   TextInput,
   Heading,
 } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import { Copy ,
   Add,
   Edit,
+  Mode,
   Search,
   Trash,
   Download,
@@ -188,6 +191,7 @@ export const ButtonPlaygroundTwo = () => {
   const [targetBlank, setTargetBlank] = useState(false);
   const [a11yTitle, setA11yTitle] = useState('');
   const [copied, setCopied] = useState(false);
+  const [previewDark, setPreviewDark] = useState(false);
 
   // --- container-aware layout ---
   const containerRef = useRef(null);
@@ -282,8 +286,32 @@ export const ButtonPlaygroundTwo = () => {
       style={{ minHeight: 0, minWidth: 0 }}
     >
       {/* LEFT MAIN — centered button preview */}
-      <Box gridArea="main" align="center" justify="center" pad="large" background="background-front" >
-        <Button {...previewProps} />
+      <Box
+        gridArea="main"
+        style={{ position: 'relative', minHeight: 0, minWidth: 0 }}
+      >
+        <Grommet
+          theme={hpe}
+          themeMode={previewDark ? 'dark' : 'light'}
+          style={{ height: '100%', display: 'flex',
+            alignItems: 'center', justifyContent: 'center' }}
+        >
+          <Box fill align="center" justify="center" pad="large"
+            background="background-front"
+          >
+            <Button {...previewProps} />
+          </Box>
+          <Box style={{ position: 'absolute', top: '20px', right: '20px' }}>
+            <Button
+              icon={<Mode />}
+              tip="Change view mode"
+              secondary
+              size="medium"
+              onClick={() => setPreviewDark(d => !d)}
+              a11yTitle="Toggle preview dark mode"
+            />
+          </Box>
+        </Grommet>
       </Box>
 
       {/* RIGHT PANEL — scrollable controls */}
@@ -393,7 +421,8 @@ options={TIP_POSITION_OPTIONS.map((o, i) => ({ label: o.label, value: i }))}
       <Box
         gridArea="code"
         as="pre"
-        margin="none"
+        margin="small"
+        round="xsmall"
         pad="small"
         background="dark-1"
         overflow="auto"
