@@ -1,13 +1,14 @@
+import React from 'react';
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { RangeInput } from 'grommet';
-import { a11yTitleArg, disabledArg } from '../utils/commonArgs';
+import { ariaLabelArg, disabledArg } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/RangeInput',
   component: RangeInput,
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     disabled: disabledArg,
     max: {
       control: { type: 'number' },
@@ -41,7 +42,7 @@ export const Default = {
     );
   },
   args: {
-    a11yTitle: 'Select range value',
+    'aria-label': 'Select range value',
     disabled: false,
     max: 100,
     min: 0,

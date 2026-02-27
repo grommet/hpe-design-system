@@ -1,7 +1,8 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Skeleton } from 'grommet';
 import {
-  a11yTitleArg,
+  ariaLabelArg,
   heightArg,
   marginArg,
   padArg,
@@ -13,7 +14,6 @@ const meta = {
   title: 'Components/Skeleton',
   component: Skeleton,
   argTypes: {
-    a11yTitle: a11yTitleArg,
     height: heightArg,
     margin: marginArg,
     pad: padArg,
@@ -29,7 +29,6 @@ export const Default = {
   name: 'Skeleton',
   render: args => <Skeleton {...args} />,
   args: {
-    a11yTitle: 'Loading content',
     height: 'xxsmall',
     margin: 'small',
     pad: 'small',

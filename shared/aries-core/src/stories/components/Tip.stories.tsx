@@ -26,7 +26,7 @@ export const Default = {
   render: args => (
     <Tip {...args}>
       <Button
-        a11yTitle="simple button"
+        aria-label="simple button"
         label="Hover to see Tip"
         secondary
       />

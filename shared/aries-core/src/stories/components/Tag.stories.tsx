@@ -4,7 +4,7 @@ import { Tag } from 'grommet';
 import {
   labelArg,
   textSizesArg,
-  a11yTitleArg,
+  ariaLabelArg,
   backgroundArg,
 } from '../utils/commonArgs';
 
@@ -12,7 +12,6 @@ const meta = {
   title: 'Components/Tag',
   component: Tag,
   argTypes: {
-    a11yTitle: a11yTitleArg,
     background: backgroundArg,
     name: labelArg,
     size: textSizesArg,
@@ -27,7 +26,6 @@ export const Default = {
   name: 'Tag',
   render: args => <Tag {...args} />,
   args: {
-    a11yTitle: undefined,
     background: undefined,
     name: 'name',
     size: 'small',

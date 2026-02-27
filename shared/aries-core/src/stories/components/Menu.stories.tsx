@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Menu } from 'grommet';
 import {
-  a11yTitleArg,
+  ariaLabelArg,
   disabledArg,
   labelArg,
   tShirtSizes,
@@ -12,7 +12,7 @@ const meta = {
   title: 'Components/Menu',
   component: Menu,
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     disabled: disabledArg,
 
     items: {
@@ -34,7 +34,7 @@ export const Default = {
   name: 'Menu',
   // Story specific args, sets default args for argTypes
   args: {
-    a11yTitle: undefined,
+    'aria-label': undefined,
     disabled: false,
     items: [
       { label: 'Profile', onClick: () => {} },
