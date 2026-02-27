@@ -36,6 +36,7 @@ export const ButtonBusyExample = ({ containerRef }) => {
             position="right"
             full="vertical"
             onClose={onClose}
+            onEsc={onClose}
             target={containerRef?.current}
           >
             <Form
