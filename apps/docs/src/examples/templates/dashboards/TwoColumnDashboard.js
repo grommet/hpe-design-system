@@ -4,7 +4,7 @@ import {
   Box,
   Grid,
   Heading,
-  // Main,
+  Main,
   ResponsiveContext,
   Page,
   PageContent,
@@ -94,48 +94,49 @@ const Content = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    // Main is commented out for this example, but should be used in a
-    // real application.
-    // <Main>
-    <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
-      {/* RecentActivity is top priority content. At narrow breakpoints, 
+    <Main>
+      <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
+        {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-      {['xsmall', 'small'].includes(size) && <RecentActivity />}
-      <Box gap="xlarge">
-        <Box gap="xsmall">
-          <Heading level={2} margin="none">
-            Servers
-          </Heading>
-          <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
-            <ServerHealth />
-            <ServerAttention />
-          </Grid>
-        </Box>
-        <Box gap="xsmall">
-          <Heading level={2} margin="none">
-            Firmware
-          </Heading>
-          <Grid
-            columns={secondChildGrid.columns[size]}
-            rows={secondChildGrid.rows}
-            areas={secondChildGrid.areas[size]}
-            gap={secondChildGrid.gap}
-          >
-            <FirmwareStatus gridArea="firmwareStatus" />
-            <UpdatesAvaliable gridArea="firmwareUpdates" />
-            <FirmwareBaselines gridArea="firmwareBaselines" />
-          </Grid>
-        </Box>
-      </Box>
-      {!['xsmall', 'small'].includes(size) && (
+        {['xsmall', 'small'].includes(size) && <RecentActivity />}
         <Box gap="xlarge">
-          {/* fragment is used to create a gap spacing element 
-            for alignment to column 1 */}
-          <></>
-          <RecentActivity />
+          <Box gap="xsmall">
+            <Heading level={2} margin="none">
+              Servers
+            </Heading>
+            <Grid
+              columns={firstChildGrid.columns[size]}
+              gap={firstChildGrid.gap}
+            >
+              <ServerHealth />
+              <ServerAttention />
+            </Grid>
+          </Box>
+          <Box gap="xsmall">
+            <Heading level={2} margin="none">
+              Firmware
+            </Heading>
+            <Grid
+              columns={secondChildGrid.columns[size]}
+              rows={secondChildGrid.rows}
+              areas={secondChildGrid.areas[size]}
+              gap={secondChildGrid.gap}
+            >
+              <FirmwareStatus gridArea="firmwareStatus" />
+              <UpdatesAvaliable gridArea="firmwareUpdates" />
+              <FirmwareBaselines gridArea="firmwareBaselines" />
+            </Grid>
+          </Box>
         </Box>
-      )}
-    </Grid>
-    // </Main>
+        {!['xsmall', 'small'].includes(size) && (
+          <Box gap="xlarge">
+            {/* fragment is used to create a gap spacing element 
+            for alignment to column 1 */}
+            <></>
+            <RecentActivity />
+          </Box>
+        )}
+      </Grid>
+    </Main>
   );
 };
