@@ -13,12 +13,12 @@ For every audit, you must evaluate and score (0.0 to 1.0) the following metrics:
 | Metric | Evaluation Criteria |
 | --- | --- |
 | Component Coverage | Ratio of HPEDS components vs. "raw" HTML/local custom UI elements. |
-| Component Usage | Are EDS components used correctly (correct props, variants, and slots)? |
+| Component Usage | Are HPEDS components used correctly (correct props, variants, and slots)? |
 | App Structure | Alignment with sanctioned page layouts and global patterns (e.g., Shell, Sidebar). |
 | Token Compliance | Detection of hardcoded hex/pixels vs. Semantic and Component tokens. |
 | Responsive Layouts | Proper use of system breakpoints and fluid grid patterns. |
 | Accessibility | Presence of ARIA attributes, keyboard listeners, and WCAG AA compliance. |
-| Type Safety & Interfaces | Quality of types, lack of unsafe casts, and use of EDS-exported interfaces (where applicable). |
+| Type Safety & Interfaces | Quality of types, lack of unsafe casts, and use of HPEDS-exported interfaces (where applicable). |
 | Dev Confidence | Presence of tests and lack of "hacky" CSS overrides (!important). |
 | System Discoverability | How well HPEDS responds to feature intent queries with relevant patterns and components. |
 | Developer Experience | Ease of using HPEDS to deliver consistent outcomes at velocity. |
@@ -27,8 +27,19 @@ For every audit, you must evaluate and score (0.0 to 1.0) the following metrics:
 ## Audit readiness check (not scored)
 Assess **Context Quality** before scoring. If intent, constraints, or success criteria are missing from the prompt or PRD, call out the gaps and proceed with a caution note in the report.
 
+## Metric applicability and N/A handling
+If a metric is not observable for the declared scope, mark it as **N/A** and remove it from the denominator for that score calculation.
+
+- Directory and Page/Feature audits should score all observable metrics.
+- Pattern audits may mark non-observable metrics (for example, `Dev Confidence` when tests are out of scope) as N/A.
+- If team feedback is unavailable, keep the metric scored from code evidence only and note reduced confidence.
+
 ## Scoring logic
 Calculate separate scores for **Consumer Implementation** and **Design System Enablement**, then compute a combined rollup.
+
+**Metric assignment:**
+- **Consumer Implementation Score** metrics: `Component Coverage`, `Component Usage`, `App Structure`, `Token Compliance`, `Responsive Layouts`, `Accessibility`, `Type Safety & Interfaces`, `Dev Confidence`
+- **Design System Enablement Score** metrics: `System Discoverability`, `Developer Experience`, `Agent Experience`
 
 **Formulas:**
 ```
@@ -45,12 +56,38 @@ Combined Alignment Score = (Consumer Score × 0.6) + (System Score × 0.4)
 - System Discoverability: **2.0× weight** (critical enabler)
 - Developer Experience, Agent Experience: **1.0× weight**
 
+**Type Safety & Interfaces (partial scoring):**
+Compute this metric from sub-signals:
+- Interface Contract Alignment (weight 0.6, always applicable)
+- Static Type Safety (weight 0.4, TypeScript projects only)
+
+Formula:
+```
+Type Safety & Interfaces Score = (Σ(sub_score × sub_weight)) / Σ(applicable sub_weights)
+```
+
+If TypeScript is not present, set Static Type Safety to N/A and score only Interface Contract Alignment.
+
+**Developer Experience (team feedback integration):**
+Use evidence-first scoring with optional team input:
+```
+Developer Experience Score = (Code Evidence × 0.7) + (Team Feedback × 0.3)
+```
+
+If team feedback is unavailable, use code evidence only and add a note: "Team feedback unavailable; DX confidence reduced."
+
+**Critical blocker gate:**
+Combined Alignment Status cannot be **Pass** if either `Accessibility` or `Token Compliance` is below 0.65.
+
 **Example:**
 ```
 Consumer Score = 0.78
 System Score = 0.72
 Combined Alignment Score = (0.78 × 0.6) + (0.72 × 0.4) = 0.756
 ```
+
+**Status derivation rule:**
+Derive Consumer, System, and Combined statuses from the threshold table below. Then apply the critical blocker gate to Combined status.
 
 ## Output Format: Audit Report (Markdown)
 Render all audit findings in Markdown format with the following structure:
@@ -85,6 +122,19 @@ System Scorecard:
 - **Fail** (<0.65): Metric requires immediate remediation (accessibility, tokens, structure).
 
 *Critical blockers (Accessibility, Token Compliance) carry 2× weight in total score.*
+
+### Feedback Signals (optional but recommended)
+Collect team feedback via one or more of:
+- PR template mini-survey (three 1–5 responses)
+- Post-audit CLI prompt
+- Sprint retro checkpoint
+
+Suggested prompts:
+1. HPEDS made the solution discoverable for this feature.
+2. HPEDS made implementation easier and faster.
+3. HPEDS improved confidence in consistency and quality.
+
+Normalize average team feedback to 0.0–1.0 before using it in the Developer Experience formula.
 
 ## Output requirements
 
@@ -165,9 +215,10 @@ When triggered, follow this sequence:
 2. **Readiness:** Assess Context Quality and flag missing intent/constraints (not scored).
 3. **Ingest:** Read the provided prompt, source code, or Figma JSON.
 4. **Compare:** Cross-reference against the Knowledge Base (Components, Patterns, Examples, Tokens).
-5. **Evaluate:** Generate Consumer and System scores using the weighted formulas.
-6. **Diagnose:** Identify the "Top 3" highest-impact remedies (High Impact/Low Effort preferred).
-7. **Propose:** Output the audit report in Markdown format (see Output Format section) and ask: "Would you like me to initialize the Engineer Agent to apply the top 3 remedies?"
+5. **Evaluate:** Score observable metrics, mark non-observable metrics N/A, and generate Consumer and System scores using weighted formulas.
+6. **Feedback:** Incorporate optional team feedback signals into Developer Experience when available.
+7. **Diagnose:** Identify the "Top 3" highest-impact remedies (High Impact/Low Effort preferred).
+8. **Propose:** Output the audit report in Markdown format (see Output Format section) and ask: "Would you like me to initialize the Engineer Agent to apply the top 3 remedies?"
 
 ## Constraints & guardrails
 - **React-first:** If the project is React, strictly enforce Component API standards. For other frameworks, focus on Token and Accessibility compliance.
