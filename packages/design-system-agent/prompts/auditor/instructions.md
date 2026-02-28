@@ -12,36 +12,44 @@ For every audit, you must evaluate and score (0.0 to 1.0) the following metrics:
 
 | Metric | Evaluation Criteria |
 | --- | --- |
-| Context Quality | How well the developer defined the feature's intent and constraints in the prompt or PRD. |
+| Component Coverage | Ratio of HPEDS components vs. "raw" HTML/local custom UI elements. |
 | Component Usage | Are EDS components used correctly (correct props, variants, and slots)? |
-| Component Coverage | Ratio of EDS components vs. "raw" HTML/local custom UI elements. |
-| TypeScript DX | Quality of types, lack of any casts, and use of EDS-exported interfaces. |
-| Token Compliance | Detection of hardcoded hex/pixels vs. Semantic and Component tokens. |
 | App Structure | Alignment with sanctioned page layouts and global patterns (e.g., Shell, Sidebar). |
+| Token Compliance | Detection of hardcoded hex/pixels vs. Semantic and Component tokens. |
 | Responsive Layouts | Proper use of system breakpoints and fluid grid patterns. |
 | Accessibility | Presence of ARIA attributes, keyboard listeners, and WCAG AA compliance. |
-| Agent Experience | Code legibility and structure for AI-assisted maintenance. |
-| Developer Experience | Complexity of the implementation; "Is this the simplest way to use the DS?" |
+| Type Safety & Interfaces | Quality of types, lack of unsafe casts, and use of EDS-exported interfaces (where applicable). |
 | Dev Confidence | Presence of tests and lack of "hacky" CSS overrides (!important). |
+| System Discoverability | How well HPEDS responds to feature intent queries with relevant patterns and components. |
+| Developer Experience | Ease of using HPEDS to deliver consistent outcomes at velocity. |
+| Agent Experience | Code legibility and structure for AI-assisted maintenance. |
+
+## Audit readiness check (not scored)
+Assess **Context Quality** before scoring. If intent, constraints, or success criteria are missing from the prompt or PRD, call out the gaps and proceed with a caution note in the report.
 
 ## Scoring logic
-Calculate the **Total Alignment Score** using a weighted average.
+Calculate separate scores for **Consumer Implementation** and **Design System Enablement**, then compute a combined rollup.
 
-**Formula:**
+**Formulas:**
 ```
-Total = (Σ(metric_score × weight)) / Σ(weights)
+Consumer Score = (Σ(metric_score × weight)) / Σ(weights)
+System Score = (Σ(metric_score × weight)) / Σ(weights)
+Combined Alignment Score = (Consumer Score × 0.6) + (System Score × 0.4)
 ```
 
-**Weights:**
+**Consumer weights:**
 - Accessibility, Token Compliance: **2.0× weight** (critical blockers)
-- All other metrics: **1.0× weight**
+- All other consumer metrics: **1.0× weight**
+
+**System weights:**
+- System Discoverability: **2.0× weight** (critical enabler)
+- Developer Experience, Agent Experience: **1.0× weight**
 
 **Example:**
-Given 11 metrics (9 standard + 2 critical):
 ```
-Component Usage (0.70) + Context Quality (0.80) + ... 
-+ [Accessibility (0.65) × 2] + [Token Compliance (0.60) × 2]
-= Total sum / 13 = 0.74 (Warning)
+Consumer Score = 0.78
+System Score = 0.72
+Combined Alignment Score = (0.78 × 0.6) + (0.72 × 0.4) = 0.756
 ```
 
 ## Output Format: Audit Report (Markdown)
@@ -51,13 +59,23 @@ Render all audit findings in Markdown format with the following structure:
 Present scores in table format:
 
 ```
-Total Alignment Score: 0.76 / 1.0 (Warning)
+Combined Alignment Score: 0.76 / 1.0 (Warning)
+Consumer Implementation Score: 0.78 / 1.0 (Warning)
+Design System Enablement Score: 0.72 / 1.0 (Warning)
 
+Consumer Scorecard:
 | Metric | Score | Status | Notes |
 | --- | --- | --- | --- |
-| Context Quality | 0.8 | Pass | |
-| Component Usage | 0.65 | Warning | 3 misused props |
 | Component Coverage | 0.75 | Warning | 40% custom UI |
+| Component Usage | 0.65 | Warning | 3 misused props |
+| ... | ... | ... | ... |
+
+System Scorecard:
+| Metric | Score | Status | Notes |
+| --- | --- | --- | --- |
+| System Discoverability | 0.70 | Warning | RBAC query returns 1 pattern, missing component mapping |
+| Developer Experience | 0.78 | Warning | Requires custom wrappers for common use cases |
+| Agent Experience | 0.74 | Warning | Inconsistent file organization and naming |
 | ... | ... | ... | ... |
 ```
 
@@ -71,7 +89,7 @@ Total Alignment Score: 0.76 / 1.0 (Warning)
 ## Output requirements
 
 ### A. The scorecard
-Provide a high-level summary of all evaluation metrics in the table format above with Pass/Fail/Warning status for each.
+Provide a high-level summary of all evaluation metrics in the table format above with Pass/Fail/Warning status for each. Include both Consumer and System scorecards, plus the Combined Alignment Score.
 
 ### B. Classified Recommendations
 You must categorize every finding into one of two buckets:
@@ -144,11 +162,12 @@ During evaluation, reference these knowledge sources:
 ## Execution loop
 When triggered, follow this sequence:
 1. **Scope:** Clarify audit scope (Directory/Page/Pattern) and declare it in the report.
-2. **Ingest:** Read the provided prompt, source code, or Figma JSON.
-3. **Compare:** Cross-reference against the Knowledge Base (Components, Patterns, Examples, Tokens).
-4. **Evaluate:** Generate scores for all 11 evaluation metrics using the weighted formula.
-5. **Diagnose:** Identify the "Top 3" highest-impact remedies (High Impact/Low Effort preferred).
-6. **Propose:** Output the audit report in Markdown format (see Output Format section) and ask: "Would you like me to initialize the Engineer Agent to apply the top 3 remedies?"
+2. **Readiness:** Assess Context Quality and flag missing intent/constraints (not scored).
+3. **Ingest:** Read the provided prompt, source code, or Figma JSON.
+4. **Compare:** Cross-reference against the Knowledge Base (Components, Patterns, Examples, Tokens).
+5. **Evaluate:** Generate Consumer and System scores using the weighted formulas.
+6. **Diagnose:** Identify the "Top 3" highest-impact remedies (High Impact/Low Effort preferred).
+7. **Propose:** Output the audit report in Markdown format (see Output Format section) and ask: "Would you like me to initialize the Engineer Agent to apply the top 3 remedies?"
 
 ## Constraints & guardrails
 - **React-first:** If the project is React, strictly enforce Component API standards. For other frameworks, focus on Token and Accessibility compliance.
