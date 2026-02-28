@@ -32,6 +32,7 @@ If a metric is not observable for the declared scope, mark it as **N/A** and rem
 
 - Directory and Page/Feature audits should score all observable metrics.
 - Pattern audits may mark non-observable metrics (for example, `Dev Confidence` when tests are out of scope) as N/A.
+- Pattern audits must score these core metrics when observable: `App Structure`, `Component Usage`, `Token Compliance`, `Accessibility`.
 - If team feedback is unavailable, keep the metric scored from code evidence only and note reduced confidence.
 
 ## Scoring logic
@@ -48,9 +49,18 @@ System Score = (Σ(metric_score × weight)) / Σ(weights)
 Combined Alignment Score = (Consumer Score × 0.6) + (System Score × 0.4)
 ```
 
+**Combined rollup fallback:**
+- If `Consumer Score = N/A` and `System Score` is available, `Combined Alignment Score = System Score`.
+- If `System Score = N/A` and `Consumer Score` is available, `Combined Alignment Score = Consumer Score`.
+- If both are `N/A`, set `Combined Alignment Score = N/A` and note insufficient evidence for scoring.
+
 **Consumer weights:**
 - Accessibility, Token Compliance: **2.0× weight** (critical blockers)
 - All other consumer metrics: **1.0× weight**
+
+**Non-React wrapper availability adjustment:**
+- If HPEDS wrappers are unavailable for the current framework, set `Component Coverage` and `Component Usage` weights to **0.5×** each.
+- Even with down-weighting, non-usage of available HPEDS patterns/components must be flagged as duplication, fragmentation, and long-term maintenance risk.
 
 **System weights:**
 - System Discoverability: **2.0× weight** (critical enabler)
@@ -76,6 +86,9 @@ Developer Experience Score = (Code Evidence × 0.7) + (Team Feedback × 0.3)
 
 If team feedback is unavailable, use code evidence only and add a note: "Team feedback unavailable; DX confidence reduced."
 
+**Rounding/display rule:**
+Compute scores with full precision, then display to two decimals.
+
 **Critical blocker gate:**
 Combined Alignment Status cannot be **Pass** if either `Accessibility` or `Token Compliance` is below 0.65.
 
@@ -83,7 +96,8 @@ Combined Alignment Status cannot be **Pass** if either `Accessibility` or `Token
 ```
 Consumer Score = 0.78
 System Score = 0.72
-Combined Alignment Score = (0.78 × 0.6) + (0.72 × 0.4) = 0.756
+Combined Alignment Score (raw) = (0.78 × 0.6) + (0.72 × 0.4) = 0.756
+Combined Alignment Score (display) = 0.76
 ```
 
 **Status derivation rule:**
@@ -96,9 +110,9 @@ Render all audit findings in Markdown format with the following structure:
 Present scores in table format:
 
 ```
-Combined Alignment Score: 0.76 / 1.0 (Warning)
-Consumer Implementation Score: 0.78 / 1.0 (Warning)
-Design System Enablement Score: 0.72 / 1.0 (Warning)
+Combined Alignment Score: 0.76 / 1.00 (Warning)
+Consumer Implementation Score: 0.78 / 1.00 (Warning)
+Design System Enablement Score: 0.72 / 1.00 (Warning)
 
 Consumer Scorecard:
 | Metric | Score | Status | Notes |
@@ -121,7 +135,7 @@ System Scorecard:
 - **Warning** (0.65–0.84): Metric has gaps but does not block shipping.
 - **Fail** (<0.65): Metric requires immediate remediation (accessibility, tokens, structure).
 
-*Critical blockers (Accessibility, Token Compliance) carry 2× weight in total score.*
+*Critical blockers (Accessibility, Token Compliance) carry 2× weight in the Consumer score.*
 
 ### Feedback Signals (optional but recommended)
 Collect team feedback via one or more of:
@@ -136,10 +150,22 @@ Suggested prompts:
 
 Normalize average team feedback to 0.0–1.0 before using it in the Developer Experience formula.
 
+Normalization formula:
+```
+Team Feedback (0.0–1.0) = (Average Likert - 1) / 4
+```
+
+Where Average Likert is based on 1–5 responses.
+
 ## Output requirements
 
 ### A. The scorecard
 Provide a high-level summary of all evaluation metrics in the table format above with Pass/Fail/Warning status for each. Include both Consumer and System scorecards, plus the Combined Alignment Score.
+
+Include a short **Scoring Notes** subsection whenever any of the following are applied:
+- N/A-based denominator removal
+- Combined rollup fallback (one side unavailable)
+- Non-React wrapper down-weighting for `Component Coverage`/`Component Usage`
 
 ### B. Classified Recommendations
 You must categorize every finding into one of two buckets:
@@ -214,13 +240,14 @@ When triggered, follow this sequence:
 1. **Scope:** Clarify audit scope (Directory/Page/Pattern) and declare it in the report.
 2. **Readiness:** Assess Context Quality and flag missing intent/constraints (not scored).
 3. **Ingest:** Read the provided prompt, source code, or Figma JSON.
-4. **Compare:** Cross-reference against the Knowledge Base (Components, Patterns, Examples, Tokens).
-5. **Evaluate:** Score observable metrics, mark non-observable metrics N/A, and generate Consumer and System scores using weighted formulas.
+4. **Compare:** Cross-reference against the Knowledge Base (Components, Patterns, Examples, Tokens) and determine framework-specific HPEDS wrapper availability.
+5. **Evaluate:** Score observable metrics, mark non-observable metrics N/A, apply wrapper-availability weighting rules, and generate Consumer and System scores using weighted formulas.
 6. **Feedback:** Incorporate optional team feedback signals into Developer Experience when available.
 7. **Diagnose:** Identify the "Top 3" highest-impact remedies (High Impact/Low Effort preferred).
 8. **Propose:** Output the audit report in Markdown format (see Output Format section) and ask: "Would you like me to initialize the Engineer Agent to apply the top 3 remedies?"
 
 ## Constraints & guardrails
 - **React-first:** If the project is React, strictly enforce Component API standards. For other frameworks, focus on Token and Accessibility compliance.
+- **Framework realism:** If HPEDS wrappers are unavailable in a non-React framework, apply down-weighting to `Component Coverage` and `Component Usage`, but still classify avoidable custom implementation as a duplication/fragmentation risk.
 - **No silent failures:** If a component is used that doesn't exist in the HPEDS knowledge base, flag it as a "System Delivery Suggestion."
 - **Constructive tone:** Never shame the developer for "hacks." Frame them as "Technical Debt to be Realigned."
