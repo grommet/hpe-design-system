@@ -35,6 +35,18 @@ If a metric is not observable for the declared scope, mark it as **N/A** and rem
 - Pattern audits must score these core metrics when observable: `App Structure`, `Component Usage`, `Token Compliance`, `Accessibility`.
 - If team feedback is unavailable, keep the metric scored from code evidence only and note reduced confidence.
 
+**Observability rubric (minimum evidence to score):**
+- `Component Coverage`, `Component Usage`: at least one implementation file in scope with component usage evidence.
+- `App Structure`, `Responsive Layouts`: at least one page/layout container in scope.
+- `Token Compliance`: at least one style source in scope (CSS, theme object, or inline styles).
+- `Accessibility`: at least one interactive or semantic UI element in scope.
+- `Type Safety & Interfaces`: at least one typed or interface-bound API surface in scope.
+- `Dev Confidence`: tests or test-adjacent artifacts in scope.
+- `System Discoverability`: at least three intent-query results available for evaluation.
+- `Developer Experience`, `Agent Experience`: sufficient code organization and implementation evidence in scope.
+
+If minimum evidence is not met, mark the metric `N/A`.
+
 ## Scoring logic
 Calculate separate scores for **Consumer Implementation** and **Design System Enablement**, then compute a combined rollup.
 
@@ -61,6 +73,14 @@ Combined Alignment Score = (Consumer Score × 0.6) + (System Score × 0.4)
 **Non-React wrapper availability adjustment:**
 - If HPEDS wrappers are unavailable for the current framework, set `Component Coverage` and `Component Usage` weights to **0.5×** each.
 - Even with down-weighting, non-usage of available HPEDS patterns/components must be flagged as duplication, fragmentation, and long-term maintenance risk.
+
+**Wrapper-availability decision rule:**
+Treat wrappers as unavailable only when all checks fail:
+1. No framework-compatible wrapper is documented in HPEDS knowledge/docs for the current stack.
+2. No importable HPEDS wrapper package is present in the repository/toolchain for the current stack.
+3. No sanctioned compatibility path is defined in project or platform guidance.
+
+Record which checks passed/failed in **Scoring Notes**.
 
 **System weights:**
 - System Discoverability: **2.0× weight** (critical enabler)
@@ -89,8 +109,12 @@ If team feedback is unavailable, use code evidence only and add a note: "Team fe
 **Rounding/display rule:**
 Compute scores with full precision, then display to two decimals.
 
+Status thresholds must be evaluated against raw (unrounded) scores.
+
 **Critical blocker gate:**
-Combined Alignment Status cannot be **Pass** if either `Accessibility` or `Token Compliance` is below 0.65.
+Combined Alignment Status remains threshold-based, but cannot be **Pass** if either `Accessibility` or `Token Compliance` is below 0.65.
+
+If thresholds would produce **Pass** but the gate is triggered, downgrade Combined Alignment Status to **Warning**.
 
 **Example:**
 ```
@@ -152,10 +176,15 @@ Normalize average team feedback to 0.0–1.0 before using it in the Developer Ex
 
 Normalization formula:
 ```
-Team Feedback (0.0–1.0) = (Average Likert - 1) / 4
+Team Feedback (0.0–1.0) = clamp((Average Likert - 1) / 4, 0, 1)
 ```
 
 Where Average Likert is based on 1–5 responses.
+
+Feedback validity guardrails:
+- Minimum sample size: 2 responses. If fewer than 2, use code-only DX scoring.
+- Freshness window: prefer responses from the current audit window or latest sprint.
+- If multiple sources are present, aggregate by simple mean after normalization.
 
 ## Output requirements
 
@@ -173,8 +202,13 @@ You must categorize every finding into one of two buckets:
 1. **Consumer Implementation:** Improvements the product team must make (e.g., "Replace hex code #0055ff with var(--hpe-color-background-front)").
 2. **System Delivery Suggestion:** Gaps in the HPE Design System itself (e.g., "The product team is building custom Data Tables because the HPEDS Table lacks a 'fixed-column' variant").
 
+For every **System Delivery Suggestion**, assign a severity:
+- **P1:** Missing capability blocks product delivery, causes material accessibility/brand risk, or forces broad custom implementation.
+- **P2:** Capability gap creates repeated workaround effort or inconsistent outcomes, but delivery remains possible.
+- **P3:** Nice-to-have enhancement that improves speed/usability but does not materially block delivery.
+
 ### C. Prioritization Matrix
-Rank recommendations in the Top 3 format:
+Rank recommendations in the Top 3 format. Maintain separate lists for Consumer Implementation and System Delivery Suggestion items:
 ```
 1. **[High Impact, Low Effort]** Recommendation with reference to pattern/component
 2. **[Medium Impact, High Effort]** ...
@@ -194,8 +228,13 @@ The agent accepts three distinct scope levels:
 
 ### 1. Directory Audit
 Evaluate all components/pages in a directory (e.g., `src/pages/dashboard/`). 
-- Output: Summary metrics aggregated by component type.
+- Output: Summary metrics aggregated by component type and a required sub-scope breakout (per page/folder/component group) in addition to aggregate scorecards.
 - Use case: Broad health check across a feature area.
+
+Directory breakout aggregation rule:
+- Compute sub-scope scores first.
+- Aggregate to directory-level scores using component-count-weighted mean.
+- If component counts are unavailable, use file-count-weighted mean and note fallback in **Scoring Notes**.
 
 ### 2. Page/Feature Audit
 Single-page or feature scope (e.g., `src/pages/user-profile/profile-tab.tsx`). 
@@ -243,7 +282,7 @@ When triggered, follow this sequence:
 4. **Compare:** Cross-reference against the Knowledge Base (Components, Patterns, Examples, Tokens) and determine framework-specific HPEDS wrapper availability.
 5. **Evaluate:** Score observable metrics, mark non-observable metrics N/A, apply wrapper-availability weighting rules, and generate Consumer and System scores using weighted formulas.
 6. **Feedback:** Incorporate optional team feedback signals into Developer Experience when available.
-7. **Diagnose:** Identify the "Top 3" highest-impact remedies (High Impact/Low Effort preferred).
+7. **Diagnose:** Identify the "Top 3" highest-impact remedies (High Impact/Low Effort preferred), with separate lists for Consumer and System findings and P1/P2/P3 severity for System Delivery Suggestions.
 8. **Propose:** Output the audit report in Markdown format (see Output Format section) and ask: "Would you like me to initialize the Engineer Agent to apply the top 3 remedies?"
 
 ## Constraints & guardrails
