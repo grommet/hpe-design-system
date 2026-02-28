@@ -1,0 +1,192 @@
+id: radio-button-group
+name: RadioButtonGroup
+description: Presents a set of mutually exclusive options where exactly one choice
+  can be selected at a time.
+importPath: grommet
+framework: react
+props:
+- name: options
+  type: 'string[] | { label: string | React.ReactNode, value: string, disabled?: boolean
+    }[]'
+  required: true
+  description: Array of option values or objects defining the label, value, and optional
+    disabled state for each radio button
+- name: value
+  type: string
+  required: false
+  description: Controlled value of the currently selected option
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLInputElement>) => void'
+  required: false
+  description: Callback fired when the user selects a different option
+- name: name
+  type: string
+  required: false
+  description: HTML name attribute shared by all radio buttons in the group; required
+    for proper form association
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables all radio buttons in the group
+  defaultValue: 'false'
+- name: direction
+  type: '''row'' | ''column'''
+  required: false
+  description: Layout direction of the radio button options. Always use 'column' (vertical).
+  defaultValue: '''column'''
+- name: gap
+  type: string
+  required: false
+  description: Gap between individual radio button options. Accepts any Grommet spacing
+    token.
+  defaultValue: '''small'''
+usage:
+  whenToUse:
+  - Use when the user must choose exactly one option from a small set.
+  - Use for 5 or fewer options; always present them vertically.
+  - Wrap in a FormField to provide a visible group label and validation feedback.
+  - Pre-select the most common or safest default value where applicable.
+  whenToAvoid:
+  - Do not use for more than 5 options — use a Select dropdown instead.
+  - Do not use for multi-select scenarios — use CheckBoxGroup instead.
+  - Do not use a horizontal layout; always stack options vertically for readability.
+  - Do not use if a default value would be confusing — ensure the user is making a
+    deliberate choice.
+variants:
+- name: basic
+  description: Vertical list of radio button options with plain text labels.
+  when: Choosing a single value from a short list of options.
+  example: "<FormField label=\"Environment\" name=\"environment\">\n  <RadioButtonGroup\n\
+    \    name=\"environment\"\n    options={['Development', 'Staging', 'Production']}\n\
+    \    value={env}\n    onChange={e => setEnv(e.target.value)}\n  />\n</FormField>"
+- name: with-validation
+  description: RadioButtonGroup inside a FormField that shows an error when no option
+    is selected on submit.
+  when: A selection is required before the form can be submitted.
+  example: "<FormField\n  label=\"Access level\"\n  name=\"access\"\n  error={submitted\
+    \ && !access ? 'Please select an access level' : undefined}\n>\n  <RadioButtonGroup\n\
+    \    name=\"access\"\n    options={['Read', 'Read/Write', 'Admin']}\n    value={access}\n\
+    \    onChange={e => setAccess(e.target.value)}\n  />\n</FormField>"
+- name: disabled
+  description: All radio buttons are disabled to indicate a read-only or restricted
+    setting.
+  when: The current user lacks permission to change this setting or it is locked by
+    policy.
+  example: "<FormField label=\"Replication mode\">\n  <RadioButtonGroup\n    disabled\n\
+    \    name=\"replication\"\n    options={['Synchronous', 'Asynchronous']}\n   \
+    \ value=\"Synchronous\"\n    onChange={() => {}}\n  />\n</FormField>"
+- name: rich-labels
+  description: Options use React node labels to include descriptive text or icons
+    alongside the radio label.
+  when: Each option benefits from a subtitle or icon to help users distinguish between
+    choices.
+  example: "<RadioButtonGroup\n  name=\"plan\"\n  options={[\n    {\n      label:\
+    \ (\n        <Box>\n          <Text weight=\"bold\">Standard</Text>\n        \
+    \  <Text size=\"small\" color=\"text-weak\">Up to 10 users</Text>\n        </Box>\n\
+    \      ),\n      value: 'standard',\n    },\n    {\n      label: (\n        <Box>\n\
+    \          <Text weight=\"bold\">Enterprise</Text>\n          <Text size=\"small\"\
+    \ color=\"text-weak\">Unlimited users</Text>\n        </Box>\n      ),\n     \
+    \ value: 'enterprise',\n    },\n  ]}\n  value={plan}\n  onChange={e => setPlan(e.target.value)}\n\
+    />"
+anatomy:
+- label: group container
+  region: root
+  purpose: Wraps all radio buttons and communicates the group role to assistive technologies
+  availability: always
+- label: radio control
+  region: option
+  purpose: Circular input element indicating selected/unselected state
+  availability: always
+- label: option label
+  region: option
+  purpose: Text or rich content describing the individual option
+  availability: always
+- label: error message
+  region: FormField (parent)
+  purpose: Validation message displayed below the group
+  availability: conditional
+  notes: Rendered by the parent FormField
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - selected
+  - unselected
+  - disabled
+  applicationStates:
+  - error
+  dataStates: []
+  realEstate:
+  - Always vertical stack
+  - Consistent spacing between options
+examples:
+- description: Simple radio button group
+  code: "<FormField label=\"Backup frequency\" name=\"backup\">\n  <RadioButtonGroup\n\
+    \    name=\"backup\"\n    options={['Hourly', 'Daily', 'Weekly']}\n    value={frequency}\n\
+    \    onChange={e => setFrequency(e.target.value)}\n  />\n</FormField>"
+- description: With object options
+  code: "<FormField label=\"Alert severity\" name=\"severity\">\n  <RadioButtonGroup\n\
+    \    name=\"severity\"\n    options={[\n      { label: 'Critical', value: 'critical'\
+    \ },\n      { label: 'Warning', value: 'warning' },\n      { label: 'Informational',\
+    \ value: 'info' },\n    ]}\n    value={severity}\n    onChange={e => setSeverity(e.target.value)}\n\
+    \  />\n</FormField>"
+- description: Validation on submit
+  code: "const [role, setRole] = useState('');\nconst [submitted, setSubmitted] =\
+    \ useState(false);\n\n<Form\n  onSubmit={() => { setSubmitted(true); if (role)\
+    \ submit(); }}\n>\n  <FormField\n    label=\"User role\"\n    name=\"role\"\n\
+    \    error={submitted && !role ? 'A role is required' : undefined}\n  >\n    <RadioButtonGroup\n\
+    \      name=\"role\"\n      options={['Viewer', 'Editor', 'Owner']}\n      value={role}\n\
+    \      onChange={e => setRole(e.target.value)}\n    />\n  </FormField>\n  <Button\
+    \ type=\"submit\" label=\"Assign role\" primary />\n</Form>"
+- description: Disabled group for locked settings
+  code: "<FormField label=\"License type\">\n  <RadioButtonGroup\n    disabled\n \
+    \   name=\"license\"\n    options={[\n      { label: 'Standard', value: 'standard'\
+    \ },\n      { label: 'Enterprise', value: 'enterprise' },\n    ]}\n    value=\"\
+    enterprise\"\n    onChange={() => {}}\n  />\n</FormField>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus into and out of the radio button group
+  - key: Arrow Up / Arrow Down
+    action: Moves focus between options and selects the focused option
+  - key: Space
+    action: Selects the focused radio button
+  aria:
+  - attribute: role
+    value: '''radiogroup'''
+    condition: applied to the RadioButtonGroup container
+  - attribute: role
+    value: '''radio'''
+    condition: applied to each individual radio input
+  - attribute: aria-checked
+    value: '''true'' | ''false'''
+    condition: applied to each individual radio input
+  - attribute: aria-labelledby
+    value: FormField label id
+    condition: links the group to its visible label
+  - attribute: aria-disabled
+    value: '''true'''
+    condition: applied to disabled radio inputs
+  announcements:
+  - trigger: Option selected
+    message: '{option label}, radio button, selected, {n} of {total}'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- check-box-group
+- select
+- form
+- form-field
+- check-box

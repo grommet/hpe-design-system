@@ -1,0 +1,157 @@
+id: form-with-validation
+name: Form with Validation
+description: Multi-field form with built-in validation, error messages, and submission
+  handling.
+problem: Need to collect user input with validation rules, display errors clearly,
+  and handle form submission.
+solution: Use Form component with FormField wrappers for each input. Define validation
+  rules inline or via validate prop. Use onSubmit for form handling. Provide clear
+  labels, help text, and error messages. Use appropriate input types (TextInput, Select,
+  CheckBox, etc.).
+relatedComponents:
+- form
+- form-field
+- text-input
+- button
+- box
+usage:
+  whenToUse:
+  - Wrap all inputs with FormField components.
+  - Use clear, descriptive labels for each field.
+  - Provide validation rules that give helpful error messages.
+  - Use help text to guide users on input format.
+  - Group related fields together visually.
+  - Use appropriate input types (email, password, number, etc.).
+  - Provide a clear submit button with loading state if needed.
+  - Show success feedback after successful submission.
+  whenToAvoid:
+  - Do not use placeholder text as labels.
+  - Do not validate on every keystroke - use onBlur or onSubmit.
+  - Avoid cryptic error messages.
+  - Do not forget required field indicators.
+  - Do not submit without validation.
+  - Avoid resetting form on validation errors.
+examples:
+- description: Simple Contact Form
+  codeFile: design-system/examples/form-with-validation/simple-contact-form.tsx
+- description: Form with Custom Validation
+  codeFile: design-system/examples/form-with-validation/form-with-custom-validation.tsx
+templateCodeFile: design-system/examples/form-with-validation/template.tsx
+
+graph:
+  rootId: form-root
+  nodes:
+    - id: form-root
+      componentId: form
+      role: validated form
+      props: {}
+      children: [field-name, field-email, field-role, field-notifications, box-actions]
+      binding: state
+      notes: >
+        value, onChange, and onSubmit are consumer-provided. Validation rules use
+        FormField validate prop (regexp+message or min+message objects) and are
+        not encodable in graph props — they remain authoritative in templateCode.
+
+    - id: field-name
+      componentId: form-field
+      role: full name field
+      props:
+        label: "Full Name"
+        name: "name"
+        required: true
+      children: [input-name]
+      binding: static
+      notes: "Validation: letters-only regexp AND min 2 chars. Define via validate prop."
+
+    - id: input-name
+      componentId: text-input
+      role: name input
+      props:
+        type: "text"
+        placeholder: "John Doe"
+      children: []
+      binding: static
+
+    - id: field-email
+      componentId: form-field
+      role: email field
+      props:
+        label: "Email"
+        name: "email"
+        required: true
+      children: [input-email]
+      binding: static
+      notes: "Validation: valid email regexp. Define via validate prop."
+
+    - id: input-email
+      componentId: text-input
+      role: email input
+      props:
+        type: "email"
+        placeholder: "user@example.com"
+      children: []
+      binding: static
+
+    - id: field-role
+      componentId: form-field
+      role: role select field
+      props:
+        label: "Role"
+        name: "role"
+        required: true
+      children: [select-role]
+      binding: static
+
+    - id: select-role
+      componentId: select
+      role: role selector
+      props:
+        options: ["Admin", "Editor", "Viewer"]
+        placeholder: "Select a role"
+      children: []
+      binding: static
+
+    - id: field-notifications
+      componentId: form-field
+      role: notifications field
+      props:
+        name: "notifications"
+      children: [checkbox-notifications]
+      binding: static
+
+    - id: checkbox-notifications
+      componentId: check-box
+      role: notifications checkbox
+      props:
+        label: "Send email notifications"
+      children: []
+      binding: static
+
+    - id: box-actions
+      componentId: box
+      role: form actions row
+      props:
+        direction: "row"
+        gap: "small"
+        marginTop: "medium"
+      children: [btn-submit, btn-reset]
+      binding: static
+
+    - id: btn-submit
+      componentId: button
+      role: submit button
+      props:
+        type: "submit"
+        label: "Submit"
+        primary: true
+      children: []
+      binding: static
+
+    - id: btn-reset
+      componentId: button
+      role: reset button
+      props:
+        type: "reset"
+        label: "Reset"
+      children: []
+      binding: static

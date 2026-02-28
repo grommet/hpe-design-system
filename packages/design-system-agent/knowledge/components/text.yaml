@@ -1,0 +1,110 @@
+id: text
+name: Text
+description: Component for displaying text content with semantic tokens.
+importPath: grommet
+framework: react
+props:
+- name: size
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'' | ''xxlarge'''
+  required: false
+  description: Text size token
+- name: weight
+  type: '''normal'' | ''bold'' | number'
+  required: false
+  description: Font weight
+- name: color
+  type: string
+  required: false
+  description: Text color token (e.g., 'text-weak', 'brand', 'status-ok')
+- name: truncate
+  type: boolean | 'tip'
+  required: false
+  description: Whether to truncate with ellipsis. 'tip' shows full text on hover.
+- name: as
+  type: string | React.ComponentType
+  required: false
+  description: HTML tag or component to render as (e.g., 'p', 'span', 'label', 'dt').
+    Use to provide semantic meaning without changing visual appearance.
+  defaultValue: '''span'''
+- name: textAlign
+  type: '''start'' | ''center'' | ''end'' | ''justify'''
+  required: false
+  description: Text alignment within the element
+usage:
+  whenToUse:
+  - Use Text for all non-heading content.
+  - Use semantic color tokens like 'text-weak' for secondary text.
+  - Use size tokens for consistent typography.
+  - Use truncate for long text that might overflow.
+  whenToAvoid:
+  - Do not use HTML span or p elements.
+  - Do not hardcode font sizes or colors.
+  - Avoid using Text for headings (use Heading component).
+examples:
+- description: Body Text
+  code: <Text>This is body text content.</Text>
+- description: Secondary Text
+  code: <Text size="small" color="text-weak">Last updated 2 hours ago</Text>
+- description: Truncated Text
+  code: <Text truncate="tip">Very long text that will be truncated...</Text>
+variants:
+- name: body
+  description: Default body text for primary content.
+  when: Paragraphs, descriptions, and most UI text. Uses the default text color and
+    medium size.
+  example: <Text>Primary content text</Text>
+- name: secondary
+  description: Subdued text for supporting information.
+  when: Timestamps, metadata, hints, and secondary descriptions that should be visually
+    de-emphasised.
+  example: <Text size="small" color="text-weak">Last updated 2 hours ago</Text>
+- name: label
+  description: Compact bold text used for data labels, badges, and tags.
+  when: Short, high-contrast identifiers alongside a primary value or metric.
+  example: <Text size="small" weight="bold">STATUS</Text>
+- name: metadata
+  description: Extra-small text for densely packed supporting data.
+  when: Fine print, footnotes, or column sub-labels in compact data layouts.
+  example: '<Text size="xsmall" color="text-weak">Region: us-west-2</Text>'
+anatomy:
+- label: text element
+  region: root
+  purpose: Inline or block element rendering styled text with weight, size, color,
+    and truncation control
+  availability: always
+- label: truncation ellipsis
+  region: root (trailing)
+  purpose: Ellipsis character appended when truncate is true and text overflows its
+    container
+  availability: conditional
+  notes: Only rendered when truncate prop is enabled and text overflows
+behaviors:
+  interactiveStates:
+  - rest
+  dataStates:
+  - truncated
+  - full
+accessibility:
+  aria:
+  - attribute: as prop
+    value: semantic HTML element
+    condition: Use the as prop to emit correct semantic HTML. For example, as='p'
+      for paragraphs, as='label' for form labels, as='dt'/'dd' for description lists.
+      Defaults to span.
+  - attribute: color contrast
+    value: use semantic color tokens
+    condition: Always use semantic tokens (text, text-weak, text-strong) which are
+      calibrated for WCAG contrast ratios against the design system backgrounds. Never
+      hardcode hex values.
+  wcag:
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.4.4 Resize Text
+    status: pass
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+relatedComponents:
+- heading
+- anchor
+- box
+- card

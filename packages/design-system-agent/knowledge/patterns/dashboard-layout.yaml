@@ -1,0 +1,268 @@
+id: dashboard-layout
+name: Dashboard Layout
+aliases:
+- dashboard
+- metrics dashboard
+- status dashboard
+- metric cards
+description: Responsive dashboard with metric cards, status indicators, and activity
+  feed. Grid-based layout that adapts to screen size.
+problem: Need to display key metrics and system status in an at-a-glance dashboard
+  format with visual indicators.
+solution: Wrap content in Page (pad bottom="3xlarge") with PageContent (gap="medium")
+  for consistent page structure and spacing. Use Grid columns="small" for metric cards
+  so Grommet auto-fits columns without a fixed count, wrapping naturally at any breakpoint.
+  Each card uses Meter for visual status. Pair with an activity feed Card section.
+  Use semantic color tokens (status-ok, status-warning, status-critical) for status communication.
+relatedComponents:
+- page
+- page-content
+- page-header
+- grid
+- card
+- meter
+- heading
+- text
+- box
+usage:
+  whenToUse:
+  - Wrap the dashboard in Page with bottom pad of 3xlarge to prevent content clipping on mobile.
+  - Use PageContent with gap medium as the smart-default section spacing container.
+  - Use PageHeader for the page title and subtitle — do not build a custom Box+Heading header.
+  - Use Grid columns small for metric cards — Grommet auto-fits columns at any viewport.
+  - Use gap small on the metric Grid and gap medium on PageContent for consistent visual rhythm.
+  - Use Meter for visual progress and status indicators inside metric cards.
+  - Use semantic status color tokens (status-ok, status-warning, status-critical).
+  - Keep metric cards consistent in height and structure within the same dashboard.
+  - Use CardHeader for section titles in activity feed cards.
+  whenToAvoid:
+  - Do not use fixed column counts without responsive considerations.
+  - Do not hardcode status colors - use semantic tokens.
+  - Avoid cluttering cards with too much information.
+  - Do not use different card styles for metrics in the same dashboard.
+examples:
+- description: Responsive Metric Cards Grid
+  codeFile: design-system/examples/dashboard-layout/responsive-metric-cards-grid.tsx
+- description: Activity Feed Card
+  codeFile: design-system/examples/dashboard-layout/activity-feed-card.tsx
+templateCodeFile: design-system/examples/dashboard-layout/template.tsx
+
+graph:
+  rootId: page-root
+  nodes:
+    - id: page-root
+      componentId: page
+      role: dashboard page
+      props:
+        pad: {bottom: "3xlarge"}
+      children: [page-content]
+      binding: static
+      notes: >
+        Bottom padding prevents content from being obscured by browser chrome on
+        mobile. Smart default: pad={{ bottom: "3xlarge" }}.
+
+    - id: page-content
+      componentId: page-content
+      role: page content area
+      props:
+        gap: "medium"
+      children: [page-header, grid-metrics, card-activity-feed]
+      binding: static
+      notes: >
+        gap="medium" is the recommended smart default for dashboard layouts —
+        provides consistent vertical spacing between PageHeader, metric Grid,
+        and the activity feed section.
+
+    - id: page-header
+      componentId: page-header
+      role: dashboard page header
+      props:
+        title: "Dashboard"
+        subtitle: "Monitor key metrics and system health"
+      children: []
+      binding: static
+      notes: title and subtitle are consumer-provided data bindings.
+
+    - id: grid-metrics
+      componentId: grid
+      role: metrics grid
+      props:
+        columns: "small"
+        gap: "small"
+      children: [card-metric]
+      binding: static
+      notes: >
+        columns="small" lets Grommet auto-fit as many ~192px columns as the
+        container allows, wrapping naturally at any viewport — no fixed count needed.
+        gap="small" keeps metric cards visually tight relative to the broader
+        section spacing (gap="medium" on PageContent).
+
+    - id: card-metric
+      componentId: card
+      role: metric card
+      props:
+        background: "background-front"
+        pad: "medium"
+      children: [card-body-metric]
+      binding: slot
+      notes: Repeated once per metric. Each instance receives title, value, icon, and status props.
+
+    - id: card-body-metric
+      componentId: card
+      role: card body
+      props: {}
+      children: [box-metric-row, heading-value, box-meter]
+      binding: static
+      notes: CardBody sub-region of Card; maps to componentId card with role disambiguation.
+
+    - id: box-metric-row
+      componentId: box
+      role: metric icon and label row
+      props:
+        direction: "row"
+        align: "center"
+        gap: "small"
+        marginBottom: "small"
+      children: [slot-icon, text-label]
+      binding: static
+
+    - id: slot-icon
+      componentId: box
+      role: status icon slot
+      props: {}
+      children: []
+      binding: slot
+      notes: >
+        Consumer-provided status icon — use StatusGood (color=status-ok),
+        StatusWarning (color=status-warning), or StatusCritical (color=status-critical)
+        from @hpe-design/icons-grommet. Never use grommet-icons.
+
+    - id: text-label
+      componentId: text
+      role: metric label
+      props:
+        size: "small"
+        color: "text-weak"
+      children: []
+      binding: static
+
+    - id: heading-value
+      componentId: heading
+      role: metric value
+      props:
+        level: 2
+        margin: "none"
+      children: []
+      binding: state
+      notes: Value is data-driven (e.g. "1,247", "67%", "0.3%").
+
+    - id: box-meter
+      componentId: box
+      role: meter container
+      props:
+        marginTop: "small"
+      children: [meter-status]
+      binding: static
+
+    - id: meter-status
+      componentId: meter
+      role: status meter
+      props:
+        type: "bar"
+        size: "small"
+      children: []
+      binding: state
+      notes: >
+        values prop is data-driven: [{value: number, color: statusColor}] where
+        statusColor is one of status-ok, status-warning, status-critical.
+        Never hardcode hex colors — always use semantic status tokens.
+
+    # ── Activity feed ──────────────────────────────────────────────────────────
+    - id: card-activity-feed
+      componentId: card
+      role: activity feed card
+      props:
+        background: "background-front"
+      children: [card-header-activity, card-body-activity]
+      binding: static
+
+    - id: card-header-activity
+      componentId: card
+      role: activity feed header
+      props:
+        pad: "medium"
+      children: [heading-activity]
+      binding: static
+      notes: Maps to CardHeader; componentId card with role disambiguation.
+
+    - id: heading-activity
+      componentId: heading
+      role: activity feed title
+      props:
+        level: 3
+        margin: "none"
+      children: []
+      binding: static
+
+    - id: card-body-activity
+      componentId: card
+      role: activity feed body
+      props:
+        pad: {horizontal: "medium", bottom: "medium"}
+      children: [box-activity-list]
+      binding: static
+      notes: Maps to CardBody.
+
+    - id: box-activity-list
+      componentId: box
+      role: activity list container
+      props:
+        gap: "small"
+      children: [box-activity-row]
+      binding: static
+
+    - id: box-activity-row
+      componentId: box
+      role: activity row
+      props:
+        direction: "row"
+        gap: "small"
+        align: "center"
+        pad: {vertical: "xsmall"}
+        border: {side: "bottom", color: "border-weak"}
+      children: [slot-activity-icon, box-activity-message, text-activity-time]
+      binding: slot
+      notes: Repeated once per activity entry. Bottom border omitted on the last row.
+
+    - id: slot-activity-icon
+      componentId: box
+      role: activity status icon slot
+      props: {}
+      children: []
+      binding: slot
+      notes: StatusGood, StatusWarning, StatusCritical, or StatusInfo from @hpe-design/icons-grommet.
+
+    - id: box-activity-message
+      componentId: box
+      role: activity message container
+      props:
+        flex: true
+      children: [text-activity-message]
+      binding: static
+
+    - id: text-activity-message
+      componentId: text
+      role: activity message text
+      props:
+        size: "small"
+      children: []
+      binding: state
+
+    - id: text-activity-time
+      componentId: text
+      role: activity timestamp
+      props:
+        size: "xsmall"
+        color: "text-weak"
+      children: []
+      binding: state

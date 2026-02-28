@@ -1,0 +1,187 @@
+id: text-input
+name: TextInput
+description: A field for users to enter text. Typically used within a Form with FormField
+  for labels and validation.
+importPath: grommet
+framework: react
+props:
+- name: name
+  type: string
+  required: false
+  description: Name attribute for form handling
+- name: placeholder
+  type: string
+  required: false
+  description: Placeholder text
+- name: type
+  type: '''text'' | ''password'' | ''email'' | ''number'' | ''tel'' | ''url'''
+  required: false
+  description: Input type
+  defaultValue: '''text'''
+- name: value
+  type: string
+  required: false
+  description: Controlled input value
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLInputElement>) => void'
+  required: false
+  description: Change handler
+- name: suggestions
+  type: 'string[] | { label: string, value?: string }[]'
+  required: false
+  description: Typeahead suggestion options displayed in a drop below the input
+- name: onSuggestionSelect
+  type: '({ suggestion }: { suggestion: string | object }) => void'
+  required: false
+  description: Called when the user selects a suggestion from the drop
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Icon element rendered inside the input field boundary
+- name: reverse
+  type: boolean
+  required: false
+  description: When true, renders the icon on the right side of the input
+  defaultValue: 'false'
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables user interaction with the input
+usage:
+  whenToUse:
+  - Always wrap in FormField to provide a visible label.
+  - Use the appropriate type attribute for the expected input (email, password, tel,
+    url).
+  - Provide validation feedback through FormField error and required props.
+  - Use suggestions prop for typeahead or autocomplete entry against a known option
+    set.
+  - Use icon prop when the icon reinforces the field purpose — always pair with a
+    visible FormField label.
+  whenToAvoid:
+  - Do not use placeholder text as a substitute for a visible label.
+  - Do not omit the name attribute when using inside Form.
+  - Do not use for multi-line input — use TextArea instead.
+  - Avoid type='number' for formatted values such as phone or zip — use type='tel'
+    or 'text' with a pattern prop.
+examples:
+- description: Email Input with FormField
+  code: "<FormField label=\"Email\" name=\"email\" required>\n  <TextInput name=\"\
+    email\" type=\"email\" placeholder=\"user@example.com\" />\n</FormField>"
+- description: Password Input
+  code: "<FormField label=\"Password\" name=\"password\" required>\n  <TextInput name=\"\
+    password\" type=\"password\" />\n</FormField>"
+- description: With Icon Adornment
+  code: "<FormField label=\"Search\" name=\"search\">\n  <TextInput name=\"search\"\
+    \ icon={<Search />} placeholder=\"Search...\" />\n</FormField>"
+- description: Typeahead Suggestions
+  code: "<TextInput\n  placeholder=\"Start typing...\"\n  suggestions={filteredOptions}\n\
+    \  onSuggestionSelect={({ suggestion }) => setValue(suggestion)}\n  onChange={(e)\
+    \ => filterOptions(e.target.value)}\n/>"
+variants:
+- name: default
+  description: Plain single-line text input with no adornment.
+  when: General text entry — names, short free-form values. Always pair with FormField.
+  example: <TextInput name="username" placeholder="Enter username" />
+- name: password
+  description: Masks characters as the user types; browsers may offer a show/hide
+    toggle.
+  when: Credentials and any sensitive value that should not be visible on screen.
+  example: <TextInput name="password" type="password" />
+- name: icon-adorned
+  description: Input with an inline icon rendered inside the field boundary, left
+    by default or right via reverse.
+  when: When an icon reinforces the field's purpose — search, URL, email. Always pair
+    with a visible FormField label.
+  example: <TextInput icon={<Search />} placeholder="Search..." />
+- name: typeahead
+  description: Input paired with a suggestions drop that filters in real time as the
+    user types.
+  when: Autocomplete for known but large option sets — country names, user lookup,
+    tag entry. Prefer Select for finite, non-freeform lists.
+  example: <TextInput suggestions={suggestions} onSuggestionSelect={({ suggestion
+    }) => setValue(suggestion)} />
+anatomy:
+- label: input field
+  region: root
+  purpose: Text input element that receives and displays the user's keyboard entry
+  availability: always
+- label: icon
+  region: leading or trailing (inside input)
+  purpose: Decorative or interactive icon rendered inside the field border
+  availability: conditional
+  notes: Present when the icon prop is provided; position controlled by reverse
+- label: plain border
+  region: root
+  purpose: Invisible border variant that blends with surrounding content
+  availability: conditional
+  notes: Applied when plain=true
+- label: suggestions drop
+  region: portal
+  purpose: Drop list of autocomplete suggestions displayed below the input
+  availability: conditional
+  notes: Shown when the suggestions prop has entries and the input is focused
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - disabled
+  - error
+  - readonly
+  dataStates:
+  - empty
+  - has-value
+  realEstate:
+  - responsive
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus into and out of the input
+  - key: Arrow Down / Up
+    action: Navigates through suggestions when the typeahead drop is open
+  - key: Enter
+    action: Selects the highlighted suggestion
+  - key: Escape
+    action: Closes the suggestions drop without selecting
+  aria:
+  - attribute: aria-invalid
+    value: 'true'
+    condition: Set by FormField when the field has a validation error
+  - attribute: aria-describedby
+    value: id of FormField help or error text
+    condition: Set by FormField when help text or an error message is present
+  - attribute: role
+    value: combobox
+    condition: Applied automatically by Grommet when the suggestions prop is provided
+  - attribute: aria-autocomplete
+    value: list
+    condition: When suggestions prop is provided
+  - attribute: aria-expanded
+    value: true | false
+    condition: Reflects whether the suggestions drop is currently open
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+  - criterion: 1.3.5 Identify Input Purpose
+    status: conditional
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.4.11 Non-text Contrast
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: conditional
+  - criterion: 3.3.2 Labels or Instructions
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- form-field
+- form
+- text-area
+- select

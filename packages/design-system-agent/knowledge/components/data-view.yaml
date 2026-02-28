@@ -1,0 +1,99 @@
+id: data-view
+name: DataView
+description: Provides a set of toggle buttons inside a Data context that allow users
+  to switch between named view modes (e.g., table view vs. card/grid view). The selected
+  view is persisted in the Data context's view state.
+importPath: grommet
+framework: react
+props:
+- name: messages
+  type: object
+  required: false
+  description: Overrides for button labels and ARIA strings used inside the view selector.
+usage:
+  whenToUse:
+  - Use inside a Data context's Toolbar when two or more alternative layouts of the
+    same data are available.
+  - Pair with conditional rendering in the Data children to swap between DataTable,
+    List, or a card grid based on the active view.
+  - Place DataView in the trailing end of the Toolbar so it is visually distinct from
+    search and filter controls.
+  whenToAvoid:
+  - Do not use DataView outside a Data context — it reads and writes to the context's
+    view state.
+  - Do not use when only one presentation of the data is available.
+  - Do not build a custom toggle for view switching when the Data context is in use
+    — DataView handles state and accessibility.
+variants:
+- name: basic
+  description: Two-mode toggle between table and grid view.
+  when: Users can choose between a dense table and a more visual card/grid layout.
+  example: "<Data\n  data={items}\n  views={[\n    { name: 'table', properties: columns\
+    \ },\n    { name: 'grid', properties: columns },\n  ]}\n  view={view}\n  onView={setView}\n\
+    >\n  <Toolbar justify=\"between\">\n    <DataSearch />\n    <DataView />\n  </Toolbar>\n\
+    \  {view?.name === 'grid'\n    ? <Grid columns=\"medium\" gap=\"small\">{items.map(renderCard)}</Grid>\n\
+    \    : <DataTable columns={columns} />\n  }\n</Data>"
+anatomy:
+- label: view selector container
+  region: root
+  purpose: Horizontal group of toggle buttons, one per available view mode
+  availability: always
+- label: view option button
+  region: child
+  purpose: Individual toggle button labelled with a view mode name or icon
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - view-selected
+  dataStates:
+  - default
+  realEstate:
+  - Sized to fit button labels; does not stretch
+examples:
+- description: Table and grid view toggle in a Data toolbar
+  code: "const [view, setView] = React.useState({ name: 'table' });\n\n<Data\n  data={assets}\n\
+    \  views={[\n    { name: 'table' },\n    { name: 'grid' },\n  ]}\n  view={view}\n\
+    \  onView={setView}\n>\n  <Toolbar justify=\"between\">\n    <DataSearch />\n\
+    \    <DataView />\n  </Toolbar>\n  <DataSummary />\n  {view?.name === 'grid'\n\
+    \    ? (\n      <Grid columns={{ count: 'fill', size: 'medium' }} gap=\"small\"\
+    >\n        {assets.map(asset => <AssetCard key={asset.id} asset={asset} />)}\n\
+    \      </Grid>\n    ) : (\n      <DataTable columns={columns} />\n    )\n  }\n\
+    </Data>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the view selector group
+  - key: Arrow Left / Right
+    action: Navigates between view option buttons within the group
+  - key: Enter / Space
+    action: Activates the focused view option
+  aria:
+  - attribute: role
+    value: '''group'''
+    condition: Applied to the view selector container
+  - attribute: aria-pressed
+    value: '''true'' | ''false'''
+    condition: Applied to each button to indicate whether it is the active view
+  announcements:
+  - trigger: View changed
+    message: '{viewName} view selected'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-table
+- data-search
+- data-filters
+- toolbar
+- list
+- grid

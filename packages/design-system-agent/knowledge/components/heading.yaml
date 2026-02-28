@@ -1,0 +1,114 @@
+id: heading
+name: Heading
+description: Semantic heading component for page and section titles.
+importPath: grommet
+framework: react
+props:
+- name: level
+  type: 1 | 2 | 3 | 4 | 5 | 6
+  required: false
+  description: Semantic heading level (h1-h6)
+  defaultValue: '1'
+- name: size
+  type: '''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Visual size (independent of level for flexibility)
+- name: margin
+  type: '''none'' | ''xxsmall'' | ''xsmall'' | ''small'' | ''medium'' | ''large'''
+  required: false
+  description: Margin around heading
+- name: color
+  type: string
+  required: false
+  description: Text color token
+- name: truncate
+  type: boolean
+  required: false
+  description: Truncate the heading text with an ellipsis when it overflows its container
+- name: responsive
+  type: boolean
+  required: false
+  description: When true, font size reduces proportionally on small screens. Disable
+    if a fixed size is required across all breakpoints.
+  defaultValue: 'true'
+usage:
+  whenToUse:
+  - Use correct semantic level for document hierarchy.
+  - Use level={2} for page titles, level={3} for sections.
+  - Use margin="none" when controlling spacing with parent Box.
+  - Separate semantic level from visual size when needed.
+  whenToAvoid:
+  - Do not skip heading levels (e.g., h1 to h3).
+  - Do not use Text component for headings.
+  - Avoid hardcoded colors.
+examples:
+- description: Page Title
+  code: <Heading level={2} margin="none">Dashboard</Heading>
+- description: Section Header
+  code: <Heading level={3} size="small">Recent Activity</Heading>
+- description: Card Title
+  code: "<CardHeader pad=\"medium\">\n  <Heading level={4} margin=\"none\">Settings</Heading>\n\
+    </CardHeader>"
+variants:
+- name: page-title
+  description: Top-level page or view title, rendered as h1 or h2.
+  when: The primary title of a page. Only one h1 should exist per page. Use with PageHeader
+    for consistent layout.
+  example: <Heading level={2} margin="none">Dashboard</Heading>
+- name: section-title
+  description: Title of a major content section, rendered as h2 or h3.
+  when: Naming a distinct region within a page (e.g., 'Recent Activity', 'System Health').
+    Must follow the page-title level in document hierarchy.
+  example: <Heading level={3} size="small">Recent Activity</Heading>
+- name: subsection-title
+  description: Title of a nested sub-section, rendered as h3 or h4.
+  when: A group of related content within a larger section. Check document outline
+    to ensure no levels are skipped.
+  example: <Heading level={4} size="small">Storage Details</Heading>
+- name: card-title
+  description: Compact title inside a Card or modal header, typically h4 or h5 with
+    margin='none'.
+  when: Titling a Card, Layer, or widget. Use margin='none' to let the parent CardHeader
+    or Box control spacing.
+  example: <CardHeader pad="medium"><Heading level={4} margin="none">Settings</Heading></CardHeader>
+anatomy:
+- label: heading element
+  region: root
+  purpose: Semantic heading element (h1–h6) that sizes and styles text according to
+    the level prop
+  availability: always
+- label: sub-heading
+  region: root
+  purpose: Secondary text rendered below the primary heading when children include
+    a sub-heading node
+  availability: conditional
+  notes: Present when multiple children or a sub-heading node is passed
+behaviors:
+  realEstate:
+  - responsive-font-size
+accessibility:
+  aria:
+  - attribute: heading level hierarchy
+    value: sequential, no skipping
+    condition: Never skip heading levels (e.g., going from h2 directly to h4). Use
+      the size prop to control visual weight independently of the semantic level prop.
+  - attribute: single h1 per page
+    value: one level={1} per page
+    condition: Each page or view should have exactly one h1. In app-shell patterns
+      this is typically the page or route title inside PageHeader.
+  - attribute: id for anchor targets
+    value: unique id string
+    condition: Add an id to Heading elements that serve as in-page anchor targets
+      or are referenced by aria-labelledby on a section element.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.4.6 Headings and Labels
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+relatedComponents:
+- text
+- page-header
+- card
+- anchor

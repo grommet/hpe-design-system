@@ -1,0 +1,235 @@
+id: data-table
+name: DataTable
+description: Table component for displaying structured data with support for sorting,
+  resizing, grouping, and selection.
+importPath: grommet
+framework: react
+props:
+- name: columns
+  type: '{ property: string, header: string | React.ReactNode, render?: (datum: any)
+    => React.ReactNode, primary?: boolean, sortable?: boolean, size?: string }[]'
+  required: true
+  description: Column definitions for the table
+- name: data
+  type: object[]
+  required: false
+  description: Data to display (optional when used inside Data component)
+- name: primaryKey
+  type: string
+  required: false
+  description: Property name that uniquely identifies each row
+- name: sortable
+  type: boolean
+  required: false
+  description: Whether columns can be sorted by clicking headers
+- name: resizeable
+  type: boolean
+  required: false
+  description: Whether columns can be resized
+- name: onSelect
+  type: '(selected: string[]) => void'
+  required: false
+  description: Callback when rows are selected
+- name: pin
+  type: boolean | 'header' | 'footer'
+  required: false
+  description: Pin header/footer when scrolling
+- name: verticalAlign
+  type: '''top'' | ''middle'' | ''bottom'''
+  required: false
+  description: Vertical alignment of cell content within each row
+- name: onClickRow
+  type: '(event: { datum: object }) => void'
+  required: false
+  description: Callback when a row is clicked. Applies hover/focus row highlight styles.
+- name: fill
+  type: boolean | 'horizontal' | 'vertical'
+  required: false
+  description: Whether the table should fill its container horizontally, vertically,
+    or both
+- name: groupBy
+  type: 'string | { property: string }'
+  required: false
+  description: Property name to group rows by. Renders collapsible group header rows.
+- name: step
+  type: number
+  required: false
+  description: Number of rows per infinite-scroll increment. Use with onMore for server-driven
+    paging.
+usage:
+  whenToUse:
+  - Define columns with clear header labels.
+  - Use the primary property to mark the key column.
+  - Use render functions for custom cell formatting.
+  - Wrap in Data component for filtering and sorting.
+  - Use pin prop for long scrollable tables.
+  whenToAvoid:
+  - Do not build custom tables with HTML — use DataTable.
+  - Do not include too many columns — prioritize important data.
+  - Avoid complex nested components in render functions.
+examples:
+- description: Simple Table
+  code: "<DataTable\n  columns={[\n    { property: 'name', header: 'Name', primary:\
+    \ true },\n    { property: 'email', header: 'Email' },\n    { property: 'role',\
+    \ header: 'Role' },\n  ]}\n  data={users}\n/>"
+- description: Table with Custom Rendering
+  code: "<DataTable\n  columns={[\n    { property: 'name', header: 'Name', primary:\
+    \ true },\n    { property: 'status', header: 'Status',\n      render: datum =>\
+    \ (\n        <Box pad={{ vertical: 'xxsmall', horizontal: 'small' }}\n       \
+    \   background={datum.status === 'active' ? 'status-ok' : 'status-unknown'}\n\
+    \          round=\"small\">\n          <Text size=\"small\">{datum.status}</Text>\n\
+    \        </Box>\n      )\n    },\n  ]}\n  data={users}\n  sortable\n/>"
+- description: Paginated Table
+  code: "<Data data={rows} properties={{ name: { label: 'Name' } }}>\n  <Toolbar>\n\
+    \    <DataSearch />\n  </Toolbar>\n  <DataTable columns={columns} />\n  <Pagination\
+    \ />"
+- description: Multi-select with Batch Actions
+  code: "<DataTable\n  columns={columns}\n  data={rows}\n  primaryKey=\"id\"\n  onSelect={setSelected}\n\
+    \  select={selected}\n/>\n{selected.length > 0 && (\n  <Box direction=\"row\"\
+    \ gap=\"small\">\n    <Button label=\"Delete\" onClick={handleDelete} />\n   \
+    \ <Button label=\"Export\" onClick={handleExport} />\n  </Box>\n)}"
+- description: Fixed Header with Scroll
+  code: "<Box height=\"medium\" overflow={{ vertical: 'auto' }}>\n  <DataTable columns={columns}\
+    \ data={rows} pin=\"header\" />\n</Box>"
+variants:
+- name: sortable
+  description: Column header buttons activate ascending/descending sort.
+  when: 'Users need to find or rank records by a specific attribute. Add sortable:
+    true to individual column definitions or use the top-level sortable prop.'
+  example: '<DataTable columns={[{ property: ''name'', header: ''Name'', sortable:
+    true }]} data={rows} />'
+- name: resizable
+  description: Column edge handles allow drag-to-resize.
+  when: Dense tables where users need to adjust column widths to reveal truncated
+    content.
+  example: <DataTable columns={columns} data={rows} resizeable />
+- name: paginated
+  description: Client-side pagination via Pagination rendered outside the table.
+  when: Dataset is fully loaded in the browser and split into pages for readability.
+    Use inside a Data wrapper with DataSummary and Pagination.
+  example: "<Data data={rows}>\n  <DataTable columns={columns} />\n  <Pagination />\n\
+    </Data>"
+- name: multi-select
+  description: Checkbox per row plus a select-all header checkbox, powering a batch-action
+    toolbar.
+  when: Users need to apply an action (delete, export, tag) to multiple records at
+    once.
+  example: <DataTable columns={columns} data={rows} onSelect={setSelected} select={selected}
+    primaryKey="id" />
+- name: fixed-header
+  description: Column headers remain visible while the table body scrolls.
+  when: Tables taller than the viewport where users need column context while scrolling.
+    Give the parent Box a fixed height.
+  example: "<Box height=\"medium\" overflow={{ vertical: 'auto' }}>\n  <DataTable\
+    \ columns={columns} data={rows} pin=\"header\" />\n</Box>"
+- name: grouped
+  description: Rows are clustered under collapsible group header rows.
+  when: Data has a natural categorical grouping (department, status, date range) that
+    aids scanning.
+  example: <DataTable columns={columns} data={rows} groupBy="department" />
+anatomy:
+- label: table container
+  region: root
+  purpose: Scrollable wrapper around the full table structure
+  availability: always
+- label: column header cell
+  region: thead
+  purpose: Header cell labelling each column; activates sorting when the column is
+    sortable
+  availability: always
+- label: sort indicator
+  region: inside column header
+  purpose: Arrow icon showing the current sort direction for the active sort column
+  availability: conditional
+  notes: Shown on the column currently being sorted
+- label: data row
+  region: tbody
+  purpose: One row per data object containing ordered data cells
+  availability: always
+- label: data cell
+  region: inside data row
+  purpose: Individual data value cell rendered per column for each row
+  availability: always
+- label: selection checkbox
+  region: leading cell of data row
+  purpose: Checkbox allowing individual row selection when onSelect is provided
+  availability: conditional
+  notes: Present when the onSelect prop is set
+- label: expand toggle
+  region: trailing cell of data row
+  purpose: Button that shows or hides the expanded row detail panel
+  availability: conditional
+  notes: Present when expandable row patterns are configured
+- label: group header row
+  region: inside tbody
+  purpose: Spanning row labelling a group of related rows when groupBy is active
+  availability: conditional
+  notes: Rendered when the groupBy prop is set
+- label: summary row
+  region: below data rows
+  purpose: Aggregate row showing totals or computed values via the column aggregate
+    prop
+  availability: conditional
+  notes: Present when one or more columns define an aggregate function
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  - selected
+  applicationStates:
+  - selected
+  - pinned
+  dataStates:
+  - loading
+  - empty
+  realEstate:
+  - overflow
+  - truncation
+  - responsive
+accessibility:
+  keyboard:
+  - key: Tab
+    action: Moves focus through interactive cells, sort headers, and row checkboxes
+  - key: Enter
+    action: Activates a focused row (onClickRow) or toggles sort on a sortable column
+      header
+  - key: Space
+    action: Selects or deselects a row checkbox
+  aria:
+  - attribute: aria-labelledby
+    value: id of a visible Heading above the table
+    condition: always — associate a visible heading with the table so screen readers
+      announce the table purpose
+  - attribute: aria-sort
+    value: '''ascending'' | ''descending'' | ''none'''
+    condition: applied automatically by Grommet to active sortable column headers
+  announcements:
+  - trigger: Sort activated
+    message: '{column} sorted {ascending|descending}.'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.4.6 Contrast (Enhanced)
+    status: fail
+  - criterion: 1.4.10 Reflow
+    status: conditional
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 2.5.5 Target Size (Enhanced)
+    status: fail
+  - criterion: 2.5.7 Dragging Movements
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-filter
+- data-search
+- data-sort
+- pagination

@@ -1,0 +1,182 @@
+id: form
+name: Form
+description: Container for form fields with built-in validation and submission handling.
+importPath: grommet
+framework: react
+props:
+- name: value
+  type: object
+  required: false
+  description: Form values object (controlled form)
+- name: onChange
+  type: '(value: object) => void'
+  required: false
+  description: Called when any field changes
+- name: onSubmit
+  type: '(event: { value: object, touched: object }) => void'
+  required: false
+  description: Called when form is submitted
+- name: validate
+  type: '''blur'' | ''submit'' | ''change'''
+  required: false
+  description: When to validate fields
+  defaultValue: '''submit'''
+- name: errors
+  type: object
+  required: false
+  description: Externally-set field errors keyed by field name (e.g., from server
+    validation). Merged with internal validation errors.
+- name: messages
+  type: '{ required?: string, invalid?: string }'
+  required: false
+  description: Override default validation messages. Use to localize or contextualise
+    error copy.
+usage:
+  whenToUse:
+  - Wrap all form inputs with FormField components.
+  - Use onSubmit for form submission logic.
+  - Let Form manage field values and validation.
+  - Use validate prop to control when validation runs.
+  whenToAvoid:
+  - Do not use HTML form elements directly.
+  - Avoid manual validation when Form can handle it.
+  - Do not forget name attribute on input components.
+examples:
+- description: Login Form
+  code: "<Form onSubmit={({ value }) => console.log(value)}>\n  <FormField label=\"\
+    Email\" name=\"email\" required>\n    <TextInput name=\"email\" type=\"email\"\
+    \ />\n  </FormField>\n  <FormField label=\"Password\" name=\"password\" required>\n\
+    \    <TextInput name=\"password\" type=\"password\" />\n  </FormField>\n  <Button\
+    \ type=\"submit\" label=\"Log In\" primary />\n</Form>"
+- description: Settings Form (full-page)
+  code: "<Page kind=\"narrow\">\n  <PageContent>\n    <PageHeader title=\"Edit Profile\"\
+    \ />\n    <Form value={formData} onChange={setFormData} onSubmit={handleSubmit}>\n\
+    \      <FormField label=\"Display Name\" name=\"displayName\" htmlFor=\"displayName\"\
+    >\n        <TextInput id=\"displayName\" name=\"displayName\" />\n      </FormField>\n\
+    \      <Box direction=\"row\" gap=\"small\" margin={{ top: 'medium' }}>\n    \
+    \    <Button type=\"submit\" primary label=\"Save\" />\n        <Button secondary\
+    \ label=\"Cancel\" onClick={onCancel} />\n      </Box>\n    </Form>\n  </PageContent>\n\
+    </Page>"
+- description: Layer Form (quick edit)
+  code: "<Layer onEsc={onClose} onClickOutside={onClose}>\n  <Box pad=\"medium\" gap=\"\
+    medium\" width=\"medium\">\n    <Heading level={3} margin=\"none\">Edit Item</Heading>\n\
+    \    <Form onSubmit={handleSubmit}>\n      <FormField label=\"Name\" name=\"name\"\
+    \ htmlFor=\"name\">\n        <TextInput id=\"name\" name=\"name\" />\n      </FormField>\n\
+    \      <Box direction=\"row\" gap=\"small\" justify=\"end\">\n        <Button\
+    \ secondary label=\"Cancel\" onClick={onClose} />\n        <Button type=\"submit\"\
+    \ primary label=\"Save\" />\n      </Box>\n    </Form>\n  </Box>\n</Layer>"
+variants:
+- name: full-page
+  description: Form occupies the main content area with a PageHeader title and footer-anchored
+    actions.
+  when: Complex forms (settings, profile, shipping) with many fields that benefit
+    from maximum reading width and a dedicated submit/cancel footer.
+  example: "<Page kind=\"narrow\">\n  <PageContent>\n    <PageHeader title=\"Edit\
+    \ Profile\" />\n    <Form onSubmit={handleSubmit}>\n      {/* fields */}\n   \
+    \   <Box direction=\"row\" gap=\"small\">\n        <Button type=\"submit\" primary\
+    \ label=\"Save\" />\n        <Button secondary label=\"Cancel\" onClick={onCancel}\
+    \ />\n      </Box>\n    </Form>\n  </PageContent>\n</Page>"
+- name: layer
+  description: Form rendered inside a Layer (modal dialog) for quick edits without
+    full-page navigation.
+  when: Editing a single record inline (table row edit, quick-add) where navigating
+    away would disrupt context. Keep fields to ≤5.
+  example: "<Layer onEsc={onClose}>\n  <Box pad=\"medium\" gap=\"medium\">\n    <Heading\
+    \ level={3}>Edit Item</Heading>\n    <Form onSubmit={handleSubmit}>\n      {/*\
+    \ fields */}\n      <Button type=\"submit\" primary label=\"Save\" />\n    </Form>\n\
+    \  </Box>\n</Layer>"
+- name: single-field
+  description: One input with an inline submit button. Minimal chrome.
+  when: Single-purpose actions like search, subscribe, or quick-add where a full form
+    would feel heavy.
+  example: "<Form onSubmit={handleSubmit}>\n  <Box direction=\"row\" gap=\"small\"\
+    >\n    <FormField name=\"email\" htmlFor=\"email\">\n      <TextInput id=\"email\"\
+    \ name=\"email\" placeholder=\"Email address\" />\n    </FormField>\n    <Button\
+    \ type=\"submit\" primary label=\"Subscribe\" />\n  </Box>\n</Form>"
+- name: sign-in
+  description: Compact credential form. Required field indicators suppressed since
+    all fields are implicitly expected.
+  when: Authentication flows (login, MFA entry) where every field is required and
+    the asterisk indicator adds noise rather than clarity.
+  example: "<Form onSubmit={handleSubmit}>\n  <FormField label=\"Email\" name=\"email\"\
+    \ htmlFor=\"email\">\n    <TextInput id=\"email\" name=\"email\" type=\"email\"\
+    \ />\n  </FormField>\n  <FormField label=\"Password\" name=\"password\" htmlFor=\"\
+    password\">\n    <TextInput id=\"password\" name=\"password\" type=\"password\"\
+    \ />\n  </FormField>\n  <Button type=\"submit\" primary label=\"Sign In\" fill=\"\
+    horizontal\" />\n</Form>"
+- name: wizard-step
+  description: One logical section of a multi-step flow. Progress indicator lives
+    outside the Form.
+  when: Long or complex processes (onboarding, checkout) that benefit from splitting
+    into discrete titled steps to reduce cognitive load.
+  example: "<Box gap=\"medium\">\n  <Text>Step 2 of 4</Text>\n  <Form onSubmit={handleNext}\
+    \ value={formData} onChange={setFormData}>\n    {/* step fields */}\n    <Box\
+    \ direction=\"row\" gap=\"small\">\n      <Button secondary label=\"Back\" onClick={handleBack}\
+    \ />\n      <Button type=\"submit\" primary label=\"Next\" />\n    </Box>\n  </Form>\n\
+    </Box>"
+anatomy:
+- label: form element
+  region: root
+  purpose: HTML <form> element wrapping all form fields and controls; manages validation
+    and submission
+  availability: always
+- label: form fields
+  region: children
+  purpose: FormField children containing labeled input controls; arranged vertically
+    by default
+  availability: always
+- label: action buttons
+  region: children (typically bottom)
+  purpose: Submit, reset, and navigation buttons placed at the bottom of the form
+  availability: conditional
+  notes: Present when the form includes submit/cancel actions
+behaviors:
+  interactiveStates:
+  - rest
+  - focus-within
+  applicationStates:
+  - submitting
+  - error
+  - success
+  dataStates:
+  - empty
+  - has-value
+  - invalid
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus through form fields and buttons in DOM order
+  - key: Enter
+    action: Submits the form when a submit button is focused; activates Select/CheckBox
+      controls
+  aria:
+  - attribute: htmlFor / id binding
+    value: matching string on FormField htmlFor and child input id
+    condition: always — required for the visible label to be announced by screen readers
+  - attribute: aria-required
+    value: 'true'
+    condition: when required prop is set on FormField and its child input
+  - attribute: aria-invalid
+    value: 'true'
+    condition: when a validation error is present on the field
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: conditional
+  - criterion: 3.3.2 Labels or Instructions
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- form-field
+- text-input
+- button
+- select
+- check-box

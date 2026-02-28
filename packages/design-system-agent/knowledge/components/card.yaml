@@ -1,0 +1,161 @@
+id: card
+name: Card
+description: A container for grouping related content and actions. Use with CardHeader,
+  CardBody, and CardFooter for structured content.
+importPath: grommet
+framework: react
+props:
+- name: background
+  type: string
+  required: false
+  description: Background color token (e.g., 'background-front', 'background-contrast')
+  defaultValue: '''background-front'''
+- name: pad
+  type: '''none'' | ''xxsmall'' | ''xsmall'' | ''small'' | ''medium'' | ''large''
+    | ''xlarge'''
+  required: false
+  description: Padding size token
+  defaultValue: '''none'''
+- name: elevation
+  type: '''none'' | ''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Shadow elevation
+  defaultValue: '''none'''
+- name: round
+  type: boolean | 'xsmall' | 'small' | 'medium' | 'large'
+  required: false
+  description: Border radius
+- name: onClick
+  type: () => void
+  required: false
+  description: Makes the card interactive. When provided, the card receives hover
+    and focus styles. Add role='button' and tabIndex={0} for full keyboard accessibility.
+- name: gap
+  type: '''none'' | ''xxsmall'' | ''xsmall'' | ''small'' | ''medium'' | ''large''
+    | ''xlarge'''
+  required: false
+  description: Spacing between CardHeader, CardBody, and CardFooter sub-components
+usage:
+  whenToUse:
+  - Use CardHeader for titles and actions.
+  - Use CardBody for main content.
+  - Use CardFooter for secondary actions or metadata.
+  - Use semantic background tokens like 'background-front'.
+  whenToAvoid:
+  - Do not nest cards too deeply.
+  - Do not hardcode background colors.
+examples:
+- description: Basic Card with Header
+  code: "<Card background=\"background-front\" pad=\"medium\">\n  <CardHeader>\n \
+    \   <Heading level={3}>User Profile</Heading>\n  </CardHeader>\n  <CardBody>\n\
+    \    <Text>Name: John Doe</Text>\n  </CardBody>\n</Card>"
+- description: Card with Footer
+  code: "<Card background=\"background-front\">\n  <CardHeader pad=\"medium\">\n \
+    \   <Heading level={3} margin=\"none\">Settings</Heading>\n  </CardHeader>\n \
+    \ <CardBody pad=\"medium\">\n    <Text>Configuration options...</Text>\n  </CardBody>\n\
+    \  <CardFooter pad=\"medium\" background=\"background-contrast\">\n    <Button\
+    \ label=\"Save\" primary />\n  </CardFooter>\n</Card>"
+variants:
+- name: informational
+  description: Default non-interactive card. Groups related content without implying
+    clickability.
+  when: Dashboards, profile summaries, and content grouping where no per-card action
+    is available.
+  example: "<Card background=\"background-front\">\n  <CardHeader pad=\"small\"><Heading\
+    \ level={3} margin=\"none\">Title</Heading></CardHeader>\n  <CardBody pad=\"small\"\
+    ><Text>Content goes here.</Text></CardBody>\n</Card>"
+- name: clickable
+  description: The entire card surface is an interactive target that navigates or
+    triggers an action.
+  when: Grid or list of items where each card leads to a detail view. Add role='button'
+    (or wrap in Anchor) and tabIndex={0} for keyboard access.
+  example: "<Card background=\"background-front\" onClick={() => navigate(`/items/${item.id}`)}\
+    \ role=\"button\" tabIndex={0} focusIndicator>\n  <CardBody pad=\"medium\"><Text>{item.name}</Text></CardBody>\n\
+    </Card>"
+- name: metric
+  description: Displays a large numeric value with a supporting label. Common in executive
+    dashboards.
+  when: KPI tiles and stat summaries where a single quantitative measure needs visual
+    emphasis.
+  example: "<Card background=\"background-front\" pad=\"medium\">\n  <CardBody align=\"\
+    center\" gap=\"xsmall\">\n    <Text size=\"xxlarge\" weight=\"bold\">99.9%</Text>\n\
+    \    <Text color=\"text-weak\">Uptime</Text>\n  </CardBody>\n</Card>"
+- name: status
+  description: Uses a color-coded left border, badge, or icon to communicate health
+    or severity.
+  when: System health dashboards, incident lists, or any context where the card's
+    state must be immediately scannable without reading the content.
+  example: "<Card border={{ side: 'left', size: 'medium', color: 'status-critical'\
+    \ }} background=\"background-front\" pad=\"medium\">\n  <CardBody><Text>Service\
+    \ degraded</Text></CardBody>\n</Card>"
+anatomy:
+- label: '1'
+  region: Card container
+  purpose: Root surface element with elevation, border-radius, and background token
+    applied.
+  availability: required
+- label: '2'
+  region: CardHeader
+  purpose: Title zone at the top. Typically contains a Heading and optional action
+    (e.g., overflow Menu or icon button).
+  availability: optional
+- label: '3'
+  region: CardBody
+  purpose: Main content zone. Scrollable when content exceeds the card height.
+  availability: optional
+- label: '4'
+  region: CardFooter
+  purpose: Secondary actions zone — links, timestamps, tag lists, secondary buttons.
+  availability: optional
+  notes: Use background='background-contrast' to visually separate the footer from
+    the body.
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - loading
+  - error
+  - selected
+  realEstate:
+  - responsive
+accessibility:
+  keyboard:
+  - key: Enter / Space
+    action: Activates the card when it has role='button' and an onClick handler
+  - key: Tab / Shift+Tab
+    action: Moves focus to the card (clickable) or through interactive elements within
+      the card
+  aria:
+  - attribute: role
+    value: button
+    condition: Add explicitly when the entire card is interactive via onClick and
+      is not wrapped in an Anchor
+  - attribute: aria-label
+    value: descriptive label for the card destination or action
+    condition: For clickable cards that lack a visible heading describing where clicking
+      leads
+  - attribute: tabIndex
+    value: '0'
+    condition: Required on clickable cards that are not natively focusable — ensures
+      keyboard reachability
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: conditional
+  - criterion: 2.4.7 Focus Visible
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- box
+- page-content
+- heading
+- text
+- button
+- layer

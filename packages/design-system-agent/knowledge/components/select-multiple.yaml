@@ -1,0 +1,261 @@
+id: select-multiple
+name: SelectMultiple
+description: A multi-select input for choosing two or more items from a list of five
+  or more options. Displays a selection summary in the trigger and an optional inline
+  search for large option sets.
+importPath: grommet
+framework: react
+props:
+- name: id
+  type: string
+  required: false
+  description: DOM id for the select control. When used with FormField, the htmlFor
+    value must be '{id}__input' — note the double underscore suffix.
+- name: name
+  type: string
+  required: false
+  description: HTML name attribute for form submission. Must match the name of the
+    wrapping FormField.
+- name: options
+  type: 'string[] | Array<{ label: string; value: any }>'
+  required: true
+  description: The complete list of selectable options. Use an object array with labelKey
+    and valueKey when options have structured data.
+- name: value
+  type: string[] | object[]
+  required: false
+  description: Controlled array of currently selected values. Each entry matches a
+    value from the options list.
+- name: onChange
+  type: '({ value: string[] | object[] }) => void'
+  required: false
+  description: Callback fired when the selection changes, providing the full updated
+    array of selected values.
+- name: placeholder
+  type: string
+  required: false
+  description: Text shown in the trigger when nothing is selected.
+- name: labelKey
+  type: 'string | ((option: object) => string)'
+  required: false
+  description: Key or function to extract the display label from each option object.
+- name: valueKey
+  type: 'string | ((option: object) => any)'
+  required: false
+  description: Key or function to extract the unique value from each option object.
+- name: dropHeight
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Controls the maximum height of the options drop. Scroll appears when
+    options exceed this height. Use 'medium' for 10–15 items.
+  defaultValue: '''medium'''
+- name: searchPlaceholder
+  type: string
+  required: false
+  description: Placeholder text for the search input inside the drop. Include search
+    when options >= 10.
+- name: disabled
+  type: boolean | string[] | object[]
+  required: false
+  description: Disables the entire control when boolean, or disables specific options
+    when an array of values is provided.
+  defaultValue: 'false'
+- name: closeOnChange
+  type: boolean
+  required: false
+  description: When true, closes the drop after each selection. Defaults to false
+    to allow multiple picks without reopening.
+  defaultValue: 'false'
+- name: showSelectedInline
+  type: boolean
+  required: false
+  description: When true, renders selected items as inline tags below the trigger
+    rather than in a count summary.
+  defaultValue: 'false'
+- name: limit
+  type: number
+  required: false
+  description: Maximum number of items the user may select. Remaining options are
+    disabled once the limit is reached.
+- name: sortSelectedOnClose
+  type: boolean
+  required: false
+  description: When true, moves selected items to the top of the list when the drop
+    closes.
+  defaultValue: 'false'
+- name: help
+  type: string | React.ReactNode
+  required: false
+  description: Help text rendered inside the drop above the options list.
+usage:
+  whenToUse:
+  - Use when users need to select two or more items from a list of five or more options.
+  - Use searchPlaceholder (and show the inline search input) when the options list
+    contains ten or more items.
+  - Set htmlFor on FormField to '{id}__input' (double underscore) to correctly associate
+    the label.
+  - Use dropHeight to cap the visible list height; scrolling is added automatically.
+  whenToAvoid:
+  - Do not use when only one item may be selected — use Select instead.
+  - Do not use for fewer than five options — use CheckBoxGroup for small, always-visible
+    option sets.
+  - Do not use without a FormField wrapper; a label is required for accessibility.
+  - Do not set closeOnChange=true when users commonly select multiple items in sequence.
+variants:
+- name: basic
+  description: Multi-select with a selection summary in the trigger and no in-drop
+    search.
+  when: The options list has 5–9 items and users typically select a small subset.
+  example: "<FormField\n  label=\"Regions\"\n  name=\"regions\"\n  htmlFor=\"regions__input\"\
+    \n>\n  <SelectMultiple\n    id=\"regions\"\n    name=\"regions\"\n    placeholder=\"\
+    Select regions\"\n    options={['Americas', 'APAC', 'EMEA', 'Japan', 'Greater\
+    \ China']}\n    value={selectedRegions}\n    onChange={({ value }) => setSelectedRegions(value)}\n\
+    \  />\n</FormField>"
+- name: with-search
+  description: Multi-select with an inline search field inside the drop to filter
+    long option lists.
+  when: The options list contains 10 or more items.
+  example: "<FormField\n  label=\"Capabilities\"\n  name=\"caps\"\n  htmlFor=\"caps__input\"\
+    \n>\n  <SelectMultiple\n    id=\"caps\"\n    name=\"caps\"\n    placeholder=\"\
+    Select capabilities\"\n    options={capabilities}\n    labelKey=\"name\"\n   \
+    \ valueKey={{ key: 'id', reduce: true }}\n    value={selected}\n    onChange={({\
+    \ value }) => setSelected(value)}\n    searchPlaceholder=\"Search capabilities\"\
+    \n    dropHeight=\"medium\"\n  />\n</FormField>"
+- name: with-inline-tags
+  description: Selected items are shown as removable inline tags below the trigger.
+  when: Users benefit from seeing all their selections at a glance without opening
+    the drop.
+  example: "<FormField label=\"Tags\" name=\"tags\" htmlFor=\"tags__input\">\n  <SelectMultiple\n\
+    \    id=\"tags\"\n    name=\"tags\"\n    placeholder=\"Add tags\"\n    options={allTags}\n\
+    \    value={selectedTags}\n    onChange={({ value }) => setSelectedTags(value)}\n\
+    \    showSelectedInline\n  />\n</FormField>"
+- name: with-limit
+  description: Caps the number of items the user may select.
+  when: The form requires exactly N or at most N selections.
+  example: "<FormField label=\"Primary contacts\" name=\"contacts\" htmlFor=\"contacts__input\"\
+    >\n  <SelectMultiple\n    id=\"contacts\"\n    name=\"contacts\"\n    placeholder=\"\
+    Choose up to 3 contacts\"\n    options={contacts}\n    labelKey=\"name\"\n   \
+    \ valueKey=\"id\"\n    value={primaryContacts}\n    onChange={({ value }) => setPrimaryContacts(value)}\n\
+    \    limit={3}\n  />\n</FormField>"
+anatomy:
+- label: select trigger
+  region: root
+  purpose: Button that shows the selection summary and opens the options drop on activation
+  availability: always
+- label: selection summary
+  region: inside trigger
+  purpose: Text indicating how many items are selected (e.g., '3 selected') or the
+    placeholder
+  availability: always
+- label: options drop
+  region: portal
+  purpose: Overlay containing the search input, help text, and scrollable options
+    list
+  availability: conditional
+  notes: Opens when the trigger is activated; closes on Escape or outside click
+- label: search input
+  region: top of options drop
+  purpose: Filters the options list as the user types
+  availability: conditional
+  notes: Present when searchPlaceholder is provided; recommended for >= 10 options
+- label: help text
+  region: inside options drop
+  purpose: Optional guidance rendered above the options list
+  availability: conditional
+  notes: Shown when the help prop is provided
+- label: list item
+  region: inside options drop
+  purpose: Individual selectable option with a checkbox indicator
+  availability: always
+- label: inline tags
+  region: below trigger
+  purpose: Removable tag chips showing each selected item
+  availability: conditional
+  notes: Rendered when showSelectedInline is true
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - open
+  - disabled
+  applicationStates:
+  - drop-open
+  - drop-closed
+  dataStates:
+  - no-selection
+  - partial-selection
+  - at-limit
+  realEstate:
+  - Trigger stretches to fill FormField width
+  - Drop positions below the trigger with width matching the trigger
+  - dropHeight caps the list before scrolling is enabled
+examples:
+- description: Region multi-select in a filter form
+  code: "<Form onSubmit={applyFilters}>\n  <FormField\n    label=\"Regions\"\n   \
+    \ name=\"regions\"\n    htmlFor=\"regions__input\"\n  >\n    <SelectMultiple\n\
+    \      id=\"regions\"\n      name=\"regions\"\n      placeholder=\"All regions\"\
+    \n      options={['Americas', 'APAC', 'EMEA', 'Japan', 'Greater China']}\n   \
+    \   value={regions}\n      onChange={({ value }) => setRegions(value)}\n    />\n\
+    \  </FormField>\n  <Button type=\"submit\" label=\"Apply\" primary />\n</Form>"
+- description: Capability selector with search for 20+ options
+  code: "<FormField\n  label=\"Required capabilities\"\n  name=\"caps\"\n  htmlFor=\"\
+    caps__input\"\n>\n  <SelectMultiple\n    id=\"caps\"\n    name=\"caps\"\n    placeholder=\"\
+    Select capabilities\"\n    options={allCapabilities}\n    labelKey=\"name\"\n\
+    \    valueKey={{ key: 'id', reduce: true }}\n    value={selectedCaps}\n    onChange={({\
+    \ value }) => setSelectedCaps(value)}\n    searchPlaceholder=\"Search capabilities\"\
+    \n    dropHeight=\"medium\"\n    sortSelectedOnClose\n  />\n</FormField>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the select trigger
+  - key: Enter / Space
+    action: Opens the options drop when the trigger is focused
+  - key: Arrow Up / Down
+    action: Navigates items in the options list
+  - key: Space / Enter
+    action: Toggles selection of the focused option
+  - key: Escape
+    action: Closes the options drop without changing the selection
+  aria:
+  - attribute: htmlFor
+    value: '''{id}__input'''
+    condition: The FormField htmlFor must use the double-underscore suffix to correctly
+      target SelectMultiple's internal input
+  - attribute: aria-multiselectable
+    value: '''true'''
+    condition: Applied to the listbox in the drop
+  - attribute: aria-selected
+    value: '''true'' | ''false'''
+    condition: Applied to each list item reflecting its checked state
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: Reflects whether the options drop is open
+  announcements:
+  - trigger: Item selected
+    message: '{label} checked, {N} of {total} selected'
+  - trigger: Item deselected
+    message: '{label} unchecked, {N} of {total} selected'
+  - trigger: Drop opens
+    message: Listbox expanded
+  - trigger: Drop closes
+    message: Listbox collapsed
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.2 Labels or Instructions
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- form
+- form-field
+- select
+- check-box-group
+- tag

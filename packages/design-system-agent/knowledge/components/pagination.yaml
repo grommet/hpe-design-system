@@ -1,0 +1,116 @@
+id: pagination
+name: Pagination
+description: Pagination control for navigating through pages of data.
+importPath: grommet
+framework: react
+props:
+- name: numberItems
+  type: number
+  required: false
+  description: Total number of items (when used outside Data)
+- name: step
+  type: number
+  required: false
+  description: Number of items per page
+  defaultValue: '10'
+- name: page
+  type: number
+  required: false
+  description: Current page (controlled)
+- name: onChange
+  type: '({ page }: { page: number }) => void'
+  required: false
+  description: Callback when page changes
+usage:
+  whenToUse:
+  - Use inside Data component for automatic pagination.
+  - Use step prop to control items per page.
+  - Place after DataTable or List component.
+  whenToAvoid:
+  - Do not build custom pagination — use Pagination component.
+  - Avoid very small step values for large datasets.
+examples:
+- description: With Data Context
+  code: "<Data data={items}>\n  <DataTable columns={columns} />\n  <Pagination step={20}\
+    \ />\n</Data>"
+- description: Standalone
+  code: "<Pagination\n  numberItems={items.length}\n  step={10}\n  onChange={({ page\
+    \ }) => setCurrentPage(page)}\n/>"
+variants:
+- name: managed
+  description: Used inside a Data context. Page state is managed automatically by
+    the Data component.
+  when: Any time Pagination is nested inside a Data component — the recommended approach
+    for all data-driven list and table views.
+  example: <Data data={items}><DataTable columns={cols} /><Pagination step={20} /></Data>
+- name: standalone
+  description: Controlled pagination outside a Data context. Requires numberItems,
+    page, and onChange props.
+  when: Custom data fetching patterns or existing components that cannot be migrated
+    to the Data context.
+  example: <Pagination numberItems={total} step={10} page={currentPage} onChange={({
+    page }) => setCurrentPage(page)} />
+anatomy:
+- label: previous button
+  region: leading
+  purpose: Arrow button navigating to the prior page; disabled on the first page
+  availability: always
+- label: next button
+  region: trailing
+  purpose: Arrow button navigating to the next page; disabled on the last page
+  availability: always
+- label: page number buttons
+  region: center
+  purpose: Numbered buttons navigating directly to a specific page; the current page
+    is visually highlighted
+  availability: always
+- label: ellipsis
+  region: between page buttons
+  purpose: Non-interactive ellipsis element indicating that intervening pages are
+    not shown
+  availability: conditional
+  notes: Shown when the total page count exceeds the maximum displayed buttons
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - first-page
+  - last-page
+  - single-page
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus through page navigation buttons (previous, page numbers, next)
+  - key: Enter / Space
+    action: Navigates to the focused page
+  aria:
+  - attribute: role
+    value: navigation
+    condition: The Pagination component renders as a <nav> landmark with role='navigation'.
+  - attribute: aria-label
+    value: Pagination
+    condition: Applied to the nav element by default. Override if a more descriptive
+      label is needed.
+  - attribute: aria-current
+    value: page
+    condition: Applied to the button representing the currently active page number.
+  - attribute: aria-disabled
+    value: 'true'
+    condition: Applied to the previous button on the first page and the next button
+      on the last page.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-table
+- list

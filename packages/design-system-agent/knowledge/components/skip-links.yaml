@@ -1,0 +1,92 @@
+id: skip-links
+name: SkipLinks
+description: Keyboard-accessible skip navigation component that lets keyboard and
+  screen reader users bypass repeated navigation blocks and jump directly to main
+  content regions.
+importPath: grommet
+framework: react
+props:
+- name: messages
+  type: '{ skipTo: string }'
+  required: false
+  description: Custom labels for the skip links. Defaults to Skip to [label].
+- name: id
+  type: string
+  required: true
+  description: Unique identifier on the SkipLink. Must match the id prop on the target
+    landmark element.
+  scope: SkipLink
+- name: label
+  type: string
+  required: true
+  description: Human-readable link text displayed when the skip link receives focus,
+    e.g. Main Content.
+  scope: SkipLink
+usage:
+  whenToUse:
+  - Place SkipLinks as the first child inside the Grommet root, before the Header.
+  - Provide one SkipLink per major landmark region (main content, navigation, footer).
+  - Always pair each SkipLink id prop with a matching id on the target element.
+  whenToAvoid:
+  - Do not omit SkipLinks from pages with repeated navigation blocks.
+  - Do not use Box with onClick as the skip target.
+examples:
+- description: Standard skip navigation for an application shell
+  code: <SkipLinks><SkipLink id="main-content" label="Main Content" /></SkipLinks>
+- description: Multiple skip targets for complex layouts
+  code: <SkipLinks><SkipLink id="main-nav" label="Navigation" /><SkipLink id="main-content"
+    label="Main Content" /><SkipLink id="site-footer" label="Footer" /></SkipLinks>
+variants:
+- name: single-region
+  description: A single skip link targeting the main content area. Sufficient for
+    most page layouts.
+  when: Standard application pages with one primary content area.
+  example: <SkipLinks><SkipLink id="main-content" label="Main Content" /></SkipLinks>
+- name: multi-region
+  description: Multiple skip links targeting different landmark regions such as navigation,
+    main content, and footer.
+  when: Complex layouts where users may want to jump to different landmark regions.
+  example: <SkipLinks><SkipLink id="main-nav" label="Navigation" /><SkipLink id="main-content"
+    label="Main Content" /></SkipLinks>
+anatomy:
+- label: skip links container
+  region: root
+  purpose: Visually hidden container that becomes visible when a skip link receives
+    focus
+  availability: always
+- label: skip link
+  region: inside container
+  purpose: Individual focusable link that moves focus to the target landmark region
+    when activated
+  availability: one per target region
+behaviors:
+  interactiveStates:
+  - visually-hidden
+  - focused-visible
+accessibility:
+  keyboard:
+  - key: Tab
+    action: First Tab keypress on a new page brings skip links into view
+  - key: Enter
+    action: Activates the focused skip link and moves focus to the target region
+  aria:
+  - attribute: role
+    value: navigation
+    condition: The SkipLinks container renders as a nav element providing an accessible
+      landmark for assistive technology.
+  wcag:
+  - criterion: 2.4.1 Bypass Blocks
+    status: pass
+    note: SkipLinks satisfies WCAG 2.4.1 by providing a mechanism to skip repeated
+      navigation blocks. Place before the first repeated element on the page.
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+    note: Skip links are only visible when focused, satisfying 2.4.7 and the spirit
+      of 2.4.11 Focus Appearance.
+relatedComponents:
+- header
+- main
+- footer
+- application-shell

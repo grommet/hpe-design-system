@@ -1,0 +1,128 @@
+id: anchor
+name: Anchor
+description: Link component for navigation and external links with semantic tokens.
+importPath: grommet
+framework: react
+props:
+- name: href
+  type: string
+  required: false
+  description: Link destination URL
+- name: label
+  type: string | React.ReactNode
+  required: false
+  description: Link text
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Icon to display with the link
+- name: onClick
+  type: () => void
+  required: false
+  description: Click handler (can be used without href for SPA routing)
+- name: color
+  type: string
+  required: false
+  description: Text color token
+- name: target
+  type: string
+  required: false
+  description: Target window for the link. Use '_blank' for external links that should
+    open in a new tab — always accompany with rel='noopener noreferrer'.
+- name: size
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'' | ''xxlarge'''
+  required: false
+  description: Font size of the anchor text
+- name: a11yTitle
+  type: string
+  required: false
+  description: Accessible label for icon-only anchors or those whose visible text
+    does not fully describe the link destination
+usage:
+  whenToUse:
+  - Use Anchor for all links and navigation.
+  - Use onClick for client-side routing (with Next.js Link wrapper).
+  - Use icon prop for icons next to link text.
+  - Use semantic color tokens.
+  whenToAvoid:
+  - Do not use Button for navigation links.
+  - Do not use HTML <a> tags directly.
+  - Avoid hardcoded colors.
+examples:
+- description: Navigation Link
+  code: <Anchor label="Dashboard" onClick={() => navigate('/dashboard')} />
+- description: External Link
+  code: <Anchor href="https://example.com" label="Learn More" target="_blank" />
+- description: Link with Icon
+  code: <Anchor icon={<Home />} label="Home" onClick={() => navigate('/')} />
+variants:
+- name: inline-text
+  description: Link embedded within a paragraph or sentence. Inherits surrounding
+    text size.
+  when: Contextual links within body copy — 'Learn more about <a>accessibility guidelines</a>'.
+  example: <Text>See our <Anchor label="documentation" href="/docs" /> for more details.</Text>
+- name: standalone
+  description: Link not embedded in prose. Stands alone as a labeled navigation element.
+  when: Navigation menus, breadcrumbs, footer links, and any link that is not inside
+    a text block.
+  example: <Anchor label="Dashboard" onClick={() => navigate('/dashboard')} />
+- name: icon-and-label
+  description: Icon and text label combined. The icon provides a visual cue and the
+    label provides the accessible name.
+  when: Navigation items where an icon helps with recognition — home, back navigation,
+    external link indicators.
+  example: <Anchor icon={<Home />} label="Home" onClick={() => navigate('/')} />
+anatomy:
+- label: anchor text
+  region: root
+  purpose: Clickable link text or label rendered as an <a> element
+  availability: always
+- label: icon
+  region: leading or trailing (inside anchor)
+  purpose: Optional icon rendered before or after the label text
+  availability: conditional
+  notes: Present when the icon prop is provided; position controlled by reverse
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - visited
+  - active
+  applicationStates:
+  - disabled
+accessibility:
+  keyboard:
+  - key: Enter
+    action: Follows the link or invokes the onClick handler
+  - key: Tab / Shift+Tab
+    action: Moves focus to the next or previous focusable element
+  aria:
+  - attribute: aria-label
+    value: descriptive destination or action
+    condition: Icon-only anchors or those whose visible label ('Click here', 'Read
+      more') does not describe the destination. Use a11yTitle prop.
+  - attribute: rel
+    value: noopener noreferrer
+    condition: Always add when target='_blank' to prevent reverse tabnapping security
+      vulnerability.
+  - attribute: aria-current
+    value: page
+    condition: Apply to the Anchor representing the currently active page within a
+      Nav landmark.
+  wcag:
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.4 Link Purpose (In Context)
+    status: conditional
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- nav
+- button
+- text
+- header

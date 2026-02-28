@@ -1,0 +1,190 @@
+id: check-box-group
+name: CheckBoxGroup
+description: Presents a set of checkbox options allowing users to select zero or more
+  items from a defined list.
+importPath: grommet
+framework: react
+props:
+- name: options
+  type: 'string[] | { label: string, value: string, disabled?: boolean }[]'
+  required: true
+  description: Array of option values or objects defining the label, value, and optional
+    disabled state for each checkbox
+- name: value
+  type: string[]
+  required: false
+  description: Controlled array of currently checked option values
+- name: onChange
+  type: '(event: { value: string[] }) => void'
+  required: false
+  description: Callback fired when the checked selection changes, called with the
+    updated value array
+- name: name
+  type: string
+  required: false
+  description: HTML name attribute shared by all checkboxes in the group
+- name: direction
+  type: '''row'' | ''column'''
+  required: false
+  description: Layout direction of the checkbox options. Vertical is strongly preferred.
+  defaultValue: '''column'''
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables all checkboxes in the group
+  defaultValue: 'false'
+- name: labelKey
+  type: string
+  required: false
+  description: Key used to extract the display label from option objects
+- name: valueKey
+  type: string
+  required: false
+  description: Key used to extract the value from option objects
+- name: wrap
+  type: boolean
+  required: false
+  description: Wraps options onto new lines when they exceed the container width (only
+    relevant in row direction)
+usage:
+  whenToUse:
+  - Use when the user needs to select zero, one, or multiple items from a list.
+  - Use for 4 or fewer options; present them vertically for easy scanning.
+  - Wrap in a FormField to associate a label, hint text, and validation messages.
+  - Always use a descriptive label so users understand the purpose of the group.
+  whenToAvoid:
+  - Do not use for 5 or more options — use SelectMultiple for longer lists.
+  - Do not use for mutually exclusive choices — use RadioButtonGroup instead.
+  - Do not use a horizontal layout unless options are very short and fit comfortably
+    on one line.
+  - Do not use without a visible group label that describes what is being selected.
+variants:
+- name: basic
+  description: Vertical list of labeled checkboxes.
+  when: Selecting zero or more items from a short enumerated list.
+  example: "<FormField label=\"Environments\" name=\"environments\">\n  <CheckBoxGroup\n\
+    \    name=\"environments\"\n    options={['Development', 'Staging', 'Production']}\n\
+    \    value={selected}\n    onChange={({ value }) => setSelected(value)}\n  />\n\
+    </FormField>"
+- name: with-descriptions
+  description: Each checkbox option includes a secondary descriptive line below the
+    label.
+  when: Options need elaboration to help users distinguish between them.
+  example: "<FormField label=\"Alert channels\">\n  <CheckBoxGroup\n    options={[\n\
+    \      { label: 'Email', value: 'email' },\n      { label: 'SMS', value: 'sms'\
+    \ },\n      { label: 'Webhook', value: 'webhook' },\n    ]}\n    value={selected}\n\
+    \    onChange={({ value }) => setSelected(value)}\n  />\n</FormField>"
+- name: with-validation
+  description: CheckBoxGroup inside a FormField that displays an error message when
+    validation fails.
+  when: At least one option is required and the user submits without selecting any.
+  example: "<FormField\n  label=\"Required permissions\"\n  name=\"permissions\"\n\
+    \  error={errors.permissions}\n>\n  <CheckBoxGroup\n    name=\"permissions\"\n\
+    \    options={['Read', 'Write', 'Admin']}\n    value={selected}\n    onChange={({\
+    \ value }) => setSelected(value)}\n  />\n</FormField>"
+- name: disabled
+  description: All or some checkboxes are disabled to indicate non-editable state.
+  when: Current user role does not permit changing this setting.
+  example: "<FormField label=\"Inherited roles\">\n  <CheckBoxGroup\n    disabled\n\
+    \    options={['Viewer', 'Reporter', 'Analyst']}\n    value={['Viewer', 'Reporter']}\n\
+    \    onChange={() => {}}\n  />\n</FormField>"
+anatomy:
+- label: group container
+  region: root
+  purpose: Wraps all checkbox options and communicates the group role to assistive
+    technologies
+  availability: always
+- label: checkbox control
+  region: option
+  purpose: Toggleable square element that indicates checked/unchecked state
+  availability: always
+- label: option label
+  region: option
+  purpose: Text describing the individual option
+  availability: always
+- label: error message
+  region: FormField (parent)
+  purpose: Validation feedback displayed below the group when selection is invalid
+  availability: conditional
+  notes: Rendered by the parent FormField component
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - checked
+  - unchecked
+  - indeterminate
+  - disabled
+  applicationStates:
+  - error
+  dataStates: []
+  realEstate:
+  - Vertical stacking by default
+  - Horizontal layout available for 2–3 short options only
+examples:
+- description: Basic CheckBoxGroup in a form
+  code: "<FormField label=\"Notification types\" name=\"types\">\n  <CheckBoxGroup\n\
+    \    name=\"types\"\n    options={['Critical alerts', 'Warnings', 'Info updates']}\n\
+    \    value={notifTypes}\n    onChange={({ value }) => setNotifTypes(value)}\n\
+    \  />\n</FormField>"
+- description: With object options
+  code: "<FormField label=\"Regions\" name=\"regions\">\n  <CheckBoxGroup\n    name=\"\
+    regions\"\n    options={[\n      { label: 'US East', value: 'us-east-1' },\n \
+    \     { label: 'US West', value: 'us-west-2' },\n      { label: 'EU Central',\
+    \ value: 'eu-central-1' },\n    ]}\n    value={selectedRegions}\n    onChange={({\
+    \ value }) => setSelectedRegions(value)}\n  />\n</FormField>"
+- description: With validation error
+  code: "<FormField\n  label=\"Export formats\"\n  name=\"formats\"\n  error={submitted\
+    \ && formats.length === 0 ? 'Select at least one format' : undefined}\n>\n  <CheckBoxGroup\n\
+    \    name=\"formats\"\n    options={['PDF', 'CSV', 'JSON']}\n    value={formats}\n\
+    \    onChange={({ value }) => setFormats(value)}\n  />\n</FormField>"
+- description: Partially disabled options
+  code: "<FormField label=\"Permissions\">\n  <CheckBoxGroup\n    options={[\n   \
+    \   { label: 'Read', value: 'read' },\n      { label: 'Write', value: 'write',\
+    \ disabled: true },\n      { label: 'Delete', value: 'delete', disabled: true\
+    \ },\n    ]}\n    value={permissions}\n    onChange={({ value }) => setPermissions(value)}\n\
+    \  />\n</FormField>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus between checkboxes in the group
+  - key: Space
+    action: Toggles the focused checkbox on or off
+  aria:
+  - attribute: role
+    value: '''group'''
+    condition: applied to the CheckBoxGroup container
+  - attribute: aria-labelledby
+    value: FormField label id
+    condition: links the group to the visible label when used inside a FormField
+  - attribute: aria-checked
+    value: '''true'' | ''false'''
+    condition: applied to each individual checkbox input
+  - attribute: aria-disabled
+    value: '''true'''
+    condition: applied to disabled checkbox inputs
+  announcements:
+  - trigger: Checkbox checked
+    message: '{option label}, checked'
+  - trigger: Checkbox unchecked
+    message: '{option label}, unchecked'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- check-box
+- form
+- form-field
+- radio-button-group
+- select

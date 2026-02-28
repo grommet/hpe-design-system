@@ -1,0 +1,153 @@
+id: text-area
+name: TextArea
+description: Multi-line text input for longer content such as descriptions, messages,
+  or comments.
+importPath: grommet
+framework: react
+props:
+- name: value
+  type: string
+  required: false
+  description: Current text value
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLTextAreaElement>) => void'
+  required: false
+  description: Change handler
+- name: placeholder
+  type: string
+  required: false
+  description: Placeholder text
+- name: resize
+  type: boolean | 'horizontal' | 'vertical'
+  required: false
+  description: Whether the textarea can be resized
+- name: rows
+  type: number
+  required: false
+  description: Number of visible text rows
+- name: name
+  type: string
+  required: false
+  description: Name for form integration
+- name: fill
+  type: boolean
+  required: false
+  description: Expands the textarea to fill the width of its container
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables user interaction with the textarea
+- name: maxLength
+  type: number
+  required: false
+  description: Maximum number of characters allowed; pair with a visible character
+    counter for best usability
+usage:
+  whenToUse:
+  - Use inside FormField for form contexts.
+  - Use for multi-line input such as descriptions, messages, notes, or comments.
+  - Set rows to an initial height that reflects the expected content length.
+  - Use maxLength with a visible character counter when a limit must be enforced.
+  - Use resize='vertical' to let users expand the field when needed.
+  whenToAvoid:
+  - Do not use for single-line input — use TextInput instead.
+  - Do not use without a FormField label in forms.
+  - Avoid very small rows values (< 2) which hide the multi-line affordance.
+  - Do not rely on placeholder text to convey required format — use FormField help
+    prop.
+examples:
+- description: In Form
+  code: "<FormField label=\"Description\" name=\"description\">\n  <TextArea name=\"\
+    description\" placeholder=\"Enter a description...\" rows={4} />\n</FormField>"
+- description: Controlled with Vertical Resize
+  code: "<TextArea\n  value={message}\n  onChange={(event) => setMessage(event.target.value)}\n\
+    \  placeholder=\"Type your message...\"\n  resize=\"vertical\"\n/>"
+- description: Full-Width with Character Limit
+  code: "<FormField label=\"Bio\" name=\"bio\" help={`${bio.length}/200 characters`}>\n\
+    \  <TextArea name=\"bio\" value={bio} onChange={(e) => setBio(e.target.value)}\
+    \ fill maxLength={200} rows={4} />\n</FormField>"
+variants:
+- name: default
+  description: Fixed-height multi-line text field using the rows prop.
+  when: Standard form inputs for descriptions or notes where the expected content
+    size is known.
+  example: <TextArea name="description" rows={4} placeholder="Enter a description..."
+    />
+- name: resizable
+  description: User can drag to resize the textarea vertically (or horizontally).
+  when: When content length is unpredictable and users may need more space — feedback
+    forms, free-text answers.
+  example: <TextArea resize="vertical" rows={4} />
+- name: fill
+  description: Textarea expands to fill the full width of its parent container.
+  when: Inside a full-width FormField or layout column where horizontal fill is expected.
+  example: <TextArea fill rows={4} />
+anatomy:
+- label: textarea element
+  region: root
+  purpose: Multi-line text input field that grows vertically via the rows prop or
+    fill
+  availability: always
+- label: resize handle
+  region: bottom-right corner
+  purpose: Browser-rendered drag target for resizing the field height
+  availability: conditional
+  notes: Shown unless resize is disabled via CSS
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - disabled
+  - error
+  - readonly
+  dataStates:
+  - empty
+  - has-value
+  realEstate:
+  - resize-vertical
+  - resize-horizontal
+  - responsive
+  - fill
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus into and out of the textarea
+  - key: Enter / Shift+Enter
+    action: Inserts a newline within the textarea; does not submit the form
+  aria:
+  - attribute: aria-invalid
+    value: 'true'
+    condition: Set by FormField when the field has a validation error
+  - attribute: aria-describedby
+    value: id of FormField help or error text
+    condition: Set by FormField when help text or an error message is present
+  - attribute: aria-multiline
+    value: 'true'
+    condition: Implicit on the native textarea element; screen readers announce the
+      multi-line affordance
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+  - criterion: 1.3.5 Identify Input Purpose
+    status: conditional
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.4.11 Non-text Contrast
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: conditional
+  - criterion: 3.3.2 Labels or Instructions
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- form-field
+- form
+- text-input

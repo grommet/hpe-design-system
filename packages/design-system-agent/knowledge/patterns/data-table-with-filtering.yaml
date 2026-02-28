@@ -1,0 +1,122 @@
+id: data-table-with-filtering
+name: Data Table with Filtering
+description: Interactive data table with built-in filtering, sorting, and pagination
+  using Grommet Data components.
+problem: Need to display large data collections with user controls for filtering,
+  sorting, and viewing subsets of data.
+solution: Use Grommet's Data component as a wrapper to manage data state. Add DataFilters,
+  DataSearch, and DataSort for user controls. Display data with DataTable or alternative
+  views (List, Grid). Use Pagination for large datasets.
+relatedComponents:
+- grid
+- box
+- text
+- heading
+- button
+usage:
+  whenToUse:
+  - Use Data component to wrap your data collection and controls.
+  - Provide DataSearch for quick text-based filtering.
+  - Use DataFilters for structured filtering by field.
+  - Implement DataSort to allow users to sort by columns.
+  - Use Pagination for datasets with more than 25-50 items.
+  - Offer multiple views (table, list, grid) when appropriate.
+  - Make column headers clear and sortable.
+  - Provide visual feedback for active filters and sorts.
+  whenToAvoid:
+  - Do not load all data at once for very large datasets - use pagination or infinite
+    scroll.
+  - Do not hide filter/sort controls - make them easily discoverable.
+  - Avoid complex filter UIs - keep common filters visible.
+  - Do not forget to show 'no results' state when filters return empty.
+examples:
+- description: Basic Data Table with Search
+  codeFile: design-system/examples/data-table-with-filtering/basic-data-table-with-search.tsx
+- description: Table with Custom Filters
+  codeFile: design-system/examples/data-table-with-filtering/table-with-custom-filters.tsx
+- description: Multiple View Options
+  codeFile: design-system/examples/data-table-with-filtering/multiple-view-options.tsx
+templateCodeFile: design-system/examples/data-table-with-filtering/template.tsx
+
+graph:
+  rootId: box-root
+  nodes:
+    - id: box-root
+      componentId: box
+      role: table page container
+      props:
+        gap: "medium"
+      children: [heading-title, data-wrapper]
+      binding: static
+
+    - id: heading-title
+      componentId: heading
+      role: table heading
+      props:
+        level: 2
+        content: "consumer-provided table title"
+      children: []
+      binding: slot
+      notes: Heading text is consumer-provided (e.g. "Users", "Servers", "Applications").
+
+    - id: data-wrapper
+      componentId: data
+      role: data state manager
+      props: {}
+      children: [toolbar, data-table]
+      binding: state
+      notes: >
+        Data component manages filter, sort, search, and pagination state for all
+        descendant Data* components. The data prop receives the consumer's array.
+        All child DataSearch, DataFilters, DataSort, and DataTable are automatically
+        connected via React context — no prop threading required.
+
+    - id: toolbar
+      componentId: box
+      role: toolbar
+      props: {}
+      children: [data-search, data-filters]
+      binding: static
+      notes: >
+        Rendered as Grommet Toolbar (which renders as Box). Contains search and
+        filter controls. DataSort can also be added here for column sorting.
+
+    - id: data-search
+      componentId: data-search
+      role: search input
+      props: {}
+      children: []
+      binding: static
+      notes: Automatically connected to Data context. No props required for basic usage.
+
+    - id: data-filters
+      componentId: data-filters
+      role: filter panel
+      props: {}
+      children: [slot-filter-controls]
+      binding: static
+      notes: Auto-generates filter controls from data properties when children are omitted.
+
+    - id: slot-filter-controls
+      componentId: box
+      role: filter controls slot
+      props: {}
+      children: []
+      binding: slot
+      notes: >
+        Optional consumer-provided filter fields. When empty, DataFilters auto-generates
+        controls from the data schema. Provide explicit children for custom filter UI.
+
+    - id: data-table
+      componentId: data-table
+      role: data table
+      props:
+        columns: ["name", "email", "role", "status"]
+      children: []
+      binding: state
+      notes: >
+        columns prop is an array of column definition objects ({property, header, primary,
+        render, sortable, etc.}). The string array in graph.props.columns lists property
+        names only — full column definitions with headers and render functions remain
+        authoritative in templateCode. Automatically wired to Data context for filtering
+        and sorting.

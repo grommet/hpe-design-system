@@ -1,0 +1,166 @@
+id: layer
+name: Layer
+description: Overlay component for modals, dialogs, side panels, and notifications
+  that appear above page content.
+importPath: grommet
+framework: react
+props:
+- name: position
+  type: '''center'' | ''top'' | ''bottom'' | ''left'' | ''right'' | ''start'' | ''end''
+    | ''top-left'' | ''top-right'' | ''bottom-left'' | ''bottom-right'''
+  required: false
+  description: Position of the layer on screen
+  defaultValue: '''center'''
+- name: full
+  type: boolean | 'horizontal' | 'vertical'
+  required: false
+  description: Whether layer fills the full viewport
+- name: modal
+  type: boolean
+  required: false
+  description: Whether to add a dark backdrop behind the layer
+  defaultValue: 'true'
+- name: onEsc
+  type: () => void
+  required: false
+  description: Handler when Escape key is pressed
+- name: onClickOutside
+  type: () => void
+  required: false
+  description: Handler when clicking outside the layer
+- name: animate
+  type: boolean
+  required: false
+  description: Whether to animate the layer entering/leaving
+  defaultValue: 'true'
+usage:
+  whenToUse:
+  - Use for modals, confirmation dialogs, and side panels.
+  - Always provide onEsc and onClickOutside for dismissal.
+  - Use position='right' for side panels, 'center' for dialogs.
+  - Manage focus properly — focus first interactive element on open.
+  whenToAvoid:
+  - Do not use Layer for content that should be inline.
+  - Do not forget to handle closing (Esc, click outside).
+  - Avoid nesting Layers within Layers.
+  - Do not use for tooltips — use tip prop instead.
+examples:
+- description: Confirmation Dialog
+  code: "{showDialog && (\n  <Layer\n    position=\"center\"\n    onEsc={() => setShowDialog(false)}\n\
+    \    onClickOutside={() => setShowDialog(false)}\n  >\n    <Box pad=\"medium\"\
+    \ gap=\"medium\" width=\"medium\">\n      <Heading level={3} margin=\"none\">Confirm\
+    \ Delete</Heading>\n      <Text>Are you sure you want to delete this item?</Text>\n\
+    \      <Box direction=\"row\" gap=\"small\" justify=\"end\">\n        <Button\
+    \ label=\"Cancel\" onClick={() => setShowDialog(false)} />\n        <Button label=\"\
+    Delete\" primary onClick={handleDelete} />\n      </Box>\n    </Box>\n  </Layer>\n\
+    )}"
+- description: Side Panel
+  code: "{showPanel && (\n  <Layer\n    position=\"right\"\n    full=\"vertical\"\n\
+    \    onEsc={() => setShowPanel(false)}\n    onClickOutside={() => setShowPanel(false)}\n\
+    \  >\n    <Box width=\"medium\" fill=\"vertical\" pad=\"medium\" gap=\"medium\"\
+    >\n      <Header>\n        <Heading level={3} margin=\"none\">Details</Heading>\n\
+    \        <Button icon={<Close />} onClick={() => setShowPanel(false)} />\n   \
+    \   </Header>\n      <Box flex overflow=\"auto\">\n        {/* Panel content */}\n\
+    \      </Box>\n    </Box>\n  </Layer>\n)}"
+variants:
+- name: dialog
+  description: Centered modal overlay with a dark backdrop. Contains a heading, body
+    content, and footer action buttons.
+  when: Confirmation prompts, short forms, and critical interruptions requiring a
+    decision before proceeding. Keep to ≤ 5 fields.
+  example: "<Layer position=\"center\" onEsc={onClose} onClickOutside={onClose}>\n\
+    \  <Box pad=\"medium\" gap=\"medium\" width=\"medium\">\n    <Heading level={3}\
+    \ margin=\"none\">Confirm</Heading>\n    <Text>Are you sure?</Text>\n    <Box\
+    \ direction=\"row\" gap=\"small\" justify=\"end\">\n      <Button label=\"Cancel\"\
+    \ onClick={onClose} />\n      <Button primary label=\"Confirm\" onClick={handleConfirm}\
+    \ />\n    </Box>\n  </Box>\n</Layer>"
+- name: side-panel
+  description: Slides in from the right or left edge and fills the full viewport height.
+    Used for contextual details or edit workflows without full-page navigation.
+  when: Row detail views, filter panels, or guided flows where the underlying page
+    content should remain partially visible.
+  example: "<Layer position=\"right\" full=\"vertical\" onEsc={onClose} onClickOutside={onClose}>\n\
+    \  <Box width=\"medium\" fill=\"vertical\" pad=\"medium\" gap=\"medium\">\n  \
+    \  {/* panel content */}\n  </Box>\n</Layer>"
+- name: full-screen
+  description: Covers the entire viewport. Effectively replaces the page without a
+    route change.
+  when: Immersive flows — wizards, onboarding — where all surrounding context should
+    be removed to reduce distraction.
+  example: "<Layer full onEsc={onClose}>\n  <Box fill pad=\"large\">{/* full-screen\
+    \ content */}</Box>\n</Layer>"
+anatomy:
+- label: '1'
+  region: Backdrop
+  purpose: Semi-transparent overlay that dims the page content behind the layer.
+  availability: optional
+  notes: Active when modal=true (default). Clicking it triggers onClickOutside.
+- label: '2'
+  region: Layer container
+  purpose: The visible panel or dialog surface, positioned according to the position
+    prop.
+  availability: required
+- label: '3'
+  region: Header zone
+  purpose: Contains the layer title (Heading) and an optional close button.
+  availability: optional
+  notes: Add an id to the Heading and reference it via aria-labelledby on the Layer
+    for screen reader support.
+- label: '4'
+  region: Content zone
+  purpose: Main scrollable body of the layer — text, form fields, data tables, etc.
+  availability: required
+- label: '5'
+  region: Footer zone
+  purpose: Action buttons (confirm, cancel, save) anchored to the bottom of the layer.
+  availability: optional
+behaviors:
+  interactiveStates:
+  - open
+  - closing
+  applicationStates:
+  - loading
+  realEstate:
+  - responsive
+  - fill
+accessibility:
+  keyboard:
+  - key: Escape
+    action: Closes the layer and returns focus to the trigger element (via onEsc handler)
+  - key: Tab
+    action: Moves focus forward through interactive elements within the layer; wraps
+      from last to first
+  - key: Shift+Tab
+    action: Moves focus backward; wraps from first to last
+  aria:
+  - attribute: role
+    value: dialog
+    condition: Always — applied to the Layer container by Grommet
+  - attribute: aria-modal
+    value: 'true'
+    condition: When modal=true; prevents screen readers from navigating to background
+      content
+  - attribute: aria-labelledby
+    value: id of the heading element inside the layer
+    condition: Always provide — add an id to your Heading and pass it as aria-labelledby
+      on the Layer
+  announcements:
+  - trigger: Layer opens
+    message: Focus moves automatically to the first interactive element inside the
+      layer.
+  - trigger: Layer closes
+    message: Focus returns to the element that triggered the layer.
+  wcag:
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.1.2 No Keyboard Trap
+    status: conditional
+  - criterion: 2.4.3 Focus Order
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- form
+- card
+- button
+- page

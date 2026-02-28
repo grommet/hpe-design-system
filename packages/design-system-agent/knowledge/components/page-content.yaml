@@ -1,0 +1,107 @@
+id: page-content
+name: PageContent
+description: Content area within a Page that provides responsive padding and max-width
+  constraints.
+importPath: grommet
+framework: react
+props:
+- name: background
+  type: string
+  required: false
+  description: Background color token (use 'background-front' for content areas)
+- name: pad
+  type: string | object
+  required: false
+  description: Padding inside the content area
+- name: gap
+  type: string
+  required: false
+  description: Space between child elements
+- name: fill
+  type: boolean | 'horizontal' | 'vertical'
+  required: false
+  description: Whether to expand to fill the available space in the Page parent. Use
+    fill='vertical' in app-shell patterns so the content area stretches to the bottom
+    of the viewport.
+- name: kind
+  type: '''narrow'' | ''wide'' | ''full'''
+  required: false
+  description: Controls the maximum-width constraint of the content area. 'narrow'
+    is ideal for reading-focused pages; 'wide' suits dashboards; 'full' removes the
+    max-width cap entirely.
+usage:
+  whenToUse:
+  - Use inside Page component.
+  - Use background='background-front' for visual contrast with Page.
+  - Place PageHeader as the first child.
+  whenToAvoid:
+  - Do not use outside a Page component.
+  - Do not set explicit widths — PageContent handles responsive sizing.
+examples:
+- description: Content with Background
+  code: "<Page background=\"background-back\">\n  <PageContent background=\"background-front\"\
+    \ pad=\"medium\" gap=\"medium\">\n    <PageHeader title=\"Users\" />\n    <DataTable\
+    \ columns={columns} data={users} />\n  </PageContent>\n</Page>"
+- description: Full-bleed dashboard content (no max-width cap)
+  code: "<Page background=\"background-back\">\n  <PageContent kind=\"full\" pad=\"\
+    medium\" gap=\"medium\">\n    <PageHeader title=\"Dashboard\" />\n    <Grid columns={{\
+    \ count: 'fit', size: 'medium' }} gap=\"medium\">\n      {metrics.map(m => <MetricCard\
+    \ key={m.id} {...m} />)}\n    </Grid>\n  </PageContent>\n</Page>"
+variants:
+- name: constrained-width
+  description: 'Default behaviour: content is horizontally centred and capped at the
+    theme''s max-content-width. Suitable for text-heavy and form pages.'
+  when: Settings pages, forms, article views — anywhere reading comfort and line-length
+    control matter.
+  example: <PageContent pad="medium" gap="medium"><PageHeader title="Settings" />{/*
+    form fields */}</PageContent>
+- name: full-bleed
+  description: Content stretches to the full available width with no max-width constraint.
+    Use kind='full' to opt in.
+  when: Dashboards, data tables, and visualisation pages where horizontal real-estate
+    matters more than reading line length.
+  example: <PageContent kind="full" pad="medium" gap="medium"><PageHeader title="Dashboard"
+    /><DataTable ... /></PageContent>
+anatomy:
+- label: content container
+  region: root
+  purpose: Centers and horizontally constrains the page body content; fills the height
+    of its Page parent
+  availability: always
+- label: content area
+  region: inside container
+  purpose: Caller-supplied children rendered within the constrained-width content
+    area
+  availability: always
+behaviors:
+  realEstate:
+  - responsive
+  - max-width
+accessibility:
+  aria:
+  - attribute: no intrinsic ARIA role
+    value: generic container
+    condition: PageContent is a styled layout container. Semantic content such as
+      PageHeader (h1) and the document outline live inside it.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+    note: PageContent is a layout container with no semantic role. Ensure the first
+      child is PageHeader (with a level={1} heading) so the document outline is
+      meaningful to assistive technology.
+  - criterion: 1.4.4 Resize Text
+    status: pass
+  - criterion: 1.4.10 Reflow
+    status: pass
+    note: Do not set a fixed width or overflow=hidden on PageContent. The component
+      relies on its responsive max-width constraint (kind prop) to reflow at 320 CSS
+      px without horizontal scrolling.
+  - criterion: 2.4.6 Headings and Labels
+    status: conditional
+    note: Always supply a title to the PageHeader child inside PageContent. A content
+      area without a visible heading is not meaningfully labelled for screen reader
+      users who navigate by heading.
+relatedComponents:
+- page
+- page-header
+- main
