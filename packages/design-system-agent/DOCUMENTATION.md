@@ -44,6 +44,14 @@ The project should enable:
   - Evaluate the applied remedies
   - Execute the evaluation, recommendation, prioritization, remedy cycle in a continuous improvement loop.
 
+## Context management
+To keep the LLM context window efficient and deterministic:
+- **Scope-first:** Only include files within the declared scope and only expand when evidence requires it.
+- **Evidence payloads:** Prefer file/line references and short excerpts over full file content.
+- **Context tiers:** Always include `scope`, `framework`, `knowledge_version`, and `mode` (audit vs. gen); pull deeper context only on demand.
+- **Caching:** Reuse knowledge summaries and prior findings across loop steps when possible.
+- **Context budgets (targets):** keep total input per agent under ~8k tokens for audits and ~6k tokens for generation; evidence excerpts capped at ~2k tokens; summaries capped at ~500 tokens.
+
 ## Project design
 This is a sophisticated "Agentic Design System" project. To handle the scale of 50+ teams and the complexity of the requirements, the project is designed to be a **Multi-Agent Orchestration** architecture distributed via a Command Line Interface (CLI).
 

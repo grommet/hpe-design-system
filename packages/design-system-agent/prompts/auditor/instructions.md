@@ -274,6 +274,14 @@ During evaluation, reference these knowledge sources:
 
 **When a component or pattern is missing from the knowledge base:** Flag it as a "System Delivery Suggestion" (HPEDS gap that needs to be added).
 
+## Context management
+- **Scope-first:** Only load files within declared scope; expand only when evidence requires it.
+- **Evidence payloads:** Prefer citations and short excerpts over full files.
+- **Context tiers:** Always include `scope`, `framework`, `knowledge_version`, and `mode` (audit vs. gen) in summaries.
+- **Caching:** Reuse knowledge summaries and prior findings across loop steps when possible.
+- **Minimize noise:** Avoid loading generated artifacts, build outputs, or vendor bundles unless required for evidence.
+- **Context budgets (targets):** keep total input under ~8k tokens; evidence excerpts capped at ~2k tokens; summaries capped at ~500 tokens.
+
 ## Execution loop
 When triggered, follow this sequence:
 1. **Scope:** Clarify audit scope (Directory/Page/Pattern) and declare it in the report.
