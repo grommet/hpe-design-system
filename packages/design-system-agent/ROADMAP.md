@@ -27,7 +27,7 @@ Teams fall into six adoption patterns (from deepest to zero HPEDS adoption):
 ## Phase 1: Proof of Concept (PoC)
 
 ### Objective
-Validate core Auditor scoring, Strategist prioritization, and Engineer remediation with the most aligned teams (Segment A). Prove the system can measure, prioritize, automatically remediate, and verify improvements in Grommet-based codebases.
+Validate core Auditor scoring, Strategist prioritization, and Engineer remediation + generation with the most aligned teams (Segment A). Prove the system can measure, prioritize, build, and verify improvements in Grommet-based codebases.
 
 ### Target audience
 - **Segment A only:** React + Grommet + `grommet-theme-hpe` teams
@@ -35,12 +35,12 @@ Validate core Auditor scoring, Strategist prioritization, and Engineer remediati
 ### Capabilities delivered
 - **Auditor:** Score all 11 metrics (Component Coverage, Component Usage, App Structure, Token Compliance, Responsive Layouts, Accessibility, Type Safety & Interfaces, Dev Confidence, System Discoverability, Developer Experience, Agent Experience) with Directory and Page/Feature scopes
 - **Strategist:** Classify findings into Consumer vs. System improvements; rank top 3 Consumer recommendations
-- **Engineer:** Automated remediation for Token Compliance and Component Usage fixes (Grommet-only; invoked only for Segment A teams); generate diffs with approval gates
+- **Engineer:** Grommet-only remediation and generation (text prompt, Figma JSON, PRD) for Segment A teams; generate diffs with approval gates
 - **Orchestrator:** `.hpedsrc` discovery, framework detection (React only), knowledge loading
 - **Reporter:** Basic telemetry payload (scores, timestamps, evidence counts) with opt-out
 
 ### Not in scope
-- Engineer remediation for non-Grommet codebases
+- Engineer remediation or generation for non-Grommet codebases
 - Pattern audit scope
 - Non-React frameworks
 - System Delivery Ticket automation (manual triage)
@@ -51,11 +51,13 @@ Validate core Auditor scoring, Strategist prioritization, and Engineer remediati
   1. Run baseline audits; collect Consumer and System scores
   2. Review top 3 Consumer recommendations for accuracy (false positives?)
   3. Test Engineer remediation for Token Compliance and Component Usage fixes (Grommet-specific); validate diffs before apply
-  4. Re-audit to verify score improvement after Engineer fixes (Verification Phase)
-  5. Collect qualitative feedback on metric definitions, prioritization logic, Engineer-generated diffs, and DX
+  4. Test Engineer generation from text prompt or Figma JSON for a small feature area; validate diffs before apply
+  5. Re-audit to verify score improvement after Engineer fixes (Verification Phase)
+  6. Collect qualitative feedback on metric definitions, prioritization logic, Engineer-generated diffs, and DX
 - **Success criteria:**
   - 80%+ of top 3 recommendations are actionable and accurate
   - 70%+ of Engineer-proposed fixes are accepted without modification (Grommet-only scope)
+  - 70%+ of generated features are accepted with minimal edits (Grommet-only scope)
   - Median score improvement of 10+ points after applying Engineer fixes
   - No false-positive Component Coverage or Token Compliance violations
   - No scoring regressions after Engineer fixes (Verification Phase passes)
@@ -65,14 +67,14 @@ Validate core Auditor scoring, Strategist prioritization, and Engineer remediati
 - PoC validated with 3+ pilot teams
 - Auditor scoring logic stable for Segment A (no major revisions needed)
 - Strategist prioritization aligns with team expectations (Impact/Effort matrix validated)
-- Engineer remediation stable for Grommet codebases (Token Compliance and Component Usage fixes)
+- Engineer remediation and generation stable for Grommet codebases (Token Compliance and Component Usage fixes)
 
 ---
 
 ## Phase 2: Minimum Viable Product (MVP)
 
 ### Objective
-Expand to React teams with varying HPEDS adoption (Segments A-D). Extend Engineer remediation beyond Grommet to all React codebases. Automate System Delivery Ticket creation for P1 gaps. Enable passive monitoring in CI/PR workflows.
+Expand to React teams with varying HPEDS adoption (Segments A-D). Extend Engineer remediation and generation beyond Grommet to all React codebases. Automate System Delivery Ticket creation for P1 gaps. Enable passive monitoring in CI/PR workflows.
 
 ### Target audience
 - **Segments A-D:** All React teams (Grommet + theme, Grommet only, other UI + tokens, other UI + no HPEDS)
@@ -80,32 +82,34 @@ Expand to React teams with varying HPEDS adoption (Segments A-D). Extend Enginee
 ### Capabilities delivered
 - **Auditor:** Add Pattern audit scope; refine N/A handling for Segments C-D (lower Component Coverage/Usage observability)
 - **Strategist:** Add P1/P2/P3 System Delivery Suggestion severity
-- **Engineer:** Expand remediation beyond Grommet to support non-Grommet React codebases (Segments C-D); continue Token Compliance and Component Usage fixes with approval gates
+- **Engineer:** Expand remediation and generation beyond Grommet to support non-Grommet React codebases (Segments C-D); continue Token Compliance and Component Usage fixes with approval gates
 - **Orchestrator:** Add audit diffing and score delta summaries; support CI/PR passive mode (audit-only, no fixes)
 - **Reporter:** Monthly telemetry insights dashboard; System Delivery Ticket auto-creation for P1 gaps
 
 ### Segment-specific adjustments
-- **Segment A (React + Grommet + theme):** Full metric scoring; high Component Coverage/Usage expectations; Engineer remediates both Token Compliance and Component Usage
-- **Segment B (React + Grommet, no theme):** Down-weight Token Compliance if theme is unavailable; flag as System gap; Engineer remediates Component Usage and available token fixes
-- **Segment C (React + other UI + tokens):** Mark Component Coverage/Usage as N/A (no Grommet); focus on Token Compliance, Accessibility, Type Safety; Engineer remediates Token Compliance only
-- **Segment D (React + other UI, no HPEDS):** Mark Component Coverage/Usage and Token Compliance as N/A; focus on App Structure, Accessibility, DX; Engineer not invoked (no automated remediation); flag high-priority System gaps for pattern/component needs
+- **Segment A (React + Grommet + theme):** Full metric scoring; high Component Coverage/Usage expectations; Engineer remediates and generates using Grommet
+- **Segment B (React + Grommet, no theme):** Down-weight Token Compliance if theme is unavailable; flag as System gap; Engineer remediates Component Usage, available token fixes, and generates using Grommet
+- **Segment C (React + other UI + tokens):** Mark Component Coverage/Usage as N/A (no Grommet); focus on Token Compliance, Accessibility, Type Safety; Engineer remediates and generates Token Compliance only
+- **Segment D (React + other UI, no HPEDS):** Mark Component Coverage/Usage and Token Compliance as N/A; focus on App Structure, Accessibility, DX; Engineer not invoked (no automated remediation or generation); flag high-priority System gaps for pattern/component needs
 
 ### Validation with product teams
 - **Pilot teams:** 8-12 teams (3 from Segment A, 3 from B, 3 from C, 3 from D)
 - **Activities:**
   1. Run audits across segments; verify N/A logic and scoring accuracy per segment
   2. Test Engineer remediation on Segments A-B (Token Compliance + Component Usage) and Segment C (Token Compliance only); validate diffs before apply
-  3. Collect System Delivery Suggestions from Segments C-D; verify P1 gaps are actionable HPEDS roadmap inputs
-  4. Run passive audits in 2-3 team CI pipelines; validate no false failures or noise
+  3. Test Engineer generation on Segments A-B (Grommet) and Segment C (token-first); validate diffs before apply
+  4. Collect System Delivery Suggestions from Segments C-D; verify P1 gaps are actionable HPEDS roadmap inputs
+  5. Run passive audits in 2-3 team CI pipelines; validate no false failures or noise
 - **Success criteria:**
   - 75%+ of Engineer-proposed fixes are accepted without modification (across Segments A-C)
+  - 70%+ of generated features are accepted with minimal edits (across Segments A-C)
   - No scoring regressions after Engineer fixes (Verification Phase passes)
   - System Delivery Tickets from Segments C-D result in 2+ roadmap discussions with HPEDS team
   - CI passive mode runs without blocking PRs; scores are informational only
 
 ### Exit criteria
 - MVP validated with 8+ pilot teams across Segments A-D
-- Engineer remediation stable for Token Compliance across all React codebases and Component Usage for Grommet codebases
+- Engineer remediation and generation stable for Token Compliance across all React codebases and Component Usage for Grommet codebases
 - Reporter telemetry insights used in at least one HPEDS sprint planning session
 - No P0 bugs or scoring accuracy issues reported in validation
 
@@ -122,7 +126,7 @@ Expand to non-React frameworks (Segments E-F). Add advanced features like patter
 
 ### Capabilities delivered
 - **Auditor:** Add Vue and Angular framework skills; partial Svelte support (scoring only)
-- **Engineer:** Add Vue and Angular remediation skills; generate framework-specific code diffs
+- **Engineer:** Add Vue and Angular remediation and generation skills; generate framework-specific code diffs
 - **Strategist:** Add pattern gap analytics (detect repeated custom solutions that could be patterns)
 - **Orchestrator:** Add continuous improvement loop with sprint cadence (auto-schedule re-audits, track score trends, notify on regressions)
 - **Reporter:** Add pattern adoption heatmaps and framework-specific friction analysis
@@ -140,7 +144,7 @@ Expand to non-React frameworks (Segments E-F). Add advanced features like patter
   4. Collect pattern gap suggestions from Segments D-F; validate against HPEDS roadmap discussions
 - **Success criteria:**
   - Vue/Angular scoring accuracy matches React baseline (80%+ actionable recommendations)
-  - Framework-specific Engineer diffs are syntactically correct and pass team reviews
+  - Framework-specific Engineer diffs (remediation and generation) are syntactically correct and pass team reviews
   - Continuous loop reduces manual re-audit overhead by 50%+
   - Pattern gap analytics surface 3+ new pattern proposals for HPEDS roadmap
 
@@ -170,12 +174,14 @@ Expand to non-React frameworks (Segments E-F). Add advanced features like patter
 - 3+ pilot teams complete validation
 - 80%+ recommendation accuracy
 - 70%+ Engineer fix acceptance rate (Grommet-only)
+- 70%+ Engineer generation acceptance rate (Grommet-only)
 - 10+ point median score improvement after applying Engineer fixes
 - No scoring regressions after remediation
 
 ### MVP (Segments A-D)
 - 8+ pilot teams across segments complete validation
 - 75%+ Engineer fix acceptance rate
+- 70%+ Engineer generation acceptance rate
 - 2+ System Delivery Tickets inform HPEDS roadmap discussions
 - 20% median Consumer score improvement within 1 quarter of adoption
 
