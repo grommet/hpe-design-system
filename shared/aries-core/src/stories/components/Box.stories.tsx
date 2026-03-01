@@ -3,10 +3,12 @@ import type { StoryObj } from '@storybook/react';
 import { Box, Text, BoxTypes } from 'grommet';
 import { boxArgs } from '../utils/commonArgs';
 
+export const boxArgTypes = boxArgs;
+
 const meta = {
   title: 'Components/Box',
   component: Box,
-  argTypes: boxArgs,
+  argTypes: boxArgTypes,
 };
 
 export default meta;

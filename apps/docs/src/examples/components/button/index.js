@@ -5,6 +5,7 @@ export * from './ButtonBusyExample';
 export * from './ButtonBusySimpleExample';
 export * from './ButtonIconExample';
 export * from './ButtonLeftAlignExample';
+export * from './ButtonPlayground';
 export * from './ButtonRightAlignExample';
 export * from './ButtonSizingExample';
 export * from './ButtonStatesExample';

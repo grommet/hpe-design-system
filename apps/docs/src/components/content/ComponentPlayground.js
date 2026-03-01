@@ -1,0 +1,488 @@
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import {
+  Box,
+  Button,
+  CheckBox,
+  Select,
+  Tab,
+  Tabs,
+  Text,
+  TextInput,
+  ToggleGroup,
+  ResponsiveContext,
+  Grommet,
+} from 'grommet';
+import { Copy, Moon } from '@hpe-design/icons-grommet';
+import { hpe } from 'grommet-theme-hpe';
+import { CodeEditor } from './CodeEditor';
+
+const ICON_OPTIONS = [
+  { label: 'None', value: null },
+  { label: 'NewWindow', value: 'NewWindow' },
+  { label: 'LinkNext', value: 'LinkNext' },
+  { label: 'LinkPrevious', value: 'LinkPrevious' },
+];
+
+export const ComponentPlayground = ({
+  component: Component,
+  defaultProps = {},
+  controls = [],
+  codeTemplate,
+}) => {
+  const [componentProps, setComponentProps] = useState(defaultProps);
+  const [copied, setCopied] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const [code, setCode] = useState('');
+  const [isCodeManuallyEdited, setIsCodeManuallyEdited] = useState(false);
+  const [codeError, setCodeError] = useState(null);
+  const [layout, setLayout] = useState('right'); // 'bottom', 'left', or 'right'
+  // eslint-disable-next-line max-len
+  const [previewTheme, setPreviewTheme] = useState('light'); // 'light' or 'dark'
+
+  const togglePreviewTheme = () => {
+    setPreviewTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  const handlePropChange = (propName, value) => {
+    setComponentProps(prev => {
+      const newProps = { ...prev, [propName]: value };
+      return newProps;
+    });
+  };
+
+  const generateCode = () => {
+    // Use custom code template if provided
+    if (codeTemplate) {
+      return codeTemplate(componentProps);
+    }
+
+    const propsString = Object.entries(componentProps)
+      .filter(
+        ([, value]) => value !== null && value !== undefined && value !== '',
+      )
+      .map(([key, value]) => {
+        if (key === 'icon' && value) {
+          return `icon={<${value} />}`;
+        }
+        if (typeof value === 'boolean') {
+          return value ? key : null;
+        }
+        if (typeof value === 'string') {
+          return `${key}="${value}"`;
+        }
+        return null;
+      })
+      .filter(Boolean)
+      .join(' ');
+
+    const iconImport = componentProps.icon
+      ? `import { ${componentProps.icon} } from '@hpe-design/icons-grommet';\n`
+      : '';
+
+    const componentName = Component.displayName || 'Component';
+    const propsCode = propsString ? ` ${propsString}` : '';
+
+    return `${iconImport}import { ${componentName} } from 'grommet';
+
+<${componentName}${propsCode} />`;
+  };
+
+  // Update code when componentProps change, unless user manually edited it
+  useEffect(() => {
+    if (!isCodeManuallyEdited) {
+      const newCode = generateCode();
+      setCode(newCode);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [componentProps, isCodeManuallyEdited]);
+
+  const handleCodeChange = newCode => {
+    setCode(newCode);
+    setIsCodeManuallyEdited(true);
+
+    // Validate code syntax
+    const componentName = Component.displayName || 'Component';
+    const componentRegex = new RegExp(
+      `<${componentName}([^/>]*)(/>|>.*?</${componentName}>)`,
+      's',
+    );
+
+    // Check for basic JSX syntax errors
+    if (
+      newCode.includes(`<${componentName}`) &&
+      !componentRegex.test(newCode)
+    ) {
+      setCodeError('Syntax Error: Incomplete or malformed JSX tag');
+      return;
+    }
+
+    // Check for unclosed quotes
+    const quoteMatches = newCode.match(/"/g);
+    if (quoteMatches && quoteMatches.length % 2 !== 0) {
+      setCodeError('Syntax Error: Unclosed quote');
+      return;
+    }
+
+    // Check for unclosed braces in JSX
+    const braceMatches = newCode.match(/\{/g);
+    const closeBraceMatches = newCode.match(/\}/g);
+    if ((braceMatches?.length || 0) !== (closeBraceMatches?.length || 0)) {
+      setCodeError('Syntax Error: Unclosed brace');
+      return;
+    }
+
+    // Clear error if validation passes
+    setCodeError(null);
+
+    // Parse the code to extract props
+    try {
+      const match = newCode.match(componentRegex);
+
+      if (match) {
+        const propsString = match[1];
+        const newProps = { ...defaultProps }; // Start with default props
+
+        // Parse all string props: propName="value"
+        const stringPropRegex = /(\w+)="([^"]*)"/g;
+        let stringMatch;
+        // eslint-disable-next-line no-cond-assign
+        while ((stringMatch = stringPropRegex.exec(propsString)) !== null) {
+          const [, propName, propValue] = stringMatch;
+          newProps[propName] = propValue;
+        }
+
+        // Parse icon={<IconName />}
+        const iconMatch = propsString.match(/icon=\{<(\w+)\s*\/>\}/);
+        if (iconMatch) {
+          // eslint-disable-next-line prefer-destructuring
+          newProps.icon = iconMatch[1];
+        } else if (!propsString.includes('icon=')) {
+          // If icon prop is not in the code, ensure it's not in newProps
+          delete newProps.icon;
+        }
+
+        // Parse boolean props (just the prop name without =)
+        // Get all possible boolean props from controls
+        const boolProps = controls
+          .filter(c => c.type === 'checkbox')
+          .map(c => c.name);
+
+        boolProps.forEach(prop => {
+          const hasProp = new RegExp(`\\b${prop}\\b(?!=)`).test(propsString);
+          if (hasProp) {
+            newProps[prop] = true;
+          } else if (defaultProps[prop] === undefined) {
+            newProps[prop] = false;
+          }
+        });
+
+        console.log('Parsed props from code:', newProps);
+        // Replace props entirely when code is manually edited
+        setComponentProps(newProps);
+      }
+    } catch (error) {
+      // If parsing fails, just keep the code change
+      setCodeError(`Error: ${error.message}`);
+    }
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code || generateCode());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const renderControl = (control, isLast = false) => {
+    const { name, type, options, displayLabel } = control;
+
+    let controlElement;
+
+    switch (type) {
+      case 'text':
+        controlElement = (
+          <TextInput
+            id={`playground-${name}`}
+            name={name}
+            value={
+              componentProps[name] !== undefined &&
+              componentProps[name] !== null
+                ? String(componentProps[name])
+                : ''
+            }
+            onChange={event => handlePropChange(name, event.target.value)}
+            placeholder={`Enter ${displayLabel || name}`}
+            size="small"
+            focusIndicator
+          />
+        );
+        break;
+
+      case 'select':
+        controlElement = (
+          <Select
+            options={options || []}
+            value={componentProps[name] || ''}
+            onChange={({ option }) => handlePropChange(name, option)}
+            placeholder={`Select ${displayLabel || name}`}
+            size="small"
+          />
+        );
+        break;
+
+      case 'checkbox':
+        controlElement = (
+          <CheckBox
+            checked={componentProps[name] || false}
+            onChange={event => handlePropChange(name, event.target.checked)}
+            toggle
+          />
+        );
+        break;
+
+      case 'icon':
+        controlElement = (
+          <Select
+            options={options || ICON_OPTIONS}
+            labelKey="label"
+            valueKey="value"
+            value={
+              (options || ICON_OPTIONS).find(
+                opt => opt.value === componentProps[name],
+              ) || { label: 'None', value: null }
+            }
+            onChange={({ option }) => handlePropChange(name, option.value)}
+            size="small"
+          />
+        );
+        break;
+
+      default:
+        return null;
+    }
+
+    return (
+      <Box
+        key={name}
+        direction="row"
+        align="center"
+        justify="between"
+        pad={{ vertical: 'xxsmall', horizontal: 'xxsmall' }}
+        border={!isLast ? { side: 'bottom', color: 'border-weak' } : undefined}
+      >
+        <Text size="small" weight={500}>
+          {displayLabel || name}
+        </Text>
+        <Box width="medium">{controlElement}</Box>
+      </Box>
+    );
+  };
+
+  // Dynamically import icon if needed
+  const ComponentWithIcon = () => {
+    const propsToRender = { ...componentProps };
+
+    // Add onClick handler to prevent default behavior for interactive
+    // components
+    if (!propsToRender.onClick) {
+      propsToRender.onClick = e => {
+        e.preventDefault();
+        e.stopPropagation();
+      };
+    }
+
+    if (componentProps.icon) {
+      const icons = require('@hpe-design/icons-grommet');
+      const IconComponent = icons[componentProps.icon];
+      if (IconComponent) {
+        propsToRender.icon = <IconComponent />;
+      }
+    }
+
+    return <Component {...propsToRender} />;
+  };
+
+  return (
+    <ResponsiveContext.Consumer>
+      {size => {
+        const isSmallScreen =
+          size === 'small' || size === 'xsmall' || size === 'medium';
+        const effectiveLayout = isSmallScreen ? 'bottom' : layout;
+
+        return (
+          <Box
+            pad="medium"
+            round="small"
+            gap="medium"
+            border={{ color: 'border', size: 'xsmall' }}
+          >
+            <Box direction="row" justify="between" alignSelf="end">
+              <Box direction="row" gap="small" align="end">
+                <Button
+                  icon={<Moon />}
+                  a11yTitle={
+                    previewTheme === 'dark'
+                      ? 'Switch preview to light mode'
+                      : 'Switch preview to dark mode'
+                  }
+                  tip={{
+                    content:
+                      previewTheme === 'dark'
+                        ? 'Switch preview to light mode'
+                        : 'Switch preview to dark mode',
+                  }}
+                  onClick={togglePreviewTheme}
+                  secondary
+                />
+                {!isSmallScreen && (
+                  <ToggleGroup
+                    value={layout}
+                    onToggle={event => setLayout(event.value)}
+                    options={[
+                      { label: 'Bottom', value: 'bottom' },
+                      { label: 'Right', value: 'right' },
+                    ]}
+                  />
+                )}
+              </Box>
+            </Box>
+
+            <Box
+              direction={effectiveLayout === 'bottom' ? 'column' : 'row'}
+              gap="medium"
+            >
+              <Box
+                align="center"
+                justify="center"
+                height={
+                  effectiveLayout === 'bottom'
+                    ? { min: 'small' }
+                    : { min: 'small' }
+                }
+                width={effectiveLayout !== 'bottom' ? '40%' : undefined}
+                flex={effectiveLayout !== 'bottom' ? { shrink: 0 } : false}
+              >
+                <Grommet
+                  theme={hpe}
+                  themeMode={previewTheme}
+                  style={{ width: '100%', height: '100%' }}
+                >
+                  <Box
+                    background="background-back"
+                    fill
+                    align="center"
+                    justify="center"
+                    border={{ color: 'border-weak', size: 'xsmall' }}
+                    round="xsmall"
+                  >
+                    <ComponentWithIcon />
+                  </Box>
+                </Grommet>
+              </Box>
+
+              {(effectiveLayout === 'bottom' ||
+                effectiveLayout === 'right') && (
+                <Box
+                  width={effectiveLayout !== 'bottom' ? '50%' : undefined}
+                  flex={effectiveLayout !== 'bottom' ? { shrink: 0 } : false}
+                  height={{ max: 'large' }}
+                >
+                  <Tabs
+                    activeIndex={activeTab}
+                    onActive={setActiveTab}
+                    justify="start"
+                    flex
+                  >
+                    <Tab title="Props">
+                      <Box
+                        border={{ color: 'border-weak' }}
+                        round="xsmall"
+                        overflow={{ vertical: 'auto' }}
+                        height={{ max: 'medium' }}
+                        pad={{ vertical: 'xsmall' }}
+                        margin={{ top: 'small' }}
+                      >
+                        {(() => {
+                          const visibleControls = controls.filter(
+                            control =>
+                              !control.showWhen ||
+                              control.showWhen(componentProps),
+                          );
+                          return visibleControls.map((control, index) =>
+                            renderControl(
+                              control,
+                              index === visibleControls.length - 1,
+                            ),
+                          );
+                        })()}
+                      </Box>
+                    </Tab>
+
+                    <Tab title="Code">
+                      <Box margin={{ top: 'small' }} fill>
+                        {codeError && (
+                          <Box
+                            background="status-critical"
+                            pad="small"
+                            round="xsmall"
+                            margin={{ bottom: 'small' }}
+                          >
+                            <Text size="small" color="text-strong">
+                              {codeError}
+                            </Text>
+                          </Box>
+                        )}
+                        <Box
+                          background="background-front"
+                          round="xsmall"
+                          fill
+                          overflow="auto"
+                          style={{ position: 'relative' }}
+                        >
+                          <Box
+                            style={{
+                              position: 'absolute',
+                              top: '12px',
+                              right: '12px',
+                              zIndex: 2,
+                            }}
+                          >
+                            <Button
+                              icon={<Copy />}
+                              a11yTitle={copied ? 'Copied!' : 'Copy code'}
+                              tip={copied ? 'Copied!' : 'Copy code'}
+                              onClick={handleCopy}
+                              size="small"
+                              secondary
+                            />
+                          </Box>
+                          <CodeEditor code={code} onChange={handleCodeChange} />
+                        </Box>
+                      </Box>
+                    </Tab>
+                  </Tabs>
+                </Box>
+              )}
+            </Box>
+          </Box>
+        );
+      }}
+    </ResponsiveContext.Consumer>
+  );
+};
+
+ComponentPlayground.propTypes = {
+  component: PropTypes.elementType.isRequired,
+  defaultProps: PropTypes.object,
+  // Function that takes props and returns code string
+  codeTemplate: PropTypes.func,
+  controls: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      type: PropTypes.oneOf(['text', 'select', 'checkbox', 'icon']).isRequired,
+      displayLabel: PropTypes.string,
+      options: PropTypes.array,
+      showWhen: PropTypes.func,
+    }),
+  ).isRequired,
+};

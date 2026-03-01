@@ -2,6 +2,7 @@ export * from './anchor';
 export * from './avatar';
 export * from './button';
 export * from './accordion';
+export * from './Playground';
 export * from './calendar';
 export * from './card';
 export * from './carousel';
