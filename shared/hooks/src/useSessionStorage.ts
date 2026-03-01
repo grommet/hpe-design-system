@@ -47,7 +47,7 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
         } else {
           try {
             setStoredValue(JSON.parse(event.newValue));
-          } catch (error) {
+          } catch {
             setStoredValue(initialValue);
           }
         }

@@ -20,7 +20,6 @@
     "jsdom": "^26.1.0",
     "minimatch": "^10.0.3",
     "typescript": "catalog:",
-    "typescript-eslint": "^8.40.0",
     "vitest": "^3.2.4"
   },
   "dependencies": {
