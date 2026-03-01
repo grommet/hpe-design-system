@@ -1,0 +1,70 @@
+{
+  "name": "@hpe-design/design-system-agent",
+  "version": "1.0.0-alpha.1",
+  "description": "AI-driven code generation and remediation agent for HPE Design System compliance",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "hpeds-ai": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "knowledge",
+    "prompts",
+    "skills"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist coverage",
+    "prebuild": "pnpm clean",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src --ext .ts",
+    "lint-fix": "eslint src --ext .ts --fix",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "catalog:",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "typescript": "catalog:",
+    "vitest": "^2.0.0"
+  },
+  "dependencies": {
+    "tsx": "^4.19.1"
+  },
+  "keywords": [
+    "ai-agent",
+    "code-generation",
+    "design-system",
+    "grommet",
+    "hpe",
+    "remediation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grommet/hpe-design-system.git",
+    "directory": "packages/design-system-agent"
+  },
+  "bugs": {
+    "url": "https://github.com/grommet/hpe-design-system/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
