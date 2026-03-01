@@ -30,6 +30,7 @@ yarn-error.log*
 .env.*
 .tmp
 report*
+!packages/design-system-agent/prompts/reporter
 .DS_Store
 .native-web
 .tailwind-app
