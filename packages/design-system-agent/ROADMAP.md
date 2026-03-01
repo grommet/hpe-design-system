@@ -52,7 +52,7 @@ Validate core Auditor scoring, Strategist prioritization, and Engineer remediati
   2. Review top 3 Consumer recommendations for accuracy (false positives?)
   3. Test Engineer remediation for Token Compliance and Component Usage fixes (Grommet-specific); validate diffs before apply
   4. Test Engineer generation from text prompt or Figma JSON for a small feature area; validate diffs before apply
-  5. Re-audit to verify score improvement after Engineer fixes (Verification Phase)
+  5. Optionally re-audit to verify score improvement after Engineer fixes (Verification Phase)
   6. Collect qualitative feedback on metric definitions, prioritization logic, Engineer-generated diffs, and DX
 - **Success criteria:**
   - 80%+ of top 3 recommendations are actionable and accurate
@@ -83,7 +83,7 @@ Expand to React teams with varying HPEDS adoption (Segments A-D). Extend Enginee
 - **Auditor:** Add Pattern audit scope; refine N/A handling for Segments C-D (lower Component Coverage/Usage observability)
 - **Strategist:** Add P1/P2/P3 System Delivery Suggestion severity
 - **Engineer:** Expand remediation and generation beyond Grommet to support non-Grommet React codebases (Segments C-D); continue Token Compliance and Component Usage fixes with approval gates
-- **Orchestrator:** Add audit diffing and score delta summaries; support CI/PR passive mode (audit-only, no fixes)
+- **Orchestrator:** Add audit diffing and score delta summaries; default to a targeted post-generation audit; support CI/PR passive mode (audit-only, no fixes)
 - **Reporter:** Monthly telemetry insights dashboard; System Delivery Ticket auto-creation for P1 gaps
 
 ### Segment-specific adjustments
@@ -128,7 +128,7 @@ Expand to non-React frameworks (Segments E-F). Add advanced features like patter
 - **Auditor:** Add Vue and Angular framework skills; partial Svelte support (scoring only)
 - **Engineer:** Add Vue and Angular remediation and generation skills; generate framework-specific code diffs
 - **Strategist:** Add pattern gap analytics (detect repeated custom solutions that could be patterns)
-- **Orchestrator:** Add continuous improvement loop with sprint cadence (auto-schedule re-audits, track score trends, notify on regressions)
+- **Orchestrator:** Add continuous improvement loop with sprint cadence (auto-schedule re-audits, track score trends, notify on regressions); keep targeted post-generation audit enabled by default
 - **Reporter:** Add pattern adoption heatmaps and framework-specific friction analysis
 
 ### Segment-specific adjustments

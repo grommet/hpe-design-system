@@ -142,7 +142,7 @@ This flow supports feature implementation from prompts, Figma JSON, or PRDs. It 
 - **Engineer → User:** Displays the `diff` for review with rationale.
 - **User:** Input `[Y]` to write changes to disk.
 
-#### 3. Verification (optional)
+#### 3. Verification (optional in PoC; default in MVP+)
 - **Orchestrator → Auditor:** Runs a targeted audit to confirm alignment in the modified area.
 - **Orchestrator → User:** Displays alignment summary and any follow-up recommendations.
 
@@ -170,6 +170,7 @@ The `.hpedsrc` file is a JSON or YAML configuration file in the root of the cons
 **Optional fields:**
 - `feedback_collection`: Whether to collect team feedback signals via CLI prompt (default: `true`).
 - `auto_apply_fixes`: If `true`, Engineer automatically applies non-critical fixes; if `false`, all fixes require user approval (default: `false`).
+- `post_generation_audit`: Controls targeted audits after `hpe-ds-ai gen` (options: `optional`, `default`, `disabled`; default: `optional` in PoC, `default` in MVP+).
 - `telemetry_endpoint`: URL for sending Reporter telemetry (default: to HPE Design System telemetry service).
 
 **Example:**
@@ -178,7 +179,8 @@ The `.hpedsrc` file is a JSON or YAML configuration file in the root of the cons
   "framework": "react",
   "scope": "src/",
   "feedback_collection": true,
-  "auto_apply_fixes": false
+  "auto_apply_fixes": false,
+  "post_generation_audit": "optional"
 }
 ```
 
