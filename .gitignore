@@ -9,6 +9,7 @@
 *package-lock.json
 
 # production
+*bin
 *dist
 /apps/docs/out
 *.next
