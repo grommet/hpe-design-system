@@ -68,17 +68,21 @@ To support distribution as a package, the structure follows a Modular Agent patt
 - **`orchestrator`:** The manager acting as the master controller. Responsible for managing state, handing off tasks between specialist agents, and maintaining the continuous improvement loop.
 - **`auditor`:** The evaluator consuming the application's source code and scoring it against **Evaluation Metrics**.
   - Input: Application's source code
-  - Task: Score the project based on evaluation metrics
-  - Logic: Use a weighted formula to calculate an alignment index
+  - Task: Score the project based on evaluation metrics (Consumer Implementation and Design System Enablement)
+  - Logic: Use a weighted formula to calculate separate Consumer Alignment and System Enablement scores, then a combined rollup score
+  - Output: Structured JSON scorecard with raw scores, status (Pass/Warning/Fail per metric), and evidence citations
 - **`strategist`:** The prioritizer taking the audit findings and prioritizing by impact and effort.
-  - Input: The Auditor's report
-  - Task: Categorize issues into "Consumer Implementation" (e.g., "You used a hex code") vs. "System Improvement" (e.g., "The system lacks a pattern for this specific dashboard view"), then rank by impact and effort.
+  - Input: The Auditor's scorecard report
+  - Task: Categorize issues into "Consumer Implementation" (e.g., "You used a hex code") vs. "System Improvement" (e.g., "The system lacks a pattern for this specific dashboard view"), then rank by impact and effort using the Impact/Effort matrix
+  - Output: Game Plan with top 3 Consumer recommendations and P1/P2/P3 System Delivery Suggestions
 - **`engineer`:** The remediator implementing top priorities.
-  - Input: Top priority recommendations
-  - Task: Executes the "fix." Modifies the user's local files to replace legacy code with design system tokens, components, and patterns.
+  - Input: Top priority recommendations from the Strategist
+  - Task: Executes the "fix" by modifying the user's local files to replace legacy code with design system tokens, components, and patterns
+  - Output: Code diffs for user approval before writing to disk
 - **`reporter`:** The telemetry collector silently observing the ecosystem. Responsible for taking granular data from the Auditor and Strategist and compressing into high-level insights the HPE Design System can use to make roadmap and funding decisions.
-  - Input: Data from Auditor and Strategist 
-  - Task: Summarize adoption, points of friction, and ROI. Delivers
+  - Input: Data from Auditor (scorecard metrics, evidence) and Strategist (system gaps, impact/effort rankings)
+  - Task: Aggregate adoption trends, friction points, and ROI signals across the 50+ consuming teams
+  - Output: Monthly/quarterly telemetry dashboard and system roadmap recommendations
 
 ## Implementation Strategy: The Continuous Improvement Loop
 
@@ -96,49 +100,84 @@ This is the blueprint for how the CLI package executes. It visualizes the "hands
 
 #### 1. Initiation Phase
 - **User/CI:** Executes `hpe-ds-ai audit --fix`.
-- **Orchestrator:** Loads `.hpedsrc` config and fetches the latest `knowledge/` (Tokens, Components, Patterns).
-- **Orchestrator → Auditor:** Sends the file path and DS knowledge. "*Analyze this*."
+- **Orchestrator:** Loads `.hpedsrc` config (see Configuration section below) and fetches the latest `knowledge/` (Tokens, Components, Patterns).
+- **Orchestrator → Auditor:** Sends the file path, scope, detected framework, and DS knowledge. "*Analyze this*."
 
 #### 2. Analysis Phase
-- **Auditor:** Performs AST parsing and Regex scans.
-- **Auditor → Orchestrator:** Returns a structured JSON report (The Evaluation Metric Scorecard).
+- **Auditor:** Performs AST parsing, regex scans, and static analysis.
+- **Auditor → Orchestrator:** Returns a structured JSON report (The Evaluation Metric Scorecard) with Consumer Alignment Score, System Enablement Score, Combined Alignment Score, and classified findings.
 - **Orchestrator → Strategist:** Sends the Scorecard. "*What should we do first?*"
 
 #### 3. Strategy Phase
-- **Strategist:** Runs the $Impact/Effort$ matrix.
-- **Strategist → Orchestrator:** Returns the "Game Plan" (batched remediation tasks).
-- **Orchestrator → User:** Displays the Scorecard and the proposed fixes.
-- **User:** Input `[Y]` to approve the top 3 critical fixes.
+- **Strategist:** Runs the Impact/Effort matrix on Consumer findings and assigns P1/P2/P3 severity to System Delivery Suggestions.
+- **Strategist → Orchestrator:** Returns the "Game Plan" (batched Consumer remediation tasks + prioritized System gaps).
+- **Orchestrator → User:** Displays the Scorecard (both Consumer and System scores), improvement delta (if re-audit), and top 3 proposed Consumer fixes.
+- **User:** Input `[Y]` to approve the top 3 critical Consumer fixes.
 
 #### 4. Remediation Phase
-- **Orchestrator → Engineer:** Sends the specific files and approved tasks. "*Fix these 3 items.*"
-- **Engineer:** Generates code diffs, ensuring A11y and Token compliance.
-- **Engineer → User:** Displays the `diff` for review.
+- **Orchestrator → Engineer:** Sends the specific files, approved tasks, and context. "*Fix these 3 items.*"
+- **Engineer:** Generates code diffs, ensuring A11y and Token compliance per HPEDS standards.
+- **Engineer → User:** Displays the `diff` for review with rationale.
 - **User:** Input `[Y]` to write changes to disk.
 
 #### 5. Verification Phase
 - **Orchestrator → Auditor:** Sends the newly modified code. "*Verify the improvement.*"
-- **Auditor:** Re-scores the evaluation metrics.
-- **Orchestrator → User:** Displays the improvement delta (e.g., "Score: 0.45 → 0.72").
+- **Auditor:** Re-scores the evaluation metrics across both Consumer and System dimensions.
+- **Orchestrator → User:** Displays the improvement delta (e.g., "Consumer Score: 0.45 → 0.72; System Enablement: 0.60 → 0.65").
 
 #### 6. External Reporting
-- **Orchestrator:** If a "System Gap" was found, it generates the **System Delivery Ticket**.
-- **Orchestrator:** Sends telemetry to your organization's central dashboard.
+- **Orchestrator:** If P1 "System Gap" findings were identified, it generates a **System Delivery Ticket** (see System Delivery Suggestion severity rules in auditor instructions).
+- **Orchestrator:** Sends telemetry to your organization's central dashboard (adoption rate, metric trends, friction points).
 
+
+## Configuration
+
+### `.hpedsrc` file
+The `.hpedsrc` file is a JSON or YAML configuration file in the root of the consuming application that tells the Orchestrator how to run audits. The Orchestrator loads this on initiation.
+
+**Required fields:**
+- `framework`: The application's UI framework (e.g., `"react"`, `"vue"`, `"angular"`). Used by Auditor and Engineer to select framework-specific skills.
+- `scope`: The default audit scope (e.g., `"src/"`, or specific directory like `"src/pages/dashboard/"`).
+
+**Optional fields:**
+- `feedback_collection`: Whether to collect team feedback signals via CLI prompt (default: `true`).
+- `auto_apply_fixes`: If `true`, Engineer automatically applies non-critical fixes; if `false`, all fixes require user approval (default: `false`).
+- `telemetry_endpoint`: URL for sending Reporter telemetry (default: to HPE Design System telemetry service).
+
+**Example:**
+```json
+{
+  "framework": "react",
+  "scope": "src/",
+  "feedback_collection": true,
+  "auto_apply_fixes": false
+}
+```
+
+## Framework Support
+
+The Auditor and Engineer support multiple frameworks via modular skills. Framework detection:
+1. Check `.hpedsrc` `framework` field (highest priority).
+2. Auto-detect from `package.json` dependencies if not specified.
+3. Prompt user if detection fails.
+
+**Supported frameworks:** React (primary, 80% of users), Vue, Angular, and others via pluggable skill modules.
 
 ### Agent-to-Agent data flow
 
 | From | To | Data Packet |
 | --- | --- | --- |
-| Auditor | Strategist | `raw_findings[]` + `alignment_score` |
-| Strategist | Engineer | `remediation_tasks[]` + `priority_level` |
-| Engineer | Auditor | `modified_code_snippets[]` |
-| Orchestrator | External API | `telemetry_payload` + `system_delivery_ticket` |
+| Auditor | Strategist | `consumer_score`, `system_score`, `combined_score`, `raw_findings[]` with evidence citations |
+| Strategist | Engineer | `consumer_remediation_tasks[]` + `priority_level`, `system_delivery_suggestions[]` + `p1_p2_p3_severity` |
+| Engineer | Auditor | `modified_code_snippets[]` + `file_paths` |
+| Auditor | Reporter | `scorecard_snapshot` (metrics, scores, timestamp) |
+| Orchestrator | External API | `telemetry_payload` (adoption metrics, improvement trends) + `system_delivery_ticket` (P1 gaps only) |
 
 
 ### Enterprise benefits
-- **Asynchronous audits:** Teams can run the Auditor in their PRs without ever running the Engineer (passive monitoring).
-- **Modular skills:** If we decide to support a new framework (e.g., Vue), we only need to update the `skills.md` for the **Auditor** and **Engineer**. The Orchestrator and Strategist logic remains exactly the same.
-- **Traceability:** Every code change made by the AI is linked back to a specific metric violation found by the Auditor.
+- **Asynchronous audits:** Teams can run the Auditor in their PRs without ever running the Engineer (passive monitoring mode). Useful for visibility without mandatory remediation.
+- **Modular skills:** If we decide to support a new framework (e.g., Svelte), we only need to update the `skills.md` for the **Auditor** and **Engineer**. The Orchestrator, Strategist, and Reporter logic remains exactly the same.
+- **Traceability:** Every code change made by the Engineer is linked back to a specific metric violation found by the Auditor, with evidence citations (file path, line range, matched knowledge artifact).
+- **System-level feedback loop:** Reporter collects adoption and friction signals from 50+ teams, enabling the HPE Design System team to prioritize gaps (P1 tickets) and deprecations.
 
 
