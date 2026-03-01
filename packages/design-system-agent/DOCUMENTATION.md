@@ -25,17 +25,19 @@ The project should enable:
 - **Evaluations** assessing the consuming application's alignment with the HPE Design System & the system's ability to meet consuming application needs.
   - The ability to scope the evaluation to the entire project or a particular feature area.
   - The evaluations should have a scoring mechanism so that we are able to monitor and measure improvement progress across:
-    1. context generator quality
-    2. component usage
-    3. component coverage
-    4. Typescript DX
-    5. Token compliance
-    6. application structure / page layouts
-    7. responsive layouts
-    8. accessibility
-    9. agent experience
-    10. developer experience
-    11. developer confidence
+    - **Consumer Implementation metrics:**
+      1. Component Coverage
+      2. Component Usage
+      3. App Structure
+      4. Token Compliance
+      5. Responsive Layouts
+      6. Accessibility
+      7. Type Safety & Interfaces
+      8. Dev Confidence
+    - **Design System Enablement metrics:**
+      9. System Discoverability
+      10. Developer Experience
+      11. Agent Experience
   - Generate prioritized recommendations based off the evaluations. Recommendations should be classified as recommendations for improving the consumer application's implementation or as suggested improvements to the delivery of the design system.
   - Provide suggested remedies for top priority recommendations.
   - Ability to apply and implement remedies for top priority recommendations.
