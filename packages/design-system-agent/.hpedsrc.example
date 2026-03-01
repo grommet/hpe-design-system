@@ -1,0 +1,120 @@
+# .hpedsrc.example - HPE Design System Agent Configuration Template
+
+## Instructions
+Copy this file to `.hpedsrc` at your repo root (or monorepo workspace root, or home directory).
+Update the values to match your team and preferences.
+The Orchestrator discovers .hpedsrc in this order:
+  1. {repo_root}/.hpedsrc
+  2. {monorepo_workspace_root}/.hpedsrc (if lerna.json or pnpm-workspace.yaml exists)
+  3. ~/.hpedsrc (home directory, shared across repos)
+
+---
+
+## Required fields
+
+# Framework: The primary UI framework your project uses.
+# PoC supports React only. Non-React codebases will be rejected.
+framework: react
+
+# Team segment: Your team's adoption level of HPE Design System (Segment A-F).
+# PoC supports Segment A only: React + Grommet + grommet-theme-hpe.
+# Segments B-F will be rejected in PoC and supported in MVP/later phases.
+team_segment: A
+
+# Scope: The breadth of the audit.
+# - directory: Single directory (e.g., src/components)
+# - page: Single page/feature (e.g., src/pages/Dashboard)
+# - pattern: Single component or pattern (e.g., src/components/Header)
+# Default: directory
+scope: directory
+
+# Scope target: Relative path to desired scope root.
+# Example: src/components, src, src/pages/Dashboard
+# Only used if scope is "directory" or "page".
+scope_target: src
+
+# Post-generation audit: Whether to re-audit generated or fixed code to verify no regressions.
+# Default: false (optional in PoC, becomes default=true in MVP+).
+# Set to true for stricter quality gates; false for faster iteration.
+post_generation_audit: false
+
+---
+
+## Optional fields (defaults shown)
+
+# Telemetry opt-in: Whether to allow the agent to collect and emit anonymized telemetry.
+# Default: true (opt-in by default; can be overridden with --no-telemetry flag).
+# Telemetry includes scores, metrics, and error counts — NO source code.
+# See DOCUMENTATION.md for privacy details.
+telemetry_opt_in: true
+
+# UI library: Primary UI component library.
+# PoC auto-detects from package.json but can be overridden.
+# Supported in PoC: grommet
+# Supported in MVP+: grommet, material-ui, chakra-ui, etc.
+ui_library: grommet
+
+# Git email (optional): Email to use for commit messages if Engineer applies diffs.
+# Default: auto-detect from git config; falls back to agent@hpe-design-system
+git_email: your-team@example.com
+
+# Rollback timeout (minutes): How long to keep .hpeds-undo-checkpoint before auto-cleanup.
+# Default: 10800 (7 days in minutes)
+rollback_timeout_minutes: 10080
+
+# Logging level: stdout verbosity.
+# Supported: silent, error, warn, info, debug
+# Default: info
+log_level: info
+
+# Knowledge base path: Custom path to component/pattern/token definitions.
+# Default: {agent_package_root}/prompts/auditor/knowledge/
+# Only override if you've extended the knowledge base with custom components/patterns.
+knowledge_base_path: ./custom-knowledge/
+
+---
+
+## Examples
+
+### Example 1: Segment A team (Grommet + theme)
+```
+framework: react
+team_segment: A
+scope: directory
+scope_target: src
+post_generation_audit: false
+telemetry_opt_in: true
+ui_library: grommet
+log_level: info
+```
+
+### Example 2: Strict team (wants post-generation validation)
+```
+framework: react
+team_segment: A
+scope: directory
+scope_target: src/components
+post_generation_audit: true
+telemetry_opt_in: true
+ui_library: grommet
+log_level: debug
+```
+
+### Example 3: Single-page audit
+```
+framework: react
+team_segment: A
+scope: page
+scope_target: src/pages/Dashboard
+post_generation_audit: false
+telemetry_opt_in: false
+ui_library: grommet
+```
+
+---
+
+## Validation
+Run `hpe-ds-ai --validate` to check your .hpedsrc for errors without invoking agents.
+
+## Migration
+When upgrading the agent, check ROADMAP.md and CHANGELOG.md for .hpedsrc schema changes.

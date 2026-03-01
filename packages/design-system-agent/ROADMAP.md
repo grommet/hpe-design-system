@@ -69,6 +69,9 @@ Validate core Auditor scoring, Strategist prioritization, and Engineer remediati
 - Strategist prioritization aligns with team expectations (Impact/Effort matrix validated)
 - Engineer remediation and generation stable for Grommet codebases (Token Compliance and Component Usage fixes)
 
+### Implementation plan
+See [PoC-IMPLEMENTATION.md](PoC-IMPLEMENTATION.md) for detailed workstreams (5 workstreams: Orchestrator, Remediation, Generation, Strategist, Reporter/CLI), dependencies, milestones, and risk mitigations (estimated 4-6 weeks).
+
 ---
 
 ## Phase 2: Minimum Viable Product (MVP)
