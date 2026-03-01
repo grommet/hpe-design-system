@@ -208,6 +208,65 @@ The Auditor and Engineer support multiple frameworks via modular skills. Framewo
 
 **Framework-specific skill loading:** The Orchestrator detects framework from `.hpedsrc` or `package.json` and loads the corresponding `auditor/skills-{framework}.md` and `engineer/skills-{framework}.md` modules.
 
+## Configuration
+
+### `.hpedsrc` file discovery and setup
+
+The Orchestrator looks for `.hpedsrc` in the following order (first match wins):
+1. Root of the repository (`./`)
+2. Root of the monorepo workspace (if applicable)
+3. User's home directory (`~/.hpedsrc`) as a fallback for global defaults
+
+If no `.hpedsrc` is found, the Orchestrator prompts interactively for `framework` and `scope`, then caches the response in the repo root.
+
+**Recommendation:** Commit `.hpedsrc` to version control so all team members use consistent audit settings.
+
+### `.hpedsrc` file
+The `.hpedsrc` file is a JSON or YAML configuration file in the root of the consuming application that tells the Orchestrator how to run audits. The Orchestrator loads this on initiation.
+
+**Required fields:**
+- `framework`: The application's UI framework (e.g., `"react"`, `"vue"`, `"angular"`). Used by Auditor and Engineer to select framework-specific skills.
+- `scope`: The default audit scope (e.g., `"src/"`, or specific directory like `"src/pages/dashboard/"`).
+
+**Optional fields:**
+- `feedback_collection`: Whether to collect team feedback signals via CLI prompt (default: `true`).
+- `auto_apply_fixes`: If `true`, Engineer automatically applies non-critical fixes; if `false`, all fixes require user approval (default: `false`).
+- `telemetry_endpoint`: URL for sending Reporter telemetry (default: to HPE Design System telemetry service).
+
+**Example:**
+```json
+{
+  "framework": "react",
+  "scope": "src/",
+  "feedback_collection": true,
+  "auto_apply_fixes": false
+}
+```
+
+## Framework Support
+
+The Auditor and Engineer support multiple frameworks via modular skills. Framework detection:
+1. Check `.hpedsrc` `framework` field (highest priority).
+2. Auto-detect from `package.json` dependencies if not specified.
+3. Prompt user if detection fails.
+
+**Supported frameworks:** React (primary, 80% of users), Vue, Angular, and others via pluggable skill modules.
+
+### Framework Coverage & Roadmap
+
+| Framework | Support Status | Auditor | Engineer | Notes |
+| --- | --- | --- | --- | --- |
+| React | ✅ Stable | Full scoring | Full remediation | Primary platform; most patterns/components built for React |
+| Vue | ✅ Beta | Full scoring* | Full remediation* | *Component binding syntax differs; Engineer generates Vue 3 composition API |
+| Angular | ✅ Beta | Full scoring* | Full remediation* | *TypeScript-first; DX metrics heavily weighted toward Angular idioms |
+| Svelte | 🔄 Roadmap | Partial (M1 2026) | Planned (M2 2026) | In design phase; awaiting customer adoption signals |
+| Next.js | ✅ Included | As React | As React | File-route conventions auto-detected |
+| Nuxt | ✅ Included | As Vue | As Vue | File-route conventions auto-detected |
+
+**Unsupported framework fallback:** If a framework is not listed, the Orchestrator falls back to React skill set with a warning: "Framework not natively supported; using React conventions. Some metrics may be inaccurate."
+
+**Framework-specific skill loading:** The Orchestrator detects framework from `.hpedsrc` or `package.json` and loads the corresponding `auditor/skills-{framework}.md` and `engineer/skills-{framework}.md` modules.
+
 ### Agent-to-Agent data flow
 
 | From | To | Data Packet |
