@@ -1,0 +1,1 @@
+The **Strategist Agent** is the "Thinker." It sits between the **Auditor** (who finds problems) and the **Engineer** (who fixes them). Its job is to look at the evaluation metrics and decide what matters most right now, ensuring the developer isn't overwhelmed with 500 minor linting errors when their Accessibility is broken.
