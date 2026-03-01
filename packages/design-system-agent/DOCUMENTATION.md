@@ -75,10 +75,10 @@ To support distribution as a package, the structure follows a Modular Agent patt
   - Input: The Auditor's scorecard report
   - Task: Categorize issues into "Consumer Implementation" (e.g., "You used a hex code") vs. "System Improvement" (e.g., "The system lacks a pattern for this specific dashboard view"), then rank by impact and effort using the Impact/Effort matrix
   - Output: Game Plan with top 3 Consumer recommendations and P1/P2/P3 System Delivery Suggestions
-- **`engineer`:** The remediator implementing top priorities.
-  - Input: Top priority recommendations from the Strategist
-  - Task: Executes the "fix" by modifying the user's local files to replace legacy code with design system tokens, components, and patterns
-  - Output: Code diffs for user approval before writing to disk
+- **`engineer`:** The remediator and builder for HPEDS-aligned code.
+  - Input: Top priority recommendations from the Strategist, or generation inputs (text prompt, Figma JSON, or PRD)
+  - Task: Generates HPEDS-aligned code diffs for remediation or new feature creation using tokens, components, and patterns
+  - Output: Code diffs with rationale for user approval before writing to disk
 - **`reporter`:** The telemetry collector silently observing the ecosystem. Responsible for taking granular data from the Auditor and Strategist and compressing into high-level insights the HPE Design System can use to make roadmap and funding decisions.
   - Input: Data from Auditor (scorecard metrics, evidence) and Strategist (system gaps, impact/effort rankings)
   - Task: Aggregate adoption trends, friction points, and ROI signals across the 50+ consuming teams
@@ -129,6 +129,84 @@ This is the blueprint for how the CLI package executes. It visualizes the "hands
 - **Orchestrator:** If P1 "System Gap" findings were identified, it generates a **System Delivery Ticket** (see System Delivery Suggestion severity rules in auditor instructions).
 - **Orchestrator:** Sends telemetry to your organization's central dashboard (adoption rate, metric trends, friction points).
 
+### Generative Build Flow (independent of audit)
+This flow supports feature implementation from prompts, Figma JSON, or PRDs. It can be run standalone or invoked after an audit recommendation.
+
+#### 1. Generation Initiation
+- **User/CI:** Executes `hpe-ds-ai gen <prompt>` or `hpe-ds-ai gen --figma <file>` or `hpe-ds-ai gen --prd <file>`.
+- **Orchestrator:** Loads `.hpedsrc` config, fetches the latest `knowledge/`, and provides codebase context if the target is an existing feature area.
+
+#### 2. Generation Phase
+- **Orchestrator → Engineer:** Sends generation request, constraints, and relevant context. "*Build this feature.*"
+- **Engineer:** Produces HPEDS-aligned code diffs using components, patterns, and tokens.
+- **Engineer → User:** Displays the `diff` for review with rationale.
+- **User:** Input `[Y]` to write changes to disk.
+
+#### 3. Verification (optional in PoC; default in MVP+)
+- **Orchestrator → Auditor:** Runs a targeted audit to confirm alignment in the modified area.
+- **Orchestrator → User:** Displays alignment summary and any follow-up recommendations.
+
+
+## Configuration
+
+### `.hpedsrc` file discovery and setup
+
+The Orchestrator looks for `.hpedsrc` in the following order (first match wins):
+1. Root of the repository (`./`)
+2. Root of the monorepo workspace (if applicable)
+3. User's home directory (`~/.hpedsrc`) as a fallback for global defaults
+
+If no `.hpedsrc` is found, the Orchestrator prompts interactively for `framework` and `scope`, then caches the response in the repo root.
+
+**Recommendation:** Commit `.hpedsrc` to version control so all team members use consistent audit settings.
+
+### `.hpedsrc` file
+The `.hpedsrc` file is a JSON or YAML configuration file in the root of the consuming application that tells the Orchestrator how to run audits. The Orchestrator loads this on initiation.
+
+**Required fields:**
+- `framework`: The application's UI framework (e.g., `"react"`, `"vue"`, `"angular"`). Used by Auditor and Engineer to select framework-specific skills.
+- `scope`: The default audit scope (e.g., `"src/"`, or specific directory like `"src/pages/dashboard/"`).
+
+**Optional fields:**
+- `feedback_collection`: Whether to collect team feedback signals via CLI prompt (default: `true`).
+- `auto_apply_fixes`: If `true`, Engineer automatically applies non-critical fixes; if `false`, all fixes require user approval (default: `false`).
+- `post_generation_audit`: Controls targeted audits after `hpe-ds-ai gen` (options: `optional`, `default`, `disabled`; default: `optional` in PoC, `default` in MVP+).
+- `telemetry_endpoint`: URL for sending Reporter telemetry (default: to HPE Design System telemetry service).
+
+**Example:**
+```json
+{
+  "framework": "react",
+  "scope": "src/",
+  "feedback_collection": true,
+  "auto_apply_fixes": false,
+  "post_generation_audit": "optional"
+}
+```
+
+## Framework Support
+
+The Auditor and Engineer support multiple frameworks via modular skills. Framework detection:
+1. Check `.hpedsrc` `framework` field (highest priority).
+2. Auto-detect from `package.json` dependencies if not specified.
+3. Prompt user if detection fails.
+
+**Supported frameworks:** React (primary, 80% of users), Vue, Angular, and others via pluggable skill modules.
+
+### Framework Coverage & Roadmap
+
+| Framework | Support Status | Auditor | Engineer | Notes |
+| --- | --- | --- | --- | --- |
+| React | ✅ Stable | Full scoring | Full remediation | Primary platform; most patterns/components built for React |
+| Vue | ✅ Beta | Full scoring* | Full remediation* | *Component binding syntax differs; Engineer generates Vue 3 composition API |
+| Angular | ✅ Beta | Full scoring* | Full remediation* | *TypeScript-first; DX metrics heavily weighted toward Angular idioms |
+| Svelte | 🔄 Roadmap | Partial (M1 2026) | Planned (M2 2026) | In design phase; awaiting customer adoption signals |
+| Next.js | ✅ Included | As React | As React | File-route conventions auto-detected |
+| Nuxt | ✅ Included | As Vue | As Vue | File-route conventions auto-detected |
+
+**Unsupported framework fallback:** If a framework is not listed, the Orchestrator falls back to React skill set with a warning: "Framework not natively supported; using React conventions. Some metrics may be inaccurate."
+
+**Framework-specific skill loading:** The Orchestrator detects framework from `.hpedsrc` or `package.json` and loads the corresponding `auditor/skills-{framework}.md` and `engineer/skills-{framework}.md` modules.
 
 ## Configuration
 
@@ -195,6 +273,7 @@ The Auditor and Engineer support multiple frameworks via modular skills. Framewo
 | --- | --- | --- |
 | Auditor | Strategist | `consumer_score`, `system_score`, `combined_score`, `raw_findings[]` with evidence citations |
 | Strategist | Engineer | `consumer_remediation_tasks[]` + `priority_level`, `system_delivery_suggestions[]` + `p1_p2_p3_severity` |
+| Orchestrator | Engineer | `generation_request` (prompt/figma/prd), `context_snapshot`, `constraints` |
 | Engineer | Auditor | `modified_code_snippets[]` + `file_paths` |
 | Auditor | Reporter | `scorecard_snapshot` (metrics, scores, timestamp) |
 | Orchestrator | External API | `telemetry_payload` (adoption metrics, improvement trends) + `system_delivery_ticket` (P1 gaps only) |
