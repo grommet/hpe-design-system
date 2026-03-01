@@ -20,12 +20,7 @@ export default defineConfig({
       'src/**/__tests__/**/*.{test,spec}.ts',
       'src/**/*.{test,spec}.ts',
     ],
-    exclude: [
-      'node_modules',
-      'dist',
-      'build',
-      'coverage',
-    ],
+    exclude: ['node_modules', 'dist', 'build', 'coverage'],
   },
   resolve: {
     alias: {
