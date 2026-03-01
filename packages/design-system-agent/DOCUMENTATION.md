@@ -132,6 +132,17 @@ This is the blueprint for how the CLI package executes. It visualizes the "hands
 
 ## Configuration
 
+### `.hpedsrc` file discovery and setup
+
+The Orchestrator looks for `.hpedsrc` in the following order (first match wins):
+1. Root of the repository (`./`)
+2. Root of the monorepo workspace (if applicable)
+3. User's home directory (`~/.hpedsrc`) as a fallback for global defaults
+
+If no `.hpedsrc` is found, the Orchestrator prompts interactively for `framework` and `scope`, then caches the response in the repo root.
+
+**Recommendation:** Commit `.hpedsrc` to version control so all team members use consistent audit settings.
+
 ### `.hpedsrc` file
 The `.hpedsrc` file is a JSON or YAML configuration file in the root of the consuming application that tells the Orchestrator how to run audits. The Orchestrator loads this on initiation.
 
@@ -163,6 +174,21 @@ The Auditor and Engineer support multiple frameworks via modular skills. Framewo
 
 **Supported frameworks:** React (primary, 80% of users), Vue, Angular, and others via pluggable skill modules.
 
+### Framework Coverage & Roadmap
+
+| Framework | Support Status | Auditor | Engineer | Notes |
+| --- | --- | --- | --- | --- |
+| React | ✅ Stable | Full scoring | Full remediation | Primary platform; most patterns/components built for React |
+| Vue | ✅ Beta | Full scoring* | Full remediation* | *Component binding syntax differs; Engineer generates Vue 3 composition API |
+| Angular | ✅ Beta | Full scoring* | Full remediation* | *TypeScript-first; DX metrics heavily weighted toward Angular idioms |
+| Svelte | 🔄 Roadmap | Partial (M1 2026) | Planned (M2 2026) | In design phase; awaiting customer adoption signals |
+| Next.js | ✅ Included | As React | As React | File-route conventions auto-detected |
+| Nuxt | ✅ Included | As Vue | As Vue | File-route conventions auto-detected |
+
+**Unsupported framework fallback:** If a framework is not listed, the Orchestrator falls back to React skill set with a warning: "Framework not natively supported; using React conventions. Some metrics may be inaccurate."
+
+**Framework-specific skill loading:** The Orchestrator detects framework from `.hpedsrc` or `package.json` and loads the corresponding `auditor/skills-{framework}.md` and `engineer/skills-{framework}.md` modules.
+
 ### Agent-to-Agent data flow
 
 | From | To | Data Packet |
@@ -173,11 +199,156 @@ The Auditor and Engineer support multiple frameworks via modular skills. Framewo
 | Auditor | Reporter | `scorecard_snapshot` (metrics, scores, timestamp) |
 | Orchestrator | External API | `telemetry_payload` (adoption metrics, improvement trends) + `system_delivery_ticket` (P1 gaps only) |
 
+## System Delivery Ticket Workflow
+
+When the Auditor identifies a **P1 System Gap** (critical gap in HPEDS capabilities required by consuming teams), the Orchestrator automatically creates a **System Delivery Ticket** in the HPEDS roadmap system.
+
+### Ticket creation trigger
+A System Delivery Suggestion is escalated to P1 (and triggers a ticket) when:
+- Multiple teams (2+) report the same gap independently, OR
+- A single team flags it as blocking critical feature delivery, AND
+- No existing or planned HPEDS offering addresses the gap.
+
+### Ticket destination
+- **Default:** GitHub Issues in the HPEDS repository (`/hpe-design-system/issues`)
+- **Override:** Specify `system_delivery_ticket_endpoint` in `.hpedsrc` to route to external tracking (Jira, Azure DevOps, etc.)
+
+### Ticket structure
+```json
+{
+  "title": "System Delivery Gap: [Gap name] (P1)",
+  "body": "Reported by [N] team(s): [Team A], [Team B]\n\nGap description: [evidence from audits]\n\nConsumer impact: [how many teams affected]\n\nProposed solution: [Strategist recommendation]",
+  "labels": ["system-gap", "p1", "design-token" | "component" | "pattern"],
+  "assignee": "@hpeds-team"
+}
+```
+
+### Ticket lifecycle
+1. **Created** by Orchestrator (read-only; consumers cannot edit)
+2. **Triaged** by HPEDS team (estimated effort, impact, roadmap milestone assigned)
+3. **Planned** in HPEDS sprint (linked to design + engineering tasks)
+4. **Shipped** in HPEDS release (consumers notified via changelog)
+5. **Verified** by Reporter (monitors if gap remediation improved downstream scores)
+
+## Privacy & Data Collection
+
+### What telemetry is collected
+The Reporter collects:
+- **Scorecard metrics:** Individual metric scores (0.0–1.0), status (Pass/Warning/Fail), and timestamps
+- **Evidence citations:** File paths, line ranges, and component references (NO source code contents)
+- **Team feedback:** Aggregated Likert responses + feedback comments (anonymized by default)
+- **Improvement deltas:** Score changes over time (e.g., 0.45 → 0.75)
+- **System gaps:** P1/P2/P3 counts and categories
+
+### What is NOT collected
+- Source code or implementation details
+- Company/team identifiers (unless explicitly opted-in for trend analysis)
+- Personal developer names or commit history
+- Proprietary business logic or secrets
+
+### Opt-out and privacy controls
+Teams can disable telemetry collection by setting in `.hpedsrc`:
+```json
+{
+  "telemetry_enabled": false
+}
+```
+
+When disabled:
+- Reporter does not POST to `telemetry_endpoint`
+- Local audit scores are still computed and displayed
+- System Delivery Tickets for P1 gaps are still created (essential for HPEDS roadmap)
+
+### Data retention
+Telemetry is retained for 12 months rolling window, then anonymized and aggregated into quarterly trends. Teams can request deletion of their telemetry data by contacting the HPEDS team.
+
+### Responsible use commitment
+The HPE Design System team uses telemetry solely to:
+- Prioritize HPEDS roadmap (gaps, patterns, component needs)
+- Measure system adoption and ROI
+- Identify and resolve friction points in developer workflow
+
+Telemetry is not used for individual developer performance metrics or organizational surveillance.
 
 ### Enterprise benefits
 - **Asynchronous audits:** Teams can run the Auditor in their PRs without ever running the Engineer (passive monitoring mode). Useful for visibility without mandatory remediation.
 - **Modular skills:** If we decide to support a new framework (e.g., Svelte), we only need to update the `skills.md` for the **Auditor** and **Engineer**. The Orchestrator, Strategist, and Reporter logic remains exactly the same.
 - **Traceability:** Every code change made by the Engineer is linked back to a specific metric violation found by the Auditor, with evidence citations (file path, line range, matched knowledge artifact).
 - **System-level feedback loop:** Reporter collects adoption and friction signals from 50+ teams, enabling the HPE Design System team to prioritize gaps (P1 tickets) and deprecations.
+
+## Troubleshooting
+
+### "Knowledge sync failed" error
+**Symptom:** Auditor reports "Could not fetch latest knowledge/components."
+
+**Cause:** Orchestrator cannot reach the knowledge repository (network issue or endpoint stale).
+
+**Resolution:**
+1. Check network connectivity: `curl https://knowledge-endpoint.hpe-ds.io/health`
+2. Clear local knowledge cache: `rm -rf ~/.hpe-ds-cache/`
+3. Re-run audit: `hpe-ds-ai audit` (cache will rebuild)
+4. If issue persists, file an issue on HPEDS GitHub with your `.hpedsrc` and network logs.
+
+### Score regression after fix
+**Symptom:** Engineer applied a fix (e.g., replaced hex with token), but re-audit shows lower score.
+
+**Cause:** Fix may have introduced new violations (e.g., incorrect token usage, broken layout) or affected other metrics.
+
+**Resolution:**
+1. Review the Verification Phase report; Auditor explains which metrics regressed and why
+2. Engineer can propose alternative fixes: `hpe-ds-ai audit --suggest-alternatives`
+3. User can undo the last fix and try a different approach: `hpe-ds-ai undo`
+4. Engage with HPEDS support if the fix is correct but Auditor is mis-scoring
+
+### Low initial audit score (< 0.50)
+**Symptom:** First audit shows very low Consumer Alignment Score; team is discouraged.
+
+**Expectation:** Low scores on initial audit are normal for legacy codebases. HPEDS system is incremental.
+
+**Guidance:**
+1. Scores are **not** a reflection of code quality; they measure DS alignment only
+2. Focus on top 3 Consumer recommendations (highest impact/effort ratio)
+3. Expect 10-20 point score improvement per quarter with consistent remediation
+4. Review the "System Discoverability" and "Developer Experience" scores; high DX = faster remediation
+
+### Framework not detected
+**Symptom:** "Could not detect framework. Please specify in `.hpedsrc`."
+
+**Cause:** `package.json` is ambiguous (e.g., repo has both React and Vue dependencies) or is missing.
+
+**Resolution:**
+1. Explicitly set `framework` in `.hpedsrc`: `{"framework": "react"}`
+2. For monorepos with mixed frameworks, create `.hpedsrc` in the specific workspace folder and re-run audit with `--scope` flag
+
+### Stale knowledge artifacts
+**Symptom:** Auditor flags a component as "missing" but it exists in HPEDS v3.5.
+
+**Cause:** Local knowledge cache is stale (not synced with latest HPEDS release).
+
+**Resolution:**
+1. Clear cache: `hpe-ds-ai cache clear`
+2. Verify `.hpedsrc` specifies the correct HPEDS version: `{"hpeds_version": "3.5.0"}`
+3. Re-run audit to download latest knowledge
+4. If issue persists, file an issue with the exact component name and version
+
+### "Insufficient evidence for metric X"
+**Symptom:** Metric is marked N/A; cannot improve score for this area.
+
+**Cause:** Audit scope does not include observable evidence (e.g., no tests for Dev Confidence, no interactive UI for Accessibility).
+
+**Resolution:**
+1. Expand audit scope: `hpe-ds-ai audit --scope src/` (include more files)
+2. For Page/Feature scope, ensure the audited feature includes the relevant code areas (pages, components, tests)
+3. Review "Observability rubric" in auditor instructions for minimum evidence per metric
+
+### Team feedback not collected
+**Symptom:** Developer Experience score shows "(code evidence only)" despite `feedback_collection: true`.
+
+**Cause:** No feedback responses were sufficient (need min. 2 responses for valid signal).
+
+**Resolution:**
+1. Ensure CLI prompt is shown: run `hpe-ds-ai audit --feedback` to force feedback collection
+2. Ensure at least 2 team members answer feedback questions (1-5 Likert scale)
+3. Feedback is best collected in your latest audit window (< 1 sprint old)
 
 
