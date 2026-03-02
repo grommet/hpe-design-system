@@ -5,14 +5,12 @@ import {
   Button,
   CheckBox,
   Select,
-  Tab,
-  Tabs,
   Text,
   TextInput,
   Heading,
-  ToggleGroup,
   ResponsiveContext,
   Grommet,
+  Grid,
 } from 'grommet';
 import { Copy, Moon } from '@hpe-design/icons-grommet';
 import { hpe } from 'grommet-theme-hpe';
@@ -33,11 +31,9 @@ export const ComponentPlayground = ({
 }) => {
   const [componentProps, setComponentProps] = useState(defaultProps);
   const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState(0);
   const [code, setCode] = useState('');
   const [isCodeManuallyEdited, setIsCodeManuallyEdited] = useState(false);
   const [codeError, setCodeError] = useState(null);
-  const [layout, setLayout] = useState('right'); // 'bottom', 'left', or 'right'
   // eslint-disable-next-line max-len
   const [previewTheme, setPreviewTheme] = useState('light'); // 'light' or 'dark'
 
@@ -306,10 +302,6 @@ export const ComponentPlayground = ({
   return (
     <ResponsiveContext.Consumer>
       {size => {
-        const isSmallScreen =
-          size === 'small' || size === 'xsmall' || size === 'medium';
-        const effectiveLayout = isSmallScreen ? 'bottom' : layout;
-
         return (
           <Box
             pad="medium"
@@ -317,52 +309,40 @@ export const ComponentPlayground = ({
             gap="medium"
             border={{ color: 'border', size: 'xsmall' }}
           >
-            <Box direction="row" justify="between" alignSelf="end">
-              <Box direction="row" gap="small" align="end">
-                <Button
-                  icon={<Moon />}
-                  a11yTitle={
+            <Box direction="row" justify="end" alignSelf="end">
+              <Button
+                icon={<Moon />}
+                a11yTitle={
+                  previewTheme === 'dark'
+                    ? 'Switch preview to light mode'
+                    : 'Switch preview to dark mode'
+                }
+                tip={{
+                  content:
                     previewTheme === 'dark'
                       ? 'Switch preview to light mode'
-                      : 'Switch preview to dark mode'
-                  }
-                  tip={{
-                    content:
-                      previewTheme === 'dark'
-                        ? 'Switch preview to light mode'
-                        : 'Switch preview to dark mode',
-                  }}
-                  onClick={togglePreviewTheme}
-                  secondary
-                />
-                {!isSmallScreen && (
-                  <ToggleGroup
-                    value={layout}
-                    onToggle={event => setLayout(event.value)}
-                    options={[
-                      { label: 'Bottom', value: 'bottom' },
-                      { label: 'Right', value: 'right' },
-                    ]}
-                  />
-                )}
-              </Box>
+                      : 'Switch preview to dark mode',
+                }}
+                onClick={togglePreviewTheme}
+                secondary
+              />
             </Box>
 
-            <Box
-              direction={effectiveLayout === 'bottom' ? 'column' : 'row'}
+            <Grid
+              columns={{ count: 'fit', size: ['flex', 'medium'] }}
+              rows={['flex', 'medium']}
+              areas={[
+                ['main', 'side'],
+                ['code', 'code'],
+              ]}
               gap="medium"
+              fill
             >
-              <Box
-                align="center"
-                justify="center"
-                height={
-                  effectiveLayout === 'bottom'
-                    ? { min: 'small' }
-                    : { min: 'small' }
-                }
-                width={effectiveLayout !== 'bottom' ? '40%' : undefined}
-                flex={effectiveLayout !== 'bottom' ? { shrink: 0 } : false}
-              >
+              {/* Main area: Component preview */}
+              <Box gridArea="main" pad="medium">
+                <Text size="medium" weight="bold" margin={{ bottom: 'small' }}>
+                  Preview
+                </Text>
                 <Grommet
                   theme={hpe}
                   themeMode={previewTheme}
@@ -373,98 +353,89 @@ export const ComponentPlayground = ({
                     fill
                     align="center"
                     justify="center"
-                    border={{ color: 'border-weak', size: 'xsmall' }}
                     round="xsmall"
+                    height={{ min: 'medium' }}
                   >
                     <ComponentWithIcon />
                   </Box>
                 </Grommet>
               </Box>
 
-              {(effectiveLayout === 'bottom' ||
-                effectiveLayout === 'right') && (
+              {/* Side area: Props controls */}
+              <Box gridArea="side" pad="medium" background="background-front">
                 <Box
-                  width={effectiveLayout !== 'bottom' ? '50%' : undefined}
-                  flex={effectiveLayout !== 'bottom' ? { shrink: 0 } : false}
-                  height={{ max: 'large' }}
+                  round="xsmall"
+                  overflow={{ vertical: 'auto' }}
+                  fill
+                  pad={{ vertical: 'xsmall' }}
                 >
-                  <Tabs
-                    activeIndex={activeTab}
-                    onActive={setActiveTab}
-                    justify="start"
-                    flex
+                  <Text
+                    size="medium"
+                    weight="bold"
+                    margin={{ horizontal: 'small', bottom: 'xsmall' }}
                   >
-                    <Tab title="Props">
-                      <Box
-                        border={{ color: 'border-weak' }}
-                        round="xsmall"
-                        overflow={{ vertical: 'auto' }}
-                        height={{ max: 'medium' }}
-                        pad={{ vertical: 'xsmall' }}
-                        margin={{ top: 'small' }}
-                      >
-                        {(() => {
-                          const visibleControls = controls.filter(
-                            control =>
-                              !control.showWhen ||
-                              control.showWhen(componentProps),
-                          );
-                          return visibleControls.map((control, index) =>
-                            renderControl(
-                              control,
-                              index === visibleControls.length - 1,
-                            ),
-                          );
-                        })()}
-                      </Box>
-                    </Tab>
-
-                    <Tab title="Code">
-                      <Box margin={{ top: 'small' }} fill>
-                        {codeError && (
-                          <Box
-                            background="status-critical"
-                            pad="small"
-                            round="xsmall"
-                            margin={{ bottom: 'small' }}
-                          >
-                            <Text size="small" color="text-strong">
-                              {codeError}
-                            </Text>
-                          </Box>
-                        )}
-                        <Box
-                          background="background-front"
-                          round="xsmall"
-                          fill
-                          overflow="auto"
-                          style={{ position: 'relative' }}
-                        >
-                          <Box
-                            style={{
-                              position: 'absolute',
-                              top: '12px',
-                              right: '12px',
-                              zIndex: 2,
-                            }}
-                          >
-                            <Button
-                              icon={<Copy />}
-                              a11yTitle={copied ? 'Copied!' : 'Copy code'}
-                              tip={copied ? 'Copied!' : 'Copy code'}
-                              onClick={handleCopy}
-                              size="small"
-                              secondary
-                            />
-                          </Box>
-                          <CodeEditor code={code} onChange={handleCodeChange} />
-                        </Box>
-                      </Box>
-                    </Tab>
-                  </Tabs>
+                    Props
+                  </Text>
+                  {(() => {
+                    const visibleControls = controls.filter(
+                      control =>
+                        !control.showWhen || control.showWhen(componentProps),
+                    );
+                    return visibleControls.map((control, index) =>
+                      renderControl(
+                        control,
+                        index === visibleControls.length - 1,
+                      ),
+                    );
+                  })()}
                 </Box>
-              )}
-            </Box>
+              </Box>
+
+              {/* Code area: Full width code editor */}
+              <Box gridArea="code" pad="medium">
+                <Text size="medium" weight="bold" margin={{ bottom: 'small' }}>
+                  Code
+                </Text>
+                {codeError && (
+                  <Box
+                    background="status-critical"
+                    pad="small"
+                    round="xsmall"
+                    margin={{ bottom: 'small' }}
+                  >
+                    <Text size="small" color="text-strong">
+                      {codeError}
+                    </Text>
+                  </Box>
+                )}
+                <Box
+                  background="background-front"
+                  round="xsmall"
+                  fill
+                  overflow="auto"
+                  style={{ position: 'relative', minHeight: '200px' }}
+                >
+                  <Box
+                    style={{
+                      position: 'absolute',
+                      top: '12px',
+                      right: '12px',
+                      zIndex: 2,
+                    }}
+                  >
+                    <Button
+                      icon={<Copy />}
+                      a11yTitle={copied ? 'Copied!' : 'Copy code'}
+                      tip={copied ? 'Copied!' : 'Copy code'}
+                      onClick={handleCopy}
+                      size="small"
+                      secondary
+                    />
+                  </Box>
+                  <CodeEditor code={code} onChange={handleCodeChange} />
+                </Box>
+              </Box>
+            </Grid>
           </Box>
         );
       }}

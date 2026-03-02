@@ -213,6 +213,9 @@ importers:
       '@hpe-design/icons-grommet':
         specifier: 'catalog:'
         version: 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      '@lezer/highlight':
+        specifier: ^1.2.3
+        version: 1.2.3
       '@mdx-js/loader':
         specifier: ^3.0.1
         version: 3.1.1(webpack@5.102.1)

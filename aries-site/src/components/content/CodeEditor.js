@@ -5,6 +5,8 @@ import { EditorView, keymap } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
 import { javascript } from '@codemirror/lang-javascript';
 import { defaultKeymap, indentWithTab } from '@codemirror/commands';
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
+import { tags } from '@lezer/highlight';
 import { prism } from 'grommet-theme-hpe';
 
 export const CodeEditor = ({ code, onChange }) => {
@@ -14,7 +16,7 @@ export const CodeEditor = ({ code, onChange }) => {
   const onChangeRef = useRef(onChange);
   const isDark = theme.dark;
 
-  // Keep onChange ref updated
+  // Keep onChange ref updated without triggering recreation
   useEffect(() => {
     onChangeRef.current = onChange;
   }, [onChange]);
@@ -22,128 +24,160 @@ export const CodeEditor = ({ code, onChange }) => {
   useEffect(() => {
     if (!editorRef.current) return;
 
-    const backgroundColor = isDark
-      ? theme.global.colors['background-front'] || '#1e1e1e'
-      : theme.global.colors['background-front'] || '#ffffff';
+    // Don't recreate if editor already exists with same theme mode
+    if (viewRef.current) {
+      return;
+    }
 
-    // Get HPE prism theme colors
+    // Get HPE theme colors
+    const getColor = colorName => {
+      const colorValue = theme.global.colors[colorName];
+      if (typeof colorValue === 'object') {
+        return colorValue[isDark ? 'dark' : 'light'] || colorValue;
+      }
+      return colorValue || colorName;
+    };
+
+    // Get the HPE prism theme for syntax highlighting colors
     const hpePrismTheme = isDark ? prism.dark : prism.light;
 
-    const customTheme = EditorView.theme(
+    // Create HPE theme extension
+    const hpeTheme = EditorView.theme(
       {
         '&': {
           height: '100%',
           fontSize: '14px',
-        },
-        '.cm-editor': {
-          backgroundColor:
-            typeof backgroundColor === 'string'
-              ? backgroundColor
-              : isDark
-              ? '#1e1e1e'
-              : '#ffffff',
-          color:
-            hpePrismTheme['pre[class*="language-"]']?.color ||
-            (isDark ? '#f8f8f2' : '#000000'),
-        },
-        '.cm-scroller': {
           fontFamily:
             'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
-          backgroundColor:
-            typeof backgroundColor === 'string'
-              ? backgroundColor
-              : isDark
-              ? '#1e1e1e'
-              : '#ffffff',
+        },
+        '.cm-editor': {
+          backgroundColor: getColor('background-front'),
+          color: getColor('text-default'),
+          border: `1px solid ${getColor('border-weak')}`,
+          borderRadius: '4px',
+        },
+        '.cm-scroller': {
+          backgroundColor: 'transparent',
+          lineHeight: '1.5',
         },
         '.cm-content': {
           backgroundColor: 'transparent',
-          color:
-            hpePrismTheme['pre[class*="language-"]']?.color ||
-            (isDark ? '#f8f8f2' : '#000000'),
+          color: getColor('text-default'),
+          padding: '12px',
+          caretColor: getColor('text-strong'),
+          minHeight: '100px',
+        },
+        '.cm-content[contenteditable="true"]': {
+          outline: 'none',
+        },
+        '.cm-line': {
+          padding: '0',
         },
         '.cm-gutters': {
           display: 'none',
         },
-        // Apply HPE syntax highlighting colors
-        '.cm-keyword': {
-          color:
-            hpePrismTheme['.token.keyword']?.color ||
-            (isDark ? '#ff79c6' : '#d73a49'),
-          fontWeight: hpePrismTheme['.token.keyword']?.fontWeight || 'normal',
+        '.cm-focused': {
+          outline: `2px solid ${getColor('border-selected')}`,
+          outlineOffset: '-2px',
         },
-        '.cm-string': {
-          color:
-            hpePrismTheme['.token.string']?.color ||
-            (isDark ? '#f1fa8c' : '#032f62'),
+        '&.cm-focused .cm-cursor': {
+          borderLeftColor: getColor('text-strong'),
+          borderLeftWidth: '2px',
         },
-        '.cm-number': {
-          color:
-            hpePrismTheme['.token.number']?.color ||
-            (isDark ? '#bd93f9' : '#005cc5'),
+        '&.cm-focused .cm-selectionBackground, ::selection': {
+          backgroundColor: isDark
+            ? 'rgba(0, 255, 135, 0.2)'
+            : 'rgba(0, 125, 96, 0.2)',
         },
-        '.cm-comment': {
-          color:
-            hpePrismTheme['.token.comment']?.color ||
-            (isDark ? '#6272a4' : '#6a737d'),
-          fontStyle: hpePrismTheme['.token.comment']?.fontStyle || 'italic',
-        },
-        '.cm-operator': {
-          color:
-            hpePrismTheme['.token.operator']?.color ||
-            (isDark ? '#ff79c6' : '#d73a49'),
-        },
-        '.cm-punctuation': {
-          color:
-            hpePrismTheme['.token.punctuation']?.color ||
-            (isDark ? '#f8f8f2' : '#24292e'),
-        },
-        '.cm-function': {
-          color:
-            hpePrismTheme['.token.function']?.color ||
-            (isDark ? '#50fa7b' : '#6f42c1'),
-        },
-        '.cm-variable': {
-          color:
-            hpePrismTheme['.token.variable']?.color ||
-            (isDark ? '#f8f8f2' : '#24292e'),
-        },
-        '.cm-tag': {
-          color:
-            hpePrismTheme['.token.tag']?.color ||
-            (isDark ? '#ff79c6' : '#d73a49'),
-        },
-        '.cm-attribute': {
-          color:
-            hpePrismTheme['.token.attr-name']?.color ||
-            (isDark ? '#50fa7b' : '#6f42c1'),
-        },
-        '.cm-selection': {
+        '.cm-selectionBackground': {
           backgroundColor: isDark
             ? 'rgba(255, 255, 255, 0.1)'
             : 'rgba(0, 0, 0, 0.1)',
-        },
-        '.cm-focused .cm-selection': {
-          backgroundColor: isDark
-            ? 'rgba(255, 255, 255, 0.15)'
-            : 'rgba(0, 0, 0, 0.15)',
-        },
-        '.cm-cursor': {
-          borderLeftColor: isDark ? '#f8f8f2' : '#24292e',
         },
       },
       { dark: isDark },
     );
 
+    // Create HPE syntax highlighting style using exact prism theme colors
+    const hpeSyntaxHighlighting = HighlightStyle.define([
+      // Comments
+      {
+        tag: tags.comment,
+        color: hpePrismTheme.comment?.color,
+        fontStyle: 'italic',
+      },
+      // Keywords (import, export, const, let, var, function, etc.)
+      {
+        tag: [
+          tags.keyword,
+          tags.controlKeyword,
+          tags.definitionKeyword,
+          tags.modifier,
+          tags.moduleKeyword,
+        ],
+        color: hpePrismTheme.keyword?.color,
+        fontWeight: '500',
+      },
+      // Strings
+      {
+        tag: [tags.string, tags.special(tags.string)],
+        color: hpePrismTheme.string?.color,
+      },
+      // Numbers
+      {
+        tag: [tags.number, tags.literal],
+        color: hpePrismTheme.number?.color,
+      },
+      // Component names and functions
+      {
+        tag: [
+          tags.variableName,
+          tags.function(tags.variableName),
+          tags.definition(tags.variableName),
+        ],
+        color: hpePrismTheme['maybe-class-name']?.color,
+      },
+      // JSX Tags
+      {
+        tag: [tags.tagName],
+        color: hpePrismTheme.keyword?.color,
+        fontWeight: '500',
+      },
+      // Attributes
+      {
+        tag: [tags.attributeName, tags.propertyName],
+        color: hpePrismTheme['attr-name']?.color,
+      },
+      // Operators
+      {
+        tag: [tags.operator],
+        color: hpePrismTheme.operator?.color,
+      },
+      // Punctuation
+      {
+        tag: [tags.punctuation, tags.separator, tags.bracket],
+        color:
+          hpePrismTheme['code[class*="language-"]']?.color ||
+          getColor('text-default'),
+      },
+      // Boolean values
+      {
+        tag: [tags.bool],
+        color: hpePrismTheme.boolean?.color,
+      },
+    ]);
+
     // Create editor state
     const state = EditorState.create({
       doc: code,
       extensions: [
-        customTheme,
+        EditorView.editable.of(true),
+        hpeTheme,
+        syntaxHighlighting(hpeSyntaxHighlighting),
         keymap.of([...defaultKeymap, indentWithTab]),
         javascript({ jsx: true }),
         EditorView.updateListener.of(update => {
-          if (update.docChanged) {
+          if (update.docChanged && onChangeRef.current) {
             onChangeRef.current(update.state.doc.toString());
           }
         }),
@@ -159,13 +193,16 @@ export const CodeEditor = ({ code, onChange }) => {
     viewRef.current = view;
 
     return () => {
-      view.destroy();
+      if (viewRef.current) {
+        viewRef.current.destroy();
+        viewRef.current = null;
+      }
     };
-  }, [isDark]); // Recreate when theme changes
+  }, [isDark]); // Only recreate when theme mode changes
 
-  // Update document when code prop changes externally
+  // Handle external code changes
   useEffect(() => {
-    if (viewRef.current && code !== viewRef.current.state.doc.toString()) {
+    if (viewRef.current && viewRef.current.state.doc.toString() !== code) {
       viewRef.current.dispatch({
         changes: {
           from: 0,
