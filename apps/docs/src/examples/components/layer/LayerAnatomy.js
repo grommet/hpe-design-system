@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -7,6 +7,7 @@ import {
   Diagram,
   Footer,
   Grid,
+  ResponsiveContext,
   Stack,
 } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
@@ -83,39 +84,66 @@ const connections = [
   },
 ];
 
-const AnatomyGrid = ({ ...rest }) => (
-  <Grid
-    columns={['36px', 'medium', '36px']}
-    rows={[
-      '24px',
-      '36px',
-      '46px',
-      '24px',
-      '36px',
-      '24px',
-      '38px',
-      '24px',
-      '64px',
-    ]}
-    areas={[
-      ['empty-0', 'layer-area', 'empty-1'],
-      ['annotation-1a', 'layer-area', 'annotation-1c'],
-      ['annotation-1b', 'layer-area', 'annotation-1'],
-      ['empty-2', 'layer-area', 'empty-3'],
-      ['empty-4', 'layer-area', 'annotation-2'],
-      ['empty-5', 'layer-area', 'annotation-3'],
-      ['empty-6', 'layer-area', 'empty-7'],
-      ['empty-8', 'layer-area', 'empty-9'],
-      ['empty-10', 'annotation-3b', 'annotation-3a'],
-    ]}
-    align="center"
-    justify="center"
-    gap={{ column: 'xlarge' }}
-    {...rest}
-  />
-);
+const AnatomyGrid = ({ ...rest }) => {
+  const breakpoint = useContext(ResponsiveContext);
+  const mobile = ['xsmall', 'small'].includes(breakpoint);
+  const columns = ['5xsmall', mobile ? 'flex' : 'medium', '5xsmall'];
+  const rows = [
+    '24px',
+    '36px',
+    '46px',
+    '24px',
+    '36px',
+    '24px',
+    '38px',
+    '24px',
+    '64px',
+  ];
+
+  return (
+    <Grid
+      columns={columns}
+      rows={rows}
+      areas={[
+        ['empty-0', 'layer-area', 'empty-1'],
+        ['annotation-1a', 'layer-area', 'annotation-1c'],
+        ['annotation-1b', 'layer-area', 'annotation-1'],
+        ['empty-2', 'layer-area', 'empty-3'],
+        ['empty-4', 'layer-area', 'annotation-2'],
+        ['empty-5', 'layer-area', 'annotation-3'],
+        ['empty-6', 'layer-area', 'empty-7'],
+        ['empty-8', 'layer-area', 'empty-9'],
+        ['empty-10', 'annotation-3b', 'annotation-3a'],
+      ]}
+      align="center"
+      justify="center"
+      gap={{ column: mobile ? 'medium' : 'xlarge' }}
+      {...rest}
+    />
+  );
+};
 
 export const LayerAnatomy = () => {
+  const breakpoint = useContext(ResponsiveContext);
+  const mobile = ['xsmall', 'small'].includes(breakpoint);
+  // Grommet's Diagram measures target element positions once on mount and only
+  // re-measures when its `connections` prop reference changes. When the layout
+  // shifts between mobile and desktop, the SVG paths become stale because the
+  // annotated elements have moved. To fix this without unmounting the Diagram
+  // (which causes a visible flash), we pass a new array reference to
+  // `connections` after the breakpoint changes. useLayoutEffect fires after
+  // the DOM has updated but before the browser paints, ensuring Diagram
+  // re-measures from the already-settled layout positions.
+  const prevMobile = useRef(mobile);
+  const [diagramConnections, setDiagramConnections] = useState(connections);
+
+  useLayoutEffect(() => {
+    if (prevMobile.current !== mobile) {
+      prevMobile.current = mobile;
+      setDiagramConnections([...connections]);
+    }
+  });
+
   const annotations = [
     { id: '1', gridArea: 'annotation-1', target: '1' },
     { id: '1a', gridArea: 'annotation-1a', target: '1a' },
@@ -183,7 +211,7 @@ export const LayerAnatomy = () => {
           </CardBody>
         </Card>
       </AnatomyGrid>
-      <Diagram connections={connections} />
+      <Diagram connections={diagramConnections} />
     </Stack>
   );
 };
