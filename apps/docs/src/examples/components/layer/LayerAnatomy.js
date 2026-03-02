@@ -91,13 +91,13 @@ const AnatomyGrid = ({ ...rest }) => {
   const rows = [
     '24px',
     '36px',
-    '46px',
+    '5xsmall',
     '24px',
     '36px',
     '24px',
     '38px',
     '24px',
-    '64px',
+    '4xsmall',
   ];
 
   return (
