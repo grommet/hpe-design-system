@@ -3,10 +3,10 @@ import { Form, FormField, TextInput, CheckBoxGroup } from 'grommet';
 import { useConfirmation } from '@shared/hooks';
 
 const defaultFormValues = {
-  'application-title': '',
-  'publisher-title': '',
-  'pricing-select': [],
-  'delivery-select': [],
+  application: '',
+  publisher: '',
+  pricing: [],
+  delivery: [],
 };
 
 export const LayerForm = ({ ...rest }) => {
@@ -19,8 +19,7 @@ export const LayerForm = ({ ...rest }) => {
 
   return (
     <Form
-      onSubmit={event => {
-        console.log(event.value);
+      onSubmit={() => {
         setShowLayer(false);
       }}
       messages={{
@@ -28,9 +27,8 @@ export const LayerForm = ({ ...rest }) => {
       }}
       value={formValue}
       onChange={(nextValue, { touched }) => {
-        console.log('Change', nextValue, touched);
         setFormValue(nextValue);
-        setTouched(Object.keys(touched).length);
+        setTouched(Object.keys(touched).length > 0);
       }}
       {...rest}
     >
@@ -38,10 +36,10 @@ export const LayerForm = ({ ...rest }) => {
         label="Title"
         contentProps={{ width: 'medium' }}
         required
-        name="application-title"
-        htmlFor="application-title"
+        name="application"
+        htmlFor="application"
       >
-        <TextInput id="application-title" name="application-title" />
+        <TextInput id="application" name="application" />
       </FormField>
       <FormField
         label="Publisher"
