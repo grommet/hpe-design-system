@@ -1,0 +1,35 @@
+import React from 'react';
+import { Page, PageContent, PageHeader, Heading, Paragraph, PageExtendedProps } from 'grommet';
+import type { StoryObj } from '@storybook/react';
+
+const meta = {
+  title: 'Components/Page',
+  component: Page,
+  argTypes: {
+    kind: {
+      control: { type: 'select' },
+      options: ['wide', 'narrow', 'full'],
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const DefaultPage: Story = {
+  render: (args: PageExtendedProps) => (
+    <Page {...args}>
+      <PageContent>
+        <PageHeader
+          title="Page Title"
+          subtitle="A description of what this page is about"
+        />
+        <Heading level={2} margin="none">
+          Content Section
+        </Heading>
+        <Paragraph>This is the main content of the page.</Paragraph>
+      </PageContent>
+    </Page>
+  ),
+  name: 'Page',
+};

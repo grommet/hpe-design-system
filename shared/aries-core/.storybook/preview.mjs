@@ -5,13 +5,13 @@ import { useIsDarkMode } from './darkModeHooks';
 
 export default {
   decorators: [
-    Story => {
+    (Story, context) => {
       const isDark = useIsDarkMode();
 
       const mode = isDark ? 'dark' : 'light';
 
       return (
-        <Grommet full theme={hpe} themeMode={mode}>
+        <Grommet full theme={hpe} themeMode={mode} background={context.globals.background?.value}>
           <Story />
         </Grommet>
       );
