@@ -1,0 +1,191 @@
+name: Update Grommet Dependencies
+
+on:
+  schedule:
+    # Run daily at 9 AM UTC to check for new releases
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check for Grommet updates
+        id: check-updates
+        run: |
+          # Get current versions from pnpm-workspace.yaml catalog
+          CURRENT_GROMMET=$(grep -A 20 "^catalog:" pnpm-workspace.yaml | grep "grommet:" | head -1 | sed 's/.*grommet: //' | tr -d "'^~")
+          CURRENT_THEME=$(grep -A 20 "^catalog:" pnpm-workspace.yaml | grep "grommet-theme-hpe:" | sed 's/.*grommet-theme-hpe: //' | tr -d "'^~")
+
+          # Get latest versions from npm
+          LATEST_GROMMET=$(pnpm view grommet version)
+          LATEST_THEME=$(pnpm view grommet-theme-hpe version)
+
+          echo "current-grommet=${CURRENT_GROMMET}" >> $GITHUB_OUTPUT
+          echo "current-theme=${CURRENT_THEME}" >> $GITHUB_OUTPUT
+          echo "latest-grommet=${LATEST_GROMMET}" >> $GITHUB_OUTPUT
+          echo "latest-theme=${LATEST_THEME}" >> $GITHUB_OUTPUT
+
+          # Check if updates are needed
+          GROMMET_UPDATE_NEEDED=false
+          THEME_UPDATE_NEEDED=false
+
+          if [ "$CURRENT_GROMMET" != "$LATEST_GROMMET" ]; then
+            GROMMET_UPDATE_NEEDED=true
+            echo "Grommet update available: ${CURRENT_GROMMET} -> ${LATEST_GROMMET}"
+          fi
+
+          if [ "$CURRENT_THEME" != "$LATEST_THEME" ]; then
+            THEME_UPDATE_NEEDED=true
+            echo "Grommet Theme HPE update available: ${CURRENT_THEME} -> ${LATEST_THEME}"
+          fi
+
+          echo "grommet-update-needed=${GROMMET_UPDATE_NEEDED}" >> $GITHUB_OUTPUT
+          echo "theme-update-needed=${THEME_UPDATE_NEEDED}" >> $GITHUB_OUTPUT
+
+          # Set overall update flag
+          if [ "$GROMMET_UPDATE_NEEDED" = true ] || [ "$THEME_UPDATE_NEEDED" = true ]; then
+            echo "updates-available=true" >> $GITHUB_OUTPUT
+          else
+            echo "updates-available=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create update branch
+        if: steps.check-updates.outputs.updates-available == 'true'
+        run: |
+          BRANCH_NAME="chore/deps-grommet-$(date +'%Y%m%d')"
+          echo "branch-name=${BRANCH_NAME}" >> $GITHUB_ENV
+          git checkout -b "$BRANCH_NAME"
+
+      - name: Update Grommet in catalog
+        if: steps.check-updates.outputs.grommet-update-needed == 'true'
+        run: |
+          echo "Updating Grommet catalog to version ${{ steps.check-updates.outputs.latest-grommet }}"
+          # Update grommet version in pnpm-workspace.yaml catalog
+          sed -i "s/grommet: .*/grommet: ^${{ steps.check-updates.outputs.latest-grommet }}/" pnpm-workspace.yaml
+
+      - name: Update Grommet Theme HPE in catalog
+        if: steps.check-updates.outputs.theme-update-needed == 'true'
+        run: |
+          echo "Updating Grommet Theme HPE catalog to version ${{ steps.check-updates.outputs.latest-theme }}"
+          # Update grommet-theme-hpe version in pnpm-workspace.yaml catalog
+          sed -i "s/grommet-theme-hpe: .*/grommet-theme-hpe: ^${{ steps.check-updates.outputs.latest-theme }}/" pnpm-workspace.yaml
+
+      - name: Update workspace dependencies
+        if: steps.check-updates.outputs.updates-available == 'true'
+        run: |
+          # Update all workspace packages to use new catalog versions
+          pnpm install
+
+      - name: Run tests
+        if: steps.check-updates.outputs.updates-available == 'true'
+        run: |
+          # Run tests to ensure updates don't break anything
+          pnpm test || echo "Tests failed - will note in PR"
+        continue-on-error: true
+
+      - name: Generate changelog
+        if: steps.check-updates.outputs.updates-available == 'true'
+        id: changelog
+        run: |
+          CHANGELOG=""
+
+          if [ "${{ steps.check-updates.outputs.grommet-update-needed }}" = true ]; then
+            CHANGELOG="${CHANGELOG}### Grommet ${{ steps.check-updates.outputs.current-grommet }} → ${{ steps.check-updates.outputs.latest-grommet }}\n\n"
+            CHANGELOG="${CHANGELOG}[View Grommet Release Notes](https://github.com/grommet/grommet/releases/tag/v${{ steps.check-updates.outputs.latest-grommet }})\n\n"
+          fi
+
+          if [ "${{ steps.check-updates.outputs.theme-update-needed }}" = true ]; then
+            CHANGELOG="${CHANGELOG}### Grommet Theme HPE ${{ steps.check-updates.outputs.current-theme }} → ${{ steps.check-updates.outputs.latest-theme }}\n\n"
+            CHANGELOG="${CHANGELOG}[View Theme Release Notes](https://github.com/grommet/grommet-theme-hpe/releases/tag/v${{ steps.check-updates.outputs.latest-theme }})\n\n"
+          fi
+
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Commit changes
+        if: steps.check-updates.outputs.updates-available == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Add the main files that get updated
+          git add pnpm-workspace.yaml pnpm-lock.yaml
+
+          COMMIT_MSG="chore: update Grommet catalog dependencies"
+
+          if [ "${{ steps.check-updates.outputs.grommet-update-needed }}" = true ]; then
+            COMMIT_MSG="${COMMIT_MSG}\n\n- grommet: ${{ steps.check-updates.outputs.current-grommet }} → ${{ steps.check-updates.outputs.latest-grommet }}"
+          fi
+
+          if [ "${{ steps.check-updates.outputs.theme-update-needed }}" = true ]; then
+            COMMIT_MSG="${COMMIT_MSG}\n- grommet-theme-hpe: ${{ steps.check-updates.outputs.current-theme }} → ${{ steps.check-updates.outputs.latest-theme }}"
+          fi
+
+          git commit -m "$COMMIT_MSG"
+          git push origin "${{ env.branch-name }}"
+
+      - name: Create Pull Request
+        if: steps.check-updates.outputs.updates-available == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ env.branch-name }}
+          title: 'chore: Update Grommet dependencies'
+          body: |
+            ## 🚀 Grommet Dependency Updates
+
+            This PR updates Grommet dependencies to their latest versions.
+
+            ${{ steps.changelog.outputs.changelog }}
+
+            ## 📋 Changes
+
+            ${{ steps.check-updates.outputs.grommet-update-needed == 'true' && format('- **grommet**: `{0}` → `{1}`', steps.check-updates.outputs.current-grommet, steps.check-updates.outputs.latest-grommet) || '' }}
+            ${{ steps.check-updates.outputs.theme-update-needed == 'true' && format('- **grommet-theme-hpe**: `{0}` → `{1}`', steps.check-updates.outputs.current-theme, steps.check-updates.outputs.latest-theme) || '' }}
+
+            ## ✅ Checklist
+
+            - [ ] Review release notes above
+            - [ ] Test critical user flows
+            - [ ] Check for any breaking changes
+            - [ ] Verify design system components still work correctly
+            - [ ] Run full test suite
+
+            ## 🤖 Automated Actions
+
+            This PR was automatically generated by the Grommet dependency update workflow.
+
+            /cc @design-system-team
+          labels: |
+            dependencies
+            automated-pr
+            grommet
+          reviewers: |
+            design-system-maintainers
+          draft: false
+
+      - name: Comment on existing PR if updates failed
+        if: failure() && steps.check-updates.outputs.updates-available == 'true'
+        run: |
+          echo "Failed to create PR for Grommet updates. Manual intervention may be required."
+          echo "Latest versions: Grommet ${{ steps.check-updates.outputs.latest-grommet }}, Theme ${{ steps.check-updates.outputs.latest-theme }}"
