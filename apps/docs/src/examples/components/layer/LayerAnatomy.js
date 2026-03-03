@@ -142,7 +142,7 @@ export const LayerAnatomy = () => {
       prevMobile.current = mobile;
       setDiagramConnections([...connections]);
     }
-  });
+  }, [mobile]);
 
   const annotations = [
     { id: '1', gridArea: 'annotation-1', target: '1' },
