@@ -8,7 +8,9 @@ import {
   Text,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
-import { Unstyled } from '@storybook/addon-docs/blocks';
+import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
+
+<Meta title="Welcome" />
 
 <Unstyled>
     <Grommet theme={hpe}>
@@ -25,20 +27,20 @@ import { Unstyled } from '@storybook/addon-docs/blocks';
                 <Button
                     as="a"
                     label="Browse components"
-                    href="http://localhost:6006/?path=/story/components"
+                    href="/?path=/story/components"
                     primary
                 />
                 <Button
                     as="a"
                     label="Explore patterns"
-                    href="http://localhost:6006/?path=/story/patterns"
+                    href="/?path=/story/patterns"
                     secondary
                 />
             </Box>
 
             <Box margin={{ top: 'large' }} gap="small">
                 <Text>
-                    {`View more details and guidance on the `} <Anchor href="https://design-system.hpe.design" target="_blank">HPE Design System Website</Anchor>
+                    {`View more details and guidance on the `} <Anchor rel="noopener noreferrer" href="https://design-system.hpe.design" target="_blank">HPE Design System Website</Anchor>
                 </Text>
             </Box>
         </Box>
