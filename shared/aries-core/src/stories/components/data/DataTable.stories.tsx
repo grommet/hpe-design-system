@@ -106,7 +106,7 @@ export const DataTableExample = {
   name: 'DataTable',
   render: args => <TypedDataTable {...args} />,
   args: {
-    columns,
+    columns: columns,
     data: DATA,
     fill: false,
     groupBy: undefined,
