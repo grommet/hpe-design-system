@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { DataTable } from 'grommet';
 import {
   containerSizes,
@@ -106,7 +106,7 @@ export const DataTableExample = {
   name: 'DataTable',
   render: args => <TypedDataTable {...args} />,
   args: {
-    columns: columns,
+    columns,
     data: DATA,
     fill: false,
     groupBy: undefined,
