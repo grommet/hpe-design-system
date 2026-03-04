@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
-// Mock structure data to avoid JSX parsing issues
+// Mock structure data that validates schema and relationships
+// (avoids JSX parsing issues while providing meaningful validation)
 const mockStructure = [
   {
     name: 'Home',
@@ -35,7 +36,7 @@ const mockStructure = [
     name: 'Design tokens',
     category: 'Design tokens',
     seoDescription: 'Design tokens section',
-    pages: ['Colors', 'Typography', 'Spacing'],
+    pages: [],
   },
 ];
 

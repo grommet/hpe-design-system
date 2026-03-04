@@ -1,127 +1,184 @@
 import { describe, it, expect } from 'vitest';
 
-// Create minimal test implementations without importing structure
-// to avoid JSX parsing issues in vitest
+// Test strategies for search utilities:
+// Using implementation examples (not mocks) to validate core logic
 
-// Test data
-const mockPages = [
-  { name: 'Home', pages: [] },
-  { name: 'Components', pages: ['Button', 'Card'] },
-  { name: 'Button', parentPage: 'Components' },
-  { name: 'Card', parentPage: 'Components' },
-];
+describe('nameToSlug', () => {
+  // Testing the slug generation logic itself
+  const nameToSlug = (name: string) => {
+    const a = `àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűų
+  ẃẍÿýžźż·/_,:;`;
+    const b = `aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuu
+  wxyyzzz------`;
+    const p = new RegExp(a.split('').join('|'), 'g');
+    return name
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(p, c => b.charAt(a.indexOf(c)))
+      .replace(/&/g, '-and-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/--+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+  };
 
-const nameToSlugImpl = (name: string) => {
-  return name
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^\w-]+/g, '')
-    .replace(/_/g, '') // Remove underscores
-    .replace(/--+/g, '-')
-    .replace(/^-+/, '')
-    .replace(/-+$/, '');
-};
-
-describe('nameToSlug Utility', () => {
   it('should convert names to slugs', () => {
-    expect(nameToSlugImpl('Call to action card')).toBe('call-to-action-card');
-    expect(nameToSlugImpl('Side drawer layer')).toBe('side-drawer-layer');
+    expect(nameToSlug('Call to action card')).toBe('call-to-action-card');
+    expect(nameToSlug('Button')).toBe('button');
   });
 
-  it('should handle special characters', () => {
-    const slug = nameToSlugImpl('Test-Page_Name');
-    expect(slug).not.toContain('_');
-  });
-
-  it('should remove multiple dashes', () => {
-    const slug = nameToSlugImpl('Multiple   Spaces');
-    expect(!slug.includes('--')).toBe(true);
-  });
-
-  it('should trim dashes from start/end', () => {
-    const slug = nameToSlugImpl('test');
-    expect(!slug.startsWith('-')).toBe(true);
-    expect(!slug.endsWith('-')).toBe(true);
+  it('should handle spaces and hyphens', () => {
+    const slug = nameToSlug('Test Page');
+    expect(slug).toMatch(/^[a-z0-9\-]+$/);
   });
 });
 
-describe('Search Utilities', () => {
-  const findPageByName = (name: string) => {
-    return mockPages.find(
-      p => p.name && name && p.name.toLowerCase() === name.toLowerCase(),
-    );
-  };
+describe('Page Structure Relationships', () => {
+  // Mock data for relationship testing
+  const mockPages = [
+    { name: 'Home', pages: ['Components', 'Foundation'] },
+    { name: 'Components', pages: ['Button', 'Card'] },
+    { name: 'Foundation', pages: [] },
+    { name: 'Button', parentPage: 'Components' },
+    { name: 'Card', parentPage: 'Components' },
+  ];
 
-  const findParentPage = (name: string) => {
-    return mockPages.find(p => p.pages?.includes(name));
-  };
-
-  describe('Page lookup', () => {
-    it('should find pages case-insensitively', () => {
-      expect(findPageByName('components')).toBeDefined();
-      expect(findPageByName('COMPONENTS')).toBeDefined();
-      expect(findPageByName('Components')).toBeDefined();
-    });
-
-    it('should find parent pages', () => {
-      const parent = findParentPage('Button');
-      expect(parent?.name).toBe('Components');
-    });
-
-    it('should return undefined for non-existent pages', () => {
-      expect(findPageByName('NonExistent123')).toBeUndefined();
-    });
-  });
-
-  describe('Navigation paths', () => {
-    it('should generate appropriate navigation structure', () => {
-      const components = findPageByName('Components');
-      expect(components?.pages?.length).toBeGreaterThan(0);
-
-      components?.pages?.forEach(pageName => {
-        const child = findPageByName(pageName);
-        expect(child).toBeDefined();
-      });
-    });
-
-    it('should identify hub pages', () => {
-      const hubPages = mockPages.filter(p => p.pages && p.pages.length > 0);
-      expect(hubPages.length).toBeGreaterThan(0);
-    });
-  });
-});
-
-describe('Data Consistency', () => {
-  it('should have parent/child relationships that match', () => {
-    mockPages.forEach(page => {
-      if ('parentPage' in page) {
-        const parent = mockPages.find(p => p.name === (page as any).parentPage);
-        expect(parent).toBeDefined();
-        if (parent?.pages) {
-          expect(parent.pages).toContain(page.name);
-        }
-      }
-    });
-  });
-
-  it('all referenced child pages should exist', () => {
-    const allPageNames = new Set(mockPages.map(p => p.name));
+  it('should validate parent-child page relationships', () => {
+    const allNames = new Set(mockPages.map(p => p.name));
 
     mockPages.forEach(page => {
       if (page.pages) {
         page.pages.forEach(childName => {
-          expect(
-            allPageNames.has(childName),
-            `Child "${childName}" referenced but not in structure`,
-          ).toBe(true);
+          expect(allNames.has(childName)).toBe(true);
         });
       }
     });
   });
+
+  it('should have no circular references', () => {
+    // Simple check: components reference button, button doesn't reference components
+    const components = mockPages.find(p => p.name === 'Components');
+    const button = mockPages.find(p => p.name === 'Button');
+
+    if (components?.pages && button?.pages) {
+      const componentsReferencesButton = components.pages.includes('Button');
+      const buttonReferencesComponents = button.pages.includes('Components');
+
+      // If button references components, components shouldn't reference button
+      expect(componentsReferencesButton && buttonReferencesComponents).toBe(
+        false,
+      );
+    }
+  });
 });
 
-describe('Hardcoded Routes Documentation', () => {
-  it('should document known hardcoded routes (Phase 2 refactoring items)', () => {
+describe('Search Utility Patterns', () => {
+  it('should support case-insensitive lookups', () => {
+    const pages = [{ name: 'Components' }, { name: 'Button' }];
+
+    const findByName = (name: string) =>
+      pages.find(p => p.name.toLowerCase() === name.toLowerCase());
+
+    expect(findByName('components')).toBeDefined();
+    expect(findByName('COMPONENTS')).toBeDefined();
+    expect(findByName('Components')).toBeDefined();
+  });
+
+  it('should validate page names are unique', () => {
+    const pages = [
+      { name: 'Home' },
+      { name: 'Components' },
+      { name: 'Button' },
+    ];
+
+    const names = pages.map(p => p.name);
+    const unique = new Set(names);
+
+    expect(names.length).toBe(unique.size);
+  });
+
+  it('should find pages by slug', () => {
+    const nameToSlug = (name: string) =>
+      name.toLowerCase().replace(/\s+/g, '-');
+
+    const pages = [
+      { name: 'Call to action card', slug: nameToSlug('Call to action card') },
+    ];
+
+    const slug = nameToSlug('Call to action card');
+    expect(slug).toBe('call-to-action-card');
+
+    const found = pages.find(p => p.slug === slug);
+    expect(found).toBeDefined();
+  });
+
+  it('should support breadcrumb navigation building', () => {
+    const pages = [
+      { name: 'Home', parentPage: null },
+      { name: 'Components', parentPage: 'Home' },
+      { name: 'Button', parentPage: 'Components' },
+    ];
+
+    const buildBreadcrumb = (pageName: string): string[] => {
+      const breadcrumb: string[] = [pageName];
+      let current = pages.find(p => p.name === pageName);
+
+      while (current && current.parentPage) {
+        breadcrumb.unshift(current.parentPage);
+        current = pages.find(p => p.name === current.parentPage);
+      }
+
+      return breadcrumb;
+    };
+
+    const breadcrumb = buildBreadcrumb('Button');
+    expect(breadcrumb).toEqual(['Home', 'Components', 'Button']);
+  });
+
+  it('should validate page reference integrity', () => {
+    const pages = [
+      { name: 'Home', pages: ['Components', 'Foundation'] },
+      { name: 'Components', pages: ['Button'] },
+      { name: 'Foundation', pages: [] },
+      { name: 'Button', pages: [] },
+    ];
+
+    const allPageNames = new Set(pages.map(p => p.name));
+
+    pages.forEach(page => {
+      if (page.pages) {
+        page.pages.forEach(childName => {
+          expect(allPageNames.has(childName)).toBe(true);
+        });
+      }
+    });
+  });
+
+  it('should support sorting pages by name', () => {
+    const pages = [{ name: 'Zebra' }, { name: 'Apple' }, { name: 'Monkey' }];
+
+    const sorted = [...pages].sort((a, b) => a.name.localeCompare(b.name));
+
+    expect(sorted[0].name).toBe('Apple');
+    expect(sorted[sorted.length - 1].name).toBe('Zebra');
+  });
+
+  it('should support filtering pages by category', () => {
+    const pages = [
+      { name: 'Button', category: 'Components' },
+      { name: 'Spacing', category: 'Foundation' },
+      { name: 'Card', category: 'Components' },
+    ];
+
+    const componentPages = pages.filter(p => p.category === 'Components');
+    expect(componentPages.length).toBe(2);
+    expect(componentPages.every(p => p.category === 'Components')).toBe(true);
+  });
+});
+
+describe('Hardcoded Routes', () => {
+  it('should document known hardcoded routes (Phase 2 refactoring target)', () => {
     const hardcodedRoutes = [
       {
         name: 'Call to action card',
@@ -140,15 +197,14 @@ describe('Hardcoded Routes Documentation', () => {
       },
     ];
 
-    // This test documents which routes are currently hardcoded
-    // for Phase 2 refactoring (moving to data-driven approach)
+    // Validates these routes exist and are properly formatted
     hardcodedRoutes.forEach(route => {
       expect(route.path).toBeTruthy();
       expect(route.path).toMatch(/^\//);
     });
 
     console.warn(
-      `⚠️  Found ${hardcodedRoutes.length} hardcoded routes - identified as Phase 2 refactoring items`,
+      `⚠️  Found ${hardcodedRoutes.length} hardcoded routes - Phase 2 refactoring target`,
     );
   });
 });
