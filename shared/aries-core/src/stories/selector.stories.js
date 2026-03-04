@@ -7,6 +7,9 @@ import { SupportSelector } from 'apps/docs/src/examples/templates/selector/Suppo
 
 const meta = {
   title: 'Patterns/Selector',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

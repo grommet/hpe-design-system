@@ -9,6 +9,9 @@ import { StatusUpdateExample } from 'apps/docs/src/examples/templates/inline-not
 
 const meta = {
   title: 'Patterns/Inline Notifications',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

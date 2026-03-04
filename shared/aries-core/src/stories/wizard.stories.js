@@ -6,6 +6,9 @@ import { WizardValidationExample } from 'apps/docs/src/examples/templates/wizard
 
 const meta = {
   title: 'Patterns/Wizard',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

@@ -11,6 +11,9 @@ import { ListScreenExample } from 'apps/docs/src/examples/templates/list-views/L
 
 const meta = {
   title: 'Patterns/Lists',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

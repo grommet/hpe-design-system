@@ -6,6 +6,9 @@ import { PopoverSimpleExample } from 'apps/docs/src/examples/templates/popover/P
 
 const meta = {
   title: 'Patterns/Popover',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

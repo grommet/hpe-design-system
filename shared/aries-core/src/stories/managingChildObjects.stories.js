@@ -7,6 +7,9 @@ import { EditRole } from 'apps/docs/src/examples/templates/forms/managing-child-
 
 const meta = {
   title: 'Patterns/Managing Child Objects',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

@@ -10,6 +10,9 @@ import { BannerNotificationWarningClose } from 'apps/docs/src/examples/templates
 
 const meta = {
   title: 'Patterns/Global Notifications',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

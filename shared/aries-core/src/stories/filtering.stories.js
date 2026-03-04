@@ -8,6 +8,9 @@ import { QuickFilterToolbar } from 'apps/docs/src/examples/templates/filtering/Q
 
 const meta = {
   title: 'Patterns/Filtering',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

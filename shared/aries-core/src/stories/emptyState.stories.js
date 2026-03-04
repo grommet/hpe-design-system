@@ -10,6 +10,9 @@ import { PageEmptyState } from 'apps/docs/src/examples/templates/empty-state/Pag
 
 const meta = {
   title: 'Patterns/Empty State',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;

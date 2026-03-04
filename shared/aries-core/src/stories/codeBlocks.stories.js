@@ -8,6 +8,7 @@ const meta = {
   component: CodeBlockExample,
   parameters: {
     layout: 'centered',
+    controls: { disable: true },
   },
 };
 

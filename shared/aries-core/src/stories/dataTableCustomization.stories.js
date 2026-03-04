@@ -8,6 +8,7 @@ const meta = {
   title: 'Patterns/DataTable Customization',
   parameters: {
     layout: 'centered',
+    controls: { disable: true },
   },
 };
 
