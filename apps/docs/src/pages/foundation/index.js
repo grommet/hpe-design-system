@@ -22,15 +22,27 @@ const Foundation = () => (
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
       <ContentSection gap="xlarge">
+        <Subsection level={2} name="Getting started">
+          <CardGrid
+            cards={cards.filter(card => card.category === 'Getting started')}
+            headingLevel={3}
+          />
+        </Subsection>
         <Subsection level={2} name="Philosophy">
           <CardGrid
             cards={cards.filter(card => card.category === 'Philosophy')}
             headingLevel={3}
           />
         </Subsection>
-        <Subsection level={2} name="Assets">
+        <Subsection level={2} name="HPE Brand">
           <CardGrid
-            cards={cards.filter(card => card.category === 'Assets')}
+            cards={cards.filter(card => card.category === 'HPE Brand')}
+            headingLevel={3}
+          />
+        </Subsection>
+        <Subsection level={2} name="Color">
+          <CardGrid
+            cards={cards.filter(card => card.category === 'Color')}
             headingLevel={3}
           />
         </Subsection>

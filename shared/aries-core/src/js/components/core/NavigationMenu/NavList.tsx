@@ -4,7 +4,7 @@ import { Down, Up } from '@hpe-design/icons-grommet';
 import { NavItem, NavItemType } from './NavItem';
 import { NavGroup } from './NavGroup';
 
-export type NavItemWithLevel = NavItemType & { level?: | 1 | 2 };
+export type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
 const defaultItemProps = {
   pad: { vertical: '3xsmall' },
@@ -79,7 +79,7 @@ export const NavList = ({
       parents: string[] = [],
     ): string[] | null => {
       for (const item of itemsList) {
-        if (item.label === target) {
+        if ((item.url && item.url === target) || (!item.url && item.label === target)) {
           return parents;
         }
         if (item.children) {
@@ -160,7 +160,9 @@ export const NavList = ({
       },
     };
 
-    const active = activeItem === item.label;
+    const active = item.url
+      ? activeItem === item.url
+      : activeItem === item.label;
 
     if (item.type === 'group') {
       return (
