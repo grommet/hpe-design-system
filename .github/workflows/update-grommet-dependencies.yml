@@ -62,12 +62,17 @@ jobs:
           echo -e "$CHANGELOG" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
+      - name: Set current date
+        id: date
+        if: steps.update.outputs.updates-needed == 'true'
+        run: echo "yyyymmdd=$(date +'%Y%m%d')" >> "$GITHUB_OUTPUT"
+
       - name: Create PR with updates
         if: steps.update.outputs.updates-needed == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: chore/deps-grommet-$(date +'%Y%m%d')
+          branch: chore/deps-grommet-${{ steps.date.outputs.yyyymmdd }}
           title: 'chore: Update Grommet dependencies'
           commit-message: |
             chore: update Grommet catalog dependencies
