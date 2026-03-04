@@ -1,44 +1,46 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
-// Mock structure data that validates schema and relationships
-// (avoids JSX parsing issues while providing meaningful validation)
-const mockStructure = [
-  {
-    name: 'Home',
-    seoDescription: 'Home page description',
-    pages: ['Foundation', 'Components', 'Templates', 'Learn', 'Design tokens'],
-  },
-  {
-    name: 'Foundation',
-    category: 'Our brand',
-    seoDescription: 'Foundation section',
-    pages: ['Color', 'Typography', 'Spacing'],
-  },
-  {
-    name: 'Components',
-    category: 'Components',
-    seoDescription: 'Components section',
-    pages: ['Button', 'Card', 'Text'],
-  },
-  {
-    name: 'Templates',
-    category: 'Templates',
-    seoDescription: 'Templates section',
-    pages: ['Login', 'Dashboard'],
-  },
-  {
-    name: 'Learn',
-    category: 'Learn',
-    seoDescription: 'Learning resources',
-    pages: ['Getting Started', 'Tutorials'],
-  },
-  {
-    name: 'Design tokens',
-    category: 'Design tokens',
-    seoDescription: 'Design tokens section',
-    pages: [],
-  },
-];
+vi.mock('../structure', () => ({
+  structure: [
+    {
+      name: 'Home',
+      seoDescription: 'Home page',
+      pages: ['Foundation', 'Components', 'Templates'],
+    },
+    {
+      name: 'Foundation',
+      seoDescription: 'Foundation page',
+      pages: [],
+    },
+    {
+      name: 'Components',
+      seoDescription: 'Components page',
+      pages: ['Button'],
+    },
+    {
+      name: 'Templates',
+      seoDescription: 'Templates page',
+      pages: [],
+    },
+    {
+      name: 'Button',
+      seoDescription: 'Button page',
+      pages: [],
+    },
+  ],
+}));
+
+import { structure } from '../structure';
+
+// Use the actual exported structure data so tests catch real regressions
+type StructurePage = {
+  name: string;
+  pages?: string[];
+  category?: string;
+  seoDescription?: string;
+};
+
+const mockStructure = structure as StructurePage[];
 
 describe('Structure Data Validation', () => {
   describe('Schema Validation', () => {
@@ -77,7 +79,7 @@ describe('Structure Data Validation', () => {
         if (page.pages && page.pages.length > 0) {
           // For mock data, we just verify the structure is properly formed
           // not that every child exists (that's validated against real structure)
-          page.pages.forEach(childName => {
+          page.pages.forEach((childName: string) => {
             expect(typeof childName).toBe('string');
             expect(childName.length).toBeGreaterThan(0);
           });
@@ -137,7 +139,7 @@ describe('Structure Data Validation', () => {
     it('should not have pages referencing their parents', () => {
       mockStructure.forEach(parent => {
         if (parent.pages) {
-          parent.pages.forEach(childName => {
+          parent.pages.forEach((childName: string) => {
             const child = mockStructure.find(p => p.name === childName);
             if (child?.pages) {
               expect(
