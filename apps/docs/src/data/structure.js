@@ -16,21 +16,39 @@ const learn = Structure.from(learnArr);
 const tokens = Structure.from(tokensArr);
 const templates = Structure.from(templatesArr);
 
-const foundationCategoryOrder = [
+export const foundationCategoryOrder = [
   'Getting started',
   'Philosophy',
-  'Our brand',
+  'HPE Brand',
   'Color',
   'Layout',
 ];
 
-const componentCategoryOrder = [
+export const componentCategoryOrder = [
   'Layouts',
   'Controls',
   'Inputs',
   'Data',
   'Visualizations',
 ];
+
+// Mapping of parent page names to category groupings and their pages
+export const categoryMapping = {
+  Foundation: {
+    'Getting started': ['Developer guidance', 'Designer guidance'],
+    'Philosophy': ['Accessibility', 'Human centered', 'Philosophy and principles'],
+    'HPE Brand': ['Our brand', 'Distinctive brand assets', 'Icons', 'Typography', 'Voice and tone', 'Date and time'],
+    'Color': ['Color', 'Background colors guidance', 'Color pairing'],
+    'Layout': ['Tshirt sizing', 'Scale system', 'Spacing', 'Content container sizes', 'Component sizes'],
+  },
+  Components: {
+    'Layouts': ['Card', 'Call to action card', 'Navigational card', 'Header', 'Footer', 'Box', 'Grid', 'Layer', 'Center layer', 'Side drawer layer', 'Fullscreen layer', 'Main', 'Page', 'PageHeader'],
+    'Controls': ['Anchor', 'Button', 'Tabs', 'Tip', 'Search', 'Accordion', 'Menu', 'Pagination', 'ToggleGroup'],
+    'Inputs': ['DateInput', 'FileInput', 'TextArea', 'TextInput', 'Select', 'SelectMultiple', 'CheckBox', 'CheckBoxGroup', 'RadioButtonGroup', 'RangeInput', 'MaskedInput'],
+    'Data': ['Data', 'DataFilter', 'DataFilters', 'DataSearch', 'DataSort', 'DataSummary', 'DataTableColumns', 'DataTableGroupBy', 'DataView', 'Toolbar'],
+    'Visualizations': ['Avatar', 'NameValueList', 'Notification', 'Spinner', 'Skeleton', 'DataTable', 'Tag'],
+  },
+};
 
 export const structure = [
   {
