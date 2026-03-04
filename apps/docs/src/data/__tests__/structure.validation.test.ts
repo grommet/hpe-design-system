@@ -73,8 +73,6 @@ describe('Structure Data Validation', () => {
     });
 
     it('should have valid parent/child relationships', () => {
-      const allNames = new Set(mockStructure.map(p => p.name));
-
       mockStructure.forEach(page => {
         if (page.pages && page.pages.length > 0) {
           // For mock data, we just verify the structure is properly formed
