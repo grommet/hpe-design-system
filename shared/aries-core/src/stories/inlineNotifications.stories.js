@@ -8,7 +8,7 @@ import { PromotionExample } from 'apps/docs/src/examples/templates/inline-notifi
 import { StatusUpdateExample } from 'apps/docs/src/examples/templates/inline-notifications/StatusUpdateExample';
 
 const meta = {
-  title: 'Inline Notifications',
+  title: 'Patterns/Inline Notifications',
 };
 
 export default meta;

@@ -104,7 +104,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const DataTableExample = {
   name: 'DataTable',
   render: args => <DataTable {...args} />,
   args: {

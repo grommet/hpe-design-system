@@ -9,7 +9,7 @@ import { LayerEmptyState } from 'apps/docs/src/examples/templates/empty-state/La
 import { PageEmptyState } from 'apps/docs/src/examples/templates/empty-state/PageEmptyState';
 
 const meta = {
-  title: 'Empty State',
+  title: 'Patterns/Empty State',
 };
 
 export default meta;

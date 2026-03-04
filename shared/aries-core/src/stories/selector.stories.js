@@ -6,7 +6,7 @@ import { QuickFilter as QuickFilterExample } from 'apps/docs/src/examples/templa
 import { SupportSelector } from 'apps/docs/src/examples/templates/selector/SupportSelector';
 
 const meta = {
-  title: 'Selector',
+  title: 'Patterns/Selector',
 };
 
 export default meta;

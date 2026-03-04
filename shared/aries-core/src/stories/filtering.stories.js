@@ -7,7 +7,7 @@ import { FilteringLists } from 'apps/docs/src/examples/templates/filtering/Filte
 import { QuickFilterToolbar } from 'apps/docs/src/examples/templates/filtering/QuickFilterToolbar';
 
 const meta = {
-  title: 'Filtering',
+  title: 'Patterns/Filtering',
 };
 
 export default meta;

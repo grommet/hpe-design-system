@@ -78,7 +78,7 @@ const NavigationMenuSubheadings = () => {
 };
 
 const meta = {
-  title: 'Navigation',
+  title: 'Patterns/Navigation',
   parameters: {
     layout: 'fullscreen',
   },

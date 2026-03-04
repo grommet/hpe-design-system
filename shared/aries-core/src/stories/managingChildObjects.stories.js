@@ -6,7 +6,7 @@ import { CreateRole } from 'apps/docs/src/examples/templates/forms/managing-chil
 import { EditRole } from 'apps/docs/src/examples/templates/forms/managing-child-objects/EditRole';
 
 const meta = {
-  title: 'Managing Child Objects',
+  title: 'Patterns/Managing Child Objects',
 };
 
 export default meta;

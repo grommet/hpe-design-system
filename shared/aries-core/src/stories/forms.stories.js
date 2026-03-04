@@ -15,7 +15,7 @@ import { CharacterCounterExample } from 'apps/docs/src/examples/templates/forms/
 import { ChangePasswordExample } from 'apps/docs/src/examples/templates/forms/ChangePasswordExample';
 
 const meta = {
-  title: 'Forms',
+  title: 'Patterns/Forms',
 };
 
 export default meta;
