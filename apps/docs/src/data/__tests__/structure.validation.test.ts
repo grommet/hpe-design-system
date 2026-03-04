@@ -1,4 +1,12 @@
 import { describe, it, expect, vi } from 'vitest';
+import { structure } from '../structure';
+
+type StructurePage = {
+  name: string;
+  pages?: string[];
+  category?: string;
+  seoDescription?: string;
+};
 
 vi.mock('../structure', () => ({
   structure: [
@@ -29,16 +37,6 @@ vi.mock('../structure', () => ({
     },
   ],
 }));
-
-import { structure } from '../structure';
-
-// Use the actual exported structure data so tests catch real regressions
-type StructurePage = {
-  name: string;
-  pages?: string[];
-  category?: string;
-  seoDescription?: string;
-};
 
 const mockStructure = structure as StructurePage[];
 
@@ -112,7 +110,7 @@ describe('Structure Data Validation', () => {
 
       hubPages.forEach(hub => {
         expect(Array.isArray(hub.pages)).toBe(true);
-        expect(hub.pages.length).toBeGreaterThanOrEqual(0);
+        expect(hub.pages?.length).toBeGreaterThanOrEqual(0);
       });
     });
   });
