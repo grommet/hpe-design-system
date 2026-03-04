@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { RangeInput } from 'grommet';
 import { a11yTitleArg, disabledArg } from '../utils/commonArgs';
 

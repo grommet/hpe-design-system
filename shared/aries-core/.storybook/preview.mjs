@@ -41,20 +41,9 @@ export default {
     options: {
       storySort: {
         order: [
+          'Welcome',
           'Components',
-          [
-            'Accordion',
-            'Anchor',
-            'Avatar',
-            'Box',
-            'Button',
-            'Card',
-            'CheckBox',
-            'CheckBoxGroup',
-            'Data',
-            'DateInput',
-            '*',
-          ],
+          'Patterns',
         ],
       },
     },

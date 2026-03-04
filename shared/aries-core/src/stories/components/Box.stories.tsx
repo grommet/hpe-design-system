@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Box, Text, BoxTypes } from 'grommet';
 import { boxArgs } from '../utils/commonArgs';
 

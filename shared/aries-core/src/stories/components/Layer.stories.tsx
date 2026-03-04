@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Layer, Box, Button, Heading, Text, LayerExtendedProps } from 'grommet';
 import { Close } from '@hpe-design/icons-grommet';
 import { backgroundArg, fillArg, marginArg } from '../utils/commonArgs';

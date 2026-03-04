@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Header, Button, Avatar, Box, Text, HeaderExtendedProps } from 'grommet';
 import { Element } from '@hpe-design/icons-grommet';
 import {
