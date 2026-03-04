@@ -5,7 +5,9 @@ import path from 'path';
 import { hpe } from 'grommet-theme-hpe';
 import {
   Box,
+  CheckBoxGroup,
   Data,
+  DataFilter,
   DataFilters,
   DataSearch,
   DataSummary,
@@ -258,7 +260,23 @@ export default function PropsExplorer({ rows }) {
         >
           <Toolbar>
             <DataSearch />
-            <DataFilters layer />
+            <DataFilters layer>
+              <DataFilter property="normalizedPropType" />
+              <DataFilter property="componentCategory" />
+              <DataFilter property="propCategory">
+                <CheckBoxGroup
+                  name="propCategory"
+                  options={[
+                    'accessibility',
+                    'behavior',
+                    'content',
+                    'event',
+                    'layout',
+                    'state',
+                  ]}
+                />
+              </DataFilter>
+            </DataFilters>
             <DataTableColumns options={columnOptions} drop />
           </Toolbar>
           <DataSummary />
