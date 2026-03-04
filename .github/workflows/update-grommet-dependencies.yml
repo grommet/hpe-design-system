@@ -45,7 +45,7 @@ jobs:
 
           if [ "$CURRENT_GROMMET" != "$LATEST_GROMMET" ]; then
             UPDATES_NEEDED=true
-            sed -i "s/grommet: .*/grommet: ^${LATEST_GROMMET}/" pnpm-workspace.yaml
+            sed -i "s/grommet: \^.*/grommet: ^${LATEST_GROMMET}/" pnpm-workspace.yaml
             CHANGELOG="${CHANGELOG}### Grommet ${CURRENT_GROMMET} → ${LATEST_GROMMET}\n"
             CHANGELOG="${CHANGELOG}[Release Notes](https://github.com/grommet/grommet/releases/tag/v${LATEST_GROMMET})\n\n"
           fi
