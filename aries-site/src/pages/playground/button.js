@@ -423,8 +423,10 @@ export default function ButtonPlayground() {
               {/* ── Content ── */}
               <SectionDivider label="Content" />
 
-              <FormField label="Label">
+              <FormField label="Label" name="label" htmlFor="btn-label">
                 <TextInput
+                  id="btn-label"
+                  name="label"
                   value={label}
                   onChange={(e) => setLabel(e.target.value)}
                   placeholder="Button text"
@@ -444,8 +446,10 @@ export default function ButtonPlayground() {
                 />
               </NestedBox>
 
-              <FormField label="Icon">
+              <FormField label="Icon" name="icon" htmlFor="btn-icon">
                 <Select
+                  id="btn-icon"
+                  name="icon"
                   options={ICON_OPTIONS}
                   labelKey="label"
                   valueKey={{ key: 'value', reduce: true }}
@@ -470,8 +474,10 @@ export default function ButtonPlayground() {
               {/* ── Appearance ── */}
               <SectionDivider label="Appearance" />
 
-              <FormField label="Kind">
+              <FormField label="Kind" name="kind" htmlFor="btn-kind">
                 <Select
+                  id="btn-kind"
+                  name="kind"
                   options={KIND_OPTIONS}
                   labelKey="label"
                   valueKey={{ key: 'value', reduce: true }}
@@ -480,8 +486,10 @@ export default function ButtonPlayground() {
                 />
               </FormField>
 
-              <FormField label="Size">
+              <FormField label="Size" name="size" htmlFor="btn-size">
                 <Select
+                  id="btn-size"
+                  name="size"
                   options={SIZE_OPTIONS}
                   labelKey="label"
                   valueKey={{ key: 'value', reduce: true }}
@@ -530,15 +538,19 @@ export default function ButtonPlayground() {
               />
               {tipEnabled && (
                 <NestedBox>
-                  <FormField label="Content">
+                  <FormField label="Content" name="tipContent" htmlFor="btn-tip-content">
                     <TextInput
+                      id="btn-tip-content"
+                      name="tipContent"
                       value={tipContent}
                       onChange={(e) => setTipContent(e.target.value)}
                       placeholder="Tooltip text"
                     />
                   </FormField>
-                  <FormField label="Position">
+                  <FormField label="Position" name="tipPosition" htmlFor="btn-tip-position">
                     <Select
+                      id="btn-tip-position"
+                      name="tipPosition"
                       options={TIP_POSITION_OPTIONS.map((o, i) => ({
                         label: o.label,
                         value: i,
@@ -573,8 +585,10 @@ export default function ButtonPlayground() {
                   </Box>
                   {badgeMode === 'value' && (
                     <>
-                      <FormField label="Value">
+                      <FormField label="Value" name="badgeValue" htmlFor="btn-badge-value">
                         <TextInput
+                          id="btn-badge-value"
+                          name="badgeValue"
                           type="number"
                           value={badgeValue}
                           onChange={(e) =>
@@ -582,8 +596,14 @@ export default function ButtonPlayground() {
                           }
                         />
                       </FormField>
-                      <FormField label="Max (displays n+ above this)">
+                      <FormField
+                        label="Max (displays n+ above this)"
+                        name="badgeMax"
+                        htmlFor="btn-badge-max"
+                      >
                         <TextInput
+                          id="btn-badge-max"
+                          name="badgeMax"
                           type="number"
                           value={badgeMax}
                           onChange={(e) =>
@@ -601,9 +621,13 @@ export default function ButtonPlayground() {
 
               <FormField
                 label="href"
+                name="href"
+                htmlFor="btn-href"
                 help="When set, button renders as a styled <a> tag"
               >
                 <TextInput
+                  id="btn-href"
+                  name="href"
                   value={href}
                   onChange={(e) => setHref(e.target.value)}
                   placeholder="https://example.com"
@@ -623,8 +647,15 @@ export default function ButtonPlayground() {
               {/* ── Accessibility ── */}
               <SectionDivider label="Accessibility" />
 
-              <FormField label="a11yTitle" help="Custom label for screen readers">
+              <FormField
+                label="a11yTitle"
+                name="a11yTitle"
+                htmlFor="btn-a11y-title"
+                help="Custom label for screen readers"
+              >
                 <TextInput
+                  id="btn-a11y-title"
+                  name="a11yTitle"
                   value={a11yTitle}
                   onChange={(e) => setA11yTitle(e.target.value)}
                 />

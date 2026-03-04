@@ -296,7 +296,8 @@ export const ButtonPlaygroundTwo = () => {
           style={{ height: '100%', display: 'flex',
             alignItems: 'center', justifyContent: 'center' }}
         >
-          <Box fill align="center" justify="center" pad="large"
+          <Box
+fill align="center" justify="center" pad="large"
             background="background-front"
           >
             <Button {...previewProps} />
@@ -338,9 +339,9 @@ export const ButtonPlaygroundTwo = () => {
           <NestedBox>
             <CheckBox label="Icon only" checked={iconOnly} onChange={(e) => { const c = e.target.checked; setIconOnly(c); if (c && !iconName) setIconName('Add'); }} />
           </NestedBox>
-          <FormField label="Icon">
+          <FormField label="Icon" name="icon" htmlFor="bp2-icon">
             <Select
-options={ICON_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }} value={iconName}
+id="bp2-icon" name="icon" options={ICON_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }} value={iconName}
               onChange={({ value }) => { setIconName(value); if (!value) setReverse(false); }} />
           </FormField>
           {iconName && !iconOnly && (
@@ -350,11 +351,11 @@ options={ICON_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }
           )}
 
           <SectionDivider label="Appearance" />
-          <FormField label="Kind">
-            <Select options={KIND_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }} value={kind} onChange={({ value }) => setKind(value)} />
+          <FormField label="Kind" name="kind" htmlFor="bp2-kind">
+            <Select id="bp2-kind" name="kind" options={KIND_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }} value={kind} onChange={({ value }) => setKind(value)} />
           </FormField>
-          <FormField label="Size">
-            <Select options={SIZE_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }} value={size} onChange={({ value }) => setSize(value)} />
+          <FormField label="Size" name="size" htmlFor="bp2-size">
+            <Select id="bp2-size" name="size" options={SIZE_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }} value={size} onChange={({ value }) => setSize(value)} />
           </FormField>
 
           <SectionDivider label="State" />
@@ -372,10 +373,10 @@ options={ICON_OPTIONS} labelKey="label" valueKey={{ key: 'value', reduce: true }
               <FormField label="Content" name="tipContent" htmlFor="button-playground-tip-content">
                 <TextInput id="button-playground-tip-content" name="tipContent" value={tipContent} onChange={(e) => setTipContent(e.target.value)} placeholder="Tooltip text" />
               </FormField>
-              <FormField label="Position">
+              <FormField label="Position" name="tipPosition" htmlFor="bp2-tip-position">
                 <Select
 options={TIP_POSITION_OPTIONS.map((o, i) => ({ label: o.label, value: i }))}
-                  labelKey="label" valueKey={{ key: 'value', reduce: true }} value={tipPositionIndex}
+                  id="bp2-tip-position" name="tipPosition" labelKey="label" valueKey={{ key: 'value', reduce: true }} value={tipPositionIndex}
                   onChange={({ value }) => setTipPositionIndex(value)} />
               </FormField>
             </NestedBox>
