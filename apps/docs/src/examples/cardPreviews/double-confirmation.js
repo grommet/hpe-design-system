@@ -19,7 +19,9 @@ export const DoubleConfirmationPreview = () => {
         title="Discard Changes?"
         subtitle="Your changes will not be applied."
         titleSize="xsmall"
-        width="300px"
+        width="small"
+        elevation="none"
+        cardBodyGap="none"
       />
     </div>
   );

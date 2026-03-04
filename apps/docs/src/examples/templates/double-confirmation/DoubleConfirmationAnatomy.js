@@ -23,7 +23,7 @@ export const DoubleConfirmationAnatomy = () => {
   ];
 
   return (
-    <Stack interactiveChild="first">
+    <Stack margin={{ bottom: 'medium' }} interactiveChild="first">
       <Grid
         columns={columns}
         rows={rows}

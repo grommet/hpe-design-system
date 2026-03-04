@@ -6,6 +6,7 @@ export const DoubleConfirmationCard = ({
   title,
   subtitle,
   titleSize,
+  cardBodyGap,
   footerBorder,
   ...rest
 }) => (
@@ -16,7 +17,7 @@ export const DoubleConfirmationCard = ({
     elevation="large"
     {...rest}
   >
-    <CardBody pad="medium" gap="medium">
+    <CardBody pad="medium" gap={cardBodyGap || 'medium'}>
       <Box gap="3xsmall">
         <Heading id={ids?.title} level={2} margin="none" size={titleSize}>
           {title}
@@ -41,6 +42,7 @@ export const DoubleConfirmationCard = ({
 );
 
 DoubleConfirmationCard.propTypes = {
+  cardBodyGap: PropTypes.string,
   footerBorder: PropTypes.bool,
   ids: PropTypes.objectOf(PropTypes.string),
   title: PropTypes.string,
