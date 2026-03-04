@@ -1,28 +1,18 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+import { nameToSlug, nameToPath } from '../search';
+
+vi.mock('../../data', () => ({
+  structure: [
+    { name: 'Home', pages: ['Components', 'Foundation'] },
+    { name: 'Components', pages: ['Button', 'Card'] },
+    { name: 'Foundation', pages: [] },
+    { name: 'Button', pages: [] },
+    { name: 'Card', pages: [] },
+  ],
+}));
 
 // Test strategies for search utilities:
-// Using implementation examples (not mocks) to validate core logic
-
 describe('nameToSlug', () => {
-  // Testing the slug generation logic itself
-  const nameToSlug = (name: string) => {
-    const a = `àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűų
-  ẃẍÿýžźż·/_,:;`;
-    const b = `aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuu
-  wxyyzzz------`;
-    const p = new RegExp(a.split('').join('|'), 'g');
-    return name
-      .toString()
-      .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(p, c => b.charAt(a.indexOf(c)))
-      .replace(/&/g, '-and-')
-      .replace(/[^\w-]+/g, '')
-      .replace(/--+/g, '-')
-      .replace(/^-+/, '')
-      .replace(/-+$/, '');
-  };
-
   it('should convert names to slugs', () => {
     expect(nameToSlug('Call to action card')).toBe('call-to-action-card');
     expect(nameToSlug('Button')).toBe('button');
@@ -36,12 +26,16 @@ describe('nameToSlug', () => {
 
 describe('Page Structure Relationships', () => {
   // Mock data for relationship testing
-  const mockPages = [
+  const mockPages: Array<{
+    name: string;
+    pages: string[];
+    parentPage?: string;
+  }> = [
     { name: 'Home', pages: ['Components', 'Foundation'] },
     { name: 'Components', pages: ['Button', 'Card'] },
     { name: 'Foundation', pages: [] },
-    { name: 'Button', parentPage: 'Components' },
-    { name: 'Card', parentPage: 'Components' },
+    { name: 'Button', pages: [], parentPage: 'Components' },
+    { name: 'Card', pages: [], parentPage: 'Components' },
   ];
 
   it('should validate parent-child page relationships', () => {
@@ -61,15 +55,19 @@ describe('Page Structure Relationships', () => {
     const components = mockPages.find(p => p.name === 'Components');
     const button = mockPages.find(p => p.name === 'Button');
 
-    if (components?.pages && button?.pages) {
-      const componentsReferencesButton = components.pages.includes('Button');
-      const buttonReferencesComponents = button.pages.includes('Components');
+    expect(components).toBeDefined();
+    expect(button).toBeDefined();
+    expect(components?.pages).toBeDefined();
+    expect(button?.pages).toBeDefined();
 
-      // If button references components, components shouldn't reference button
-      expect(componentsReferencesButton && buttonReferencesComponents).toBe(
-        false,
-      );
-    }
+    const componentsReferencesButton = components!.pages.includes('Button');
+    const buttonReferencesComponents = button!.pages.includes('Components');
+
+    expect(componentsReferencesButton).toBe(true);
+    expect(buttonReferencesComponents).toBe(false);
+    expect(componentsReferencesButton && buttonReferencesComponents).toBe(
+      false,
+    );
   });
 });
 
@@ -126,7 +124,7 @@ describe('Search Utility Patterns', () => {
 
       while (current && current.parentPage) {
         breadcrumb.unshift(current.parentPage);
-        current = pages.find(p => p.name === current.parentPage);
+        current = pages.find(p => p.name === current?.parentPage);
       }
 
       return breadcrumb;
@@ -203,8 +201,12 @@ describe('Hardcoded Routes', () => {
       expect(route.path).toMatch(/^\//);
     });
 
-    console.warn(
-      `⚠️  Found ${hardcodedRoutes.length} hardcoded routes - Phase 2 refactoring target`,
-    );
+    hardcodedRoutes.forEach(route => {
+      expect(route.path).toMatch(/^\//);
+      expect(nameToPath(route.name)).toBe(route.path);
+      expect(route.path.endsWith(nameToSlug(route.name))).toBe(true);
+    });
+
+    expect(hardcodedRoutes).toHaveLength(6);
   });
 });
