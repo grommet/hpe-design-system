@@ -6,7 +6,7 @@ import {
   fillArg,
   padArg,
   placeholderArg,
-} from '../utils/commonArgs';
+} from '../../utils/commonArgs';
 
 const percentFormatter = new Intl.NumberFormat('en-US', {
   style: 'percent',
@@ -61,7 +61,7 @@ const columns: DataTableProps<Datum>['columns'] = [
 ];
 
 const meta = {
-  title: 'Components/DataTable',
+  title: 'Components/Data',
   component: DataTable as React.ComponentType<DataTableProps<Datum>>,
   argTypes: {
     columns: {
