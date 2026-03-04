@@ -1,0 +1,32 @@
+{
+  "name": "@hpe/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "catalog:",
+    "@babel/preset-react": "catalog:",
+    "@eslint/eslintrc": "catalog:",
+    "@eslint/js": "catalog:",
+    "@next/eslint-plugin-next": "catalog:",
+    "eslint-config-airbnb": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-grommet": "catalog:",
+    "eslint-plugin-import": "catalog:",
+    "eslint-plugin-jsx": "catalog:",
+    "eslint-plugin-jsx-a11y": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "globals": "catalog:",
+    "typescript-eslint": "catalog:"
+  },
+  "peerDependencies": {
+    "eslint": "catalog:"
+  }
+}

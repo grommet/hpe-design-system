@@ -6,10 +6,27 @@ packages:
 
 catalog:
   '@hpe-design/icons-grommet': ^1.1.0
+  '@babel/eslint-parser': ^7.28.4
+  '@babel/preset-react': ^7.28.5
+  '@eslint/eslintrc': ^3.3.1
+  '@eslint/js': ^9.39.3
+  '@next/eslint-plugin-next': ^15.5.6
   '@types/node': ^20.4.5
   '@types/react': ^19.1.10
   '@types/react-dom': ^19.1.7
-  eslint: ^8.39.0
+  eslint: ^9.39.3
+  eslint-config-airbnb: ^19.0.4
+  eslint-config-prettier: ^10.1.8
+  eslint-plugin-grommet: https://github.com/grommet/eslint-plugin-grommet/tarball/stable
+  eslint-plugin-import: ^2.32.0
+  eslint-plugin-jsx: ^0.1.0
+  eslint-plugin-jsx-a11y: ^6.10.2
+  eslint-plugin-prettier: ^5.5.4
+  eslint-plugin-react: ^7.37.5
+  prettier: ^3.8.1
+  eslint-plugin-react-hooks: ^7.0.1
+  eslint-plugin-react-refresh: ^0.4.24
+  globals: ^16.4.0
   grommet: ^2.52.0
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.0.0
@@ -18,6 +35,7 @@ catalog:
   react-dom: ^19.2.3
   styled-components: ^6.1.17
   typescript: ^5.9.3
+  typescript-eslint: ^8.48.1
 
 catalogs:
   grommet-stable:

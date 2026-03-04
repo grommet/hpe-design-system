@@ -1,71 +1,65 @@
 {
-	"name": "@hpe-design/icons-grommet",
-	"description": "HPE Icons for use with Grommet and the HPE Design System.",
-	"version": "1.2.0",
-	"license": "Apache-2.0",
-	"repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons-grommet",
-	"type": "module",
-	"sideEffects": false,
-	"main": "./dist/hpe-icons.cjs",
-	"module": "./dist/hpe-icons.js",
-	"types": "./dist/hpe-icons.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/hpe-icons.d.ts",
-			"import": "./dist/hpe-icons.js",
-			"require": "./dist/hpe-icons.cjs"
-		},
-		"./icons/*": {
-			"types": "./dist/icons/*.d.ts",
-			"import": "./dist/icons/*.js",
-			"require": "./dist/icons/*.cjs"
-		},
-		"./themes": {
-			"types": "./dist/themes/index.d.ts",
-			"import": "./dist/themes/index.js",
-			"require": "./dist/themes/index.cjs"
-		}
-	},
-	"files": [
-		"dist",
-		"package.json",
-		"README.md",
-		"CHANGELOG.md",
-		"COPYRIGHT.md",
-		"LICENSE"
-	],
-	"scripts": {
-		"build": "vite build && pnpm run copy-types",
-		"copy-types": "cp src/js/icons/index.d.ts dist/hpe-icons.d.ts",
-		"lint": "eslint .",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
-	},
-	"peerDependencies": {
-		"react": "^18.0.0 || ^19.0.0",
-		"styled-components": "^6.0.0"
-	},
-	"devDependencies": {
-		"@eslint/js": "^9.33.0",
-		"@storybook/addon-essentials": "^8.6.14",
-		"@storybook/addon-interactions": "^8.6.14",
-		"@storybook/react": "^8.6.14",
-		"@storybook/react-vite": "^8.6.14",
-		"@storybook/test": "^8.6.14",
-		"@types/react": "catalog:",
-		"@types/react-dom": "catalog:",
-		"@vitejs/plugin-react": "^5.0.0",
-		"eslint": "^9.33.0",
-		"eslint-plugin-react-hooks": "^5.2.0",
-		"eslint-plugin-react-refresh": "^0.4.20",
-		"globals": "^16.3.0",
-		"grommet-theme-hpe": "catalog:grommet-theme-hpe-v7",
-		"minimatch": "^10.0.3",
-		"react": "catalog:",
-		"storybook": "^8.6.14",
-		"styled-components": "catalog:",
-		"typescript": "catalog:",
-		"typescript-eslint": "^8.39.1",
-		"vite": "^7.2.2"
-	}
+  "name": "@hpe-design/icons-grommet",
+  "description": "HPE Icons for use with Grommet and the HPE Design System.",
+  "version": "1.2.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons-grommet",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/hpe-icons.cjs",
+  "module": "./dist/hpe-icons.js",
+  "types": "./dist/hpe-icons.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/hpe-icons.d.ts",
+      "import": "./dist/hpe-icons.js",
+      "require": "./dist/hpe-icons.cjs"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.js",
+      "require": "./dist/icons/*.cjs"
+    },
+    "./themes": {
+      "types": "./dist/themes/index.d.ts",
+      "import": "./dist/themes/index.js",
+      "require": "./dist/themes/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "COPYRIGHT.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "vite build && pnpm run copy-types",
+    "copy-types": "cp src/js/icons/index.d.ts dist/hpe-icons.d.ts",
+    "lint": "eslint .",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "^5.0.0",
+    "grommet-theme-hpe": "catalog:grommet-theme-hpe-v7",
+    "minimatch": "^10.0.3",
+    "react": "catalog:",
+    "storybook": "^8.6.14",
+    "styled-components": "catalog:",
+    "typescript": "catalog:",
+    "vite": "^7.2.2"
+  }
 }

@@ -15,6 +15,7 @@ import { AppHeader, DocsLayout } from '..';
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getRelatedContent, getPageDetails } from '../../utils';
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
@@ -96,9 +97,7 @@ export const Layout = ({
           {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
-          {title && title.toLowerCase() !== 'home' && (
-            <AppHeader />
-          )}
+          {title && title.toLowerCase() !== 'home' && <AppHeader />}
           <Main overflow="visible">
             <Page>
               {layout !== 'plain' ? (
