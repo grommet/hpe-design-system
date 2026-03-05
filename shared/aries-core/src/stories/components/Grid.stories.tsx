@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Grid, Box, Text, GridExtendedProps, BoxExtendedProps } from 'grommet';
 import {
   fillArg,
