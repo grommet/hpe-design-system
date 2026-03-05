@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Grid, Grommet, Text } from 'grommet';
+import { Box, Button, Grid, Grommet, Layer, Text } from 'grommet';
 import { Copy, Mode } from '@hpe-design/icons-grommet';
 import { hpe } from 'grommet-theme-hpe';
 
@@ -18,6 +18,7 @@ export const PlaygroundShell = ({
   const [containerWidth, setContainerWidth] = useState(0);
   const [previewDark, setPreviewDark] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -56,6 +57,8 @@ export const PlaygroundShell = ({
         { name: 'code', start: [0, 1], end: [0, 1] },
       ];
 
+  const toggleFullscreen = () => setFullscreen(f => !f);
+
   const handleCopy = () => {
     navigator.clipboard.writeText(code).then(() => {
       setCopied(true);
@@ -63,7 +66,7 @@ export const PlaygroundShell = ({
     });
   };
 
-  return (
+  const grid = (
     <Grid
       ref={containerRef}
       fill
@@ -97,17 +100,29 @@ export const PlaygroundShell = ({
             {preview}
           </Box>
           <Box
+            direction="row"
+            gap="xsmall"
             style={{
               position: 'absolute',
-              top: '20px',
-              right: '20px',
+              top: '12px',
+              right: '12px',
             }}
           >
+            <Button
+              label={
+                fullscreen
+                  ? 'Exit fullscreen'
+                  : 'Fullscreen'
+              }
+              size="small"
+              secondary
+              onClick={toggleFullscreen}
+            />
             <Button
               icon={<Mode />}
               tip="Toggle light/dark preview"
               secondary
-              size="medium"
+              size="small"
               onClick={() => setPreviewDark(d => !d)}
               a11yTitle="Toggle preview dark mode"
             />
@@ -166,6 +181,18 @@ export const PlaygroundShell = ({
       </Box>
     </Grid>
   );
+
+  if (fullscreen) {
+    return (
+      <Grommet theme={hpe} full>
+        <Layer full modal={false}>
+          {grid}
+        </Layer>
+      </Grommet>
+    );
+  }
+
+  return grid;
 };
 
 PlaygroundShell.propTypes = {
