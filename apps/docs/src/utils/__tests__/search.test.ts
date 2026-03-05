@@ -1,182 +1,102 @@
 import { describe, it, expect, vi } from 'vitest';
-import { nameToSlug, nameToPath } from '../search';
+import {
+  getCards,
+  getPageDetails,
+  getParentPage,
+  getRelatedContent,
+  getSearchSuggestions,
+  getSectionParent,
+  nameToPath,
+  nameToSlug,
+} from '../search';
 
 vi.mock('../../data', () => ({
   structure: [
-    { name: 'Home', pages: ['Components', 'Foundation'] },
-    { name: 'Components', pages: ['Button', 'Card'] },
-    { name: 'Foundation', pages: [] },
-    { name: 'Button', pages: [] },
-    { name: 'Card', pages: [] },
+    {
+      name: 'Home',
+      pages: ['Components', 'Foundation'],
+      sections: ['Overview'],
+      seoDescription: 'Home',
+    },
+    {
+      name: 'Components',
+      pages: ['Button', 'Card'],
+      seoDescription: 'Components',
+    },
+    {
+      name: 'Foundation',
+      pages: [],
+      sections: ['Spacing'],
+      seoDescription: 'Foundation',
+    },
+    {
+      name: 'Button',
+      relatedContent: ['Card'],
+      seoDescription: 'Button',
+    },
+    { name: 'Card', seoDescription: 'Card' },
+    {
+      name: 'External docs',
+      url: 'https://example.com/docs',
+      seoDescription: 'External',
+    },
   ],
 }));
 
-// Test strategies for search utilities:
 describe('nameToSlug', () => {
-  it('should convert names to slugs', () => {
+  it('converts names to slugs', () => {
     expect(nameToSlug('Call to action card')).toBe('call-to-action-card');
     expect(nameToSlug('Button')).toBe('button');
   });
+});
 
-  it('should handle spaces and hyphens', () => {
-    const slug = nameToSlug('Test Page');
-    expect(slug).toMatch(/^[a-z0-9\-]+$/);
+describe('getSearchSuggestions', () => {
+  it('returns suggestions sorted alphabetically by label', () => {
+    const labels = getSearchSuggestions.map(item => item.label);
+    expect(labels).toEqual([...labels].sort((a, b) => a.localeCompare(b)));
+    expect(labels).toContain('Button');
+    expect(labels).toContain('Foundation');
   });
 });
 
-describe('Page Structure Relationships', () => {
-  // Mock data for relationship testing
-  const mockPages: Array<{
-    name: string;
-    pages: string[];
-    parentPage?: string;
-  }> = [
-    { name: 'Home', pages: ['Components', 'Foundation'] },
-    { name: 'Components', pages: ['Button', 'Card'] },
-    { name: 'Foundation', pages: [] },
-    { name: 'Button', pages: [], parentPage: 'Components' },
-    { name: 'Card', pages: [], parentPage: 'Components' },
-  ];
-
-  it('should validate parent-child page relationships', () => {
-    const allNames = new Set(mockPages.map(p => p.name));
-
-    mockPages.forEach(page => {
-      if (page.pages) {
-        page.pages.forEach(childName => {
-          expect(allNames.has(childName)).toBe(true);
-        });
-      }
-    });
+describe('page lookup utilities', () => {
+  it('getPageDetails performs case-insensitive lookup', () => {
+    const details = getPageDetails('components') as { name: string };
+    expect(details).toHaveProperty('name');
+    expect(details.name).toBe('Components');
+    expect(details.name).toBe('Components');
+    expect(getPageDetails('missing')).toEqual({});
   });
 
-  it('should have no circular references', () => {
-    // Simple check: components reference button, button doesn't reference components
-    const components = mockPages.find(p => p.name === 'Components');
-    const button = mockPages.find(p => p.name === 'Button');
+  it('getParentPage finds the parent page for a child page', () => {
+    expect(getParentPage('Button')?.name).toBe('Components');
+    expect(getParentPage('Components')?.name).toBe('Home');
+    expect(getParentPage('Unknown')).toBeUndefined();
+  });
 
-    expect(components).toBeDefined();
-    expect(button).toBeDefined();
-    expect(components?.pages).toBeDefined();
-    expect(button?.pages).toBeDefined();
-
-    const componentsReferencesButton = components!.pages.includes('Button');
-    const buttonReferencesComponents = button!.pages.includes('Components');
-
-    expect(componentsReferencesButton).toBe(true);
-    expect(buttonReferencesComponents).toBe(false);
-    expect(componentsReferencesButton && buttonReferencesComponents).toBe(
-      false,
-    );
+  it('getSectionParent finds section owner page', () => {
+    expect(getSectionParent('Spacing')?.name).toBe('Foundation');
+    expect(getSectionParent('Overview')?.name).toBe('Home');
+    expect(getSectionParent('NotASection')).toBeUndefined();
   });
 });
 
-describe('Search Utility Patterns', () => {
-  it('should support case-insensitive lookups', () => {
-    const pages = [{ name: 'Components' }, { name: 'Button' }];
-
-    const findByName = (name: string) =>
-      pages.find(p => p.name.toLowerCase() === name.toLowerCase());
-
-    expect(findByName('components')).toBeDefined();
-    expect(findByName('COMPONENTS')).toBeDefined();
-    expect(findByName('Components')).toBeDefined();
+describe('nameToPath', () => {
+  it('returns top-level and nested page paths', () => {
+    expect(nameToPath('Home')).toBe('/');
+    expect(nameToPath('Components')).toBe('/components');
+    expect(nameToPath('Button')).toBe('/components/button');
   });
 
-  it('should validate page names are unique', () => {
-    const pages = [
-      { name: 'Home' },
-      { name: 'Components' },
-      { name: 'Button' },
-    ];
-
-    const names = pages.map(p => p.name);
-    const unique = new Set(names);
-
-    expect(names.length).toBe(unique.size);
+  it('returns section anchor paths', () => {
+    expect(nameToPath('Spacing')).toBe('/foundation#spacing');
   });
 
-  it('should find pages by slug', () => {
-    const nameToSlug = (name: string) =>
-      name.toLowerCase().replace(/\s+/g, '-');
-
-    const pages = [
-      { name: 'Call to action card', slug: nameToSlug('Call to action card') },
-    ];
-
-    const slug = nameToSlug('Call to action card');
-    expect(slug).toBe('call-to-action-card');
-
-    const found = pages.find(p => p.slug === slug);
-    expect(found).toBeDefined();
+  it('returns external URL when page has url', () => {
+    expect(nameToPath('External docs')).toBe('https://example.com/docs');
   });
 
-  it('should support breadcrumb navigation building', () => {
-    const pages = [
-      { name: 'Home', parentPage: null },
-      { name: 'Components', parentPage: 'Home' },
-      { name: 'Button', parentPage: 'Components' },
-    ];
-
-    const buildBreadcrumb = (pageName: string): string[] => {
-      const breadcrumb: string[] = [pageName];
-      let current = pages.find(p => p.name === pageName);
-
-      while (current && current.parentPage) {
-        breadcrumb.unshift(current.parentPage);
-        current = pages.find(p => p.name === current?.parentPage);
-      }
-
-      return breadcrumb;
-    };
-
-    const breadcrumb = buildBreadcrumb('Button');
-    expect(breadcrumb).toEqual(['Home', 'Components', 'Button']);
-  });
-
-  it('should validate page reference integrity', () => {
-    const pages = [
-      { name: 'Home', pages: ['Components', 'Foundation'] },
-      { name: 'Components', pages: ['Button'] },
-      { name: 'Foundation', pages: [] },
-      { name: 'Button', pages: [] },
-    ];
-
-    const allPageNames = new Set(pages.map(p => p.name));
-
-    pages.forEach(page => {
-      if (page.pages) {
-        page.pages.forEach(childName => {
-          expect(allPageNames.has(childName)).toBe(true);
-        });
-      }
-    });
-  });
-
-  it('should support sorting pages by name', () => {
-    const pages = [{ name: 'Zebra' }, { name: 'Apple' }, { name: 'Monkey' }];
-
-    const sorted = [...pages].sort((a, b) => a.name.localeCompare(b.name));
-
-    expect(sorted[0].name).toBe('Apple');
-    expect(sorted[sorted.length - 1].name).toBe('Zebra');
-  });
-
-  it('should support filtering pages by category', () => {
-    const pages = [
-      { name: 'Button', category: 'Components' },
-      { name: 'Spacing', category: 'Foundation' },
-      { name: 'Card', category: 'Components' },
-    ];
-
-    const componentPages = pages.filter(p => p.category === 'Components');
-    expect(componentPages.length).toBe(2);
-    expect(componentPages.every(p => p.category === 'Components')).toBe(true);
-  });
-});
-
-describe('Hardcoded Routes', () => {
-  it('should document known hardcoded routes (Phase 2 refactoring target)', () => {
+  it('keeps known hardcoded route mappings', () => {
     const hardcodedRoutes = [
       {
         name: 'Call to action card',
@@ -195,18 +115,30 @@ describe('Hardcoded Routes', () => {
       },
     ];
 
-    // Validates these routes exist and are properly formatted
     hardcodedRoutes.forEach(route => {
-      expect(route.path).toBeTruthy();
-      expect(route.path).toMatch(/^\//);
-    });
-
-    hardcodedRoutes.forEach(route => {
-      expect(route.path).toMatch(/^\//);
       expect(nameToPath(route.name)).toBe(route.path);
-      expect(route.path.endsWith(nameToSlug(route.name))).toBe(true);
     });
-
     expect(hardcodedRoutes).toHaveLength(6);
+  });
+});
+
+describe('content helpers', () => {
+  it('getCards returns descendants and supports category filter', () => {
+    const allCards = getCards(undefined);
+    const componentCards = getCards('Components');
+
+    expect(allCards.map(card => card.name)).toEqual(
+      expect.arrayContaining(['Button', 'Card']),
+    );
+    expect(componentCards.map(card => card.name)).toEqual(
+      expect.arrayContaining(['Button', 'Card']),
+    );
+  });
+
+  it('getRelatedContent maps related page names to objects', () => {
+    const related = getRelatedContent('Button');
+    expect(related).toHaveLength(1);
+    expect(related[0]?.name).toBe('Card');
+    expect(getRelatedContent('Card')).toEqual([]);
   });
 });

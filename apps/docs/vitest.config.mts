@@ -19,7 +19,7 @@ export default defineConfig({
     alias: {
       '@shared/aries-core': path.resolve(
         __dirname,
-        '../../shared/aries-core/src',
+        '../../shared/aries-core/src/js',
       ),
     },
   },
