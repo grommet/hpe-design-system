@@ -119,6 +119,7 @@ const StyledList = () => {
 
 const AppHeaderExample = () => (
   <Header
+    aria-label="Application header"
     background="background-front"
     pad={{ vertical: '3xsmall', horizontal: 'medium' }}
   >
@@ -163,6 +164,7 @@ export const ListScreenExample = ({ ...rest }) => (
     <Page pad={{ bottom: 'xlarge' }} flex={false}>
       <PageContent>
         <PageHeader
+          as="section"
           title="User controls"
           actions={<Button label="Manage" primary />}
         />
