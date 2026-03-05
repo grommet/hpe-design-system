@@ -17,6 +17,16 @@ import {
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
+import {
+  Add,
+  Edit,
+  Filter,
+  Notification,
+  Refresh,
+  Search,
+  Settings,
+  Trash,
+} from '@hpe-design/icons-grommet';
 import { PlaygroundShell } from './PlaygroundShell';
 
 // --- CSV parser (handles quoted fields) ---
@@ -74,6 +84,22 @@ function parseEnumOptions(enumValues) {
 }
 
 // --- control type helpers ---
+
+const ICON_OPTIONS = [
+  { label: 'None', value: '' },
+  { label: 'Add', value: 'Add' },
+  { label: 'Edit', value: 'Edit' },
+  { label: 'Filter', value: 'Filter' },
+  { label: 'Notification', value: 'Notification' },
+  { label: 'Refresh', value: 'Refresh' },
+  { label: 'Search', value: 'Search' },
+  { label: 'Settings', value: 'Settings' },
+  { label: 'Trash', value: 'Trash' },
+];
+
+const ICON_MAP = {
+  Add, Edit, Filter, Notification, Refresh, Search, Settings, Trash,
+};
 
 const SKIP_TYPES = ['function'];
 
@@ -135,6 +161,11 @@ export default function ButtonPlayground({ rows }) {
     const p = {};
     Object.entries(propValues).forEach(([key, val]) => {
       if (val === false || val === '') return;
+      if (key === 'icon') {
+        const IconComp = ICON_MAP[val];
+        if (IconComp) p.icon = <IconComp />;
+        return;
+      }
       p[key] = val;
     });
     return p;
@@ -195,6 +226,33 @@ export default function ButtonPlayground({ rows }) {
                 value={value}
                 placeholder="— none —"
                 onChange={({ value: v }) => updateProp(prop, v)}
+              />
+            </FormField>
+          );
+        }
+
+        if (
+          prop === 'icon' &&
+          normalizedPropType === 'element'
+        ) {
+          return (
+            <FormField
+              key={prop}
+              label={prop}
+              name={prop}
+              htmlFor={`button-${prop}`}
+            >
+              <Select
+                id={`button-${prop}`}
+                name={prop}
+                options={ICON_OPTIONS}
+                labelKey="label"
+                valueKey={{ key: 'value', reduce: true }}
+                value={value}
+                placeholder="— none —"
+                onChange={({ value: v }) =>
+                  updateProp(prop, v ?? '')
+                }
               />
             </FormField>
           );

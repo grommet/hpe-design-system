@@ -3,12 +3,15 @@ import React, { useState, useMemo } from 'react';
 import fs from 'fs';
 import path from 'path';
 import {
+  Anchor,
   Box,
+  Button,
   CheckBox,
   Form,
   FormField,
   Grommet,
   Heading,
+  Menu,
   Page,
   PageContent,
   PageHeader,
@@ -17,6 +20,7 @@ import {
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
+import { Left } from '@hpe-design/icons-grommet';
 import { PlaygroundShell } from './PlaygroundShell';
 
 // --- CSV parser (handles quoted fields) ---
@@ -77,6 +81,51 @@ function parseEnumOptions(enumValues) {
 
 const SKIP_TYPES = ['function'];
 
+// --- actions preset patterns ---
+
+const ACTIONS_OPTIONS = ['Primary button', 'Two buttons', 'Menu'];
+
+const ACTIONS_PREVIEW = {
+  'Primary button': <Button label="Edit" primary />,
+  'Two buttons': (
+    <Box direction="row" gap="small">
+      <Button label="Delete" />
+      <Button label="Edit" primary />
+    </Box>
+  ),
+  Menu: (
+    <Menu
+      label="Actions"
+      items={[{ label: 'Edit' }, { label: 'Delete' }]}
+    />
+  ),
+};
+
+const ACTIONS_CODE = {
+  'Primary button': {
+    snippet: '  actions={<Button label="Edit" primary />}',
+    imports: ['Button'],
+  },
+  'Two buttons': {
+    snippet:
+      '  actions={\n'
+      + '    <Box direction="row" gap="small">\n'
+      + '      <Button label="Delete" />\n'
+      + '      <Button label="Edit" primary />\n'
+      + '    </Box>\n'
+      + '  }',
+    imports: ['Box', 'Button'],
+  },
+  Menu: {
+    snippet:
+      '  actions={'
+      + '<Menu label="Actions"'
+      + " items={[{ label: 'Edit' }, { label: 'Delete' }]}"
+      + ' />}',
+    imports: ['Menu'],
+  },
+};
+
 function isEnum(row) {
   return (
     row.normalizedPropType === 'enum' &&
@@ -99,18 +148,41 @@ function getHelpText(row) {
 
 function generateCode(propValues) {
   const lines = ['<PageHeader'];
+  let needsAnchor = false;
+  let needsLeftIcon = false;
+  let actionsGrommetImports = [];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([key, val]) => {
-      if (val === true) {
+      if (key === 'parent') {
+        needsAnchor = true;
+        needsLeftIcon = true;
+        lines.push(
+          `  parent={<Anchor icon={<Left />} label="${val}" />}`,
+        );
+      } else if (key === 'actions' && ACTIONS_CODE[val]) {
+        lines.push(ACTIONS_CODE[val].snippet);
+        actionsGrommetImports = ACTIONS_CODE[val].imports;
+      } else if (val === true) {
         lines.push(`  ${key}`);
       } else {
         lines.push(`  ${key}="${val}"`);
       }
     });
   lines.push('/>');
-  return `import { PageHeader } from 'grommet';\n\n${lines.join('\n')}`;
+  const allGrommet = [
+    'PageHeader',
+    ...(needsAnchor ? ['Anchor'] : []),
+    ...actionsGrommetImports,
+  ].sort();
+  const grommetImports = allGrommet.join(', ');
+  const iconImport = needsLeftIcon
+    ? "import { Left } from '@hpe-design/icons-grommet';\n"
+    : '';
+  const grommetLine =
+    `import { ${grommetImports} } from 'grommet';`;
+  return `${grommetLine}\n${iconImport}\n${lines.join('\n')}`;
 }
 
 // --- page component ---
@@ -136,6 +208,14 @@ export default function PageHeaderPlayground({ rows }) {
     const p = {};
     Object.entries(propValues).forEach(([key, val]) => {
       if (val === false || val === '') return;
+      if (key === 'parent') {
+        p.parent = <Anchor icon={<Left />} label={val} />;
+        return;
+      }
+      if (key === 'actions') {
+        p.actions = ACTIONS_PREVIEW[val];
+        return;
+      }
       p[key] = val;
     });
     return p;
@@ -196,6 +276,53 @@ export default function PageHeaderPlayground({ rows }) {
                 value={value}
                 placeholder="— none —"
                 onChange={({ value: v }) => updateProp(prop, v)}
+              />
+            </FormField>
+          );
+        }
+
+        if (
+          prop === 'actions' &&
+          normalizedPropType === 'element'
+        ) {
+          return (
+            <FormField
+              key={prop}
+              label="actions"
+              name={prop}
+              htmlFor={`pageheader-${prop}`}
+              help="Choose a preset actions pattern"
+            >
+              <Select
+                id={`pageheader-${prop}`}
+                name={prop}
+                options={['', ...ACTIONS_OPTIONS]}
+                value={value}
+                placeholder="— none —"
+                onChange={({ value: v }) => updateProp(prop, v)}
+              />
+            </FormField>
+          );
+        }
+
+        if (
+          prop === 'parent' &&
+          normalizedPropType === 'element'
+        ) {
+          return (
+            <FormField
+              key={prop}
+              label="parent — Left link label"
+              name={prop}
+              htmlFor={`pageheader-${prop}`}
+              help='Renders as <Anchor icon={<Left />} label="..." />'
+            >
+              <TextInput
+                id={`pageheader-${prop}`}
+                name={prop}
+                value={value}
+                placeholder="Left"
+                onChange={e => updateProp(prop, e.target.value)}
               />
             </FormField>
           );

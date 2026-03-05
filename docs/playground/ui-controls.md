@@ -116,7 +116,7 @@ applied, all props shown alphabetically, no grouping or progressive disclosure.
 | `string` | `TextInput` | |
 | `number` | `TextInput type="number"` | |
 | `ReactNode` | `TextInput` | Plain text fallback — treated as a string for first pass |
-| `element` | `TextInput` | Same plain text fallback |
+| `element` | `TextInput` | Plain text fallback — **except** `prop === 'icon'`, which gets an Icon picker (see below) |
 | `union` | `TextInput` | Free-form — user types a valid value |
 | `object` | `TextInput` | Free-form JSON string |
 | `array` | `TextInput` | Free-form JSON string |
@@ -176,6 +176,81 @@ Apply to the `TextInput` `FormField` branch only — booleans and enums already
 communicate their options through their control type. Remove the `help` prop
 and replace the `TextInput` with a richer control when union/object controls
 are built.
+
+### Icon picker for `element` props named `icon`
+
+When `normalizedPropType === 'element'` **and** `prop === 'icon'`, replace the
+plain `TextInput` fallback with a `Select` backed by a curated list of HPE
+icons. This applies to `Button.icon`, `Anchor.icon`, and any future component
+whose `icon` prop is typed `element` in the CSV.
+
+**What to add to each page that has an `icon` prop:**
+
+1. Import the curated icon set:
+
+```js
+import {
+  Add, Edit, Filter, Notification,
+  Refresh, Search, Settings, Trash,
+} from '@hpe-design/icons-grommet';
+```
+
+2. Declare `ICON_OPTIONS` and `ICON_MAP` constants (before `SKIP_TYPES`):
+
+```js
+const ICON_OPTIONS = [
+  { label: 'None', value: '' },
+  { label: 'Add', value: 'Add' },
+  // ... one entry per imported icon
+];
+
+const ICON_MAP = { Add, Edit, Filter, Notification, Refresh, Search, Settings, Trash };
+```
+
+3. In the controls loop, add this branch **before** the fallback `TextInput`:
+
+```js
+if (prop === 'icon' && normalizedPropType === 'element') {
+  return (
+    <FormField key={prop} label={prop} name={prop} htmlFor={`${prefix}-${prop}`}>
+      <Select
+        id={`${prefix}-${prop}`}
+        name={prop}
+        options={ICON_OPTIONS}
+        labelKey="label"
+        valueKey={{ key: 'value', reduce: true }}
+        value={value}
+        placeholder="— none —"
+        onChange={({ value: v }) => updateProp(prop, v ?? '')}
+      />
+    </FormField>
+  );
+}
+```
+
+4. In `previewProps`, expand the stored icon name string to a JSX element:
+
+```js
+if (key === 'icon') {
+  const IconComp = ICON_MAP[val];
+  if (IconComp) p.icon = <IconComp />;
+  return;
+}
+```
+
+5. In `generateCode`, skip `icon` from the main loop and append it separately,
+   also prepending the icon import line to the code snippet:
+
+```js
+const iconName = propValues.icon || '';
+// filter icon out of main loop: .filter(([k]) => k !== 'icon')
+if (iconName) lines.push(`  icon={<${iconName} />}`);
+// prepend import if needed:
+if (iconName) {
+  const iconImport = `import { ${iconName} } from '@hpe-design/icons-grommet';`;
+  return `${iconImport}\n${base}\n\n${lines.join('\n')}`;
+}
+```
 
 ### Enum option parsing
 
