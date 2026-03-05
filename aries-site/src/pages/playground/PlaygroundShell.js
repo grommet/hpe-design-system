@@ -174,3 +174,5 @@ PlaygroundShell.propTypes = {
   controls: PropTypes.node.isRequired,
   code: PropTypes.string.isRequired,
 };
+
+export default PlaygroundShell;
