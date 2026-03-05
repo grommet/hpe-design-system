@@ -10,9 +10,11 @@ The dataset is used to review component APIs and determine suitability for inclu
 
 ```
 prop-audit/
-  README.md                   ← this file
-  extract-grommet-props.js    ← Node.js scraper script
-  grommet-props.csv           ← generated output (43 components, ~500 rows)
+  README.md                      ← this file
+  extract-grommet-props.js       ← scrapes prop metadata from v2.grommet.io
+  grommet-props.csv              ← generated output (43 components, ~500 rows)
+  extract-config-warnings.js     ← scans source files for console.warn guards
+  config-warnings.csv            ← generated output (prop misconfiguration warnings)
 ```
 
 ---
@@ -36,6 +38,43 @@ The script fetches each component page from `v2.grommet.io`, parses the Props se
 ```bash
 npm install --save-dev cheerio node-fetch@2 --legacy-peer-deps
 ```
+
+---
+
+## Config Warnings Script
+
+A second script scans the source of all 43 components for `console.warn` calls that fire when props are misconfigured at runtime. These warnings document constraints that aren't expressible in the type system alone — things like mutual exclusions, deprecated APIs, and context misuse.
+
+```bash
+node prop-audit/extract-config-warnings.js
+```
+
+Output: `prop-audit/config-warnings.csv`
+
+### Config Warnings CSV Columns
+
+| Column | Description |
+|--------|-------------|
+| `component` | Grommet component name |
+| `componentCategory` | High-level grouping: `Layout`, `Type`, `Controls`, `Input` |
+| `propsInvolved` | Space-separated prop names extracted from the condition expression |
+| `warningType` | Classified constraint type (see below) |
+| `message` | Warning message text as it appears in source |
+| `condition` | The enclosing `if(...)` condition that triggers the warning |
+| `sourceFile` | Relative path to the source file |
+| `lineNumber` | Line number of the `console.warn` call |
+
+### Warning Types
+
+| Type | Meaning |
+|------|---------|
+| `mutual_exclusion` | Two props that cannot both be set at the same time |
+| `conflict` | One usage mode conflicts with another |
+| `dependency` | Prop A only works when prop B is also set |
+| `api_misuse` | Prop used in the wrong context (e.g. `checked` inside a group component) |
+| `deprecation` | Use of a deprecated prop or API |
+| `incompatibility` | Two features that cannot work together at a technical level |
+| `other` | Anything that doesn't fit the above |
 
 ---
 

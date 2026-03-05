@@ -1,0 +1,16 @@
+component,componentCategory,propsInvolved,warningType,message,condition,sourceFile,lineNumber
+Box,Layout,deprecatedBackground,deprecation,The background ${deprecatedBackground.name} is deprecated.,deprecatedBackground,src/js/components/Box/Box.js,86
+Box,Layout,refProp,incompatibility,ref and as={function} are incompatible. The ref will not get set.,refProp,src/js/components/Box/Box.js,110
+Box,Layout,"responsiveProp, container",incompatibility,"responsive=""container"" and as={function} are incompatible. Use one or the other.",responsiveProp === 'container',src/js/components/Box/Box.js,115
+Box,Layout,"border, between, side, gap",dependency,Box must have a gap to use border between,(border === 'between' || (border && border.side === 'between') || (Array.isArray(border) && border.find((b) => b.side === 'between'))) && !gap,src/js/components/Box/Box.js,171
+Box,Layout,supportsContainerQueries,other,"<Box responsive=""container""> requires styled-components v6 or later",supportsContainerQueries(),src/js/components/Box/Box.js,332
+Tag,Type,"onClick, onRemove",mutual_exclusion,"Tag cannot combine ""onClick"" and ""onRemove"".",onClick && onRemove,src/js/components/Tag/Tag.js,62
+Anchor,Controls,"icon, label, children",conflict,Anchor should not have children if icon or label is provided,(icon || label) && children,src/js/components/Anchor/Anchor.js,62
+Button,Controls,"busy, success",mutual_exclusion,Button cannot have both busy and success set to true.,busy && success,src/js/components/Button/Button.js,226
+Button,Controls,"icon, label, children",conflict,Button should not have children if icon or label is provided,(icon || label) && children,src/js/components/Button/Button.js,247
+Button,Controls,deprecatedKind,deprecation,${kindArg} is deprecated.,deprecatedKind,src/js/components/Button/Button.js,262
+CheckBox,Input,"checkedProp, indeterminate",mutual_exclusion,"Checkbox cannot be ""checked"" and ""indeterminate"" at the same time.",checkedProp && indeterminate,src/js/components/CheckBox/CheckBox.js,77
+CheckBox,Input,"toggle, indeterminate",mutual_exclusion,"Checkbox of type toggle does not have ""indeterminate"" state.",toggle && indeterminate,src/js/components/CheckBox/CheckBox.js,83
+CheckBoxGroup,Input,"option, checked",deprecation,'checked' prop of an individual CheckBox shouldn't be used in a CheckBoxGroup component. Use the CheckBoxGroup 'value' prop instead.,option.checked,src/js/components/CheckBoxGroup/CheckBoxGroup.js,97
+DateInput,Input,MaskedInputIcon,deprecation,Customizing the DateInput icon through inputProps is deprecated. Use the icon prop instead.,MaskedInputIcon,src/js/components/DateInput/DateInput.js,150
+RadioButtonGroup,Input,"optionRest, checked",deprecation,'checked' prop of an individual RadioButton shouldn't be used in a RadioButtonGroup component. Use the RadioButtonGroup 'value' prop instead.,optionRest.checked,src/js/components/RadioButtonGroup/RadioButtonGroup.js,151

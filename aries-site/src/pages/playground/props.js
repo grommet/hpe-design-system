@@ -261,7 +261,23 @@ export default function PropsExplorer({ rows }) {
           <Toolbar>
             <DataSearch />
             <DataFilters layer>
-              <DataFilter property="normalizedPropType" />
+              <DataFilter property="normalizedPropType">
+                <CheckBoxGroup
+                  name="normalizedPropType"
+                  options={[
+                    'array',
+                    'boolean',
+                    'element',
+                    'enum',
+                    'function',
+                    'number',
+                    'object',
+                    'ReactNode',
+                    'string',
+                    'union',
+                  ]}
+                />
+              </DataFilter>
               <DataFilter property="componentCategory" />
               <DataFilter property="propCategory">
                 <CheckBoxGroup
