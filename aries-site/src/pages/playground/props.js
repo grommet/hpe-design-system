@@ -14,6 +14,7 @@ import {
   DataTable,
   DataTableColumns,
   Grommet,
+  Notification,
   Page,
   PageContent,
   Heading,
@@ -78,9 +79,17 @@ const columns = [
     sortable: false,
     size: 'small',
     render: datum => (
-      <Text size="xsmall" color="text-weak" truncate>
-        {datum.propType}
-      </Text>
+      <Tip
+        content={
+          <Box width="medium" pad="xxsmall">
+            <Text size="small">{datum.propType}</Text>
+          </Box>
+        }
+      >
+        <Text size="xsmall" color="text-weak" truncate>
+          {datum.propType}
+        </Text>
+      </Tip>
     ),
   },
   {
@@ -125,9 +134,17 @@ const columns = [
     sortable: false,
     size: 'small',
     render: datum => (
-      <Text size="xsmall" color="text-weak" truncate>
-        {datum.objectExample}
-      </Text>
+      <Tip
+        content={
+          <Box width="medium" pad="xxsmall">
+            <Text size="small">{datum.objectExample}</Text>
+          </Box>
+        }
+      >
+        <Text size="xsmall" color="text-weak" truncate>
+          {datum.objectExample}
+        </Text>
+      </Tip>
     ),
   },
   {
@@ -143,9 +160,17 @@ const columns = [
     sortable: false,
     size: 'medium',
     render: datum => (
-      <Text size="xsmall" color="text-weak" truncate>
-        {datum.enumValues}
-      </Text>
+      <Tip
+        content={
+          <Box width="medium" pad="xxsmall">
+            <Text size="small">{datum.enumValues}</Text>
+          </Box>
+        }
+      >
+        <Text size="xsmall" color="text-weak" truncate>
+          {datum.enumValues}
+        </Text>
+      </Tip>
     ),
   },
   {
@@ -154,9 +179,17 @@ const columns = [
     sortable: false,
     size: 'medium',
     render: datum => (
-      <Text size="xsmall" color="text-weak" truncate>
-        {datum.documentedValues}
-      </Text>
+      <Tip
+        content={
+          <Box width="medium" pad="xxsmall">
+            <Text size="small">{datum.documentedValues}</Text>
+          </Box>
+        }
+      >
+        <Text size="xsmall" color="text-weak" truncate>
+          {datum.documentedValues}
+        </Text>
+      </Tip>
     ),
   },
   {
@@ -184,9 +217,17 @@ const columns = [
     sortable: false,
     size: 'small',
     render: datum => (
-      <Text size="xsmall" color="text-weak" truncate>
-        {datum.conditionalRelationship}
-      </Text>
+      <Tip
+        content={
+          <Box width="medium" pad="xxsmall">
+            <Text size="small">{datum.conditionalRelationship}</Text>
+          </Box>
+        }
+      >
+        <Text size="xsmall" color="text-weak" truncate>
+          {datum.conditionalRelationship}
+        </Text>
+      </Tip>
     ),
   },
   {
@@ -195,9 +236,17 @@ const columns = [
     sortable: false,
     size: 'small',
     render: datum => (
-      <Text size="xsmall" color="text-weak" truncate>
-        {datum.childSupport}
-      </Text>
+      <Tip
+        content={
+          <Box width="medium" pad="xxsmall">
+            <Text size="small">{datum.childSupport}</Text>
+          </Box>
+        }
+      >
+        <Text size="xsmall" color="text-weak" truncate>
+          {datum.childSupport}
+        </Text>
+      </Tip>
     ),
   },
 ];
@@ -238,6 +287,14 @@ const DataPager = () => (
 export default function PropsExplorer({ rows }) {
   return (
     <Grommet theme={hpe} full>
+      <Notification
+        global
+        status="warning"
+        message={
+          'Seeing duplicate rows? Refresh the page — ' +
+          'filters accumulate when applied multiple times.'
+        }
+      />
     <Page>
       <PageContent gap="medium" pad={{ vertical: 'large' }}>
         <Box gap="xsmall">
@@ -261,6 +318,7 @@ export default function PropsExplorer({ rows }) {
           <Toolbar>
             <DataSearch />
             <DataFilters layer>
+              <DataFilter property="component" />
               <DataFilter property="normalizedPropType">
                 <CheckBoxGroup
                   name="normalizedPropType"
