@@ -70,7 +70,11 @@ const columns: DataTableProps<Datum>['columns'] = [
     primary: true,
     footer: 'Total',
     render: ({ name }) => (
-      <Text aria-label={!name ? 'No value' : undefined} truncate>
+      <Text
+        aria-label={!name ? 'No value' : undefined}
+        as="span"
+        role={!name ? 'text' : undefined}
+      >
         {name || '--'}
       </Text>
     ),
@@ -79,7 +83,11 @@ const columns: DataTableProps<Datum>['columns'] = [
     property: 'location',
     header: 'Location',
     render: ({ location }) => (
-      <Text aria-label={!location ? 'No value' : undefined} truncate>
+      <Text
+        aria-label={!location ? 'No value' : undefined}
+        as="span"
+        role={!location ? 'text' : undefined}
+      >
         {location || '--'}
       </Text>
     ),
@@ -91,7 +99,12 @@ const columns: DataTableProps<Datum>['columns'] = [
       const value = date && new Date(date).toLocaleDateString('en-US');
 
       return (
-        <Text aria-label={!value ? 'No value' : undefined} truncate>
+        <Text
+          aria-label={!value ? 'No value' : undefined}
+          as="span"
+          role={!value ? 'text' : undefined}
+          truncate
+        >
           {value || '--'}
         </Text>
       );
@@ -114,7 +127,9 @@ const columns: DataTableProps<Datum>['columns'] = [
           <Text>{`${percent}%`}</Text>
         </Box>
       ) : (
-        <Text aria-label="No value">--</Text>
+        <Text aria-label="No value" as="span" role="text">
+          --
+        </Text>
       ),
   },
 ];
