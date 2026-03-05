@@ -155,7 +155,7 @@ Anchor,Controls,color,string | object,union,layout,,true,"{ dark: ""string"", li
 Anchor,Controls,disabled,boolean,boolean,state,,false,,false,true | false,true | false,Whether the anchor is disabled.,,
 Anchor,Controls,gap,string,string,layout,,false,,false,"""xxsmall"" | ""string""","""xxsmall"" | ""string""",The amount of spacing between icon and label in the anchor.,,
 Anchor,Controls,gridArea,string,string,layout,,false,,false,"""a parent grid area name""","""a parent grid area name""",The name of the area to place this inside a parent Grid.,,
-Anchor,Controls,href,string,enum,behavior,,false,,false,"""//my.com/path""","""//my.com/path""",Hyperlink reference to place in the anchor.,,
+Anchor,Controls,href,string,string,behavior,,false,,false,"""//my.com/path""","""//my.com/path""",Hyperlink reference to place in the anchor.,,
 Anchor,Controls,icon,element,element,content,,false,,true,<Add />,<Add />,Icon element to place in the anchor.,,icon={<Add />}
 Anchor,Controls,label,string | element,union,content,,false,,true,"""Add"" | <Box>...</Box>","""Add"" | <Box>...</Box>",Label text to place in the anchor.,,
 Anchor,Controls,margin,string | object,union,layout,,true,"{ vertical: ""..."", horizontal: ""..."", top: ""..."", bottom: ""..."", left: ""..."", right: ""..."" }",false,"""none"" | ""xxsmall"" | ""xsmall"" | ""small"" | ""medium"" | ""large"" | ""xlarge""","""none"" | ""xxsmall"" | ""xsmall"" | ""small"" | ""medium"" | ""large"" | ""xlarge""",The amount of margin around the component.,,

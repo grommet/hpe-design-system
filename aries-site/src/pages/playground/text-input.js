@@ -86,10 +86,10 @@ function isEnum(row) {
 function getHelpText(row) {
   const { normalizedPropType, documentedValues, objectExample } = row;
   if (normalizedPropType === 'union' && documentedValues) {
-    return documentedValues;
+    return `union — ${documentedValues}`;
   }
   if (normalizedPropType === 'object' && objectExample) {
-    return objectExample;
+    return `object — ${objectExample}`;
   }
   return undefined;
 }
