@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import {
   Box,
-  Button,
   CheckBox,
   Form,
   FormField,
@@ -12,6 +11,7 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Select,
   Text,
   TextInput,
@@ -98,7 +98,7 @@ function getHelpText(row) {
 // --- code generator ---
 
 function generateCode(propValues) {
-  const lines = ['<Button'];
+  const lines = ['<PageHeader'];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
@@ -110,12 +110,12 @@ function generateCode(propValues) {
       }
     });
   lines.push('/>');
-  return `import { Button } from 'grommet';\n\n${lines.join('\n')}`;
+  return `import { PageHeader } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function ButtonPlayground({ rows }) {
+export default function PageHeaderPlayground({ rows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
@@ -123,7 +123,8 @@ export default function ButtonPlayground({ rows }) {
       s[row.prop] =
         row.normalizedPropType === 'boolean' ? false : '';
     });
-    s.label = 'Button';
+    s.title = 'Page title';
+    s.subtitle = 'A short description of this page.';
     return s;
   });
 
@@ -152,7 +153,7 @@ export default function ButtonPlayground({ rows }) {
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        Button
+        PageHeader
       </Heading>
       <Text
         size="small"
@@ -170,7 +171,7 @@ export default function ButtonPlayground({ rows }) {
           return (
             <CheckBox
               key={prop}
-              id={`button-${prop}`}
+              id={`pageheader-${prop}`}
               name={prop}
               label={prop}
               checked={value}
@@ -186,10 +187,10 @@ export default function ButtonPlayground({ rows }) {
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`button-${prop}`}
+              htmlFor={`pageheader-${prop}`}
             >
               <Select
-                id={`button-${prop}`}
+                id={`pageheader-${prop}`}
                 name={prop}
                 options={options}
                 value={value}
@@ -205,11 +206,11 @@ export default function ButtonPlayground({ rows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`button-${prop}`}
+            htmlFor={`pageheader-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`button-${prop}`}
+              id={`pageheader-${prop}`}
               name={prop}
               value={value}
               placeholder={prop}
@@ -222,8 +223,8 @@ export default function ButtonPlayground({ rows }) {
   );
 
   const preview = (
-    <Box fill pad="medium" align="center" justify="center">
-      <Button {...previewProps} />
+    <Box fill pad="medium">
+      <PageHeader {...previewProps} />
     </Box>
   );
 
@@ -232,11 +233,11 @@ export default function ButtonPlayground({ rows }) {
       <Page>
         <PageContent>
           <Heading level={2} margin={{ bottom: 'small' }}>
-            Button playground
+            PageHeader playground
           </Heading>
           <Box height="large">
             <PlaygroundShell
-              componentName="Button"
+              componentName="PageHeader"
               preview={preview}
               controls={controls}
               code={code}
@@ -248,7 +249,7 @@ export default function ButtonPlayground({ rows }) {
   );
 }
 
-ButtonPlayground.getLayout = page => page;
+PageHeaderPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -264,7 +265,7 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'Button')
+    .filter(row => row.component === 'PageHeader')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   return { props: { rows } };
 }

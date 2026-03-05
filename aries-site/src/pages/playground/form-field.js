@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import {
   Box,
-  Button,
   CheckBox,
   Form,
   FormField,
@@ -98,7 +97,7 @@ function getHelpText(row) {
 // --- code generator ---
 
 function generateCode(propValues) {
-  const lines = ['<Button'];
+  const lines = ['<FormField'];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
@@ -109,13 +108,18 @@ function generateCode(propValues) {
         lines.push(`  ${key}="${val}"`);
       }
     });
-  lines.push('/>');
-  return `import { Button } from 'grommet';\n\n${lines.join('\n')}`;
+  lines.push('>');
+  lines.push('  <TextInput />');
+  lines.push('</FormField>');
+  const snippet = lines.join('\n');
+  return (
+    `import { FormField, TextInput } from 'grommet';\n\n${snippet}`
+  );
 }
 
 // --- page component ---
 
-export default function ButtonPlayground({ rows }) {
+export default function FormFieldPlayground({ rows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
@@ -123,7 +127,7 @@ export default function ButtonPlayground({ rows }) {
       s[row.prop] =
         row.normalizedPropType === 'boolean' ? false : '';
     });
-    s.label = 'Button';
+    s.label = 'Field label';
     return s;
   });
 
@@ -152,7 +156,7 @@ export default function ButtonPlayground({ rows }) {
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        Button
+        FormField
       </Heading>
       <Text
         size="small"
@@ -170,7 +174,7 @@ export default function ButtonPlayground({ rows }) {
           return (
             <CheckBox
               key={prop}
-              id={`button-${prop}`}
+              id={`formfield-${prop}`}
               name={prop}
               label={prop}
               checked={value}
@@ -186,10 +190,10 @@ export default function ButtonPlayground({ rows }) {
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`button-${prop}`}
+              htmlFor={`formfield-${prop}`}
             >
               <Select
-                id={`button-${prop}`}
+                id={`formfield-${prop}`}
                 name={prop}
                 options={options}
                 value={value}
@@ -205,11 +209,11 @@ export default function ButtonPlayground({ rows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`button-${prop}`}
+            htmlFor={`formfield-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`button-${prop}`}
+              id={`formfield-${prop}`}
               name={prop}
               value={value}
               placeholder={prop}
@@ -223,7 +227,19 @@ export default function ButtonPlayground({ rows }) {
 
   const preview = (
     <Box fill pad="medium" align="center" justify="center">
-      <Button {...previewProps} />
+      <Box width="medium">
+        <FormField
+          htmlFor="formfield-preview-input"
+          name="preview"
+          {...previewProps}
+        >
+          <TextInput
+            id="formfield-preview-input"
+            name="preview"
+            placeholder="Enter a value"
+          />
+        </FormField>
+      </Box>
     </Box>
   );
 
@@ -232,11 +248,11 @@ export default function ButtonPlayground({ rows }) {
       <Page>
         <PageContent>
           <Heading level={2} margin={{ bottom: 'small' }}>
-            Button playground
+            FormField playground
           </Heading>
           <Box height="large">
             <PlaygroundShell
-              componentName="Button"
+              componentName="FormField"
               preview={preview}
               controls={controls}
               code={code}
@@ -248,7 +264,7 @@ export default function ButtonPlayground({ rows }) {
   );
 }
 
-ButtonPlayground.getLayout = page => page;
+FormFieldPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -264,7 +280,7 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'Button')
+    .filter(row => row.component === 'FormField')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   return { props: { rows } };
 }
