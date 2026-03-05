@@ -9,6 +9,7 @@ const meta = {
   title: 'Patterns/Dashboards',
   parameters: {
     layout: 'fullscreen',
+    controls: { disable: true },
   },
 };
 

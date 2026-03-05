@@ -16,6 +16,9 @@ import { ChangePasswordExample } from 'apps/docs/src/examples/templates/forms/Ch
 
 const meta = {
   title: 'Patterns/Forms',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;
