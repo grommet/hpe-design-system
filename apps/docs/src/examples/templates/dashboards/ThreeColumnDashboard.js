@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import {
   Grid,
-  // Main,
+  Main,
   ResponsiveContext,
   Page,
   PageContent,
@@ -14,12 +14,14 @@ import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 export const ThreeColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page pad={{ bottom: '3xlarge' }}>
-      <PageContent gap="xlarge">
-        <PageHeader title="Dashboard" />
-        <Content />
-      </PageContent>
-    </Page>
+    <Main>
+      <Page pad={{ bottom: '3xlarge' }}>
+        <PageContent gap="xlarge">
+          <PageHeader title="Dashboard" />
+          <Content />
+        </PageContent>
+      </Page>
+    </Main>
     <ContentArea title="Global Footer" />
   </AppContainer>
 );
