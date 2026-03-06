@@ -40,6 +40,7 @@ export default {
     },
     options: {
       storySort: {
+        method: 'alphabetical',
         order: [
           'Welcome',
           'Components',
