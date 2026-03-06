@@ -2,13 +2,13 @@ import { Notification } from 'grommet';
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
+  DoubleConfirmationPreview,
   EmptyStatePreview,
   FeedbackPreview,
   StatusIndicatorPreview,
   ToastPreview,
   SelectorPreview,
   PopoverPreview,
-  DoubleConfirmationPreview,
 } from '../../../examples/cardPreviews';
 
 export const templates = [

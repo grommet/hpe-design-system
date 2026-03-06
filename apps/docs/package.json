@@ -47,7 +47,6 @@
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
     "grommet-theme-hpe": "catalog:",
-    "next-transpile-modules": "^10.0.1",
     "start-server-and-test": "^2.0.3",
     "testcafe": "^3.5.0",
     "testcafe-react-selectors": "^5.0.3"

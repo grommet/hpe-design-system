@@ -1,13 +1,19 @@
-import { Box, Button, Card, CardBody, Heading, Paragraph } from 'grommet';
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  Footer,
+  Heading,
+  Paragraph,
+} from 'grommet';
 import PropTypes from 'prop-types';
 
 export const DoubleConfirmationCard = ({
-  ids,
   title,
   subtitle,
   titleSize,
   cardBodyGap,
-  footerBorder,
   ...rest
 }) => (
   <Card
@@ -19,32 +25,21 @@ export const DoubleConfirmationCard = ({
   >
     <CardBody pad="medium" gap={cardBodyGap || 'medium'}>
       <Box gap="3xsmall">
-        <Heading id={ids?.title} level={2} margin="none" size={titleSize}>
+        <Heading level={2} margin="none" size={titleSize}>
           {title}
         </Heading>
-        <Paragraph id={ids?.subtitle} margin="none">
-          {subtitle}
-        </Paragraph>
+        <Paragraph margin="none">{subtitle}</Paragraph>
       </Box>
-      <Box
-        id={ids?.footer}
-        direction="row"
-        border={footerBorder ? { style: 'dashed' } : undefined}
-        gap="xsmall"
-        justify="end"
-        round="small"
-      >
+      <Footer direction="row" gap="xsmall" justify="end" round="small">
         <Button label="Cancel" />
         <Button label="Discard" primary />
-      </Box>
+      </Footer>
     </CardBody>
   </Card>
 );
 
 DoubleConfirmationCard.propTypes = {
   cardBodyGap: PropTypes.string,
-  footerBorder: PropTypes.bool,
-  ids: PropTypes.objectOf(PropTypes.string),
   title: PropTypes.string,
   subtitle: PropTypes.string,
   titleSize: PropTypes.string,
@@ -58,25 +53,4 @@ export const DoubleConfirmationCardPreview = ({ ...rest }) => (
       {...rest}
     />
   </Box>
-);
-
-export const DoubleConfirmationExample = () => (
-  <DoubleConfirmationCard
-    title='Discard "Add application"?'
-    subtitle="Your changes will not be applied."
-  />
-);
-
-export const DoubleConfirmationCardAnatomy = ({ ...rest }) => (
-  <DoubleConfirmationCard
-    title='Discard "Add application"?'
-    subtitle="Your changes will not be applied."
-    footerBorder
-    ids={{
-      title: 'confirmation-title',
-      subtitle: 'confirmation-subtitle',
-      footer: 'confirmation-footer',
-    }}
-    {...rest}
-  />
 );

@@ -15,14 +15,16 @@ import {
   DataFilters,
   DataSummary,
 } from 'grommet';
+import { LayerHeader } from '@shared/aries-core';
 import {
   ConfirmationContext,
   ConfirmationProvider,
   useConfirmation,
 } from '@shared/hooks';
-import applications from '../../../../mockData/applications.json';
-import { LayerForm, LayerHeader } from '../Layer';
 import { DoubleConfirmation } from './DoubleConfirmation';
+import { LayerForm } from '../../shared/components/LayerForm';
+import { ContentPane } from '../../../layouts/content/ContentPane';
+import applications from '../../../data/mockData/applications.json';
 
 export const DoubleConfirmationConfigurationForm = () => (
   <ConfirmationProvider>
@@ -84,13 +86,8 @@ const ApplicationsPage = () => {
   const { setShowLayer } = useConfirmation();
   return (
     <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent>
-        <Box
-          background="background-front"
-          pad="medium"
-          round="xlarge"
-          gap="medium"
-        >
+      <PageContent gap="medium">
+        <ContentPane>
           <Heading id="applications-heading" level={2} margin="none">
             Applications
           </Heading>
@@ -116,7 +113,7 @@ const ApplicationsPage = () => {
               />
             </Box>
           </Data>
-        </Box>
+        </ContentPane>
       </PageContent>
     </Page>
   );

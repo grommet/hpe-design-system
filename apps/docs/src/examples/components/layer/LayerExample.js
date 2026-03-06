@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { AnnounceContext, Button, Box, Layer } from 'grommet';
-import { DoubleConfirmation, LayerForm, LayerHeader } from '@shared/aries-core';
+import { LayerHeader } from '@shared/aries-core';
 import {
   ConfirmationProvider,
   ConfirmationContext,
   useConfirmation,
 } from '@shared/hooks';
+import { LayerForm } from '../../shared/components';
+import { DoubleConfirmation } from '../../templates';
 
 const modalTitle = 'Add application modal';
 

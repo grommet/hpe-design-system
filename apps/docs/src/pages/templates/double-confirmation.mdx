@@ -1,15 +1,15 @@
 import { Checkmark } from '@hpe-design/icons-grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
-import { DoubleConfirmationConfigurationForm } from '@shared/aries-core';
 import {
   DoubleConfirmationAnatomy,
   DoubleConfirmationBestPractice,
+  DoubleConfirmationConfigurationForm,
   DoubleConfirmationExample,
 } from '../../examples';
 
 <Example
   code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/double-confirmation/DoubleConfirmationCards.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/double-confirmation/DoubleConfirmationExample.js',
   ]}
   docs="https://v2.grommet.io/layer?theme=hpe"
   figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2567-534&t=PB599u6vl87KxwxZ-1"
@@ -26,19 +26,17 @@ Use this pattern when closing a layer could result in losing unsaved or newly en
 <Example
   docs="https://v2.grommet.io/layer?theme=hpe#props"
   code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/DoubleConfirmation/DoubleConfirmationConfigurationForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/double-confirmation/DoubleConfirmationConfigurationForm.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/Layer/LayerHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/Layer/LayerForm.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/aries-core/src/js/components/layouts/DoubleConfirmation/DoubleConfirmation.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/shared/components/LayerForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/double-confirmation/DoubleConfirmation.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/shared/hooks/src/useConfirmation.tsx',
-    ]}
-  height={{ min: 'medium' }}
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/double-confirmation/DoubleConfirmationConfigurationForm.js"
+  height={{ min: 'small' }}
   template
-  showHeader
   showResponsiveControls={['laptop', 'mobile']}
-
 >
-
   <DoubleConfirmationConfigurationForm />
 </Example>
 
