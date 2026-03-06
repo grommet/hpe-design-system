@@ -72,7 +72,6 @@ const columns: DataTableProps<Datum>['columns'] = [
     render: ({ name }) => (
       <Text
         aria-label={!name ? 'No value' : undefined}
-        as="span"
         role={!name ? 'text' : undefined}
       >
         {name || '--'}
@@ -85,7 +84,6 @@ const columns: DataTableProps<Datum>['columns'] = [
     render: ({ location }) => (
       <Text
         aria-label={!location ? 'No value' : undefined}
-        as="span"
         role={!location ? 'text' : undefined}
       >
         {location || '--'}
@@ -101,7 +99,6 @@ const columns: DataTableProps<Datum>['columns'] = [
       return (
         <Text
           aria-label={!value ? 'No value' : undefined}
-          as="span"
           role={!value ? 'text' : undefined}
           truncate
         >
