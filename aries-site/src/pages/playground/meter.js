@@ -10,19 +10,19 @@ import {
   FormField,
   Grommet,
   Heading,
+  Meter,
   Page,
   PageContent,
   PageHeader,
-  RangeInput,
+  RadioButtonGroup,
   Select,
   Text,
-  TextArea,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { Left } from '@hpe-design/icons-grommet';
-import { PlaygroundShell } from './PlaygroundShell';
 import { parsePropHandlingSection } from './parsePropHandling';
+import { PlaygroundShell } from './PlaygroundShell';
 
 // --- CSV parser (handles quoted fields) ---
 
@@ -80,62 +80,12 @@ function parseEnumOptions(enumValues) {
 
 // --- control type helpers ---
 
-const SKIP_TYPES = ['function'];
+// values conflicts with value and requires complex object shape — skip
+// gridArea and margin are layout-only, not useful for isolated preview
+const SKIP_PROPS = ['values', 'gridArea', 'margin'];
 
-// --- child type picker ---
-
-const CHILD_TYPES = [
-  'TextInput',
-  'Select',
-  'CheckBox',
-  'TextArea',
-  'RangeInput',
-];
-
-const CHILD_PREVIEW = {
-  TextInput: (
-    <TextInput
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter a value"
-    />
-  ),
-  Select: (
-    <Select
-      id="formfield-preview-input"
-      name="preview"
-      options={['Option 1', 'Option 2', 'Option 3']}
-    />
-  ),
-  CheckBox: (
-    <CheckBox
-      id="formfield-preview-input"
-      name="preview"
-      label="Check me"
-    />
-  ),
-  TextArea: (
-    <TextArea
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter text"
-    />
-  ),
-  RangeInput: (
-    <RangeInput
-      id="formfield-preview-input"
-      name="preview"
-    />
-  ),
-};
-
-const CHILD_IMPORT = {
-  TextInput: 'TextInput',
-  Select: 'Select',
-  CheckBox: 'CheckBox',
-  TextArea: 'TextArea',
-  RangeInput: 'RangeInput',
-};
+// Numeric props that must be passed as {number} not "string" in JSX
+const NUMERIC_PROPS = new Set(['value', 'max']);
 
 function isEnum(row) {
   return (
@@ -152,75 +102,78 @@ function getHelpText(row) {
   if (normalizedPropType === 'object' && objectExample) {
     return `object — ${objectExample}`;
   }
+  if (normalizedPropType === 'string' && documentedValues) {
+    return documentedValues;
+  }
   return undefined;
 }
 
 // --- code generator ---
 
-function generateCode(propValues, childType) {
-  const child = childType || 'TextInput';
-  const lines = ['<FormField'];
+function generateCode(propValues) {
+  const lines = ['<Meter'];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([key, val]) => {
       if (val === true) {
         lines.push(`  ${key}`);
+      } else if (NUMERIC_PROPS.has(key)) {
+        lines.push(`  ${key}={${val}}`);
       } else {
         lines.push(`  ${key}="${val}"`);
       }
     });
-  lines.push('>');
-  lines.push(`  <${child} />`);
-  lines.push('</FormField>');
-  const snippet = lines.join('\n');
-  const imp = CHILD_IMPORT[child];
-  return (
-    `import { FormField, ${imp} } from 'grommet';\n\n${snippet}`
-  );
+  lines.push('/>');
+  return `import { Meter } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function FormFieldPlayground({ rows, propHandlingRows }) {
-  const [childType, setChildType] = useState('TextInput');
+export default function MeterPlayground({ rows, propHandlingRows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
-      if (SKIP_TYPES.includes(row.normalizedPropType)) return;
-      s[row.prop] =
-        row.normalizedPropType === 'boolean' ? false : '';
+      if (SKIP_PROPS.includes(row.prop)) return;
+      if (row.normalizedPropType === 'boolean') {
+        s[row.prop] = false;
+      } else {
+        s[row.prop] = '';
+      }
     });
-    s.label = 'Field label';
+    // helpful defaults so the preview renders something immediately
+    s.value = 40;
+    s.max = 100;
+    s.type = 'bar';
     return s;
   });
 
-  const updateProp = (prop, value) => {
+  const updateProp = (prop, value) =>
     setPropValues(prev => ({ ...prev, [prop]: value }));
-  };
 
   const previewProps = useMemo(() => {
     const p = {};
     Object.entries(propValues).forEach(([key, val]) => {
       if (val === false || val === '') return;
-      p[key] = val;
+      // parse numeric props so Meter receives a number, not a string
+      if (NUMERIC_PROPS.has(key)) {
+        const n = Number(val);
+        if (!Number.isNaN(n)) p[key] = n;
+      } else {
+        p[key] = val;
+      }
     });
     return p;
   }, [propValues]);
 
-  const code = useMemo(
-    () => generateCode(propValues, childType),
-    [propValues, childType],
-  );
+  const code = useMemo(() => generateCode(propValues), [propValues]);
 
-  const visibleRows = rows.filter(
-    row => !SKIP_TYPES.includes(row.normalizedPropType),
-  );
+  const visibleRows = rows.filter(row => !SKIP_PROPS.includes(row.prop));
 
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        FormField
+        Meter
       </Heading>
       <Text
         size="small"
@@ -230,22 +183,6 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
         Configure the component with available props.
       </Text>
 
-      {/* child type picker — synthetic, not a FormField prop */}
-      <FormField
-        label="child input type"
-        name="_childType"
-        htmlFor="formfield-childType"
-        help="The input component rendered inside FormField"
-      >
-        <Select
-          id="formfield-childType"
-          name="_childType"
-          options={CHILD_TYPES}
-          value={childType}
-          onChange={({ value: v }) => setChildType(v)}
-        />
-      </FormField>
-
       {visibleRows.map(row => {
         const { prop, normalizedPropType, enumValues } = row;
         const value = propValues[prop];
@@ -254,7 +191,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
           return (
             <CheckBox
               key={prop}
-              id={`formfield-${prop}`}
+              id={`meter-${prop}`}
               name={prop}
               label={prop}
               checked={value}
@@ -264,19 +201,38 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
         }
 
         if (isEnum(row)) {
-          const options = ['', ...parseEnumOptions(enumValues)];
+          const opts = parseEnumOptions(enumValues);
+          if (opts.length <= 4) {
+            return (
+              <FormField
+                key={prop}
+                label={prop}
+                name={prop}
+                htmlFor={`meter-${prop}`}
+              >
+                <RadioButtonGroup
+                  id={`meter-${prop}`}
+                  name={prop}
+                  options={opts}
+                  value={String(value)}
+                  onChange={e => updateProp(prop, e.target.value)}
+                />
+              </FormField>
+            );
+          }
+          const options = ['', ...opts];
           return (
             <FormField
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`formfield-${prop}`}
+              htmlFor={`meter-${prop}`}
             >
               <Select
-                id={`formfield-${prop}`}
+                id={`meter-${prop}`}
                 name={prop}
                 options={options}
-                value={value}
+                value={String(value)}
                 placeholder="— none —"
                 onChange={({ value: v }) => updateProp(prop, v)}
               />
@@ -289,14 +245,17 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`formfield-${prop}`}
+            htmlFor={`meter-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`formfield-${prop}`}
+              id={`meter-${prop}`}
               name={prop}
-              value={value}
+              value={String(value)}
               placeholder={prop}
+              type={normalizedPropType === 'number' || NUMERIC_PROPS.has(prop)
+                ? 'number'
+                : 'text'}
               onChange={e => updateProp(prop, e.target.value)}
             />
           </FormField>
@@ -307,17 +266,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
 
   const preview = (
     <Box fill pad="medium" align="center" justify="center">
-      <Box width="medium">
-        {/* eslint-disable-next-line grommet/formfield-htmlfor-id,
-            grommet/formfield-name */}
-        <FormField
-          htmlFor="formfield-preview-input"
-          name="preview"
-          {...previewProps}
-        >
-          {CHILD_PREVIEW[childType]}
-        </FormField>
-      </Box>
+      <Meter {...previewProps} />
     </Box>
   );
 
@@ -326,14 +275,18 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
       <Page>
         <PageContent>
           <PageHeader
-            title="FormField"
+            title="Meter"
             parent={
-              <Anchor icon={<Left />} href="/playground" label="Index" />
+              <Anchor
+                icon={<Left />}
+                href="/playground"
+                label="Index"
+              />
             }
           />
           <Box height="large">
             <PlaygroundShell
-              componentName="FormField"
+              componentName="Meter"
               preview={preview}
               controls={controls}
               code={code}
@@ -346,7 +299,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
   );
 }
 
-FormFieldPlayground.getLayout = page => page;
+MeterPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -362,14 +315,12 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'FormField')
+    .filter(row => row.component === 'Meter')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   const mdPath = path.join(
     process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
   );
   const mdText = fs.readFileSync(mdPath, 'utf8');
-  const propHandlingRows = parsePropHandlingSection(
-    mdText, 'FormField',
-  );
+  const propHandlingRows = parsePropHandlingSection(mdText, 'Meter');
   return { props: { rows, propHandlingRows } };
 }

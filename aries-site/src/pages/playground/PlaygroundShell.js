@@ -101,6 +101,14 @@ export const PlaygroundShell = ({
             justify="center"
             pad="large"
             background="background-front"
+            style={{
+              backgroundImage: `radial-gradient(circle, ${
+                previewDark
+                  ? 'rgba(255,255,255,0.15)'
+                  : 'rgba(0,0,0,0.12)'
+              } 1px, transparent 1px)`,
+              backgroundSize: '20px 20px',
+            }}
           >
             {preview}
           </Box>

@@ -94,6 +94,48 @@ const pages = [
     category: 'Visualizations',
   },
   {
+    href: '/playground/meter',
+    title: 'Meter',
+    description: '15 props',
+    category: 'Visualizations',
+  },
+  {
+    href: '/playground/avatar',
+    title: 'Avatar',
+    description: '4 props',
+    category: 'Visualizations',
+  },
+  {
+    href: '/playground/pagination',
+    title: 'Pagination',
+    description: '14 props',
+    category: 'Visualizations',
+  },
+  {
+    href: '/playground/name-value-list',
+    title: 'NameValueList',
+    description: '6 props',
+    category: 'Visualizations',
+  },
+  {
+    href: '/playground/text-area',
+    title: 'TextArea',
+    description: '9 props',
+    category: 'Input',
+  },
+  {
+    href: '/playground/paragraph',
+    title: 'Paragraph',
+    description: '8 props',
+    category: 'Typography',
+  },
+  {
+    href: '/playground/star-rating',
+    title: 'StarRating',
+    description: '2 props',
+    category: 'Input',
+  },
+  {
     href: '/playground/props',
     title: 'Prop explorer',
     description: '736 props across 61 components',
@@ -102,46 +144,41 @@ const pages = [
 ];
 
 export default function PlaygroundIndex() {
-  // Derive filterable categories (exclude Tools)
+  // Derive categories (include Tools this time)
   const filterCategories = useMemo(() => {
     const cats = [
-      ...new Set(
-        pages
-          .filter(p => p.category !== 'Tools')
-          .map(p => p.category),
-      ),
+      ...new Set(pages.map(p => p.category)),
     ];
     return cats;
   }, []);
 
-  const [activeFilters, setActiveFilters] = useState(
-    () => filterCategories,
-  );
+  // Single-select; 'All' is the default
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const toggleGroupOptions = useMemo(
-    () =>
-      filterCategories.map(cat => ({
-        label: `${cat} (${
-          pages.filter(p => p.category === cat).length
-        })`,
+    () => [
+      {
+        label: `All (${pages.length})`,
+        value: 'All',
+      },
+      ...filterCategories.map(cat => ({
+        label: `${cat} (${pages.filter(p => p.category === cat).length})`,
         value: cat,
       })),
+    ],
     [filterCategories],
   );
 
   const handleToggle = ({ value }) => {
-    // prevent deselecting all
-    if (value.length > 0) setActiveFilters(value);
+    if (value) setActiveFilter(value);
   };
 
   const visiblePages = useMemo(
     () =>
-      pages.filter(
-        p =>
-          p.category === 'Tools' ||
-          activeFilters.includes(p.category),
-      ),
-    [activeFilters],
+      activeFilter === 'All'
+        ? pages
+        : pages.filter(p => p.category === activeFilter),
+    [activeFilter],
   );
 
   return (
@@ -159,9 +196,8 @@ export default function PlaygroundIndex() {
           {/* Category filter toggles */}
           <Box margin={{ bottom: 'medium' }}>
             <ToggleGroup
-              multiple
               options={toggleGroupOptions}
-              value={activeFilters}
+              value={activeFilter}
               onToggle={handleToggle}
             />
           </Box>

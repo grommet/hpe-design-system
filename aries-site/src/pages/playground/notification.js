@@ -14,12 +14,22 @@ import {
   Page,
   PageContent,
   PageHeader,
+  RadioButtonGroup,
   Select,
   Text,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
-import { Left } from '@hpe-design/icons-grommet';
+import {
+  Add,
+  Edit,
+  Left,
+  Refresh,
+  Search,
+  Settings,
+  Trash,
+} from '@hpe-design/icons-grommet';
+import { parsePropHandlingSection } from './parsePropHandling';
 import { PlaygroundShell } from './PlaygroundShell';
 
 // --- CSV parser (handles quoted fields) ---
@@ -78,14 +88,22 @@ function parseEnumOptions(enumValues) {
 
 // --- control type helpers ---
 
-const SKIP_TYPES = ['function', 'element'];
+const SKIP_TYPES = ['function'];
 const SKIP_PROPS = ['onClose'];
 
-// title's enumValues is a doc example, not a fixed set — treat as free text
-const FREE_FORM_OVERRIDE = new Set(['title']);
+const ICON_OPTIONS = [
+  { label: 'None', value: '' },
+  { label: 'Add', value: 'Add' },
+  { label: 'Edit', value: 'Edit' },
+  { label: 'Refresh', value: 'Refresh' },
+  { label: 'Search', value: 'Search' },
+  { label: 'Settings', value: 'Settings' },
+  { label: 'Trash', value: 'Trash' },
+];
+
+const ICON_MAP = { Add, Edit, Refresh, Search, Settings, Trash };
 
 function isEnum(row) {
-  if (FREE_FORM_OVERRIDE.has(row.prop)) return false;
   return (
     row.normalizedPropType === 'enum' &&
     parseEnumOptions(row.enumValues).length >= 2
@@ -116,6 +134,8 @@ function generateCode(propValues) {
     .forEach(([key, val]) => {
       if (val === true) {
         lines.push(`  ${key}`);
+      } else if (key === 'icon') {
+        lines.push(`  icon={<${val} />}`);
       } else {
         lines.push(`  ${key}="${val}"`);
       }
@@ -127,7 +147,7 @@ function generateCode(propValues) {
 
 // --- page component ---
 
-export default function NotificationPlayground({ rows }) {
+export default function NotificationPlayground({ rows, propHandlingRows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
@@ -150,6 +170,11 @@ export default function NotificationPlayground({ rows }) {
       if (val === false || val === '') return;
       // toast would portal outside the preview frame — omit from live preview
       if (key === 'toast') return;
+      if (key === 'icon') {
+        const IconComp = ICON_MAP[val];
+        if (IconComp) p.icon = <IconComp />;
+        return;
+      }
       p[key] = val;
     });
     return p;
@@ -194,7 +219,26 @@ export default function NotificationPlayground({ rows }) {
         }
 
         if (isEnum(row)) {
-          const options = ['', ...parseEnumOptions(enumValues)];
+          const opts = parseEnumOptions(enumValues);
+          if (opts.length <= 4) {
+            return (
+              <FormField
+                key={prop}
+                label={prop}
+                name={prop}
+                htmlFor={`notification-${prop}`}
+              >
+                <RadioButtonGroup
+                  id={`notification-${prop}`}
+                  name={prop}
+                  options={opts}
+                  value={String(value)}
+                  onChange={e => updateProp(prop, e.target.value)}
+                />
+              </FormField>
+            );
+          }
+          const options = ['', ...opts];
           return (
             <FormField
               key={prop}
@@ -209,6 +253,28 @@ export default function NotificationPlayground({ rows }) {
                 value={value}
                 placeholder="— none —"
                 onChange={({ value: v }) => updateProp(prop, v)}
+              />
+            </FormField>
+          );
+        }
+
+        if (prop === 'icon' && normalizedPropType === 'element') {
+          return (
+            <FormField
+              key={prop}
+              label={prop}
+              name={prop}
+              htmlFor={`notification-${prop}`}
+            >
+              <Select
+                id={`notification-${prop}`}
+                name={prop}
+                options={ICON_OPTIONS}
+                labelKey="label"
+                valueKey={{ key: 'value', reduce: true }}
+                value={value}
+                placeholder="— none —"
+                onChange={({ value: v }) => updateProp(prop, v ?? '')}
               />
             </FormField>
           );
@@ -264,7 +330,7 @@ export default function NotificationPlayground({ rows }) {
               preview={preview}
               controls={controls}
               code={code}
-              propHandlingRows={[]}
+              propHandlingRows={propHandlingRows}
             />
           </Box>
         </PageContent>
@@ -291,5 +357,10 @@ export async function getStaticProps() {
   const rows = allRows
     .filter(row => row.component === 'Notification')
     .sort((a, b) => a.prop.localeCompare(b.prop));
-  return { props: { rows } };
+  const mdPath = path.join(
+    process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
+  );
+  const mdText = fs.readFileSync(mdPath, 'utf8');
+  const propHandlingRows = parsePropHandlingSection(mdText, 'Notification');
+  return { props: { rows, propHandlingRows } };
 }

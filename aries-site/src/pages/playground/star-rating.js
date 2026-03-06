@@ -13,10 +13,8 @@ import {
   Page,
   PageContent,
   PageHeader,
-  RangeInput,
-  Select,
+  StarRating,
   Text,
-  TextArea,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
@@ -68,98 +66,24 @@ function parseCsv(text) {
   });
 }
 
-// --- enum option parser ---
-
-function parseEnumOptions(enumValues) {
-  if (!enumValues) return [];
-  return enumValues
-    .split(' | ')
-    .map(v => v.trim().replace(/^["']|["']$/g, ''))
-    .filter(Boolean);
-}
-
 // --- control type helpers ---
 
+// children: render prop (function); onChange: wired internally; value: managed
 const SKIP_TYPES = ['function'];
-
-// --- child type picker ---
-
-const CHILD_TYPES = [
-  'TextInput',
-  'Select',
-  'CheckBox',
-  'TextArea',
-  'RangeInput',
-];
-
-const CHILD_PREVIEW = {
-  TextInput: (
-    <TextInput
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter a value"
-    />
-  ),
-  Select: (
-    <Select
-      id="formfield-preview-input"
-      name="preview"
-      options={['Option 1', 'Option 2', 'Option 3']}
-    />
-  ),
-  CheckBox: (
-    <CheckBox
-      id="formfield-preview-input"
-      name="preview"
-      label="Check me"
-    />
-  ),
-  TextArea: (
-    <TextArea
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter text"
-    />
-  ),
-  RangeInput: (
-    <RangeInput
-      id="formfield-preview-input"
-      name="preview"
-    />
-  ),
-};
-
-const CHILD_IMPORT = {
-  TextInput: 'TextInput',
-  Select: 'Select',
-  CheckBox: 'CheckBox',
-  TextArea: 'TextArea',
-  RangeInput: 'RangeInput',
-};
-
-function isEnum(row) {
-  return (
-    row.normalizedPropType === 'enum' &&
-    parseEnumOptions(row.enumValues).length >= 2
-  );
-}
+const SKIP_PROPS = ['value'];
 
 function getHelpText(row) {
-  const { normalizedPropType, documentedValues, objectExample } = row;
+  const { normalizedPropType, documentedValues } = row;
   if (normalizedPropType === 'union' && documentedValues) {
     return `union — ${documentedValues}`;
-  }
-  if (normalizedPropType === 'object' && objectExample) {
-    return `object — ${objectExample}`;
   }
   return undefined;
 }
 
 // --- code generator ---
 
-function generateCode(propValues, childType) {
-  const child = childType || 'TextInput';
-  const lines = ['<FormField'];
+function generateCode(propValues, rating) {
+  const lines = ['<StarRating'];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
@@ -170,30 +94,29 @@ function generateCode(propValues, childType) {
         lines.push(`  ${key}="${val}"`);
       }
     });
-  lines.push('>');
-  lines.push(`  <${child} />`);
-  lines.push('</FormField>');
-  const snippet = lines.join('\n');
-  const imp = CHILD_IMPORT[child];
-  return (
-    `import { FormField, ${imp} } from 'grommet';\n\n${snippet}`
-  );
+  lines.push(`  value={${rating}}`);
+  lines.push('  onChange={({ target: { value } }) => setRating(value)}');
+  lines.push('/>');
+  return `import { StarRating } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function FormFieldPlayground({ rows, propHandlingRows }) {
-  const [childType, setChildType] = useState('TextInput');
+export default function StarRatingPlayground({ rows, propHandlingRows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
       if (SKIP_TYPES.includes(row.normalizedPropType)) return;
-      s[row.prop] =
-        row.normalizedPropType === 'boolean' ? false : '';
+      if (SKIP_PROPS.includes(row.prop)) return;
+      s[row.prop] = row.normalizedPropType === 'boolean' ? false : '';
     });
-    s.label = 'Field label';
+    // seed a default name so the form control is accessible
+    s.name = 'star-rating';
     return s;
   });
+
+  // value managed internally — lets the user actually click the stars
+  const [rating, setRating] = useState(3);
 
   const updateProp = (prop, value) => {
     setPropValues(prev => ({ ...prev, [prop]: value }));
@@ -209,18 +132,20 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
   }, [propValues]);
 
   const code = useMemo(
-    () => generateCode(propValues, childType),
-    [propValues, childType],
+    () => generateCode(propValues, rating),
+    [propValues, rating],
   );
 
   const visibleRows = rows.filter(
-    row => !SKIP_TYPES.includes(row.normalizedPropType),
+    row =>
+      !SKIP_TYPES.includes(row.normalizedPropType) &&
+      !SKIP_PROPS.includes(row.prop),
   );
 
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        FormField
+        StarRating
       </Heading>
       <Text
         size="small"
@@ -230,31 +155,15 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
         Configure the component with available props.
       </Text>
 
-      {/* child type picker — synthetic, not a FormField prop */}
-      <FormField
-        label="child input type"
-        name="_childType"
-        htmlFor="formfield-childType"
-        help="The input component rendered inside FormField"
-      >
-        <Select
-          id="formfield-childType"
-          name="_childType"
-          options={CHILD_TYPES}
-          value={childType}
-          onChange={({ value: v }) => setChildType(v)}
-        />
-      </FormField>
-
       {visibleRows.map(row => {
-        const { prop, normalizedPropType, enumValues } = row;
+        const { prop, normalizedPropType } = row;
         const value = propValues[prop];
 
         if (normalizedPropType === 'boolean') {
           return (
             <CheckBox
               key={prop}
-              id={`formfield-${prop}`}
+              id={`star-rating-${prop}`}
               name={prop}
               label={prop}
               checked={value}
@@ -263,61 +172,38 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
           );
         }
 
-        if (isEnum(row)) {
-          const options = ['', ...parseEnumOptions(enumValues)];
-          return (
-            <FormField
-              key={prop}
-              label={prop}
-              name={prop}
-              htmlFor={`formfield-${prop}`}
-            >
-              <Select
-                id={`formfield-${prop}`}
-                name={prop}
-                options={options}
-                value={value}
-                placeholder="— none —"
-                onChange={({ value: v }) => updateProp(prop, v)}
-              />
-            </FormField>
-          );
-        }
-
         return (
           <FormField
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`formfield-${prop}`}
+            htmlFor={`star-rating-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`formfield-${prop}`}
+              id={`star-rating-${prop}`}
               name={prop}
-              value={value}
+              value={String(value)}
               placeholder={prop}
               onChange={e => updateProp(prop, e.target.value)}
             />
           </FormField>
         );
       })}
+
+      <Text size="small" color="text-weak">
+        Current rating: {rating}
+      </Text>
     </Form>
   );
 
   const preview = (
     <Box fill pad="medium" align="center" justify="center">
-      <Box width="medium">
-        {/* eslint-disable-next-line grommet/formfield-htmlfor-id,
-            grommet/formfield-name */}
-        <FormField
-          htmlFor="formfield-preview-input"
-          name="preview"
-          {...previewProps}
-        >
-          {CHILD_PREVIEW[childType]}
-        </FormField>
-      </Box>
+      <StarRating
+        {...previewProps}
+        value={rating}
+        onChange={({ target: { value } }) => setRating(value)}
+      />
     </Box>
   );
 
@@ -326,14 +212,14 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
       <Page>
         <PageContent>
           <PageHeader
-            title="FormField"
+            title="StarRating"
             parent={
               <Anchor icon={<Left />} href="/playground" label="Index" />
             }
           />
           <Box height="large">
             <PlaygroundShell
-              componentName="FormField"
+              componentName="StarRating"
               preview={preview}
               controls={controls}
               code={code}
@@ -346,7 +232,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
   );
 }
 
-FormFieldPlayground.getLayout = page => page;
+StarRatingPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -362,14 +248,12 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'FormField')
+    .filter(row => row.component === 'StarRating')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   const mdPath = path.join(
     process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
   );
   const mdText = fs.readFileSync(mdPath, 'utf8');
-  const propHandlingRows = parsePropHandlingSection(
-    mdText, 'FormField',
-  );
+  const propHandlingRows = parsePropHandlingSection(mdText, 'StarRating');
   return { props: { rows, propHandlingRows } };
 }

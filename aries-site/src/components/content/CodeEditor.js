@@ -158,6 +158,7 @@ export const CodeEditor = ({ code, onChange }) => {
     return () => {
       view.destroy();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDark]); // Recreate when theme changes
 
   // Update document when code prop changes externally

@@ -5,24 +5,24 @@ import path from 'path';
 import {
   Anchor,
   Box,
-  CheckBox,
   Form,
   FormField,
   Grommet,
   Heading,
+  NameValueList,
+  NameValuePair,
   Page,
   PageContent,
   PageHeader,
-  RangeInput,
+  RadioButtonGroup,
   Select,
   Text,
-  TextArea,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { Left } from '@hpe-design/icons-grommet';
-import { PlaygroundShell } from './PlaygroundShell';
 import { parsePropHandlingSection } from './parsePropHandling';
+import { PlaygroundShell } from './PlaygroundShell';
 
 // --- CSV parser (handles quoted fields) ---
 
@@ -80,62 +80,11 @@ function parseEnumOptions(enumValues) {
 
 // --- control type helpers ---
 
-const SKIP_TYPES = ['function'];
+// margin: layout-only
+const SKIP_PROPS = ['margin'];
 
-// --- child type picker ---
-
-const CHILD_TYPES = [
-  'TextInput',
-  'Select',
-  'CheckBox',
-  'TextArea',
-  'RangeInput',
-];
-
-const CHILD_PREVIEW = {
-  TextInput: (
-    <TextInput
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter a value"
-    />
-  ),
-  Select: (
-    <Select
-      id="formfield-preview-input"
-      name="preview"
-      options={['Option 1', 'Option 2', 'Option 3']}
-    />
-  ),
-  CheckBox: (
-    <CheckBox
-      id="formfield-preview-input"
-      name="preview"
-      label="Check me"
-    />
-  ),
-  TextArea: (
-    <TextArea
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter text"
-    />
-  ),
-  RangeInput: (
-    <RangeInput
-      id="formfield-preview-input"
-      name="preview"
-    />
-  ),
-};
-
-const CHILD_IMPORT = {
-  TextInput: 'TextInput',
-  Select: 'Select',
-  CheckBox: 'CheckBox',
-  TextArea: 'TextArea',
-  RangeInput: 'RangeInput',
-};
+// Object props — rendered as JSON text inputs
+const OBJECT_PROPS = new Set(['nameProps', 'pairProps', 'valueProps']);
 
 function isEnum(row) {
   return (
@@ -144,83 +93,97 @@ function isEnum(row) {
   );
 }
 
-function getHelpText(row) {
-  const { normalizedPropType, documentedValues, objectExample } = row;
-  if (normalizedPropType === 'union' && documentedValues) {
-    return `union — ${documentedValues}`;
+// Safely parse a JSON string; return null on failure
+function tryParseJson(str) {
+  if (!str || !str.trim()) return null;
+  try {
+    return JSON.parse(str);
+  } catch {
+    return null;
   }
-  if (normalizedPropType === 'object' && objectExample) {
-    return `object — ${objectExample}`;
-  }
-  return undefined;
 }
 
 // --- code generator ---
 
-function generateCode(propValues, childType) {
-  const child = childType || 'TextInput';
-  const lines = ['<FormField'];
+function generateCode(propValues, objectValues) {
+  const lines = ['<NameValueList'];
+
   Object.entries(propValues)
-    .filter(([, v]) => v !== false && v !== '')
+    .filter(([, v]) => v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([key, val]) => {
-      if (val === true) {
-        lines.push(`  ${key}`);
-      } else {
-        lines.push(`  ${key}="${val}"`);
-      }
+      lines.push(`  ${key}="${val}"`);
     });
+
+  Object.entries(objectValues)
+    .filter(([, v]) => tryParseJson(v) !== null)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .forEach(([key, val]) => {
+      lines.push(`  ${key}={${val}}`);
+    });
+
   lines.push('>');
-  lines.push(`  <${child} />`);
-  lines.push('</FormField>');
-  const snippet = lines.join('\n');
-  const imp = CHILD_IMPORT[child];
-  return (
-    `import { FormField, ${imp} } from 'grommet';\n\n${snippet}`
-  );
+  lines.push('  <NameValuePair name="Name">Value</NameValuePair>');
+  lines.push('  <NameValuePair name="Role">Engineer</NameValuePair>');
+  lines.push('  <NameValuePair name="Location">Remote</NameValuePair>');
+  lines.push('</NameValueList>');
+  const imports = "import { NameValueList, NameValuePair } from 'grommet';";
+  return `${imports}\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function FormFieldPlayground({ rows, propHandlingRows }) {
-  const [childType, setChildType] = useState('TextInput');
+export default function NameValueListPlayground({ rows, propHandlingRows }) {
+  // enum / string prop values
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
-      if (SKIP_TYPES.includes(row.normalizedPropType)) return;
-      s[row.prop] =
-        row.normalizedPropType === 'boolean' ? false : '';
+      if (SKIP_PROPS.includes(row.prop)) return;
+      if (OBJECT_PROPS.has(row.prop)) return;
+      s[row.prop] = '';
     });
-    s.label = 'Field label';
     return s;
   });
 
-  const updateProp = (prop, value) => {
+  // object prop values (stored as JSON strings for editing)
+  const [objectValues, setObjectValues] = useState({
+    nameProps: '',
+    pairProps: '',
+    valueProps: '',
+  });
+
+  const updateProp = (prop, value) =>
     setPropValues(prev => ({ ...prev, [prop]: value }));
-  };
+
+  const updateObjectProp = (prop, value) =>
+    setObjectValues(prev => ({ ...prev, [prop]: value }));
 
   const previewProps = useMemo(() => {
     const p = {};
     Object.entries(propValues).forEach(([key, val]) => {
-      if (val === false || val === '') return;
-      p[key] = val;
+      if (val !== '') p[key] = val;
+    });
+    Object.entries(objectValues).forEach(([key, val]) => {
+      const parsed = tryParseJson(val);
+      if (parsed !== null) p[key] = parsed;
     });
     return p;
-  }, [propValues]);
+  }, [propValues, objectValues]);
 
   const code = useMemo(
-    () => generateCode(propValues, childType),
-    [propValues, childType],
+    () => generateCode(propValues, objectValues),
+    [propValues, objectValues],
   );
 
-  const visibleRows = rows.filter(
-    row => !SKIP_TYPES.includes(row.normalizedPropType),
+  const enumRows = rows.filter(
+    row => !SKIP_PROPS.includes(row.prop) && !OBJECT_PROPS.has(row.prop),
   );
+  const objectRows = rows.filter(row => OBJECT_PROPS.has(row.prop));
 
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        FormField
+        NameValueList
       </Heading>
       <Text
         size="small"
@@ -230,50 +193,40 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
         Configure the component with available props.
       </Text>
 
-      {/* child type picker — synthetic, not a FormField prop */}
-      <FormField
-        label="child input type"
-        name="_childType"
-        htmlFor="formfield-childType"
-        help="The input component rendered inside FormField"
-      >
-        <Select
-          id="formfield-childType"
-          name="_childType"
-          options={CHILD_TYPES}
-          value={childType}
-          onChange={({ value: v }) => setChildType(v)}
-        />
-      </FormField>
-
-      {visibleRows.map(row => {
-        const { prop, normalizedPropType, enumValues } = row;
+      {enumRows.map(row => {
+        const { prop, enumValues } = row;
         const value = propValues[prop];
 
-        if (normalizedPropType === 'boolean') {
-          return (
-            <CheckBox
-              key={prop}
-              id={`formfield-${prop}`}
-              name={prop}
-              label={prop}
-              checked={value}
-              onChange={e => updateProp(prop, e.target.checked)}
-            />
-          );
-        }
-
         if (isEnum(row)) {
-          const options = ['', ...parseEnumOptions(enumValues)];
+          const opts = parseEnumOptions(enumValues);
+          if (opts.length <= 4) {
+            return (
+              <FormField
+                key={prop}
+                label={prop}
+                name={prop}
+                htmlFor={`nvl-${prop}`}
+              >
+                <RadioButtonGroup
+                  id={`nvl-${prop}`}
+                  name={prop}
+                  options={opts}
+                  value={String(value)}
+                  onChange={e => updateProp(prop, e.target.value)}
+                />
+              </FormField>
+            );
+          }
+          const options = ['', ...opts];
           return (
             <FormField
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`formfield-${prop}`}
+              htmlFor={`nvl-${prop}`}
             >
               <Select
-                id={`formfield-${prop}`}
+                id={`nvl-${prop}`}
                 name={prop}
                 options={options}
                 value={value}
@@ -289,15 +242,38 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`formfield-${prop}`}
-            help={getHelpText(row)}
+            htmlFor={`nvl-${prop}`}
           >
             <TextInput
-              id={`formfield-${prop}`}
+              id={`nvl-${prop}`}
               name={prop}
               value={value}
               placeholder={prop}
               onChange={e => updateProp(prop, e.target.value)}
+            />
+          </FormField>
+        );
+      })}
+
+      {objectRows.map(row => {
+        const { prop, objectExample } = row;
+        const parsed = tryParseJson(objectValues[prop]);
+        const isInvalid = objectValues[prop] !== '' && parsed === null;
+        return (
+          <FormField
+            key={prop}
+            label={prop}
+            name={prop}
+            htmlFor={`nvl-${prop}`}
+            help={objectExample ? `e.g. ${objectExample}` : undefined}
+            error={isInvalid ? 'Invalid JSON' : undefined}
+          >
+            <TextInput
+              id={`nvl-${prop}`}
+              name={prop}
+              value={objectValues[prop]}
+              placeholder="{ } JSON"
+              onChange={e => updateObjectProp(prop, e.target.value)}
             />
           </FormField>
         );
@@ -307,17 +283,12 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
 
   const preview = (
     <Box fill pad="medium" align="center" justify="center">
-      <Box width="medium">
-        {/* eslint-disable-next-line grommet/formfield-htmlfor-id,
-            grommet/formfield-name */}
-        <FormField
-          htmlFor="formfield-preview-input"
-          name="preview"
-          {...previewProps}
-        >
-          {CHILD_PREVIEW[childType]}
-        </FormField>
-      </Box>
+      <NameValueList {...previewProps}>
+        <NameValuePair name="Name">Seamus</NameValuePair>
+        <NameValuePair name="Role">Engineer</NameValuePair>
+        <NameValuePair name="Location">Remote</NameValuePair>
+        <NameValuePair name="Department">Design Systems</NameValuePair>
+      </NameValueList>
     </Box>
   );
 
@@ -326,14 +297,18 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
       <Page>
         <PageContent>
           <PageHeader
-            title="FormField"
+            title="NameValueList"
             parent={
-              <Anchor icon={<Left />} href="/playground" label="Index" />
+              <Anchor
+                icon={<Left />}
+                href="/playground"
+                label="Index"
+              />
             }
           />
           <Box height="large">
             <PlaygroundShell
-              componentName="FormField"
+              componentName="NameValueList"
               preview={preview}
               controls={controls}
               code={code}
@@ -346,7 +321,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
   );
 }
 
-FormFieldPlayground.getLayout = page => page;
+NameValueListPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -362,14 +337,12 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'FormField')
+    .filter(row => row.component === 'NameValueList')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   const mdPath = path.join(
     process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
   );
   const mdText = fs.readFileSync(mdPath, 'utf8');
-  const propHandlingRows = parsePropHandlingSection(
-    mdText, 'FormField',
-  );
+  const propHandlingRows = parsePropHandlingSection(mdText, 'NameValueList');
   return { props: { rows, propHandlingRows } };
 }

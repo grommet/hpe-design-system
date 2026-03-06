@@ -1,4 +1,19 @@
 /* eslint-disable react/prop-types */
+// react/prop-types is disabled file-wide because every playground page receives
+// `rows` and `propHandlingRows` via getStaticProps and none declare propTypes.
+// Adding propTypes here is pure boilerplate with no runtime benefit, since
+// these pages are internal tooling with statically-typed data shapes from CSV.
+// TEMPLATE — copy this file and replace every occurrence of:
+//   "Template"  →  the PascalCase component name  (e.g. "Calendar")
+//   "template"  →  the kebab-case slug             (e.g. "calendar")
+//
+// Then:
+//   1. Add the component to the grommet import list below.
+//   2. Set SKIP_TYPES / SKIP_PROPS to match your needs.
+//   3. Seed any default prop values inside useState().
+//   4. Adjust the <preview> JSX to render the component correctly.
+//   5. Add the page to index.js.
+
 import React, { useState, useMemo } from 'react';
 import fs from 'fs';
 import path from 'path';
@@ -13,10 +28,10 @@ import {
   Page,
   PageContent,
   PageHeader,
-  RangeInput,
   Select,
+  // TODO: add the target component here, e.g.:
+  // Template,
   Text,
-  TextArea,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
@@ -80,62 +95,9 @@ function parseEnumOptions(enumValues) {
 
 // --- control type helpers ---
 
+// TODO: add prop names to skip (managed state, complex objects, etc.)
 const SKIP_TYPES = ['function'];
-
-// --- child type picker ---
-
-const CHILD_TYPES = [
-  'TextInput',
-  'Select',
-  'CheckBox',
-  'TextArea',
-  'RangeInput',
-];
-
-const CHILD_PREVIEW = {
-  TextInput: (
-    <TextInput
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter a value"
-    />
-  ),
-  Select: (
-    <Select
-      id="formfield-preview-input"
-      name="preview"
-      options={['Option 1', 'Option 2', 'Option 3']}
-    />
-  ),
-  CheckBox: (
-    <CheckBox
-      id="formfield-preview-input"
-      name="preview"
-      label="Check me"
-    />
-  ),
-  TextArea: (
-    <TextArea
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter text"
-    />
-  ),
-  RangeInput: (
-    <RangeInput
-      id="formfield-preview-input"
-      name="preview"
-    />
-  ),
-};
-
-const CHILD_IMPORT = {
-  TextInput: 'TextInput',
-  Select: 'Select',
-  CheckBox: 'CheckBox',
-  TextArea: 'TextArea',
-  RangeInput: 'RangeInput',
-};
+const SKIP_PROPS = [];
 
 function isEnum(row) {
   return (
@@ -157,9 +119,8 @@ function getHelpText(row) {
 
 // --- code generator ---
 
-function generateCode(propValues, childType) {
-  const child = childType || 'TextInput';
-  const lines = ['<FormField'];
+function generateCode(propValues) {
+  const lines = ['<Template'];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
@@ -170,28 +131,22 @@ function generateCode(propValues, childType) {
         lines.push(`  ${key}="${val}"`);
       }
     });
-  lines.push('>');
-  lines.push(`  <${child} />`);
-  lines.push('</FormField>');
-  const snippet = lines.join('\n');
-  const imp = CHILD_IMPORT[child];
-  return (
-    `import { FormField, ${imp} } from 'grommet';\n\n${snippet}`
-  );
+  lines.push('/>');
+  return `import { Template } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function FormFieldPlayground({ rows, propHandlingRows }) {
-  const [childType, setChildType] = useState('TextInput');
+export default function TemplatePlayground({ rows, propHandlingRows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
       if (SKIP_TYPES.includes(row.normalizedPropType)) return;
-      s[row.prop] =
-        row.normalizedPropType === 'boolean' ? false : '';
+      if (SKIP_PROPS.includes(row.prop)) return;
+      s[row.prop] = row.normalizedPropType === 'boolean' ? false : '';
     });
-    s.label = 'Field label';
+    // TODO: seed defaults, e.g.:
+    // s.label = 'Template';
     return s;
   });
 
@@ -199,6 +154,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
     setPropValues(prev => ({ ...prev, [prop]: value }));
   };
 
+  // eslint-disable-next-line no-unused-vars
   const previewProps = useMemo(() => {
     const p = {};
     Object.entries(propValues).forEach(([key, val]) => {
@@ -208,19 +164,18 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
     return p;
   }, [propValues]);
 
-  const code = useMemo(
-    () => generateCode(propValues, childType),
-    [propValues, childType],
-  );
+  const code = useMemo(() => generateCode(propValues), [propValues]);
 
   const visibleRows = rows.filter(
-    row => !SKIP_TYPES.includes(row.normalizedPropType),
+    row =>
+      !SKIP_TYPES.includes(row.normalizedPropType) &&
+      !SKIP_PROPS.includes(row.prop),
   );
 
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        FormField
+        Template
       </Heading>
       <Text
         size="small"
@@ -230,22 +185,6 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
         Configure the component with available props.
       </Text>
 
-      {/* child type picker — synthetic, not a FormField prop */}
-      <FormField
-        label="child input type"
-        name="_childType"
-        htmlFor="formfield-childType"
-        help="The input component rendered inside FormField"
-      >
-        <Select
-          id="formfield-childType"
-          name="_childType"
-          options={CHILD_TYPES}
-          value={childType}
-          onChange={({ value: v }) => setChildType(v)}
-        />
-      </FormField>
-
       {visibleRows.map(row => {
         const { prop, normalizedPropType, enumValues } = row;
         const value = propValues[prop];
@@ -254,7 +193,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
           return (
             <CheckBox
               key={prop}
-              id={`formfield-${prop}`}
+              id={`template-${prop}`}
               name={prop}
               label={prop}
               checked={value}
@@ -270,13 +209,13 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`formfield-${prop}`}
+              htmlFor={`template-${prop}`}
             >
               <Select
-                id={`formfield-${prop}`}
+                id={`template-${prop}`}
                 name={prop}
                 options={options}
-                value={value}
+                value={String(value)}
                 placeholder="— none —"
                 onChange={({ value: v }) => updateProp(prop, v)}
               />
@@ -289,13 +228,13 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`formfield-${prop}`}
+            htmlFor={`template-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`formfield-${prop}`}
+              id={`template-${prop}`}
               name={prop}
-              value={value}
+              value={String(value)}
               placeholder={prop}
               onChange={e => updateProp(prop, e.target.value)}
             />
@@ -307,17 +246,8 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
 
   const preview = (
     <Box fill pad="medium" align="center" justify="center">
-      <Box width="medium">
-        {/* eslint-disable-next-line grommet/formfield-htmlfor-id,
-            grommet/formfield-name */}
-        <FormField
-          htmlFor="formfield-preview-input"
-          name="preview"
-          {...previewProps}
-        >
-          {CHILD_PREVIEW[childType]}
-        </FormField>
-      </Box>
+      {/* TODO: replace with the actual component, e.g.: */}
+      {/* <Template {...previewProps} /> */}
     </Box>
   );
 
@@ -326,14 +256,14 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
       <Page>
         <PageContent>
           <PageHeader
-            title="FormField"
+            title="Template"
             parent={
               <Anchor icon={<Left />} href="/playground" label="Index" />
             }
           />
           <Box height="large">
             <PlaygroundShell
-              componentName="FormField"
+              componentName="Template"
               preview={preview}
               controls={controls}
               code={code}
@@ -346,7 +276,7 @@ export default function FormFieldPlayground({ rows, propHandlingRows }) {
   );
 }
 
-FormFieldPlayground.getLayout = page => page;
+TemplatePlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -362,14 +292,12 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'FormField')
+    .filter(row => row.component === 'Template')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   const mdPath = path.join(
     process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
   );
   const mdText = fs.readFileSync(mdPath, 'utf8');
-  const propHandlingRows = parsePropHandlingSection(
-    mdText, 'FormField',
-  );
+  const propHandlingRows = parsePropHandlingSection(mdText, 'Template');
   return { props: { rows, propHandlingRows } };
 }
