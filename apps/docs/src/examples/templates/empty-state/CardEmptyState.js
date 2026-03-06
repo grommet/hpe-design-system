@@ -6,10 +6,10 @@ import { CostByMonth, CostByYear } from '../dashboards';
 
 export const CardEmptyState = () => {
   return (
-    <Page>
-      <PageContent gap="medium">
-        <PageHeader aria-label="dashboard view" title="Dashboard" />
-        <Main>
+    <Main>
+      <Page pad={{ bottom: '3xlarge' }}>
+        <PageContent gap="medium">
+          <PageHeader title="Dashboard" />
           <Grid columns="medium" gap="medium">
             <CostByMonth period="Last Year" />
             <CostByYear period="Lifetime" />
@@ -19,8 +19,8 @@ export const CardEmptyState = () => {
               </Box>
             </Card>
           </Grid>
-        </Main>
-      </PageContent>
-    </Page>
+        </PageContent>
+      </Page>
+    </Main>
   );
 };
