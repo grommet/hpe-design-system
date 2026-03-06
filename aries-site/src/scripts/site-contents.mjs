@@ -12,12 +12,17 @@ const toTitleCase = str =>
     .map(word => word.replace(word[0], word[0].toUpperCase()))
     .join(' ');
 
+const EXCLUDE_DIRS = ['playground'];
+
 const getFiles = async dir => {
   const entries = await readdir(dir, { withFileTypes: true });
   const files = await Promise.all(
     entries.map(entry => {
       const result = resolve(dir, entry.name);
-      return entry.isDirectory() ? getFiles(result) : result;
+      if (entry.isDirectory()) {
+        return EXCLUDE_DIRS.includes(entry.name) ? [] : getFiles(result);
+      }
+      return result;
     }),
   );
   return Array.prototype.concat(...files);

@@ -75,4 +75,12 @@ module.exports = {
     quotes: [2, 'single', { avoidEscape: true }],
     'arrow-body-style': 0,
   },
+  overrides: [
+    {
+      files: ['aries-site/src/pages/playground/**/*.js'],
+      rules: {
+        'react/prop-types': 0,
+      },
+    },
+  ],
 };

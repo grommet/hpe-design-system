@@ -1,8 +1,3 @@
-/* eslint-disable react/prop-types */
-// react/prop-types is disabled file-wide because every playground page receives
-// `rows` and `propHandlingRows` via getStaticProps and none declare propTypes.
-// Adding propTypes here is pure boilerplate with no runtime benefit, since
-// these pages are internal tooling with statically-typed data shapes from CSV.
 // TEMPLATE — copy this file and replace every occurrence of:
 //   "Template"  →  the PascalCase component name  (e.g. "Calendar")
 //   "template"  →  the kebab-case slug             (e.g. "calendar")
