@@ -12,7 +12,7 @@ The dataset is used to review component APIs and determine suitability for inclu
 prop-audit/
   README.md                      ← this file
   extract-grommet-props.js       ← scrapes prop metadata from v2.grommet.io
-  grommet-props.csv              ← generated output (43 components, ~500 rows)
+  grommet-props.csv              ← generated output (61 components, ~737 rows)
   extract-config-warnings.js     ← scans source files for console.warn guards
   config-warnings.csv            ← generated output (prop misconfiguration warnings)
 ```
@@ -29,7 +29,7 @@ node prop-audit/extract-grommet-props.js
 
 The script fetches each component page from `v2.grommet.io`, parses the Props section, and overwrites `prop-audit/grommet-props.csv`.
 
-**Runtime**: ~30–45 seconds for 43 components (300 ms delay between requests).
+**Runtime**: ~60–90 seconds for 61 components (300 ms delay between requests).
 
 ### Dependencies
 
@@ -56,7 +56,7 @@ Output: `prop-audit/config-warnings.csv`
 | Column | Description |
 |--------|-------------|
 | `component` | Grommet component name |
-| `componentCategory` | High-level grouping: `Layout`, `Type`, `Controls`, `Input` |
+| `componentCategory` | High-level grouping: `Layout`, `Type`, `Controls`, `Input`, `Visualizations` |
 | `propsInvolved` | Space-separated prop names extracted from the condition expression |
 | `warningType` | Classified constraint type (see below) |
 | `message` | Warning message text as it appears in source |
@@ -86,6 +86,7 @@ Output: `prop-audit/config-warnings.csv`
 | **Type** | Heading, Markdown, Paragraph, Text, Tag |
 | **Controls** | Accordion, Anchor, Button, Drop, DropButton, Menu, Nav, Tabs, Tip, ToggleGroup |
 | **Input** | CheckBox, CheckBoxGroup, DateInput, FileInput, MaskedInput, RadioButton, RadioButtonGroup, RangeInput, RangeSelector, Select, SelectMultiple, StarRating, TextArea, TextInput, ThumbsRating, FormField, Form |
+| **Visualizations** | Avatar, Calendar, Cards, Chart, Clock, DataChart, DataTable, Diagram, Distribution, List, Meter, NameValueList, Notification, Skeleton, Pagination, Spinner, Table, WorldMap |
 
 To change scope, edit the `COMPONENTS` array at the top of `extract-grommet-props.js`.
 
@@ -96,7 +97,7 @@ To change scope, edit the `COMPONENTS` array at the top of `extract-grommet-prop
 | Column | Description |
 |--------|-------------|
 | `component` | Grommet component name (e.g. `Button`) |
-| `componentCategory` | High-level grouping: `Layout`, `Type`, `Controls`, `Input` |
+| `componentCategory` | High-level grouping: `Layout`, `Type`, `Controls`, `Input`, `Visualizations` |
 | `prop` | Prop name (e.g. `disabled`) |
 | `propType` | Type(s) as listed in the docs — multiple types joined with ` \| ` |
 | `normalizedPropType` | Coarse type category: `boolean`, `string`, `number`, `array`, `object`, `function`, `ReactNode`, `element`, `enum`, `union` |

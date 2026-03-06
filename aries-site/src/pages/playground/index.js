@@ -88,9 +88,15 @@ const pages = [
     category: 'Input',
   },
   {
+    href: '/playground/notification',
+    title: 'Notification',
+    description: '9 props',
+    category: 'Visualizations',
+  },
+  {
     href: '/playground/props',
     title: 'Prop explorer',
-    description: '500+ props across 43 components',
+    description: '736 props across 61 components',
     category: 'Tools',
   },
 ];

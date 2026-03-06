@@ -8,7 +8,7 @@ This file is a handoff brief. It describes 3 scripts to build in the `grommet-th
 
 The `prop-audit/` folder contains tooling and output from a scan of the Grommet component API:
 
-- **`grommet-props.csv`** — ~500 rows × 15 columns. One row per prop, across 43 components. Columns include `component`, `componentCategory`, `prop`, `propType`, `normalizedPropType`, `propCategory`, `enumValues`, `description`, and others.
+- **`grommet-props.csv`** — ~737 rows × 15 columns. One row per prop, across 61 components (Layout, Type, Controls, Input, Visualizations). Columns include `component`, `componentCategory`, `prop`, `propType`, `normalizedPropType`, `propCategory`, `enumValues`, `description`, and others.
 - **`config-warnings.csv`** — 15 rows. Runtime `console.warn` guards extracted from Grommet source — mutual exclusions, deprecations, conflicts, dependencies.
 - **`extract-grommet-props.js`** — scrapes v2.grommet.io to produce the CSV above.
 - **`extract-config-warnings.js`** — scans component source files for `console.warn` calls.

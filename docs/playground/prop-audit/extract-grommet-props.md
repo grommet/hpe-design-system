@@ -1,8 +1,8 @@
 # extract-grommet-props.js
 
-Scrapes prop metadata from [v2.grommet.io](https://v2.grommet.io) for 43 Grommet components and writes a structured CSV.
+Scrapes prop metadata from [v2.grommet.io](https://v2.grommet.io) for 61 Grommet components and writes a structured CSV.
 
-## Components audited (43)
+## Components audited (61)
 
 | Category | Components |
 |---|---|
@@ -10,6 +10,7 @@ Scrapes prop metadata from [v2.grommet.io](https://v2.grommet.io) for 43 Grommet
 | **Type** | Heading, Markdown, Paragraph, Text, Tag |
 | **Controls** | Accordion, Anchor, Button, Drop, DropButton, Menu, Nav, Tabs, Tip, ToggleGroup |
 | **Input** | CheckBox, CheckBoxGroup, DateInput, FileInput, MaskedInput, RadioButton, RadioButtonGroup, RangeInput, RangeSelector, Select, SelectMultiple, StarRating, TextArea, TextInput, ThumbsRating, FormField, Form |
+| **Visualizations** | Avatar, Calendar, Cards, Chart, Clock, DataChart, DataTable, Diagram, Distribution, List, Meter, NameValueList, Notification, Skeleton, Pagination, Spinner, Table, WorldMap |
 
 To add or remove components, edit the `COMPONENTS` array at the top of the script.
 
@@ -19,7 +20,13 @@ To add or remove components, edit the `COMPONENTS` array at the top of the scrip
 node prop-audit/extract-grommet-props.js
 ```
 
-Output: `prop-audit/grommet-props.csv`
+Output: `prop-audit/grommet-props.csv` (~737 rows)
+
+To scrape a single category to a separate file (e.g. to avoid overwriting hand-edited data):
+
+```bash
+node prop-audit/extract-grommet-props.js --category Visualizations --output grommet-props-visualizations.csv
+```
 
 ---
 
