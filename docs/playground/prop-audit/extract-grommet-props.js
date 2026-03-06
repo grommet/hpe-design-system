@@ -101,7 +101,7 @@ function deriveNormalizedType(propType, enumValues, propName) {
 }
 
 // ---------------------------------------------------------------------------
-// Component list — 43 components in four categories
+// Component list — 61 components in five categories
 // ---------------------------------------------------------------------------
 const COMPONENTS = [
   // Layout
@@ -154,6 +154,26 @@ const COMPONENTS = [
   { name: 'ThumbsRating',      category: 'Input' },
   { name: 'FormField',         category: 'Input' },
   { name: 'Form',              category: 'Input' },
+
+  // Visualizations
+  { name: 'Avatar',         category: 'Visualizations' },
+  { name: 'Calendar',       category: 'Visualizations' },
+  { name: 'Cards',          category: 'Visualizations' },
+  { name: 'Chart',          category: 'Visualizations' },
+  { name: 'Clock',          category: 'Visualizations' },
+  { name: 'DataChart',      category: 'Visualizations' },
+  { name: 'DataTable',      category: 'Visualizations' },
+  { name: 'Diagram',        category: 'Visualizations' },
+  { name: 'Distribution',   category: 'Visualizations' },
+  { name: 'List',           category: 'Visualizations' },
+  { name: 'Meter',          category: 'Visualizations' },
+  { name: 'NameValueList',  category: 'Visualizations' },
+  { name: 'Notification',   category: 'Visualizations' },
+  { name: 'Skeleton',       category: 'Visualizations' },
+  { name: 'Pagination',     category: 'Visualizations' },
+  { name: 'Spinner',        category: 'Visualizations' },
+  { name: 'Table',          category: 'Visualizations' },
+  { name: 'WorldMap',       category: 'Visualizations' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -180,6 +200,17 @@ const CONDITIONAL_RELATIONSHIPS = {
   Layer:        { onEsc: 'fired when Esc key pressed inside Layer', onClickOutside: 'fired on outside click' },
   InfiniteScroll: { onMore: 'called when more items needed', replace: 'requires step' },
   Accordion:    { activeIndex: 'controlled: requires onActive', onActive: 'paired with activeIndex' },
+  // Visualizations
+  Chart:        { values: 'required — defines data points', type: 'affects shape of values array' },
+  DataChart:    { data: 'required — paired with series', series: 'required — paired with data' },
+  DataTable:    { columns: 'defines column structure', groupBy: 'requires columns with key',
+                  primaryKey: 'identifies unique rows', sortable: 'requires columns' },
+  Diagram:      { connections: 'requires Stack parent with id-bearing children' },
+  List:         { primaryKey: 'identifies unique items', onClickItem: 'fires with item object' },
+  Meter:        { values: 'multi-bar mode; conflicts with value', value: 'single-bar mode; conflicts with values' },
+  NameValueList:{ nameProps: 'paired with valueProps layout', valueProps: 'paired with nameProps layout' },
+  Pagination:   { page: 'controlled: requires onChange', onChange: 'paired with page' },
+  Table:        { children: 'expects TableHeader/TableBody/TableFooter children' },
 };
 
 // ---------------------------------------------------------------------------
@@ -199,6 +230,13 @@ const CHILD_SUPPORT = {
   Menu:         'items array defines child actions',
   DropButton:   'dropContent prop renders child content in Drop',
   Nav:          'Anchor or Button children for navigation',
+  // Visualizations
+  Calendar:     'children render prop for custom day cell rendering',
+  Cards:        'Card children',
+  DataTable:    'columns array defines structure; supports groupBy and InfiniteScroll body prop',
+  Diagram:      'requires Stack parent; children must have id props referenced by connections',
+  List:         'children render function for fully custom item rendering',
+  Table:        'TableHeader, TableBody, TableFooter children; each contains TableRow > TableCell',
 };
 
 // ---------------------------------------------------------------------------
@@ -486,12 +524,26 @@ async function main() {
   const BASE_URL = 'https://v2.grommet.io';
   const DELAY_MS = 300;
 
-  console.log(`Extracting props for ${COMPONENTS.length} components...\n`);
+  // ---------------------------------------------------------------------------
+  // CLI args: --category <CategoryName> filters which components to process
+  // ---------------------------------------------------------------------------
+  const args = process.argv.slice(2);
+  const categoryArg = args.indexOf('--category');
+  const filterCategory = categoryArg !== -1 ? args[categoryArg + 1] : null;
+
+  const componentList = filterCategory
+    ? COMPONENTS.filter(c => c.category === filterCategory)
+    : COMPONENTS;
+
+  if (filterCategory) {
+    console.log(`Filtering to category: ${filterCategory} (${componentList.length} components)\n`);
+  }
+  console.log(`Extracting props for ${componentList.length} components...\n`);
 
   // Track RadioButtonGroup rows for later derivation
   let rbgRows = [];
 
-  for (const { name, category } of COMPONENTS) {
+  for (const { name, category } of componentList) {
     const url = `${BASE_URL}/${name.toLowerCase()}`;
     process.stdout.write(`Fetching ${name} (${category}) ... `);
 
@@ -562,7 +614,10 @@ async function main() {
   const lines  = [header, ...allRows.map(rowToCSV)];
   const csv    = lines.join('\n');
 
-  const outPath = path.join(__dirname, 'grommet-props.csv');
+  const outputArg = args.indexOf('--output');
+  const outFile   = outputArg !== -1 ? args[outputArg + 1] : 'grommet-props.csv';
+  const outPath   = path.join(__dirname, outFile);
+
   fs.writeFileSync(outPath, csv, 'utf8');
 
   console.log(`\n✓ Written ${allRows.length} rows to ${outPath}`);
