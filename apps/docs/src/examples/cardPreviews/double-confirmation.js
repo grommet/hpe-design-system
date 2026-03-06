@@ -1,5 +1,13 @@
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  Footer,
+  Heading,
+  Paragraph,
+} from 'grommet';
 import { useEffect, useRef } from 'react';
-import { DoubleConfirmationCardPreview } from '../templates';
 
 export const DoubleConfirmationPreview = () => {
   const ref = useRef();
@@ -15,14 +23,24 @@ export const DoubleConfirmationPreview = () => {
 
   return (
     <div ref={ref}>
-      <DoubleConfirmationCardPreview
-        title="Discard Changes?"
-        subtitle="Your changes will not be applied."
-        titleSize="xsmall"
-        width="small"
-        elevation="none"
-        cardBodyGap="none"
-      />
+      <Box background="background-back" pad="medium">
+        <Card alignSelf="center" round="medium" elevation="none" width="small">
+          <CardBody pad="medium" gap="none">
+            <Box gap="3xsmall">
+              <Heading level={2} margin="none" size="xsmall">
+                Discard Changes?
+              </Heading>
+              <Paragraph margin="none">
+                Your changes will not be applied.
+              </Paragraph>
+            </Box>
+            <Footer direction="row" gap="xsmall" justify="end">
+              <Button label="Cancel" />
+              <Button label="Discard" primary />
+            </Footer>
+          </CardBody>
+        </Card>
+      </Box>
     </div>
   );
 };
