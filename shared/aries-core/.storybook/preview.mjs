@@ -17,7 +17,7 @@ export default {
           themeMode={mode}
           background={context.globals.background?.value}
         >
-          <Box pad="large" fill>
+          <Box pad={context.parameters.layout === 'fullscreen' ? 'none' : 'large'} fill>
             <Story />
           </Box>
         </Grommet>
@@ -41,11 +41,7 @@ export default {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: [
-          'Welcome',
-          'Components',
-          'Patterns',
-        ],
+        order: ['Welcome', 'Components', 'Patterns'],
       },
     },
   },
