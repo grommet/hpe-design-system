@@ -63,7 +63,7 @@ export const ShippingInfomation = ({ name }) => (
       name="zipcode"
       label="ZIP code"
     >
-      <TextInput id={`state-shipping-${name}`} name="zipcode" />
+      <TextInput id={`zipcode-${name}`} name="zipcode" />
     </FormField>
     <FormField
       contentProps={{ width: 'medium' }}
