@@ -153,7 +153,6 @@ export const LayerAnatomy = () => {
           <Annotation
             key={id}
             id={id}
-            alignSelf={['3a', '3b'].includes(id) ? 'end' : 'center'}
             target={target}
             gridArea={gridArea}
             {...rest}
