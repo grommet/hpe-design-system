@@ -59,13 +59,12 @@ export const SettingsExample = () => {
             <FormField
               name="notifications"
               htmlFor="notifications"
-              label="Key feature"
               help="Description of feature"
             >
               <CheckBox
                 id="notifications"
                 name="notifications"
-                label="Notifications"
+                label="Enable notifications"
                 toggle
                 reverse
               />
@@ -89,13 +88,12 @@ export const SettingsExample = () => {
             <FormField
               name="doNotDisturb"
               htmlFor="doNotDisturb"
-              label="Key feature"
               help="Description of feature"
             >
               <CheckBox
                 id="doNotDisturb"
                 name="doNotDisturb"
-                label="Do not disturb"
+                label="Enable do not disturb mode"
                 reverse
                 toggle
               />
