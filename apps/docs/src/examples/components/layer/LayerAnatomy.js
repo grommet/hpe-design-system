@@ -160,14 +160,7 @@ export const LayerAnatomy = () => {
           />
         ))}
 
-        <Card
-          gridArea="layer-area"
-          background="background-front"
-          round="small"
-          alignSelf="start"
-          justifySelf="start"
-          elevation="large"
-        >
+        <Card gridArea="layer-area" elevation="large">
           <CardBody pad="medium" gap="medium">
             <LayerHeader
               headerId="layer-header"
