@@ -11,10 +11,8 @@ import {
   Heading,
   Page,
   PageContent,
-  RangeInput,
   Select,
   Text,
-  TextArea,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
@@ -78,60 +76,14 @@ function parseEnumOptions(enumValues) {
 
 const SKIP_TYPES = ['function'];
 
-// --- child type picker ---
-
-const CHILD_TYPES = [
-  'TextInput',
-  'Select',
-  'CheckBox',
-  'TextArea',
-  'RangeInput',
+const LEVEL_OPTIONS = ['', '1', '2', '3', '4', '5', '6'];
+const SIZE_OPTIONS = [
+  '',
+  'small',
+  'medium',
+  'large',
+  'xlarge',
 ];
-
-const CHILD_PREVIEW = {
-  TextInput: (
-    <TextInput
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter a value"
-    />
-  ),
-  Select: (
-    <Select
-      id="formfield-preview-input"
-      name="preview"
-      options={['Option 1', 'Option 2', 'Option 3']}
-    />
-  ),
-  CheckBox: (
-    <CheckBox
-      id="formfield-preview-input"
-      name="preview"
-      label="Check me"
-    />
-  ),
-  TextArea: (
-    <TextArea
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter text"
-    />
-  ),
-  RangeInput: (
-    <RangeInput
-      id="formfield-preview-input"
-      name="preview"
-    />
-  ),
-};
-
-const CHILD_IMPORT = {
-  TextInput: 'TextInput',
-  Select: 'Select',
-  CheckBox: 'CheckBox',
-  TextArea: 'TextArea',
-  RangeInput: 'RangeInput',
-};
 
 function isEnum(row) {
   return (
@@ -153,33 +105,30 @@ function getHelpText(row) {
 
 // --- code generator ---
 
-function generateCode(propValues, childType) {
-  const child = childType || 'TextInput';
-  const lines = ['<FormField'];
+function generateCode(propValues) {
+  const lines = ['<Heading'];
+  let headingText = '';
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([key, val]) => {
-      if (val === true) {
+      if (key === 'textContent') {
+        headingText = val;
+      } else if (val === true) {
         lines.push(`  ${key}`);
       } else {
         lines.push(`  ${key}="${val}"`);
       }
     });
   lines.push('>');
-  lines.push(`  <${child} />`);
-  lines.push('</FormField>');
-  const snippet = lines.join('\n');
-  const imp = CHILD_IMPORT[child];
-  return (
-    `import { FormField, ${imp} } from 'grommet';\n\n${snippet}`
-  );
+  lines.push(`  ${headingText || 'Heading text'}`);
+  lines.push('</Heading>');
+  return `import { Heading } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function FormFieldPlayground({ rows }) {
-  const [childType, setChildType] = useState('TextInput');
+export default function HeadingPlayground({ rows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
@@ -187,7 +136,8 @@ export default function FormFieldPlayground({ rows }) {
       s[row.prop] =
         row.normalizedPropType === 'boolean' ? false : '';
     });
-    s.label = 'Field label';
+    s.level = '2';
+    s.textContent = 'Heading text';
     return s;
   });
 
@@ -198,17 +148,22 @@ export default function FormFieldPlayground({ rows }) {
   const previewProps = useMemo(() => {
     const p = {};
     Object.entries(propValues).forEach(([key, val]) => {
-      if (val === false || val === '') return;
+      if (key === 'textContent' || val === false || val === '') return;
+      if (key === 'level') {
+        p.level = Number(val);
+        return;
+      }
       p[key] = val;
     });
     return p;
   }, [propValues]);
 
   const code = useMemo(
-    () => generateCode(propValues, childType),
-    [propValues, childType],
+    () => generateCode(propValues),
+    [propValues],
   );
 
+  // Exclude textContent from CSV-driven rows (it's a synthetic prop)
   const visibleRows = rows.filter(
     row => !SKIP_TYPES.includes(row.normalizedPropType),
   );
@@ -216,7 +171,7 @@ export default function FormFieldPlayground({ rows }) {
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        FormField
+        Heading
       </Heading>
       <Text
         size="small"
@@ -226,92 +181,135 @@ export default function FormFieldPlayground({ rows }) {
         Configure the component with available props.
       </Text>
 
-      {/* child type picker — synthetic, not a FormField prop */}
+      {/* Synthetic text control */}
       <FormField
-        label="child input type"
-        name="_childType"
-        htmlFor="formfield-childType"
-        help="The input component rendered inside FormField"
+        label="text content"
+        name="textContent"
+        htmlFor="heading-textContent"
       >
-        <Select
-          id="formfield-childType"
-          name="_childType"
-          options={CHILD_TYPES}
-          value={childType}
-          onChange={({ value: v }) => setChildType(v)}
+        <TextInput
+          id="heading-textContent"
+          name="textContent"
+          value={propValues.textContent}
+          placeholder="Heading text"
+          onChange={e => updateProp('textContent', e.target.value)}
         />
       </FormField>
 
-      {visibleRows.map(row => {
-        const { prop, normalizedPropType, enumValues } = row;
-        const value = propValues[prop];
+      {/* level — special-cased Select */}
+      <FormField
+        label="level"
+        name="level"
+        htmlFor="heading-level"
+      >
+        <Select
+          id="heading-level"
+          name="level"
+          options={LEVEL_OPTIONS}
+          value={propValues.level}
+          placeholder="— none —"
+          onChange={({ value: v }) => updateProp('level', v)}
+        />
+      </FormField>
 
-        if (normalizedPropType === 'boolean') {
-          return (
-            <CheckBox
-              key={prop}
-              id={`formfield-${prop}`}
-              name={prop}
-              label={prop}
-              checked={value}
-              onChange={e => updateProp(prop, e.target.checked)}
-            />
-          );
-        }
+      {visibleRows
+        .filter(row => row.prop !== 'level')
+        .map(row => {
+          const { prop, normalizedPropType, enumValues } = row;
+          const value = propValues[prop];
 
-        if (isEnum(row)) {
-          const options = ['', ...parseEnumOptions(enumValues)];
+          if (prop === 'size') {
+            return (
+              <FormField
+                key={prop}
+                label={prop}
+                name={prop}
+                htmlFor="heading-size"
+                help="small | medium | large | xlarge"
+              >
+                <Select
+                  id="heading-size"
+                  name={prop}
+                  options={SIZE_OPTIONS}
+                  value={value}
+                  placeholder="— none —"
+                  onChange={({ value: v }) =>
+                    updateProp(prop, v)
+                  }
+                />
+              </FormField>
+            );
+          }
+
+          if (normalizedPropType === 'boolean') {
+            return (
+              <CheckBox
+                key={prop}
+                id={`heading-${prop}`}
+                name={prop}
+                label={prop}
+                checked={value}
+                onChange={e =>
+                  updateProp(prop, e.target.checked)
+                }
+              />
+            );
+          }
+
+          if (isEnum(row)) {
+            const options = [
+              '',
+              ...parseEnumOptions(enumValues),
+            ];
+            return (
+              <FormField
+                key={prop}
+                label={prop}
+                name={prop}
+                htmlFor={`heading-${prop}`}
+              >
+                <Select
+                  id={`heading-${prop}`}
+                  name={prop}
+                  options={options}
+                  value={value}
+                  placeholder="— none —"
+                  onChange={({ value: v }) =>
+                    updateProp(prop, v)
+                  }
+                />
+              </FormField>
+            );
+          }
+
           return (
             <FormField
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`formfield-${prop}`}
+              htmlFor={`heading-${prop}`}
+              help={getHelpText(row)}
             >
-              <Select
-                id={`formfield-${prop}`}
+              <TextInput
+                id={`heading-${prop}`}
                 name={prop}
-                options={options}
                 value={value}
-                placeholder="— none —"
-                onChange={({ value: v }) => updateProp(prop, v)}
+                placeholder={prop}
+                onChange={e =>
+                  updateProp(prop, e.target.value)
+                }
               />
             </FormField>
           );
-        }
-
-        return (
-          <FormField
-            key={prop}
-            label={prop}
-            name={prop}
-            htmlFor={`formfield-${prop}`}
-            help={getHelpText(row)}
-          >
-            <TextInput
-              id={`formfield-${prop}`}
-              name={prop}
-              value={value}
-              placeholder={prop}
-              onChange={e => updateProp(prop, e.target.value)}
-            />
-          </FormField>
-        );
-      })}
+        })}
     </Form>
   );
 
   const preview = (
-    <Box fill pad="medium" align="center" justify="center">
-      <Box width="medium">
-        <FormField
-          htmlFor="formfield-preview-input"
-          name="preview"
-          {...previewProps}
-        >
-          {CHILD_PREVIEW[childType]}
-        </FormField>
-      </Box>
+    <Box fill align="center" justify="center" pad="large">
+      <Heading {...previewProps}>
+        {propValues.textContent || 'Heading text'}
+      </Heading>
     </Box>
   );
 
@@ -320,11 +318,11 @@ export default function FormFieldPlayground({ rows }) {
       <Page>
         <PageContent>
           <Heading level={2} margin={{ bottom: 'small' }}>
-            FormField playground
+            Heading playground
           </Heading>
           <Box height="large">
             <PlaygroundShell
-              componentName="FormField"
+              componentName="Heading"
               preview={preview}
               controls={controls}
               code={code}
@@ -336,7 +334,7 @@ export default function FormFieldPlayground({ rows }) {
   );
 }
 
-FormFieldPlayground.getLayout = page => page;
+HeadingPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -352,7 +350,7 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'FormField')
+    .filter(row => row.component === 'Heading')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   return { props: { rows } };
 }

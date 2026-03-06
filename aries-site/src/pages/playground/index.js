@@ -44,10 +44,22 @@ const pages = [
     category: 'Layout',
   },
   {
+    href: '/playground/heading',
+    title: 'Heading',
+    description: '13 props',
+    category: 'Typography',
+  },
+  {
     href: '/playground/page-header',
     title: 'PageHeader',
     description: '12 props',
     category: 'Layout',
+  },
+  {
+    href: '/playground/select',
+    title: 'Select',
+    description: '29 props',
+    category: 'Controls',
   },
   {
     href: '/playground/text-input',
@@ -90,7 +102,6 @@ export default function PlaygroundIndex() {
                 elevation="small"
                 round="small"
                 style={{ textDecoration: 'none' }}
-                hoverIndicator
               >
                 <CardBody pad="medium" gap="xsmall">
                   <Text

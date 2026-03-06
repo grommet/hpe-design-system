@@ -11,10 +11,8 @@ import {
   Heading,
   Page,
   PageContent,
-  RangeInput,
   Select,
   Text,
-  TextArea,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
@@ -76,62 +74,23 @@ function parseEnumOptions(enumValues) {
 
 // --- control type helpers ---
 
-const SKIP_TYPES = ['function'];
+// skip functions, objects (too complex), raw array type
+// (options is array but handled specially below)
+const SKIP_TYPES = ['function', 'object', 'array'];
 
-// --- child type picker ---
+// Props handled via special-case controls — excluded from
+// the generic CSV-driven loop
+const SPECIAL_PROPS = ['options', 'size', 'dropHeight'];
 
-const CHILD_TYPES = [
-  'TextInput',
-  'Select',
-  'CheckBox',
-  'TextArea',
-  'RangeInput',
+const SIZE_OPTIONS = ['', 'small', 'medium', 'large', 'xlarge'];
+const DROP_HEIGHT_OPTIONS = [
+  '',
+  'xsmall',
+  'small',
+  'medium',
+  'large',
+  'xlarge',
 ];
-
-const CHILD_PREVIEW = {
-  TextInput: (
-    <TextInput
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter a value"
-    />
-  ),
-  Select: (
-    <Select
-      id="formfield-preview-input"
-      name="preview"
-      options={['Option 1', 'Option 2', 'Option 3']}
-    />
-  ),
-  CheckBox: (
-    <CheckBox
-      id="formfield-preview-input"
-      name="preview"
-      label="Check me"
-    />
-  ),
-  TextArea: (
-    <TextArea
-      id="formfield-preview-input"
-      name="preview"
-      placeholder="Enter text"
-    />
-  ),
-  RangeInput: (
-    <RangeInput
-      id="formfield-preview-input"
-      name="preview"
-    />
-  ),
-};
-
-const CHILD_IMPORT = {
-  TextInput: 'TextInput',
-  Select: 'Select',
-  CheckBox: 'CheckBox',
-  TextArea: 'TextArea',
-  RangeInput: 'RangeInput',
-};
 
 function isEnum(row) {
   return (
@@ -151,11 +110,24 @@ function getHelpText(row) {
   return undefined;
 }
 
+// Parse comma-separated string into array of trimmed strings
+function parseOptions(str) {
+  if (!str) return [];
+  return str
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
 // --- code generator ---
 
-function generateCode(propValues, childType) {
-  const child = childType || 'TextInput';
-  const lines = ['<FormField'];
+function generateCode(propValues, optionsRaw) {
+  const lines = ['<Select'];
+  const opts = parseOptions(optionsRaw);
+  if (opts.length) {
+    const optStr = opts.map(o => `'${o}'`).join(', ');
+    lines.push(`  options={[${optStr}]}`);
+  }
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
@@ -166,34 +138,43 @@ function generateCode(propValues, childType) {
         lines.push(`  ${key}="${val}"`);
       }
     });
-  lines.push('>');
-  lines.push(`  <${child} />`);
-  lines.push('</FormField>');
-  const snippet = lines.join('\n');
-  const imp = CHILD_IMPORT[child];
-  return (
-    `import { FormField, ${imp} } from 'grommet';\n\n${snippet}`
-  );
+  lines.push('/>');
+  return `import { Select } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function FormFieldPlayground({ rows }) {
-  const [childType, setChildType] = useState('TextInput');
+export default function SelectPlayground({ rows }) {
+  const [optionsRaw, setOptionsRaw] = useState(
+    'Option 1, Option 2, Option 3',
+  );
   const [propValues, setPropValues] = useState(() => {
     const s = {};
-    rows.forEach(row => {
-      if (SKIP_TYPES.includes(row.normalizedPropType)) return;
-      s[row.prop] =
-        row.normalizedPropType === 'boolean' ? false : '';
-    });
-    s.label = 'Field label';
+    rows
+      .filter(
+        row =>
+          !SKIP_TYPES.includes(row.normalizedPropType) &&
+          !SPECIAL_PROPS.includes(row.prop),
+      )
+      .forEach(row => {
+        s[row.prop] =
+          row.normalizedPropType === 'boolean' ? false : '';
+      });
+    s.placeholder = 'Select an option';
     return s;
   });
 
   const updateProp = (prop, value) => {
     setPropValues(prev => ({ ...prev, [prop]: value }));
   };
+
+  const previewOptions = useMemo(
+    () => parseOptions(optionsRaw),
+    [optionsRaw],
+  );
+
+  // Select needs its own value state for the preview
+  const [selectedValue, setSelectedValue] = useState('');
 
   const previewProps = useMemo(() => {
     const p = {};
@@ -205,18 +186,20 @@ export default function FormFieldPlayground({ rows }) {
   }, [propValues]);
 
   const code = useMemo(
-    () => generateCode(propValues, childType),
-    [propValues, childType],
+    () => generateCode(propValues, optionsRaw),
+    [propValues, optionsRaw],
   );
 
   const visibleRows = rows.filter(
-    row => !SKIP_TYPES.includes(row.normalizedPropType),
+    row =>
+      !SKIP_TYPES.includes(row.normalizedPropType) &&
+      !SPECIAL_PROPS.includes(row.prop),
   );
 
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        FormField
+        Select
       </Heading>
       <Text
         size="small"
@@ -226,22 +209,57 @@ export default function FormFieldPlayground({ rows }) {
         Configure the component with available props.
       </Text>
 
-      {/* child type picker — synthetic, not a FormField prop */}
+      {/* options — comma-separated */}
       <FormField
-        label="child input type"
-        name="_childType"
-        htmlFor="formfield-childType"
-        help="The input component rendered inside FormField"
+        label="options"
+        name="options"
+        htmlFor="select-options"
+        help="Comma-separated list of option values"
       >
-        <Select
-          id="formfield-childType"
-          name="_childType"
-          options={CHILD_TYPES}
-          value={childType}
-          onChange={({ value: v }) => setChildType(v)}
+        <TextInput
+          id="select-options"
+          name="options"
+          value={optionsRaw}
+          placeholder="Option 1, Option 2, Option 3"
+          onChange={e => setOptionsRaw(e.target.value)}
         />
       </FormField>
 
+      {/* size */}
+      <FormField
+        label="size"
+        name="size"
+        htmlFor="select-size"
+      >
+        <Select
+          id="select-size"
+          name="size"
+          options={SIZE_OPTIONS}
+          value={propValues.size ?? ''}
+          placeholder="— none —"
+          onChange={({ value: v }) => updateProp('size', v)}
+        />
+      </FormField>
+
+      {/* dropHeight */}
+      <FormField
+        label="dropHeight"
+        name="dropHeight"
+        htmlFor="select-dropHeight"
+      >
+        <Select
+          id="select-dropHeight"
+          name="dropHeight"
+          options={DROP_HEIGHT_OPTIONS}
+          value={propValues.dropHeight ?? ''}
+          placeholder="— none —"
+          onChange={({ value: v }) =>
+            updateProp('dropHeight', v)
+          }
+        />
+      </FormField>
+
+      {/* CSV-driven props */}
       {visibleRows.map(row => {
         const { prop, normalizedPropType, enumValues } = row;
         const value = propValues[prop];
@@ -250,31 +268,38 @@ export default function FormFieldPlayground({ rows }) {
           return (
             <CheckBox
               key={prop}
-              id={`formfield-${prop}`}
+              id={`select-${prop}`}
               name={prop}
               label={prop}
               checked={value}
-              onChange={e => updateProp(prop, e.target.checked)}
+              onChange={e =>
+                updateProp(prop, e.target.checked)
+              }
             />
           );
         }
 
         if (isEnum(row)) {
-          const options = ['', ...parseEnumOptions(enumValues)];
+          const options = [
+            '',
+            ...parseEnumOptions(enumValues),
+          ];
           return (
             <FormField
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`formfield-${prop}`}
+              htmlFor={`select-${prop}`}
             >
               <Select
-                id={`formfield-${prop}`}
+                id={`select-${prop}`}
                 name={prop}
                 options={options}
                 value={value}
                 placeholder="— none —"
-                onChange={({ value: v }) => updateProp(prop, v)}
+                onChange={({ value: v }) =>
+                  updateProp(prop, v)
+                }
               />
             </FormField>
           );
@@ -285,15 +310,17 @@ export default function FormFieldPlayground({ rows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`formfield-${prop}`}
+            htmlFor={`select-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`formfield-${prop}`}
+              id={`select-${prop}`}
               name={prop}
               value={value}
               placeholder={prop}
-              onChange={e => updateProp(prop, e.target.value)}
+              onChange={e =>
+                updateProp(prop, e.target.value)
+              }
             />
           </FormField>
         );
@@ -302,15 +329,14 @@ export default function FormFieldPlayground({ rows }) {
   );
 
   const preview = (
-    <Box fill pad="medium" align="center" justify="center">
+    <Box fill align="center" justify="center" pad="large">
       <Box width="medium">
-        <FormField
-          htmlFor="formfield-preview-input"
-          name="preview"
+        <Select
+          options={previewOptions}
+          value={selectedValue}
+          onChange={({ value: v }) => setSelectedValue(v)}
           {...previewProps}
-        >
-          {CHILD_PREVIEW[childType]}
-        </FormField>
+        />
       </Box>
     </Box>
   );
@@ -320,11 +346,11 @@ export default function FormFieldPlayground({ rows }) {
       <Page>
         <PageContent>
           <Heading level={2} margin={{ bottom: 'small' }}>
-            FormField playground
+            Select playground
           </Heading>
           <Box height="large">
             <PlaygroundShell
-              componentName="FormField"
+              componentName="Select"
               preview={preview}
               controls={controls}
               code={code}
@@ -336,7 +362,7 @@ export default function FormFieldPlayground({ rows }) {
   );
 }
 
-FormFieldPlayground.getLayout = page => page;
+SelectPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -352,7 +378,7 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'FormField')
+    .filter(row => row.component === 'Select')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   return { props: { rows } };
 }
