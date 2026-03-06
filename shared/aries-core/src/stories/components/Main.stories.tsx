@@ -17,7 +17,10 @@ const meta = {
   component: Main,
   argTypes: {
     pad: padArg,
-    background: backgroundArg,
+    background: {
+      control: { type: 'select' },
+      options: ['background-back', 'background-default'],
+    },
     align: alignArg,
     border: borderArg,
     gap: gapArg,

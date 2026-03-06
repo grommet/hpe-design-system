@@ -7,9 +7,11 @@ const meta = {
   title: 'Components/Tag',
   component: Tag,
   argTypes: {
-    background: backgroundArg,
     name: labelArg,
-    size: textSizesArg,
+    size: {
+      control: { type: 'select' },
+      options: ['xsmall', 'small']
+    },
     value: labelArg,
   },
 } satisfies Meta<typeof Tag>;

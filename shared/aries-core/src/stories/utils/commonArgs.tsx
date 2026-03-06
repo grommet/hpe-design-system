@@ -29,10 +29,6 @@ export const spacingSizes: string[] = Object.keys(
   (hpe as ThemeType).global?.edgeSize ?? {},
 ).filter(key => !['responsiveBreakpoint'].includes(key));
 
-export const tShirtSizes: string[] = Object.keys(
-  (hpe as ThemeType).button?.size ?? {},
-);
-
 export const textSizes: string[] = Object.keys(
   (hpe as ThemeType).text ?? {},
 ).filter(key => !['extend', 'skeleton'].includes(key));
@@ -83,7 +79,7 @@ export const dropAlignArg: ArgType = {
 
 export const elevationArg: ArgType = {
   control: { type: 'select' },
-  options: tShirtSizes,
+  options: ['small', 'medium', 'large'],
 };
 
 export const fillArg: ArgType = {
