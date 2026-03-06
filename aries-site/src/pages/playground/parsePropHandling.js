@@ -33,3 +33,9 @@ export function parsePropHandlingSection(mdText, componentName) {
     return { prop, csvType, handling, rationale };
   });
 }
+
+// Next.js requires a default export from every file in pages/.
+// This file is a utility module — the default export is intentionally empty.
+export default function parsePropHandling() {
+  return null;
+}
