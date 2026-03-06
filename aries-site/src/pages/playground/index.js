@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Anchor,
   Card,
   CardBody,
   Grommet,
@@ -21,6 +20,12 @@ const pages = [
     category: 'Controls',
   },
   {
+    href: '/playground/box',
+    title: 'Box',
+    description: '31 props',
+    category: 'Layout',
+  },
+  {
     href: '/playground/button',
     title: 'Button',
     description: '31 props',
@@ -31,6 +36,12 @@ const pages = [
     title: 'FormField',
     description: '15 props',
     category: 'Input',
+  },
+  {
+    href: '/playground/grid',
+    title: 'Grid',
+    description: '17 props',
+    category: 'Layout',
   },
   {
     href: '/playground/page-header',
@@ -73,9 +84,13 @@ export default function PlaygroundIndex() {
             {pages.map(({ href, title, description, category }) => (
               <Card
                 key={href}
+                tag="a"
+                href={href}
                 background="background-front"
                 elevation="small"
                 round="small"
+                style={{ textDecoration: 'none' }}
+                hoverIndicator
               >
                 <CardBody pad="medium" gap="xsmall">
                   <Text
@@ -90,7 +105,7 @@ export default function PlaygroundIndex() {
                     size="small"
                     margin="none"
                   >
-                    <Anchor href={href}>{title}</Anchor>
+                    {title}
                   </Heading>
                   <Text size="small" color="text-weak">
                     {description}
