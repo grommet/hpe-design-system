@@ -7,7 +7,6 @@ const meta = {
   title: 'Components/MaskedInput',
   component: MaskedInput,
   argTypes: {
-    dropHeight: heightArg,
     icon: iconArg,
     mask: {
       control: { type: 'object' },
@@ -25,7 +24,6 @@ export const Default = {
   name: 'MaskedInput',
   render: args => <MaskedInput {...args} />,
   args: {
-    dropHeight: undefined,
     icon: undefined,
     mask: [
       {
