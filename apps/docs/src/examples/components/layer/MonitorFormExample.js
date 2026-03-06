@@ -11,7 +11,7 @@ import {
   Select,
 } from 'grommet';
 import { TextEmphasis } from '@shared/aries-core';
-import { useConfirmation } from './components';
+import { useConfirmation } from '@shared/hooks';
 
 const options = ['Any', 'None', 'Any Scheduled'];
 

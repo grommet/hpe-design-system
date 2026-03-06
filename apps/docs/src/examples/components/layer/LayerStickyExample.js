@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Box, Layer, ResponsiveContext } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
-import { MonitorFormExample } from './MonitorFormExample';
 import {
-  DoubleConfirmation,
   ConfirmationProvider,
   ConfirmationContext,
   useConfirmation,
-} from './components';
+} from '@shared/hooks';
+import { MonitorFormExample } from './MonitorFormExample';
+import { DoubleConfirmation } from '../../templates';
 
 export const LayerStickyExample = ({ sticky = true }) => (
   <ConfirmationProvider>

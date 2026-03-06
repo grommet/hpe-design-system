@@ -1,10 +1,26 @@
 import { createContext, useContext, useEffect, useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import type { ReactNode } from 'react';
 import { AnnounceContext } from 'grommet';
 
-const ConfirmationContext = createContext({});
+// Define the shape of the context
+interface ConfirmationContextValue {
+  showConfirmation: boolean;
+  setShowConfirmation: (show: boolean) => void;
+  showLayer: boolean;
+  setShowLayer: (show: boolean) => void;
+  touched: boolean;
+  setTouched: (touched: boolean) => void;
+}
 
-const ConfirmationProvider = ({ children }) => {
+const ConfirmationContext = createContext<ConfirmationContextValue | undefined>(
+  undefined,
+);
+
+export const ConfirmationProvider = ({
+  children,
+}: {
+  children?: ReactNode;
+}) => {
   const [touched, setTouched] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showLayer, setShowLayer] = useState(false);
@@ -18,14 +34,7 @@ const ConfirmationProvider = ({ children }) => {
       touched,
       setTouched,
     }),
-    [
-      showConfirmation,
-      setShowConfirmation,
-      showLayer,
-      setShowLayer,
-      touched,
-      setTouched,
-    ],
+    [showConfirmation, showLayer, touched],
   );
 
   return (
@@ -35,12 +44,16 @@ const ConfirmationProvider = ({ children }) => {
   );
 };
 
-ConfirmationProvider.propTypes = {
-  children: PropTypes.node,
-};
-
-const useConfirmation = () => {
+export const useConfirmation = () => {
   const context = useContext(ConfirmationContext);
+  const announce = useContext(AnnounceContext);
+
+  if (context === undefined) {
+    throw new Error(
+      'useConfirmation must be used within a ConfirmationProvider',
+    );
+  }
+
   const {
     showConfirmation,
     setShowConfirmation,
@@ -49,12 +62,6 @@ const useConfirmation = () => {
     touched,
     setTouched,
   } = context;
-
-  if (context === undefined) {
-    throw new Error(
-      'useConfirmation must be used within a ConfirmationProvider',
-    );
-  }
 
   useEffect(() => {
     if (!showConfirmation && !showLayer) setTouched(false);
@@ -69,15 +76,16 @@ const useConfirmation = () => {
     setShowLayer(false);
   };
 
-  const announce = useContext(AnnounceContext);
-
   const onClose = () => {
     if (touched) {
       setShowConfirmation(true);
-      announce('Discard changes confirmation modal opened.', 'assertive');
+      // added time=0 since it is required argument for the component
+      // and typescript requires it to transpile into .js
+      announce('Discard changes confirmation modal opened.', 'assertive', 0);
     } else {
       setShowLayer(false);
-      announce('Modal closed.', 'assertive');
+      // same as above
+      announce('Modal closed.', 'assertive', 0);
     }
   };
 
@@ -89,4 +97,4 @@ const useConfirmation = () => {
   };
 };
 
-export { ConfirmationContext, ConfirmationProvider, useConfirmation };
+export { ConfirmationContext };
