@@ -158,7 +158,7 @@ export const ListScreenExample = ({ ...rest }) => (
   <Box {...rest}>
     <AppHeaderExample />
     <Main>
-      <Page pad={{ bottom: 'xlarge' }} flex={false}>
+      <Page pad={{ bottom: '3xlarge' }} flex={false}>
         <PageContent>
           <PageHeader
             title="User controls"
