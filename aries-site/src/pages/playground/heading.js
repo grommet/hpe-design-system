@@ -3,6 +3,7 @@ import React, { useState, useMemo } from 'react';
 import fs from 'fs';
 import path from 'path';
 import {
+  Anchor,
   Box,
   CheckBox,
   Form,
@@ -11,12 +12,15 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Select,
   Text,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
+import { Left } from '@hpe-design/icons-grommet';
 import { PlaygroundShell } from './PlaygroundShell';
+import { parsePropHandlingSection } from './parsePropHandling';
 
 // --- CSV parser (handles quoted fields) ---
 
@@ -128,7 +132,7 @@ function generateCode(propValues) {
 
 // --- page component ---
 
-export default function HeadingPlayground({ rows }) {
+export default function HeadingPlayground({ rows, propHandlingRows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
@@ -317,15 +321,19 @@ export default function HeadingPlayground({ rows }) {
     <Grommet theme={hpe} full>
       <Page>
         <PageContent>
-          <Heading level={2} margin={{ bottom: 'small' }}>
-            Heading playground
-          </Heading>
+          <PageHeader
+            title="Heading"
+            parent={
+              <Anchor icon={<Left />} href="/playground" label="Index" />
+            }
+          />
           <Box height="large">
             <PlaygroundShell
               componentName="Heading"
               preview={preview}
               controls={controls}
               code={code}
+              propHandlingRows={propHandlingRows}
             />
           </Box>
         </PageContent>
@@ -352,5 +360,12 @@ export async function getStaticProps() {
   const rows = allRows
     .filter(row => row.component === 'Heading')
     .sort((a, b) => a.prop.localeCompare(b.prop));
-  return { props: { rows } };
+  const mdPath = path.join(
+    process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
+  );
+  const mdText = fs.readFileSync(mdPath, 'utf8');
+  const propHandlingRows = parsePropHandlingSection(
+    mdText, 'Heading',
+  );
+  return { props: { rows, propHandlingRows } };
 }

@@ -3,6 +3,7 @@ import React, { useState, useMemo } from 'react';
 import fs from 'fs';
 import path from 'path';
 import {
+  Anchor,
   Box,
   CheckBox,
   Form,
@@ -11,6 +12,7 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   RangeInput,
   Select,
   Text,
@@ -18,7 +20,9 @@ import {
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
+import { Left } from '@hpe-design/icons-grommet';
 import { PlaygroundShell } from './PlaygroundShell';
+import { parsePropHandlingSection } from './parsePropHandling';
 
 // --- CSV parser (handles quoted fields) ---
 
@@ -178,7 +182,7 @@ function generateCode(propValues, childType) {
 
 // --- page component ---
 
-export default function FormFieldPlayground({ rows }) {
+export default function FormFieldPlayground({ rows, propHandlingRows }) {
   const [childType, setChildType] = useState('TextInput');
   const [propValues, setPropValues] = useState(() => {
     const s = {};
@@ -319,15 +323,19 @@ export default function FormFieldPlayground({ rows }) {
     <Grommet theme={hpe} full>
       <Page>
         <PageContent>
-          <Heading level={2} margin={{ bottom: 'small' }}>
-            FormField playground
-          </Heading>
+          <PageHeader
+            title="FormField"
+            parent={
+              <Anchor icon={<Left />} href="/playground" label="Index" />
+            }
+          />
           <Box height="large">
             <PlaygroundShell
               componentName="FormField"
               preview={preview}
               controls={controls}
               code={code}
+              propHandlingRows={propHandlingRows}
             />
           </Box>
         </PageContent>
@@ -354,5 +362,12 @@ export async function getStaticProps() {
   const rows = allRows
     .filter(row => row.component === 'FormField')
     .sort((a, b) => a.prop.localeCompare(b.prop));
-  return { props: { rows } };
+  const mdPath = path.join(
+    process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
+  );
+  const mdText = fs.readFileSync(mdPath, 'utf8');
+  const propHandlingRows = parsePropHandlingSection(
+    mdText, 'FormField',
+  );
+  return { props: { rows, propHandlingRows } };
 }

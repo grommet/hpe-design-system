@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Box, Button, Grid, Grommet, Layer, Text } from 'grommet';
 import { Copy, Mode } from '@hpe-design/icons-grommet';
 import { hpe } from 'grommet-theme-hpe';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism';
+import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 // Container width breakpoints (px)
 const STACK_BREAKPOINT = 600;
@@ -13,12 +15,14 @@ export const PlaygroundShell = ({
   preview,
   controls,
   code,
+  propHandlingRows,
 }) => {
   const containerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(0);
   const [previewDark, setPreviewDark] = useState(false);
   const [copied, setCopied] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
+  const [activePanel, setActivePanel] = useState('code');
 
   useEffect(() => {
     const el = containerRef.current;
@@ -69,6 +73,7 @@ export const PlaygroundShell = ({
   const grid = (
     <Grid
       ref={containerRef}
+      aria-label={`${componentName} playground`}
       fill
       rows={gridRows}
       columns={gridColumns}
@@ -142,42 +147,154 @@ export const PlaygroundShell = ({
         {controls}
       </Box>
 
-      {/* Code zone */}
+      {/* Code / Props panel */}
       <Box
         gridArea="code"
-        as="pre"
         margin="small"
         round="xsmall"
-        pad="small"
         background="dark-1"
-        overflow="auto"
         border={{ side: 'top', color: 'border' }}
-        style={{ minHeight: 0, minWidth: 0 }}
+        style={{
+          minHeight: 0,
+          minWidth: 0,
+          display: 'flex',
+          flexDirection: 'column',
+        }}
       >
+        {/* Tab bar */}
         <Box
           direction="row"
           align="center"
           justify="between"
-          margin={{ bottom: 'xsmall' }}
+          pad={{ horizontal: 'small', top: 'small', bottom: 'xsmall' }}
+          border={{ side: 'bottom', color: 'dark-4' }}
+          flex={false}
         >
-          <Text size="small" color="light-3" weight="bold">
-            {componentName} — code snippet
-          </Text>
-          <Button
-            icon={<Copy size="small" color="light-3" />}
-            tip={copied ? 'Copied!' : 'Copy to clipboard'}
-            plain
-            onClick={handleCopy}
-            a11yTitle="Copy code to clipboard"
-          />
+          <Box direction="row" gap="xsmall">
+            <Button
+              label="Code"
+              size="small"
+              primary={activePanel === 'code'}
+              plain={activePanel !== 'code'}
+              onClick={() => setActivePanel('code')}
+              style={{
+                color: activePanel === 'code' ? undefined : '#bbb',
+                fontWeight: activePanel === 'code' ? 'bold' : 'normal',
+              }}
+            />
+            {propHandlingRows && propHandlingRows.length > 0 && (
+              <Button
+                label="Props"
+                size="small"
+                primary={activePanel === 'props'}
+                plain={activePanel !== 'props'}
+                onClick={() => setActivePanel('props')}
+                style={{
+                  color: activePanel === 'props' ? undefined : '#bbb',
+                  fontWeight:
+                    activePanel === 'props' ? 'bold' : 'normal',
+                }}
+              />
+            )}
+          </Box>
+          {activePanel === 'code' && (
+            <Button
+              icon={<Copy size="small" color="light-3" />}
+              tip={copied ? 'Copied!' : 'Copy to clipboard'}
+              plain
+              onClick={handleCopy}
+              a11yTitle="Copy code to clipboard"
+            />
+          )}
         </Box>
-        <Text
-          size="xsmall"
-          color="light-1"
-          style={{ fontFamily: 'monospace', whiteSpace: 'pre' }}
-        >
-          {code}
-        </Text>
+
+        {/* Code view */}
+        {activePanel === 'code' && (
+          <Box overflow="auto" flex>
+            <SyntaxHighlighter
+              language="jsx"
+              style={oneDark}
+              customStyle={{
+                margin: 0,
+                background: 'transparent',
+                fontSize: '12px',
+                lineHeight: '1.6',
+                padding: '8px 12px 12px',
+              }}
+            >
+              {code}
+            </SyntaxHighlighter>
+          </Box>
+        )}
+
+        {/* Prop handling view */}
+        {activePanel === 'props' && (
+          <Box overflow="auto" flex>
+            {/* Header row */}
+            <Box
+              direction="row"
+              pad={{ horizontal: 'small', vertical: 'xsmall' }}
+              border={{ side: 'bottom', color: 'dark-4' }}
+              flex={false}
+            >
+              <Box width="xsmall">
+                <Text size="xsmall" color="light-4" weight="bold">
+                  prop
+                </Text>
+              </Box>
+              <Box width="xsmall">
+                <Text size="xsmall" color="light-4" weight="bold">
+                  type
+                </Text>
+              </Box>
+              <Box width="medium">
+                <Text size="xsmall" color="light-4" weight="bold">
+                  handling
+                </Text>
+              </Box>
+              <Box flex>
+                <Text size="xsmall" color="light-4" weight="bold">
+                  rationale
+                </Text>
+              </Box>
+            </Box>
+            {(propHandlingRows || []).map((row, i) => (
+              <Box
+                key={row.prop}
+                direction="row"
+                pad={{ horizontal: 'small', vertical: 'xxsmall' }}
+                background={i % 2 === 0 ? 'dark-1' : 'dark-2'}
+                border={{ side: 'bottom', color: 'dark-4' }}
+                flex={false}
+              >
+                <Box width="xsmall">
+                  <Text
+                    size="xsmall"
+                    color="light-1"
+                    style={{ fontFamily: 'monospace' }}
+                  >
+                    {row.prop}
+                  </Text>
+                </Box>
+                <Box width="xsmall">
+                  <Text size="xsmall" color="accent-4">
+                    {row.csvType}
+                  </Text>
+                </Box>
+                <Box width="medium">
+                  <Text size="xsmall" color="accent-2">
+                    {row.handling}
+                  </Text>
+                </Box>
+                <Box flex>
+                  <Text size="xsmall" color="light-4">
+                    {row.rationale}
+                  </Text>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        )}
       </Box>
     </Grid>
   );
@@ -200,6 +317,18 @@ PlaygroundShell.propTypes = {
   preview: PropTypes.node.isRequired,
   controls: PropTypes.node.isRequired,
   code: PropTypes.string.isRequired,
+  propHandlingRows: PropTypes.arrayOf(
+    PropTypes.shape({
+      prop: PropTypes.string,
+      csvType: PropTypes.string,
+      handling: PropTypes.string,
+      rationale: PropTypes.string,
+    }),
+  ),
+};
+
+PlaygroundShell.defaultProps = {
+  propHandlingRows: [],
 };
 
 export default PlaygroundShell;

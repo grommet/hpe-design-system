@@ -3,7 +3,9 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 import { hpe } from 'grommet-theme-hpe';
+import { Left } from '@hpe-design/icons-grommet';
 import {
+  Anchor,
   Box,
   CheckBoxGroup,
   Data,
@@ -17,7 +19,7 @@ import {
   Notification,
   Page,
   PageContent,
-  Heading,
+  PageHeader,
   Pagination,
   Text,
   Tip,
@@ -285,6 +287,10 @@ const DataPager = () => (
 );
 
 export default function PropsExplorer({ rows }) {
+  const componentCount = new Set(rows.map(r => r.component)).size;
+  const subtitle =
+    `${rows.length} props across ${componentCount} components. ` +
+    'Source: grommet-props.csv';
   return (
     <Grommet theme={hpe} full>
       <Notification
@@ -297,16 +303,14 @@ export default function PropsExplorer({ rows }) {
       />
     <Page>
       <PageContent gap="medium" pad={{ vertical: 'large' }}>
-        <Box gap="xsmall">
-          <Heading id="prop-explorer-heading" level={2} margin="none">
-            Grommet prop explorer
-          </Heading>
-          <Text color="text-weak">
-            {rows.length} props across{' '}
-            {new Set(rows.map(r => r.component)).size} components.
-            Source: grommet-props.csv
-          </Text>
-        </Box>
+        <PageHeader
+          id="prop-explorer-heading"
+          title="Grommet prop explorer"
+          subtitle={subtitle}
+          parent={
+            <Anchor icon={<Left />} href="/playground" label="Index" />
+          }
+        />
 
         <Data
           data={rows}
@@ -356,9 +360,9 @@ export default function PropsExplorer({ rows }) {
           <DataSummary />
           <Box overflow="auto">
             <DataTable
+              aria-describedby="prop-explorer-heading"
               columns={columns}
               sortable
-              aria-describedby="prop-explorer-heading"
             />
           </Box>
           <DataPager />

@@ -3,6 +3,7 @@ import React, { useState, useMemo } from 'react';
 import fs from 'fs';
 import path from 'path';
 import {
+  Anchor,
   Box,
   CheckBox,
   Form,
@@ -11,12 +12,15 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Select,
   Text,
   TextInput,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
+import { Left } from '@hpe-design/icons-grommet';
 import { PlaygroundShell } from './PlaygroundShell';
+import { parsePropHandlingSection } from './parsePropHandling';
 
 // --- CSV parser (handles quoted fields) ---
 
@@ -144,7 +148,7 @@ function generateCode(propValues, optionsRaw) {
 
 // --- page component ---
 
-export default function SelectPlayground({ rows }) {
+export default function SelectPlayground({ rows, propHandlingRows }) {
   const [optionsRaw, setOptionsRaw] = useState(
     'Option 1, Option 2, Option 3',
   );
@@ -345,15 +349,19 @@ export default function SelectPlayground({ rows }) {
     <Grommet theme={hpe} full>
       <Page>
         <PageContent>
-          <Heading level={2} margin={{ bottom: 'small' }}>
-            Select playground
-          </Heading>
+          <PageHeader
+            title="Select"
+            parent={
+              <Anchor icon={<Left />} href="/playground" label="Index" />
+            }
+          />
           <Box height="large">
             <PlaygroundShell
               componentName="Select"
               preview={preview}
               controls={controls}
               code={code}
+              propHandlingRows={propHandlingRows}
             />
           </Box>
         </PageContent>
@@ -380,5 +388,10 @@ export async function getStaticProps() {
   const rows = allRows
     .filter(row => row.component === 'Select')
     .sort((a, b) => a.prop.localeCompare(b.prop));
-  return { props: { rows } };
+  const mdPath = path.join(
+    process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
+  );
+  const mdText = fs.readFileSync(mdPath, 'utf8');
+  const propHandlingRows = parsePropHandlingSection(mdText, 'Select');
+  return { props: { rows, propHandlingRows } };
 }

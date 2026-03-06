@@ -3,6 +3,7 @@ import React, { useState, useMemo } from 'react';
 import fs from 'fs';
 import path from 'path';
 import {
+  Anchor,
   Box,
   Button,
   CheckBox,
@@ -12,6 +13,7 @@ import {
   Heading,
   Page,
   PageContent,
+  PageHeader,
   Select,
   Text,
   TextInput,
@@ -21,6 +23,7 @@ import {
   Add,
   Edit,
   Filter,
+  Left,
   Notification,
   Refresh,
   Search,
@@ -28,6 +31,7 @@ import {
   Trash,
 } from '@hpe-design/icons-grommet';
 import { PlaygroundShell } from './PlaygroundShell';
+import { parsePropHandlingSection } from './parsePropHandling';
 
 // --- CSV parser (handles quoted fields) ---
 
@@ -141,7 +145,7 @@ function generateCode(propValues) {
 
 // --- page component ---
 
-export default function ButtonPlayground({ rows }) {
+export default function ButtonPlayground({ rows, propHandlingRows }) {
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
@@ -289,15 +293,19 @@ export default function ButtonPlayground({ rows }) {
     <Grommet theme={hpe} full>
       <Page>
         <PageContent>
-          <Heading level={2} margin={{ bottom: 'small' }}>
-            Button playground
-          </Heading>
+          <PageHeader
+            title="Button"
+            parent={
+              <Anchor icon={<Left />} href="/playground" label="Index" />
+            }
+          />
           <Box height="large">
             <PlaygroundShell
               componentName="Button"
               preview={preview}
               controls={controls}
               code={code}
+              propHandlingRows={propHandlingRows}
             />
           </Box>
         </PageContent>
@@ -324,5 +332,10 @@ export async function getStaticProps() {
   const rows = allRows
     .filter(row => row.component === 'Button')
     .sort((a, b) => a.prop.localeCompare(b.prop));
-  return { props: { rows } };
+  const mdPath = path.join(
+    process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
+  );
+  const mdText = fs.readFileSync(mdPath, 'utf8');
+  const propHandlingRows = parsePropHandlingSection(mdText, 'Button');
+  return { props: { rows, propHandlingRows } };
 }

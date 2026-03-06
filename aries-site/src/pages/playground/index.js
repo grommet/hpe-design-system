@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import {
+  Box,
   Card,
   CardBody,
   Grommet,
@@ -9,6 +10,7 @@ import {
   PageContent,
   PageHeader,
   Text,
+  ToggleGroup,
 } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 
@@ -18,6 +20,12 @@ const pages = [
     title: 'Anchor',
     description: '15 props',
     category: 'Controls',
+  },
+  {
+    href: '/playground/checkbox',
+    title: 'CheckBox',
+    description: '8 props',
+    category: 'Input',
   },
   {
     href: '/playground/box',
@@ -56,6 +64,18 @@ const pages = [
     category: 'Layout',
   },
   {
+    href: '/playground/radio-button',
+    title: 'RadioButton',
+    description: '6 props',
+    category: 'Input',
+  },
+  {
+    href: '/playground/radio-button-group',
+    title: 'RadioButtonGroup',
+    description: '4 props',
+    category: 'Input',
+  },
+  {
     href: '/playground/select',
     title: 'Select',
     description: '29 props',
@@ -76,6 +96,48 @@ const pages = [
 ];
 
 export default function PlaygroundIndex() {
+  // Derive filterable categories (exclude Tools)
+  const filterCategories = useMemo(() => {
+    const cats = [
+      ...new Set(
+        pages
+          .filter(p => p.category !== 'Tools')
+          .map(p => p.category),
+      ),
+    ];
+    return cats;
+  }, []);
+
+  const [activeFilters, setActiveFilters] = useState(
+    () => filterCategories,
+  );
+
+  const toggleGroupOptions = useMemo(
+    () =>
+      filterCategories.map(cat => ({
+        label: `${cat} (${
+          pages.filter(p => p.category === cat).length
+        })`,
+        value: cat,
+      })),
+    [filterCategories],
+  );
+
+  const handleToggle = ({ value }) => {
+    // prevent deselecting all
+    if (value.length > 0) setActiveFilters(value);
+  };
+
+  const visiblePages = useMemo(
+    () =>
+      pages.filter(
+        p =>
+          p.category === 'Tools' ||
+          activeFilters.includes(p.category),
+      ),
+    [activeFilters],
+  );
+
   return (
     <Grommet theme={hpe} full>
       <Page>
@@ -87,43 +149,53 @@ export default function PlaygroundIndex() {
               'grommet-props.csv, functions skipped, unions and ' +
               'objects shown with help text.'
             }
-            pad={{ bottom: 'medium' }}
           />
+          {/* Category filter toggles */}
+          <Box margin={{ bottom: 'medium' }}>
+            <ToggleGroup
+              multiple
+              options={toggleGroupOptions}
+              value={activeFilters}
+              onToggle={handleToggle}
+            />
+          </Box>
           <Grid
             columns={{ count: 'fill', size: 'small' }}
             gap="medium"
           >
-            {pages.map(({ href, title, description, category }) => (
-              <Card
-                key={href}
-                tag="a"
-                href={href}
-                background="background-front"
-                elevation="small"
-                round="small"
-                style={{ textDecoration: 'none' }}
-              >
-                <CardBody pad="medium" gap="xsmall">
-                  <Text
-                    size="xsmall"
-                    color="text-weak"
-                    weight="bold"
-                  >
-                    {category.toUpperCase()}
-                  </Text>
-                  <Heading
-                    level={3}
-                    size="small"
-                    margin="none"
-                  >
-                    {title}
-                  </Heading>
-                  <Text size="small" color="text-weak">
-                    {description}
-                  </Text>
-                </CardBody>
-              </Card>
-            ))}
+            {visiblePages.map(
+              ({ href, title, description, category }) => (
+                <Card
+                  key={href}
+                  tag="a"
+                  href={href}
+                  background="background-front"
+                  elevation="small"
+                  round="small"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <CardBody pad="medium" gap="xsmall">
+                    <Text
+                      size="xsmall"
+                      color="text-weak"
+                      weight="bold"
+                    >
+                      {category.toUpperCase()}
+                    </Text>
+                    <Heading
+                      level={3}
+                      size="small"
+                      margin="none"
+                    >
+                      {title}
+                    </Heading>
+                    <Text size="small" color="text-weak">
+                      {description}
+                    </Text>
+                  </CardBody>
+                </Card>
+              ),
+            )}
           </Grid>
         </PageContent>
       </Page>

@@ -13,7 +13,7 @@ import {
   Page,
   PageContent,
   PageHeader,
-  Select,
+  RadioButton,
   Text,
   TextInput,
 } from 'grommet';
@@ -66,26 +66,11 @@ function parseCsv(text) {
   });
 }
 
-// --- enum option parser ---
-
-function parseEnumOptions(enumValues) {
-  if (!enumValues) return [];
-  return enumValues
-    .split(' | ')
-    .map(v => v.trim().replace(/^["']|["']$/g, ''))
-    .filter(Boolean);
-}
-
 // --- control type helpers ---
 
+// only onChange/children are functions — everything else is configurable
 const SKIP_TYPES = ['function'];
-
-function isEnum(row) {
-  return (
-    row.normalizedPropType === 'enum' &&
-    parseEnumOptions(row.enumValues).length >= 2
-  );
-}
+const SKIP_PROPS = ['onChange', 'children'];
 
 function getHelpText(row) {
   const { normalizedPropType, documentedValues, objectExample } = row;
@@ -101,7 +86,7 @@ function getHelpText(row) {
 // --- code generator ---
 
 function generateCode(propValues) {
-  const lines = ['<Box'];
+  const lines = ['<RadioButton'];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
@@ -112,25 +97,27 @@ function generateCode(propValues) {
         lines.push(`  ${key}="${val}"`);
       }
     });
-  lines.push('>');
-  lines.push('  {/* children */}');
-  lines.push('</Box>');
-  return `import { Box } from 'grommet';\n\n${lines.join('\n')}`;
+  lines.push('/>');
+  return `import { RadioButton } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function BoxPlayground({ rows, propHandlingRows }) {
+export default function RadioButtonPlayground({ rows, propHandlingRows }) {
+  // Preview manages checked state; keep in sync with the checked control
+  const [previewChecked, setPreviewChecked] = useState(false);
+
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
       if (SKIP_TYPES.includes(row.normalizedPropType)) return;
+      if (SKIP_PROPS.includes(row.prop)) return;
       s[row.prop] =
         row.normalizedPropType === 'boolean' ? false : '';
     });
-    s.pad = 'medium';
-    s.direction = 'row';
-    s.gap = 'small';
+    s.label = 'Option A';
+    s.name = 'radio';
+    s.id = 'radiobutton-preview';
     return s;
   });
 
@@ -138,14 +125,25 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
     setPropValues(prev => ({ ...prev, [prop]: value }));
   };
 
+  // Keep checked prop and preview state in sync
+  const updateChecked = val => {
+    setPreviewChecked(val);
+    setPropValues(prev => ({ ...prev, checked: val }));
+  };
+
   const previewProps = useMemo(() => {
     const p = {};
     Object.entries(propValues).forEach(([key, val]) => {
+      // checked and id are passed explicitly to the preview element
+      if (key === 'checked' || key === 'id') return;
       if (val === false || val === '') return;
       p[key] = val;
     });
     return p;
   }, [propValues]);
+
+  // Use the id prop value if set, otherwise fall back to default
+  const previewId = propValues.id || 'radiobutton-preview';
 
   const code = useMemo(
     () => generateCode(propValues),
@@ -153,13 +151,15 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
   );
 
   const visibleRows = rows.filter(
-    row => !SKIP_TYPES.includes(row.normalizedPropType),
+    row =>
+      !SKIP_TYPES.includes(row.normalizedPropType) &&
+      !SKIP_PROPS.includes(row.prop),
   );
 
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        Box
+        RadioButton
       </Heading>
       <Text
         size="small"
@@ -170,40 +170,23 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
       </Text>
 
       {visibleRows.map(row => {
-        const { prop, normalizedPropType, enumValues } = row;
+        const { prop, normalizedPropType } = row;
         const value = propValues[prop];
 
         if (normalizedPropType === 'boolean') {
+          // checked syncs with preview state
+          const handleChange = prop === 'checked'
+            ? e => updateChecked(e.target.checked)
+            : e => updateProp(prop, e.target.checked);
           return (
             <CheckBox
               key={prop}
-              id={`box-${prop}`}
+              id={`radiobutton-ctrl-${prop}`}
               name={prop}
               label={prop}
-              checked={value}
-              onChange={e => updateProp(prop, e.target.checked)}
+              checked={prop === 'checked' ? previewChecked : value}
+              onChange={handleChange}
             />
-          );
-        }
-
-        if (isEnum(row)) {
-          const options = ['', ...parseEnumOptions(enumValues)];
-          return (
-            <FormField
-              key={prop}
-              label={prop}
-              name={prop}
-              htmlFor={`box-${prop}`}
-            >
-              <Select
-                id={`box-${prop}`}
-                name={prop}
-                options={options}
-                value={value}
-                placeholder="— none —"
-                onChange={({ value: v }) => updateProp(prop, v)}
-              />
-            </FormField>
           );
         }
 
@@ -212,11 +195,11 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`box-${prop}`}
+            htmlFor={`radiobutton-ctrl-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`box-${prop}`}
+              id={`radiobutton-ctrl-${prop}`}
               name={prop}
               value={value}
               placeholder={prop}
@@ -229,39 +212,13 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
   );
 
   const preview = (
-    <Box fill align="center" justify="center" pad="medium">
-      <Box
-        border={{ color: 'brand', style: 'dashed' }}
+    <Box fill pad="medium" align="center" justify="center">
+      <RadioButton
+        id={previewId}
+        checked={previewChecked}
+        onChange={e => updateChecked(e.target.checked)}
         {...previewProps}
-      >
-        <Box
-          background="brand"
-          pad="small"
-          round="xsmall"
-          width="xsmall"
-          align="center"
-        >
-          <Text size="small" color="white">Item 1</Text>
-        </Box>
-        <Box
-          background="accent-1"
-          pad="small"
-          round="xsmall"
-          width="xsmall"
-          align="center"
-        >
-          <Text size="small">Item 2</Text>
-        </Box>
-        <Box
-          background="light-4"
-          pad="small"
-          round="xsmall"
-          width="xsmall"
-          align="center"
-        >
-          <Text size="small">Item 3</Text>
-        </Box>
-      </Box>
+      />
     </Box>
   );
 
@@ -270,14 +227,18 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
       <Page>
         <PageContent>
           <PageHeader
-            title="Box"
+            title="RadioButton"
             parent={
-              <Anchor icon={<Left />} href="/playground" label="Index" />
+              <Anchor
+                icon={<Left />}
+                href="/playground"
+                label="Index"
+              />
             }
           />
           <Box height="large">
             <PlaygroundShell
-              componentName="Box"
+              componentName="RadioButton"
               preview={preview}
               controls={controls}
               code={code}
@@ -290,7 +251,7 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
   );
 }
 
-BoxPlayground.getLayout = page => page;
+RadioButtonPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -306,12 +267,14 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'Box')
+    .filter(row => row.component === 'RadioButton')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   const mdPath = path.join(
     process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
   );
   const mdText = fs.readFileSync(mdPath, 'utf8');
-  const propHandlingRows = parsePropHandlingSection(mdText, 'Box');
+  const propHandlingRows = parsePropHandlingSection(
+    mdText, 'RadioButton',
+  );
   return { props: { rows, propHandlingRows } };
 }

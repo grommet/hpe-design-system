@@ -78,7 +78,9 @@ function parseEnumOptions(enumValues) {
 
 // --- control type helpers ---
 
+// checked/onChange/id are managed internally by the preview
 const SKIP_TYPES = ['function'];
+const SKIP_PROPS = ['checked', 'onChange', 'id', 'children'];
 
 function isEnum(row) {
   return (
@@ -101,7 +103,7 @@ function getHelpText(row) {
 // --- code generator ---
 
 function generateCode(propValues) {
-  const lines = ['<Box'];
+  const lines = ['<CheckBox'];
   Object.entries(propValues)
     .filter(([, v]) => v !== false && v !== '')
     .sort(([a], [b]) => a.localeCompare(b))
@@ -112,25 +114,26 @@ function generateCode(propValues) {
         lines.push(`  ${key}="${val}"`);
       }
     });
-  lines.push('>');
-  lines.push('  {/* children */}');
-  lines.push('</Box>');
-  return `import { Box } from 'grommet';\n\n${lines.join('\n')}`;
+  lines.push('/>');
+  return `import { CheckBox } from 'grommet';\n\n${lines.join('\n')}`;
 }
 
 // --- page component ---
 
-export default function BoxPlayground({ rows, propHandlingRows }) {
+export default function CheckBoxPlayground({ rows, propHandlingRows }) {
+  // Preview manages its own checked state so the component is interactive
+  const [previewChecked, setPreviewChecked] = useState(false);
+
   const [propValues, setPropValues] = useState(() => {
     const s = {};
     rows.forEach(row => {
       if (SKIP_TYPES.includes(row.normalizedPropType)) return;
+      if (SKIP_PROPS.includes(row.prop)) return;
       s[row.prop] =
         row.normalizedPropType === 'boolean' ? false : '';
     });
-    s.pad = 'medium';
-    s.direction = 'row';
-    s.gap = 'small';
+    s.label = 'Check me';
+    s.name = 'checkbox';
     return s;
   });
 
@@ -153,13 +156,15 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
   );
 
   const visibleRows = rows.filter(
-    row => !SKIP_TYPES.includes(row.normalizedPropType),
+    row =>
+      !SKIP_TYPES.includes(row.normalizedPropType) &&
+      !SKIP_PROPS.includes(row.prop),
   );
 
   const controls = (
     <Form gap="small" onSubmit={e => e.preventDefault()}>
       <Heading level={4} margin={{ top: 'none', bottom: 'none' }}>
-        Box
+        CheckBox
       </Heading>
       <Text
         size="small"
@@ -177,7 +182,7 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
           return (
             <CheckBox
               key={prop}
-              id={`box-${prop}`}
+              id={`checkbox-${prop}`}
               name={prop}
               label={prop}
               checked={value}
@@ -193,10 +198,10 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
               key={prop}
               label={prop}
               name={prop}
-              htmlFor={`box-${prop}`}
+              htmlFor={`checkbox-${prop}`}
             >
               <Select
-                id={`box-${prop}`}
+                id={`checkbox-${prop}`}
                 name={prop}
                 options={options}
                 value={value}
@@ -212,11 +217,11 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
             key={prop}
             label={prop}
             name={prop}
-            htmlFor={`box-${prop}`}
+            htmlFor={`checkbox-${prop}`}
             help={getHelpText(row)}
           >
             <TextInput
-              id={`box-${prop}`}
+              id={`checkbox-${prop}`}
               name={prop}
               value={value}
               placeholder={prop}
@@ -229,39 +234,13 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
   );
 
   const preview = (
-    <Box fill align="center" justify="center" pad="medium">
-      <Box
-        border={{ color: 'brand', style: 'dashed' }}
+    <Box fill pad="medium" align="center" justify="center">
+      <CheckBox
+        id="checkbox-preview"
+        checked={previewChecked}
+        onChange={e => setPreviewChecked(e.target.checked)}
         {...previewProps}
-      >
-        <Box
-          background="brand"
-          pad="small"
-          round="xsmall"
-          width="xsmall"
-          align="center"
-        >
-          <Text size="small" color="white">Item 1</Text>
-        </Box>
-        <Box
-          background="accent-1"
-          pad="small"
-          round="xsmall"
-          width="xsmall"
-          align="center"
-        >
-          <Text size="small">Item 2</Text>
-        </Box>
-        <Box
-          background="light-4"
-          pad="small"
-          round="xsmall"
-          width="xsmall"
-          align="center"
-        >
-          <Text size="small">Item 3</Text>
-        </Box>
-      </Box>
+      />
     </Box>
   );
 
@@ -270,14 +249,18 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
       <Page>
         <PageContent>
           <PageHeader
-            title="Box"
+            title="CheckBox"
             parent={
-              <Anchor icon={<Left />} href="/playground" label="Index" />
+              <Anchor
+                icon={<Left />}
+                href="/playground"
+                label="Index"
+              />
             }
           />
           <Box height="large">
             <PlaygroundShell
-              componentName="Box"
+              componentName="CheckBox"
               preview={preview}
               controls={controls}
               code={code}
@@ -290,7 +273,7 @@ export default function BoxPlayground({ rows, propHandlingRows }) {
   );
 }
 
-BoxPlayground.getLayout = page => page;
+CheckBoxPlayground.getLayout = page => page;
 
 // --- data loading ---
 
@@ -306,12 +289,12 @@ export async function getStaticProps() {
   const text = fs.readFileSync(csvPath, 'utf8');
   const allRows = parseCsv(text);
   const rows = allRows
-    .filter(row => row.component === 'Box')
+    .filter(row => row.component === 'CheckBox')
     .sort((a, b) => a.prop.localeCompare(b.prop));
   const mdPath = path.join(
     process.cwd(), '..', 'docs', 'playground', 'prop-handling.md',
   );
   const mdText = fs.readFileSync(mdPath, 'utf8');
-  const propHandlingRows = parsePropHandlingSection(mdText, 'Box');
+  const propHandlingRows = parsePropHandlingSection(mdText, 'CheckBox');
   return { props: { rows, propHandlingRows } };
 }
