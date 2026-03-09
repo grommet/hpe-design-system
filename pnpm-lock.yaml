@@ -552,14 +552,14 @@ importers:
         specifier: workspace:*
         version: link:../hooks
       grommet:
-        specifier: 'catalog:'
-        version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        specifier: ^2.24.0
+        version: 2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-icons:
-        specifier: 'catalog:'
+        specifier: ^4.6.0
         version: 4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-theme-hpe:
-        specifier: 'catalog:'
-        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        specifier: ^8.1.2
+        version: 8.1.2(grommet@2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -5828,6 +5828,13 @@ packages:
       react: ^16.13.1 || ^17.0.1 || ^18.0.0 || ^19.0.0
       styled-components: ^6.0.0
 
+  grommet-theme-hpe@8.1.2:
+    resolution: {integrity: sha512-EzMmYc4s3d3BeZya9MNMiOMS5dm3g7tlQkRKSzxyDE8SqHEG+JG66HJgeX35A01rPAMjnyjlSB1180ahOccwPg==}
+    peerDependencies:
+      grommet: ^2.50.0
+      react: ^16.13.1 || ^17.0.1 || ^18.0.0 || ^19.0.0
+      styled-components: ^6.0.0
+
   grommet@2.51.0:
     resolution: {integrity: sha512-PN7GRCX6TxDoEpzbQBQuooMFYOLEkZpooqw1QlsC3X4LvMxBjQOKWl1x26CUI9lbktQFHGnZEgpX8MdK8Nrl3w==}
     engines: {node: '>= 16'}
@@ -5921,6 +5928,9 @@ packages:
 
   hpe-design-tokens@2.1.0:
     resolution: {integrity: sha512-BBePwTRthtBJb+Bz8SwxM5h0M6mVLh8f8/YCqCLLEs0elePFVmXZ0RokPIYVakUWgCze1l5CTOMjAiKfyXrJQQ==}
+
+  hpe-design-tokens@2.2.2:
+    resolution: {integrity: sha512-DA/oHHRaltpTM47Fr51nfOcyxacavhX8OzPFihOHHeHqojG1piyWECkDFn3LCsrjTLTa8P/Zibc63K670IN0Yg==}
 
   html-encoding-sniffer@2.0.1:
     resolution: {integrity: sha512-D5JbOMBIR/TVZkubHT+OyT2705QvogUW4IBn6nHd756OwieSF9aDYFj4dv6HHEVGYbHaLETa3WggZYWWMyy3ZQ==}
@@ -15659,6 +15669,14 @@ snapshots:
       react: 19.2.3
       styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
+  grommet-theme-hpe@8.1.2(grommet@2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
+    dependencies:
+      '@hpe-design/icons-grommet': 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      grommet: 2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      hpe-design-tokens: 2.2.2
+      react: 19.2.3
+      styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+
   grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
     dependencies:
       '@emotion/is-prop-valid': 1.4.0
@@ -15788,6 +15806,8 @@ snapshots:
   hpe-design-tokens@1.4.1: {}
 
   hpe-design-tokens@2.1.0: {}
+
+  hpe-design-tokens@2.2.2: {}
 
   html-encoding-sniffer@2.0.1:
     dependencies:
