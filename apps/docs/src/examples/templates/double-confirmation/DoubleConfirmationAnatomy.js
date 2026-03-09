@@ -126,14 +126,7 @@ export const DoubleConfirmationAnatomy = () => {
           />
         ))}
 
-        <Card
-          gridArea="dbconfirmation-area"
-          background="background-front"
-          round="small"
-          alignSelf="start"
-          justifySelf="start"
-          elevation="large"
-        >
+        <Card gridArea="dbconfirmation-area" elevation="large">
           <CardBody pad="medium" gap="medium">
             <LayerHeader
               title='Discard "Add application"?'

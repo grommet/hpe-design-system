@@ -1,7 +1,15 @@
-import { Box, Button, Card, CardBody, Heading, Paragraph } from 'grommet';
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  Footer,
+  Heading,
+  Paragraph,
+} from 'grommet';
 
 export const DoubleConfirmationExample = () => (
-  <Card alignSelf="center" round="medium" width="medium" elevation="large">
+  <Card width="medium" elevation="large">
     <CardBody pad="medium" gap="medium">
       <Box gap="3xsmall">
         <Heading level={2} margin="none">
@@ -11,10 +19,10 @@ export const DoubleConfirmationExample = () => (
           Are you sure you want to discard your changes?
         </Paragraph>
       </Box>
-      <Box direction="row" gap="xsmall" justify="end" round="small">
+      <Footer direction="row" gap="xsmall" justify="end">
         <Button label="Cancel" />
         <Button label="Discard" primary />
-      </Box>
+      </Footer>
     </CardBody>
   </Card>
 );
