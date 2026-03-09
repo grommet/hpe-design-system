@@ -25,11 +25,12 @@
     "styled-components": "catalog:"
   },
   "scripts": {
-    "build": "pnpm build-search && next build",
+    "build": "pnpm build-shared-hooks && pnpm build-search && next build",
     "build-design-tokens": "pnpm --filter hpe-design-tokens build",
+    "build-shared-hooks": "pnpm --filter '@shared/hooks' build",
     "export": "pnpm build",
     "postexport": "node next.postexport.js",
-    "start": "pnpm build-search && next",
+    "start": "pnpm build-shared-hooks && pnpm build-search && next",
     "start-server": "pnpm build && pnpm next -p 3030",
     "test": "pnpm build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
