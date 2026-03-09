@@ -10,7 +10,7 @@ const meta = {
     name: labelArg,
     size: {
       control: { type: 'select' },
-      options: ['xsmall', 'small']
+      options: ['xsmall', 'small'],
     },
     value: labelArg,
   },
