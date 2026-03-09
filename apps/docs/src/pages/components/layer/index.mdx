@@ -58,44 +58,20 @@ import { Checkmark } from '@hpe-design/icons-grommet';
 
 ## Anatomy
 
-Basic anatomy and spacing that apply to all [layer types](#types-of-layers).
-
-<Example plain>
+<Example caption="Diagram illustrating the parts composing Layer." plain>
   <LayerAnatomy />
 </Example>
 
-| Label  | Region       | Purpose                                                |                  Required                   | Notes                                                                      |
-| ------ | ------------ | ------------------------------------------------------ | :-----------------------------------------: | -------------------------------------------------------------------------- |
-| **1**  | **Header**   | Identifies the layer.                                  | <Checkmark a11yTitle="true" size="small" /> | --                                                                         |
-| **1a** | **Title**    | A short, descriptive title identifying the layer.      | <Checkmark a11yTitle="true" size="small" /> | Implemented as a Heading level 2.                                          |
-| **1b** | **Subtitle** | Any additional context or information about the layer. |                  Optional                   | --                                                                         |
-| **2**  | **Body**     | Any additional content.                                |                  Optional                   | --                                                                         |
-| **3**  | **Footer**   | Contains layer actions.                                |                  Optional                   | The ordering and alignment of footer actions depends on the type of layer. |
-
-<StyleTable
-  data={[
-    {
-      label: 4,
-      property: 'pad',
-      value: 'medium',
-    },
-    {
-      label: 5,
-      property: 'gap',
-      value: 'medium',
-    },
-    {
-      label: 6,
-      property: 'round',
-      value: 'small',
-    },
-    {
-      label: 7,
-      property: 'elevation',
-      value: 'large',
-    },
-  ]}
-/>
+| Label  | Region                | Purpose                                                                                 |                  Required                   | Notes                                                                                                                                                       |
+| ------ | --------------------- | --------------------------------------------------------------------------------------- | :-----------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1**  | **Header**            | Identifies the layer.                                                                   | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                                                                          |
+| **1a** | **Title**             | A short, descriptive title identifying the layer.                                       | <Checkmark a11yTitle="true" size="small" /> | <span>Use H2 for layer titles unless wrapped in a semantic section that permits H1. See [accessibility](/foundation/accessibility).</span>                  |
+| **1b** | **Subtitle**          | Any additional context or information about the layer.                                  |                  Optional                   | --                                                                                                                                                          |
+| **1c** | **Close button**      | Provides a direct way to dismiss the layer.                                             |                  Optional                   | <span>See more details on layer's [closing behavior](#layer-closing-behavior).</span>                                                                       |
+| **2**  | **Body**              | Any additional content.                                                                 |                  Optional                   | --                                                                                                                                                          |
+| **3**  | **Footer**            | Contains layer actions.                                                                 |                  Optional                   | The ordering and alignment of footer actions depends on the type of layer. <span>See [button ordering](/components/button#button-ordering).</span>          |
+| **3a** | **Confirming action** | Completes the primary action of the layer (e.g., Save, Apply).                          |                  Optional                   | Completing the primary action may dismiss the layer when appropriate. <span>See more details on layer's [closing behavior](#layer-closing-behavior).</span> |
+| **3b** | **Cancel**            | Provides an alternative way to dismiss the layer without completing the primary action. |                  Optional                   | <span>See more details on layer's [closing behavior](#layer-closing-behavior).</span>                                                                       |
 
 ## Types of layers
 
