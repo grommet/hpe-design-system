@@ -52,7 +52,7 @@ const meta = {
     },
     tip: {
       control: { type: 'text' },
-    }
+    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -81,6 +81,6 @@ export const Default = {
     tip: undefined,
   },
   render: args => {
-    return <Button {...args} alignSelf='start' />;
+    return <Button {...args} alignSelf="start" />;
   },
 } satisfies Story;
