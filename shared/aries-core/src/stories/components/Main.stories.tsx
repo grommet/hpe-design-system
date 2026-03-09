@@ -37,9 +37,14 @@ export const BasicMain: Story = {
     </Main>
   ),
   args: {
-    pad: 'medium',
+    align: undefined,
     background: 'background-back',
+    border: false,
     flex: true,
+    gap: undefined,
+    height: undefined,
+    pad: 'medium',
+    skeleton: false,
   },
   name: 'Main',
 };

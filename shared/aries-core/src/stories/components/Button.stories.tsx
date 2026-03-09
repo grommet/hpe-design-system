@@ -18,6 +18,9 @@ const meta = {
     active: {
       control: { type: 'boolean' },
     },
+    badge: {
+      control: { type: 'boolean' },
+    },
     busy: {
       control: { type: 'boolean' },
     },
@@ -47,6 +50,9 @@ const meta = {
     success: {
       control: { type: 'boolean' },
     },
+    tip: {
+      control: { type: 'text' },
+    }
   },
 } satisfies Meta<typeof Button>;
 
@@ -60,6 +66,7 @@ export const Default = {
   args: {
     'aria-label': undefined,
     active: false,
+    badge: false,
     busy: false,
     disabled: false,
     fill: false,
@@ -71,8 +78,9 @@ export const Default = {
     reverse: false,
     size: 'medium',
     success: false,
+    tip: undefined,
   },
   render: args => {
-    return <Button {...args} />;
+    return <Button {...args} alignSelf='start' />;
   },
 } satisfies Story;
