@@ -29,13 +29,13 @@ const connections = [
     color,
     thickness,
     fromTarget: '2',
-    toTarget: 'dbconfirmation-footer',
+    toTarget: 'confirmation-footer',
   },
 ];
 
 const AnatomyGrid = ({ ...rest }) => {
   const columns = ['5xsmall', '4xsmall', 'xxsmall', 'xsmall'];
-  const rows = ['flex', '5xsmall', '5xsmall', 'flex', '4xsmall'];
+  const rows = ['flex', '5xsmall', 'flex', '4xsmall'];
 
   return (
     <Grid
@@ -43,60 +43,28 @@ const AnatomyGrid = ({ ...rest }) => {
       rows={rows}
       areas={[
         [
-          'empty-0',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-        ],
-        [
           'annotation-1a',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
+          'confirmation-area',
+          'confirmation-area',
+          'confirmation-area',
         ],
         [
           'annotation-1b',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
+          'confirmation-area',
+          'confirmation-area',
+          'confirmation-area',
         ],
         [
           'empty-1',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
+          'confirmation-area',
+          'confirmation-area',
+          'confirmation-area',
         ],
         [
           'annotation-2',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-        ],
-      ]}
-      aresas={[
-        [
-          'annotation-1a',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-        ],
-        [
-          'annotation-1b',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-        ],
-        [
-          'empty-0',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-        ],
-        [
-          'annotation-2',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
-          'dbconfirmation-area',
+          'confirmation-area',
+          'confirmation-area',
+          'confirmation-area',
         ],
       ]}
       align="center"
@@ -126,14 +94,14 @@ export const DoubleConfirmationAnatomy = () => {
           />
         ))}
 
-        <Card gridArea="dbconfirmation-area" elevation="large">
+        <Card gridArea="confirmation-area" elevation="large">
           <CardBody pad="medium" gap="medium">
             <LayerHeader
               title='Discard "Add application"?'
               subtitle="Your changes will not be applied."
             />
             <Footer
-              id="dbconfirmation-footer"
+              id="confirmation-footer"
               border={{ style: 'dashed' }}
               justify="end"
               gap="small"
