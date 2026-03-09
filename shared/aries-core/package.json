@@ -56,9 +56,9 @@
   "dependencies": {
     "@hpe-design/icons-grommet": "catalog:",
     "@shared/hooks": "workspace:*",
-    "grommet": "^2.53.0",
+    "grommet": "catalog:",
     "grommet-icons": "catalog:",
-    "grommet-theme-hpe": "^8.1.2",
+    "grommet-theme-hpe": "catalog:",
     "prop-types": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
