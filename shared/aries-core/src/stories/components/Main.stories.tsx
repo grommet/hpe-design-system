@@ -3,7 +3,6 @@ import { Main, Heading, Text, BoxExtendedProps } from 'grommet';
 import type { StoryObj } from '@storybook/react-webpack5';
 
 import {
-  backgroundArg,
   padArg,
   alignArg,
   borderArg,
