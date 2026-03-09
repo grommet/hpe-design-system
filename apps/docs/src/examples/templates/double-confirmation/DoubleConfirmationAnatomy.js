@@ -35,7 +35,6 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => {
   const columns = ['5xsmall', '4xsmall', 'xxsmall', 'xsmall'];
-  // const rows = ['5xsmall', 'flex', 'flex', '4xsmall'];
   const rows = ['flex', '5xsmall', '5xsmall', 'flex', '4xsmall'];
 
   return (
