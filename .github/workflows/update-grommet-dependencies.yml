@@ -37,8 +37,8 @@ jobs:
         id: update
         run: |
           # Extract current versions
-          CURRENT_GROMMET=$(grep "grommet:" pnpm-workspace.yaml | head -1 | sed 's/.*grommet: //' | tr -d "'^~")
-          CURRENT_THEME=$(grep "grommet-theme-hpe:" pnpm-workspace.yaml | head -1 | sed 's/.*grommet-theme-hpe: //' | tr -d "'^~")
+          CURRENT_GROMMET=$(grep "^  grommet: \^" pnpm-workspace.yaml | head -1 | sed 's/.*grommet: //' | tr -d "'^~")
+          CURRENT_THEME=$(grep "^  grommet-theme-hpe: \^" pnpm-workspace.yaml | head -1 | sed 's/.*grommet-theme-hpe: //' | tr -d "'^~")
 
           # Get latest versions
           LATEST_GROMMET=$(pnpm view grommet version)
@@ -66,6 +66,10 @@ jobs:
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
           echo -e "$CHANGELOG" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update lockfile
+        if: steps.update.outputs.updates-needed == 'true'
+        run: pnpm install
 
       - name: Set current date
         id: date
