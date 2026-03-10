@@ -34,41 +34,19 @@ const connections = [
 ];
 
 const AnatomyGrid = ({ ...rest }) => {
-  const columns = ['5xsmall', '4xsmall', 'xxsmall', 'xsmall'];
-  const rows = ['flex', '5xsmall', 'flex', '4xsmall'];
-
+  const columns = ['auto', 'medium'];
+  const rows = ['auto', 'auto', 'auto'];
   return (
     <Grid
       columns={columns}
       rows={rows}
       areas={[
-        [
-          'annotation-1a',
-          'confirmation-area',
-          'confirmation-area',
-          'confirmation-area',
-        ],
-        [
-          'annotation-1b',
-          'confirmation-area',
-          'confirmation-area',
-          'confirmation-area',
-        ],
-        [
-          'empty-1',
-          'confirmation-area',
-          'confirmation-area',
-          'confirmation-area',
-        ],
-        [
-          'annotation-2',
-          'confirmation-area',
-          'confirmation-area',
-          'confirmation-area',
-        ],
+        ['annotation-1a', 'confirmation-area'],
+        ['annotation-1b', 'confirmation-area'],
+        ['annotation-2', 'confirmation-area'],
       ]}
-      align="center"
-      justify="center"
+      gap={{ column: 'xlarge' }}
+      justifyContent="start"
       {...rest}
     />
   );
