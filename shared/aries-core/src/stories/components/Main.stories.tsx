@@ -3,7 +3,6 @@ import { Main, Heading, Text, BoxExtendedProps } from 'grommet';
 import type { StoryObj } from '@storybook/react-webpack5';
 
 import {
-  backgroundArg,
   padArg,
   alignArg,
   borderArg,
@@ -17,7 +16,10 @@ const meta = {
   component: Main,
   argTypes: {
     pad: padArg,
-    background: backgroundArg,
+    background: {
+      control: { type: 'select' },
+      options: ['background-back', 'background-default'],
+    },
     align: alignArg,
     border: borderArg,
     gap: gapArg,
