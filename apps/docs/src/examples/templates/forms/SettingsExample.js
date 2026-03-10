@@ -59,7 +59,6 @@ export const SettingsExample = () => {
             <FormField
               name="notifications"
               htmlFor="notifications"
-              help="Description of feature"
             >
               <CheckBox
                 id="notifications"
@@ -88,7 +87,6 @@ export const SettingsExample = () => {
             <FormField
               name="doNotDisturb"
               htmlFor="doNotDisturb"
-              help="Description of feature"
             >
               <CheckBox
                 id="doNotDisturb"
