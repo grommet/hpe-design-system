@@ -42,6 +42,7 @@
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",
     "@testing-library/testcafe": "^5.0.1",
+    "@types/react": "catalog:",
     "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
