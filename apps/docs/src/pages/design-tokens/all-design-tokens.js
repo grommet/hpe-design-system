@@ -77,10 +77,16 @@ const FLAVOR_MESSAGES = {
   },
 };
 
-const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
+const NavSection = ({
+  active,
+  collection,
+  setActive,
+  tokens: tokensObj,
+  allTokens,
+}) => {
   const activeParts = active.split('.');
   const [open, setOpen] = useState(
-    activeParts[activeParts.length - 1] in structuredTokens[collection],
+    activeParts[activeParts.length - 1] in (allTokens || tokensObj)[collection],
   );
 
   return (
@@ -120,6 +126,7 @@ const Nav = ({ active, setActive, tokens: tokensObj }) => {
     <NavSection
       key={collection}
       tokens={tokensObj}
+      allTokens={tokensObj}
       collection={collection}
       active={active}
       setActive={setActive}
@@ -179,6 +186,20 @@ const AllTokens = () => {
       setOpenLayer(false);
   }, [breakpoint, openLayer]);
 
+  // When switching to Grommet/Figma (semantic-only), reset active if it is
+  // currently pointing at a non-semantic collection (primitives / component).
+  useEffect(() => {
+    if (flavor !== 'hpe' && !active.startsWith('semantic')) {
+      setActive('semantic.color');
+    }
+  }, [flavor, active, setActive]);
+
+  // Semantic-only structured tokens for Grommet and Figma nav
+  const navTokens =
+    flavor !== 'hpe'
+      ? { semantic: structuredTokens.semantic }
+      : structuredTokens;
+
   const contextValue = useMemo(
     () => ({
       data,
@@ -214,7 +235,7 @@ const AllTokens = () => {
   };
 
   const navContent = (
-    <Nav tokens={structuredTokens} active={active} setActive={onActive} />
+    <Nav tokens={navTokens} active={active} setActive={onActive} />
   );
 
   const activeCollection = active
