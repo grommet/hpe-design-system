@@ -12,12 +12,15 @@ export default {
 
       return (
         <Grommet
-          full
           theme={hpe}
           themeMode={mode}
           background={context.globals.background?.value}
+          full={context.parameters.full !== false}
         >
-          <Box pad={context.parameters.layout === 'fullscreen' ? 'none' : 'large'} fill>
+          <Box
+            pad={context.parameters.layout === 'fullscreen' ? 'none' : 'large'}
+            fill
+          >
             <Story />
           </Box>
         </Grommet>

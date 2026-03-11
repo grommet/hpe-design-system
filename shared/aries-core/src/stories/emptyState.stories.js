@@ -24,12 +24,13 @@ export const Action = {
 
 export const Card = {
   render: () => (
-    <Box background="background-back" height="100vh">
+    <Box background="background-back">
       <CardEmptyState />
     </Box>
   ),
   parameters: {
     layout: 'fullscreen',
+    full: false,
   },
 };
 

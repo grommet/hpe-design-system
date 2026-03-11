@@ -7,8 +7,8 @@ import { CostByMonth, CostByYear } from '../dashboards';
 export const CardEmptyState = () => {
   return (
     <Main>
-      <Page pad={{ bottom: '3xlarge' }}>
-        <PageContent gap="medium">
+      <Page fill pad={{ bottom: '3xlarge' }}>
+        <PageContent fill gap="medium">
           <PageHeader title="Dashboard" />
           <Grid columns="medium" gap="medium">
             <CostByMonth period="Last Year" />
