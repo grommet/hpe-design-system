@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { Box, Button, Card, CardBody, CardFooter } from 'grommet';
+import { Box, Button, Card, CardFooter, CardHeader } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
 
 export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
   <Card elevation="large" background="background-floating">
-    <CardBody pad="medium" gap="medium">
+    <CardHeader>
       <LayerHeader
         title={
           bestPractice
@@ -13,7 +13,7 @@ export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
         }
         subtitle="Your changes will not be applied."
       />
-    </CardBody>
+    </CardHeader>
     <CardFooter pad={{ top: 'none', bottom: 'medium', horizontal: 'medium' }}>
       <Box
         fill

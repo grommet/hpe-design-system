@@ -2,8 +2,8 @@ import {
   Box,
   Button,
   Card,
-  CardBody,
   CardFooter,
+  CardHeader,
   Diagram,
   Grid,
   Stack,
@@ -82,12 +82,12 @@ export const DoubleConfirmationAnatomy = () => {
         ))}
 
         <Card gridArea="confirmation-area" elevation="large">
-          <CardBody pad="medium" gap="medium">
+          <CardHeader>
             <LayerHeader
               title='Discard "Add application"?'
               subtitle="Your changes will not be applied."
             />
-          </CardBody>
+          </CardHeader>
           <CardFooter
             pad={{ top: 'none', bottom: 'medium', horizontal: 'medium' }}
           >

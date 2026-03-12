@@ -2,24 +2,22 @@ import {
   Box,
   Button,
   Card,
-  CardBody,
   CardFooter,
+  CardHeader,
   Heading,
   Paragraph,
 } from 'grommet';
 
 export const DoubleConfirmationExample = () => (
   <Card width="medium" elevation="large">
-    <CardBody>
+    <CardHeader>
       <Box gap="3xsmall">
         <Heading level={2} margin="none">
           Discard "Add application"?
         </Heading>
-        <Paragraph margin="none">
-          Are you sure you want to discard your changes?
-        </Paragraph>
+        <Paragraph margin="none">Your changes will not be applied.</Paragraph>
       </Box>
-    </CardBody>
+    </CardHeader>
     <CardFooter pad={{ top: 'none', bottom: 'medium', horizontal: 'medium' }}>
       <Box fill direction="row" gap="xsmall" justify="end">
         <Button label="Cancel" />
