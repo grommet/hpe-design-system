@@ -8,7 +8,7 @@ export const DoubleConfirmation = ({ title, ...rest }) => {
 
   return (
     <Layer {...rest}>
-      <Card>
+      <Card background="background-floating">
         <CardBody pad="medium" gap="medium">
           <LayerHeader
             title={`Discard ${title}?`}
