@@ -14,8 +14,10 @@ export default {
         <Grommet
           theme={hpe}
           themeMode={mode}
-          background={context.globals.background?.value}
-          full={context.parameters.full !== false}
+          background={
+            context.parameters.background || context.globals.background?.value
+          }
+          full={context.parameters.full || 'min'}
         >
           <Box
             pad={context.parameters.layout === 'fullscreen' ? 'none' : 'large'}

@@ -1,6 +1,5 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { Box } from 'grommet';
 /* eslint-disable max-len */
 import { ActionEmptyState } from 'apps/docs/src/examples/templates/empty-state/ActionEmptyState';
 import { CardEmptyState } from 'apps/docs/src/examples/templates/empty-state/CardEmptyState';
@@ -23,14 +22,11 @@ export const Action = {
 };
 
 export const Card = {
-  render: () => (
-    <Box background="background-back">
-      <CardEmptyState />
-    </Box>
-  ),
+  render: () => <CardEmptyState />,
   parameters: {
     layout: 'fullscreen',
-    full: false,
+    background: 'background-back',
+    full: 'min',
   },
 };
 
