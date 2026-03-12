@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Button, Card, CardBody, CardFooter, Layer } from 'grommet';
+import { Box, Button, Card, CardFooter, CardHeader, Layer } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
 import { useConfirmation } from '@shared/hooks';
 
@@ -9,12 +9,12 @@ export const DoubleConfirmation = ({ title, ...rest }) => {
   return (
     <Layer {...rest}>
       <Card background="background-floating">
-        <CardBody pad="medium" gap="medium">
+        <CardHeader>
           <LayerHeader
             title={`Discard ${title}?`}
             subtitle="Your changes will not be applied."
           />
-        </CardBody>
+        </CardHeader>
         <CardFooter
           pad={{ top: 'none', bottom: 'medium', horizontal: 'medium' }}
         >
