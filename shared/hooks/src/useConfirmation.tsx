@@ -79,13 +79,13 @@ export const useConfirmation = () => {
   const onClose = () => {
     if (touched) {
       setShowConfirmation(true);
-      // added time=0 since it is required argument for the component
+      // added time=500 (default timeout) since it is required argument for the component
       // and typescript requires it to transpile into .js
-      announce('Discard changes confirmation modal opened.', 'assertive', 0);
+      announce('Discard changes confirmation modal opened.', 'assertive', 500);
     } else {
       setShowLayer(false);
       // same as above
-      announce('Modal closed.', 'assertive', 0);
+      announce('Modal closed.', 'assertive', 500);
     }
   };
 
