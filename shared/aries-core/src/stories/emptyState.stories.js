@@ -23,6 +23,11 @@ export const Action = {
 
 export const Card = {
   render: () => <CardEmptyState />,
+  parameters: {
+    layout: 'fullscreen',
+    background: 'background-back',
+    full: 'min',
+  },
 };
 
 export const EmptyState = {
