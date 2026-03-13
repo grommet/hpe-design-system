@@ -1,6 +1,5 @@
 import { Box, Button, Heading } from 'grommet';
 import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
-import { ScreenReaderOnly } from '../../ScreenReaderOnly';
 import { useEffect, useState } from 'react';
 
 interface NavHeaderProps {
@@ -53,7 +52,9 @@ export const NavHeader = ({
         aria-controls={open ? navigationId : undefined}
         aria-expanded={open}
         active={open}
+        a11yTitle={open ? 'Close navigation' : 'Open navigation'}
         alignSelf="start" // don't center align when in multi-line heading. Positioning needs to be inline with GlobalHeader elements
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         icon={<SidebarIcon aria-hidden />}
         onClick={() => setOpen(!open)}

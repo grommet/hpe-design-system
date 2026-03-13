@@ -18,6 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   name: 'Spinner',
+  // eslint-disable-next-line grommet/spinner-message -- message is passed via args spread
   render: args => <Spinner {...args} />,
   args: {
     size: 'medium',

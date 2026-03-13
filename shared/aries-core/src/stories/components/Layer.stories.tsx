@@ -24,8 +24,7 @@ type Story = StoryObj<typeof meta>;
 export const LayerExample: Story = {
   render: (args: LayerExtendedProps) => {
     return (
-      // LayerExtendedProps doesn't include "as" prop, hence the ts-ignore
-      // @ts-ignore
+      // @ts-expect-error LayerExtendedProps doesn't include "as" prop, hence the ts-expect-error
       <Layer as="section" {...args}>
         <Box pad="medium" gap="small" width="medium">
           <Box direction="row" align="center" justify="between">

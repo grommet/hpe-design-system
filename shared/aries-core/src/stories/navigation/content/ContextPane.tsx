@@ -1,5 +1,4 @@
 import { Box, BoxProps, Button, Header, Heading } from 'grommet';
-import { ContextControls } from './ContextControls';
 import { Genie } from './Genie';
 import { Help } from './Help';
 import { Close } from 'grommet-icons/icons';
@@ -9,7 +8,9 @@ interface ContextPaneProps extends BoxProps {
   title: string;
   contextContent?: string;
   setContextContent: (value: string) => void;
-  contextControlRefs?: React.MutableRefObject<Record<string, HTMLButtonElement | null>>;
+  contextControlRefs?: React.MutableRefObject<
+    Record<string, HTMLButtonElement | null>
+  >;
 }
 
 const sentenceCase = (str: string | number) => {
@@ -30,8 +31,8 @@ export const ContextPane = ({
 
   return (
     <Box width={{ min: 'small' }} {...rest}>
-      <Header pad={{ vertical: '3xsmall', left: 'medium',right: 'xsmall' }}>
-         <Heading level={2} size="small" margin="none">
+      <Header pad={{ vertical: '3xsmall', left: 'medium', right: 'xsmall' }}>
+        <Heading level={2} size="small" margin="none">
           {sentenceCase(title)}
         </Heading>
         <Button

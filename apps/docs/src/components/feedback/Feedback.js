@@ -82,6 +82,7 @@ export const Feedback = ({
             a11yTitle="Close"
             onClick={onClose}
             icon={<Close />}
+            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
             {...theme?.feedback?.closeButton}
           />

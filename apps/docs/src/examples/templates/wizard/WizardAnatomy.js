@@ -107,7 +107,7 @@ const steps = [
   },
 ];
 
-const WizardExample = ({ containerRef, ...rest }) => {
+const WizardExample = ({ ...rest }) => {
   const breakpoint = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
 
@@ -213,8 +213,4 @@ const WizardExample = ({ containerRef, ...rest }) => {
       {open && <CancellationLayer target={ref?.current} onSetOpen={setOpen} />}
     </WizardContext.Provider>
   );
-};
-
-WizardExample.propTypes = {
-  containerRef: PropTypes.node,
 };
