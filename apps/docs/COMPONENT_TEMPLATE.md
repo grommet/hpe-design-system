@@ -1,3 +1,13 @@
+<!-- See 'apps/docs/src/pages/components/menu.mdx' as an example of the template sections -->
+
+## Introduction
+
+Component name and brief description.
+
+<!-- Component "playground" goes here. Playground is an interactive example to explore
+component properties and inspect code -- similar to an embedded Storybook example.
+-->
+
 ## Use cases (mandatory)
 
 Use this section to answer: When might I use this? Provide a short description that clarifies intent, audience, and typical contexts.
@@ -26,79 +36,89 @@ They help teams:
 Follow these rules when creating anatomy diagrams
 
 1. Use real UI by default
-	Always represent anatomy diagrams using real UI components when the component fits clearly at a readable scale.
+   Always represent anatomy diagrams using real UI components when the component fits clearly at a readable scale.
 
-	Avoid shrinking complex components until labels become unreadable.
+   Avoid shrinking complex components until labels become unreadable.
 
-	Instead, represent large patterns using simplified structural diagrams.
+   Instead, represent large patterns using simplified structural diagrams.
 
-	Examples:
-	- Use real UI for buttons, inputs, tabs, dropdowns
-	- Use simplified structure for wizards, dashboards, page layouts
+   Examples:
+
+   - Use real UI for buttons, inputs, tabs, dropdowns
+   - Use simplified structure for wizards, dashboards, page layouts
 
 2. Scale level of detail with component complexity
-	Scale the level of detail based on the structural complexity of the component or pattern.
+   Scale the level of detail based on the structural complexity of the component or pattern.
 
-	Avoid labeling every internal element in large patterns.
+   Avoid labeling every internal element in large patterns.
 
-	Instead, label the primary structural regions.
+   Instead, label the primary structural regions.
 
-	Examples:
-	- Button: icon, label
-	- Wizard: stepper, content area, navigation, footer
+   Examples:
+
+   - Button: icon, label
+   - Wizard: stepper, content area, navigation, footer
 
 3. Represent invisible containers with dotted lines
-	Use dotted outlines to represent structural containers that do not have visible UI boundaries.
+   Use dotted outlines to represent structural containers that do not have visible UI boundaries.
 
-	Always use dotted lines only when the container exists in the component structure.
+   Always use dotted lines only when the container exists in the component structure.
 
-	Never use dotted lines for conceptual grouping or visual emphasis.
+   Never use dotted lines for conceptual grouping or visual emphasis.
 
-	Example uses:
-	- Borderless buttons
-	- Containers defined only by spacing or layout
-	- Clickable regions without a visible background
+   Example uses:
+
+   - Borderless buttons
+   - Containers defined only by spacing or layout
+   - Clickable regions without a visible background
 
 4. Omit outer diagram borders
-	Avoid adding a border around the entire anatomy diagram.
+   Avoid adding a border around the entire anatomy diagram.
 
-	Always include boundaries only when they represent a real structural container.
+   Always include boundaries only when they represent a real structural container.
 
-	Avoid decorative frames that do not communicate component structure.
+   Avoid decorative frames that do not communicate component structure.
 
 5. Use monochrome visuals
-	Use neutral grayscale styling for anatomy diagrams.
+   Use neutral grayscale styling for anatomy diagrams.
 
-	Avoid decorative color, background fills, or highlighted areas.
+   Avoid decorative color, background fills, or highlighted areas.
 
-	Color may imply semantic meaning and introduce unnecessary visual hierarchy.
+   Color may imply semantic meaning and introduce unnecessary visual hierarchy.
 
 6. Use realistic generic content
-	Include short, realistic content in anatomy diagrams.
+   Include short, realistic content in anatomy diagrams.
 
-	Avoid placeholder labels such as “Layer title” or “Button label”.
+   Avoid placeholder labels such as “Layer title” or “Button label”.
 
-	Instead, use neutral examples such as:
-	- “Save changes”
-	- “Upload file”
-	- “Project settings”
+   Instead, use neutral examples such as:
 
-	Realistic content improves readability and comprehension.
+   - “Save changes”
+   - “Upload file”
+   - “Project settings”
 
-6. Separate anatomy from implementation details
-	Show structure only in anatomy diagrams.
+   Realistic content improves readability and comprehension.
 
-	Avoid including implementation details such as spacing or elevation values.
+7. Separate anatomy from implementation details
+   Show structure only in anatomy diagrams.
 
-	Never include design tokens in anatomy labels.
+   Avoid including implementation details such as spacing or elevation values.
 
-	Instead, document implementation details in Specs or Properties.
+   Never include design tokens in anatomy labels.
 
-	Example:
-	- Avoid
-	  - gap="medium"
-	  - elevation="low"
-	- Instead, document these values in the component specifications.
+   Instead, document implementation details in Specs or Properties.
+
+   Example:
+
+   - Avoid
+     - gap="medium"
+     - elevation="low"
+   - Instead, document these values in the component specifications.
+
+### Anatomy annotations
+
+The anatomy diagram has annotation labels for each anatomical part. The annotations should appear
+in a markdown with the part name, puprose, required vs. optional, and notes.
 
 ### Anatomy diagram checklist
 
@@ -113,18 +133,18 @@ Before publishing an anatomy diagram, verify the following:
 - Anatomy labels identify structure only
 - Design tokens appear only in the specifications section
 
-## Types
+## Types (or variants)
 
-This section showcases all available types/variants of the component. 
+This section showcases all available types/variants of the component.
 
 ### Types section rules
 
 - Each component “type” is represented by a well-defined object containing:
-	- kind: a unique identifier for the type (string or enum).
-	- coded example: reference to the coded component.
-	- description: human-readable explanation of what the type is for.
-	- usage: short guidance or examples on when/how to use it.
-	- defaultView: preferred default view for this component instance (e.g., "table" | "list" | "grid").
+  - kind: a unique identifier for the type (string or enum).
+  - coded example: reference to the coded component.
+  - description: human-readable explanation of what the type is for.
+  - usage: short guidance or examples on when/how to use it.
+  - defaultView: preferred default view for this component instance (e.g., "table" | "list" | "grid").
 - Use data and friends and viewtoggles to showcase examples in different views (table, list and grid) format.
 - Each component might present better in one view type over another, so we should set a default for each. However we should save user preferences in case they change the default.
 - use local storage to remember the user's preferred view selection by component
@@ -133,6 +153,7 @@ This section showcases all available types/variants of the component.
 ## Dos and Do Nots
 
 Show approved patterns and discouraged patterns. Use side-by-side comparisons and clear labels, and explain the reason behind each recommendation in one sentence.
+
 - You might also use caution, where we enourage the user to make a decision with care.
 
 ## Data States

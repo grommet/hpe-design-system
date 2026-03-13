@@ -4,10 +4,12 @@
 
 This prompt is designed to assist in refactoring the documentation for the HPE Design System. The goal is to improve clarity, organization, and accessibility of the documentation while ensuring it remains comprehensive and user-friendly.
 
+Can you help us create an implementation plan for refactoring the documentation?
+
 ## Objectives
 
-1. **Improve Structure**: Reorganize the documentation to create a more logical flow, following a consistent component documenation template and content sections.
-2. **Data-Driven Content**: All component definitions are defined in a structured data format (YAML). The documentation should be generated from this data to ensure consistency and ease of updates.
+1. **Improve Structure**: Reorganize the documentation to create a more logical flow, following a consistent component documenation template (`apps/docs/COMPONENT_TEMPLATE.md`) and content sections.
+2. **Data-Driven Content**: All component definitions are defined in a structured data format (YAML, `shared/data-structure/COMPONENT_EXAMPLE.yaml` & `shared/data-structure/types.ts`). The documentation should be generated from this data to ensure consistency and ease of updates.
 3. **Enhanced Readability**: See `writing-documentation.instruction.md` for guidelines on tone, voice, and style to ensure the documentation is clear and engaging.
 
 ## Scope
@@ -25,6 +27,8 @@ This prompt is designed to assist in refactoring the documentation for the HPE D
 3. Extract existing documentation content for each component and populate the YAML data structure.
 4. Generate new documentation pages for each component using the defined template and populated data.
 5. Review and refine the generated documentation to ensure it meets quality standards (`writing-documentation.instruction.md`) and is free of errors (accuracy, completeness, and comprehension).
+
+Use existing docs --> populate data structure --> generate new docs from data structure populating the template --> review and refine
 
 - If there are gaps in the data or content, they should be flagged and documented in a TODO list for further research and completion. Do not make assumptions or fabricate information to fill gaps. Instead, clearly identify what information is missing and needs to be researched or provided by the team.
 - If there is content which seems valuable, but does not fit within the defined template or structure, it should be flagged and documented in a TODO list for further review and consideration. Clearly articulate why the content is valuable and how it could potentially be integrated into the documentation, while also acknowledging that it may require adjustments to the template or structure to accommodate it effectively.
