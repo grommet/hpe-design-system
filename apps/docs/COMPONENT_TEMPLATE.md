@@ -1,6 +1,6 @@
 ## Use cases (mandatory)
 
-The examples in this section should answer to the question: When might I use this? and provide a brief description of the use case.
+Use this section to answer: When might I use this? Provide a short description that clarifies intent, audience, and typical contexts.
 
 ## Anatomy (mandatory)
 
@@ -132,11 +132,12 @@ This section showcases all available types/variants of the component.
 
 ## Dos and Do Nots
 
-Area to demonstrate best practices vs. usage we do not encourage.
+Show approved patterns and discouraged patterns. Use side-by-side comparisons and clear labels, and explain the reason behind each recommendation in one sentence.
+- You might also use caution, where we enourage the user to make a decision with care.
 
 ## Data States
 
-If the component might have different states, such as loading, empty, etc this is the section to showcase how that would look like and provide explanations, if necessary.
+Document any states the component can show (loading, empty, error, success, disabled, etc). Include what triggers each state, what the user sees, and any guidance for content or actions in that state.
 
 ## Behaviors
 
@@ -148,4 +149,4 @@ If the component requires content guidelines such as content format, type of inf
 
 ## Accessibility (mandatory)
 
-Area to describe how the component should work with assistive technologies.
+Explain the expected experience for assistive technologies. Include required semantics, ARIA usage when relevant, focus order, keyboard support, announced states, and any exceptions or known limitations.
