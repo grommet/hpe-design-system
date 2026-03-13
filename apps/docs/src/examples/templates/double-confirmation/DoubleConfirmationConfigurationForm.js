@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   Box,
   Button,
   Data,
   DataTable,
-  Form,
-  FormField,
   Heading,
+  Layer,
   Page,
   PageContent,
-  TextInput,
-  CheckBoxGroup,
   AnnounceContext,
   Toolbar,
   DataSearch,
@@ -19,24 +16,17 @@ import {
   DataSummary,
 } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
-import applications from '../../../data/mockData/applications.json';
 import {
   ConfirmationContext,
   ConfirmationProvider,
-  DoubleConfirmation,
-  Sidedrawer,
   useConfirmation,
-} from './components';
+} from '@shared/hooks';
+import { DoubleConfirmation } from './DoubleConfirmation';
+import { LayerForm } from '../../shared/components/LayerForm';
 import { ContentPane } from '../../../layouts/content/ContentPane';
+import applications from '../../../data/mockData/applications.json';
 
-const defaultFormValues = {
-  'application-title': '',
-  'publisher-title': '',
-  'pricing-select': [],
-  'delivery-select': [],
-};
-
-export const ConfigurationForm = () => (
+export const DoubleConfirmationConfigurationForm = () => (
   <ConfirmationProvider>
     <ConfirmationContext.Consumer>
       {({ showLayer, showConfirmation }) => (
@@ -59,7 +49,7 @@ const AddApplication = ({ ...rest }) => {
   }, [announce]);
 
   return (
-    <Sidedrawer onEsc={onClose} {...rest}>
+    <DoubleConfirmationSidedrawer onEsc={onClose} {...rest}>
       <LayerHeader title="Add application" onClose={onClose} />
       <Box flex={false}>
         <LayerForm id="application-form" />
@@ -73,85 +63,7 @@ const AddApplication = ({ ...rest }) => {
         />
         <Button label="Cancel" onClick={onClose} />
       </Box>
-    </Sidedrawer>
-  );
-};
-
-export const LayerForm = ({ ...rest }) => {
-  const [formValue, setFormValue] = useState(defaultFormValues);
-
-  const { setShowLayer, setTouched } = useConfirmation();
-
-  // setTouched to false when form dismounts
-  useEffect(() => () => setTouched(false), [setTouched]);
-
-  return (
-    <Form
-      onSubmit={event => {
-        console.log(event.value);
-        setShowLayer(false);
-      }}
-      messages={{
-        required: 'This is a required field.',
-      }}
-      value={formValue}
-      onChange={(nextValue, { touched }) => {
-        console.log('Change', nextValue, touched);
-        setFormValue(nextValue);
-        setTouched(Object.keys(touched).length);
-      }}
-      {...rest}
-    >
-      <FormField
-        label="Title"
-        contentProps={{ width: 'medium' }}
-        required
-        name="application-title"
-        htmlFor="application-title"
-      >
-        <TextInput id="application-title" name="application-title" />
-      </FormField>
-      <FormField
-        label="Publisher"
-        contentProps={{ width: 'medium' }}
-        required
-        name="publisher"
-        htmlFor="publisher"
-      >
-        <TextInput name="publisher" id="publisher" />
-      </FormField>
-      <FormField
-        label="Pricing"
-        contentProps={{ width: 'medium' }}
-        name="pricing"
-        htmlFor="pricing"
-        required
-      >
-        <CheckBoxGroup
-          id="pricing"
-          name="pricing"
-          options={[
-            'Annual license',
-            'Free',
-            'Free trial',
-            'Monthly Subscription',
-          ]}
-        />
-      </FormField>
-      <FormField
-        label="Delivery"
-        contentProps={{ width: 'medium' }}
-        name="delivery"
-        htmlFor="delivery"
-        required
-      >
-        <CheckBoxGroup
-          id="delivery"
-          name="delivery"
-          options={['License key', 'Package manager', 'Web application']}
-        />
-      </FormField>
-    </Form>
+    </DoubleConfirmationSidedrawer>
   );
 };
 
@@ -174,8 +86,8 @@ const ApplicationsPage = () => {
   const { setShowLayer } = useConfirmation();
   return (
     <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent>
-        <ContentPane gap="medium">
+      <PageContent gap="medium">
+        <ContentPane>
           <Heading id="applications-heading" level={2} margin="none">
             Applications
           </Heading>
@@ -206,3 +118,11 @@ const ApplicationsPage = () => {
     </Page>
   );
 };
+
+export const DoubleConfirmationSidedrawer = ({ children, ...rest }) => (
+  <Layer position="right" full="vertical" {...rest}>
+    <Box pad="medium" gap="medium" overflow="auto">
+      {children}
+    </Box>
+  </Layer>
+);
