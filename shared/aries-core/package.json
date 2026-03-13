@@ -1,5 +1,6 @@
 {
   "name": "@shared/aries-core",
+  "type": "module",
   "version": "1.0.0",
   "description": "Design System for HPE",
   "license": "Apache-2.0",

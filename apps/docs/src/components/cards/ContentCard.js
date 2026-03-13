@@ -10,7 +10,7 @@ import { NotificationTag } from '../../layouts/content/NotificationTag';
 import { ViewContext } from '../../pages/_app';
 
 export const ContentCard = forwardRef(
-  ({ level, topic, minimal, size, ...rest }, ref) => {
+  ({ level, topic, minimal, ...rest }, ref) => {
     const { description, name, parent, preview, render } = topic;
     const darkMode = useDarkMode();
 
@@ -117,7 +117,6 @@ export const ContentCard = forwardRef(
 const PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 ContentCard.propTypes = {
-  size: PropTypes.string,
   level: PropTypes.number,
   minimal: PropTypes.bool,
   topic: PropTypes.shape({

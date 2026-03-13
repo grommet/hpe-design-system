@@ -63,7 +63,7 @@ export const DataTableStatusOnlyExample = ({
 }) => {
   const size = React.useContext(ResponsiveContext);
   const [pageDetails, setPageDetails] = React.useState({});
-  const { name, id, ...adjustedPageDetails } = pageDetails;
+  const { name, ...adjustedPageDetails } = pageDetails;
 
   return !pageDetails.id ? (
     <ContentPane gap="medium">
@@ -100,7 +100,7 @@ export const DataTableStatusOnlyExample = ({
   ) : (
     <ContentPane gap="medium">
       <PageHeader
-        title={pageDetails.name}
+        title={name}
         parent={
           <ReverseAnchor
             label="Servers"

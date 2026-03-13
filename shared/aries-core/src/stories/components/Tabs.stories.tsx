@@ -42,8 +42,8 @@ export const BasicTabs: Story = {
       </Tab>
     </Tabs>
   ),
-  // ts-ignore is needed because TabsExtended props requires 'children' prop
-  // @ts-ignore
+  // ts-expect-error
+  // @ts-expect-error is needed because TabsExtended props requires 'children' prop
   args: {
     activeIndex: undefined,
     alignControls: 'start',
