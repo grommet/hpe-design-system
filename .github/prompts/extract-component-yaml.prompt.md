@@ -12,7 +12,9 @@ You are an expert technical writer and developer for the HPE Design System. Your
 6. Output the resulting YAML content so it can be saved as `shared/data-structure/components/[component-name].yaml`.
 
 ## Prerequisites Context
+
 When running this prompt, ensure that you have the following files included in your context:
+
 - The component's existing `.mdx` file (e.g. `apps/docs/src/pages/components/button.mdx`)
 - `shared/data-structure/types.ts`
 - `shared/data-structure/COMPONENT_EXAMPLE.yaml` (as a structural reference)

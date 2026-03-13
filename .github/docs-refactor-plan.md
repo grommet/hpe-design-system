@@ -13,7 +13,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 
 - [ ] Create a new YAML file for the component in `shared/data-structure/components/` as the new source of truth.
 - [ ] Extract existing MDX content into the newly created YAML format (using the extraction prompt), matching the `ComponentDefinition` schema in `shared/data-structure/types.ts`.
-  - *Mitigation:* Ensure any existing code examples in the MDX are saved as file path references in the YAML `examples` array to avoid losing interactive code.
+  - _Mitigation:_ Ensure any existing code examples in the MDX are saved as file path references in the YAML `examples` array to avoid losing interactive code.
 - [ ] Temporarily rename the old MDX file (e.g., `apps/docs/src/pages/components/[name].mdx.bak`) to preserve specific Next.js page imports and frontmatter.
 - [ ] Run the generation prompt (`.github/prompts/generate-mdx.prompt.md`) in Copilot Chat.
 - [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports, or frontmatter from the `.bak` file.
