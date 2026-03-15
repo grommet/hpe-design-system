@@ -17,9 +17,9 @@ This plan outlines the refactor of the HPE Design System component documentation
   - _Mitigation:_ Validate the YAML structure visually or through repo scripts to ensure it strictly conforms to `types.ts` before proceeding. Sub-components (e.g. `CardBody`) should be evaluated for whether they require their own independent YAML file or can be reasoned about within the parent's definition.
 - [ ] Temporarily rename the old MDX file (e.g., `apps/docs/src/pages/components/[name].mdx.bak`) to preserve specific Next.js page imports and frontmatter.
 - [ ] Run the generation prompt (`.github/prompts/generate-mdx.prompt.md`) in Copilot Chat.
-- [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports, or frontmatter from the `.bak` file.
+- [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports (such as `AccessibilitySection`), or frontmatter from the `.bak` file.
 - [ ] Delete the temporary `.bak` file to keep the repository clean.
-- [ ] Review copy against guidelines, note missing information or extra content in a `TODO-[component].md` file.
+- [ ] Review copy against guidelines, note missing information or code example placeholders in `apps/docs/todos/TODO-[component].md`, and log any removed, unstructured legacy content in `apps/docs/todos/DEPRECATED-[component].md`.
 - [ ] Submit individual PRs (e.g., `docs: refactor [Component] component`).
 
 ### 3. Phased Rollout Targets
@@ -34,7 +34,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] Build and run the Next.js `docs` app to verify that the newly generated MDX files render correctly and without errors.
 - [ ] Run the project formatter/linter over the generated MDX files to ensure trailing syntax errors aren't introduced.
 - [ ] Confirm the generated content strictly adheres to `writing-documentation.instruction.md` (e.g., imperative tone, concise bullet points instead of paragraphs).
-- [ ] Review the `TODO-[component].md` per PR to ensure no undocumented gaps slip through, and that code example placeholders are clear. _Either resolve the missing documentation gaps directly during the PR, or translate the TODO list into tracking GitHub Issues to address them post-migration._
+- [ ] Review the `TODO-[component].md` per PR to ensure no undocumented gaps slip through, and that code example placeholders are clear. Review `DEPRECATED-[component].md` to ensure valuable content wasn't lost. _Either resolve the missing documentation gaps directly during the PR, or translate the TODO list into tracking GitHub Issues to address them post-migration._
 
 ## Decisions
 

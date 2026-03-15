@@ -118,7 +118,12 @@ Follow these rules when creating anatomy diagrams
 ### Anatomy annotations
 
 The anatomy diagram has annotation labels for each anatomical part. The annotations should appear
-in a markdown with the part name, puprose, required vs. optional, and notes.
+in a markdown table with the part name, purpose, required vs. optional, and notes.
+
+| Label  | Region          | Purpose                                                   |                         Required                         | Notes                               |
+| :----: | --------------- | --------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------- |
+| **1**  | **[Part Name]** | Opens the menu when clicked.                              | <span><Checkmark a11yTitle="true" size="small" /></span> | Can include a label, icon, or both. |
+| **1a** | **[Sub Part]**  | Describes the menu's function or the category of actions. |                         Optional                         | --                                  |
 
 ### Anatomy diagram checklist
 
@@ -133,20 +138,20 @@ Before publishing an anatomy diagram, verify the following:
 - Anatomy labels identify structure only
 - Design tokens appear only in the specifications section
 
-## Types (or variants)
+## Variants
 
 This section showcases all available types/variants of the component.
 
-### Types section rules
+### Variants section rules
 
-- Each component “type” is represented by a well-defined object containing:
-  - kind: a unique identifier for the type (string or enum).
+- Each component “variant” is represented by a well-defined object containing:
+  - kind: a unique identifier for the variant (string or enum).
   - coded example: reference to the coded component.
-  - description: human-readable explanation of what the type is for.
+  - description: human-readable explanation of what the variant is for.
   - usage: short guidance or examples on when/how to use it.
   - defaultView: preferred default view for this component instance (e.g., "table" | "list" | "grid").
 - Use data and friends and viewtoggles to showcase examples in different views (table, list and grid) format.
-- Each component might present better in one view type over another, so we should set a default for each. However we should save user preferences in case they change the default.
+- Each component might present better in one view variant over another, so we should set a default for each. However we should save user preferences in case they change the default.
 - use local storage to remember the user's preferred view selection by component
 - consider creating an -use local storage- reusable hock similar to -use session storage-
 
@@ -171,3 +176,7 @@ If the component requires content guidelines such as content format, type of inf
 ## Accessibility (mandatory)
 
 Explain the expected experience for assistive technologies. Include required semantics, ARIA usage when relevant, focus order, keyboard support, announced states, and any exceptions or known limitations.
+
+### WCAG compliance
+
+<AccessibilitySection title="[Component]" />
