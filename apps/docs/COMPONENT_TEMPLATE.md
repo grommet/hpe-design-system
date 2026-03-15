@@ -161,13 +161,25 @@ Show approved patterns and discouraged patterns. Use side-by-side comparisons an
 
 - You might also use caution, where we enourage the user to make a decision with care.
 
-## Data States
+## Behaviors and States
 
-Document any states the component can show (loading, empty, error, success, disabled, etc). Include what triggers each state, what the user sees, and any guidance for content or actions in that state.
+Document transient states and behavioral guidelines for the component.
 
-## Behaviors
+### Interactive States
 
-If the component requires behaviour specific guidelines, like scrolling behaviour, closing behaviour, etc that content should live under this section.
+Document states like hover, active, or focus.
+
+### Application States
+
+Document states like loading, disabled, success, or error/validation. Include what triggers each state and what the user sees.
+
+### Data States
+
+Document states like empty or populated. Include any guidance for content or actions in that state.
+
+### General Behaviors
+
+If the component requires behavior specific guidelines, like scrolling behavior, closing behavior, etc., that content should live under this section.
 
 ## Content Guidelines
 
