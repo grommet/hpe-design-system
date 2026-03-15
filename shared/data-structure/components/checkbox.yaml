@@ -19,12 +19,14 @@ variants:
   - name: toggle
     description: Toggle is a single option which prompts users to choose between two mutually exclusive options.
     when: To quickly switch between two possible states, usually providing immediate results without form submission, allowing users to control their preference.
-  - name: validation
-    description: Validation is used to show that the checkbox does not meet the validation requirements of its bounding FormField.
-    when: When the checkbox does not meet the validation requirements of its bounding FormField.
-  - name: disabled
-    description: Used to indicate that CheckBox cannot be interacted with.
-    when: When a checkbox option is unavailable.
+behaviors:
+  applicationStates:
+    - name: validation
+      description: Validation is used to show that the checkbox does not meet the validation requirements of its bounding FormField.
+      when: When the checkbox does not meet the validation requirements of its bounding FormField.
+    - name: disabled
+      description: Used to indicate that CheckBox cannot be interacted with.
+      when: When a checkbox option is unavailable.
 examples:
   - description: Simple
     code: ''
