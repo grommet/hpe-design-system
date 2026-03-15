@@ -17,7 +17,7 @@ This plan outlines the refactor of the HPE Design System component documentation
   - _Mitigation:_ Validate the YAML structure visually or through repo scripts to ensure it strictly conforms to `types.ts` before proceeding. Sub-components (e.g. `CardBody`) should be evaluated for whether they require their own independent YAML file or can be reasoned about within the parent's definition.
 - [ ] Temporarily rename the old MDX file (e.g., `apps/docs/src/pages/components/[name].mdx.bak`) to preserve specific Next.js page imports and frontmatter.
 - [ ] Run the generation prompt (`.github/prompts/generate-mdx.prompt.md`) in Copilot Chat.
-- [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports, or frontmatter from the `.bak` file.
+- [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports (such as `AccessibilitySection`), or frontmatter from the `.bak` file.
 - [ ] Delete the temporary `.bak` file to keep the repository clean.
 - [ ] Review copy against guidelines, note missing information or extra content in a `TODO-[component].md` file.
 - [ ] Submit individual PRs (e.g., `docs: refactor [Component] component`).
@@ -53,7 +53,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] anchor
 - [ ] avatar
 - [ ] box
-- [ ] button
+- [x] button
 - [ ] card/call-to-action-card
 - [ ] card/index
 - [ ] card/navigational-card

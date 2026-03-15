@@ -171,3 +171,7 @@ If the component requires content guidelines such as content format, type of inf
 ## Accessibility (mandatory)
 
 Explain the expected experience for assistive technologies. Include required semantics, ARIA usage when relevant, focus order, keyboard support, announced states, and any exceptions or known limitations.
+
+### WCAG compliance
+
+<AccessibilitySection title="[Component]" />

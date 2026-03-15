@@ -56,7 +56,7 @@ Now we'll use Copilot to write the new Markdown based strictly on our new YAML d
 2. In Copilot Chat run:
    > "Please follow `.github/prompts/generate-mdx.prompt.md` to format `button.yaml` into MDX documentation."
 3. Save the Chat output to `apps/docs/src/pages/components/button.mdx`.
-4. **Merge from backup:** Open `.mdx.bak` and manually copy over any necessary Next.js file-routing imports, `<Layout>` wrappers, or React component imports that were lost into the new `.mdx` file.
+4. **Merge from backup:** Open `.mdx.bak` and manually copy over any necessary Next.js file-routing imports, `<Layout>` wrappers, React component imports (like `<AccessibilitySection title="[Component]" />`), or frontmatter that were lost into the new `.mdx` file.
 
 ### Step 6: Cleanup & Review
 
