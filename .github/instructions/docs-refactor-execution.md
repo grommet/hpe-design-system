@@ -16,9 +16,11 @@ For this guide, we will use `Button` as an example. Replace `button` with your a
 
 ### Step 1: Branch Out
 
-Create a new branch for your specific component. We are limiting scope to **1 Pull Request per component**.
+Create a new branch for your specific component. The base integration branch for this project is `project-sanderson`. We are limiting scope to **1 Pull Request per component**.
 
 ```bash
+git checkout project-sanderson
+git pull
 git checkout -b project-sanderson-refactor-button
 ```
 
