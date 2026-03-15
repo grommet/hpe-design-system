@@ -34,7 +34,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] Build and run the Next.js `docs` app to verify that the newly generated MDX files render correctly and without errors.
 - [ ] Run the project formatter/linter over the generated MDX files to ensure trailing syntax errors aren't introduced.
 - [ ] Confirm the generated content strictly adheres to `writing-documentation.instruction.md` (e.g., imperative tone, concise bullet points instead of paragraphs).
-- [ ] Review the `TODO-[component].md` per PR to ensure no undocumented gaps slip through, and that code example placeholders are clear.
+- [ ] Review the `TODO-[component].md` per PR to ensure no undocumented gaps slip through, and that code example placeholders are clear. _Either resolve the missing documentation gaps directly during the PR, or translate the TODO list into tracking GitHub Issues to address them post-migration._
 
 ## Decisions
 
@@ -45,3 +45,58 @@ This plan outlines the refactor of the HPE Design System component documentation
 - Chose to use GitHub Copilot Chat prompts instead of an automated Node.js generation script to accommodate available LLM tooling and API key constraints.
 - Segmented by complexity to isolate template edge cases early during the pilot phase.
 - Maintained a 1 PR per component structure to streamline PR feedback loops and quickly iterate on the script.
+
+## Full Component Checklist
+
+- [ ] accordion
+- [ ] all-components
+- [ ] anchor
+- [ ] avatar
+- [ ] box
+- [ ] button
+- [ ] card/call-to-action-card
+- [ ] card/index
+- [ ] card/navigational-card
+- [ ] checkbox
+- [ ] checkboxgroup
+- [ ] data
+- [ ] datafilter
+- [ ] datafilters
+- [ ] datasearch
+- [ ] datasort
+- [ ] datasummary
+- [ ] datatable
+- [ ] datatablecolumns
+- [ ] datatablegroupby
+- [ ] dataview
+- [ ] dateinput
+- [ ] fileinput
+- [ ] footer
+- [ ] grid
+- [ ] header
+- [ ] layer/center-layer
+- [ ] layer/fullscreen-layer
+- [ ] layer/index
+- [ ] layer/side-drawer-layer
+- [ ] main
+- [ ] maskedinput
+- [ ] menu
+- [ ] namevaluelist
+- [ ] notification
+- [ ] page
+- [ ] pageheader
+- [ ] pagination
+- [ ] radiobuttongroup
+- [ ] rangeinput
+- [ ] search
+- [ ] select
+- [ ] selectmultiple
+- [ ] skeleton
+- [ ] spinner
+- [ ] tabs
+- [ ] tag
+- [ ] textarea
+- [ ] textinput
+- [ ] tip
+- [ ] togglegroup
+- [ ] toolbar
