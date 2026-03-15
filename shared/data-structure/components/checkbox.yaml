@@ -27,19 +27,19 @@ variants:
     when: When a checkbox option is unavailable.
 examples:
   - description: Simple
-    code: ""
+    code: ''
     codeFile: apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js
   - description: With description
-    code: ""
+    code: ''
     codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDescriptionExample.js
   - description: Toggle
-    code: ""
+    code: ''
     codeFile: apps/docs/src/examples/components/checkbox/CheckBoxToggleExample.js
   - description: Validation
-    code: ""
+    code: ''
     codeFile: apps/docs/src/examples/components/checkbox/CheckBoxValidationExample.js
   - description: Disabled
-    code: ""
+    code: ''
     codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDisabledExample.js
 contentGuidelines:
   - The labels on individual checkboxes should clearly describe the purpose of the checkbox.

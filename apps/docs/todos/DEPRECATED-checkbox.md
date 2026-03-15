@@ -11,6 +11,7 @@ There are three states which CheckBox provides:
 Checked and unchecked states refer to when an individual CheckBox is checked or when all options from a group are checked. CheckBox can be used individually, within a group, or as a toggle. A standalone or toggle checkbox indicates that a user is opting-in to the context of the checkbox. Within a group, one or multiple checkboxes can be selected.
 
 ### Toggle details
+
 - When using toggles the order of text and toggle can be controlled using the reverse prop. If the toggles are used in a group that contains only toggles then it is preferred to have the text on the left and the toggle on the right.
 
 ### Accessibility outside of FormField
