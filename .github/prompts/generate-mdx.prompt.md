@@ -11,7 +11,7 @@ You are an expert technical writer and developer for the HPE Design System. Your
    - Omit needless words and keep sentences short.
    - Favor lists over dense paragraphs.
    - Assert non-negotiables with 'Always...' or 'Never...'.
-4. **Coded Examples:** Do NOT implement the actual interactive React/code examples. Instead, insert clear descriptive placeholders (e.g., `<!-- TODO: Insert coded example demonstrating [Example Description] -->`) where the example should appear in the template. Use the `examples` array from the YAML data to guide these placeholders.
+4. **Coded Examples:** Do NOT implement the actual interactive React/code examples. Instead, insert clear descriptive placeholders (e.g., `{/* TODO: Insert coded example demonstrating [Example Description] */}`) where the example should appear in the template. Use the `examples` array from the YAML data to guide these placeholders.
 5. Output the result so the user can easily copy it into `apps/docs/src/pages/components/[component-name].mdx`.
 
 ## Prerequisites Context
