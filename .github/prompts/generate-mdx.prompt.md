@@ -13,7 +13,8 @@ You are an expert technical writer and developer for the HPE Design System. Your
    - Assert non-negotiables with 'Always...' or 'Never...'.
 4. **Coded Examples:** Do NOT implement the actual interactive React/code examples. Instead, insert clear descriptive placeholders (e.g., `{/* TODO: Insert coded example demonstrating [Example Description] */}`) where the example should appear in the template. Use the `examples` array from the YAML data to guide these placeholders.
 5. **Anatomy Annotations:** When generating the Anatomy section from the YAML `anatomy` array, strictly format the output as a Markdown table matching the columns in `apps/docs/COMPONENT_TEMPLATE.md` (`Label`, `Region`, `Purpose`, `Required`, `Notes`). For `Required` properties set to true, use `<span><Checkmark a11yTitle="true" size="small" /></span>`. For optional properties, write `Optional`.
-6. Output the result so the user can easily copy it into `apps/docs/src/pages/components/[component-name].mdx`.
+6. Ensure that `contentGuidelines` and `dosAndDonts` objects from the YAML configuration are correctly translated into the `## Content Guidelines` and `## Dos and Do Nots` sections using appropriate lists or `<BestPracticeGroup>` layouts as appropriate (do not mock real code, just content).
+7. Output the result so the user can easily copy it into `apps/docs/src/pages/components/[component-name].mdx`.
 
 ## Prerequisites Context
 

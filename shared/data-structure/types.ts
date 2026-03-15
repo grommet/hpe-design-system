@@ -146,6 +146,12 @@ export interface ComponentDefinition {
   examples: ComponentExample[];
   anatomy?: AnatomyPart[];
   behaviors?: ComponentBehaviors;
+  contentGuidelines?: string[];
+  dosAndDonts?: {
+    do: string;
+    dont: string;
+    reason?: string;
+  }[];
   accessibility?: ComponentAccessibility;
   relatedComponents?: string[];
 }

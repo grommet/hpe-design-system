@@ -68,12 +68,12 @@ rm apps/docs/src/pages/components/button.mdx.bak
 
 2. Build and run the `docs` app locally to ensure the new `button.mdx` page renders without crashing.
 3. Review the generated Markdown copy. Does it adhere to the rules in `.github/instructions/writing-documentation.instruction.md`? (e.g. Imperative tone, concise bullet points).
-4. If there were data gaps in the original documentation that need to be researched, catalog them in a `TODO-button.md` file or create a GitHub tracking issue.
+4. If there were data gaps in the original documentation that need to be researched, catalog them in `apps/docs/todos/TODO-[component].md`. If there was legacy content that doesn't fit the new rigid `.mdx` template, log it in `apps/docs/todos/DEPRECATED-[component].md`.
 
 ### Step 7: Push & PR
 
 Create a focused pull request.
 
-1. Commit your new YAML file, the updated MDX file, and any TODO lists.
+1. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
 2. Title the PR `docs: refactor [Component] component`.
 3. Check off your component in the `.github/docs-refactor-plan.md`!
