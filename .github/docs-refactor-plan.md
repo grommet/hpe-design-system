@@ -57,7 +57,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] card/call-to-action-card
 - [ ] card/index
 - [ ] card/navigational-card
-- [ ] checkbox
+- [x] checkbox
 - [ ] checkboxgroup
 - [ ] data
 - [ ] datafilter

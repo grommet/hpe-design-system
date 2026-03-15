@@ -1,0 +1,61 @@
+id: checkbox
+name: CheckBox
+description: CheckBox can be used to present an individual option or group of options to the user. When presented in a group, the user can select a single or multiple options.
+importPath: grommet
+props: []
+usage:
+  whenToUse:
+    - Presenting an individual option or group of options to the user.
+    - Serving as a UI control showing or hiding page content, such as revealing additional content or inputs which are only relevant when a particular feature is enabled.
+    - Scenarios in which having a form field label in addition to the checkbox label would be redundant for the user.
+    - Allowing a user to opt-in or acknowledge a disclaimer, such as a privacy policy or terms and conditions.
+    - Allowing an item to be selected within a list, table row, or drop down.
+  whenToAvoid:
+    - Do not use if a user should only be allowed to select one option from a list of options. In this case, refer to RadioButtonGroup.
+variants:
+  - name: with-description
+    description: Adding a description provides the user additional information about the context or purpose of the checkbox.
+    when: When the user needs additional context or information about the checkbox's purpose.
+  - name: toggle
+    description: Toggle is a single option which prompts users to choose between two mutually exclusive options.
+    when: To quickly switch between two possible states, usually providing immediate results without form submission, allowing users to control their preference.
+  - name: validation
+    description: Validation is used to show that the checkbox does not meet the validation requirements of its bounding FormField.
+    when: When the checkbox does not meet the validation requirements of its bounding FormField.
+  - name: disabled
+    description: Used to indicate that CheckBox cannot be interacted with.
+    when: When a checkbox option is unavailable.
+examples:
+  - description: Simple
+    code: ""
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js
+  - description: With description
+    code: ""
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDescriptionExample.js
+  - description: Toggle
+    code: ""
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxToggleExample.js
+  - description: Validation
+    code: ""
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxValidationExample.js
+  - description: Disabled
+    code: ""
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDisabledExample.js
+contentGuidelines:
+  - The labels on individual checkboxes should clearly describe the purpose of the checkbox.
+  - There should always be clear visual indication, either by text or icon, that describes the purpose of the checkbox.
+dosAndDonts:
+  - do: Use CheckBox inside of a FormField to ensure that a label is properly associated with the input.
+    dont: Do not use CheckBox if a user should only be allowed to select one option from a list of options.
+relatedComponents:
+  - checkboxgroup
+  - radiobuttongroup
+anatomy:
+  - label: '1'
+    region: 'Input'
+    purpose: 'The interactable area of the checkbox.'
+    availability: 'required'
+  - label: '2'
+    region: 'Label'
+    purpose: 'Describes the purpose of the checkbox.'
+    availability: 'optional'
