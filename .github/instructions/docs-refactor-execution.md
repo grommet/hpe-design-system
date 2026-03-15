@@ -19,7 +19,7 @@ For this guide, we will use `Button` as an example. Replace `button` with your a
 Create a new branch for your specific component. We are limiting scope to **1 Pull Request per component**.
 
 ```bash
-git checkout -b project-sanderson/refactor-button
+git checkout -b project-sanderson-refactor-button
 ```
 
 ### Step 2: Extract Existing Markdown into YAML
