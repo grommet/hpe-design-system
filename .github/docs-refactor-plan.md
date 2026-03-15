@@ -53,7 +53,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] anchor
 - [ ] avatar
 - [ ] box
-- [ ] button
+- [x] button
 - [ ] card/call-to-action-card
 - [ ] card/index
 - [ ] card/navigational-card

@@ -1,0 +1,95 @@
+id: button
+name: Button
+description: |
+  Buttons should be used in situations where users might need to:
+  - Submit a form
+  - Begin a new task
+  - Trigger a new UI element to appear on the page
+  - Specify a new or next step in a process
+importPath: grommet
+props: []
+usage:
+  whenToUse:
+    - Use buttons when you are performing an action, such as "submit", "merge", "create new", "upload", etc.
+    - An action almost always occurs on the same page.
+    - Highlight actions on a page delivering the most benefit to users.
+  whenToAvoid:
+    - Do not use a link/anchor when you’re performing a primary action.
+    - Conversely, do not use a button when navigating to another place, such as a "view all" page, profile, or "skip link" (use an anchor).
+    - Do not show inapplicable buttons as disabled; remove them completely from the UI instead.
+variants:
+  - name: primary
+    description: Highlights actions on a page delivering the most benefit to users, unlocking new value by enabling a new experience or creation.
+    when: Used for the key action on the page, and should only appear once.
+  - name: secondary
+    description: Calls to action that are either in support of the primary call to action or stand-alone.
+    when: There can be multiple secondary buttons per page. Can be used when the 80% use case for some pages is visualization and not action.
+  - name: toolbar
+    description: Used when buttons are placed in a row with other toolbar controls.
+    when: Presenting each control (like search input, filter button, action menu) with equal prominence. Apply `kind="toolbar"`.
+  - name: default
+    description: The neutral appearance signifies a non-committal or typical action. This is the standard behavior of a button.
+    when: The majority of buttons on your page should use this form, including Cancel buttons or secondary navigation-type actions.
+  - name: icon-only
+    description: Icons incorporated into buttons without inline text.
+    when: Useful for showing the current state of a button (like toggle buttons) or action buttons on mobile devices where space is limited. Must have an `a11yTitle` or `aria-label`.
+  - name: badge
+    description: Adds a small indicator to a Button to convey extra information, such as a notification or count.
+    when: Used to indicate that something is new/needs attention (simple dot) or to show how many items there are (number).
+  - name: busy / success
+    description: Communicates that the button's action is currently processing or has succeeded.
+    when: When an action may take a couple of seconds to complete or validate (like server-side validation). If longer, do not use busy state.
+examples:
+  - description: Default Button Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/DefaultButtonExample.js
+  - description: Primary Button Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/PrimaryButtonExample.js
+  - description: Secondary Button Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/SecondaryButtonExample.js
+  - description: Toolbar Button Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/ToolbarButtonExample.js
+  - description: Button with Icon Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/ButtonIconExample.js
+  - description: Button with Badge Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/ButtonBadgeExample.js
+  - description: Button States Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/ButtonStatesExample.js
+  - description: Button Busy Simple Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/ButtonBusySimpleExample.js
+  - description: Button Busy Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/ButtonBusyExample.js
+  - description: Button Sizes Example
+    code: ''
+    codeFile: apps/docs/src/examples/components/button/ButtonSizingExample.js
+contentGuidelines:
+  - Ensure to apply an appropriate label so the user has a clear understanding of what action to expect.
+  - Use clear and concise wording.
+  - Avoid contractions or colloquialisms. Keep the language approachable but not personal.
+  - Ensure your button label matches the route destination.
+  - For icon buttons, limit to 2-3 descriptive words and use verbs first (e.g. "Hide/View", "Switch/Unswitch", "Favorite/Unfavorite").
+  - Use sentence case capitalization. Words such as "the" and "a" should be avoided.
+dosAndDonts:
+  - do: Always use default button styling for cancel button, and keep it aligned in accordance with use case, following the hierarchy.
+    dont: Don't use Secondary Button styling for Cancel button.
+  - do: On small resolutions, full-width buttons help users more easily identify and interact with actions on smaller browser widths and when using the press gesture.
+    dont: On small resolutions, keeping button widths smaller lessen their visual impact and makes it more difficult for users to interact with them on smaller browser widths.
+  - do: Reorder the button group vertically on smaller screens to ensure each individual button is given enough space to be easily read and actioned on.
+    dont: Horizontal, inline button groups on smaller browser widths create opportunities for truncation, word wraps, and undersized press targets.
+anatomy:
+  - label: '1'
+    region: 'Icon'
+    purpose: 'Provides visual context for the action.'
+    availability: 'optional'
+  - label: '2'
+    region: 'Label'
+    purpose: 'Describes the action the button performs.'
+    availability: 'required'
