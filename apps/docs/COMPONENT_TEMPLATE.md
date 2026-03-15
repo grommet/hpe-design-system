@@ -118,7 +118,12 @@ Follow these rules when creating anatomy diagrams
 ### Anatomy annotations
 
 The anatomy diagram has annotation labels for each anatomical part. The annotations should appear
-in a markdown with the part name, puprose, required vs. optional, and notes.
+in a markdown table with the part name, purpose, required vs. optional, and notes.
+
+| Label  | Region             | Purpose                                                              |                         Required                         | Notes                                                                                                                                                                               |
+| :----: | ------------------ | -------------------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1**  | **[Part Name]**    | Opens the menu when clicked.                                         | <span><Checkmark a11yTitle="true" size="small" /></span> | Can include a label, icon, or both.                                                                                                                                                 |
+| **1a** | **[Sub Part]**   | Describes the menu's function or the category of actions.            |                         Optional                         | --                                                                                                                                                                                  |
 
 ### Anatomy diagram checklist
 
