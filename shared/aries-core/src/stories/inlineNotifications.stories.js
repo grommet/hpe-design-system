@@ -21,6 +21,10 @@ export const InlineFormValidation = {
 };
 
 export const InlineNotification = {
+  parameters: {
+    layout: 'fullscreen',
+    full: true,
+  },
   render: () => <InlineNotificationExample />,
 };
 
