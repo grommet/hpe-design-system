@@ -19,12 +19,13 @@ export default {
           }
           full={context.parameters.full || 'min'}
         >
-          <Box
-            pad={context.parameters.layout === 'fullscreen' ? 'none' : 'large'}
-            fill
-          >
+          {context.parameters.layout === 'fullscreen' ? (
             <Story />
-          </Box>
+          ) : (
+            <Box pad="large" fill>
+              <Story />
+            </Box>
+          )}
         </Grommet>
       );
     },

@@ -26,7 +26,6 @@ export const Card = {
   parameters: {
     layout: 'fullscreen',
     background: 'background-back',
-    full: 'min',
   },
 };
 
