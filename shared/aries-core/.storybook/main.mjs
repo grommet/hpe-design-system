@@ -1,5 +1,9 @@
-import { join, dirname } from 'path';
+import { join, dirname, resolve } from 'path';
 import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const require = createRequire(import.meta.url);
 
@@ -12,13 +16,18 @@ function getAbsolutePath(value) {
 
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../src/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@vueless/storybook-dark-mode'),
   ],
+  features: {
+    interactions: false,
+    backgrounds: false,
+  },
   framework: {
     name: getAbsolutePath('@storybook/react-webpack5'),
     options: {
@@ -43,6 +52,10 @@ const config = {
   webpackFinal: async config => {
     config.resolve = {
       ...config.resolve,
+      alias: {
+        ...config.resolve.alias,
+        'apps/docs': resolve(__dirname, '../../../apps/docs'),
+      },
       fallback: {
         fs: false,
         assert: false,

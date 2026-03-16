@@ -1,14 +1,15 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 /* eslint-disable max-len */
-import { DashboardExample } from 'aries-site/src/examples/templates/dashboards/DashboardExample';
-import { ThreeColumnDashboard } from 'aries-site/src/examples/templates/dashboards';
-import { TwoColumnDashboard } from 'aries-site/src/examples/templates/dashboards/TwoColumnDashboard';
+import { DashboardExample } from 'apps/docs/src/examples/templates/dashboards/DashboardExample';
+import { ThreeColumnDashboard } from 'apps/docs/src/examples/templates/dashboards';
+import { TwoColumnDashboard } from 'apps/docs/src/examples/templates/dashboards/TwoColumnDashboard';
 
 const meta = {
-  title: 'Dashboards',
+  title: 'Patterns/Dashboards',
   parameters: {
     layout: 'fullscreen',
+    controls: { disable: true },
   },
 };
 

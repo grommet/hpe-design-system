@@ -22,8 +22,8 @@ catalogs:
       specifier: ^8.39.0
       version: 8.57.1
     grommet:
-      specifier: ^2.51.0
-      version: 2.51.0
+      specifier: ^2.52.0
+      version: 2.52.0
     grommet-icons:
       specifier: ^4.14.0
       version: 4.14.0
@@ -66,10 +66,10 @@ importers:
         version: 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet:
         specifier: 'catalog:'
-        version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        version: 2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-theme-hpe:
         specifier: 'catalog:'
-        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        version: 8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       styled-components:
         specifier: 'catalog:'
         version: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -190,7 +190,7 @@ importers:
         specifier: ^5.2.0
         version: 5.4.21(@types/node@20.19.25)(terser@5.44.1)
 
-  aries-site:
+  apps/docs:
     dependencies:
       '@hpe-design/icons-grommet':
         specifier: 'catalog:'
@@ -206,7 +206,7 @@ importers:
         version: 14.2.33(@mdx-js/loader@3.1.1(webpack@5.102.1))(@mdx-js/react@3.1.1(@types/react@19.2.5)(react@19.2.3))
       '@shared/aries-core':
         specifier: workspace:*
-        version: link:../shared/aries-core
+        version: link:../../shared/aries-core
       grommet:
         specifier: 'catalog:'
         version: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -370,7 +370,7 @@ importers:
         version: 16.5.0
       grommet-theme-hpe:
         specifier: catalog:grommet-theme-hpe-v7
-        version: 7.0.2(grommet-icons@4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        version: 7.0.2(grommet-icons@4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       minimatch:
         specifier: ^10.0.3
         version: 10.1.1
@@ -595,25 +595,22 @@ importers:
         specifier: ^7.27.1
         version: 7.28.5(@babel/core@7.28.5)
       '@storybook/addon-a11y':
-        specifier: ^10.1.11
+        specifier: ^10.0.8
         version: 10.1.11(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       '@storybook/addon-docs':
-        specifier: ^10.1.11
+        specifier: ^10.0.8
         version: 10.1.11(@types/react@19.2.5)(esbuild@0.25.12)(rollup@4.53.2)(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.2.2(@types/node@20.19.25)(jiti@1.21.7)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))(webpack@5.102.1)
       '@storybook/addon-links':
-        specifier: ^10.1.11
+        specifier: ^10.0.8
         version: 10.1.11(react@19.2.3)(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       '@storybook/addon-onboarding':
-        specifier: ^10.1.11
+        specifier: ^10.0.8
         version: 10.1.11(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       '@storybook/addon-webpack5-compiler-swc':
         specifier: ^4.0.2
         version: 4.0.2(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(webpack@5.102.1)
-      '@storybook/react':
-        specifier: ^10.1.11
-        version: 10.1.11(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)
       '@storybook/react-webpack5':
-        specifier: ^10.1.11
+        specifier: ^10.0.8
         version: 10.1.11(@swc/core@1.15.2)(esbuild@0.25.12)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)(vite@7.2.2(@types/node@20.19.25)(jiti@1.21.7)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))(webpack-cli@5.1.4)
       '@testing-library/jest-dom':
         specifier: ^6.8.0
@@ -636,9 +633,15 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.5)
+      '@vueless/storybook-dark-mode':
+        specifier: ^10.0.6
+        version: 10.0.6(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       babel-loader:
         specifier: ^8.2.5
         version: 8.4.1(@babel/core@7.28.5)(webpack@5.102.1)
+      chromatic:
+        specifier: ^13.3.5
+        version: 13.3.5
       del:
         specifier: ^6.1.1
         version: 6.1.1
@@ -651,9 +654,6 @@ importers:
       fs-extra:
         specifier: ^11.1.0
         version: 11.3.2
-      raw-loader:
-        specifier: ^4.0.2
-        version: 4.0.2(webpack@5.102.1)
       react-syntax-highlighter:
         specifier: ^15.6.1
         version: 15.6.6(react@19.2.3)
@@ -711,7 +711,7 @@ importers:
         version: 5.9.3
       typescript-eslint:
         specifier: ^8.40.0
-        version: 8.47.0(eslint@8.57.1)(typescript@5.9.3)
+        version: 8.47.0(eslint@9.39.1(jiti@1.21.7))(typescript@5.9.3)
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.19.25)(jsdom@26.1.0)(terser@5.44.1)
@@ -3781,6 +3781,12 @@ packages:
   '@vue/shared@3.5.24':
     resolution: {integrity: sha512-9cwHL2EsJBdi8NY22pngYYWzkTDhld6fAD6jlaeloNGciNSJL6bLpbxVgXl96X00Jtc6YWQv96YA/0sxex/k1A==}
 
+  '@vueless/storybook-dark-mode@10.0.6':
+    resolution: {integrity: sha512-n8Lfk1x25Gc7Q4Ip46S+GV3kgKo4i7K0dVxB6MwvINWc3BWRqcxj+n8rDRxnb6BsyriPRNi5m6QKOGukyLisiA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      storybook: ^10.0.0
+
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
 
@@ -4452,6 +4458,18 @@ packages:
   chokidar@4.0.3:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
     engines: {node: '>= 14.16.0'}
+
+  chromatic@13.3.5:
+    resolution: {integrity: sha512-MzPhxpl838qJUo0A55osCF2ifwPbjcIPeElr1d4SHcjnHoIcg7l1syJDrAYK/a+PcCBrOGi06jPNpQAln5hWgw==}
+    hasBin: true
+    peerDependencies:
+      '@chromatic-com/cypress': ^0.*.* || ^1.0.0
+      '@chromatic-com/playwright': ^0.*.* || ^1.0.0
+    peerDependenciesMeta:
+      '@chromatic-com/cypress':
+        optional: true
+      '@chromatic-com/playwright':
+        optional: true
 
   chrome-remote-interface@0.32.2:
     resolution: {integrity: sha512-3UbFKtEmqApehPQnqdblcggx7KveQphEMKQmdJZsOguE9ylw2N2/9Z7arO7xS55+DBJ/hyP8RrayLt4MMdJvQg==}
@@ -5818,6 +5836,14 @@ packages:
       react-dom: ^16.6.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
       styled-components: ^5.1.0 || ^6.0.0
 
+  grommet@2.52.0:
+    resolution: {integrity: sha512-q5Dh0O4QpkKz9fWrOboe+A8G086jNFUz80mPt2mMDhm3wW+YLBrHmwPEzGF8Tu4h1eSfrY7YzdZylVWEr+Zovg==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      react: ^16.6.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.6.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      styled-components: ^5.1.0 || ^6.0.0
+
   gsap@3.13.0:
     resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
 
@@ -6751,6 +6777,9 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
+
+  lodash-es@4.17.23:
+    resolution: {integrity: sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==}
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -7820,12 +7849,6 @@ packages:
   raw-body@2.5.2:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
     engines: {node: '>= 0.8'}
-
-  raw-loader@4.0.2:
-    resolution: {integrity: sha512-ZnScIV3ag9A4wPX/ZayxL/jZH+euYb6FcUinPcgiQW0+UBtEv0O6Q3lGd3cqJ+GHH+rksEv3Pj99oxJ3u3VIKA==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
 
   react-docgen-typescript@2.4.0:
     resolution: {integrity: sha512-ZtAp5XTO5HRzQctjPU0ybY0RRCQO19X/8fxn3w7y2VVTUbGHDKULPTL4ky3vB05euSgG5NpALhEhDPvQ56wvXg==}
@@ -13219,6 +13242,12 @@ snapshots:
 
   '@vue/shared@3.5.24': {}
 
+  '@vueless/storybook-dark-mode@10.0.6(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      lodash-es: 4.17.23
+      storybook: 10.1.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+
   '@webassemblyjs/ast@1.14.1':
     dependencies:
       '@webassemblyjs/helper-numbers': 1.13.2
@@ -13979,6 +14008,8 @@ snapshots:
   chokidar@4.0.3:
     dependencies:
       readdirp: 4.1.2
+
+  chromatic@13.3.5: {}
 
   chrome-remote-interface@0.32.2:
     dependencies:
@@ -15604,9 +15635,9 @@ snapshots:
       react: 19.2.3
       styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
-  grommet-theme-hpe@7.0.2(grommet-icons@4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
+  grommet-theme-hpe@7.0.2(grommet-icons@4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
     dependencies:
-      grommet: 2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      grommet: 2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       grommet-icons: 4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       hpe-design-tokens: 1.4.1
       react: 19.2.3
@@ -15620,7 +15651,25 @@ snapshots:
       react: 19.2.3
       styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
+  grommet-theme-hpe@8.0.0(@hpe-design/icons-grommet@1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(grommet@2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
+    dependencies:
+      '@hpe-design/icons-grommet': 1.1.0(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      grommet: 2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      hpe-design-tokens: 2.1.0
+      react: 19.2.3
+      styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+
   grommet@2.51.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
+    dependencies:
+      '@emotion/is-prop-valid': 1.4.0
+      grommet-icons: 4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      markdown-to-jsx: 7.4.4(react@19.2.3)
+      prop-types: 15.8.1
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+      styled-components: 6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+
+  grommet@2.52.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
     dependencies:
       '@emotion/is-prop-valid': 1.4.0
       grommet-icons: 4.14.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -16870,6 +16919,8 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
+
+  lodash-es@4.17.23: {}
 
   lodash.debounce@4.0.8: {}
 
@@ -18169,12 +18220,6 @@ snapshots:
       http-errors: 2.0.0
       iconv-lite: 0.4.24
       unpipe: 1.0.0
-
-  raw-loader@4.0.2(webpack@5.102.1):
-    dependencies:
-      loader-utils: 2.0.4
-      schema-utils: 3.3.0
-      webpack: 5.102.1(@swc/core@1.15.2)(esbuild@0.25.12)(webpack-cli@5.1.4)
 
   react-docgen-typescript@2.4.0(typescript@5.9.3):
     dependencies:

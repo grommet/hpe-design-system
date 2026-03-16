@@ -1,0 +1,156 @@
+import {
+  TagAnatomy,
+  TagAttention,
+  TagMetaData,
+  TagSimple,
+  CreateTagSimple,
+  TagResource,
+} from '../../examples';
+import { AccessibilitySection, Example } from '../../layouts';
+import { Tag } from 'grommet';
+
+<Example
+  componentName="Tag"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/TagSimple.js"
+  docs="https://v2.grommet.io/tag?theme=hpe"
+  figma=""
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tag/Tag.js"
+>
+  <TagSimple />
+</Example>
+
+## Use cases
+
+### Displaying metadata
+
+[Static tags](/components/tag#static) can be used to display non-critical, concise information with the purpose to annotate or label items. Tags can contain value only, or a name value pair to assist with classification.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/TagMetaData.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/Card/Card.js',
+  ]}
+>
+  <TagMetaData />
+</Example>
+
+### Managing metadata
+
+Tags can be created, assigned and [removed](/components/tag#removable) from resources or items by a user.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/CreateTagSimple.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/data.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/layouts/content/ContentPane.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/CreateTag/TagResults.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/CreateTag/TagAppContainer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/CreateTag/TagPageHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/CreateTag/utils.js',
+  ]}
+>
+  <CreateTagSimple />
+</Example>
+
+### Filtering
+
+[Interactive tags](/components/tag#interactive) can be activated by mouse or keyboard input to enable quick filtering.
+Interacting with the tag will display items that share the same assigned value.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/TagResource.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/layouts/content/ContentPane.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/data.js',
+  ]}
+>
+  <TagResource />
+</Example>
+
+### Drawing attention
+
+[Highlight tags](/components/tag#highlight) can be used to draw attention to an element on the page. They are a decorative variant of the [static tag](/components/tag#static). Highlights should only contain descriptions that are temporary, such as “New”,
+“Updated”. As such they should not be used a permanent design feature.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tag/TagAttention.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/Card/Card.js',
+  ]}
+>
+  <TagAttention />
+</Example>
+
+## Anatomy
+
+<Example
+  caption="Diagram illustrating the four parts composing tag."
+  pad="xsmall"
+  previewWidth="xlarge"
+  height={{ min: 'xsmall' }}
+>
+  <TagAnatomy />
+</Example>
+
+| Label | Region                | Purpose                                                                                                                             | Required | Notes                                                 |
+| :---: | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | :------: | ----------------------------------------------------- |
+| **1** | **Container**         | Controls padding, border & background color.                                                                                        | Required | Behavior and style will change depending on tag type. |
+| **2** | **Name**              | Descriptive label or category that identifies what kind of data is stored in the associated value.For example “Country” or “Color”. | Optional | Up to 128 characters max.                             |
+| **3** | **Value**             | The specific descriptive data associated with an item. For example “USA” or “Green”.                                                | Required | Up to 256 characters max.                             |
+| **4** | **Close Icon Button** | Used to indicate that tag is removable.                                                                                             | Optional | Required for only removable tags.                     |
+
+## Types
+
+### Static
+
+- Contains simple, concise information used to annotate, categorize, group or otherwise label items.
+- Used to display secondary or supplementary information related to an object or item.
+- Can be used to communicate the state or condition of something (e.g. published, deployed, new, updated, etc.). State is defined in [notification taxonomy](/components/notification#taxonomy).
+- A tag should not be used to convey system status, that is considered primary information.
+- Static tags are not interactive in any way.
+
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" value="Static" />
+</Example>
+
+### Interactive
+
+- Interactive tags enable users to discover, filter, or navigate to identically tagged items.
+- An interactive tag can be actioned by mouse or keyboard.
+
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" onClick={() => {}} value="Interactive" />
+</Example>
+
+### Removable
+
+- A removable tag is interactive via the "Close" icon button.
+- Can be used to dismiss a category/value set from a filtered view.
+- Can be used to remove a value that has been assigned to an item or resource.
+
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" value="Removable" onRemove={() => {}} />
+</Example>
+
+### Highlight
+
+- Used to indicate a temporary or transient state associated with an item - eg new, updated, promotional.
+- Draws attention but is no louder than a secondary/primary button.
+- A highlight tag is not interactive in any way.
+- A tags size should be limited to x-small or small.
+- Use “primary/blue” border for highlight tags. This treatment should be used sparingly.
+
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" border={{ color: 'decorative-blue' }} value="Highlight" />
+</Example>
+
+## Accessibility
+
+| Key             | Interaction                                                                                                                                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tab**         | Used to navigate between interactive tags. Focuses on tag if it is selectable. When there is a close icon present, icon receives focus. For read-only, screen reader will read alongside content from where it lives. |
+| **Space/Enter** | For interactive tags, selects the tag. For removable tags, remove the tag.                                                                                                                                            |
+
+### WCAG compliance
+
+<AccessibilitySection title="tag" />

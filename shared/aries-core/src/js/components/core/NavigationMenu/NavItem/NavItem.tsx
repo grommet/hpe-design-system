@@ -1,13 +1,14 @@
-import React from 'react';
 import { Button } from 'grommet';
 import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';
 
 export type NavItemType = {
+  id?: string; // Added optional id for better key management
   label: string;
   url?: string;
   icon?: React.ReactNode;
   children?: NavItemType[];
+  type?: 'group' | 'item';
 };
 
 interface NavItemProps {
@@ -61,7 +62,7 @@ export const NavItem = ({
           ref={ref as any}
           {...(rest as any)}
         >
-          {({ hover }) => {
+          {({ hover, focus }) => {
             return (
               <ItemContainer
                 active={active as boolean | undefined}
@@ -71,6 +72,7 @@ export const NavItem = ({
                 <ItemLabel
                   icon={icon as React.ReactNode}
                   label={label as string}
+                  color={hover || focus || active ? 'text-strong' : 'text'}
                 />
                 {actions as React.ReactNode}
               </ItemContainer>

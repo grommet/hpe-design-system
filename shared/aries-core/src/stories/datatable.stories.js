@@ -2,6 +2,7 @@
 import React from 'react';
 import { DataTable } from 'grommet';
 import { AllowSelectAllExample } from './datatable-allow-select-all.example';
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import rawSourceCode from './datatable-allow-select-all.example.jsx?raw';
 import { processRawSource } from '../../.storybook/utils';
 

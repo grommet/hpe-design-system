@@ -1,0 +1,231 @@
+import { Box, Button, Text } from 'grommet';
+import { Clock, Right } from '@hpe-design/icons-grommet';
+import Link from 'next/link';
+
+import { Example } from '../../layouts';
+import {
+  AppAnatomy,
+  PageAnatomy,
+  PageContainerFull,
+  PageContainerInteractive,
+  PageContainerNarrow,
+  PageContainerWide,
+  PageMarginAnatomy,
+} from '../../examples';
+
+## Elements of an app UI
+
+The User Interface (UI) for an HPE application consists of four
+building blocks: App Container, Global Header and Footer, Page, and
+PageContent.
+
+<Example
+  caption='Diagram of the "building blocks" composing an application 
+    user interface: an App Container which contains the Global Header & Footer, Page  
+    and PageContent.'
+  pad="none"
+  previewWidth="min-content"
+>
+  <AppAnatomy />
+</Example>
+
+1. **App container**
+
+- The container serves as the outer shell of a page UI.
+- This is the parent component containing all HTML elements within a grid.
+- Its responsibility is to organize each of the page components, how they
+  relate to eachother, the spacing between each, and how they respond at
+  various screen widths.
+
+2. **Global header and footer**
+
+- The Global Header, also known as the [HPE Common Header and Footer
+  Web Service](/templates/global-header), provides a tunable, yet consistent
+  header and footer to be used across all HPE applications.
+- No matter the screen size, the Global Header & Footer will always be full
+  width, occupying as much space as available.
+
+3. **Page**
+
+- The Page component dictates the max width, padding, and alignment of its child PageContent(s).
+- It is responsible for the layout for the main content of a page.
+- Page `kind` can be [Wide](#wide-default), [Narrow](#narrow), of [Full](#full).
+
+4. **PageContent**
+
+- The PageContent contains the Page Header and any other content.
+- Its max width, padding, and alignment is determined by what Page `kind` it is in.
+
+<Box direction="row" align="center" gap="3xsmall">
+  <Clock />
+  <Text weight="bold" size="large">
+    Coming soon:
+  </Text>
+</Box>
+
+- Page Content Layout Templates for Dashboards, Wizards, Lists and Tables.
+- Updated guidance on [Page Headers](/components/header#page-header).
+
+## Page and PageContent
+
+Page is the parent component that wraps around all content for a page. Page dictates what max width, padding, and alignment its child PageContent components should receive.
+
+PageContent contains the Page Header and any other content.
+
+To make the following functionality easy to implement, Grommet provides
+[Page and PageContent components](/components/page).
+
+<Example
+  caption="Diagram of a Page component and child PageContent. The PageContent component contains the Page Header and other content."
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageAnatomy />
+</Example>
+
+### Page kinds
+
+There are 3 Page kinds from which to choose, depending on
+the layout use case: [Wide](#wide-default), [Narrow](#narrow) and [Full](#full).
+
+The Page `kind` determines the max width that PageContent can reach.
+
+In all cases, the minimum width of content is `336px`, after which horizontal
+scrolling is enabled.
+
+#### Wide (default)
+
+- This is the default width for the PageContent.
+- Using the "wide" Page scales the PageContent until a maximum width of `1536px`.
+- If the screen is larger than `1536px`, the PageContent will be center aligned and white space
+  will be displayed around the perimeter of the content.
+
+<Example
+  caption={`Diagram displaying how a "wide" Page scales its PageContent 
+  horizontally. The Page fills the viewport while the PageContent is 
+  restricted to a maximum width.`}
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerWide />
+</Example>
+
+**Use cases include:**
+
+- Dashboards
+- Tables
+- Lists
+- Charts
+
+#### Narrow
+
+- The "narrow" Page scales the PageContent until a maximum width of `768px`.
+- If the screen is wider than 768px, the PageContent will be center aligned
+  and white space will be displayed around the perimeter of the content.
+
+<Example
+  caption={`Diagram displaying how a "narrow" Page scales its PageContent 
+  horizontally. The Page fills the viewport while the PageContent is 
+  restricted to a maximum width.`}
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerNarrow />
+</Example>
+
+**Use cases include:**
+
+- Wizards
+- Articles
+- Single task flows, such as forms
+- Admin and user settings
+
+#### Full
+
+- The "full" Page will automatically resize the PageContent to fill the
+  screen displaying it.
+- With the "full" option, if the screen grows wider than the available content, the
+  PageContent will be left aligned to the edge of the screen.
+
+<Example
+  caption={`Diagram displaying how a "full" Page scales horizontally. Both 
+  the "full" Page and PageContent fill the viewport.`}
+  pad="none"
+  previewWidth="min-content"
+>
+  <PageContainerFull />
+</Example>
+
+**Use cases may include:**
+
+- Charts
+- Maps
+- Tables
+
+#### Page padding
+
+Page padding is the left and right space between the page content and the
+screen edge.
+
+Wider padding is better for larger screens, as it creates more whitespace
+either side of the content. For smaller screens, less whitespace is appropriate
+in order to maximize the available screen real estate.
+
+<Example
+  caption="A diagram showing the margin area on a larger and smaller screens."
+  plain
+  pad="xsmall"
+  previewWidth="xlarge"
+  height={{ min: 'xsmall' }}
+>
+  <PageMarginAnatomy />
+</Example>
+
+[Responsive breakpoints](/templates/content-layouts#breakpoints) determine the amount of horizontal
+padding to be used at various screen widths.
+
+| Breakpoint | Pad (pixels) |
+| ---------- | -----------: |
+| **xsmall** |           12 |
+| **small**  |           24 |
+| **medium** |           24 |
+| **large**  |           48 |
+| **xlarge** |           48 |
+
+### PageContent widths demonstration
+
+Open the following example in "fullscreen mode" and resize your browser window to see how
+each [page content width's](#page-kinds) maximum width,
+contents padding, and alignment gracefully adjust across screens ranging from very narrow
+to very wide.
+
+{/* height value chosen to best visually represent the page layout diagram concept */}
+
+<Example
+  screenContainer
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/PageContainerInteractive.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/components/AppContainer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/components/PageContainer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/page-layouts/PageContainerInteractive.js"
+  width="100%"
+>
+  <PageContainerInteractive />
+</Example>
+
+## Layouts for page content
+
+For specific guidelines and templates regarding page content, see [Content Layouts](/templates/content-layouts).
+
+<Link href="/templates/content-layouts" passHref legacyBehavior>
+  <Button
+    primary
+    label="See Content Layouts"
+    icon={<Right />}
+    alignSelf="start"
+    reverse
+    size="large"
+  />
+</Link>
