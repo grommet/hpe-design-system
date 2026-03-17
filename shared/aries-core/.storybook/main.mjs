@@ -64,20 +64,21 @@ const config = {
         buffer: false,
         zlib: false,
       },
-      // module: {
-      //   rules: [
-      //     {
-      //       test: /\.js$/,
-      //       resourceQuery: /raw/, // Matches files imported with ?raw
-      //       type: 'asset/source', // Loads as a raw string
-      //     },
-      //   ],
-      // },
     };
-    config.module.rules.push({
-      test: /\testCode.js$/,
+    config.module.rules.unshift({
+      test: /\.js$/,
       resourceQuery: /raw/, // Matches files imported with ?raw
       type: 'asset/source', // Loads as a raw string
+    });
+    // Prevent the default JS loaders from also matching ?raw imports
+    config.module.rules.forEach(rule => {
+      if (
+        rule.test instanceof RegExp &&
+        rule.test.test('.js') &&
+        rule !== config.module.rules[0]
+      ) {
+        rule.resourceQuery = rule.resourceQuery || { not: [/raw/] };
+      }
     });
     return config;
   },

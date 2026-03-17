@@ -43,6 +43,9 @@ export default {
     },
     docs: {
       codePanel: true,
+      canvas: {
+        sourceState: 'shown',
+      },
     },
     options: {
       storySort: {
