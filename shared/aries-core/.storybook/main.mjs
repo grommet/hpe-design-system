@@ -66,7 +66,7 @@ const config = {
       },
     };
     config.module.rules.unshift({
-      test: /\.js$/,
+      test: /\.(js|tsx?)$/,
       resourceQuery: /raw/, // Matches files imported with ?raw
       type: 'asset/source', // Loads as a raw string
     });

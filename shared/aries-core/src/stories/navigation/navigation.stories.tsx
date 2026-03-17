@@ -1,81 +1,9 @@
-import { Page, PageContent, PageHeader } from 'grommet';
-import { useSessionStorage } from '@shared/hooks';
-import {
-  AppShell,
-  NavigationPanel,
-  navItems,
-  navItemsSubheadings,
-} from './content';
-
-const NavigationMenuExample = () => {
-  const [activeItem, setActiveItem] = useSessionStorage<string | undefined>(
-    'activeItem-1',
-    'Home',
-  );
-  const [expanded] = useSessionStorage<boolean>('expanded-1', true);
-  const [contextContent, setContextContent] = useSessionStorage(
-    'contextContent-1',
-    '',
-  );
-
-  return (
-    <AppShell
-      navigationMenu={
-        <NavigationPanel
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
-          items={navItems}
-          expanded={expanded}
-        />
-      }
-      mainContent={
-        <Page>
-          <PageContent pad="medium" gap="medium">
-            <PageHeader title={activeItem} />
-          </PageContent>
-        </Page>
-      }
-      contextContent={contextContent}
-      setContextContent={setContextContent}
-      setActiveItem={setActiveItem}
-    />
-  );
-};
-
-const NavigationMenuSubheadings = () => {
-  const [activeItem, setActiveItem] = useSessionStorage<string | undefined>(
-    'activeItem-2',
-    'Home',
-  );
-  const [expanded] = useSessionStorage<boolean>('expanded-2', true);
-  const [contextContent, setContextContent] = useSessionStorage(
-    'contextContent-2',
-    '',
-  );
-
-  return (
-    <AppShell
-      navigationMenu={
-        <NavigationPanel
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
-          items={navItemsSubheadings}
-          expanded={expanded}
-        />
-      }
-      mainContent={
-        <Page>
-          <PageContent pad="medium" gap="medium">
-            <PageHeader title={activeItem} />
-          </PageContent>
-        </Page>
-      }
-      contextContent={contextContent}
-      setContextContent={setContextContent}
-      setActiveItem={setActiveItem}
-    />
-  );
-};
+import { NavigationMenuExample } from './NavigationMenuExample';
+import { NavigationMenuSubheadings } from './NavigationMenuSubheadings';
+// eslint-disable-next-line import/no-unresolved
+import NavigationMenuExampleSource from './NavigationMenuExample.tsx?raw';
+// eslint-disable-next-line import/no-unresolved
+import NavigationMenuSubheadingsSource from './NavigationMenuSubheadings.tsx?raw';
 
 const meta = {
   title: 'Patterns/Navigation',
@@ -88,8 +16,32 @@ export default meta;
 
 export const Navigation = {
   render: () => <NavigationMenuExample />,
+  parameters: {
+    docs: {
+      source: {
+        code: NavigationMenuExampleSource,
+        language: 'tsx',
+        type: 'code',
+      },
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+  },
 };
 
 export const NavigationWithSubheadings = {
   render: () => <NavigationMenuSubheadings />,
+  parameters: {
+    docs: {
+      source: {
+        code: NavigationMenuSubheadingsSource,
+        language: 'tsx',
+        type: 'code',
+      },
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+  },
 };
