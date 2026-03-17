@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { CodeBlockExample } from 'apps/docs/src/examples/templates/code-blocks/CodeBlocks';
+// eslint-disable-next-line import/extensions
 import CodeBlockExampleSource from 'apps/docs/src/examples/templates/code-blocks/CodeBlocks.js?raw';
 
 const meta = {

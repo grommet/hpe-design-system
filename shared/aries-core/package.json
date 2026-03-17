@@ -29,7 +29,6 @@
     "@storybook/addon-links": "^10.2.19",
     "@storybook/addon-onboarding": "^10.2.19",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
-    "@storybook/builder-webpack5": "^10.2.19",
     "@storybook/react-webpack5": "^10.2.19",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
