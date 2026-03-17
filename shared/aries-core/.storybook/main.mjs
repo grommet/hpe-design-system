@@ -1,3 +1,4 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
 import { join, dirname, resolve } from 'path';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
@@ -63,7 +64,21 @@ const config = {
         buffer: false,
         zlib: false,
       },
+      // module: {
+      //   rules: [
+      //     {
+      //       test: /\.js$/,
+      //       resourceQuery: /raw/, // Matches files imported with ?raw
+      //       type: 'asset/source', // Loads as a raw string
+      //     },
+      //   ],
+      // },
     };
+    config.module.rules.push({
+      test: /\testCode.js$/,
+      resourceQuery: /raw/, // Matches files imported with ?raw
+      type: 'asset/source', // Loads as a raw string
+    });
     return config;
   },
 };

@@ -31,6 +31,11 @@ export default {
       },
       {
         test: /\.js$/,
+        resourceQuery: /raw/, // Matches files imported with ?raw
+        type: 'asset/source', // Loads as a raw string
+      },
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
