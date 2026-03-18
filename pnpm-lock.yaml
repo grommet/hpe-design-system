@@ -30,6 +30,9 @@ catalogs:
     grommet-theme-hpe:
       specifier: ^8.1.3
       version: 8.1.3
+    hpe-design-tokens:
+      specifier: ^2.2.3
+      version: 2.2.3
     prop-types:
       specifier: ^15.8.1
       version: 15.8.1
@@ -214,7 +217,7 @@ importers:
         specifier: catalog:grommet-stable
         version: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       hpe-design-tokens:
-        specifier: ^2.2.3
+        specifier: 'catalog:'
         version: 2.2.3
       next:
         specifier: 15.5.9
