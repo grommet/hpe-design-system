@@ -17,6 +17,9 @@ export default meta;
 
 export const FilterCards = {
   render: () => <FilteringCards />,
+  parameters: {
+    background: 'background-back',
+  },
 };
 
 export const FilterTable = {

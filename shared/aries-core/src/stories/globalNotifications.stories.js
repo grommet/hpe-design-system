@@ -19,6 +19,10 @@ export default meta;
 
 export const ContentLayout = {
   render: () => <BannerContentLayoutExample />,
+  parameters: {
+    layout: 'fullscreen',
+    background: 'background-back',
+  },
 };
 
 export const Critical = {
