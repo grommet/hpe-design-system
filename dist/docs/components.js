@@ -6597,7 +6597,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.08)",
+    "$value": "rgba(0, 0, 0, 0.04)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6613,7 +6613,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.contrast.DEFAULT.hover}"
+      "$value": "{color.background.DEFAULT.hover}"
     },
     "name": "hpe.button.default.selected.hover.background",
     "attributes": {
@@ -6645,7 +6645,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#006750",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6661,7 +6661,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{button.default.selected.rest.borderColor}"
+      "$value": "{color.border.selected.DEFAULT.REST}"
     },
     "name": "hpe.button.default.selected.hover.borderColor",
     "attributes": {
@@ -6692,7 +6692,7 @@ export default {
       }
     },
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6707,7 +6707,7 @@ export default {
         }
       },
       "$type": "number",
-      "$value": "{button.default.selected.rest.fontWeight}"
+      "$value": "{fontWeight.medium}"
     },
     "name": "hpe.button.default.selected.hover.fontWeight",
     "attributes": {
@@ -6740,7 +6740,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6757,7 +6757,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{button.default.selected.rest.iconColor}"
+      "$value": "{color.icon.strong.REST}"
     },
     "name": "hpe.button.default.selected.hover.iconColor",
     "attributes": {
@@ -6788,7 +6788,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6803,7 +6803,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{button.default.selected.rest.textColor}"
+      "$value": "{color.text.strong.REST}"
     },
     "name": "hpe.button.default.selected.hover.textColor",
     "attributes": {
@@ -6835,7 +6835,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
+    "$value": "rgba(0, 0, 0, 0)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6851,7 +6851,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.DEFAULT.active}"
+      "$value": "{color.transparent}"
     },
     "name": "hpe.button.default.selected.rest.background",
     "attributes": {
@@ -6883,7 +6883,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#006750",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6899,7 +6899,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.border.selected.DEFAULT.REST}"
     },
     "name": "hpe.button.default.selected.rest.borderColor",
     "attributes": {
@@ -6930,7 +6930,7 @@ export default {
       }
     },
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6945,7 +6945,7 @@ export default {
         }
       },
       "$type": "number",
-      "$value": "{fontWeight.semibold}"
+      "$value": "{fontWeight.medium}"
     },
     "name": "hpe.button.default.selected.rest.fontWeight",
     "attributes": {
@@ -6978,7 +6978,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -6995,7 +6995,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.icon.primary.DEFAULT.REST}"
+      "$value": "{color.icon.strong.REST}"
     },
     "name": "hpe.button.default.selected.rest.iconColor",
     "attributes": {
@@ -7026,7 +7026,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -7041,7 +7041,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.text.primary.DEFAULT.REST}"
+      "$value": "{color.text.strong.REST}"
     },
     "name": "hpe.button.default.selected.rest.textColor",
     "attributes": {
@@ -11617,7 +11617,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.08)",
+    "$value": "rgba(0, 0, 0, 0.04)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11633,7 +11633,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.contrast.DEFAULT.hover}"
+      "$value": "{color.background.DEFAULT.hover}"
     },
     "name": "hpe.button.primary.selected.hover.background",
     "attributes": {
@@ -11665,7 +11665,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#006750",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11681,7 +11681,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.border.selected.DEFAULT.REST}"
     },
     "name": "hpe.button.primary.selected.hover.borderColor",
     "attributes": {
@@ -11855,7 +11855,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
+    "$value": "rgba(0, 0, 0, 0)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11871,7 +11871,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.contrast.DEFAULT.REST}"
+      "$value": "{color.transparent}"
     },
     "name": "hpe.button.primary.selected.rest.background",
     "attributes": {
@@ -11903,7 +11903,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#006750",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -11919,7 +11919,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.border.selected.DEFAULT.REST}"
     },
     "name": "hpe.button.primary.selected.rest.borderColor",
     "attributes": {
@@ -16637,7 +16637,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#aafade",
+    "$value": "rgba(0, 0, 0, 0.04)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16653,7 +16653,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.selected.primary.DEFAULT.hover}"
+      "$value": "{color.background.DEFAULT.hover}"
     },
     "name": "hpe.button.secondary.selected.hover.background",
     "attributes": {
@@ -16685,7 +16685,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#006750",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16701,7 +16701,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.border.selected.DEFAULT.REST}"
     },
     "name": "hpe.button.secondary.selected.hover.borderColor",
     "attributes": {
@@ -16732,7 +16732,7 @@ export default {
       }
     },
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16747,7 +16747,7 @@ export default {
         }
       },
       "$type": "number",
-      "$value": "{fontWeight.semibold}"
+      "$value": "{fontWeight.medium}"
     },
     "name": "hpe.button.secondary.selected.hover.fontWeight",
     "attributes": {
@@ -16780,7 +16780,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16797,7 +16797,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.icon.primary.DEFAULT.REST}"
+      "$value": "{color.icon.strong.REST}"
     },
     "name": "hpe.button.secondary.selected.hover.iconColor",
     "attributes": {
@@ -16828,7 +16828,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16843,7 +16843,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.text.primary.DEFAULT.REST}"
+      "$value": "{color.text.strong.REST}"
     },
     "name": "hpe.button.secondary.selected.hover.textColor",
     "attributes": {
@@ -16875,7 +16875,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#d1ffee",
+    "$value": "rgba(0, 0, 0, 0)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16891,7 +16891,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.background.selected.primary.DEFAULT.REST}"
+      "$value": "{color.transparent}"
     },
     "name": "hpe.button.secondary.selected.rest.background",
     "attributes": {
@@ -16923,7 +16923,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#006750",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16939,7 +16939,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.border.selected.DEFAULT.REST}"
     },
     "name": "hpe.button.secondary.selected.rest.borderColor",
     "attributes": {
@@ -16970,7 +16970,7 @@ export default {
       }
     },
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -16985,7 +16985,7 @@ export default {
         }
       },
       "$type": "number",
-      "$value": "{fontWeight.semibold}"
+      "$value": "{fontWeight.medium}"
     },
     "name": "hpe.button.secondary.selected.rest.fontWeight",
     "attributes": {
@@ -17018,7 +17018,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -17035,7 +17035,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.icon.primary.DEFAULT.REST}"
+      "$value": "{color.icon.strong.REST}"
     },
     "name": "hpe.button.secondary.selected.rest.iconColor",
     "attributes": {
@@ -17066,7 +17066,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -17081,7 +17081,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.text.primary.DEFAULT.REST}"
+      "$value": "{color.text.strong.REST}"
     },
     "name": "hpe.button.secondary.selected.rest.textColor",
     "attributes": {
@@ -34442,7 +34442,7 @@ export default {
       }
     },
     "$type": "number",
-    "$value": "8px",
+    "$value": "12px",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -34457,7 +34457,7 @@ export default {
         }
       },
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}"
+      "$value": "{static.spacing.xsmall}"
     },
     "name": "hpe.formField.default.medium.input.group.item.paddingX",
     "attributes": {

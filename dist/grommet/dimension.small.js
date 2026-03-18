@@ -53,7 +53,7 @@ export default {
         "lineHeight": "1.125rem"
       },
       "xxsmall": {
-        "fontSize": "1rem",
+        "fontSize": "0.875rem",
         "fontWeight": 500,
         "lineHeight": "1.125rem"
       }

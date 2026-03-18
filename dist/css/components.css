@@ -76,7 +76,8 @@
   --hpe-button-default-medium-iconOnly-paddingX: var(--hpe-button-default-medium-iconOnly-paddingY);
   --hpe-button-default-medium-paddingY: var(--hpe-element-medium-paddingY);
   --hpe-button-default-rest-fontWeight: var(--hpe-fontWeight-medium);
-  --hpe-button-default-selected-rest-fontWeight: var(--hpe-fontWeight-semibold);
+  --hpe-button-default-selected-hover-fontWeight: var(--hpe-fontWeight-medium);
+  --hpe-button-default-selected-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-button-default-small-borderRadius: var(--hpe-static-radius-full);
   --hpe-button-default-small-iconOnly-paddingX: var(--hpe-button-default-small-iconOnly-paddingY);
   --hpe-button-default-small-paddingY: var(--hpe-element-small-paddingY);
@@ -98,8 +99,8 @@
   --hpe-button-secondary-medium-iconOnly-paddingX: var(--hpe-button-secondary-medium-iconOnly-paddingY);
   --hpe-button-secondary-medium-paddingY: var(--hpe-element-medium-paddingY);
   --hpe-button-secondary-rest-fontWeight: var(--hpe-fontWeight-medium);
-  --hpe-button-secondary-selected-hover-fontWeight: var(--hpe-fontWeight-semibold);
-  --hpe-button-secondary-selected-rest-fontWeight: var(--hpe-fontWeight-semibold);
+  --hpe-button-secondary-selected-hover-fontWeight: var(--hpe-fontWeight-medium);
+  --hpe-button-secondary-selected-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-button-secondary-small-iconOnly-paddingX: var(--hpe-button-secondary-small-iconOnly-paddingY);
   --hpe-button-secondary-xlarge-iconOnly-paddingX: var(--hpe-button-secondary-xlarge-iconOnly-paddingY);
   --hpe-button-secondary-xsmall-iconOnly-paddingX: var(--hpe-button-secondary-xsmall-iconOnly-paddingY);
@@ -203,7 +204,6 @@
   --hpe-button-default-medium-iconOnly-borderRadius: var(--hpe-button-default-medium-borderRadius);
   --hpe-button-default-medium-minHeight: var(--hpe-element-medium-minHeight);
   --hpe-button-default-medium-paddingX: var(--hpe-element-medium-paddingX-wide);
-  --hpe-button-default-selected-hover-fontWeight: var(--hpe-button-default-selected-rest-fontWeight);
   --hpe-button-default-small-borderWidth: var(--hpe-static-borderWidth-default);
   --hpe-button-default-small-iconOnly-borderRadius: var(--hpe-button-default-small-borderRadius);
   --hpe-button-default-small-minHeight: var(--hpe-element-small-minHeight);
@@ -283,7 +283,7 @@
   --hpe-formField-default-medium-input-container-paddingX: var(--hpe-static-spacing-xsmall);
   --hpe-formField-default-medium-input-group-container-paddingY: var(--hpe-static-spacing-none);
   --hpe-formField-default-medium-input-group-item-minHeight: var(--hpe-element-medium-minHeight);
-  --hpe-formField-default-medium-input-group-item-paddingX: var(--hpe-static-spacing-xxsmall);
+  --hpe-formField-default-medium-input-group-item-paddingX: var(--hpe-static-spacing-xsmall);
   --hpe-formField-default-medium-label-fontSize: var(--hpe-text-xsmall-fontSize);
   --hpe-formField-default-medium-label-lineHeight: var(--hpe-text-xsmall-lineHeight);
   --hpe-headerCell-default-medium-minHeight: var(--hpe-dataCell-default-medium-minHeight);

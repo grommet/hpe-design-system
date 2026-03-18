@@ -237,18 +237,18 @@ export default {
         },
         "selected": {
           "hover": {
-            "background": "background-contrast-hover",
-            "borderColor": "transparent",
-            "fontWeight": 600,
-            "iconColor": "icon-primary",
-            "textColor": "text-primary"
+            "background": "background-hover",
+            "borderColor": "border-selected",
+            "fontWeight": 500,
+            "iconColor": "icon-strong",
+            "textColor": "text-strong"
           },
           "rest": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "fontWeight": 600,
-            "iconColor": "icon-primary",
-            "textColor": "text-primary"
+            "background": "transparent",
+            "borderColor": "border-selected",
+            "fontWeight": 500,
+            "iconColor": "icon-strong",
+            "textColor": "text-strong"
           }
         },
         "small": {
@@ -383,15 +383,15 @@ export default {
         },
         "selected": {
           "hover": {
-            "background": "background-contrast-hover",
-            "borderColor": "transparent",
+            "background": "background-hover",
+            "borderColor": "border-selected",
             "fontWeight": 500,
             "iconColor": "icon-strong",
             "textColor": "text-strong"
           },
           "rest": {
-            "background": "background-contrast",
-            "borderColor": "transparent",
+            "background": "transparent",
+            "borderColor": "border-selected",
             "fontWeight": 500,
             "iconColor": "icon-strong",
             "textColor": "text-strong"
@@ -529,18 +529,18 @@ export default {
         },
         "selected": {
           "hover": {
-            "background": "background-selected-primary-hover",
-            "borderColor": "transparent",
-            "fontWeight": 600,
-            "iconColor": "icon-primary",
-            "textColor": "text-primary"
+            "background": "background-hover",
+            "borderColor": "border-selected",
+            "fontWeight": 500,
+            "iconColor": "icon-strong",
+            "textColor": "text-strong"
           },
           "rest": {
-            "background": "background-selected-primary",
-            "borderColor": "transparent",
-            "fontWeight": 600,
-            "iconColor": "icon-primary",
-            "textColor": "text-primary"
+            "background": "transparent",
+            "borderColor": "border-selected",
+            "fontWeight": 500,
+            "iconColor": "icon-strong",
+            "textColor": "text-strong"
           }
         },
         "small": {
@@ -1214,7 +1214,7 @@ export default {
                 "borderRadius": "xsmall",
                 "borderWidth": "default",
                 "minHeight": "36px",
-                "paddingX": "8px",
+                "paddingX": "12px",
                 "paddingY": "5px",
                 "textToElementX": "12px",
                 "textToIconX": "6px"

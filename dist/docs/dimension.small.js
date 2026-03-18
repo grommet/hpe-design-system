@@ -1338,7 +1338,7 @@ export default {
       }
     },
     "$type": "number",
-    "$value": "1rem",
+    "$value": "0.875rem",
     "filePath": "tokens/semantic/dimension.small.json",
     "isSource": true,
     "original": {
@@ -1353,7 +1353,7 @@ export default {
         }
       },
       "$type": "number",
-      "$value": 16
+      "$value": "{base.fontSize.90}"
     },
     "name": "hpe.heading.xxsmall.fontSize",
     "attributes": {
