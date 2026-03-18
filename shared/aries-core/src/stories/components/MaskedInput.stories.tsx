@@ -1,13 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { MaskedInput } from 'grommet';
-import { iconArg, heightArg } from '../utils/commonArgs';
+import { iconArg } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/MaskedInput',
   component: MaskedInput,
   argTypes: {
-    dropHeight: heightArg,
     icon: iconArg,
     mask: {
       control: { type: 'object' },
@@ -25,7 +24,6 @@ export const Default = {
   name: 'MaskedInput',
   render: args => <MaskedInput {...args} />,
   args: {
-    dropHeight: undefined,
     icon: undefined,
     mask: [
       {

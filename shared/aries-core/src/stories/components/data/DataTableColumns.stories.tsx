@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Data, DataTableColumns, DataTable } from 'grommet';
+import { Box, Data, DataTableColumns, DataTable } from 'grommet';
 
 const meta = {
   title: 'Components/Data',
@@ -49,7 +49,9 @@ export const DataTableColumnsExample = {
         },
       ]}
     >
-      <DataTableColumns {...args} />
+      <Box align="start" width="medium">
+        <DataTableColumns {...args} />
+      </Box>
       <DataTable
         columns={[
           {

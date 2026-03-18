@@ -83,7 +83,7 @@ export const dropAlignArg: ArgType = {
 
 export const elevationArg: ArgType = {
   control: { type: 'select' },
-  options: tShirtSizes,
+  options: ['small', 'medium', 'large'],
 };
 
 export const fillArg: ArgType = {

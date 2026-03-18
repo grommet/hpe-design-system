@@ -12,14 +12,20 @@ export default {
 
       return (
         <Grommet
-          full
           theme={hpe}
           themeMode={mode}
-          background={context.globals.background?.value}
+          background={
+            context.parameters.background || context.globals.background?.value
+          }
+          full={context.parameters.full || 'min'}
         >
-          <Box pad="large" fill>
+          {context.parameters.layout === 'fullscreen' ? (
             <Story />
-          </Box>
+          ) : (
+            <Box pad="large" fill>
+              <Story />
+            </Box>
+          )}
         </Grommet>
       );
     },
@@ -41,11 +47,7 @@ export default {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: [
-          'Welcome',
-          'Components',
-          'Patterns',
-        ],
+        order: ['Welcome', 'Components', 'Patterns'],
       },
     },
   },

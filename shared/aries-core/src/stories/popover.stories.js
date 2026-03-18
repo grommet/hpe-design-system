@@ -15,6 +15,9 @@ export default meta;
 
 export const PopoverInline = {
   render: () => <PopoverInlineExample />,
+  parameters: {
+    background: 'background-back',
+  },
 };
 
 export const PopoverSimple = {

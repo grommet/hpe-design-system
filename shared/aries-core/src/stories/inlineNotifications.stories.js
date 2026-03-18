@@ -21,15 +21,27 @@ export const InlineFormValidation = {
 };
 
 export const InlineNotification = {
+  parameters: {
+    layout: 'fullscreen',
+    full: true,
+  },
   render: () => <InlineNotificationExample />,
 };
 
 export const PageBanner = {
   render: () => <PageBannerExample />,
+  parameters: {
+    layout: 'fullscreen',
+    background: 'background-back',
+  },
 };
 
 export const Promotion = {
   render: () => <PromotionExample />,
+  parameters: {
+    layout: 'fullscreen',
+    background: 'background-back',
+  },
 };
 
 export const StatusUpdate = {

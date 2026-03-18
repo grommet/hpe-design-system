@@ -58,7 +58,10 @@ const columns = [
     property: 'hardware.model',
     header: 'Model',
     render: datum => (
-      <Text a11yTitle={!datum.hardware.model ? 'No value' : undefined}>
+      <Text
+        aria-label={!datum.hardware.model ? 'No value' : undefined}
+        role={!datum.hardware.model ? 'text' : undefined}
+      >
         {datum.hardware.model || '--'}
       </Text>
     ),
