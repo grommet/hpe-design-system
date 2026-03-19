@@ -688,7 +688,7 @@ export const components = [
     accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
-      'CheckBox is a square design element that when clicked accepts the choice offered.',
+      'Presents a single option or group of options that users can independently check or uncheck, including a toggle variant for switching between two mutually exclusive states.',
     seoDescription:
       'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
     sections: [

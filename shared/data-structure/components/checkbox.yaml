@@ -1,0 +1,220 @@
+id: checkbox
+name: CheckBox
+description: >
+  Presents a single option or group of options that users can independently
+  check or uncheck, including a toggle variant for switching between two
+  mutually exclusive states.
+importPath: grommet
+framework: react
+
+props:
+  - name: label
+    type: string | React.ReactNode
+    required: false
+    description: Text or node rendered next to the checkbox control.
+  - name: checked
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Whether the checkbox is in a checked state.
+  - name: indeterminate
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Indicates that a parent checkbox has only a subset of its children
+      checked. Only valid on checkboxes that act as a parent in a nested
+      selection group.
+  - name: disabled
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Prevents interaction with the checkbox.
+  - name: toggle
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Renders the checkbox as a toggle switch. Use when the user is choosing
+      between two mutually exclusive states with immediate effect.
+  - name: reverse
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Places the label before (to the left of) the control instead of after
+      it. Preferred when toggles appear in a group containing only toggles.
+  - name: onChange
+    type: (event: React.ChangeEvent<HTMLInputElement>) => void
+    required: false
+    description: Callback fired when the checked state changes.
+  - name: id
+    type: string
+    required: false
+    description: >
+      HTML id for the input element. Required when the checkbox is used
+      outside of a FormField to ensure label association.
+  - name: name
+    type: string
+    required: false
+    description: HTML name attribute for the input element.
+  - name: a11yTitle
+    type: string
+    required: false
+    description: >
+      Accessible label for assistive technologies. Use when no visible label
+      is present.
+
+usage:
+  whenToUse:
+    - Controlling a UI feature on or off
+    - Opting in to a disclaimer or agreement
+    - Selecting items within a list or table
+    - Configuring multiple independent settings simultaneously
+  whenToAvoid:
+    - Do not use CheckBox when only one option from a list should be selectable
+      — use RadioButtonGroup instead.
+    - Do not use CheckBox as a submit action — use Button instead.
+
+variants:
+  - name: default
+    description: A standard checkbox for opting in to a single value or option.
+    when: >
+      The user needs to independently toggle a single boolean option, such as
+      agreeing to terms or enabling a feature.
+    example: <CheckBox label="Remember me" checked={false} onChange={() => {}} />
+
+  - name: with-description
+    description: A checkbox augmented with a secondary description line below the label.
+    when: >
+      The label alone does not fully communicate the impact or context of the
+      option. Use the description to add a brief clarifying sentence.
+    example: >
+      <CheckBox
+        label="Enable notifications"
+        checked={false}
+        onChange={() => {}}
+      />
+
+  - name: toggle
+    description: >
+      Renders the checkbox as a toggle switch for switching between two
+      mutually exclusive states (on/off).
+    when: >
+      The user is toggling a single preference that takes effect immediately
+      without requiring form submission. Prefer toggle over checkbox for
+      standalone on/off settings. When toggles appear in a group containing
+      only toggles, place the label to the left using the reverse prop.
+    example: <CheckBox toggle label="Dark mode" checked={false} onChange={() => {}} />
+
+  - name: validation
+    description: >
+      Applies error styling to indicate the checkbox does not satisfy its
+      enclosing FormField's validation requirements.
+    when: >
+      A required checkbox (e.g., agreeing to terms) has not been checked on
+      form submission. Always wrap in a FormField with an error message.
+    example: >
+      <FormField error="You must accept the terms to continue.">
+        <CheckBox label="I accept the terms and conditions" onChange={() => {}} />
+      </FormField>
+
+examples:
+  - description: Simple checkbox
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js
+
+  - description: Checkbox with description
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDescriptionExample.js
+
+  - description: Toggle
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxToggleExample.js
+
+  - description: Validation state
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxValidationExample.js
+
+  - description: Disabled state
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDisabledExample.js
+
+  - description: Checkbox used solely (outside FormField)
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxSolelyExample.js
+
+anatomy:
+  - label: "1"
+    region: Checkbox control
+    purpose: The interactive input element users click to toggle the checked state.
+    availability: required
+
+  - label: 1a
+    region: Check indicator
+    purpose: Visual mark (checkmark or dash) shown when the checkbox is checked or indeterminate.
+    availability: optional
+    notes: Hidden when unchecked. The indeterminate state shows a dash instead of a checkmark.
+
+  - label: "2"
+    region: Label
+    purpose: Communicates the meaning or consequence of checking this option.
+    availability: optional
+    notes: >
+      Required in practice for accessibility. When no visible label is present,
+      supply a11yTitle or aria-label. When used inside FormField, the FormField
+      label may serve as the accessible name.
+
+  - label: 2a
+    region: Description
+    purpose: Secondary text providing additional context below the label.
+    availability: optional
+    notes: Only present in the with-description variant.
+
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - checked
+    - unchecked
+  applicationStates:
+    - disabled
+    - indeterminate
+
+contentGuidelines:
+  - Write labels as concise phrases that clearly describe what enabling the option does.
+  - Use sentence case; avoid title case.
+  - Avoid negative phrasing (e.g., "Don't send me emails") — prefer positive framing ("Send me emails").
+  - Keep descriptions to one short sentence that adds context not already conveyed by the label.
+  - For toggle checkboxes, the label should describe the feature being controlled, not the on/off state.
+
+accessibility:
+  keyboard:
+    - key: Space
+      action: Toggles the checked state.
+    - key: Tab
+      action: Moves focus to the next focusable element.
+    - key: Shift + Tab
+      action: Moves focus to the previous focusable element.
+  aria:
+    - attribute: aria-checked
+      value: "true | false | mixed"
+      condition: >
+        Always present on the underlying input. "mixed" is used for the
+        indeterminate state.
+    - attribute: aria-disabled
+      value: "true"
+      condition: When the disabled prop is set to true.
+    - attribute: aria-label
+      value: Descriptive label string
+      condition: >
+        When the checkbox has no visible label. Equivalent to the Grommet
+        a11yTitle prop.
+  wcag:
+    - criterion: 1.4.3 Contrast (Minimum)
+      status: pass
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 4.1.2 Name, Role, Value
+      status: conditional
+
+relatedComponents:
+  - checkboxgroup
+  - radiobuttongroup
+  - formfield
+  - select
