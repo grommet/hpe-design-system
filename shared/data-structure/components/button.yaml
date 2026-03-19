@@ -1,0 +1,312 @@
+id: button
+name: Button
+description: >
+  Triggers an action or event, such as submitting a form, opening a dialog,
+  confirming a decision, or navigating within a process step. Distinct from
+  an anchor/link, which navigates to a new URL.
+importPath: grommet
+framework: react
+
+props:
+  - name: label
+    type: string | React.ReactNode
+    required: false
+    description: >
+      Text or node rendered inside the button. Omit when using icon-only buttons
+      and supply a11yTitle or aria-label instead.
+  - name: primary
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Applies the primary visual style — high contrast, filled background.
+  - name: secondary
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Applies the secondary visual style — outlined appearance.
+  - name: kind
+    type: "'toolbar' | 'default'"
+    required: false
+    defaultValue: default
+    description: >
+      Controls the button's intent grouping. Use "toolbar" when placing the button
+      alongside other toolbar controls (e.g., a search input and a filter button)
+      to give each control equal visual prominence.
+  - name: disabled
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Disables the button, preventing interaction. Prefer leaving buttons active
+      and showing contextual messaging on click rather than using disabled.
+  - name: busy
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Indicates that an async operation triggered by the button is in progress.
+      Use for short server-side validations (a few seconds). For longer operations,
+      release the button and notify the user separately.
+  - name: icon
+    type: React.ReactNode
+    required: false
+    description: Icon rendered inside the button. Can appear with or without a label.
+  - name: badge
+    type: boolean | number
+    required: false
+    description: >
+      Adds a small indicator overlay on the button. Pass true for a dot
+      (new/attention), or a number to display a count. The count is capped at the
+      max value (default 9) and renders "+" when exceeded (e.g., 9+).
+  - name: size
+    type: "'small' | 'medium' | 'large'"
+    required: false
+    defaultValue: medium
+    description: >
+      Controls the label text size. Padding and border-radius scale proportionally.
+  - name: onClick
+    type: () => void
+    required: false
+    description: Callback fired when the button is activated.
+  - name: a11yTitle
+    type: string
+    required: false
+    description: >
+      Accessible label used by assistive technologies. Required when the button
+      has no visible text label (e.g., icon-only buttons).
+  - name: href
+    type: string
+    required: false
+    description: >
+      When provided, renders the button as an anchor element. Use only for
+      in-app navigation that doesn't constitute a standalone page link.
+
+usage:
+  whenToUse:
+    - Submitting a form
+    - Starting a task or workflow
+    - Triggering UI changes
+    - Navigating through process steps
+    - Toggling between states
+  whenToAvoid:
+    - Do not use a button when navigating to a new URL or external page — use an
+      anchor/link instead.
+    - Do not show disabled buttons for actions the user lacks permission to perform;
+      hide them entirely or leave them active with contextual feedback.
+    - Do not apply primary button styling to more than one action per page view.
+
+variants:
+  - name: primary
+    description: High-contrast, filled button used for the single most important action on a page.
+    when: >
+      There is one clear, high-value action on the page (e.g., Create, Deploy, Save).
+      Only one primary button should appear per view.
+    example: <Button primary label="Create device" onClick={() => {}} />
+
+  - name: secondary
+    description: Outlined button used for supporting or standalone calls to action.
+    when: >
+      The action supports the primary action or stands alone as a call to action
+      when a primary button is not needed. Multiple secondary buttons may coexist
+      on a page.
+    example: <Button secondary label="Learn more" onClick={() => {}} />
+
+  - name: toolbar
+    description: >
+      Flat button with equal visual weight, designed to sit alongside other toolbar
+      controls (e.g., search input, filter, and action menu).
+    when: >
+      The button appears as part of a row of toolbar controls where each control
+      should have equal visual prominence. Apply kind="toolbar" to Button or
+      Button-based components such as Menu.
+    example: <Button kind="toolbar" label="Filter" icon={<Filter />} onClick={() => {}} />
+
+  - name: default
+    description: Standard button appearance used for the majority of actions on a page.
+    when: >
+      Any action that is not the primary or secondary call to action, and any
+      navigation-type sub-action (e.g., Cancel, Go back).
+    example: <Button label="Cancel" onClick={() => {}} />
+
+  - name: icon-only
+    description: Button displaying only an icon with no visible text label.
+    when: >
+      Space is constrained and the icon clearly communicates the action. Always
+      supply a11yTitle or aria-label for screen readers.
+    example: <Button icon={<Edit />} a11yTitle="Edit item" onClick={() => {}} />
+
+  - name: icon-with-label
+    description: Button combining an icon and a text label.
+    when: >
+      The icon reinforces the label's meaning and additional recognition benefits
+      the user.
+    example: <Button icon={<Add />} label="Add device" onClick={() => {}} />
+
+  - name: with-badge
+    description: Button with a small overlay indicator conveying a count or attention signal.
+    when: >
+      The button's associated content or action has a numeric count (e.g., unread
+      notifications) or requires attention. Use the boolean form for a simple dot
+      indicator and the numeric form when the count is meaningful.
+    example: <Button icon={<Notification />} badge={5} a11yTitle="Notifications, 5 unread" />
+
+  - name: toggle
+    description: Button used to switch between two states (e.g., active/inactive, on/off).
+    when: >
+      The button toggles between two discrete states and the current state must
+      remain visible. Icon buttons in this pattern must expose the current state
+      via an icon and communicate the resulting state via a11yTitle or aria-label.
+
+examples:
+  - description: Default button overview
+    codeFile: apps/docs/src/examples/components/button/ButtonExample.js
+
+  - description: Primary button
+    codeFile: apps/docs/src/examples/components/button/PrimaryButtonExample.js
+
+  - description: Secondary button
+    codeFile: apps/docs/src/examples/components/button/SecondaryButtonExample.js
+
+  - description: Toolbar button
+    codeFile: apps/docs/src/examples/components/button/ToolbarButtonExample.js
+
+  - description: Default button
+    codeFile: apps/docs/src/examples/components/button/DefaultButtonExample.js
+
+  - description: Button with icon
+    codeFile: apps/docs/src/examples/components/button/ButtonIconExample.js
+
+  - description: Button with badge
+    codeFile: apps/docs/src/examples/components/button/ButtonBadgeExample.js
+
+  - description: Button states (rest, active, disabled)
+    codeFile: apps/docs/src/examples/components/button/ButtonStatesExample.js
+
+  - description: Busy button — simple
+    codeFile: apps/docs/src/examples/components/button/ButtonBusySimpleExample.js
+
+  - description: Busy button — full modal workflow
+    codeFile: apps/docs/src/examples/components/button/ButtonBusyExample.js
+
+  - description: Button sizes
+    codeFile: apps/docs/src/examples/components/button/ButtonSizingExample.js
+
+  - description: Left-aligned button group
+    codeFile: apps/docs/src/examples/components/button/ButtonLeftAlignExample.js
+
+  - description: Right-aligned button group
+    codeFile: apps/docs/src/examples/components/button/ButtonRightAlignExample.js
+
+anatomy:
+  - label: "1"
+    region: Button container
+    purpose: >
+      Clickable/activatable element that wraps all internal parts and delivers
+      the interaction target.
+    availability: required
+
+  - label: 1a
+    region: Label
+    purpose: Communicates the action the button performs in plain language.
+    availability: optional
+    notes: >
+      Required when icon prop is absent. Should be omitted for icon-only buttons,
+      which must instead carry a11yTitle or aria-label.
+
+  - label: 1b
+    region: Icon
+    purpose: Provides a visual cue reinforcing or replacing the label.
+    availability: optional
+    notes: >
+      Can appear alone (icon-only variant) or alongside a label. Icon-only usage
+      requires an accessible label.
+
+  - label: 1c
+    region: Badge indicator
+    purpose: Overlays a count or dot signal on the button to convey extra information.
+    availability: optional
+    notes: >
+      Displayed as a dot (boolean true) or a capped number. Exceeding the max value
+      renders "+" appended to the max (e.g., 9+).
+
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+  applicationStates:
+    - disabled
+    - busy
+
+contentGuidelines:
+  - Use clear and concise wording for button labels.
+  - Avoid contractions or colloquialisms; keep language approachable but not personal.
+  - Ensure the button label matches the route destination or resulting action.
+  - Start labels with a verb that describes the action (e.g., "Save changes", "Delete device").
+  - Use sentence case capitalization; avoid title case.
+  - Limit labels to 2–4 words where possible.
+  - Use "Add" when associating an existing object with another (e.g., "Add device to group").
+  - Use "New" to open a blank template for user input before creation (e.g., "New device").
+  - Use "Create" for form submission that persists the object (e.g., "Create device").
+  - For cancel buttons, use default styling — neutral appearance signals a non-committal action.
+  - For toggle buttons with icons, limit the accessible label to 2–3 descriptive words, starting with a verb (e.g., "Hide menu", "Favorite item").
+
+dosAndDonts:
+  - do: Use default button styling for cancel buttons and align them according to placement hierarchy.
+    dont: Use secondary button styling for a cancel button.
+    reason: Secondary styling implies a supporting call to action, not a non-committal dismissal.
+
+  - do: >
+      On screen widths ≤ 576px, stretch single buttons to fill the full container width
+      for easier tapping.
+    dont: Keep small fixed-width buttons at mobile breakpoints.
+    reason: Undersized press targets are difficult to interact with on touch devices.
+
+  - do: >
+      Stack button groups vertically on screen widths ≤ 576px so each button reaches
+      full width.
+    dont: Display button groups inline horizontally on small browser widths.
+    reason: Horizontal groups at small widths risk truncation, word wraps, and undersized targets.
+
+  - do: Use a link (anchor) when the action navigates to a new URL.
+    dont: Use a button for URL navigation.
+    reason: >
+      Screen readers announce buttons and links differently; the wrong element
+      misleads users about what will happen next.
+
+accessibility:
+  keyboard:
+    - key: Space
+      action: Activates the button.
+    - key: Enter
+      action: Activates the button.
+    - key: Tab
+      action: Moves focus to the next focusable element.
+    - key: Shift + Tab
+      action: Moves focus to the previous focusable element.
+  aria:
+    - attribute: aria-label
+      value: Descriptive action string
+      condition: >
+        When the button has no visible text label (icon-only). Equivalent to
+        the Grommet a11yTitle prop.
+    - attribute: aria-disabled
+      value: "true"
+      condition: When disabled prop is set to true.
+    - attribute: aria-busy
+      value: "true"
+      condition: When busy prop is set to true and an async operation is in progress.
+  wcag:
+    - criterion: 1.4.3 Contrast (Minimum)
+      status: pass
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 4.1.2 Name, Role, Value
+      status: conditional
+
+relatedComponents:
+  - anchor
+  - menu
+  - togglegroup
+  - toolbar

@@ -1,3 +1,4 @@
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
   AccessibilitySection,
   BestPracticeGroup,
@@ -37,129 +38,56 @@ import {
   <ButtonExample />
 </Example>
 
-## Guidance
+## Use cases
 
-The when, how, and why to use buttons.
+### Submitting a form
 
-### About Button
+Use Button to submit form data. Pair with a primary button for the main submit action and a default button for cancel.
 
-Buttons should be used in situations where users might need to:
+{/* TODO: Insert coded example demonstrating Submitting a form — DefaultButtonExample.js */}
 
-- Submit a form
-- Begin a new task
-- Trigger a new UI element to appear on the page
-- Specify a new or next step in a process
+### Starting a task or workflow
 
-### Button labeling
+Use Button to start a new task, open a wizard, or begin a creation flow. Apply primary styling when this is the most important action on the page.
 
-Using the design system Button Component will ensure your button looks like a button and is in line with HPE designs. Ensure to apply an appropriate label so the user has a clear understanding of what action to expect.
+{/* TODO: Insert coded example demonstrating Starting a task or workflow — PrimaryButtonExample.js */}
 
-- Use clear and concise wording.
-- Avoid contractions or colloquialisms. Keep the language approachable but not personal, for examples, see [point of view](https://design-system.hpe.design/foundation/voice-and-tone?q=tone#point-of-view).
-- Ensure your button label matches the route destination.
+### Triggering UI changes
 
-#### When to use "Add", "Create" and "New"
+Use Button to open dialogs, drawers, panels, or other UI elements without navigating away. The action occurs on the same page.
 
-| Label      | Purpose                                                                                                                                                                                                   | Example                                                                                                                             |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Add**    | "Add" is used when an object already exists. It builds an association between that object and another object or set of objects.                                                                           | When editing a device group, use "Add device" to add an existing device to the group.                                               |
-| **New**    | "New" opens a template, or blank canvas, of a given object type to allow for user input. The object will not be added as a record in a database until a "Create" or submission action has been completed. | When starting the configuration process for a new device, use "New device" to initiate the process.                                 |
-| **Create** | "Create" is typically used for form submission, to submit user input and create an instance of an object.                                                                                                 | After completing inputs related to configuring a new device, use "Create device" to submit the data and create the object instance. |
+{/* TODO: Insert coded example demonstrating Triggering UI changes — ButtonExample.js */}
 
-### Button alignment
+### Navigating through process steps
 
-Buttons are unique components since their alignment depends on where they appear (drawers, modals, etc.). Buttons should always be where the user most expects it. In general, follow this guide on how to align buttons in most use cases.
+Use Button to move between steps within a multi-step process (e.g., "Next", "Back", "Continue"). Default styling is appropriate for most step-navigation actions.
 
-<ButtonAlignmentTable />
+{/* TODO: Insert coded example demonstrating Navigating through process steps — DefaultButtonExample.js */}
 
-### Button ordering
+### Toggling between states
 
-Button types may be applied in various combinations, however they should always be ordered by order of importance and in relation to their alignment: Primary first, followed by Secondary, then by Default.
+Use Button to switch between two discrete states, such as on/off or show/hide. Reflect the current state through the icon and communicate the resulting state via `a11yTitle` or `aria-label`.
 
-<Example previewWidth="xlarge" height="none" pad="xsmall" width="xlarge">
-  <ButtonLeftAlignExample />
-</Example>
+{/* TODO: Insert coded example demonstrating Toggling between states — ToggleButtonExample.js */}
 
-<Example previewWidth="xlarge" height="none" pad="xsmall" width="xlarge">
-  <ButtonRightAlignExample />
-</Example>
+## Anatomy
 
-### Buttons vs. anchors
+{/* TODO: Insert anatomy diagram for Button */}
 
-The HTML elements for buttons and links (a.k.a. anchors) describe a very specific type of action that is going to be taken when they are used. It is important you know when to use which, as the distinction matters:
-
-- Use a link when you’re navigating to another place, such as: a "view all" page, "Jane Chen" profile, a page "skip link" etc.
-- Use buttons when you are performing an action, such as: "submit," "merge," "create new," "upload," etc.
-- An action almost always occurs on the same page
-
-### Cancel buttons
-
-Cancel buttons enable users to exit out of or dismiss the current screen in order to go back to the previous one. Having an explicit way to cancel provides a fallback to safety as it helps discard any unwanted changes.
-
-#### Styling
-
-Cancel buttons should be presented in the default button styling. The neutral appearance signifies the non-committal action. Visually emphasizing the cancel button should be avoided to minimize user confusion.
-
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message:
-        'Always use default button styling for cancel button, and keep it aligned in accordance with use case, following the hierarchy.',
-    }}
-  >
-    <ButtonGoodCancelPreview />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message: `Don't use Secondary Button styling for Cancel button.`,
-    }}
-  >
-    <ButtonBadCancelPreview />
-  </Example>
-</BestPracticeGroup>
-
-### Toggle buttons
-
-Toggle buttons are used either to switch between two states, such as checked and unchecked, or to trigger two actions like on or off.
-
-#### Toggle buttons with icons
-
-Icon buttons have an `a11yTitle`, `aria-label` or button `label` that describes the action that the user will be performing when using screen readers.
-
-**Best Practices:**
-
-- Limit to 2-3 descriptive words.
-- Use verbs first to describe the action such as "Hide/View," "Switch/Unswitch," "Favorite/Unfavorite," "Light/Dark," or "Like/Dislike."
-- Use sentence case capitalization.
-- Words such as "the" and "a" should be avoided.
-
-For buttons with icons ONLY, it is important that you show the two following elements:
-
-1. Show the current state of the button through the use of an icon.
-
-2. Inform the user of what will happen when the button is clicked by including `a11yTitle` or `aria-label`.
-
-## Primary buttons
-
-Primary buttons highlight actions on a page delivering the most benefit to users. They are helpful in enabling users’ goals, unlocking new value by enabling a new experience, capability, or creation of something which hadn’t previously existed.
-
-Primary buttons have increased visual weight through placement and contrast, drawing users’ attention by distinguishing the button from surrounding content.
-
-### When to use a primary action button
-
-Primary action buttons are used within enterprise applications. They are meant to assist and are designed to maximize a user’s experience by highlighting the most common or important action on a page and allowing the user to accomplish a goal or task.
-
-Actions supported by primary action buttons are numerous and may be constructive or destructive in nature. Example actions include: create, schedule, deploy, add, save, and depending on context could even be cancel or delete.
+| Label | Region | Purpose | Required | Notes |
+| :---: | --- | --- | :---: | --- |
+| **1** | **Button container** | Clickable/activatable element that wraps all internal parts and delivers the interaction target. | <span><Checkmark a11yTitle="true" size="small" /></span> | -- |
+| **1a** | **Label** | Communicates the action the button performs in plain language. | Optional | Required when no icon is present. Omit for icon-only buttons; provide `a11yTitle` or `aria-label` instead. |
+| **1b** | **Icon** | Provides a visual cue reinforcing or replacing the label. | Optional | Can appear alone (icon-only) or alongside a label. Icon-only usage requires an accessible label. |
+| **1c** | **Badge indicator** | Overlays a count or dot signal to convey extra information. | Optional | Rendered as a dot (`true`) or a capped number. Exceeding the max value appends "+" (e.g., 9+). |
 
 ## Variants
 
-There are a couple "flavors" of button depending on use case.
-
 ### Primary button
 
-Used for the key action on the page, and should only appear once. All other supporting actions should use [Default button](#default-button). Consider that the 80% use case for some pages is visualization and not action. In cases like these, a secondary button can be used.
+High-contrast, filled button used for the single most important action on a page.
+
+Use when there is one clear, high-value action available (e.g., Create, Deploy, Save). Only one primary button should appear per view.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/PrimaryButtonExample.js"
@@ -171,7 +99,9 @@ Used for the key action on the page, and should only appear once. All other supp
 
 ### Secondary button
 
-Secondary buttons are used to represent calls to action that are either in support of the primary call to action or stand-alone. There can be multiple secondary buttons per page. However, a [default button](#default-button) should be used for any navigation-type actions.
+Outlined button used for supporting or standalone calls to action.
+
+Use when the action supports the primary action, or no primary button is needed. Multiple secondary buttons may coexist on a page. Use a default button for navigation-type actions (e.g., Cancel).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/SecondaryButtonExample.js"
@@ -183,11 +113,9 @@ Secondary buttons are used to represent calls to action that are either in suppo
 
 ### Toolbar button
 
-Toolbar buttons are used when buttons are placed in a row with other toolbar controls.
+Flat button with equal visual weight, designed to sit alongside other toolbar controls.
 
-A common use case would be when creating a [filtering experience](/templates/filtering). In this situation, a search input, filter button, and action menu are presented as a unified set of controls. The intent is to present each control with equal prominence.
-
-To implement, apply `kind="toolbar"` to [Button](/components/button) or Button-based components like [Menu](/components/menu).
+Apply `kind="toolbar"` when the button appears as part of a row of toolbar controls — for example, a search input, a filter button, and an action menu — where each control should share equal prominence. Apply `kind="toolbar"` to Button or Button-based components such as Menu.
 
 <Example
   code={[
@@ -208,7 +136,9 @@ To implement, apply `kind="toolbar"` to [Button](/components/button) or Button-b
 
 ### Default button
 
-This is the default appreance and behavior of button. The majority of buttons on your page should use this form of button. If you are designating a primary call to action, use a [primary button](#primary-button). If you are designating a secondary call to action, use a [secondary button](#secondary-button).
+Standard appearance used for the majority of actions on a page.
+
+Use for any action that is not the primary or secondary call to action, and for navigation-type sub-actions (e.g., Cancel, Go back).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/DefaultButtonExample.js"
@@ -220,7 +150,7 @@ This is the default appreance and behavior of button. The majority of buttons on
 
 ### Button with icon
 
-Icons may be incorporated into buttons, either inline with text or as an icon only. When using icon only buttons, the dimension of the clickable area should be kept in mind for its use on mobile devices. Areas too small lead to errant clicks, and as result, poor experience.
+Icons may be incorporated into buttons, either inline with text or as an icon only. When using icon-only buttons, ensure the clickable area is large enough for comfortable touch interaction — areas too small lead to errant clicks.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
@@ -232,11 +162,10 @@ Icons may be incorporated into buttons, either inline with text or as an icon on
 
 ### Button with badge
 
-The `badge` prop adds a small indicator to a Button to convey extra information, such as a notification or count. It can be used in different ways depending on what needs to be communicated:
+The `badge` prop adds a small indicator to a button to convey extra information.
 
-- To indicate that something is new or needs attention, the badge can be set to true to display a simple dot.
-- To show how many items there are — such as 3 new messages — a number can be passed, and the badge will display that value.
-  - If the value exceeds the max, the badge will display a "+" next to the max (e.g., 9+) to keep the visual presentation clean and readable. By default the max is 9, but this can be adjusted based on what max value best suits the use case.
+- Pass `true` to display a dot when something requires attention.
+- Pass a number to display a count (e.g., 3 new messages). The badge caps at the `max` value (default 9) and appends "+" when exceeded (e.g., 9+).
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
@@ -246,9 +175,87 @@ The `badge` prop adds a small indicator to a Button to convey extra information,
   <ButtonBadgeExample />
 </Example>
 
-### Button states
+### Button sizes
 
-A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met. However, use of disabled controls is discouraged because it tends to elicit a "why?" response from users. It is better to leave buttons active and use messaging upon click to indicate that criteria have not been met. Buttons that do not apply (for reasons of context or permissions) should not be shown at all, rather than being shown as disabled.
+Button label text size may be specified via the `size` prop. Padding and border-radius scale proportionally. The default size is `medium`.
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonSizingExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonSizingExample />
+</Example>
+
+## Dos and Don'ts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use default button styling for cancel buttons and align them according to placement hierarchy.',
+    }}
+  >
+    <ButtonGoodCancelPreview />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: `Don't use secondary button styling for a cancel button.`,
+    }}
+  >
+    <ButtonBadCancelPreview />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'On small resolutions, stretch single buttons to fill the full container width for easier tapping.',
+    }}
+  >
+    <ButtonGoodSignUpPreview />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        'On small resolutions, avoid keeping buttons at a small fixed width — they become harder to tap.',
+    }}
+  >
+    <ButtonBadSignUpPreview />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Stack button groups vertically on small screens so each button can reach full width.',
+    }}
+  >
+    <ButtonGoodLongTitlePreview />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        'Avoid horizontal inline button groups on small browser widths — they risk truncation, word wraps, and undersized press targets.',
+    }}
+  >
+    <ButtonBadGroupPreview />
+  </Example>
+</BestPracticeGroup>
+
+## Behaviors and states
+
+### Interactive states
+
+A button's visual state changes in response to user interaction.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
@@ -258,11 +265,15 @@ A button's visual state may be specified as appropriate in the application's con
   <ButtonStatesExample />
 </Example>
 
-#### Busy button
+### Application states
 
-The busy and success states of button can be used when an action may take a couple of seconds to complete or validate. A common example is when a form requires server side validation.
+#### Disabled
 
-If the action will likely take longer than a few seconds to complete, allow the user to leave the form and do not use the busy button state. Instead, consider notifying them with another kind of notification when the task completes.
+Prevent interaction by setting `disabled`. Prefer leaving buttons active and displaying a contextual message on click when criteria have not been met. Never show a disabled button for actions unavailable due to permissions or context — hide it entirely instead.
+
+#### Busy
+
+Use `busy` to indicate an in-progress async operation triggered by the button. Apply when a short server-side validation (a few seconds) is underway. For operations expected to take longer, release the button and notify the user separately (e.g., via a notification).
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
@@ -285,89 +296,84 @@ If the action will likely take longer than a few seconds to complete, allow the 
   <ButtonBusyExample />
 </Example>
 
-### Button sizes
+## Content guidelines
 
-Button label text size may be specified. Padding and rounding scale proportionately to the label size. The default size is medium.
+### Button labels
 
-<Example
-  docs="https://v2.grommet.io/button?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonSizingExample.js"
-  height={{ min: 'small' }}
->
-  <ButtonSizingExample />
+- Use clear and concise wording.
+- Start labels with a verb that describes the action (e.g., "Save changes", "Delete device").
+- Use sentence case; avoid title case.
+- Avoid contractions or colloquialisms; keep language approachable but not personal.
+- Limit labels to 2–4 words where possible.
+- Ensure the label matches the route destination or resulting action.
+
+### Add, New, and Create
+
+| Label | Purpose | Example |
+| --- | --- | --- |
+| **Add** | Builds an association between an existing object and another. | "Add device" when adding an existing device to a group. |
+| **New** | Opens a blank template for user input before creation. The object is not persisted until a "Create" or submission action completes. | "New device" to initiate configuration of a new device. |
+| **Create** | Submits user input and persists the object as a record. | "Create device" after completing configuration inputs. |
+
+### Button alignment
+
+Buttons are unique because their alignment depends on context (drawers, modals, pages, etc.). Always position buttons where users most expect them.
+
+<ButtonAlignmentTable />
+
+### Button ordering
+
+When multiple button types appear together, order by importance in relation to alignment: primary first, followed by secondary, then default.
+
+<Example previewWidth="xlarge" height="none" pad="xsmall" width="xlarge">
+  <ButtonLeftAlignExample />
 </Example>
 
-## Responsiveness
+<Example previewWidth="xlarge" height="none" pad="xsmall" width="xlarge">
+  <ButtonRightAlignExample />
+</Example>
 
-Ensure you are always being mindful of our responsive page layouts when designing user experiences. Even if you don’t anticipate your users leveraging mobile or tablet devices, they may be reducing/expanding browser widths, zooming in on content, or manipulating the browser in unanticipated ways. As a best practice, always design for a usable UI on all browser widths and resolutions.
+### Buttons vs. anchors
 
-### Best practices
+Select the correct HTML element based on the resulting action:
 
-- Ensure the button label does not wrap, truncate, or alter the text content in any way when presented on smaller browser widths.
-- Button label text should not scale down to fit on smaller browser widths.
-- The minimum button width for any button should be 42px.
+- Use a **link** when navigating to another URL (e.g., a "View all" page, a user profile, a skip link).
+- Use a **button** when performing an action (e.g., submit, merge, create, upload). Actions almost always occur on the same page.
 
-### Single buttons
+### Toggle button labels
 
-On screen widths of less than or equal to 576px (Grommet "small"), it is best to have buttons fill the full width of the container. Because press target size and an unclear visual hierarchy are key concerns at smaller resolutions, this utilizes available space to ensure users can easily identify and interact with the buttons.
+- Limit the accessible label to 2–3 words.
+- Start with a verb (e.g., "Hide menu", "Favorite item", "Switch theme").
+- Use sentence case.
+- Avoid articles such as "the" or "a".
 
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message:
-        'On small resolutions, full-width buttons help users more easily identify and interact with actions on smaller browser widths and when using the press gesture.',
-    }}
-  >
-    <ButtonGoodSignUpPreview />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message:
-        'On small resolutions, keeping button widths smaller lessen their visual impact and makes it more difficult for users to interact with them on smaller browser widths.',
-    }}
-  >
-    <ButtonBadSignUpPreview />
-  </Example>
-</BestPracticeGroup>
+### Cancel buttons
 
-### Button groups
+Use default button styling for cancel buttons. The neutral appearance signals a non-committal action. Avoid visually emphasizing cancel to prevent user confusion.
 
-For button groups on screen widths less than or equal to 576px (Grommet "small"), ensure each button within the group follows the established guidance for single buttons. If a button group is presented inline horizontally, rearrange the buttons vertically on smaller browser widths to ensure the proper full button widths can be achieved.
+### Responsiveness
 
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message:
-        'Reorder the button group vertically on smaller screens to ensure each individual button is given enough space to be easily read and actioned on.',
-    }}
-  >
-    <ButtonGoodLongTitlePreview />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message:
-        'Horizontal, inline button groups on smaller browser widths create opportunities for truncation, word wraps, and undersized press targets.',
-    }}
-  >
-    <ButtonBadGroupPreview />
-  </Example>
-</BestPracticeGroup>
+- Ensure button labels never wrap, truncate, or scale down on smaller browser widths.
+- Maintain a minimum button width of 42px.
+- On screen widths ≤ 576px, stretch single buttons to fill the full container width.
+- Stack button groups vertically on screen widths ≤ 576px.
 
 ## Accessibility
 
-### A11y guidance
+If activating a button results in a new URL or a UI state that makes sense as a browser tab, use a link (`<a>`) instead of a button (`<button>`). Screen readers announce these elements differently; choosing the wrong element misleads users about what will happen next.
 
-The following guidance should be considered for each instance of the component and is the responsibility of the implementer. WCAG criteria provided directly by the Grommet component are summarized under [WCAG compliance](#wcag-compliance).
+For icon-only buttons, always supply `a11yTitle` (Grommet prop) or `aria-label` to provide an accessible name.
 
-If pressing a Button results in a new URL, or the resultant UI makes sense as "a new browser tab," that is a link `<a>`. Everything else is a `<button>`.
+For toggle buttons with icons, show the current state via an icon and communicate the resulting state via `a11yTitle` or `aria-label`.
 
-The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page? So it's important to choose the right HTML element for the job.
+### Keyboard support
 
-If using an `<a>` tag, see the [WCAG rules for the Anchor component](/components/anchor#wcag-compliance).
+| Key | Action |
+| --- | --- |
+| `Space` | Activates the button. |
+| `Enter` | Activates the button. |
+| `Tab` | Moves focus to the next focusable element. |
+| `Shift + Tab` | Moves focus to the previous focusable element. |
 
 ### WCAG compliance
 
