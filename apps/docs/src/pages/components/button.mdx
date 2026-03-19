@@ -181,10 +181,6 @@ Button label text size may be specified using the `size` prop. Padding and borde
 
 ## Dos and Don'ts
 
-### Cancel button styling
-
-Cancel buttons enable users to dismiss or exit the current screen without committing changes. The neutral default appearance signals a non-committal action.
-
 <BestPracticeGroup>
   <Example
     bestPractice={{
@@ -204,10 +200,6 @@ Cancel buttons enable users to dismiss or exit the current screen without commit
     <ButtonBadCancelPreview />
   </Example>
 </BestPracticeGroup>
-
-### Single buttons on small screens
-
-On screen widths ≤ 576px (Grommet "small"), stretch single buttons to fill the full container width so the press target is easy to reach.
 
 <BestPracticeGroup>
   <Example
@@ -230,10 +222,6 @@ On screen widths ≤ 576px (Grommet "small"), stretch single buttons to fill the
   </Example>
 </BestPracticeGroup>
 
-### Button groups on small screens
-
-For button groups on screen widths ≤ 576px, stack buttons vertically so each button can reach full container width.
-
 <BestPracticeGroup>
   <Example
     bestPractice={{
@@ -255,13 +243,26 @@ For button groups on screen widths ≤ 576px, stack buttons vertically so each b
   </Example>
 </BestPracticeGroup>
 
-### Buttons vs. anchors
-
-Use the right HTML element so screen readers can accurately announce what will happen next.
-
-- Use a button (`<Button>`) when performing an action — submit, deploy, create, upload, open a drawer.
-- Use a link (`<Anchor>`) when navigating to another URL or page — a "view all" page, a profile, a skip link.
-- An action almost always occurs on the same page.
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use a button when performing an action (submit, deploy, create, upload, open a drawer). Use a link when navigating to another URL or page.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a Button used for an action alongside an Anchor used for navigation */}</div>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        "Don't use a button for URL navigation. Screen readers announce buttons and links differently — the wrong element misleads users about what will happen next.",
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a Button incorrectly used for page navigation */}</div>
+  </Example>
+</BestPracticeGroup>
 
 ## Behaviors and States
 
