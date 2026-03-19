@@ -270,6 +270,16 @@ Button label text size may be specified using the `size` prop. Padding and borde
 
 Rest, hover, focus, and active states are provided by the Grommet theme and require no additional implementation. The `active` prop may also be set explicitly to mark the currently selected item in a toggle group.
 
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonStatesExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonStatesExample />
+</Example>
+
+{/* NOTE FOR CONTRIBUTORS: This example also includes a disabled state. Disabled is an application state — set programmatically by the application, not triggered by user interaction. See the Application States section below for guidance. A dedicated example scoped to interactive states only (rest, hover, focus, active) should be created to replace this one. */}
+
 ### Application States
 
 #### Disabled
