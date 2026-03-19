@@ -1,8 +1,8 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import { NavigationMenuExample } from './NavigationMenuExample';
 import { NavigationMenuSubheadings } from './NavigationMenuSubheadings';
-// eslint-disable-next-line import/no-unresolved
 import NavigationMenuExampleSource from './NavigationMenuExample.tsx?raw';
-// eslint-disable-next-line import/no-unresolved
 import NavigationMenuSubheadingsSource from './NavigationMenuSubheadings.tsx?raw';
 
 const meta = {
