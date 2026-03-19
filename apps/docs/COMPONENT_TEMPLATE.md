@@ -170,6 +170,7 @@ This section showcases all available types/variants of the component.
 Show approved patterns and discouraged patterns. Use side-by-side comparisons and clear labels, and explain the reason behind each recommendation in one sentence.
 
 - You might also use caution, where we enourage the user to make a decision with care.
+- **Do not add a `###` subheading or a prose description above each pair.** The `message` prop on each `<Example bestPractice>` is the only label needed. Place `<BestPracticeGroup>` blocks directly under the `## Dos and Don'ts` heading with no surrounding headings or paragraphs.
 
 **Belongs here:** Any guidance that has a clear approved pattern paired with a discouraged one — a rule with two sides.
 **Does not belong here:** Rules that have no opposing pattern, or rules about what to write rather than how to design. If a piece of content doesn't have a natural do/don't pairing, place it in the most specific section that fits. If no section fits, log it in the TODO or DEPRECATED file.
