@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Component name and brief description.
+**Do not author the component name or description in this file.** The description rendered on the page is sourced from the component's entry in `apps/docs/src/data/structures/components.js`.
+
+**Keep `components.js` and the YAML in sync:** The `description` field in `shared/data-structure/components/[name].yaml` is the source of truth for the refactor. After finalizing the YAML description, copy it into the matching entry in `components.js`. It should be a single, precise sentence. Do not copy it into the MDX body.
 
 <!-- Component "playground" goes here. Playground is an interactive example to explore
 component properties and inspect code -- similar to an embedded Storybook example.
@@ -10,7 +12,12 @@ component properties and inspect code -- similar to an embedded Storybook exampl
 
 ## Use cases (mandatory)
 
-Use this section to answer: When might I use this? Provide a short description that clarifies intent, audience, and typical contexts.
+Document the specific scenarios in which this component is the right choice. Each use case is a `###` subheading followed by one or two sentences describing the scenario, then a coded example that demonstrates it.
+
+- **Name each use case using a gerund phrase** (verb + -ing + object), e.g., "Submitting a form", "Triggering UI changes", "Toggling between states". This creates consistent, scannable subheadings across all component pages.
+- Each subheading answers: *"In what specific situation would I reach for this component?"*
+- Do NOT include counter-indications ("when not to use") here. Counter-indications have a clear opposing pattern and belong in a section that documents paired do/don't comparisons. If no section fits, log the content in the TODO or DEPRECATED file.
+- Do NOT use a flat bulleted list of actions. Every use case must be a named `###` subheading.
 
 ## Anatomy (mandatory)
 
@@ -155,11 +162,17 @@ This section showcases all available types/variants of the component.
 - use local storage to remember the user's preferred view selection by component
 - consider creating an -use local storage- reusable hock similar to -use session storage-
 
+**Belongs here:** Distinct visual or functional forms of the component that a developer explicitly opts into (e.g., primary, icon-only, toolbar). A variant is a stable, named configuration.
+**Does not belong here:** Transient states triggered by interaction or application logic (e.g., disabled, loading, hover) — those are states. If a form of the component is determined by data or context rather than an explicit prop choice, log it in the TODO or DEPRECATED file rather than forcing it into a variant.
+
 ## Dos and Do Nots
 
 Show approved patterns and discouraged patterns. Use side-by-side comparisons and clear labels, and explain the reason behind each recommendation in one sentence.
 
 - You might also use caution, where we enourage the user to make a decision with care.
+
+**Belongs here:** Any guidance that has a clear approved pattern paired with a discouraged one — a rule with two sides.
+**Does not belong here:** Rules that have no opposing pattern, or rules about what to write rather than how to design. If a piece of content doesn't have a natural do/don't pairing, place it in the most specific section that fits. If no section fits, log it in the TODO or DEPRECATED file.
 
 ## Behaviors and States
 
@@ -169,25 +182,43 @@ Document transient states and behavioral guidelines for the component.
 
 Document states like hover, active, or focus.
 
+**Belongs here:** Visual or behavioral changes driven directly by user input — hover, focus, active, pressed.
+**Does not belong here:** States set programmatically by the application (e.g., disabled, loading) or driven by data.
+
 ### Application States
 
 Document states like loading, disabled, success, or error/validation. Include what triggers each state and what the user sees.
+
+**Belongs here:** States set by application logic regardless of user interaction — disabled, loading, success, error, read-only.
+**Does not belong here:** States triggered directly by user input, or states that reflect data content rather than application control.
 
 ### Data States
 
 Document states like empty or populated. Include any guidance for content or actions in that state.
 
+**Belongs here:** States driven by the presence or absence of data — empty, populated, loading data, error fetching.
+**Does not belong here:** States controlled by the application or triggered by user interaction.
+
 ### General Behaviors
 
 If the component requires behavior specific guidelines, like scrolling behavior, closing behavior, etc., that content should live under this section.
 
+**Belongs here:** Any rule about how the component acts or positions itself in context — layout, ordering, responsive behavior, focus management, closing behavior. If the rule describes what the component *does*, it lives here.
+**Does not belong here:** Rules about what to *write* inside the component, or pattern-level do/don't comparisons. If no subsection of Behaviors and States fits, log the content in the TODO or DEPRECATED file rather than placing it here by default.
+
 ## Content Guidelines
 
-If the component requires content guidelines such as content format, type of information that could be added, etc, this is the section to describe those.
+Document rules for what to **write** inside the component — label text, placeholder text, error messages, character limits, tone, and terminology.
+
+**Belongs here:** Any rule that governs the words, phrasing, or tone of the content placed inside the component.
+**Does not belong here:** Rules about how the component behaves, how it is laid out, or whether to use it at all. If a piece of content isn't a writing rule, place it in the most specific section that fits. If no section fits, log it in the TODO or DEPRECATED file rather than placing it here by default.
 
 ## Accessibility (mandatory)
 
 Explain the expected experience for assistive technologies. Include required semantics, ARIA usage when relevant, focus order, keyboard support, announced states, and any exceptions or known limitations.
+
+**Belongs here:** Keyboard interaction patterns, ARIA roles and attributes, screen reader announcements, focus order, and known AT limitations specific to this component.
+**Does not belong here:** General UX guidance, visual design rules, or behavioral rules that apply regardless of assistive technology. If accessibility-adjacent content doesn't fit here, log it in the TODO or DEPRECATED file.
 
 ### WCAG compliance
 

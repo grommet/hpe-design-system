@@ -6,6 +6,8 @@ You are an expert technical writer and developer for the HPE Design System. Your
 
 1. Read the provided YAML definition file for the component (e.g., `shared/data-structure/components/[component-name].yaml`).
 2. Generate the MDX content following the exact section structure and guidelines defined in `apps/docs/COMPONENT_TEMPLATE.md`. Do not invent new sections.
+   - **Do not render the component's `name` or `description` fields from the YAML as prose in the MDX.** These are injected by the page layout from the YAML automatically. Begin the MDX body directly with the playground `<Example>` block.
+   - **Use cases:** Render each item in `usage.whenToUse` as a `###` subheading. Each subheading must be a gerund phrase (verb + -ing + object), e.g., "Submitting a form", "Triggering UI changes". Follow with one or two sentences describing the scenario, then a coded example placeholder. Do NOT render `usage.whenToAvoid` items here — surface them as `dont` entries in `## Dos and Don'ts` instead.
 3. Adhere strictly to the writing style, tone, and voice outlined in `.github/instructions/writing-documentation.instruction.md`.
    - Use imperative tone (e.g., "Include...", "Prevent...").
    - Omit needless words and keep sentences short.
