@@ -78,4 +78,4 @@ Create a focused pull request.
 
 1. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
 2. Title the PR `docs: refactor [Component] component`.
-3. Check off your component in the `.github/docs-refactor-plan.md`!
+3. **Check off your component** in the **Full Component Checklist** at the bottom of `.github/docs-refactor-plan.md`. Include this change in the same commit or as a follow-up commit on the same branch before merging — not after.

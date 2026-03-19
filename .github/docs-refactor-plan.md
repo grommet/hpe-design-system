@@ -53,7 +53,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] anchor
 - [ ] avatar
 - [ ] box
-- [ ] button
+- [x] button
 - [ ] card/call-to-action-card
 - [ ] card/index
 - [ ] card/navigational-card
@@ -80,7 +80,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] layer/side-drawer-layer
 - [ ] main
 - [ ] maskedinput
-- [ ] menu
+- [x] menu
 - [ ] namevaluelist
 - [ ] notification
 - [ ] page
