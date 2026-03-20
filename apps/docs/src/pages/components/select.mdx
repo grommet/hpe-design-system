@@ -4,7 +4,7 @@ import {
   SelectExample,
   SelectSearchExample,
   SelectValidationExample,
-} from '../../examples';
+} from '../../examples/components/select';
 
 <Example
   componentName="Select"
@@ -17,34 +17,35 @@ import {
   <SelectExample />
 </Example>
 
-## Guidance
+## Use cases
 
-Select is a flexible input element able to serve a wide variety of use cases. Though flexible, asking "is Select the best tool in this circumstance?" is a healthy exercise. Variants of Select, such as [Select with Search](#select-with-search), or alternatives like [RadioButtonGroup](/components/radiobuttongroup), [MaskedInput](/components/maskedinput), or [TextInput with suggestions](/components/textinput#textinput-with-suggestions) may be more appropriate for crafting an elegant user experience.
+### Specifying a location or region
 
-### When to use Select
+Use Select when a user must pinpoint their country, timezone, or billing region from an established system list without worrying about typos or formatting variations safely.
 
-Because Select is flexible and familiar, the following questions are helpful to consider alternatives and/or confirm that Select is the most appropriate element:
+{/* TODO: Add a coded example that demonstrates specifying a location or region */}
 
-- Is there a need to conserve screen space? Select may be appropriate.
-- Ensuring collection of standardized values? Select may be appropriate.
-- Are there less than five options? Consider a [CheckBoxGroup](/components/checkboxgroup) or [RadioButtonGroup](/components/radiobuttongroup) as they may be more efficient for users. Select can hide information and requires extra clicks/taps for users to access that information.
-- Are there a large number of options? Lengthy scrolling can be problematic for users. Consider [Select with Search](#select-with-search) or [TextInput with suggestions](/components/textinput#textinput-with-suggestions).
-- Is the select for a State/Province in the context of collecting an address? Consider only asking for ZIP/Postal Code and automatically determining City, State, Country, etc. without user input.
-- Are the values in list well known and understood, such as Year? Consider [TextInput with suggestions](/components/textinput#textinput-with-suggestions) or [MaskedInput](/components/maskedinput).
+### Categorizing data or assigning a role
 
-### Selecting multiple options
+Use Select when a user needs to assign a specific type, status, or permission role to an item to ensure the choice matches exactly with system requirements.
 
-If multiple selections are permitted and there are more than 5 options, use [SelectMultiple](/components/selectmultiple). Otherwise, consider using [CheckBoxGroup](/components/checkboxgroup).
+{/* TODO: Add a coded example that demonstrates categorizing data or assigning a role */}
+
+## Anatomy
+
+{/* TODO: Insert anatomy diagram image here */}
+
+| Label | Region | Purpose | Required | Notes |
+| :---: | --- | --- | :---: | --- |
+| **1** | **Container** | The outer bounds of the Select input. | Required | |
+| **2** | **Label** | The value of the selected option, or placeholder text. | Required | |
+| **3** | **Dropdown icon** | A chevron indicating the element opens a dropdown menu. | Required | |
 
 ## Variants
 
-The Select input is flexible and may be extended to allow for multi-select, search, and create options.
+### Search
 
-### Select with search
-
-Allow users to quickly find their desired option by incorporating Search within the Select component.
-
-Select with search is especially useful when presenting lengthy options lists such as when selecting from countries or regions. [TextInput with suggestions](/components/textinput#textinput-with-suggestions) and [MaskedInput](/components/maskedinput) are also worth considering in circumstances where values are well known.
+Allow users to quickly find their desired option by incorporating Search within the Select component. Useful when presenting lengthy options lists such as countries or regions.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectSearchExample.js"
@@ -56,7 +57,7 @@ Select with search is especially useful when presenting lengthy options lists su
 
 ### Validation
 
-Validation styling calls visual attention to the Select input with an error and should be accompanied by text instructing the user how to resolve. A "required" input error is the most common with Select since the available options are typically pre-defined.
+Validation styling calls visual attention to the Select input with an error and should be accompanied by text instructing the user how to resolve. A required input error is the most common with Select since the available options are typically pre-defined.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectValidationExample.js"
@@ -66,7 +67,15 @@ Validation styling calls visual attention to the Select input with an error and 
   <SelectValidationExample />
 </Example>
 
-### Disabled
+## Behaviors and States
+
+### Interactive States
+
+Select provides interactive states including hover, focus, open, and closed.
+
+### Application States
+
+#### Disabled
 
 Indicates that the Select input exists but cannot be interacted with until a precondition is met.
 
@@ -80,15 +89,17 @@ Indicates that the Select input exists but cannot be interacted with until a pre
 
 ## Accessibility
 
-Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
+Always use Select in conjunction with FormField to promote best practices in accessibility by ensuring user inputs are accompanied by labels.
 
 To properly associate FormField `label` with Grommet's Select component, ensure the Select has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
 
-```
-<FormField label="Select option" htmlFor="select__input">
-  <Select id="select" options={['Option 1', 'Option 2']} />
-</FormField>
-```
+### Keyboard interaction
+
+| Key | Action |
+| --- | --- |
+| Space or Enter | Toggles the open/closed state of the Select drop-down. |
+| Tab | Moves focus to the next element. |
+| Arrow keys | Navigates through the options list when open. |
 
 ### WCAG compliance
 

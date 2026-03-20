@@ -1,0 +1,67 @@
+id: select
+name: Select
+description: Presents a collapsible list of options from which a user can make a single selection.
+whenToUse:
+  - Specifying a location or region.
+  - Categorizing data or assigning a role.
+whenToAvoid:
+  - When there are five or fewer options; use CheckBoxGroup or RadioButtonGroup instead.
+  - When asking for well-known structured formats like dates or years; use TextInput with suggestions or MaskedInput.
+  - When asking for state/province when it can be automatically determined via ZIP/Postal Code.
+  - When selecting multiple options and there are fewer than five options; use CheckBoxGroup instead.
+  - When selecting multiple options and there are more than five options; use SelectMultiple instead.
+variants:
+  - name: Search
+    description: Allow users to quickly find their desired option by incorporating Search within the Select component. Useful when presenting lengthy options lists such as countries or regions.
+    examples:
+      - name: Select with search
+        codeFile: SelectSearchExample
+  - name: Validation
+    description: Validation styling calls visual attention to the Select input with an error and should be accompanied by text instructing the user how to resolve. A required input error is the most common with Select since the available options are typically pre-defined.
+    examples:
+      - name: Validation
+        codeFile: SelectValidationExample
+applicationStates:
+  - name: Disabled
+    description: Indicates that the Select input exists but cannot be interacted with until a precondition is met.
+    examples:
+      - name: Disabled
+        codeFile: SelectDisabledExample
+anatomy:
+  - name: Container
+    description: The outer bounds of the Select input.
+    required: true
+  - name: Label
+    description: The value of the selected option, or placeholder text.
+    required: true
+  - name: Dropdown icon
+    description: A chevron indicating the element opens a dropdown menu.
+    required: true
+accessibility:
+  aria:
+    - To properly associate FormField `label` with Grommet's Select component, ensure the Select has an `id` and the FormField has an `htmlFor` with the format of `{id}__input`.
+  keyboard:
+    - description: Toggles the open/closed state of the Select drop-down.
+      key: Space or Enter
+    - description: Moves focus to the next element.
+      key: Tab
+    - description: Navigates through the options list when open.
+      key: Arrow keys
+bestPractices:
+  dos:
+    - Always use Select in conjunction with FormField to promote best practices in accessibility by ensuring user inputs are accompanied by labels.
+  donts:
+    - Avoid using Select if there are fewer than 5 options.
+relatedComponents:
+  - id: forms
+    name: Forms
+  - id: menu
+    name: Menu
+  - id: radiobuttongroup
+    name: RadioButtonGroup
+  - id: checkbox
+    name: CheckBox
+  - id: textinput
+    name: TextInput
+  - id: maskedinput
+    name: MaskedInput

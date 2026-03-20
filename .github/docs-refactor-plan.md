@@ -89,7 +89,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] radiobuttongroup
 - [ ] rangeinput
 - [ ] search
-- [ ] select
+- [x] select
 - [ ] selectmultiple
 - [ ] skeleton
 - [ ] spinner
