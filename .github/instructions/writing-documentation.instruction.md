@@ -1,5 +1,6 @@
 When writing documentation, consider these best practices:
 
+- **Favor user-task descriptions over design rationales** when writing Use Cases.
 - **Write imperatives** that begin with words like Hide…, Include…, Prevent…, Limit…, and Enable…
 - **Omit needless words.** If you can say something with fewer words or even an imagine, do so.
 - **Assert non-negotiables** with Always… or Never…
