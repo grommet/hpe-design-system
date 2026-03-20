@@ -15,6 +15,7 @@ component properties and inspect code -- similar to an embedded Storybook exampl
 Document the specific scenarios in which this component is the right choice. Each use case is a `###` subheading followed by one or two sentences describing the scenario, then a coded example that demonstrates it.
 
 - **Name each use case using a gerund phrase** (verb + -ing + object), e.g., "Submitting a form", "Triggering UI changes", "Toggling between states". This creates consistent, scannable subheadings across all component pages.
+- **Describe the user's task or goal** (e.g., "Specifying a location", "Opting into an agreement"), NOT a structural UI rationale (e.g., "Conserving screen space", "When there are 5 or more items").
 - Each subheading answers: *"In what specific situation would I reach for this component?"*
 - Do NOT include counter-indications ("when not to use") here. Counter-indications have a clear opposing pattern and belong in a section that documents paired do/don't comparisons. If no section fits, log the content in the TODO or DEPRECATED file.
 - Do NOT use a flat bulleted list of actions. Every use case must be a named `###` subheading.
