@@ -1,0 +1,121 @@
+id: select
+name: Select
+description: Presents a collapsible list of options from which a user can make a single selection.
+importPath: grommet
+props:
+  - name: id
+    type: string
+    required: false
+    description: Unique identifier for the Select input. Required when used inside a FormField with htmlFor.
+  - name: options
+    type: string[] | object[]
+    required: true
+    description: Array of options to display in the drop-down list.
+  - name: value
+    type: string | object
+    required: false
+    description: The currently selected value.
+  - name: onChange
+    type: "(event: { value: string | object }) => void"
+    required: false
+    description: Callback fired when the selected option changes.
+  - name: placeholder
+    type: string
+    required: false
+    description: Placeholder text displayed when no value is selected.
+  - name: disabled
+    type: boolean | string[] | object[]
+    required: false
+    description: When true, disables the input. Can also accept an array of disabled option values.
+  - name: onSearch
+    type: "(searchString: string) => void"
+    required: false
+    description: Enables a search input inside the drop-down. Called with the current search string on each keystroke.
+  - name: multiple
+    type: boolean
+    required: false
+    description: Allows multiple selections. Prefer SelectMultiple for this use case.
+usage:
+  whenToUse:
+    - Specifying a location or region from a predefined list.
+    - Categorizing data or assigning a role when the valid values are fixed.
+  whenToAvoid:
+    - When there are only a few options; use CheckBoxGroup or RadioButtonGroup instead.
+    - When values are well-known structured formats like dates or years; use MaskedInput or TextInput with suggestions instead.
+    - When location context such as state or province can be inferred from a ZIP or postal code; ask for the postal code and derive the value automatically instead.
+    - When selecting multiple options; use SelectMultiple.
+variants:
+  - name: search
+    description: Allows users to filter options by typing. Useful for long lists such as countries or regions.
+    when: When the options list is long enough that scrolling becomes inconvenient.
+    example: "<Select options={countries} onSearch={(text) => setFiltered(text)} />"
+  - name: validation
+    description: Displays an error state when a required Select has not been filled on form submission.
+    when: When Select is inside a FormField and the user submits without selecting a value.
+    example: "<FormField error='Required'><Select /></FormField>"
+examples:
+  - description: Default Select inside a FormField.
+    codeFile: apps/docs/src/examples/components/select/SelectExample.js
+  - description: Select with search capability to filter a long list.
+    codeFile: apps/docs/src/examples/components/select/SelectSearchExample.js
+  - description: Select with validation error message.
+    codeFile: apps/docs/src/examples/components/select/SelectValidationExample.js
+  - description: Select in a disabled state.
+    codeFile: apps/docs/src/examples/components/select/SelectDisabledExample.js
+anatomy:
+  - label: "1"
+    region: Container
+    purpose: The outer bounds of the Select input.
+    availability: required
+  - label: "2"
+    region: Value label
+    purpose: Displays the selected option value, or placeholder text when nothing is selected.
+    availability: required
+  - label: "3"
+    region: Dropdown chevron
+    purpose: Visual indicator that the element opens a collapsible list.
+    availability: required
+  - label: "4"
+    region: Drop-down list
+    purpose: The expanded overlay listing all available options.
+    availability: required
+  - label: "4a"
+    region: Search input
+    purpose: Text field for filtering options. Only present in the search variant.
+    availability: optional
+    notes: Present only when the onSearch prop is provided.
+  - label: "4b"
+    region: Option item
+    purpose: An individual selectable row within the drop-down list.
+    availability: required
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - open
+    - closed
+  applicationStates:
+    - disabled
+accessibility:
+  keyboard:
+    - key: Space or Enter
+      action: Toggles the open/closed state of the drop-down list.
+    - key: Arrow keys
+      action: Navigates through options when the list is open.
+    - key: Tab
+      action: Moves focus to the next focusable element.
+    - key: Escape
+      action: Closes the drop-down without changing the selected value.
+  aria:
+    - attribute: htmlFor
+      value: "${id}__input"
+      condition: Always — set on the parent FormField to associate the label with the Select input.
+relatedComponents:
+  - Forms
+  - Menu
+  - RadioButtonGroup
+  - CheckBox
+  - TextInput
+  - MaskedInput
+  - SelectMultiple

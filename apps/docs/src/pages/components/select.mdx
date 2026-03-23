@@ -1,10 +1,11 @@
 import { AccessibilitySection, Example } from '../../layouts';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
   SelectDisabledExample,
   SelectExample,
   SelectSearchExample,
   SelectValidationExample,
-} from '../../examples';
+} from '../../examples/components/select';
 
 <Example
   componentName="Select"
@@ -17,34 +18,38 @@ import {
   <SelectExample />
 </Example>
 
-## Guidance
+## Use cases
 
-Select is a flexible input element able to serve a wide variety of use cases. Though flexible, asking "is Select the best tool in this circumstance?" is a healthy exercise. Variants of Select, such as [Select with Search](#select-with-search), or alternatives like [RadioButtonGroup](/components/radiobuttongroup), [MaskedInput](/components/maskedinput), or [TextInput with suggestions](/components/textinput#textinput-with-suggestions) may be more appropriate for crafting an elegant user experience.
+### Specifying a location or region
 
-### When to use Select
+Use Select when a user must choose their country, timezone, or billing region from a predefined system list. Providing a fixed set of values ensures consistent, well-formed data without requiring the user to type.
 
-Because Select is flexible and familiar, the following questions are helpful to consider alternatives and/or confirm that Select is the most appropriate element:
+{/* TODO: Add a coded example that demonstrates specifying a location or region */}
 
-- Is there a need to conserve screen space? Select may be appropriate.
-- Ensuring collection of standardized values? Select may be appropriate.
-- Are there less than five options? Consider a [CheckBoxGroup](/components/checkboxgroup) or [RadioButtonGroup](/components/radiobuttongroup) as they may be more efficient for users. Select can hide information and requires extra clicks/taps for users to access that information.
-- Are there a large number of options? Lengthy scrolling can be problematic for users. Consider [Select with Search](#select-with-search) or [TextInput with suggestions](/components/textinput#textinput-with-suggestions).
-- Is the select for a State/Province in the context of collecting an address? Consider only asking for ZIP/Postal Code and automatically determining City, State, Country, etc. without user input.
-- Are the values in list well known and understood, such as Year? Consider [TextInput with suggestions](/components/textinput#textinput-with-suggestions) or [MaskedInput](/components/maskedinput).
+### Categorizing data or assigning a role
 
-### Selecting multiple options
+Use Select when a user needs to assign a category, status, or permission role to an item. Restricting choices to a predefined list ensures the value matches system requirements exactly.
 
-If multiple selections are permitted and there are more than 5 options, use [SelectMultiple](/components/selectmultiple). Otherwise, consider using [CheckBoxGroup](/components/checkboxgroup).
+{/* TODO: Add a coded example that demonstrates categorizing data or assigning a role */}
+
+## Anatomy
+
+{/* TODO: Insert anatomy diagram image here */}
+
+| Label | Region | Purpose | Required | Notes |
+| :---: | --- | --- | :---: | --- |
+| **1** | **Container** | The outer bounds of the Select input. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **2** | **Value label** | Displays the selected option value, or placeholder text when nothing is selected. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **3** | **Dropdown chevron** | Visual indicator that the element opens a collapsible list. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **4** | **Drop-down list** | The expanded overlay listing all available options. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **4a** | **Search input** | Text field for filtering options. Only present in the search variant. | Optional | Present only when the `onSearch` prop is provided. |
+| **4b** | **Option item** | An individual selectable row within the drop-down list. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
 
 ## Variants
 
-The Select input is flexible and may be extended to allow for multi-select, search, and create options.
+### Search
 
-### Select with search
-
-Allow users to quickly find their desired option by incorporating Search within the Select component.
-
-Select with search is especially useful when presenting lengthy options lists such as when selecting from countries or regions. [TextInput with suggestions](/components/textinput#textinput-with-suggestions) and [MaskedInput](/components/maskedinput) are also worth considering in circumstances where values are well known.
+Allow users to quickly filter a long list by typing. Use when the options list is too long for comfortable scrolling, such as a list of countries or regions.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectSearchExample.js"
@@ -56,7 +61,7 @@ Select with search is especially useful when presenting lengthy options lists su
 
 ### Validation
 
-Validation styling calls visual attention to the Select input with an error and should be accompanied by text instructing the user how to resolve. A "required" input error is the most common with Select since the available options are typically pre-defined.
+Display an error state when a required Select has not been filled on form submission. Always wrap Select in a FormField and surface the error through the FormField `error` prop.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectValidationExample.js"
@@ -66,9 +71,17 @@ Validation styling calls visual attention to the Select input with an error and 
   <SelectValidationExample />
 </Example>
 
-### Disabled
+## Behaviors and States
 
-Indicates that the Select input exists but cannot be interacted with until a precondition is met.
+### Interactive States
+
+Select provides rest, hover, focus, open, and closed states through the Grommet theme. No additional implementation is required.
+
+### Application States
+
+#### Disabled
+
+Use `disabled` when the Select cannot be interacted with until a precondition is met.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectDisabledExample.js"
@@ -80,15 +93,18 @@ Indicates that the Select input exists but cannot be interacted with until a pre
 
 ## Accessibility
 
-Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
+Always use Select in conjunction with FormField to ensure the label is properly associated with the input for assistive technologies.
 
 To properly associate FormField `label` with Grommet's Select component, ensure the Select has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
 
-```
-<FormField label="Select option" htmlFor="select__input">
-  <Select id="select" options={['Option 1', 'Option 2']} />
-</FormField>
-```
+### Keyboard interaction
+
+| Key | Action |
+| --- | --- |
+| Space or Enter | Toggles the open/closed state of the drop-down list. |
+| Arrow keys | Navigates through options when the list is open. |
+| Tab | Moves focus to the next focusable element. |
+| Escape | Closes the drop-down without changing the selected value. |
 
 ### WCAG compliance
 

@@ -582,7 +582,7 @@ export const components = [
     accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
-      'Select is a flexible input field that allows users to choose from a list of options.',
+      'Presents a collapsible list of options from which a user can make a single selection.',
     seoDescription:
       'The select input component offers users a choice from a list of options. See how HPE displays the disabled state, error messages, and alternatives to the drop-down.',
     sections: ['When to use Select', 'Multi-Select', 'Select with Search'],
