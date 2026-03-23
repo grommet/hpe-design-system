@@ -64,7 +64,6 @@ describe('page lookup utilities', () => {
     const details = getPageDetails('components') as { name: string };
     expect(details).toHaveProperty('name');
     expect(details.name).toBe('Components');
-    expect(details.name).toBe('Components');
     expect(getPageDetails('missing')).toEqual({});
   });
 
