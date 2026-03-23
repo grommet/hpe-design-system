@@ -160,15 +160,11 @@ export const CreateCluster = () => {
                 name="cluster-name"
               />
             </FormField>
-            <FormField
-              htmlFor="resource-manager"
-              name="resource-manager"
-              label="Distributed resoure manager"
-            >
+            <FormField htmlFor="resource-manager" name="resource-manager">
               <CheckBox
                 id="resource-manager"
                 name="resource-manager"
-                label="Use manager"
+                label="Use distributed resource manager"
               />
             </FormField>
             {formValues['resource-manager'] && (

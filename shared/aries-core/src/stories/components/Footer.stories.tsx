@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Footer, Text, Box, Button, BoxTypes } from 'grommet';
 import {
   backgroundArg,
@@ -53,8 +53,14 @@ export const BasicFooter: Story = {
     );
   },
   args: {
+    align: undefined,
     background: 'background-contrast',
+    border: false,
+    direction: undefined,
+    height: undefined,
     pad: 'medium',
+    skeleton: false,
+    width: undefined,
   },
   name: 'Footer',
 };

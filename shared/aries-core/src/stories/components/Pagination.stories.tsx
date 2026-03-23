@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Pagination } from 'grommet';
 
 const meta = {
@@ -41,9 +41,9 @@ type Story = StoryObj<typeof meta>;
 
 export const DefaultPagination = {
   args: {
-    numberEdgePages: undefined,
+    numberEdgePages: 1,
     numberItems: 100,
-    numberMiddlePages: undefined,
+    numberMiddlePages: 3,
     page: 1,
     size: undefined,
     step: 10,

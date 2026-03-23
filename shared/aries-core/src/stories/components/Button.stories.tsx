@@ -1,8 +1,8 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Button } from 'grommet';
 import {
-  a11yTitleArg,
+  ariaLabelArg,
   disabledArg,
   fillArg,
   iconArg,
@@ -13,13 +13,12 @@ import {
 const meta = {
   title: 'Components/Button',
   component: Button,
-  // TODO: Currently does not work as expected due to theme overrides, when supported, remove comments
-  // parameters: {
-  //   layout: 'centered',
-  // },
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     active: {
+      control: { type: 'boolean' },
+    },
+    badge: {
       control: { type: 'boolean' },
     },
     busy: {
@@ -51,6 +50,9 @@ const meta = {
     success: {
       control: { type: 'boolean' },
     },
+    tip: {
+      control: { type: 'text' },
+    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -62,8 +64,9 @@ export const Default = {
   name: 'Button',
   // Sets default args for argTypes, story specific args
   args: {
-    a11yTitle: undefined,
+    'aria-label': undefined,
     active: false,
+    badge: false,
     busy: false,
     disabled: false,
     fill: false,
@@ -75,8 +78,9 @@ export const Default = {
     reverse: false,
     size: 'medium',
     success: false,
+    tip: undefined,
   },
   render: args => {
-    return <Button {...args} />;
+    return <Button {...args} alignSelf="start" />;
   },
 } satisfies Story;

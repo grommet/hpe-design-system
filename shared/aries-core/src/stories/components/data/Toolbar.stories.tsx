@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Data, DataSearch, DataSort, DataTable, Toolbar } from 'grommet';
 
 // Mock data for the toolbar example
@@ -36,9 +36,6 @@ const mockApplications = [
 const meta = {
   title: 'Components/Data',
   component: Toolbar,
-  parameters: {
-    layout: 'fullscreen',
-  },
   argTypes: {},
 } satisfies Meta<typeof Toolbar>;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Layer, Box, Button, Heading, Text, LayerExtendedProps } from 'grommet';
 import { Close } from '@hpe-design/icons-grommet';
 import { backgroundArg, fillArg, marginArg } from '../utils/commonArgs';
@@ -8,19 +8,9 @@ const meta = {
   title: 'Components/Layer',
   component: Layer,
   argTypes: {
-    animate: {
-      control: { type: 'boolean' },
-    },
-    animation: {
-      control: { type: 'select' },
-      options: ['fadeIn', 'slide'],
-    },
     background: backgroundArg,
     full: fillArg,
     margin: marginArg,
-    modal: {
-      control: { type: 'boolean' },
-    },
     position: {
       control: { type: 'select' },
       options: ['center', 'top', 'bottom', 'left', 'right', 'start', 'end'],

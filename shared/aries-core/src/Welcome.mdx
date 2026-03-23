@@ -1,0 +1,49 @@
+import {
+  Box,
+  Heading,
+  Button,
+  Paragraph,
+  Anchor,
+  Grommet,
+  Text,
+} from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
+import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
+
+<Meta title="Welcome" />
+
+<Unstyled>
+    <Grommet theme={hpe}>
+        <Box gap="medium" width="large">
+            <Heading level={1} margin={{ bottom: 'small' }}>Welcome to the HPE Design System Storybook</Heading>
+            
+            <Paragraph size="large">
+                This Storybook showcases the components and patterns within the HPE Design System.
+                Explore interactive examples, view component variations, and learn how to implement
+                consistent, accessible user experiences.
+            </Paragraph>
+
+            <Box direction="row" gap="medium">
+                <Button
+                    as="a"
+                    label="Browse components"
+                    href="/?path=/story/components"
+                    primary
+                />
+                <Button
+                    as="a"
+                    label="Explore patterns"
+                    href="/?path=/story/patterns"
+                    secondary
+                />
+            </Box>
+
+            <Box margin={{ top: 'large' }} gap="small">
+                <Text>
+                    {`View more details and guidance on the `} <Anchor rel="noopener noreferrer" href="https://design-system.hpe.design" target="_blank">HPE Design System Website</Anchor>
+                </Text>
+            </Box>
+        </Box>
+    </Grommet>
+
+</Unstyled>

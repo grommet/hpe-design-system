@@ -10,6 +10,9 @@ import { PageEmptyState } from 'apps/docs/src/examples/templates/empty-state/Pag
 
 const meta = {
   title: 'Patterns/Empty State',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;
@@ -20,6 +23,10 @@ export const Action = {
 
 export const Card = {
   render: () => <CardEmptyState />,
+  parameters: {
+    layout: 'fullscreen',
+    background: 'background-back',
+  },
 };
 
 export const EmptyState = {

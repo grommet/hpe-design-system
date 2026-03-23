@@ -9,6 +9,9 @@ import { StatusUpdateExample } from 'apps/docs/src/examples/templates/inline-not
 
 const meta = {
   title: 'Patterns/Inline Notifications',
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 export default meta;
@@ -18,15 +21,27 @@ export const InlineFormValidation = {
 };
 
 export const InlineNotification = {
+  parameters: {
+    layout: 'fullscreen',
+    full: true,
+  },
   render: () => <InlineNotificationExample />,
 };
 
 export const PageBanner = {
   render: () => <PageBannerExample />,
+  parameters: {
+    layout: 'fullscreen',
+    background: 'background-back',
+  },
 };
 
 export const Promotion = {
   render: () => <PromotionExample />,
+  parameters: {
+    layout: 'fullscreen',
+    background: 'background-back',
+  },
 };
 
 export const StatusUpdate = {

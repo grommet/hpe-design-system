@@ -56,7 +56,7 @@ export const QuickFilterToolbar = () => (
   <Page>
     <PageContent>
       <ContentPane>
-        <Heading level={2} margin="none">
+        <Heading id="storage-heading" level={2} margin="none">
           Storage
         </Heading>
         <Data data={applications} properties={properties}>

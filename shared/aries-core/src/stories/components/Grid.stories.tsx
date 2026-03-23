@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Grid, Box, Text, GridExtendedProps, BoxExtendedProps } from 'grommet';
 import {
   fillArg,
@@ -53,7 +53,15 @@ export const BasicGrid: Story = {
   ),
   args: {
     columns: ['auto', 'auto'],
+    fill: undefined,
     gap: 'small',
+    height: undefined,
+    justify: undefined,
+    justifyContent: undefined,
+    margin: undefined,
+    pad: undefined,
+    rows: undefined,
+    width: undefined,
   },
   name: 'Grid',
 };
@@ -74,9 +82,15 @@ export const WithAreas: Story = {
       ['footer', 'footer'],
     ],
     columns: ['medium', 'flex'],
-    rows: ['auto', 'flex', 'auto'],
+    fill: undefined,
     gap: 'small',
     height: 'medium',
+    justify: undefined,
+    justifyContent: undefined,
+    margin: undefined,
+    pad: undefined,
+    rows: ['auto', 'flex', 'auto'],
+    width: undefined,
   },
   name: 'With Areas',
 };
