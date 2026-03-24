@@ -7,8 +7,6 @@ export const CheckBoxDisabledExample = () => (
         <Form>
           <FormField
             name="disabled-checkbox"
-            label="Label"
-            htmlFor="disabled-checkbox"
             disabled
           >
             <CheckBox
@@ -24,8 +22,6 @@ export const CheckBoxDisabledExample = () => (
         <Form>
           <FormField
             name="disabled-checkbox"
-            label="Label"
-            htmlFor="disabled-toggle"
             disabled
           >
             <CheckBox
