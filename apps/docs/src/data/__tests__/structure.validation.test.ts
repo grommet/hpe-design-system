@@ -1,12 +1,12 @@
 import { describe, it, expect, vi } from 'vitest';
 
-// structure.js has a deep module dependency chain that, when fully loaded, pulls
-// in most of the application (examples, layouts, utils, etc.) and creates
-// circular dependencies (search.js imports src/data/ at module-init time) and
-// missing build artifacts (contentForSearch is generated at build time).
+// Importing ../structure pulls in React components and other heavier modules
+// that are not needed for these schema-validation tests and can make the test
+// environment harder to configure (e.g. requiring DOM/rendering setup or
+// build-time data).
 //
-// To let structure.js load in a test environment we mock only the modules that
-// create these problems, while leaving ../structure itself unmocked so the
+// To keep the tests fast and focused on the data shape, we mock just the
+// problematic dependencies while leaving ../structure itself unmocked so the
 // real exported `structure` array (names, pages, seoDescription, etc.) is what
 // the tests actually validate.
 vi.mock('../../components', () => ({
