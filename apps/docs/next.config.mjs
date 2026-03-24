@@ -16,11 +16,15 @@ const withMDX = createMDX({
 
 const nextConfig = {
   // Configure pageExtensions to include md and mdx
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   // Any other Next.js config options
   reactStrictMode: true,
   compiler: {
     styledComponents: true,
+  },
+  eslint: {
+    // Next.js built in ESLint conflicts with our custom rules at the monorepo level.
+    ignoreDuringBuilds: true,
   },
   output: 'export',
 };

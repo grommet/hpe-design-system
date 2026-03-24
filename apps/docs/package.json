@@ -49,6 +49,7 @@
     "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
+    "eslint": "catalog:",
     "grommet-theme-hpe": "catalog:",
     "jsdom": "^26.1.0",
     "next-transpile-modules": "^10.0.1",
