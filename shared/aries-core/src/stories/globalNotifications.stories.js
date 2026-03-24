@@ -36,6 +36,8 @@ export const ContentLayout = {
         sourceState: 'shown',
       },
     },
+    layout: 'fullscreen',
+    background: 'background-back',
   },
 };
 

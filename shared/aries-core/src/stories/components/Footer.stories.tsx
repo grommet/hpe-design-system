@@ -53,8 +53,14 @@ export const BasicFooter: Story = {
     );
   },
   args: {
+    align: undefined,
     background: 'background-contrast',
+    border: false,
+    direction: undefined,
+    height: undefined,
     pad: 'medium',
+    skeleton: false,
+    width: undefined,
   },
   name: 'Footer',
 };

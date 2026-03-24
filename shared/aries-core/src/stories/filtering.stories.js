@@ -32,6 +32,7 @@ export const FilterCards = {
         sourceState: 'shown',
       },
     },
+    background: 'background-back',
   },
 };
 

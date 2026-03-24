@@ -68,6 +68,8 @@ export const PageBanner = {
         sourceState: 'shown',
       },
     },
+    layout: 'fullscreen',
+    background: 'background-back',
   },
 };
 
@@ -84,6 +86,8 @@ export const Promotion = {
         sourceState: 'shown',
       },
     },
+    layout: 'fullscreen',
+    background: 'background-back',
   },
 };
 

@@ -45,6 +45,6 @@ export const Default = {
     size: 'medium',
   },
   render: (args: any) => {
-    return <Menu {...args} width="large" />;
+    return <Menu {...args} alignSelf="start" />;
   },
 } satisfies Story;
