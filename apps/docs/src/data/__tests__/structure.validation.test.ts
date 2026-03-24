@@ -21,11 +21,11 @@ vi.mock('../../examples', () => ({}));
 
 vi.mock('../../utils/search', () => ({
   getSearchSuggestions: [],
-  nameToSlug: name => name.toLowerCase().replace(/\s+/g, '-'),
+  nameToSlug: (name: string) => name.toLowerCase().replace(/\s+/g, '-'),
   getPageDetails: () => undefined,
   getParentPage: () => undefined,
   getSectionParent: () => undefined,
-  nameToPath: name => `/${name.toLowerCase()}`,
+  nameToPath: (name: string) => `/${name.toLowerCase()}`,
   getCards: () => [],
   getRelatedContent: () => [],
 }));
@@ -78,7 +78,9 @@ describe('Structure Data Validation', () => {
       const uniqueNames = new Set(names);
       expect(
         names.length,
-        `Duplicate primary page names: ${names.filter((n, i) => names.indexOf(n) !== i).join(', ')}`,
+        `Duplicate primary page names: ${names
+          .filter((n, i) => names.indexOf(n) !== i)
+          .join(', ')}`,
       ).toBe(uniqueNames.size);
     });
 

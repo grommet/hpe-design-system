@@ -23,7 +23,6 @@ const nextConfig = {
     styledComponents: true,
   },
   output: 'export',
-  swcMinify: true,
 };
 
 const plugins = [withTM, withMDX];
