@@ -42,8 +42,13 @@ export default {
       disableSaveFromUI: true,
     },
     docs: {
+      // Enables the Code panel tab in Storybook Docs for all stories.
       codePanel: true,
       canvas: {
+        // Shows the source code tab by default in the Docs canvas for all stories,
+        // including both component and pattern stories. Individual stories can
+        // override this by setting parameters.docs.canvas.sourceState in their
+        // own story or meta definition.
         sourceState: 'shown',
       },
     },
