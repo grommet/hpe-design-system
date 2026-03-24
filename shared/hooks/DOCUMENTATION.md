@@ -20,6 +20,11 @@ This package is part of the HPE Design System monorepo and is available as a wor
 
 ## Available Hooks
 
+- [useSessionStorage](#usesessionstorage) — Persist and sync state with `sessionStorage`
+- [useConfirmation](#useconfirmation) — Manage unsaved-changes confirmation dialog state
+
+---
+
 ### useSessionStorage
 
 A React hook that provides a simple way to manage browser sessionStorage with React state synchronization.
@@ -34,10 +39,10 @@ A React hook that provides a simple way to manage browser sessionStorage with Re
 ##### To Do
 
 Consider supporting in the future. Session storage is isolated to a specific browser tab and is not shared across multiple tabs or windows.
+
 - **Cross-tab synchronization**: Automatically syncs changes across browser tabs
 
 Possible approach [useSyncExternalStore + BroadcastChannel API](#store-state-across-tabs).
-
 
 #### Usage
 
@@ -49,9 +54,9 @@ function MyComponent() {
   const [name, setName] = useSessionStorage('userName', 'Anonymous');
 
   // Usage with objects
-  const [user, setUser] = useSessionStorage('user', { 
-    id: null, 
-    email: '' 
+  const [user, setUser] = useSessionStorage('user', {
+    id: null,
+    email: '',
   });
 
   // Usage with function updates
@@ -61,14 +66,10 @@ function MyComponent() {
   return (
     <div>
       <p>Name: {name}</p>
-      <button onClick={() => setName('John Doe')}>
-        Set Name
-      </button>
-      
+      <button onClick={() => setName('John Doe')}>Set Name</button>
+
       <p>Count: {count}</p>
-      <button onClick={increment}>
-        Increment
-      </button>
+      <button onClick={increment}>Increment</button>
     </div>
   );
 }
@@ -81,14 +82,17 @@ const [value, setValue] = useSessionStorage<T>(key: string, initialValue: T)
 ```
 
 **Parameters:**
+
 - `key` (string): The sessionStorage key to store the value under
 - `initialValue` (T): The initial value to use if no stored value exists
 
 **Returns:**
+
 - `value` (T): The current value from sessionStorage or initialValue
 - `setValue` (function): Function to update the stored value
 
 **setValue function:**
+
 ```typescript
 setValue(value: T | ((prevValue: T) => T)): void
 ```
@@ -96,6 +100,7 @@ setValue(value: T | ((prevValue: T) => T)): void
 #### Examples
 
 ##### Basic String Storage
+
 ```typescript
 const [username, setUsername] = useSessionStorage('username', '');
 
@@ -106,6 +111,7 @@ setUsername('john_doe');
 ```
 
 ##### Object Storage
+
 ```typescript
 interface UserPreferences {
   theme: 'light' | 'dark';
@@ -114,7 +120,7 @@ interface UserPreferences {
 
 const [preferences, setPreferences] = useSessionStorage<UserPreferences>(
   'userPrefs',
-  { theme: 'light', notifications: true }
+  { theme: 'light', notifications: true },
 );
 
 // Update entire object
@@ -125,6 +131,7 @@ setPreferences(prev => ({ ...prev, theme: 'dark' }));
 ```
 
 ##### Array Storage
+
 ```typescript
 const [items, setItems] = useSessionStorage<string[]>('items', []);
 
@@ -146,11 +153,142 @@ The hook includes built-in error handling for scenarios where sessionStorage is 
 #### Browser Support
 
 This hook works in all modern browsers that support:
+
 - React 16.8+ (hooks)
 - sessionStorage API
 - JSON.parse/stringify
 
 For older browsers or environments without sessionStorage, the hook will work as a regular `useState` hook.
+
+---
+
+### useConfirmation
+
+A React hook and context provider that manages the state for a confirmation dialog pattern — commonly used when a user tries to close a layer/modal after making unsaved changes.
+
+#### Features
+
+- **Context-driven**: Shares state across a component subtree via `ConfirmationProvider`
+- **Accessible announcements**: Integrates with Grommet's `AnnounceContext` to announce modal state changes to screen readers
+- **Unsaved-changes guard**: Automatically prompts a confirmation dialog when the user closes a layer with unsaved changes
+- **Auto-reset**: Resets the `touched` flag once both the layer and the confirmation dialog are dismissed
+
+#### Setup
+
+Wrap the part of your component tree that contains the layer and its trigger with `ConfirmationProvider`:
+
+```tsx
+import { ConfirmationProvider } from '@shared/hooks';
+
+function App() {
+  return (
+    <ConfirmationProvider>
+      <MyFormWithLayer />
+    </ConfirmationProvider>
+  );
+}
+```
+
+#### Usage
+
+```tsx
+import { useConfirmation } from '@shared/hooks';
+
+function MyFormWithLayer() {
+  const {
+    showLayer,
+    setShowLayer,
+    showConfirmation,
+    touched,
+    setTouched,
+    onClose,
+    acceptConfirmation,
+    cancelConfirmation,
+  } = useConfirmation();
+
+  return (
+    <>
+      <Button label="Open" onClick={() => setShowLayer(true)} />
+
+      {showLayer && (
+        <Layer onClickOutside={onClose} onEsc={onClose}>
+          <Form onChange={() => setTouched(true)}>{/* form fields */}</Form>
+          <Button label="Close" onClick={onClose} />
+        </Layer>
+      )}
+
+      {showConfirmation && (
+        <ConfirmationDialog
+          onConfirm={acceptConfirmation} // discards changes, closes both
+          onCancel={cancelConfirmation} // dismisses dialog, keeps layer open
+        />
+      )}
+    </>
+  );
+}
+```
+
+#### API
+
+##### `ConfirmationProvider`
+
+```tsx
+<ConfirmationProvider>{children}</ConfirmationProvider>
+```
+
+Must wrap any component tree that calls `useConfirmation`. Provides the shared confirmation state.
+
+##### `useConfirmation()`
+
+```typescript
+const {
+  showLayer,
+  setShowLayer,
+  showConfirmation,
+  setShowConfirmation,
+  touched,
+  setTouched,
+  onClose,
+  acceptConfirmation,
+  cancelConfirmation,
+} = useConfirmation();
+```
+
+Throws if called outside a `ConfirmationProvider`.
+
+**State:**
+
+| Property              | Type                       | Description                                             |
+| --------------------- | -------------------------- | ------------------------------------------------------- |
+| `showLayer`           | `boolean`                  | Whether the layer/modal is open                         |
+| `setShowLayer`        | `(value: boolean) => void` | Directly set layer visibility                           |
+| `showConfirmation`    | `boolean`                  | Whether the discard-changes confirmation dialog is open |
+| `setShowConfirmation` | `(value: boolean) => void` | Directly set confirmation dialog visibility             |
+| `touched`             | `boolean`                  | Whether the form/content has unsaved changes            |
+| `setTouched`          | `(value: boolean) => void` | Mark the form as touched/untouched                      |
+
+**Handlers:**
+
+| Handler                | Description                                                                                                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `onClose()`            | Call when the user attempts to close the layer. Opens the confirmation dialog (with announcement) if `touched`, otherwise closes the layer directly (with announcement). |
+| `acceptConfirmation()` | Call when the user confirms discarding changes. Closes both the confirmation dialog and the layer.                                                                       |
+| `cancelConfirmation()` | Call when the user cancels the confirmation. Closes only the confirmation dialog, leaving the layer open.                                                                |
+
+**Side effects:**
+
+- When both `showConfirmation` and `showLayer` become `false`, `touched` is automatically reset to `false`.
+- `onClose` calls Grommet's `announce()` with `'assertive'` priority for screen-reader feedback.
+
+#### Error Handling
+
+Calling `useConfirmation` outside of a `ConfirmationProvider` throws:
+
+```
+Error: useConfirmation must be used within a ConfirmationProvider
+```
+
+---
 
 ## Development
 
@@ -191,13 +329,15 @@ pnpm check-types
 ```
 shared/hooks/
 ├── src/
-│   ├── index.ts              # Main entry point, exports all hooks
-│   ├── useSessionStorage.ts   # useSessionStorage hook implementation
+│   ├── index.ts                    # Main entry point, exports all hooks
+│   ├── useSessionStorage.ts        # useSessionStorage hook implementation
+│   ├── useConfirmation.tsx         # useConfirmation hook + ConfirmationProvider
 │   └── __tests__/
-│       └── setup.ts           # Test environment setup
+│       └── setup.ts                # Test environment setup
 ├── __tests__/
-│   └── useSessionStorage.test.ts  # Tests for useSessionStorage
-├── dist/                      # Built JavaScript files (generated)
+│   ├── useSessionStorage.test.ts   # Tests for useSessionStorage
+│   └── useConfirmation.test.tsx    # Tests for useConfirmation
+├── dist/                           # Built JavaScript files (generated)
 ├── package.json
 ├── tsconfig.json
 └── vitest.config.ts
@@ -269,7 +409,7 @@ export function subscribe(callback) {
 export function sendMessage(message, channelName) {
   if (!channel) {
     channel = new BroadcastChannel(channelName);
-    channel.onmessage = (event) => {
+    channel.onmessage = event => {
       // Update the state and notify listeners
       currentMessage = event.data;
       listeners.forEach(listener => listener());
@@ -282,7 +422,7 @@ export function sendMessage(message, channelName) {
 export function initChannel(channelName) {
   if (!channel) {
     channel = new BroadcastChannel(channelName);
-    channel.onmessage = (event) => {
+    channel.onmessage = event => {
       // Update the state and notify listeners
       currentMessage = event.data;
       listeners.forEach(listener => listener());
@@ -332,11 +472,14 @@ function BroadcastComponent() {
   return (
     <div>
       <h1>Cross-Tab State Sync</h1>
-      <p>Latest message from another tab: <b>{latestMessage || 'No messages yet.'}</b></p>
+      <p>
+        Latest message from another tab:{' '}
+        <b>{latestMessage || 'No messages yet.'}</b>
+      </p>
       <input
         type="text"
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={e => setInputValue(e.target.value)}
         placeholder="Type a message..."
       />
       <button onClick={handleSendMessage}>Send Message</button>
