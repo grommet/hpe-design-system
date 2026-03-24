@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
+/* eslint-disable import/extensions */
 import React from 'react';
 import { CreateCluster } from 'apps/docs/src/examples/templates/forms/managing-child-objects/CreateCluster';
 import { CreateRole } from 'apps/docs/src/examples/templates/forms/managing-child-objects/CreateRole';

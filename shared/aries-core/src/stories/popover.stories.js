@@ -4,9 +4,7 @@
 import React from 'react';
 import { PopoverInlineExample } from 'apps/docs/src/examples/templates/popover/PopoverInlineExample';
 import { PopoverSimpleExample } from 'apps/docs/src/examples/templates/popover/PopoverSimpleExample';
-// eslint-disable-next-line import/no-unresolved
 import PopoverInlineSource from 'apps/docs/src/examples/templates/popover/PopoverInlineExample.js?raw';
-// eslint-disable-next-line import/no-unresolved
 import PopoverSimpleSource from 'apps/docs/src/examples/templates/popover/PopoverSimpleExample.js?raw';
 
 const meta = {

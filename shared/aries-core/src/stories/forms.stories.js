@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
+/* eslint-disable import/extensions */
 import React from 'react';
 import { ChangePasswordExample } from 'apps/docs/src/examples/templates/forms/ChangePasswordExample';
 import { CharacterCounterExample } from 'apps/docs/src/examples/templates/forms/CharacterCounterExample';

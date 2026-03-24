@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
+/* eslint-disable import/extensions */
 import React from 'react';
 import { SimpleSelector } from 'apps/docs/src/examples/templates/selector/SelectorSimple';
 import { QuickFilter as QuickFilterExample } from 'apps/docs/src/examples/templates/selector/QuickFilter';
