@@ -19,17 +19,6 @@ vi.mock('../../components', () => ({
 
 vi.mock('../../examples', () => ({}));
 
-vi.mock('../../utils/search', () => ({
-  getSearchSuggestions: [],
-  nameToSlug: (name: string) => name.toLowerCase().replace(/\s+/g, '-'),
-  getPageDetails: () => undefined,
-  getParentPage: () => undefined,
-  getSectionParent: () => undefined,
-  nameToPath: (name: string) => `/${name.toLowerCase()}`,
-  getCards: () => [],
-  getRelatedContent: () => [],
-}));
-
 import { structure } from '../structure';
 
 type StructurePage = {
