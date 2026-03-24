@@ -54,7 +54,7 @@ const AnatomyGrid = ({ ...rest }) => {
         ['annotation-1b', 'confirmation-area'],
         ['annotation-2', 'confirmation-area'],
       ]}
-      gap={{ column: 'xlarge' }}
+      gap={{ column: 'medium' }}
       justifyContent="start"
       {...rest}
     />
