@@ -1,4 +1,4 @@
-name: Update Grommet Dependencies
+name: Update HPE Design System Dependencies
 
 on:
   schedule:
@@ -36,10 +36,12 @@ jobs:
           # Extract current versions
           CURRENT_GROMMET=$(grep "^  grommet: \^" pnpm-workspace.yaml | head -1 | sed 's/.*grommet: //' | tr -d "'^~")
           CURRENT_THEME=$(grep "^  grommet-theme-hpe: \^" pnpm-workspace.yaml | head -1 | sed 's/.*grommet-theme-hpe: //' | tr -d "'^~")
+          CURRENT_TOKENS=$(grep "^  hpe-design-tokens: \^" pnpm-workspace.yaml | head -1 | sed 's/.*hpe-design-tokens: //' | tr -d "'^~")
 
           # Get latest versions
           LATEST_GROMMET=$(pnpm view grommet version)
           LATEST_THEME=$(pnpm view grommet-theme-hpe version)
+          LATEST_TOKENS=$(pnpm view hpe-design-tokens version)
 
           # Check if updates needed
           UPDATES_NEEDED=false
@@ -57,6 +59,13 @@ jobs:
             sed -i "/^catalog:/,/^catalogs:/ s/grommet-theme-hpe: \^.*/grommet-theme-hpe: ^${LATEST_THEME}/" pnpm-workspace.yaml
             CHANGELOG="${CHANGELOG}### Grommet Theme HPE ${CURRENT_THEME} → ${LATEST_THEME}\n"
             CHANGELOG="${CHANGELOG}[Release Notes](https://github.com/grommet/grommet-theme-hpe/releases/tag/v${LATEST_THEME})\n\n"
+          fi
+
+          if [ "$CURRENT_TOKENS" != "$LATEST_TOKENS" ]; then
+            UPDATES_NEEDED=true
+            sed -i "/^catalog:/,/^catalogs:/ s/hpe-design-tokens: \^.*/hpe-design-tokens: ^${LATEST_TOKENS}/" pnpm-workspace.yaml
+            CHANGELOG="${CHANGELOG}### HPE Design Tokens ${CURRENT_TOKENS} → ${LATEST_TOKENS}\n"
+            CHANGELOG="${CHANGELOG}[Release Notes](https://github.com/grommet/hpe-design-system/releases/tag/hpe-design-tokens%40${LATEST_TOKENS})\\n\\n"
           fi
 
           echo "updates-needed=${UPDATES_NEEDED}" >> $GITHUB_OUTPUT
@@ -79,13 +88,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: chore/deps-grommet-${{ steps.date.outputs.yyyymmdd }}
-          title: 'chore: Update Grommet dependencies'
+          title: 'chore: Update HPE Design System dependencies'
           commit-message: |
-            chore: update Grommet catalog dependencies
+            chore: update HPE Design System catalog dependencies
 
             Auto-generated dependency updates
           body: |
-            ## 🚀 Grommet Dependency Updates
+            ## 🚀 HPE Design System Dependency Updates
 
             ${{ steps.update.outputs.changelog }}
 
