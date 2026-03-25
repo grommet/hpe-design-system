@@ -31,7 +31,7 @@ catalogs:
       specifier: ^8.1.4
       version: 8.1.4
     hpe-design-tokens:
-      specifier: ^2.2.3
+      specifier: ^2.2.2
       version: 2.2.3
     prop-types:
       specifier: ^15.8.1
