@@ -24,6 +24,9 @@ const nextConfig = {
   },
   eslint: {
     // Next.js built in ESLint conflicts with our custom rules at the monorepo level.
+    // "This is not recommended unless you already have ESLint configured to run in 
+    // a separate part of your workflow (for example, in CI or a pre-commit hook)."
+    // https://nextjs.org/docs/15/app/api-reference/config/next-config-js/eslint
     ignoreDuringBuilds: true,
   },
   output: 'export',
