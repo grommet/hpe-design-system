@@ -48,7 +48,11 @@ export const NavigationHeader: Story = {
   ),
   args: {
     background: 'background-front',
+    border: false,
+    direction: undefined,
+    height: undefined,
     pad: 'medium',
+    skeleton: false,
   },
   name: 'Header',
 };
