@@ -74,8 +74,9 @@ describe('Navigation Items Structure', () => {
         );
       };
 
+      const DEPTH_LIMIT = 4; // Arbitrary limit for reasonable navigation depth. Anything deeper may indicate a need to restructure content.
       const maxDepth = getMaxDepth(mockNavItems);
-      expect(maxDepth).toBeLessThanOrEqual(4);
+      expect(maxDepth).toBeLessThanOrEqual(DEPTH_LIMIT);
     });
   });
 
