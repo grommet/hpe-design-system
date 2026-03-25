@@ -285,7 +285,8 @@ const AllTokens = () => {
           <Box direction="row" gap="xlarge">
             {['large', 'xlarge'].includes(breakpoint) ? (
               <Box
-                flex="grow"
+                flex={false}
+                width="small"
                 style={{
                   position: 'sticky',
                   top: theme.global.edgeSize.medium,
