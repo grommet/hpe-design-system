@@ -1,21 +1,17 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Tag } from 'grommet';
-import {
-  labelArg,
-  textSizesArg,
-  a11yTitleArg,
-  backgroundArg,
-} from '../utils/commonArgs';
+import { labelArg } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Tag',
   component: Tag,
   argTypes: {
-    a11yTitle: a11yTitleArg,
-    background: backgroundArg,
     name: labelArg,
-    size: textSizesArg,
+    size: {
+      control: { type: 'select' },
+      options: ['xsmall', 'small'],
+    },
     value: labelArg,
   },
 } satisfies Meta<typeof Tag>;
@@ -27,7 +23,6 @@ export const Default = {
   name: 'Tag',
   render: args => <Tag {...args} />,
   args: {
-    a11yTitle: undefined,
     background: undefined,
     name: 'name',
     size: 'small',

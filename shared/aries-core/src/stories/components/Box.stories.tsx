@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Box, Text, BoxTypes } from 'grommet';
 import { boxArgs } from '../utils/commonArgs';
 
@@ -21,8 +21,27 @@ export const Default: Story = {
     </Box>
   ),
   args: {
+    align: undefined,
+    alignContent: undefined,
+    alignSelf: undefined,
+    animation: undefined,
+    background: undefined,
+    basis: undefined,
+    border: false,
     direction: 'column',
+    elevation: undefined,
+    fill: undefined,
+    flex: undefined,
+    gap: undefined,
+    height: undefined,
+    justify: undefined,
+    margin: undefined,
+    overflow: undefined,
     pad: 'medium',
+    round: undefined,
+    skeleton: false,
+    width: undefined,
+    wrap: undefined,
   },
   name: 'Box',
 };

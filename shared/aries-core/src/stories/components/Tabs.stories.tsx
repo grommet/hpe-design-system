@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Tabs, Tab, Text, Box } from 'grommet';
 import { alignArg, marginArg } from '../utils/commonArgs';
 
