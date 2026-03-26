@@ -166,9 +166,13 @@ export const structureIndexes = buildStructureIndexes(structure, categoryMapping
 const validation = validateStructureData(structure, categoryMapping);
 if (validation.errors.length) {
   const summary = validation.errors.join('\n- ');
-  if (process.env.STRICT_STRUCTURE_VALIDATION === 'true') {
+  const warnOnlyMode =
+    process.env.STRICT_STRUCTURE_VALIDATION === 'false' ||
+    process.env.STRUCTURE_VALIDATION_WARN_ONLY === 'true';
+
+  if (warnOnlyMode) {
+    console.warn(`Structure validation warnings:\n- ${summary}`);
+  } else {
     throw new Error(`Structure validation failed:\n- ${summary}`);
   }
-  // Warning mode is the default until data cleanup is complete.
-  console.warn(`Structure validation warnings:\n- ${summary}`);
 }
