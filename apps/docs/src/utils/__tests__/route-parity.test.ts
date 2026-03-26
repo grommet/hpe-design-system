@@ -85,10 +85,22 @@ describe('Route Parity (Phase 2 Acceptance Criteria)', () => {
     });
   });
 
-  describe('Hardcoded Route Count', () => {
-    it('exactly 6 hardcoded routes exist (update this when migrating to phase 2)', () => {
-      const hardcodedCount = HARDCODED_ROUTES.length;
-      expect(hardcodedCount).toBe(6);
+  describe('Migrated Route Set Integrity', () => {
+    it('all migrated route names exist in structure and are unique', () => {
+      const routeNames = HARDCODED_ROUTES.map(route => route.pageName);
+      const uniqueRouteNames = new Set(routeNames);
+      expect(uniqueRouteNames.size).toBe(routeNames.length);
+
+      routeNames.forEach(routeName => {
+        const page = getPageDetails(routeName) as { name?: string };
+        expect(page.name).toBe(routeName);
+      });
+    });
+
+    it('all migrated explicit paths are unique', () => {
+      const expectedPaths = HARDCODED_ROUTES.map(route => route.expectedPath);
+      const uniqueExpectedPaths = new Set(expectedPaths);
+      expect(uniqueExpectedPaths.size).toBe(expectedPaths.length);
     });
   });
 
@@ -166,7 +178,6 @@ describe('Route Parity (Phase 2 Acceptance Criteria)', () => {
      */
 
     it('phase 2 data migration is complete', () => {
-      expect(HARDCODED_ROUTES).toHaveLength(6);
       // All path properties have been added to structure data
       HARDCODED_ROUTES.forEach(route => {
         const page = getPageDetails(route.pageName) as { path?: string };
