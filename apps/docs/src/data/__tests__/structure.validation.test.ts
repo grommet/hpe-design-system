@@ -39,6 +39,9 @@ const realStructure = structure as StructurePage[];
 
 const PAGE_EXTENSIONS = new Set(['.js', '.jsx', '.md', '.mdx', '.ts', '.tsx']);
 const ROUTE_EXCLUSIONS = new Set(['404', '500', '_app', '_document', '_error']);
+// Only include routes that are intentionally data-only or redirect-only.
+// Do not add entries for missing content routes; create page files instead.
+const STRUCTURE_ROUTE_FILE_ALLOWLIST = new Set<string>(['/show-more']);
 
 const toRoutePath = (relativePath: string) => {
   const segments = relativePath.split(path.sep);
@@ -250,6 +253,38 @@ describe('Structure Data Validation', () => {
       expect(
         missingStructureEntries,
         `Missing structure entries for routes: ${missingStructureEntries.join(
+          ', ',
+        )}`,
+      ).toEqual([]);
+    });
+
+    it('should have page files for all structure routes', async () => {
+      const routesFromFiles = new Set(
+        await getPageRoutes(path.resolve(process.cwd(), 'src/pages')),
+      );
+
+      const routesFromStructure = new Set(
+        realStructure
+          .map(page => nameToPath(page.name))
+          .filter(
+            (route): route is string =>
+              typeof route === 'string' &&
+              route.startsWith('/') &&
+              !route.includes('#') &&
+              !route.startsWith('http'),
+          )
+          .map(route => route.toLowerCase()),
+      );
+
+      const missingPageFiles = [...routesFromStructure].filter(
+        route =>
+          !routesFromFiles.has(route) &&
+          !STRUCTURE_ROUTE_FILE_ALLOWLIST.has(route),
+      );
+
+      expect(
+        missingPageFiles,
+        `Missing page files for structure routes: ${missingPageFiles.join(
           ', ',
         )}`,
       ).toEqual([]);
