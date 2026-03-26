@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardFooter,
-  CardHeader,
-  Diagram,
-  Grid,
-  Stack,
-} from 'grommet';
+import { Box, Button, Diagram, Grid, Stack } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
 import { Annotation } from '../../../layouts';
 
@@ -80,35 +71,30 @@ export const DoubleConfirmationAnatomy = () => {
             {...rest}
           />
         ))}
-
-        <Card
+        <Box
           gridArea="confirmation-area"
-          gap="medium"
-          pad="medium"
-          width="medium"
           elevation="large"
+          background="background-floating"
+          round="medium"
+          pad="medium"
+          gap="medium"
         >
-          <CardHeader align="start" direction="column" gap="3xsmall" pad="none">
-            <LayerHeader
-              title='Discard "Add application"?'
-              subtitle="Your changes will not be applied."
-            />
-          </CardHeader>
-          <CardFooter pad="none">
-            <Box
-              fill
-              id="confirmation-footer"
-              border={{ style: 'dashed' }}
-              direction="row"
-              gap="xsmall"
-              round="small"
-              justify="end"
-            >
-              <Button label="Cancel" />
-              <Button label="Discard" primary />
-            </Box>
-          </CardFooter>
-        </Card>
+          <LayerHeader
+            title='Discard "Add application"?'
+            subtitle="Your changes will not be applied."
+          />
+          <Box
+            id="confirmation-footer"
+            border={{ style: 'dashed' }}
+            direction="row"
+            gap="xsmall"
+            round="small"
+            justify="end"
+          >
+            <Button label="Cancel" />
+            <Button label="Discard" primary />
+          </Box>
+        </Box>
       </AnatomyGrid>
       <Diagram connections={connections} />
     </Stack>
