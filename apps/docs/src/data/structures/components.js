@@ -207,6 +207,7 @@ export const components = [
   },
   {
     name: 'Call to action card',
+    path: '/components/card/call-to-action-card',
     parentPage: 'Card',
     category: 'Layouts',
     description:
@@ -251,6 +252,7 @@ export const components = [
   },
   {
     name: 'Navigational card',
+    path: '/components/card/navigational-card',
     parentPage: 'Card',
     category: 'Layouts',
     description:
@@ -1055,6 +1057,7 @@ export const components = [
   },
   {
     name: 'Center layer',
+    path: '/components/layer/center-layer',
     parentPage: 'Layer',
     category: 'Layouts',
     description:
@@ -1091,6 +1094,7 @@ export const components = [
   },
   {
     name: 'Side drawer layer',
+    path: '/components/layer/side-drawer-layer',
     parentPage: 'Layer',
     category: 'Layouts',
     description:
@@ -1124,6 +1128,7 @@ export const components = [
   },
   {
     name: 'Fullscreen layer',
+    path: '/components/layer/fullscreen-layer',
     parentPage: 'Layer',
     category: 'Layouts',
     description:
