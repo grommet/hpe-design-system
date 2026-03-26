@@ -393,6 +393,7 @@ export const templates = [
   },
   {
     name: 'Managing child objects',
+    path: '/templates/forms/managing-child-objects',
     parentPage: 'Forms',
     available: true,
     description: `How to show, hide, and edit details of child 

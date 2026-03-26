@@ -73,26 +73,11 @@ export const nameToPath = name => {
     return `/${nameToSlug(page.name)}`;
   }
 
-  // Temporarily hard coding these routes to allow card work to progress:
-  // (https://github.com/grommet/hpe-design-system/pull/2905)
-  // Search utils should be enhanced to support this kind of nested routing.
-  if (name === 'Call to action card') {
-    return '/components/card/call-to-action-card';
-  }
-  if (name === 'Navigational card') {
-    return '/components/card/navigational-card';
-  }
-  if (name === 'Center layer') {
-    return '/components/layer/center-layer';
-  }
-  if (name === 'Side drawer layer') {
-    return '/components/layer/side-drawer-layer';
-  }
-  if (name === 'Fullscreen layer') {
-    return '/components/layer/fullscreen-layer';
-  }
-  if (name === 'Managing child objects') {
-    return '/templates/forms/managing-child-objects';
+  // Check if page has an explicit path property (data-driven routing)
+  // This supports nested pages like "Call to action card" -> 
+  // "/components/card/call-to-action-card"
+  if (typeof page !== 'undefined' && page.path) {
+    return page.path;
   }
 
   // Item selected is a sub-topic of a main topic, so we need to find

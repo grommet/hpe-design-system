@@ -20,7 +20,7 @@ vi.mock('../../data', () => ({
     },
     {
       name: 'Components',
-      pages: ['Button', 'Card'],
+      pages: ['Button', 'Card', 'Layer'],
       seoDescription: 'Components',
     },
     {
@@ -34,7 +34,62 @@ vi.mock('../../data', () => ({
       relatedContent: ['Card'],
       seoDescription: 'Button',
     },
-    { name: 'Card', seoDescription: 'Card' },
+    {
+      name: 'Card',
+      pages: ['Call to action card', 'Navigational card'],
+      seoDescription: 'Card',
+    },
+    {
+      name: 'Call to action card',
+      path: '/components/card/call-to-action-card',
+      parentPage: 'Card',
+      seoDescription: 'Call to action card',
+    },
+    {
+      name: 'Navigational card',
+      path: '/components/card/navigational-card',
+      parentPage: 'Card',
+      seoDescription: 'Navigational card',
+    },
+    {
+      name: 'Layer',
+      pages: ['Center layer', 'Side drawer layer', 'Fullscreen layer'],
+      seoDescription: 'Layer',
+    },
+    {
+      name: 'Center layer',
+      path: '/components/layer/center-layer',
+      parentPage: 'Layer',
+      seoDescription: 'Center layer',
+    },
+    {
+      name: 'Side drawer layer',
+      path: '/components/layer/side-drawer-layer',
+      parentPage: 'Layer',
+      seoDescription: 'Side drawer layer',
+    },
+    {
+      name: 'Fullscreen layer',
+      path: '/components/layer/fullscreen-layer',
+      parentPage: 'Layer',
+      seoDescription: 'Fullscreen layer',
+    },
+    {
+      name: 'Templates',
+      pages: ['Forms'],
+      seoDescription: 'Templates',
+    },
+    {
+      name: 'Forms',
+      pages: ['Managing child objects'],
+      seoDescription: 'Forms',
+    },
+    {
+      name: 'Managing child objects',
+      path: '/templates/forms/managing-child-objects',
+      parentPage: 'Forms',
+      seoDescription: 'Managing child objects',
+    },
     {
       name: 'External docs',
       url: 'https://example.com/docs',

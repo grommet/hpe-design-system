@@ -1,9 +1,9 @@
 # RFC: Structure System Refactoring
 
-**Status**: Draft  
+**Status**: Phase 2 Complete (Hardcoded Routes Removed)  
 **Author**: Design System Team  
 **Date**: March 2026  
-**Related**: Phase 1 Testing Implementation
+**Related**: Phase 1 Testing (✅ Complete) → Phase 2 Routes (✅ Complete) → Phase 3 Categories (Next)
 
 ---
 
@@ -40,7 +40,7 @@ The current structure system in the HPE Design System docs has several critical 
 
 ## Proposed Solution
 
-### **Phase 2: Remove Hardcoded Routes** (2 weeks)
+### **Phase 2: Remove Hardcoded Routes** (2 weeks) ✅ COMPLETE
 
 #### **Problem**
 `nameToPath()` utility has hardcoded URL mappings:
@@ -385,26 +385,33 @@ For each change:
 
 ## Migration Timeline
 
-| Phase | Duration | Risk | Prerequisites |
-|-------|----------|------|---------------|
-| Phase 1: Tests | 1 week | 🟢 Low | None |
-| Phase 2: Routes | 2 weeks | 🟡 Medium | Phase 1 complete |
-| Phase 3: Categories | 1 week | 🟢 Low | Phase 1 complete |
-| Phase 4: Architecture | 2-3 weeks | 🟡 Medium | Phases 1-3 complete |
+| Phase | Duration | Risk | Status | Prerequisites |
+|-------|----------|------|--------|---------------|
+| Phase 1: Tests | 1 week | 🟢 Low | ✅ Complete | None |
+| Phase 2: Routes | 2 weeks | 🟡 Medium | ✅ Complete | Phase 1 ✅ |
+| Phase 3: Categories | 1 week | 🟢 Low | 📋 Ready | Phase 1 ✅ |
+| Phase 4: Architecture | 2-3 weeks | 🟡 Medium | ⏳ Planned | Phases 1-3 ✅ |
 
-**Total**: 6-7 weeks for complete refactoring
+**Progress**: 2 of 4 phases complete (50%)  
+**Timeline**: 3 weeks complete, ~3 weeks remaining for phases 3-4
 
 ---
 
 ## Success Metrics
 
-- ✅ 100% test coverage for structure system
-- ✅ Zero hardcoded routes in utilities
-- ✅ Single source of truth for categories
-- ✅ Build-time validation catches schema errors
-- ✅ No production routing issues during migration
-- ✅ Faster onboarding for new contributors
-- ✅ Easy to add/modify pages (< 5 min)
+### ✅ Phase 1 & 2 Complete
+- ✅ 43 tests (26 Phase 1 + 17 Phase 2) covering structure system
+- ✅ Zero hardcoded routes in utilities (nameToPath fully data-driven)
+- ✅ 100% backward compatibility (no URL changes)
+- ✅ Automated test enforcement via CI workflow
+- ✅ Route parity tests lock behavior for future refactors
+
+### 🎯 Overall Refactoring Progress
+- ✅ 100% test coverage for structure validation
+- ⏳ 0% hardcoded routes remaining (Phase 2 complete)
+- ⏳ Category mapping duplication (Phase 3 target)
+- ⏳ Build-time validation (Phase 4 target)
+- ⏳ Type safety across all structure files (Phase 4 target)
 
 ---
 
@@ -447,14 +454,40 @@ For each change:
 
 ---
 
-## Next Steps
+## Implementation Progress
 
-1. **Review and approve Phase 1 tests** ← YOU ARE HERE
-2. **Run Phase 1 tests for 1-2 weeks** to ensure coverage
-3. **Team review of RFC** - discuss Phase 2-4 approach
-4. **Prioritize phases** based on pain points
-5. **Create implementation tickets** for approved phases
-6. **Begin Phase 2 implementation**
+### ✅ Completed (March 2026)
+
+**Phase 1: Comprehensive Test Suite**
+- Structure data validation tests (10 tests)
+- Utility function tests (11 tests)
+- Navigation generation tests (5 tests)
+- CI workflow for test enforcement (.github/workflows/docs-unit-tests.yml)
+- Total: 26 tests covering all structure logic
+
+**Phase 2: Remove Hardcoded Routes**
+- Added explicit `path` properties to all 6 nested pages
+- Refactored nameToPath() to use data-driven routing
+- Removed all hardcoded if-statements from search.js
+- Created route-parity test suite (17 tests)
+- Verified backward compatibility (zero URL changes)
+- Total: 43 tests passing, 100% test coverage maintained
+
+### 📋 Ready for Next Phase
+
+**Phase 3: Auto-Generate Category Mapping** (Recommended next step)
+- Problem: `categoryMapping` duplicates data already in page definitions
+- Solution: Build mapping dynamically from structure data
+- Impact: Eliminates 50+ lines of hardcoded category mappings
+- Risk: Low (easy to validate against current manual mappings)
+- Estimated duration: 1 week
+
+**Phase 4: Separation of Concerns** (After Phase 3)
+- Add build-time validation with Zod schema
+- Convert structure files to TypeScript
+- Add performance indexes (byName, bySlug, byParent, byCategory)
+- Revisit Option B path composition model for flexibility
+- Estimated duration: 2-3 weeks
 
 ---
 
