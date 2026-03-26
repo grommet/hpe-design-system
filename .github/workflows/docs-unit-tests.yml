@@ -29,5 +29,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Validate docs structure data
+        run: pnpm --filter docs validate:structure
+
       - name: Run docs unit tests
         run: pnpm --filter docs test:unit

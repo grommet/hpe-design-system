@@ -1,4 +1,4 @@
-import { structure } from '../data';
+import * as data from '../data';
 import {
   buildStructureIndexes,
   getPathOverride,
@@ -6,7 +6,9 @@ import {
   nameToSlug,
 } from '../data/structureIndexes.ts';
 
-const structureIndexes = buildStructureIndexes(structure);
+const { structure } = data;
+const structureIndexes =
+  data.structureIndexes || buildStructureIndexes(structure);
 
 const allPages = structure.map(page => ({
   label: page.name,

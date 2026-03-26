@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { buildStructureIndexes } from '../../data/structureIndexes';
 import {
   getCards,
   getPageDetails,
@@ -10,8 +11,8 @@ import {
   nameToSlug,
 } from '../search';
 
-vi.mock('../../data', () => ({
-  structure: [
+vi.mock('../../data', () => {
+  const structure = [
     {
       name: 'Home',
       pages: ['Components', 'Foundation', 'Learn'],
@@ -105,8 +106,13 @@ vi.mock('../../data', () => ({
       url: 'https://example.com/docs',
       seoDescription: 'External',
     },
-  ],
-}));
+  ];
+
+  return {
+    structure,
+    structureIndexes: buildStructureIndexes(structure),
+  };
+});
 
 describe('nameToSlug', () => {
   it('converts names to slugs', () => {
