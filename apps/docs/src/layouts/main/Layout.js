@@ -5,6 +5,7 @@ import { initialize, pageview } from 'react-ga';
 import {
   Main,
   Page,
+  PageContent,
   ResponsiveContext,
   SkipLinkTarget,
   SkipLink,
@@ -96,9 +97,7 @@ export const Layout = ({
           {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
-          {title && title.toLowerCase() !== 'home' && (
-            <AppHeader />
-          )}
+          {title && title.toLowerCase() !== 'home' && <AppHeader />}
           <Main overflow="visible">
             <Page>
               {layout !== 'plain' ? (
@@ -116,8 +115,15 @@ export const Layout = ({
                 </DocsLayout>
               ) : (
                 <>
-                  <SkipLinkTarget id="main" label="Main content" />
-                  {children}
+                  {isLanding ? (
+                    <SkipLinkTarget id="main" label="Main content" />
+                  ) : (
+                    <PageContent>
+                      <SkipLinkTarget id="main" label="Main content" />
+                      {children}
+                    </PageContent>
+                  )}
+                  {isLanding && children}
                 </>
               )}
             </Page>
