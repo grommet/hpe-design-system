@@ -17,6 +17,7 @@ type NavPage = {
   name: string;
   pages?: string[];
   href?: string;
+  url?: string;
 };
 
 const realStructure = structure as NavPage[];
@@ -84,16 +85,37 @@ describe('Navigation Data Integration', () => {
     });
   });
 
-  it('should have no duplicate primary page names', () => {
-    const primaryPages = realStructure.filter(page => !page.href);
-    const names = primaryPages.map(page => page.name);
-    const uniqueNames = new Set(names);
+  it('duplicate names are lookup-safe across full structure data', () => {
+    const namedPages = realStructure.filter(page => page.name);
+    const pagesByName = new Map<string, NavPage[]>();
 
-    expect(
-      names.length,
-      `Duplicate primary page names: ${names
-        .filter((name, index) => names.indexOf(name) !== index)
-        .join(', ')}`,
-    ).toBe(uniqueNames.size);
+    namedPages.forEach(page => {
+      const existing = pagesByName.get(page.name) || [];
+      pagesByName.set(page.name, [...existing, page]);
+    });
+
+    pagesByName.forEach((pages, name) => {
+      if (pages.length > 1) {
+        const primaryPages = pages.filter(page => !page.href);
+        const referencePages = pages.filter(page => page.href);
+
+        // Duplicate names are allowed only for cross-section references.
+        expect(
+          primaryPages.length,
+          `Duplicate name "${name}" must have exactly one primary page`,
+        ).toBe(1);
+        expect(
+          referencePages.length,
+          `Duplicate name "${name}" must use href-based references`,
+        ).toBe(pages.length - 1);
+
+        const resolved = getPageDetails(name) as NavPage;
+        expect(resolved.name).toBe(name);
+        expect(
+          resolved.href,
+          `Lookup for "${name}" should resolve to primary page entry`,
+        ).toBeUndefined();
+      }
+    });
   });
 });
