@@ -79,7 +79,7 @@ jobs:
 
       - name: Update lockfile
         if: steps.update.outputs.updates-needed == 'true'
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Set current date
         id: date
