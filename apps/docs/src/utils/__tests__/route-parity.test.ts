@@ -145,14 +145,10 @@ describe('Route Parity (Phase 2 Acceptance Criteria)', () => {
       });
     });
 
-    it('hardcoded if-statements in nameToPath() have been removed', () => {
-      // Phase 2 complete: The 6 hardcoded if-statements have been removed from
-      // search.js nameToPath() function. All routing is now data-driven via
-      // explicit path properties in structure data.
-
-      // This test serves as verification that the cleanup is complete:
-      // All routes still resolve correctly, but now via path properties instead
-      // of hardcoded conditionals.
+    it('data-driven route parity remains intact for migrated routes', () => {
+      // Verify runtime routing behavior for migrated routes remains stable.
+      // This intentionally validates observable outputs rather than
+      // implementation details inside nameToPath().
       HARDCODED_ROUTES.forEach(route => {
         const path = nameToPath(route.pageName);
         expect(path).toBe(route.expectedPath);
