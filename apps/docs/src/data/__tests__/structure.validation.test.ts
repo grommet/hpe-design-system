@@ -19,13 +19,17 @@ vi.mock('../../components', () => ({
 
 vi.mock('../../examples', () => ({}));
 
-import { structure } from '../structure';
+import { categoryMapping, structure } from '../structure';
+import { nameToSlug } from '../structureIndexes';
+import { validateStructureData } from '../structureValidation';
 
 type StructurePage = {
   name: string;
   pages?: string[];
   category?: string;
   seoDescription?: string;
+  href?: string;
+  url?: string;
 };
 
 const realStructure = structure as StructurePage[];
@@ -87,6 +91,15 @@ describe('Structure Data Validation', () => {
           });
         }
       });
+    });
+
+    it('should have unique slugs for primary pages', () => {
+      const slugCandidates = (realStructure as StructurePage[]).filter(
+        page => !page.href && !page.url,
+      );
+      const slugs = slugCandidates.map(page => nameToSlug(page.name));
+      const uniqueSlugs = new Set(slugs);
+      expect(slugs.length).toBe(uniqueSlugs.size);
     });
 
     it('should have descriptions for all searchable pages', () => {
@@ -157,6 +170,13 @@ describe('Structure Data Validation', () => {
           });
         }
       });
+    });
+  });
+
+  describe('Build-time Validation', () => {
+    it('should pass structure validation checks', () => {
+      const result = validateStructureData(realStructure, categoryMapping);
+      expect(result.errors).toEqual([]);
     });
   });
 });

@@ -10,6 +10,8 @@ import {
   Structure,
 } from './structures';
 import { buildCategoryMapping, getCategoryWeights } from './buildCategoryMapping.ts';
+import { buildStructureIndexes } from './structureIndexes.ts';
+import { validateStructureData } from './structureValidation.ts';
 
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
@@ -153,4 +155,16 @@ if (foundationPage) {
     .sortByCardOrder()
     .sortByCategory(getCategoryWeights(categoryMapping, 'Foundation'))
     .map(page => page.name);
+}
+
+export const structureIndexes = buildStructureIndexes(structure, categoryMapping);
+
+const validation = validateStructureData(structure, categoryMapping);
+if (validation.errors.length) {
+  const summary = validation.errors.join('\n- ');
+  if (process.env.STRICT_STRUCTURE_VALIDATION === 'true') {
+    throw new Error(`Structure validation failed:\n- ${summary}`);
+  }
+  // Warning mode is the default until data cleanup is complete.
+  console.warn(`Structure validation warnings:\n- ${summary}`);
 }
