@@ -54,8 +54,11 @@ export const getSectionParent = section =>
   );
 
 export const nameToPath = name => {
-  const [page] = structure.filter(
-    p => p.name.toLowerCase() === name?.toLowerCase(),
+  const page = structure.find(
+    p =>
+      p.name &&
+      name &&
+      p.name.toLowerCase() === name.toLowerCase(),
   );
 
   // Data-driven overrides take precedence over composed paths.
