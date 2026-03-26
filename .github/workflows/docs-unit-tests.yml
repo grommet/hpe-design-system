@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  docs-unit-tests:
+  docs-validate-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,5 +32,41 @@ jobs:
       - name: Validate docs structure data
         run: pnpm --filter docs validate:structure
 
+      - name: Annotate structure validation failure
+        if: ${{ failure() }}
+        run: echo "::error title=Docs Structure Validation Failed::Run 'pnpm --filter docs validate:structure' locally for details."
+
       - name: Run docs unit tests
         run: pnpm --filter docs test:unit
+
+      - name: Annotate unit test failure
+        if: ${{ failure() }}
+        run: echo "::error title=Docs Unit Tests Failed::Run 'pnpm --filter docs test:unit' locally for details."
+
+  docs-build:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.x'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build docs app
+        run: pnpm --filter docs build
+
+      - name: Annotate docs build failure
+        if: ${{ failure() }}
+        run: echo "::error title=Docs Build Failed::Run 'pnpm --filter docs build' locally for details."
