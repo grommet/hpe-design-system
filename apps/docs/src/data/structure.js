@@ -16,7 +16,9 @@ const learn = Structure.from(learnArr);
 const tokens = Structure.from(tokensArr);
 const templates = Structure.from(templatesArr);
 
-export const structure = [
+// Build the structure in two phases to avoid circular dependency
+// Phase 1: Create initial structure (without applying category-based sorts)
+const initialStructure = [
   {
     name: 'Home',
     seoDescription:
@@ -47,7 +49,7 @@ export const structure = [
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: foundation
       .sortByCardOrder()
-      .sortByCategory({ Assets: 1, Philosophy: 0 })
+      .sortByCategory({ Philosophy: 0, Assets: 1, Layout: 2 })
       .map(page => page.name),
   },
   {
@@ -140,3 +142,5 @@ export const structure = [
   templates,
   tokens,
 ].flat();
+
+export const structure = initialStructure;
