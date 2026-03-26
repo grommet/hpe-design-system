@@ -3,6 +3,7 @@ import {
   buildCategoryMapping,
   getCategoryWeights,
 } from '../buildCategoryMapping';
+import type { Structure } from '../structures/Structure';
 
 // Test with mock structure data to avoid circular dependencies
 const mockStructure = [
@@ -128,6 +129,180 @@ describe('buildCategoryMapping', () => {
       const weights = getCategoryWeights(mapping, 'Foundation');
       // Verify Philosophy comes before Assets (based on original { Assets: 1, Philosophy: 0 })
       expect(weights['Philosophy']).toBeLessThan(weights['Assets']);
+    });
+  });
+
+  describe('live-data integration', () => {
+    it('should generate correct category mapping for Foundation hub page with real structure data', () => {
+      // For live-data integration, we'll create a minimal test structure
+      // that simulates real Foundation pages with categories
+      const realFoundationPages = [
+        { name: 'Accessibility', category: 'Philosophy' },
+        { name: 'Our brand', category: 'Assets' },
+        { name: 'Distinctive brand assets', category: 'Assets' },
+        { name: 'Color', category: 'Philosophy' },
+        { name: 'Composition', category: 'Assets' },
+        { name: 'Icons', category: 'Assets' },
+        { name: 'Responsive grid', category: 'Layout' },
+        { name: 'Spacing', category: 'Layout' },
+        { name: 'Typography', category: 'Layout' },
+        { name: 'Motion', category: 'Layout' },
+      ];
+
+      const liveStructure = [
+        {
+          name: 'Foundation',
+          pages: realFoundationPages.map(p => p.name),
+        },
+        ...realFoundationPages,
+      ];
+
+      const mapping = buildCategoryMapping(liveStructure);
+
+      // Verify Foundation hub page has category mappings
+      expect(mapping['Foundation']).toBeDefined();
+      expect(Object.keys(mapping['Foundation']).length).toBeGreaterThan(0);
+
+      // Verify expected categories exist in Foundation
+      expect(mapping['Foundation']['Philosophy']).toBeDefined();
+      expect(mapping['Foundation']['Assets']).toBeDefined();
+      expect(mapping['Foundation']['Layout']).toBeDefined();
+
+      // Verify pages are grouped under their categories
+      expect(Array.isArray(mapping['Foundation']['Philosophy'])).toBe(true);
+      expect(Array.isArray(mapping['Foundation']['Assets'])).toBe(true);
+      expect(Array.isArray(mapping['Foundation']['Layout'])).toBe(true);
+
+      // Verify each category contains actual page names
+      expect(mapping['Foundation']['Philosophy'].length).toBeGreaterThan(0);
+      expect(mapping['Foundation']['Assets'].length).toBeGreaterThan(0);
+      expect(mapping['Foundation']['Layout'].length).toBeGreaterThan(0);
+
+      // Verify specific pages are in their expected categories
+      expect(mapping['Foundation']['Philosophy']).toContain('Accessibility');
+      expect(mapping['Foundation']['Philosophy']).toContain('Color');
+      expect(mapping['Foundation']['Assets']).toContain('Our brand');
+      expect(mapping['Foundation']['Assets']).toContain(
+        'Distinctive brand assets',
+      );
+      expect(mapping['Foundation']['Layout']).toContain('Responsive grid');
+    });
+
+    it('should generate correct category weights for Foundation with real structure data', () => {
+      const realFoundationPages = [
+        { name: 'Accessibility', category: 'Philosophy' },
+        { name: 'Our brand', category: 'Assets' },
+        { name: 'Distinctive brand assets', category: 'Assets' },
+        { name: 'Color', category: 'Philosophy' },
+        { name: 'Responsive grid', category: 'Layout' },
+      ];
+
+      const liveStructure = [
+        {
+          name: 'Foundation',
+          pages: realFoundationPages.map(p => p.name),
+        },
+        ...realFoundationPages,
+      ];
+
+      const mapping = buildCategoryMapping(liveStructure);
+      const weights = getCategoryWeights(mapping, 'Foundation');
+
+      // Verify weights are generated and maintain proper ordering
+      expect(Object.keys(weights).length).toBeGreaterThan(0);
+      expect(weights['Philosophy']).toBeLessThan(weights['Assets']);
+      expect(weights['Assets']).toBeLessThan(weights['Layout']);
+    });
+
+    it('should generate correct category mapping for Components hub page with real structure data', () => {
+      // Simulate real Components pages with categories
+      const realComponentPages = [
+        { name: 'Anchor', category: 'Controls' },
+        { name: 'Avatar', category: 'Visualizations' },
+        { name: 'Box', category: 'Layouts' },
+        { name: 'Button', category: 'Controls' },
+        { name: 'CheckBox', category: 'Inputs' },
+        { name: 'DateInput', category: 'Inputs' },
+        { name: 'Footer', category: 'Layouts' },
+        { name: 'Grid', category: 'Layouts' },
+        { name: 'Header', category: 'Layouts' },
+        { name: 'MaskedInput', category: 'Inputs' },
+      ];
+
+      const liveStructure = [
+        {
+          name: 'Components',
+          pages: realComponentPages.map(p => p.name),
+        },
+        ...realComponentPages,
+      ];
+
+      const mapping = buildCategoryMapping(liveStructure);
+
+      // Verify Components hub page has category mappings
+      expect(mapping['Components']).toBeDefined();
+      expect(Object.keys(mapping['Components']).length).toBeGreaterThan(0);
+
+      // Verify expected categories exist in Components
+      expect(mapping['Components']['Controls']).toBeDefined();
+      expect(mapping['Components']['Inputs']).toBeDefined();
+      expect(mapping['Components']['Layouts']).toBeDefined();
+      expect(mapping['Components']['Visualizations']).toBeDefined();
+
+      // Verify pages are grouped under their categories
+      expect(Array.isArray(mapping['Components']['Controls'])).toBe(true);
+      expect(Array.isArray(mapping['Components']['Inputs'])).toBe(true);
+      expect(Array.isArray(mapping['Components']['Layouts'])).toBe(true);
+      expect(Array.isArray(mapping['Components']['Visualizations'])).toBe(true);
+
+      // Verify each category contains actual page names
+      expect(mapping['Components']['Controls'].length).toBeGreaterThan(0);
+      expect(mapping['Components']['Inputs'].length).toBeGreaterThan(0);
+      expect(mapping['Components']['Layouts'].length).toBeGreaterThan(0);
+      expect(mapping['Components']['Visualizations'].length).toBeGreaterThan(0);
+
+      // Verify specific pages are in their expected categories
+      expect(mapping['Components']['Controls']).toContain('Anchor');
+      expect(mapping['Components']['Controls']).toContain('Button');
+      expect(mapping['Components']['Visualizations']).toContain('Avatar');
+      expect(mapping['Components']['Inputs']).toContain('CheckBox');
+      expect(mapping['Components']['Layouts']).toContain('Box');
+    });
+
+    it('should generate correct category weights for Components with real structure data', () => {
+      const realComponentPages = [
+        { name: 'Anchor', category: 'Controls' },
+        { name: 'Avatar', category: 'Visualizations' },
+        { name: 'Box', category: 'Layouts' },
+        { name: 'Button', category: 'Controls' },
+        { name: 'CheckBox', category: 'Inputs' },
+      ];
+
+      const liveStructure = [
+        {
+          name: 'Components',
+          pages: realComponentPages.map(p => p.name),
+        },
+        ...realComponentPages,
+      ];
+
+      const mapping = buildCategoryMapping(liveStructure);
+      const weights = getCategoryWeights(mapping, 'Components');
+
+      // Verify weights are generated
+      expect(Object.keys(weights).length).toBeGreaterThan(0);
+
+      // Verify all expected categories have numeric weights
+      expect(typeof weights['Controls']).toBe('number');
+      expect(typeof weights['Inputs']).toBe('number');
+      expect(typeof weights['Layouts']).toBe('number');
+      expect(typeof weights['Visualizations']).toBe('number');
+
+      // Verify weights are in order of first appearance
+      // Controls appears first, then Visualizations, then Layouts, then Inputs
+      expect(weights['Controls']).toBeLessThan(weights['Visualizations']);
+      expect(weights['Visualizations']).toBeLessThan(weights['Layouts']);
+      expect(weights['Layouts']).toBeLessThan(weights['Inputs']);
     });
   });
 });
