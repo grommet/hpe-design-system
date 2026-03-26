@@ -120,7 +120,6 @@ describe('Structure Data Validation', () => {
 
       hubPages.forEach(hub => {
         expect(Array.isArray(hub.pages)).toBe(true);
-        expect(hub.pages?.length).toBeGreaterThanOrEqual(0);
       });
     });
   });
