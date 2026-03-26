@@ -13,11 +13,21 @@ export interface CategoryWeights {
 }
 
 export interface CategoryMappings {
-  [parentPageName: string]: CategoryWeights;
+  [parentPageName: string]: {
+    [category: string]: string[];
+  };
 }
 
 /**
- * Generates category weight mappings for all hub pages with categories
+ * Generates category mappings for all hub pages with categories.
+ *
+ * Output shape:
+ * {
+ *   Foundation: {
+ *     Philosophy: ['Accessibility', ...],
+ *     Assets: ['Colors', ...],
+ *   }
+ * }
  * @param data - The structure data array
  */
 export function buildCategoryMapping(data: any[]): CategoryMappings {
@@ -27,26 +37,22 @@ export function buildCategoryMapping(data: any[]): CategoryMappings {
   const hubPages = data.filter(page => page.pages && Array.isArray(page.pages));
 
   for (const hub of hubPages) {
-    const weights: CategoryWeights = {};
-    let weightCounter = 0;
+    const groupedByCategory: Record<string, string[]> = {};
 
-    // Get all child pages for this hub
-    const childPages = data.filter(
-      page => hub.pages && hub.pages.includes(page.name),
-    );
+    // Iterate in parent pages order to preserve current behavior.
+    for (const pageName of hub.pages) {
+      const child = data.find(page => page.name === pageName && !page.href);
+      const category = child?.category;
 
-    // Assign weights based on first occurrence order
-    for (const child of childPages) {
-      const category = (child as any)?.category;
-      if (category && !(category in weights)) {
-        weights[category] = weightCounter;
-        weightCounter++;
+      if (category) {
+        if (!groupedByCategory[category]) groupedByCategory[category] = [];
+        groupedByCategory[category].push(pageName);
       }
     }
 
     // Only add mapping if this hub has categorized pages
-    if (Object.keys(weights).length > 0) {
-      mappings[hub.name] = weights;
+    if (Object.keys(groupedByCategory).length > 0) {
+      mappings[hub.name] = groupedByCategory;
     }
   }
 
@@ -54,14 +60,19 @@ export function buildCategoryMapping(data: any[]): CategoryMappings {
 }
 
 /**
- * Get category weights for a specific hub page
- * @param data - The structure data array
+ * Converts category group order into numeric weights for sortByCategory.
+ * @param mapping - The generated category mapping
  * @param hubPageName - The name of the hub page
  */
 export function getCategoryWeights(
-  data: any[],
+  mapping: CategoryMappings,
   hubPageName: string,
 ): CategoryWeights {
-  const mappings = buildCategoryMapping(data);
-  return mappings[hubPageName] || {};
+  const categoryGroups = mapping[hubPageName];
+  if (!categoryGroups) return {};
+
+  return Object.keys(categoryGroups).reduce((acc, category, index) => {
+    acc[category] = index;
+    return acc;
+  }, {} as CategoryWeights);
 }

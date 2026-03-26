@@ -9,6 +9,7 @@ import {
   templates as templatesArr,
   Structure,
 } from './structures';
+import { buildCategoryMapping, getCategoryWeights } from './buildCategoryMapping.ts';
 
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
@@ -49,7 +50,6 @@ const initialStructure = [
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: foundation
       .sortByCardOrder()
-      .sortByCategory({ Philosophy: 0, Assets: 1, Layout: 2 })
       .map(page => page.name),
   },
   {
@@ -144,3 +144,13 @@ const initialStructure = [
 ].flat();
 
 export const structure = initialStructure;
+
+export const categoryMapping = buildCategoryMapping(structure);
+
+const foundationPage = structure.find(page => page.name === 'Foundation');
+if (foundationPage) {
+  foundationPage.pages = foundation
+    .sortByCardOrder()
+    .sortByCategory(getCategoryWeights(categoryMapping, 'Foundation'))
+    .map(page => page.name);
+}
