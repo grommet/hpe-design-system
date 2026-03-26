@@ -1,4 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
+import { readdir } from 'node:fs/promises';
+import path from 'node:path';
 
 // Importing ../structure pulls in React components and other heavier modules
 // that are not needed for these schema-validation tests and can make the test
@@ -22,6 +24,7 @@ vi.mock('../../examples', () => ({}));
 import { categoryMapping, structure } from '../structure';
 import { nameToSlug } from '../structureIndexes';
 import { validateStructureData } from '../structureValidation';
+import { nameToPath } from '../../utils/search';
 
 type StructurePage = {
   name: string;
@@ -33,6 +36,50 @@ type StructurePage = {
 };
 
 const realStructure = structure as StructurePage[];
+
+const PAGE_EXTENSIONS = new Set(['.js', '.jsx', '.md', '.mdx', '.ts', '.tsx']);
+const ROUTE_EXCLUSIONS = new Set(['404', '500', '_app', '_document', '_error']);
+
+const toRoutePath = (relativePath: string) => {
+  const segments = relativePath.split(path.sep);
+  const fileName = segments[segments.length - 1];
+  const extension = path.extname(fileName);
+  const pageName = fileName.replace(extension, '');
+
+  if (!PAGE_EXTENSIONS.has(extension)) return undefined;
+  if (ROUTE_EXCLUSIONS.has(pageName) || pageName.startsWith('_'))
+    return undefined;
+
+  const routeSegments = [...segments.slice(0, -1)];
+  if (pageName !== 'index') routeSegments.push(pageName);
+
+  const joined = routeSegments.join('/');
+  return `/${joined}`.replace(/\/+/g, '/').toLowerCase();
+};
+
+const getPageRoutes = async (dirPath: string): Promise<string[]> => {
+  const entries = await readdir(dirPath, { withFileTypes: true });
+  const routes: string[] = [];
+
+  for (const entry of entries) {
+    const absolutePath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      const nestedRoutes = await getPageRoutes(absolutePath);
+      routes.push(...nestedRoutes);
+      continue;
+    }
+
+    const relativePath = path.relative(
+      path.resolve(process.cwd(), 'src/pages'),
+      absolutePath,
+    );
+    const route = toRoutePath(relativePath);
+    if (route) routes.push(route);
+  }
+
+  return routes;
+};
 
 describe('Structure Data Validation', () => {
   describe('Schema Validation', () => {
@@ -177,6 +224,35 @@ describe('Structure Data Validation', () => {
     it('should pass structure validation checks', () => {
       const result = validateStructureData(realStructure, categoryMapping);
       expect(result.errors).toEqual([]);
+    });
+
+    it('should have structure entries for all docs page routes', async () => {
+      const routesFromFiles = new Set(
+        await getPageRoutes(path.resolve(process.cwd(), 'src/pages')),
+      );
+
+      const routesFromStructure = new Set(
+        realStructure
+          .map(page => nameToPath(page.name))
+          .filter(
+            (route): route is string =>
+              typeof route === 'string' &&
+              route.startsWith('/') &&
+              !route.includes('#'),
+          )
+          .map(route => route.toLowerCase()),
+      );
+
+      const missingStructureEntries = [...routesFromFiles].filter(
+        route => !routesFromStructure.has(route),
+      );
+
+      expect(
+        missingStructureEntries,
+        `Missing structure entries for routes: ${missingStructureEntries.join(
+          ', ',
+        )}`,
+      ).toEqual([]);
     });
   });
 });
