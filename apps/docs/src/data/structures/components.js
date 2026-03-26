@@ -156,6 +156,7 @@ export const components = [
   },
   {
     name: 'Card',
+    pages: ['Call to action card', 'Navigational card'],
     category: 'Layouts',
     description:
       'A container providing at-a-glance information and easy access to more details.',
@@ -982,6 +983,7 @@ export const components = [
   },
   {
     name: 'Layer',
+    pages: ['Center layer', 'Side drawer layer', 'Fullscreen layer'],
     category: 'Layouts',
     accessibility: 'Passed WCAG 2.2 AA',
     description:

@@ -109,7 +109,7 @@ export const validateStructureData = (
       }
 
       if (!Array.isArray(parent.pages) || !parent.pages.includes(page.name)) {
-        warnings.push(
+        errors.push(
           `Parent mismatch: "${page.name}" declares parentPage "${page.parentPage}" but parent.pages does not include it`,
         );
       }
@@ -126,7 +126,7 @@ export const validateStructureData = (
         }
 
         if (child.parentPage && child.parentPage !== page.name) {
-          warnings.push(
+          errors.push(
             `Child mismatch: "${child.name}" is listed under "${page.name}" but declares parentPage "${child.parentPage}"`,
           );
         }

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Cube, Grow } from '@hpe-design/icons-grommet';
-import { IconCircle, IconDiamond, IconSquare } from '../components';
+import { IconCircle, IconDiamond, IconSquare } from '../components/icons';
 import {
   components as componentsArr,
   foundation as foundationArr,
@@ -89,6 +89,7 @@ const initialStructure = [
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
     pages: templates
+      .filter(page => !page.parentPage)
       .sortByName()
       .sortByCardOrder()
       .map(page => page.name),
@@ -110,7 +111,10 @@ const initialStructure = [
     },
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: components.sortByName().map(page => page.name),
+    pages: components
+      .filter(page => !page.parentPage)
+      .sortByName()
+      .map(page => page.name),
   },
   {
     name: 'Whats New',

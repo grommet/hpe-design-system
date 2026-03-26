@@ -8,7 +8,7 @@ import { SearchResult, SearchResults } from '.';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import { siteContents } from '../../data/search/contentForSearch';
 
-const allSuggestions = getSearchSuggestions.filter(item => 
+const allSuggestions = getSearchSuggestions().filter(item => 
   item.value.searchable || item.value.searchable === undefined,
 ).map(page => {
   const { label, value } = page;

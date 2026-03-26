@@ -6,37 +6,58 @@ import {
   nameToSlug,
 } from '../data/structureIndexes.ts';
 
-const { structure } = data;
-const structureIndexes =
-  data.structureIndexes || buildStructureIndexes(structure);
+let cachedStructureIndexes;
+let cachedSearchSuggestions;
 
-const allPages = structure.map(page => ({
-  label: page.name,
-  value: { ...page, title: page.name },
-}));
+const getStructure = () => data.structure || [];
+
+const getStructureIndexes = () => {
+  if (!cachedStructureIndexes) {
+    cachedStructureIndexes =
+      data.structureIndexes || buildStructureIndexes(getStructure());
+  }
+
+  return cachedStructureIndexes;
+};
+
+const buildSearchSuggestions = () =>
+  getStructure()
+    .map(page => ({
+      label: page.name,
+      value: { ...page, title: page.name },
+    }))
+    .sort((a, b) => {
+      const aLabel = a.label.toLowerCase();
+      const bLabel = b.label.toLowerCase();
+      if (aLabel < bLabel) return -1;
+      if (aLabel > bLabel) return 1;
+      return 0;
+    });
 
 // With content search, sections are already included,
 // so we don't need to double search them.
-export const getSearchSuggestions = allPages.sort((a, b) => {
-  const aLabel = a.label.toLowerCase();
-  const bLabel = b.label.toLowerCase();
-  if (aLabel < bLabel) return -1;
-  if (aLabel > bLabel) return 1;
-  return 0;
-});
+export const getSearchSuggestions = () => {
+  if (!cachedSearchSuggestions) {
+    cachedSearchSuggestions = buildSearchSuggestions();
+  }
+
+  return cachedSearchSuggestions;
+};
 
 export { nameToSlug };
 
 export const getPageDetails = pageName =>
-  getPrimaryPageByName(pageName, structureIndexes) || {};
+  getPrimaryPageByName(pageName, getStructureIndexes()) || {};
 
 export const getParentPage = currentPage =>
-  structureIndexes.parentByChild[currentPage];
+  getStructureIndexes().parentByChild[currentPage];
 
-export const getSectionParent = section => structureIndexes.bySection[section];
+export const getSectionParent = section =>
+  getStructureIndexes().bySection[section];
 
 export const nameToPath = name => {
   const page = getPageDetails(name);
+  const parent = getParentPage(name);
 
   const pathOverride = getPathOverride(page);
   if (pathOverride) return pathOverride;
@@ -46,13 +67,18 @@ export const nameToPath = name => {
     if (page.name === 'Home') {
       return '/';
     }
+    if (typeof parent !== 'undefined' && parent.name !== 'Home') {
+      return `/${nameToSlug(parent.name)}/${nameToSlug(name)}`;
+    }
     return `/${nameToSlug(page.name)}`;
   }
 
   // Item selected is a sub-topic of a main topic, so we need to find
   // what topic it falls under
-  const parent = getParentPage(name);
   if (typeof parent !== 'undefined') {
+    if (parent.name === 'Home') {
+      return `/${nameToSlug(name)}`;
+    }
     return `/${nameToSlug(parent.name)}/${nameToSlug(name)}`;
   }
 
@@ -71,7 +97,7 @@ export const nameToPath = name => {
  * provided cardCategory. Where cardCategory is a string.
  */
 export const getCards = cardCategory =>
-  structure
+  getStructure()
     .map(obj => {
       const page = obj;
       const parent = getParentPage(page.name);
@@ -91,6 +117,7 @@ export const getCards = cardCategory =>
  * pageName is a string.
  */
 export const getRelatedContent = pageName => {
+  const structure = getStructure();
   const relatedContent = structure.find(
     page => page.name.toLowerCase() === pageName.toLowerCase(),
   )?.relatedContent;

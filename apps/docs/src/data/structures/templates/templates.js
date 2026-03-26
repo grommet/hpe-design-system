@@ -323,6 +323,7 @@ export const templates = [
   },
   {
     name: 'Forms',
+    pages: ['Managing child objects'],
     available: true,
     cardOrder: 1,
     description: `Common form use cases from application configuration 

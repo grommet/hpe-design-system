@@ -123,7 +123,7 @@ describe('nameToSlug', () => {
 
 describe('getSearchSuggestions', () => {
   it('returns suggestions sorted alphabetically by label', () => {
-    const labels = getSearchSuggestions.map(item => item.label);
+    const labels = getSearchSuggestions().map(item => item.label);
     expect(labels).toEqual([...labels].sort((a, b) => a.localeCompare(b)));
     expect(labels).toContain('Button');
     expect(labels).toContain('Foundation');
@@ -156,6 +156,8 @@ describe('nameToPath', () => {
     expect(nameToPath('Home')).toBe('/');
     expect(nameToPath('Components')).toBe('/components');
     expect(nameToPath('Button')).toBe('/components/button');
+    expect(nameToPath('Card')).toBe('/components/card');
+    expect(nameToPath('Forms')).toBe('/templates/forms');
   });
 
   it('returns section anchor paths', () => {
