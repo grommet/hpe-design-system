@@ -14,7 +14,7 @@ vi.mock('../../data', () => ({
   structure: [
     {
       name: 'Home',
-      pages: ['Components', 'Foundation'],
+      pages: ['Components', 'Foundation', 'Learn'],
       sections: ['Overview'],
       seoDescription: 'Home',
     },
@@ -28,6 +28,16 @@ vi.mock('../../data', () => ({
       pages: [],
       sections: ['Spacing'],
       seoDescription: 'Foundation',
+    },
+    {
+      name: 'Learn',
+      pages: ['Tshirt sizing'],
+      seoDescription: 'Learn',
+    },
+    {
+      name: 'Tshirt sizing',
+      href: '/foundation/tshirt-sizing',
+      seoDescription: 'Tshirt sizing',
     },
     {
       name: 'Button',
@@ -148,6 +158,10 @@ describe('nameToPath', () => {
 
   it('returns external URL when page has url', () => {
     expect(nameToPath('External docs')).toBe('https://example.com/docs');
+  });
+
+  it('prefers internal href override over parent-based slug path', () => {
+    expect(nameToPath('Tshirt sizing')).toBe('/foundation/tshirt-sizing');
   });
 
   it('keeps known hardcoded route mappings', () => {

@@ -54,30 +54,35 @@ export const getSectionParent = section =>
   );
 
 export const nameToPath = name => {
-  // if a page defines its own url, then it is an external link
-  const external = structure.filter(
-    e => e.name.toLowerCase() === name?.toLowerCase() && e.url,
-  )[0];
-  if (external) {
-    return external.url;
-  }
-
-  // Item selected is a main topic
   const [page] = structure.filter(
     p => p.name.toLowerCase() === name?.toLowerCase(),
   );
+
+  // Data-driven overrides take precedence over composed paths.
+  if (typeof page !== 'undefined' && page.path) {
+    return page.path;
+  }
+
+  // Internal href overrides are canonical routes for some pages.
+  if (
+    typeof page !== 'undefined' &&
+    typeof page.href === 'string' &&
+    page.href.startsWith('/')
+  ) {
+    return page.href;
+  }
+
+  // if a page defines its own url, then it is an external link
+  if (typeof page !== 'undefined' && page.url) {
+    return page.url;
+  }
+
+  // Item selected is a main topic
   if (typeof page !== 'undefined' && page.pages) {
     if (page.name === 'Home') {
       return '/';
     }
     return `/${nameToSlug(page.name)}`;
-  }
-
-  // Check if page has an explicit path property (data-driven routing)
-  // This supports nested pages like "Call to action card" -> 
-  // "/components/card/call-to-action-card"
-  if (typeof page !== 'undefined' && page.path) {
-    return page.path;
   }
 
   // Item selected is a sub-topic of a main topic, so we need to find
