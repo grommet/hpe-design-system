@@ -26,6 +26,22 @@ const CategoryMappingSchema = z.record(
   z.record(z.string(), z.array(z.string().min(1))),
 );
 
+export const ALLOWED_CATEGORIES = new Set([
+  'All',
+  'Assets',
+  'Controls',
+  'Data',
+  'Inputs',
+  'Layout',
+  'Layouts',
+  'Philosophy',
+  'Visualizations',
+  'Single Column',
+  '2 Column',
+  '3 Column',
+  'Multi-column',
+]);
+
 const duplicateValues = (values: string[]) => {
   const counts = new Map<string, number>();
   values.forEach(value => {
@@ -99,6 +115,23 @@ export const validateStructureData = (
   });
 
   structure.forEach(page => {
+    if (page.category && !ALLOWED_CATEGORIES.has(page.category)) {
+      errors.push(`Invalid category "${page.category}" on page "${page.name}"`);
+    }
+
+    const relatedContent = page.relatedContent;
+    if (Array.isArray(relatedContent)) {
+      relatedContent.forEach(relatedName => {
+        const relatedPage = getPrimaryPageByName(relatedName, indexes);
+
+        if (!relatedPage) {
+          errors.push(
+            `Page "${page.name}" references missing relatedContent "${relatedName}"`,
+          );
+        }
+      });
+    }
+
     if (page.parentPage) {
       const parent = getPrimaryPageByName(page.parentPage, indexes);
       if (!parent) {

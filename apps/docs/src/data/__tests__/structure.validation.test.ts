@@ -23,13 +23,17 @@ vi.mock('../../examples', () => ({}));
 
 import { categoryMapping, structure } from '../structure';
 import { nameToSlug } from '../structureIndexes';
-import { validateStructureData } from '../structureValidation';
+import {
+  ALLOWED_CATEGORIES,
+  validateStructureData,
+} from '../structureValidation';
 import { nameToPath } from '../../utils/search';
 
 type StructurePage = {
   name: string;
   pages?: string[];
   category?: string;
+  relatedContent?: string[];
   seoDescription?: string;
   href?: string;
   url?: string;
@@ -173,6 +177,32 @@ describe('Structure Data Validation', () => {
         if (page.category) {
           expect(typeof page.category).toBe('string');
           expect(page.category.length).toBeGreaterThan(0);
+        }
+      });
+    });
+
+    it('should use allowed category vocabulary', () => {
+      realStructure.forEach(page => {
+        if (page.category) {
+          expect(
+            ALLOWED_CATEGORIES.has(page.category),
+            `Invalid category "${page.category}" on "${page.name}"`,
+          ).toBe(true);
+        }
+      });
+    });
+
+    it('should have valid relatedContent references when present', () => {
+      const allNames = new Set(realStructure.map(page => page.name));
+
+      realStructure.forEach(page => {
+        if (Array.isArray(page.relatedContent)) {
+          page.relatedContent.forEach(relatedPageName => {
+            expect(
+              allNames.has(relatedPageName),
+              `Missing relatedContent "${relatedPageName}" referenced by "${page.name}"`,
+            ).toBe(true);
+          });
         }
       });
     });
