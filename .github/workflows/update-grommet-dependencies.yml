@@ -5,6 +5,10 @@ on:
     # Run daily at 9 AM UTC to check for new releases
     - cron: '0 9 * * *'
   workflow_dispatch: # Allow manual triggering
+  # TODO: remove before merging — temporary trigger for testing on branch
+  push:
+    branches:
+      - chore/deps-grommet-updates
 
 jobs:
   check-and-update:
