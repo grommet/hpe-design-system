@@ -1,4 +1,4 @@
-name: Docs Unit Tests
+name: Docs Validation, Build, and Tests
 
 on:
   pull_request:
