@@ -164,8 +164,8 @@ describe('nameToPath', () => {
     expect(nameToPath('Tshirt sizing')).toBe('/foundation/tshirt-sizing');
   });
 
-  it('keeps known hardcoded route mappings', () => {
-    const hardcodedRoutes = [
+  it('resolves migrated explicit-path routes from structure data', () => {
+    const explicitPathRoutes = [
       {
         name: 'Call to action card',
         path: '/components/card/call-to-action-card',
@@ -183,10 +183,9 @@ describe('nameToPath', () => {
       },
     ];
 
-    hardcodedRoutes.forEach(route => {
+    explicitPathRoutes.forEach(route => {
       expect(nameToPath(route.name)).toBe(route.path);
     });
-    expect(hardcodedRoutes).toHaveLength(6);
   });
 });
 

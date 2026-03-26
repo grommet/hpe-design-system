@@ -54,34 +54,25 @@ export const getSectionParent = section =>
   );
 
 export const nameToPath = name => {
-  const page = structure.find(
-    p =>
-      p.name &&
-      name &&
-      p.name.toLowerCase() === name.toLowerCase(),
-  );
+  const page = getPageDetails(name);
 
   // Data-driven overrides take precedence over composed paths.
-  if (typeof page !== 'undefined' && page.path) {
+  if (page.path) {
     return page.path;
   }
 
   // Internal href overrides are canonical routes for some pages.
-  if (
-    typeof page !== 'undefined' &&
-    typeof page.href === 'string' &&
-    page.href.startsWith('/')
-  ) {
+  if (typeof page.href === 'string' && page.href.startsWith('/')) {
     return page.href;
   }
 
   // if a page defines its own url, then it is an external link
-  if (typeof page !== 'undefined' && page.url) {
+  if (page.url) {
     return page.url;
   }
 
   // Item selected is a main topic
-  if (typeof page !== 'undefined' && page.pages) {
+  if (page.pages) {
     if (page.name === 'Home') {
       return '/';
     }
