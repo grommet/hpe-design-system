@@ -17,10 +17,15 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-// Minimal shim so that legacy `eslint-disable import/no-unresolved` inline
+// Minimal shim so that legacy `eslint-disable import/...` inline
 // comments in source files don't cause "Definition for rule not found" errors.
 // eslint-plugin-import was removed; this shim registers the namespace only.
-const importPluginShim = { rules: { 'no-unresolved': { create: () => ({}) } } };
+const importPluginShim = {
+  rules: {
+    'no-unresolved': { create: () => ({}) },
+    extensions: { create: () => ({}) },
+  },
+};
 
 export default tseslint.config(
   // Global ignores (replaces root .eslintignore and apps/docs/.eslintignore)
