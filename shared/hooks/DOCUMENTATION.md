@@ -20,137 +20,8 @@ This package is part of the HPE Design System monorepo and is available as a wor
 
 ## Available Hooks
 
-### useSessionStorage
-
-A React hook that provides a simple way to manage browser sessionStorage with React state synchronization.
-
-#### Features
-
-- **Type-safe**: Full TypeScript support with generic typing
-- **SSR-compatible**: Safely handles server-side rendering scenarios
-- **Error handling**: Graceful fallback when sessionStorage is unavailable
-- **Function updates**: Supports both direct values and updater functions
-
-##### To Do
-
-Consider supporting in the future. Session storage is isolated to a specific browser tab and is not shared across multiple tabs or windows.
-- **Cross-tab synchronization**: Automatically syncs changes across browser tabs
-
-Possible approach [useSyncExternalStore + BroadcastChannel API](#store-state-across-tabs).
-
-
-#### Usage
-
-```typescript
-import { useSessionStorage } from '@shared/hooks';
-
-function MyComponent() {
-  // Basic usage with string
-  const [name, setName] = useSessionStorage('userName', 'Anonymous');
-
-  // Usage with objects
-  const [user, setUser] = useSessionStorage('user', { 
-    id: null, 
-    email: '' 
-  });
-
-  // Usage with function updates
-  const [count, setCount] = useSessionStorage('counter', 0);
-  const increment = () => setCount(prev => prev + 1);
-
-  return (
-    <div>
-      <p>Name: {name}</p>
-      <button onClick={() => setName('John Doe')}>
-        Set Name
-      </button>
-      
-      <p>Count: {count}</p>
-      <button onClick={increment}>
-        Increment
-      </button>
-    </div>
-  );
-}
-```
-
-#### API
-
-```typescript
-const [value, setValue] = useSessionStorage<T>(key: string, initialValue: T)
-```
-
-**Parameters:**
-- `key` (string): The sessionStorage key to store the value under
-- `initialValue` (T): The initial value to use if no stored value exists
-
-**Returns:**
-- `value` (T): The current value from sessionStorage or initialValue
-- `setValue` (function): Function to update the stored value
-
-**setValue function:**
-```typescript
-setValue(value: T | ((prevValue: T) => T)): void
-```
-
-#### Examples
-
-##### Basic String Storage
-```typescript
-const [username, setUsername] = useSessionStorage('username', '');
-
-// Direct value update
-setUsername('john_doe');
-
-// The value persists across page reloads
-```
-
-##### Object Storage
-```typescript
-interface UserPreferences {
-  theme: 'light' | 'dark';
-  notifications: boolean;
-}
-
-const [preferences, setPreferences] = useSessionStorage<UserPreferences>(
-  'userPrefs',
-  { theme: 'light', notifications: true }
-);
-
-// Update entire object
-setPreferences({ theme: 'dark', notifications: false });
-
-// Update using function (for partial updates)
-setPreferences(prev => ({ ...prev, theme: 'dark' }));
-```
-
-##### Array Storage
-```typescript
-const [items, setItems] = useSessionStorage<string[]>('items', []);
-
-// Add item
-setItems(prev => [...prev, 'new item']);
-
-// Remove item
-setItems(prev => prev.filter(item => item !== 'item to remove'));
-```
-
-#### Error Handling
-
-The hook includes built-in error handling for scenarios where sessionStorage is unavailable (e.g., private browsing mode, storage quota exceeded):
-
-- If sessionStorage operations fail, the hook logs the error and continues to work with in-memory state
-- SSR environments are handled gracefully by checking for `window` availability
-- Malformed JSON in storage is handled by falling back to the initial value
-
-#### Browser Support
-
-This hook works in all modern browsers that support:
-- React 16.8+ (hooks)
-- sessionStorage API
-- JSON.parse/stringify
-
-For older browsers or environments without sessionStorage, the hook will work as a regular `useState` hook.
+- [useLocalStorage](#useLocalStorage)
+- [useSessionStorage](#useSessionStorage)
 
 ### useLocalStorage
 
@@ -285,6 +156,139 @@ For older browsers or environments without localStorage, the hook will work as a
 | Shared across tabs | Yes | No |
 | Cleared on tab close | No | Yes |
 | Cross-tab sync | Yes (native `storage` event) | No |
+
+### useSessionStorage
+
+A React hook that provides a simple way to manage browser sessionStorage with React state synchronization.
+
+#### Features
+
+- **Type-safe**: Full TypeScript support with generic typing
+- **SSR-compatible**: Safely handles server-side rendering scenarios
+- **Error handling**: Graceful fallback when sessionStorage is unavailable
+- **Function updates**: Supports both direct values and updater functions
+
+##### To Do
+
+Consider supporting in the future. Session storage is isolated to a specific browser tab and is not shared across multiple tabs or windows.
+- **Cross-tab synchronization**: Automatically syncs changes across browser tabs
+
+Possible approach [useSyncExternalStore + BroadcastChannel API](#store-state-across-tabs).
+
+
+#### Usage
+
+```typescript
+import { useSessionStorage } from '@shared/hooks';
+
+function MyComponent() {
+  // Basic usage with string
+  const [name, setName] = useSessionStorage('userName', 'Anonymous');
+
+  // Usage with objects
+  const [user, setUser] = useSessionStorage('user', { 
+    id: null, 
+    email: '' 
+  });
+
+  // Usage with function updates
+  const [count, setCount] = useSessionStorage('counter', 0);
+  const increment = () => setCount(prev => prev + 1);
+
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <button onClick={() => setName('John Doe')}>
+        Set Name
+      </button>
+      
+      <p>Count: {count}</p>
+      <button onClick={increment}>
+        Increment
+      </button>
+    </div>
+  );
+}
+```
+
+#### API
+
+```typescript
+const [value, setValue] = useSessionStorage<T>(key: string, initialValue: T)
+```
+
+**Parameters:**
+- `key` (string): The sessionStorage key to store the value under
+- `initialValue` (T): The initial value to use if no stored value exists
+
+**Returns:**
+- `value` (T): The current value from sessionStorage or initialValue
+- `setValue` (function): Function to update the stored value
+
+**setValue function:**
+```typescript
+setValue(value: T | ((prevValue: T) => T)): void
+```
+
+#### Examples
+
+##### Basic String Storage
+```typescript
+const [username, setUsername] = useSessionStorage('username', '');
+
+// Direct value update
+setUsername('john_doe');
+
+// The value persists across page reloads
+```
+
+##### Object Storage
+```typescript
+interface UserPreferences {
+  theme: 'light' | 'dark';
+  notifications: boolean;
+}
+
+const [preferences, setPreferences] = useSessionStorage<UserPreferences>(
+  'userPrefs',
+  { theme: 'light', notifications: true }
+);
+
+// Update entire object
+setPreferences({ theme: 'dark', notifications: false });
+
+// Update using function (for partial updates)
+setPreferences(prev => ({ ...prev, theme: 'dark' }));
+```
+
+##### Array Storage
+```typescript
+const [items, setItems] = useSessionStorage<string[]>('items', []);
+
+// Add item
+setItems(prev => [...prev, 'new item']);
+
+// Remove item
+setItems(prev => prev.filter(item => item !== 'item to remove'));
+```
+
+#### Error Handling
+
+The hook includes built-in error handling for scenarios where sessionStorage is unavailable (e.g., private browsing mode, storage quota exceeded):
+
+- If sessionStorage operations fail, the hook logs the error and continues to work with in-memory state
+- SSR environments are handled gracefully by checking for `window` availability
+- Malformed JSON in storage is handled by falling back to the initial value
+
+#### Browser Support
+
+This hook works in all modern browsers that support:
+- React 16.8+ (hooks)
+- sessionStorage API
+- JSON.parse/stringify
+
+For older browsers or environments without sessionStorage, the hook will work as a regular `useState` hook.
+
 
 ## Development
 
