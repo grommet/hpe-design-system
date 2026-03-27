@@ -38,7 +38,6 @@ export const Popover = ({
           size="small"
           icon={<Close aria-hidden size="small" />}
           onClick={onClose}
-          // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
           alignSelf="start"
           // need to align with text

@@ -23,7 +23,7 @@ interface AppIdentityProps {
   title?: string;
 }
 
-export const AppIdentity = forwardRef<HTMLElement, AppIdentityProps>(
+export const AppIdentity = forwardRef(
   ({ brand, logoOnly, href, title, ...rest }, ref) => {
     const textSize = 'medium';
 

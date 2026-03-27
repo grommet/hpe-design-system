@@ -39,7 +39,6 @@ export const CenterInformational = ({ containerRef }) => {
                 a11yTitle={`You are in a layer containing a confirmation that
                 the firmare update has been initiated. To close this layer,
                 press Enter.`}
-                // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus
               />
             </Box>

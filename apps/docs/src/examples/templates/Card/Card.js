@@ -17,6 +17,7 @@ import { adjustPad } from './utils';
 const DesignSystemCard = ({
   as,
   actions,
+  alignActions,
   avatar,
   children,
   description,
@@ -96,6 +97,7 @@ DesignSystemCard.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
   ]),
   as: PropTypes.string,
+  alignActions: PropTypes.oneOf(['end']),
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),

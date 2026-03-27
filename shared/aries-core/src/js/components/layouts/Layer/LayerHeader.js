@@ -5,6 +5,7 @@ import { Close } from '@hpe-design/icons-grommet';
 
 export const LayerHeader = ({
   closeId,
+  informational,
   title = 'Layer title',
   onClose,
   subtitle,
@@ -32,6 +33,7 @@ export const LayerHeader = ({
 
 LayerHeader.propTypes = {
   closeId: PropTypes.string,
+  informational: PropTypes.bool,
   onClose: PropTypes.func,
   title: PropTypes.string,
   subtitle: PropTypes.string,

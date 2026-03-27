@@ -8,6 +8,7 @@ export const ChildHeader = ({
   // Remove from product implementation.
   annotationIds,
   collectionName,
+  index,
   headingLevel,
   name,
   open,
@@ -55,6 +56,7 @@ ChildHeader.propTypes = {
     valuesSummary: PropTypes.string,
   }),
   collectionName: PropTypes.string,
+  index: PropTypes.number,
   headingLevel: PropTypes.number,
   name: PropTypes.string,
   open: PropTypes.bool,

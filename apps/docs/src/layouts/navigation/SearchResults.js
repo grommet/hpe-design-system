@@ -18,14 +18,14 @@ const defaultPage = { begin: 0, end: 4 };
 const step = defaultPage.end - defaultPage.begin;
 
 export const SearchResults = ({
-  allSuggestions: _allSuggestions,
+  allSuggestions,
   onChange,
   onClose,
   onEnter,
   onSelect,
   query,
   results,
-  setSuggestions: _setSuggestions,
+  setSuggestions,
   ...rest
 }) => {
   const size = useContext(ResponsiveContext);

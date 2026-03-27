@@ -50,7 +50,6 @@ export const MenuLayer = () => {
                 press Enter`}
                 icon={<Close />}
                 onClick={() => setShowLayer(false)}
-                // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus
               />
             </Header>

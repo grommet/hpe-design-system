@@ -39,10 +39,10 @@ export const NavigationPanel = ({
     open: expanded,
   };
 
-  // const messages = {
-  //   layerOpen: `${navTitle} navigation opened.`,
-  //   layerClose: `${navTitle} navigation closed.`,
-  // };
+  const messages = {
+    layerOpen: `${navTitle} navigation opened.`,
+    layerClose: `${navTitle} navigation closed.`,
+  };
 
   // Remove layer when breakpoint changes to non-mobile
   useEffect(() => {
