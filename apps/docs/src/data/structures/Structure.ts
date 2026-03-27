@@ -8,7 +8,15 @@ export type StructureItem = {
   [key: string]: unknown;
 };
 
-export class Structure extends Array<StructureItem> {
+export class Structure<
+  T extends StructureItem = StructureItem,
+> extends Array<T> {
+  static from<TItem extends StructureItem>(items: TItem[]): Structure<TItem> {
+    const structure = new Structure<TItem>();
+    structure.push(...items);
+    return structure;
+  }
+
   sortByAvailability() {
     const availability: Record<string, number> = { true: 0, false: 1 };
 

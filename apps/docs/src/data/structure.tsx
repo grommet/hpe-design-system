@@ -88,8 +88,7 @@ const initialStructure = [
     },
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
-    pages: templates
-      .filter(page => !page.parentPage)
+    pages: Structure.from(templates.filter(page => !page.parentPage))
       .sortByName()
       .sortByCardOrder()
       .map(page => page.name),
@@ -111,8 +110,7 @@ const initialStructure = [
     },
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: components
-      .filter(page => !page.parentPage)
+    pages: Structure.from(components.filter(page => !page.parentPage))
       .sortByName()
       .map(page => page.name),
   },
