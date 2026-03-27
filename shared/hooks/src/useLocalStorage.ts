@@ -19,20 +19,37 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
     }
   });
 
-  const setValue = (value: T | ((val: T) => T)) => {
-    try {
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      if (isBrowser) {
-        localStorage.setItem(key, JSON.stringify(valueToStore));
-      }
-    } catch (error) {
-      console.error(
-        `Failed to write to localStorage for key '${key}':`,
-        error,
-      );
+  useEffect(() => {
+    if (!isBrowser) {
+      setStoredValue(initialValue);
+      return;
     }
+
+    try {
+      const item = localStorage.getItem(key);
+      setStoredValue(item ? JSON.parse(item) : initialValue);
+    } catch (error) {
+      console.error('Failed to read from localStorage:', error);
+      setStoredValue(initialValue);
+    }
+  }, [key, initialValue]);
+  const setValue = (value: T | ((val: T) => T)) => {
+    setStoredValue(prev => {
+      try {
+        const valueToStore =
+          value instanceof Function ? value(prev) : value;
+        if (isBrowser) {
+          localStorage.setItem(key, JSON.stringify(valueToStore));
+        }
+        return valueToStore;
+      } catch (error) {
+        console.error(
+          `Failed to write to localStorage for key '${key}':`,
+          error,
+        );
+        return prev;
+      }
+    });
   };
 
   useEffect(() => {
