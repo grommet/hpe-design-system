@@ -91,6 +91,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          base: master
           branch: chore/deps-grommet-${{ steps.date.outputs.yyyymmdd }}
           title: 'chore: Update HPE Design System dependencies'
           commit-message: |
