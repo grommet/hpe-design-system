@@ -41,7 +41,7 @@
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
     "build-search": "node src/scripts/site-contents.mjs",
-    "validate:structure": "vitest run src/data/__tests__/structure.validation.test.ts --testNamePattern='Build-time Validation'"
+    "validate:structure": "vitest run src/data/__tests__/structure.validation.test.ts --testNamePattern=\"Build-time Validation\""
   },
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",

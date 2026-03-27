@@ -35,9 +35,18 @@ export class Structure<
   }
 
   sortByCategory(weights: Record<string, number>) {
-    return this.sort(
-      (a, b) => weights[a.category as string] - weights[b.category as string],
-    );
+    const fallbackWeight = Number.MAX_SAFE_INTEGER;
+
+    return this.sort((a, b) => {
+      const aWeight = a.category
+        ? weights[a.category] ?? fallbackWeight
+        : fallbackWeight;
+      const bWeight = b.category
+        ? weights[b.category] ?? fallbackWeight
+        : fallbackWeight;
+
+      return aWeight - bWeight;
+    });
   }
 
   sortByName() {
