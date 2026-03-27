@@ -79,7 +79,7 @@ jobs:
 
       - name: Update lockfile
         if: steps.update.outputs.updates-needed == 'true'
-        run: pnpm install --no-frozen-lockfile --ignore-scripts --resolution-only
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
 
       - name: Set current date
         id: date
@@ -91,7 +91,6 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: master
           branch: chore/deps-grommet-${{ steps.date.outputs.yyyymmdd }}
           title: 'chore: Update HPE Design System dependencies'
           commit-message: |
