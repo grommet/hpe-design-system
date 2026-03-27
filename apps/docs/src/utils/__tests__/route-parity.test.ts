@@ -165,7 +165,7 @@ describe('Route Parity (Phase 2 Acceptance Criteria)', () => {
      * [✓] Add path property to Center layer in components.js
      * [✓] Add path property to Side drawer layer in components.js
      * [✓] Add path property to Fullscreen layer in components.js
-     * [✓] Add path property to Managing child objects in templates.js
+     * [✓] Add path property to Managing child objects in templates.tsx
      * [✓] Update nameToPath() to check for page.path before hardcoded ifs
      * [✓] Remove all 6 hardcoded if-statements from nameToPath() (cleanup)
      * [✓] Run test suite and confirm all routes still resolve correctly
