@@ -9,9 +9,9 @@ import {
   templates as templatesArr,
   Structure,
 } from './structures';
-import { buildCategoryMapping, getCategoryWeights } from './buildCategoryMapping.ts';
-import { buildStructureIndexes } from './structureIndexes.ts';
-import { validateStructureData } from './structureValidation.ts';
+import { buildCategoryMapping, getCategoryWeights } from './buildCategoryMapping';
+import { buildStructureIndexes, type StructurePage } from './structureIndexes';
+import { validateStructureData } from './structureValidation';
 
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
@@ -45,7 +45,7 @@ const initialStructure = [
     color: 'decorative-green',
     description:
       'These are the core elements of HPE that encompass the voice, language, and visuals that personify our brand and help establish and identify it from the rest of the community.',
-    icon: (size, color) => (
+    icon: (size: string, color: string) => (
       <IconCircle size={size} color={color} aria-hidden="true" />
     ),
     seoDescription:
@@ -59,7 +59,7 @@ const initialStructure = [
     color: 'decorative-blue',
     description:
       'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
-    icon: (_, color) => <Grow color={color} aria-hidden="true" />,
+    icon: (_: string, color: string) => <Grow color={color} aria-hidden="true" />,
     preview: {
       image: {
         src: '/creativetoolkitimages/components.svg',
@@ -76,7 +76,7 @@ const initialStructure = [
     color: 'decorative-cyan',
     description:
       'Jumpstart application design and development with use-case specific templates. Interactive templates demonstrate desired user experiences and the building block components used to create them.',
-    icon: (size, color) => (
+    icon: (size: string, color: string) => (
       <IconDiamond size={size} color={color} aria-hidden="true" />
     ),
     preview: {
@@ -99,7 +99,7 @@ const initialStructure = [
     color: 'decorative-purple',
     description:
       'The component library provides a vetted set of interface elements for use in your applications and websites. All components are published in Figma for use in your designs. Web versions are built atop Grommet and styled by the HPE Theme providing the "building blocks" your application needs to be performant and compliant.',
-    icon: (size, color) => (
+    icon: (size: string, color: string) => (
       <IconSquare size={size} color={color} aria-hidden="true" />
     ),
     preview: {
@@ -130,7 +130,7 @@ const initialStructure = [
     color: 'decorative-purple',
     description:
       'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
-    icon: (_, color) => <Cube color={color} aria-hidden="true" />,
+    icon: (_: string, color: string) => <Cube color={color} aria-hidden="true" />,
     preview: {
       image: {
         src: '/creativetoolkitimages/components.svg',
@@ -147,7 +147,7 @@ const initialStructure = [
   learn,
   templates,
   tokens,
-].flat();
+].flat() as StructurePage[];
 
 export const structure = initialStructure;
 

@@ -1,9 +1,9 @@
 # RFC: Structure System Refactoring
 
-**Status**: Phase 3 Complete (Category Mapping Auto-Generated)  
+**Status**: Phase 4 Complete (Validation + Indexes Integrated; TypeScript structure entrypoint delivered)  
 **Author**: Design System Team  
 **Date**: March 2026  
-**Related**: Phase 1 Testing (✅ Complete) → Phase 2 Routes (✅ Complete) → Phase 3 Categories (✅ Complete) → Phase 4 Architecture (Next)
+**Related**: Phase 1 Testing (✅ Complete) → Phase 2 Routes (✅ Complete) → Phase 3 Categories (✅ Complete) → Phase 4 Architecture (✅ Complete)
 
 ---
 
@@ -390,11 +390,11 @@ For each change:
 | Phase 1: Tests | 1 week | 🟢 Low | ✅ Complete | None |
 | Phase 2: Routes | 2 weeks | 🟡 Medium | ✅ Complete | Phase 1 ✅ |
 | Phase 3: Categories | 1 week | 🟢 Low | ✅ Complete | Phase 1 ✅ |
-| Phase 4: Architecture | 2-3 weeks | 🟡 Medium | ⏳ Planned | Phases 1-3 ✅ |
+| Phase 4: Architecture | 2-3 weeks | 🟡 Medium | ✅ Complete | Phases 1-3 ✅ |
 
-**Progress**: 3 of 4 phases complete (75%)  
-**Timeline**: 4+ weeks complete, ~2-3 weeks estimated for phase 4  
-**Test Coverage**: 61 tests passing, 100% of critical paths covered
+**Progress**: 4 of 4 phases complete  
+**Timeline**: Core refactor complete; optional follow-up decisions remain  
+**Test Coverage**: 70 tests passing, critical route/validation paths covered
 
 ---
 
@@ -416,8 +416,8 @@ For each change:
 - ✅ 0% hardcoded routes remaining (Phase 2 complete)
 - ✅ 0% manual category mappings (Phase 3 complete - auto-generated)
 - ✅ Foundation and Components categories properly grouped with generated weights
-- ⏳ Build-time validation with Zod schema (Phase 4 target)
-- ⏳ TypeScript conversion of structure files (Phase 4 target)
+- ✅ Build-time validation with Zod schema integrated into build/runtime checks
+- ✅ TypeScript conversion of structure entrypoint (`structure.tsx`) complete
 
 ---
 
@@ -446,13 +446,13 @@ For each change:
    - More architectural change but cleaner separation
    - Team discussion needed
 
-2. **Should we use Zod or another validation library?**
-   - Zod is popular and TypeScript-first
-   - Alternatives: Yup, io-ts, AJV
+2. **Do we want to keep local warn-only validation mode long term?**
+  - Current behavior is strict by default in build/runtime
+  - Warn-only flags exist for migration/debug workflows
 
-3. **Should structure files remain .js or convert to .ts?**
-   - .ts provides better type checking
-   - May require build process changes
+3. **Should structure files remain mixed JS/TS or complete a full TS migration?**
+  - Entry-point conversion is the remaining tactical item
+  - Full migration would include child structure files
 
 4. **How do we handle icon functions in data?**
    - Current approach mixes JSX with data
@@ -490,26 +490,27 @@ For each change:
 ### 📋 Ready for Next Phase
 
 **Phase 4: Separation of Concerns** (Current next step)
-- Add build-time validation with Zod schema
-- Convert structure files to TypeScript
-- Add performance indexes (byName, bySlug, byParent, byCategory)
-- Revisit Option B path composition model for flexibility
-- Estimated duration: 2-3 weeks
+- ✅ Add build-time validation with Zod schema
+- ✅ Convert structure entrypoint to TypeScript
+- ✅ Add performance indexes (byName, bySlug, byParent, byCategory)
+- ✅ Migrate runtime consumers to index-backed lookups
+- ✅ Add CI gates for validation, unit tests, and PR build
+- ⏳ Revisit Option B path composition model for flexibility (optional follow-up)
 
 **Carry-Forward Action (TODO)**
 - ✅ Add live-data integration test asserting generated `categoryMapping` for `Foundation` and `Components` against current structure data
   - Implemented 4 new integration tests in `buildCategoryMapping.test.ts`
   - Tests validate category mapping generation and weights for Foundation (Philosophy, Assets, Layout) and Components (Controls, Inputs, Layouts, Visualizations)
   - All tests passing; total test count increased from 57 to 61
-- Remove explicit `.ts` extension import in `structure.js` (`./buildCategoryMapping.ts` → `./buildCategoryMapping`) to avoid cross-toolchain import brittleness
-- Ensure new Phase 4 schema validation covers category mapping shape (`Record<Parent, Record<Category, string[]>>`) and weight derivation assumptions
+- ✅ Convert `structure.js` to TypeScript entrypoint (`structure.tsx`) and remove explicit extension imports for local TS modules
+- Ensure RFC checklists and metrics stay synchronized with implemented CI + validation behavior
 
 ---
 
 ## References
 
 - [Phase 1 Test Implementation](apps/docs/src/data/__tests__/)
-- [Current Structure System](apps/docs/src/data/structure.js)
+- [Current Structure System](apps/docs/src/data/structure.tsx)
 - [Navigation Implementation](apps/docs/src/layouts/navigation/navItems.ts)
 - [Utility Functions](apps/docs/src/utils/search.js)
 
