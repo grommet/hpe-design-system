@@ -25,27 +25,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const RangeInputDefault = (args: React.ComponentProps<typeof RangeInput>) => {
-  const [value, setValue] = useState(args.value || 50);
-
-  return (
-    <RangeInput
-      {...args}
-      value={value}
-      onChange={event => {
-        setValue(Number(event.target.value));
-        args.onChange?.(event);
-      }}
-    />
-  );
-};
-
 export const Default = {
   name: 'RangeInput',
-  render: (args: React.ComponentProps<typeof RangeInput>) => (
-    <RangeInputDefault {...args} />
-  ),
+  render: args => {
+    const [value, setValue] = useState(args.value || 50);
 
+    return (
+      <RangeInput
+        {...args}
+        value={value}
+        onChange={event => {
+          setValue(Number(event.target.value));
+          args.onChange?.(event);
+        }}
+      />
+    );
+  },
   args: {
     'aria-label': 'Select range value',
     disabled: false,

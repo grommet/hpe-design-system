@@ -124,7 +124,7 @@ const columns: DataTableProps<Datum>['columns'] = [
           <Text>{`${percent}%`}</Text>
         </Box>
       ) : (
-        <Text aria-label="No value" as="span">
+        <Text aria-label="No value" as="span" role="text">
           --
         </Text>
       ),
