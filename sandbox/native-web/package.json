@@ -6,11 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "eslint": "catalog:",
     "vite": "^5.1.4"
   },
   "dependencies": {
