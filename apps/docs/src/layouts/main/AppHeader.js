@@ -23,13 +23,12 @@ const StyledHeader = ({ ...rest }) => {
   const router = useRouter();
 
   return (
-    <Page>
+    <Page {...rest}>
       <PageContent>
         <Header
           pad={{
             vertical: 'medium',
           }}
-          {...rest}
         >
           <Link href="/" passHref legacyBehavior>
             <AppIdentity brand="hpe" logo={false} title="Design System" />
