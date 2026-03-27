@@ -1,9 +1,9 @@
 # RFC: Structure System Refactoring
 
-**Status**: Phase 2 Complete (Hardcoded Routes Removed)  
+**Status**: Phase 3 Complete (Category Mapping Auto-Generated)  
 **Author**: Design System Team  
 **Date**: March 2026  
-**Related**: Phase 1 Testing (✅ Complete) → Phase 2 Routes (✅ Complete) → Phase 3 Categories (Next)
+**Related**: Phase 1 Testing (✅ Complete) → Phase 2 Routes (✅ Complete) → Phase 3 Categories (✅ Complete) → Phase 4 Architecture (Next)
 
 ---
 
@@ -389,29 +389,35 @@ For each change:
 |-------|----------|------|--------|---------------|
 | Phase 1: Tests | 1 week | 🟢 Low | ✅ Complete | None |
 | Phase 2: Routes | 2 weeks | 🟡 Medium | ✅ Complete | Phase 1 ✅ |
-| Phase 3: Categories | 1 week | 🟢 Low | 📋 Ready | Phase 1 ✅ |
+| Phase 3: Categories | 1 week | 🟢 Low | ✅ Complete | Phase 1 ✅ |
 | Phase 4: Architecture | 2-3 weeks | 🟡 Medium | ⏳ Planned | Phases 1-3 ✅ |
 
-**Progress**: 2 of 4 phases complete (50%)  
-**Timeline**: 3 weeks complete, ~3 weeks remaining for phases 3-4
+**Progress**: 3 of 4 phases complete (75%)  
+**Timeline**: 4+ weeks complete, ~2-3 weeks estimated for phase 4  
+**Test Coverage**: 61 tests passing, 100% of critical paths covered
 
 ---
 
 ## Success Metrics
 
-### ✅ Phase 1 & 2 Complete
-- ✅ 44 tests (26 Phase 1 + 18 Phase 2) covering structure system
+### ✅ Phase 1, 2 & 3 Complete
+- ✅ 61 total tests covering all structure logic:
+  - **Phase 1**: 27 tests (validation 10 + search 12 + navItems 5)
+  - **Phase 2**: 18 tests (route-parity)
+  - **Phase 3**: 16 tests (12 mock-based + 4 live-data integration)
 - ✅ Zero hardcoded routes in utilities (nameToPath fully data-driven)
-- ✅ 100% backward compatibility (no URL changes)
+- ✅ Zero hardcoded category mappings (auto-generated from structure data)
+- ✅ 100% backward compatibility maintained (zero URL changes)
 - ✅ Automated test enforcement via CI workflow
-- ✅ Route parity tests lock behavior for future refactors
+- ✅ Category mapping auto-generated and integrated into navigation
 
 ### 🎯 Overall Refactoring Progress
-- ✅ 100% test coverage for structure validation
+- ✅ 100% test coverage for structure validation and routing
 - ✅ 0% hardcoded routes remaining (Phase 2 complete)
-- ⏳ Category mapping duplication (Phase 3 target)
-- ⏳ Build-time validation (Phase 4 target)
-- ⏳ Type safety across all structure files (Phase 4 target)
+- ✅ 0% manual category mappings (Phase 3 complete - auto-generated)
+- ✅ Foundation and Components categories properly grouped with generated weights
+- ⏳ Build-time validation with Zod schema (Phase 4 target)
+- ⏳ TypeScript conversion of structure files (Phase 4 target)
 
 ---
 
@@ -473,21 +479,30 @@ For each change:
 - Verified backward compatibility (zero URL changes)
 - Total: 44 tests passing, 100% test coverage maintained
 
+**Phase 3: Auto-Generate Category Mapping**
+- Added `buildCategoryMapping()` to derive category groups from structure data
+- Added `categoryMapping` export from structure data assembly
+- Updated navigation (`navItems.ts`) to consume generated `categoryMapping`
+- Replaced hardcoded Foundation category sort weights with generated weights via `getCategoryWeights()`
+- Added/updated tests for category grouping + weight derivation behavior
+- Verified all unit tests passing (57 tests)
+
 ### 📋 Ready for Next Phase
 
-**Phase 3: Auto-Generate Category Mapping** (Recommended next step)
-- Problem: `categoryMapping` duplicates data already in page definitions
-- Solution: Build mapping dynamically from structure data
-- Impact: Eliminates 50+ lines of hardcoded category mappings
-- Risk: Low (easy to validate against current manual mappings)
-- Estimated duration: 1 week
-
-**Phase 4: Separation of Concerns** (After Phase 3)
+**Phase 4: Separation of Concerns** (Current next step)
 - Add build-time validation with Zod schema
 - Convert structure files to TypeScript
 - Add performance indexes (byName, bySlug, byParent, byCategory)
 - Revisit Option B path composition model for flexibility
 - Estimated duration: 2-3 weeks
+
+**Carry-Forward Action (TODO)**
+- ✅ Add live-data integration test asserting generated `categoryMapping` for `Foundation` and `Components` against current structure data
+  - Implemented 4 new integration tests in `buildCategoryMapping.test.ts`
+  - Tests validate category mapping generation and weights for Foundation (Philosophy, Assets, Layout) and Components (Controls, Inputs, Layouts, Visualizations)
+  - All tests passing; total test count increased from 57 to 61
+- Remove explicit `.ts` extension import in `structure.js` (`./buildCategoryMapping.ts` → `./buildCategoryMapping`) to avoid cross-toolchain import brittleness
+- Ensure new Phase 4 schema validation covers category mapping shape (`Record<Parent, Record<Category, string[]>>`) and weight derivation assumptions
 
 ---
 

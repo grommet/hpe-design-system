@@ -9,6 +9,7 @@ import {
   templates as templatesArr,
   Structure,
 } from './structures';
+import { buildCategoryMapping, getCategoryWeights } from './buildCategoryMapping.ts';
 
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
@@ -16,7 +17,9 @@ const learn = Structure.from(learnArr);
 const tokens = Structure.from(tokensArr);
 const templates = Structure.from(templatesArr);
 
-export const structure = [
+// Build the structure in two phases to avoid circular dependency
+// Phase 1: Create initial structure (without applying category-based sorts)
+const initialStructure = [
   {
     name: 'Home',
     seoDescription:
@@ -47,7 +50,6 @@ export const structure = [
       'Foundational elements of HPE which encompass the voice, language, and visuals that personify our brand.',
     pages: foundation
       .sortByCardOrder()
-      .sortByCategory({ Assets: 1, Philosophy: 0 })
       .map(page => page.name),
   },
   {
@@ -140,3 +142,15 @@ export const structure = [
   templates,
   tokens,
 ].flat();
+
+export const structure = initialStructure;
+
+export const categoryMapping = buildCategoryMapping(structure);
+
+const foundationPage = structure.find(page => page.name === 'Foundation');
+if (foundationPage) {
+  foundationPage.pages = foundation
+    .sortByCardOrder()
+    .sortByCategory(getCategoryWeights(categoryMapping, 'Foundation'))
+    .map(page => page.name);
+}
