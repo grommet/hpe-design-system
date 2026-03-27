@@ -152,6 +152,140 @@ This hook works in all modern browsers that support:
 
 For older browsers or environments without sessionStorage, the hook will work as a regular `useState` hook.
 
+### useLocalStorage
+
+A React hook that provides a simple way to manage browser localStorage with React state synchronization. Unlike sessionStorage, data persists across browser sessions and tab/window closes.
+
+#### Features
+
+- **Type-safe**: Full TypeScript support with generic typing
+- **SSR-compatible**: Safely handles server-side rendering scenarios
+- **Error handling**: Graceful fallback when localStorage is unavailable
+- **Function updates**: Supports both direct values and updater functions
+- **Cross-tab synchronization**: Automatically syncs changes across browser tabs via the `storage` event
+
+#### Usage
+
+```typescript
+import { useLocalStorage } from '@shared/hooks';
+
+function MyComponent() {
+  // Basic usage with string
+  const [name, setName] = useLocalStorage('userName', 'Anonymous');
+
+  // Usage with objects
+  const [user, setUser] = useLocalStorage('user', { 
+    id: null, 
+    email: '' 
+  });
+
+  // Usage with function updates
+  const [count, setCount] = useLocalStorage('counter', 0);
+  const increment = () => setCount(prev => prev + 1);
+
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <button onClick={() => setName('John Doe')}>
+        Set Name
+      </button>
+      
+      <p>Count: {count}</p>
+      <button onClick={increment}>
+        Increment
+      </button>
+    </div>
+  );
+}
+```
+
+#### API
+
+```typescript
+const [value, setValue] = useLocalStorage<T>(key: string, initialValue: T)
+```
+
+**Parameters:**
+- `key` (string): The localStorage key to store the value under
+- `initialValue` (T): The initial value to use if no stored value exists
+
+**Returns:**
+- `value` (T): The current value from localStorage or initialValue
+- `setValue` (function): Function to update the stored value
+
+**setValue function:**
+```typescript
+setValue(value: T | ((prevValue: T) => T)): void
+```
+
+#### Examples
+
+##### Basic String Storage
+```typescript
+const [username, setUsername] = useLocalStorage('username', '');
+
+// Direct value update
+setUsername('john_doe');
+
+// The value persists across browser sessions and page reloads
+```
+
+##### Object Storage
+```typescript
+interface UserPreferences {
+  theme: 'light' | 'dark';
+  notifications: boolean;
+}
+
+const [preferences, setPreferences] = useLocalStorage<UserPreferences>(
+  'userPrefs',
+  { theme: 'light', notifications: true }
+);
+
+// Update entire object
+setPreferences({ theme: 'dark', notifications: false });
+
+// Update using function (for partial updates)
+setPreferences(prev => ({ ...prev, theme: 'dark' }));
+```
+
+##### Array Storage
+```typescript
+const [items, setItems] = useLocalStorage<string[]>('items', []);
+
+// Add item
+setItems(prev => [...prev, 'new item']);
+
+// Remove item
+setItems(prev => prev.filter(item => item !== 'item to remove'));
+```
+
+#### Error Handling
+
+The hook includes built-in error handling for scenarios where localStorage is unavailable (e.g., private browsing mode, storage quota exceeded):
+
+- If localStorage operations fail, the hook logs the error and continues to work with in-memory state
+- SSR environments are handled gracefully by checking for `window` availability
+- Malformed JSON in storage is handled by falling back to the initial value
+
+#### Browser Support
+
+This hook works in all modern browsers that support:
+- React 16.8+ (hooks)
+- localStorage API
+- JSON.parse/stringify
+
+For older browsers or environments without localStorage, the hook will work as a regular `useState` hook.
+
+#### localStorage vs sessionStorage
+
+| Feature | `useLocalStorage` | `useSessionStorage` |
+|---|---|---|
+| Persists across sessions | Yes | No |
+| Shared across tabs | Yes | No |
+| Cleared on tab close | No | Yes |
+| Cross-tab sync | Yes (native `storage` event) | No |
+
 ## Development
 
 ### Building the Package
@@ -192,11 +326,13 @@ pnpm check-types
 shared/hooks/
 ├── src/
 │   ├── index.ts              # Main entry point, exports all hooks
-│   ├── useSessionStorage.ts   # useSessionStorage hook implementation
+│   ├── useLocalStorage.ts    # useLocalStorage hook implementation
+│   ├── useSessionStorage.ts  # useSessionStorage hook implementation
 │   └── __tests__/
-│       └── setup.ts           # Test environment setup
+│       └── setup.ts          # Test environment setup
 ├── __tests__/
-│   └── useSessionStorage.test.ts  # Tests for useSessionStorage
+│   ├── useLocalStorage.test.ts   # Tests for useLocalStorage
+│   └── useSessionStorage.test.ts # Tests for useSessionStorage
 ├── dist/                      # Built JavaScript files (generated)
 ├── package.json
 ├── tsconfig.json
