@@ -3,7 +3,6 @@ import {
   buildCategoryMapping,
   getCategoryWeights,
 } from '../buildCategoryMapping';
-import type { Structure } from '../structures/Structure';
 
 // Test with mock structure data to avoid circular dependencies
 const mockStructure = [
