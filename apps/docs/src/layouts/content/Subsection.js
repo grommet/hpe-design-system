@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { Box, Button, Header, Text } from 'grommet';
 import { Link as LinkIcon } from '@hpe-design/icons-grommet';
 import { Subheading } from '../../components';
-import { getPageDetails, nameToSlug } from '../../utils';
+import { getPrimaryPageByName, structureIndexes } from '../../data';
+import { nameToSlug } from '../../utils';
 
 // Text size should be based on if its parent heading is an
 // h2, h3, etc.
@@ -30,7 +31,7 @@ export const Subsection = ({
   ...rest
 }) => {
   const [over, setOver] = useState(false);
-  const parent = topic && getPageDetails(topic);
+  const parent = getPrimaryPageByName(topic, structureIndexes) || {};
   const id = nameToSlug(name);
 
   const firstChild = React.Children.map(children, (child, index) => {

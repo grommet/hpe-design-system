@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Anchor, PageHeader } from 'grommet';
 import { Left } from '@hpe-design/icons-grommet';
-import { getPageDetails, nameToPath } from '../../utils';
+import { getPrimaryPageByName, structureIndexes } from '../../data';
+import { nameToPath } from '../../utils';
 import { Status, SubsectionText } from '../../components';
 
 export const DocsPageHeader = ({ title, topic, render }) => {
-  const page = getPageDetails(title);
-  const parent = topic && getPageDetails(topic);
+  const page = getPrimaryPageByName(title, structureIndexes) || {};
+  const parent = getPrimaryPageByName(topic, structureIndexes) || {};
 
   return (
     <PageHeader

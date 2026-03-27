@@ -21,10 +21,11 @@
     "react-ga": "^2.7.0",
     "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^4.0.0",
-    "styled-components": "catalog:"
+    "styled-components": "catalog:",
+    "zod": "^4.3.6"
   },
   "scripts": {
-    "build": "pnpm build-search && next build",
+    "build": "pnpm validate:structure && pnpm build-search && next build",
     "build-design-tokens": "pnpm --filter hpe-design-tokens build",
     "export": "pnpm build",
     "postexport": "node next.postexport.js",
@@ -39,7 +40,8 @@
     "test:windows": "start-server-and-test start-server 3030 \"testcafe chrome\"",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "build-search": "node src/scripts/site-contents.mjs"
+    "build-search": "node src/scripts/site-contents.mjs",
+    "validate:structure": "vitest run src/data/__tests__/structure.validation.test.ts --testNamePattern=\"Build-time Validation\""
   },
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",
