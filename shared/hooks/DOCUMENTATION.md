@@ -169,15 +169,17 @@ A React hook that provides a simple way to manage browser localStorage with Reac
 ```typescript
 import { useLocalStorage } from '@shared/hooks';
 
+const defaultUser = {
+  id: null,
+  email: '',
+};
+
 function MyComponent() {
   // Basic usage with string
   const [name, setName] = useLocalStorage('userName', 'Anonymous');
 
-  // Usage with objects
-  const [user, setUser] = useLocalStorage('user', { 
-    id: null, 
-    email: '' 
-  });
+  // Usage with objects (hoist non-primitive initial values to avoid recreating them on every render)
+  const [user, setUser] = useLocalStorage('user', defaultUser);
 
   // Usage with function updates
   const [count, setCount] = useLocalStorage('counter', 0);
