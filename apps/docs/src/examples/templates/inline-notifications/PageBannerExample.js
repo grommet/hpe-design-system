@@ -76,7 +76,6 @@ export const PageBannerExample = () => {
                       <Paragraph margin="none">
                         <TextEmphasis>DemoSite2</TextEmphasis>,{' '}
                         <TextEmphasis>BLR2-setup1</TextEmphasis>, and{' '}
-                        {/* eslint-disable-next-line max-len */}
                         <TextEmphasis>DemoSite4</TextEmphasis> require updates
                         to{' '}
                         <Anchor

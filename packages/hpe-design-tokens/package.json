@@ -42,7 +42,7 @@
     "del": "^6.1.1",
     "dotenv": "^16.3.1",
     "fs-extra": "^11.2.0",
-    "prettier": "3.0.0",
+    "prettier": "catalog:",
     "simple-git": "^3.24.0",
     "style-dictionary": "^4.2.0",
     "style-dictionary-utils": "^3.0.0",
