@@ -1,0 +1,127 @@
+import { useEffect, useMemo, useState } from 'react';
+import { type BoxProps, Nav } from 'grommet';
+import { NavItemType } from './NavItem';
+import { NavContainer } from './NavContainer';
+import { NavList } from './NavList';
+
+const assignUniqueIds = (
+  items: NavItemType[],
+  parentPath = '',
+  seenIds = new Set<string>(),
+): NavItemType[] => {
+  return items.map(item => {
+    if (item.id) {
+       // Use existing ID if provided and ensure uniqueness
+      let explicitId = item.id;
+      if (seenIds.has(explicitId)) {
+        const baseId = explicitId;
+        let counter = 1;
+        while (seenIds.has(explicitId)) {
+          explicitId = `${baseId}-${counter}`;
+          counter++;
+        }
+        console.warn(
+          `NavigationMenu: duplicate item id "${item.id}" detected. ` +
+            `Using disambiguated id "${explicitId}" instead.`,
+        );
+      }
+      seenIds.add(explicitId);
+      return {
+        ...item,
+        id: explicitId,
+        children: item.children
+          ? assignUniqueIds(item.children, `${parentPath}${explicitId}-`, seenIds)
+          : undefined,
+      };
+    }
+
+    // Create stable ID based on hierarchical path
+    const baseId = `${parentPath}${item.label
+      .replace(/\s+/g, '-')
+      .toLowerCase()}`;
+    let uniqueId = baseId;
+    let counter = 1;
+
+    // Handle collisions by appending counter
+    while (seenIds.has(uniqueId)) {
+      uniqueId = `${baseId}-${counter}`;
+      counter++;
+    }
+
+    seenIds.add(uniqueId);
+
+    return {
+      ...item,
+      id: uniqueId,
+      children: item.children
+        ? assignUniqueIds(item.children, `${uniqueId}-`, seenIds)
+        : undefined,
+    };
+  });
+};
+
+interface NavigationMenuProps extends BoxProps {
+  activeItem?: string;
+  header?: React.ReactNode;
+  items: NavItemType[];
+  open?: boolean;
+  title?: string;
+  onSelect?: ({
+    item,
+    event,
+  }: {
+    item: NavItemType;
+    event: React.MouseEvent | React.KeyboardEvent;
+  }) => void;
+}
+
+export const NavigationMenu = ({
+  activeItem,
+  header,
+  items: itemsProp,
+  open: openProp = true,
+  onSelect,
+  title,
+  ...rest
+}: NavigationMenuProps) => {
+  const [open, setOpen] = useState<boolean>(openProp);
+  const navigationId = 'navigation-menu';
+  const menuTitle = title ? `${title}` : 'Navigation Menu';
+
+  // Add unique Id to each item for aria and key purposes
+  const items = useMemo(() => assignUniqueIds(itemsProp), [itemsProp]);
+
+  useEffect(() => {
+    if (openProp !== undefined) {
+      setOpen(openProp);
+    }
+  }, [openProp]);
+
+  return (
+    <NavContainer
+      header={header}
+      navigationId={navigationId}
+      open={open}
+      setOpen={setOpen}
+      title={title}
+      overflow="auto"
+      {...rest}
+    >
+      {open && (
+        <Nav
+          id={navigationId}
+          hidden={!open}
+          a11yTitle={menuTitle}
+          gap="3xsmall"
+        >
+          <NavList
+            a11yTitle={menuTitle}
+            items={items}
+            activeItem={activeItem}
+            onSelect={onSelect}
+          />
+        </Nav>
+      )}
+    </NavContainer>
+  );
+};

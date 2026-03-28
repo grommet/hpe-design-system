@@ -1,0 +1,103 @@
+import { Example } from '../../layouts';
+import {
+  DashboardExample,
+  ThreeColumnDashboard,
+  TwoColumnDashboard,
+} from '../../examples';
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/DashboardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/DashboardGrid.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/DashboardFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/Greeting.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/DashboardCard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/data.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/global-header/components/GlobalHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/global-header/components/AppIdentity.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/global-header/components/HeaderNav.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/global-header/components/UserContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/global-header/components/MenuLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/dashboards/DashboardExample.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+  screenContainer
+  width="100%"
+>
+  <DashboardExample />
+</Example>
+
+## Guidance
+
+Dashboards provide users peace-of-mind knowing critical measures, applications, and services are healthy; plus, easy access to areas needing attention for the moments when they are not.
+
+Well designed dashboards begin by defining the specific purpose and user needs it is serving.
+
+Operational dashboards focus on delivering information such as data deviations, current resources, and resource statuses so that users can proactively execute time-sensitive tasks.
+
+Analytical dashboards present comparison, relationship, and distribution data supporting analysis and decision making.
+
+Regardless of need, each of these templates deliver at-a-glance critical information and quick navigation to underlying detail.
+
+Consider:
+
+- abbreviated numbers (ex: $1.2M vs $1,234,567.89)
+- less detail
+- fewer colors (ex: show 4 pie chart sections and a 5th for other)
+- larger items and fewer items
+
+## Dashboard templates
+
+The following templates are based on [page layout guidelines](/templates/page-layouts)
+and serve as a starting point for design and development.
+They are customizable depending on your content and UX needs.
+Templates for 3 column and 4 column dashboards are coming soon.
+
+### Two column dashboard
+
+<Example
+  screenContainer
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/TwoColumnDashboard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/components/AppContainer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/anatomy/components/ContentArea.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/PageHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/FirmwareBaselines.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/FirmwareStatus.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/RecentActivity.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/ServerAttention.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/ServerHealth.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/UpdatesAvaliable.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/dashboards/TwoColumnDashboard"
+>
+  <TwoColumnDashboard />
+</Example>
+
+### Three column dashboard
+
+<Example
+  screenContainer
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/ThreeColumnDashboard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/components/AppContainer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/page-layouts/anatomy/components/ContentArea.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/PageHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/chartCards/CostByMonth.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/chartCards/CostByService.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/chartCards/CostByYear.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/chartCards/RulesAudit.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/ChartCard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/Legend.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/Measure.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/MeterGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/dashboards/ThreeColumnDashboard"
+>
+  <ThreeColumnDashboard />
+</Example>

@@ -1,0 +1,159 @@
+import { Example } from '../../../layouts';
+import {
+  ConfigurationForm,
+  DataFiltersAnatomy,
+  SideDrawerLayerAnatomy,
+  FilteringTable,
+  LayerStickyExample,
+} from '../../../examples';
+import { Checkmark } from '@hpe-design/icons-grommet';
+
+## Anatomy
+
+See [general layer anatomy](/components/layer#anatomy) for specifications applying to all layers.
+
+### Grommet properties
+
+Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for a side drawer layer.
+
+| Property                                         | Value    |
+| ------------------------------------------------ | -------- |
+| [position](https://v2.grommet.io/layer#position) | right    |
+| [full](https://v2.grommet.io/layer#full)         | vertical |
+
+## Layer closing behavior
+
+### Informational
+
+For informational side drawer layers that do not require any user actions, place a [close icon](/foundation/icons#ui-actions) button in the layer header.
+
+<Example plain>
+  <SideDrawerLayerAnatomy informational />
+</Example>
+
+| Label | Region           | Purpose           |                  Required                   | Notes             |
+| ----- | ---------------- | ----------------- | :-----------------------------------------: | ----------------- |
+| **1** | **Close button** | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | Use "Close" icon. |
+
+The user should be able to dismiss the informational layer by clicking outside, onClickOutside, or using the Escape key, onEsc.
+
+### Actionable
+
+For actionable layers, include the [close icon](/foundation/icons#ui-actions) button in the header and a "Cancel" button alongside footer actions so the user can efficiently leave the layer if desired.
+
+<Example plain>
+  <SideDrawerLayerAnatomy />
+</Example>
+
+| Label | Region            | Purpose           |                  Required                   | Notes                                                                                                                                                                                                                                  |
+| ----- | ----------------- | ----------------- | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Close button**  | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | Including the close button in the header in addition to the footer "Cancel" button ensures the user can efficiently exit the layer if desired.                                                                                         |
+| **2** | **Cancel button** | Closes the layer. | <Checkmark a11yTitle="true" size="small" /> | The footer actions should be left aligned with primary action on the left and "Cancel" button following. The "Cancel" button should always be present as a complement to the primary action, providing an easy way to leave the layer. |
+
+To prevent the user from losing progress due to accidental clicks outside of a layer, `onClickOutside` functionality should not be enabled. The user should be able to dismiss the actionable layer by using the Escape key, `onEsc`.
+
+### Double confirmations
+
+When data has been edited or changed and the user tries to close the layer, a double confirmation should be shown. This helps avoid unintentional loss of work.
+
+Learn more about the anatomy and implementation of a [double confirmation](/components/layer#double-confirmations) on the main layer page since this behavior applies to all layer types.
+
+### Filters
+
+A filter layer is an exception to the above rules. Even though filtering requires action from the user, it is not essential that the user fills out the filtering form. Because of this, a filter layer can be closed by the following interactions:
+
+1. Clicking the "Apply filters" button, which will apply the current filter selections and close the layer.
+1. Clicking the close button in the layer header.
+1. Clicking outside of the layer, `onClickOutside`.
+1. Pressing the Escape key, `onEsc`.
+
+<Example height="auto">
+  <DataFiltersAnatomy />
+</Example>
+
+## Scroll behavior
+
+The default behavior of the layer is to allow all of the content to scroll, but this behavior can be modified depending on the layer's contents.
+
+| Layer contents | Sticky region                                                                                         | Scroll region   | Notes                                                                                                                            |
+| -------------- | ----------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Filters**    | Footer                                                                                                | Header and body | A sticky footer ensures the user always has access to apply, reset, or cancel out of the filter view and return to the data set. |
+| **Form**       | None or header can be sticky/appear on scroll up if this added context is valueable for the use case. | Body and footer | The footer actions should be at the bottom of the form to encourage the user to see the entire form before submission.           |
+
+### Sticky header
+
+If it would be valuable for the user to maintain the context of the layer's topic, the header can be made persistent or reappear when the user scrolls up.
+
+#### Persistent
+
+If it's necessary for the user to always be able to see the layer heading, make the heading persistent and sticky.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/LayerStickyExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/MonitorFormExample.js',
+  ]}
+  height={{ min: 'small' }}
+>
+  <LayerStickyExample />
+</Example>
+
+#### Scroll up
+
+In order to maximize screen real-estate when content is scrollable, the header may scroll away as the user scrolls down but reappear as the user scrolls up. This can be accomplished by applying `sticky="scrollup"` on Heading.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/LayerStickyExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/MonitorFormExample.js',
+  ]}
+  height={{ min: 'small' }}
+>
+  <LayerStickyExample sticky="scrollup" />
+</Example>
+
+## Examples
+
+### Configuration form
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/ConfigurationForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/Layer/LayerHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/ConfirmationContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/DoubleConfirmation.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/components/layer/ConfigurationForm.js"
+  height={{ min: 'small' }}
+  template
+  showResponsiveControls={[]}
+>
+  <ConfigurationForm />
+</Example>
+
+### Filtering
+
+Click the filter icon to see the layer. Notice the sticky footer on this layer. Refer to [scroll behavior](#scroll-behavior) for added guidance.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilterServers.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FilterControls.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/Filters.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersLayer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/ResultsSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/SearchFilter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/mockData.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js"
+  template
+  showResponsiveControls={[]}
+>
+  <FilteringTable />
+</Example>

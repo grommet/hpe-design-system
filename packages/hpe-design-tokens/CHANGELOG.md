@@ -1,25 +1,123 @@
 # hpe-design-tokens
 
+## 2.2.3
+
+Changed
+Button (Primary, Secondary, Default) “active/selected” state updates (Issue #5891)Updated selected.rest and selected.hover tokens for all button variants to use a shared styling model: transparent background, neutral text (text.strong), and a green border (border.selected).
+Why: improve accessibility by replacing the font-weight shift with a high-contrast border, eliminate layout shift caused by heavier font-weight in active state (Issue #5840).
+
+Formfield group item horizontal paddingUpdated hpe.formField.default.medium.input.group.item.paddingX from spacing.xxsmall (8px) to spacing.xsmall to match hpe.formField.default.medium.input.container.paddingX.
+Why: a regression introduced in V1 changed the group item padding from spacing.xsmall to spacing.xxsmall, causing checkbox and radio button groups to appear misaligned with standard inputs in forms.
+
+Impact / What to watch for
+
+- All buttons (Primary, Secondary, Default) will now display a border when in the active state.
+- Buttons will no longer shift font-weight (medium → semi-bold) when active, preventing layout movement.
+- Checkbox and radio button groups inside form fields will now align horizontally with text inputs.
+
+### Patch 1: Primary Button
+
+Issue: https://github.com/grommet/hpe-design-system/issues/5840
+
+| Component      | Design Token                                | Files                    | Change (new token value) | Notes                                                                                | Semantic version |
+| -------------- | ------------------------------------------- | ------------------------ | ------------------------ | ------------------------------------------------------------------------------------ | ---------------- |
+| Button-primary | `button.primary.selected.rest.iconColor`    | `component.default.json` | `color.icon.strong`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-primary | `button.primary.selected.rest.textColor`    | `component.default.json` | `color.text.strong`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-primary | `button.primary.selected.rest.background`   | `component.default.json` | `color.transparent`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-primary | `button.primary.selected.rest.borderColor`  | `component.default.json` | `color.border.selected`  | Border added as the perceivable accessibility affordance for active state. See #5840 | Patch            |
+| Button-primary | `button.primary.selected.rest.fontWeight`   | `component.default.json` | `fontWeight.medium`      | Font-weight unchanged between rest and active to eliminate layout shift. See #5840   | Patch            |
+| Button-primary | `button.primary.selected.hover.iconColor`   | `component.default.json` | `color.icon.strong`      | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-primary | `button.primary.selected.hover.textColor`   | `component.default.json` | `color.text.strong`      | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-primary | `button.primary.selected.hover.background`  | `component.default.json` | `color.background.hover` | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-primary | `button.primary.selected.hover.borderColor` | `component.default.json` | `color.border.selected`  | Border persists on hover in active state. See #5840                                  | Patch            |
+| Button-primary | `button.primary.selected.hover.fontWeight`  | `component.default.json` | `fontWeight.medium`      | Font-weight unchanged between rest and active to eliminate layout shift. See #5840   | Patch            |
+
+---
+
+### Patch 2: Secondary Button
+
+Issue: https://github.com/grommet/hpe-design-system/issues/5840
+
+| Component        | Design Token                                  | Files                    | Change (new token value) | Notes                                                                                | Semantic version |
+| ---------------- | --------------------------------------------- | ------------------------ | ------------------------ | ------------------------------------------------------------------------------------ | ---------------- |
+| Button-secondary | `button.secondary.selected.rest.iconColor`    | `component.default.json` | `color.icon.strong`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-secondary | `button.secondary.selected.rest.textColor`    | `component.default.json` | `color.text.strong`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-secondary | `button.secondary.selected.rest.background`   | `component.default.json` | `color.transparent`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-secondary | `button.secondary.selected.rest.borderColor`  | `component.default.json` | `color.border.selected`  | Border added as the perceivable accessibility affordance for active state. See #5840 | Patch            |
+| Button-secondary | `button.secondary.selected.rest.fontWeight`   | `component.default.json` | `fontWeight.medium`      | Font-weight unchanged between rest and active to eliminate layout shift. See #5840   | Patch            |
+| Button-secondary | `button.secondary.selected.hover.iconColor`   | `component.default.json` | `color.icon.strong`      | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-secondary | `button.secondary.selected.hover.textColor`   | `component.default.json` | `color.text.strong`      | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-secondary | `button.secondary.selected.hover.background`  | `component.default.json` | `color.background.hover` | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-secondary | `button.secondary.selected.hover.borderColor` | `component.default.json` | `color.border.selected`  | Border persists on hover in active state. See #5840                                  | Patch            |
+| Button-secondary | `button.secondary.selected.hover.fontWeight`  | `component.default.json` | `fontWeight.medium`      | Font-weight unchanged between rest and active to eliminate layout shift. See #5840   | Patch            |
+
+---
+
+### Patch 3: Default Button
+
+Issue: https://github.com/grommet/hpe-design-system/issues/5840
+
+| Component      | Design Token                                | Files                    | Change (new token value) | Notes                                                                                | Semantic version |
+| -------------- | ------------------------------------------- | ------------------------ | ------------------------ | ------------------------------------------------------------------------------------ | ---------------- |
+| Button-default | `button.default.selected.rest.iconColor`    | `component.default.json` | `color.icon.strong`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-default | `button.default.selected.rest.textColor`    | `component.default.json` | `color.text.strong`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-default | `button.default.selected.rest.background`   | `component.default.json` | `color.transparent`      | Updated to align all button kinds to a consistent active state. See #5840            | Patch            |
+| Button-default | `button.default.selected.rest.borderColor`  | `component.default.json` | `color.border.selected`  | Border added as the perceivable accessibility affordance for active state. See #5840 | Patch            |
+| Button-default | `button.default.selected.rest.fontWeight`   | `component.default.json` | `fontWeight.medium`      | Font-weight unchanged between rest and active to eliminate layout shift. See #5840   | Patch            |
+| Button-default | `button.default.selected.hover.iconColor`   | `component.default.json` | `color.icon.strong`      | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-default | `button.default.selected.hover.textColor`   | `component.default.json` | `color.text.strong`      | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-default | `button.default.selected.hover.background`  | `component.default.json` | `color.background.hover` | Updated to align all button kinds to a consistent active hover state. See #5840      | Patch            |
+| Button-default | `button.default.selected.hover.borderColor` | `component.default.json` | `color.border.selected`  | Border persists on hover in active state. See #5840                                  | Patch            |
+| Button-default | `button.default.selected.hover.fontWeight`  | `component.default.json` | `fontWeight.medium`      | Font-weight unchanged between rest and active to eliminate layout shift. See #5840   | Patch            |
+
+### Patch 4: Formfield Groups
+
+| Component        | Design Token                                       | Files                    | Change (new token value) | Notes                                                              | Semantic version |
+| ---------------- | -------------------------------------------------- | ------------------------ | ------------------------ | ------------------------------------------------------------------ | ---------------- |
+| Form-field Group | formField.default.medium.input.group.item.paddingX | `component.default.json` | `static.spacing.xsmall`  | Updated to align horizontal padding with single form-field inputs. | Patch            |
+
+### Patch 5: Heading xxsmall Size
+
+In dimension.small updated `heading.xxsmall.fontSize` to `base.fontSize.90`.
+
+
+
+## 2.2.2
+
+- Changed `primary` Button `selected`/`active` state styling tokens in `component.default.json` to mirror `secondary` Button styling.
+- Changed `icon.critical` in light mode from `red.600` to `red.800`, aligning it with `border.critical` and `text.critical`.
+- Changed `hpe.formField.default.input.group.container.disabled.rest.borderColor` from `border.disabled` to `color.transparent`.
+
+## 2.2.1
+
+- Fixed bug where `color.focus` and `color.focus.support` were not defined correctly. https://github.com/grommet/hpe-design-system/pull/5668
+
 ## 2.2.0
 
 **Global**
+
 - Changed `fontStack.primary` from `'Graphik', Arial, sans-serif` to `'HPE Graphik', Arial, sans-serif`.
 
 **Primitive**
+
 - Added `static.spacing.6xsmall` with value `base.dimension.50`.
 
 **Dimension (default)**
+
 - Added `spacing.6xsmall` with value `static.spacing.6xsmall`.
 
 **Dimension (small)**
+
 - Added `spacing.6xsmall` with value `static.spacing.6xsmall`.
 - Changed `spacing.4xsmall` from `static.spacing.5xsmall` to `static.spacing.6xsmall`.
 - Changed `spacing.5xsmall` from `static.spacing.5xsmall` to `static.spacing.6xsmall`.
 
 **Color (light)**
+
 - Added `color.foreground.ok` with value `base.color.green.650`.
 
 **Color (dark)**
+
 - Added `color.foreground.ok` with value `base.color.green.550`.
 
 ## 2.1.0
@@ -27,13 +125,16 @@
 - Fixed an accessibility issue with the focus indicator in dark mode.
 
 **Color (light)**
+
 - Added `color.focus.support` with value `base.color.white.100`
 
 **Color (dark)**
+
 - Added `color.focus.support` with value `base.color.grey.1000`
 - Changed `color.focus` from `base.color.grey.1000` to `base.color.white.100`
 
 **Global**
+
 - Changed `focusIndicator.boxShadow` from `base.color.white.100` to `color.focus.support`
 
 ## 2.0.0

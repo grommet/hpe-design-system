@@ -1,0 +1,31 @@
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Tag } from 'grommet';
+import { labelArg } from '../utils/commonArgs';
+
+const meta = {
+  title: 'Components/Tag',
+  component: Tag,
+  argTypes: {
+    name: labelArg,
+    size: {
+      control: { type: 'select' },
+      options: ['xsmall', 'small'],
+    },
+    value: labelArg,
+  },
+} satisfies Meta<typeof Tag>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default = {
+  name: 'Tag',
+  render: args => <Tag {...args} />,
+  args: {
+    background: undefined,
+    name: 'name',
+    size: 'small',
+    value: 'value',
+  },
+} satisfies Story;
