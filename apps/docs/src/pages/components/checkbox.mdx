@@ -35,12 +35,18 @@ There are three states which CheckBox provides:
 
 Checked and unchecked states refer to when an individual CheckBox is checked or when all options from a group are checked.
 
+### CheckBox with FormField
+
+When wrapping a CheckBox in a FormField, do not provide a `label` prop to FormField. Because CheckBox already has its own `label` prop that visually and programmatically labels the input, adding a FormField `label` creates multiple label elements for the same input, resulting in accessibility errors.
+
+Use FormField with CheckBox when you need to display help text, error messages, or validation for the checkbox.
+
 ### CheckBox outside of FormField
 
 A checkbox might be used outside of a form field when:
 
 1. Serving as a UI control showing or hiding page content, such as revealing additional content or inputs which are only relevant when a particular feature is enabled.
-2. Scenarios in which having a form field label in addition to the checkbox label would be redundant for the user.
+2. Scenarios in which no additional help text, error messages, or validation are needed.
 3. Allowing a user to opt-in or acknowledge a disclaimer, such as a privacy policy or terms and conditions.
 4. Allowing an item to be selected within a list, table row, or drop down.
 
@@ -106,7 +112,9 @@ Used to indicate that CheckBox cannot be interacted with.
 
 ## Accessibility
 
-CheckBox should be used inside of a FormField to ensure that a label is properly associated with the input. The labels on individual checkboxes should clearly describe the purpose of the checkbox.
+CheckBox's own `label` prop provides the accessible label for the input. The label on each checkbox should clearly describe its purpose.
+
+When using CheckBox inside a FormField, do not also set a `label` on the FormField. Doing so creates two label elements for the same input, resulting in multiple label accessibility errors. Use FormField without a `label` when you need help text, error messages, or validation alongside a CheckBox.
 
 If a CheckBox is used outside of the context of a FormField, it is important to meet accessibility requirements in an alternate way. There should always be clear visual indication, either by text or icon, that describes the purpose of the checkbox.
 

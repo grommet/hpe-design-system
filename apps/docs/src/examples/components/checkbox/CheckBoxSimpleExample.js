@@ -8,8 +8,6 @@ export const CheckBoxSimpleExample = () => {
       <FormField
         name="checkbox-simple"
         fill
-        htmlFor="simple-checkbox"
-        label="Label"
       >
         <CheckBox
           name="checkbox-simple"

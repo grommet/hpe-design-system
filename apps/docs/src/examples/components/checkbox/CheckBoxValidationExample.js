@@ -13,8 +13,6 @@ export const CheckBoxValidationExample = () => {
         <Form>
           <FormField
             name="required-field"
-            label="Label"
-            htmlFor="required-field"
             error={message}
             required
           >
@@ -34,8 +32,6 @@ export const CheckBoxValidationExample = () => {
         <Form>
           <FormField
             name="required-field"
-            label="Label"
-            htmlFor="validation-example-2"
             error={toggleMessage}
           >
             <CheckBox
