@@ -628,7 +628,6 @@ export const foundation = [
     preview: {
       image: {
         src: {
-          // eslint-disable-next-line max-len
           light: '/foundationImages/foundation-preview-containersizing.svg',
           // eslint-disable-next-line max-len
           dark: '/foundationImages/foundation-preview-containersizing-invert.svg',
@@ -660,7 +659,7 @@ export const foundation = [
     preview: {
       image: {
         src: {
-          // eslint-disable-next-line max-len
+           
           light: '/foundationImages/foundation-preview-componentsizing.svg',
           // eslint-disable-next-line max-len
           dark: '/foundationImages/foundation-preview-componentsizing-invert.svg',

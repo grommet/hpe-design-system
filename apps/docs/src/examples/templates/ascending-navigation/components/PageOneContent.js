@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+ 
 import { useState } from 'react';
 import { Box, DataTable, Avatar, Text } from 'grommet';
 

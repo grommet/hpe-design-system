@@ -19,8 +19,8 @@
     "@types/react-dom": "catalog:",
     "jsdom": "^26.1.0",
     "minimatch": "^10.0.3",
-    "eslint": "catalog:",
     "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
     "vitest": "^3.2.4"
   },
   "dependencies": {

@@ -1,36 +1,31 @@
-// (C) Copyright 2026 Hewlett Packard Enterprise Development LP
-import js from '@eslint/js';
-import globals from 'globals';
-import reactPlugin from 'eslint-plugin-react';
+import { defineConfig } from 'eslint/config';
+import babelParser from '@babel/eslint-parser';
+import react from 'eslint-plugin-react';
+import jsx from 'eslint-plugin-jsx';
+import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
-import tseslint from 'typescript-eslint';
-import prettierConfig from 'eslint-config-prettier';
+import prettier from 'eslint-plugin-prettier';
+import { fixupPluginRules } from '@eslint/compat';
+import globals from 'globals';
+import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import tseslint from 'typescript-eslint';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-// Minimal shim so that legacy `eslint-disable import/...` inline
-// comments in source files don't cause "Definition for rule not found" errors.
-// eslint-plugin-import was removed; this shim registers the namespace only.
-const importPluginShim = {
-  rules: {
-    'no-unresolved': { create: () => ({}) },
-    extensions: { create: () => ({}) },
-  },
-};
-
-export default tseslint.config(
-  // Global ignores (replaces root .eslintignore and apps/docs/.eslintignore)
+export default defineConfig([
   {
     ignores: [
+      'eslint.config.mjs',
       '**/dist/',
       '**/.next/',
       '**/out/',
@@ -40,79 +35,110 @@ export default tseslint.config(
       'apps/docs/src/data/search',
     ],
   },
-
-  // Silence warnings for eslint-disable comments that reference removed rules
-  // (e.g. max-len, no-alert, react/prop-types from the old airbnb config).
   {
-    linterOptions: {
-      reportUnusedDisableDirectives: 'off',
-    },
-  },
-
-  // Base JS recommended rules — applied to all files
-  js.configs.recommended,
-
-  // Accessibility — full config spread (equivalent of plugin:jsx-a11y/recommended)
-  jsxA11y.flatConfigs.recommended,
-
-  // React, react-hooks and project-wide custom rules
-  {
-    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
-    plugins: {
-      react: reactPlugin,
-      'react-hooks': reactHooks,
-      // Shim: keeps eslint-disable import/... comments from erroring
-      import: importPluginShim,
-    },
     languageOptions: {
-      ecmaVersion: 'latest',
+      parser: babelParser,
+
+      parserOptions: {
+        requireConfigFile: false,
+
+        babelOptions: {
+          presets: ['@babel/preset-react'],
+        },
+      },
+
       globals: {
         ...globals.browser,
-        ...globals.node,
         ...globals.jest,
       },
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
     },
-    settings: {
-      react: { version: 'detect' },
+
+    extends: compat.extends(
+      'airbnb',
+      'plugin:jsx-a11y/recommended',
+      'plugin:grommet/recommended',
+      'prettier',
+    ),
+
+    plugins: {
+      react,
+      jsx,
+      'jsx-a11y': jsxA11Y,
+      'react-hooks': fixupPluginRules(reactHooks),
+      prettier,
     },
+
     rules: {
-      // React 17+ new JSX transform — don't require React in scope
-      'react/react-in-jsx-scope': 'off',
-      // Keep tracking React as used so old `import React from 'react'` files
-      // don't get flagged by no-unused-vars
-      'react/jsx-uses-react': 'warn',
-      // Mark JSX component variables as used — prevents no-unused-vars false
-      // positives for imported components referenced only in JSX
-      'react/jsx-uses-vars': 'error',
-      // React hooks correctness
-      ...reactHooks.configs['recommended-latest'].rules,
-      'jsx-a11y/anchor-is-valid': 'off',
-      'no-console': 'off',
-      // Allow _ prefix to signal intentionally unused vars/args (destructuring
-      // to omit, unused function params, etc.)
-      'no-unused-vars': [
-        'error',
+      semi: [2, 'always'],
+      indent: 'off',
+      'comma-dangle': ['error', 'always-multiline'],
+      'object-curly-spacing': ['error', 'always'],
+      'no-console': 0,
+      'no-useless-concat': 0,
+
+      'max-len': [
+        2,
         {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
+          ignoreUrls: true,
+          ignoreRegExpLiterals: true,
         },
       ],
+
+      'jsx-a11y/href-no-hash': 0,
+      'jsx-a11y/anchor-is-valid': 0,
+      'react/jsx-indent': 0,
+      'react/jsx-wrap-multilines': 0,
+      'react/jsx-filename-extension': 0,
+      'implicit-arrow-linebreak': 0,
+      'import/no-named-as-default': 0,
+      'import/newline-after-import': 1,
+      'react/no-unescaped-entities': 0,
+      'react/jsx-first-prop-new-line': [1, 'multiline'],
+      'import/prefer-default-export': 0,
+      'class-methods-use-this': 0,
+      'operator-linebreak': 0,
+      'react/require-default-props': 0,
+      'react/react-in-jsx-scope': 0,
+      'react/no-danger': 0,
+      'react/prefer-stateless-function': 0,
+      'react/no-array-index-key': 0,
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'no-return-assign': 0,
+      'react/destructuring-assignment': 0,
+      'react/forbid-prop-types': 0,
+      'react/jsx-one-expression-per-line': 0,
+      'react/static-property-placement': 0,
+      'react/jsx-props-no-spreading': 0,
+      'react/function-component-definition': 0,
+      'react/no-unstable-nested-components': 0,
+      'prefer-regex-literals': 0,
+      'import/no-extraneous-dependencies': 0,
+      'import/no-cycle': 0,
+      'global-require': 0,
+      'import/no-dynamic-require': 0,
+
+      quotes: [
+        2,
+        'single',
+        {
+          avoidEscape: true,
+        },
+      ],
+
+      'arrow-body-style': 0,
     },
   },
-
   // TypeScript recommended rules — scoped to TS files only
-  {
-    files: ['**/*.{ts,tsx,mts,cts}'],
-    extends: tseslint.configs.recommended,
-  },
-
-  // Grommet plugin via FlatCompat (legacy eslintrc wrapper)
-  ...compat.extends('plugin:grommet/recommended'),
-
-  // Prettier last — disables all formatting rules that conflict with Prettier
-  prettierConfig,
-);
+  // {
+  //   files: ['**/*.{ts,tsx,mts,cts}'],
+  //   extends: tseslint.configs.recommended,
+  // },
+  // {
+  //   files: ['**/*.{ts,tsx,mts,cts}'],
+  //   rules: {
+  //     'import/no-unresolved': 'off',
+  //     'import/extensions': 'off',
+  //   },
+  // },
+]);
