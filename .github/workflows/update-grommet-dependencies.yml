@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.19.x'
+          node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install pnpm
@@ -38,9 +38,9 @@ jobs:
         id: update
         run: |
           # Extract current versions
-          CURRENT_GROMMET=$(grep "^  grommet: \^" pnpm-workspace.yaml | head -1 | sed 's/.*grommet: //' | tr -d "'^~")
-          CURRENT_THEME=$(grep "^  grommet-theme-hpe: \^" pnpm-workspace.yaml | head -1 | sed 's/.*grommet-theme-hpe: //' | tr -d "'^~")
-          CURRENT_TOKENS=$(grep "^  hpe-design-tokens: \^" pnpm-workspace.yaml | head -1 | sed 's/.*hpe-design-tokens: //' | tr -d "'^~")
+          CURRENT_GROMMET=$(awk '/^[[:space:]]*grommet:[[:space:]]*\^/ {sub(/\^/, "", $2); print $2; exit}' pnpm-workspace.yaml)
+          CURRENT_THEME=$(awk '/^[[:space:]]*grommet-theme-hpe:[[:space:]]*\^/ {sub(/\^/, "", $2); print $2; exit}' pnpm-workspace.yaml)
+          CURRENT_TOKENS=$(awk '/^[[:space:]]*hpe-design-tokens:[[:space:]]*\^/ {sub(/\^/, "", $2); print $2; exit}' pnpm-workspace.yaml)
 
           # Get latest versions
           LATEST_GROMMET=$(pnpm view grommet version)
@@ -53,21 +53,21 @@ jobs:
 
           if [ "$CURRENT_GROMMET" != "$LATEST_GROMMET" ]; then
             UPDATES_NEEDED=true
-            sed -i "/^catalog:/,/^catalogs:/ s/grommet: \^.*/grommet: ^${LATEST_GROMMET}/" pnpm-workspace.yaml
+            yq e '.catalog.grommet = "^'"${LATEST_GROMMET}"'"' -i pnpm-workspace.yaml
             CHANGELOG="${CHANGELOG}### Grommet ${CURRENT_GROMMET} → ${LATEST_GROMMET}\n"
             CHANGELOG="${CHANGELOG}[Release Notes](https://github.com/grommet/grommet/releases/tag/v${LATEST_GROMMET})\n\n"
           fi
 
           if [ "$CURRENT_THEME" != "$LATEST_THEME" ]; then
             UPDATES_NEEDED=true
-            sed -i "/^catalog:/,/^catalogs:/ s/grommet-theme-hpe: \^.*/grommet-theme-hpe: ^${LATEST_THEME}/" pnpm-workspace.yaml
+            yq e '.catalog.grommet-theme-hpe = "^'"${LATEST_THEME}"'"' -i pnpm-workspace.yaml
             CHANGELOG="${CHANGELOG}### Grommet Theme HPE ${CURRENT_THEME} → ${LATEST_THEME}\n"
             CHANGELOG="${CHANGELOG}[Release Notes](https://github.com/grommet/grommet-theme-hpe/releases/tag/v${LATEST_THEME})\n\n"
           fi
 
           if [ "$CURRENT_TOKENS" != "$LATEST_TOKENS" ]; then
             UPDATES_NEEDED=true
-            sed -i "/^catalog:/,/^catalogs:/ s/hpe-design-tokens: \^.*/hpe-design-tokens: ^${LATEST_TOKENS}/" pnpm-workspace.yaml
+            yq e '.catalog.hpe-design-tokens = "^'"${LATEST_TOKENS}"'"' -i pnpm-workspace.yaml
             CHANGELOG="${CHANGELOG}### HPE Design Tokens ${CURRENT_TOKENS} → ${LATEST_TOKENS}\n"
             CHANGELOG="${CHANGELOG}[Release Notes](https://github.com/grommet/hpe-design-system/releases/tag/hpe-design-tokens%40${LATEST_TOKENS})\\n\\n"
           fi
