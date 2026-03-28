@@ -21,36 +21,39 @@ import {
   getTokens,
   useDesignTokens,
   structuredTokens,
+  applyTokenNameTransform,
 } from './designTokenUtils';
 import { DesignTokenContext } from './DesignTokenContext';
 
-const tokenColumns = [
+// Use originalToken (stable key) for preview type checks so they work
+// regardless of which name syntax is currently displayed.
+const buildTokenColumns = (flavor, syntax) => [
   {
     property: 'id',
     header: 'Preview',
     render: datum => {
+      const key = datum.originalToken || datum.token;
       if (datum.type === 'color') return <ColorPreview datum={datum} />;
 
       if (
-        datum.token.includes('size') ||
-        datum.token.includes('dimension') ||
-        datum.token.includes('spacing') ||
-        datum.token.includes('gap')
+        key.includes('size') ||
+        key.includes('dimension') ||
+        key.includes('spacing') ||
+        key.includes('gap')
       )
         return <DimensionPreview datum={datum} />;
       if (
-        datum.token.includes('radius') ||
-        datum.token.includes('borderRadius') ||
-        /border.*Radius/.test(datum.token)
+        key.includes('radius') ||
+        key.includes('borderRadius') ||
+        /border.*Radius/.test(key)
       )
         return <RadiusPreview datum={datum} />;
-      if (datum.token.includes('border'))
-        return <BorderPreview datum={datum} />;
-      if (datum.token.includes('weight') || datum.token.includes('fontWeight'))
+      if (key.includes('border')) return <BorderPreview datum={datum} />;
+      if (key.includes('weight') || key.includes('fontWeight'))
         return <WeightPreview datum={datum} />;
       if (
-        (datum.token.includes('font') && datum.token.includes('size')) ||
-        datum.token.includes('fontSize')
+        (key.includes('font') && key.includes('size')) ||
+        key.includes('fontSize')
       )
         return <TextPreview datum={datum} />;
       return '--';
@@ -61,18 +64,25 @@ const tokenColumns = [
   {
     property: 'token',
     header: 'Token',
-    render: datum => (
-      <Box direction="row">
-        <Box
-          background="background-contrast"
-          pad="3xsmall"
-          round="xsmall"
-          style={{ fontFamily: 'Menlo' }}
-        >
-          <Text size="xsmall">{datum.token}</Text>
+    render: datum => {
+      const displayName = applyTokenNameTransform(
+        datum.originalToken || datum.token,
+        flavor,
+        syntax,
+      );
+      return (
+        <Box direction="row">
+          <Box
+            background="background-contrast"
+            pad="3xsmall"
+            round="xsmall"
+            style={{ fontFamily: 'Menlo' }}
+          >
+            <Text size="xsmall">{displayName}</Text>
+          </Box>
         </Box>
-      </Box>
-    ),
+      );
+    },
   },
   {
     property: 'description',
@@ -89,8 +99,16 @@ const tokenColumns = [
 ];
 
 export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
-  const { data, setData, selectedMode, setSelectedMode, modes } =
-    useContext(DesignTokenContext);
+  const {
+    data,
+    setData,
+    selectedMode,
+    setSelectedMode,
+    modes,
+    flavor,
+    syntax,
+    setSyntax,
+  } = useContext(DesignTokenContext);
 
   const {
     data: hookData,
@@ -105,6 +123,11 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
   const mode = selectedMode || hookSelectedMode;
   const modeOptions = modes || hookModes;
   const currentData = data || hookData;
+  const currentFlavor = flavor || 'hpe';
+  const currentSyntax = syntax || 'tokens';
+  const handleSyntax = setSyntax || (() => {});
+
+  const tokenColumns = buildTokenColumns(currentFlavor, currentSyntax);
 
   return (
     <Data data={currentData} pad={{ vertical: 'medium' }}>
@@ -112,6 +135,24 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
         <>
           <Toolbar align="end">
             <DataSearch />
+            {currentFlavor === 'hpe' ? (
+              <Box width="xsmall">
+                <FormField
+                  label="Syntax"
+                  contentProps={{ margin: { bottom: 'none', top: '3xsmall' } }}
+                  htmlFor={`syntax-select-${active}__input`}
+                  name={`syntax-select-${active}`}
+                >
+                  <Select
+                    name={`syntax-select-${active}`}
+                    id={`syntax-select-${active}`}
+                    options={['tokens', 'css']}
+                    value={currentSyntax}
+                    onChange={({ option }) => handleSyntax(option)}
+                  />
+                </FormField>
+              </Box>
+            ) : undefined}
             {modeOptions?.length > 1 ? (
               <Box width="xsmall">
                 <FormField
