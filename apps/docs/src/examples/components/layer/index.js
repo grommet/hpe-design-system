@@ -5,8 +5,6 @@ export * from './CenterInformational';
 export * from './CenterLayerAnatomy';
 export * from './ConfigurationForm';
 export * from './DataFiltersAnatomy';
-export * from './DoubleConfirmationAnatomy';
-export * from './DoubleConfirmationBestPractice';
 export * from './FullscreenLayerAnatomy';
 export * from './InformationalLayerClose';
 export * from './LayerAnatomy';
