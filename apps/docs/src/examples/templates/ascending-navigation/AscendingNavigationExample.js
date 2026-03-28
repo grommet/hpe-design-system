@@ -1,5 +1,4 @@
- 
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import { Anchor, Box, Button, PageContent, PageHeader } from 'grommet';
 import { Left } from '@hpe-design/icons-grommet';
 import { HomeContent } from './components/HomeContent';
