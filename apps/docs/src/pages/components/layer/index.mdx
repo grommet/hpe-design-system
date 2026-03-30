@@ -175,6 +175,31 @@ Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for 
 | ------------------------------------------------ | -------- |
 | [full](https://v2.grommet.io/layer#full)         | true |
 
+## Dos and do nots 
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message: `Match the primary action verb to that of the layer's title.`,
+    }}
+    width="100%"
+  >
+    <ActionLabelTitle />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a different verb for the primary action than the layer title's verb.`,
+    }}
+    width="100%"
+  >
+    <ActionLabelTitle bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
 
 ## Layer closing behavior
 
@@ -356,28 +381,7 @@ When in doubt, follow the verb + noun convention to ensure clarity. See [button 
 
 The primary action verb should match the verb in the layer's title.
 
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'do',
-      message: `Match the primary action verb to that of the layer's title.`,
-    }}
-    width="100%"
-  >
-    <ActionLabelTitle />
-  </Example>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Don’t use a different verb for the primary action than the layer title's verb.`,
-    }}
-    width="100%"
-  >
-    <ActionLabelTitle bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
+
 
 ## Accessibility
 
