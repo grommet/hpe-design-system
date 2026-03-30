@@ -200,8 +200,36 @@ Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for 
   </Example>
 </BestPracticeGroup>
 
+## Behaviors
 
-## Layer closing behavior
+### Scroll
+By default, the content within a layer scrolls vertically. This allows users to read, review, 
+or complete tasks even when the content exceeds the available space.
+
+Certain elements, such as headers or footers, may remain visible while the user scrolls when 
+maintaining context or access to actions is necessary.
+Use sticky elements when:
+- Users benefit from ongoing visibility of the layer’s title, instructions, or navigation.
+- Key actions (e.g., Save, Apply, Continue) must stay accessible without requiring the user to scroll back down or up.
+
+### Closing
+Layers can be dismissed through several user actions: selecting the close icon in the header, 
+using a cancel action in the footer, completing a primary action such as Save, pressing the Esc 
+key, or clicking outside the layer.
+
+Use click‑outside dismissal only when no user input or progress could be lost. Avoid it for 
+layers that contain editable fields, unsaved data, or critical user actions.
+
+When closing a layer could result in losing edited or newly added information, require a double 
+confirmation—a secondary dialog that asks the user to confirm they want to discard their changes.
+
+| Scenario                                              | Recommended closing options                              | Double confirmation |
+| ----------------------------------------------------- | -------------------------------------------------------- | :-----------------: |
+| Layer contains no editable input                      | Close icon, Cancel button, Esc key, click-outside        | Optional            |
+| Layer contains editable fields but input is autosaved | Close icon, Cancel button, Esc key                       | Optional            |
+| Layer contains unsaved changes                        | Close icon, Cancel button, Esc key, Save                 | <Checkmark a11yTitle="true" size="small" /> |
+| Layer includes a critical or irreversible action      | Close icon, Cancel button, Esc key                       | <Checkmark a11yTitle="true" size="small" /> |
+| Primary action is successfully completed (e.g., Save) | Automatically close or close via Save                    | Optional            |
 
 Depending on whether a layer is [informational](#informational) or [actionable](#actionable), the elements and interactions that close a layer differ.
 
