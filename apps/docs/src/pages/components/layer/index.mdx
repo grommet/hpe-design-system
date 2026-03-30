@@ -270,11 +270,14 @@ When in doubt, follow the verb + noun convention to ensure clarity. See [button 
 
 ## Accessibility
 
-### Layer titles
+### Layer headings
+Layers headings should be semantically correct. Using `H1` or `H2` for layer titles maintains a 
+valid heading hierarchy for assistive technologies. Modal layers function like top‑level sections, 
+so assigning them an H2, or an H1 when inside a semantic wrapper, prevents incorrect nesting. 
+Non‑modal layers at the page root must also use H2 to preserve outline consistency and ensure 
+predictable heading navigation for screen reader users.
 
-- Layer headings should be semantically correct.
-- Treat a Layer as if it were a stand alone page, with the exception that the first heading within a Layer should be an `h2` or `<Heading level={2} />`.
-- All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
+All subsequent headings should follow typical [semantic heading structure](/foundation/typography#semantic-usage-of-heading-levels).
 
 ### Announcing layer open and close
 
