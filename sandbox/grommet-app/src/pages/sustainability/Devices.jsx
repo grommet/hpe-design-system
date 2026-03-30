@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Data,
   DataTable,
@@ -21,7 +19,7 @@ import {
 import { More, List, Table, Map } from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { useLoading } from '../../utils/skeleton';
-import { DensityControl } from './components';
+// import { DensityControl } from './components';
 import { devices } from './data';
 
 const columns = [
