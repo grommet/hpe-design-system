@@ -9,6 +9,7 @@ import {
   ActionLabels,
   ActionLabelTitle,
   CenterInformational,
+  ContentDrivenLayout,
   DoubleConfirmationAnatomy,
   DoubleConfirmationBestPractice,
   ConfigurationForm,
@@ -54,7 +55,24 @@ Use center layer when a process has been successfully initiated and the user nee
 
 ### Confirming destructive deletion
 
-[Placeholder for confirming destructive deletion example]
+Highly destructive actions refer to use cases where large amounts of data will be deleted
+and cannot be restored. In these instances, have the user type a string that matches the
+name or path of the object to be deleted. This approach ensures the user is aware of the
+consequences of the action.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <ContentDrivenLayout />
+</Example>
 
 ### Adding a new record
 

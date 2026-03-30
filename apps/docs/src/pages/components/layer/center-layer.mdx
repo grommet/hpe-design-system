@@ -1,10 +1,6 @@
 import { Notification } from 'grommet';
 import { Example } from '../../../layouts';
-import {
-  CenterInformational,
-  CenterLayerAnatomy,
-  ContentDrivenLayout,
-} from '../../../examples';
+import { CenterLayerAnatomy } from '../../../examples';
 import { Checkmark } from '@hpe-design/icons-grommet';
 
 ## Anatomy
@@ -56,29 +52,4 @@ When data has been edited or changed and the user tries to close the layer, a do
 
 Learn more about the anatomy and implementation of a [double confirmation](/components/layer#double-confirmations) on the main layer page since this behavior applies to all layer types.
 
-## Examples
 
-### Highly destructive confirmation
-
-<Notification
-  status="info"
-  message="Additional destructive confirmation patterns differing based off of level of severity are coming soon."
-  width="xlarge"
-  margin={{ bottom: 'medium' }}
-/>
-
-Highly destructive actions refer to use cases where large amounts of data will be deleted and cannot be restored. In these instances, have the user type a string that matches the name or path of the object to be deleted. This approach ensures the user is aware of the consequences of the action.
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js"
-  showResponsiveControls={['fullScreen']}
-  screenContainer
-  height="650px"
-  width="100%"
->
-  <ContentDrivenLayout />
-</Example>
