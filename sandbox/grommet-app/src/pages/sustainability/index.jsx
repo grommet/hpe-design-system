@@ -30,7 +30,7 @@ function Sustainability() {
             <Tab title="Insights">
               <Box pad={{ vertical: 'medium' }}>
                 <SustainabilityInsights />
-                <ContentPane heading="Devices" level={2}>
+                <ContentPane heading="Devices" level={2} contain={false}>
                   <Devices />
                 </ContentPane>
               </Box>
