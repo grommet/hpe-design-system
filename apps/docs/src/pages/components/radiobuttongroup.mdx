@@ -1,4 +1,9 @@
-import { AccessibilitySection, Example } from '../../layouts';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
   RadioButtonGroupDisabledExample,
   RadioButtonGroupExample,
@@ -17,29 +22,129 @@ import {
   <RadioButtonGroupExample />
 </Example>
 
-## Guidance
+## Use cases
 
-### Best practices
+### Selecting a single configuration option
 
-- Keep labels concise and simple. Avoid lengthy descriptions, however err on clarity over brevity.
-- If there are more than five options, or if the default value is expected most of the time, consider using [Select](/components/select) instead to avoid cluttering the experience.
-- Use when the user needs to see all related options.
-- Radio buttons should always be listed vertically with one choice per line.
-- Never add sub-categories to a RadioButtonGroup.
+Use RadioButtonGroup when a form asks the user to choose exactly one value from a small, fixed set — for example, a power regulation mode or a network policy. All options remain visible so the user can compare them at a glance before deciding.
 
-### When to use
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/radiobuttongroup/RadioButtonGroupExample.js"
+  docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
+  height={{ min: 'small' }}
+  width="medium"
+>
+  <RadioButtonGroupExample />
+</Example>
 
-RadioButtonGroup is used to lay out a discreet list of mutually related options that are easily visible. RadioButtonGroup requires an input choice, so it is important to be clear with what is being asked of the user on the label.
+### Collecting a single preference
 
-When users should be able to select more than one option, use [CheckBoxGroup](/components/checkboxgroup) instead.
+Use RadioButtonGroup in settings or configuration forms when the choice is limited and all available preferences should be visible without opening a dropdown.
+
+{/* TODO: Add a coded example that demonstrates collecting a single preference (e.g., a notification frequency or theme setting) in a settings form */}
+
+### Choosing between two to five mutually exclusive values
+
+RadioButtonGroup is appropriate when an explicit choice between two to five clearly labeled, mutually exclusive options is required and all options should remain visible simultaneously.
+
+{/* TODO: Add a coded example that demonstrates a concise 2–3 option RadioButtonGroup for a binary or tri-state selection */}
+
+## Anatomy
+
+{/* TODO: Insert anatomy diagram image here */}
+
+| Label | Region | Purpose | Required | Notes |
+| :---: | --- | --- | :---: | --- |
+| **1** | **FormField wrapper** | Groups the label, help text, error message, and radio inputs into a single accessible form control. | Optional | Strongly recommended. Omitting FormField requires manually providing `aria-labelledby` or `a11yTitle` on the RadioButtonGroup. |
+| **1a** | **Group label** | Communicates what is being asked of the user. | Optional | Required for accessibility. Provide via FormField `label` or `a11yTitle`. |
+| **1b** | **Error / info message** | Signals a validation failure or provides contextual guidance beneath the group label. | Optional | |
+| **2** | **RadioButtonGroup container** | Renders and manages the full set of radio inputs, enforcing single-select behavior. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **2a** | **Radio button** | Individual selectable option within the group. | <span><Checkmark a11yTitle="true" size="small" /></span> | Each maps to one value in the `options` array. |
+| **2b** | **Option label** | Identifies the choice in plain language. | <span><Checkmark a11yTitle="true" size="small" /></span> | Keep labels concise. Err on clarity over brevity; avoid lengthy descriptions. |
 
 ## Variants
 
-RadioButtonGroup is primarily used to select a single item from a list of two or more options.
+RadioButtonGroup is primarily used to select a single item from a list of two or more options. The standard form is a vertical stack of labeled radio buttons nested inside a FormField.
 
-### Validation
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/radiobuttongroup/RadioButtonGroupExample.js"
+  docs="https://v2.grommet.io/radiobuttongroup?theme=hpe#props"
+  height={{ min: 'small' }}
+  width="medium"
+>
+  <RadioButtonGroupExample />
+</Example>
 
-Validation styling indicates that a selection was not made. In many cases, a clear label for the group and an error message of 'required' may be sufficient. Bonus points go to messages explaining why a required selection is beneficial to the user.
+## Dos and Don'ts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'List options vertically, one per line.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a RadioButtonGroup with a vertical option layout */}</div>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        "Don't arrange radio buttons horizontally unless options are extremely short and the layout is space-constrained. Vertical layout improves scan-ability and reduces misclick errors.",
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a RadioButtonGroup with a horizontal layout as the discouraged pattern */}</div>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Include a descriptive FormField label that clearly states what is being selected.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a RadioButtonGroup with a clear, descriptive label */}</div>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        "Don't use a vague or absent group label. A missing or unclear label forces users to infer context from option text alone.",
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a RadioButtonGroup with a missing or vague label */}</div>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use RadioButtonGroup for two to five fixed, mutually exclusive options.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a RadioButtonGroup with 3–4 appropriately scoped options */}</div>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        "Don't use RadioButtonGroup for lists of six or more items. Long lists clutter the UI — use Select for larger option sets.",
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a RadioButtonGroup overloaded with many options, noting Select as the preferred alternative */}</div>
+  </Example>
+</BestPracticeGroup>
+
+## Behaviors and States
+
+### Application States
+
+#### Validation
+
+Validation styling indicates a required selection was not made. Provide a clear group label and a specific error message. Where possible, explain why the selection is important to the user — not just "required."
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/radiobuttongroup/RadioButtonGroupValidationExample.js"
@@ -50,9 +155,9 @@ Validation styling indicates that a selection was not made. In many cases, a cle
   <RadioButtonGroupValidationExample />
 </Example>
 
-### Disabled
+#### Disabled
 
-Indicates that the RadioButtonGroup input exists but cannot be interacted with until a precondition is met.
+Use `disabled` to indicate the RadioButtonGroup exists but cannot be interacted with until a precondition is met. Set `disabled` on both the RadioButtonGroup and the enclosing FormField to apply correct visual and semantic styling.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/radiobuttongroup/RadioButtonGroupDisabledExample.js"
@@ -63,7 +168,31 @@ Indicates that the RadioButtonGroup input exists but cannot be interacted with u
   <RadioButtonGroupDisabledExample />
 </Example>
 
+## Content Guidelines
+
+- Keep option labels concise and mutually exclusive in meaning.
+- Use parallel grammatical structure across all options — e.g., all noun phrases or all verb phrases.
+- Avoid negations in option labels (e.g., "Do not apply settings") — rephrase as a positive.
+- Write the group label as a clear question or noun phrase describing what is being chosen.
+- Limit the group label to one short phrase; avoid full sentences.
+
 ## Accessibility
+
+### Keyboard interaction
+
+| Key | Action |
+| --- | --- |
+| Tab | Moves focus into the RadioButtonGroup; focuses the currently selected option or the first option if none is selected. |
+| Arrow Down / Arrow Right | Moves focus to and selects the next radio button in the group. |
+| Arrow Up / Arrow Left | Moves focus to and selects the previous radio button in the group. |
+| Space | Selects the focused radio button. |
+
+### ARIA
+
+- The RadioButtonGroup container has `role="radiogroup"` applied automatically.
+- Apply `required` on FormField to set `aria-required="true"` on the control when selection is mandatory.
+- When a validation error is present, `aria-invalid="true"` is applied automatically through FormField.
+- Always provide an accessible group label via the FormField `label` prop, or directly via `a11yTitle` when no visible label is present.
 
 ### WCAG compliance
 

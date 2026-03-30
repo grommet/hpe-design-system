@@ -1,0 +1,243 @@
+id: radiobuttongroup
+name: RadioButtonGroup
+description: >
+  Presents a fixed list of mutually exclusive options so a user can select
+  exactly one choice. Each radio button maps to a single value; selecting one
+  automatically deselects all others.
+importPath: grommet
+framework: react
+
+props:
+  - name: options
+    type: "string[] | { label: string | React.ReactNode, value: string, disabled?: boolean }[]"
+    required: true
+    description: >
+      The list of choices to display. Pass plain strings for simple labels, or
+      objects when individual options need custom labels or per-option disabled
+      state.
+
+  - name: value
+    type: string
+    required: false
+    description: The currently selected value. Controls the group when supplied.
+
+  - name: onChange
+    type: "(event: React.ChangeEvent<HTMLInputElement>) => void"
+    required: false
+    description: Callback fired when the user selects a different option.
+
+  - name: name
+    type: string
+    required: true
+    description: >
+      HTML name attribute shared by all radio inputs in the group. Required for
+      correct browser grouping behavior and form serialization.
+
+  - name: id
+    type: string
+    required: false
+    description: >
+      HTML id applied to the first radio input. Used to associate the group with
+      a FormField label via htmlFor.
+
+  - name: disabled
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Disables all radio inputs in the group, preventing interaction until a
+      precondition is met. Set `disabled` on both the RadioButtonGroup and its
+      enclosing FormField for correct styling.
+
+  - name: direction
+    type: "'row' | 'column'"
+    required: false
+    defaultValue: column
+    description: >
+      Controls layout orientation. Defaults to column (vertical stack).
+      Use row only when options are very short and space allows.
+
+  - name: gap
+    type: string
+    required: false
+    description: Spacing between individual radio buttons. Accepts design token size values.
+
+  - name: defaultValue
+    type: string
+    required: false
+    description: >
+      The initially selected value in uncontrolled mode. Do not combine with
+      the `value` prop.
+
+  - name: a11yTitle
+    type: string
+    required: false
+    description: >
+      Accessible label for the group container. Provide when the surrounding
+      FormField label is absent.
+
+usage:
+  whenToUse:
+    - Selecting a single configuration option from a short, fixed list
+    - Collecting a single preference input in a settings or details form
+    - Choosing between two to five mutually exclusive values when all options should be visible simultaneously
+  whenToAvoid:
+    - Do not use RadioButtonGroup when there are more than five options or when a default value is expected most of the time — use Select instead to reduce visual clutter.
+    - Do not use RadioButtonGroup when users should be able to select more than one option — use CheckBoxGroup instead.
+    - Do not add sub-categories or nested groups within a RadioButtonGroup.
+
+variants:
+  - name: default
+    description: Vertical stack of labeled radio buttons nested inside a FormField.
+    when: >
+      The standard form use case — presenting a short list of mutually exclusive
+      string options with an accessible group label.
+    example: >
+      <Form>
+        <FormField htmlFor="mode" name="mode" label="Power regulation">
+          <RadioButtonGroup
+            id="mode"
+            name="mode"
+            options={['Dynamic power savings', 'Static low power', 'Static high performance']}
+            value={value}
+            onChange={e => setValue(e.target.value)}
+          />
+        </FormField>
+      </Form>
+
+examples:
+  - description: Default RadioButtonGroup inside a form
+    codeFile: apps/docs/src/examples/components/radiobuttongroup/RadioButtonGroupExample.js
+
+  - description: Validation state — required selection not made
+    codeFile: apps/docs/src/examples/components/radiobuttongroup/RadioButtonGroupValidationExample.js
+
+  - description: Disabled state — group cannot be interacted with
+    codeFile: apps/docs/src/examples/components/radiobuttongroup/RadioButtonGroupDisabledExample.js
+
+anatomy:
+  - label: "1"
+    region: FormField wrapper
+    purpose: >
+      Groups the label, help text, error message, and the radio inputs into a
+      single accessible form control.
+    availability: optional
+    notes: >
+      Strongly recommended. Omitting FormField requires manually providing
+      aria-labelledby or a11yTitle on the RadioButtonGroup.
+
+  - label: 1a
+    region: Group label
+    purpose: Communicates what is being asked of the user.
+    availability: optional
+    notes: Required for accessibility. Provide via FormField label or a11yTitle.
+
+  - label: 1b
+    region: Error / info message
+    purpose: >
+      Signals a validation failure or provides contextual guidance beneath the
+      group label.
+    availability: optional
+
+  - label: "2"
+    region: RadioButtonGroup container
+    purpose: >
+      Renders and manages the full set of radio inputs, enforcing single-select
+      behavior.
+    availability: required
+
+  - label: 2a
+    region: Radio button
+    purpose: Individual selectable option within the group.
+    availability: required
+    notes: Each maps to one value in the options array.
+
+  - label: 2b
+    region: Option label
+    purpose: Identifies the choice in plain language.
+    availability: required
+    notes: >
+      Keep labels concise. Err on clarity over brevity; avoid lengthy
+      descriptions.
+
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+  applicationStates:
+    - disabled
+    - error
+  dataStates:
+    - selected
+    - unselected
+
+contentGuidelines:
+  - Keep option labels concise and mutually exclusive in meaning.
+  - Use parallel grammatical structure across all options in the group — e.g., all noun phrases or all verb phrases.
+  - Avoid negations in option labels (e.g., "Do not apply settings") — rephrase as a positive.
+  - Write group labels as a clear question or noun phrase that describes what is being chosen.
+  - Limit group label length to one short phrase; do not use full sentences.
+
+dosAndDonts:
+  - do: List options vertically, one per line.
+    dont: Arrange radio buttons horizontally unless options are extremely short and the layout is space-constrained.
+    reason: Vertical layout improves scan-ability and reduces misclick errors.
+  - do: Include a descriptive FormField label that clearly states what is being selected.
+    dont: Use a vague or absent group label.
+    reason: A missing or unclear label forces users to infer context from option text alone.
+  - do: Use RadioButtonGroup for two to five fixed, mutually exclusive options.
+    dont: Use RadioButtonGroup for lists of six or more items.
+    reason: Long lists clutter the UI; Select is more appropriate for larger option sets.
+
+accessibility:
+  keyboard:
+    - key: Tab
+      action: Moves focus into the RadioButtonGroup; focuses the currently selected option or the first option if none is selected.
+    - key: Arrow Down / Arrow Right
+      action: Moves focus to and selects the next radio button in the group.
+    - key: Arrow Up / Arrow Left
+      action: Moves focus to and selects the previous radio button in the group.
+    - key: Space
+      action: Selects the focused radio button.
+  aria:
+    - attribute: role
+      value: radiogroup
+      condition: applied to the RadioButtonGroup container
+    - attribute: aria-required
+      value: "true"
+      condition: when the field is required
+    - attribute: aria-invalid
+      value: "true"
+      condition: when a validation error is present
+    - attribute: aria-labelledby
+      value: id of the group label element
+      condition: when the group label is rendered by an associated FormField
+    - attribute: aria-label
+      value: descriptive string
+      condition: when no visible group label is present; set via a11yTitle
+  announcements:
+    - trigger: Option selected
+      message: "{Option label}, radio button, selected, N of M."
+    - trigger: Validation error triggered
+      message: "{Group label}, required. {Error message text}."
+  wcag:
+    - criterion: 1.3.1 Info and Relationships
+      status: pass
+    - criterion: 1.4.3 Contrast (Minimum)
+      status: pass
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 2.4.7 Focus Visible
+      status: pass
+    - criterion: 3.3.1 Error Identification
+      status: conditional
+    - criterion: 3.3.2 Labels or Instructions
+      status: pass
+
+relatedComponents:
+  - checkboxgroup
+  - select
+  - textinput
+  - forminput
