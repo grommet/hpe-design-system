@@ -76,7 +76,26 @@ consequences of the action.
 
 ### Adding a new record
 
-[Placeholder for adding a new record example]
+Use side drawer layer when adding a new item or configuring details without 
+navigating away from the main view. In this example, selecting Add application 
+opens a side drawer containing a form, allowing the user to input configuration 
+details while still referencing the existing list of applications.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/ConfigurationForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/Layer/LayerHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/ConfirmationContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/DoubleConfirmation.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/components/layer/ConfigurationForm.js"
+  height={{ min: 'small' }}
+  template
+  showResponsiveControls={[]}
+>
+  <ConfigurationForm />
+</Example>
 
 ### Filtering data
 
