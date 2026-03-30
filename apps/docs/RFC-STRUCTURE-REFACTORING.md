@@ -205,9 +205,9 @@ graph TD
 - **Trade-off**: Slightly slower generation, but happens once at build time. Manual mapping was error-prone.
 
 #### 3. **Zod Validation at Build (vs. Runtime Only)**
-- **Decision**: Run full validation during `pnpm install` → build → test pipeline; fail early.
+- **Decision**: Run full validation as part of the docs build/test pipeline and CI workflows (after dependencies are installed); fail early.
 - **Why**: Catches schema violations before deployment, provides clear error messages, enables strict CI gates.
-- **Trade-off**: Adds ~50ms to build time (negligible for docs app scale).
+- **Trade-off**: Adds ~50ms to docs build/validation steps (negligible for docs app scale; no impact on dependency installation).
 
 #### 4. **Strict by Default, Warn-only Override**
 - **Decision**: Build/CI fails on validation errors; local dev can opt-in to warn-only mode.
@@ -383,8 +383,8 @@ All lookups are pre-computed and cached; runtime performance is not a constraint
 
 ## References
 
-- **Developer Onboarding**: [Structure Data Module README](apps/docs/src/data/README.md) — Quick start guide for adding/modifying pages
-- **Phase 1 Test Implementation**: [Test Suite](apps/docs/src/data/__tests__/)
-- **Current Structure System**: [assembly logic](apps/docs/src/data/structure.tsx)
-- **Navigation Implementation**: [Navigation Items](apps/docs/src/layouts/navigation/navItems.ts)
-- **Utility Functions**: [Search & lookup utilities](apps/docs/src/utils/search.js)
+- **Developer Onboarding**: [Structure Data Module README](src/data/README.md) — Quick start guide for adding/modifying pages
+- **Phase 1 Test Implementation**: [Test Suite](src/data/__tests__/)
+- **Current Structure System**: [assembly logic](src/data/structure.tsx)
+- **Navigation Implementation**: [Navigation Items](src/layouts/navigation/navItems.ts)
+- **Utility Functions**: [Search & lookup utilities](src/utils/search.js)

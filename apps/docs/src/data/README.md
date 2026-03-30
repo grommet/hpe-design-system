@@ -20,7 +20,7 @@ Raw Data (structures/)
   ├── foundation.tsx → accessibility, colors, etc.
   ├── learn.tsx → tutorials and guides
   ├── tokens.tsx → design token documentation
-  └── templates.tsx → use-case templates
+  └── templates/index.ts → use-case templates
 
         ↓ normalized through Structure model
 
@@ -34,7 +34,7 @@ structure.tsx (assembly & gating)
         ↓ exported as typed module
 
 Consumers (runtime)
-  ├── navItems.ts → uses categoryMapping for navigation UI
+  ├── navItems.ts → uses structureIndexes.byCategory (from categoryMapping) for navigation UI
   ├── search.js → uses structureIndexes for search results
   └── _app.js, layouts/ → use getPrimaryPageByName() for page details
 ```
@@ -59,7 +59,7 @@ Consumers (runtime)
 | **structures/foundation.tsx** | Accessibility, colors, typography, spacing | Array with cardOrder, category properties |
 | **structures/learn.tsx** | Tutorials, how-tos, explanations | Array of pages |
 | **structures/tokens.tsx** | Design token reference | Array of pages |
-| **structures/templates.tsx** | Use-case templates + content layouts | Array with cardOrder |
+| **structures/templates/index.ts** | Use-case templates + content layouts | Array with cardOrder |
 
 ### Tests
 
