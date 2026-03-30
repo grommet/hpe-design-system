@@ -5,10 +5,6 @@ on:
     # Run daily at 9 AM UTC to check for new releases
     - cron: '0 9 * * *'
   workflow_dispatch: # Allow manual triggering
-  # TODO: remove before merging — temporary trigger for testing on branch
-  push:
-    branches:
-      - chore/deps-grommet-updates
 
 jobs:
   check-and-update:
@@ -81,17 +77,12 @@ jobs:
         if: steps.update.outputs.updates-needed == 'true'
         run: pnpm install --no-frozen-lockfile --ignore-scripts
 
-      - name: Set current date
-        id: date
-        if: steps.update.outputs.updates-needed == 'true'
-        run: echo "yyyymmdd=$(date +'%Y%m%d')" >> "$GITHUB_OUTPUT"
-
       - name: Create PR with updates
         if: steps.update.outputs.updates-needed == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: chore/deps-grommet-${{ steps.date.outputs.yyyymmdd }}
+          branch: chore/deps-grommet-updates
           title: 'chore: Update HPE Design System dependencies'
           commit-message: |
             chore: update HPE Design System catalog dependencies
