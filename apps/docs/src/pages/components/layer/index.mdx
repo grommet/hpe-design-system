@@ -146,11 +146,35 @@ Use full screen layers when a task needs full user’s attention. See [Wizard](/
 | **3a** | **Confirming action** | Completes the primary action of the layer (e.g., Save, Apply).                          |                  Optional                   | Completing the primary action may dismiss the layer when appropriate. <span>See more details on layer's [closing behavior](#layer-closing-behavior).</span> |
 | **3b** | **Cancel**            | Provides an alternative way to dismiss the layer without completing the primary action. |                  Optional                   | <span>See more details on layer's [closing behavior](#layer-closing-behavior).</span>                                                                       |
 
-## Types of layers
+## Types
 
-Different use cases and content warrant different layer types. Learn more about each type below.
+### Center
+Center layers exist to deliver quick, concise confirmations or short interactions that don’t 
+require major context switching. See [Confirming next steps](#confirming-next-steps) and [Confirming destructive deletion](#confirming-destructive-deletion).
 
-<LayerTypes />
+### Side drawer
+Side drawer layers are designed to let users view details, configure items, or adjust filters 
+while still maintaining full visibility of their main page. See [Adding a new record](#adding-a-new-record) and 
+[Filtering data](#filtering-data).
+
+Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for a side drawer layer.
+
+| Property                                         | Value    | Notes                                                                                               |
+| ------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------------- |
+| [position](https://v2.grommet.io/layer#position) | right    | --                                                                                                  |
+| [full](https://v2.grommet.io/layer#full)         | vertical | --                                                                                                  |
+| [modal](https://v2.grommet.io/layer#modal)       | false    | A non-modal layer allows the underlying page to remain interactive while the layer is open.         |
+
+### Fullscreen
+Fullscreen layers support more extensive or content‑heavy tasks that need additional space and 
+focus. See [Completing a multi‑step process](#completing-a-multi-step-process).
+
+Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for a fullscreen layer.
+
+| Property                                         | Value    |
+| ------------------------------------------------ | -------- |
+| [full](https://v2.grommet.io/layer#full)         | true |
+
 
 ## Layer closing behavior
 
