@@ -39,7 +39,7 @@
               }
             },
             "$type": "color",
-            "$value": "{base.color.grey.50}"
+            "$value": "{base.color.white.100}"
           }
         }
       },
@@ -145,7 +145,7 @@
               }
             },
             "$type": "color",
-            "$value": "{base.color.white.100}"
+            "$value": "{base.color.grey.50}"
           }
         }
       },

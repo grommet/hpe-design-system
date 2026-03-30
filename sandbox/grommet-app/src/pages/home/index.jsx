@@ -15,14 +15,14 @@ import { SustainabilityOverview } from './SustainabilityOverview';
 import { Notifications } from './Notifications';
 import { BillingSummary } from './BillingSummary';
 import { RecentServices } from './RecentServices';
-import ContentPane from '../components/ContentPane';
+import ContentPane from '../../components/ContentPane';
 import { GetStarted } from './GetStarted';
 import { DeviceSummary } from './DeviceSummary';
 import { UserOverview } from './UserOverview';
 import { ExpiringSubscriptions } from './ExpiringSubscriptions';
 import { MonthlyCharges } from './MonthlyCharges';
-import { SkeletonContext } from '../components';
-import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
+import { SkeletonContext } from '../../components';
+import { skeleton as skeletonAnimation, useLoading } from '../../utils/skeleton';
 
 const Divider = () => <Box border={{ side: 'bottom', color: 'border-weak' }} />;
 

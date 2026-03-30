@@ -1,9 +1,9 @@
 import { Box, List, Text, Notification } from 'grommet';
 import { StatusCritical, StatusWarning } from '@hpe-design/icons-grommet';
-import { DashboardCard } from '../components';
-import services from '../mockData/services.json';
+import { DashboardCard } from '../../components';
+import services from '../../mockData/services.json';
 import { useContext } from 'react';
-import { SkeletonContext } from '../components';
+import { SkeletonContext } from '../../components';
 
 export const ExpiringSubscriptions = () => {
   const skeleton = useContext(SkeletonContext);

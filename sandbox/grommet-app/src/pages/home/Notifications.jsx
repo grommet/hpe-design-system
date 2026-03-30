@@ -5,10 +5,10 @@ import {
   StatusGood,
   Info,
 } from '@hpe-design/icons-grommet';
-import { DashboardCard, NotificationMetric } from '../components';
-import notifications from '../mockData/notifications.json';
+import { DashboardCard, NotificationMetric } from '../../components';
+import notifications from '../../mockData/notifications.json';
 import { useContext } from 'react';
-import { SkeletonContext } from '../components';
+import { SkeletonContext } from '../../components';
 
 const statuses = {
   critical: {

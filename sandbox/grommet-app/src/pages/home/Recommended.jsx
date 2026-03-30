@@ -1,9 +1,9 @@
 import { Box, Heading } from 'grommet';
 import PropTypes from 'prop-types';
-import { DashboardCard } from '../components';
+import { DashboardCard } from '../../components';
 import { TreeNode, History, Robot } from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
-import { SkeletonContext } from '../components';
+import { SkeletonContext } from '../../components';
 
 export const Recommended = ({ inline }) => {
   const skeleton = useContext(SkeletonContext);

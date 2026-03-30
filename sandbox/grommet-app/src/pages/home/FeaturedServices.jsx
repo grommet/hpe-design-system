@@ -1,10 +1,10 @@
 import { Anchor, Grid, Tabs, Tab } from 'grommet';
 import PropTypes from 'prop-types';
-import services from '../mockData/services.json';
-import { Card } from '../components';
+import services from '../../mockData/services.json';
+import { Card } from '../../components';
 import { LinkNext } from '@hpe-design/icons-grommet';
-import ContentPane from '../components/ContentPane';
-import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
+import ContentPane from '../../components/ContentPane';
+import { skeleton as skeletonAnimation, useLoading } from '../../utils/skeleton';
 
 const TabContent = ({ data, ...rest }) => (
   <Grid columns="small" gap="medium" pad={{ vertical: 'medium' }} {...rest}>

@@ -11,14 +11,14 @@ import {
 import { Link } from 'react-router-dom';
 import { Configure, AIGenFill, NewWindow } from '@hpe-design/icons-grommet';
 import { Capacity } from './components';
-import { SustainabilityOverview } from '../../../SustainabilityOverview';
+import { SustainabilityOverview } from '../../../home/SustainabilityOverview';
 import { Usage } from './Usage';
 import { Monitoring } from './Monitoring';
 import { GreenLakeStatus } from './GreenLakeStatus';
 import { Costs } from './Costs';
 import { Tasks } from './Tasks';
-import { Notifications } from '../../../Notifications';
-import { RecentServices } from '../../../RecentServices';
+import { Notifications } from '../../../home/Notifications';
+import { RecentServices } from '../../../home/RecentServices';
 import { Networking } from './Networking';
 import { Storage } from './Storage';
 import { SupportingContext } from '../../../../contexts';

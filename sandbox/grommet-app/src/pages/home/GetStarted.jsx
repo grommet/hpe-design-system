@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext, Heading } from 'grommet';
-import { DashboardCard } from '../components';
+import { DashboardCard } from '../../components';
 import { Apps, UserAdd } from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
-import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
+import { skeleton as skeletonAnimation, useLoading } from '../../utils/skeleton';
 
 export const GetStarted = ({ kind, heading }) => {
   const size = useContext(ResponsiveContext);
