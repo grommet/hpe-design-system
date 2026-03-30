@@ -15,6 +15,8 @@
     "grommet-icons": "catalog:grommet-stable",
     "grommet-theme-hpe-v5": "npm:grommet-theme-hpe@5.8.0",
     "grommet-theme-hpe-v6": "npm:grommet-theme-hpe@6",
+    "grommet-theme-hpe-v7": "npm:grommet-theme-hpe@7",
+    "grommet-theme-hpe-v8": "npm:grommet-theme-hpe@8",
     "gsap": "^3.12.5",
     "hpe-design-tokens": "workspace:*",
     "prop-types": "catalog:",

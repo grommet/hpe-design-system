@@ -23,6 +23,8 @@ import { Element } from '@hpe-design/icons-grommet';
 // import { hpe } from 'grommet-theme-hpe';
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
+import { hpe as hpeV7 } from 'grommet-theme-hpe-v7';
+import { hpe as hpeV8 } from 'grommet-theme-hpe-v8';
 
 // // TO DO should these be added as tokens?
 const backgrounds = {
@@ -3207,7 +3209,9 @@ const v5 = deepMerge(hpeV5, {
 });
 
 export const themes = {
-  v2: current,
+  current: current,
+  v2: hpeV8,
+  "v1.5": hpeV7,
   v1: hpeV6,
   v0: v5,
 };
