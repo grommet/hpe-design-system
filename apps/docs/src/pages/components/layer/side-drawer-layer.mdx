@@ -2,7 +2,6 @@ import { Example } from '../../../layouts';
 import {
   DataFiltersAnatomy,
   SideDrawerLayerAnatomy,
-  FilteringTable,
   LayerStickyExample,
 } from '../../../examples';
 import { Checkmark } from '@hpe-design/icons-grommet';
@@ -113,28 +112,3 @@ In order to maximize screen real-estate when content is scrollable, the header m
   <LayerStickyExample sticky="scrollup" />
 </Example>
 
-## Examples
-
-### Filtering
-
-Click the filter icon to see the layer. Notice the sticky footer on this layer. Refer to [scroll behavior](#scroll-behavior) for added guidance.
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilterServers.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersContext.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FilterControls.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/Filters.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersLayer.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/ResultsSummary.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/SearchFilter.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/mockData.js',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js"
-  template
-  showResponsiveControls={[]}
->
-  <FilteringTable />
-</Example>

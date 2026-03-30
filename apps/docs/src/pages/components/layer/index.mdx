@@ -13,6 +13,7 @@ import {
   DoubleConfirmationAnatomy,
   DoubleConfirmationBestPractice,
   ConfigurationForm,
+  FilteringTable,
   LayerAnatomy,
   LayerExample,
   LayerCenterExample,
@@ -99,7 +100,30 @@ details while still referencing the existing list of applications.
 
 ### Filtering data
 
-[Placeholder for filtering data example]
+Use side drawer layer when a list contains many items and users need tools to quickly 
+narrow down the results. In this example, filtering options allow users to refine a 
+large set of server records by criteria such as status, connection state, or other 
+properties, helping them locate relevant items efficiently without leaving the main view.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilterServers.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FilterControls.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/Filters.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersLayer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/ResultsSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/SearchFilter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/mockData.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js"
+  template
+  showResponsiveControls={[]}
+>
+  <FilteringTable />
+</Example>
 
 ### Completing a multi‑step process
 
