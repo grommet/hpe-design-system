@@ -1,5 +1,9 @@
-const flattenObject = (obj, delimiter = '.', prefix = '') =>
-  Object.keys(obj).reduce((acc, k) => {
+const flattenObject = (
+  obj: Record<string, unknown>,
+  delimiter = '.',
+  prefix = '',
+) =>
+  Object.keys(obj).reduce((acc: Record<string, unknown>, k) => {
     const pre = prefix.length ? `${prefix}${delimiter}` : '';
     if (
       typeof obj[k] === 'object' &&
@@ -10,7 +14,7 @@ const flattenObject = (obj, delimiter = '.', prefix = '') =>
       Object.assign(
         acc,
         flattenObject(
-          obj[k],
+          obj[k] as Record<string, unknown>,
           delimiter,
           !['hpe', 'color'].includes(k) ? pre + k : '',
         ),
