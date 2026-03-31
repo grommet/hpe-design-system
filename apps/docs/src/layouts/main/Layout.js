@@ -96,7 +96,9 @@ export const Layout = ({
           {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
-          {title && title.toLowerCase() !== 'home' && <AppHeader />}
+          {title && title.toLowerCase() !== 'home' && (
+            <AppHeader />
+          )}
           <Main overflow="visible">
             <Page>
               {layout !== 'plain' ? (
