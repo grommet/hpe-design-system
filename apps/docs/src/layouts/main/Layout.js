@@ -5,7 +5,6 @@ import { initialize, pageview } from 'react-ga';
 import {
   Main,
   Page,
-  PageContent,
   ResponsiveContext,
   SkipLinkTarget,
   SkipLink,
@@ -115,15 +114,8 @@ export const Layout = ({
                 </DocsLayout>
               ) : (
                 <>
-                  {isLanding ? (
-                    <SkipLinkTarget id="main" label="Main content" />
-                  ) : (
-                    <PageContent>
-                      <SkipLinkTarget id="main" label="Main content" />
-                      {children}
-                    </PageContent>
-                  )}
-                  {isLanding && children}
+                  <SkipLinkTarget id="main" label="Main content" />
+                  {children}
                 </>
               )}
             </Page>
