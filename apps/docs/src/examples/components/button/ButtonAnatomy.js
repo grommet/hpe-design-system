@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Button, Grid, Diagram, Stack, Text } from 'grommet';
+import {
+  Box,
+  Button,
+  Grid,
+  Diagram,
+  Stack,
+  Text,
+} from 'grommet';
 import { Notification } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
@@ -7,14 +14,23 @@ const color = 'border';
 const thickness = 'hair';
 const type = 'direct';
 
-// 1a/1b sit in the TOP ROW — anchor: 'vertical' (wires draw down).
-// 1c/1 sit in the right annotation column across flex rows
-// — anchor: 'horizontal' (wires draw left into the button).
-// button-area spans rows 1–3 (flex) so annotations distribute
-// cleanly at badge level and container center.
+// 1b (icon) and 1a (label) are horizontally arranged sub-parts
+// → annotations in the top 5xsmall row, anchor: 'vertical'
+//   (bubbles sit above; wires draw downward to each element).
+//
+// 1 (container) and 1c (badge) are at different vertical
+// levels on the right side of the button
+// → annotations in the rightmost 5xsmall column,
+//   anchor: 'horizontal' (wires draw left into the button).
+//
+// Badge proxy: Button.badge only accepts boolean|number, so
+// button-badge-target is a 1x1px absolutely-positioned Box
+// at top:0, right:0 of button-container (position:relative).
+// Diagram measures it at the badge corner without disrupting
+// the component's internal theme styling.
 const connections = [
   {
-    // 1b: icon — annotation above col 0, wire draws down
+    // 1b: icon — top row col 0, wire draws down
     anchor: 'vertical',
     type,
     color,
@@ -23,7 +39,7 @@ const connections = [
     toTarget: 'button-icon',
   },
   {
-    // 1a: label — annotation above col 1, wire draws down
+    // 1a: label — top row col 1, wire draws down
     anchor: 'vertical',
     type,
     color,
@@ -32,7 +48,7 @@ const connections = [
     toTarget: 'button-label',
   },
   {
-    // 1c: badge — right col row 1, wire draws left to badge corner
+    // 1c: badge — right col row 1 (top of button), wire left
     anchor: 'horizontal',
     type,
     color,
@@ -41,7 +57,7 @@ const connections = [
     toTarget: 'button-badge-target',
   },
   {
-    // 1: container — right col row 2, wire draws left to container
+    // 1: container — right col row 2 (center), wire left
     anchor: 'horizontal',
     type,
     color,
@@ -51,11 +67,17 @@ const connections = [
   },
 ];
 
-// Matching MenuAnatomy's flex-row pattern:
-// button-area spans rows 1–3 so the button grows to fill them.
-// annotation-1c sits at row 1 (top of button — badge level).
-// annotation-1  sits at row 2 (center — container level).
-// empty-1       sits at row 3 (bottom spacer for balance).
+// 3-column grid — mirroring MenuAnatomy's pattern:
+//   col 0 (max-content): icon sub-element column
+//   col 1 (max-content): label sub-element column
+//   col 2 (5xsmall)    : right annotation column
+//
+// row 0 (5xsmall): annotation-1b above col 0,
+//                  annotation-1a above col 1.
+// rows 1-3 (flex): button-area spans all three;
+//                  right col: annotation-1c at row 1 (badge),
+//                  annotation-1 at row 2 (center),
+//                  empty-1 at row 3 (bottom spacer).
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['max-content', 'max-content', '5xsmall']}
@@ -83,14 +105,24 @@ export const ButtonAnatomy = () => {
     <Stack margin={{ bottom: 'medium' }} interactiveChild="last">
       <AnatomyGrid>
         {annotations.map(({ id, gridArea, target }) => (
-          <Annotation key={id} id={id} target={target} gridArea={gridArea} />
+          <Annotation
+            key={id}
+            id={id}
+            target={target}
+            gridArea={gridArea}
+          />
         ))}
 
-        {/* button-area: spans rows 1–3 (flex).
-            button-badge-target is a zero-size Box at the top-right
-            of button-container so the 1c wire lands at the badge.
-            button-container has position:relative to anchor it. */}
-        <Box gridArea="button-area" align="start" justify="center">
+        {/* button-area spans rows 1-3 (flex rows).
+            button-container is position:relative so that
+            button-badge-target — a 1x1px invisible Box at
+            top:0, right:0 — gives Diagram a precise proxy
+            target at the badge corner. */}
+        <Box
+          gridArea="button-area"
+          align="start"
+          justify="center"
+        >
           <Box
             id="button-container"
             flex={false}
