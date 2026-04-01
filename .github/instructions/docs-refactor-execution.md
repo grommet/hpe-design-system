@@ -60,6 +60,27 @@ Now we'll use Copilot to write the new Markdown based strictly on our new YAML d
 3. Save the Chat output to `apps/docs/src/pages/components/button.mdx`.
 4. **Merge from backup:** Open `.mdx.bak` and manually copy over any necessary Next.js file-routing imports, `<Layout>` wrappers, React component imports (like `<AccessibilitySection title="[Component]" />`), or frontmatter that were lost into the new `.mdx` file.
 
+### Step 5a: Build the Anatomy Diagram Component
+
+Every component page requires a `[Component]Anatomy.js` React file. This is a separate step from generating the MDX so the diagram can be reviewed independently.
+
+1. Open your component's YAML file and locate the `anatomy[]` array. If it is empty or missing, go back to Step 2 and re-run the extract prompt — it now generates a best-effort anatomy skeleton.
+2. In Copilot Chat, run the anatomy component prompt:
+   > "Please follow `.github/prompts/generate-anatomy-component.prompt.md` to create `ButtonAnatomy.js` from `button.yaml`."
+3. Save the output to `apps/docs/src/examples/components/button/ButtonAnatomy.js`.
+4. Add the export to `apps/docs/src/examples/components/button/index.js`:
+   ```js
+   export * from './ButtonAnatomy';
+   ```
+5. If the generated file contains `// TODO: Replace with [Component]Mock sub-component` comments, log each one in `apps/docs/todos/TODO-button.md`.
+
+### Step 5b: Generate the Anatomy MDX Section
+
+1. In Copilot Chat, run the anatomy MDX prompt:
+   > "Please follow `.github/prompts/generate-anatomy-mdx.prompt.md` to generate the `## Anatomy` section for `button.yaml`."
+2. Copy the import additions into the top of `button.mdx` (alongside the other imports).
+3. Copy the `## Anatomy` section into `button.mdx`, replacing any existing anatomy content from the `.bak` file.
+
 ### Step 6: Create TODO and DEPRECATED Files
 
 **Do this before deleting the `.bak`** — you need both files open side-by-side to do a proper diff.
@@ -100,9 +121,6 @@ rm apps/docs/src/pages/components/button.mdx.bak
 
 Create a focused pull request.
 
-1. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
+1. Commit your new YAML file, the updated MDX file, the `[Component]Anatomy.js` file, the updated `index.js`, and any TODO/DEPRECATED files.
 2. Title the PR `docs: refactor [Component] component`.
 3. **Check off your component** in the **Full Component Checklist** at the bottom of `.github/docs-refactor-plan.md`. Include this change in the same commit or as a follow-up commit on the same branch before merging — not after.
-2. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
-3. Title the PR `docs: refactor [Component] component`.
-4. Check off your component in the `.github/docs-refactor-plan.md`!
