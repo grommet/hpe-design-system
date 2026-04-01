@@ -1,12 +1,18 @@
-import { AccessibilitySection, Example } from '../../layouts';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
-  CheckBoxDisabledExample,
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
+import {
+  CheckBoxAnatomy,
   CheckBoxDescriptionExample,
+  CheckBoxDisabledExample,
   CheckBoxSimpleExample,
   CheckBoxSolelyExample,
   CheckBoxToggleExample,
   CheckBoxValidationExample,
-} from '../../examples/components/checkbox';
+} from '../../examples';
 
 <Example
   componentName="CheckBox"
@@ -19,46 +25,78 @@ import {
   <CheckBoxSimpleExample />
 </Example>
 
-## Guidance
+## Use cases
 
-CheckBox can be used to present an individual option or group of options to the user. When presented in a group, the user can select a single or multiple options. Refer to CheckBoxGroup for examples.
+### Opting in or out of a feature
 
-### Usage
+Use CheckBox to present a single binary choice a user can opt into or out of. Place it inside a FormField to automatically associate the label with the input for form submission and accessibility.
 
-CheckBox should not be used if a user should only be allowed to select one option from a list of options. In the case that a user should only be able to select one option, refer to [RadioButtonGroup](/components/radiobuttongroup).
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <CheckBoxSimpleExample />
+</Example>
 
-There are three states which CheckBox provides:
+### Selecting multiple options from a group
 
-- Unchecked - Value has not been selected.
-- Checked - Value has been selected.
-- Indeterminate - Used in situations where the CheckBox is a parent to a list of child options. Use the indeterminate state to indicate that only a subset of the child options have been checked.
+Present CheckBox in a group when a user may select any number of options simultaneously.
 
-Checked and unchecked states refer to when an individual CheckBox is checked or when all options from a group are checked.
+{/* TODO: Add a coded example that demonstrates selecting multiple options from a CheckBox group. Reference CheckBoxGroup for a multi-select pattern. */}
 
-### CheckBox outside of FormField
+### Acknowledging a disclaimer or policy
 
-A checkbox might be used outside of a form field when:
+Use a standalone CheckBox outside a FormField when requiring the user to explicitly opt in to a disclaimer, terms, or privacy policy before proceeding.
 
-1. Serving as a UI control showing or hiding page content, such as revealing additional content or inputs which are only relevant when a particular feature is enabled.
-2. Scenarios in which having a form field label in addition to the checkbox label would be redundant for the user.
-3. Allowing a user to opt-in or acknowledge a disclaimer, such as a privacy policy or terms and conditions.
-4. Allowing an item to be selected within a list, table row, or drop down.
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxSolelyExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <CheckBoxSolelyExample />
+</Example>
 
-### Toggle
+### Toggling a setting on or off
 
-- Toggle is a single option which prompts users to choose between two mutually exclusive options.
-- Toggle is preferred to quickly switch between two possible states. Toggles usually provide immediate results (i.e. no form submission is required) in which gives users the ability to control their preference.
-- When using toggles the order of text and toggle can be controlled using the [reverse prop](https://v2.grommet.io/checkbox?theme=hpe#reverse). If the toggles
-  are used in a group that contains only toggles then it is preferred to have the text on the left and the toggle on the right.
+Use the toggle variant when a setting can be switched on or off immediately without a form submission. The toggle provides instant visual feedback.
 
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxToggleExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <CheckBoxToggleExample />
+</Example>
+
+## Anatomy
+
+<Example caption="Diagram illustrating the parts composing CheckBox." plain>
+  <CheckBoxAnatomy />
+</Example>
+
+| Label | Region            | Purpose                                                                              |                         Required                         | Notes                                                                                  |
+| :---: | ----------------- | ------------------------------------------------------------------------------------ | :------------------------------------------------------: | -------------------------------------------------------------------------------------- |
+| **1** | **Input control** | Visual checkbox square or toggle switch reflecting the current checked state.        | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                     |
+| **2** | **Label**         | Text describing the option or action the checkbox represents.                        | <span><Checkmark a11yTitle="true" size="small" /></span> | Required for accessibility. Omit only if an accessible name is provided via a11yTitle. |
 
 ## Variants
 
-CheckBox can be used individually, within a group, or as a toggle. A standalone or toggle checkbox indicates that a user is opting-in to the context of the checkbox. Within a group, one or multiple checkboxes can be selected.
+### Default
 
-### CheckBox with description
+A standard checkbox with a square control and a label. Use inside a FormField to associate the input with a label for form submission and accessibility.
 
-Adding a description provides the user additional information about the context or purpose of the checkbox.
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <CheckBoxSimpleExample />
+</Example>
+
+### With description
+
+Adding a description provides additional context about the purpose or impact of the choice. Render the description using the `help` prop on the wrapping FormField.
 
 <Example
   docs="https://v2.grommet.io/checkbox?theme=hpe#props"
@@ -70,7 +108,7 @@ Adding a description provides the user additional information about the context 
 
 ### Toggle
 
-Toggle is a great choice to use when the user is given a single option that they can turn on or off.
+Use the toggle variant when a single setting can be switched on or off with immediate effect, requiring no form submission.
 
 <Example
   docs="https://v2.grommet.io/checkbox?theme=hpe#props"
@@ -80,21 +118,9 @@ Toggle is a great choice to use when the user is given a single option that they
   <CheckBoxToggleExample />
 </Example>
 
-### Validation
-
-Validation is used to show that the checkbox does not meet the validation requirements of its bounding FormField.
-
-<Example
-  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxValidationExample.js"
-  height={{ min: 'xsmall' }}
->
-  <CheckBoxValidationExample />
-</Example>
-
 ### Disabled
 
-Used to indicate that CheckBox cannot be interacted with.
+Indicates the CheckBox cannot be interacted with due to permissions or application state.
 
 <Example
   docs="https://v2.grommet.io/checkbox?theme=hpe#props"
@@ -104,11 +130,121 @@ Used to indicate that CheckBox cannot be interacted with.
   <CheckBoxDisabledExample />
 </Example>
 
+## Dos and don'ts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use CheckBox when multiple options can be selected simultaneously.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing multi-select CheckBox usage */}</div>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: 'Use RadioButtonGroup when multiple options can be selected simultaneously.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing incorrect use of RadioButtonGroup for multi-select */}</div>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Place CheckBox inside a FormField to associate it with a visible label.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example of CheckBox correctly inside FormField */}</div>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: 'Render a CheckBox without a label or accessible name.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing a labelless CheckBox */}</div>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use the toggle variant for settings that take effect immediately without form submission.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example of toggle used for an instant preference setting */}</div>
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: 'Use the toggle variant inside a form where submission is required to apply the change.',
+    }}
+  >
+    <div>{/* TODO: Add a coded example showing toggle incorrectly inside a submit form */}</div>
+  </Example>
+</BestPracticeGroup>
+
+## Behaviors and states
+
+### Interactive states
+
+CheckBox responds to mouse and keyboard interaction:
+
+- **Rest** — default appearance.
+- **Hover** — visual indicator highlights when the cursor is over the control or label.
+- **Focus** — focus ring appears when the control receives keyboard focus.
+- **Active** — pressed appearance while the user holds the mouse button or Space key.
+
+### Application states
+
+#### Disabled
+
+Apply `disabled` when the option is unavailable due to permissions or application-controlled conditions. Do not show a disabled CheckBox for an action the user lacks permission to perform permanently — hide the option instead.
+
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxDisabledExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <CheckBoxDisabledExample />
+</Example>
+
+#### Indeterminate
+
+Use `indeterminate` when the checkbox is a parent to a group of child checkboxes where only a subset is selected. Resolves to fully checked once all children are selected, or unchecked once all are cleared.
+
+{/* TODO: Add a coded example demonstrating the indeterminate state with a parent/child CheckBox hierarchy */}
+
+#### Validation
+
+Show validation feedback via the wrapping FormField's `error` prop. The CheckBox itself does not render an error — the FormField renders the error message below the input.
+
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxValidationExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <CheckBoxValidationExample />
+</Example>
+
+## Content guidelines
+
+- Start labels with a noun or verb that describes the choice clearly.
+- Use sentence case; avoid title case and all-caps.
+- Limit labels to a single line where possible.
+- Frame labels as positive statements so checking confirms agreement or activation (e.g., "Receive notifications" not "Do not receive notifications").
+- Write description text as a single sentence that expands on the label's meaning.
+- For toggle labels, use a noun or noun phrase describing the setting (e.g., "Dark mode", "Email notifications").
+
 ## Accessibility
 
-CheckBox should be used inside of a FormField to ensure that a label is properly associated with the input. The labels on individual checkboxes should clearly describe the purpose of the checkbox.
-
-If a CheckBox is used outside of the context of a FormField, it is important to meet accessibility requirements in an alternate way. There should always be clear visual indication, either by text or icon, that describes the purpose of the checkbox.
+Always place CheckBox inside a FormField to ensure the label is programmatically associated with the input. When used outside a FormField, provide an accessible name via `a11yTitle` or `aria-label`.
 
 ### WCAG compliance
-  <AccessibilitySection title='checkbox' />
+
+<AccessibilitySection title="CheckBox" />

@@ -1,0 +1,215 @@
+id: checkbox
+name: CheckBox
+description: >
+  Presents a binary option the user can check or uncheck, either standalone
+  or in a group. Supports an indeterminate state when used as a parent in a
+  hierarchical selection.
+importPath: grommet
+framework: react
+
+props:
+  - name: label
+    type: string | React.ReactNode
+    required: false
+    description: >
+      Text or node displayed next to the checkbox control. Required for
+      accessibility unless an accessible name is provided via a11yTitle.
+  - name: checked
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Whether the checkbox is currently checked.
+  - name: indeterminate
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Renders a dash indicator representing a mixed selection state. Use when
+      the checkbox is a parent whose children are only partially selected.
+      Not applicable to the toggle variant.
+  - name: disabled
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Prevents user interaction.
+  - name: toggle
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Renders the checkbox as a horizontal toggle switch.
+  - name: reverse
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Reverses the order of the toggle control and label. Use for toggle
+      groups where the label should appear on the left.
+  - name: onChange
+    type: (event: React.ChangeEvent<HTMLInputElement>) => void
+    required: false
+    description: Callback fired when the checkbox state changes.
+  - name: name
+    type: string
+    required: false
+    description: Name attribute on the underlying input element.
+  - name: id
+    type: string
+    required: false
+    description: >
+      Id attribute for associating the input with a label via htmlFor.
+      Required when used inside a FormField.
+  - name: a11yTitle
+    type: string
+    required: false
+    description: >
+      Accessible label for assistive technologies. Use when the checkbox has
+      no visible label and is used outside of a FormField.
+
+usage:
+  whenToUse:
+    - Opting in or out of a feature or preference with a single binary choice.
+    - Selecting one or more options from a group where multiple simultaneous
+      selections are valid.
+    - Acknowledging a disclaimer, terms, or policy before proceeding.
+    - Selecting items within a list, table row, or dropdown.
+    - Toggling a setting on or off with immediate effect (use the toggle variant).
+  whenToAvoid:
+    - Do not use CheckBox when only one option from a list may be selected —
+      use RadioButtonGroup instead.
+    - Do not use the toggle variant when submission is required before the
+      change takes effect — use a standard checkbox instead.
+
+variants:
+  - name: default
+    description: Standard checkbox with a square control and a label.
+    when: >
+      Any scenario where a binary or multi-select choice is required within
+      a form.
+    example: <CheckBox label="Accept terms" checked={checked} onChange={...} />
+
+  - name: with-description
+    description: Checkbox augmented with a secondary line of descriptive text.
+    when: >
+      The label alone is insufficient to describe the impact of the choice,
+      such as opt-in settings with nuanced consequences.
+    example: >
+      Use CheckBox inside a FormField with the `help` prop on FormField to
+      render the description below the label.
+
+  - name: toggle
+    description: >
+      Renders the control as a horizontal toggle switch instead of a square.
+    when: >
+      A single setting can be switched on or off with immediate effect and no
+      form submission is required.
+    example: <CheckBox toggle label="Dark mode" checked={checked} onChange={...} />
+
+  - name: indeterminate
+    description: Shows a dash indicator representing a mixed selection state.
+    when: >
+      The checkbox acts as a parent to a group of child options where only
+      a subset of children is selected.
+    example: <CheckBox indeterminate label="Select all" onChange={...} />
+
+  - name: disabled
+    description: Checkbox that cannot be interacted with.
+    when: The option is unavailable due to permissions or application state.
+    example: <CheckBox disabled label="Unavailable option" />
+
+examples:
+  - description: Default checkbox inside a FormField
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js
+
+  - description: Checkbox with description text
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDescriptionExample.js
+
+  - description: Toggle variant
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxToggleExample.js
+
+  - description: Validation state
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxValidationExample.js
+
+  - description: Disabled state
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxDisabledExample.js
+
+  - description: Standalone checkbox outside a FormField
+    codeFile: apps/docs/src/examples/components/checkbox/CheckBoxSolelyExample.js
+
+anatomy:
+  - label: "1"
+    region: Input control
+    purpose: Visual checkbox square or toggle switch reflecting the current checked state.
+    availability: required
+
+  - label: "2"
+    region: Label
+    purpose: Text describing the option or action the checkbox represents.
+    availability: required
+    notes: >
+      Required for accessibility. Omit only if an accessible name is provided
+      by other means (e.g., a11yTitle).
+
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+  applicationStates:
+    - disabled
+    - indeterminate
+
+contentGuidelines:
+  - Start labels with a noun or verb that describes the choice clearly.
+  - Use sentence case; avoid title case and all-caps.
+  - Limit labels to a single line where possible.
+  - Frame labels as positive statements so checking confirms agreement or
+    activation (e.g., "Receive notifications" not "Do not receive notifications").
+  - Write description text as a single sentence that expands on the label's meaning.
+  - For toggle labels, use a noun or noun phrase describing the setting
+    (e.g., "Dark mode", "Email notifications").
+
+dosAndDonts:
+  - do: Use CheckBox when multiple options can be selected simultaneously.
+    dont: Use RadioButtonGroup when multiple options can be selected simultaneously.
+    reason: RadioButtonGroup enforces single selection — using it for multi-select produces incorrect behavior.
+
+  - do: Place CheckBox inside a FormField to associate it with a visible label.
+    dont: Render a CheckBox without a label or accessible name.
+    reason: Screen readers announce the label; a missing label prevents users from understanding the checkbox's purpose.
+
+  - do: Use the toggle variant for settings that take effect immediately without a form submission.
+    dont: Use the toggle variant inside a form where submission is required to apply the change.
+    reason: Toggles imply instant effect; pairing them with submit workflows creates a misleading mental model.
+
+accessibility:
+  keyboard:
+    - key: Space
+      action: Toggles the checkbox between checked and unchecked.
+    - key: Tab
+      action: Moves focus to the next interactive element.
+    - key: Shift + Tab
+      action: Moves focus to the previous interactive element.
+  aria:
+    - attribute: role
+      value: checkbox
+      condition: always
+    - attribute: aria-checked
+      value: "true | false | mixed"
+      condition: >
+        "true" when checked, "false" when unchecked, "mixed" when indeterminate.
+    - attribute: aria-disabled
+      value: "true"
+      condition: when the disabled prop is set.
+  wcag:
+    - criterion: "1.3.1 Info and Relationships"
+      status: pass
+    - criterion: "2.1.1 Keyboard"
+      status: pass
+    - criterion: "4.1.2 Name, Role, Value"
+      status: pass
+
+relatedComponents:
+  - CheckBoxGroup
+  - RadioButtonGroup
+  - FormField
