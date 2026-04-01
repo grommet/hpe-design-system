@@ -18,6 +18,7 @@ export default defineConfig(
     },
   },
   {
+    files: ['**/*.{js,jsx}'],
     languageOptions: {
       sourceType: 'module',
       globals: { ...globals.browser },
@@ -27,6 +28,8 @@ export default defineConfig(
     rules: {
       'react/jsx-no-target-blank': 'off',
       'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/purity': 'off',
+      'react-hooks/use-memo': 'off',
     },
   },
 );
