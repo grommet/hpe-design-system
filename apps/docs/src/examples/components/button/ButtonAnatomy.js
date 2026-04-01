@@ -7,14 +7,14 @@ const color = 'border';
 const thickness = 'hair';
 const type = 'direct';
 
-// 1a (label) and 1b (icon) sit in the TOP ROW — anchor: 'vertical'.
-// 1c (badge) sits in the right col at the TOP of the button
-// (badge level) — anchor: 'horizontal'.
-// 1 (container) sits in the right col at the CENTER of the button
-// — anchor: 'horizontal'.
+// 1a/1b sit in the TOP ROW — anchor: 'vertical' (wires draw down).
+// 1c/1 sit in the right annotation column across flex rows
+// — anchor: 'horizontal' (wires draw left into the button).
+// button-area spans rows 1–3 (flex) so annotations distribute
+// cleanly at badge level and container center.
 const connections = [
   {
-    // Region 1b: icon — annotation ABOVE col 0, wire draws DOWN
+    // 1b: icon — annotation above col 0, wire draws down
     anchor: 'vertical',
     type,
     color,
@@ -23,7 +23,7 @@ const connections = [
     toTarget: 'button-icon',
   },
   {
-    // Region 1a: label — annotation ABOVE col 1, wire draws DOWN
+    // 1a: label — annotation above col 1, wire draws down
     anchor: 'vertical',
     type,
     color,
@@ -32,7 +32,7 @@ const connections = [
     toTarget: 'button-label',
   },
   {
-    // Region 1c: badge — right col row 1 (badge level), wire LEFT
+    // 1c: badge — right col row 1, wire draws left to badge corner
     anchor: 'horizontal',
     type,
     color,
@@ -41,7 +41,7 @@ const connections = [
     toTarget: 'button-badge-target',
   },
   {
-    // Region 1: container — right col row 2 (center), wire LEFT
+    // 1: container — right col row 2, wire draws left to container
     anchor: 'horizontal',
     type,
     color,
@@ -51,22 +51,20 @@ const connections = [
   },
 ];
 
-// 3-column grid, button-area spans rows 1+2:
-//   col 0 (max-content) — icon sub-part
-//   col 1 (max-content) — label sub-part
-//   col 2 (5xsmall)     — right annotation column
-//
-// Row 0 (5xsmall): [annotation-1b][annotation-1a][empty-0]
-// Row 1 (auto):    [button-area   button-area][annotation-1c]
-// Row 2 (auto):    [button-area   button-area][annotation-1]
+// Matching MenuAnatomy's flex-row pattern:
+// button-area spans rows 1–3 so the button grows to fill them.
+// annotation-1c sits at row 1 (top of button — badge level).
+// annotation-1  sits at row 2 (center — container level).
+// empty-1       sits at row 3 (bottom spacer for balance).
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={['max-content', 'max-content', '5xsmall']}
-    rows={['5xsmall', 'auto', 'auto']}
+    rows={['5xsmall', 'flex', 'flex', 'flex']}
     areas={[
       ['annotation-1b', 'annotation-1a', 'empty-0'],
       ['button-area', 'button-area', 'annotation-1c'],
       ['button-area', 'button-area', 'annotation-1'],
+      ['button-area', 'button-area', 'empty-1'],
     ]}
     align="center"
     {...rest}
@@ -88,32 +86,36 @@ export const ButtonAnatomy = () => {
           <Annotation key={id} id={id} target={target} gridArea={gridArea} />
         ))}
 
-        {/* button-area: spans rows 1+2.
-            button-badge-target is absolutely positioned at the
-            top-right corner of button-container so the 1c wire
-            lands precisely at the badge.
+        {/* button-area: spans rows 1–3 (flex).
+            button-badge-target is a zero-size Box at the top-right
+            of button-container so the 1c wire lands at the badge.
             button-container has position:relative to anchor it. */}
-        <Box gridArea="button-area" pad={{ vertical: 'xsmall' }}>
+        <Box gridArea="button-area" align="start" justify="center">
           <Box
             id="button-container"
             flex={false}
             style={{ position: 'relative' }}
           >
-            {/* Invisible 20×20px target at the badge corner for 1c wire */}
             <Box
               id="button-badge-target"
               style={{
                 position: 'absolute',
                 top: 0,
                 right: 0,
-                width: '20px',
-                height: '20px',
+                width: '1px',
+                height: '1px',
               }}
             />
             <Button
               secondary
-              icon={<Box id="button-icon" flex={false}><Notification /></Box>}
-              label={<Text id="button-label">Notifications</Text>}
+              icon={
+                <Box id="button-icon" flex={false}>
+                  <Notification />
+                </Box>
+              }
+              label={
+                <Text id="button-label">Notifications</Text>
+              }
               badge={3}
             />
           </Box>
