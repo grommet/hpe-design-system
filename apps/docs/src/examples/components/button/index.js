@@ -1,3 +1,4 @@
+export * from './ButtonAnatomy';
 export * from './ButtonAlignmentTable';
 export * from './ButtonExample';
 export * from './ButtonBadgeExample';

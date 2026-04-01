@@ -5,6 +5,7 @@ import {
 } from '../../layouts';
 import { Checkmark } from '@hpe-design/icons-grommet';
 import {
+  ButtonAnatomy,
   ButtonBadCancelPreview,
   ButtonBadGroupPreview,
   ButtonBadSignUpPreview,
@@ -70,14 +71,16 @@ Toggle buttons switch between two mutually exclusive states such as show/hide, o
 
 ## Anatomy
 
-{/* TODO: Insert anatomy diagram image here */}
+<Example caption="Diagram illustrating the parts composing Button." plain>
+  <ButtonAnatomy />
+</Example>
 
-| Label | Region | Purpose | Required | Notes |
-| :---: | --- | --- | :---: | --- |
-| **1** | **Button container** | Clickable element wrapping all internal parts and delivering the interaction target. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
-| **1a** | **Label** | Communicates the action in plain language. | Optional | Required when no icon is present. Omit for icon-only buttons and supply `a11yTitle` or `aria-label`. |
-| **1b** | **Icon** | Provides a visual cue reinforcing or replacing the label. | Optional | Can appear alone or alongside a label. Icon-only usage requires an accessible label. |
-| **1c** | **Badge indicator** | Overlays a count or dot signal to convey extra information. | Optional | Rendered as a dot (`true`) or a capped number. Exceeds max renders "+" appended (e.g., 9+). |
+| Label  | Region               | Purpose                                                                                  |                         Required                         | Notes                                                                                                          |
+| :----: | -------------------- | ---------------------------------------------------------------------------------------- | :------------------------------------------------------: | -------------------------------------------------------------------------------------------------------------- |
+| **1**  | **Button container** | Clickable element wrapping all internal parts and delivering the interaction target.     | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                             |
+| **1a** | **Label**            | Communicates the action in plain language.                                               |                         Optional                         | Required when no icon is present. Omit for icon-only buttons and supply `a11yTitle` or `aria-label` instead.   |
+| **1b** | **Icon**             | Provides a visual cue reinforcing or replacing the label.                                |                         Optional                         | Can appear alone or alongside a label. Icon-only usage requires an accessible label.                           |
+| **1c** | **Badge indicator**  | Overlays a count or dot signal to convey extra information.                              |                         Optional                         | Rendered as a dot (`true`) or a capped number. Exceeds max renders "+" appended (e.g., 9+).                   |
 
 ## Variants
 
