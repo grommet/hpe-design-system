@@ -30,19 +30,17 @@ Apply these rules to every anatomy diagram.
    - Simple components (Button, Tag): label icon, label, container.
    - Complex components (DataTable, Layer): label primary regions (header, body, footer, trigger).
 
-4. **Represent invisible sub-containers with dotted borders — never the whole component.** Apply `border={{ style: 'dashed' }}` only to a specific invisible structural sub-container *inside* the component — one that exists in the DOM but has no visible UI boundary. Common correct uses: the clickable hit area of a borderless `Button`, a layout-only wrapper `Box` inside a `Menu` item.
+4. **Represent invisible sub-containers with dotted borders — never the outer diagram.** Apply `border={{ style: 'dashed' }}` only to a specific invisible structural sub-container *inside* the component — one that exists in the DOM but has no visible UI boundary. Common correct uses: the clickable hit area of a borderless `Button`, a layout-only wrapper `Box` inside a `Menu` item.
 
-   Never apply a dotted border to the outermost wrapper of the anatomy diagram. Never use dotted lines to frame the component as a whole, label its outer boundary, or add visual structure that doesn't correspond to a real invisible sub-container in the component's DOM.
+   Never apply any border — dotted or solid — to the outermost wrapper of the anatomy diagram. Never use any line to frame the component as a whole, label its outer boundary, or add visual structure that doesn't correspond to a real invisible sub-container in the component's DOM. The component's own visual boundary is sufficient; decorative frames obscure what is real structure versus documentation chrome.
 
-5. **Omit all outer diagram borders.** Never draw any border — solid or dotted — around the entire anatomy diagram. The component's own visual boundary is sufficient. Decorative frames obscure what is real structure versus documentation chrome.
+5. **Use monochrome visuals.** Use only neutral grommet tokens (`background-front`, `border`, `border-weak`). Never use decorative color, fills, or highlighted regions. Color implies semantic meaning and introduces false hierarchy.
 
-6. **Use monochrome visuals.** Use only neutral grommet tokens (`background-front`, `border`, `border-weak`). Never use decorative color, fills, or highlighted regions. Color implies semantic meaning and introduces false hierarchy.
+6. **Use realistic generic content.** Write short, neutral content in labels and placeholders: "Save changes", "Project settings", "Upload file". Never write "Button label", "Title text", or "Item 1".
 
-7. **Use realistic generic content.** Write short, neutral content in labels and placeholders: "Save changes", "Project settings", "Upload file". Never write "Button label", "Title text", or "Item 1".
+7. **Separate structure from implementation details.** Never include spacing values, token names, or elevation values in anatomy labels. Document those in Specs or Properties.
 
-8. **Separate structure from implementation details.** Never include spacing values, token names, or elevation values in anatomy labels. Document those in Specs or Properties.
-
-9. **The component must be flush with the left edge — never push it right with an annotation column.** The component must occupy the leftmost column(s) in the `AnatomyGrid`. Annotation bubbles belong only in:
+8. **The component must be flush with the left edge — never push it right with an annotation column.** The component must occupy the leftmost column(s) in the `AnatomyGrid`. Annotation bubbles belong only in:
    - (a) a dedicated column to the **right** of all component columns, or
    - (b) a top/bottom row within the **same column span** as the component.
 
@@ -66,7 +64,23 @@ Apply these rules to every anatomy diagram.
    </Box>
    ```
 
-   If the component's internals cannot be isolated (e.g., a fully self-contained grommet component), use `anchor: 'vertical'` top-row annotations and size the grid columns to approximate sub-element positions.
+   **For sub-parts that stack vertically** (e.g., panel header, panel body within an accordion): place annotation bubbles in a dedicated **right column** (`5xsmall`) distributed across `flex` rows, with the component spanning all rows in the left `max-content` column. Use `anchor: 'horizontal'` for these connections. Size the number of `flex` rows to position each annotation bubble at the approximate vertical level of its target region.
+
+   If the component's internals cannot be isolated (e.g., a fully self-contained grommet component), use `anchor: 'vertical'` top-row annotations and size the grid columns to approximate sub-element positions. However, before using this approximation, check whether the proxy target pattern below is viable — it is more accurate and preferred when applicable.
+
+   **Proxy targets:** When a component prop such as `label` only accepts a string — or when passing a `ReactNode` would strip internal theme styling (e.g., a grommet `AccordionPanel` label loses its bold font weight when given a `<span>` instead of a string) — do not use a `<span id>` or other ReactNode approach. Instead place a **0-height `<Box id="...">`** inside the component's rendered body at the vertical position that corresponds to the target region:
+
+   ```jsx
+   {/* Accordion panel header — 0-height proxy inside the CLOSED
+       panel body. Grommet keeps hidden panel bodies in the DOM
+       (height: 0; overflow: hidden), so Diagram measures the
+       element at y = bottom edge of the panel header. */}
+   <AccordionPanel label="Our company">
+     <Box id="panel-header-proxy" height="0" />
+   </AccordionPanel>
+   ```
+
+   This pattern preserves the component's visual theme styling while giving `Diagram` a measurable DOM target aligned with the UI region.
 
 ---
 

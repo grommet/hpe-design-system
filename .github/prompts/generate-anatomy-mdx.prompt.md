@@ -19,7 +19,7 @@ You are an expert technical writer for the HPE Design System. Your task is to ge
 
 Provide the lines to add at the top of the MDX file, alongside the other import statements.
 
-Add the anatomy component to the examples import:
+Add the anatomy component to the examples import. If an `import { ... } from '../../examples'` already exists in the file, add the anatomy component to that same destructured import. If no such import exists, add a new one:
 ```js
 import { [Component]Anatomy } from '../../examples';
 ```
@@ -60,6 +60,7 @@ For each `AnatomyPart` in `anatomy[]`, produce one table row:
 
 ### Formatting rules
 
+- Place `## Anatomy` immediately after `## Use cases` and before `## Variants` in the MDX file.
 - Place the `<Example>` block directly under the `## Anatomy` heading with one blank line between them.
 - Place the annotation table directly after the closing `</Example>` tag with one blank line between them.
 - Never add a `###` subheading or prose between the `<Example>` block and the table.
