@@ -12,7 +12,7 @@ export const DoubleConfirmationExample = ({ containerRef }) => {
         <Box align="center" justify="center" fill>
             <Button
                 primary
-                label="Show medouble confirmation"
+                label="Show me double confirmation"
                 onClick={() => setShowModal(true)}
             />
             {showModal && (
