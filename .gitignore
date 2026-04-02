@@ -27,6 +27,8 @@ yarn-error.log*
 # misc
 .env
 .env.*
+!.env.example
+!**/.env.example
 .tmp
 report*
 .DS_Store
