@@ -37,7 +37,7 @@ Both scripts read environment variables from a local `.env` file.
 
 ### Required Environment Variables
 
-The following are required for `sync-figma-to-tokens`:
+The following are required for `sync-figma-to-tokens` and `sync-tokens-to-figma`:
 
 - `PERSONAL_ACCESS_TOKEN`: Figma personal access token used in the `X-Figma-Token` request header.
 - `FILE_KEY_PRIMITIVE`: Figma file key for the primitives token file.
@@ -53,11 +53,11 @@ Collection keys are used by reference validation in `verifyReferences` to detect
 ### How To Source Values
 
 1. `PERSONAL_ACCESS_TOKEN`
-	- Create in Figma account settings under Personal access tokens.
+  - Create in Figma account settings under Personal access tokens.
 2. `FILE_KEY_*`
-	- Open each Figma file URL and copy the segment after `/file/` or `/design/` (the file key).
+  - Open each Figma file URL and copy the segment after `/file/` or `/design/` (the file key).
 3. `FIGMA_*_COLLECTION_KEY`
-	- Fetch local variables for each file and read `meta.variableCollections[*].key` for the collections named `color`, `dimension`, `primitives`, and `global`.
+  - Fetch local variables for each file and read `meta.variableCollections[*].key` for the collections named `color`, `dimension`, `primitives`, and `global`.
 
 Example command to distinguish collection instances across files:
 
@@ -110,7 +110,15 @@ Columns in output:
 
 ```bash
 cd packages/hpe-design-tokens
+
+## `--output tokens` is the checked in source directory
+## running the script with this option will likely create a large diff
 pnpm sync-figma-to-tokens -- --output tokens
+
+## OR
+## For QAing test runs, it may be useful to omit `--output tokens`
+## The script default will output to `tokens_new`.
+pnpm sync-figma-to-tokens
 ```
 
 ### GitHub Actions Branch Targeting For Tests
