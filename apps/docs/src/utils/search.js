@@ -4,7 +4,7 @@ import {
   getPathOverride,
   getPrimaryPageByName,
   nameToSlug,
-} from '../data/structureIndexes.ts';
+} from '../data/structureIndexes';
 
 let cachedStructureIndexes;
 let cachedSearchSuggestions;
