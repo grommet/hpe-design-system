@@ -59,7 +59,7 @@ Collection keys are used by reference validation in `verifyReferences` to detect
 3. `FIGMA_*_COLLECTION_KEY`
 	- Fetch local variables for each file and read `meta.variableCollections[*].key` for the collections named `color`, `dimension`, `primitives`, and `global`.
 
-Example command to list collection keys from the configured files:
+Example command to distinguish collection instances across files:
 
 ```bash
 cd packages/hpe-design-tokens
@@ -67,25 +67,44 @@ set -a
 source .env
 set +a
 
-for pair in "primitive:$FILE_KEY_PRIMITIVE" "semantic:$FILE_KEY_SEMANTIC" "component:$FILE_KEY_COMPONENT"; do
-  role="${pair%%:*}"
-  file_key="${pair#*:}"
-  echo ""
-  echo "=== $role ($file_key) ==="
-  curl -sS \
-	 -H "X-Figma-Token: $PERSONAL_ACCESS_TOKEN" \
-	 "https://api.figma.com/v1/files/$file_key/variables/local" \
-  | jq -r '
-		.meta.variableCollections
-		| to_entries[]
-		| .value
-		| select(.name=="color" or .name=="dimension" or .name=="primitives" or .name=="global")
-		| [.name, .key]
-		| @tsv
-	 ' \
-  | sort -u
-done
+{
+	printf "ROLE\tNAME\tKEY\tID\tREMOTE\tVARIABLE_COUNT\tMODES\n"
+
+	for pair in "primitive:$FILE_KEY_PRIMITIVE" "semantic:$FILE_KEY_SEMANTIC" "component:$FILE_KEY_COMPONENT"; do
+		role="${pair%%:*}"
+		file_key="${pair#*:}"
+		curl -sS \
+			-H "X-Figma-Token: $PERSONAL_ACCESS_TOKEN" \
+			"https://api.figma.com/v1/files/$file_key/variables/local" \
+		| jq -r --arg role "$role" '
+				.meta.variableCollections
+				| to_entries[]
+				| .value
+				| select(.name=="color" or .name=="dimension" or .name=="primitives" or .name=="global")
+				| [
+						$role,
+						.name,
+						.key,
+						.id,
+						(.remote|tostring),
+						((.variableIds|length)|tostring),
+						(.modes|map(.name)|join("|"))
+					]
+				| @tsv
+			'
+	done
+} | column -t -s $'\t' | awk 'NR==1{print "\033[1;36m"$0"\033[0m"; next}1'
 ```
+
+Columns in output:
+
+- role
+- name
+- key
+- id
+- remote
+- variable_count
+- modes
 
 ### Local Test Run
 
