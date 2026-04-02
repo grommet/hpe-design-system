@@ -162,9 +162,229 @@ The docs workflow (`.github/workflows/docs-unit-tests.yml`) enforces:
 
 ---
 
+## Architecture & Developer Guide
+
+### Data Assembly Pipeline
+
+The structure system follows a strict data transformation pipeline to ensure consistency, catch errors early, and enable performant lookups:
+
+```mermaid
+graph TD
+    A["raw section arrays<br/>(components.tsx, foundation.tsx, ...)"]
+    B["Structure.from()<br/>(model normalization)"]
+    C["categoryMapping generator<br/>(buildCategoryMapping)"]
+    D["index builder<br/>(buildStructureIndexes)"]
+    E["Zod validation<br/>(structureValidation)"]
+    F{Valid?}
+    G["exports: structure,<br/>categoryMapping,<br/>structureIndexes"]
+    H["build/runtime<br/>consumers"]
+    I["throw Error<br/>or warn only"]
+    
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    E --> F
+    F -->|yes| G
+    F -->|no| I
+    G --> H
+    C -.-> G
+    D -.-> G
+```
+
+### Key Design Decisions & Why
+
+#### 1. **Flat Array + Pre-built Indexes (vs. Nested Tree)**
+- **Decision**: Keep structure as a flat array; generate lookup indexes once at build time.
+- **Why**: Easier to add/modify pages, simpler mental model, scales better. Tree structures are harder to validate (parent/child sync).
+- **Trade-off**: Small build-time cost for major runtime benefit (40+ files use indexes per request).
+
+#### 2. **Generated Category Mapping (vs. Manual Sync Table)**
+- **Decision**: Derive `categoryMapping` from `category` properties on pages.
+- **Why**: Single source of truth, catches typos, automatic when pages are added.
+- **Trade-off**: Slightly slower generation, but happens once at build time. Manual mapping was error-prone.
+
+#### 3. **Zod Validation at Build (vs. Runtime Only)**
+- **Decision**: Run full validation as part of the docs build/test pipeline and CI workflows (after dependencies are installed); fail early.
+- **Why**: Catches schema violations before deployment, provides clear error messages, enables strict CI gates.
+- **Trade-off**: Adds ~50ms to docs build/validation steps (negligible for docs app scale; no impact on dependency installation).
+
+#### 4. **Strict by Default, Warn-only Override**
+- **Decision**: Build/CI fails on validation errors; local dev can opt-in to warn-only mode.
+- **Why**: Prevents shipping broken structure, supports local iteration/migration workflows.
+- **Trade-off**: Developers must fix issues before committing (acceptable—errors are usually straightforward).
+
+#### 5. **JSX Icons in Data (vs. Icon Identifier Strings)**
+- **Decision**: Store icon functions as React lambdas in structure data.
+- **Why**: Lazy evaluation, decoupling from export system, icon rendering stays at point of consumption.
+- **Trade-off**: Mixes JSX with data (minor concern given TS type safety and test coverage).
+
+### Extension Patterns
+
+#### Adding a New Hub (Section)
+
+1. Create a new section file (e.g., `structures/patterns.tsx`):
+```typescript
+import { StructureItem } from './Structure';
+
+export const patterns: StructureItem[] = [
+  {
+    name: 'Page Layout',
+    category: 'Layouts',
+    parentPage: 'Patterns',
+    description: '...',
+  },
+  // ... more pages
+];
+```
+
+2. Export from `structures/index.ts`:
+```typescript
+export * from './patterns';
+```
+
+3. Add to assembly in `structure.tsx`:
+```typescript
+import { patterns as patternsArr } from './structures';
+
+const patterns = Structure.from(patternsArr);
+// ... add to initialStructure array
+```
+
+Validation and indexes are regenerated automatically; no other changes needed.
+
+#### Adding a New Category
+
+1. Add to `ALLOWED_CATEGORIES` in `structureValidation.ts`:
+```typescript
+export const ALLOWED_CATEGORIES = new Set([
+  'All',
+  'Assets',
+  'Controls',
+  'Data',
+  'Inputs',
+  'Layout',
+  'Layouts',
+  'Philosophy',
+  'Visualizations',
+  'MyNewCategory',  // ← Add here
+  // ...
+]);
+```
+
+2. Use in page definitions:
+```typescript
+{
+  name: 'New Page',
+  category: 'MyNewCategory',
+  // ...
+}
+```
+
+3. Navigation automatically groups and sorts by the new category.
+
+#### Modifying Sort Behavior
+
+The system uses `cardOrder` (numeric weight) and `sortByCategory()` (derived from `categoryMapping` order):
+
+```typescript
+// In structure.tsx
+const components = Structure.from(componentsArr)
+  .sortByName()           // alphabetical
+  .sortByCardOrder()      // then by cardOrder property
+  .map(page => page.name);
+```
+
+To change category ordering within a hub, modify the order they appear in `buildCategoryMapping` output (they're processed in page order).
+
+### Common Pitfalls & How to Avoid
+
+#### 1. **Broken Parent/Child Links**
+```typescript
+// ❌ BAD: Parent doesn't know about child
+{ name: 'Button', parentPage: 'Components' }  // Components doesn't have 'Button' in .pages
+
+// ✅ GOOD: Parent and child are synchronized
+// In Components: { pages: ['Button', ...] }
+// In Button: { parentPage: 'Components' }
+```
+**Caught by**: Validation rule "Parent mismatch"
+
+#### 2. **Typos in relatedContent or parentPage**
+```typescript
+// ❌ BAD: 'Buton' doesn't exist
+{ name: 'Form', relatedContent: ['Buton'] }
+
+// ✅ GOOD: Exact match (case-sensitive)
+{ name: 'Form', relatedContent: ['Button'] }
+```
+**Caught by**: Validation rule "references missing relatedContent"
+
+#### 3. **Slug Collisions**
+```typescript
+// ❌ BAD: Two pages generate same slug 'call-to-action'
+{ name: 'Call to action card', ... }
+{ name: 'Call to action', ... }
+
+// ✅ GOOD: Use explicit path to disambiguate
+{ name: 'Call to action card', path: '/components/card/call-to-action-card' }
+```
+**Caught by**: Validation rule "Slug collision"
+
+#### 4. **Invalid Category**
+```typescript
+// ❌ BAD: Category not in allowlist
+{ name: 'Button', category: 'Interactive' }  // → validation error
+
+// ✅ GOOD: Match allowlist exactly
+{ name: 'Button', category: 'Controls' }
+```
+**Caught by**: Validation rule "Invalid category"
+
+#### 5. **Modifying Exported Structure at Runtime**
+```typescript
+// ❌ BAD: Mutating imported structure
+import { structure } from '../data';
+structure[0].name = 'Modified';  // Don't do this!
+
+// ✅ GOOD: Use helpers and trust indexes
+import { getPrimaryPageByName, structureIndexes } from '../data';
+const page = getPrimaryPageByName('Button', structureIndexes);
+```
+**Pattern**: Treat `structure`, `categoryMapping`, and `structureIndexes` as immutable; use accessor functions.
+
+### When to Evolve the System
+
+#### Revisit Option B (Separate Config Files) if:
+- Structure needs explicit routing configuration separate from content
+- Icon handling becomes unwieldy
+- Need to support dynamic structure loading at runtime
+
+#### Extend Validation if:
+- New referential integrity constraints emerge (e.g., "all hub parents must have icons")
+- Business rules require semantic validation beyond schema
+
+#### Consider Full TS Migration of Child Files if:
+- Adding rich type metadata to pages (beyond current scope)
+- Build-time code generation becomes necessary
+
+### Performance Considerations
+
+| Operation | Cost | When |
+|-----------|------|------|
+| Build-time validation | ~50ms | Every build |
+| Index generation | ~10ms | Every build |
+| Lookup (byName/bySlug) | O(1) | Every page render |
+| Category grouping (byCategory) | O(1) | Every nav render |
+
+All lookups are pre-computed and cached; runtime performance is not a constraint.
+
+---
+
 ## References
 
-- [Phase 1 Test Implementation](apps/docs/src/data/__tests__/)
-- [Current Structure System](apps/docs/src/data/structure.tsx)
-- [Navigation Implementation](apps/docs/src/layouts/navigation/navItems.ts)
-- [Utility Functions](apps/docs/src/utils/search.js)
+- **Developer Onboarding**: [Structure Data Module README](src/data/README.md) — Quick start guide for adding/modifying pages
+- **Phase 1 Test Implementation**: [Test Suite](src/data/__tests__/)
+- **Current Structure System**: [assembly logic](src/data/structure.tsx)
+- **Navigation Implementation**: [Navigation Items](src/layouts/navigation/navItems.ts)
+- **Utility Functions**: [Search & lookup utilities](src/utils/search.js)
