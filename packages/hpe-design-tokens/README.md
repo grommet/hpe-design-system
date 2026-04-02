@@ -26,6 +26,86 @@ npm i hpe-design-tokens
 
 For usage instructions, see [HPE Design System design tokens documentation](https://design-system.hpe.design/design-tokens).
 
+## Figma Sync Setup
+
+This package supports two sync directions:
+
+- Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --output tokens`
+- tokens JSON to Figma: `pnpm sync-tokens-to-figma`
+
+Both scripts read environment variables from a local `.env` file.
+
+### Required Environment Variables
+
+The following are required for `sync-figma-to-tokens`:
+
+- `PERSONAL_ACCESS_TOKEN`: Figma personal access token used in the `X-Figma-Token` request header.
+- `FILE_KEY_PRIMITIVE`: Figma file key for the primitives token file.
+- `FILE_KEY_SEMANTIC`: Figma file key for the semantic token file.
+- `FILE_KEY_COMPONENT`: Figma file key for the component token file.
+- `FIGMA_COLOR_COLLECTION_KEY`: Expected remote collection key for `color`.
+- `FIGMA_DIMENSION_COLLECTION_KEY`: Expected remote collection key for `dimension`.
+- `FIGMA_PRIMITIVES_COLLECTION_KEY`: Expected remote collection key for `primitives`.
+- `FIGMA_GLOBAL_COLLECTION_KEY`: Expected remote collection key for `global`.
+
+Collection keys are used by reference validation in `verifyReferences` to detect invalid cross-file references.
+
+### How To Source Values
+
+1. `PERSONAL_ACCESS_TOKEN`
+	- Create in Figma account settings under Personal access tokens.
+2. `FILE_KEY_*`
+	- Open each Figma file URL and copy the segment after `/file/` or `/design/` (the file key).
+3. `FIGMA_*_COLLECTION_KEY`
+	- Fetch local variables for each file and read `meta.variableCollections[*].key` for the collections named `color`, `dimension`, `primitives`, and `global`.
+
+Example command to list collection keys from the configured files:
+
+```bash
+cd packages/hpe-design-tokens
+set -a
+source .env
+set +a
+
+for pair in "primitive:$FILE_KEY_PRIMITIVE" "semantic:$FILE_KEY_SEMANTIC" "component:$FILE_KEY_COMPONENT"; do
+  role="${pair%%:*}"
+  file_key="${pair#*:}"
+  echo ""
+  echo "=== $role ($file_key) ==="
+  curl -sS \
+	 -H "X-Figma-Token: $PERSONAL_ACCESS_TOKEN" \
+	 "https://api.figma.com/v1/files/$file_key/variables/local" \
+  | jq -r '
+		.meta.variableCollections
+		| to_entries[]
+		| .value
+		| select(.name=="color" or .name=="dimension" or .name=="primitives" or .name=="global")
+		| [.name, .key]
+		| @tsv
+	 ' \
+  | sort -u
+done
+```
+
+### Local Test Run
+
+```bash
+cd packages/hpe-design-tokens
+pnpm sync-figma-to-tokens -- --output tokens
+```
+
+### GitHub Actions Branch Targeting For Tests
+
+If you want manual workflow tests to target `your-branch-name`, update `.github/workflows/sync-figma-to-tokens.yml`:
+
+1. Add `your-branch-name` under `workflow_dispatch.inputs.branch.options`.
+2. Set checkout ref to selected input branch:
+	- `ref: ${{ github.event.inputs.branch || github.ref_name }}`
+3. Set PR base fallback for manual testing:
+	- `base: ${{ github.event.inputs.branch || 'your-branch-name' }}`
+
+This keeps manual runs explicit and predictable when validating Figma sync behavior.
+
 ## License
 
 [Apache-2.0](https://github.com/grommet/hpe-design-system/blob/design-tokens-stable/LICENSE)
