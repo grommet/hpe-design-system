@@ -1,4 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
+import { readdir } from 'node:fs/promises';
+import path from 'node:path';
 
 // Importing ../structure pulls in React components and other heavier modules
 // that are not needed for these schema-validation tests and can make the test
@@ -19,16 +21,72 @@ vi.mock('../../components', () => ({
 
 vi.mock('../../examples', () => ({}));
 
-import { structure } from '../structure';
+import { categoryMapping, structure } from '../structure';
+import { nameToSlug } from '../structureIndexes';
+import {
+  ALLOWED_CATEGORIES,
+  validateStructureData,
+} from '../structureValidation';
+import { nameToPath } from '../../utils/search';
 
 type StructurePage = {
   name: string;
   pages?: string[];
   category?: string;
+  relatedContent?: string[];
   seoDescription?: string;
+  href?: string;
+  url?: string;
 };
 
 const realStructure = structure as StructurePage[];
+
+const PAGE_EXTENSIONS = new Set(['.js', '.jsx', '.md', '.mdx', '.ts', '.tsx']);
+const ROUTE_EXCLUSIONS = new Set(['404', '500', '_app', '_document', '_error']);
+// Only include routes that are intentionally data-only or redirect-only.
+// Do not add entries for missing content routes; create page files instead.
+const STRUCTURE_ROUTE_FILE_ALLOWLIST = new Set<string>(['/show-more']);
+
+const toRoutePath = (relativePath: string) => {
+  const segments = relativePath.split(path.sep);
+  const fileName = segments[segments.length - 1];
+  const extension = path.extname(fileName);
+  const pageName = fileName.replace(extension, '');
+
+  if (!PAGE_EXTENSIONS.has(extension)) return undefined;
+  if (ROUTE_EXCLUSIONS.has(pageName) || pageName.startsWith('_'))
+    return undefined;
+
+  const routeSegments = [...segments.slice(0, -1)];
+  if (pageName !== 'index') routeSegments.push(pageName);
+
+  const joined = routeSegments.join('/');
+  return `/${joined}`.replace(/\/+/g, '/').toLowerCase();
+};
+
+const getPageRoutes = async (dirPath: string): Promise<string[]> => {
+  const entries = await readdir(dirPath, { withFileTypes: true });
+  const routes: string[] = [];
+
+  for (const entry of entries) {
+    const absolutePath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      const nestedRoutes = await getPageRoutes(absolutePath);
+      routes.push(...nestedRoutes);
+      continue;
+    }
+
+    const relativePath = path.relative(
+      path.resolve(process.cwd(), 'src/pages'),
+      absolutePath,
+    );
+    const route = toRoutePath(relativePath);
+    if (route) routes.push(route);
+  }
+
+  return routes;
+};
 
 describe('Structure Data Validation', () => {
   describe('Schema Validation', () => {
@@ -89,6 +147,15 @@ describe('Structure Data Validation', () => {
       });
     });
 
+    it('should have unique slugs for primary pages', () => {
+      const slugCandidates = (realStructure as StructurePage[]).filter(
+        page => !page.href && !page.url,
+      );
+      const slugs = slugCandidates.map(page => nameToSlug(page.name));
+      const uniqueSlugs = new Set(slugs);
+      expect(slugs.length).toBe(uniqueSlugs.size);
+    });
+
     it('should have descriptions for all searchable pages', () => {
       type PageWithSearchable = StructurePage & { searchable?: boolean };
       // Pages explicitly marked searchable: false are not SEO-indexed
@@ -110,6 +177,32 @@ describe('Structure Data Validation', () => {
         if (page.category) {
           expect(typeof page.category).toBe('string');
           expect(page.category.length).toBeGreaterThan(0);
+        }
+      });
+    });
+
+    it('should use allowed category vocabulary', () => {
+      realStructure.forEach(page => {
+        if (page.category) {
+          expect(
+            ALLOWED_CATEGORIES.has(page.category),
+            `Invalid category "${page.category}" on "${page.name}"`,
+          ).toBe(true);
+        }
+      });
+    });
+
+    it('should have valid relatedContent references when present', () => {
+      const allNames = new Set(realStructure.map(page => page.name));
+
+      realStructure.forEach(page => {
+        if (Array.isArray(page.relatedContent)) {
+          page.relatedContent.forEach(relatedPageName => {
+            expect(
+              allNames.has(relatedPageName),
+              `Missing relatedContent "${relatedPageName}" referenced by "${page.name}"`,
+            ).toBe(true);
+          });
         }
       });
     });
@@ -157,6 +250,74 @@ describe('Structure Data Validation', () => {
           });
         }
       });
+    });
+  });
+
+  describe('Build-time Validation', () => {
+    it('should pass structure validation checks', () => {
+      const result = validateStructureData(realStructure, categoryMapping);
+      expect(result.errors).toEqual([]);
+    });
+
+    it('should have structure entries for all docs page routes', async () => {
+      const routesFromFiles = new Set(
+        await getPageRoutes(path.resolve(process.cwd(), 'src/pages')),
+      );
+
+      const routesFromStructure = new Set(
+        realStructure
+          .map(page => nameToPath(page.name))
+          .filter(
+            (route): route is string =>
+              typeof route === 'string' &&
+              route.startsWith('/') &&
+              !route.includes('#'),
+          )
+          .map(route => route.toLowerCase()),
+      );
+
+      const missingStructureEntries = [...routesFromFiles].filter(
+        route => !routesFromStructure.has(route),
+      );
+
+      expect(
+        missingStructureEntries,
+        `Missing structure entries for routes: ${missingStructureEntries.join(
+          ', ',
+        )}`,
+      ).toEqual([]);
+    });
+
+    it('should have page files for all structure routes', async () => {
+      const routesFromFiles = new Set(
+        await getPageRoutes(path.resolve(process.cwd(), 'src/pages')),
+      );
+
+      const routesFromStructure = new Set(
+        realStructure
+          .map(page => nameToPath(page.name))
+          .filter(
+            (route): route is string =>
+              typeof route === 'string' &&
+              route.startsWith('/') &&
+              !route.includes('#') &&
+              !route.startsWith('http'),
+          )
+          .map(route => route.toLowerCase()),
+      );
+
+      const missingPageFiles = [...routesFromStructure].filter(
+        route =>
+          !routesFromFiles.has(route) &&
+          !STRUCTURE_ROUTE_FILE_ALLOWLIST.has(route),
+      );
+
+      expect(
+        missingPageFiles,
+        `Missing page files for structure routes: ${missingPageFiles.join(
+          ', ',
+        )}`,
+      ).toEqual([]);
     });
   });
 });
