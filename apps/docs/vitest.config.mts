@@ -9,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   plugins: [
     // Vite's built-in esbuild plugin excludes .js files by default, so JSX
-    // in .js source files (e.g. structure.js) won't be transformed. This
+    // in legacy .js source files won't be transformed. This
     // plugin runs first and transforms .js files with the 'jsx' loader so
     // that JSX syntax is handled before the SSR parse step.
     {

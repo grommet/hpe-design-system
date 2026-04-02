@@ -1,6 +1,6 @@
 import { NavItemType } from '@shared/aries-core';
 import { structure } from '../../data';
-import { categoryMapping } from '../../data/structure';
+import { structureIndexes } from '../../data/structure';
 import { nameToPath } from '../../utils';
 
 type NavPage = {
@@ -11,11 +11,7 @@ type NavPage = {
 
 const structurePages = structure as NavPage[];
 
-// Create a lookup for all pages in the structure to access metadata
-const pageDetails = structurePages.reduce((acc, item) => {
-  acc[item.name] = item;
-  return acc;
-}, {} as { [key: string]: NavPage });
+const pageDetails = structureIndexes.byName as { [key: string]: NavPage };
 
 const hasChildren = (page: NavPage): page is NavPage & { pages: string[] } =>
   Array.isArray(page.pages) && page.pages.length > 0;
@@ -43,7 +39,7 @@ const buildNavItem = (pageName: string): NavItemType | null => {
 // Build navigation items for a parent, grouping by category if mapping exists
 const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
   const parentMapping = parentName
-    ? (categoryMapping as Record<string, Record<string, string[]>>)[parentName]
+    ? structureIndexes.byCategory[parentName]
     : undefined;
 
   if (parentMapping) {
@@ -51,7 +47,7 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
     return Object.entries(parentMapping)
       .map(([category, categoryPages]) => {
         const groupChildren = categoryPages
-          .map(buildNavItem)
+          .map(page => buildNavItem(page.name))
           .filter(Boolean) as NavItemType[];
 
         if (groupChildren.length === 0) return null;

@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { buildStructureIndexes } from '../../data/structureIndexes';
 import {
   getCards,
   getPageDetails,
@@ -10,8 +11,8 @@ import {
   nameToSlug,
 } from '../search';
 
-vi.mock('../../data', () => ({
-  structure: [
+vi.mock('../../data', () => {
+  const structure = [
     {
       name: 'Home',
       pages: ['Components', 'Foundation', 'Learn'],
@@ -105,8 +106,13 @@ vi.mock('../../data', () => ({
       url: 'https://example.com/docs',
       seoDescription: 'External',
     },
-  ],
-}));
+  ];
+
+  return {
+    structure,
+    structureIndexes: buildStructureIndexes(structure),
+  };
+});
 
 describe('nameToSlug', () => {
   it('converts names to slugs', () => {
@@ -117,7 +123,9 @@ describe('nameToSlug', () => {
 
 describe('getSearchSuggestions', () => {
   it('returns suggestions sorted alphabetically by label', () => {
-    const labels = getSearchSuggestions.map(item => item.label);
+    const labels = getSearchSuggestions().map(
+      (item: { label: string }) => item.label,
+    );
     expect(labels).toEqual([...labels].sort((a, b) => a.localeCompare(b)));
     expect(labels).toContain('Button');
     expect(labels).toContain('Foundation');
@@ -150,6 +158,8 @@ describe('nameToPath', () => {
     expect(nameToPath('Home')).toBe('/');
     expect(nameToPath('Components')).toBe('/components');
     expect(nameToPath('Button')).toBe('/components/button');
+    expect(nameToPath('Card')).toBe('/components/card');
+    expect(nameToPath('Forms')).toBe('/templates/forms');
   });
 
   it('returns section anchor paths', () => {

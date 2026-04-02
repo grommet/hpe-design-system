@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Cube, Grow } from '@hpe-design/icons-grommet';
-import { IconCircle, IconDiamond, IconSquare } from '../components';
+import { IconCircle, IconDiamond, IconSquare } from '../components/icons';
 import {
   components as componentsArr,
   foundation as foundationArr,
@@ -9,7 +9,9 @@ import {
   templates as templatesArr,
   Structure,
 } from './structures';
-import { buildCategoryMapping, getCategoryWeights } from './buildCategoryMapping.ts';
+import { buildCategoryMapping, getCategoryWeights } from './buildCategoryMapping';
+import { buildStructureIndexes, type StructurePage } from './structureIndexes';
+import { validateStructureData } from './structureValidation';
 
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
@@ -43,7 +45,7 @@ const initialStructure = [
     color: 'decorative-green',
     description:
       'These are the core elements of HPE that encompass the voice, language, and visuals that personify our brand and help establish and identify it from the rest of the community.',
-    icon: (size, color) => (
+    icon: (size: string, color: string) => (
       <IconCircle size={size} color={color} aria-hidden="true" />
     ),
     seoDescription:
@@ -57,7 +59,7 @@ const initialStructure = [
     color: 'decorative-blue',
     description:
       'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
-    icon: (_, color) => <Grow color={color} aria-hidden="true" />,
+    icon: (_: string, color: string) => <Grow color={color} aria-hidden="true" />,
     preview: {
       image: {
         src: '/creativetoolkitimages/components.svg',
@@ -74,7 +76,7 @@ const initialStructure = [
     color: 'decorative-cyan',
     description:
       'Jumpstart application design and development with use-case specific templates. Interactive templates demonstrate desired user experiences and the building block components used to create them.',
-    icon: (size, color) => (
+    icon: (size: string, color: string) => (
       <IconDiamond size={size} color={color} aria-hidden="true" />
     ),
     preview: {
@@ -86,7 +88,7 @@ const initialStructure = [
     },
     seoDescription:
       'HPE Design System starter templates for jumpstarting application screen design and development.',
-    pages: templates
+    pages: Structure.from(templates.filter(page => !page.parentPage))
       .sortByName()
       .sortByCardOrder()
       .map(page => page.name),
@@ -96,7 +98,7 @@ const initialStructure = [
     color: 'decorative-purple',
     description:
       'The component library provides a vetted set of interface elements for use in your applications and websites. All components are published in Figma for use in your designs. Web versions are built atop Grommet and styled by the HPE Theme providing the "building blocks" your application needs to be performant and compliant.',
-    icon: (size, color) => (
+    icon: (size: string, color: string) => (
       <IconSquare size={size} color={color} aria-hidden="true" />
     ),
     preview: {
@@ -108,7 +110,9 @@ const initialStructure = [
     },
     seoDescription:
       'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: components.sortByName().map(page => page.name),
+    pages: Structure.from(components.filter(page => !page.parentPage))
+      .sortByName()
+      .map(page => page.name),
   },
   {
     name: 'Whats New',
@@ -124,7 +128,7 @@ const initialStructure = [
     color: 'decorative-purple',
     description:
       'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
-    icon: (_, color) => <Cube color={color} aria-hidden="true" />,
+    icon: (_: string, color: string) => <Cube color={color} aria-hidden="true" />,
     preview: {
       image: {
         src: '/creativetoolkitimages/components.svg',
@@ -141,7 +145,7 @@ const initialStructure = [
   learn,
   templates,
   tokens,
-].flat();
+].flat() as StructurePage[];
 
 export const structure = initialStructure;
 
@@ -153,4 +157,20 @@ if (foundationPage) {
     .sortByCardOrder()
     .sortByCategory(getCategoryWeights(categoryMapping, 'Foundation'))
     .map(page => page.name);
+}
+
+export const structureIndexes = buildStructureIndexes(structure, categoryMapping);
+
+const validation = validateStructureData(structure, categoryMapping);
+if (validation.errors.length) {
+  const summary = validation.errors.join('\n- ');
+  const warnOnlyMode =
+    process.env.STRICT_STRUCTURE_VALIDATION === 'false' ||
+    process.env.STRUCTURE_VALIDATION_WARN_ONLY === 'true';
+
+  if (warnOnlyMode) {
+    console.warn(`Structure validation warnings:\n- ${summary}`);
+  } else {
+    throw new Error(`Structure validation failed:\n- ${summary}`);
+  }
 }
