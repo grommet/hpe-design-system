@@ -123,7 +123,9 @@ describe('nameToSlug', () => {
 
 describe('getSearchSuggestions', () => {
   it('returns suggestions sorted alphabetically by label', () => {
-    const labels = getSearchSuggestions().map(item => item.label);
+    const labels = getSearchSuggestions().map(
+      (item: { label: string }) => item.label,
+    );
     expect(labels).toEqual([...labels].sort((a, b) => a.localeCompare(b)));
     expect(labels).toContain('Button');
     expect(labels).toContain('Foundation');
