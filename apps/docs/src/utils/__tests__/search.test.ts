@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { buildStructureIndexes } from '../../data/structureIndexes';
 import {
   getCards,
   getPageDetails,
@@ -10,17 +11,17 @@ import {
   nameToSlug,
 } from '../search';
 
-vi.mock('../../data', () => ({
-  structure: [
+vi.mock('../../data', () => {
+  const structure = [
     {
       name: 'Home',
-      pages: ['Components', 'Foundation'],
+      pages: ['Components', 'Foundation', 'Learn'],
       sections: ['Overview'],
       seoDescription: 'Home',
     },
     {
       name: 'Components',
-      pages: ['Button', 'Card'],
+      pages: ['Button', 'Card', 'Layer'],
       seoDescription: 'Components',
     },
     {
@@ -30,18 +31,88 @@ vi.mock('../../data', () => ({
       seoDescription: 'Foundation',
     },
     {
+      name: 'Learn',
+      pages: ['Tshirt sizing'],
+      seoDescription: 'Learn',
+    },
+    {
+      name: 'Tshirt sizing',
+      href: '/foundation/tshirt-sizing',
+      seoDescription: 'Tshirt sizing',
+    },
+    {
       name: 'Button',
       relatedContent: ['Card'],
       seoDescription: 'Button',
     },
-    { name: 'Card', seoDescription: 'Card' },
+    {
+      name: 'Card',
+      pages: ['Call to action card', 'Navigational card'],
+      seoDescription: 'Card',
+    },
+    {
+      name: 'Call to action card',
+      path: '/components/card/call-to-action-card',
+      parentPage: 'Card',
+      seoDescription: 'Call to action card',
+    },
+    {
+      name: 'Navigational card',
+      path: '/components/card/navigational-card',
+      parentPage: 'Card',
+      seoDescription: 'Navigational card',
+    },
+    {
+      name: 'Layer',
+      pages: ['Center layer', 'Side drawer layer', 'Fullscreen layer'],
+      seoDescription: 'Layer',
+    },
+    {
+      name: 'Center layer',
+      path: '/components/layer/center-layer',
+      parentPage: 'Layer',
+      seoDescription: 'Center layer',
+    },
+    {
+      name: 'Side drawer layer',
+      path: '/components/layer/side-drawer-layer',
+      parentPage: 'Layer',
+      seoDescription: 'Side drawer layer',
+    },
+    {
+      name: 'Fullscreen layer',
+      path: '/components/layer/fullscreen-layer',
+      parentPage: 'Layer',
+      seoDescription: 'Fullscreen layer',
+    },
+    {
+      name: 'Templates',
+      pages: ['Forms'],
+      seoDescription: 'Templates',
+    },
+    {
+      name: 'Forms',
+      pages: ['Managing child objects'],
+      seoDescription: 'Forms',
+    },
+    {
+      name: 'Managing child objects',
+      path: '/templates/forms/managing-child-objects',
+      parentPage: 'Forms',
+      seoDescription: 'Managing child objects',
+    },
     {
       name: 'External docs',
       url: 'https://example.com/docs',
       seoDescription: 'External',
     },
-  ],
-}));
+  ];
+
+  return {
+    structure,
+    structureIndexes: buildStructureIndexes(structure),
+  };
+});
 
 describe('nameToSlug', () => {
   it('converts names to slugs', () => {
@@ -52,7 +123,9 @@ describe('nameToSlug', () => {
 
 describe('getSearchSuggestions', () => {
   it('returns suggestions sorted alphabetically by label', () => {
-    const labels = getSearchSuggestions.map(item => item.label);
+    const labels = getSearchSuggestions().map(
+      (item: { label: string }) => item.label,
+    );
     expect(labels).toEqual([...labels].sort((a, b) => a.localeCompare(b)));
     expect(labels).toContain('Button');
     expect(labels).toContain('Foundation');
@@ -85,6 +158,8 @@ describe('nameToPath', () => {
     expect(nameToPath('Home')).toBe('/');
     expect(nameToPath('Components')).toBe('/components');
     expect(nameToPath('Button')).toBe('/components/button');
+    expect(nameToPath('Card')).toBe('/components/card');
+    expect(nameToPath('Forms')).toBe('/templates/forms');
   });
 
   it('returns section anchor paths', () => {
@@ -95,8 +170,12 @@ describe('nameToPath', () => {
     expect(nameToPath('External docs')).toBe('https://example.com/docs');
   });
 
-  it('keeps known hardcoded route mappings', () => {
-    const hardcodedRoutes = [
+  it('prefers internal href override over parent-based slug path', () => {
+    expect(nameToPath('Tshirt sizing')).toBe('/foundation/tshirt-sizing');
+  });
+
+  it('resolves migrated explicit-path routes from structure data', () => {
+    const explicitPathRoutes = [
       {
         name: 'Call to action card',
         path: '/components/card/call-to-action-card',
@@ -114,10 +193,9 @@ describe('nameToPath', () => {
       },
     ];
 
-    hardcodedRoutes.forEach(route => {
+    explicitPathRoutes.forEach(route => {
       expect(nameToPath(route.name)).toBe(route.path);
     });
-    expect(hardcodedRoutes).toHaveLength(6);
   });
 });
 
