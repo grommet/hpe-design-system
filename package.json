@@ -32,8 +32,7 @@
     "@hpe-design/icons-grommet": "catalog:",
     "grommet": "catalog:",
     "grommet-theme-hpe": "catalog:",
-    "styled-components": "catalog:",
-    "zod": "^4.3.6"
+    "styled-components": "catalog:"
   },
   "scripts": {
     "prepare": "husky install",
