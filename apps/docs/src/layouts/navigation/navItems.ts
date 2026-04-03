@@ -1,6 +1,6 @@
 import { NavItemType } from '@shared/aries-core';
 import { structure } from '../../data';
-import { structureIndexes } from '../../data/structure';
+import { categoryOrders, structureIndexes } from '../../data/structure';
 import { nameToPath } from '../../utils';
 
 type NavPage = {
@@ -43,8 +43,24 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
     : undefined;
 
   if (parentMapping) {
+    const orderedCategories = categoryOrders[parentName || ''];
+    const sortedParentEntries = Object.entries(parentMapping).sort(
+      ([aCategory], [bCategory]) => {
+        if (!orderedCategories) return 0;
+
+        const fallbackWeight = Number.MAX_SAFE_INTEGER;
+        const aWeight = orderedCategories.indexOf(aCategory);
+        const bWeight = orderedCategories.indexOf(bCategory);
+
+        return (
+          (aWeight === -1 ? fallbackWeight : aWeight) -
+          (bWeight === -1 ? fallbackWeight : bWeight)
+        );
+      },
+    );
+
     // Build grouped items from the category mapping
-    return Object.entries(parentMapping)
+    return sortedParentEntries
       .map(([category, categoryPages]) => {
         const groupChildren = categoryPages
           .map(page => buildNavItem(page.name))

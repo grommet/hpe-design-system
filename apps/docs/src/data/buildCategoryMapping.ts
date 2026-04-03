@@ -63,16 +63,22 @@ export function buildCategoryMapping(data: any[]): CategoryMappings {
  * Converts category group order into numeric weights for sortByCategory.
  * @param mapping - The generated category mapping
  * @param hubPageName - The name of the hub page
+ * @param categoryOrder - Optional custom category order. If provided, uses this order instead of data order
  */
 export function getCategoryWeights(
   mapping: CategoryMappings,
   hubPageName: string,
+  categoryOrder?: string[],
 ): CategoryWeights {
   const categoryGroups = mapping[hubPageName];
   if (!categoryGroups) return {};
 
-  return Object.keys(categoryGroups).reduce((acc, category, index) => {
-    acc[category] = index;
+  const categories = categoryOrder || Object.keys(categoryGroups);
+
+  return categories.reduce((acc, category, index) => {
+    if (categoryGroups[category]) {
+      acc[category] = index;
+    }
     return acc;
   }, {} as CategoryWeights);
 }

@@ -19,6 +19,11 @@ const learn = Structure.from(learnArr);
 const tokens = Structure.from(tokensArr);
 const templates = Structure.from(templatesArr);
 
+export const categoryOrders: Record<string, string[]> = {
+  Foundation: ['Getting started', 'Philosophy', 'HPE Brand', 'Color', 'Layout'],
+};
+
+
 // Build the structure in two phases to avoid circular dependency
 // Phase 1: Create initial structure (without applying category-based sorts)
 const initialStructure = [
@@ -151,11 +156,19 @@ export const structure = initialStructure;
 
 export const categoryMapping = buildCategoryMapping(structure);
 
+// Phase 2: Apply category-based sorting to Foundation pages
+// (This overrides the initial cardOrder-only sort from Phase 1)
 const foundationPage = structure.find(page => page.name === 'Foundation');
 if (foundationPage) {
   foundationPage.pages = foundation
     .sortByCardOrder()
-    .sortByCategory(getCategoryWeights(categoryMapping, 'Foundation'))
+    .sortByCategory(
+      getCategoryWeights(
+        categoryMapping,
+        'Foundation',
+        categoryOrders.Foundation,
+      ),
+    )
     .map(page => page.name);
 }
 
