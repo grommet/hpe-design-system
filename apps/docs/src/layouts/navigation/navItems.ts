@@ -1,20 +1,20 @@
 import { NavItemType } from '@shared/aries-core';
-import { structure, PageDetails } from '../../data';
-import * as structureModule from '../../data/structure';
+import { structure } from '../../data';
+import { structureIndexes } from '../../data/structure';
 import { nameToPath } from '../../utils';
 
-// Access categoryMapping from structure module
-const categoryMapping = (structureModule as any).categoryMapping;
-
-// Create a lookup for all pages in the structure to access metadata
-const pageDetails = structure.reduce((acc, item) => {
-  acc[item.name] = item;
-  return acc;
-}, {} as { [key: string]: PageDetails });
-
-const hasChildren = (page: PageDetails): boolean => {
-  return Array.isArray(page.pages) && page.pages.length > 0;
+type NavPage = {
+  name: string;
+  pages?: string[];
+  parentPage?: string;
 };
+
+const structurePages = structure as NavPage[];
+
+const pageDetails = structureIndexes.byName as { [key: string]: NavPage };
+
+const hasChildren = (page: NavPage): page is NavPage & { pages: string[] } =>
+  Array.isArray(page.pages) && page.pages.length > 0;
 
 const excludePages = ['Card']; // Pages with children to exclude from top-level navigation
 
@@ -39,7 +39,7 @@ const buildNavItem = (pageName: string): NavItemType | null => {
 // Build navigation items for a parent, grouping by category if mapping exists
 const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
   const parentMapping = parentName
-    ? (categoryMapping as Record<string, Record<string, string[]>>)[parentName]
+    ? structureIndexes.byCategory[parentName]
     : undefined;
 
   if (parentMapping) {
@@ -47,7 +47,7 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
     return Object.entries(parentMapping)
       .map(([category, categoryPages]) => {
         const groupChildren = categoryPages
-          .map(buildNavItem)
+          .map(page => buildNavItem(page.name))
           .filter(Boolean) as NavItemType[];
 
         if (groupChildren.length === 0) return null;
@@ -77,7 +77,7 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
   return items.sort((a, b) => a.label.localeCompare(b.label));
 };
 
-export const navItems: NavItemType[] = structure
+export const navItems: NavItemType[] = structurePages
   .filter(page => hasChildren(page) && !excludePages.includes(page.name))
   .map(page => {
     if (page.name === 'Home') {

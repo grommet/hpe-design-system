@@ -252,6 +252,9 @@ export const foundation = [
     category: 'HPE Brand',
     description: `Icons visually communicate actions, objects, and states —
       creating a consistent, recognizable language across our products.`,
+    seoDescription:
+      // eslint-disable-next-line max-len
+      'Icons visually communicate actions, objects, and states. Learn how to use and develop with HPE icons.',
     preview: {
       image: {
         src: {

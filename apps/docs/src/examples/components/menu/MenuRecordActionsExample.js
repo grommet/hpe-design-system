@@ -48,11 +48,18 @@ export const MenuRecordActionsExample = () => {
         <List
           data={serverGroups}
           defaultItemProps={{
-            pad: { vertical: 'xsmall' },
+            pad: { vertical: '4xsmall' },
           }}
         >
           {(datum, index) => (
-            <Box direction="row" justify="between" align="start">
+            <Box
+              direction="row"
+              justify="between"
+              align="start"
+              background="background-front"
+              pad="small"
+              round="small"
+            >
               <Box gap="3xsmall" fill>
                 <TextEmphasis>{datum.name}</TextEmphasis>
                 <Box gap="5xsmall">

@@ -1,8 +1,8 @@
 packages:
-  - 'apps/*'
-  - 'packages/**'
-  - 'sandbox/*'
-  - 'shared/*'
+  - apps/*
+  - packages/**
+  - sandbox/*
+  - shared/*
 
 catalog:
   '@hpe-design/icons-grommet': ^1.1.0
@@ -10,9 +10,10 @@ catalog:
   '@types/react': ^19.1.10
   '@types/react-dom': ^19.1.7
   eslint: ^8.39.0
-  grommet: ^2.51.0
+  grommet: ^2.53.0
   grommet-icons: ^4.14.0
-  grommet-theme-hpe: ^8.0.0
+  grommet-theme-hpe: ^8.1.4
+  hpe-design-tokens: ^2.2.3
   prop-types: ^15.8.1
   react: ^19.2.3
   react-dom: ^19.2.3
@@ -23,6 +24,7 @@ catalogs:
   grommet-stable:
     grommet: https://github.com/grommet/grommet/tarball/stable
     grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable
+    grommet-theme-hpe: https://github.com/grommet/grommet-theme-hpe/tarball/stable
   grommet-theme-hpe-v6:
     grommet-theme-hpe: ^6.0.0
   grommet-theme-hpe-v7:

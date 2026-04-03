@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Accordion, AccordionPanel, Box } from 'grommet';
-import { spacingSizes, alignArg, widthArg } from '../utils/commonArgs';
+import { spacingSizes, widthArg } from '../utils/commonArgs';
 
 // Fix for Storybook displaying <React.ForwardRef> instead of component name
 Accordion.displayName = 'Accordion';

@@ -9928,6 +9928,142 @@
         }
       },
       "toast": {
+        "critical": {
+          "rest": {
+            "background": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.background.floating.DEFAULT.REST}"
+            },
+            "border": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.transparent}"
+            },
+            "iconColor": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.icon.critical.DEFAULT.REST}"
+            },
+            "message": {
+              "textColor": {
+                "$description": "",
+                "$extensions": {
+                  "com.figma": {
+                    "codeSyntax": {},
+                    "hiddenFromPublishing": false,
+                    "scopes": ["ALL_SCOPES"]
+                  }
+                },
+                "$type": "color",
+                "$value": "{color.text.default.REST}"
+              }
+            },
+            "title": {
+              "textColor": {
+                "$description": "",
+                "$extensions": {
+                  "com.figma": {
+                    "codeSyntax": {},
+                    "hiddenFromPublishing": false,
+                    "scopes": ["ALL_SCOPES"]
+                  }
+                },
+                "$type": "color",
+                "$value": "{color.text.strong.REST}"
+              }
+            }
+          }
+        },
+        "info": {
+          "rest": {
+            "background": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.background.floating.DEFAULT.REST}"
+            },
+            "border": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.transparent}"
+            },
+            "iconColor": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.icon.info.DEFAULT.REST}"
+            },
+            "message": {
+              "textColor": {
+                "$description": "",
+                "$extensions": {
+                  "com.figma": {
+                    "codeSyntax": {},
+                    "hiddenFromPublishing": false,
+                    "scopes": ["ALL_SCOPES"]
+                  }
+                },
+                "$type": "color",
+                "$value": "{color.text.default.REST}"
+              }
+            },
+            "title": {
+              "textColor": {
+                "$description": "",
+                "$extensions": {
+                  "com.figma": {
+                    "codeSyntax": {},
+                    "hiddenFromPublishing": false,
+                    "scopes": ["ALL_SCOPES"]
+                  }
+                },
+                "$type": "color",
+                "$value": "{color.text.strong.REST}"
+              }
+            }
+          }
+        },
         "medium": {
           "borderRadius": {
             "$description": "",
@@ -13644,29 +13780,57 @@
     },
     "toggleGroup": {
       "group": {
-        "background": {
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "codeSyntax": {},
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"]
-            }
+        "hover": {
+          "background": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.transparent}"
           },
-          "$type": "color",
-          "$value": "{color.transparent}"
+          "border": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.border.default.REST}"
+          }
         },
-        "border": {
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "codeSyntax": {},
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"]
-            }
+        "rest": {
+          "background": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.transparent}"
           },
-          "$type": "color",
-          "$value": "{color.border.default.REST}"
+          "border": {
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.border.default.REST}"
+          }
         }
       },
       "item": {
@@ -13859,6 +14023,68 @@
           }
         },
         "selected": {
+          "hover": {
+            "background": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.background.DEFAULT.active}"
+            },
+            "border": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.border.default.REST}"
+            },
+            "fontWeight": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "number",
+              "$value": 0
+            },
+            "iconColor": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.icon.strong.REST}"
+            },
+            "textColor": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.text.strong.REST}"
+            }
+          },
           "rest": {
             "background": {
               "$description": "",
