@@ -68,24 +68,6 @@ vi.mock('../../data', () => {
       seoDescription: 'Layer',
     },
     {
-      name: 'Center layer',
-      path: '/components/layer/center-layer',
-      parentPage: 'Layer',
-      seoDescription: 'Center layer',
-    },
-    {
-      name: 'Side drawer layer',
-      path: '/components/layer/side-drawer-layer',
-      parentPage: 'Layer',
-      seoDescription: 'Side drawer layer',
-    },
-    {
-      name: 'Fullscreen layer',
-      path: '/components/layer/fullscreen-layer',
-      parentPage: 'Layer',
-      seoDescription: 'Fullscreen layer',
-    },
-    {
       name: 'Templates',
       pages: ['Forms'],
       seoDescription: 'Templates',
