@@ -40,7 +40,13 @@ const buildNavItem = (pageName: string): NavItemType | null => {
   };
 
   if (hasChildren(details)) {
-    navItem.children = buildNavItems(details.pages!, pageName);
+    navItem.children = [
+      {
+        label: 'Overview',
+        url: nameToPath(pageName),
+      },
+      ...buildNavItems(details.pages!, pageName),
+    ];
   } else {
     navItem.url = nameToPath(pageName);
   }
