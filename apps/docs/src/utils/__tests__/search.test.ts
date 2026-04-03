@@ -64,7 +64,6 @@ vi.mock('../../data', () => {
     },
     {
       name: 'Layer',
-      pages: ['Center layer', 'Side drawer layer', 'Fullscreen layer'],
       seoDescription: 'Layer',
     },
     {
@@ -163,12 +162,6 @@ describe('nameToPath', () => {
         path: '/components/card/call-to-action-card',
       },
       { name: 'Navigational card', path: '/components/card/navigational-card' },
-      { name: 'Center layer', path: '/components/layer/center-layer' },
-      {
-        name: 'Side drawer layer',
-        path: '/components/layer/side-drawer-layer',
-      },
-      { name: 'Fullscreen layer', path: '/components/layer/fullscreen-layer' },
       {
         name: 'Managing child objects',
         path: '/templates/forms/managing-child-objects',
