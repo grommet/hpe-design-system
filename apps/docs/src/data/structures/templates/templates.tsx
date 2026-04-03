@@ -357,6 +357,7 @@ export const templates = [
   },
   {
     name: 'Forms',
+    pages: ['Managing child objects'],
     available: true,
     cardOrder: 1,
     description: `Common form use cases from application configuration 
@@ -427,6 +428,7 @@ export const templates = [
   },
   {
     name: 'Managing child objects',
+    path: '/templates/forms/managing-child-objects',
     parentPage: 'Forms',
     available: true,
     description: `How to show, hide, and edit details of child 

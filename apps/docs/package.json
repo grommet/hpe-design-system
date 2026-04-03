@@ -21,34 +21,44 @@
     "react-ga": "^2.7.0",
     "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^4.0.0",
-    "styled-components": "catalog:"
+    "styled-components": "catalog:",
+    "zod": "^4.3.6"
   },
   "scripts": {
-    "build": "pnpm build-search && next build",
+    "build": "pnpm validate:structure && pnpm build-search && next build",
     "build-design-tokens": "pnpm --filter hpe-design-tokens build",
     "export": "pnpm build",
     "postexport": "node next.postexport.js",
     "start": "pnpm build-search && next",
     "start-server": "pnpm build && pnpm next -p 3030",
     "test": "pnpm build && node src/scripts/start-tests.js",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
     "test:ci": "start-server-and-test 'pnpm next -p 3030' 3030 'testcafe chrome:headless'",
     "test:applitools": "start-server-and-test 'pnpm next -p 3030' 3030 'testcafe chrome:headless src/applitools/'",
     "test:windows": "start-server-and-test start-server 3030 \"testcafe chrome\"",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "build-search": "node src/scripts/site-contents.mjs"
+    "build-search": "node src/scripts/site-contents.mjs",
+    "validate:structure": "vitest run src/data/__tests__/structure.validation.test.ts --testNamePattern=\"Build-time Validation\""
   },
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",
     "@testing-library/testcafe": "^5.0.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/ui": "^3.2.4",
     "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
+    "eslint": "catalog:",
     "grommet-theme-hpe": "catalog:",
+    "jsdom": "^26.1.0",
     "next-transpile-modules": "^10.0.1",
     "start-server-and-test": "^2.0.3",
     "testcafe": "^3.5.0",
-    "testcafe-react-selectors": "^5.0.3"
+    "testcafe-react-selectors": "^5.0.3",
+    "vite": "^5.4.21",
+    "vitest": "^3.2.4"
   }
 }
