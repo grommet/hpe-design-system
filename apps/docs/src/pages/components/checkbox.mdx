@@ -35,12 +35,6 @@ There are three states which CheckBox provides:
 
 Checked and unchecked states refer to when an individual CheckBox is checked or when all options from a group are checked.
 
-### CheckBox with FormField
-
-When wrapping a CheckBox in a FormField, do not provide a `label` prop to FormField. Because CheckBox already has its own `label` prop that visually and programmatically labels the input, adding a FormField `label` creates multiple label elements for the same input, resulting in accessibility errors.
-
-Use FormField with CheckBox when you need to display help text, error messages, or validation for the checkbox.
-
 ### CheckBox outside of FormField
 
 A checkbox might be used outside of a form field when:
