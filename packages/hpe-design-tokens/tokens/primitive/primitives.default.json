@@ -1521,6 +1521,18 @@
       }
     },
     "fontSize": {
+      "70": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["FONT_SIZE"]
+          }
+        },
+        "$type": "number",
+        "$value": 10
+      },
       "80": {
         "$description": "",
         "$extensions": {
@@ -1655,6 +1667,18 @@
       }
     },
     "lineHeight": {
+      "70": {
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "codeSyntax": {},
+            "hiddenFromPublishing": false,
+            "scopes": ["LINE_HEIGHT"]
+          }
+        },
+        "$type": "number",
+        "$value": 12
+      },
       "80": {
         "$description": "",
         "$extensions": {
