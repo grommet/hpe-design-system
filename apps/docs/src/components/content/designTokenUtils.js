@@ -47,18 +47,20 @@ const ColorPreview = ({ background, datum, ...rest }) => (
   />
 );
 
-const DimensionPreview = ({ datum }) =>
-  parseInt(datum.value, 10) <= 200 ? (
+const DimensionPreview = ({ datum }) => {
+  const key = datum.originalToken || datum.token;
+  return parseInt(datum.value, 10) <= 200 ? (
     <Box
       round="xsmall"
       flex={false}
       background="brand"
       width={datum.value}
-      height={datum.token.includes('icon') ? datum.value : '36px'}
+      height={key.includes('icon') ? datum.value : '36px'}
     />
   ) : (
     '--'
   );
+};
 
 const RadiusPreview = ({ datum }) => (
   <Box pad="medium" round={datum.value} flex={false} background="brand" />
@@ -82,11 +84,40 @@ const WeightPreview = ({ datum }) => (
 
 const TextPreview = ({ datum }) => <Text size={datum.value}>Hello world</Text>;
 
-const getTokens = (tokenObj, mode) =>
+// Token name transform helpers
+const toHpeTokenName = name => name;
+
+const toHpeCssName = name => `--${name.replace(/\./g, '-')}`;
+
+// eslint-disable-next-line max-len
+// Grommet: strip collection prefix (e.g. 'hpe.color.') leaving 'background.default'
+// then replace '.' with '/'
+const toGrommetName = name => {
+  const parts = name.split('.');
+  // parts[0] = 'hpe', parts[1] = category group (color/global dim/etc)
+  // Grommet token names drop the first two segments and use '/' separator
+  return parts.slice(2).join('/');
+};
+
+// Figma: strip 'hpe.' prefix then replace '.' with '/'
+const toFigmaName = name => {
+  const parts = name.split('.');
+  return parts.slice(1).join('/');
+};
+
+const applyTokenNameTransform = (name, flavor, syntax) => {
+  if (flavor === 'grommet') return toGrommetName(name);
+  if (flavor === 'figma') return toFigmaName(name);
+  if (syntax === 'css') return toHpeCssName(name);
+  return toHpeTokenName(name);
+};
+
+const getTokens = (tokenObj, mode, flavor = 'hpe', syntax = 'tokens') =>
   Object.keys(tokenObj).map(key => {
     return {
       id: key,
-      token: key,
+      token: applyTokenNameTransform(key, flavor, syntax),
+      originalToken: key,
       type: tokenObj[key]?.modes[mode]?.$type,
       description: tokenObj[key]?.modes[mode]?.$description,
       value: tokenObj[key]?.modes[mode].$value,
@@ -116,6 +147,8 @@ const useDesignTokens = defaultState => {
   const [data, setData] = useState([]);
   const [modes, setModes] = useState([]);
   const [selectedMode, setSelectedMode] = useState('');
+  const [flavor, setFlavor] = useState('hpe');
+  const [syntax, setSyntax] = useState('tokens');
 
   useEffect(() => {
     const [nextData, nextModes, nextMode] = getCurrentTokens(active);
@@ -133,6 +166,10 @@ const useDesignTokens = defaultState => {
     modes,
     selectedMode,
     setSelectedMode,
+    flavor,
+    setFlavor,
+    syntax,
+    setSyntax,
   };
 };
 
@@ -147,4 +184,5 @@ export {
   TextPreview,
   getTokens,
   useDesignTokens,
+  applyTokenNameTransform,
 };
