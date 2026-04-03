@@ -261,12 +261,12 @@ export const foundation = [
           light: '/foundationImages/foundation-preview-icons.svg',
           dark: '/foundationImages/foundation-preview-icons-invert.svg',
         },
-        alt: 'Hpe Icon Preview',
+        alt: 'HPE Icon Preview',
       },
     },
     relatedContent: ['Button', 'Header', 'Menu', 'Search'],
     sections: [
-      'Developing with Hpe Icons',
+      'Developing with HPE Icons',
       'Icon within components',
       'Icon Sizes',
       'Button Icons',
@@ -284,7 +284,7 @@ export const foundation = [
     cardOrder: 4,
     category: 'HPE Brand',
     description: `The HPE Graphik font is an integral part of our personality 
-    and design. When we’re making a statement, our visual language is clear, 
+    and design. When we're making a statement, our visual language is clear, 
     recognized and understood.`,
     preview: {
       image: {
@@ -321,7 +321,7 @@ export const foundation = [
     name: 'Philosophy and principles',
     category: 'Philosophy',
     cardOrder: 1,
-    description: 'What the HPE Design System is and why we’re creating it.',
+    description: `What the HPE Design System is and why we're creating it.`,
     preview: {
       image: {
         src: {
@@ -339,7 +339,7 @@ export const foundation = [
       'Human-centered Design',
       'Common Design Language',
       'Collaboration and Community',
-      'Princples',
+      'Principles',
       'Focus on the experience',
       'Simplify',
       'Be Intuitive',
