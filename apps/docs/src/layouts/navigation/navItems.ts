@@ -7,6 +7,7 @@ type NavPage = {
   name: string;
   pages?: string[];
   parentPage?: string;
+  cardOrder?: number;
 };
 
 const structurePages = structure as NavPage[];
@@ -47,6 +48,20 @@ const buildNavItem = (pageName: string): NavItemType | null => {
   return navItem;
 };
 
+const sortNavItemsByCardOrder = (a: NavItemType, b: NavItemType) => {
+  const aOrder = pageDetails[a.label]?.cardOrder;
+  const bOrder = pageDetails[b.label]?.cardOrder;
+
+  if (aOrder === undefined && bOrder === undefined) {
+    return a.label.localeCompare(b.label);
+  }
+  if (aOrder === undefined) return 1;
+  if (bOrder === undefined) return -1;
+  if (aOrder !== bOrder) return aOrder - bOrder;
+
+  return a.label.localeCompare(b.label);
+};
+
 // Build navigation items for a parent, grouping by category if mapping exists
 const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
   const parentMapping = parentName
@@ -79,8 +94,8 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
 
         if (groupChildren.length === 0) return null;
 
-        // Alphabetize the leaf nodes within each group
-        groupChildren.sort((a, b) => a.label.localeCompare(b.label));
+        // Keep children aligned with authored cardOrder in structure data.
+        groupChildren.sort(sortNavItemsByCardOrder);
 
         return {
           id: `group-${category.toLowerCase().replace(/\s+/g, '-')}`,
