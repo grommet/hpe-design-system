@@ -1,5 +1,5 @@
-import { Box, Button, Diagram, Grid, Stack } from 'grommet';
-import { LayerHeader } from '@shared/aries-core';
+import { Button, Diagram, Grid, Stack } from 'grommet';
+import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
@@ -71,19 +71,14 @@ export const DoubleConfirmationAnatomy = () => {
             {...rest}
           />
         ))}
-        <Box
+        <ModalContainer
           gridArea="confirmation-area"
-          elevation="large"
-          background="background-floating"
-          round="medium"
-          pad="medium"
-          gap="medium"
         >
           <LayerHeader
             title='Discard "Add application"?'
             subtitle="Your changes will not be applied."
           />
-          <Box
+          <ModalFooter
             id="confirmation-footer"
             border={{ style: 'dashed' }}
             direction="row"
@@ -93,8 +88,8 @@ export const DoubleConfirmationAnatomy = () => {
           >
             <Button label="Cancel" />
             <Button label="Discard" primary />
-          </Box>
-        </Box>
+          </ModalFooter>
+        </ModalContainer>
       </AnatomyGrid>
       <Diagram connections={connections} />
     </Stack>

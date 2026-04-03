@@ -10,6 +10,7 @@ export const DoubleConfirmation = ({ title }) => {
     <ModalDialog
       title={`Discard ${title}?`}
       subtitle="Your changes will not be applied."
+      onEsc={cancelConfirmation}
     >
       <ModalFooter justify="end" gap="xsmall">
         <Button label="Cancel" onClick={cancelConfirmation} />

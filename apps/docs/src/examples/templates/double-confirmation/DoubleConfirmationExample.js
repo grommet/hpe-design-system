@@ -1,50 +1,40 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Layer } from 'grommet';
-import { LayerHeader } from '@shared/aries-core';
-
+import { Box, Button } from 'grommet';
+import { ModalDialog, ModalFooter } from '@shared/aries-core';
 
 export const DoubleConfirmationExample = ({ containerRef }) => {
     // containerRef is for demonstration purposes on this site. Most
     // implementations should likely remove.
     const [showModal, setShowModal] = useState(true);
+
+    const onOpen = () => setShowModal(true);
+    const onClose = () => setShowModal(false);
+
     return (
         <Box align="center" justify="center" fill>
             <Button
                 primary
                 label="Show me double confirmation"
-                onClick={() => setShowModal(true)}
+                onClick={onOpen}
             />
             {showModal && (
-                <Layer
+                <ModalDialog
+                    title='Discard "Add application"?'
+                    subtitle="Your changes will not be applied."
+                    onEsc={onClose}
                     target={containerRef?.current}
-                    onClickOutside={() => setShowModal(false)}
-                    onEsc={() => setShowModal(false)}
-                    modal={false}
                 >
-                    <Box pad="medium" gap="medium">
-                        <LayerHeader
-                            title='Discard "Add Application"?'
-                            subtitle="Your changes will not be applied."
-                        />
-                        <Box direction="row" gap="xsmall" justify="end">
-                            <Button
-                                label="Cancel"
-                                onClick={() => setShowModal(false)}
-                            />
-                            <Button
-                                label="Discard"
-                                primary
-                                onClick={() => setShowModal(false)}
-                            />
-                        </Box>
-                    </Box>
-                </Layer>
+                    <ModalFooter justify="end" gap="xsmall">
+                        <Button label="Cancel" onClick={onClose} />
+                        <Button label="Discard" primary onClick={onClose} />
+                    </ModalFooter>
+                </ModalDialog>
             )}
-        </Box >
+        </Box>
     );
 };
 
 DoubleConfirmationExample.propTypes = {
-    containerRef: PropTypes.object,
+    containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };

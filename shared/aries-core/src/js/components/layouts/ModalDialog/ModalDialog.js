@@ -27,6 +27,29 @@ ModalDialog.propTypes = {
   onClose: PropTypes.func,
 };
 
+export const ModalContainer = ({
+  children,
+  ...boxProps
+}) => (
+  <Box
+    background="background-floating"
+    round="medium"
+    elevation="large"
+    gap="medium"
+    pad="medium"
+    {...boxProps}
+  >
+    {children}
+  </Box>
+);
+
+ModalContainer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]),
+};
+
 export const ModalBody = ({ children, ...boxProps }) => (
   <Box {...boxProps}>{children}</Box>
 );
