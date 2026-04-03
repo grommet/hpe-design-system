@@ -27,15 +27,21 @@ const CategoryMappingSchema = z.record(
 );
 
 export const ALLOWED_CATEGORIES = new Set([
-  'All',
+  // Foundation
   'Assets',
+  'Color',
+  'Getting started',
+  'HPE Brand',
+  'Layout',
+  'Philosophy',
+  // Components
+  'All',
   'Controls',
   'Data',
   'Inputs',
-  'Layout',
   'Layouts',
-  'Philosophy',
   'Visualizations',
+  // Other
   'Single Column',
   '2 Column',
   '3 Column',

@@ -253,6 +253,9 @@ importers:
       '@testing-library/testcafe':
         specifier: ^5.0.1
         version: 5.0.1(testcafe@3.7.2)
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.5
       '@vitejs/plugin-react':
         specifier: ^5.1.4
         version: 5.1.4(vite@5.4.21(@types/node@20.19.25)(terser@5.44.1))

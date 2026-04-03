@@ -721,4 +721,93 @@ describe('NavigationMenu', () => {
       expect(reorderedTokensId).toBe(originalTokensId);
     });
   });
+
+  describe('Grouping', () => {
+    const groupedItems: NavItemType[] = [
+      {
+        label: 'Components',
+        children: [
+          {
+            label: 'Layout',
+            type: 'group',
+            children: [
+              { label: 'Box', url: '/box' },
+              { label: 'Grid', url: '/grid' },
+            ],
+          },
+          {
+            label: 'Controls',
+            type: 'group',
+            children: [
+              { label: 'Button', url: '/button' },
+            ],
+          },
+        ],
+      },
+    ];
+
+    it('should render group headers correctly', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      // Open the parent menu first
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+      expect(layoutHeader).toBeInTheDocument();
+      expect(layoutHeader).toHaveAttribute('aria-level', '3');
+    });
+
+    it('should render group children within group container', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+      const layoutGroup = screen.getByRole('group', { name: /layout/i });
+
+      expect(layoutGroup).toBeInTheDocument();
+      expect(layoutGroup).toHaveAttribute('aria-labelledby', layoutHeader.id);
+
+      const boxItem = within(layoutGroup).getByRole('menuitem', { name: /box/i });
+      expect(boxItem).toBeInTheDocument();
+    });
+
+    it('should not allow interaction with group headers', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+
+      // Should not be a button
+      expect(layoutHeader.tagName).not.toBe('BUTTON');
+
+      // Ensure it doesn't have button role either
+      expect(
+        screen.queryByRole('button', { name: /layout/i }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should allow interaction with group children', async () => {
+      const user = userEvent.setup();
+      const onSelect = jest.fn();
+      renderNavigationMenu({ items: groupedItems, onSelect });
+
+      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+      const childItem = screen.getByRole('menuitem', { name: /box/i });
+      await user.click(childItem);
+
+      expect(onSelect).toHaveBeenCalledWith(
+        expect.objectContaining({
+          item: expect.objectContaining({
+            label: 'Box',
+            url: '/box',
+          }),
+        }),
+      );
+    });
+  });
 });

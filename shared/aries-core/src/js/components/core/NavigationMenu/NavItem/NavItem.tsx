@@ -17,17 +17,20 @@ interface NavItemProps {
   children?: React.ReactNode;
   icon?: React.ReactNode;
   label: string;
-  level?: 1 | 2;
+  level?: number;
   onEsc?: (event: React.KeyboardEvent) => void;
   onSelect?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   url?: string;
   [key: string]: unknown; // For additional props like 'id', 'aria-label', etc.
 }
 
-// Indentation based on level
-const indent = {
-  1: 'small',
-  2: 'medium',
+const gapByLevel = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
+
+const getGapForLevel = (level?: number) => {
+  if (!level || level <= 0) return undefined;
+
+  const index = Math.min(level - 1, gapByLevel.length - 1);
+  return gapByLevel[index];
 };
 
 export const NavItem = ({
@@ -66,7 +69,7 @@ export const NavItem = ({
             return (
               <ItemContainer
                 active={active as boolean | undefined}
-                gap={level ? indent[level as keyof typeof indent] : undefined}
+                gap={getGapForLevel(level)}
                 hover={hover}
               >
                 <ItemLabel
