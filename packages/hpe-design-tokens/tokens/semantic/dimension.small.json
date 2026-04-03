@@ -409,7 +409,7 @@
           }
         },
         "$type": "number",
-        "$value": 16
+        "$value": "{base.fontSize.90}"
       },
       "fontWeight": {
         "$description": "Font weight typically used on h6.",

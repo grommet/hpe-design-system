@@ -21,15 +21,11 @@ export const FormValidation = () => {
         <FormField label="Name" name="name" htmlFor="name" required>
           <TextInput name="name" id="name" value="Cluster 1" />
         </FormField>
-        <FormField
-          htmlFor="resource-manager"
-          name="resource-manager"
-          label="Distributed resource manager"
-        >
+        <FormField htmlFor="resource-manager" name="resource-manager">
           <CheckBox
             id="resource-manager"
             name="resource-manager"
-            label="Use manager"
+            label="Distributed resource manager"
           />
         </FormField>
         <Box gap="xsmall" pad={{ top: 'medium' }}>

@@ -1,9 +1,9 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Data, DataTableGroupBy, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataTableGroupBy',
+  title: 'Components/Data',
   component: DataTableGroupBy,
   argTypes: {
     options: {
@@ -17,7 +17,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const DataTableGroupByExample = {
   name: 'DataTableGroupBy',
   render: args => (
     <Data

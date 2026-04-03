@@ -45,7 +45,7 @@ export const containerSizes: string[] = Object.keys(
   (hpe as ThemeType).global?.size ?? {},
 );
 
-export const a11yTitleArg: ArgType = {
+export const ariaLabelArg: ArgType = {
   control: { type: 'text' },
 };
 
@@ -83,7 +83,7 @@ export const dropAlignArg: ArgType = {
 
 export const elevationArg: ArgType = {
   control: { type: 'select' },
-  options: tShirtSizes,
+  options: ['small', 'medium', 'large'],
 };
 
 export const fillArg: ArgType = {

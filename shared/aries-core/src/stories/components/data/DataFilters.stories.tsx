@@ -1,9 +1,9 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Data, DataFilter, DataFilters, DataTable } from 'grommet';
 
 const meta = {
-  title: 'Components/DataFilters',
+  title: 'Components/Data',
   component: DataFilters,
   argTypes: {
     clearFilters: {
@@ -24,7 +24,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const DataFiltersExample = {
   name: 'DataFilters',
   render: args => (
     <Data

@@ -14,7 +14,7 @@ import { ButtonGroup, ModalDialog } from '@shared/aries-core';
 export const ButtonBusyExample = ({ containerRef }) => {
   const [busy, setBusy] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [showLayer, setShowLayer] = useState(true);
+  const [showLayer, setShowLayer] = useState(false);
 
   const onClose = () => {
     setShowLayer(false);
@@ -26,7 +26,7 @@ export const ButtonBusyExample = ({ containerRef }) => {
       <PageContent align="center" justify="center" fill>
         <Button
           alignSelf="center"
-          label="Reset example"
+          label="View example"
           onClick={() => setShowLayer(true)}
           secondary
         />
@@ -36,6 +36,7 @@ export const ButtonBusyExample = ({ containerRef }) => {
             position="right"
             full="vertical"
             onClose={onClose}
+            onEsc={onClose}
             target={containerRef?.current}
           >
             <Form

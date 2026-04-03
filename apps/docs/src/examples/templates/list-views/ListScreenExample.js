@@ -4,7 +4,7 @@ import {
   Button,
   List,
   Header,
-  // Main,
+  Main,
   Menu,
   PageHeader,
   ResponsiveContext,
@@ -157,20 +157,18 @@ const AppHeaderExample = () => (
 export const ListScreenExample = ({ ...rest }) => (
   <Box {...rest}>
     <AppHeaderExample />
-    {/* Main is commented out for this example, but should be used in a
-    real application. */}
-    {/* <Main> */}
-    <Page pad={{ bottom: 'xlarge' }} flex={false}>
-      <PageContent>
-        <PageHeader
-          title="User controls"
-          actions={<Button label="Manage" primary />}
-        />
-        <ContentPane>
-          <StyledList />
-        </ContentPane>
-      </PageContent>
-    </Page>
-    {/* </Main> */}
+    <Main>
+      <Page pad={{ bottom: '3xlarge' }} flex={false}>
+        <PageContent>
+          <PageHeader
+            title="User controls"
+            actions={<Button label="Manage" primary />}
+          />
+          <ContentPane>
+            <StyledList />
+          </ContentPane>
+        </PageContent>
+      </Page>
+    </Main>
   </Box>
 );

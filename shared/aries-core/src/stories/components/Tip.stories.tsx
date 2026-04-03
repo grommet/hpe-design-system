@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Button, Tip } from 'grommet';
 
 const meta = {
@@ -26,7 +26,7 @@ export const Default = {
   render: args => (
     <Tip {...args}>
       <Button
-        a11yTitle="simple button"
+        aria-label="simple button"
         label="Hover to see Tip"
         secondary
       />

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Anchor, AnchorType } from 'grommet';
 import {
   disabledArg,
@@ -7,20 +7,20 @@ import {
   textSizesArg,
   reverseArg,
   iconArg,
-  a11yTitleArg,
+  ariaLabelArg,
 } from '../utils/commonArgs';
 
 const meta = {
   title: 'Components/Anchor',
   component: Anchor,
   argTypes: {
-    a11yTitle: a11yTitleArg,
+    'aria-label': ariaLabelArg,
     disabled: disabledArg,
     icon: iconArg,
-    label: labelArg,
     href: {
       control: { type: 'text' },
     },
+    label: labelArg,
     size: textSizesArg,
     reverse: reverseArg,
   },
@@ -34,9 +34,13 @@ export const Default: Story = {
     return <Anchor {...args} />;
   },
   args: {
-    label: 'Link',
+    'aria-label': 'Navigate to link',
+    disabled: false,
+    icon: undefined,
     href: '#',
-    a11yTitle: 'Navigate to link',
+    label: 'Link',
+    size: undefined,
+    reverse: false,
   },
   name: 'Anchor',
 };

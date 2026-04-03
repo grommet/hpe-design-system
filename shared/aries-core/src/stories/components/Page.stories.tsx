@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page, PageContent, PageHeader, Heading, Paragraph, PageExtendedProps } from 'grommet';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
 const meta = {
   title: 'Components/Page',
