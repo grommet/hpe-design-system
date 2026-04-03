@@ -1,10 +1,13 @@
 import { Button, Notification } from 'grommet';
-import { AccessibilitySection, BestPracticeGroup, Example, StyleTable } from '../../../layouts';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+  StyleTable,
+} from '../../../layouts';
 import {
   ActionLabels,
   ActionLabelTitle,
-  DoubleConfirmationAnatomy,
-  DoubleConfirmationBestPractice,
   ConfigurationForm,
   LayerAnatomy,
   LayerExample,
@@ -110,99 +113,9 @@ The following should cause an actionable layer to close:
 
 Clicks outside of an actionable layer, `onClickOutside`, should not close the layer. Actionable layers present an 'apply' or 'do not apply' choice for which a user should make an intentional choice. Clicks outside of layer do not indicate intent and therefore should not close the layer.
 
-Use of a double confirmation may be desirable as part of the layer's closing behavior in some instances. See more detail about [when to use double confirmation](#double-confirmations).
+Use of a double confirmation may be desirable as part of the layer's closing behavior in some instances. See more detail about [when to use double confirmation](/templates/double-confirmation#use-cases).
 
 Learn more about the specifics of [actionable center layers](/components/layer/center-layer#actionable), [actionable side drawer layers](/components/layer/side-drawer-layer#actionable), and [actionable fullscreen layers](/components/layer/fullscreen-layer#actionable).
-
-### Double confirmations
-
-When closing out of an actionable layer containing editable or configurable information, the behavior should err on preventing a user's unintentional loss of work by presenting a double confirmation.
-
-A double confirmation should be shown when data has been edited or changed and the user closes the layer by using the [close icon](/foundation/icons#ui-actions) button, cancel button, or Escape key; a double confirmation is not needed upon affirmative actions like 'save' or 'apply'.
-
-| Layer state                             | Confirmation type   | Notes                                                                                                                                                                                         |
-| --------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| User has not input or changed any data. | No confirmation     | The user will not lose anything if the layer closes immediately.                                                                                                                              |
-| User has input or changed data.         | Double confirmation | The double confirmation should show when the user clicks the "X" or Cancel button, or presses the Escape key. This short confirmation ensures that user's work won't unintentionally be lost. |
-
-#### Double confirmation anatomy
-
-A double confirmation appears as a center [modal](#modal-vs-non-modal). This placement puts the confirmation at the center of the user's attention, reinforcing the importance of the dialog's prompt and minimizing distractions from other page content.
-
-<Example plain>
-  <DoubleConfirmationAnatomy />
-</Example>
-
-| Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
-| ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
-| **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
-| **1b** | **Subtitle** | To clarify that changes will not be saved.                           | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                         |
-| **2**  | **Footer **  | Contains two actions: "Cancel" and "Discard"                         | <Checkmark a11yTitle="true" size="small" /> | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
-
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'do',
-      message:
-        'Lead with the single action that needs to be confirmed. In most cases, this is "Discard" followed by a noun of what will be discarded.',
-    }}
-    width="100%"
-  >
-    <DoubleConfirmationBestPractice />
-  </Example>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Avoid unnecessary instructions which create uncertainty about what will happen. Avoid phrasing which question the user's intent; instead use phrasing which trusts the intent and confirms.`,
-    }}
-    width="100%"
-  >
-    <DoubleConfirmationBestPractice bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
-
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'do',
-      message: 'Align the primary action verb with the title.',
-    }}
-    width="100%"
-  >
-    <DoubleConfirmationBestPractice />
-  </Example>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Don’t change the primary action to something generic like "Yes". The user should know the consequence of the button by the label alone.`,
-    }}
-    width="100%"
-  >
-    <DoubleConfirmationBestPractice bestPractice="badLabel" />
-  </Example>
-</BestPracticeGroup>
-
-#### Double confirmation example
-
-The example below demonstrates how a double confirmation is only used if the layer's content has been changed or edited. A double confirmation is not used if no changes have been made. This behavior errs on preventing unintentional loss of work that a user has done.
-
-First, click "Add application" then click the close button in the layer header. Notice how the layer immediately closes.
-
-Next, click "Add application" again and this time type something into the "Title" input. Now, click the close button. Notice how a double confirmation appears.
-
-<Example
-  docs="https://v2.grommet.io/layer?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/ConfigurationForm.js"
-  height={{ min: 'xsmall' }}
-  template
-  showResponsiveControls={[]}
->
-  <ConfigurationForm />
-</Example>
 
 ## Modal vs. non-modal
 
@@ -340,6 +253,7 @@ For example, implementation of this "Close" button for a Layer would be:
   autoFocus
 />
 ```
+
 ### WCAG compliance
 
-<AccessibilitySection title='layer' />
+<AccessibilitySection title="layer" />
