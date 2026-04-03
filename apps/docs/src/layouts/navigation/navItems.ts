@@ -16,10 +16,21 @@ const pageDetails = structureIndexes.byName as { [key: string]: NavPage };
 const hasChildren = (page: NavPage): page is NavPage & { pages: string[] } =>
   Array.isArray(page.pages) && page.pages.length > 0;
 
-const excludePages = ['Card']; // Pages with children to exclude from top-level navigation
+const excludePages = ['Card', 'Layer', 'Forms', 'Show More']; // Pages with children to exclude from top-level navigation
+const excludeChildPages = ['All components'];
+const topLevelNavOrder = [
+  'Home',
+  'Foundation',
+  'Components',
+  'Templates',
+  'Design tokens',
+  'Learn',
+];
 
 // Helper to build a single nav item
 const buildNavItem = (pageName: string): NavItemType | null => {
+  if (excludeChildPages.includes(pageName)) return null;
+
   const details = pageDetails[pageName];
   if (!details) return null;
 
@@ -95,6 +106,16 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
 
 export const navItems: NavItemType[] = structurePages
   .filter(page => hasChildren(page) && !excludePages.includes(page.name))
+  .sort((a, b) => {
+    const fallbackWeight = Number.MAX_SAFE_INTEGER;
+    const aWeight = topLevelNavOrder.indexOf(a.name);
+    const bWeight = topLevelNavOrder.indexOf(b.name);
+
+    return (
+      (aWeight === -1 ? fallbackWeight : aWeight) -
+      (bWeight === -1 ? fallbackWeight : bWeight)
+    );
+  })
   .map(page => {
     if (page.name === 'Home') {
       return {
