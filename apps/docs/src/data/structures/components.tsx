@@ -156,7 +156,6 @@ export const components = [
   },
   {
     name: 'Card',
-    pages: ['Call to action card', 'Navigational card'],
     category: 'Layouts',
     description:
       'A container providing at-a-glance information and easy access to more details.',
