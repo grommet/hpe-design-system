@@ -112,11 +112,7 @@ Used to indicate that CheckBox cannot be interacted with.
 
 ## Accessibility
 
-CheckBox's own `label` prop provides the accessible label for the input. The label on each checkbox should clearly describe its purpose.
-
-When using CheckBox inside a FormField, do not also set a `label` on the FormField. Doing so creates two label elements for the same input, resulting in multiple label accessibility errors. Use FormField without a `label` when you need help text, error messages, or validation alongside a CheckBox.
-
-If a CheckBox is used outside of the context of a FormField, it is important to meet accessibility requirements in an alternate way. There should always be clear visual indication, either by text or icon, that describes the purpose of the checkbox.
+When a CheckBox is used without a `label` prop, ensure the input is still accessible by providing an `aria-label` or `aria-labelledby` attribute that describes its purpose.
 
 ### WCAG compliance
   <AccessibilitySection title='checkbox' />
