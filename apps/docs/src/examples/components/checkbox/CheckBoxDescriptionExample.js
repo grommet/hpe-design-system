@@ -9,6 +9,7 @@ export const CheckBoxDescriptionExample = () => {
       <FormField
         name="checkbox-with-desc"
         help="Checkbox description"
+        htmlFor="checkbox-desc"
       >
         <CheckBox
           name="checkbox-with-desc"

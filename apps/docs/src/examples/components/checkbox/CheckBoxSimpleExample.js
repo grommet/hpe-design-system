@@ -5,10 +5,7 @@ export const CheckBoxSimpleExample = () => {
   const [checked, setChecked] = useState(true);
   return (
     <Form>
-      <FormField
-        name="checkbox-simple"
-        fill
-      >
+      <FormField name="checkbox-simple" htmlFor="simple-checkbox" fill>
         <CheckBox
           name="checkbox-simple"
           label="Choice"
