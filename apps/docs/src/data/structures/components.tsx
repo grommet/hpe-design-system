@@ -983,7 +983,6 @@ export const components = [
   },
   {
     name: 'Layer',
-    pages: ['Center layer', 'Side drawer layer', 'Fullscreen layer'],
     category: 'Layouts',
     accessibility: 'Passed WCAG 2.2 AA',
     description:
