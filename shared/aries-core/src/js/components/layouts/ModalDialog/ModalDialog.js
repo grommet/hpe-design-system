@@ -10,7 +10,7 @@ export const ModalDialog = ({
   ...layerProps
 }) => (
   <Layer position="center" {...layerProps}>
-    <ModalContainer flex="grow" width={{ min: 'medium' }}>
+    <ModalContainer>
       <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
       {children}
     </ModalContainer>
@@ -33,9 +33,11 @@ export const ModalContainer = ({
 }) => (
   <Box
     background="background-floating"
-    round="medium"
+    flex="grow"
     gap="medium"
     pad="medium"
+    round="medium"
+    width={{ min: 'medium' }}
     {...boxProps}
   >
     {children}
