@@ -4,6 +4,9 @@ import { Button } from 'grommet';
 import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';
 
 export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
+  // applying elevation here to visually replicate Layer styling
+  // since this is presented in a Do-Dont example where we don't
+  // want to use Layer directly.
   <ModalContainer elevation="large">
     <LayerHeader
       title={
