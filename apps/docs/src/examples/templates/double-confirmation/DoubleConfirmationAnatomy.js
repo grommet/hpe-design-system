@@ -71,9 +71,9 @@ export const DoubleConfirmationAnatomy = () => {
             {...rest}
           />
         ))}
-        // applying elevation here to visually replicate Layer styling
+        {/* // applying elevation here to visually replicate Layer styling
         // since this is presented as an anatomy diagram where we don't
-        // want to use Layer directly.
+        // want to use Layer directly. */}
         <ModalContainer
           elevation="large" gridArea="confirmation-area"
         >
