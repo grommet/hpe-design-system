@@ -25,14 +25,14 @@ export const LayerTypes = () => {
 
   return (
     <Grid columns={columns[breakpoint]} gap="xlarge" pad={{ top: 'medium' }}>
-      <Type title="Center" href="/components/layer/center-layer">
+      <Type title="Center" href="/components/layer#center">
         <Paragraph margin="none">
           Use for concise, task-flow oriented or informational content that
           should appear front and center to the user.
         </Paragraph>
         <Paragraph>Use cases include: confirmations.</Paragraph>
       </Type>
-      <Type title="Side drawer" href="/components/layer/side-drawer-layer">
+      <Type title="Side drawer" href="/components/layer#side-drawer">
         <Paragraph margin="none">
           Use for manipulating data on a page or presenting additional
           information without navigating the user away from their current
@@ -42,7 +42,7 @@ export const LayerTypes = () => {
           Use cases include: filtering, editing objects, configuration flows.
         </Paragraph>
       </Type>
-      <Type title="Fullscreen" href="/components/layer/fullscreen-layer">
+      <Type title="Fullscreen" href="/components/layer#fullscreen">
         <Paragraph margin="none">
           Use when the layer content is dimensionally large or when it is an
           involved task flow.
