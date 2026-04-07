@@ -12,7 +12,7 @@ export const DoubleConfirmation = ({ title }) => {
       subtitle="Your changes will not be applied."
       onEsc={cancelConfirmation}
     >
-      <ModalFooter justify="end" gap="xsmall">
+      <ModalFooter>
         <Button label="Cancel" onClick={cancelConfirmation} />
         <Button label="Discard" primary onClick={acceptConfirmation} />
       </ModalFooter>
