@@ -72,7 +72,7 @@ export const DoubleConfirmationAnatomy = () => {
           />
         ))}
         <ModalContainer
-          gridArea="confirmation-area"
+          elevation="large" gridArea="confirmation-area"
         >
           <LayerHeader
             title='Discard "Add application"?'

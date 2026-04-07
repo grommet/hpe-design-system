@@ -4,7 +4,7 @@ import { Button } from 'grommet';
 import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';
 
 export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
-  <ModalContainer>
+  <ModalContainer elevation="large">
     <LayerHeader
       title={
         bestPractice

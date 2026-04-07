@@ -10,10 +10,10 @@ export const ModalDialog = ({
   ...layerProps
 }) => (
   <Layer position="center" {...layerProps}>
-    <Box gap="medium" pad="medium" width={{ min: 'medium' }} flex="grow">
+    <ModalContainer flex="grow" width={{ min: 'medium' }}>
       <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
       {children}
-    </Box>
+    </ModalContainer>
   </Layer>
 );
 
@@ -34,7 +34,6 @@ export const ModalContainer = ({
   <Box
     background="background-floating"
     round="medium"
-    elevation="large"
     gap="medium"
     pad="medium"
     {...boxProps}
