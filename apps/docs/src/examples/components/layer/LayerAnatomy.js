@@ -160,7 +160,7 @@ export const LayerAnatomy = () => {
           />
         ))}
 
-        <ModalContainer gridArea="layer-area">
+        <ModalContainer elevation="large" gridArea="layer-area">
           <LayerHeader
             headerId="layer-header"
             closeId="layer-close"
