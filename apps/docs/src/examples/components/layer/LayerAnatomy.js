@@ -1,14 +1,15 @@
 import {
-  Box,
   Button,
-  Card,
-  CardBody,
   Diagram,
-  Footer,
   Grid,
   Stack,
 } from 'grommet';
-import { LayerHeader } from '@shared/aries-core';
+import {
+  LayerHeader,
+  ModalBody,
+  ModalContainer,
+  ModalFooter,
+} from '@shared/aries-core';
 import { Annotation } from '../../../layouts';
 
 const color = 'border';
@@ -159,40 +160,38 @@ export const LayerAnatomy = () => {
           />
         ))}
 
-        <Card gridArea="layer-area" elevation="large">
-          <CardBody pad="medium" gap="medium">
-            <LayerHeader
-              headerId="layer-header"
-              closeId="layer-close"
-              title="Create pipeline"
-              // eslint-disable-next-line max-len
-              subtitle="A form for entering the details needed to create a new pipeline."
-              onClose={() => {}}
-              border={{ style: 'dashed' }}
-              round="small"
-            />
-            <Box
-              id="layer-body"
-              border={{ style: 'dashed' }}
-              align="center"
-              justify="center"
-              pad="3xsmall"
-              round="small"
-            >
-              Body
-            </Box>
-            <Footer
-              id="layer-footer"
-              border={{ style: 'dashed' }}
-              justify="end"
-              gap="small"
-              round="small"
-            >
-              <Button id="layer-cancel" label="Cancel" />
-              <Button id="layer-confirm" label="Create pipeline" primary />
-            </Footer>
-          </CardBody>
-        </Card>
+        <ModalContainer gridArea="layer-area">
+          <LayerHeader
+            headerId="layer-header"
+            closeId="layer-close"
+            title="Create pipeline"
+            // eslint-disable-next-line max-len
+            subtitle="A form for entering the details needed to create a new pipeline."
+            onClose={() => { }}
+            border={{ style: 'dashed' }}
+            round="small"
+          />
+          <ModalBody
+            id="layer-body"
+            border={{ style: 'dashed' }}
+            align="center"
+            justify="center"
+            pad="3xsmall"
+            round="small"
+          >
+            Body
+          </ModalBody>
+          <ModalFooter
+            id="layer-footer"
+            border={{ style: 'dashed' }}
+            justify="end"
+            gap="small"
+            round="small"
+          >
+            <Button id="layer-cancel" label="Cancel" />
+            <Button id="layer-confirm" label="Create pipeline" primary />
+          </ModalFooter>
+        </ModalContainer>
       </AnatomyGrid>
       <Diagram connections={connections} />
     </Stack>
