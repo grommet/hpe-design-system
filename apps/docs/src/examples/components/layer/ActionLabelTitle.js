@@ -17,7 +17,7 @@ export const ActionLabelTitle = ({ bestPractice = true }) => (
     <ModalBody pad="medium" border={{ style: 'dashed' }} round="small">
       Body content goes here.
     </ModalBody>
-    <ModalFooter gap="xsmall" justify="end">
+    <ModalFooter>
       <Button label="Cancel" />
       <Button label={`${bestPractice ? 'Create' : 'Add'} pipeline`} primary />
     </ModalFooter>

@@ -16,7 +16,7 @@ export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
       }
       subtitle="Your changes will not be applied."
     />
-    <ModalFooter gap="xsmall" justify="end">
+    <ModalFooter>
       <Button label="Cancel" />
       <Button
         label={bestPractice !== 'badLabel' ? 'Discard' : 'Yes'}

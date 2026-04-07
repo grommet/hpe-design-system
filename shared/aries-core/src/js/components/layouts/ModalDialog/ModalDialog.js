@@ -61,7 +61,7 @@ ModalBody.propTypes = {
 };
 
 export const ModalFooter = ({ children, ...boxProps }) => (
-  <Footer {...boxProps}>{children}</Footer>
+  <Footer justify="end" gap="xsmall" {...boxProps}>{children}</Footer>
 );
 
 ModalFooter.propTypes = {

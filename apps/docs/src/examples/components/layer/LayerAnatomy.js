@@ -186,8 +186,6 @@ export const LayerAnatomy = () => {
           <ModalFooter
             id="layer-footer"
             border={{ style: 'dashed' }}
-            justify="end"
-            gap="small"
             round="small"
           >
             <Button id="layer-cancel" label="Cancel" />

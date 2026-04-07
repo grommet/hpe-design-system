@@ -60,7 +60,7 @@ export const ExportDataContainer = ({
               />
             </FormField>
           </ModalBody>
-          <ModalFooter justify="end">
+          <ModalFooter>
             <ButtonGroup>
               <Button
                 label="Cancel"
