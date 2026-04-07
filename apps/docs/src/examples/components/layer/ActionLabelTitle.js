@@ -9,7 +9,7 @@ import {
 } from '@shared/aries-core';
 
 export const ActionLabelTitle = ({ bestPractice = true }) => (
-  <ModalContainer>
+  <ModalContainer elevation="large">
     <LayerHeader title='Create pipeline' />
     <ModalBody pad="medium" border={{ style: 'dashed' }} round="small">
       Body content goes here.
