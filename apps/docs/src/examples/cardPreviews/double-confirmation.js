@@ -1,5 +1,6 @@
-import { Button, Box, Heading, Paragraph } from 'grommet';
 import { useEffect, useRef } from 'react';
+import { Button } from 'grommet';
+import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';
 
 export const DoubleConfirmationPreview = () => {
   const ref = useRef();
@@ -14,24 +15,26 @@ export const DoubleConfirmationPreview = () => {
   }, []);
 
   return (
-    <Box
+    // applying elevation here to visually replicate Layer styling
+    // since this is presented in a Do-Dont example where we don't
+    // want to use Layer directly.
+    <ModalContainer
       ref={ref}
       background="background-front"
-      round="medium"
-      pad="medium"
+      elevation="large"
+      gap='3xsmall'
       width="small"
     >
-      <Box gap="3xsmall">
-        <Heading level={2} margin="none" size="xsmall">
-          Discard changes?
-        </Heading>
-        <Paragraph margin="none">Your changes will not be applied.</Paragraph>
-      </Box>
-
-      <Box direction="row" gap="xsmall" justify="end">
+      <LayerHeader
+        headerGap='3xsmall'
+        title='Discard changes?'
+        titleSize="xsmall"
+        subtitle="Your changes will not be applied."
+      />
+      <ModalFooter>
         <Button label="Cancel" />
         <Button label="Discard" primary />
-      </Box>
-    </Box>
+      </ModalFooter>
+    </ModalContainer>
   );
 };
