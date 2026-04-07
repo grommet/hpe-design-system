@@ -50,24 +50,6 @@ const HARDCODED_ROUTES: HardcodedRoute[] = [
     reason: 'Nested component variant under Card parent.',
   },
   {
-    pageName: 'Center layer',
-    expectedPath: '/components/layer/center-layer',
-    parentPage: 'Layer',
-    reason: 'Nested component variant under Layer parent.',
-  },
-  {
-    pageName: 'Side drawer layer',
-    expectedPath: '/components/layer/side-drawer-layer',
-    parentPage: 'Layer',
-    reason: 'Nested component variant under Layer parent.',
-  },
-  {
-    pageName: 'Fullscreen layer',
-    expectedPath: '/components/layer/fullscreen-layer',
-    parentPage: 'Layer',
-    reason: 'Nested component variant under Layer parent.',
-  },
-  {
     pageName: 'Managing child objects',
     expectedPath: '/templates/forms/managing-child-objects',
     parentPage: 'Forms',
