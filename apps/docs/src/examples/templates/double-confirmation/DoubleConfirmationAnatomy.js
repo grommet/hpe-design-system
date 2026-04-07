@@ -81,7 +81,6 @@ export const DoubleConfirmationAnatomy = () => {
           <ModalFooter
             id="confirmation-footer"
             border={{ style: 'dashed' }}
-            direction="row"
             gap="xsmall"
             round="small"
             justify="end"
