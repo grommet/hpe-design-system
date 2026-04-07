@@ -25,7 +25,7 @@ export const DoubleConfirmationExample = ({ containerRef }) => {
                     onEsc={onClose}
                     target={containerRef?.current}
                 >
-                    <ModalFooter justify="end" gap="xsmall">
+                    <ModalFooter>
                         <Button label="Cancel" onClick={onClose} />
                         <Button label="Discard" primary onClick={onClose} />
                     </ModalFooter>
