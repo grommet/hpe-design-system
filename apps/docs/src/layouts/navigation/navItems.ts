@@ -73,9 +73,11 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
   const parentMapping = parentName
     ? structureIndexes.byCategory[parentName]
     : undefined;
+  const orderedCategories = categoryOrders[parentName || ''];
 
-  if (parentMapping) {
-    const orderedCategories = categoryOrders[parentName || ''];
+  const shouldGroupByCategory = !!parentMapping && !!orderedCategories;
+
+  if (shouldGroupByCategory) {
     const sortedParentEntries = Object.entries(parentMapping).sort(
       ([aCategory], [bCategory]) => {
         if (!orderedCategories) return 0;
@@ -117,12 +119,12 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
   const items = pages
     .map(pageName => {
       const details = pageDetails[pageName];
-      if (details?.parentPage) return null;
+      if (details?.parentPage && details.parentPage !== parentName) return null;
       return buildNavItem(pageName);
     })
     .filter(Boolean) as NavItemType[];
 
-  return items.sort((a, b) => a.label.localeCompare(b.label));
+  return items.sort(sortNavItemsByCardOrder);
 };
 
 export const navItems: NavItemType[] = structurePages
