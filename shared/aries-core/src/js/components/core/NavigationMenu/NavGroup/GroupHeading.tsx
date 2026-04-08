@@ -1,9 +1,13 @@
 import { Box, Text } from 'grommet';
 import { NavItemWithLevel } from '../NavList';
 
-const indentation: Record<number, string> = {
-  1: 'medium',
-  2: 'large',
+const indentationByLevel = ['medium', 'large', 'xlarge', 'xxlarge'] as const;
+
+const getLeftIndent = (level?: number) => {
+  if (!level || level <= 0) return 'small';
+
+  const index = Math.min(level - 1, indentationByLevel.length - 1);
+  return indentationByLevel[index];
 };
 
 interface GroupHeadingProps {
@@ -15,8 +19,9 @@ export const GroupHeading = ({ id, item }: GroupHeadingProps) => {
   return (
       <Box
         direction="row"
+        margin={{left: 'xxsmall'}}
         pad={{
-          left: item.level ? indentation[item.level] : 'small',
+          left: getLeftIndent(item.level),
           top: 'xxsmall',
           bottom: '5xsmall',
         }}

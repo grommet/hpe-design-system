@@ -4,7 +4,7 @@ import { Down, Up } from '@hpe-design/icons-grommet';
 import { NavItem, NavItemType } from './NavItem';
 import { NavGroup } from './NavGroup';
 
-export type NavItemWithLevel = NavItemType & { level?: | 1 | 2 };
+export type NavItemWithLevel = NavItemType & { level?: number };
 
 const defaultItemProps = {
   pad: { vertical: '3xsmall' },
@@ -42,12 +42,12 @@ export const NavList = ({
       if (item.children) {
         if (item.type === 'group') {
           // Preserve the group as a parent, do not flatten.
-          // Children inherit the same level as the group (no indentation shift).
+          // Children are one level deeper than the group.
           adjusted.push({
             ...item,
             children: item.children.map(child => ({
               ...child,
-              level: item.level || 0,
+              level: (item.level || 0) + 1,
             })),
           });
         } else {
@@ -79,7 +79,7 @@ export const NavList = ({
       parents: string[] = [],
     ): string[] | null => {
       for (const item of itemsList) {
-        if (item.label === target) {
+        if ((item.url && item.url === target) || (!item.url && item.label === target)) {
           return parents;
         }
         if (item.children) {
@@ -160,7 +160,9 @@ export const NavList = ({
       },
     };
 
-    const active = activeItem === item.label;
+    const active = item.url
+      ? activeItem === item.url
+      : activeItem === item.label;
 
     if (item.type === 'group') {
       return (
@@ -209,7 +211,10 @@ export const NavList = ({
             <NavList
               role="menu"
               aria-labelledby={item.id}
-              items={item.children}
+              items={(item.children as NavItemWithLevel[]).map(child => ({
+                ...child,
+                level: child.level !== undefined ? child.level : (item.level || 0) + 1,
+              }))}
               activeItem={activeItem}
               onSelect={onSelect}
               onEscapeToParent={() => {

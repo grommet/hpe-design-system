@@ -15,9 +15,25 @@ import { validateStructureData } from './structureValidation';
 
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
-const learn = Structure.from(learnArr);
-const tokens = Structure.from(tokensArr);
+const learn = Structure.from(learnArr.map(learn => ({
+  ...learn,
+  category: learn.type,
+})));
+const tokens = Structure.from(
+  tokensArr.map(token => ({
+    ...token,
+    category: token.type,
+  })),
+);
 const templates = Structure.from(templatesArr);
+
+export const categoryOrders: Record<string, string[]> = {
+  Foundation: ['Getting started', 'Philosophy', 'HPE Brand', 'Color', 'Layout'],
+  Components: ['Layouts', 'Controls', 'Inputs', 'Data', 'Visualization'],
+  'Design tokens': ['Getting started', 'Building with tokens'],
+  Learn: ['Tutorials', 'How-to guides']
+};
+
 
 // Build the structure in two phases to avoid circular dependency
 // Phase 1: Create initial structure (without applying category-based sorts)
@@ -151,11 +167,33 @@ export const structure = initialStructure;
 
 export const categoryMapping = buildCategoryMapping(structure);
 
+// Phase 2: Apply category-based sorting to Foundation pages
+// (This overrides the initial cardOrder-only sort from Phase 1)
 const foundationPage = structure.find(page => page.name === 'Foundation');
 if (foundationPage) {
   foundationPage.pages = foundation
     .sortByCardOrder()
-    .sortByCategory(getCategoryWeights(categoryMapping, 'Foundation'))
+    .sortByCategory(
+      getCategoryWeights(
+        categoryMapping,
+        'Foundation',
+        categoryOrders.Foundation,
+      ),
+    )
+    .map(page => page.name);
+}
+
+const designTokensPage = structure.find(page => page.name === 'Design tokens');
+if (designTokensPage) {
+  designTokensPage.pages = tokens
+    .sortByCardOrder()
+    .sortByCategory(
+      getCategoryWeights(
+        categoryMapping,
+        'Design tokens',
+        categoryOrders['Design tokens'],
+      ),
+    )
     .map(page => page.name);
 }
 

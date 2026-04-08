@@ -46,6 +46,7 @@
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",
     "@testing-library/testcafe": "^5.0.1",
+    "@types/react": "catalog:",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/ui": "^3.2.4",
     "axe-core": "^4.9.0",
