@@ -41,11 +41,14 @@ export const ALLOWED_CATEGORIES = new Set([
   'Inputs',
   'Layouts',
   'Visualizations',
-  // Other
-  'Single Column',
-  '2 Column',
-  '3 Column',
-  'Multi-column',
+  // Design tokens
+  'Getting started',
+  'Building with tokens',
+  // Learn
+  'Tutorials',
+  'How-to guides',
+  'Explanations',
+  'References',
 ]);
 
 const duplicateValues = (values: string[]) => {
