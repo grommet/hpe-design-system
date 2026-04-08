@@ -1,7 +1,6 @@
 import { AccessibilitySection, Example } from '../../layouts';
 import {
   CheckBoxDisabledExample,
-  CheckBoxDescriptionExample,
   CheckBoxSimpleExample,
   CheckBoxSolelyExample,
   CheckBoxToggleExample,
@@ -40,7 +39,7 @@ Checked and unchecked states refer to when an individual CheckBox is checked or 
 A checkbox might be used outside of a form field when:
 
 1. Serving as a UI control showing or hiding page content, such as revealing additional content or inputs which are only relevant when a particular feature is enabled.
-2. Scenarios in which having a form field label in addition to the checkbox label would be redundant for the user.
+2. Scenarios in which no additional help text, error messages, or validation are needed.
 3. Allowing a user to opt-in or acknowledge a disclaimer, such as a privacy policy or terms and conditions.
 4. Allowing an item to be selected within a list, table row, or drop down.
 
@@ -55,18 +54,6 @@ A checkbox might be used outside of a form field when:
 ## Variants
 
 CheckBox can be used individually, within a group, or as a toggle. A standalone or toggle checkbox indicates that a user is opting-in to the context of the checkbox. Within a group, one or multiple checkboxes can be selected.
-
-### CheckBox with description
-
-Adding a description provides the user additional information about the context or purpose of the checkbox.
-
-<Example
-  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxDescriptionExample.js"
-  height={{ min: 'xsmall' }}
->
-  <CheckBoxDescriptionExample />
-</Example>
 
 ### Toggle
 
@@ -106,9 +93,11 @@ Used to indicate that CheckBox cannot be interacted with.
 
 ## Accessibility
 
-CheckBox should be used inside of a FormField to ensure that a label is properly associated with the input. The labels on individual checkboxes should clearly describe the purpose of the checkbox.
+The `label` prop on CheckBox provides the accessible name for the underlying input. Each checkbox must have a clear, descriptive label that explains its purpose.
 
-If a CheckBox is used outside of the context of a FormField, it is important to meet accessibility requirements in an alternate way. There should always be clear visual indication, either by text or icon, that describes the purpose of the checkbox.
+When a CheckBox is used inside a FormField, do not also set a `label` on the FormField. Doing so creates two associated `label` elements for a single input, which leads to accessibility violations and screen reader confusion.
+
+When a CheckBox is rendered without a `label` prop, ensure the input is still accessible by providing an `aria-label` or `aria-labelledby` attribute that describes its purpose.
 
 ### WCAG compliance
   <AccessibilitySection title='checkbox' />
