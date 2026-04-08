@@ -3,8 +3,9 @@
 import { RefObject, useEffect, useRef } from 'react';
 
 /**
- * A hook that creates a ref and disables focus for all interactive elements
- * within the referenced container by setting `tabindex="-1"` on them.
+ * A hook that creates a ref and disables focus for common focusable elements
+ * within the referenced container by setting `tabindex="-1"` on matching
+ * `button`, `input`, `a`, `select`, and `textarea` descendants.
  * Useful for card previews and other non-interactive display components.
  *
  * @returns A ref object to attach to the container element.
