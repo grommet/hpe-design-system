@@ -5,7 +5,10 @@ export const CheckBoxSimpleExample = () => {
   const [checked, setChecked] = useState(true);
   return (
     <Form>
-      <FormField name="checkbox-simple" htmlFor="simple-checkbox" fill>
+      {/* CheckBox label provides the accessible name; htmlFor on FormField
+       would create a duplicate label, causing an a11y violation. */}
+      {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+      <FormField name="checkbox-simple" fill>
         <CheckBox
           name="checkbox-simple"
           label="Choice"

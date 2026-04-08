@@ -5,11 +5,10 @@ export const CheckBoxDisabledExample = () => (
   <Box gap="xlarge" direction="row-responsive">
     <Box width="medium">
       <Form>
-        <FormField
-          name="disabled-checkbox"
-          htmlFor="disabled-checkbox"
-          disabled
-        >
+        {/* CheckBox label provides the accessible name; htmlFor on FormField
+       would create a duplicate label, causing an a11y violation. */}
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+        <FormField name="disabled-checkbox" disabled>
           <CheckBox
             name="disabled-checkbox"
             id="disabled-checkbox"
@@ -21,7 +20,10 @@ export const CheckBoxDisabledExample = () => (
     </Box>
     <Box width="medium">
       <Form>
-        <FormField htmlFor="disabled-toggle" name="disabled-checkbox" disabled>
+        {/* CheckBox label provides the accessible name; htmlFor on FormField
+       would create a duplicate label, causing an a11y violation. */}
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+        <FormField name="disabled-checkbox" disabled>
           <CheckBox
             name="disabled-checkbox"
             id="disabled-toggle"

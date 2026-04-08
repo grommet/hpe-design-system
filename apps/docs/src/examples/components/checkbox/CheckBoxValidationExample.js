@@ -11,12 +11,10 @@ export const CheckBoxValidationExample = () => {
     <Box gap="xlarge" direction="row-responsive">
       <Box width="medium" gap="medium">
         <Form>
-          <FormField
-            name="required-field"
-            htmlFor="required-field"
-            error={message}
-            required
-          >
+          {/* CheckBox label provides the accessible name; htmlFor on FormField
+       would create a duplicate label, causing an a11y violation. */}
+          {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+          <FormField name="required-field" error={message} required>
             <CheckBox
               name="required-field"
               id="required-field"
@@ -31,11 +29,10 @@ export const CheckBoxValidationExample = () => {
       </Box>
       <Box width="medium" gap="medium">
         <Form>
-          <FormField
-            name="required-field"
-            htmlFor="validation-example-2"
-            error={toggleMessage}
-          >
+          {/* CheckBox label provides the accessible name; htmlFor on FormField
+       would create a duplicate label, causing an a11y violation. */}
+          {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+          <FormField name="required-field" error={toggleMessage}>
             <CheckBox
               name="required-field"
               id="validation-example-2"

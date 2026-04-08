@@ -5,7 +5,10 @@ export const CheckBoxToggleExample = () => {
   const [checked, setChecked] = useState(false);
   return (
     <Form>
-      <FormField name="checkbox-toggle" htmlFor="checkbox-toggle">
+      {/* CheckBox label provides the accessible name; htmlFor on FormField
+       would create a duplicate label, causing an a11y violation. */}
+      {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+      <FormField name="checkbox-toggle">
         <CheckBox
           name="checkbox-toggle"
           id="checkbox-toggle"
