@@ -12,9 +12,15 @@ import { RefObject, useEffect, useRef } from 'react';
  * @example
  * const ref = useInert();
  * return <div ref={ref}>...</div>;
+ *
+ * // TypeScript users can optionally narrow the element type:
+ * const ref = useInert<HTMLDivElement>();
+ * return <div ref={ref}>...</div>;
  */
-export const useInert = (): RefObject<HTMLElement | null> => {
-  const ref = useRef<HTMLElement>(null);
+export const useInert = <
+  T extends HTMLElement = HTMLElement,
+>(): RefObject<T | null> => {
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     if (ref.current) {

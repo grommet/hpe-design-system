@@ -1,18 +1,26 @@
 import { renderHook } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
 import { useInert } from '../src/useInert';
 
 describe('useInert', () => {
+  const containers: HTMLDivElement[] = [];
+
   const createContainer = (innerHTML: string): HTMLDivElement => {
     const container = document.createElement('div');
     container.innerHTML = innerHTML;
     document.body.appendChild(container);
+    containers.push(container);
     return container;
   };
 
-  const cleanup = (container: HTMLDivElement) => {
-    document.body.removeChild(container);
-  };
+  afterEach(() => {
+    containers.forEach(container => {
+      if (container.parentNode) {
+        container.parentNode.removeChild(container);
+      }
+    });
+    containers.length = 0;
+  });
 
   it('returns a ref object', () => {
     const { result } = renderHook(() => useInert());
@@ -30,7 +38,6 @@ describe('useInert', () => {
     expect(container.querySelector('button')?.getAttribute('tabindex')).toBe(
       '-1',
     );
-    cleanup(container);
   });
 
   it('sets tabindex="-1" on input elements', () => {
@@ -44,7 +51,6 @@ describe('useInert', () => {
     expect(container.querySelector('input')?.getAttribute('tabindex')).toBe(
       '-1',
     );
-    cleanup(container);
   });
 
   it('sets tabindex="-1" on anchor elements', () => {
@@ -56,7 +62,6 @@ describe('useInert', () => {
       return ref;
     });
     expect(container.querySelector('a')?.getAttribute('tabindex')).toBe('-1');
-    cleanup(container);
   });
 
   it('sets tabindex="-1" on select elements', () => {
@@ -72,7 +77,6 @@ describe('useInert', () => {
     expect(container.querySelector('select')?.getAttribute('tabindex')).toBe(
       '-1',
     );
-    cleanup(container);
   });
 
   it('sets tabindex="-1" on textarea elements', () => {
@@ -86,7 +90,6 @@ describe('useInert', () => {
     expect(container.querySelector('textarea')?.getAttribute('tabindex')).toBe(
       '-1',
     );
-    cleanup(container);
   });
 
   it('sets tabindex="-1" on all focusable elements in a mixed container', () => {
@@ -104,7 +107,6 @@ describe('useInert', () => {
       .forEach(el => {
         expect(el.getAttribute('tabindex')).toBe('-1');
       });
-    cleanup(container);
   });
 
   it('does nothing when ref.current is null (initial state)', () => {
@@ -127,6 +129,5 @@ describe('useInert', () => {
       container.querySelector('span')?.getAttribute('tabindex'),
     ).toBeNull();
     expect(container.querySelector('p')?.getAttribute('tabindex')).toBeNull();
-    cleanup(container);
   });
 });

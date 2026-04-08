@@ -31,8 +31,8 @@ A React hook that disables focus for all interactive elements within a container
 #### Features
 
 - **Broad selector support**: Covers `button`, `input`, `a`, `select`, and `textarea` elements
-- **Safe with null refs**: Designed to work with `useRef(null)` — the React best practice for DOM refs
-- **Zero configuration**: No options required, just pass the container ref
+- **No external ref required**: The hook creates and owns the ref internally — no `useRef` needed at the call site
+- **Zero configuration**: Takes no parameters — returns a ref to attach to the container
 
 #### Usage
 
@@ -53,18 +53,18 @@ export const ComponentPreview = () => {
 #### API
 
 ```typescript
-const ref = useInert(): RefObject<HTMLElement | null>
+const ref = useInert<T extends HTMLElement = HTMLElement>(): RefObject<T | null>
 ```
 
 **Parameters:** none
 
 **Returns:**
 
-- `ref` (RefObject<HTMLElement | null>): A ref initialized with `null` to attach to the container element. The hook handles creating the ref internally — no `useRef` needed at the call site.
+- `ref` (RefObject<T | null>): A ref to attach to the container element. The hook creates it internally — no `useRef` needed at the call site. The type parameter `T` defaults to `HTMLElement` and can be narrowed when strict element typing is needed (e.g. `useInert<HTMLDivElement>()`).
 
 #### Why the hook owns the ref
 
-The hook creates `useRef<HTMLElement>(null)` internally and returns it. This keeps call sites to a single line and ensures the ref is always correctly initialized with `null` — the React 19 requirement — without the consumer needing to know about it:
+The hook creates `useRef<T>(null)` internally and returns it. This keeps call sites to a single line and ensures the ref is always correctly initialized with `null` — the React best practice for DOM refs — without the consumer needing to know about it:
 
 ```typescript
 // Clean — one line, ref is owned by the hook
