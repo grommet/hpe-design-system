@@ -1,0 +1,31 @@
+'use client';
+
+import { RefObject, useEffect, useRef } from 'react';
+
+/**
+ * A hook that creates a ref and disables focus for all interactive elements
+ * within the referenced container by setting `tabindex="-1"` on them.
+ * Useful for card previews and other non-interactive display components.
+ *
+ * @returns A ref object to attach to the container element.
+ *
+ * @example
+ * const ref = useInert();
+ * return <div ref={ref}>...</div>;
+ */
+export const useInert = (): RefObject<HTMLElement | null> => {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      const focusables = ref.current.querySelectorAll(
+        'button, input, a, select, textarea',
+      );
+      focusables.forEach(el => {
+        el.setAttribute('tabindex', '-1');
+      });
+    }
+  }, []);
+
+  return ref;
+};
