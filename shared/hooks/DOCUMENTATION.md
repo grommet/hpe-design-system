@@ -70,9 +70,8 @@ The hook creates `useRef<T>(null)` internally and returns it. This keeps call si
 // Clean — one line, ref is owned by the hook
 const ref = useInert();
 
-// Avoid — two lines, consumer manages the ref manually
+// Avoid — unnecessary manual ref management at the call site
 const ref = useRef(null);
-useInert(ref);
 ```
 
 #### Elements covered
