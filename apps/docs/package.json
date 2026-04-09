@@ -26,7 +26,7 @@
     "zod": "^4.3.6"
   },
   "scripts": {
-    "build": "pnpm validate:structure && pnpm build-shared-hooks && pnpm build-search && next build",
+    "build": "pnpm build-shared-hooks && pnpm validate:structure && pnpm build-search && next build",
     "build-design-tokens": "pnpm --filter hpe-design-tokens build",
     "build-shared-hooks": "pnpm --filter '@shared/hooks' build",
     "export": "pnpm build",
