@@ -1,104 +1,84 @@
-import { structure } from '../data';
+import * as data from '../data';
+import {
+  buildStructureIndexes,
+  getPathOverride,
+  getPrimaryPageByName,
+  nameToSlug,
+} from '../data/structureIndexes.ts';
 
-const allPages = structure.map(page => ({
-  label: page.name,
-  value: { ...page, title: page.name },
-}));
+let cachedStructureIndexes;
+let cachedSearchSuggestions;
+
+const getStructure = () => data.structure || [];
+
+const getStructureIndexes = () => {
+  if (!cachedStructureIndexes) {
+    cachedStructureIndexes =
+      data.structureIndexes || buildStructureIndexes(getStructure());
+  }
+
+  return cachedStructureIndexes;
+};
+
+const buildSearchSuggestions = () =>
+  getStructure()
+    .map(page => ({
+      label: page.name,
+      value: { ...page, title: page.name },
+    }))
+    .sort((a, b) => {
+      const aLabel = a.label.toLowerCase();
+      const bLabel = b.label.toLowerCase();
+      if (aLabel < bLabel) return -1;
+      if (aLabel > bLabel) return 1;
+      return 0;
+    });
 
 // With content search, sections are already included,
 // so we don't need to double search them.
-export const getSearchSuggestions = allPages.sort((a, b) => {
-  const aLabel = a.label.toLowerCase();
-  const bLabel = b.label.toLowerCase();
-  if (aLabel < bLabel) return -1;
-  if (aLabel > bLabel) return 1;
-  return 0;
-});
-
-// String to slug from https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1#file-slugify-js
-export const nameToSlug = name => {
-  const a = `àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűų
-  ẃẍÿýžźż·/_,:;`;
-  const b = `aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuu
-  wxyyzzz------`;
-  const p = new RegExp(a.split('').join('|'), 'g');
-
-  return name
-    .toString()
-    .toLowerCase()
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w-]+/g, '') // Remove all non-word characters
-    .replace(/--+/g, '-') // Replace multiple - with single -
-    .replace(/^-+/, '') // Trim - from start of text
-    .replace(/-+$/, ''); // Trim - from end of text
-};
-
-export const getPageDetails = pageName =>
-  structure.find(
-    page =>
-      page.name &&
-      pageName &&
-      page.name.toLowerCase() === pageName.toLowerCase(),
-  ) || {};
-
-export const getParentPage = currentPage =>
-  structure.find(page =>
-    page.pages ? page.pages.includes(currentPage) : null,
-  );
-
-export const getSectionParent = section =>
-  structure.find(page =>
-    page.sections ? page.sections.includes(section) : null,
-  );
-
-export const nameToPath = name => {
-  // if a page defines its own url, then it is an external link
-  const external = structure.filter(
-    e => e.name.toLowerCase() === name?.toLowerCase() && e.url,
-  )[0];
-  if (external) {
-    return external.url;
+export const getSearchSuggestions = () => {
+  if (!cachedSearchSuggestions) {
+    cachedSearchSuggestions = buildSearchSuggestions();
   }
 
+  return cachedSearchSuggestions;
+};
+
+export { nameToSlug };
+
+export const getPageDetails = pageName =>
+  getPrimaryPageByName(pageName, getStructureIndexes()) || {};
+
+export const getParentPage = currentPage =>
+  getStructureIndexes().parentByChild[currentPage];
+
+export const getSectionParent = section =>
+  getStructureIndexes().bySection[section];
+
+export const nameToPath = name => {
+  const page = getPageDetails(name);
+  const parent = getParentPage(name);
+
+  const pathOverride = getPathOverride(page);
+  if (pathOverride) return pathOverride;
+
   // Item selected is a main topic
-  const [page] = structure.filter(
-    p => p.name.toLowerCase() === name?.toLowerCase(),
-  );
-  if (typeof page !== 'undefined' && page.pages) {
+  if (page.pages) {
     if (page.name === 'Home') {
       return '/';
+    }
+    if (typeof parent !== 'undefined' && parent.name !== 'Home') {
+      return `/${nameToSlug(parent.name)}/${nameToSlug(name)}`;
     }
     return `/${nameToSlug(page.name)}`;
   }
 
-  // Temporarily hard coding these routes to allow card work to progress:
-  // (https://github.com/grommet/hpe-design-system/pull/2905)
-  // Search utils should be enhanced to support this kind of nested routing.
-  if (name === 'Call to action card') {
-    return '/components/card/call-to-action-card';
-  }
-  if (name === 'Navigational card') {
-    return '/components/card/navigational-card';
-  }
-  if (name === 'Center layer') {
-    return '/components/layer/center-layer';
-  }
-  if (name === 'Side drawer layer') {
-    return '/components/layer/side-drawer-layer';
-  }
-  if (name === 'Fullscreen layer') {
-    return '/components/layer/fullscreen-layer';
-  }
-  if (name === 'Managing child objects') {
-    return '/templates/forms/managing-child-objects';
-  }
-
   // Item selected is a sub-topic of a main topic, so we need to find
   // what topic it falls under
-  const parent = getParentPage(name);
   if (typeof parent !== 'undefined') {
+    if (parent.name === 'Home') {
+      return `/${nameToSlug(name)}`;
+    }
     return `/${nameToSlug(parent.name)}/${nameToSlug(name)}`;
   }
 
@@ -117,7 +97,7 @@ export const nameToPath = name => {
  * provided cardCategory. Where cardCategory is a string.
  */
 export const getCards = cardCategory =>
-  structure
+  getStructure()
     .map(obj => {
       const page = obj;
       const parent = getParentPage(page.name);
@@ -137,6 +117,7 @@ export const getCards = cardCategory =>
  * pageName is a string.
  */
 export const getRelatedContent = pageName => {
+  const structure = getStructure();
   const relatedContent = structure.find(
     page => page.name.toLowerCase() === pageName.toLowerCase(),
   )?.relatedContent;

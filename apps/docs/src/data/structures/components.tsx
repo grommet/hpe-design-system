@@ -156,6 +156,7 @@ export const components = [
   },
   {
     name: 'Card',
+    pages: ['Call to action card', 'Navigational card'],
     category: 'Layouts',
     description:
       'A container providing at-a-glance information and easy access to more details.',
@@ -207,6 +208,7 @@ export const components = [
   },
   {
     name: 'Call to action card',
+    path: '/components/card/call-to-action-card',
     parentPage: 'Card',
     category: 'Layouts',
     description:
@@ -251,6 +253,7 @@ export const components = [
   },
   {
     name: 'Navigational card',
+    path: '/components/card/navigational-card',
     parentPage: 'Card',
     category: 'Layouts',
     description:
@@ -1011,14 +1014,7 @@ export const components = [
     preview: {
       component: () => <LayerPreview />,
     },
-    relatedContent: [
-      'Center layer',
-      'Side drawer layer',
-      'Fullscreen layer',
-      'Forms',
-      'Button',
-      'Icons',
-    ],
+    relatedContent: ['Forms', 'Button', 'Icons'],
     tags: [
       'slideout',
       'panels',
@@ -1052,103 +1048,6 @@ export const components = [
       'Hidden Panel',
       'Swipe Menu',
     ],
-  },
-  {
-    name: 'Center layer',
-    parentPage: 'Layer',
-    category: 'Layouts',
-    description:
-      'A center layer should be used for brief, concise confirmations or dialogs.',
-    seoDescription:
-      'A center layer should be used for brief, concise confirmations or dialogs.',
-    preview: {
-      component: () => <LayerPreview position="center" />,
-    },
-    relatedContent: [
-      'Layer',
-      'Side drawer layer',
-      'Fullscreen layer',
-      'Forms',
-      'Filtering',
-    ],
-    sections: [
-      'Anatomy',
-      'Layer closing behavior',
-      'Informational',
-      'Actionable',
-      'Double confirmations',
-      'Examples',
-      'Highly destructive confirmation',
-      'Confirming next steps',
-    ],
-    tags: [
-      'modal',
-      'center modal',
-      'confirmation dialogue',
-      'confirmation layer',
-      'confirmation modal',
-    ],
-  },
-  {
-    name: 'Side drawer layer',
-    parentPage: 'Layer',
-    category: 'Layouts',
-    description:
-      "When you want to enable a user to maintain the context of their current page, side drawer layers may be used for quickly viewing an object's detail, configuring an object, or applying filter choices.",
-    seoDescription:
-      "When you want to enable a user to maintain the context of their current page, side drawer layers may be used for quickly viewing an object's detail, configuring an object, or applying filter choices.",
-    preview: {
-      component: () => <LayerPreview />,
-    },
-    relatedContent: [
-      'Layer',
-      'Center layer',
-      'Fullscreen layer',
-      'Forms',
-      'Filtering',
-    ],
-    sections: [
-      'Anatomy',
-      'Grommet properties',
-      'Layer closing behavior',
-      'Informational',
-      'Actionable',
-      'Double confirmations',
-      'Scroll behavior',
-      'Sticky header',
-      'Examples',
-      'Configuration form',
-      'Filtering',
-    ],
-    tags: ['side drawer', 'slide out drawer', 'collapsible', 'drawer'],
-  },
-  {
-    name: 'Fullscreen layer',
-    parentPage: 'Layer',
-    category: 'Layouts',
-    description:
-      'Fullscreen layers should be used for large or longer layer content.',
-    seoDescription:
-      'Fullscreen layers should be used for large or longer layer content.',
-    relatedContent: [
-      'Layer',
-      'Side drawer layer',
-      'Center layer',
-      'Forms',
-      'Filtering',
-    ],
-    sections: [
-      'Anatomy',
-      'Grommet properties',
-      'Layer closing behavior',
-      'Informational',
-      'Actionable',
-      'Double confirmations',
-      'Scroll behavior',
-      'Examples',
-      'Wizard',
-    ],
-    tags: [],
   },
   {
     name: 'Main',
