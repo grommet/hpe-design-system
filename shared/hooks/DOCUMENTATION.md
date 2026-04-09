@@ -26,11 +26,11 @@ This package is part of the HPE Design System monorepo and is available as a wor
 
 ### useInert
 
-A React hook that disables focus for all interactive elements within a container by setting `tabindex="-1"` on them. Useful for card previews and other non-interactive display components that contain focusable elements.
+A React hook that disables focus for common interactive elements (`button`, `input`, `a`, `select`, `textarea`) within a container by setting `tabindex="-1"` on them. Useful for card previews and other non-interactive display components.
 
 #### Features
 
-- **Broad selector support**: Covers `button`, `input`, `a`, `select`, and `textarea` elements
+- **Targeted selector support**: Covers the most common focusable element types — `button`, `input`, `a`, `select`, and `textarea`
 - **No external ref required**: The hook creates and owns the ref internally — no `useRef` needed at the call site
 - **Zero configuration**: Takes no parameters — returns a ref to attach to the container
 
