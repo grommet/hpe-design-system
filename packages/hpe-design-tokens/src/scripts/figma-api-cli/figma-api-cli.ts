@@ -8,8 +8,8 @@ import FigmaApi, {
   type ApiPostVariablesPayload,
   type Variable,
   type VariableCollection,
-} from '../figma_api.js';
-import { brightRed, green } from '../utils.js';
+} from '../../figma_api.js';
+import { brightRed, green } from '../../utils.js';
 
 type Role = 'primitive' | 'semantic' | 'component';
 type SourceType = 'local' | 'published';
@@ -614,8 +614,10 @@ async function main() {
   }
 }
 
-main().catch(error => {
-  const message = error instanceof Error ? error.message : String(error);
-  console.error(brightRed(`Fatal error: ${message}`));
-  process.exit(1);
-});
+// main().catch(error => {
+//   const message = error instanceof Error ? error.message : String(error);
+//   console.error(brightRed(`Fatal error: ${message}`));
+//   process.exit(1);
+// });
+
+export default main;

@@ -1,4 +1,4 @@
-import { readdirSync } from 'fs';
+import fs, { readdirSync } from 'node:fs';
 import { ApiGetLocalVariablesResponse } from './figma_api.js';
 
 export function green(msg: string) {
@@ -72,7 +72,9 @@ export const verifyReferences = (
       'FIGMA_PRIMITIVES_COLLECTION_KEY, FIGMA_GLOBAL_COLLECTION_KEY, FIGMA_COLOR_COLLECTION_KEY, and FIGMA_DIMENSION_COLLECTION_KEY environment variables are required',
     );
   }
+
   const invalidVariables: string[] = [];
+
   localTokens.forEach(tokens => {
     Object.keys(tokens.meta.variableCollections).forEach(key => {
       const collection = tokens.meta.variableCollections[key];
@@ -125,10 +127,23 @@ export const verifyReferences = (
       });
     });
   });
-  if (invalidVariables.length)
+  if (invalidVariables.length) {
+    const tmpDir = '.tmp';
+    if (!fs.existsSync(tmpDir)) {
+      fs.mkdirSync(tmpDir);
+    }
+
+    const filePath = `${tmpDir}/invalidVariables.json`;
+    fs.writeFileSync(filePath, JSON.stringify(invalidVariables, null, 2));
+
+    console.error(
+      `🛑 Invalid references were found. See ${filePath} for details.`,
+    );
+
     throw new Error(
       'Invalid references were found. Resolve reference errors in Figma.',
     );
+  }
 };
 
 const TOKENS_DIR = 'tokens';
