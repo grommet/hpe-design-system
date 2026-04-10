@@ -13,6 +13,20 @@ import { brightRed, green } from '../utils.js';
 
 type Role = 'primitive' | 'semantic' | 'component';
 type SourceType = 'local' | 'published';
+type ActionType = 'collections' | 'modes' | 'variables' | 'post';
+
+type CliOptions = {
+  action?: ActionType;
+  source?: SourceType;
+  role?: Role;
+  fileKey?: string;
+  payload?: string;
+  collection?: string;
+  mode?: string;
+  maxRows?: number;
+  confirm?: string;
+  help?: boolean;
+};
 
 const roleToFileKeyEnv: Record<Role, string> = {
   primitive: 'FILE_KEY_PRIMITIVE',
@@ -22,6 +36,18 @@ const roleToFileKeyEnv: Record<Role, string> = {
 
 const isPayloadArray = (value: unknown): value is unknown[] =>
   value === undefined || Array.isArray(value);
+
+const isRole = (value: string): value is Role =>
+  value === 'primitive' || value === 'semantic' || value === 'component';
+
+const isSourceType = (value: string): value is SourceType =>
+  value === 'local' || value === 'published';
+
+const isActionType = (value: string): value is ActionType =>
+  value === 'collections' ||
+  value === 'modes' ||
+  value === 'variables' ||
+  value === 'post';
 
 const payloadSummary = (payload: ApiPostVariablesPayload) => ({
   variableCollections: payload.variableCollections?.length || 0,
@@ -127,6 +153,104 @@ async function chooseFileKey(
   return { fileKey: rawFileKey, source: 'manual input' };
 }
 
+function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
+  const options: CliOptions = {};
+
+  argv.forEach(arg => {
+    if (!arg.startsWith('--')) {
+      return;
+    }
+
+    if (arg === '--help' || arg === '-h') {
+      options.help = true;
+      return;
+    }
+
+    const [rawKey, ...rest] = arg.slice(2).split('=');
+    const key = rawKey.trim();
+    const value = rest.join('=').trim();
+
+    if (!value) {
+      return;
+    }
+
+    if (key === 'action' && isActionType(value)) {
+      options.action = value;
+    } else if (key === 'source' && isSourceType(value)) {
+      options.source = value;
+    } else if (key === 'role' && isRole(value)) {
+      options.role = value;
+    } else if (key === 'file-key') {
+      options.fileKey = value;
+    } else if (key === 'payload') {
+      options.payload = value;
+    } else if (key === 'collection') {
+      options.collection = value;
+    } else if (key === 'mode') {
+      options.mode = value;
+    } else if (key === 'max-rows') {
+      const parsed = Number(value);
+      if (Number.isFinite(parsed) && parsed > 0) {
+        options.maxRows = parsed;
+      }
+    } else if (key === 'confirm') {
+      options.confirm = value;
+    }
+  });
+
+  return options;
+}
+
+function printHelp() {
+  console.log('Figma Variables CLI');
+  console.log('Interactive mode:');
+  console.log('  pnpm figma-api-cli');
+  console.log('');
+  console.log('Non-interactive examples:');
+  console.log(
+    '  pnpm figma-api-cli -- --action=collections --source=local --role=primitive',
+  );
+  console.log(
+    '  pnpm figma-api-cli -- --action=variables --source=published --file-key=<key> --collection=color --mode=light --max-rows=50',
+  );
+  console.log(
+    '  pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES',
+  );
+  console.log('');
+  console.log('Flags:');
+  console.log('  --action=collections|modes|variables|post');
+  console.log('  --source=local|published  (read actions only, default local)');
+  console.log(
+    '  --role=primitive|semantic|component  or --file-key=<figmaFileKey>',
+  );
+  console.log(
+    '  --collection=<name>  --mode=<name>  --max-rows=<number> (variables)',
+  );
+  console.log('  --payload=<path> --confirm=YES (post)');
+}
+
+function resolveFileKeyFromOptions(options: CliOptions) {
+  if (options.fileKey) {
+    return { fileKey: options.fileKey, source: 'manual input' };
+  }
+
+  if (options.role) {
+    const envVar = roleToFileKeyEnv[options.role];
+    const fileKey = process.env[envVar];
+    if (!fileKey) {
+      throw new Error(
+        `${envVar} is required when using --role=${options.role}.`,
+      );
+    }
+
+    return { fileKey, source: `${options.role} (${envVar})` };
+  }
+
+  throw new Error(
+    'Provide either --file-key=<key> or --role=primitive|semantic|component.',
+  );
+}
+
 async function fetchVariablesBySource(
   api: FigmaApi,
   fileKey: string,
@@ -180,8 +304,26 @@ async function printVariables(
   const maxRows = Number(maxRowsInput);
   const rowLimit = Number.isFinite(maxRows) && maxRows > 0 ? maxRows : 100;
 
+  const rows = buildVariableRows(response, {
+    collectionFilter,
+    modeFilter,
+    rowLimit,
+  });
+
+  console.table(rows);
+  console.log(`Displayed ${rows.length} variable(s).`);
+}
+
+function buildVariableRows(
+  response: ApiGetVariableResponse,
+  {
+    collectionFilter,
+    modeFilter,
+    rowLimit,
+  }: { collectionFilter?: string; modeFilter?: string; rowLimit: number },
+) {
   const collectionsById = response.meta.variableCollections;
-  const rows = Object.values(response.meta.variables)
+  return Object.values(response.meta.variables)
     .filter(variable => {
       const collection = collectionsById[variable.variableCollectionId];
       if (!collection) {
@@ -228,9 +370,6 @@ async function printVariables(
             : '',
       };
     });
-
-  console.table(rows);
-  console.log(`Displayed ${rows.length} variable(s).`);
 }
 
 async function confirm(
@@ -353,6 +492,90 @@ function validateEnv() {
 async function main() {
   validateEnv();
   const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+  const cliOptions = parseCliOptions();
+
+  if (cliOptions.help) {
+    printHelp();
+    return;
+  }
+
+  if (cliOptions.action) {
+    const { fileKey, source } = resolveFileKeyFromOptions(cliOptions);
+
+    try {
+      if (cliOptions.action === 'post') {
+        if (!cliOptions.payload) {
+          throw new Error('The --payload flag is required for --action=post.');
+        }
+        if (cliOptions.confirm !== 'YES') {
+          throw new Error(
+            'Non-interactive POST requires --confirm=YES to avoid accidental writes.',
+          );
+        }
+        if (!fs.existsSync(cliOptions.payload)) {
+          throw new Error(`Payload file not found: ${cliOptions.payload}`);
+        }
+
+        const rawPayload = fs.readFileSync(cliOptions.payload, 'utf8');
+        const parsedPayload = JSON.parse(rawPayload) as unknown;
+
+        if (!validatePostPayload(parsedPayload)) {
+          throw new Error(
+            'Invalid payload shape. variableCollections, variableModes, variables, and variableModeValues must each be an array when provided.',
+          );
+        }
+
+        console.log('Payload summary:');
+        console.table([payloadSummary(parsedPayload)]);
+        console.log(`Target: ${source}`);
+        console.log(`File key: ${fileKey}`);
+
+        const response = await api.postVariables(fileKey, parsedPayload);
+        const mappings = Object.entries(response.meta.tempIdToRealId || {});
+        console.log(green('POST request completed successfully.'));
+        console.log(`Mapped temp IDs: ${mappings.length}`);
+        if (mappings.length > 0) {
+          console.table(
+            mappings
+              .slice(0, 25)
+              .map(([tempId, realId]) => ({ tempId, realId })),
+          );
+        }
+        return;
+      }
+
+      const sourceType: SourceType = cliOptions.source || 'local';
+      const response = await fetchVariablesBySource(api, fileKey, sourceType);
+      const collections = Object.values(response.meta.variableCollections);
+      console.log(
+        `Using file key (${source}) in ${sourceType} scope. Collections: ${collections.length}`,
+      );
+
+      if (cliOptions.action === 'collections') {
+        printCollections(collections);
+        return;
+      }
+
+      if (cliOptions.action === 'modes') {
+        printModes(collections);
+        return;
+      }
+
+      const rows = buildVariableRows(response, {
+        collectionFilter: cliOptions.collection,
+        modeFilter: cliOptions.mode,
+        rowLimit: cliOptions.maxRows || 100,
+      });
+      console.table(rows);
+      console.log(`Displayed ${rows.length} variable(s).`);
+      return;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error(brightRed(`Action failed: ${message}`));
+      process.exit(1);
+    }
+  }
+
   const rl = createInterface({ input, output });
 
   process.on('SIGINT', () => {

@@ -139,6 +139,95 @@ pnpm sync-figma-to-tokens -- --output tokens
 pnpm sync-figma-to-tokens
 ```
 
+### Figma API CLI
+
+Use the CLI helper script to inspect and modify variables in a target Figma file:
+
+```bash
+cd packages/hpe-design-tokens
+pnpm figma-api-cli
+```
+
+The CLI supports interactive and non-interactive modes.
+
+Non-interactive examples:
+
+```bash
+cd packages/hpe-design-tokens
+
+# Read local collections from primitive file key env var
+pnpm figma-api-cli -- --action=collections --source=local --role=primitive
+
+# Read published variables from a raw file key with filters
+pnpm figma-api-cli -- --action=variables --source=published --file-key=<figma-file-key> --collection=color --mode=light --max-rows=50
+
+# Post a payload JSON file (requires explicit confirmation flag)
+pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES
+```
+
+Supported flags:
+
+- `--action=collections|modes|variables|post`
+- `--source=local|published` (read actions only; default is `local`)
+- `--role=primitive|semantic|component` or `--file-key=<figma-file-key>`
+- `--collection=<name>` and `--mode=<name>` (variables action)
+- `--max-rows=<number>` (variables action)
+- `--payload=<path>` and `--confirm=YES` (post action)
+- `--help`
+
+#### Payload JSON Format For Post Variables
+
+`--action=post` expects a JSON file shaped like `ApiPostVariablesPayload`:
+
+```json
+{
+	"variableCollections": [
+		{
+			"action": "CREATE",
+			"id": "spacing",
+			"name": "spacing",
+			"initialModeId": "default"
+		}
+	],
+	"variableModes": [
+		{
+			"action": "CREATE",
+			"id": "compact",
+			"name": "compact",
+			"variableCollectionId": "spacing"
+		}
+	],
+	"variables": [
+		{
+			"action": "CREATE",
+			"id": "space/small",
+			"name": "space/small",
+			"variableCollectionId": "spacing",
+			"resolvedType": "FLOAT",
+			"description": "Small spacing token"
+		}
+	],
+	"variableModeValues": [
+		{
+			"variableId": "space/small",
+			"modeId": "default",
+			"value": 8
+		},
+		{
+			"variableId": "space/small",
+			"modeId": "compact",
+			"value": 6
+		}
+	]
+}
+```
+
+Notes:
+
+- Each top-level property is optional, but when present it must be an array.
+- For non-interactive post mode, `--confirm=YES` is required.
+- Start with a small payload first to validate IDs and aliases before larger updates.
+
 ### GitHub Actions Branch Targeting For Tests
 
 If you want manual workflow tests to target `your-branch-name`, update `.github/workflows/sync-figma-to-tokens.yml`:
