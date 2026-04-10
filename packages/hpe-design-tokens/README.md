@@ -33,7 +33,25 @@ This package supports two sync directions:
 - Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --output tokens`
 - tokens JSON to Figma: `pnpm sync-tokens-to-figma`
 
-Both scripts read environment variables from a local `.env` file.
+Both scripts read environment variables from the current shell environment.
+
+For local development, do not store secrets in a repo-local `.env` file. Store `PERSONAL_ACCESS_TOKEN` in your OS credential manager or approved team secret manager, then export it into your shell only for the current session.
+
+On macOS, you can store the token in Keychain and load it when needed:
+
+```bash
+export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-pat -w)"
+```
+
+To store your Figma personal access token in Keychain for the first time (macOS):
+
+```bash
+security add-generic-password -a "$USER" -s hpe-figma-pat -w <your-figma-token>
+```
+
+This creates a generic Keychain entry that you can retrieve securely without exposing the token in your shell history or configuration files.
+
+Keep non-secret local values such as `FILE_KEY_*` and `FIGMA_*_COLLECTION_KEY` in your shell profile or in an untracked local shell script outside this repository.
 
 ### Required Environment Variables
 
@@ -63,9 +81,9 @@ Example command to distinguish collection instances across files:
 
 ```bash
 cd packages/hpe-design-tokens
-set -a
-source .env
-set +a
+
+export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-pat -w)"
+source ~/hpe-design-tokens.local.sh
 
 {
 	printf "ROLE\tNAME\tKEY\tID\tREMOTE\tVARIABLE_COUNT\tMODES\n"
