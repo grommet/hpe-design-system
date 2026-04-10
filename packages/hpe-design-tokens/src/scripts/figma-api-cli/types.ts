@@ -2,7 +2,12 @@ import type { Variable } from '../../figma_api.js';
 
 export type Role = 'primitive' | 'semantic' | 'component';
 export type SourceType = 'local' | 'published';
-export type ActionType = 'collections' | 'modes' | 'variables' | 'post';
+export type ActionType =
+  | 'collections'
+  | 'modes'
+  | 'variables'
+  | 'variable-by-id'
+  | 'post';
 
 export type CliOptions = {
   action?: ActionType;
@@ -13,6 +18,7 @@ export type CliOptions = {
   collection?: string;
   mode?: string;
   maxRows?: number;
+  variableId?: string;
   confirm?: string;
   help?: boolean;
 };
@@ -32,6 +38,7 @@ export const isActionType = (value: string): value is ActionType =>
   value === 'collections' ||
   value === 'modes' ||
   value === 'variables' ||
+  value === 'variable-by-id' ||
   value === 'post';
 
 export const previewVariableValue = (

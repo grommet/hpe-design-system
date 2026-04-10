@@ -47,6 +47,8 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       if (Number.isFinite(parsed) && parsed > 0) {
         options.maxRows = parsed;
       }
+    } else if (key === 'variable-id') {
+      options.variableId = value;
     } else if (key === 'confirm') {
       options.confirm = value;
     }
@@ -68,11 +70,14 @@ export function printHelp() {
     '  pnpm figma-api-cli -- --action=variables --source=published --file-key=<key> --collection=color --mode=light --max-rows=50',
   );
   console.log(
+    '  pnpm figma-api-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>',
+  );
+  console.log(
     '  pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES',
   );
   console.log('');
   console.log('Flags:');
-  console.log('  --action=collections|modes|variables|post');
+  console.log('  --action=collections|modes|variables|variable-by-id|post');
   console.log('  --source=local|published  (read actions only, default local)');
   console.log(
     '  --role=primitive|semantic|component  or --file-key=<figmaFileKey>',
@@ -80,6 +85,7 @@ export function printHelp() {
   console.log(
     '  --collection=<name>  --mode=<name>  --max-rows=<number> (variables)',
   );
+  console.log('  --variable-id=<id> (variable-by-id action)');
   console.log('  --payload=<path> --confirm=YES (post)');
 }
 

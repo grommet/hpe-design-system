@@ -116,3 +116,26 @@ export async function printVariables(
   console.table(rows);
   console.log(`Displayed ${rows.length} variable(s).`);
 }
+
+export function printVariableById(
+  response: ApiGetVariableResponse,
+  variableId: string,
+) {
+  const variable = response.meta.variables[variableId];
+
+  if (!variable) {
+    console.log(`No variable found for id: ${variableId}`);
+    return;
+  }
+
+  const collection =
+    response.meta.variableCollections[variable.variableCollectionId];
+  const rows = buildVariableRows(response, {
+    collectionFilter: collection?.name,
+    rowLimit: Number.MAX_SAFE_INTEGER,
+  });
+  const matchingRow = rows.find(row => row.id === variableId);
+
+  console.table(matchingRow ? [matchingRow] : []);
+  console.log('Displayed 1 variable.');
+}

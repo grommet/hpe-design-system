@@ -4,14 +4,36 @@ import { stdin as input, stdout as output } from 'process';
 
 import FigmaApi from '../../figma_api.js';
 import { brightRed, green } from '../../utils.js';
-import {
-  executeNonInteractiveAction,
-  handlePostAction,
-  handleReadAction,
-} from './actions.js';
 import { validateEnv } from './env.js';
+import {
+  executeGetCollections,
+  handleGetCollections,
+} from './get-collections.js';
+import { executeGetModes, handleGetModes } from './get-modes.js';
+import {
+  executeGetVariableById,
+  handleGetVariableById,
+} from './get-variable-by-id.js';
+import { executeGetVariables, handleGetVariables } from './get-variables.js';
 import { parseCliOptions, printHelp } from './options.js';
+import { executePost, handlePostVariables } from './post-variables.js';
 import { askMenuOption, printMenu } from './prompts.js';
+import type { CliOptions } from './types.js';
+
+async function executeNonInteractiveAction(api: FigmaApi, options: CliOptions) {
+  switch (options.action) {
+    case 'collections':
+      return executeGetCollections(api, options);
+    case 'modes':
+      return executeGetModes(api, options);
+    case 'variables':
+      return executeGetVariables(api, options);
+    case 'variable-by-id':
+      return executeGetVariableById(api, options);
+    case 'post':
+      return executePost(api, options);
+  }
+}
 
 async function main() {
   validateEnv();
@@ -47,17 +69,19 @@ async function main() {
   try {
     while (true) {
       printMenu();
-      const option = await askMenuOption(rl, 5);
+      const option = await askMenuOption(rl, 6);
 
       try {
         if (option === 1) {
-          await handleReadAction(rl, api, 'collections');
+          await handleGetCollections(rl, api);
         } else if (option === 2) {
-          await handleReadAction(rl, api, 'modes');
+          await handleGetModes(rl, api);
         } else if (option === 3) {
-          await handleReadAction(rl, api, 'variables');
+          await handleGetVariables(rl, api);
         } else if (option === 4) {
-          await handlePostAction(rl, api);
+          await handleGetVariableById(rl, api);
+        } else if (option === 5) {
+          await handlePostVariables(rl, api);
         } else {
           console.log(green('Done.'));
           break;
