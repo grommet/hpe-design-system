@@ -1,0 +1,294 @@
+import { Button, Notification } from 'grommet';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+  StyleTable,
+} from '../../layouts';
+import {
+  ActionLabelTitle,
+  CenterInformational,
+  ContentDrivenLayout,
+  DoubleConfirmationAnatomy,
+  DoubleConfirmationBestPractice,
+  ConfigurationForm,
+  FilteringTable,
+  LayerAnatomy,
+  LayerExample,
+  LayerCenterExample,
+  LayerNotificationExample,
+  LayerSideDrawerExample,
+  LayerStickyExample,
+  LayerStickyScrollExample,
+  ActionableLayerClose,
+  InformationalLayerClose,
+  LayerTypes,
+} from '../../examples';
+import { Checkmark } from '@hpe-design/icons-grommet';
+
+<Example
+  componentName="Layer"
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/LayerExample.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2567-534&t=6zfWJlYNDdZ4YwHx-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Layer/Layer.js"
+>
+  <LayerExample />
+</Example>
+
+## Use cases
+
+### Confirming next steps
+
+Use [center layer](#center) when a process has been successfully initiated and the user needs a clear, unobtrusive confirmation. It is suitable for situations where no further action is required, but the user should be informed of what is happening next—for example, confirming that a firmware update has started and providing a brief expectation of what will follow.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/CenterInformational.js"
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/components/layer/CenterInformational.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <CenterInformational />
+</Example>
+
+### Confirming destructive deletion
+
+Highly destructive actions refer to use cases where large amounts of data will be deleted
+and cannot be restored. In these instances, have the user confirm their intent by entering a specific value in an input. This approach ensures the user acknowledges the consequences of the action.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/content-layouts/ContentDrivenLayout.js"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <ContentDrivenLayout />
+</Example>
+
+### Adding a new record
+
+Use [side drawer layer](#side-drawer) when adding a new item or configuring details without 
+navigating away from the main view. In this example, selecting Add application 
+opens a side drawer containing a form, allowing the user to input configuration 
+details while still referencing the existing list of applications.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/ConfigurationForm.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/Layer/LayerHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/ConfirmationContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/components/DoubleConfirmation.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/components/layer/ConfigurationForm.js"
+  height={{ min: 'small' }}
+  template
+  showResponsiveControls={[]}
+>
+  <ConfigurationForm />
+</Example>
+
+### Filtering data
+
+Use [side drawer layer](#side-drawer) when a list contains many items and users need tools to quickly 
+narrow down the results. In this example, filtering options allow users to refine a 
+large set of server records by criteria such as status, connection state, or other 
+properties, helping them locate relevant items efficiently without leaving the main view.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilterServers.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FilterControls.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/Filters.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/FiltersLayer.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/ResultsSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/SearchFilter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/FilterControls/filterTypes/FilterCheckBoxGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/filtering/FilteringTable/mockData.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable.js"
+  template
+  showResponsiveControls={[]}
+>
+  <FilteringTable />
+</Example>
+
+### Completing a multi-step process
+
+Use [full screen layers](#fullscreen) when a task needs full user’s attention. See [Wizard](/templates/wizard) for more detail.
+
+## Anatomy
+
+<Example caption="Diagram illustrating the parts composing Layer." plain>
+  <LayerAnatomy />
+</Example>
+
+| Label  | Region                | Purpose                                                                                 |                  Required                   | Notes                                                                                                                                                       |
+| ------ | --------------------- | --------------------------------------------------------------------------------------- | :-----------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1**  | **Header**            | Identifies the layer.                                                                   | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                                                                          |
+| **1a** | **Title**             | A short, descriptive title identifying the layer.                                       | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Use H2 for layer titles unless wrapped in a semantic `<section>` element that permits H1. See [accessibility](#accessibility).</span>                  |
+| **1b** | **Subtitle**          | Any additional context or information about the layer.                                  |                  Optional                   | --                                                                                                                                                          |
+| **1c** | **Close button**      | Provides a direct way to dismiss the layer.                                             |                  Optional                   | <span>See more details on layer's [closing behavior](#closing).</span>                                                                       |
+| **2**  | **Body**              | Any additional content.                                                                 |                  Optional                   | --                                                                                                                                                          |
+| **3**  | **Footer**            | Contains layer actions.                                                                 |                  Optional                   | The ordering and alignment of footer actions depends on the type of layer. <span>See [button ordering](/components/button#button-ordering).</span>          |
+| **3a** | **Confirming action** | Completes the primary action of the layer (e.g., Save, Apply).                          |                  Optional                   | Completing the primary action may dismiss the layer when appropriate. <span>See more details on layer's [closing behavior](#closing).</span> |
+| **3b** | **Cancel**            | Provides an alternative way to dismiss the layer without completing the primary action. |                  Optional                   | <span>See more details on layer's [closing behavior](#closing).</span>                                                                       |
+
+## Types
+
+### Center
+Center layers exist to deliver quick, concise confirmations or short interactions that don’t 
+require major context switching. See [Confirming next steps](#confirming-next-steps) and [Confirming destructive deletion](#confirming-destructive-deletion).
+
+### Side drawer
+Side drawer layers are designed to let users view details, configure items, or adjust filters 
+while still maintaining full visibility of their main page. See [Adding a new record](#adding-a-new-record) and 
+[Filtering data](#filtering-data).
+
+Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for a side drawer layer.
+
+| Property                                         | Value    | Notes                                                                                               |
+| ------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------------- |
+| [position](https://v2.grommet.io/layer#position) | right    | --                                                                                                  |
+| [full](https://v2.grommet.io/layer#full)         | vertical | --                                                                                                  |
+| [modal](https://v2.grommet.io/layer#modal)       | false<br />true    | <span>`false` provides a non-modal layer allowing the underlying page to remain interactive while the layer is open.</span><br /><span>`true` provides a modal layer that blocks interaction with the underlying page while the layer is open.</span>         |
+
+### Fullscreen
+Fullscreen layers support more extensive or content‑heavy tasks that need additional space and 
+focus. See [Completing a multi-step process](#completing-a-multi-step-process).
+
+Apply these [layer properties](https://v2.grommet.io/layer?theme=hpe#props) for a fullscreen layer.
+
+| Property                                         | Value    |
+| ------------------------------------------------ | -------- |
+| [full](https://v2.grommet.io/layer#full)         | true |
+
+## Dos and do nots 
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message: `Match the primary action verb to that of the layer's title.`,
+    }}
+    width="100%"
+  >
+    <ActionLabelTitle />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use a different verb for the primary action than the layer title's verb.`,
+    }}
+    width="100%"
+  >
+    <ActionLabelTitle bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+## Behaviors
+
+### Scroll
+By default, the content within a layer scrolls vertically. This allows users to read, review, 
+or complete tasks even when the content exceeds the available space.
+
+Certain elements, such as headers or footers, may remain visible while the user scrolls when 
+maintaining context or access to actions is necessary.
+Use sticky elements when:
+- Users benefit from ongoing visibility of the layer’s title, instructions, or navigation.
+- Key actions (e.g., Save, Apply, Continue) must stay accessible without requiring the user to scroll back down or up.
+
+### Closing
+Layers can be dismissed through several user actions: selecting the close icon in the header, 
+using a cancel action in the footer, completing a primary action such as Save, pressing the Esc 
+key, or clicking outside the layer.
+
+Use click‑outside dismissal only when no user input or progress could be lost. Avoid it for 
+layers that contain editable fields, unsaved data, or critical user actions.
+
+When closing a layer could result in losing edited or newly added information, require a double 
+confirmation—a secondary dialog that asks the user to confirm they want to discard their changes.
+
+| Scenario                                              | Recommended closing options                              | Double confirmation |
+| ----------------------------------------------------- | -------------------------------------------------------- | :-----------------: |
+| Layer contains no editable input                      | Close icon, Cancel button, Esc key, click-outside        | Optional            |
+| Layer contains editable fields but input is autosaved | Close icon, Cancel button, Esc key                       | Optional            |
+| Layer contains unsaved changes                        | Close icon, Cancel button, Esc key, Save                 | <span><Checkmark a11yTitle="true" size="small" /></span> |
+| Layer includes a critical or irreversible action      | Close icon, Cancel button, Esc key                       | <span><Checkmark a11yTitle="true" size="small" /></span> |
+| Primary action is successfully completed (e.g., Save) | Automatically close or close via Save                    | Optional            |
+
+## Accessibility
+
+### Layer headings
+Layers headings should be semantically correct. Using `H1` or `H2` for layer titles maintains a 
+valid heading hierarchy for assistive technologies. Modal layers function like top‑level sections, 
+so assigning them an H2, or an H1 when inside a semantic wrapper, prevents incorrect nesting. 
+Non‑modal layers at the page root must also use H2 to preserve outline consistency and ensure 
+predictable heading navigation for screen reader users.
+
+All subsequent headings should follow typical [semantic heading structure](/foundation/typography#heading).
+
+### Announcing layer open and close
+
+It is critical that users of assisstive technologies are informed when a layer opens and closes. The approach to implementation differs. depending on if a layer is [modal](#modal-layers) or [non-modal](#non-modal-layers).
+
+#### Modal layers
+
+For modal layers, use [AnnounceContext](https://v2.grommet.io/announcecontext) to ensure it is clear that the layer has opened or closed.
+
+There should be an announcement:
+
+1. When the layer opens.
+1. When the layer closes, specifying if the prompt has been accepted or cancelled.
+
+```
+  // Announce on mount
+  const announce = useContext(AnnounceContext);
+  useEffect(() => {
+    announce(`[Insert layer title] modal opened.`, 'assertive');
+  }, [announce]);
+```
+
+```
+  // An announce on the Cancel button clarifies that
+  // the layer has been closed and the layer's prompt
+  // has been cancelled.
+  <Button
+    label="Cancel"
+    onClick={() => {
+      announce(`${title} modal cancelled and closed.`, 'assertive');
+      onClose();
+    }}
+  />
+```
+
+#### Non-modal layers
+
+When using a Layer with `modal={false}`, it is critical that the focus is moved to the "Close" button inside the Layer. Give the close button an `a11yTitle` that provides the user with context that they are in a Layer.
+
+For example, implementation of this "Close" button for a Layer would be:
+
+```
+<Button
+  a11yTitle={`You are in a layer containing a form to add new hosts.
+  To close this layer, press Enter.`}
+  icon={<Close />}
+  onClick={() => setShowLayer(false)}
+  autoFocus
+/>
+```
+
+### WCAG compliance
+
+<AccessibilitySection title="layer" />
