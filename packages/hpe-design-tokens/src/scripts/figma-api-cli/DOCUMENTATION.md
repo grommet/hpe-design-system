@@ -78,6 +78,22 @@ Show built-in help:
 pnpm figma-api-cli -- --help
 ```
 
+## Local Tests
+
+Run tests from [packages/hpe-design-tokens](../../..).
+
+Run only figma-api-cli tests in this folder:
+
+```bash
+pnpm test -- src/scripts/figma-api-cli/__tests__
+```
+
+Run the full hpe-design-tokens test suite (includes figma-api-cli tests):
+
+```bash
+pnpm test
+```
+
 ## Non-Interactive Actions And Examples
 
 ### 1) collections
