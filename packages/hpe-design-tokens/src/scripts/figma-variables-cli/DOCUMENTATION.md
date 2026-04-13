@@ -170,13 +170,13 @@ pnpm figma-variables-cli -- --action=variable-by-id --source=published --file-ke
 Search multiple file keys passed inline (defaults to local + published if --source is omitted):
 
 ```bash
-pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys=<key1,key2,key3>
+pnpm figma-variables-cli -- --action=variable-by-id --file-keys=<key1,key2,key3> --variable-id=<variable-id>
 ```
 
 Search file keys loaded from a file (comma-separated or newline-separated):
 
 ```bash
-pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt
+pnpm figma-variables-cli -- --action=variable-by-id --file-keys-file=./file-keys.txt --variable-id=<variable-id>
 ```
 
 Search all configured role file keys by default:
@@ -204,13 +204,13 @@ pnpm figma-variables-cli -- --action=collection-by-id --source=published --file-
 Search multiple file keys passed inline (defaults to local + published if --source is omitted):
 
 ```bash
-pnpm figma-variables-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys=<key1,key2,key3>
+pnpm figma-variables-cli -- --action=collection-by-id --file-keys=<key1,key2,key3> --collection-id=<collection-id>
 ```
 
 Search file keys loaded from a file (comma-separated or newline-separated):
 
 ```bash
-pnpm figma-variables-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys-file=./file-keys.txt
+pnpm figma-variables-cli -- --action=collection-by-id --file-keys-file=./file-keys.txt --collection-id=<collection-id>
 ```
 
 Search all configured role file keys by default:
@@ -244,6 +244,8 @@ pnpm figma-variables-cli -- --action=post --role=semantic --payload=./payload.js
 
 Required and optional flags by action:
 
+- --non-interactive (require explicit action; no interactive fallback)
+- --strict-flags (exit with non-zero on unknown or malformed flags)
 - --action=collections|collection-by-id|modes|variables|variable-by-id|post
 - --source=local|published
   - Read actions default to local when a single-target action uses role or file-key.
@@ -253,17 +255,25 @@ Required and optional flags by action:
 - --file-keys=<k1,k2,...> (collection-by-id / variable-by-id)
 - --file-keys-file=<path> (collection-by-id / variable-by-id)
 - --collection-id=<id> (collection-by-id, exact id match)
+- --variable-id=<id> (variable-by-id)
 - --collection=<name> (variables)
 - --mode=<name> (variables)
 - --max-rows=<number> (variables, default 100)
-- --variable-id=<id> (variable-by-id)
-- --debug (collection-by-id / variable-by-id lookup diagnostics)
 - --format=table|json (read actions, default table)
-- --strict-flags (exit with non-zero on unknown or malformed flags)
-- --non-interactive (require explicit action; no interactive fallback)
+- --debug (collection-by-id / variable-by-id lookup diagnostics)
 - --payload=<path/to/json> (post)
 - --confirm=YES (post, non-interactive required)
 - --help
+
+Canonical flag order in examples:
+
+1. `--non-interactive --strict-flags`
+2. `--action`
+3. `--source` + target selectors (`--role` / `--file-key` / `--file-keys` / `--file-keys-file`)
+4. action filters (`--collection-id` / `--variable-id` / `--collection` / `--mode` / `--max-rows`)
+5. output and diagnostics (`--format` / `--debug`)
+6. write safety (`--payload` / `--confirm`)
+7. `--help`
 
 Target selection rules:
 
@@ -287,7 +297,7 @@ pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variable-b
 Exact collection id lookup across explicit targets:
 
 ```bash
-pnpm figma-variables-cli -- --non-interactive --strict-flags --action=collection-by-id --collection-id=<collection-id> --file-keys=<key1,key2,key3> --format=json
+pnpm figma-variables-cli -- --non-interactive --strict-flags --action=collection-by-id --file-keys=<key1,key2,key3> --collection-id=<collection-id> --format=json
 ```
 
 ## Payload Format For POST

@@ -153,34 +153,38 @@ export function printHelp() {
   console.log('');
   console.log('Non-interactive examples:');
   console.log(
-    '  pnpm figma-variables-cli -- --action=collections --source=local --role=primitive',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=collections --source=local --role=primitive',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=variables --source=published --file-key=<key> --collection=color --mode=light --max-rows=50',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variables --source=published --file-key=<key> --collection=color --mode=light --max-rows=50 --format=json',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id>',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id> --format=json',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id> --format=json',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id>',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variable-by-id --variable-id=<variable-id> --format=json',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys=<key1,key2,key3>',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variable-by-id --file-keys=<key1,key2,key3> --variable-id=<variable-id> --format=json',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variable-by-id --file-keys-file=./file-keys.txt --variable-id=<variable-id> --format=json',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --debug',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variable-by-id --variable-id=<variable-id> --format=table --debug',
   );
   console.log(
-    '  pnpm figma-variables-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES',
+    '  pnpm figma-variables-cli -- --non-interactive --strict-flags --action=post --role=semantic --payload=./payload.json --confirm=YES',
   );
   console.log('');
   console.log('Flags:');
+  console.log(
+    '  --non-interactive (require explicit --action, no prompt fallback)',
+  );
+  console.log('  --strict-flags (fail on unknown/malformed flags)');
   console.log(
     '  --action=collections|collection-by-id|modes|variables|variable-by-id|post',
   );
@@ -195,18 +199,17 @@ export function printHelp() {
     '  --collection-id=<id> (collection-by-id action, exact id match)',
   );
   console.log(
-    '  --collection=<name>  --mode=<name>  --max-rows=<number> (variables)',
-  );
-  console.log(
     '  --variable-id=<id> (variable-by-id action, accepts VariableID:<id>)',
   );
-  console.log('  --format=table|json (default table)');
-  console.log('  --strict-flags (fail on unknown/malformed flags)');
-  console.log('  --non-interactive (fail instead of entering prompts)');
+  console.log(
+    '  --collection=<name>  --mode=<name>  --max-rows=<number> (variables)',
+  );
+  console.log('  --format=table|json (read actions, default table)');
   console.log(
     '  --debug (collection-by-id / variable-by-id lookup diagnostics)',
   );
   console.log('  --payload=<path> --confirm=YES (post)');
+  console.log('  --help');
 }
 
 export function resolveFileKeyFromOptions(
