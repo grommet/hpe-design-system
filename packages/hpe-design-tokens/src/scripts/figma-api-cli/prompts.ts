@@ -83,5 +83,6 @@ export function printMenu() {
   console.log('3. Get variables');
   console.log('4. Get variable by ID');
   console.log('5. Post variables');
-  console.log('6. None (exit)');
+  console.log('6. Get collection by ID');
+  console.log('7. None (exit)');
 }

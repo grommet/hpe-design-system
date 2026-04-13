@@ -9,6 +9,10 @@ import {
   executeGetCollections,
   handleGetCollections,
 } from './get-collections.js';
+import {
+  executeGetCollectionById,
+  handleGetCollectionById,
+} from './get-collection-by-id.js';
 import { executeGetModes, handleGetModes } from './get-modes.js';
 import {
   executeGetVariableById,
@@ -24,6 +28,8 @@ async function executeNonInteractiveAction(api: FigmaApi, options: CliOptions) {
   switch (options.action) {
     case 'collections':
       return executeGetCollections(api, options);
+    case 'collection-by-id':
+      return executeGetCollectionById(api, options);
     case 'modes':
       return executeGetModes(api, options);
     case 'variables':
@@ -69,7 +75,7 @@ async function main() {
   try {
     while (true) {
       printMenu();
-      const option = await askMenuOption(rl, 6);
+      const option = await askMenuOption(rl, 7);
 
       try {
         if (option === 1) {
@@ -82,6 +88,8 @@ async function main() {
           await handleGetVariableById(rl, api);
         } else if (option === 5) {
           await handlePostVariables(rl, api);
+        } else if (option === 6) {
+          await handleGetCollectionById(rl, api);
         } else {
           console.log(green('Done.'));
           break;

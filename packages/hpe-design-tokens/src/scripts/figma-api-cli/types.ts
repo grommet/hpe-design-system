@@ -4,6 +4,7 @@ export type Role = 'primitive' | 'semantic' | 'component';
 export type SourceType = 'local' | 'published';
 export type ActionType =
   | 'collections'
+  | 'collection-by-id'
   | 'modes'
   | 'variables'
   | 'variable-by-id'
@@ -20,6 +21,7 @@ export type CliOptions = {
   collection?: string;
   mode?: string;
   maxRows?: number;
+  collectionId?: string;
   variableId?: string;
   confirm?: string;
   debug?: boolean;
@@ -43,6 +45,7 @@ export const isSourceType = (value: string): value is SourceType =>
 
 export const isActionType = (value: string): value is ActionType =>
   value === 'collections' ||
+  value === 'collection-by-id' ||
   value === 'modes' ||
   value === 'variables' ||
   value === 'variable-by-id' ||

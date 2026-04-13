@@ -19,6 +19,20 @@ type VariableLocationRow = {
   previewValue: string;
 };
 
+type CollectionLocationRow = {
+  id: string;
+  name: string;
+  key: string;
+  role: string;
+  file: string;
+  sourceType: string;
+  remote: boolean | undefined;
+  variableCount: number;
+  modes: string;
+  subscribedId: string;
+  updatedAt: string;
+};
+
 export function printCollections(collections: VariableCollection[]) {
   const rows = collections.map(collection => {
     const row: Record<string, string | number | boolean | undefined> = {
@@ -58,6 +72,144 @@ export function printModes(collections: VariableCollection[]) {
   );
 
   console.table(rows);
+}
+
+type CollectionLookupResult = {
+  collection?: VariableCollection;
+  searchedId: string;
+  matchedBy?: string;
+};
+
+function findCollectionById(
+  response: ApiGetVariableResponse,
+  collectionId: string,
+): CollectionLookupResult {
+  const searchedId = collectionId.trim();
+
+  const direct = response.meta.variableCollections[searchedId];
+  if (direct) {
+    return {
+      collection: direct,
+      searchedId,
+      matchedBy: `direct map key: ${searchedId}`,
+    };
+  }
+
+  const byId = Object.values(response.meta.variableCollections).find(
+    collection => collection.id === searchedId,
+  );
+  if (byId) {
+    return {
+      collection: byId,
+      searchedId,
+      matchedBy: `collection.id match: ${searchedId}`,
+    };
+  }
+
+  return { searchedId };
+}
+
+function toCollectionLocationRow(
+  collection: VariableCollection,
+  location: { role: string; source: string; sourceType: string },
+): CollectionLocationRow {
+  return {
+    id: collection.id,
+    name: collection.name,
+    key: collection.key || '',
+    role: location.role,
+    file: location.source,
+    sourceType: location.sourceType,
+    remote: collection.remote,
+    variableCount: collection.variableIds?.length || 0,
+    modes: Array.isArray(collection.modes)
+      ? collection.modes.map(mode => mode.name).join('|')
+      : '',
+    subscribedId: collection.subscribed_id || '',
+    updatedAt: collection.updatedAt || '',
+  };
+}
+
+function printCollectionLookupDebug(
+  lookup: CollectionLookupResult,
+  location?: { role: string; source: string; sourceType: string },
+) {
+  console.log('\nCollection lookup debug:');
+  console.table([
+    {
+      searchedId: lookup.searchedId,
+      matchedBy: lookup.matchedBy || '',
+      role: location?.role || '',
+      source: location?.source || '',
+      sourceType: location?.sourceType || '',
+      matchedCollectionId: lookup.collection?.id || '',
+      matchedCollectionName: lookup.collection?.name || '',
+    },
+  ]);
+}
+
+export function printCollectionById(
+  response: ApiGetVariableResponse,
+  collectionId: string,
+  options?: { debug?: boolean },
+) {
+  const lookup = findCollectionById(response, collectionId);
+
+  if (options?.debug) {
+    printCollectionLookupDebug(lookup);
+  }
+
+  if (!lookup.collection) {
+    console.log(`No collection found for id: ${lookup.searchedId}`);
+    return;
+  }
+
+  console.table([
+    toCollectionLocationRow(lookup.collection, {
+      role: '',
+      source: '',
+      sourceType: '',
+    }),
+  ]);
+  console.log('Displayed 1 collection.');
+}
+
+export function buildCollectionLocationRow(
+  response: ApiGetVariableResponse,
+  collectionId: string,
+  location: {
+    role: string;
+    source: string;
+    sourceType: string;
+  },
+  options?: { debug?: boolean },
+): CollectionLocationRow | undefined {
+  const lookup = findCollectionById(response, collectionId);
+
+  if (options?.debug) {
+    printCollectionLookupDebug(lookup, location);
+  }
+
+  if (!lookup.collection) {
+    return undefined;
+  }
+
+  return toCollectionLocationRow(lookup.collection, location);
+}
+
+export function printCollectionLocationResults(
+  rows: CollectionLocationRow[],
+  collectionId: string,
+) {
+  const normalizedCollectionId = collectionId.trim();
+
+  if (rows.length === 0) {
+    console.log(`No collection found for id: ${normalizedCollectionId}`);
+    return;
+  }
+
+  console.table(rows);
+  console.log(`Found ${rows.length} matching location(s).`);
 }
 
 export function buildVariableRows(

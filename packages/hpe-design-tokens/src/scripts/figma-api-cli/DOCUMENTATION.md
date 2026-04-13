@@ -5,6 +5,7 @@ This document explains how to use the Figma API CLI in [figma-api-cli](.).
 ## What This CLI Can Do
 
 - List variable collections in a Figma file.
+- Find a collection by id in one file or across many files.
 - List variable modes across collections.
 - List variables with optional collection and mode filters.
 - Find a variable by id in one file or across many files.
@@ -62,7 +63,8 @@ Interactive menu options:
 3. Get variables
 4. Get variable by ID
 5. Post variables
-6. Exit
+6. Get collection by ID
+7. Exit
 
 ### Non-interactive mode
 
@@ -158,7 +160,47 @@ Search all configured role file keys by default:
 pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id>
 ```
 
-### 5) post
+### 5) collection-by-id
+
+Looks up a collection by exact collection id.
+
+Search one known file (role):
+
+```bash
+pnpm figma-api-cli -- --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id>
+```
+
+Search one specific file key:
+
+```bash
+pnpm figma-api-cli -- --action=collection-by-id --source=published --file-key=<figma-file-key> --collection-id=<collection-id>
+```
+
+Search multiple file keys passed inline (defaults to local + published if --source is omitted):
+
+```bash
+pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys=<key1,key2,key3>
+```
+
+Search file keys loaded from a file (comma-separated or newline-separated):
+
+```bash
+pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys-file=./file-keys.txt
+```
+
+Search all configured role file keys by default:
+
+```bash
+pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id>
+```
+
+Enable lookup diagnostics:
+
+```bash
+pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id> --debug
+```
+
+### 6) post
 
 Posts variable changes to Figma.
 
@@ -177,19 +219,20 @@ pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --c
 
 Required and optional flags by action:
 
-- --action=collections|modes|variables|variable-by-id|post
+- --action=collections|collection-by-id|modes|variables|variable-by-id|post
 - --source=local|published
   - Read actions default to local when a single-target action uses role or file-key.
-  - For variable-by-id multi-target searches, source defaults to local and published when omitted.
+  - For collection-by-id and variable-by-id multi-target searches, source defaults to local and published when omitted.
 - --role=primitive|semantic|component
 - --file-key=<figmaFileKey>
-- --file-keys=<k1,k2,...> (variable-by-id)
-- --file-keys-file=<path> (variable-by-id)
+- --file-keys=<k1,k2,...> (collection-by-id / variable-by-id)
+- --file-keys-file=<path> (collection-by-id / variable-by-id)
+- --collection-id=<id> (collection-by-id, exact id match)
 - --collection=<name> (variables)
 - --mode=<name> (variables)
 - --max-rows=<number> (variables, default 100)
 - --variable-id=<id> (variable-by-id)
-- --debug (variable-by-id lookup diagnostics)
+- --debug (collection-by-id / variable-by-id lookup diagnostics)
 - --payload=<path/to/json> (post)
 - --confirm=YES (post, non-interactive required)
 - --help
@@ -197,7 +240,7 @@ Required and optional flags by action:
 Target selection rules:
 
 - Use either --role or --file-key for single-target actions.
-- variable-by-id also supports --file-keys and --file-keys-file for multi-target lookup.
+- collection-by-id and variable-by-id support --file-keys and --file-keys-file for multi-target lookup.
 
 ## Payload Format For POST
 
@@ -239,6 +282,12 @@ pnpm figma-api-cli -- --action=variables --source=local --role=semantic --collec
 pnpm figma-api-cli -- --action=variable-by-id --variable-id=VariableID:1234:5678
 ```
 
+### Locate a collection id across known files
+
+```bash
+pnpm figma-api-cli -- --action=collection-by-id --collection-id=9479:10
+```
+
 ### Safe non-interactive write
 
 ```bash
@@ -255,6 +304,10 @@ pnpm figma-api-cli -- --action=post --file-key=<figma-file-key> --payload=./payl
   - Check source scope (local vs published).
   - Try multi-target search with --file-keys or --file-keys-file.
   - Confirm the id is valid; VariableID:<id> is normalized automatically.
+- collection-by-id returns no matches:
+  - Confirm you used the exact collection id.
+  - Check source scope (local vs published).
+  - Try multi-target search with --file-keys or --file-keys-file.
 - POST rejected:
   - Confirm payload path exists and JSON is valid.
   - Confirm payload fields are arrays when present.

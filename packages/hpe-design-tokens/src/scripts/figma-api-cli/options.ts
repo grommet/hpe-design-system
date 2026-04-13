@@ -54,6 +54,8 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       options.collection = value;
     } else if (key === 'mode') {
       options.mode = value;
+    } else if (key === 'collection-id') {
+      options.collectionId = value;
     } else if (key === 'max-rows') {
       const parsed = Number(value);
       if (Number.isFinite(parsed) && parsed > 0) {
@@ -84,6 +86,9 @@ export function printHelp() {
     '  pnpm figma-api-cli -- --action=variables --source=published --file-key=<key> --collection=color --mode=light --max-rows=50',
   );
   console.log(
+    '  pnpm figma-api-cli -- --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id>',
+  );
+  console.log(
     '  pnpm figma-api-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>',
   );
   console.log(
@@ -103,13 +108,18 @@ export function printHelp() {
   );
   console.log('');
   console.log('Flags:');
-  console.log('  --action=collections|modes|variables|variable-by-id|post');
+  console.log(
+    '  --action=collections|collection-by-id|modes|variables|variable-by-id|post',
+  );
   console.log('  --source=local|published  (read actions only, default local)');
   console.log(
     '  --role=primitive|semantic|component  or --file-key=<figmaFileKey>',
   );
   console.log(
-    '  --file-keys=<k1,k2,...> or --file-keys-file=<path> (variable-by-id search across unknown file)',
+    '  --file-keys=<k1,k2,...> or --file-keys-file=<path> (collection-by-id / variable-by-id multi-file search)',
+  );
+  console.log(
+    '  --collection-id=<id> (collection-by-id action, exact id match)',
   );
   console.log(
     '  --collection=<name>  --mode=<name>  --max-rows=<number> (variables)',
@@ -117,7 +127,9 @@ export function printHelp() {
   console.log(
     '  --variable-id=<id> (variable-by-id action, accepts VariableID:<id>)',
   );
-  console.log('  --debug (variable-by-id lookup diagnostics)');
+  console.log(
+    '  --debug (collection-by-id / variable-by-id lookup diagnostics)',
+  );
   console.log('  --payload=<path> --confirm=YES (post)');
 }
 
