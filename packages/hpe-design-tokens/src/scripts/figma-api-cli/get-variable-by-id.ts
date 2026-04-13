@@ -54,6 +54,7 @@ async function searchVariableAcrossTargets(
   variableId: string,
   targets: Array<{ role: string; fileKey: string; source: string }>,
   sourceTypes: Array<SourceType>,
+  options?: { debug?: boolean },
 ) {
   const rows = [];
 
@@ -65,11 +66,16 @@ async function searchVariableAcrossTargets(
           target.fileKey,
           sourceType,
         );
-        const row = buildVariableLocationRow(response, variableId, {
-          role: target.role,
-          source: target.source,
-          sourceType,
-        });
+        const row = buildVariableLocationRow(
+          response,
+          variableId,
+          {
+            role: target.role,
+            source: target.source,
+            sourceType,
+          },
+          options,
+        );
 
         if (row) {
           rows.push(row);
@@ -176,6 +182,7 @@ export async function handleGetVariableById(
       variableId,
       targets,
       sourceTypes,
+      { debug: false },
     );
     printVariableLocationResults(rows, variableId);
     return;
@@ -194,6 +201,7 @@ export async function handleGetVariableById(
     variableId,
     targets,
     sourceTypes,
+    { debug: false },
   );
   printVariableLocationResults(rows, variableId);
 }
@@ -219,7 +227,7 @@ export async function executeGetVariableById(
     console.log(
       `Using file key (${source}) in ${sourceType} scope. Collections: ${collections.length}`,
     );
-    printVariableById(response, variableId);
+    printVariableById(response, variableId, { debug: options.debug });
     return;
   }
 
@@ -238,6 +246,7 @@ export async function executeGetVariableById(
     variableId,
     targets,
     sourceTypes,
+    { debug: options.debug },
   );
   printVariableLocationResults(rows, variableId);
 }

@@ -146,12 +146,109 @@ export async function printVariables(
   console.log(`Displayed ${rows.length} variable(s).`);
 }
 
+function buildVariableIdCandidates(variableId: string) {
+  const trimmed = variableId.trim();
+  const withoutPrefix = normalizeVariableId(trimmed);
+  const slashSuffix = withoutPrefix.includes('/')
+    ? withoutPrefix.split('/').pop() || ''
+    : '';
+
+  const rawCandidates = [
+    trimmed,
+    withoutPrefix,
+    slashSuffix,
+    `VariableID:${withoutPrefix}`,
+    slashSuffix ? `VariableID:${slashSuffix}` : '',
+  ].filter(Boolean);
+
+  return Array.from(new Set(rawCandidates));
+}
+
+type VariableLookupResult = {
+  variable?: ApiGetVariableResponse['meta']['variables'][string];
+  candidates: string[];
+  matchedBy?: string;
+};
+
+function findVariableById(
+  response: ApiGetVariableResponse,
+  variableId: string,
+): VariableLookupResult {
+  const candidates = buildVariableIdCandidates(variableId);
+  const normalizedCandidates = new Set(candidates.map(normalizeVariableId));
+
+  for (const candidate of candidates) {
+    const directMatch = response.meta.variables[candidate];
+    if (directMatch) {
+      return {
+        variable: directMatch,
+        candidates,
+        matchedBy: `direct map key: ${candidate}`,
+      };
+    }
+  }
+
+  for (const [mapKey, variable] of Object.entries(response.meta.variables)) {
+    const comparableValues = [
+      mapKey,
+      normalizeVariableId(mapKey),
+      variable.id,
+      normalizeVariableId(variable.id),
+      variable.key,
+      variable.key ? normalizeVariableId(variable.key) : '',
+    ].filter(Boolean);
+
+    if (
+      comparableValues.some(
+        value => candidates.includes(value) || normalizedCandidates.has(value),
+      )
+    ) {
+      return {
+        variable,
+        candidates,
+        matchedBy: `fallback comparison via map key ${mapKey}`,
+      };
+    }
+  }
+
+  return { candidates };
+}
+
+function printLookupDebug(
+  variableId: string,
+  lookup: VariableLookupResult,
+  location?: { role: string; source: string; sourceType: string },
+) {
+  const rows = lookup.candidates.map(candidate => ({
+    input: variableId,
+    normalizedInput: normalizeVariableId(variableId),
+    candidate,
+    normalizedCandidate: normalizeVariableId(candidate),
+    matchedBy: lookup.matchedBy || '',
+    role: location?.role || '',
+    source: location?.source || '',
+    sourceType: location?.sourceType || '',
+    matchedVariableId: lookup.variable?.id || '',
+    matchedVariableKey: lookup.variable?.key || '',
+  }));
+
+  console.log('\nVariable lookup debug:');
+  console.table(rows);
+}
+
 export function printVariableById(
   response: ApiGetVariableResponse,
   variableId: string,
+  options?: { debug?: boolean },
 ) {
   const normalizedVariableId = normalizeVariableId(variableId);
-  const variable = response.meta.variables[normalizedVariableId];
+  const lookup = findVariableById(response, variableId);
+
+  if (options?.debug) {
+    printLookupDebug(variableId, lookup);
+  }
+
+  const variable = lookup.variable;
 
   if (!variable) {
     console.log(`No variable found for id: ${normalizedVariableId}`);
@@ -164,7 +261,7 @@ export function printVariableById(
     collectionFilter: collection?.name,
     rowLimit: Number.MAX_SAFE_INTEGER,
   });
-  const matchingRow = rows.find(row => row.id === normalizedVariableId);
+  const matchingRow = rows.find(row => row.id === variable.id);
 
   console.table(matchingRow ? [matchingRow] : []);
   console.log('Displayed 1 variable.');
@@ -178,9 +275,15 @@ export function buildVariableLocationRow(
     source: string;
     sourceType: string;
   },
+  options?: { debug?: boolean },
 ): VariableLocationRow | undefined {
-  const normalizedVariableId = normalizeVariableId(variableId);
-  const variable = response.meta.variables[normalizedVariableId];
+  const lookup = findVariableById(response, variableId);
+
+  if (options?.debug) {
+    printLookupDebug(variableId, lookup, location);
+  }
+
+  const variable = lookup.variable;
 
   if (!variable) {
     return undefined;

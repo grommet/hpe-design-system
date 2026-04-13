@@ -22,6 +22,7 @@ export type CliOptions = {
   maxRows?: number;
   variableId?: string;
   confirm?: string;
+  debug?: boolean;
   help?: boolean;
 };
 

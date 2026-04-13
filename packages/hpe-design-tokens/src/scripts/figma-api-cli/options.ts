@@ -20,6 +20,11 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       return;
     }
 
+    if (arg === '--debug') {
+      options.debug = true;
+      return;
+    }
+
     const [rawKey, ...rest] = arg.slice(2).split('=');
     const key = rawKey.trim();
     const value = rest.join('=').trim();
@@ -58,6 +63,8 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       options.variableId = value;
     } else if (key === 'confirm') {
       options.confirm = value;
+    } else if (key === 'debug') {
+      options.debug = value === 'true' || value === '1' || value === 'yes';
     }
   });
 
@@ -89,6 +96,9 @@ export function printHelp() {
     '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt',
   );
   console.log(
+    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --debug',
+  );
+  console.log(
     '  pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES',
   );
   console.log('');
@@ -107,6 +117,7 @@ export function printHelp() {
   console.log(
     '  --variable-id=<id> (variable-by-id action, accepts VariableID:<id>)',
   );
+  console.log('  --debug (variable-by-id lookup diagnostics)');
   console.log('  --payload=<path> --confirm=YES (post)');
 }
 

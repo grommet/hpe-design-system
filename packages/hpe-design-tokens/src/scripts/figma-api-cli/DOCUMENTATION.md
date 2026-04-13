@@ -128,6 +128,12 @@ Search one known file (role):
 pnpm figma-api-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>
 ```
 
+Enable lookup diagnostics:
+
+```bash
+pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --debug
+```
+
 Search one specific file key:
 
 ```bash
@@ -183,6 +189,7 @@ Required and optional flags by action:
 - --mode=<name> (variables)
 - --max-rows=<number> (variables, default 100)
 - --variable-id=<id> (variable-by-id)
+- --debug (variable-by-id lookup diagnostics)
 - --payload=<path/to/json> (post)
 - --confirm=YES (post, non-interactive required)
 - --help
