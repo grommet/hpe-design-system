@@ -6,7 +6,6 @@ import {
   StyleTable,
 } from '../../layouts';
 import {
-  ActionLabels,
   ActionLabelTitle,
   CenterInformational,
   ContentDrivenLayout,
@@ -228,43 +227,6 @@ confirmation—a secondary dialog that asks the user to confirm they want to dis
 | Layer contains unsaved changes                        | Close icon, Cancel button, Esc key, Save                 | <span><Checkmark a11yTitle="true" size="small" /></span> |
 | Layer includes a critical or irreversible action      | Close icon, Cancel button, Esc key                       | <span><Checkmark a11yTitle="true" size="small" /></span> |
 | Primary action is successfully completed (e.g., Save) | Automatically close or close via Save                    | Optional            |
-
-
-{/*
-MOVE THIS TO BUTTON PAGE
-
-##Action label conventions
-
-If a layer contains footer actions, the primary action should be labeled using verb + noun format (e.g., "Apply filters").
-
-The noun may be omitted from actions labels beyond the primary action if the action is clear and unambiguous (e.g. "Reset" instead of "Reset filters").
-
-When in doubt, follow the verb + noun convention to ensure clarity. See [button labeling guidance](/components/button#button-labeling) for more details.
-
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'do',
-      message:
-        'When secondary actions are clear and unambiguous, you can omit the noun. In this case, "filters" is not repeated for the reset action.',
-    }}
-    width="100%"
-  >
-    <ActionLabels />
-  </Example>
-  <Example
-    height={{ min: 'xsmall' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Don’t remove the noun from the primary action as this can cause ambiguity about what the actions refer to.`,
-    }}
-    width="100%"
-  >
-    <ActionLabels bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
-*/}
 
 ## Accessibility
 
