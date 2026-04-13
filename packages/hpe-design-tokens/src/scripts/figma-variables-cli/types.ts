@@ -26,6 +26,7 @@ export type CliOptions = {
   confirm?: string;
   debug?: boolean;
   help?: boolean;
+  unknownFlags?: string[];
 };
 
 export type FileKeySelection = {

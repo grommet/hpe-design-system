@@ -8,7 +8,9 @@ import {
 } from './types.js';
 
 export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
-  const options: CliOptions = {};
+  const options: CliOptions = {
+    unknownFlags: [],
+  };
 
   argv.forEach(arg => {
     if (arg === '-h') {
@@ -30,11 +32,17 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       return;
     }
 
+    if (!arg.includes('=')) {
+      options.unknownFlags?.push(arg);
+      return;
+    }
+
     const [rawKey, ...rest] = arg.slice(2).split('=');
     const key = rawKey.trim();
     const value = rest.join('=').trim();
 
     if (!value) {
+      options.unknownFlags?.push(arg);
       return;
     }
 
@@ -72,10 +80,29 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       options.confirm = value;
     } else if (key === 'debug') {
       options.debug = value === 'true' || value === '1' || value === 'yes';
+    } else {
+      options.unknownFlags?.push(arg);
     }
   });
 
+  if (!options.unknownFlags?.length) {
+    delete options.unknownFlags;
+  }
+
   return options;
+}
+
+export function printUnknownFlagsWarning(options: CliOptions) {
+  if (!options.unknownFlags || options.unknownFlags.length === 0) {
+    return;
+  }
+
+  const deduped = Array.from(new Set(options.unknownFlags));
+  console.warn(
+    `Ignoring unknown or malformed flag(s): ${deduped.join(
+      ', ',
+    )}. Run --help for supported options.`,
+  );
 }
 
 export function printHelp() {

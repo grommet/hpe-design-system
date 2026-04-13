@@ -51,4 +51,18 @@ describe('parseCliOptions', () => {
 
     expect(options.maxRows).toBeUndefined();
   });
+
+  it('tracks unknown and malformed flags', () => {
+    const options = parseCliOptions([
+      '--bogus=abc',
+      '--mode',
+      '--action=unknown',
+    ]);
+
+    expect(options.unknownFlags).toEqual([
+      '--bogus=abc',
+      '--mode',
+      '--action=unknown',
+    ]);
+  });
 });

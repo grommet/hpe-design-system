@@ -19,7 +19,11 @@ import {
   handleGetVariableById,
 } from './get-variable-by-id.js';
 import { executeGetVariables, handleGetVariables } from './get-variables.js';
-import { parseCliOptions, printHelp } from './options.js';
+import {
+  parseCliOptions,
+  printHelp,
+  printUnknownFlagsWarning,
+} from './options.js';
 import { executePost, handlePostVariables } from './post-variables.js';
 import { askMenuOption, printMenu } from './prompts.js';
 import type { CliOptions } from './types.js';
@@ -42,14 +46,16 @@ async function executeNonInteractiveAction(api: FigmaApi, options: CliOptions) {
 }
 
 async function main() {
-  const token = validateEnv();
-  const api = new FigmaApi(token);
   const cliOptions = parseCliOptions();
+  printUnknownFlagsWarning(cliOptions);
 
   if (cliOptions.help) {
     printHelp();
     return;
   }
+
+  const token = validateEnv();
+  const api = new FigmaApi(token);
 
   if (cliOptions.action) {
     try {
