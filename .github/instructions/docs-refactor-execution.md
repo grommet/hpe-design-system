@@ -60,7 +60,17 @@ Now we'll use Copilot to write the new Markdown based strictly on our new YAML d
 3. Save the Chat output to `apps/docs/src/pages/components/button.mdx`.
 4. **Merge from backup:** Open `.mdx.bak` and manually copy over any necessary Next.js file-routing imports, `<Layout>` wrappers, React component imports (like `<AccessibilitySection title="[Component]" />`), or frontmatter that were lost into the new `.mdx` file.
 
-### Step 6: Create TODO and DEPRECATED Files
+### Step 6: Create Dos and Don'ts Preview Components
+
+The generated MDX will have `<div>{/* TODO: ... */}</div>` placeholder children inside `<BestPracticeGroup>` blocks for any dos/donts entry that doesn't have a preview file yet. Run the `dos-donts-agent` to replace those placeholders with real paired React preview components.
+
+1. In Copilot Chat, switch to the **`dos-donts-agent`**.
+2. Run it with just the component name:
+   > `"button"`
+   _(Omit an index to process all TODO pairs at once. Pass a 0-based index, e.g. `"button 0"`, to target a single pair.)_
+3. The agent will create the `DosDonts/` preview files, wire them into the export chain, and replace the TODO placeholder children in the MDX. Any entry that can't be illustrated with Grommet components alone will be left as-is and logged to `apps/docs/todos/TODO-[component].md`.
+
+### Step 7: Create TODO and DEPRECATED Files
 
 **Do this before deleting the `.bak`** — you need both files open side-by-side to do a proper diff.
 
@@ -77,12 +87,12 @@ These are **required outputs** for every component refactor, not optional. Even 
    - Any prose that doesn't fit the new template but may contain unique information worth preserving.
    - A mapping table showing where redistributed content landed in the new structure.
 
-### Step 7: Review
+### Step 8: Review
 
 1. Build and run the `docs` app locally to ensure the new `button.mdx` page renders without crashing.
 2. Review the generated Markdown copy. Does it adhere to the rules in `.github/instructions/writing-documentation.instruction.md`? (e.g. Imperative tone, concise bullet points).
 
-### Step 8: Push & PR
+### Step 9: Push & PR
 
 Create a focused pull request.
 
@@ -92,17 +102,6 @@ Create a focused pull request.
 rm apps/docs/src/pages/components/button.mdx.bak
 ```
 
-2. Build and run the `docs` app locally to ensure the new `button.mdx` page renders without crashing.
-3. Review the generated Markdown copy. Does it adhere to the rules in `.github/instructions/writing-documentation.instruction.md`? (e.g. Imperative tone, concise bullet points).
-4. If there were data gaps in the original documentation that need to be researched, catalog them in `apps/docs/todos/TODO-[component].md`. If there was legacy content that doesn't fit the new rigid `.mdx` template, log it in `apps/docs/todos/DEPRECATED-[component].md`.
-
-### Step 7: Push & PR
-
-Create a focused pull request.
-
-1. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
-2. Title the PR `docs: refactor [Component] component`.
-3. **Check off your component** in the **Full Component Checklist** at the bottom of `.github/docs-refactor-plan.md`. Include this change in the same commit or as a follow-up commit on the same branch before merging — not after.
-2. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
+2. Commit your new YAML file, the updated MDX, the `DosDonts/` preview files, and any TODO/DEPRECATED files.
 3. Title the PR `docs: refactor [Component] component`.
-4. Check off your component in the `.github/docs-refactor-plan.md`!
+4. **Check off your component** in the **Full Component Checklist** at the bottom of `.github/docs-refactor-plan.md`. Include this change in the same commit or as a follow-up commit on the same branch before merging — not after.
