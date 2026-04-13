@@ -18,6 +18,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] Temporarily rename the old MDX file (e.g., `apps/docs/src/pages/components/[name].mdx.bak`) to preserve specific Next.js page imports and frontmatter.
 - [ ] Run the generation prompt (`.github/prompts/generate-mdx.prompt.md`) in Copilot Chat.
 - [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports (such as `AccessibilitySection`), or frontmatter from the `.bak` file.
+- [ ] Run the `dos-donts-agent` to create paired preview components for any Dos and Don'ts entries that have `{/* TODO */}` placeholder children in the generated MDX.
 - [ ] Delete the temporary `.bak` file to keep the repository clean.
 - [ ] Review copy against guidelines, note missing information or code example placeholders in `apps/docs/todos/TODO-[component].md`, and log any removed, unstructured legacy content in `apps/docs/todos/DEPRECATED-[component].md`.
 - [ ] Submit individual PRs (e.g., `docs: refactor [Component] component`).
