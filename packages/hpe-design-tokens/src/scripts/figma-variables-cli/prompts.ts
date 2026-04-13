@@ -81,8 +81,8 @@ export function printMenu() {
   console.log('1. Get variable collections');
   console.log('2. Get variable modes');
   console.log('3. Get variables');
-  console.log('4. Get variable by ID');
-  console.log('5. Post variables');
-  console.log('6. Get collection by ID');
+  console.log('4. Get collection by ID');
+  console.log('5. Get variable by ID');
+  console.log('6. Post variables');
   console.log('7. None (exit)');
 }

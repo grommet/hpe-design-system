@@ -108,11 +108,11 @@ async function main() {
         } else if (option === 3) {
           await handleGetVariables(rl, api);
         } else if (option === 4) {
-          await handleGetVariableById(rl, api);
-        } else if (option === 5) {
-          await handlePostVariables(rl, api);
-        } else if (option === 6) {
           await handleGetCollectionById(rl, api);
+        } else if (option === 5) {
+          await handleGetVariableById(rl, api);
+        } else if (option === 6) {
+          await handlePostVariables(rl, api);
         } else {
           console.log(green('Done.'));
           break;

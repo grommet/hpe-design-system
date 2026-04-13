@@ -64,9 +64,9 @@ Interactive menu options:
 1. Get variable collections
 2. Get variable modes
 3. Get variables
-4. Get variable by ID
-5. Post variables
-6. Get collection by ID
+4. Get collection by ID
+5. Get variable by ID
+6. Post variables
 7. Exit
 
 ### Non-interactive mode
