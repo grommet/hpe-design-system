@@ -145,7 +145,7 @@ Use the CLI helper script to inspect and modify variables in a target Figma file
 
 ```bash
 cd packages/hpe-design-tokens
-pnpm figma-api-cli
+pnpm figma-variables-cli
 ```
 
 The CLI supports interactive and non-interactive modes.
@@ -156,13 +156,13 @@ Non-interactive examples:
 cd packages/hpe-design-tokens
 
 # Read local collections from primitive file key env var
-pnpm figma-api-cli -- --action=collections --source=local --role=primitive
+pnpm figma-variables-cli -- --action=collections --source=local --role=primitive
 
 # Read published variables from a raw file key with filters
-pnpm figma-api-cli -- --action=variables --source=published --file-key=<figma-file-key> --collection=color --mode=light --max-rows=50
+pnpm figma-variables-cli -- --action=variables --source=published --file-key=<figma-file-key> --collection=color --mode=light --max-rows=50
 
 # Post a payload JSON file (requires explicit confirmation flag)
-pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES
+pnpm figma-variables-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES
 ```
 
 Supported flags:

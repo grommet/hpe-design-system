@@ -81,35 +81,35 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
 export function printHelp() {
   console.log('Figma Variables CLI');
   console.log('Interactive mode:');
-  console.log('  pnpm figma-api-cli');
+  console.log('  pnpm figma-variables-cli');
   console.log('');
   console.log('Non-interactive examples:');
   console.log(
-    '  pnpm figma-api-cli -- --action=collections --source=local --role=primitive',
+    '  pnpm figma-variables-cli -- --action=collections --source=local --role=primitive',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=variables --source=published --file-key=<key> --collection=color --mode=light --max-rows=50',
+    '  pnpm figma-variables-cli -- --action=variables --source=published --file-key=<key> --collection=color --mode=light --max-rows=50',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id>',
+    '  pnpm figma-variables-cli -- --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id>',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>',
+    '  pnpm figma-variables-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id>',
+    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id>',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys=<key1,key2,key3>',
+    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys=<key1,key2,key3>',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt',
+    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --debug',
+    '  pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --debug',
   );
   console.log(
-    '  pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES',
+    '  pnpm figma-variables-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES',
   );
   console.log('');
   console.log('Flags:');

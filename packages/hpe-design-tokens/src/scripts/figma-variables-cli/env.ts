@@ -9,14 +9,15 @@ export const roleToFileKeyEnv: Record<Role, string> = {
   component: 'FILE_KEY_COMPONENT',
 };
 
-const KEYCHAIN_SERVICE = 'hpe-figma-api-cli';
+const KEYCHAIN_SERVICE = 'hpe-figma-variables-cli';
+const LEGACY_KEYCHAIN_SERVICE = 'hpe-figma-api-cli';
 const KEYCHAIN_ACCOUNT = 'PERSONAL_ACCESS_TOKEN';
 
-function getTokenFromKeychain(): string | undefined {
+function getTokenFromKeychain(service: string): string | undefined {
   try {
     return (
       execSync(
-        `security find-generic-password -s "${KEYCHAIN_SERVICE}" -a "${KEYCHAIN_ACCOUNT}" -w`,
+        `security find-generic-password -s "${service}" -a "${KEYCHAIN_ACCOUNT}" -w`,
         { stdio: ['pipe', 'pipe', 'pipe'] },
       )
         .toString()
@@ -32,14 +33,17 @@ function getTokenFromKeychain(): string | undefined {
  * then falling back to the macOS Keychain.
  *
  * To store your token in the Keychain, run once:
- *   security add-generic-password -s "hpe-figma-api-cli" -a "PERSONAL_ACCESS_TOKEN" -w "<your-token>"
+ *   security add-generic-password -s "hpe-figma-variables-cli" -a "PERSONAL_ACCESS_TOKEN" -w "<your-token>"
  */
 export function getPersonalAccessToken(): string {
-  const token = process.env.PERSONAL_ACCESS_TOKEN || getTokenFromKeychain();
+  const token =
+    process.env.PERSONAL_ACCESS_TOKEN ||
+    getTokenFromKeychain(KEYCHAIN_SERVICE) ||
+    getTokenFromKeychain(LEGACY_KEYCHAIN_SERVICE);
   if (!token) {
     throw new Error(
       'No Figma PAT found. Set PERSONAL_ACCESS_TOKEN or store it in the macOS Keychain:\n' +
-        '  security add-generic-password -s "hpe-figma-api-cli" -a "PERSONAL_ACCESS_TOKEN" -w "<your-token>"',
+        '  security add-generic-password -s "hpe-figma-variables-cli" -a "PERSONAL_ACCESS_TOKEN" -w "<your-token>"',
     );
   }
   return token;

@@ -1,6 +1,6 @@
 # Figma API CLI Documentation
 
-This document explains how to use the Figma API CLI in [figma-api-cli](.).
+This document explains how to use the Figma API CLI in [figma-variables-cli](.).
 
 ## What This CLI Can Do
 
@@ -35,8 +35,11 @@ export PERSONAL_ACCESS_TOKEN="<your-token>"
 - Option B: macOS Keychain (recommended for local use)
 
 ```bash
-security add-generic-password -s "hpe-figma-api-cli" -a "PERSONAL_ACCESS_TOKEN" -w "<your-token>"
+security add-generic-password -s "hpe-figma-variables-cli" -a "PERSONAL_ACCESS_TOKEN" -w "<your-token>"
 ```
+
+If you already stored a token under the old service name (`hpe-figma-api-cli`),
+the CLI will still read it.
 
 3. (Optional) Configure role-based file keys:
 
@@ -53,7 +56,7 @@ If role env vars are missing, role-based selection is unavailable, but raw file 
 ### Interactive mode
 
 ```bash
-pnpm figma-api-cli
+pnpm figma-variables-cli
 ```
 
 Interactive menu options:
@@ -69,26 +72,26 @@ Interactive menu options:
 ### Non-interactive mode
 
 ```bash
-pnpm figma-api-cli -- --action=<action> [flags]
+pnpm figma-variables-cli -- --action=<action> [flags]
 ```
 
 Show built-in help:
 
 ```bash
-pnpm figma-api-cli -- --help
+pnpm figma-variables-cli -- --help
 ```
 
 ## Local Tests
 
 Run tests from [packages/hpe-design-tokens](../../..).
 
-Run only figma-api-cli tests in this folder:
+Run only figma-variables-cli tests in this folder:
 
 ```bash
-pnpm test -- src/scripts/figma-api-cli/__tests__
+pnpm test -- src/scripts/figma-variables-cli/__tests__
 ```
 
-Run the full hpe-design-tokens test suite (includes figma-api-cli tests):
+Run the full hpe-design-tokens test suite (includes figma-variables-cli tests):
 
 ```bash
 pnpm test
@@ -101,13 +104,13 @@ pnpm test
 Lists variable collections for a target file.
 
 ```bash
-pnpm figma-api-cli -- --action=collections --source=local --role=primitive
+pnpm figma-variables-cli -- --action=collections --source=local --role=primitive
 ```
 
 With direct file key:
 
 ```bash
-pnpm figma-api-cli -- --action=collections --source=published --file-key=<figma-file-key>
+pnpm figma-variables-cli -- --action=collections --source=published --file-key=<figma-file-key>
 ```
 
 ### 2) modes
@@ -115,7 +118,7 @@ pnpm figma-api-cli -- --action=collections --source=published --file-key=<figma-
 Lists modes for each collection.
 
 ```bash
-pnpm figma-api-cli -- --action=modes --source=local --role=semantic
+pnpm figma-variables-cli -- --action=modes --source=local --role=semantic
 ```
 
 ### 3) variables
@@ -133,7 +136,7 @@ Lists variables and prints a table with:
 Example with filters:
 
 ```bash
-pnpm figma-api-cli -- --action=variables --source=published --file-key=<figma-file-key> --collection=color --mode=light --max-rows=50
+pnpm figma-variables-cli -- --action=variables --source=published --file-key=<figma-file-key> --collection=color --mode=light --max-rows=50
 ```
 
 ### 4) variable-by-id
@@ -143,37 +146,37 @@ Looks up a variable id. Accepts either plain id or VariableID:<id>.
 Search one known file (role):
 
 ```bash
-pnpm figma-api-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>
+pnpm figma-variables-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>
 ```
 
 Enable lookup diagnostics:
 
 ```bash
-pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --debug
+pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --debug
 ```
 
 Search one specific file key:
 
 ```bash
-pnpm figma-api-cli -- --action=variable-by-id --source=published --file-key=<figma-file-key> --variable-id=<variable-id>
+pnpm figma-variables-cli -- --action=variable-by-id --source=published --file-key=<figma-file-key> --variable-id=<variable-id>
 ```
 
 Search multiple file keys passed inline (defaults to local + published if --source is omitted):
 
 ```bash
-pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys=<key1,key2,key3>
+pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys=<key1,key2,key3>
 ```
 
 Search file keys loaded from a file (comma-separated or newline-separated):
 
 ```bash
-pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt
+pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt
 ```
 
 Search all configured role file keys by default:
 
 ```bash
-pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id>
+pnpm figma-variables-cli -- --action=variable-by-id --variable-id=<variable-id>
 ```
 
 ### 5) collection-by-id
@@ -183,37 +186,37 @@ Looks up a collection by exact collection id.
 Search one known file (role):
 
 ```bash
-pnpm figma-api-cli -- --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id>
+pnpm figma-variables-cli -- --action=collection-by-id --source=local --role=semantic --collection-id=<collection-id>
 ```
 
 Search one specific file key:
 
 ```bash
-pnpm figma-api-cli -- --action=collection-by-id --source=published --file-key=<figma-file-key> --collection-id=<collection-id>
+pnpm figma-variables-cli -- --action=collection-by-id --source=published --file-key=<figma-file-key> --collection-id=<collection-id>
 ```
 
 Search multiple file keys passed inline (defaults to local + published if --source is omitted):
 
 ```bash
-pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys=<key1,key2,key3>
+pnpm figma-variables-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys=<key1,key2,key3>
 ```
 
 Search file keys loaded from a file (comma-separated or newline-separated):
 
 ```bash
-pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys-file=./file-keys.txt
+pnpm figma-variables-cli -- --action=collection-by-id --collection-id=<collection-id> --file-keys-file=./file-keys.txt
 ```
 
 Search all configured role file keys by default:
 
 ```bash
-pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id>
+pnpm figma-variables-cli -- --action=collection-by-id --collection-id=<collection-id>
 ```
 
 Enable lookup diagnostics:
 
 ```bash
-pnpm figma-api-cli -- --action=collection-by-id --collection-id=<collection-id> --debug
+pnpm figma-variables-cli -- --action=collection-by-id --collection-id=<collection-id> --debug
 ```
 
 ### 6) post
@@ -228,7 +231,7 @@ Safety behavior:
 Example:
 
 ```bash
-pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES
+pnpm figma-variables-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES
 ```
 
 ## Flags Reference
@@ -287,27 +290,27 @@ When POST succeeds, the CLI prints tempIdToRealId mappings returned by Figma.
 ### Inspect local semantic variables
 
 ```bash
-pnpm figma-api-cli -- --action=collections --source=local --role=semantic
-pnpm figma-api-cli -- --action=modes --source=local --role=semantic
-pnpm figma-api-cli -- --action=variables --source=local --role=semantic --collection=color --max-rows=200
+pnpm figma-variables-cli -- --action=collections --source=local --role=semantic
+pnpm figma-variables-cli -- --action=modes --source=local --role=semantic
+pnpm figma-variables-cli -- --action=variables --source=local --role=semantic --collection=color --max-rows=200
 ```
 
 ### Locate a variable id anywhere you know about
 
 ```bash
-pnpm figma-api-cli -- --action=variable-by-id --variable-id=VariableID:1234:5678
+pnpm figma-variables-cli -- --action=variable-by-id --variable-id=VariableID:1234:5678
 ```
 
 ### Locate a collection id across known files
 
 ```bash
-pnpm figma-api-cli -- --action=collection-by-id --collection-id=9479:10
+pnpm figma-variables-cli -- --action=collection-by-id --collection-id=9479:10
 ```
 
 ### Safe non-interactive write
 
 ```bash
-pnpm figma-api-cli -- --action=post --file-key=<figma-file-key> --payload=./payload.json --confirm=YES
+pnpm figma-variables-cli -- --action=post --file-key=<figma-file-key> --payload=./payload.json --confirm=YES
 ```
 
 ## Troubleshooting

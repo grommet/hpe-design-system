@@ -9,7 +9,7 @@ import {
   printVariableById,
 } from '../output.js';
 
-describe('figma-api-cli output helpers', () => {
+describe('figma-variables-cli output helpers', () => {
   beforeEach(() => {
     vi.restoreAllMocks();
   });
