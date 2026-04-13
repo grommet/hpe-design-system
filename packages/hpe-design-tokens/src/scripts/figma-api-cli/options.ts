@@ -36,6 +36,13 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       options.role = value;
     } else if (key === 'file-key') {
       options.fileKey = value;
+    } else if (key === 'file-keys') {
+      options.fileKeys = value
+        .split(',')
+        .map(fileKey => fileKey.trim())
+        .filter(Boolean);
+    } else if (key === 'file-keys-file') {
+      options.fileKeysFile = value;
     } else if (key === 'payload') {
       options.payload = value;
     } else if (key === 'collection') {
@@ -73,6 +80,15 @@ export function printHelp() {
     '  pnpm figma-api-cli -- --action=variable-by-id --source=local --role=semantic --variable-id=<variable-id>',
   );
   console.log(
+    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id>',
+  );
+  console.log(
+    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys=<key1,key2,key3>',
+  );
+  console.log(
+    '  pnpm figma-api-cli -- --action=variable-by-id --variable-id=<variable-id> --file-keys-file=./file-keys.txt',
+  );
+  console.log(
     '  pnpm figma-api-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES',
   );
   console.log('');
@@ -83,9 +99,14 @@ export function printHelp() {
     '  --role=primitive|semantic|component  or --file-key=<figmaFileKey>',
   );
   console.log(
+    '  --file-keys=<k1,k2,...> or --file-keys-file=<path> (variable-by-id search across unknown file)',
+  );
+  console.log(
     '  --collection=<name>  --mode=<name>  --max-rows=<number> (variables)',
   );
-  console.log('  --variable-id=<id> (variable-by-id action)');
+  console.log(
+    '  --variable-id=<id> (variable-by-id action, accepts VariableID:<id>)',
+  );
   console.log('  --payload=<path> --confirm=YES (post)');
 }
 

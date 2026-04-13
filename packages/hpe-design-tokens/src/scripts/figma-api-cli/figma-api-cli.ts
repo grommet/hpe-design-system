@@ -36,8 +36,8 @@ async function executeNonInteractiveAction(api: FigmaApi, options: CliOptions) {
 }
 
 async function main() {
-  validateEnv();
-  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+  const token = validateEnv();
+  const api = new FigmaApi(token);
   const cliOptions = parseCliOptions();
 
   if (cliOptions.help) {

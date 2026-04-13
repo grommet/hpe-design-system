@@ -3,7 +3,21 @@ import type {
   VariableCollection,
 } from '../../figma_api.js';
 import { ask, type ReadlineInterface } from './prompts.js';
-import { previewVariableValue } from './types.js';
+import { normalizeVariableId, previewVariableValue } from './types.js';
+
+type VariableLocationRow = {
+  id: string;
+  name: string;
+  role: string;
+  file: string;
+  sourceType: string;
+  collection: string;
+  collectionId: string;
+  resolvedType: string;
+  remote: boolean;
+  previewMode: string;
+  previewValue: string;
+};
 
 export function printCollections(collections: VariableCollection[]) {
   const rows = collections.map(collection => ({
@@ -12,7 +26,9 @@ export function printCollections(collections: VariableCollection[]) {
     id: collection.id,
     remote: collection.remote,
     variableCount: collection.variableIds?.length || 0,
-    modes: collection.modes.map(mode => mode.name).join('|'),
+    modes: Array.isArray(collection.modes)
+      ? collection.modes.map(mode => mode.name).join('|')
+      : '(not returned for published endpoint)',
   }));
 
   console.table(rows);
@@ -121,10 +137,11 @@ export function printVariableById(
   response: ApiGetVariableResponse,
   variableId: string,
 ) {
-  const variable = response.meta.variables[variableId];
+  const normalizedVariableId = normalizeVariableId(variableId);
+  const variable = response.meta.variables[normalizedVariableId];
 
   if (!variable) {
-    console.log(`No variable found for id: ${variableId}`);
+    console.log(`No variable found for id: ${normalizedVariableId}`);
     return;
   }
 
@@ -134,8 +151,65 @@ export function printVariableById(
     collectionFilter: collection?.name,
     rowLimit: Number.MAX_SAFE_INTEGER,
   });
-  const matchingRow = rows.find(row => row.id === variableId);
+  const matchingRow = rows.find(row => row.id === normalizedVariableId);
 
   console.table(matchingRow ? [matchingRow] : []);
   console.log('Displayed 1 variable.');
+}
+
+export function buildVariableLocationRow(
+  response: ApiGetVariableResponse,
+  variableId: string,
+  location: {
+    role: string;
+    source: string;
+    sourceType: string;
+  },
+): VariableLocationRow | undefined {
+  const normalizedVariableId = normalizeVariableId(variableId);
+  const variable = response.meta.variables[normalizedVariableId];
+
+  if (!variable) {
+    return undefined;
+  }
+
+  const collection =
+    response.meta.variableCollections[variable.variableCollectionId];
+  const firstModeId = Object.keys(variable.valuesByMode)[0];
+  const firstModeName =
+    collection?.modes.find(mode => mode.modeId === firstModeId)?.name ||
+    firstModeId ||
+    '';
+
+  return {
+    id: variable.id,
+    name: variable.name,
+    role: location.role,
+    file: location.source,
+    sourceType: location.sourceType,
+    collection: collection?.name || variable.variableCollectionId,
+    collectionId: variable.variableCollectionId,
+    resolvedType: variable.resolvedType,
+    remote: variable.remote,
+    previewMode: firstModeName,
+    previewValue:
+      firstModeId !== undefined
+        ? previewVariableValue(variable.valuesByMode[firstModeId])
+        : '',
+  };
+}
+
+export function printVariableLocationResults(
+  rows: VariableLocationRow[],
+  variableId: string,
+) {
+  const normalizedVariableId = normalizeVariableId(variableId);
+
+  if (rows.length === 0) {
+    console.log(`No variable found for id: ${normalizedVariableId}`);
+    return;
+  }
+
+  console.table(rows);
+  console.log(`Found ${rows.length} matching location(s).`);
 }

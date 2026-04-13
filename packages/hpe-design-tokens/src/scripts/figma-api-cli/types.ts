@@ -14,6 +14,8 @@ export type CliOptions = {
   source?: SourceType;
   role?: Role;
   fileKey?: string;
+  fileKeys?: string[];
+  fileKeysFile?: string;
   payload?: string;
   collection?: string;
   mode?: string;
@@ -28,6 +30,10 @@ export type FileKeySelection = {
   source: string;
 };
 
+export type KnownFileKeySelection = FileKeySelection & {
+  role: Role;
+};
+
 export const isRole = (value: string): value is Role =>
   value === 'primitive' || value === 'semantic' || value === 'component';
 
@@ -40,6 +46,9 @@ export const isActionType = (value: string): value is ActionType =>
   value === 'variables' ||
   value === 'variable-by-id' ||
   value === 'post';
+
+export const normalizeVariableId = (value: string) =>
+  value.trim().replace(/^VariableID:/, '');
 
 export const previewVariableValue = (
   value: Variable['valuesByMode'][string],
