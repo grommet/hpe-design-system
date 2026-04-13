@@ -20,16 +20,29 @@ type VariableLocationRow = {
 };
 
 export function printCollections(collections: VariableCollection[]) {
-  const rows = collections.map(collection => ({
-    name: collection.name,
-    key: collection.key || '',
-    id: collection.id,
-    remote: collection.remote,
-    variableCount: collection.variableIds?.length || 0,
-    modes: Array.isArray(collection.modes)
-      ? collection.modes.map(mode => mode.name).join('|')
-      : '(not returned for published endpoint)',
-  }));
+  const rows = collections.map(collection => {
+    const row: Record<string, string | number | boolean> = {
+      name: collection.name,
+      key: collection.key || '',
+      id: collection.id,
+    };
+
+    // If subscribed_id is present, it indicates this collection is from the
+    // published endpoint and we won't have access to certain details about
+    // the collection.
+    if (collection.subscribed_id) {
+      row['subscribed_id'] = collection.subscribed_id;
+      row['updatedAt'] = collection.updatedAt;
+    } else {
+      row['remote'] = collection.remote;
+      row['variableCount'] = collection.variableIds?.length || 0;
+      row['modes'] = Array.isArray(collection.modes)
+        ? collection.modes.map(mode => mode.name).join('|')
+        : '(not returned for published endpoint)';
+    }
+
+    return row;
+  });
 
   console.table(rows);
 }

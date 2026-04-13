@@ -14,6 +14,7 @@ export interface VariableModeChange {
 
 export interface VariableCollection {
   id: string;
+  subscribed_id?: string;
   key?: string;
   name: string;
   modes: VariableMode[];
@@ -21,6 +22,7 @@ export interface VariableCollection {
   remote: boolean;
   hiddenFromPublishing: boolean;
   variableIds?: string[];
+  updatedAt?: string;
 }
 
 export interface VariableCollectionChange
