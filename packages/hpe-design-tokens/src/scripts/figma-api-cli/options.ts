@@ -11,11 +11,16 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
   const options: CliOptions = {};
 
   argv.forEach(arg => {
+    if (arg === '-h') {
+      options.help = true;
+      return;
+    }
+
     if (!arg.startsWith('--')) {
       return;
     }
 
-    if (arg === '--help' || arg === '-h') {
+    if (arg === '--help') {
       options.help = true;
       return;
     }
