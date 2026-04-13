@@ -21,7 +21,7 @@ type VariableLocationRow = {
 
 export function printCollections(collections: VariableCollection[]) {
   const rows = collections.map(collection => {
-    const row: Record<string, string | number | boolean> = {
+    const row: Record<string, string | number | boolean | undefined> = {
       name: collection.name,
       key: collection.key || '',
       id: collection.id,
