@@ -1,4 +1,4 @@
-# Figma API CLI Documentation
+# Figma Variables CLI Documentation
 
 This document explains how to use the Figma API CLI in [figma-variables-cli](.).
 
@@ -74,6 +74,12 @@ Interactive menu options:
 ```bash
 pnpm figma-variables-cli -- --action=<action> [flags]
 ```
+
+For automation jobs, combine:
+
+- `--non-interactive` to fail fast instead of entering prompts.
+- `--strict-flags` to fail on unknown or malformed flags.
+- `--format=json` for machine-readable output on read actions.
 
 Show built-in help:
 
@@ -252,6 +258,9 @@ Required and optional flags by action:
 - --max-rows=<number> (variables, default 100)
 - --variable-id=<id> (variable-by-id)
 - --debug (collection-by-id / variable-by-id lookup diagnostics)
+- --format=table|json (read actions, default table)
+- --strict-flags (exit with non-zero on unknown or malformed flags)
+- --non-interactive (require explicit action; no interactive fallback)
 - --payload=<path/to/json> (post)
 - --confirm=YES (post, non-interactive required)
 - --help
@@ -260,6 +269,26 @@ Target selection rules:
 
 - Use either --role or --file-key for single-target actions.
 - collection-by-id and variable-by-id support --file-keys and --file-keys-file for multi-target lookup.
+
+## Agent Recipes
+
+Deterministic variables export for CI:
+
+```bash
+pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variables --source=published --file-key=<figma-file-key> --format=json --max-rows=500
+```
+
+Exact variable id lookup across known files:
+
+```bash
+pnpm figma-variables-cli -- --non-interactive --strict-flags --action=variable-by-id --variable-id=<variable-id> --format=json
+```
+
+Exact collection id lookup across explicit targets:
+
+```bash
+pnpm figma-variables-cli -- --non-interactive --strict-flags --action=collection-by-id --collection-id=<collection-id> --file-keys=<key1,key2,key3> --format=json
+```
 
 ## Payload Format For POST
 

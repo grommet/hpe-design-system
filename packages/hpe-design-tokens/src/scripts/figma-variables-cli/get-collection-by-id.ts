@@ -221,6 +221,35 @@ export async function executeGetCollectionById(
     const response = await fetchVariablesBySource(api, fileKey, sourceType);
     const collections = Object.values(response.meta.variableCollections);
 
+    if (options.format === 'json') {
+      const row = buildCollectionLocationRow(
+        response,
+        collectionId,
+        {
+          role: options.role || '',
+          source,
+          sourceType,
+        },
+        { debug: false },
+      );
+
+      console.log(
+        JSON.stringify(
+          {
+            fileKeySource: source,
+            sourceType,
+            collectionsCount: collections.length,
+            collectionId,
+            found: Boolean(row),
+            row: row || null,
+          },
+          null,
+          2,
+        ),
+      );
+      return;
+    }
+
     console.log(
       `Using file key (${source}) in ${sourceType} scope. Collections: ${collections.length}`,
     );
@@ -245,5 +274,23 @@ export async function executeGetCollectionById(
     sourceTypes,
     { debug: options.debug },
   );
+
+  if (options.format === 'json') {
+    console.log(
+      JSON.stringify(
+        {
+          collectionId,
+          sourceTypes,
+          targetsCount: targets.length,
+          foundCount: rows.length,
+          rows,
+        },
+        null,
+        2,
+      ),
+    );
+    return;
+  }
+
   printCollectionLocationResults(rows, collectionId);
 }

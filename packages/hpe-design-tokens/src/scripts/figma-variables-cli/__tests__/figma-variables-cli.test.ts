@@ -8,6 +8,7 @@ vi.mock('../env.js', () => ({
 
 vi.mock('../options.js', () => ({
   parseCliOptions: vi.fn(() => ({ help: true })),
+  getCliOptionErrors: vi.fn(() => []),
   printHelp: vi.fn(),
   printUnknownFlagsWarning: vi.fn(),
 }));
@@ -52,8 +53,16 @@ vi.mock('../../figma_api.js', () => ({
 }));
 
 import main from '../figma-variables-cli.js';
-import { printHelp, printUnknownFlagsWarning } from '../options.js';
+import {
+  getCliOptionErrors,
+  parseCliOptions,
+  printHelp,
+  printUnknownFlagsWarning,
+} from '../options.js';
 import { validateEnv } from '../env.js';
+
+const parseCliOptionsMock = vi.mocked(parseCliOptions);
+const getCliOptionErrorsMock = vi.mocked(getCliOptionErrors);
 
 describe('figma-variables-cli entry', () => {
   beforeEach(() => {
@@ -61,10 +70,29 @@ describe('figma-variables-cli entry', () => {
   });
 
   it('prints help without requiring env validation', async () => {
+    parseCliOptionsMock.mockReturnValue({ help: true });
+    getCliOptionErrorsMock.mockReturnValue([]);
+
     await main();
 
     expect(printUnknownFlagsWarning).toHaveBeenCalledTimes(1);
     expect(printHelp).toHaveBeenCalledTimes(1);
     expect(validateEnv).not.toHaveBeenCalled();
+  });
+
+  it('fails fast when non-interactive mode has no action', async () => {
+    parseCliOptionsMock.mockReturnValue({ nonInteractive: true });
+    getCliOptionErrorsMock.mockReturnValue([]);
+
+    const exitSpy = vi.spyOn(process, 'exit').mockImplementation(((
+      code?: string | number | null | undefined,
+    ) => {
+      throw new Error(`process.exit:${code}`);
+    }) as never);
+
+    await expect(main()).rejects.toThrow('process.exit:1');
+    expect(validateEnv).not.toHaveBeenCalled();
+
+    exitSpy.mockRestore();
   });
 });

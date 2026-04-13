@@ -37,6 +37,27 @@ export async function executeGetVariables(api: FigmaApi, options: CliOptions) {
     rowLimit: options.maxRows || 100,
   });
 
+  if (options.format === 'json') {
+    console.log(
+      JSON.stringify(
+        {
+          fileKeySource: source,
+          sourceType,
+          filters: {
+            collection: options.collection || null,
+            mode: options.mode || null,
+            maxRows: options.maxRows || 100,
+          },
+          count: rows.length,
+          rows,
+        },
+        null,
+        2,
+      ),
+    );
+    return;
+  }
+
   console.table(rows);
   console.log(`Displayed ${rows.length} variable(s).`);
 }

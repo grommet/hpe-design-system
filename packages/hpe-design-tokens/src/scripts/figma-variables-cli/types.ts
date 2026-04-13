@@ -2,6 +2,7 @@ import type { Variable } from '../../figma_api.js';
 
 export type Role = 'primitive' | 'semantic' | 'component';
 export type SourceType = 'local' | 'published';
+export type OutputFormat = 'table' | 'json';
 export type ActionType =
   | 'collections'
   | 'collection-by-id'
@@ -24,6 +25,9 @@ export type CliOptions = {
   collectionId?: string;
   variableId?: string;
   confirm?: string;
+  format?: OutputFormat;
+  strictFlags?: boolean;
+  nonInteractive?: boolean;
   debug?: boolean;
   help?: boolean;
   unknownFlags?: string[];

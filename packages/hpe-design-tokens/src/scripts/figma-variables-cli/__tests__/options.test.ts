@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { parseCliOptions } from '../options.js';
+import { getCliOptionErrors, parseCliOptions } from '../options.js';
 
 describe('parseCliOptions', () => {
   it('parses collection-by-id flags', () => {
@@ -63,6 +63,30 @@ describe('parseCliOptions', () => {
       '--bogus=abc',
       '--mode',
       '--action=unknown',
+    ]);
+  });
+
+  it('parses format and automation flags', () => {
+    const options = parseCliOptions([
+      '--action=variables',
+      '--format=json',
+      '--strict-flags',
+      '--non-interactive=true',
+    ]);
+
+    expect(options).toMatchObject({
+      action: 'variables',
+      format: 'json',
+      strictFlags: true,
+      nonInteractive: true,
+    });
+  });
+
+  it('reports strict flag errors for unknown flags', () => {
+    const options = parseCliOptions(['--strict-flags', '--bogus=abc']);
+
+    expect(getCliOptionErrors(options)).toEqual([
+      'Unknown or malformed flag(s): --bogus=abc. Remove them or disable --strict-flags.',
     ]);
   });
 });

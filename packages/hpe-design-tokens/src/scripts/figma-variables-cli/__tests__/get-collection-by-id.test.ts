@@ -38,6 +38,10 @@ const printCollectionLocationResultsMock = vi.mocked(
 );
 
 describe('executeGetCollectionById', () => {
+  const consoleLogSpy = vi
+    .spyOn(console, 'log')
+    .mockImplementation(() => undefined);
+
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -111,5 +115,83 @@ describe('executeGetCollectionById', () => {
       ]),
       '9479:10',
     );
+  });
+
+  it('prints json payload for single target lookup', async () => {
+    const response = makeApiResponse();
+    fetchMock.mockResolvedValue(response);
+    resolveFileKeyMock.mockReturnValue({
+      fileKey: 'semantic-key',
+      source: 'semantic (FILE_KEY_SEMANTIC)',
+    });
+    buildLocationRowMock.mockReturnValue({
+      id: '9479:10',
+      name: 'color',
+      key: 'collection-key-1',
+      role: 'semantic',
+      file: 'semantic (FILE_KEY_SEMANTIC)',
+      sourceType: 'published',
+      remote: false,
+      variableCount: 1,
+      modes: 'light',
+      subscribedId: '',
+      updatedAt: '',
+    });
+
+    await executeGetCollectionById({} as never, {
+      action: 'collection-by-id',
+      role: 'semantic',
+      source: 'published',
+      collectionId: '9479:10',
+      format: 'json',
+    });
+
+    const payload = JSON.parse(
+      vi.mocked(consoleLogSpy).mock.calls[0][0] as string,
+    );
+
+    expect(payload).toMatchObject({
+      collectionId: '9479:10',
+      sourceType: 'published',
+      found: true,
+      row: expect.objectContaining({ id: '9479:10' }),
+    });
+    expect(printCollectionByIdMock).not.toHaveBeenCalled();
+  });
+
+  it('prints json payload for multi-target lookup', async () => {
+    const response = makeApiResponse();
+    fetchMock.mockResolvedValue(response);
+    buildLocationRowMock.mockImplementation((_, __, location) => ({
+      id: '9479:10',
+      name: 'color',
+      key: 'collection-key-1',
+      role: location.role,
+      file: location.source,
+      sourceType: location.sourceType,
+      remote: false,
+      variableCount: 1,
+      modes: 'light',
+      subscribedId: '',
+      updatedAt: '',
+    }));
+
+    await executeGetCollectionById({} as never, {
+      action: 'collection-by-id',
+      collectionId: '9479:10',
+      fileKeys: ['k1', 'k2'],
+      format: 'json',
+    });
+
+    const payload = JSON.parse(
+      vi.mocked(consoleLogSpy).mock.calls[0][0] as string,
+    );
+
+    expect(payload).toMatchObject({
+      collectionId: '9479:10',
+      foundCount: 4,
+      targetsCount: 2,
+    });
+    expect(printCollectionLocationResultsMock).not.toHaveBeenCalled();
   });
 });

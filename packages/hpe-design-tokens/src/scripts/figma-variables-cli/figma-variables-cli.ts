@@ -20,6 +20,7 @@ import {
 } from './get-variable-by-id.js';
 import { executeGetVariables, handleGetVariables } from './get-variables.js';
 import {
+  getCliOptionErrors,
   parseCliOptions,
   printHelp,
   printUnknownFlagsWarning,
@@ -47,11 +48,27 @@ async function executeNonInteractiveAction(api: FigmaApi, options: CliOptions) {
 
 async function main() {
   const cliOptions = parseCliOptions();
+
+  const optionErrors = getCliOptionErrors(cliOptions);
+  if (optionErrors.length > 0) {
+    console.error(brightRed(`Action failed: ${optionErrors.join(' ')}`));
+    process.exit(1);
+  }
+
   printUnknownFlagsWarning(cliOptions);
 
   if (cliOptions.help) {
     printHelp();
     return;
+  }
+
+  if (cliOptions.nonInteractive && !cliOptions.action) {
+    console.error(
+      brightRed(
+        'Action failed: --non-interactive requires --action=<action>. Run --help for usage.',
+      ),
+    );
+    process.exit(1);
   }
 
   const token = validateEnv();

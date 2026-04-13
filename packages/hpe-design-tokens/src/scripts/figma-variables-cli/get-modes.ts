@@ -1,6 +1,6 @@
 import FigmaApi from '../../figma_api.js';
 import { resolveFileKeyFromOptions } from './options.js';
-import { printModes } from './output.js';
+import { buildModeRows, printModes } from './output.js';
 import {
   chooseFileKey,
   chooseSourceType,
@@ -30,5 +30,22 @@ export async function executeGetModes(api: FigmaApi, options: CliOptions) {
   console.log(
     `Using file key (${source}) in ${sourceType} scope. Collections: ${collections.length}`,
   );
+
+  if (options.format === 'json') {
+    console.log(
+      JSON.stringify(
+        {
+          fileKeySource: source,
+          sourceType,
+          count: collections.length,
+          rows: buildModeRows(collections),
+        },
+        null,
+        2,
+      ),
+    );
+    return;
+  }
+
   printModes(collections);
 }

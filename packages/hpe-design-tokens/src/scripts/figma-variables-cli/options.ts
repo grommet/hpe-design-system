@@ -32,6 +32,16 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       return;
     }
 
+    if (arg === '--strict-flags') {
+      options.strictFlags = true;
+      return;
+    }
+
+    if (arg === '--non-interactive') {
+      options.nonInteractive = true;
+      return;
+    }
+
     if (!arg.includes('=')) {
       options.unknownFlags?.push(arg);
       return;
@@ -78,8 +88,20 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
       options.variableId = value;
     } else if (key === 'confirm') {
       options.confirm = value;
+    } else if (key === 'format') {
+      if (value === 'table' || value === 'json') {
+        options.format = value;
+      } else {
+        options.unknownFlags?.push(arg);
+      }
     } else if (key === 'debug') {
       options.debug = value === 'true' || value === '1' || value === 'yes';
+    } else if (key === 'strict-flags') {
+      options.strictFlags =
+        value === 'true' || value === '1' || value === 'yes';
+    } else if (key === 'non-interactive') {
+      options.nonInteractive =
+        value === 'true' || value === '1' || value === 'yes';
     } else {
       options.unknownFlags?.push(arg);
     }
@@ -103,6 +125,25 @@ export function printUnknownFlagsWarning(options: CliOptions) {
       ', ',
     )}. Run --help for supported options.`,
   );
+}
+
+export function getCliOptionErrors(options: CliOptions) {
+  const errors: string[] = [];
+
+  if (
+    options.strictFlags &&
+    options.unknownFlags &&
+    options.unknownFlags.length > 0
+  ) {
+    const deduped = Array.from(new Set(options.unknownFlags));
+    errors.push(
+      `Unknown or malformed flag(s): ${deduped.join(
+        ', ',
+      )}. Remove them or disable --strict-flags.`,
+    );
+  }
+
+  return errors;
 }
 
 export function printHelp() {
@@ -159,6 +200,9 @@ export function printHelp() {
   console.log(
     '  --variable-id=<id> (variable-by-id action, accepts VariableID:<id>)',
   );
+  console.log('  --format=table|json (default table)');
+  console.log('  --strict-flags (fail on unknown/malformed flags)');
+  console.log('  --non-interactive (fail instead of entering prompts)');
   console.log(
     '  --debug (collection-by-id / variable-by-id lookup diagnostics)',
   );

@@ -34,7 +34,13 @@ type CollectionLocationRow = {
 };
 
 export function printCollections(collections: VariableCollection[]) {
-  const rows = collections.map(collection => {
+  const rows = buildCollectionRows(collections);
+
+  console.table(rows);
+}
+
+export function buildCollectionRows(collections: VariableCollection[]) {
+  return collections.map(collection => {
     const row: Record<string, string | number | boolean | undefined> = {
       name: collection.name,
       key: collection.key || '',
@@ -57,12 +63,16 @@ export function printCollections(collections: VariableCollection[]) {
 
     return row;
   });
+}
+
+export function printModes(collections: VariableCollection[]) {
+  const rows = buildModeRows(collections);
 
   console.table(rows);
 }
 
-export function printModes(collections: VariableCollection[]) {
-  const rows = collections.flatMap(collection =>
+export function buildModeRows(collections: VariableCollection[]) {
+  return collections.flatMap(collection =>
     collection.modes.map(mode => ({
       collectionName: collection.name,
       collectionId: collection.id,
@@ -70,8 +80,6 @@ export function printModes(collections: VariableCollection[]) {
       modeId: mode.modeId,
     })),
   );
-
-  console.table(rows);
 }
 
 type CollectionLookupResult = {
