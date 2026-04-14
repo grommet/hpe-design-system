@@ -155,7 +155,7 @@ describe('executeGetCollectionById', () => {
       collectionId: '9479:10',
       sourceType: 'published',
       found: true,
-      row: expect.objectContaining({ id: '9479:10' }),
+      collection: expect.objectContaining({ id: '9479:10' }),
     });
     expect(printCollectionByIdMock).not.toHaveBeenCalled();
   });
@@ -192,6 +192,11 @@ describe('executeGetCollectionById', () => {
       collectionId: '9479:10',
       foundCount: 4,
       targetsCount: 2,
+      collections: expect.arrayContaining([
+        expect.objectContaining({
+          collection: expect.objectContaining({ id: '9479:10' }),
+        }),
+      ]),
     });
     expect(printCollectionLocationResultsMock).not.toHaveBeenCalled();
   });

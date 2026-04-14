@@ -46,6 +46,8 @@ function modesToString(collection: VariableCollection) {
 }
 
 export function buildExpandedCollectionJson(collection: VariableCollection) {
+  const isExtension = collection.isExtension || false;
+
   return {
     id: collection.id,
     name: collection.name,
@@ -55,12 +57,17 @@ export function buildExpandedCollectionJson(collection: VariableCollection) {
     remote: collection.remote,
     hiddenFromPublishing: collection.hiddenFromPublishing,
     variableCount: collection.variableIds?.length || 0,
-    isExtension: collection.isExtension || false,
-    parentVariableCollectionId: collection.parentVariableCollectionId || null,
-    rootVariableCollectionId: collection.rootVariableCollectionId || null,
-    inheritedVariableIds: collection.inheritedVariableIds || [],
-    localVariableIds: collection.localVariableIds || [],
-    variableOverrideIds: collection.variableOverrideIds || [],
+    isExtension,
+    ...(isExtension
+      ? {
+          parentVariableCollectionId:
+            collection.parentVariableCollectionId || null,
+          rootVariableCollectionId: collection.rootVariableCollectionId || null,
+          inheritedVariableIds: collection.inheritedVariableIds || [],
+          localVariableIds: collection.localVariableIds || [],
+          variableOverrideIds: collection.variableOverrideIds || [],
+        }
+      : {}),
     subscribedId: collection.subscribed_id || '',
     updatedAt: collection.updatedAt || '',
   };

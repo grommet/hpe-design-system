@@ -262,7 +262,6 @@ export async function executeGetCollectionById(
             collectionsCount: collections.length,
             collectionId,
             found: Boolean(row),
-            row: row || null,
             collection: collection
               ? buildExpandedCollectionJson(collection)
               : null,
@@ -307,7 +306,6 @@ export async function executeGetCollectionById(
           sourceTypes,
           targetsCount: targets.length,
           foundCount: rows.length,
-          rows: rows.map(match => match.row),
           collections: rows.map(match => ({
             role: match.row.role,
             file: match.row.file,
