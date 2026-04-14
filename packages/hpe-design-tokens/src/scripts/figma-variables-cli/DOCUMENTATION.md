@@ -67,7 +67,7 @@ Interactive menu options:
 4. Get collection by ID
 5. Get variable by ID
 6. Post variables
-7. Exit
+7. None (exit)
 
 ### Non-interactive mode
 
@@ -224,6 +224,13 @@ Enable lookup diagnostics:
 ```bash
 pnpm figma-variables-cli -- --action=collection-by-id --collection-id=<collection-id> --debug
 ```
+
+When `--format=json` is used for `collection-by-id`:
+
+- Single-target output includes `fileKey` and `fileUrl` in addition to
+  `fileKeySource`, `sourceType`, and `collection`.
+- Multi-target output includes a `collections` array where each match includes
+  `file`, `fileKey`, `fileUrl`, `sourceType`, and `collection`.
 
 ### 6) post
 
