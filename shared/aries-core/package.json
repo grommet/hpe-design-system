@@ -45,7 +45,7 @@
     "eslint": "catalog:",
     "fs-extra": "^11.1.0",
     "react-syntax-highlighter": "^15.6.1",
-    "simple-git": "^3.15.1",
+    "simple-git": "^3.32.3",
     "storybook": "^10.2.19",
     "typescript": "catalog:",
     "typescript-eslint": "^8.39.1",
