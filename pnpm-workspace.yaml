@@ -3,7 +3,7 @@ packages:
   - packages/**
   - sandbox/*
   - shared/*
-
+  
 catalog:
   '@babel/preset-react': ^7.28.5
   '@hpe-design/icons-grommet': ^1.1.0
@@ -18,7 +18,7 @@ catalog:
   eslint-plugin-react-refresh: ^0.5.2
   eslint-plugin-react: ^7.37.5
   globals: ^17.4.0
-  grommet: ^2.53.0
+  grommet: ^2.54.0
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.1.4
   hpe-design-tokens: ^2.2.3
