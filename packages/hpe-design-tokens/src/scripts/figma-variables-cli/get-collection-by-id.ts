@@ -266,6 +266,7 @@ export async function executeGetCollectionById(
           {
             fileKeySource: source,
             fileKey,
+            fileUrl: `https://www.figma.com/design/${fileKey}`,
             sourceType,
             collectionsCount: collections.length,
             collectionId,
@@ -318,6 +319,7 @@ export async function executeGetCollectionById(
             role: match.row.role,
             file: match.row.file,
             fileKey: match.fileKey,
+            fileUrl: `https://www.figma.com/design/${match.fileKey}`,
             sourceType: match.row.sourceType,
             collection: buildExpandedCollectionJson(match.collection),
           })),

@@ -156,6 +156,7 @@ describe('executeGetCollectionById', () => {
       sourceType: 'published',
       found: true,
       fileKey: 'semantic-key',
+      fileUrl: 'https://www.figma.com/design/semantic-key',
       collection: expect.objectContaining({ id: '9479:10' }),
     });
     expect(printCollectionByIdMock).not.toHaveBeenCalled();
@@ -196,6 +197,9 @@ describe('executeGetCollectionById', () => {
       collections: expect.arrayContaining([
         expect.objectContaining({
           fileKey: expect.any(String),
+          fileUrl: expect.stringMatching(
+            /^https:\/\/www\.figma\.com\/design\/.+$/,
+          ),
           collection: expect.objectContaining({ id: '9479:10' }),
         }),
       ]),
