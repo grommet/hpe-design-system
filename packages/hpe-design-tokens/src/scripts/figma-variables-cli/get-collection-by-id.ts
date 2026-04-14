@@ -1,8 +1,9 @@
-import * as fs from 'fs';
-
 import FigmaApi from '../../figma_api.js';
-import { getConfiguredRoleFileSelections } from './env.js';
 import { fetchVariablesBySource } from './fetch.js';
+import {
+  getSearchTargetsFromOptions,
+  parseFileKeysText,
+} from './handler-utils.js';
 import { resolveFileKeyFromOptions } from './options.js';
 import {
   buildExpandedCollectionJson,
@@ -47,46 +48,6 @@ async function chooseCollectionSearchSources(
   }
 
   return ['local', 'published'];
-}
-
-function parseFileKeysText(raw: string) {
-  return raw
-    .split(/[\n,]/)
-    .map(fileKey => fileKey.trim())
-    .filter(Boolean);
-}
-
-function getTargetsFromOptions(options: CliOptions) {
-  if (options.fileKeys && options.fileKeys.length > 0) {
-    return options.fileKeys.map((fileKey, index) => ({
-      role: `list-${index + 1}`,
-      fileKey,
-      source: `list:${index + 1}`,
-    }));
-  }
-
-  if (options.fileKeysFile) {
-    if (!fs.existsSync(options.fileKeysFile)) {
-      throw new Error(`File keys file not found: ${options.fileKeysFile}`);
-    }
-
-    const raw = fs.readFileSync(options.fileKeysFile, 'utf8');
-    const fileKeys = parseFileKeysText(raw);
-
-    if (fileKeys.length === 0) {
-      throw new Error(
-        `No file keys found in file: ${options.fileKeysFile}. Provide comma-separated or newline-separated keys.`,
-      );
-    }
-
-    return fileKeys.map((fileKey, index) => ({
-      role: `file-${index + 1}`,
-      fileKey,
-      source: `file:${options.fileKeysFile}#${index + 1}`,
-    }));
-  }
-
-  return getConfiguredRoleFileSelections();
 }
 
 async function searchCollectionAcrossTargets(
@@ -205,7 +166,7 @@ export async function handleGetCollectionById(
     return;
   }
 
-  const targets = getConfiguredRoleFileSelections();
+  const targets = getSearchTargetsFromOptions({});
   if (targets.length === 0) {
     throw new Error(
       'No configured role file keys found. Set FILE_KEY_PRIMITIVE, FILE_KEY_SEMANTIC, or FILE_KEY_COMPONENT to search across known files.',
@@ -289,7 +250,7 @@ export async function executeGetCollectionById(
     return;
   }
 
-  const targets = getTargetsFromOptions(options);
+  const targets = getSearchTargetsFromOptions(options);
   if (targets.length === 0) {
     throw new Error(
       'Provide --role/--file-key, --file-keys, --file-keys-file, or set FILE_KEY_PRIMITIVE/FILE_KEY_SEMANTIC/FILE_KEY_COMPONENT.',
