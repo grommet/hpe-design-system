@@ -351,7 +351,7 @@ importers:
     dependencies:
       jscodeshift:
         specifier: ^17.3.0
-        version: 17.3.0(@babel/preset-env@7.28.5(@babel/core@7.28.5))
+        version: 17.3.0(@babel/preset-env@7.28.5(@babel/core@7.29.0))
     devDependencies:
       vitest:
         specifier: ^3.2.4
@@ -790,6 +790,9 @@ importers:
         specifier: 'catalog:'
         version: 19.2.3(react@19.2.3)
     devDependencies:
+      '@eslint/js':
+        specifier: 'catalog:'
+        version: 9.39.1
       '@testing-library/dom':
         specifier: ^10.4.1
         version: 10.4.1
@@ -802,6 +805,15 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.5)
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.1(jiti@1.21.7)
+      eslint-plugin-react-hooks:
+        specifier: 'catalog:'
+        version: 7.0.1(eslint@9.39.1(jiti@1.21.7))
+      globals:
+        specifier: 'catalog:'
+        version: 17.4.0
       jsdom:
         specifier: ^26.1.0
         version: 26.1.0
@@ -17734,7 +17746,7 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jscodeshift@17.3.0(@babel/preset-env@7.28.5(@babel/core@7.28.5)):
+  jscodeshift@17.3.0(@babel/preset-env@7.28.5(@babel/core@7.29.0)):
     dependencies:
       '@babel/core': 7.28.5
       '@babel/parser': 7.28.5
@@ -17755,7 +17767,7 @@ snapshots:
       tmp: 0.2.5
       write-file-atomic: 5.0.1
     optionalDependencies:
-      '@babel/preset-env': 7.28.5(@babel/core@7.28.5)
+      '@babel/preset-env': 7.28.5(@babel/core@7.29.0)
     transitivePeerDependencies:
       - supports-color
 
