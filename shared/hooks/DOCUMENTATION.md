@@ -53,14 +53,14 @@ export const ComponentPreview = () => {
 #### API
 
 ```typescript
-const ref = useInert<T extends HTMLElement = HTMLElement>(): RefObject<T | null>
+const ref = useInert<T extends HTMLElement = HTMLDivElement>(): RefObject<T | null>
 ```
 
 **Parameters:** none
 
 **Returns:**
 
-- `ref` (RefObject<T | null>): A ref to attach to the container element. The hook creates it internally — no `useRef` needed at the call site. The type parameter `T` defaults to `HTMLElement` and can be narrowed when strict element typing is needed (e.g. `useInert<HTMLDivElement>()`).
+- `ref` (RefObject<T | null>): A ref to attach to the container element. The hook creates it internally — no `useRef` needed at the call site. The type parameter `T` defaults to `HTMLDivElement` so the common `<div ref={ref}>` case is type-safe without extra annotations, and can still be widened or narrowed for other element types as needed.
 
 #### Why the hook owns the ref
 
