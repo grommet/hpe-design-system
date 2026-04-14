@@ -6,12 +6,10 @@ export const DataSortPreview = () => {
   const ref = useInert();
 
   return (
-    <div ref={ref}>
-      <Data data={[{ name: 'Scott' }, { name: 'Zelda' }]}>
-        <Toolbar>
-          <DataSort />
-        </Toolbar>
-      </Data>
-    </div>
+    <Data ref={ref} data={[{ name: 'Scott' }, { name: 'Zelda' }]}>
+      <Toolbar>
+        <DataSort />
+      </Toolbar>
+    </Data>
   );
 };

@@ -6,17 +6,16 @@ export const DataTableGroupbyPreview = () => {
   const ref = useInert();
 
   return (
-    <div ref={ref}>
-      <Data
-        data={[
-          { id: 1, name: 'Scott', country: 'AUS' },
-          { id: 2, name: 'Zelda', country: 'AUS' },
-        ]}
-      >
-        <Toolbar>
-          <DataTableGroupBy options={['country']} drop />
-        </Toolbar>
-      </Data>
-    </div>
+    <Data
+      ref={ref}
+      data={[
+        { id: 1, name: 'Scott', country: 'AUS' },
+        { id: 2, name: 'Zelda', country: 'AUS' },
+      ]}
+    >
+      <Toolbar>
+        <DataTableGroupBy options={['country']} drop />
+      </Toolbar>
+    </Data>
   );
 };

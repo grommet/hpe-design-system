@@ -6,8 +6,6 @@ export const FeedbackPreview = () => {
   const ref = useInert();
 
   return (
-    <div ref={ref}>
-      <StarRating name="preview-card-example" aria-label="preview" />
-    </div>
+    <StarRating ref={ref} name="preview-card-example" aria-label="preview" />
   );
 };
