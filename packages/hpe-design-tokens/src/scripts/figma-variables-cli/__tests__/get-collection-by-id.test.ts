@@ -155,6 +155,7 @@ describe('executeGetCollectionById', () => {
       collectionId: '9479:10',
       sourceType: 'published',
       found: true,
+      fileKey: 'semantic-key',
       collection: expect.objectContaining({ id: '9479:10' }),
     });
     expect(printCollectionByIdMock).not.toHaveBeenCalled();
@@ -194,6 +195,7 @@ describe('executeGetCollectionById', () => {
       targetsCount: 2,
       collections: expect.arrayContaining([
         expect.objectContaining({
+          fileKey: expect.any(String),
           collection: expect.objectContaining({ id: '9479:10' }),
         }),
       ]),

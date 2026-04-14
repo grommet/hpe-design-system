@@ -99,6 +99,8 @@ async function searchCollectionAcrossTargets(
   const matches: Array<{
     row: NonNullable<ReturnType<typeof buildCollectionLocationRow>>;
     collection: import('../../figma_api.js').VariableCollection;
+    fileKey: string;
+    source: string;
   }> = [];
 
   for (const target of targets) {
@@ -126,7 +128,12 @@ async function searchCollectionAcrossTargets(
           ).find(candidate => candidate.id === row.id);
 
           if (collection) {
-            matches.push({ row, collection });
+            matches.push({
+              row,
+              collection,
+              fileKey: target.fileKey,
+              source: target.source,
+            });
           }
         }
       } catch (error) {
@@ -258,6 +265,7 @@ export async function executeGetCollectionById(
         JSON.stringify(
           {
             fileKeySource: source,
+            fileKey,
             sourceType,
             collectionsCount: collections.length,
             collectionId,
@@ -309,6 +317,7 @@ export async function executeGetCollectionById(
           collections: rows.map(match => ({
             role: match.row.role,
             file: match.row.file,
+            fileKey: match.fileKey,
             sourceType: match.row.sourceType,
             collection: buildExpandedCollectionJson(match.collection),
           })),
