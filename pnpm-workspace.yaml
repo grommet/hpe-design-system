@@ -17,6 +17,7 @@ catalog:
   react: ^19.2.3
   react-dom: ^19.2.3
   styled-components: ^6.1.17
+  tsx: ^4.21.0
   typescript: ^5.9.3
 catalogs:
   grommet-stable:

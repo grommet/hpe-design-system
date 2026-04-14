@@ -33,7 +33,25 @@ This package supports two sync directions:
 - Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --output tokens`
 - tokens JSON to Figma: `pnpm sync-tokens-to-figma`
 
-Both scripts read environment variables from a local `.env` file.
+Both scripts read environment variables from the current shell environment.
+
+For local development, do not store secrets in a repo-local `.env` file. Store `PERSONAL_ACCESS_TOKEN` in your OS credential manager or approved team secret manager, then export it into your shell only for the current session.
+
+On macOS, you can store the token in Keychain and load it when needed:
+
+```bash
+export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-pat -w)"
+```
+
+To store your Figma personal access token in Keychain for the first time (macOS):
+
+```bash
+security add-generic-password -a "$USER" -s hpe-figma-pat -w <your-figma-token>
+```
+
+This creates a generic Keychain entry that you can retrieve securely without exposing the token in your shell history or configuration files.
+
+Keep non-secret local values such as `FILE_KEY_*` and `FIGMA_*_COLLECTION_KEY` in your shell profile or in an untracked local shell script outside this repository.
 
 ### Required Environment Variables
 
@@ -63,9 +81,9 @@ Example command to distinguish collection instances across files:
 
 ```bash
 cd packages/hpe-design-tokens
-set -a
-source .env
-set +a
+
+export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-pat -w)"
+source ~/hpe-design-tokens.local.sh
 
 {
 	printf "ROLE\tNAME\tKEY\tID\tREMOTE\tVARIABLE_COUNT\tMODES\n"
@@ -120,6 +138,95 @@ pnpm sync-figma-to-tokens -- --output tokens
 ## The script default will output to `tokens_new`.
 pnpm sync-figma-to-tokens
 ```
+
+### Figma API CLI
+
+Use the CLI helper script to inspect and modify variables in a target Figma file:
+
+```bash
+cd packages/hpe-design-tokens
+pnpm figma-variables-cli
+```
+
+The CLI supports interactive and non-interactive modes.
+
+Non-interactive examples:
+
+```bash
+cd packages/hpe-design-tokens
+
+# Read local collections from primitive file key env var
+pnpm figma-variables-cli -- --action=collections --source=local --role=primitive
+
+# Read published variables from a raw file key with filters
+pnpm figma-variables-cli -- --action=variables --source=published --file-key=<figma-file-key> --collection=color --mode=light --max-rows=50
+
+# Post a payload JSON file (requires explicit confirmation flag)
+pnpm figma-variables-cli -- --action=post --role=semantic --payload=./payload.json --confirm=YES
+```
+
+Supported flags:
+
+- `--action=collections|modes|variables|post`
+- `--source=local|published` (read actions only; default is `local`)
+- `--role=primitive|semantic|component` or `--file-key=<figma-file-key>`
+- `--collection=<name>` and `--mode=<name>` (variables action)
+- `--max-rows=<number>` (variables action)
+- `--payload=<path>` and `--confirm=YES` (post action)
+- `--help`
+
+#### Payload JSON Format For Post Variables
+
+`--action=post` expects a JSON file shaped like `ApiPostVariablesPayload`:
+
+```json
+{
+	"variableCollections": [
+		{
+			"action": "CREATE",
+			"id": "spacing",
+			"name": "spacing",
+			"initialModeId": "default"
+		}
+	],
+	"variableModes": [
+		{
+			"action": "CREATE",
+			"id": "compact",
+			"name": "compact",
+			"variableCollectionId": "spacing"
+		}
+	],
+	"variables": [
+		{
+			"action": "CREATE",
+			"id": "space/small",
+			"name": "space/small",
+			"variableCollectionId": "spacing",
+			"resolvedType": "FLOAT",
+			"description": "Small spacing token"
+		}
+	],
+	"variableModeValues": [
+		{
+			"variableId": "space/small",
+			"modeId": "default",
+			"value": 8
+		},
+		{
+			"variableId": "space/small",
+			"modeId": "compact",
+			"value": 6
+		}
+	]
+}
+```
+
+Notes:
+
+- Each top-level property is optional, but when present it must be an array.
+- For non-interactive post mode, `--confirm=YES` is required.
+- Start with a small payload first to validate IDs and aliases before larger updates.
 
 ### GitHub Actions Branch Targeting For Tests
 

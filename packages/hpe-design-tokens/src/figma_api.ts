@@ -14,6 +14,7 @@ export interface VariableModeChange {
 
 export interface VariableCollection {
   id: string;
+  subscribed_id?: string;
   key?: string;
   name: string;
   modes: VariableMode[];
@@ -21,6 +22,13 @@ export interface VariableCollection {
   remote: boolean;
   hiddenFromPublishing: boolean;
   variableIds?: string[];
+  isExtension?: boolean;
+  parentVariableCollectionId?: string | null;
+  rootVariableCollectionId?: string | null;
+  inheritedVariableIds?: string[];
+  localVariableIds?: string[];
+  variableOverrideIds?: string[];
+  updatedAt?: string;
 }
 
 export interface VariableCollectionChange
@@ -100,7 +108,7 @@ export interface VariableModeValue {
   value: VariableValue;
 }
 
-export interface ApiGetLocalVariablesResponse {
+export interface ApiGetVariableResponse {
   status: number;
   error: boolean;
   meta: {
@@ -108,6 +116,11 @@ export interface ApiGetLocalVariablesResponse {
     variables: { [id: string]: Variable };
   };
 }
+
+export interface ApiGetLocalVariablesResponse extends ApiGetVariableResponse {}
+
+export interface ApiGetPublishedVariablesResponse
+  extends ApiGetVariableResponse {}
 
 export interface ApiPostVariablesPayload {
   variableCollections?: VariableCollectionChange[];
@@ -133,6 +146,18 @@ export default class FigmaApi {
   async getLocalVariables(fileKey: string) {
     const resp = await axios.request<ApiGetLocalVariablesResponse>({
       url: `${this.baseUrl}/v1/files/${fileKey}/variables/local`,
+      headers: {
+        Accept: '*/*',
+        'X-Figma-Token': this.token,
+      },
+    });
+
+    return resp.data;
+  }
+
+  async getPublishedVariables(fileKey: string) {
+    const resp = await axios.request<ApiGetPublishedVariablesResponse>({
+      url: `${this.baseUrl}/v1/files/${fileKey}/variables/published`,
       headers: {
         Accept: '*/*',
         'X-Figma-Token': this.token,
