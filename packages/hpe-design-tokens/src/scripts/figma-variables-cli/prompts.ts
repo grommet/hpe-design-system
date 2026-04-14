@@ -31,6 +31,40 @@ export async function chooseSourceType(
   return choice === 1 ? 'local' : 'published';
 }
 
+export async function chooseSearchSourceTypes(
+  rl: ReadlineInterface,
+  subject: string,
+): Promise<Array<SourceType>> {
+  console.log(`\nChoose ${subject} source scope:`);
+  console.log('1. local');
+  console.log('2. published');
+  console.log('3. both local and published');
+
+  const choice = await askMenuOption(rl, 3);
+
+  if (choice === 1) {
+    return ['local'];
+  }
+
+  if (choice === 2) {
+    return ['published'];
+  }
+
+  return ['local', 'published'];
+}
+
+export async function chooseLookupSearchMode(
+  rl: ReadlineInterface,
+  subject: string,
+) {
+  console.log(`\nChoose ${subject} lookup scope:`);
+  console.log('1. Search a specific file');
+  console.log('2. Search all configured role files');
+  console.log('3. Search using pasted file keys');
+
+  return askMenuOption(rl, 3);
+}
+
 export async function chooseFileKey(
   rl: ReadlineInterface,
 ): Promise<FileKeySelection> {

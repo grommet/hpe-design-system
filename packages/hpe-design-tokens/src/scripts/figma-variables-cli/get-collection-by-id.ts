@@ -1,8 +1,10 @@
 import FigmaApi from '../../figma_api.js';
 import { fetchVariablesBySource } from './fetch.js';
 import {
+  buildPastedTargets,
   getSearchTargetsFromOptions,
   parseFileKeysText,
+  searchAcrossTargets,
 } from './handler-utils.js';
 import { resolveFileKeyFromOptions } from './options.js';
 import {
@@ -13,42 +15,13 @@ import {
 } from './output.js';
 import {
   ask,
-  askMenuOption,
   chooseFileKey,
+  chooseLookupSearchMode,
+  chooseSearchSourceTypes,
   chooseSourceType,
   type ReadlineInterface,
 } from './prompts.js';
 import type { CliOptions, SourceType } from './types.js';
-
-async function chooseCollectionSearchMode(rl: ReadlineInterface) {
-  console.log('\nChoose collection lookup scope:');
-  console.log('1. Search a specific file');
-  console.log('2. Search all configured role files');
-  console.log('3. Search using pasted file keys');
-
-  return askMenuOption(rl, 3);
-}
-
-async function chooseCollectionSearchSources(
-  rl: ReadlineInterface,
-): Promise<Array<SourceType>> {
-  console.log('\nChoose collection source scope:');
-  console.log('1. local');
-  console.log('2. published');
-  console.log('3. both local and published');
-
-  const choice = await askMenuOption(rl, 3);
-
-  if (choice === 1) {
-    return ['local'];
-  }
-
-  if (choice === 2) {
-    return ['published'];
-  }
-
-  return ['local', 'published'];
-}
 
 async function searchCollectionAcrossTargets(
   api: FigmaApi,
@@ -57,56 +30,42 @@ async function searchCollectionAcrossTargets(
   sourceTypes: Array<SourceType>,
   options?: { debug?: boolean },
 ) {
-  const matches: Array<{
-    row: NonNullable<ReturnType<typeof buildCollectionLocationRow>>;
-    collection: import('../../figma_api.js').VariableCollection;
-    fileKey: string;
-    source: string;
-  }> = [];
-
-  for (const target of targets) {
-    for (const sourceType of sourceTypes) {
-      try {
-        const response = await fetchVariablesBySource(
-          api,
-          target.fileKey,
+  return searchAcrossTargets(
+    api,
+    targets,
+    sourceTypes,
+    ({ response, target, sourceType }) => {
+      const row = buildCollectionLocationRow(
+        response,
+        collectionId,
+        {
+          role: target.role,
+          source: target.source,
           sourceType,
-        );
-        const row = buildCollectionLocationRow(
-          response,
-          collectionId,
-          {
-            role: target.role,
-            source: target.source,
-            sourceType,
-          },
-          options,
-        );
+        },
+        options,
+      );
 
-        if (row) {
-          const collection = Object.values(
-            response.meta.variableCollections,
-          ).find(candidate => candidate.id === row.id);
-
-          if (collection) {
-            matches.push({
-              row,
-              collection,
-              fileKey: target.fileKey,
-              source: target.source,
-            });
-          }
-        }
-      } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.log(
-          `Skipping ${target.source} (${sourceType}) because the lookup failed: ${message}`,
-        );
+      if (!row) {
+        return undefined;
       }
-    }
-  }
 
-  return matches;
+      const collection = Object.values(response.meta.variableCollections).find(
+        candidate => candidate.id === row.id,
+      );
+
+      if (!collection) {
+        return undefined;
+      }
+
+      return {
+        row,
+        collection,
+        fileKey: target.fileKey,
+        source: target.source,
+      };
+    },
+  );
 }
 
 export async function handleGetCollectionById(
@@ -119,7 +78,7 @@ export async function handleGetCollectionById(
     throw new Error('A collection id is required.');
   }
 
-  const searchMode = await chooseCollectionSearchMode(rl);
+  const searchMode = await chooseLookupSearchMode(rl, 'collection');
 
   if (searchMode === 1) {
     const { fileKey, source } = await chooseFileKey(rl);
@@ -146,12 +105,8 @@ export async function handleGetCollectionById(
       throw new Error('At least one file key is required.');
     }
 
-    const targets = fileKeys.map((fileKey, index) => ({
-      role: `pasted-${index + 1}`,
-      fileKey,
-      source: `pasted:${index + 1}`,
-    }));
-    const sourceTypes = await chooseCollectionSearchSources(rl);
+    const targets = buildPastedTargets(fileKeys, 'pasted');
+    const sourceTypes = await chooseSearchSourceTypes(rl, 'collection');
     const rows = await searchCollectionAcrossTargets(
       api,
       collectionId,
@@ -173,7 +128,7 @@ export async function handleGetCollectionById(
     );
   }
 
-  const sourceTypes = await chooseCollectionSearchSources(rl);
+  const sourceTypes = await chooseSearchSourceTypes(rl, 'collection');
   const rows = await searchCollectionAcrossTargets(
     api,
     collectionId,

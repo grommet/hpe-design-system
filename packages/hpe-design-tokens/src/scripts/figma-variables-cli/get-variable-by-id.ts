@@ -1,8 +1,10 @@
 import FigmaApi from '../../figma_api.js';
 import { resolveFileKeyFromOptions } from './options.js';
 import {
+  buildPastedTargets,
   getSearchTargetsFromOptions,
   parseFileKeysText,
+  searchAcrossTargets,
 } from './handler-utils.js';
 import {
   buildVariableLocationRow,
@@ -11,44 +13,15 @@ import {
 } from './output.js';
 import {
   ask,
-  askMenuOption,
   chooseFileKey,
+  chooseLookupSearchMode,
+  chooseSearchSourceTypes,
   chooseSourceType,
   type ReadlineInterface,
 } from './prompts.js';
 import type { CliOptions, SourceType } from './types.js';
 import { fetchVariablesBySource } from './fetch.js';
 import { normalizeVariableId } from './types.js';
-
-async function chooseVariableSearchMode(rl: ReadlineInterface) {
-  console.log('\nChoose variable lookup scope:');
-  console.log('1. Search a specific file');
-  console.log('2. Search all configured role files');
-  console.log('3. Search using pasted file keys');
-
-  return askMenuOption(rl, 3);
-}
-
-async function chooseVariableSearchSources(
-  rl: ReadlineInterface,
-): Promise<Array<SourceType>> {
-  console.log('\nChoose variable source scope:');
-  console.log('1. local');
-  console.log('2. published');
-  console.log('3. both local and published');
-
-  const choice = await askMenuOption(rl, 3);
-
-  if (choice === 1) {
-    return ['local'];
-  }
-
-  if (choice === 2) {
-    return ['published'];
-  }
-
-  return ['local', 'published'];
-}
 
 async function searchVariableAcrossTargets(
   api: FigmaApi,
@@ -57,40 +30,22 @@ async function searchVariableAcrossTargets(
   sourceTypes: Array<SourceType>,
   options?: { debug?: boolean },
 ) {
-  const rows = [];
-
-  for (const target of targets) {
-    for (const sourceType of sourceTypes) {
-      try {
-        const response = await fetchVariablesBySource(
-          api,
-          target.fileKey,
+  return searchAcrossTargets(
+    api,
+    targets,
+    sourceTypes,
+    ({ response, target, sourceType }) =>
+      buildVariableLocationRow(
+        response,
+        variableId,
+        {
+          role: target.role,
+          source: target.source,
           sourceType,
-        );
-        const row = buildVariableLocationRow(
-          response,
-          variableId,
-          {
-            role: target.role,
-            source: target.source,
-            sourceType,
-          },
-          options,
-        );
-
-        if (row) {
-          rows.push(row);
-        }
-      } catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.log(
-          `Skipping ${target.source} (${sourceType}) because the lookup failed: ${message}`,
-        );
-      }
-    }
-  }
-
-  return rows;
+        },
+        options,
+      ),
+  );
 }
 
 export async function handleGetVariableById(
@@ -105,7 +60,7 @@ export async function handleGetVariableById(
     throw new Error('A variable id is required.');
   }
 
-  const searchMode = await chooseVariableSearchMode(rl);
+  const searchMode = await chooseLookupSearchMode(rl, 'variable');
 
   if (searchMode === 1) {
     const { fileKey, source } = await chooseFileKey(rl);
@@ -132,12 +87,8 @@ export async function handleGetVariableById(
       throw new Error('At least one file key is required.');
     }
 
-    const targets = fileKeys.map((fileKey, index) => ({
-      role: `pasted-${index + 1}`,
-      fileKey,
-      source: `pasted:${index + 1}`,
-    }));
-    const sourceTypes = await chooseVariableSearchSources(rl);
+    const targets = buildPastedTargets(fileKeys, 'pasted');
+    const sourceTypes = await chooseSearchSourceTypes(rl, 'variable');
     const rows = await searchVariableAcrossTargets(
       api,
       variableId,
@@ -156,7 +107,7 @@ export async function handleGetVariableById(
     );
   }
 
-  const sourceTypes = await chooseVariableSearchSources(rl);
+  const sourceTypes = await chooseSearchSourceTypes(rl, 'variable');
   const rows = await searchVariableAcrossTargets(
     api,
     variableId,
