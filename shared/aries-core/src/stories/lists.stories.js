@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable max-len */
-/* eslint-disable import/extensions */
 import React from 'react';
 import { ListIconIdentifierExample } from 'apps/docs/src/examples/templates/list-views/ListIconIdentifierExample';
 import { ListImageIdentifierExample } from 'apps/docs/src/examples/templates/list-views/ListImageIdentifierExample';

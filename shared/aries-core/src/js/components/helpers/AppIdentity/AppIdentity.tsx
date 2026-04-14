@@ -23,8 +23,8 @@ interface AppIdentityProps {
   title?: string;
 }
 
-export const AppIdentity = forwardRef(
-  ({ brand, logoOnly, href, title, ...rest }, ref) => {
+export const AppIdentity: React.FC<AppIdentityProps> = forwardRef<HTMLAnchorElement, AppIdentityProps>(
+  ({ brand, logoOnly = false, href = '/', title, ...rest }, ref) => {
     const textSize = 'medium';
 
     return (
@@ -62,8 +62,3 @@ AppIdentity.propTypes = {
   title: PropTypes.string,
 };
 
-AppIdentity.defaultProps = {
-  logoOnly: false,
-  href: '/',
-  title: undefined,
-};
