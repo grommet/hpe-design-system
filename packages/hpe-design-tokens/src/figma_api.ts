@@ -22,6 +22,12 @@ export interface VariableCollection {
   remote: boolean;
   hiddenFromPublishing: boolean;
   variableIds?: string[];
+  isExtension?: boolean;
+  parentVariableCollectionId?: string | null;
+  rootVariableCollectionId?: string | null;
+  inheritedVariableIds?: string[];
+  localVariableIds?: string[];
+  variableOverrideIds?: string[];
   updatedAt?: string;
 }
 

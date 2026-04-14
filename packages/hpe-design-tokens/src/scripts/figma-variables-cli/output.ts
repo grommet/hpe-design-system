@@ -39,6 +39,35 @@ export function printCollections(collections: VariableCollection[]) {
   console.table(rows);
 }
 
+function modesToString(collection: VariableCollection) {
+  return Array.isArray(collection.modes)
+    ? collection.modes.map(mode => mode.name).join('|')
+    : '(not returned for published endpoint)';
+}
+
+export function buildCollectionJson(collections: VariableCollection[]) {
+  return {
+    collections: collections.map(collection => ({
+      id: collection.id,
+      name: collection.name,
+      key: collection.key || '',
+      modes: modesToString(collection),
+      defaultModeId: collection.defaultModeId,
+      remote: collection.remote,
+      hiddenFromPublishing: collection.hiddenFromPublishing,
+      variableCount: collection.variableIds?.length || 0,
+      isExtension: collection.isExtension || false,
+      parentVariableCollectionId: collection.parentVariableCollectionId || null,
+      rootVariableCollectionId: collection.rootVariableCollectionId || null,
+      inheritedVariableIds: collection.inheritedVariableIds || [],
+      localVariableIds: collection.localVariableIds || [],
+      variableOverrideIds: collection.variableOverrideIds || [],
+      subscribedId: collection.subscribed_id || '',
+      updatedAt: collection.updatedAt || '',
+    })),
+  };
+}
+
 export function buildCollectionRows(collections: VariableCollection[]) {
   return collections.map(collection => {
     const row: Record<string, string | number | boolean | undefined> = {
@@ -56,9 +85,7 @@ export function buildCollectionRows(collections: VariableCollection[]) {
     } else {
       row['remote'] = collection.remote;
       row['variableCount'] = collection.variableIds?.length || 0;
-      row['modes'] = Array.isArray(collection.modes)
-        ? collection.modes.map(mode => mode.name).join('|')
-        : '(not returned for published endpoint)';
+      row['modes'] = modesToString(collection);
     }
 
     return row;

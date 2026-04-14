@@ -1,6 +1,6 @@
 import FigmaApi from '../../figma_api.js';
 import { resolveFileKeyFromOptions } from './options.js';
-import { buildCollectionRows, printCollections } from './output.js';
+import { buildCollectionJson, printCollections } from './output.js';
 import {
   chooseFileKey,
   chooseSourceType,
@@ -44,7 +44,7 @@ export async function executeGetCollections(
           fileKeySource: source,
           sourceType,
           count: collections.length,
-          rows: buildCollectionRows(collections),
+          collections: buildCollectionJson(collections),
         },
         null,
         2,
