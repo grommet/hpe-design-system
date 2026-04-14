@@ -45,26 +45,30 @@ function modesToString(collection: VariableCollection) {
     : '(not returned for published endpoint)';
 }
 
+export function buildExpandedCollectionJson(collection: VariableCollection) {
+  return {
+    id: collection.id,
+    name: collection.name,
+    key: collection.key || '',
+    modes: modesToString(collection),
+    defaultModeId: collection.defaultModeId,
+    remote: collection.remote,
+    hiddenFromPublishing: collection.hiddenFromPublishing,
+    variableCount: collection.variableIds?.length || 0,
+    isExtension: collection.isExtension || false,
+    parentVariableCollectionId: collection.parentVariableCollectionId || null,
+    rootVariableCollectionId: collection.rootVariableCollectionId || null,
+    inheritedVariableIds: collection.inheritedVariableIds || [],
+    localVariableIds: collection.localVariableIds || [],
+    variableOverrideIds: collection.variableOverrideIds || [],
+    subscribedId: collection.subscribed_id || '',
+    updatedAt: collection.updatedAt || '',
+  };
+}
+
 export function buildCollectionJson(collections: VariableCollection[]) {
   return {
-    collections: collections.map(collection => ({
-      id: collection.id,
-      name: collection.name,
-      key: collection.key || '',
-      modes: modesToString(collection),
-      defaultModeId: collection.defaultModeId,
-      remote: collection.remote,
-      hiddenFromPublishing: collection.hiddenFromPublishing,
-      variableCount: collection.variableIds?.length || 0,
-      isExtension: collection.isExtension || false,
-      parentVariableCollectionId: collection.parentVariableCollectionId || null,
-      rootVariableCollectionId: collection.rootVariableCollectionId || null,
-      inheritedVariableIds: collection.inheritedVariableIds || [],
-      localVariableIds: collection.localVariableIds || [],
-      variableOverrideIds: collection.variableOverrideIds || [],
-      subscribedId: collection.subscribed_id || '',
-      updatedAt: collection.updatedAt || '',
-    })),
+    collections: collections.map(buildExpandedCollectionJson),
   };
 }
 

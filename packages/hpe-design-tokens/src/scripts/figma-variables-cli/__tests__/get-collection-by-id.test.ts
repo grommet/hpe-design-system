@@ -15,6 +15,7 @@ vi.mock('../env.js', () => ({
 }));
 
 vi.mock('../output.js', () => ({
+  buildExpandedCollectionJson: vi.fn(collection => collection),
   buildCollectionLocationRow: vi.fn(),
   printCollectionById: vi.fn(),
   printCollectionLocationResults: vi.fn(),

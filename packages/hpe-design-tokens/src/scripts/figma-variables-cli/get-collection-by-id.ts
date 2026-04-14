@@ -5,6 +5,7 @@ import { getConfiguredRoleFileSelections } from './env.js';
 import { fetchVariablesBySource } from './fetch.js';
 import { resolveFileKeyFromOptions } from './options.js';
 import {
+  buildExpandedCollectionJson,
   buildCollectionLocationRow,
   printCollectionById,
   printCollectionLocationResults,
@@ -95,7 +96,10 @@ async function searchCollectionAcrossTargets(
   sourceTypes: Array<SourceType>,
   options?: { debug?: boolean },
 ) {
-  const rows = [];
+  const matches: Array<{
+    row: NonNullable<ReturnType<typeof buildCollectionLocationRow>>;
+    collection: import('../../figma_api.js').VariableCollection;
+  }> = [];
 
   for (const target of targets) {
     for (const sourceType of sourceTypes) {
@@ -117,7 +121,13 @@ async function searchCollectionAcrossTargets(
         );
 
         if (row) {
-          rows.push(row);
+          const collection = Object.values(
+            response.meta.variableCollections,
+          ).find(candidate => candidate.id === row.id);
+
+          if (collection) {
+            matches.push({ row, collection });
+          }
         }
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -128,7 +138,7 @@ async function searchCollectionAcrossTargets(
     }
   }
 
-  return rows;
+  return matches;
 }
 
 export async function handleGetCollectionById(
@@ -181,7 +191,10 @@ export async function handleGetCollectionById(
       sourceTypes,
       { debug: false },
     );
-    printCollectionLocationResults(rows, collectionId);
+    printCollectionLocationResults(
+      rows.map(match => match.row),
+      collectionId,
+    );
     return;
   }
 
@@ -200,7 +213,10 @@ export async function handleGetCollectionById(
     sourceTypes,
     { debug: false },
   );
-  printCollectionLocationResults(rows, collectionId);
+  printCollectionLocationResults(
+    rows.map(match => match.row),
+    collectionId,
+  );
 }
 
 export async function executeGetCollectionById(
@@ -232,6 +248,11 @@ export async function executeGetCollectionById(
         },
         { debug: false },
       );
+      const collection = row
+        ? Object.values(response.meta.variableCollections).find(
+            candidate => candidate.id === row.id,
+          )
+        : undefined;
 
       console.log(
         JSON.stringify(
@@ -242,6 +263,9 @@ export async function executeGetCollectionById(
             collectionId,
             found: Boolean(row),
             row: row || null,
+            collection: collection
+              ? buildExpandedCollectionJson(collection)
+              : null,
           },
           null,
           2,
@@ -283,7 +307,13 @@ export async function executeGetCollectionById(
           sourceTypes,
           targetsCount: targets.length,
           foundCount: rows.length,
-          rows,
+          rows: rows.map(match => match.row),
+          collections: rows.map(match => ({
+            role: match.row.role,
+            file: match.row.file,
+            sourceType: match.row.sourceType,
+            collection: buildExpandedCollectionJson(match.collection),
+          })),
         },
         null,
         2,
@@ -292,5 +322,8 @@ export async function executeGetCollectionById(
     return;
   }
 
-  printCollectionLocationResults(rows, collectionId);
+  printCollectionLocationResults(
+    rows.map(match => match.row),
+    collectionId,
+  );
 }
