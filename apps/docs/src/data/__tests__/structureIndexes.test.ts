@@ -28,15 +28,18 @@ const mockStructure = [
     name: 'Foundation',
     pages: [],
   },
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 ] as any[];
 
 describe('buildStructureIndexes', () => {
   it('prefers the primary non-href page in byName lookups', () => {
+    // eslint-disable-next-line max-len
     const indexes = buildStructureIndexes(mockStructure, buildCategoryMapping(mockStructure));
     expect(indexes.byNameLookup.card.href).toBeUndefined();
   });
 
   it('builds parent and section lookup maps', () => {
+    // eslint-disable-next-line max-len
     const indexes = buildStructureIndexes(mockStructure, buildCategoryMapping(mockStructure));
 
     expect(indexes.parentByChild.Button?.name).toBe('Components');
@@ -44,11 +47,14 @@ describe('buildStructureIndexes', () => {
   });
 
   it('builds grouped categories by parent hub', () => {
+    // eslint-disable-next-line max-len
     const indexes = buildStructureIndexes(mockStructure, buildCategoryMapping(mockStructure));
 
+    // eslint-disable-next-line max-len
     expect(indexes.byCategory.Components?.Controls?.map(page => page.name)).toEqual([
       'Button',
     ]);
+    // eslint-disable-next-line max-len
     expect(indexes.byCategory.Components?.Layouts?.map(page => page.name)).toEqual([
       'Card',
     ]);

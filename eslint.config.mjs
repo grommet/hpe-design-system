@@ -130,15 +130,23 @@ export default defineConfig([
     },
   },
   // TypeScript recommended rules — scoped to TS files only
-  // {
-  //   files: ['**/*.{ts,tsx,mts,cts}'],
-  //   extends: tseslint.configs.recommended,
-  // },
-  // {
-  //   files: ['**/*.{ts,tsx,mts,cts}'],
-  //   rules: {
-  //     'import/no-unresolved': 'off',
-  //     'import/extensions': 'off',
-  //   },
-  // },
+  {
+    files: ['**/*.{ts,tsx,mts,cts}'],
+    extends: tseslint.configs.recommended,
+  },
+  {
+    files: ['**/*.{ts,tsx,mts,cts}'],
+    languageOptions: {
+      sourceType: 'module',
+      parser: tseslint.parser,
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
+      },
+      globals: { ...globals.browser },
+    },
+    rules: {
+      'import/no-unresolved': 'off',
+      'import/extensions': 'off',
+    },
+  },
 ]);

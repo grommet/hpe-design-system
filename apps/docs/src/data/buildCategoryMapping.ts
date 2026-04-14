@@ -30,16 +30,19 @@ export interface CategoryMappings {
  * }
  * @param data - The structure data array
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function buildCategoryMapping(data: any[]): CategoryMappings {
   const mappings: CategoryMappings = {};
 
   // Find all hub pages (pages with .pages array)
   const hubPages = data.filter(page => page.pages && Array.isArray(page.pages));
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const hub of hubPages) {
     const groupedByCategory: Record<string, string[]> = {};
 
     // Iterate in parent pages order to preserve current behavior.
+    // eslint-disable-next-line no-restricted-syntax
     for (const pageName of hub.pages) {
       const child = data.find(page => page.name === pageName && !page.href);
       const category = child?.category;
