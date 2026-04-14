@@ -89,4 +89,18 @@ describe('parseCliOptions', () => {
       'Unknown or malformed flag(s): --bogus=abc. Remove them or disable --strict-flags.',
     ]);
   });
+
+  it('ignores standalone -- separator used by pnpm forwarding', () => {
+    const options = parseCliOptions([
+      '--',
+      '--strict-flags',
+      '--action=collections',
+    ]);
+
+    expect(options).toMatchObject({
+      strictFlags: true,
+      action: 'collections',
+    });
+    expect(getCliOptionErrors(options)).toEqual([]);
+  });
 });

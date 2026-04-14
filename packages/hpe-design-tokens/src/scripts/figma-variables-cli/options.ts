@@ -13,6 +13,10 @@ export function parseCliOptions(argv = process.argv.slice(2)): CliOptions {
   };
 
   argv.forEach(arg => {
+    if (arg === '--') {
+      return;
+    }
+
     if (arg === '-h') {
       options.help = true;
       return;
