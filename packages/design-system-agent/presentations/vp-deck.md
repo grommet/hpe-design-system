@@ -45,7 +45,7 @@ An AI-enabled, multi-agent design system copilot that audits, prioritizes, and r
 
 ```mermaid
 flowchart LR
-  U[Product Team] --> CLI[hpe-ds-ai CLI]
+  U[Product Engineer] --> CLI[hpe-ds-ai CLI]
   CLI --> A[Auditor]
   A --> S[Strategist]
   S --> E[Engineer]
@@ -58,20 +58,19 @@ flowchart LR
 
 # What it evaluates (11 dimensions)
 
-**Consumer Implementation**
-1. Component Coverage
-2. Component Usage
-3. App Structure
-4. Token Compliance
-5. Responsive Layouts
-6. Accessibility
-7. Type Safety & Interfaces
-8. Dev Confidence
-
-**Design System Enablement**
-9. System Discoverability
-10. Developer Experience
-11. Agent Experience
+| Category | Dimension | Description |
+| --- | --- | --- |
+| **Consumer Implementation** | Component Coverage | How much of the UI uses design system components. |
+|  | Component Usage | Whether components are used correctly and consistently. |
+|  | App Structure | Layout and composition follow system guidance. |
+|  | Token Compliance | Colors, spacing, type use design tokens. |
+|  | Responsive Layouts | UI adapts properly across breakpoints. |
+|  | Accessibility | Meets baseline accessibility expectations. |
+|  | Type Safety & Interfaces | Types and props align to system contracts. |
+|  | Dev Confidence | Signals for reliable, low-friction usage. |
+| **Design System Enablement** | System Discoverability | Ease of finding the right system guidance. |
+|  | Developer Experience | Clarity and usability of system assets and docs. |
+|  | Agent Experience | How well the system supports the agent workflow. |
 
 ---
 

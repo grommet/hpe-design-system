@@ -1,5 +1,5 @@
 ---
-marp: true
+marp: false
 paginate: true
 # backgroundColor: "lightgrey"
 # backgroundImage: "linear-gradient(to bottom, #67b8e3, #0288d1)"
@@ -41,6 +41,23 @@ flowchart LR
   R --> O
 ```
 
+```mermaid
+flowchart LR
+  subgraph "Agent System"
+    O[Orchestrator<br/>Master Controller]
+    A[Auditor<br/>Scoring Engine]
+    S[Strategist<br/>Prioritizer]
+    E[Engineer<br/>Code Generator]
+    R[Reporter<br/>Telemetry]
+  end
+  U[User/CLI] <-->|commands & approvals| O
+  O <--> A
+  O <--> S
+  O <--> E
+  O --> R
+```
+
+
 ---
 
 # Continuous improvement loop
@@ -67,22 +84,22 @@ sequenceDiagram
 
 ---
 
-# Scoring dimensions (11)
+# What it evaluates (11 dimensions)
 
-**Consumer Implementation**
-1. Component Coverage
-2. Component Usage
-3. App Structure
-4. Token Compliance
-5. Responsive Layouts
-6. Accessibility
-7. Type Safety & Interfaces
-8. Dev Confidence
+| Category | Dimension | Description |
+| --- | --- | --- |
+| **Consumer Implementation** | Component Coverage | How much of the UI uses design system components. |
+|  | Component Usage | Whether components are used correctly and consistently. |
+|  | App Structure | Layout and composition follow system guidance. |
+|  | Token Compliance | Colors, spacing, type use design tokens. |
+|  | Responsive Layouts | UI adapts properly across breakpoints. |
+|  | Accessibility | Meets baseline accessibility expectations. |
+|  | Type Safety & Interfaces | Types and props align to system contracts. |
+|  | Dev Confidence | Signals for reliable, low-friction usage. |
+| **Design System Enablement** | System Discoverability | Ease of finding the right system guidance. |
+|  | Developer Experience | Clarity and usability of system assets and docs. |
+|  | Agent Experience | How well the system supports the agent workflow. |
 
-**Design System Enablement**
-9. System Discoverability
-10. Developer Experience
-11. Agent Experience
 
 ---
 
@@ -127,6 +144,69 @@ accessibility:
 examples:
   - label: "Basic usage"
     code: "<Button primary label=\"Click me\" />"
+```
+
+```yaml
+name: Menu
+description: Button that opens a dropdown menu with a list of actions or navigation items.
+props:
+- name: items
+  type: '{ label: string, onClick?: () => void, icon?: React.ReactNode, gap?: string }[]'
+  required: true
+  description: Array of menu items
+accessibility:
+  keyboard:
+  - key: Escape
+    action: Closes the menu and returns focus to the trigger button
+examples:
+  - label: "Basic usage"
+    code: "<Button primary label=\"Click me\" />"
+```
+
+```yaml
+id: data-table-with-filtering
+name: Data Table with Filtering
+description: Interactive data table with built-in filtering, sorting, and pagination
+  using Grommet Data components.
+problem: Need to display large data collections with user controls for filtering,
+  sorting, and viewing subsets of data.
+solution: Use Grommet's Data component as a wrapper to manage data state. Add DataFilters,
+  DataSearch, and DataSort for user controls. Display data with DataTable or alternative
+  views (List, Grid). Use Pagination for large datasets.
+relatedComponents:
+- grid
+- box
+- text
+- heading
+- button
+usage:
+  whenToUse:
+  - Use Data component to wrap your data collection and controls.
+  - Provide DataSearch for quick text-based filtering.
+  - Use DataFilters for structured filtering by field.
+
+# ... 
+
+examples:
+- description: Basic Data Table with Search
+  codeFile: design-system/examples/data-table-with-filtering/basic-data-table-with-search.tsx
+- description: Table with Custom Filters
+  codeFile: design-system/examples/data-table-with-filtering/table-with-custom-filters.tsx
+
+# ...
+
+graph:
+  rootId: box-root
+  nodes:
+    - id: heading-title
+      componentId: heading
+      role: table heading
+      props:
+        level: 2
+        content: "consumer-provided table title"
+      children: []
+      binding: slot
+      notes: Heading text is consumer-provided (e.g. "Users", "Servers", "Applications").
 ```
 
 ---
