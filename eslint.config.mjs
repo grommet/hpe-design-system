@@ -129,6 +129,20 @@ export default defineConfig([
       'arrow-body-style': 0,
     },
   },
+  {
+    files: ['apps/docs/src/**/*.{js,jsx}'],
+    rules: {
+      'import/no-unresolved': [
+        'error',
+        {
+          // contentForSearch is generated and may be missing on a fresh clone.
+          // Ignore this unresolved import so lint is stable before docs generation runs.
+          // No inline eslint-disable is needed; eslint --fix prunes it as "unused".
+          ignore: ['data/search/contentForSearch$'],
+        },
+      ],
+    },
+  },
   // TypeScript recommended rules — scoped to TS files only
   {
     files: ['**/*.{ts,tsx,mts,cts}'],
