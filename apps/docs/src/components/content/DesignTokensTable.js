@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -24,73 +24,89 @@ import {
 } from './designTokenUtils';
 import { DesignTokenContext } from './DesignTokenContext';
 
-const tokenColumns = [
-  {
-    property: 'id',
-    header: 'Preview',
-    render: datum => {
-      if (datum.type === 'color') return <ColorPreview datum={datum} />;
+const previewColumn = {
+  property: 'id',
+  header: 'Preview',
+  render: datum => {
+    const tokenForPreview = datum.sourceToken || datum.token;
 
-      if (
-        datum.token.includes('size') ||
-        datum.token.includes('dimension') ||
-        datum.token.includes('spacing') ||
-        datum.token.includes('gap')
-      )
-        return <DimensionPreview datum={datum} />;
-      if (
-        datum.token.includes('radius') ||
-        datum.token.includes('borderRadius') ||
-        /border.*Radius/.test(datum.token)
-      )
-        return <RadiusPreview datum={datum} />;
-      if (datum.token.includes('border'))
-        return <BorderPreview datum={datum} />;
-      if (datum.token.includes('weight') || datum.token.includes('fontWeight'))
-        return <WeightPreview datum={datum} />;
-      if (
-        (datum.token.includes('font') && datum.token.includes('size')) ||
-        datum.token.includes('fontSize')
-      )
-        return <TextPreview datum={datum} />;
-      return '--';
-    },
-    size: 'auto',
-    pin: true,
+    if (datum.type === 'color') return <ColorPreview datum={datum} />;
+
+    if (
+      tokenForPreview.includes('size') ||
+      tokenForPreview.includes('dimension') ||
+      tokenForPreview.includes('spacing') ||
+      tokenForPreview.includes('gap')
+    )
+      return <DimensionPreview datum={datum} />;
+    if (
+      tokenForPreview.includes('radius') ||
+      tokenForPreview.includes('borderRadius') ||
+      /border.*Radius/.test(tokenForPreview)
+    )
+      return <RadiusPreview datum={datum} />;
+    if (tokenForPreview.includes('border'))
+      return <BorderPreview datum={datum} />;
+    if (
+      tokenForPreview.includes('weight') ||
+      tokenForPreview.includes('fontWeight')
+    )
+      return <WeightPreview datum={datum} />;
+    if (
+      (tokenForPreview.includes('font') &&
+        tokenForPreview.includes('size')) ||
+      tokenForPreview.includes('fontSize')
+    )
+      return <TextPreview datum={datum} />;
+    return '--';
   },
-  {
-    property: 'token',
-    header: 'Token',
-    render: datum => (
-      <Box direction="row">
-        <Box
-          background="background-contrast"
-          pad="3xsmall"
-          round="xsmall"
-          style={{ fontFamily: 'Menlo' }}
-        >
-          <Text size="xsmall">{datum.token}</Text>
-        </Box>
+  size: 'auto',
+  pin: true,
+};
+
+const getTokenColumn = (property, header) => ({
+  property,
+  header,
+  render: datum => (
+    <Box direction="row">
+      <Box
+        background="background-contrast"
+        pad="3xsmall"
+        round="xsmall"
+        style={{ fontFamily: 'Menlo' }}
+      >
+        <Text size="xsmall">{datum[property] || '--'}</Text>
       </Box>
-    ),
-  },
-  {
-    property: 'description',
-    header: 'Description',
-    size: 'medium',
-    render: datum => (
-      <Text>{datum.description ? datum.description : '--'}</Text>
-    ),
-  },
-  {
-    property: 'value',
-    header: 'Output value',
-  },
-];
+    </Box>
+  ),
+});
 
-export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
-  const { data, setData, selectedMode, setSelectedMode, modes } =
-    useContext(DesignTokenContext);
+const descriptionColumn = {
+  property: 'description',
+  header: 'Description',
+  size: 'medium',
+  render: datum => <Text>{datum.description ? datum.description : '--'}</Text>,
+};
+
+const valueColumn = {
+  property: 'value',
+  header: 'Output value',
+};
+
+export const DesignTokensTable = ({
+  active,
+  data: dataProp,
+  maxHeight,
+  toolbar,
+  tokenTypeColumns,
+}) => {
+  const {
+    data: contextData,
+    setData,
+    selectedMode,
+    setSelectedMode,
+    modes,
+  } = useContext(DesignTokenContext);
 
   const {
     data: hookData,
@@ -104,10 +120,49 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
   const handleData = setData || setHookData;
   const mode = selectedMode || hookSelectedMode;
   const modeOptions = modes || hookModes;
-  const currentData = data || hookData;
+  const currentData = dataProp || contextData || hookData;
+
+  const columns = useMemo(() => {
+    const dynamicTokenColumns =
+      tokenTypeColumns && tokenTypeColumns.length > 0
+        ? tokenTypeColumns.map(({ id, label }) =>
+            getTokenColumn(`token__${id}`, label),
+          )
+        : [getTokenColumn('displayToken', 'Token')];
+
+    return [
+      previewColumn,
+      ...dynamicTokenColumns,
+      descriptionColumn,
+      valueColumn,
+    ];
+  }, [tokenTypeColumns]);
+
+  const dataProperties = useMemo(() => {
+    const nextProperties = {
+      id: { search: false },
+      description: { search: true },
+      value: { search: true },
+    };
+
+    if (tokenTypeColumns && tokenTypeColumns.length > 0) {
+      tokenTypeColumns.forEach(({ id }) => {
+        nextProperties[`token__${id}`] = { search: true };
+      });
+    } else {
+      nextProperties.displayToken = { search: true };
+      nextProperties.token = { search: true };
+    }
+
+    return nextProperties;
+  }, [tokenTypeColumns]);
 
   return (
-    <Data data={currentData} pad={{ vertical: 'medium' }}>
+    <Data
+      data={currentData}
+      pad={{ vertical: 'medium' }}
+      properties={dataProperties}
+    >
       {toolbar ? (
         <>
           <Toolbar align="end">
@@ -150,8 +205,8 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
         <DataTable
           aria-describedby="token-table-heading"
           verticalAlign="top"
-          primaryKey="token"
-          columns={tokenColumns}
+          primaryKey="id"
+          columns={columns}
         />
       </Box>
     </Data>
@@ -160,6 +215,13 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
 
 DesignTokensTable.propTypes = {
   active: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.object),
   maxHeight: PropTypes.bool,
   toolbar: PropTypes.bool,
+  tokenTypeColumns: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+    }),
+  ),
 };

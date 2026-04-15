@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useContext, useState, useMemo } from 'react';
+import React, { useEffect, useContext, useState, useMemo, useRef } from 'react';
 import {
   Page,
   Heading,
@@ -10,10 +10,15 @@ import {
   Layer,
   Notification,
   ResponsiveContext,
+  Text,
+  ToggleGroup,
 } from 'grommet';
 import { Close, Folder, Menu } from '@hpe-design/icons-grommet';
+import { useRouter } from 'next/router';
 import { ThemeContext } from 'styled-components';
 import {
+  getDefaultActiveTokenPath,
+  getTokens,
   structuredTokens,
   DesignTokenContext,
   DesignTokensTable,
@@ -23,7 +28,7 @@ import {
 const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
   const activeParts = active.split('.');
   const [open, setOpen] = useState(
-    activeParts[activeParts.length - 1] in structuredTokens[collection],
+    activeParts[activeParts.length - 1] in (tokensObj[collection] || {}),
   );
 
   return (
@@ -34,10 +39,7 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
         justify="start"
         align="start"
         label={collection}
-        onClick={() => {
-          if (open) setOpen('');
-          else setOpen(collection);
-        }}
+        onClick={() => setOpen(prevOpen => !prevOpen)}
       />
       <Collapsible open={open}>
         <Box pad={{ left: 'medium' }} flex={false} gap="hair">
@@ -58,13 +60,31 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
   );
 };
 
-const Nav = ({ active, setActive, tokens: tokensObj }) => {
-  return Object.keys(tokensObj).map(collection => (
+const Nav = ({ active, setActive, tokens: tokensObj, activePrefix }) => {
+  const activePath =
+    activePrefix && active.startsWith(`${activePrefix}.`)
+      ? active.slice(activePrefix.length + 1)
+      : active;
+
+  const preferredCollectionOrder = ['primitives', 'semantic', 'component'];
+  const sortedCollections = Object.keys(tokensObj).sort((a, b) => {
+    const aIndex = preferredCollectionOrder.indexOf(a);
+    const bIndex = preferredCollectionOrder.indexOf(b);
+    const normalizedAIndex = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+    const normalizedBIndex = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+
+    if (normalizedAIndex !== normalizedBIndex)
+      return normalizedAIndex - normalizedBIndex;
+
+    return a.localeCompare(b);
+  });
+
+  return sortedCollections.map(collection => (
     <NavSection
       key={collection}
       tokens={tokensObj}
       collection={collection}
-      active={active}
+      active={activePath}
       setActive={setActive}
     />
   ));
@@ -99,8 +119,142 @@ const NavLayer = ({ children, onClose }) => {
   );
 };
 
+const docsTokens = Object.fromEntries(
+  Object.entries(structuredTokens).filter(
+    ([collection]) =>
+      collection !== 'hpeTheme' &&
+      collection !== 'figma' &&
+      collection !== 'css',
+  ),
+);
+
+const tokenTypeOrder = ['docs', 'css', 'hpeTheme', 'figma'];
+
+const tokenTypeOptions = [
+  { label: 'HPE design tokens', value: 'docs' },
+  { label: 'CSS', value: 'css' },
+  { label: 'Grommet', value: 'hpeTheme' },
+  { label: 'Figma', value: 'figma' },
+];
+
+const tokenTypeLabels = {
+  docs: 'HPE design tokens',
+  css: 'CSS',
+  hpeTheme: 'Grommet',
+  figma: 'Figma',
+};
+
+const getTokensBySource = source => {
+  if (source === 'hpeTheme' || source === 'docs') return docsTokens;
+  if (source === 'figma') return structuredTokens.figma ?? {};
+  if (source === 'css') return structuredTokens.css ?? {};
+  return docsTokens;
+};
+
+const getActivePrefix = source => {
+  if (source === 'figma') return 'figma';
+  if (source === 'css') return 'css';
+  return '';
+};
+
+const getDefaultActivePath = tokensObj => {
+  const [firstCollection] = Object.keys(tokensObj);
+  if (!firstCollection) return '';
+
+  const [firstCategory] = Object.keys(tokensObj[firstCollection] || {});
+  if (!firstCategory) return '';
+
+  return `${firstCollection}.${firstCategory}`;
+};
+
+const isActiveInTokens = (value, tokensObj, tokenSource) => {
+  if (!value) return false;
+
+  const activePrefix = getActivePrefix(tokenSource);
+  const path =
+    activePrefix && value.startsWith(`${activePrefix}.`)
+      ? value.slice(activePrefix.length + 1)
+      : value;
+
+  const [collection, category] = path.split('.');
+  return Boolean(tokensObj[collection]?.[category]);
+};
+
+const getPathWithoutPrefix = (value, tokenSource) => {
+  if (!value) return '';
+
+  const activePrefix = getActivePrefix(tokenSource);
+  if (activePrefix && value.startsWith(`${activePrefix}.`)) {
+    return value.slice(activePrefix.length + 1);
+  }
+
+  if (value.startsWith('figma.') || value.startsWith('css.')) {
+    return value.split('.').slice(1).join('.');
+  }
+
+  return value;
+};
+
+const getHpeThemeDisplayToken = (token, category) => {
+  if (!token || !token.startsWith('hpe.')) return token;
+
+  const parts = token.split('.');
+
+  if (category === 'color') return parts.slice(2).join('-');
+
+  if (
+    [
+      'borderWidth',
+      'breakpoint',
+      'container',
+      'fontWeight',
+      'heading',
+      'icon',
+      'radius',
+      'shadow',
+      'spacing',
+      'text',
+    ].includes(category)
+  )
+    return parts[2] || token;
+
+  return token;
+};
+
+const tokenTypesStorageKey = 'designTokens.tokenTypes';
+
+const getSingleQueryValue = value =>
+  Array.isArray(value) ? value[0] : value;
+
+const normalizeTokenTypes = value => {
+  if (!Array.isArray(value)) return ['docs'];
+
+  const next = tokenTypeOrder.filter(type => value.includes(type));
+  return next.length > 0 ? next : ['docs'];
+};
+
+const getInitialTokenTypes = () => {
+  if (typeof window === 'undefined') return ['docs'];
+
+  const savedTokenTypes = window.localStorage.getItem(tokenTypesStorageKey);
+  if (!savedTokenTypes) return ['docs'];
+
+  try {
+    return normalizeTokenTypes(JSON.parse(savedTokenTypes));
+  } catch {
+    return ['docs'];
+  }
+};
+
 const AllTokens = () => {
+  const router = useRouter();
   const [openLayer, setOpenLayer] = useState(false);
+  const [selectedTokenTypes, setSelectedTokenTypes] = useState(
+    getInitialTokenTypes,
+  );
+  const [isUrlSyncReady, setIsUrlSyncReady] = useState(false);
+  const pendingTokenTypesSyncRef = useRef('');
+  const pendingModeSyncRef = useRef('');
   const breakpoint = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
   const {
@@ -111,12 +265,47 @@ const AllTokens = () => {
     selectedMode,
     setSelectedMode,
     modes,
-  } = useDesignTokens('semantic.color');
+  } = useDesignTokens(getDefaultActiveTokenPath());
+
+  const primaryTokenType = useMemo(
+    () => tokenTypeOrder.find(type => selectedTokenTypes.includes(type)),
+    [selectedTokenTypes],
+  );
+  const isDesktop = ['large', 'xlarge'].includes(breakpoint);
 
   useEffect(() => {
-    if (openLayer && ['large', 'xlarge'].includes(breakpoint))
-      setOpenLayer(false);
-  }, [breakpoint, openLayer]);
+    if (openLayer && isDesktop) setOpenLayer(false);
+  }, [isDesktop, openLayer]);
+
+  const tokensBySource = useMemo(
+    () => getTokensBySource(primaryTokenType),
+    [primaryTokenType],
+  );
+
+  useEffect(() => {
+    const activePrefix = getActivePrefix(primaryTokenType);
+    const unprefixedActive = getPathWithoutPrefix(active, primaryTokenType);
+
+    if (isActiveInTokens(active, tokensBySource, primaryTokenType)) {
+      const normalizedActive = activePrefix
+        ? `${activePrefix}.${unprefixedActive}`
+        : unprefixedActive;
+
+      if (normalizedActive !== active) setActive(normalizedActive);
+      return;
+    }
+
+    const nextPath = getDefaultActivePath(tokensBySource);
+    const nextActive = activePrefix ? `${activePrefix}.${nextPath}` : nextPath;
+    setActive(nextActive);
+  }, [active, setActive, tokensBySource, primaryTokenType]);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      tokenTypesStorageKey,
+      JSON.stringify(selectedTokenTypes),
+    );
+  }, [selectedTokenTypes]);
 
   const contextValue = useMemo(
     () => ({
@@ -127,31 +316,312 @@ const AllTokens = () => {
       selectedMode,
       setSelectedMode,
       modes,
+      tokenSource: primaryTokenType,
     }),
-    [data, setData, active, setActive, selectedMode, setSelectedMode, modes],
+    [
+      data,
+      setData,
+      active,
+      setActive,
+      selectedMode,
+      setSelectedMode,
+      modes,
+      primaryTokenType,
+    ],
   );
 
   const onActive = value => {
-    setActive(value);
+    const activePrefix = getActivePrefix(primaryTokenType);
+    setActive(activePrefix ? `${activePrefix}.${value}` : value);
     if (openLayer) setOpenLayer(false);
   };
 
+  const activePrefix = getActivePrefix(primaryTokenType);
+
   const navContent = (
-    <Nav tokens={structuredTokens} active={active} setActive={onActive} />
+    <Nav
+      tokens={tokensBySource}
+      active={active}
+      setActive={onActive}
+      activePrefix={activePrefix}
+    />
   );
 
-  const activeCollection = active
-    .split('.')
-    .map(
-      (part, index) =>
-        `${part} ${index < active.split('.').length - 1 ? '/ ' : ''}`,
+  const displayActive =
+    activePrefix && active.startsWith(`${activePrefix}.`)
+      ? active.slice(activePrefix.length + 1)
+      : active;
+
+  const activeParts = displayActive ? displayActive.split('.') : [];
+  const activeCollectionLabel = activeParts.length > 1 ? activeParts[0] : '';
+  const activeHeadingLabel =
+    activeParts.length > 1
+      ? activeParts.slice(1).join(' / ')
+      : activeParts[0] || 'Design tokens';
+  const activeCollectionKey = activeParts[0] || '';
+  const activeCategoryKey = activeParts[1] || '';
+  const showThemeManagedEmptyState =
+    selectedTokenTypes.length === 1 &&
+    primaryTokenType === 'hpeTheme' &&
+    ['component', 'primitives'].includes(activeCollectionKey);
+  const showThemeCategoryEmptyState =
+    selectedTokenTypes.length === 1 &&
+    primaryTokenType === 'hpeTheme' &&
+    ['focusIndicator', 'fontStack'].includes(activeCategoryKey);
+  const showHpeThemeEmptyState =
+    showThemeManagedEmptyState || showThemeCategoryEmptyState;
+
+  const tableData = useMemo(() => {
+    const [activeCollectionName, activeCategoryName] = displayActive.split('.');
+    if (!activeCollectionName || !activeCategoryName) return [];
+
+    const rowsByToken = new Map();
+
+    selectedTokenTypes.forEach(type => {
+      const sourceTokens = getTokensBySource(type);
+      const tokenObj = sourceTokens[activeCollectionName]?.[activeCategoryName];
+      if (!tokenObj) return;
+
+      const [firstToken] = Object.values(tokenObj);
+      const availableModes = Object.keys(firstToken?.modes || {});
+      if (!availableModes.length) return;
+
+      let mode = selectedMode;
+      if (!availableModes.includes(mode)) {
+        if (availableModes.includes('light')) mode = 'light';
+        else if (availableModes.includes('large')) mode = 'large';
+        else [mode] = availableModes;
+      }
+
+      let rowsForType = getTokens(tokenObj, mode);
+
+      if (
+        type === 'hpeTheme' &&
+        ['heading', 'text'].includes(activeCategoryKey)
+      ) {
+        rowsForType = rowsForType.filter(datum =>
+          datum.token.endsWith('.fontSize'),
+        );
+      }
+
+      rowsForType.forEach(datum => {
+        const canonicalToken = Array.isArray(datum.path)
+          ? datum.path.join('.')
+          : datum.sourceToken || datum.token;
+        let tokenValue = datum.displayToken || datum.token;
+        if (type === 'hpeTheme') {
+          if (
+            selectedTokenTypes.length > 1 &&
+            ['component', 'primitives'].includes(activeCollectionKey)
+          ) {
+            tokenValue = '--';
+          } else if (
+            ['focusIndicator', 'fontStack'].includes(activeCategoryKey)
+          ) {
+            tokenValue = '--';
+          } else {
+            tokenValue = getHpeThemeDisplayToken(
+              datum.token,
+              activeCategoryKey,
+            );
+          }
+        }
+
+        if (!rowsByToken.has(canonicalToken)) {
+          rowsByToken.set(canonicalToken, {
+            id: canonicalToken,
+            token: datum.token,
+            sourceToken: datum.sourceToken,
+            type: datum.type,
+            description: datum.description,
+            value: datum.value,
+          });
+        }
+
+        const nextRow = rowsByToken.get(canonicalToken);
+        nextRow[`token__${type}`] = tokenValue;
+
+        if (type === primaryTokenType) {
+          nextRow.token = datum.token;
+          nextRow.sourceToken = datum.sourceToken;
+          nextRow.type = datum.type;
+          nextRow.description = datum.description;
+          nextRow.value = datum.value;
+        }
+      });
+    });
+
+    return Array.from(rowsByToken.values())
+      .map(row => {
+        const nextRow = { ...row };
+        selectedTokenTypes.forEach(type => {
+          if (nextRow[`token__${type}`] === undefined)
+            nextRow[`token__${type}`] = '--';
+        });
+        return nextRow;
+      })
+      .sort((a, b) => a.id.localeCompare(b.id));
+  }, [
+    activeCollectionKey,
+    activeCategoryKey,
+    displayActive,
+    primaryTokenType,
+    selectedMode,
+    selectedTokenTypes,
+  ]);
+
+  const tokenTypeColumns = useMemo(
+    () =>
+      selectedTokenTypes.map(type => ({
+        id: type,
+        label: tokenTypeLabels[type],
+      })),
+    [selectedTokenTypes],
+  );
+
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const tokenTypesFromQuery = getSingleQueryValue(router.query.tokenTypes);
+    const normalizedTokenTypesFromQuery = tokenTypesFromQuery
+      ? normalizeTokenTypes(tokenTypesFromQuery.split(',')).join(',')
+      : '';
+
+    // Ignore stale query values while a newer token type selection is pending.
+    if (pendingTokenTypesSyncRef.current) {
+      if (normalizedTokenTypesFromQuery === pendingTokenTypesSyncRef.current) {
+        pendingTokenTypesSyncRef.current = '';
+      } else {
+        return;
+      }
+    }
+
+    if (tokenTypesFromQuery) {
+      const nextSelectedTokenTypes = normalizeTokenTypes(
+        tokenTypesFromQuery.split(','),
+      );
+      setSelectedTokenTypes(prevSelectedTokenTypes => {
+        const currentValue = prevSelectedTokenTypes.join(',');
+        const nextValue = nextSelectedTokenTypes.join(',');
+        return currentValue === nextValue
+          ? prevSelectedTokenTypes
+          : nextSelectedTokenTypes;
+      });
+    }
+
+    const modeFromQuery = getSingleQueryValue(router.query.mode);
+
+    // Ignore stale mode query values while a newer mode selection is pending.
+    if (pendingModeSyncRef.current) {
+      if (modeFromQuery === pendingModeSyncRef.current) {
+        pendingModeSyncRef.current = '';
+      } else {
+        return;
+      }
+    }
+
+    if (modeFromQuery) {
+      setSelectedMode(prevMode =>
+        prevMode === modeFromQuery ? prevMode : modeFromQuery,
+      );
+    }
+
+    const tokenFromQuery = getSingleQueryValue(router.query.token);
+
+    if (!tokenFromQuery) {
+      setIsUrlSyncReady(true);
+      return;
+    }
+
+    const nextPath = tokenFromQuery.replaceAll('/', '.');
+    const activePrefixFromUrl = getActivePrefix(primaryTokenType);
+    const nextActive = activePrefixFromUrl
+      ? `${activePrefixFromUrl}.${nextPath}`
+      : nextPath;
+
+    setActive(nextActive);
+    setIsUrlSyncReady(true);
+  }, [
+    primaryTokenType,
+    router.isReady,
+    router.query.mode,
+    router.query.token,
+    router.query.tokenTypes,
+    setActive,
+    setSelectedMode,
+  ]);
+
+  useEffect(() => {
+    if (!router.isReady || !isUrlSyncReady) return;
+
+    const tokenFromQuery = getSingleQueryValue(router.query.token);
+    const tokenTypesFromQuery = getSingleQueryValue(router.query.tokenTypes);
+    const modeFromQuery = getSingleQueryValue(router.query.mode);
+
+    const unprefixedActive = getPathWithoutPrefix(active, primaryTokenType);
+    if (!unprefixedActive) return;
+
+    const nextTokenParam = unprefixedActive.replaceAll('.', '/');
+    const nextTokenTypesParam = selectedTokenTypes.join(',');
+    const nextModeParam = selectedMode;
+    if (
+      tokenFromQuery === nextTokenParam &&
+      tokenTypesFromQuery === nextTokenTypesParam &&
+      modeFromQuery === nextModeParam
+    )
+      return;
+
+    pendingModeSyncRef.current = nextModeParam || '';
+
+    const nextQuery = {
+      ...router.query,
+      token: nextTokenParam,
+      tokenTypes: nextTokenTypesParam,
+    };
+    if (nextModeParam) nextQuery.mode = nextModeParam;
+    else delete nextQuery.mode;
+
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: nextQuery,
+      },
+      undefined,
+      { shallow: true, scroll: false },
     );
+  }, [
+    active,
+    isUrlSyncReady,
+    primaryTokenType,
+    router,
+    router.isReady,
+    router.pathname,
+    router.query.mode,
+    router.query.token,
+    router.query.tokenTypes,
+    selectedMode,
+    selectedTokenTypes,
+  ]);
 
   return (
     <DesignTokenContext.Provider value={contextValue}>
       <Page>
+        <PageContent pad={{ top: 'none', bottom: 'small' }} alignSelf="start">
+          <ToggleGroup
+            a11yTitle="Select token types to compare"
+            multiple
+            options={tokenTypeOptions}
+            value={selectedTokenTypes}
+            onToggle={({ value }) => {
+              const nextValue = Array.isArray(value) ? value : [value];
+              const normalizedValue = normalizeTokenTypes(nextValue);
+              pendingTokenTypesSyncRef.current = normalizedValue.join(',');
+              setSelectedTokenTypes(normalizedValue);
+            }}
+          />
+        </PageContent>
         <Box direction="row" gap="xlarge">
-          {['large', 'xlarge'].includes(breakpoint) ? (
+          {isDesktop ? (
             <Box
               flex="grow"
               style={{
@@ -165,21 +635,30 @@ const AllTokens = () => {
           ) : undefined}
           <PageContent pad="none" alignSelf="start">
             <Box pad="medium" round="xlarge" background="background-front">
-              <Box direction="row" align="center" gap="xsmall">
-                {!['large', 'xlarge'].includes(breakpoint) ? (
-                  <Button
-                    icon={<Menu />}
-                    a11yTitle="Open design tokens menu"
-                    margin={{ top: '3xsmall' }}
-                    onClick={() => setOpenLayer(true)}
-                  />
-                ) : undefined}
-                <Heading level={2} margin="none" id="token-table-heading">
-                  {activeCollection}
-                </Heading>
+              <Box gap="xsmall" margin={{ bottom: 'xsmall' }}>
+                <Box direction="row" align="center" gap="xsmall">
+                  {!isDesktop ? (
+                    <Button
+                      icon={<Menu />}
+                      a11yTitle="Open design tokens menu"
+                      margin={{ top: '3xsmall' }}
+                      onClick={() => setOpenLayer(true)}
+                    />
+                  ) : undefined}
+                  <Box gap="2xsmall">
+                    {activeCollectionLabel ? (
+                      <Text>
+                        {activeCollectionLabel}
+                      </Text>
+                    ) : undefined}
+                    <Heading level={2} margin="none" id="token-table-heading">
+                      {activeHeadingLabel}
+                    </Heading>
+                  </Box>
+                </Box>
               </Box>
               {/* eslint-disable-next-line no-nested-ternary */}
-              {active.includes('base') ? (
+              {!showHpeThemeEmptyState && active.includes('base') ? (
                 <Notification
                   status="warning"
                   message={`Base tokens should never be used directly. 
@@ -187,7 +666,7 @@ const AllTokens = () => {
                 These are here purely for documentation.`}
                   margin={{ top: 'xsmall' }}
                 />
-              ) : active.includes('static') ? (
+              ) : !showHpeThemeEmptyState && active.includes('static') ? (
                 <Notification
                   status="info"
                   message={`Static tokens should never be used to compose 
@@ -203,12 +682,22 @@ const AllTokens = () => {
                   ]}
                 />
               ) : undefined}
-              <DesignTokensTable
-                active={active}
-                data={data}
-                maxHeight={false}
-                toolbar
-              />
+              {showHpeThemeEmptyState ? (
+                <Notification
+                  status="info"
+                  message={`These tokens are managed for you by the theme.
+                    There is nothing you need to do on your end.`}
+                  margin={{ top: 'xsmall' }}
+                />
+              ) : (
+                <DesignTokensTable
+                  active={active}
+                  data={tableData}
+                  maxHeight={false}
+                  toolbar
+                  tokenTypeColumns={tokenTypeColumns}
+                />
+              )}
             </Box>
           </PageContent>
           {openLayer && (
