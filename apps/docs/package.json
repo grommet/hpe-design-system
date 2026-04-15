@@ -38,6 +38,7 @@
     "test:ci": "start-server-and-test 'pnpm next -p 3030' 3030 'testcafe chrome:headless'",
     "test:applitools": "start-server-and-test 'pnpm next -p 3030' 3030 'testcafe chrome:headless src/applitools/'",
     "test:windows": "start-server-and-test start-server 3030 \"testcafe chrome\"",
+    "generate:schemas": "node src/data/playground/scripts/generate-schemas.mjs",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
     "build-search": "node src/scripts/site-contents.mjs",
