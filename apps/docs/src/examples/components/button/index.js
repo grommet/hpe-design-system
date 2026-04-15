@@ -13,3 +13,8 @@ export * from './DosDonts';
 export * from './PrimaryButtonExample';
 export * from './SecondaryButtonExample';
 export * from './ToolbarButtonExample';
+export * from './ButtonSubmittingFormExample';
+export * from './ButtonStartingTaskWorkflowExample';
+export * from './ButtonTriggeringUIChangesExample';
+export * from './ButtonNavigatingProcessStepsExample';
+export * from './ButtonTogglingStatesExample';
