@@ -16,7 +16,7 @@ import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getPrimaryPageByName, structureIndexes } from '../../data';
 import { getRelatedContent } from '../../utils';
-// eslint-disable-next-line import/no-unresolved, import/extensions
+ 
 import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
