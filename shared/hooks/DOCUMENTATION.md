@@ -404,7 +404,7 @@ shared/hooks/
 │   └── __tests__/
 │       └── setup.ts          # Test environment setup
 ├── __tests__/
-│   ├── useInert.test.ts          # Tests for useInert
+│   ├── useInert.test.tsx          # Tests for useInert
 │   ├── useLocalStorage.test.ts   # Tests for useLocalStorage
 │   └── useSessionStorage.test.ts # Tests for useSessionStorage
 ├── dist/                      # Built JavaScript files (generated)
