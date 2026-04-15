@@ -29,6 +29,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build shared hooks
+        run: pnpm --filter "@shared/hooks" build
+
       - name: Validate docs structure data
         run: pnpm --filter docs validate:structure
 
@@ -63,6 +66,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build shared hooks
+        run: pnpm --filter "@shared/hooks" build
 
       - name: Build docs app
         run: pnpm --filter docs build
