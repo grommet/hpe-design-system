@@ -26,13 +26,16 @@ This package is part of the HPE Design System monorepo and is available as a wor
 
 ### useInert
 
-A React hook that disables focus for common interactive elements (`button`, `input`, `a`, `select`, `textarea`) within a container by setting `tabindex="-1"` on them. Useful for card previews and other non-interactive display components.
+A React hook that marks a container element as `inert`, blocking focus, pointer events, and assistive technology access for all descendants. Ideal for card previews and other non-interactive display surfaces.
 
 #### Features
 
-- **Targeted selector support**: Covers the most common focusable element types — `button`, `input`, `a`, `select`, and `textarea`
+- **Container-level inert behavior**: Sets `inert` on the container so all descendants are handled automatically
+- **Restores previous state on cleanup**: Captures the prior `inert` value and restores it on unmount
+- **No manual descendant management**: Applies automatically to all descendants via inherited inert behavior
 - **No external ref required**: The hook creates and owns the ref internally — no `useRef` needed at the call site
 - **Zero configuration**: Takes no parameters — returns a ref to attach to the container
+- **Accessibility semantics**: Uses the [`inert` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inert), which removes the container and its descendants from the tab order and accessibility tree while active.
 
 #### Usage
 
@@ -44,7 +47,7 @@ export const ComponentPreview = () => {
 
   return (
     <div ref={ref}>
-      {/* interactive elements inside will not be focusable */}
+      {/* Descendant interactive elements are disabled while the container is inert */}
     </div>
   );
 };
@@ -73,16 +76,6 @@ const ref = useInert();
 // Avoid — unnecessary manual ref management at the call site
 const ref = useRef(null);
 ```
-
-#### Elements covered
-
-The hook disables focus on the following element types:
-
-- `button`
-- `input`
-- `a` (anchor links)
-- `select`
-- `textarea`
 
 ### useLocalStorage
 
