@@ -18,6 +18,8 @@ This plan outlines the refactor of the HPE Design System component documentation
 - [ ] Temporarily rename the old MDX file (e.g., `apps/docs/src/pages/components/[name].mdx.bak`) to preserve specific Next.js page imports and frontmatter.
 - [ ] Run the generation prompt (`.github/prompts/generate-mdx.prompt.md`) in Copilot Chat.
 - [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports (such as `AccessibilitySection`), or frontmatter from the `.bak` file.
+- [ ] Switch to the **generate-examples** agent in Copilot Chat and type the component name to auto-implement use case examples and replace all TODO placeholders in the MDX.
+- [ ] Run `cd apps/docs && pnpm lint-fix` to auto-correct any line-length violations introduced by generated files before committing.
 - [ ] Delete the temporary `.bak` file to keep the repository clean.
 - [ ] Review copy against guidelines, note missing information or code example placeholders in `apps/docs/todos/TODO-[component].md`, and log any removed, unstructured legacy content in `apps/docs/todos/DEPRECATED-[component].md`.
 - [ ] Submit individual PRs (e.g., `docs: refactor [Component] component`).
@@ -32,7 +34,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 ## Verification
 
 - [ ] Build and run the Next.js `docs` app to verify that the newly generated MDX files render correctly and without errors.
-- [ ] Run the project formatter/linter over the generated MDX files to ensure trailing syntax errors aren't introduced.
+- [ ] Run `pnpm lint-fix` in `apps/docs` after the generate-examples agent runs to auto-fix line-length violations before committing (the ESLint pre-commit hook enforces an 80-char max-len rule and will block commits if violated).
 - [ ] Confirm the generated content strictly adheres to `writing-documentation.instruction.md` (e.g., imperative tone, concise bullet points instead of paragraphs).
 - [ ] Review the `TODO-[component].md` per PR to ensure no undocumented gaps slip through, and that code example placeholders are clear. Review `DEPRECATED-[component].md` to ensure valuable content wasn't lost. _Either resolve the missing documentation gaps directly during the PR, or translate the TODO list into tracking GitHub Issues to address them post-migration._
 
