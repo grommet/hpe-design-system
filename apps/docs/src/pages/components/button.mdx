@@ -25,6 +25,11 @@ import {
   PrimaryButtonExample,
   SecondaryButtonExample,
   ToolbarButtonExample,
+  ButtonSubmittingFormExample,
+  ButtonStartingTaskWorkflowExample,
+  ButtonTriggeringUIChangesExample,
+  ButtonNavigatingProcessStepsExample,
+  ButtonTogglingStatesExample,
 } from '../../examples';
 
 <Example
@@ -44,29 +49,41 @@ import {
 
 Buttons are the standard control for confirming and submitting user input. Place the affirmative action as a primary button and the dismissal action as a default button so the hierarchy is immediately clear.
 
-{/* TODO: Add a coded example that demonstrates submitting a form with a primary and default cancel button */}
+<Example height={{ min: 'medium' }}>
+  <ButtonSubmittingFormExample />
+</Example>
 
 ### Starting a task or workflow
 
 Use a button to open a creation dialog, launch a configuration wizard, or begin any sequence of steps. Label it with the action that follows (e.g., "Create device", "Deploy service").
 
-{/* TODO: Add a coded example that demonstrates a primary button starting a creation workflow */}
+<Example height={{ min: 'small' }}>
+  <ButtonStartingTaskWorkflowExample />
+</Example>
 
 ### Triggering UI changes
 
 Use a button — often icon-only — to show or hide content, open a drawer, expand a panel, or update the current view without navigating to a new URL.
 
-{/* TODO: Add a coded example that demonstrates an icon-only button triggering a UI change (e.g., opening a panel or drawer) */}
+<Example height={{ min: 'small' }}>
+  <ButtonTriggeringUIChangesExample />
+</Example>
 
 ### Navigating through process steps
 
 Within a wizard or multi-step flow, use buttons labeled "Next," "Back," or equivalent to advance or retreat through steps. These are in-page actions, not URL navigations — use `<Button>`, not `<Anchor>`.
 
+<Example height={{ min: 'medium' }}>
+  <ButtonNavigatingProcessStepsExample />
+</Example>
+
 ### Toggling between states
 
 Toggle buttons switch between two mutually exclusive states such as show/hide, on/off, or favorite/unfavorite. Use the `active` prop to convey the current state visually, and always supply `a11yTitle` or `aria-label` describing the resulting action.
 
-{/* TODO: Add a coded example that demonstrates a toggle button switching between two states with a dynamic aria-label */}
+<Example height={{ min: 'small' }}>
+  <ButtonTogglingStatesExample />
+</Example>
 
 ## Anatomy
 

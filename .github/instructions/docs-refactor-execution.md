@@ -60,6 +60,22 @@ Now we'll use Copilot to write the new Markdown based strictly on our new YAML d
 3. Save the Chat output to `apps/docs/src/pages/components/button.mdx`.
 4. **Merge from backup:** Open `.mdx.bak` and manually copy over any necessary Next.js file-routing imports, `<Layout>` wrappers, React component imports (like `<AccessibilitySection title="[Component]" />`), or frontmatter that were lost into the new `.mdx` file.
 
+### Step 5b: Generate use case examples
+
+The MDX produced in Step 5 contains `{/* TODO: ... */}` placeholders in every Use Case — these need live coded examples. The **generate-examples** agent automates this.
+
+1. In Copilot Chat, open the agent picker and switch to **generate-examples**.
+2. Type the component name (e.g. `Button`).
+3. The agent will:
+   - Create a `.js` example file for each TODO placeholder in the Use Cases section
+   - Register new files in the component's `index.js`
+   - Replace every TODO with a live `<Example>` block in the MDX
+4. After the agent finishes, run the linter to catch any line-length violations before committing:
+   ```bash
+   cd apps/docs && pnpm lint-fix
+   ```
+5. Refresh localhost and check the browser console for errors — especially `cloneElement`/`undefined children` errors — before proceeding.
+
 ### Step 6: Create TODO and DEPRECATED Files
 
 **Do this before deleting the `.bak`** — you need both files open side-by-side to do a proper diff.
@@ -68,7 +84,7 @@ These are **required outputs** for every component refactor, not optional. Even 
 
 1. **`apps/docs/todos/TODO-[component].md`** — Catalog every gap found during extraction:
    - Missing visual assets (e.g., anatomy diagram images that don't exist yet).
-   - Missing coded examples referenced in the YAML but without a corresponding file in `apps/docs/src/examples/components/`.
+   - Missing coded examples that the **generate-examples** agent could not implement (e.g., use cases too abstract to implement without design assets or research).
    - Props present in the upstream library (e.g., Grommet) but not documented in the YAML.
    - Behaviors or states mentioned in the original MDX but not captured in the new structure.
 
