@@ -204,38 +204,38 @@ describe('generatePostVariablesPayload', () => {
         action: 'CREATE',
         id: 'primitives',
         name: 'primitives',
-        initialModeId: 'mode1',
+        initialModeId: 'primitives::mode1',
       },
       {
         action: 'CREATE',
         id: 'tokens',
         name: 'tokens',
-        initialModeId: 'mode1',
+        initialModeId: 'tokens::mode1',
       },
     ]);
 
     expect(result.variableModes).toEqual([
       {
         action: 'UPDATE',
-        id: 'mode1',
+        id: 'primitives::mode1',
         name: 'mode1',
         variableCollectionId: 'primitives',
       },
       {
         action: 'CREATE',
-        id: 'mode2',
+        id: 'primitives::mode2',
         name: 'mode2',
         variableCollectionId: 'primitives',
       },
       {
         action: 'UPDATE',
-        id: 'mode1',
+        id: 'tokens::mode1',
         name: 'mode1',
         variableCollectionId: 'tokens',
       },
       {
         action: 'CREATE',
-        id: 'mode2',
+        id: 'tokens::mode2',
         name: 'mode2',
         variableCollectionId: 'tokens',
       },
@@ -293,25 +293,25 @@ describe('generatePostVariablesPayload', () => {
 
     expect(result.variableModeValues).toEqual([
       // primitives, mode1
-      { variableId: 'spacing/1', modeId: 'mode1', value: 8 },
-      { variableId: 'spacing/2', modeId: 'mode1', value: 16 },
+      { variableId: 'spacing/1', modeId: 'primitives::mode1', value: 8 },
+      { variableId: 'spacing/2', modeId: 'primitives::mode1', value: 16 },
       {
         variableId: 'color/brand/radish',
-        modeId: 'mode1',
+        modeId: 'primitives::mode1',
         value: { r: 1, g: 0.7450980392156863, b: 0.08627450980392157 },
       },
       {
         variableId: 'color/brand/pear',
-        modeId: 'mode1',
+        modeId: 'primitives::mode1',
         value: { r: 1, g: 0.7450980392156863, b: 0.08627450980392157 },
       },
 
       // primitives, mode2
-      { variableId: 'spacing/1', modeId: 'mode2', value: 8 },
-      { variableId: 'spacing/2', modeId: 'mode2', value: 16 },
+      { variableId: 'spacing/1', modeId: 'primitives::mode2', value: 8 },
+      { variableId: 'spacing/2', modeId: 'primitives::mode2', value: 16 },
       {
         variableId: 'color/brand/radish',
-        modeId: 'mode2',
+        modeId: 'primitives::mode2',
         value: {
           r: 0.00392156862745098,
           g: 0.00392156862745098,
@@ -320,7 +320,7 @@ describe('generatePostVariablesPayload', () => {
       },
       {
         variableId: 'color/brand/pear',
-        modeId: 'mode2',
+        modeId: 'primitives::mode2',
         value: {
           r: 0.00392156862745098,
           g: 0.00392156862745098,
@@ -331,24 +331,24 @@ describe('generatePostVariablesPayload', () => {
       // tokens, mode1
       {
         variableId: 'spacing/spacing-sm',
-        modeId: 'mode1',
+        modeId: 'tokens::mode1',
         value: { type: 'VARIABLE_ALIAS', id: 'spacing/1' },
       },
       {
         variableId: 'surface/surface-brand',
-        modeId: 'mode1',
+        modeId: 'tokens::mode1',
         value: { type: 'VARIABLE_ALIAS', id: 'color/brand/radish' },
       },
 
       // tokens, mode2
       {
         variableId: 'spacing/spacing-sm',
-        modeId: 'mode2',
+        modeId: 'tokens::mode2',
         value: { type: 'VARIABLE_ALIAS', id: 'spacing/1' },
       },
       {
         variableId: 'surface/surface-brand',
-        modeId: 'mode2',
+        modeId: 'tokens::mode2',
         value: { type: 'VARIABLE_ALIAS', id: 'color/brand/pear' },
       },
     ]);
@@ -500,26 +500,26 @@ describe('generatePostVariablesPayload', () => {
         action: 'CREATE',
         id: 'tokens',
         name: 'tokens',
-        initialModeId: 'mode1',
+        initialModeId: 'tokens::mode1',
       },
     ]);
 
     expect(result.variableModes).toEqual([
       {
         action: 'CREATE',
-        id: 'mode2',
+        id: 'primitives::mode2',
         name: 'mode2',
         variableCollectionId: 'VariableCollectionId:1:1',
       },
       {
         action: 'UPDATE',
-        id: 'mode1',
+        id: 'tokens::mode1',
         name: 'mode1',
         variableCollectionId: 'tokens',
       },
       {
         action: 'CREATE',
-        id: 'mode2',
+        id: 'tokens::mode2',
         name: 'mode2',
         variableCollectionId: 'tokens',
       },
@@ -561,11 +561,11 @@ describe('generatePostVariablesPayload', () => {
       },
 
       // primitives, mode2
-      { variableId: 'VariableID:2:1', modeId: 'mode2', value: 8 },
-      { variableId: 'VariableID:2:2', modeId: 'mode2', value: 16 },
+      { variableId: 'VariableID:2:1', modeId: 'primitives::mode2', value: 8 },
+      { variableId: 'VariableID:2:2', modeId: 'primitives::mode2', value: 16 },
       {
         variableId: 'VariableID:2:3',
-        modeId: 'mode2',
+        modeId: 'primitives::mode2',
         value: {
           r: 0.00392156862745098,
           g: 0.00392156862745098,
@@ -574,7 +574,7 @@ describe('generatePostVariablesPayload', () => {
       },
       {
         variableId: 'VariableID:2:4',
-        modeId: 'mode2',
+        modeId: 'primitives::mode2',
         value: {
           r: 0.00392156862745098,
           g: 0.00392156862745098,
@@ -585,24 +585,24 @@ describe('generatePostVariablesPayload', () => {
       // tokens, mode1
       {
         variableId: 'spacing/spacing-sm',
-        modeId: 'mode1',
+        modeId: 'tokens::mode1',
         value: { type: 'VARIABLE_ALIAS', id: 'VariableID:2:1' },
       },
       {
         variableId: 'surface/surface-brand',
-        modeId: 'mode1',
+        modeId: 'tokens::mode1',
         value: { type: 'VARIABLE_ALIAS', id: 'VariableID:2:3' },
       },
 
       // tokens, mode2
       {
         variableId: 'spacing/spacing-sm',
-        modeId: 'mode2',
+        modeId: 'tokens::mode2',
         value: { type: 'VARIABLE_ALIAS', id: 'VariableID:2:1' },
       },
       {
         variableId: 'surface/surface-brand',
-        modeId: 'mode2',
+        modeId: 'tokens::mode2',
         value: { type: 'VARIABLE_ALIAS', id: 'VariableID:2:4' },
       },
     ]);

@@ -32,6 +32,7 @@ This package supports two sync directions:
 
 - Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --output tokens`
 - tokens JSON to Figma: `pnpm sync-tokens-to-figma`
+- tokens JSON to Figma (progressive key discovery, dry-run first): `pnpm sync-tokens-to-figma-progressive`
 
 Both scripts read environment variables from the current shell environment.
 
@@ -40,13 +41,13 @@ For local development, do not store secrets in a repo-local `.env` file. Store `
 On macOS, you can store the token in Keychain and load it when needed:
 
 ```bash
-export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-pat -w)"
+export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-api-cli -w)"
 ```
 
 To store your Figma personal access token in Keychain for the first time (macOS):
 
 ```bash
-security add-generic-password -a "$USER" -s hpe-figma-pat -w <your-figma-token>
+security add-generic-password -a "$USER" -s hpe-figma-api-cli -w <your-figma-token>
 ```
 
 This creates a generic Keychain entry that you can retrieve securely without exposing the token in your shell history or configuration files.
@@ -66,6 +67,63 @@ The following are required for `sync-figma-to-tokens` and `sync-tokens-to-figma`
 - `FIGMA_PRIMITIVES_COLLECTION_KEY`: Expected remote collection key for `primitives`.
 - `FIGMA_GLOBAL_COLLECTION_KEY`: Expected remote collection key for `global`.
 
+For `sync-tokens-to-figma-progressive`, only `PERSONAL_ACCESS_TOKEN` is required up front. Missing `FILE_KEY_PRIMITIVE`, `FILE_KEY_SEMANTIC`, and `FILE_KEY_COMPONENT` are discovered interactively at runtime and can be skipped per role.
+
+### Progressive Sync (tokens -> Figma)
+
+Use the progressive script when file keys may be missing or when you want a safe default dry-run:
+
+```bash
+cd packages/hpe-design-tokens
+pnpm sync-tokens-to-figma-progressive
+```
+
+Behavior summary:
+
+- Runs in dry-run mode by default.
+- Prompts for missing or invalid role file keys (`primitive`, `semantic`, `component`).
+- Accepts either a raw file key or a full Figma `/file/` or `/design/` URL.
+- Auto-creates missing variable collections and modes from token files.
+- Keeps strict role mapping (primitive tokens sync to primitive file, etc.).
+- Prints `export FILE_KEY_*=` lines so you can persist discovered keys manually.
+
+Apply changes to Figma only when ready:
+
+```bash
+cd packages/hpe-design-tokens
+pnpm sync-tokens-to-figma-progressive -- --apply
+```
+
+Optional flags:
+
+- `--role=primitive|semantic|component`: sync only one role.
+- `--non-interactive`: do not prompt; skip roles with missing/invalid keys.
+- `--single-file=<key|url>`: push all collections into one Figma file (see below).
+
+### Single-file mode (disposable test environments)
+
+When creating fresh Figma files for token validation, use `--single-file` instead of separate per-role file keys.
+
+```bash
+cd packages/hpe-design-tokens
+pnpm sync-tokens-to-figma-progressive -- --single-file=<figma-file-key>
+pnpm sync-tokens-to-figma-progressive -- --single-file=<figma-file-key> --apply
+```
+
+In single-file mode all collections — `primitives`, `color`, `dimension`, `global`, `component`, `element` — are merged into one combined payload and pushed to a single Figma file. Cross-collection aliases resolve within the payload via temp IDs without requiring library subscriptions between files.
+
+This mode is ideal for:
+- Creating disposable test environments for surface token validation.
+- Populating a fresh file from scratch without touching production libraries.
+- Validating that `hiddenFromPublishing`, `scopes`, and `codeSyntax` are set correctly on variables.
+
+To create a fresh test file:
+1. Create a new blank Figma file and copy its file key.
+2. Run dry-run to preview changes: `pnpm sync-tokens-to-figma-progressive -- --single-file=<key>`
+3. Apply when ready: `pnpm sync-tokens-to-figma-progressive -- --single-file=<key> --apply`
+
+**Note on multi-file mode and library subscriptions:** The per-role mode (`FILE_KEY_PRIMITIVE/SEMANTIC/COMPONENT`) requires that library subscriptions are already configured in Figma between the files. The semantic file must subscribe to the primitive library and the component file must subscribe to both. These subscriptions are set up in the Figma UI under Team Libraries. Once subscribed, the existing variables appear in each file's local variables response with `remote: true` and cross-file aliases resolve correctly.
+
 Collection keys are used by reference validation in `verifyReferences` to detect invalid cross-file references.
 
 ### How To Source Values
@@ -82,7 +140,7 @@ Example command to distinguish collection instances across files:
 ```bash
 cd packages/hpe-design-tokens
 
-export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-pat -w)"
+export PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a "$USER" -s hpe-figma-api-cli -w)"
 source ~/hpe-design-tokens.local.sh
 
 {

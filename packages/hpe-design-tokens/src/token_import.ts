@@ -252,6 +252,10 @@ function collectionAndModeFromFileName(fileName: string) {
   return { collectionName, modeName };
 }
 
+function tempModeId(collectionName: string, modeName: string) {
+  return `${collectionName}::${modeName}`;
+}
+
 function variableResolvedTypeFromToken(token: Token) {
   switch (token.$type) {
     case 'color':
@@ -448,6 +452,7 @@ function tokenAndVariableDifferences(token: Token, variable: Variable | null) {
 export function generatePostVariablesPayload(
   tokensByFile: FlattenedTokensByFile,
   localVariables: ApiGetLocalVariablesResponse,
+  crossFileVariables: ApiGetLocalVariablesResponse[] = [],
 ) {
   const localVariableCollectionsByName: { [name: string]: VariableCollection } =
     {};
@@ -486,6 +491,27 @@ export function generatePostVariablesPayload(
     ] = variable;
   });
 
+  // Merge variables from other Figma files so aliases that cross file
+  // boundaries (e.g. semantic → primitive) resolve to real IDs rather than
+  // falling through to unresolvable temp strings.
+  crossFileVariables.forEach(crossFile => {
+    Object.values(crossFile.meta.variables).forEach(variable => {
+      if (!localVariablesByCollectionAndName[variable.variableCollectionId]) {
+        localVariablesByCollectionAndName[variable.variableCollectionId] = {};
+      }
+      // Only add if not already present (local file takes precedence).
+      if (
+        !localVariablesByCollectionAndName[variable.variableCollectionId][
+          variable.name
+        ]
+      ) {
+        localVariablesByCollectionAndName[variable.variableCollectionId][
+          variable.name
+        ] = variable;
+      }
+    });
+  });
+
   console.log(
     'Local variable collections in Figma file:',
     Object.keys(localVariableCollectionsByName),
@@ -510,8 +536,10 @@ export function generatePostVariablesPayload(
     const variableMode = variableCollection?.modes.find(
       mode => mode.name === modeName,
     );
-    // Use the actual mode id or use the name as the temporary id
-    const modeId = variableMode ? variableMode.modeId : modeName;
+    // Use the actual mode id or a collection-scoped temporary id
+    const modeId = variableMode
+      ? variableMode.modeId
+      : tempModeId(collectionName, modeName);
 
     if (
       !variableCollection &&
@@ -530,7 +558,7 @@ export function generatePostVariablesPayload(
       postVariablesPayload.variableModes!.push({
         action: 'UPDATE',
         id: modeId,
-        name: modeId,
+        name: modeName,
         variableCollectionId,
       });
     }
@@ -546,7 +574,7 @@ export function generatePostVariablesPayload(
       postVariablesPayload.variableModes!.push({
         action: 'CREATE',
         id: modeId,
-        name: modeId,
+        name: modeName,
         variableCollectionId,
       });
     }
