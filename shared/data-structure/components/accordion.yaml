@@ -1,0 +1,197 @@
+id: accordion
+name: Accordion
+description: >
+  Organizes content into vertically stacked, collapsible panels with labeled
+  headers. Each panel can be expanded to reveal its content or collapsed to
+  hide it, helping users navigate large amounts of information in limited
+  vertical space.
+importPath: grommet
+framework: react
+
+props:
+  - name: activeIndex
+    type: number | number[]
+    required: false
+    description: >
+      Controls which panel(s) are expanded. Use a single number for
+      single-panel mode or an array for multi-panel mode.
+  - name: animate
+    type: boolean
+    required: false
+    defaultValue: true
+    description: >
+      Enables an animation when panels expand or collapse.
+  - name: multiple
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Allows more than one panel to be open simultaneously. By default
+      only one panel can be open at a time.
+  - name: onActive
+    type: (activeIndex) => void
+    required: false
+    description: >
+      Callback fired when the active panel changes. Receives the index
+      or array of indices of the newly active panel(s).
+  - name: children
+    type: AccordionPanel | AccordionPanel[]
+    required: true
+    description: One or more AccordionPanel components to render as collapsible sections.
+
+subcomponentProps:
+  - component: AccordionPanel
+    props:
+      - name: label
+        type: string | React.ReactNode
+        required: true
+        description: >
+          The header text or node displayed when the panel is collapsed.
+          Keep labels short and descriptive — they are the user's only
+          guide to what the panel contains.
+      - name: children
+        type: React.ReactNode
+        required: false
+        description: Content revealed when the panel is expanded.
+      - name: header
+        type: React.ReactNode
+        required: false
+        description: >
+          Replaces the default label and chevron with a fully custom header.
+          Use only when the default header cannot meet the design requirement.
+
+usage:
+  whenToUse:
+    - Progressively disclosing detailed content
+    - Organizing reference content into named sections
+    - Reducing page length without sacrificing content access
+
+  whenToAvoid:
+    - Do not use Accordion when the user needs to compare content across
+      panels — keeping all panels visible is better in that case.
+    - Do not use Accordion for critical information the user must read —
+      hidden content is easy to miss.
+    - Do not use Accordion when the page has only one or two sections — a
+      flat layout is simpler and less work for the user.
+
+variants:
+  - name: default
+    description: >
+      Single-panel mode where only one AccordionPanel can be open at a
+      time. The default behavior is for all panels to start collapsed.
+    when: >
+      Use when the panels represent mutually exclusive sections and the
+      user is unlikely to need to compare content across them.
+    example: >
+      <Accordion>
+        <AccordionPanel label="Panel 1">Content 1</AccordionPanel>
+        <AccordionPanel label="Panel 2">Content 2</AccordionPanel>
+      </Accordion>
+
+  - name: multiple
+    description: >
+      Multi-panel mode where any number of AccordionPanels can be open
+      simultaneously.
+    when: >
+      Use when users may need to view content from more than one panel
+      at the same time, or when panels are independent reference sections.
+
+examples:
+  - description: Default accordion with collapsed panels
+    codeFile: >
+      apps/docs/src/examples/components/accordion/AccordionExample.js
+
+anatomy:
+  - label: "1"
+    region: Accordion container
+    purpose: >
+      Groups all AccordionPanel children into a stacked vertical layout.
+    availability: required
+  - label: "2"
+    region: Panel header
+    purpose: >
+      Clickable row containing the label and chevron icon. Activates
+      expand or collapse on click or keyboard activation.
+    availability: required
+  - label: "2a"
+    region: Label
+    purpose: >
+      Short, descriptive title communicating the topic of the panel's
+      content.
+    availability: required
+    notes: Keep labels concise — they are the user's only navigation aid.
+  - label: "2b"
+    region: Chevron icon
+    purpose: >
+      Visual indicator of the panel's expand/collapse state. Points down
+      when collapsed, up when expanded.
+    availability: required
+  - label: "3"
+    region: Panel content
+    purpose: >
+      The collapsible area that reveals the panel's body content when
+      the panel is expanded.
+    availability: optional
+    notes: Only rendered when the panel is in the expanded state.
+
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+  applicationStates:
+    - collapsed
+    - expanded
+
+contentGuidelines:
+  - Keep panel labels short and descriptive — they are the user's primary
+    navigation aid when all panels are collapsed.
+  - Avoid lengthy panel body content. If a panel's content requires
+    significant scrolling, consider restructuring the page.
+  - Use sentence case for panel labels.
+  - Do not use labels like "Click here" or "More info" — labels must
+    communicate the topic of the content.
+
+dosAndDonts:
+  - do: >
+      Keep one panel open at a time by default so users are not
+      overwhelmed by content on load.
+    dont: >
+      Open all panels by default — it defeats the purpose of the
+      accordion and overloads the user with content.
+  - do: >
+      Write short, descriptive labels so users can predict what is inside
+      each panel before expanding it.
+    dont: >
+      Use vague labels like "More" or "Details" — users cannot navigate
+      to the content they need.
+
+accessibility:
+  keyboard:
+    - key: Enter / Space
+      action: Toggles the focused panel between expanded and collapsed.
+    - key: Tab
+      action: Moves focus to the next interactive element (next panel header or outside the accordion).
+    - key: Shift + Tab
+      action: Moves focus to the previous interactive element.
+  aria:
+    - attribute: aria-expanded
+      value: "true | false"
+      condition: >
+        Set on each panel header button. Reflects whether the panel's
+        content region is currently visible.
+    - attribute: aria-controls
+      value: "[panel-content-id]"
+      condition: Always present on each panel header button.
+  wcag:
+    - criterion: 1.3.1 Info and Relationships
+      status: pass
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 4.1.2 Name, Role, Value
+      status: pass
+
+relatedComponents:
+  - Tabs
+  - Layer

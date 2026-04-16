@@ -1,5 +1,12 @@
-import { AccessibilitySection, Example } from '../../layouts';
-import { AccordionExample } from '../../examples';
+import { AccessibilitySection, BestPracticeGroup, Example } from '../../layouts';
+import { Checkmark } from '@hpe-design/icons-grommet';
+import {
+  AccordionExample,
+  AccordionMultiplePanelsExample,
+  AccordionOrganizingReferenceContentExample,
+  AccordionProgressivelyDisclosingExample,
+  AccordionReducingPageLengthExample,
+} from '../../examples';
 
 <Example
   componentName="Accordion"
@@ -12,32 +19,141 @@ import { AccordionExample } from '../../examples';
   <AccordionExample />
 </Example>
 
-## Guidance
+## Use cases
 
-When seeking to provide maximum content in limited, vertical space, an accordion is a good choice.
+### Progressively disclosing detailed content
 
-An accordion is a group of vertically stacked collapsible buttons with title headers. The titles give the user a high-level idea of what content will be disclosed when an accordion panel opens.
+Use Accordion when a page contains multiple sections of supporting detail
+that most users don't need to read in full. Collapsing content by default
+keeps the page scannable and lets users choose what to expand.
 
-Accordions help organize information, which helps the user consume the information they need at a faster pace.
+<Example height={{ min: 'small' }}>
+  <AccordionProgressivelyDisclosingExample />
+</Example>
 
-### About accordion
+### Organizing reference content into named sections
 
-Accordion has two states:
+Use Accordion to divide a long reference page — such as a settings panel,
+help article, or configuration guide — into clearly labeled sections.
+Users can jump directly to the section they need without scrolling past
+irrelevant content.
 
-- Collapsed
-- Expanded
+<Example height={{ min: 'small' }}>
+  <AccordionOrganizingReferenceContentExample />
+</Example>
 
-**The chevron icon** is used to identify the expand or collapse action while the entire header can be clicked to expand or collapse content.
+### Reducing page length without sacrificing content access
 
-**The default behavior** is for all of the panels to be closed, with the user only having visual to the heading.
+Use Accordion when vertical space is constrained but all content must
+remain accessible. Collapsed panels preserve access to every section
+while keeping the visible page short.
 
-**The accordion labels** should be kept short and to the point of the information following in each panel. Lengthy panel content will want to be avoided.
+<Example height={{ min: 'small' }}>
+  <AccordionReducingPageLengthExample />
+</Example>
+
+## Anatomy
+
+{/* TODO: Insert anatomy diagram image here */}
+
+| Label | Region | Purpose | Required | Notes |
+| :---: | --- | --- | :---: | --- |
+| **1** | **Accordion container** | Groups all AccordionPanel children into a stacked vertical layout. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **2** | **Panel header** | Clickable row containing the label and chevron icon. Activates expand or collapse on click or keyboard activation. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **2a** | **Label** | Short, descriptive title communicating the topic of the panel's content. | <span><Checkmark a11yTitle="true" size="small" /></span> | Keep labels concise — they are the user's only navigation aid. |
+| **2b** | **Chevron icon** | Visual indicator of the panel's expand/collapse state. Points down when collapsed, up when expanded. | <span><Checkmark a11yTitle="true" size="small" /></span> | |
+| **3** | **Panel content** | The collapsible area that reveals the panel's body content when the panel is expanded. | Optional | Only rendered when the panel is in the expanded state. |
+
+## Variants
+
+### Default
+
+By default, only one panel can be open at a time. All panels start
+collapsed, giving users a high-level overview of available sections before
+they choose what to expand.
+
+<Example
+  docs="https://v2.grommet.io/accordion#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/accordion/AccordionExample.js"
+  height={{ min: 'small' }}
+>
+  <AccordionExample />
+</Example>
+
+### Multiple panels open
+
+Set `multiple` to allow users to expand more than one panel simultaneously.
+Use when panels are independent reference sections and the user may need
+to compare content across them.
+
+<Example height={{ min: 'small' }}>
+  <AccordionMultiplePanelsExample />
+</Example>
+
+## Behaviors and States
+
+### Interactive states
+
+- **Rest** — panel header at its default appearance; chevron points down.
+- **Hover** — subtle background change to indicate the header is interactive.
+- **Focus** — visible focus ring on the panel header for keyboard navigation.
+- **Active** — pressed state during click or keyboard activation.
+
+### Application states
+
+- **Collapsed** — default state; panel content is hidden and the chevron points down.
+- **Expanded** — panel content is visible and the chevron points up.
+
+## Content Guidelines
+
+- Keep panel labels short and descriptive — they are the user's primary navigation aid when all panels are collapsed.
+- Avoid lengthy panel body content. If a panel's content requires significant scrolling, consider restructuring the page.
+- Use sentence case for panel labels.
+- Never use labels like "Click here" or "More info" — labels must communicate the topic of the content.
+
+## Dos and Don'ts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice="do"
+    message="Keep one panel open at a time by default so users are not overwhelmed by content on load."
+  >
+    <div>{/* TODO: Example showing accordion with a single panel open */}</div>
+  </Example>
+  <Example
+    bestPractice="dont"
+    message="Open all panels by default — it defeats the purpose of the accordion and overloads the user with content."
+  >
+    <div>{/* TODO: Example showing accordion with all panels forced open */}</div>
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice="do"
+    message="Write short, descriptive labels so users can predict what is inside each panel before expanding it."
+  >
+    <div>{/* TODO: Example showing accordion with clear, descriptive panel labels */}</div>
+  </Example>
+  <Example
+    bestPractice="dont"
+    message="Use vague labels like &quot;More&quot; or &quot;Details&quot; — users cannot navigate to the content they need."
+  >
+    <div>{/* TODO: Example showing accordion with unhelpful panel labels */}</div>
+  </Example>
+</BestPracticeGroup>
 
 ## Accessibility
 
-Buttons are used for the accordion panels which makes them accessible by screen readers and keyboard. Having a very descriptive heading label helps so the user gets to the content section they are interested in faster. Users are able to click anywhere within the panel heading for the state to change to expanded.
+Use descriptive `label` values on each `AccordionPanel` — the label is
+announced by screen readers as the button name, and is the user's only
+context for what the panel contains before expanding it. Buttons are used
+for accordion panel headers, making them keyboard and screen reader
+accessible by default.
 
-To help with readability, accordions should only have one panel open at a time.
+To aid readability, allow only one panel to be open at a time unless the
+user has a clear need to compare content across panels.
+
 ### WCAG compliance
 
 <AccessibilitySection title='accordion' />
