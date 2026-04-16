@@ -75,7 +75,9 @@ const getTokenColumn = (property, header) => ({
         round="xsmall"
         style={{ fontFamily: 'Menlo' }}
       >
-        <Text size="xsmall">{datum[property] || '--'}</Text>
+        <Text size="xsmall" style={{ whiteSpace: 'nowrap' }}>
+          {datum[property] || '--'}
+        </Text>
       </Box>
     </Box>
   ),
@@ -84,13 +86,14 @@ const getTokenColumn = (property, header) => ({
 const descriptionColumn = {
   property: 'description',
   header: 'Description',
-  size: 'medium',
+  size: 'large',
   render: datum => <Text>{datum.description ? datum.description : '--'}</Text>,
 };
 
 const valueColumn = {
   property: 'value',
   header: 'Output value',
+  render: datum => <Text style={{ whiteSpace: 'nowrap' }}>{datum.value}</Text>,
 };
 
 export const DesignTokensTable = ({
@@ -207,6 +210,7 @@ export const DesignTokensTable = ({
           verticalAlign="top"
           primaryKey="id"
           columns={columns}
+          style={{ minWidth: 'max-content' }}
         />
       </Box>
     </Data>

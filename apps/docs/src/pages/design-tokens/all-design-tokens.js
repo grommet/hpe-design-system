@@ -223,8 +223,7 @@ const getHpeThemeDisplayToken = (token, category) => {
 
 const tokenTypesStorageKey = 'designTokens.tokenTypes';
 
-const getSingleQueryValue = value =>
-  Array.isArray(value) ? value[0] : value;
+const getSingleQueryValue = value => (Array.isArray(value) ? value[0] : value);
 
 const normalizeTokenTypes = value => {
   if (!Array.isArray(value)) return ['docs'];
@@ -249,9 +248,8 @@ const getInitialTokenTypes = () => {
 const AllTokens = () => {
   const router = useRouter();
   const [openLayer, setOpenLayer] = useState(false);
-  const [selectedTokenTypes, setSelectedTokenTypes] = useState(
-    getInitialTokenTypes,
-  );
+  const [selectedTokenTypes, setSelectedTokenTypes] =
+    useState(getInitialTokenTypes);
   const [isUrlSyncReady, setIsUrlSyncReady] = useState(false);
   const pendingTokenTypesSyncRef = useRef('');
   const pendingModeSyncRef = useRef('');
@@ -360,16 +358,29 @@ const AllTokens = () => {
       : activeParts[0] || 'Design tokens';
   const activeCollectionKey = activeParts[0] || '';
   const activeCategoryKey = activeParts[1] || '';
-  const showThemeManagedEmptyState =
+  const showHpeThemeManagedEmptyState =
     selectedTokenTypes.length === 1 &&
     primaryTokenType === 'hpeTheme' &&
     ['component', 'primitives'].includes(activeCollectionKey);
-  const showThemeCategoryEmptyState =
+  const showHpeThemeCategoryEmptyState =
     selectedTokenTypes.length === 1 &&
     primaryTokenType === 'hpeTheme' &&
     ['focusIndicator', 'fontStack'].includes(activeCategoryKey);
-  const showHpeThemeEmptyState =
-    showThemeManagedEmptyState || showThemeCategoryEmptyState;
+  const showFigmaManagedEmptyState =
+    selectedTokenTypes.length === 1 &&
+    primaryTokenType === 'figma' &&
+    ['component', 'primitives'].includes(activeCollectionKey);
+  const showFigmaCategoryEmptyState =
+    selectedTokenTypes.length === 1 &&
+    primaryTokenType === 'figma' &&
+    ['focusIndicator'].includes(activeCategoryKey);
+  const isFigmaManagedEmptyState =
+    showFigmaManagedEmptyState || showFigmaCategoryEmptyState;
+  const showManagedEmptyState =
+    showHpeThemeManagedEmptyState ||
+    showHpeThemeCategoryEmptyState ||
+    showFigmaManagedEmptyState ||
+    showFigmaCategoryEmptyState;
 
   const tableData = useMemo(() => {
     const [activeCollectionName, activeCategoryName] = displayActive.split('.');
@@ -425,6 +436,13 @@ const AllTokens = () => {
               activeCategoryKey,
             );
           }
+        } else if (
+          type === 'figma' &&
+          selectedTokenTypes.length > 1 &&
+          (['component', 'primitives'].includes(activeCollectionKey) ||
+            activeCategoryKey === 'focusIndicator')
+        ) {
+          tokenValue = '--';
         }
 
         if (!rowsByToken.has(canonicalToken)) {
@@ -606,20 +624,6 @@ const AllTokens = () => {
   return (
     <DesignTokenContext.Provider value={contextValue}>
       <Page>
-        <PageContent pad={{ top: 'none', bottom: 'small' }} alignSelf="start">
-          <ToggleGroup
-            a11yTitle="Select token types to compare"
-            multiple
-            options={tokenTypeOptions}
-            value={selectedTokenTypes}
-            onToggle={({ value }) => {
-              const nextValue = Array.isArray(value) ? value : [value];
-              const normalizedValue = normalizeTokenTypes(nextValue);
-              pendingTokenTypesSyncRef.current = normalizedValue.join(',');
-              setSelectedTokenTypes(normalizedValue);
-            }}
-          />
-        </PageContent>
         <Box direction="row" gap="xlarge">
           {isDesktop ? (
             <Box
@@ -635,6 +639,21 @@ const AllTokens = () => {
           ) : undefined}
           <PageContent pad="none" alignSelf="start">
             <Box pad="medium" round="xlarge" background="background-front">
+              <Box margin={{ bottom: 'medium' }}>
+                <ToggleGroup
+                  a11yTitle="Select token types to compare"
+                  multiple
+                  options={tokenTypeOptions}
+                  value={selectedTokenTypes}
+                  onToggle={({ value }) => {
+                    const nextValue = Array.isArray(value) ? value : [value];
+                    const normalizedValue = normalizeTokenTypes(nextValue);
+                    pendingTokenTypesSyncRef.current =
+                      normalizedValue.join(',');
+                    setSelectedTokenTypes(normalizedValue);
+                  }}
+                />
+              </Box>
               <Box gap="xsmall" margin={{ bottom: 'xsmall' }}>
                 <Box direction="row" align="center" gap="xsmall">
                   {!isDesktop ? (
@@ -647,9 +666,7 @@ const AllTokens = () => {
                   ) : undefined}
                   <Box gap="2xsmall">
                     {activeCollectionLabel ? (
-                      <Text>
-                        {activeCollectionLabel}
-                      </Text>
+                      <Text>{activeCollectionLabel}</Text>
                     ) : undefined}
                     <Heading level={2} margin="none" id="token-table-heading">
                       {activeHeadingLabel}
@@ -658,7 +675,7 @@ const AllTokens = () => {
                 </Box>
               </Box>
               {/* eslint-disable-next-line no-nested-ternary */}
-              {!showHpeThemeEmptyState && active.includes('base') ? (
+              {!showManagedEmptyState && active.includes('base') ? (
                 <Notification
                   status="warning"
                   message={`Base tokens should never be used directly. 
@@ -666,7 +683,7 @@ const AllTokens = () => {
                 These are here purely for documentation.`}
                   margin={{ top: 'xsmall' }}
                 />
-              ) : !showHpeThemeEmptyState && active.includes('static') ? (
+              ) : !showManagedEmptyState && active.includes('static') ? (
                 <Notification
                   status="info"
                   message={`Static tokens should never be used to compose 
@@ -682,11 +699,16 @@ const AllTokens = () => {
                   ]}
                 />
               ) : undefined}
-              {showHpeThemeEmptyState ? (
+              {showManagedEmptyState ? (
                 <Notification
                   status="info"
-                  message={`These tokens are managed for you by the theme.
-                    There is nothing you need to do on your end.`}
+                  message={
+                    isFigmaManagedEmptyState
+                      ? `These tokens are managed for you by figma.
+                    There is nothing you need to do on your end.`
+                      : `These tokens are managed for you by the theme.
+                    There is nothing you need to do on your end.`
+                  }
                   margin={{ top: 'xsmall' }}
                 />
               ) : (
