@@ -4,3 +4,6 @@ export * from './CheckBoxSimpleExample';
 export * from './CheckBoxSolelyExample';
 export * from './CheckBoxToggleExample';
 export * from './CheckBoxValidationExample';
+export * from './CheckBoxOptingIntoAgreementExample';
+export * from './CheckBoxSelectingOptionsExample';
+export * from './CheckBoxControllingContentVisibilityExample';

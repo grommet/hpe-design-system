@@ -1,0 +1,251 @@
+id: checkbox
+name: CheckBox
+description: >
+  Allows a user to select one or more options from a set, opt into an
+  agreement, or toggle a feature on or off. Distinct from RadioButtonGroup,
+  which restricts selection to a single option.
+importPath: grommet
+framework: react
+
+props:
+  - name: label
+    type: string | React.ReactNode
+    required: false
+    description: >
+      Text or node displayed next to the checkbox. Should clearly describe
+      the purpose of the option.
+  - name: checked
+    type: boolean
+    required: false
+    defaultValue: false
+    description: Whether the checkbox is checked.
+  - name: onChange
+    type: (event) => void
+    required: false
+    description: Callback fired when the user changes the checked state.
+  - name: disabled
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Prevents interaction and visually communicates the unavailable state.
+  - name: toggle
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Renders the checkbox as a toggle switch. Use when the option
+      provides an immediate on/off effect without requiring form submission.
+  - name: indeterminate
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Represents a partially-selected state, used when the checkbox acts
+      as a parent to a list of child checkboxes where only a subset are
+      checked.
+  - name: name
+    type: string
+    required: false
+    description: >
+      HTML name attribute. Required when using CheckBox inside a Form to
+      ensure the value is included in form submission.
+  - name: id
+    type: string
+    required: false
+    description: >
+      HTML id attribute. Required when using CheckBox inside a FormField
+      to associate the label with the input via htmlFor.
+  - name: reverse
+    type: boolean
+    required: false
+    defaultValue: false
+    description: >
+      Places the label before the checkbox (or toggle). Preferred when
+      toggles appear in a list — put the label on the left and the
+      toggle on the right.
+  - name: pad
+    type: string | object
+    required: false
+    description: >
+      Controls internal padding. Pass "none" when using CheckBox outside
+      a FormField to remove default spacing.
+
+usage:
+  whenToUse:
+    - Opting into an agreement or acknowledgement
+    - Selecting one or more options from a list
+    - Controlling page content visibility
+    - Switching a feature on or off with a toggle
+
+  whenToAvoid:
+    - Do not use CheckBox when only one option can be selected from a list —
+      use RadioButtonGroup instead.
+    - Do not use a standalone CheckBox without a visible label or accessible
+      alternative — every checkbox must communicate its purpose.
+    - Do not use a toggle when the action requires form submission to take
+      effect — use a standard CheckBox instead, since toggles imply
+      immediate results.
+
+variants:
+  - name: default
+    description: Standard checkbox inside a FormField with a label.
+    when: >
+      The user must choose one or more options as part of a form. Always
+      place inside a FormField so the label is properly associated.
+    example: >
+      <CheckBox
+        name="checkbox"
+        label="Choice"
+        id="checkbox"
+        checked={checked}
+        onChange={e => setChecked(e.target.checked)}
+      />
+
+  - name: with-description
+    description: Checkbox with a supplementary description provided via FormField help.
+    when: >
+      The option requires additional context to help the user make an
+      informed decision.
+
+  - name: toggle
+    description: >
+      Renders as a toggle switch, conveying an immediate on/off state
+      change without form submission.
+    when: >
+      The user is switching a single feature or preference on or off
+      and the result takes effect immediately.
+
+  - name: disabled
+    description: Visually communicates that the checkbox cannot be interacted with.
+    when: >
+      The option is unavailable due to permissions, system state, or a
+      dependency on another action the user has not yet completed.
+
+  - name: validation
+    description: >
+      Displays an error state when the checkbox does not satisfy the
+      validation requirements of its bounding FormField.
+    when: >
+      The checkbox is required and the user attempts to submit the form
+      without checking it.
+
+  - name: indeterminate
+    description: >
+      Represents that only a subset of child options are selected,
+      used in parent-child selection hierarchies.
+    when: >
+      The checkbox acts as a "Select all" control for a group where
+      some but not all child items are checked.
+
+examples:
+  - description: Simple checkbox inside a FormField
+    codeFile: >
+      apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js
+  - description: Checkbox with a description
+    codeFile: >
+      apps/docs/src/examples/components/checkbox/CheckBoxDescriptionExample.js
+  - description: Toggle variant
+    codeFile: >
+      apps/docs/src/examples/components/checkbox/CheckBoxToggleExample.js
+  - description: Validation state
+    codeFile: >
+      apps/docs/src/examples/components/checkbox/CheckBoxValidationExample.js
+  - description: Disabled state
+    codeFile: >
+      apps/docs/src/examples/components/checkbox/CheckBoxDisabledExample.js
+  - description: Checkbox used outside a FormField
+    codeFile: >
+      apps/docs/src/examples/components/checkbox/CheckBoxSolelyExample.js
+
+anatomy:
+  - label: "1"
+    region: Checkbox container
+    purpose: >
+      Wraps the input and label, delivering the interaction target and
+      establishing the component boundary.
+    availability: required
+  - label: "1a"
+    region: Input control
+    purpose: >
+      The visual indicator that conveys checked, unchecked, or
+      indeterminate state.
+    availability: required
+  - label: "1b"
+    region: Label
+    purpose: >
+      Communicates the meaning of the option in plain language.
+    availability: optional
+    notes: >
+      Required unless an accessible label is provided through another
+      means (e.g., aria-label). Omitting the label without an
+      alternative violates accessibility requirements.
+  - label: "1c"
+    region: Description
+    purpose: >
+      Provides supplementary context about the option via FormField help.
+    availability: optional
+
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+    - checked
+    - unchecked
+  applicationStates:
+    - disabled
+    - indeterminate
+    - error
+
+dosAndDonts:
+  - do: >
+      Use CheckBox inside a FormField so the label is properly associated
+      with the input for assistive technologies.
+    dont: >
+      Use a CheckBox without a visible label or accessible alternative —
+      always communicate the purpose of the option.
+  - do: >
+      Use a toggle when the action takes effect immediately (e.g.,
+      enabling dark mode, activating a feature flag).
+    dont: >
+      Use a toggle when the user must submit a form to apply the change —
+      use a standard CheckBox instead.
+  - do: >
+      Use RadioButtonGroup when only one option may be selected from
+      a list.
+    dont: >
+      Use CheckBox when the interaction is single-select — it implies
+      multi-select to the user.
+
+accessibility:
+  keyboard:
+    - key: Space
+      action: Toggles the checked state of the focused checkbox.
+    - key: Tab
+      action: Moves focus to the next interactive element.
+    - key: Shift + Tab
+      action: Moves focus to the previous interactive element.
+  aria:
+    - attribute: aria-checked
+      value: "true | false | mixed"
+      condition: >
+        Always present. Use "mixed" for the indeterminate state.
+    - attribute: aria-disabled
+      value: "true"
+      condition: When the disabled prop is set.
+  wcag:
+    - criterion: 1.3.1 Info and Relationships
+      status: pass
+    - criterion: 1.4.3 Contrast (Minimum)
+      status: pass
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 4.1.2 Name, Role, Value
+      status: pass
+
+relatedComponents:
+  - CheckBoxGroup
+  - RadioButtonGroup
+  - FormField
