@@ -5,6 +5,7 @@ import tseslint from 'typescript-eslint';
 import { reactRefresh } from 'eslint-plugin-react-refresh';
 import reactHooks from 'eslint-plugin-react-hooks';
 import storybook from 'eslint-plugin-storybook';
+import { sharedBaseRules } from '../../eslint.shared.mjs';
 
 export default defineConfig(
     { ignores: ['dist', 'eslint.config.mjs'] },
@@ -39,6 +40,7 @@ export default defineConfig(
     {
         name: "override-rules",
         rules: {
+            ...sharedBaseRules,
             '@typescript-eslint/no-explicit-any': 'off',
             'react-hooks/immutability': 'off',
             'react-hooks/set-state-in-effect': 'off',

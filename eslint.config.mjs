@@ -12,6 +12,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import tseslint from 'typescript-eslint';
+import { sharedBaseRules } from './eslint.shared.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -69,12 +70,7 @@ export default defineConfig([
     },
 
     rules: {
-      semi: [2, 'always'],
-      indent: 'off',
-      'comma-dangle': ['error', 'always-multiline'],
-      'object-curly-spacing': ['error', 'always'],
-      'no-console': 0,
-      'no-useless-concat': 0,
+      ...sharedBaseRules,
 
       'max-len': [
         2,
@@ -95,8 +91,6 @@ export default defineConfig([
       'react/no-unescaped-entities': 0,
       'react/jsx-first-prop-new-line': [1, 'multiline'],
       'import/prefer-default-export': 0,
-      'class-methods-use-this': 0,
-      'operator-linebreak': 0,
       'react/require-default-props': 0,
       'react/react-in-jsx-scope': 0,
       'react/no-danger': 0,
@@ -104,7 +98,6 @@ export default defineConfig([
       'react/no-array-index-key': 0,
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-      'no-return-assign': 0,
       'react/destructuring-assignment': 0,
       'react/forbid-prop-types': 0,
       'react/jsx-one-expression-per-line': 0,
@@ -112,21 +105,9 @@ export default defineConfig([
       'react/jsx-props-no-spreading': 0,
       'react/function-component-definition': 0,
       'react/no-unstable-nested-components': 0,
-      'prefer-regex-literals': 0,
       'import/no-extraneous-dependencies': 0,
       'import/no-cycle': 0,
-      'global-require': 0,
       'import/no-dynamic-require': 0,
-
-      quotes: [
-        2,
-        'single',
-        {
-          avoidEscape: true,
-        },
-      ],
-
-      'arrow-body-style': 0,
     },
   },
   {

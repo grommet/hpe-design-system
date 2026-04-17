@@ -3,6 +3,7 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import reactHooks from 'eslint-plugin-react-hooks';
+import { sharedBaseRules } from '../../eslint.shared.mjs';
 
 export default defineConfig(
     { ignores: ['dist', 'eslint.config.mjs'] },
@@ -29,6 +30,7 @@ export default defineConfig(
     {
         name: 'override-rules',
         rules: {
+            ...sharedBaseRules,
             'react-hooks/set-state-in-effect': 'off',
         },
     },
