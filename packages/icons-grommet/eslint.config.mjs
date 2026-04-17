@@ -4,6 +4,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import { reactRefresh } from 'eslint-plugin-react-refresh';
 import reactHooks from 'eslint-plugin-react-hooks';
+import { sharedBaseRules } from '../../eslint.shared.mjs';
 
 export default defineConfig(
   { ignores: ['dist', 'eslint.config.mjs'] },
@@ -11,6 +12,7 @@ export default defineConfig(
   reactRefresh.configs.vite(),
   reactHooks.configs.flat.recommended,
   {
+    name: "base-rules",
     files: ['**/*.{js,jsx,ts,tsx,mts,cts}'],
     languageOptions: {
       sourceType: 'module',
@@ -19,7 +21,14 @@ export default defineConfig(
     },
   },
   {
+    name: "ts-rules",
     files: ['**/*.{ts,tsx,mts,cts}'],
     extends: [tseslint.configs.recommended],
+  },
+  {
+    name: "override-rules",
+    rules: {
+      ...sharedBaseRules,
+    },
   },
 );

@@ -74,7 +74,7 @@ const meta: Meta<IconArgs> = {
     theme: hpe,
   },
   // tags: ['autodocs'],
-}
+};
 
 export default meta;
 type Story = StoryObj<IconArgs>;

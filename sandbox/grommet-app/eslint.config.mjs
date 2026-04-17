@@ -4,6 +4,8 @@ import globals from 'globals';
 import { reactRefresh } from 'eslint-plugin-react-refresh';
 import reactHooks from 'eslint-plugin-react-hooks';
 import react from 'eslint-plugin-react';
+import { sharedBaseRules } from '../../eslint.shared.mjs';
+
 
 export default defineConfig(
   { ignores: ['dist', 'eslint.config.mjs'] },
@@ -18,6 +20,7 @@ export default defineConfig(
     },
   },
   {
+    name: "base-rules",
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       sourceType: 'module',
@@ -25,7 +28,9 @@ export default defineConfig(
     },
   },
   {
+    name: "override-rules",
     rules: {
+      ...sharedBaseRules,
       'react/jsx-no-target-blank': 'off',
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/purity': 'off',
