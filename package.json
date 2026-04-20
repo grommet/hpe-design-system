@@ -24,7 +24,7 @@
     "husky": "^8.0.0",
     "jest": "^27.5.1",
     "prettier": "^2.8.8",
-    "tsx": "^4.19.1",
+    "tsx": "^4.21.0",
     "typescript": "catalog:"
   },
   "dependencies": {
