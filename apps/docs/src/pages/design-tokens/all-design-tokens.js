@@ -146,7 +146,7 @@ const tokenTypeLabels = {
 
 const getEmptyStateMessage = type => {
   if (type === 'hpeTheme') return 'N/A. Handled by the theme.';
-  if (type === 'figma') return 'N/A. Handled by figma.';
+  if (type === 'figma') return 'N/A. Handled by Figma.';
   return '--';
 };
 
