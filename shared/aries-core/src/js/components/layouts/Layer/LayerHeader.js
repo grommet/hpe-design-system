@@ -6,7 +6,6 @@ import { Close } from '@hpe-design/icons-grommet';
 export const LayerHeader = ({
   closeId,
   headerId,
-  headerGap = 'xsmall',
   informational,
   title = 'Layer title',
   onClose,
