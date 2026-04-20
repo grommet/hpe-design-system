@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Footer, Layer, ResponsiveContext } from 'grommet';
+import { Box, Footer, Layer } from 'grommet';
 import { LayerHeader } from '../Layer';
 
 export const ModalDialog = ({
