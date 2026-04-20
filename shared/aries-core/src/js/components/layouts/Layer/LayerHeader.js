@@ -17,7 +17,7 @@ export const LayerHeader = ({
     id={headerId}
     flex={false}
     align="start"
-gap="xsmall"
+    gap="xsmall"
     justify="between"
     {...rest}
   >

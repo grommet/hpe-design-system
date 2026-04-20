@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Footer, Layer } from 'grommet';
 import { LayerHeader } from '../Layer';
@@ -12,7 +11,6 @@ export const ModalDialog = ({
 }) => (
   <Layer position="center" {...layerProps}>
     <ModalContainer
-      flex="grow"
     >
       <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
       {children}
@@ -37,10 +35,11 @@ export const ModalContainer = ({
   return (
     <Box
       background="background-floating"
+      flex="grow"
       gap="medium"
       pad="medium"
       round="medium"
-      width={{ min: widthSize }}
+      width={{ min: 'medium' }}
       {...boxProps}
     >
       {children}

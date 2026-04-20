@@ -14,6 +14,7 @@ export const DoubleConfirmationPreview = () => {
       ref={ref}
       background="background-front"
       elevation="large"
+      flex={false}
       gap='3xsmall'
       width={{ min: 'small' }}
     >
