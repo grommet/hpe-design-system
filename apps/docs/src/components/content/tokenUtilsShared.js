@@ -24,8 +24,9 @@ const getCollectionFromMode = mode => {
  * Generic function to structure tokens from a source into a nested object
  * @param {Object} structuredTokens - The target structured tokens object
  * @param {Object} options - Configuration options
- * @param {string} options.rootKey
- * - The root key to nest tokens under (e.g., 'css', 'figma')
+ * @param {(string | undefined)} [options.rootKey]
+ * - The root key to nest tokens under (e.g., 'css', 'figma'). If
+ *   `undefined`, tokens are added directly to `structuredTokens` with no root.
  * @param {Function} [options.transformTokenName]
  * - Function to transform token names
  * @param {Function} [options.transformTokenData]
