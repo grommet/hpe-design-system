@@ -1,18 +1,10 @@
-import { useEffect, useRef } from 'react';
 import { Button } from 'grommet';
+import { useInert } from '@shared/hooks';
 import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';
 
-export const DoubleConfirmationPreview = () => {
-  const ref = useRef();
 
-  useEffect(() => {
-    if (ref.current) {
-      const buttons = ref.current.querySelectorAll('button, input');
-      buttons.forEach(button => {
-        button.setAttribute('tabindex', '-1');
-      });
-    }
-  }, []);
+export const DoubleConfirmationPreview = () => {
+  const ref = useInert();
 
   return (
     // applying elevation here to visually replicate Layer styling
