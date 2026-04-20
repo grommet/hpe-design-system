@@ -34,10 +34,6 @@ export const ModalContainer = ({
   children,
   ...boxProps
 }) => {
-  const breakpoint = useContext(ResponsiveContext);
-  const widthSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
-    ? 'small'
-    : 'medium';
   return (
     <Box
       background="background-floating"
