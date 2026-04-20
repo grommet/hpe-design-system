@@ -67,10 +67,9 @@ const getTokenColumn = (property, header) => ({
   property,
   header,
   render: datum => {
-    // For the fallback 'displayToken' property, 
-    // use sourceToken with token as fallback
+    // Default token column should prefer source token name when present.
     const displayValue =
-      property === 'displayToken'
+      property === 'token'
         ? datum.sourceToken || datum.token
         : datum[property];
 
@@ -138,7 +137,7 @@ export const DesignTokensTable = ({
         ? tokenTypeColumns.map(({ id, label }) =>
             getTokenColumn(`token__${id}`, label),
           )
-        : [getTokenColumn('displayToken', 'Token')];
+        : [getTokenColumn('token', 'Token')];
 
     return [
       previewColumn,
@@ -160,7 +159,7 @@ export const DesignTokensTable = ({
         nextProperties[`token__${id}`] = { search: true };
       });
     } else {
-      nextProperties.displayToken = { search: true };
+      nextProperties.sourceToken = { search: true };
       nextProperties.token = { search: true };
     }
 
