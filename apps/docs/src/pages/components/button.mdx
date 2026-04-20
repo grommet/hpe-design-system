@@ -3,6 +3,7 @@ import {
   BestPracticeGroup,
   Example,
 } from '../../layouts';
+import { Playground } from '../../components/Playground';
 import {
   ButtonBadCancelPreview,
   ButtonBadGroupPreview,
@@ -36,6 +37,11 @@ import {
 >
   <ButtonExample />
 </Example>
+
+<Playground
+  component="Button"
+  include={['active', 'busy', 'disabled', 'kind', 'label', 'primary', 'reverse', 'secondary', 'size', 'type']}
+/>
 
 ## Guidance
 

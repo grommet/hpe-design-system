@@ -24,6 +24,7 @@ export const buttonSchema = [
   unionProp('badge', [
     { type: PropTypes.BOOLEAN },
     { type: PropTypes.NUMBER },
+    { type: PropTypes.STRING },
   ]),
   booleanProp('busy'),
   stringProp('color'),
@@ -43,8 +44,10 @@ export const buttonSchema = [
     { type: PropTypes.STRING },
   ]),
   stringProp('href'),
+  stringProp('icon'),
   enumProp('justify', ['around', 'between', 'center', 'end', 'evenly', 'start', 'stretch']),
   stringProp('kind'),
+  stringProp('label'),
   stringProp('margin'),
   stringProp('pad'),
   booleanProp('plain'),

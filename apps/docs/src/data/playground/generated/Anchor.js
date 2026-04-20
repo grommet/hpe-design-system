@@ -24,6 +24,8 @@ export const anchorSchema = [
   stringProp('gap'),
   stringProp('gridArea'),
   stringProp('href'),
+  stringProp('icon'),
+  stringProp('label'),
   stringProp('margin'),
   booleanProp('reverse'),
   stringProp('size'),

@@ -1,5 +1,6 @@
 import { Anchor as GrommetAnchor } from 'grommet';
 import { BestPracticeGroup, Example, AccessibilitySection } from '../../layouts';
+import { Playground } from '../../components/Playground';
 import {
   AnchorExample,
   AnchorBadExample,
@@ -10,6 +11,12 @@ import {
   AnchorInlineExample,
   SignUpExample,
 } from '../../examples';
+
+
+<Playground
+  component="Anchor"
+  include={['label', 'href', 'disabled', 'color', 'size']}
+/>
 
 <Example
   componentName="Anchor"

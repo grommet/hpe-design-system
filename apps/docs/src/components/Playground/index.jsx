@@ -1,0 +1,80 @@
+// @ts-check
+/**
+ * Playground
+ *
+ * Renders an interactive prop editor for a grommet component.
+ *
+ * Usage in MDX:
+ *   <Playground component="Button" include={['disabled', 'kind', 'size']} />
+ *
+ * Props:
+ *   component {string}   - PascalCase component name matching generated/ filename
+ *   include   {string[]} - Ordered list of prop names to show as controls
+ */
+
+import React, { useEffect, useState } from 'react';
+
+/**
+ * Dynamically loads the generated schema for a component.
+ * @param {string} componentName
+ * @returns {Promise<import('../../data/playground/schema').PropDescriptor[]>}
+ */
+async function loadSchema(componentName) {
+  // Vite / webpack dynamic import — bundler resolves at build time from the
+  // generated/ directory. Add new components to the switch as they are
+  // scaffolded with `pnpm generate:schemas <Name>`.
+  switch (componentName) {
+    case 'Anchor':
+      return (await import('../../data/playground/generated/Anchor.js'))
+        .anchorSchema;
+    case 'Button':
+      return (await import('../../data/playground/generated/Button.js'))
+        .buttonSchema;
+    default:
+      throw new Error(
+        `Playground: no generated schema found for "${componentName}". ` +
+          `Run: pnpm --filter docs generate:schemas ${componentName}`,
+      );
+  }
+}
+
+/**
+ * @param {{ component: string, include: string[] }} props
+ */
+export function Playground({ component, include }) {
+  const [schema, setSchema] = useState(/** @type {any[]|null} */ (null));
+  const [error, setError] = useState(/** @type {string|null} */ (null));
+
+  useEffect(() => {
+    loadSchema(component)
+      .then(fullSchema => {
+        // Filter to only the props named in `include`, preserving order.
+        const filtered = include
+          .map(name => fullSchema.find(p => p.name === name))
+          .filter(Boolean);
+        setSchema(filtered);
+
+        // Demo log — shows resolved prop names + types in the browser console.
+        console.group(`Playground: ${component}`);
+        filtered.forEach(prop => {
+          if (!prop) return;
+          let extra = '';
+          if (prop.type === 'enum' && 'options' in prop) {
+            extra = ` [${prop.options.join(', ')}]`;
+          } else if (prop.type === 'union' && 'types' in prop) {
+            extra = ` (${prop.types.map(t => t.type).join(' | ')})`;
+          }
+          console.log(`  ${prop.name}: ${prop.type}${extra}`);
+        });
+        console.groupEnd();
+      })
+      .catch(err => setError(err.message));
+  }, [component, include]);
+
+  if (error) {
+    console.error(`Playground error: ${error}`);
+  }
+
+  // UI not yet built — component is wired for demo/console logging only.
+  return null;
+}

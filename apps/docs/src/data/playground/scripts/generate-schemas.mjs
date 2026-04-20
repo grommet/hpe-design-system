@@ -225,14 +225,16 @@ function classifyType(typeNode, checker) {
     // Can't be driven by a simple control
     if (typeStr === 'PolymorphicType') return { kind: 'unknown' };
 
-    // JSX.Element / React.ReactNode — cannot render in a simple control
+    // JSX.Element / React.ReactNode — can't render the node itself, but treat
+    // the prop as a string so contributors can type a label value.
+    // (Pure ReactNode props like `label` are common enough to be useful.)
     if (
       typeStr.includes('ReactNode') ||
       typeStr.includes('ReactElement') ||
       typeStr.includes('JSX.Element') ||
       typeStr.includes('Element')
     ) {
-      return { kind: 'unknown' };
+      return { kind: 'string' };
     }
 
     // Try to expand the type string for string unions
