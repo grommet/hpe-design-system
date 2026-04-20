@@ -7,7 +7,7 @@ export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
   // applying elevation here to visually replicate Layer styling
   // since this is presented in a Do-Dont example where we don't
   // want to use Layer directly.
-  <ModalContainer elevation="large">
+  <ModalContainer elevation="large" width={undefined}>
     <LayerHeader
       title={
         bestPractice

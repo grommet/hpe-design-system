@@ -34,7 +34,7 @@ const connections = [
 ];
 
 const AnatomyGrid = ({ ...rest }) => {
-  const columns = ['auto', 'medium'];
+  const columns = ['auto', 'auto'];
   const rows = ['auto', 'auto', 'auto'];
   return (
     <Grid
@@ -75,7 +75,7 @@ export const DoubleConfirmationAnatomy = () => {
         // since this is presented as an anatomy diagram where we don't
         // want to use Layer directly. */}
         <ModalContainer
-          elevation="large" gridArea="confirmation-area"
+          elevation="large" gridArea="confirmation-area" width={undefined}
         >
           <LayerHeader
             title='Discard "Add application"?'

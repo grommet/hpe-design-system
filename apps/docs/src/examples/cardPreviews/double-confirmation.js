@@ -15,7 +15,7 @@ export const DoubleConfirmationPreview = () => {
       background="background-front"
       elevation="large"
       gap='3xsmall'
-      width="small"
+      width={{ min: 'small' }}
     >
       <LayerHeader
         headerGap='3xsmall'

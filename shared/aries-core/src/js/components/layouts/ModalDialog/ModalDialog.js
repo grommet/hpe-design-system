@@ -1,5 +1,6 @@
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Footer, Layer } from 'grommet';
+import { Box, Footer, Layer, ResponsiveContext } from 'grommet';
 import { LayerHeader } from '../Layer';
 
 export const ModalDialog = ({
@@ -12,7 +13,6 @@ export const ModalDialog = ({
   <Layer position="center" {...layerProps}>
     <ModalContainer
       flex="grow"
-      width={{ min: 'medium' }}
     >
       <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
       {children}
@@ -33,17 +33,24 @@ ModalDialog.propTypes = {
 export const ModalContainer = ({
   children,
   ...boxProps
-}) => (
-  <Box
-    background="background-floating"
-    gap="medium"
-    pad="medium"
-    round="medium"
-    {...boxProps}
-  >
-    {children}
-  </Box>
-);
+}) => {
+  const breakpoint = useContext(ResponsiveContext);
+  const widthSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
+    ? 'small'
+    : 'medium';
+  return (
+    <Box
+      background="background-floating"
+      gap="medium"
+      pad="medium"
+      round="medium"
+      width={{ min: widthSize }}
+      {...boxProps}
+    >
+      {children}
+    </Box>
+  );
+};
 
 ModalContainer.propTypes = {
   children: PropTypes.oneOfType([
