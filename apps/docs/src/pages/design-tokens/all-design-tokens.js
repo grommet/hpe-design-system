@@ -13,7 +13,7 @@ import {
   Text,
   ToggleGroup,
 } from 'grommet';
-import { Close, Folder, Menu } from '@hpe-design/icons-grommet';
+import { Close, Folder, Menu, StatusWarning } from '@hpe-design/icons-grommet';
 import { useRouter } from 'next/router';
 import { ThemeContext } from 'styled-components';
 import {
@@ -142,6 +142,28 @@ const tokenTypeLabels = {
   css: 'CSS',
   hpeTheme: 'Grommet',
   figma: 'Figma',
+};
+
+const getEmptyStateMessage = type => {
+  if (type === 'hpeTheme') return 'N/A. Handled by the theme.';
+  if (type === 'figma') return 'N/A. Handled by figma.';
+  return '--';
+};
+
+const hpeThemeHeadingLabelMap = {
+  borderWidth: 'borderWidth (borderSize)',
+  breakpoint: 'breakpoint (breakpoint)',
+  color: 'color (color)',
+  container: 'container (size)',
+  focusIndicator: 'focusIndicator (focus)',
+  fontWeight: 'fontWeight (fontWeight)',
+  fontStack: 'fontStack (font)',
+  heading: 'heading (heading)',
+  icon: 'icon (iconSize)',
+  radius: 'radius (radius)',
+  shadow: 'shadow (elevation)',
+  spacing: 'spacing (edgeSize)',
+  text: 'text (text)',
 };
 
 const getTokensBySource = source => {
@@ -358,6 +380,9 @@ const AllTokens = () => {
       : activeParts[0] || 'Design tokens';
   const activeCollectionKey = activeParts[0] || '';
   const activeCategoryKey = activeParts[1] || '';
+  const displayHeadingLabel = selectedTokenTypes.includes('hpeTheme')
+    ? hpeThemeHeadingLabelMap[activeCategoryKey] || activeHeadingLabel
+    : activeHeadingLabel;
   const showHpeThemeManagedEmptyState =
     selectedTokenTypes.length === 1 &&
     primaryTokenType === 'hpeTheme' &&
@@ -374,11 +399,17 @@ const AllTokens = () => {
     selectedTokenTypes.length === 1 &&
     primaryTokenType === 'figma' &&
     ['focusIndicator'].includes(activeCategoryKey);
+  const showHpeThemeEmptyState =
+    showHpeThemeManagedEmptyState || showHpeThemeCategoryEmptyState;
   const isFigmaManagedEmptyState =
     showFigmaManagedEmptyState || showFigmaCategoryEmptyState;
+  const showSourceEmptyState =
+    showHpeThemeEmptyState || isFigmaManagedEmptyState;
+  const sourceEmptyStateText = isFigmaManagedEmptyState
+    ? 'Handled by Figma.'
+    : 'Handled by the theme.';
   const showManagedEmptyState =
-    showHpeThemeManagedEmptyState ||
-    showHpeThemeCategoryEmptyState ||
+    showHpeThemeEmptyState ||
     showFigmaManagedEmptyState ||
     showFigmaCategoryEmptyState;
 
@@ -425,11 +456,11 @@ const AllTokens = () => {
             selectedTokenTypes.length > 1 &&
             ['component', 'primitives'].includes(activeCollectionKey)
           ) {
-            tokenValue = '--';
+            tokenValue = getEmptyStateMessage(type);
           } else if (
             ['focusIndicator', 'fontStack'].includes(activeCategoryKey)
           ) {
-            tokenValue = '--';
+            tokenValue = getEmptyStateMessage(type);
           } else {
             tokenValue = getHpeThemeDisplayToken(
               datum.token,
@@ -442,7 +473,7 @@ const AllTokens = () => {
           (['component', 'primitives'].includes(activeCollectionKey) ||
             activeCategoryKey === 'focusIndicator')
         ) {
-          tokenValue = '--';
+          tokenValue = getEmptyStateMessage(type);
         }
 
         if (!rowsByToken.has(canonicalToken)) {
@@ -474,7 +505,7 @@ const AllTokens = () => {
         const nextRow = { ...row };
         selectedTokenTypes.forEach(type => {
           if (nextRow[`token__${type}`] === undefined)
-            nextRow[`token__${type}`] = '--';
+            nextRow[`token__${type}`] = getEmptyStateMessage(type);
         });
         return nextRow;
       })
@@ -669,7 +700,7 @@ const AllTokens = () => {
                       <Text>{activeCollectionLabel}</Text>
                     ) : undefined}
                     <Heading level={2} margin="none" id="token-table-heading">
-                      {activeHeadingLabel}
+                      {displayHeadingLabel}
                     </Heading>
                   </Box>
                 </Box>
@@ -699,27 +730,29 @@ const AllTokens = () => {
                   ]}
                 />
               ) : undefined}
-              {showManagedEmptyState ? (
-                <Notification
-                  status="info"
-                  message={
-                    isFigmaManagedEmptyState
-                      ? `These tokens are managed for you by figma.
-                    There is nothing you need to do on your end.`
-                      : `These tokens are managed for you by the theme.
-                    There is nothing you need to do on your end.`
-                  }
-                  margin={{ top: 'xsmall' }}
-                />
-              ) : (
+              <Box gap="small">
                 <DesignTokensTable
                   active={active}
-                  data={tableData}
+                  data={showSourceEmptyState ? [] : tableData}
                   maxHeight={false}
                   toolbar
                   tokenTypeColumns={tokenTypeColumns}
                 />
-              )}
+                {showSourceEmptyState ? (
+                  <Box
+                    alignSelf="center"
+                    align="center"
+                    gap="xxsmall"
+                    margin={{ bottom: 'medium' }}
+                  >
+                    <StatusWarning aria-hidden="true" color="icon-warning" />
+                    <Heading level={3} size="small" margin="none">
+                      Not applicable
+                    </Heading>
+                    <Text>{sourceEmptyStateText}</Text>
+                  </Box>
+                ) : undefined}
+              </Box>
             </Box>
           </PageContent>
           {openLayer && (

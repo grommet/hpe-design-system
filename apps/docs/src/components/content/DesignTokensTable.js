@@ -53,8 +53,7 @@ const previewColumn = {
     )
       return <WeightPreview datum={datum} />;
     if (
-      (tokenForPreview.includes('font') &&
-        tokenForPreview.includes('size')) ||
+      (tokenForPreview.includes('font') && tokenForPreview.includes('size')) ||
       tokenForPreview.includes('fontSize')
     )
       return <TextPreview datum={datum} />;
@@ -67,20 +66,29 @@ const previewColumn = {
 const getTokenColumn = (property, header) => ({
   property,
   header,
-  render: datum => (
-    <Box direction="row">
-      <Box
-        background="background-contrast"
-        pad="3xsmall"
-        round="xsmall"
-        style={{ fontFamily: 'Menlo' }}
-      >
-        <Text size="xsmall" style={{ whiteSpace: 'nowrap' }}>
-          {datum[property] || '--'}
-        </Text>
+  render: datum => {
+    // For the fallback 'displayToken' property, 
+    // use sourceToken with token as fallback
+    const displayValue =
+      property === 'displayToken'
+        ? datum.sourceToken || datum.token
+        : datum[property];
+
+    return (
+      <Box direction="row">
+        <Box
+          background="background-contrast"
+          pad="3xsmall"
+          round="xsmall"
+          style={{ fontFamily: 'Menlo' }}
+        >
+          <Text size="xsmall" style={{ whiteSpace: 'nowrap' }}>
+            {displayValue || '--'}
+          </Text>
+        </Box>
       </Box>
-    </Box>
-  ),
+    );
+  },
 });
 
 const descriptionColumn = {
@@ -99,7 +107,6 @@ const valueColumn = {
 export const DesignTokensTable = ({
   active,
   data: dataProp,
-  maxHeight,
   toolbar,
   tokenTypeColumns,
 }) => {
@@ -201,10 +208,7 @@ export const DesignTokensTable = ({
           <DataSummary />
         </>
       ) : undefined}
-      <Box
-        height={maxHeight !== false ? { max: 'xlarge' } : undefined}
-        overflow="auto"
-      >
+      <Box height={{ max: 'xlarge' }} overflow="auto">
         <DataTable
           aria-describedby="token-table-heading"
           verticalAlign="top"
@@ -220,7 +224,6 @@ export const DesignTokensTable = ({
 DesignTokensTable.propTypes = {
   active: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
-  maxHeight: PropTypes.bool,
   toolbar: PropTypes.bool,
   tokenTypeColumns: PropTypes.arrayOf(
     PropTypes.shape({
