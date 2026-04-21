@@ -5,11 +5,12 @@
  * Renders an interactive prop editor for a grommet component.
  *
  * Usage in MDX:
- *   <Playground component="Button" include={['disabled', 'kind', 'size']} />
+ *   <Playground component="Button" exclude={['as', 'children', 'style']} />
  *
  * Props:
  *   component {string}   - PascalCase component name matching generated/ filename
- *   include   {string[]} - Ordered list of prop names to show as controls
+ *   exclude   {string[]} - Prop names to hide from controls (e.g. rarely-used
+ *                          or layout-only props). All other props are shown.
  */
 
 import React, { useEffect, useState } from 'react';
@@ -39,19 +40,17 @@ async function loadSchema(componentName) {
 }
 
 /**
- * @param {{ component: string, include: string[] }} props
+ * @param {{ component: string, exclude?: string[] }} props
  */
-export function Playground({ component, include }) {
+export function Playground({ component, exclude = [] }) {
   const [schema, setSchema] = useState(/** @type {any[]|null} */ (null));
   const [error, setError] = useState(/** @type {string|null} */ (null));
 
   useEffect(() => {
     loadSchema(component)
       .then(fullSchema => {
-        // Filter to only the props named in `include`, preserving order.
-        const filtered = include
-          .map(name => fullSchema.find(p => p.name === name))
-          .filter(Boolean);
+        // Show all props except those explicitly excluded.
+        const filtered = fullSchema.filter(p => !exclude.includes(p.name));
         setSchema(filtered);
 
         // Demo log — shows resolved prop names + types in the browser console.
@@ -69,7 +68,7 @@ export function Playground({ component, include }) {
         console.groupEnd();
       })
       .catch(err => setError(err.message));
-  }, [component, include]);
+  }, [component, exclude]);
 
   if (error) {
     console.error(`Playground error: ${error}`);

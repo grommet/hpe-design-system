@@ -25,7 +25,7 @@
     "zod": "^4.3.6"
   },
   "scripts": {
-    "build": "pnpm validate:structure && pnpm build-search && next build",
+    "build": "pnpm validate:structure && pnpm generate:schemas && pnpm build-search && next build",
     "build-design-tokens": "pnpm --filter hpe-design-tokens build",
     "export": "pnpm build",
     "postexport": "node next.postexport.js",
