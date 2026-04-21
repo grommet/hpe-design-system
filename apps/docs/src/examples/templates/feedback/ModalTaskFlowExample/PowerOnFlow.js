@@ -73,7 +73,7 @@ export const PowerOnFlow = ({ onCancel, onClose }) => {
   return (
     <Box gap="medium">
       <ModalBody>{step.body}</ModalBody>
-      <ModalFooter justify="end">
+      <ModalFooter>
         {step.footer({ onCancel, onConfirm, onClose })}
       </ModalFooter>
     </Box>

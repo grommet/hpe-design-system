@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button } from 'grommet';
-import { LayerHeader } from '@shared/aries-core';
+import { Button } from 'grommet';
+import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';
 
 export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
-  <Box
-    background="background-floating"
-    round="medium"
-    elevation="large"
-    pad="medium"
-    gap="medium"
-  >
+  // applying elevation here to visually replicate Layer styling
+  // since this is presented in a Do-Dont example where we don't
+  // want to use Layer directly.
+  <ModalContainer elevation="large" width={undefined}>
     <LayerHeader
       title={
         bestPractice
@@ -19,11 +16,14 @@ export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
       }
       subtitle="Your changes will not be applied."
     />
-    <Box direction="row" gap="xsmall" justify="end">
+    <ModalFooter>
       <Button label="Cancel" />
-      <Button label={bestPractice !== 'badLabel' ? 'Discard' : 'Yes'} primary />
-    </Box>
-  </Box>
+      <Button
+        label={bestPractice !== 'badLabel' ? 'Discard' : 'Yes'}
+        primary
+      />
+    </ModalFooter>
+  </ModalContainer>
 );
 
 DoubleConfirmationBestPractice.propTypes = {
