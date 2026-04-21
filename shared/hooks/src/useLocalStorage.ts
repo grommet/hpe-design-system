@@ -21,6 +21,7 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
 
   useEffect(() => {
     if (!isBrowser) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setStoredValue(initialValue);
       return;
     }

@@ -1,6 +1,6 @@
+import { useLayoutEffect } from 'react';
 import { cleanup, render, screen, renderHook } from '@testing-library/react';
 import { afterAll, afterEach, beforeAll, describe, it, expect } from 'vitest';
-import type { MutableRefObject } from 'react';
 import { useInert } from '../src/useInert';
 
 let originalInertDescriptor: PropertyDescriptor | undefined;
@@ -60,16 +60,19 @@ const TestComponent = () => {
 // Verifies the hook restores previous state rather than hardcoding false on cleanup.
 const PreInertComponent = () => {
   const ref = useInert<HTMLDivElement>();
+
+  // React guarantees useLayoutEffect fires before useEffect.
+  // This lets us set inert = true on the DOM node *before*
+  // useInert's useEffect captures `previous = container.inert`,
+  // simulating a container that was already inert.
+  useLayoutEffect(() => {
+    if (ref.current) {
+      ref.current.inert = true;
+    }
+  }, [ref]);
+
   return (
-    <div
-      ref={node => {
-        if (node) node.inert = true;
-        if (ref && typeof ref === 'object') {
-          (ref as MutableRefObject<HTMLDivElement | null>).current = node;
-        }
-      }}
-      data-testid="pre-inert-container"
-    >
+    <div ref={ref} data-testid="pre-inert-container">
       <button>Pre-inert button</button>
     </div>
   );

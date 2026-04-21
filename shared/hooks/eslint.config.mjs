@@ -31,8 +31,6 @@ export default defineConfig(
         name: 'override-rules',
         rules: {
             ...sharedBaseRules,
-            'react-hooks/immutability': 'off',
-            'react-hooks/set-state-in-effect': 'off',
         },
     },
 );
