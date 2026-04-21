@@ -42,7 +42,6 @@ export const LayerHeader = ({
 LayerHeader.propTypes = {
   closeId: PropTypes.string,
   headerId: PropTypes.string,
-  headerGap: PropTypes.string,
   informational: PropTypes.bool,
   onClose: PropTypes.func,
   title: PropTypes.string,
