@@ -21,6 +21,11 @@ type SyncOptions = {
   // making it ideal for fresh disposable test environments that don't yet have
   // library subscriptions set up between files.
   singleFileKey?: string;
+  // When set, use name-based aliases instead of real variable IDs for cross-file
+  // references. This allows syncing to fresh multi-file setups without library
+  // subscriptions. After initial apply, set up subscriptions in Figma then re-run
+  // without this flag so subsequent syncs use real IDs.
+  freshFiles?: boolean;
 };
 
 const TOKENS_DIR = 'tokens';
@@ -36,6 +41,7 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
   let nonInteractive = false;
   let roleFilter: Role | undefined;
   let singleFileKey: string | undefined;
+  let freshFiles = false;
 
   argv.forEach(arg => {
     if (arg === '--apply') {
@@ -62,10 +68,23 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
 
     if (arg.startsWith('--single-file=')) {
       singleFileKey = arg.split('=').slice(1).join('=').trim();
+      return;
+    }
+
+    if (arg === '--fresh-files') {
+      freshFiles = true;
     }
   });
 
-  return { apply, nonInteractive, roleFilter, singleFileKey };
+  if (singleFileKey && freshFiles) {
+    throw new Error(
+      '--single-file and --fresh-files are mutually exclusive. Choose one:\n' +
+        '  --single-file=<key>  Merge all roles into one file (simpler for disposable test envs)\n' +
+        '  --fresh-files        Multi-file sync using name-based aliases (no subscriptions needed)',
+    );
+  }
+
+  return { apply, nonInteractive, roleFilter, singleFileKey, freshFiles };
 }
 
 function parseFileKeyInput(rawValue: string) {
@@ -392,7 +411,9 @@ async function main() {
       const postVariablesPayload = generatePostVariablesPayload(
         tokensByFile,
         localVariables,
-        crossFileVars,
+        // In fresh-files mode don't pass real cross-file IDs — force name-based aliases
+        options.freshFiles ? [] : crossFileVars,
+        options.freshFiles,
       );
 
       if (isPayloadEmpty(postVariablesPayload)) {
@@ -439,6 +460,18 @@ async function main() {
       failedRoles.push(role);
       const message = formatError(error);
       console.log(`❌ Failed to process ${role}: ${message}`);
+
+      // Detect cross-file alias failures and guide the user towards --fresh-files
+      if (!options.freshFiles && message.includes('Invalid alias')) {
+        console.log(
+          '\n💡 Cross-file alias error detected. This usually means the Figma file' +
+            ' does not have library subscriptions set up.\n' +
+            '   Try one of:\n' +
+            '   --fresh-files        : use name-based aliases across all role files\n' +
+            '   --single-file=<key>  : merge all roles into one file (simplest for test envs)',
+        );
+      }
+
       // On failure, still attempt to fetch current vars so later roles are not
       // starved of potentially-useful alias context from a partial state.
       try {

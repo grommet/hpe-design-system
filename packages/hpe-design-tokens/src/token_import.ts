@@ -322,6 +322,7 @@ function variableValueFromToken(
   localVariablesByCollectionAndName: {
     [variableCollectionId: string]: { [variableName: string]: Variable };
   },
+  freshFilesMode: boolean = false,
 ): VariableValue {
   if (typeof token.$value === 'string' && isAlias(token.$value)) {
     // Assume aliases are in the format {group.subgroup.token} with any number of optional groups/subgroups
@@ -332,24 +333,31 @@ function variableValueFromToken(
       .replace(/[\{\}]/g, '');
 
     value = tokenAliasToFigmaAlias(value);
-    // When mapping aliases to existing local variables, we assume that variable names
-    // are unique *across all collections* in the Figma file
-    // TO DO how will this work with our density token concept is there are repeated
-    // variable names for spacing.medium on breakpoint/density?
-    for (const localVariablesByName of Object.values(
-      localVariablesByCollectionAndName,
-    )) {
-      if (localVariablesByName[value]) {
-        return {
-          type: 'VARIABLE_ALIAS',
-          id: localVariablesByName[value].id,
-        };
+
+    // In fresh-files mode, skip real-ID lookups entirely so all cross-file
+    // aliases use name-based IDs.  Figma resolves these once library
+    // subscriptions are configured between the files.
+    if (!freshFilesMode) {
+      // When mapping aliases to existing local variables, we assume that variable names
+      // are unique *across all collections* in the Figma file
+      // TO DO how will this work with our density token concept is there are repeated
+      // variable names for spacing.medium on breakpoint/density?
+      for (const localVariablesByName of Object.values(
+        localVariablesByCollectionAndName,
+      )) {
+        if (localVariablesByName[value]) {
+          return {
+            type: 'VARIABLE_ALIAS',
+            id: localVariablesByName[value].id,
+          };
+        }
       }
     }
 
     // If we don't find a local variable matching the alias, we assume it's a variable
     // that we're going to create elsewhere in the payload.
-    // If the file has an invalid alias, we rely on the Figma API to return a 400 error
+    // If the file has an invalid alias, we rely on the Figma API to return a 400 error.
+    // In fresh-files mode this path is always taken, producing a name-based alias.
     return {
       type: 'VARIABLE_ALIAS',
       id: value,
@@ -453,6 +461,7 @@ export function generatePostVariablesPayload(
   tokensByFile: FlattenedTokensByFile,
   localVariables: ApiGetLocalVariablesResponse,
   crossFileVariables: ApiGetLocalVariablesResponse[] = [],
+  freshFilesMode: boolean = false,
 ) {
   const localVariableCollectionsByName: { [name: string]: VariableCollection } =
     {};
@@ -620,6 +629,7 @@ export function generatePostVariablesPayload(
       const newVariableValue = variableValueFromToken(
         token,
         localVariablesByCollectionAndName,
+        freshFilesMode,
       );
 
       // Only include the variable mode value in the payload if it's different from the existing value

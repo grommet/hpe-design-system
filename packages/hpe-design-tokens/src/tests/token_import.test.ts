@@ -865,4 +865,101 @@ describe('generatePostVariablesPayload', () => {
       generatePostVariablesPayload(tokensByFile, localVariablesResponse);
     }).toThrow('Duplicate variable collection in file: collection');
   });
+
+  it('uses name-based aliases in fresh-files mode', () => {
+    // Simulate semantic token referencing a primitive variable that only exists
+    // in another Figma file (i.e. not in localVariables).
+    const tokensByFile: FlattenedTokensByFile = {
+      'semantic.light.json': {
+        'color/link': {
+          $value: '{primitives.color.blue}',
+          $type: 'color',
+        },
+      },
+    };
+
+    const localVariables: ApiGetLocalVariablesResponse = {
+      meta: {
+        variableCollections: {},
+        variables: {},
+      },
+    };
+
+    // With freshFilesMode=true, aliases should use the name-based ID (no subscription needed)
+    const payload = generatePostVariablesPayload(
+      tokensByFile,
+      localVariables,
+      [],
+      true, // freshFilesMode
+    );
+
+    const aliasValue = payload.variableModeValues?.[0]?.value;
+    expect(aliasValue).toEqual({
+      type: 'VARIABLE_ALIAS',
+      id: 'primitives/color/blue',
+    });
+  });
+
+  it('uses real variable ID when cross-file context is provided (non-fresh mode)', () => {
+    const tokensByFile: FlattenedTokensByFile = {
+      'semantic.light.json': {
+        'color/link': {
+          $value: '{primitives.color.blue}',
+          $type: 'color',
+        },
+      },
+    };
+
+    const localVariables: ApiGetLocalVariablesResponse = {
+      meta: {
+        variableCollections: {},
+        variables: {},
+      },
+    };
+
+    const crossFileVars: ApiGetLocalVariablesResponse = {
+      meta: {
+        variableCollections: {
+          prim_coll_id: {
+            id: 'prim_coll_id',
+            name: 'primitives',
+            modes: [{ modeId: 'prim_mode_id', name: 'default' }],
+            defaultModeId: 'prim_mode_id',
+            remote: false,
+            hiddenFromPublishing: false,
+            key: 'abc',
+          },
+        },
+        variables: {
+          'VariableID:99:1': {
+            id: 'VariableID:99:1',
+            name: 'primitives/color/blue',
+            variableCollectionId: 'prim_coll_id',
+            resolvedType: 'COLOR',
+            remote: false,
+            hiddenFromPublishing: false,
+            key: 'def',
+            description: '',
+            scopes: [],
+            codeSyntax: {},
+            valuesByMode: {},
+          },
+        },
+      },
+    };
+
+    // Without freshFilesMode, should use real ID from cross-file context
+    const payload = generatePostVariablesPayload(
+      tokensByFile,
+      localVariables,
+      [crossFileVars],
+      false, // not freshFilesMode
+    );
+
+    const aliasValue = payload.variableModeValues?.[0]?.value;
+    expect(aliasValue).toEqual({
+      type: 'VARIABLE_ALIAS',
+      id: 'VariableID:99:1',
+    });
+  });
 });
