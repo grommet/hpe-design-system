@@ -4,7 +4,7 @@ import { Box, Button } from 'grommet';
 import { ModalDialog, ModalFooter } from '@shared/aries-core';
 
 export const DoubleConfirmationExample = ({ containerRef }) => {
-    // containerRef is for demonstration purposes on this site. Most
+  // containerRef is for demonstration purposes on this site. Most
     // implementations should likely remove.
     const [showModal, setShowModal] = useState(true);
 
