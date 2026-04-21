@@ -42,7 +42,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "pnpm -r build",
-    "lint": "pnpm -r lint",
+    "lint": "pnpm -r lint --cache",
     "start:docs": "pnpm --filter docs start",
     "start:design-tokens-manager": "pnpm --filter design-tokens-manager dev",
     "start:grommet-app": "pnpm --filter grommet-app dev",
