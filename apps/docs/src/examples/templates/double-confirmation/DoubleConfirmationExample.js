@@ -24,6 +24,9 @@ export const DoubleConfirmationExample = ({ containerRef }) => {
                     subtitle="Your changes will not be applied."
                     onEsc={onClose}
                     target={containerRef?.current}
+                    // 'width: undefined' is for demonstration purposes on 
+                    // this site. Most implementations should likely remove
+                    boxProps={{ width: undefined }}
                 >
                     <ModalFooter>
                         <Button label="Cancel" onClick={onClose} />

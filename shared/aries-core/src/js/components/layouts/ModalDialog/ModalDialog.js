@@ -7,11 +7,12 @@ export const ModalDialog = ({
   title,
   subtitle,
   onClose,
+  boxProps,
   ...layerProps
 }) => (
   <Layer position="center" {...layerProps}>
     <ModalContainer
-    >
+      {...boxProps}>
       <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
       {children}
     </ModalContainer>
@@ -26,6 +27,7 @@ ModalDialog.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onClose: PropTypes.func,
+  boxProps: PropTypes.object,
 };
 
 export const ModalContainer = ({
