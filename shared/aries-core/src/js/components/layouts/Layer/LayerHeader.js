@@ -9,6 +9,7 @@ export const LayerHeader = ({
   title = 'Layer title',
   onClose,
   subtitle,
+  titleSize,
   ...rest
 }) => (
   <Header
@@ -20,7 +21,7 @@ export const LayerHeader = ({
     {...rest}
   >
     <Box>
-      <Heading id="layer-title" level={2} margin="none">
+      <Heading id="layer-title" level={2} margin="none" size={titleSize}>
         {title}
       </Heading>
       <Paragraph id="layer-subtitle" margin="none">
@@ -43,4 +44,5 @@ LayerHeader.propTypes = {
   onClose: PropTypes.func,
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  titleSize: PropTypes.string,
 };

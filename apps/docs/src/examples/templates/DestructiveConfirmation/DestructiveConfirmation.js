@@ -108,7 +108,7 @@ export const DestructiveConfirmation = ({
               <TextInput id="deletionPath" name="deletionPath" />
             </FormField>
           </ModalBody>
-          <ModalFooter justify="end">
+          <ModalFooter>
             <Box direction="row" gap="xsmall">
               <Button
                 label="Cancel"

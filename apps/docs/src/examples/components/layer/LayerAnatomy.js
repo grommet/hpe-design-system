@@ -159,8 +159,10 @@ export const LayerAnatomy = () => {
             {...rest}
           />
         ))}
-
-        <ModalContainer gridArea="layer-area">
+        {/* // applying elevation here to visually replicate Layer styling
+        // since this is presented as an anatomy diagram where we don't
+        // want to use Layer directly. */}
+        <ModalContainer elevation="large" gridArea="layer-area">
           <LayerHeader
             headerId="layer-header"
             closeId="layer-close"
@@ -184,8 +186,6 @@ export const LayerAnatomy = () => {
           <ModalFooter
             id="layer-footer"
             border={{ style: 'dashed' }}
-            justify="end"
-            gap="small"
             round="small"
           >
             <Button id="layer-cancel" label="Cancel" />
