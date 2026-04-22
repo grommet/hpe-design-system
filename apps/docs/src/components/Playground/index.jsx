@@ -77,10 +77,69 @@ export function Playground({ component, exclude }) {
 
   if (error) {
     console.error(`Playground error: ${error}`);
+    return (
+      <div
+        role="alert"
+        style={{
+          border: '1px solid #f1b0b7',
+          borderRadius: '4px',
+          padding: '12px',
+          margin: '12px 0',
+          background: '#fff5f5',
+        }}
+      >
+        <strong>Playground unavailable</strong>
+        <div>{error}</div>
+      </div>
+    );
   }
 
-  // UI not yet built — component is wired for demo/console logging only.
-  return null;
+  if (schema === null) {
+    return (
+      <div
+        aria-live="polite"
+        style={{
+          border: '1px solid #e0e0e0',
+          borderRadius: '4px',
+          padding: '12px',
+          margin: '12px 0',
+          background: '#fafafa',
+        }}
+      >
+        Loading {component} playground…
+      </div>
+    );
+  }
+
+  return (
+    <section
+      aria-label={`${component} playground`}
+      style={{
+        border: '1px solid #e0e0e0',
+        borderRadius: '4px',
+        padding: '12px',
+        margin: '12px 0',
+        background: '#fafafa',
+      }}
+    >
+      <strong>{component} playground</strong>
+      <div style={{ marginTop: '8px' }}>
+        Interactive controls are not yet available. Loaded {schema.length}{' '}
+        prop{schema.length === 1 ? '' : 's'} for this component.
+      </div>
+      {schema.length > 0 && (
+        <ul style={{ marginTop: '8px', paddingLeft: '20px' }}>
+          {schema.map(prop => (
+            <li key={prop.name}>
+              <code>{prop.name}</code>
+              {' — '}
+              {prop.type}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
 }
 
 Playground.propTypes = {
