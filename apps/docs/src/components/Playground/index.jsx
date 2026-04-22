@@ -26,9 +26,6 @@ async function loadSchema(componentName) {
   // generated/ directory. Add new components to the switch as they are
   // scaffolded with `pnpm generate:schemas <Name>`.
   switch (componentName) {
-    case 'Anchor':
-      return (await import('../../data/playground/generated/Anchor'))
-        .anchorSchema;
     case 'Button':
       return (await import('../../data/playground/generated/Button'))
         .buttonSchema;

@@ -87,22 +87,4 @@ describe('generate-schemas — generated output', () => {
     expect(unionTypes).toContain('boolean');
     expect(unionTypes).toContain('number');
   });
-
-  it('CheckBox.js exists and exports checkBoxSchema', async () => {
-    const file = path.join(GENERATED_DIR, 'CheckBox.js');
-    expect(fs.existsSync(file)).toBe(true);
-
-    const mod = await import(file);
-    expect(Array.isArray(mod.checkBoxSchema)).toBe(true);
-    expect(mod.checkBoxSchema.length).toBeGreaterThan(0);
-  });
-
-  it('TextInput.js exists and exports textInputSchema', async () => {
-    const file = path.join(GENERATED_DIR, 'TextInput.js');
-    expect(fs.existsSync(file)).toBe(true);
-
-    const mod = await import(file);
-    expect(Array.isArray(mod.textInputSchema)).toBe(true);
-    expect(mod.textInputSchema.length).toBeGreaterThan(0);
-  });
 });

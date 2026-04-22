@@ -12,8 +12,6 @@ playground/
   schema.js              # Shared type definitions and prop helper factories
   generated/             # Auto-generated schema files — do not edit by hand
     Button.js
-    CheckBox.js
-    TextInput.js
     ...
   scripts/
     generate-schemas.mjs # Codegen script — reads grommet's index.d.ts files

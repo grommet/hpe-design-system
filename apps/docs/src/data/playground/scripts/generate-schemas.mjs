@@ -61,7 +61,7 @@ const OUT_DIR = path.resolve(__dirname, '../generated');
 const CONF_DIR = path.resolve(__dirname, '../components');
 
 // Components to process when no args are given.
-const COMPONENTS = ['Button', 'CheckBox', 'TextInput'];
+const COMPONENTS = ['Button'];
 
 // ---------------------------------------------------------------------------
 // Type classification
