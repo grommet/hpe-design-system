@@ -121,8 +121,8 @@ export function Playground({ component, exclude }) {
     >
       <strong>{component} playground</strong>
       <div style={{ marginTop: '8px' }}>
-        Interactive controls are not yet available. Loaded {schema.length}{' '}
-        prop{schema.length === 1 ? '' : 's'} for this component.
+        Interactive controls are not yet available. Loaded {schema.length} prop
+        {schema.length === 1 ? '' : 's'} for this component.
       </div>
       {schema.length > 0 && (
         <ul style={{ marginTop: '8px', paddingLeft: '20px' }}>
