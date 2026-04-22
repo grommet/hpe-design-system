@@ -8,12 +8,13 @@
  *   <Playground component="Button" exclude={['as', 'children', 'style']} />
  *
  * Props:
- *   component {string}   - PascalCase component name matching generated/ filename
- *   exclude   {string[]} - Prop names to hide from controls (e.g. rarely-used
- *                          or layout-only props). All other props are shown.
+ *   component {string}    - PascalCase component name matching generated/ file
+ *   exclude   {string[]}  - Prop names to hide from controls (e.g. rarely-used
+ *                           or layout-only props). All other props are shown.
  */
 
-import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 /**
  * Dynamically loads the generated schema for a component.
@@ -26,10 +27,10 @@ async function loadSchema(componentName) {
   // scaffolded with `pnpm generate:schemas <Name>`.
   switch (componentName) {
     case 'Anchor':
-      return (await import('../../data/playground/generated/Anchor.js'))
+      return (await import('../../data/playground/generated/Anchor'))
         .anchorSchema;
     case 'Button':
-      return (await import('../../data/playground/generated/Button.js'))
+      return (await import('../../data/playground/generated/Button'))
         .buttonSchema;
     default:
       throw new Error(
@@ -42,8 +43,8 @@ async function loadSchema(componentName) {
 /**
  * @param {{ component: string, exclude?: string[] }} props
  */
-export function Playground({ component, exclude = [] }) {
-  const [schema, setSchema] = useState(/** @type {any[]|null} */ (null));
+export function Playground({ component, exclude }) {
+  const [, setSchema] = useState(/** @type {any[]|null} */ (null));
   const [error, setError] = useState(/** @type {string|null} */ (null));
 
   useEffect(() => {
@@ -77,3 +78,12 @@ export function Playground({ component, exclude = [] }) {
   // UI not yet built — component is wired for demo/console logging only.
   return null;
 }
+
+Playground.propTypes = {
+  component: PropTypes.string.isRequired,
+  exclude: PropTypes.arrayOf(PropTypes.string),
+};
+
+Playground.defaultProps = {
+  exclude: [],
+};

@@ -8,7 +8,7 @@
  *   - unknown prop names in exclude are safely ignored
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 // ---------------------------------------------------------------------------
 // Helpers — mock schema (mirrors PropDescriptor shape from schema.ts)
@@ -103,17 +103,17 @@ describe('Playground — exclude filtering logic', () => {
 
 describe('Playground — schema shape contract', () => {
   it('every prop has a name (string) and type (string)', () => {
-    for (const prop of mockButtonSchema) {
+    mockButtonSchema.forEach(prop => {
       expect(typeof prop.name).toBe('string');
       expect(typeof prop.type).toBe('string');
-    }
+    });
   });
 
   it('enum props have an options array', () => {
     const enumProps = mockButtonSchema.filter(p => p.type === 'enum');
-    for (const prop of enumProps) {
+    enumProps.forEach(prop => {
       expect(Array.isArray(prop.options)).toBe(true);
       expect(prop.options.length).toBeGreaterThan(0);
-    }
+    });
   });
 });

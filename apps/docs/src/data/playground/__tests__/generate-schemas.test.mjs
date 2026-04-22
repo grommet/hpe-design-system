@@ -7,14 +7,13 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { execSync } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 
+// eslint-disable-next-line no-underscore-dangle
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const GENERATED_DIR = path.resolve(__dirname, '../generated');
-const SCRIPT = path.resolve(__dirname, '../scripts/generate-schemas.mjs');
 
 // ---------------------------------------------------------------------------
 // Snapshot tests — verify the generated output is structurally correct
@@ -38,10 +37,10 @@ describe('generate-schemas — generated output', () => {
     const { buttonSchema } = await import(
       path.join(GENERATED_DIR, 'Button.js')
     );
-    for (const prop of buttonSchema) {
+    buttonSchema.forEach(prop => {
       expect(typeof prop.name).toBe('string');
       expect(typeof prop.type).toBe('string');
-    }
+    });
   });
 
   it('buttonSchema contains expected core props', async () => {
@@ -69,7 +68,7 @@ describe('generate-schemas — generated output', () => {
     );
     const size = buttonSchema.find(p => p.name === 'size');
     expect(size).toBeDefined();
-    // grommet types size as string; if it's an enum the options array should be non-empty
+    // grommet types size as string; if it's an enum options array is non-empty
     expect(['string', 'enum']).toContain(size.type);
     if (size.type === 'enum') {
       expect(Array.isArray(size.options)).toBe(true);

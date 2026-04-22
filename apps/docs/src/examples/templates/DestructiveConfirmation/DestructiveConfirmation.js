@@ -78,7 +78,6 @@ export const DestructiveConfirmation = ({
         value={value}
         onChange={onChange}
         validate="blur"
-        // eslint-disable-next-line no-unused-vars
         onSubmit={({ value: formValue, touched }) => {
           if (onSubmitProp) onSubmitProp(formValue, touched);
           onClose();
@@ -109,7 +108,7 @@ export const DestructiveConfirmation = ({
               <TextInput id="deletionPath" name="deletionPath" />
             </FormField>
           </ModalBody>
-          <ModalFooter justify="end">
+          <ModalFooter>
             <Box direction="row" gap="xsmall">
               <Button
                 label="Cancel"

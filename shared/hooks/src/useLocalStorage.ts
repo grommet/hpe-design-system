@@ -21,6 +21,7 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
 
   useEffect(() => {
     if (!isBrowser) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setStoredValue(initialValue);
       return;
     }
@@ -32,7 +33,7 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
       console.error('Failed to read from localStorage:', error);
       setStoredValue(initialValue);
     }
-  }, [key, initialValue]);
+  }, [key, initialValue, isBrowser]);
   const setValue = (value: T | ((val: T) => T)) => {
     setStoredValue(prev => {
       try {
@@ -64,7 +65,7 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
         } else {
           try {
             setStoredValue(JSON.parse(event.newValue));
-          } catch (error) {
+          } catch {
             setStoredValue(initialValue);
           }
         }
@@ -79,7 +80,7 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
         window.removeEventListener('storage', onStorageChange);
       }
     };
-  }, [key, initialValue]);
+  }, [key, initialValue, isBrowser]);
 
   return [storedValue, setValue] as const;
 };

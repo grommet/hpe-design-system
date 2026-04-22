@@ -14,7 +14,8 @@
  * then imports the generated schema and adds the conf object on top.
  *
  * Usage:
- *   node src/data/playground/scripts/generate-schemas.mjs [--scaffold] [ComponentName...]
+ *   node src/data/playground/scripts/generate-schemas.mjs \
+ *     [--scaffold] [ComponentName...]
  *
  * Examples:
  *   node src/data/playground/scripts/generate-schemas.mjs
@@ -22,8 +23,10 @@
  *   node src/data/playground/scripts/generate-schemas.mjs Button TextInput
  *     → regenerates only Button and TextInput
  *   node src/data/playground/scripts/generate-schemas.mjs --scaffold CheckBox
- *     → regenerates CheckBox schema AND writes a starter components/CheckBox.js
- *       with all props set to enabled: false (flip to true to show in Playground)
+ *     → regenerates CheckBox schema AND writes a starter
+ *       components/CheckBox.js
+ *       with all props set to enabled: false (flip to true to show in
+ *       Playground)
  */
 
 import ts from 'typescript';
@@ -32,6 +35,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 
+// eslint-disable-next-line no-underscore-dangle
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 
@@ -106,7 +110,7 @@ function classifyType(typeNode, checker) {
     const stringLiterals = [];
     const kinds = new Set();
 
-    for (const member of typeNode.types) {
+    typeNode.types.forEach(member => {
       const c = classifyType(member, checker);
       if (c.kind === 'enum' && c.options) {
         stringLiterals.push(...c.options);
@@ -114,7 +118,7 @@ function classifyType(typeNode, checker) {
       } else if (c.kind !== 'unknown') {
         kinds.add(c.kind);
       }
-    }
+    });
 
     // Pure string-literal union → enum
     if (kinds.size === 1 && kinds.has('enum')) {
@@ -132,24 +136,26 @@ function classifyType(typeNode, checker) {
     }
 
     // Mixed: build union members from the distinct primitive kinds + enums
+    /** @type {Array<{type: string, options?: string[]}>} */
     const members = [];
     const seenKinds = new Set();
-    for (const member of typeNode.types) {
-      const c = classifyType(member, checker);
-      if (c.kind === 'unknown') continue;
-      if (c.kind === 'enum' && !seenKinds.has('enum')) {
-        seenKinds.add('enum');
-        // Collect all literals into one enum member
-        const allLiterals = typeNode.types
-          .map(m => classifyType(m, checker))
-          .filter(m => m.kind === 'enum')
-          .flatMap(m => m.options ?? []);
-        members.push({ type: 'enum', options: allLiterals });
-      } else if (c.kind !== 'enum' && !seenKinds.has(c.kind)) {
-        seenKinds.add(c.kind);
-        members.push({ type: c.kind });
-      }
-    }
+    typeNode.types
+      .map(member => ({ member, c: classifyType(member, checker) }))
+      .filter(({ c }) => c.kind !== 'unknown')
+      .forEach(({ c }) => {
+        if (c.kind === 'enum' && !seenKinds.has('enum')) {
+          seenKinds.add('enum');
+          // Collect all literals into one enum member
+          const allLiterals = typeNode.types
+            .map(m => classifyType(m, checker))
+            .filter(m => m.kind === 'enum')
+            .flatMap(m => m.options ?? []);
+          members.push({ type: 'enum', options: allLiterals });
+        } else if (c.kind !== 'enum' && !seenKinds.has(c.kind)) {
+          seenKinds.add(c.kind);
+          members.push({ type: c.kind });
+        }
+      });
 
     if (members.length > 1) return { kind: 'union', members };
 
@@ -303,16 +309,18 @@ function extractProps(componentName) {
 
   /** @type {Array<{name: string, classification: Classification}>} */
   const results = [];
+  // eslint-disable-next-line no-restricted-syntax
   for (const member of iface.members) {
+    // ts.isPropertySignature is a TS type guard — must use for-of here
+    // eslint-disable-next-line no-continue
     if (!ts.isPropertySignature(member) || !member.name) continue;
     const name = member.name.getText(sourceFile);
-
     // Skip props that can't be driven by a simple control input
+    // eslint-disable-next-line no-continue
     if (['children', 'key', 'ref'].includes(name)) continue;
-
     const classification = classifyType(member.type, checker);
+    // eslint-disable-next-line no-continue
     if (classification.kind === 'unknown') continue;
-
     results.push({ name, classification });
   }
 
@@ -360,11 +368,9 @@ function toHelperCall(name, c) {
           return `{ type: PropTypes.${m.type.toUpperCase()} }`;
         },
       );
-      return (
-        `unionProp(${q(name)}, [\n` +
-        members.map(/** @param {string} m */ m => `    ${m},`).join('\n') +
-        '\n  ])'
-      );
+      return `unionProp(${q(name)}, [\n${members
+        .map(/** @param {string} m */ m => `    ${m},`)
+        .join('\n')}\n  ])`;
     }
 
     case 'any':
@@ -372,10 +378,7 @@ function toHelperCall(name, c) {
       // Review grommet's index.d.ts and add a manual override in
       // classifyType() or handle it in the component conf file.
       return (
-        "null, // TODO: '" +
-        name +
-        "' resolved to 'any'" +
-        ' — needs manual mapping'
+        `null, // TODO: '${name}' resolved to 'any'` + ' — needs manual mapping'
       );
 
     default:
@@ -483,11 +486,13 @@ if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 if (scaffold && !fs.existsSync(CONF_DIR))
   fs.mkdirSync(CONF_DIR, { recursive: true });
 
+// eslint-disable-next-line no-restricted-syntax
 for (const name of targets) {
   console.log(`Processing ${name}...`);
   const props = extractProps(name);
   if (!props.length) {
     console.log('  Skipped (no props extracted).');
+    // eslint-disable-next-line no-continue
     continue;
   }
 
@@ -501,15 +506,13 @@ for (const name of targets) {
   if (scaffold) {
     const confPath = path.join(CONF_DIR, `${name}.js`);
     if (fs.existsSync(confPath)) {
-      console.log(
-        `  ⚠️   Skipped scaffold — ${path.relative(process.cwd(), confPath)} already exists`,
-      );
+      const rel = path.relative(process.cwd(), confPath);
+      console.log(`  ⚠️   Skipped scaffold — ${rel} already exists`);
     } else {
       const confContent = generateConfFile(name, props);
       fs.writeFileSync(confPath, confContent, 'utf8');
-      console.log(
-        `  🏗️   Scaffold written → ${path.relative(process.cwd(), confPath)}`,
-      );
+      const rel = path.relative(process.cwd(), confPath);
+      console.log(`  🏗️   Scaffold written → ${rel}`);
     }
   }
 }
