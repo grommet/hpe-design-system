@@ -16,13 +16,23 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
   onSubmit,
   ...rest
 }) => {
+	const textareaId = 'message';
 	const defaultRows = 2;
 	const [rows, setRows] = useState<number | undefined>(defaultRows);
 
+	// Dynamically adjust TextArea rows based on content, with a minimum of defaultRows
 	useEffect(() => {
-		const lineCount = formValue.message.split('\n').length;
-		if (lineCount > defaultRows) {
-			setRows(lineCount);
+		const el = document.getElementById(textareaId);
+		if (!el) return;
+		const style = window.getComputedStyle(el);
+		const lineHeight = parseInt(style.lineHeight || '0', 10);
+		const padding =
+			parseInt(style.paddingTop || '0', 10) +
+			parseInt(style.paddingBottom || '0', 10);
+		const visualLines = Math.floor((el.scrollHeight - padding) / lineHeight);
+
+		if (visualLines > defaultRows) {
+			setRows(visualLines);
 		} else {
 			setRows(defaultRows);
 		}
@@ -33,10 +43,10 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
       <FormField name="message">
         <Box pad={{ top: '3xsmall' }}>
           <ScreenReaderOnly>
-            <label htmlFor="message">Message</label>
+            <label htmlFor={textareaId}>Message</label>
           </ScreenReaderOnly>
           <TextArea
-            id="message"
+            id={textareaId}
             name="message"
             placeholder="Enter your message..."
             resize={false}
