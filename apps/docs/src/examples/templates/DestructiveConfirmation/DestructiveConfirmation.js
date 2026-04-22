@@ -78,7 +78,6 @@ export const DestructiveConfirmation = ({
         value={value}
         onChange={onChange}
         validate="blur"
-        // eslint-disable-next-line no-unused-vars
         onSubmit={({ value: formValue, touched }) => {
           if (onSubmitProp) onSubmitProp(formValue, touched);
           onClose();

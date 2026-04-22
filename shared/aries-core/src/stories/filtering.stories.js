@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable max-len */
-/* eslint-disable import/extensions */
 import React from 'react';
 import { FilteringCards } from 'apps/docs/src/examples/templates/filtering/FilteringCards/FilteringCards';
 import { FilteringTable } from 'apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable';

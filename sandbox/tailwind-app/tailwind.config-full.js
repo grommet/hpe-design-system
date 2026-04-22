@@ -1060,5 +1060,5 @@ export default {
     },
   },
   plugins: [],
-}
+};
 

@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable max-len */
-/* eslint-disable import/extensions */
 import React from 'react';
 import { FormValidation } from 'apps/docs/src/examples/templates/inline-notifications/InlineFormValidation';
 import { InlineNotificationExample } from 'apps/docs/src/examples/templates/inline-notifications/InlineNotificationExample';

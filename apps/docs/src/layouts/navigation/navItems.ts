@@ -16,6 +16,7 @@ const pageDetails = structureIndexes.byName as { [key: string]: NavPage };
 const hasChildren = (page: NavPage): page is NavPage & { pages: string[] } =>
   Array.isArray(page.pages) && page.pages.length > 0;
 
+// eslint-disable-next-line max-len
 const excludePages = ['Card']; // Pages with children to exclude from top-level navigation
 
 // Helper to build a single nav item
@@ -28,6 +29,7 @@ const buildNavItem = (pageName: string): NavItemType | null => {
   };
 
   if (hasChildren(details)) {
+    // eslint-disable-next-line no-use-before-define
     navItem.children = buildNavItems(details.pages!, pageName);
   } else {
     navItem.url = nameToPath(pageName);

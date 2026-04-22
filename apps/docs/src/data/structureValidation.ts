@@ -119,13 +119,14 @@ export const validateStructureData = (
       errors.push(`Invalid category "${page.category}" on page "${page.name}"`);
     }
 
-    const relatedContent = page.relatedContent;
+    const { relatedContent } = page;
     if (Array.isArray(relatedContent)) {
       relatedContent.forEach(relatedName => {
         const relatedPage = getPrimaryPageByName(relatedName, indexes);
 
         if (!relatedPage) {
           errors.push(
+            // eslint-disable-next-line max-len
             `Page "${page.name}" references missing relatedContent "${relatedName}"`,
           );
         }
@@ -136,6 +137,7 @@ export const validateStructureData = (
       const parent = getPrimaryPageByName(page.parentPage, indexes);
       if (!parent) {
         errors.push(
+          // eslint-disable-next-line max-len
           `Page "${page.name}" references missing parentPage "${page.parentPage}"`,
         );
         return;
@@ -143,6 +145,7 @@ export const validateStructureData = (
 
       if (!Array.isArray(parent.pages) || !parent.pages.includes(page.name)) {
         errors.push(
+          // eslint-disable-next-line max-len
           `Parent mismatch: "${page.name}" declares parentPage "${page.parentPage}" but parent.pages does not include it`,
         );
       }
@@ -160,6 +163,7 @@ export const validateStructureData = (
 
         if (child.parentPage && child.parentPage !== page.name) {
           errors.push(
+            // eslint-disable-next-line max-len
             `Child mismatch: "${child.name}" is listed under "${page.name}" but declares parentPage "${child.parentPage}"`,
           );
         }
@@ -180,6 +184,7 @@ export const validateStructureData = (
 
       if (!existsInCategory) {
         errors.push(
+          // eslint-disable-next-line max-len
           `Category mapping missing page "${child.name}" in ${hubName}.${category}`,
         );
       }
