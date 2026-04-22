@@ -1,8 +1,8 @@
-
+import { useEffect, useState } from 'react';
 import { Box, Button, Footer, Form, FormField, TextArea } from 'grommet';
 import { Add, Send } from '@hpe-design/icons-grommet';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { useEffect, useState } from 'react';
+import { FileUpload } from './components';
 
 interface PromptInterfaceProps {
   formValue: { message: string };
@@ -16,70 +16,74 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
   onSubmit,
   ...rest
 }) => {
-	const textareaId = 'message';
-	const defaultRows = 2;
-	const [rows, setRows] = useState<number | undefined>(defaultRows);
+  const textareaId = 'message';
+  const defaultRows = 2;
+  const [rows, setRows] = useState<number | undefined>(defaultRows);
+	const [addFiles, setAddFiles] = useState<boolean>(false);
 
-	// Dynamically adjust TextArea rows based on content, with a minimum of defaultRows
-	useEffect(() => {
-		const el = document.getElementById(textareaId);
-		if (!el) return;
-		const style = window.getComputedStyle(el);
-		const lineHeight = parseInt(style.lineHeight || '0', 10);
-		const padding =
-			parseInt(style.paddingTop || '0', 10) +
-			parseInt(style.paddingBottom || '0', 10);
-		const visualLines = Math.floor((el.scrollHeight - padding) / lineHeight);
+  // Dynamically adjust TextArea rows based on content, with a minimum of defaultRows
+  useEffect(() => {
+    const el = document.getElementById(textareaId);
+    if (!el) return;
+    const style = window.getComputedStyle(el);
+    const lineHeight = parseInt(style.lineHeight || '0', 10);
+    const padding =
+      parseInt(style.paddingTop || '0', 10) +
+      parseInt(style.paddingBottom || '0', 10);
+    const visualLines = Math.floor((el.scrollHeight - padding) / lineHeight);
 
-		if (visualLines > defaultRows) {
-			setRows(visualLines);
-		} else {
-			setRows(defaultRows);
-		}
-	}, [formValue.message]);
+    if (visualLines > defaultRows) {
+      setRows(visualLines);
+    } else {
+      setRows(defaultRows);
+    }
+  }, [formValue.message]);
 
   return (
-    <Form value={formValue} onChange={onChange} {...rest}>
-      <FormField name="message">
-        <Box pad={{ top: '3xsmall' }}>
-          <ScreenReaderOnly>
-            <label htmlFor={textareaId}>Message</label>
-          </ScreenReaderOnly>
-          <TextArea
-            id={textareaId}
-            name="message"
-            placeholder="Enter your message..."
-            resize={false}
-            plain
-            focusIndicator={false}
-						onKeyUp={(event) => {
-              if (event.key === 'Enter' && !event.shiftKey) {
-                onSubmit();
-              }
-            }}
-						rows={rows}
-          />
-        </Box>
-        <Footer
-          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
-          responsive={false}
-        >
-          <Box direction="row" gap="3xsmall">
-            <Button
-              a11yTitle="Add context"
-              icon={<Add />}
-              onClick={() => {}}
-              secondary
+    <>
+      <Form value={formValue} onChange={onChange} {...rest}>
+        <FormField name="message">
+          <Box pad={{ top: '3xsmall' }}>
+            <ScreenReaderOnly>
+              <label htmlFor={textareaId}>Message</label>
+            </ScreenReaderOnly>
+            <TextArea
+              id={textareaId}
+              name="message"
+              placeholder="Enter your message..."
+              resize={false}
+              plain
+              focusIndicator={false}
+              onKeyUp={event => {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                  onSubmit();
+                }
+              }}
+              rows={rows}
             />
           </Box>
-          <Button
-            a11yTitle="Submit message"
-            icon={<Send />}
-            secondary
-            onClick={onSubmit}
-          />
-        </Footer>
-      </FormField>
-    </Form>
+          <Footer
+            pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
+            responsive={false}
+          >
+            <Box direction="row" gap="3xsmall">
+              <Button
+                a11yTitle="Add context"
+                icon={<Add />}
+                onClick={() => setAddFiles(true)}
+                secondary
+              />
+            </Box>
+            <Button
+              a11yTitle="Submit message"
+              icon={<Send />}
+              secondary
+              onClick={onSubmit}
+            />
+          </Footer>
+        </FormField>
+      </Form>
+      {addFiles && <FileUpload onClose={() => setAddFiles(false)} />}
+    </>
   );
 };
