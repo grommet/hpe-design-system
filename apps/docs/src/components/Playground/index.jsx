@@ -41,7 +41,7 @@ async function loadSchema(componentName) {
  * @param {{ component: string, exclude?: string[] }} props
  */
 export function Playground({ component, exclude }) {
-  const [, setSchema] = useState(/** @type {any[]|null} */ (null));
+  const [schema, setSchema] = useState(/** @type {any[]|null} */ (null));
   const [error, setError] = useState(/** @type {string|null} */ (null));
 
   useEffect(() => {
