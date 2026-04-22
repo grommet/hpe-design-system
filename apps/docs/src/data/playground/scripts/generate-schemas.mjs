@@ -418,10 +418,13 @@ function generateFile(componentName, props) {
   ];
   const usedHelpers = allHelpers.filter(h => body.includes(h));
   const needsPropTypes = body.includes('PropTypes.');
-  const imports = [
+  const importNames = [
     ...usedHelpers,
     ...(needsPropTypes ? ['PropTypes'] : []),
-  ].join(',\n  ');
+  ];
+  const importBlock = importNames.length
+    ? `import {\n  ${importNames.join(',\n  ')},\n} from '../schema';\n`
+    : '';
 
   return `// @ts-check
 // ⚠️  AUTO-GENERATED — do not edit by hand.
@@ -429,10 +432,7 @@ function generateFile(componentName, props) {
 //   ${componentName}
 /** @typedef {import('../schema').PropDescriptor} PropDescriptor */
 
-import {
-  ${imports},
-} from '../schema';
-
+${importBlock}
 // Derived from grommet ${componentName}Props (index.d.ts).
 // Use the conf object in components/${componentName}.js to
 // enable/disable individual props for the Playground.

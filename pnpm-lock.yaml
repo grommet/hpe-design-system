@@ -340,6 +340,9 @@ importers:
       testcafe-react-selectors:
         specifier: ^5.0.3
         version: 5.0.3(testcafe@3.7.2)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
       vite:
         specifier: ^5.4.21
         version: 5.4.21(@types/node@20.19.25)(terser@5.44.1)

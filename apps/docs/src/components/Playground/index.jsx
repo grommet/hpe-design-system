@@ -14,7 +14,7 @@
  */
 
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 /**
  * Dynamically loads the generated schema for a component.
@@ -40,15 +40,25 @@ async function loadSchema(componentName) {
 /**
  * @param {{ component: string, exclude?: string[] }} props
  */
-export function Playground({ component, exclude }) {
+export function Playground({ component, exclude = [] }) {
   const [schema, setSchema] = useState(/** @type {any[]|null} */ (null));
   const [error, setError] = useState(/** @type {string|null} */ (null));
+
+  // Stable key derived from exclude contents — prevents re-running the effect
+  // when callers pass an inline array literal (new reference each render).
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const excludeKey = useMemo(() => exclude.join('\0'), [exclude.join('\0')]);
+  const excludeSet = useMemo(
+    () => new Set(exclude),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [excludeKey],
+  );
 
   useEffect(() => {
     loadSchema(component)
       .then(fullSchema => {
         // Show all props except those explicitly excluded.
-        const filtered = fullSchema.filter(p => !exclude.includes(p.name));
+        const filtered = fullSchema.filter(p => !excludeSet.has(p.name));
         setSchema(filtered);
 
         const isDev = import.meta.env.DEV;
@@ -70,7 +80,7 @@ export function Playground({ component, exclude }) {
         }
       })
       .catch(err => setError(err.message));
-  }, [component, exclude]);
+  }, [component, excludeKey, excludeSet]);
 
   if (error) {
     console.error(`Playground error: ${error}`);
@@ -142,8 +152,4 @@ export function Playground({ component, exclude }) {
 Playground.propTypes = {
   component: PropTypes.string.isRequired,
   exclude: PropTypes.arrayOf(PropTypes.string),
-};
-
-Playground.defaultProps = {
-  exclude: [],
 };

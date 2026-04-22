@@ -9,11 +9,14 @@
 import { describe, it, expect } from 'vitest';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const GENERATED_DIR = path.resolve(__dirname, '../generated');
+
+/** @param {string} file */
+const toFileURL = file => pathToFileURL(file).href;
 
 // ---------------------------------------------------------------------------
 // Snapshot tests — verify the generated output is structurally correct
@@ -28,14 +31,14 @@ describe('generate-schemas — generated output', () => {
     const buttonFile = path.join(GENERATED_DIR, 'Button.js');
     expect(fs.existsSync(buttonFile)).toBe(true);
 
-    const mod = await import(buttonFile);
+    const mod = await import(toFileURL(buttonFile));
     expect(Array.isArray(mod.buttonSchema)).toBe(true);
     expect(mod.buttonSchema.length).toBeGreaterThan(0);
   });
 
   it('every entry in buttonSchema has name and type fields', async () => {
     const { buttonSchema } = await import(
-      path.join(GENERATED_DIR, 'Button.js')
+      toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
     buttonSchema.forEach(prop => {
       expect(typeof prop.name).toBe('string');
@@ -45,7 +48,7 @@ describe('generate-schemas — generated output', () => {
 
   it('buttonSchema contains expected core props', async () => {
     const { buttonSchema } = await import(
-      path.join(GENERATED_DIR, 'Button.js')
+      toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
     const names = buttonSchema.map(p => p.name);
     expect(names).toContain('disabled');
@@ -55,7 +58,7 @@ describe('generate-schemas — generated output', () => {
 
   it('disabled prop is typed as boolean', async () => {
     const { buttonSchema } = await import(
-      path.join(GENERATED_DIR, 'Button.js')
+      toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
     const disabled = buttonSchema.find(p => p.name === 'disabled');
     expect(disabled).toBeDefined();
@@ -64,7 +67,7 @@ describe('generate-schemas — generated output', () => {
 
   it('size prop is typed as string or enum', async () => {
     const { buttonSchema } = await import(
-      path.join(GENERATED_DIR, 'Button.js')
+      toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
     const size = buttonSchema.find(p => p.name === 'size');
     expect(size).toBeDefined();
@@ -78,7 +81,7 @@ describe('generate-schemas — generated output', () => {
 
   it('badge prop is typed as union of boolean | number | string', async () => {
     const { buttonSchema } = await import(
-      path.join(GENERATED_DIR, 'Button.js')
+      toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
     const badge = buttonSchema.find(p => p.name === 'badge');
     expect(badge).toBeDefined();
