@@ -1,6 +1,8 @@
-import { Box, Button, Form, FormField, TextArea } from 'grommet';
-import { Attachment, Image, Save, Send } from 'grommet-icons';
+
+import { Box, Button, Footer, Form, FormField, TextArea } from 'grommet';
+import { Add, Send } from '@hpe-design/icons-grommet';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
+import { useEffect, useState } from 'react';
 
 interface PromptInterfaceProps {
   formValue: { message: string };
@@ -14,16 +16,22 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
   onSubmit,
   ...rest
 }) => {
+	const defaultRows = 2;
+	const [rows, setRows] = useState<number | undefined>(defaultRows);
+
+	useEffect(() => {
+		const lineCount = formValue.message.split('\n').length;
+		if (lineCount > defaultRows) {
+			setRows(lineCount);
+		} else {
+			setRows(defaultRows);
+		}
+	}, [formValue.message]);
+
   return (
     <Form value={formValue} onChange={onChange} {...rest}>
       <FormField name="message">
-        <Box
-          direction="row"
-          gap="small"
-          align="center"
-          justify="between"
-          pad={{ right: 'xsmall' }}
-        >
+        <Box pad={{ top: '3xsmall' }}>
           <ScreenReaderOnly>
             <label htmlFor="message">Message</label>
           </ScreenReaderOnly>
@@ -34,27 +42,33 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
             resize={false}
             plain
             focusIndicator={false}
+						onKeyUp={(event) => {
+              if (event.key === 'Enter' && !event.shiftKey) {
+                onSubmit();
+              }
+            }}
+						rows={rows}
           />
+        </Box>
+        <Footer
+          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
+          responsive={false}
+        >
+          <Box direction="row" gap="3xsmall">
+            <Button
+              a11yTitle="Add context"
+              icon={<Add />}
+              onClick={() => {}}
+              secondary
+            />
+          </Box>
           <Button
             a11yTitle="Submit message"
             icon={<Send />}
             secondary
             onClick={onSubmit}
           />
-        </Box>
-        <Box direction="row" gap="xsmall" pad="xsmall">
-          <Button
-            a11yTitle="Attach file"
-            icon={<Attachment />}
-            onClick={() => {}}
-          />
-          <Button a11yTitle="Add image" icon={<Image />} onClick={() => {}} />
-          <Button
-            a11yTitle="Refine context"
-            icon={<Save />}
-            onClick={() => {}}
-          />
-        </Box>
+        </Footer>
       </FormField>
     </Form>
   );
