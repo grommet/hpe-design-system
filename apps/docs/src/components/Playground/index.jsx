@@ -54,19 +54,23 @@ export function Playground({ component, exclude }) {
         const filtered = fullSchema.filter(p => !exclude.includes(p.name));
         setSchema(filtered);
 
+        const isDev = import.meta.env.DEV;
+
         // Demo log — shows resolved prop names + types in the browser console.
-        console.group(`Playground: ${component}`);
-        filtered.forEach(prop => {
-          if (!prop) return;
-          let extra = '';
-          if (prop.type === 'enum' && 'options' in prop) {
-            extra = ` [${prop.options.join(', ')}]`;
-          } else if (prop.type === 'union' && 'types' in prop) {
-            extra = ` (${prop.types.map(t => t.type).join(' | ')})`;
-          }
-          console.log(`  ${prop.name}: ${prop.type}${extra}`);
-        });
-        console.groupEnd();
+        if (isDev) {
+          console.group(`Playground: ${component}`);
+          filtered.forEach(prop => {
+            if (!prop) return;
+            let extra = '';
+            if (prop.type === 'enum' && 'options' in prop) {
+              extra = ` [${prop.options.join(', ')}]`;
+            } else if (prop.type === 'union' && 'types' in prop) {
+              extra = ` (${prop.types.map(t => t.type).join(' | ')})`;
+            }
+            console.log(`  ${prop.name}: ${prop.type}${extra}`);
+          });
+          console.groupEnd();
+        }
       })
       .catch(err => setError(err.message));
   }, [component, exclude]);
