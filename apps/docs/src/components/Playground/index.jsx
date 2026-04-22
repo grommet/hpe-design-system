@@ -51,29 +51,92 @@ export function Playground({ component, exclude }) {
         const filtered = fullSchema.filter(p => !exclude.includes(p.name));
         setSchema(filtered);
 
+        const isDev = import.meta.env.DEV;
+
         // Demo log — shows resolved prop names + types in the browser console.
-        console.group(`Playground: ${component}`);
-        filtered.forEach(prop => {
-          if (!prop) return;
-          let extra = '';
-          if (prop.type === 'enum' && 'options' in prop) {
-            extra = ` [${prop.options.join(', ')}]`;
-          } else if (prop.type === 'union' && 'types' in prop) {
-            extra = ` (${prop.types.map(t => t.type).join(' | ')})`;
-          }
-          console.log(`  ${prop.name}: ${prop.type}${extra}`);
-        });
-        console.groupEnd();
+        if (isDev) {
+          console.group(`Playground: ${component}`);
+          filtered.forEach(prop => {
+            if (!prop) return;
+            let extra = '';
+            if (prop.type === 'enum' && 'options' in prop) {
+              extra = ` [${prop.options.join(', ')}]`;
+            } else if (prop.type === 'union' && 'types' in prop) {
+              extra = ` (${prop.types.map(t => t.type).join(' | ')})`;
+            }
+            console.log(`  ${prop.name}: ${prop.type}${extra}`);
+          });
+          console.groupEnd();
+        }
       })
       .catch(err => setError(err.message));
   }, [component, exclude]);
 
   if (error) {
     console.error(`Playground error: ${error}`);
+    return (
+      <div
+        role="alert"
+        style={{
+          border: '1px solid #f1b0b7',
+          borderRadius: '4px',
+          padding: '12px',
+          margin: '12px 0',
+          background: '#fff5f5',
+        }}
+      >
+        <strong>Playground unavailable</strong>
+        <div>{error}</div>
+      </div>
+    );
   }
 
-  // UI not yet built — component is wired for demo/console logging only.
-  return null;
+  if (schema === null) {
+    return (
+      <div
+        aria-live="polite"
+        style={{
+          border: '1px solid #e0e0e0',
+          borderRadius: '4px',
+          padding: '12px',
+          margin: '12px 0',
+          background: '#fafafa',
+        }}
+      >
+        Loading {component} playground…
+      </div>
+    );
+  }
+
+  return (
+    <section
+      aria-label={`${component} playground`}
+      style={{
+        border: '1px solid #e0e0e0',
+        borderRadius: '4px',
+        padding: '12px',
+        margin: '12px 0',
+        background: '#fafafa',
+      }}
+    >
+      <strong>{component} playground</strong>
+      <div style={{ marginTop: '8px' }}>
+        Interactive controls are not yet available. Loaded {schema.length}{' '}
+        prop{schema.length === 1 ? '' : 's'} for this component.
+      </div>
+      {schema.length > 0 && (
+        <ul style={{ marginTop: '8px', paddingLeft: '20px' }}>
+          {schema.map(prop => (
+            <li key={prop.name}>
+              <code>{prop.name}</code>
+              {' — '}
+              {prop.type}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
 }
 
 Playground.propTypes = {
