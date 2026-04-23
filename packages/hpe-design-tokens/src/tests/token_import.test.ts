@@ -879,6 +879,8 @@ describe('generatePostVariablesPayload', () => {
     };
 
     const localVariables: ApiGetLocalVariablesResponse = {
+      status: 200,
+      error: false,
       meta: {
         variableCollections: {},
         variables: {},
@@ -893,7 +895,16 @@ describe('generatePostVariablesPayload', () => {
       true, // freshFilesMode
     );
 
-    const aliasValue = payload.variableModeValues?.[0]?.value;
+    // Missing alias target should be auto-created so Figma accepts the payload.
+    const aliasTarget = payload.variables?.find(
+      variable => variable.name === 'primitives/color/blue',
+    );
+    expect(aliasTarget).toBeDefined();
+
+    const linkModeValue = payload.variableModeValues?.find(
+      modeValue => modeValue.variableId === 'color/link',
+    );
+    const aliasValue = linkModeValue?.value;
     expect(aliasValue).toEqual({
       type: 'VARIABLE_ALIAS',
       id: 'primitives/color/blue',
@@ -911,6 +922,8 @@ describe('generatePostVariablesPayload', () => {
     };
 
     const localVariables: ApiGetLocalVariablesResponse = {
+      status: 200,
+      error: false,
       meta: {
         variableCollections: {},
         variables: {},
@@ -918,6 +931,8 @@ describe('generatePostVariablesPayload', () => {
     };
 
     const crossFileVars: ApiGetLocalVariablesResponse = {
+      status: 200,
+      error: false,
       meta: {
         variableCollections: {
           prim_coll_id: {
@@ -956,7 +971,10 @@ describe('generatePostVariablesPayload', () => {
       false, // not freshFilesMode
     );
 
-    const aliasValue = payload.variableModeValues?.[0]?.value;
+    const linkModeValue = payload.variableModeValues?.find(
+      modeValue => modeValue.variableId === 'color/link',
+    );
+    const aliasValue = linkModeValue?.value;
     expect(aliasValue).toEqual({
       type: 'VARIABLE_ALIAS',
       id: 'VariableID:99:1',

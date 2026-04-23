@@ -3,7 +3,10 @@ import * as fs from 'fs';
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 
-import FigmaApi, { ApiGetLocalVariablesResponse } from '../figma_api.js';
+import FigmaApi, {
+  ApiGetLocalVariablesResponse,
+  ApiPostVariablesPayload,
+} from '../figma_api.js';
 import {
   generatePostVariablesPayload,
   readJsonFiles,
@@ -26,6 +29,18 @@ type SyncOptions = {
   // subscriptions. After initial apply, set up subscriptions in Figma then re-run
   // without this flag so subsequent syncs use real IDs.
   freshFiles?: boolean;
+  // Validate VariableID alias keys against expected upstream published libraries.
+  checkAliasSources?: boolean;
+  // Same as checkAliasSources, but fail the role when drift is detected.
+  strictAliasSources?: boolean;
+};
+
+type AliasDriftEntry = {
+  aliasId: string;
+  aliasKey: string;
+  count: number;
+  consumers: string[];
+  modes: string[];
 };
 
 const TOKENS_DIR = 'tokens';
@@ -42,6 +57,8 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
   let roleFilter: Role | undefined;
   let singleFileKey: string | undefined;
   let freshFiles = false;
+  let checkAliasSources = false;
+  let strictAliasSources = false;
 
   argv.forEach(arg => {
     if (arg === '--apply') {
@@ -73,6 +90,17 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
 
     if (arg === '--fresh-files') {
       freshFiles = true;
+      return;
+    }
+
+    if (arg === '--check-alias-sources') {
+      checkAliasSources = true;
+      return;
+    }
+
+    if (arg === '--strict-alias-sources') {
+      strictAliasSources = true;
+      checkAliasSources = true;
     }
   });
 
@@ -84,7 +112,15 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
     );
   }
 
-  return { apply, nonInteractive, roleFilter, singleFileKey, freshFiles };
+  return {
+    apply,
+    nonInteractive,
+    roleFilter,
+    singleFileKey,
+    freshFiles,
+    checkAliasSources,
+    strictAliasSources,
+  };
 }
 
 function parseFileKeyInput(rawValue: string) {
@@ -246,6 +282,333 @@ function reportUnresolvedAliases(
   return unresolved.length;
 }
 
+function extractInvalidAliasFromMessage(message: string) {
+  const match = message.match(/Invalid alias:\s(.+?)\sdoes not exist/i);
+  return match?.[1]?.trim() || null;
+}
+
+function extractAliasKey(aliasId: string) {
+  const match = aliasId.match(/^VariableID:([^/]+)\//);
+  return match?.[1] || null;
+}
+
+function resolveTerminalAliasForMode(
+  initialAliasId: string,
+  modeId: string,
+  variableById: Record<
+    string,
+    {
+      variableCollectionId: string;
+      valuesByMode: Record<string, unknown>;
+    }
+  >,
+  collectionDefaultModeById: Record<string, string>,
+  plannedValueByVarMode: Record<string, unknown>,
+) {
+  let aliasId = initialAliasId;
+  let currentModeId = modeId;
+  const visited = new Set<string>();
+
+  // Hard-stop depth to avoid pathological cycles in malformed data.
+  for (let i = 0; i < 25; i += 1) {
+    const nodeKey = `${aliasId}::${currentModeId}`;
+    if (visited.has(nodeKey)) {
+      return aliasId;
+    }
+    visited.add(nodeKey);
+
+    const variable = variableById[aliasId];
+    if (!variable) {
+      return aliasId;
+    }
+
+    const planned = plannedValueByVarMode[nodeKey];
+    const direct = variable.valuesByMode[currentModeId];
+    const defaultModeId =
+      collectionDefaultModeById[variable.variableCollectionId] || '';
+    const fallbackDefault = defaultModeId
+      ? variable.valuesByMode[defaultModeId]
+      : undefined;
+    const fallbackAny = Object.values(variable.valuesByMode)[0];
+
+    const resolvedValue = planned || direct || fallbackDefault || fallbackAny;
+    if (
+      !resolvedValue ||
+      typeof resolvedValue !== 'object' ||
+      !('type' in resolvedValue) ||
+      resolvedValue.type !== 'VARIABLE_ALIAS' ||
+      typeof resolvedValue.id !== 'string'
+    ) {
+      return aliasId;
+    }
+
+    aliasId = resolvedValue.id;
+
+    // If we jumped into another variable collection, follow that collection's
+    // default mode on next hop unless the same mode id still exists there.
+    const nextVariable = variableById[aliasId];
+    if (nextVariable) {
+      if (!nextVariable.valuesByMode[currentModeId]) {
+        const nextDefault =
+          collectionDefaultModeById[nextVariable.variableCollectionId];
+        if (nextDefault) {
+          currentModeId = nextDefault;
+        }
+      }
+    }
+  }
+
+  return aliasId;
+}
+
+function collectAliasSourceDrift(
+  payload: ApiPostVariablesPayload,
+  localVariables: ApiGetLocalVariablesResponse,
+  allowedAliasKeys: Set<string>,
+) {
+  const consumerNameById: Record<string, string> = {};
+  Object.values(localVariables.meta.variables).forEach(variable => {
+    consumerNameById[variable.id] = variable.name;
+  });
+  (payload.variables || []).forEach(variable => {
+    if (variable.id && variable.name) {
+      consumerNameById[variable.id] = variable.name;
+    }
+  });
+
+  const modeNameById: Record<string, string> = {};
+  const collectionDefaultModeById: Record<string, string> = {};
+  Object.values(localVariables.meta.variableCollections).forEach(collection => {
+    collectionDefaultModeById[collection.id] = collection.defaultModeId;
+    collection.modes.forEach(mode => {
+      modeNameById[mode.modeId] = `${collection.name}/${mode.name}`;
+    });
+  });
+
+  const variableById: Record<
+    string,
+    {
+      variableCollectionId: string;
+      valuesByMode: Record<string, unknown>;
+    }
+  > = {};
+  Object.values(localVariables.meta.variables).forEach(variable => {
+    variableById[variable.id] = {
+      variableCollectionId: variable.variableCollectionId,
+      valuesByMode: variable.valuesByMode || {},
+    };
+  });
+  (payload.variables || []).forEach(variable => {
+    if (variable.id && variable.variableCollectionId) {
+      if (!variableById[variable.id]) {
+        variableById[variable.id] = {
+          variableCollectionId: variable.variableCollectionId,
+          valuesByMode: {},
+        };
+      }
+    }
+  });
+
+  const plannedValueByVarMode: Record<string, unknown> = {};
+  (payload.variableModeValues || []).forEach(mv => {
+    plannedValueByVarMode[`${mv.variableId}::${mv.modeId}`] = mv.value;
+  });
+
+  const driftByAlias = new Map<
+    string,
+    {
+      aliasKey: string;
+      count: number;
+      consumers: Set<string>;
+      modes: Set<string>;
+    }
+  >();
+
+  (payload.variableModeValues || []).forEach(mv => {
+    const value = mv.value;
+    if (
+      typeof value !== 'object' ||
+      value === null ||
+      !('type' in value) ||
+      value.type !== 'VARIABLE_ALIAS' ||
+      typeof value.id !== 'string'
+    ) {
+      return;
+    }
+
+    const terminalAliasId = resolveTerminalAliasForMode(
+      value.id,
+      mv.modeId,
+      variableById,
+      collectionDefaultModeById,
+      plannedValueByVarMode,
+    );
+
+    const aliasKey = extractAliasKey(terminalAliasId);
+    if (!aliasKey || allowedAliasKeys.has(aliasKey)) {
+      return;
+    }
+
+    const existing = driftByAlias.get(terminalAliasId) || {
+      aliasKey,
+      count: 0,
+      consumers: new Set<string>(),
+      modes: new Set<string>(),
+    };
+    existing.count += 1;
+    existing.consumers.add(consumerNameById[mv.variableId] || mv.variableId);
+    existing.modes.add(modeNameById[mv.modeId] || mv.modeId);
+    driftByAlias.set(terminalAliasId, existing);
+  });
+
+  const drift = [...driftByAlias.entries()]
+    .map(([aliasId, meta]) => ({
+      aliasId,
+      aliasKey: meta.aliasKey,
+      count: meta.count,
+      consumers: [...meta.consumers],
+      modes: [...meta.modes],
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  return drift;
+}
+
+function printAliasDriftReport(
+  role: Role,
+  drift: AliasDriftEntry[],
+  expectedSourceLabels: string,
+) {
+  if (drift.length === 0) {
+    console.log(`  alias source check: no drift ✅`);
+    return;
+  }
+
+  console.log(
+    `\n⚠️  Alias source drift for ${role}: ${drift.length} alias(es)`,
+  );
+  console.log(`  Expected source libraries: ${expectedSourceLabels}`);
+  drift.slice(0, 15).forEach((entry, index) => {
+    const consumers = entry.consumers.slice(0, 4).join(', ');
+    const modes = entry.modes.slice(0, 3).join(', ');
+    console.log(
+      `  ${index + 1}. ${entry.aliasId} (key: ${entry.aliasKey}, used ${
+        entry.count
+      }x)\n` +
+        `     consumers: ${consumers}${
+          entry.consumers.length > 4 ? ', …' : ''
+        }\n` +
+        `     modes: ${modes}${entry.modes.length > 3 ? ', …' : ''}`,
+    );
+  });
+  if (drift.length > 15) {
+    console.log(`  … plus ${drift.length - 15} more.`);
+  }
+}
+
+function printRebindPunchlist(
+  payload: ApiPostVariablesPayload,
+  localVariables: ApiGetLocalVariablesResponse,
+  label: string,
+  failedAlias: string | null,
+) {
+  const tempVariableIds = new Set(
+    (payload.variables || [])
+      .filter(v => v.id && !v.id.startsWith('VariableID:'))
+      .map(v => v.id as string),
+  );
+
+  const consumerNameById: Record<string, string> = {};
+  Object.values(localVariables.meta.variables).forEach(variable => {
+    consumerNameById[variable.id] = variable.name;
+  });
+  (payload.variables || []).forEach(variable => {
+    if (variable.id && variable.name) {
+      consumerNameById[variable.id] = variable.name;
+    }
+  });
+
+  const modeNameById: Record<string, string> = {};
+  Object.values(localVariables.meta.variableCollections).forEach(collection => {
+    collection.modes.forEach(mode => {
+      modeNameById[mode.modeId] = `${collection.name}/${mode.name}`;
+    });
+  });
+
+  const byAlias = new Map<
+    string,
+    { count: number; consumers: Set<string>; modes: Set<string> }
+  >();
+
+  (payload.variableModeValues || []).forEach(mv => {
+    const value = mv.value;
+    if (
+      typeof value !== 'object' ||
+      value === null ||
+      !('type' in value) ||
+      value.type !== 'VARIABLE_ALIAS' ||
+      typeof value.id !== 'string'
+    ) {
+      return;
+    }
+
+    const aliasId = value.id;
+    if (tempVariableIds.has(aliasId)) {
+      return;
+    }
+
+    // In proactive mode (no failed alias yet), only show unresolved name-based
+    // aliases; VariableID aliases are normal in linked-library workflows.
+    if (!failedAlias && aliasId.startsWith('VariableID:')) {
+      return;
+    }
+
+    const existing = byAlias.get(aliasId) || {
+      count: 0,
+      consumers: new Set<string>(),
+      modes: new Set<string>(),
+    };
+    existing.count += 1;
+    existing.consumers.add(consumerNameById[mv.variableId] || mv.variableId);
+    existing.modes.add(modeNameById[mv.modeId] || mv.modeId);
+    byAlias.set(aliasId, existing);
+  });
+
+  if (byAlias.size === 0) {
+    return;
+  }
+
+  const sorted = [...byAlias.entries()].sort((a, b) => {
+    if (failedAlias) {
+      if (a[0] === failedAlias) return -1;
+      if (b[0] === failedAlias) return 1;
+    }
+    return b[1].count - a[1].count;
+  });
+
+  console.log(`\n🧭 Rebind punchlist for ${label}:`);
+  if (failedAlias) {
+    console.log(`  Failed alias from API: ${failedAlias}`);
+  }
+  console.log('  Rebind these local stand-ins to imported remote variables:');
+
+  sorted.slice(0, 15).forEach(([aliasId, meta], index) => {
+    const consumers = [...meta.consumers].slice(0, 4).join(', ');
+    const modes = [...meta.modes].slice(0, 3).join(', ');
+    console.log(
+      `  ${index + 1}. ${aliasId}  (used ${meta.count}x)\n` +
+        `     consumers: ${consumers}${
+          meta.consumers.size > 4 ? ', …' : ''
+        }\n` +
+        `     modes: ${modes}${meta.modes.size > 3 ? ', …' : ''}`,
+    );
+  });
+
+  if (sorted.length > 15) {
+    console.log(`  … plus ${sorted.length - 15} more aliases.`);
+  }
+}
+
 function formatError(error: unknown) {
   if (typeof error === 'object' && error !== null) {
     const maybeError = error as {
@@ -380,8 +743,32 @@ async function main() {
     });
   }
 
+  const publishedKeysByRole: Partial<Record<Role, Set<string>>> = {};
+  if (options.checkAliasSources) {
+    const rolesToFetch: Role[] = [];
+    if (resolvedKeys.primitive) rolesToFetch.push('primitive');
+    if (resolvedKeys.semantic) rolesToFetch.push('semantic');
+
+    for (const role of rolesToFetch) {
+      try {
+        const published = await api.getPublishedVariables(resolvedKeys[role]!);
+        publishedKeysByRole[role] = new Set(
+          Object.values(published.meta.variables || {})
+            .map(variable => variable.key)
+            .filter(Boolean),
+        );
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.log(
+          `⚠️  Could not load published variables for ${role}: ${message}`,
+        );
+      }
+    }
+  }
+
   const failedRoles: Role[] = [];
   let processedRoles = 0;
+  let attemptedRoles = 0;
 
   // Each successfully resolved role's variables are accumulated here so that
   // subsequent roles can resolve cross-file aliases (e.g. semantic → primitive).
@@ -394,6 +781,10 @@ async function main() {
       continue;
     }
 
+    let roleLocalVariables: ApiGetLocalVariablesResponse | null = null;
+    let rolePayload: ReturnType<typeof generatePostVariablesPayload> | null =
+      null;
+
     try {
       const tokenFiles = getTokenFilesForRole(role);
       if (tokenFiles.length === 0) {
@@ -404,10 +795,12 @@ async function main() {
       }
 
       const tokensByFile = readJsonFiles(tokenFiles);
+      attemptedRoles += 1;
 
       // Always re-fetch fresh local variables for this role so we pick up any
       // changes made by an earlier role apply in the same run.
       const localVariables = await api.getLocalVariables(fileKey);
+      roleLocalVariables = localVariables;
       const postVariablesPayload = generatePostVariablesPayload(
         tokensByFile,
         localVariables,
@@ -415,6 +808,7 @@ async function main() {
         options.freshFiles ? [] : crossFileVars,
         options.freshFiles,
       );
+      rolePayload = postVariablesPayload;
 
       if (isPayloadEmpty(postVariablesPayload)) {
         console.log(
@@ -435,7 +829,67 @@ async function main() {
       console.log(`  variableModes: ${counts.variableModes}`);
       console.log(`  variables: ${counts.variables}`);
       console.log(`  variableModeValues: ${counts.variableModeValues}`);
-      reportUnresolvedAliases(postVariablesPayload, role);
+      const unresolvedAliasCount = reportUnresolvedAliases(
+        postVariablesPayload,
+        role,
+      );
+      if (unresolvedAliasCount > 0 && roleLocalVariables) {
+        printRebindPunchlist(
+          postVariablesPayload,
+          roleLocalVariables,
+          role,
+          null,
+        );
+      }
+
+      if (
+        options.checkAliasSources &&
+        role !== 'primitive' &&
+        roleLocalVariables
+      ) {
+        const allowedAliasKeys = new Set<string>();
+        const expectedSources: string[] = [];
+
+        // semantic aliases should come from primitive published library
+        if (role === 'semantic' && publishedKeysByRole.primitive) {
+          publishedKeysByRole.primitive.forEach(key =>
+            allowedAliasKeys.add(key),
+          );
+          expectedSources.push('primitive');
+        }
+
+        // component aliases should come from semantic (and optionally primitive)
+        if (role === 'component') {
+          if (publishedKeysByRole.semantic) {
+            publishedKeysByRole.semantic.forEach(key =>
+              allowedAliasKeys.add(key),
+            );
+            expectedSources.push('semantic');
+          }
+          if (publishedKeysByRole.primitive) {
+            publishedKeysByRole.primitive.forEach(key =>
+              allowedAliasKeys.add(key),
+            );
+            expectedSources.push('primitive');
+          }
+        }
+
+        if (allowedAliasKeys.size > 0) {
+          const drift = collectAliasSourceDrift(
+            postVariablesPayload,
+            roleLocalVariables,
+            allowedAliasKeys,
+          );
+          printAliasDriftReport(role, drift, expectedSources.join(', '));
+          if (options.strictAliasSources && drift.length > 0) {
+            throw new Error(
+              `Alias source drift detected for ${role}. Rebind aliases to expected libraries (${expectedSources.join(
+                ', ',
+              )}) or run without --strict-alias-sources.`,
+            );
+          }
+        }
+      }
 
       if (!options.apply) {
         console.log(
@@ -461,6 +915,16 @@ async function main() {
       const message = formatError(error);
       console.log(`❌ Failed to process ${role}: ${message}`);
 
+      const failedAlias = extractInvalidAliasFromMessage(message);
+      if (failedAlias && rolePayload && roleLocalVariables) {
+        printRebindPunchlist(
+          rolePayload,
+          roleLocalVariables,
+          role,
+          failedAlias,
+        );
+      }
+
       // Detect cross-file alias failures and guide the user towards --fresh-files
       if (!options.freshFiles && message.includes('Invalid alias')) {
         console.log(
@@ -483,7 +947,7 @@ async function main() {
     }
   }
 
-  if (processedRoles === 0) {
+  if (attemptedRoles === 0) {
     throw new Error(
       'No roles were processed. Provide valid FILE_KEY_* values or run interactively to enter file keys.',
     );

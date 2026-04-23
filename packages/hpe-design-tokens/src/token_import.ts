@@ -388,6 +388,23 @@ function compareVariableValues(a: VariableValue, b: VariableValue) {
   return false;
 }
 
+function findLocalVariableByName(
+  variableName: string,
+  localVariablesByCollectionAndName: {
+    [variableCollectionId: string]: { [name: string]: Variable };
+  },
+) {
+  for (const variablesByName of Object.values(
+    localVariablesByCollectionAndName,
+  )) {
+    if (variablesByName[variableName]) {
+      return variablesByName[variableName];
+    }
+  }
+
+  return null;
+}
+
 function isCodeSyntaxEqual(a: VariableCodeSyntax, b: VariableCodeSyntax) {
   return (
     Object.keys(a).length === Object.keys(b).length &&
@@ -533,6 +550,49 @@ export function generatePostVariablesPayload(
     variableModeValues: [],
   };
 
+  const payloadVariableIds = new Set<string>();
+  const payloadVariableCollectionById: { [variableId: string]: string } = {};
+
+  const trackPayloadVariable = (
+    variableId: string,
+    variableCollectionId: string,
+  ) => {
+    payloadVariableIds.add(variableId);
+    payloadVariableCollectionById[variableId] = variableCollectionId;
+  };
+
+  const ensureAliasTargetExists = (
+    aliasId: string,
+    resolvedType: Variable['resolvedType'],
+    variableCollectionId: string,
+  ) => {
+    const existing = findLocalVariableByName(
+      aliasId,
+      localVariablesByCollectionAndName,
+    );
+    const aliasVariableId = existing ? existing.id : aliasId;
+
+    // If target already exists in the file (potentially in another collection),
+    // only reference it. Do not write additional mode values using the caller's
+    // modeId since that mode may not belong to the target collection.
+    if (existing) {
+      return aliasVariableId;
+    }
+
+    if (!payloadVariableIds.has(aliasVariableId)) {
+      postVariablesPayload.variables!.push({
+        action: 'CREATE',
+        id: aliasVariableId,
+        name: aliasId,
+        variableCollectionId,
+        resolvedType,
+      });
+      trackPayloadVariable(aliasVariableId, variableCollectionId);
+    }
+
+    return aliasVariableId;
+  };
+
   Object.entries(tokensByFile).forEach(([fileName, tokens]) => {
     const { collectionName, modeName } =
       collectionAndModeFromFileName(fileName);
@@ -616,6 +676,7 @@ export function generatePostVariablesPayload(
           resolvedType: variableResolvedTypeFromToken(token),
           ...differences,
         });
+        trackPayloadVariable(variableId, variableCollectionId);
       } else if (variable && Object.keys(differences).length > 0) {
         postVariablesPayload.variables!.push({
           action: 'UPDATE',
@@ -632,16 +693,39 @@ export function generatePostVariablesPayload(
         freshFilesMode,
       );
 
+      let normalizedVariableValue = newVariableValue;
+      if (
+        freshFilesMode &&
+        typeof newVariableValue === 'object' &&
+        newVariableValue !== null &&
+        'type' in newVariableValue &&
+        newVariableValue.type === 'VARIABLE_ALIAS' &&
+        resolvedType
+      ) {
+        const aliasVariableId = ensureAliasTargetExists(
+          newVariableValue.id,
+          resolvedType,
+          variableCollectionId,
+        );
+        normalizedVariableValue = {
+          type: 'VARIABLE_ALIAS',
+          id: aliasVariableId,
+        };
+      }
+
       // Only include the variable mode value in the payload if it's different from the existing value
       if (
         resolvedType &&
         (existingVariableValue === null ||
-          !compareVariableValues(existingVariableValue, newVariableValue))
+          !compareVariableValues(
+            existingVariableValue,
+            normalizedVariableValue,
+          ))
       ) {
         postVariablesPayload.variableModeValues!.push({
           variableId,
           modeId,
-          value: newVariableValue,
+          value: normalizedVariableValue,
         });
       }
     });
