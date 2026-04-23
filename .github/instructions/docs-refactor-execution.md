@@ -2,21 +2,41 @@
 
 Welcome to the component documentation refactor project! The goal of this effort is to establish a rigorous, machine-readable YAML "source of truth" for every component while simultaneously standardizing our user-facing MDX pages.
 
-This guide will walk you through exactly how to pick up a component and execute the refactor end-to-step.
+This guide describes the full pipeline and the agents that power each step. To navigate the pipeline interactively, use the **`docs-refactor-conductor`** agent — it inspects the current state of any component and tells you exactly which agent to run next.
 
 ## Prerequisites
 
-1. Ensure you have **GitHub Copilot Chat** installed and active in VS Code.
+1. Ensure you have **GitHub Copilot Chat** installed and active in VS Code with agent mode enabled.
 2. Read the project plan: `.github/docs-refactor-plan.md`
 3. Identify which component you are assigned to refactor (check the "Full Component Checklist" at the bottom of the plan file).
 
+## The Agent Pipeline
+
+Each step in the per-component refactor is owned by a dedicated Copilot agent. Agents are located in `.github/agents/`. Run them in the order below. Steps 3 and 4 can run in parallel.
+
+```
+[1] extract-yaml-agent
+         ↓
+[2] generate-mdx-agent
+         ↓
+[3] generate-examples-agent  +  [4] dos-donts-agent   ← parallel
+         ↓
+[5] create-todos-agent
+         ↓
+[6] review-copy-agent
+```
+
+Use **`docs-refactor-conductor`** at any point to check where a component is in the pipeline and get the exact prompt to run next.
+
+---
+
 ## Step-by-Step Execution Guide
 
-For this guide, we will use `Button` as an example. Replace `button` with your assigned component.
+For this guide, we use `button` as an example. Replace `button` with your assigned component.
 
-### Step 1: Branch Out
+### Step 1: Branch out
 
-Create a new branch for your specific component. The base integration branch for this project is `project-sanderson`. We are limiting scope to **1 Pull Request per component**.
+Create a new branch for your component. The base integration branch is `project-sanderson`. Limit scope to **1 pull request per component**.
 
 ```bash
 git checkout project-sanderson
@@ -24,85 +44,91 @@ git pull
 git checkout -b project-sanderson-refactor-button
 ```
 
-### Step 2: Extract Existing Markdown into YAML
+### Step 2: Extract existing MDX into YAML
 
-We don't want to type YAML by hand. We will use Copilot to reverse-engineer the existing Docs.
+Run the **`extract-yaml-agent`** agent:
 
-1. Open your component's current MDX file: `apps/docs/src/pages/components/button.mdx`
-2. Open Copilot Chat in VS Code.
-3. Reference the extraction prompt and run it. You can drag and drop the necessary context files into the chat, or use `@workspace` commands:
-   > "Please follow the instructions in `.github/prompts/extract-component-yaml.prompt.md` to extract `apps/docs/src/pages/components/button.mdx`. Reference `shared/data-structure/types.ts`."
-4. Review the generated YAML output. **CRITICAL:** Ensure the `examples` array contains relative paths to `apps/docs/src/examples/components/` and _not_ raw React code.
-5. Save the output to `shared/data-structure/components/button.yaml`.
+> `@extract-yaml-agent button`
 
-### Step 3: Validate the Data
+This agent:
+- Reads `apps/docs/src/pages/components/button.mdx`
+- Extracts all content into `shared/data-structure/components/button.yaml` matching the `ComponentDefinition` schema in `shared/data-structure/types.ts`
+- Validates the YAML inline before saving
+- Stubs `apps/docs/todos/DEPRECATED-button.md` for any unmappable content
+- Renames the original MDX to `button.mdx.bak`
 
-Visually inspect `button.yaml` against the `ComponentDefinition` interface in `shared/data-structure/types.ts`.
+Reference prompt (if running manually without the agent): `.github/prompts/extract-component-yaml.prompt.md`
 
-- Ensure all required fields exist.
-- Ensure the structural shapes are correct (e.g. usage, anatomy, vs array of strings vs objects).
+### Step 3: Generate the new standardized MDX
 
-### Step 4: Protect Existing Interactive Code
+Run the **`generate-mdx-agent`** agent:
 
-To prevent our Next.js specific wrapper imports and frontmatter from being destroyed during generation, rename the existing MDX file to create a backup.
+> `@generate-mdx-agent button`
+
+This agent:
+- Reads `button.yaml`, `COMPONENT_TEMPLATE.md`, and `writing-documentation.instruction.md`
+- Generates the new MDX page with all sections, TODO placeholders for missing examples, and `<BestPracticeGroup>` blocks for do/don't entries
+- Restores Next.js frontmatter, layout imports, and `<AccessibilitySection>` from `button.mdx.bak`
+- Saves the result directly to `apps/docs/src/pages/components/button.mdx`
+
+Reference prompt (if running manually without the agent): `.github/prompts/generate-mdx.prompt.md`
+
+### Step 4: Implement use case examples and do/don't previews (parallel)
+
+Run **`generate-examples-agent`** and **`dos-donts-agent`** — these are independent and can run at the same time.
+
+**`generate-examples-agent`** — implements coded React examples for each `{/* TODO */}` placeholder in the Use Cases section:
+
+> `@generate-examples-agent button`
+
+**`dos-donts-agent`** — creates paired Good/Bad React preview components for each `<div>{/* TODO */}</div>` placeholder in the Dos and Don'ts section:
+
+> `@dos-donts-agent button`
+
+### Step 5: Create TODO and DEPRECATED tracking files
+
+Run the **`create-todos-agent`** agent:
+
+> `@create-todos-agent button`
+
+This agent:
+- Diffs `button.mdx.bak` against the new `button.mdx`
+- Produces `apps/docs/todos/TODO-button.md` (remaining gaps, missing examples, missing props, missing assets)
+- Updates `apps/docs/todos/DEPRECATED-button.md` (content removed or restructured, with a mapping table)
+- Deletes `button.mdx.bak`
+
+These files are **required outputs** for every component refactor, not optional.
+
+### Step 6: Review copy quality
+
+Run the **`review-copy-agent`** agent:
+
+> `@review-copy-agent button`
+
+This agent audits the generated MDX copy against `writing-documentation.instruction.md` and reports suggested edits by severity (must fix / recommend / consider). It does not apply changes — review the suggestions and apply them manually.
+
+### Step 7: Verify locally
+
+Build and run the `docs` app to confirm the new page renders without errors:
 
 ```bash
-mv apps/docs/src/pages/components/button.mdx apps/docs/src/pages/components/button.mdx.bak
+cd apps/docs
+pnpm start
 ```
 
-### Step 5: Generate the New Standardized MDX
+Open the component page in the browser and check the console for errors — especially `cloneElement`/`undefined children` errors, which are the most common crash pattern.
 
-Now we'll use Copilot to write the new Markdown based strictly on our new YAML definition and the rigid writing guidelines.
+### Step 8: Push and PR
 
-1. Open the newly created `button.yaml` file.
-2. In Copilot Chat run:
-   > "Please follow `.github/prompts/generate-mdx.prompt.md` to format `button.yaml` into MDX documentation."
-3. Save the Chat output to `apps/docs/src/pages/components/button.mdx`.
-4. **Merge from backup:** Open `.mdx.bak` and manually copy over any necessary Next.js file-routing imports, `<Layout>` wrappers, React component imports (like `<AccessibilitySection title="[Component]" />`), or frontmatter that were lost into the new `.mdx` file.
-
-### Step 6: Create TODO and DEPRECATED Files
-
-**Do this before deleting the `.bak`** — you need both files open side-by-side to do a proper diff.
-
-These are **required outputs** for every component refactor, not optional. Even if there is nothing to log, create the files with a brief note confirming the review was done.
-
-1. **`apps/docs/todos/TODO-[component].md`** — Catalog every gap found during extraction:
-   - Missing visual assets (e.g., anatomy diagram images that don't exist yet).
-   - Missing coded examples referenced in the YAML but without a corresponding file in `apps/docs/src/examples/components/`.
-   - Props present in the upstream library (e.g., Grommet) but not documented in the YAML.
-   - Behaviors or states mentioned in the original MDX but not captured in the new structure.
-
-2. **`apps/docs/todos/DEPRECATED-[component].md`** — Log every piece of original content that was removed or restructured:
-   - Original section names and why they were dropped.
-   - Any prose that doesn't fit the new template but may contain unique information worth preserving.
-   - A mapping table showing where redistributed content landed in the new structure.
-
-### Step 7: Review
-
-1. Build and run the `docs` app locally to ensure the new `button.mdx` page renders without crashing.
-2. Review the generated Markdown copy. Does it adhere to the rules in `.github/instructions/writing-documentation.instruction.md`? (e.g. Imperative tone, concise bullet points).
-
-### Step 8: Push & PR
-
-Create a focused pull request.
-
-1. Once the new MDX has been reviewed and approved, delete the `.bak` file.
-
-```bash
-rm apps/docs/src/pages/components/button.mdx.bak
-```
-
-2. Build and run the `docs` app locally to ensure the new `button.mdx` page renders without crashing.
-3. Review the generated Markdown copy. Does it adhere to the rules in `.github/instructions/writing-documentation.instruction.md`? (e.g. Imperative tone, concise bullet points).
-4. If there were data gaps in the original documentation that need to be researched, catalog them in `apps/docs/todos/TODO-[component].md`. If there was legacy content that doesn't fit the new rigid `.mdx` template, log it in `apps/docs/todos/DEPRECATED-[component].md`.
-
-### Step 7: Push & PR
-
-Create a focused pull request.
-
-1. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
+1. Commit your new YAML file, the updated MDX file, any new example files, and the TODO/DEPRECATED files.
 2. Title the PR `docs: refactor [Component] component`.
-3. **Check off your component** in the **Full Component Checklist** at the bottom of `.github/docs-refactor-plan.md`. Include this change in the same commit or as a follow-up commit on the same branch before merging — not after.
-2. Commit your new YAML file, the updated MDX file, and any TODO/DEPRECATED files.
-3. Title the PR `docs: refactor [Component] component`.
-4. Check off your component in the `.github/docs-refactor-plan.md`!
+3. **Check off your component** in the Full Component Checklist at the bottom of `.github/docs-refactor-plan.md`. Include this change in the same commit or as a follow-up commit on the same branch before merging.
+
+---
+
+## Reference: Prompt files
+
+The following prompt files are kept as documentation references. The agents above supersede them for active use.
+
+- `.github/prompts/extract-component-yaml.prompt.md` — reference for `extract-yaml-agent`
+- `.github/prompts/generate-mdx.prompt.md` — reference for `generate-mdx-agent`
