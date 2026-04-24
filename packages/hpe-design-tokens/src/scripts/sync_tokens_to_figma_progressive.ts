@@ -33,14 +33,18 @@ type SyncOptions = {
   checkAliasSources?: boolean;
   // Same as checkAliasSources, but fail the role when drift is detected.
   strictAliasSources?: boolean;
+  // Print full per-mode alias chain traces for drifted entries.
+  traceAliasChains?: boolean;
 };
 
 type AliasDriftEntry = {
   aliasId: string;
   aliasKey: string;
+  aliasCanonicalName?: string;
   count: number;
   consumers: string[];
   modes: string[];
+  modeTraces: string[];
 };
 
 const TOKENS_DIR = 'tokens';
@@ -59,6 +63,7 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
   let freshFiles = false;
   let checkAliasSources = false;
   let strictAliasSources = false;
+  let traceAliasChains = false;
 
   argv.forEach(arg => {
     if (arg === '--apply') {
@@ -101,6 +106,11 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
     if (arg === '--strict-alias-sources') {
       strictAliasSources = true;
       checkAliasSources = true;
+      return;
+    }
+
+    if (arg === '--trace-alias-chains') {
+      traceAliasChains = true;
     }
   });
 
@@ -120,6 +130,7 @@ function parseCliOptions(argv = process.argv.slice(2)): SyncOptions {
     freshFiles,
     checkAliasSources,
     strictAliasSources,
+    traceAliasChains,
   };
 }
 
@@ -292,7 +303,7 @@ function extractAliasKey(aliasId: string) {
   return match?.[1] || null;
 }
 
-function resolveTerminalAliasForMode(
+function resolveAliasChainForMode(
   initialAliasId: string,
   modeId: string,
   variableById: Record<
@@ -308,18 +319,21 @@ function resolveTerminalAliasForMode(
   let aliasId = initialAliasId;
   let currentModeId = modeId;
   const visited = new Set<string>();
+  const chain: string[] = [initialAliasId];
+  let cycleDetected = false;
 
   // Hard-stop depth to avoid pathological cycles in malformed data.
   for (let i = 0; i < 25; i += 1) {
     const nodeKey = `${aliasId}::${currentModeId}`;
     if (visited.has(nodeKey)) {
-      return aliasId;
+      cycleDetected = true;
+      break;
     }
     visited.add(nodeKey);
 
     const variable = variableById[aliasId];
     if (!variable) {
-      return aliasId;
+      break;
     }
 
     const planned = plannedValueByVarMode[nodeKey];
@@ -339,10 +353,11 @@ function resolveTerminalAliasForMode(
       resolvedValue.type !== 'VARIABLE_ALIAS' ||
       typeof resolvedValue.id !== 'string'
     ) {
-      return aliasId;
+      break;
     }
 
     aliasId = resolvedValue.id;
+    chain.push(aliasId);
 
     // If we jumped into another variable collection, follow that collection's
     // default mode on next hop unless the same mode id still exists there.
@@ -358,13 +373,18 @@ function resolveTerminalAliasForMode(
     }
   }
 
-  return aliasId;
+  return {
+    terminalAliasId: aliasId,
+    chain,
+    cycleDetected,
+  };
 }
 
 function collectAliasSourceDrift(
   payload: ApiPostVariablesPayload,
   localVariables: ApiGetLocalVariablesResponse,
   allowedAliasKeys: Set<string>,
+  aliasNameByKey: Record<string, string>,
 ) {
   const consumerNameById: Record<string, string> = {};
   Object.values(localVariables.meta.variables).forEach(variable => {
@@ -418,9 +438,11 @@ function collectAliasSourceDrift(
     string,
     {
       aliasKey: string;
+      aliasCanonicalNames: Set<string>;
       count: number;
       consumers: Set<string>;
       modes: Set<string>;
+      modeTraceByMode: Map<string, string>;
     }
   >();
 
@@ -436,7 +458,7 @@ function collectAliasSourceDrift(
       return;
     }
 
-    const terminalAliasId = resolveTerminalAliasForMode(
+    const { terminalAliasId, chain, cycleDetected } = resolveAliasChainForMode(
       value.id,
       mv.modeId,
       variableById,
@@ -451,13 +473,28 @@ function collectAliasSourceDrift(
 
     const existing = driftByAlias.get(terminalAliasId) || {
       aliasKey,
+      aliasCanonicalNames: new Set<string>(),
       count: 0,
       consumers: new Set<string>(),
       modes: new Set<string>(),
+      modeTraceByMode: new Map<string, string>(),
     };
+    const terminalAliasName =
+      consumerNameById[terminalAliasId] || aliasNameByKey[aliasKey];
+    if (terminalAliasName) {
+      existing.aliasCanonicalNames.add(terminalAliasName);
+    }
     existing.count += 1;
     existing.consumers.add(consumerNameById[mv.variableId] || mv.variableId);
-    existing.modes.add(modeNameById[mv.modeId] || mv.modeId);
+    const modeLabel = modeNameById[mv.modeId] || mv.modeId;
+    existing.modes.add(modeLabel);
+    if (!existing.modeTraceByMode.has(modeLabel)) {
+      const chainText = chain.join(' -> ');
+      existing.modeTraceByMode.set(
+        modeLabel,
+        cycleDetected ? `${chainText} (cycle)` : chainText,
+      );
+    }
     driftByAlias.set(terminalAliasId, existing);
   });
 
@@ -465,9 +502,13 @@ function collectAliasSourceDrift(
     .map(([aliasId, meta]) => ({
       aliasId,
       aliasKey: meta.aliasKey,
+      aliasCanonicalName: [...meta.aliasCanonicalNames][0],
       count: meta.count,
       consumers: [...meta.consumers],
       modes: [...meta.modes],
+      modeTraces: [...meta.modeTraceByMode.entries()].map(
+        ([mode, trace]) => `${mode}: ${trace}`,
+      ),
     }))
     .sort((a, b) => b.count - a.count);
 
@@ -478,6 +519,7 @@ function printAliasDriftReport(
   role: Role,
   drift: AliasDriftEntry[],
   expectedSourceLabels: string,
+  traceAliasChains: boolean,
 ) {
   if (drift.length === 0) {
     console.log(`  alias source check: no drift ✅`);
@@ -491,15 +533,25 @@ function printAliasDriftReport(
   drift.slice(0, 15).forEach((entry, index) => {
     const consumers = entry.consumers.slice(0, 4).join(', ');
     const modes = entry.modes.slice(0, 3).join(', ');
+    const canonicalLabel = entry.aliasCanonicalName || 'unknown';
     console.log(
       `  ${index + 1}. ${entry.aliasId} (key: ${entry.aliasKey}, used ${
         entry.count
       }x)\n` +
+        `     canonical: ${canonicalLabel}\n` +
         `     consumers: ${consumers}${
           entry.consumers.length > 4 ? ', …' : ''
         }\n` +
         `     modes: ${modes}${entry.modes.length > 3 ? ', …' : ''}`,
     );
+    if (traceAliasChains && entry.modeTraces.length > 0) {
+      entry.modeTraces.slice(0, 5).forEach(trace => {
+        console.log(`     trace: ${trace}`);
+      });
+      if (entry.modeTraces.length > 5) {
+        console.log(`     … plus ${entry.modeTraces.length - 5} more traces.`);
+      }
+    }
   });
   if (drift.length > 15) {
     console.log(`  … plus ${drift.length - 15} more.`);
@@ -744,6 +796,9 @@ async function main() {
   }
 
   const publishedKeysByRole: Partial<Record<Role, Set<string>>> = {};
+  const publishedNameByKeyByRole: Partial<
+    Record<Role, Record<string, string>>
+  > = {};
   if (options.checkAliasSources) {
     const rolesToFetch: Role[] = [];
     if (resolvedKeys.primitive) rolesToFetch.push('primitive');
@@ -752,11 +807,17 @@ async function main() {
     for (const role of rolesToFetch) {
       try {
         const published = await api.getPublishedVariables(resolvedKeys[role]!);
-        publishedKeysByRole[role] = new Set(
-          Object.values(published.meta.variables || {})
-            .map(variable => variable.key)
-            .filter(Boolean),
-        );
+        const keys = new Set<string>();
+        const namesByKey: Record<string, string> = {};
+        Object.values(published.meta.variables || {}).forEach(variable => {
+          if (!variable.key) {
+            return;
+          }
+          keys.add(variable.key);
+          namesByKey[variable.key] = variable.name;
+        });
+        publishedKeysByRole[role] = keys;
+        publishedNameByKeyByRole[role] = namesByKey;
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         console.log(
@@ -848,6 +909,7 @@ async function main() {
         roleLocalVariables
       ) {
         const allowedAliasKeys = new Set<string>();
+        const aliasNameByKey: Record<string, string> = {};
         const expectedSources: string[] = [];
 
         // semantic aliases should come from primitive published library
@@ -855,6 +917,7 @@ async function main() {
           publishedKeysByRole.primitive.forEach(key =>
             allowedAliasKeys.add(key),
           );
+          Object.assign(aliasNameByKey, publishedNameByKeyByRole.primitive);
           expectedSources.push('primitive');
         }
 
@@ -864,12 +927,14 @@ async function main() {
             publishedKeysByRole.semantic.forEach(key =>
               allowedAliasKeys.add(key),
             );
+            Object.assign(aliasNameByKey, publishedNameByKeyByRole.semantic);
             expectedSources.push('semantic');
           }
           if (publishedKeysByRole.primitive) {
             publishedKeysByRole.primitive.forEach(key =>
               allowedAliasKeys.add(key),
             );
+            Object.assign(aliasNameByKey, publishedNameByKeyByRole.primitive);
             expectedSources.push('primitive');
           }
         }
@@ -879,8 +944,14 @@ async function main() {
             postVariablesPayload,
             roleLocalVariables,
             allowedAliasKeys,
+            aliasNameByKey,
           );
-          printAliasDriftReport(role, drift, expectedSources.join(', '));
+          printAliasDriftReport(
+            role,
+            drift,
+            expectedSources.join(', '),
+            !!options.traceAliasChains,
+          );
           if (options.strictAliasSources && drift.length > 0) {
             throw new Error(
               `Alias source drift detected for ${role}. Rebind aliases to expected libraries (${expectedSources.join(

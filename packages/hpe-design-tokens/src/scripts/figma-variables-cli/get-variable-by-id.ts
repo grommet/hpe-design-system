@@ -41,6 +41,7 @@ async function searchVariableAcrossTargets(
         {
           role: target.role,
           source: target.source,
+          fileKey: target.fileKey,
           sourceType,
         },
         options,
@@ -143,6 +144,7 @@ export async function executeGetVariableById(
         {
           role: options.role || '',
           source,
+          fileKey,
           sourceType,
         },
         { debug: false },
@@ -152,6 +154,8 @@ export async function executeGetVariableById(
         JSON.stringify(
           {
             fileKeySource: source,
+            fileKey,
+            fileUrl: `https://www.figma.com/design/${fileKey}`,
             sourceType,
             collectionsCount: collections.length,
             variableId,

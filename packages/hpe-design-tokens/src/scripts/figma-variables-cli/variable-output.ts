@@ -7,6 +7,8 @@ export type VariableLocationRow = {
   name: string;
   role: string;
   file: string;
+  fileKey: string;
+  fileUrl: string;
   sourceType: string;
   collection: string;
   collectionId: string;
@@ -229,6 +231,7 @@ export function buildVariableLocationRow(
   location: {
     role: string;
     source: string;
+    fileKey: string;
     sourceType: string;
   },
   options?: { debug?: boolean },
@@ -258,6 +261,8 @@ export function buildVariableLocationRow(
     name: variable.name,
     role: location.role,
     file: location.source,
+    fileKey: location.fileKey,
+    fileUrl: `https://www.figma.com/design/${location.fileKey}`,
     sourceType: location.sourceType,
     collection: collection?.name || variable.variableCollectionId,
     collectionId: variable.variableCollectionId,

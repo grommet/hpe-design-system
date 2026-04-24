@@ -88,6 +88,8 @@ describe('executeGetVariableById', () => {
           name: 'color.text.default',
           role: location.role,
           file: location.source,
+          fileKey: 'k1',
+          fileUrl: 'https://www.figma.com/design/k1',
           sourceType: location.sourceType,
           collection: 'color',
           collectionId: '9479:10',
