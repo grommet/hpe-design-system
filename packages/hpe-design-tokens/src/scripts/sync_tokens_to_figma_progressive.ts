@@ -381,7 +381,6 @@ function resolveAliasChainForMode(
 }
 
 function collectAliasSourceDrift(
-  payload: ApiPostVariablesPayload,
   localVariables: ApiGetLocalVariablesResponse,
   allowedAliasKeys: Set<string>,
   aliasNameByKey: Record<string, string>,
@@ -389,11 +388,6 @@ function collectAliasSourceDrift(
   const consumerNameById: Record<string, string> = {};
   Object.values(localVariables.meta.variables).forEach(variable => {
     consumerNameById[variable.id] = variable.name;
-  });
-  (payload.variables || []).forEach(variable => {
-    if (variable.id && variable.name) {
-      consumerNameById[variable.id] = variable.name;
-    }
   });
 
   const modeNameById: Record<string, string> = {};
@@ -418,21 +412,25 @@ function collectAliasSourceDrift(
       valuesByMode: variable.valuesByMode || {},
     };
   });
-  (payload.variables || []).forEach(variable => {
-    if (variable.id && variable.variableCollectionId) {
-      if (!variableById[variable.id]) {
-        variableById[variable.id] = {
-          variableCollectionId: variable.variableCollectionId,
-          valuesByMode: {},
-        };
-      }
+
+  // Build the full current mode-value set from the live Figma state so drift
+  // detection is not sensitive to which values happen to be in the diff payload.
+  const currentModeValues: Array<{
+    variableId: string;
+    modeId: string;
+    value: unknown;
+  }> = [];
+  Object.values(localVariables.meta.variables).forEach(variable => {
+    // Only check local (non-remote) variables — remote ones are upstream sources.
+    if (variable.remote) {
+      return;
     }
+    Object.entries(variable.valuesByMode || {}).forEach(([modeId, value]) => {
+      currentModeValues.push({ variableId: variable.id, modeId, value });
+    });
   });
 
   const plannedValueByVarMode: Record<string, unknown> = {};
-  (payload.variableModeValues || []).forEach(mv => {
-    plannedValueByVarMode[`${mv.variableId}::${mv.modeId}`] = mv.value;
-  });
 
   const driftByAlias = new Map<
     string,
@@ -446,20 +444,20 @@ function collectAliasSourceDrift(
     }
   >();
 
-  (payload.variableModeValues || []).forEach(mv => {
+  currentModeValues.forEach(mv => {
     const value = mv.value;
     if (
       typeof value !== 'object' ||
       value === null ||
       !('type' in value) ||
-      value.type !== 'VARIABLE_ALIAS' ||
-      typeof value.id !== 'string'
+      (value as Record<string, unknown>).type !== 'VARIABLE_ALIAS' ||
+      typeof (value as Record<string, unknown>).id !== 'string'
     ) {
       return;
     }
 
     const { terminalAliasId, chain, cycleDetected } = resolveAliasChainForMode(
-      value.id,
+      (value as { id: string }).id,
       mv.modeId,
       variableById,
       collectionDefaultModeById,
@@ -871,38 +869,9 @@ async function main() {
       );
       rolePayload = postVariablesPayload;
 
-      if (isPayloadEmpty(postVariablesPayload)) {
-        console.log(
-          green(
-            `✅ "${role}" tokens are already up to date with the Figma file`,
-          ),
-        );
-        // Still accumulate vars so downstream roles have the alias context.
-        crossFileVars.push(localVariables);
-        processedRoles += 1;
-        continue;
-      }
-
-      const counts = payloadCounts(postVariablesPayload);
-      console.log(`\nRole: ${role} (${fileKey})`);
-      console.log('Planned changes:');
-      console.log(`  variableCollections: ${counts.variableCollections}`);
-      console.log(`  variableModes: ${counts.variableModes}`);
-      console.log(`  variables: ${counts.variables}`);
-      console.log(`  variableModeValues: ${counts.variableModeValues}`);
-      const unresolvedAliasCount = reportUnresolvedAliases(
-        postVariablesPayload,
-        role,
-      );
-      if (unresolvedAliasCount > 0 && roleLocalVariables) {
-        printRebindPunchlist(
-          postVariablesPayload,
-          roleLocalVariables,
-          role,
-          null,
-        );
-      }
-
+      // Always run alias-source drift check against the full current Figma state
+      // before any payload-emptiness check. This ensures results are deterministic
+      // regardless of whether the payload diff is empty or not.
       if (
         options.checkAliasSources &&
         role !== 'primitive' &&
@@ -941,7 +910,6 @@ async function main() {
 
         if (allowedAliasKeys.size > 0) {
           const drift = collectAliasSourceDrift(
-            postVariablesPayload,
             roleLocalVariables,
             allowedAliasKeys,
             aliasNameByKey,
@@ -960,6 +928,38 @@ async function main() {
             );
           }
         }
+      }
+
+      if (isPayloadEmpty(postVariablesPayload)) {
+        console.log(
+          green(
+            `✅ "${role}" tokens are already up to date with the Figma file`,
+          ),
+        );
+        // Still accumulate vars so downstream roles have the alias context.
+        crossFileVars.push(localVariables);
+        processedRoles += 1;
+        continue;
+      }
+
+      const counts = payloadCounts(postVariablesPayload);
+      console.log(`\nRole: ${role} (${fileKey})`);
+      console.log('Planned changes:');
+      console.log(`  variableCollections: ${counts.variableCollections}`);
+      console.log(`  variableModes: ${counts.variableModes}`);
+      console.log(`  variables: ${counts.variables}`);
+      console.log(`  variableModeValues: ${counts.variableModeValues}`);
+      const unresolvedAliasCount = reportUnresolvedAliases(
+        postVariablesPayload,
+        role,
+      );
+      if (unresolvedAliasCount > 0 && roleLocalVariables) {
+        printRebindPunchlist(
+          postVariablesPayload,
+          roleLocalVariables,
+          role,
+          null,
+        );
       }
 
       if (!options.apply) {
