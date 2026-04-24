@@ -236,6 +236,16 @@ Error object schema (example):
 - Deliverables: CLI contract, failure code catalog, summary schema
 - Exit: contract approved
 
+Phase 0 execution status: completed
+
+Frozen artifacts:
+
+- CLI contract: [contracts/figma-sync-cli-contract.md](contracts/figma-sync-cli-contract.md)
+- Failure code catalog: [contracts/figma-sync-failure-codes.md](contracts/figma-sync-failure-codes.md)
+- Stage-status schema: [contracts/schemas/figma-sync.stage-status.schema.json](contracts/schemas/figma-sync.stage-status.schema.json)
+- Run-summary schema: [contracts/schemas/figma-sync.run-summary.schema.json](contracts/schemas/figma-sync.run-summary.schema.json)
+- Error schema: [contracts/schemas/figma-sync.error.schema.json](contracts/schemas/figma-sync.error.schema.json)
+
 ### Phase 1: Config and CLI
 
 - Owner: design-tokens maintainers

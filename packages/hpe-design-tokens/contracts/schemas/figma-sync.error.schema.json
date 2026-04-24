@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hpe.design/schemas/figma-sync.error.schema.json",
+  "title": "Figma Sync Error",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["code", "message", "environment", "remediation"],
+  "properties": {
+    "code": {
+      "type": "string",
+      "enum": [
+        "INVALID_INVOCATION",
+        "CONFIG_RESOLUTION_FAILED",
+        "PREFLIGHT_FAILED",
+        "PRODUCTION_GUARDRAIL_BLOCKED",
+        "SCHEMA_EMIT_FAILED",
+        "STAGE_FAILED",
+        "ALIAS_NOT_FOUND",
+        "ALIAS_COLLISION",
+        "ALIAS_CROSS_TIER_INVALID",
+        "STAGE_PRIMITIVE_FAILED",
+        "STAGE_SEMANTIC_FAILED",
+        "STAGE_COMPONENT_FAILED"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "type": "string",
+      "enum": ["primitive", "semantic", "component"]
+    },
+    "tokenPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceFile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment": {
+      "type": "string",
+      "enum": ["production", "test"]
+    },
+    "remediation": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
