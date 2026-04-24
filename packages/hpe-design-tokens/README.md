@@ -33,6 +33,8 @@ This package supports two sync directions:
 - Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --output tokens`
 - tokens JSON to Figma: `pnpm sync-tokens-to-figma`
 
+For environment-isolated test/prod sync design and rollout details, see [FIGMA_ENVIRONMENT_SYNC_PLAN.md](FIGMA_ENVIRONMENT_SYNC_PLAN.md).
+
 Both scripts read environment variables from a local `.env` file.
 
 ### Required Environment Variables
