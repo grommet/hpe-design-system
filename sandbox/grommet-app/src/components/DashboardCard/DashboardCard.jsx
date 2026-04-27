@@ -25,6 +25,7 @@ export const DashboardCard = ({
   children,
   footer,
   inline,
+  controls,
   ...rest
 }) => {
   //   const { heading } = useContext(ThemeContext);
@@ -55,6 +56,12 @@ export const DashboardCard = ({
     : {};
 
   const animation = !skeleton ? 'fadeIn' : undefined;
+  const showCta = !hideCta && !controls;
+
+  const headerProps = controls
+    ? { pad: { vertical: 'medium', horizontal: 'xsmall' } }
+    : {};
+
   return (
     <Card
       {...inlineProps}
@@ -62,9 +69,12 @@ export const DashboardCard = ({
       {...(!inline ? { onClick: () => {} } : {})}
       {...skeletonProps}
       {...rest}
-    >
-      <CardHeader align="start" animation={animation} {...inlineProps}>
+      >
+      <CardHeader align="start" animation={animation} {...inlineProps}
+        {...headerProps}
+      >
         <Box direction="row" gap="small" align="start">
+          {controls && controls[0]}
           {icon && (
             <Box flex={false}>
               {skeleton ? <Skeleton height="xxsmall" width="xxsmall" /> : icon}
@@ -77,7 +87,8 @@ export const DashboardCard = ({
             <Text size="small">{subtitle}</Text>
           </Box>
         </Box>
-        {!hideCta ? (
+        {controls && controls[1]}
+        {showCta && (
           <Box flex={false}>
             {skeleton ? (
               <Skeleton pad="small" />
@@ -99,7 +110,7 @@ export const DashboardCard = ({
               />
             )}
           </Box>
-        ) : undefined}
+        )}
       </CardHeader>
       {children && (
         <CardBody
@@ -136,4 +147,5 @@ DashboardCard.propTypes = {
     PropTypes.element,
   ]),
   footer: PropTypes.element,
+  controls: PropTypes.arrayOf(PropTypes.element),
 };
