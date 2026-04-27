@@ -22,6 +22,8 @@ import {
   structuredTokens,
   DesignTokenContext,
   DesignTokensTable,
+  grommetThemeHpeHeadingLabelMap,
+  getGrommetThemeHpeDisplayToken,
   useDesignTokens,
 } from '../../components';
 
@@ -148,22 +150,6 @@ const getEmptyStateMessage = type => {
   return '--';
 };
 
-const hpeThemeHeadingLabelMap = {
-  borderWidth: 'borderWidth (borderSize)',
-  breakpoint: 'breakpoint (breakpoint)',
-  color: 'color (color)',
-  container: 'container (size)',
-  focusIndicator: 'focusIndicator (focus)',
-  fontWeight: 'fontWeight (fontWeight)',
-  fontStack: 'fontStack (font)',
-  heading: 'heading (heading)',
-  icon: 'icon (iconSize)',
-  radius: 'radius (radius)',
-  shadow: 'shadow (elevation)',
-  spacing: 'spacing (edgeSize)',
-  text: 'text (text)',
-};
-
 const getTokensBySource = source => {
   if (source === 'grommetThemeHpe' || source === 'docs') return docsTokens;
   if (source === 'figma') return structuredTokens.figma ?? {};
@@ -219,32 +205,6 @@ const getPathWithoutPrefix = (value, tokenSource) => {
   }
 
   return value;
-};
-
-const getHpeThemeDisplayToken = (token, category) => {
-  if (!token || !token.startsWith('hpe.')) return token;
-
-  const parts = token.split('.');
-
-  if (category === 'color') return parts.slice(2).join('-');
-
-  if (
-    [
-      'borderWidth',
-      'breakpoint',
-      'container',
-      'fontWeight',
-      'heading',
-      'icon',
-      'radius',
-      'shadow',
-      'spacing',
-      'text',
-    ].includes(category)
-  )
-    return parts[2] || token;
-
-  return token;
 };
 
 const tokenTypesStorageKey = 'designTokens.tokenTypes';
@@ -393,13 +353,13 @@ const AllTokens = () => {
   const activeCollectionKey = activeParts[0] || '';
   const activeCategoryKey = activeParts[1] || '';
   const displayHeadingLabel = selectedTokenTypes.includes('grommetThemeHpe')
-    ? hpeThemeHeadingLabelMap[activeCategoryKey] || activeHeadingLabel
+    ? grommetThemeHpeHeadingLabelMap[activeCategoryKey] || activeHeadingLabel
     : activeHeadingLabel;
-  const showHpeThemeManagedEmptyState =
+  const showGrommetThemeHpeManagedEmptyState =
     selectedTokenTypes.length === 1 &&
     primaryTokenType === 'grommetThemeHpe' &&
     ['component', 'primitives'].includes(activeCollectionKey);
-  const showHpeThemeCategoryEmptyState =
+  const showGrommetThemeHpeCategoryEmptyState =
     selectedTokenTypes.length === 1 &&
     primaryTokenType === 'grommetThemeHpe' &&
     ['focusIndicator', 'fontStack'].includes(activeCategoryKey);
@@ -411,17 +371,18 @@ const AllTokens = () => {
     selectedTokenTypes.length === 1 &&
     primaryTokenType === 'figma' &&
     ['focusIndicator'].includes(activeCategoryKey);
-  const showHpeThemeEmptyState =
-    showHpeThemeManagedEmptyState || showHpeThemeCategoryEmptyState;
+  const showGrommetThemeHpeEmptyState =
+    showGrommetThemeHpeManagedEmptyState ||
+    showGrommetThemeHpeCategoryEmptyState;
   const isFigmaManagedEmptyState =
     showFigmaManagedEmptyState || showFigmaCategoryEmptyState;
   const showSourceEmptyState =
-    showHpeThemeEmptyState || isFigmaManagedEmptyState;
+    showGrommetThemeHpeEmptyState || isFigmaManagedEmptyState;
   const sourceEmptyStateText = isFigmaManagedEmptyState
     ? 'Handled by Figma library.'
     : 'Handled by grommet-theme-hpe.';
   const showManagedEmptyState =
-    showHpeThemeEmptyState ||
+    showGrommetThemeHpeEmptyState ||
     showFigmaManagedEmptyState ||
     showFigmaCategoryEmptyState;
 
@@ -474,7 +435,7 @@ const AllTokens = () => {
           ) {
             tokenValue = getEmptyStateMessage(type);
           } else {
-            tokenValue = getHpeThemeDisplayToken(
+            tokenValue = getGrommetThemeHpeDisplayToken(
               datum.token,
               activeCategoryKey,
             );
