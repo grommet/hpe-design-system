@@ -21,8 +21,22 @@ import { DeviceSummary } from './DeviceSummary';
 import { UserOverview } from './UserOverview';
 import { ExpiringSubscriptions } from './ExpiringSubscriptions';
 import { MonthlyCharges } from './MonthlyCharges';
-import { SkeletonContext } from '../components';
+import { CustomizableGrid, CustomizeHeader, SkeletonContext } from '../components';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
+import { useState } from 'react';
+
+const sizeToSpan = {
+  '1x1': { gridColumn: 'span 1', gridRow: 'span 1' },
+  '1x2': { gridColumn: 'span 1', gridRow: 'span 2' },
+  '1x3': { gridColumn: 'span 1', gridRow: 'span 3' },
+  '2x1': { gridColumn: 'span 2', gridRow: 'span 1' },
+  '2x2': { gridColumn: 'span 2', gridRow: 'span 2' },
+  '2x3': { gridColumn: 'span 2', gridRow: 'span 3' },
+  '3x1': { gridColumn: 'span 3', gridRow: 'span 1' },
+  '3x2': { gridColumn: 'span 3', gridRow: 'span 2' },
+  '3x3': { gridColumn: 'span 3', gridRow: 'span 3' },
+};
+const resizeOptions = Object.keys(sizeToSpan);
 
 const Divider = () => <Box border={{ side: 'bottom', color: 'border-weak' }} />;
 
@@ -30,7 +44,24 @@ function Home() {
   const getStartedLoading = useLoading(250);
   const insightsLoading = useLoading(2000);
   const sidePanelLoading = useLoading(250);
+
+  const [customizeOpen, setCustomizeOpen] = useState(false);
+
+  const [widgets, setWidgets] = useState([
+    { id: 'billingSummary', component: <BillingSummary /> },
+    { id: 'deviceSummary', component: <DeviceSummary /> },
+    { id: 'sustainabilityOverview', component: <SustainabilityOverview /> },
+  ]);
+
   return (
+    <>
+      {customizeOpen && (
+        <CustomizeHeader
+          onCancel={() => setCustomizeOpen(false)}
+          onSave={() => setCustomizeOpen(false)}
+          onAddWidget={() => { }}
+        />
+      )}
     <Page pad={{ top: 'large', bottom: 'xlarge' }}>
       <PageContent gap="medium" responsive="container">
         <ResponsiveContext.Consumer>
@@ -46,11 +77,15 @@ function Home() {
               <Box gap="medium">
                 <PageHeader
                   title="Home"
-                  actions={
-                    <Button label="Customize" icon={<Configure />} reverse />
-                  }
+                    actions={!customizeOpen ?
+                      <Button label="Customize" icon={<Configure />} reverse
+                        onClick={() => setCustomizeOpen(!customizeOpen)}
+                      />
+                      : undefined
+                    }
                   pad="none"
                 />
+               
                 <Box gap="large" animation="fadeIn">
                   <Box
                     skeleton={getStartedLoading ? skeletonAnimation : undefined}
@@ -67,18 +102,29 @@ function Home() {
                     <SkeletonContext.Provider
                       value={insightsLoading ? skeletonAnimation : undefined}
                     >
-                      <Grid
+                      <CustomizableGrid
                         columns={
                           size === 'xlarge'
                             ? ['flex', 'flex', 'flex']
                             : ['auto']
                         }
                         gap="medium"
-                      >
-                        <BillingSummary />
-                        <DeviceSummary />
-                        <SustainabilityOverview />
-                      </Grid>
+                        data={widgets}
+                        onOrder={customizeOpen ? setWidgets : undefined}
+                        onResize={(id, size) => {
+                          console.log('resize', id, size);
+                          const nextWidgets = widgets.map(widget => (
+                            widget.id === id ? {
+                              ...widget,
+                              size: size?.size,
+                              sizeProps: sizeToSpan[size?.size],
+                            } : widget
+
+                          ));
+                          setWidgets(nextWidgets);
+                        }}
+                        resizeOptions={resizeOptions}
+                      />
                     </SkeletonContext.Provider>
                   </Box>
                   <RecentServices />
@@ -129,6 +175,7 @@ function Home() {
         </ResponsiveContext.Consumer>
       </PageContent>
     </Page>
+    </>
   );
 }
 

@@ -4,11 +4,11 @@ import { DashboardCard } from '../components';
 import { Legend } from '../components';
 import { SkeletonContext } from '../components';
 
-export const DeviceSummary = () => {
+export const DeviceSummary = ({ ...rest }) => {
   const skeleton = useContext(SkeletonContext);
 
   return (
-    <DashboardCard title="Device summary" level={2}>
+    <DashboardCard title="Device summary" level={2} {...rest}>
       <Box gap="medium">
         <Stack anchor="center" alignSelf="center">
           <Meter
