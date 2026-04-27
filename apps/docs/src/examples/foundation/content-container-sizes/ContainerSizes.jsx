@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, FormField, Select } from 'grommet';
-import { useDesignTokens } from '../../../components/content/designTokenUtils';
+import { useDesignTokens } from '../../../components';
 
 export const ContainerSizes = () => {
   const [height, setHeight] = React.useState('xsmall');

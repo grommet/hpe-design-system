@@ -1,40 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-unresolved
-import * as tokens from 'hpe-design-tokens/docs';
 import { Box, Text } from 'grommet';
+import { addCssTokens } from './cssTokenUtils';
+import { addDocsTokens } from './docsTokenUtils';
+import { addFigmaTokens } from './figmaTokenUtils';
 
-const structuredTokens = {
-  primitives: {},
-  semantic: {},
-  component: {},
-};
+const structuredTokens = {};
 
-Object.keys(tokens).forEach(mode => {
-  // primitives, component, light, dark, etc.
-  Object.keys(tokens[mode]).forEach(token => {
-    const currentToken = tokens[mode][token];
+addDocsTokens(structuredTokens);
 
-    const parts = token.split('.');
-    const category = parts[1];
-    let level;
-    if (mode === 'primitives') level = 'primitives';
-    else if (mode === 'components') level = 'component';
-    else level = 'semantic';
+addCssTokens(structuredTokens);
 
-    if (!(category in structuredTokens[level]))
-      structuredTokens[level][category] = {};
-    if (!(token in structuredTokens[level][category]))
-      structuredTokens[level][category][token] = {};
-    if (!('modes' in structuredTokens[level][category][token]))
-      structuredTokens[level][category][token].modes = {};
-
-    if (level === 'semantic' && mode !== 'global' && mode !== 'dimension') {
-      structuredTokens[level][category][token].modes[mode] = currentToken;
-    } else
-      structuredTokens[level][category][token].modes.default = currentToken;
-  });
-});
+addFigmaTokens(structuredTokens);
 
 const ColorPreview = ({ background, datum, ...rest }) => (
   <Box
@@ -87,6 +64,8 @@ const getTokens = (tokenObj, mode) =>
     return {
       id: key,
       token: key,
+      sourceToken: tokenObj[key]?.modes[mode]?.$name,
+      path: tokenObj[key]?.modes[mode]?.path,
       type: tokenObj[key]?.modes[mode]?.$type,
       description: tokenObj[key]?.modes[mode]?.$description,
       value: tokenObj[key]?.modes[mode].$value,
@@ -94,14 +73,21 @@ const getTokens = (tokenObj, mode) =>
   });
 
 const getCurrentTokens = active => {
+  if (!active) return [[], [], ''];
+
   const keyPath = active.split('.');
 
   let res = structuredTokens;
   keyPath.forEach(key => {
-    res = res[key];
+    if (res) res = res[key];
   });
 
-  const nextModes = Object.keys(Object.values(res)[0].modes).map(mode => mode);
+  if (!res || Object.keys(res).length === 0) return [[], [], ''];
+
+  const [firstToken] = Object.values(res);
+  if (!firstToken?.modes) return [[], [], ''];
+
+  const nextModes = Object.keys(firstToken.modes).map(mode => mode);
   let nextMode;
   if (nextModes.includes('light')) nextMode = 'light';
   else if (nextModes.includes('large')) nextMode = 'large';
@@ -111,8 +97,22 @@ const getCurrentTokens = active => {
   return [nextData, nextModes, nextMode];
 };
 
+const getDefaultActiveTokenPath = () => {
+  if (structuredTokens.semantic?.color) return 'semantic.color';
+
+  const [firstCollection] = Object.keys(structuredTokens);
+  if (!firstCollection) return '';
+
+  const [firstCategory] = Object.keys(structuredTokens[firstCollection] || {});
+  if (!firstCategory) return '';
+
+  return `${firstCollection}.${firstCategory}`;
+};
+
 const useDesignTokens = defaultState => {
-  const [active, setActive] = useState(defaultState);
+  const [active, setActive] = useState(
+    defaultState || getDefaultActiveTokenPath(),
+  );
   const [data, setData] = useState([]);
   const [modes, setModes] = useState([]);
   const [selectedMode, setSelectedMode] = useState('');
@@ -138,6 +138,7 @@ const useDesignTokens = defaultState => {
 
 export {
   getCurrentTokens,
+  getDefaultActiveTokenPath,
   structuredTokens,
   ColorPreview,
   DimensionPreview,
