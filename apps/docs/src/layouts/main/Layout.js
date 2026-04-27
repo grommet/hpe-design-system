@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
+import { useSessionStorage } from '@shared/hooks';
 import {
-  Main,
   Page,
   ResponsiveContext,
   SkipLinkTarget,
@@ -11,7 +11,14 @@ import {
   SkipLinks,
   Stack,
 } from 'grommet';
-import { AppHeader, DocsLayout } from '..';
+import {
+  AppShell,
+  NavHeader,
+  NavigationPanel,
+} from '../navigation/content';
+import { DocsLayout } from '..';
+// eslint-disable-next-line import/extensions, import/no-unresolved
+import { navItems } from '../navigation/navItems';
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getPrimaryPageByName, structureIndexes } from '../../data';
@@ -20,6 +27,7 @@ import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
 
+
 export const Layout = ({
   backgroundImage,
   children,
@@ -27,6 +35,10 @@ export const Layout = ({
   topic,
   isLanding = false,
 }) => {
+
+  const [navOpen, setNavOpen] = useSessionStorage('navOpen', true);
+  const [activeItem, setActiveItem] = useSessionStorage('activeItem', 'Home');
+
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -73,6 +85,36 @@ export const Layout = ({
     setPageUpdateReady(false);
   }, [setPageUpdateReady, title]);
 
+  const mainContent = (
+    <Stack fill guidingChild={backgroundImage && 'last'}>
+      {backgroundImage && (
+        <PageBackground backgroundImage={backgroundImage} />
+      )}
+      <Page>
+        {layout !== 'plain' ? (
+          <DocsLayout
+            title={title}
+            topic={topic}
+            render={render}
+            headings={headings}
+            relatedContent={relatedContent}
+            showInPageNav={showInPageNav}
+            pageUpdateReady={pageUpdateReady}
+            contentHistory={contentHistory}
+          >
+            {children}
+          </DocsLayout>
+        ) : (
+          <>
+            <SkipLinkTarget id="main" label="Main content" />
+            {children}
+          </>
+        )}
+      </Page>
+      <UserFeedback />
+    </Stack>
+  );
+
   return (
     <>
       <Meta
@@ -86,46 +128,34 @@ export const Layout = ({
           <SkipLink key={id} id={id} label={label} />
         ))}
       </SkipLinks>
-      {/* When a backgroundImage is present, the main page content becomes 
-      the `last` child. We want this content to drive the layout.
-      For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
-      <Stack fill guidingChild={backgroundImage && 'last'}>
-        {backgroundImage && (
-          <PageBackground backgroundImage={backgroundImage} />
-        )}
-        <>
-          {/* Only render Header for non-home pages.
-              Homepage header is rendered in index.js
-              to have the same background as the hero. */}
-          {title && title.toLowerCase() !== 'home' && (
-            <AppHeader />
-          )}
-          <Main overflow="visible">
-            <Page>
-              {layout !== 'plain' ? (
-                <DocsLayout
-                  title={title}
-                  topic={topic}
-                  render={render}
-                  headings={headings}
-                  relatedContent={relatedContent}
-                  showInPageNav={showInPageNav}
-                  pageUpdateReady={pageUpdateReady}
-                  contentHistory={contentHistory}
-                >
-                  {children}
-                </DocsLayout>
-              ) : (
-                <>
-                  <SkipLinkTarget id="main" label="Main content" />
-                  {children}
-                </>
-              )}
-            </Page>
-          </Main>
-          <UserFeedback />
-        </>
-      </Stack>
+      <AppShell
+        navOpen={navOpen}
+        setNavOpen={setNavOpen}
+        setActiveItem={setActiveItem}
+        navigationMenu={
+          <NavigationPanel
+            activeItem={activeItem}
+            setActiveItem={setActiveItem}
+            items={[{ url: '/', label: 'Home' }, ...navItems]}
+            expanded={navOpen}
+            onSelect={({ item, event }) => {
+              event.preventDefault();
+              setActiveItem(item.label);
+              if (item.url) {
+                router.push(item.url);
+              }
+            }}
+            header={
+              <NavHeader
+                open={navOpen}
+                setOpen={setNavOpen}
+                setActiveItem={setActiveItem}
+              />
+            }
+          />
+        }
+        mainContent={mainContent}
+      />
     </>
   );
 };

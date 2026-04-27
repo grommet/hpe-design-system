@@ -19,6 +19,10 @@ const hasChildren = (page: NavPage): page is NavPage & { pages: string[] } =>
 // eslint-disable-next-line max-len
 const excludePages = ['Card']; // Pages with children to exclude from top-level navigation
 
+// Top-level sections defined by the Home page
+const homePage = pageDetails.Home;
+const topLevelSections = new Set(homePage?.pages || []);
+
 // Helper to build a single nav item
 const buildNavItem = (pageName: string): NavItemType | null => {
   const details = pageDetails[pageName];
@@ -80,14 +84,13 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
 };
 
 export const navItems: NavItemType[] = structurePages
-  .filter(page => hasChildren(page) && !excludePages.includes(page.name))
+  .filter(
+    page =>
+      hasChildren(page) &&
+      !excludePages.includes(page.name) &&
+      topLevelSections.has(page.name),
+  )
   .map(page => {
-    if (page.name === 'Home') {
-      return {
-        label: page.name,
-        url: nameToPath(page.name),
-      };
-    }
 
     return {
       label: page.name,
