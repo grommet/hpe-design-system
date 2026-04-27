@@ -761,7 +761,6 @@ const AllTokens = () => {
                 <DesignTokensTable
                   active={active}
                   data={showSourceEmptyState ? [] : tableData}
-                  maxHeight={false}
                   toolbar
                   tokenTypeColumns={tokenTypeColumns}
                 />
