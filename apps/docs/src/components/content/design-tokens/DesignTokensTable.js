@@ -69,9 +69,7 @@ const getTokenColumn = (property, header) => ({
   render: datum => {
     // Default token column should prefer source token name when present.
     const displayValue =
-      property === 'token'
-        ? datum.sourceToken || datum.token
-        : datum[property];
+      property === 'token' ? datum.sourceToken || datum.token : datum[property];
 
     return (
       <Box direction="row">
@@ -97,10 +95,20 @@ const descriptionColumn = {
   render: datum => <Text>{datum.description ? datum.description : '--'}</Text>,
 };
 
+const formatTokenValue = value => {
+  if (value === undefined || value === null) return '--';
+  if (typeof value === 'object') return JSON.stringify(value);
+  return value;
+};
+
 const valueColumn = {
   property: 'value',
   header: 'Output value',
-  render: datum => <Text style={{ whiteSpace: 'nowrap' }}>{datum.value}</Text>,
+  render: datum => (
+    <Text style={{ whiteSpace: 'nowrap' }}>
+      {formatTokenValue(datum.value)}
+    </Text>
+  ),
 };
 
 export const DesignTokensTable = ({

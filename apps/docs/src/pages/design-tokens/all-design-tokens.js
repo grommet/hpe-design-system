@@ -122,31 +122,29 @@ const NavLayer = ({ children, onClose }) => {
 const docsTokens = Object.fromEntries(
   Object.entries(structuredTokens).filter(
     ([collection]) =>
-      collection !== 'hpeTheme' &&
+      collection !== 'grommetThemeHpe' &&
       collection !== 'figma' &&
       collection !== 'css',
   ),
 );
 
-const tokenTypeOrder = ['docs', 'css', 'hpeTheme', 'figma'];
-
-const tokenTypeOptions = [
-  { label: 'HPE design tokens', value: 'docs' },
-  { label: 'CSS', value: 'css' },
-  { label: 'Grommet', value: 'hpeTheme' },
-  { label: 'Figma', value: 'figma' },
-];
+const tokenTypeOrder = ['docs', 'css', 'grommetThemeHpe', 'figma'];
 
 const tokenTypeLabels = {
-  docs: 'HPE design tokens',
-  css: 'CSS',
-  hpeTheme: 'Grommet',
+  docs: 'HPE Design Tokens',
+  css: 'CSS vars',
+  grommetThemeHpe: 'Grommet',
   figma: 'Figma',
 };
 
+const tokenTypeOptions = tokenTypeOrder.map(type => ({
+  label: tokenTypeLabels[type],
+  value: type,
+}));
+
 const getEmptyStateMessage = type => {
-  if (type === 'hpeTheme') return 'N/A. Handled by the theme.';
-  if (type === 'figma') return 'N/A. Handled by figma.';
+  if (type === 'grommetThemeHpe') return 'N/A. Handled by `grommet-theme-hpe`.';
+  if (type === 'figma') return 'N/A. Handled by Figma library.';
   return '--';
 };
 
@@ -167,7 +165,7 @@ const hpeThemeHeadingLabelMap = {
 };
 
 const getTokensBySource = source => {
-  if (source === 'hpeTheme' || source === 'docs') return docsTokens;
+  if (source === 'grommetThemeHpe' || source === 'docs') return docsTokens;
   if (source === 'figma') return structuredTokens.figma ?? {};
   if (source === 'css') return structuredTokens.css ?? {};
   return docsTokens;
@@ -180,6 +178,8 @@ const getActivePrefix = source => {
 };
 
 const getDefaultActivePath = tokensObj => {
+  if (tokensObj.semantic?.color) return 'semantic.color';
+
   const [firstCollection] = Object.keys(tokensObj);
   if (!firstCollection) return '';
 
@@ -193,10 +193,14 @@ const isActiveInTokens = (value, tokensObj, tokenSource) => {
   if (!value) return false;
 
   const activePrefix = getActivePrefix(tokenSource);
-  const path =
+  let path =
     activePrefix && value.startsWith(`${activePrefix}.`)
       ? value.slice(activePrefix.length + 1)
       : value;
+
+  if (path.startsWith('figma.') || path.startsWith('css.')) {
+    path = path.split('.').slice(1).join('.');
+  }
 
   const [collection, category] = path.split('.');
   return Boolean(tokensObj[collection]?.[category]);
@@ -247,10 +251,14 @@ const tokenTypesStorageKey = 'designTokens.tokenTypes';
 
 const getSingleQueryValue = value => (Array.isArray(value) ? value[0] : value);
 
+const normalizeLegacyTokenType = type =>
+  type === 'hpeTheme' ? 'grommetThemeHpe' : type;
+
 const normalizeTokenTypes = value => {
   if (!Array.isArray(value)) return ['docs'];
 
-  const next = tokenTypeOrder.filter(type => value.includes(type));
+  const normalizedValue = value.map(normalizeLegacyTokenType);
+  const next = tokenTypeOrder.filter(type => normalizedValue.includes(type));
   return next.length > 0 ? next : ['docs'];
 };
 
@@ -274,6 +282,7 @@ const AllTokens = () => {
     useState(getInitialTokenTypes);
   const [isUrlSyncReady, setIsUrlSyncReady] = useState(false);
   const pendingTokenTypesSyncRef = useRef('');
+  const pendingTokenSyncRef = useRef('');
   const pendingModeSyncRef = useRef('');
   const breakpoint = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
@@ -303,6 +312,12 @@ const AllTokens = () => {
   );
 
   useEffect(() => {
+    const isSyncPending =
+      pendingTokenTypesSyncRef.current ||
+      pendingTokenSyncRef.current ||
+      pendingModeSyncRef.current;
+    if (isSyncPending) return;
+
     const activePrefix = getActivePrefix(primaryTokenType);
     const unprefixedActive = getPathWithoutPrefix(active, primaryTokenType);
 
@@ -367,10 +382,7 @@ const AllTokens = () => {
     />
   );
 
-  const displayActive =
-    activePrefix && active.startsWith(`${activePrefix}.`)
-      ? active.slice(activePrefix.length + 1)
-      : active;
+  const displayActive = getPathWithoutPrefix(active, primaryTokenType);
 
   const activeParts = displayActive ? displayActive.split('.') : [];
   const activeCollectionLabel = activeParts.length > 1 ? activeParts[0] : '';
@@ -380,16 +392,16 @@ const AllTokens = () => {
       : activeParts[0] || 'Design tokens';
   const activeCollectionKey = activeParts[0] || '';
   const activeCategoryKey = activeParts[1] || '';
-  const displayHeadingLabel = selectedTokenTypes.includes('hpeTheme')
+  const displayHeadingLabel = selectedTokenTypes.includes('grommetThemeHpe')
     ? hpeThemeHeadingLabelMap[activeCategoryKey] || activeHeadingLabel
     : activeHeadingLabel;
   const showHpeThemeManagedEmptyState =
     selectedTokenTypes.length === 1 &&
-    primaryTokenType === 'hpeTheme' &&
+    primaryTokenType === 'grommetThemeHpe' &&
     ['component', 'primitives'].includes(activeCollectionKey);
   const showHpeThemeCategoryEmptyState =
     selectedTokenTypes.length === 1 &&
-    primaryTokenType === 'hpeTheme' &&
+    primaryTokenType === 'grommetThemeHpe' &&
     ['focusIndicator', 'fontStack'].includes(activeCategoryKey);
   const showFigmaManagedEmptyState =
     selectedTokenTypes.length === 1 &&
@@ -406,8 +418,8 @@ const AllTokens = () => {
   const showSourceEmptyState =
     showHpeThemeEmptyState || isFigmaManagedEmptyState;
   const sourceEmptyStateText = isFigmaManagedEmptyState
-    ? 'Handled by Figma.'
-    : 'Handled by the theme.';
+    ? 'Handled by Figma library.'
+    : 'Handled by grommet-theme-hpe.';
   const showManagedEmptyState =
     showHpeThemeEmptyState ||
     showFigmaManagedEmptyState ||
@@ -438,7 +450,7 @@ const AllTokens = () => {
       let rowsForType = getTokens(tokenObj, mode);
 
       if (
-        type === 'hpeTheme' &&
+        type === 'grommetThemeHpe' &&
         ['heading', 'text'].includes(activeCategoryKey)
       ) {
         rowsForType = rowsForType.filter(datum =>
@@ -451,7 +463,7 @@ const AllTokens = () => {
           ? datum.path.join('.')
           : datum.sourceToken || datum.token;
         let tokenValue = datum.displayToken || datum.token;
-        if (type === 'hpeTheme') {
+        if (type === 'grommetThemeHpe') {
           if (
             selectedTokenTypes.length > 1 &&
             ['component', 'primitives'].includes(activeCollectionKey)
@@ -577,6 +589,15 @@ const AllTokens = () => {
 
     const tokenFromQuery = getSingleQueryValue(router.query.token);
 
+    // Ignore stale token query values while a newer token selection is pending.
+    if (pendingTokenSyncRef.current) {
+      if (tokenFromQuery === pendingTokenSyncRef.current) {
+        pendingTokenSyncRef.current = '';
+      } else {
+        return;
+      }
+    }
+
     if (!tokenFromQuery) {
       setIsUrlSyncReady(true);
       return;
@@ -621,6 +642,7 @@ const AllTokens = () => {
       return;
 
     pendingModeSyncRef.current = nextModeParam || '';
+    pendingTokenSyncRef.current = nextTokenParam || '';
 
     const nextQuery = {
       ...router.query,
@@ -679,6 +701,11 @@ const AllTokens = () => {
                   onToggle={({ value }) => {
                     const nextValue = Array.isArray(value) ? value : [value];
                     const normalizedValue = normalizeTokenTypes(nextValue);
+                    const currentTokenParam = getPathWithoutPrefix(
+                      active,
+                      primaryTokenType,
+                    ).replaceAll('.', '/');
+                    pendingTokenSyncRef.current = currentTokenParam;
                     pendingTokenTypesSyncRef.current =
                       normalizedValue.join(',');
                     setSelectedTokenTypes(normalizedValue);

@@ -98,6 +98,8 @@ const getCurrentTokens = active => {
 };
 
 const getDefaultActiveTokenPath = () => {
+  if (structuredTokens.semantic?.color) return 'semantic.color';
+
   const [firstCollection] = Object.keys(structuredTokens);
   if (!firstCollection) return '';
 
