@@ -25,6 +25,12 @@ export type FigmaSyncConfig = {
   dryRun: boolean;
 };
 
+export type GuardrailCheckOptions = {
+  argv?: string[];
+  env?: NodeJS.ProcessEnv;
+  isMutating: boolean;
+};
+
 type ResolveConfigOptions = {
   argv?: string[];
   env?: NodeJS.ProcessEnv;
@@ -218,5 +224,37 @@ export function resolveFigmaSyncConfig(
     expectedCollectionKeys:
       expectedCollectionKeys as unknown as ExpectedCollectionKeys,
     dryRun: hasCliFlag(argv, '--dry-run'),
+  };
+}
+
+export function ensureProductionMutationGuardrails(
+  config: FigmaSyncConfig,
+  options: GuardrailCheckOptions,
+) {
+  if (!options.isMutating || config.env !== 'production') {
+    return { passed: true, reason: 'not-required' as const };
+  }
+
+  const argv = options.argv ?? process.argv.slice(2);
+  const envVars = options.env ?? process.env;
+  const isCI = envVars.CI === 'true' || envVars.CI === '1';
+  const allowProdWrites = envVars.ALLOW_PRODUCTION_WRITES === 'true';
+  const hasConfirmFlag = hasCliFlag(argv, '--confirm-production');
+
+  if (isCI && !allowProdWrites) {
+    throw new Error(
+      'Production mutation blocked in CI. Set ALLOW_PRODUCTION_WRITES=true to proceed.',
+    );
+  }
+
+  if (!isCI && !hasConfirmFlag) {
+    throw new Error(
+      'Production mutation requires --confirm-production when running locally.',
+    );
+  }
+
+  return {
+    passed: true,
+    reason: isCI ? ('ci-allow-var' as const) : ('local-confirm-flag' as const),
   };
 }

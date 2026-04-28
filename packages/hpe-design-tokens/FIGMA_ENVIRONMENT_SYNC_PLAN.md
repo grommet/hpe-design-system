@@ -301,6 +301,16 @@ Implemented artifacts:
 - Deliverables: `--dry-run`, environment-scoped verifyReferences, guardrails
 - Exit: safe-by-default behavior in CI
 
+Phase 4 execution status: completed
+
+Implemented artifacts:
+
+- Production mutation guardrail enforcement utility: [src/figma_sync_config.ts](src/figma_sync_config.ts)
+- Push preflight validation + guardrail enforcement + preflight event reporting: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
+- Pull preflight validation + guardrail status propagation + preflight event reporting: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts)
+- Environment-scoped reference validation report output: [src/utils.ts](src/utils.ts)
+- Guardrail validation tests: [src/tests/figma_sync_config.test.ts](src/tests/figma_sync_config.test.ts)
+
 ### Phase 5: Test and Rollout
 
 - Owner: design-tokens maintainers + release owner + QA rep

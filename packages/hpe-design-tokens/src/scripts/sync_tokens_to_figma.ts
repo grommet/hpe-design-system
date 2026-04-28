@@ -3,7 +3,10 @@ import * as fs from 'fs';
 import path from 'path';
 
 import FigmaApi from '../figma_api.js';
-import { resolveFigmaSyncConfig } from '../figma_sync_config.js';
+import {
+  ensureProductionMutationGuardrails,
+  resolveFigmaSyncConfig,
+} from '../figma_sync_config.js';
 import {
   buildAliasLookup,
   countsFromPostPayload,
@@ -55,12 +58,59 @@ async function main() {
   );
 
   const api = new FigmaApi(config.personalAccessToken);
-  const componentTokens = await api.getLocalVariables(fileKeys.component);
-  const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
-  verifyReferences(
-    [componentTokens, semanticTokens],
-    config.expectedCollectionKeys,
-  );
+  let productionGuardrailPassed = true;
+
+  try {
+    const guardrailResult = ensureProductionMutationGuardrails(config, {
+      argv: process.argv.slice(2),
+      env: process.env,
+      isMutating: !config.dryRun,
+    });
+    productionGuardrailPassed = guardrailResult.passed;
+
+    const componentTokens = await api.getLocalVariables(fileKeys.component);
+    const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
+    const referenceReport = verifyReferences(
+      [componentTokens, semanticTokens],
+      config.expectedCollectionKeys,
+    );
+
+    console.log(
+      JSON.stringify({
+        schemaVersion: SCHEMA_VERSION,
+        eventType: 'preflight-validation',
+        runId,
+        environment: config.env,
+        dryRun: config.dryRun,
+        productionGuardrailPassed,
+        referenceValidation: referenceReport,
+      }),
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    runErrors.push({
+      code: 'PREFLIGHT_FAILED',
+      message,
+      environment: config.env,
+      remediation:
+        'Review production guardrail and reference validation requirements, then retry.',
+    });
+
+    emitRunSummary({
+      runId,
+      environment: config.env,
+      dryRun: config.dryRun,
+      productionGuardrailPassed: false,
+      mutationsApplied: false,
+      unresolvedAliasCount: 0,
+      stages: stageResults,
+      errors: runErrors,
+      startedAt: runStartedAt,
+      finishedAt: new Date().toISOString(),
+    });
+
+    throw error;
+  }
 
   for (const stage of FILE_TIERS) {
     const plannedAt = new Date().toISOString();
@@ -271,7 +321,7 @@ async function main() {
         runId,
         environment: config.env,
         dryRun: config.dryRun,
-        productionGuardrailPassed: true,
+        productionGuardrailPassed,
         mutationsApplied: runMutationsApplied,
         unresolvedAliasCount: runErrors.filter(errorItem =>
           errorItem.code.startsWith('ALIAS_'),
@@ -290,7 +340,7 @@ async function main() {
     runId,
     environment: config.env,
     dryRun: config.dryRun,
-    productionGuardrailPassed: true,
+    productionGuardrailPassed,
     mutationsApplied: runMutationsApplied,
     unresolvedAliasCount: runErrors.filter(errorItem =>
       errorItem.code.startsWith('ALIAS_'),

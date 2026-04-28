@@ -4,6 +4,7 @@ import path from 'path';
 
 import FigmaApi from '../figma_api.js';
 import {
+  ensureProductionMutationGuardrails,
   getCliArgValue,
   resolveFigmaSyncConfig,
 } from '../figma_sync_config.js';
@@ -58,6 +59,7 @@ async function main() {
   const runStartedAt = new Date().toISOString();
   const stageResults: StageResult[] = [];
   const runErrors: { code: string; message: string; stage?: string }[] = [];
+  let productionGuardrailPassed = true;
 
   const TOKENS_DIR = 'tokens';
   const availableTokenDirs = new Set(
@@ -73,12 +75,51 @@ async function main() {
   console.log(`Running sync-figma-to-tokens for env: ${config.env}`);
 
   const api = new FigmaApi(config.personalAccessToken);
-  const componentTokens = await api.getLocalVariables(fileKeys.component);
-  const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
-  verifyReferences(
-    [componentTokens, semanticTokens],
-    config.expectedCollectionKeys,
-  );
+  try {
+    const guardrailResult = ensureProductionMutationGuardrails(config, {
+      argv: process.argv.slice(2),
+      env: process.env,
+      isMutating: false,
+    });
+    productionGuardrailPassed = guardrailResult.passed;
+
+    const componentTokens = await api.getLocalVariables(fileKeys.component);
+    const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
+    const referenceReport = verifyReferences(
+      [componentTokens, semanticTokens],
+      config.expectedCollectionKeys,
+    );
+
+    console.log(
+      JSON.stringify({
+        schemaVersion: SCHEMA_VERSION,
+        eventType: 'preflight-validation',
+        runId,
+        environment: config.env,
+        dryRun: config.dryRun,
+        productionGuardrailPassed,
+        referenceValidation: referenceReport,
+      }),
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    runErrors.push({ code: 'PREFLIGHT_FAILED', message });
+
+    emitRunSummary({
+      runId,
+      environment: config.env,
+      dryRun: config.dryRun,
+      productionGuardrailPassed: false,
+      mutationsApplied: false,
+      unresolvedAliasCount: 0,
+      stages: stageResults,
+      errors: runErrors,
+      startedAt: runStartedAt,
+      finishedAt: new Date().toISOString(),
+    });
+
+    throw error;
+  }
 
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
@@ -226,7 +267,7 @@ async function main() {
         runId,
         environment: config.env,
         dryRun: config.dryRun,
-        productionGuardrailPassed: true,
+        productionGuardrailPassed,
         mutationsApplied: false,
         unresolvedAliasCount: 0,
         stages: stageResults,
@@ -243,7 +284,7 @@ async function main() {
     runId,
     environment: config.env,
     dryRun: config.dryRun,
-    productionGuardrailPassed: true,
+    productionGuardrailPassed,
     mutationsApplied: false,
     unresolvedAliasCount: 0,
     stages: stageResults,

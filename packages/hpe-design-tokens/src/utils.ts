@@ -57,6 +57,13 @@ export const nonComponentTokens: string[] = [
 export const numberToPixel = (value: number): string => `${value}px`;
 
 export const excludedNameParts = ['DEFAULT', 'REST'];
+
+export type ReferenceValidationReport = {
+  status: 'passed' | 'failed';
+  checkedRemoteCollections: number;
+  invalidVariablesCount: number;
+};
+
 /**
  * Ensure variable references are to valid collections. Log errors for any variables referencing invalid Figma files.
  */
@@ -83,10 +90,12 @@ export const verifyReferences = (
     );
   }
   const invalidVariables: string[] = [];
+  let checkedRemoteCollections = 0;
   localTokens.forEach(tokens => {
     Object.keys(tokens.meta.variableCollections).forEach(key => {
       const collection = tokens.meta.variableCollections[key];
       if (collection.remote === true) {
+        checkedRemoteCollections += 1;
         if (
           collection.name === 'color' &&
           collection.key !== resolvedExpectedCollectionKeys.color
@@ -139,6 +148,12 @@ export const verifyReferences = (
     throw new Error(
       'Invalid references were found. Resolve reference errors in Figma.',
     );
+
+  return {
+    status: 'passed',
+    checkedRemoteCollections,
+    invalidVariablesCount: 0,
+  } as ReferenceValidationReport;
 };
 
 const TOKENS_DIR = 'tokens';

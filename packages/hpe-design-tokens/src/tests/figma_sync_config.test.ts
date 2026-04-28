@@ -4,7 +4,10 @@ import path from 'path';
 
 import { describe, expect, it } from 'vitest';
 
-import { resolveFigmaSyncConfig } from '../figma_sync_config.js';
+import {
+  ensureProductionMutationGuardrails,
+  resolveFigmaSyncConfig,
+} from '../figma_sync_config.js';
 
 const TEST_ENV = {
   TEST_PERSONAL_ACCESS_TOKEN: 'test-token',
@@ -123,5 +126,101 @@ describe('resolveFigmaSyncConfig', () => {
         },
       }),
     ).toThrow('Missing required Figma sync configuration');
+  });
+
+  it('blocks local production mutation without --confirm-production', () => {
+    const config = resolveFigmaSyncConfig({
+      argv: [],
+      env: {
+        PERSONAL_ACCESS_TOKEN: 'prod-token',
+        FILE_KEY_PRIMITIVE: 'prod-primitive',
+        FILE_KEY_SEMANTIC: 'prod-semantic',
+        FILE_KEY_COMPONENT: 'prod-component',
+        FIGMA_COLOR_COLLECTION_KEY: 'prod-color',
+        FIGMA_DIMENSION_COLLECTION_KEY: 'prod-dimension',
+        FIGMA_PRIMITIVES_COLLECTION_KEY: 'prod-primitives',
+        FIGMA_GLOBAL_COLLECTION_KEY: 'prod-global',
+      },
+    });
+
+    expect(() =>
+      ensureProductionMutationGuardrails(config, {
+        argv: [],
+        env: {},
+        isMutating: true,
+      }),
+    ).toThrow('requires --confirm-production');
+  });
+
+  it('allows local production mutation with --confirm-production', () => {
+    const config = resolveFigmaSyncConfig({
+      argv: [],
+      env: {
+        PERSONAL_ACCESS_TOKEN: 'prod-token',
+        FILE_KEY_PRIMITIVE: 'prod-primitive',
+        FILE_KEY_SEMANTIC: 'prod-semantic',
+        FILE_KEY_COMPONENT: 'prod-component',
+        FIGMA_COLOR_COLLECTION_KEY: 'prod-color',
+        FIGMA_DIMENSION_COLLECTION_KEY: 'prod-dimension',
+        FIGMA_PRIMITIVES_COLLECTION_KEY: 'prod-primitives',
+        FIGMA_GLOBAL_COLLECTION_KEY: 'prod-global',
+      },
+    });
+
+    const result = ensureProductionMutationGuardrails(config, {
+      argv: ['--confirm-production'],
+      env: {},
+      isMutating: true,
+    });
+
+    expect(result).toEqual({ passed: true, reason: 'local-confirm-flag' });
+  });
+
+  it('blocks production mutation in CI without ALLOW_PRODUCTION_WRITES=true', () => {
+    const config = resolveFigmaSyncConfig({
+      argv: [],
+      env: {
+        PERSONAL_ACCESS_TOKEN: 'prod-token',
+        FILE_KEY_PRIMITIVE: 'prod-primitive',
+        FILE_KEY_SEMANTIC: 'prod-semantic',
+        FILE_KEY_COMPONENT: 'prod-component',
+        FIGMA_COLOR_COLLECTION_KEY: 'prod-color',
+        FIGMA_DIMENSION_COLLECTION_KEY: 'prod-dimension',
+        FIGMA_PRIMITIVES_COLLECTION_KEY: 'prod-primitives',
+        FIGMA_GLOBAL_COLLECTION_KEY: 'prod-global',
+      },
+    });
+
+    expect(() =>
+      ensureProductionMutationGuardrails(config, {
+        argv: [],
+        env: { CI: 'true' },
+        isMutating: true,
+      }),
+    ).toThrow('ALLOW_PRODUCTION_WRITES=true');
+  });
+
+  it('allows production mutation in CI with ALLOW_PRODUCTION_WRITES=true', () => {
+    const config = resolveFigmaSyncConfig({
+      argv: [],
+      env: {
+        PERSONAL_ACCESS_TOKEN: 'prod-token',
+        FILE_KEY_PRIMITIVE: 'prod-primitive',
+        FILE_KEY_SEMANTIC: 'prod-semantic',
+        FILE_KEY_COMPONENT: 'prod-component',
+        FIGMA_COLOR_COLLECTION_KEY: 'prod-color',
+        FIGMA_DIMENSION_COLLECTION_KEY: 'prod-dimension',
+        FIGMA_PRIMITIVES_COLLECTION_KEY: 'prod-primitives',
+        FIGMA_GLOBAL_COLLECTION_KEY: 'prod-global',
+      },
+    });
+
+    const result = ensureProductionMutationGuardrails(config, {
+      argv: [],
+      env: { CI: 'true', ALLOW_PRODUCTION_WRITES: 'true' },
+      isMutating: true,
+    });
+
+    expect(result).toEqual({ passed: true, reason: 'ci-allow-var' });
   });
 });
