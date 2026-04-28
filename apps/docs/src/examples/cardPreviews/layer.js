@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 
-export const LayerPreview = ({ center = false }) =>
+export const LayerPreview = ({ center }) =>
   !center ? (
     <Box fill direction="row">
       <Box basis="3/4" background="background-contrast" />
