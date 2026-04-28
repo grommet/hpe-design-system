@@ -65,6 +65,7 @@ interface NavigationMenuProps extends BoxProps {
   header?: React.ReactNode;
   items: NavItemType[];
   open?: boolean;
+  onToggle?: (open: boolean) => void;
   title?: string;
   onSelect?: ({
     item,
@@ -80,20 +81,26 @@ export const NavigationMenu = ({
   header,
   items: itemsProp,
   open: openProp = true,
+  onToggle,
   onSelect,
   title,
   ...rest
 }: NavigationMenuProps) => {
-  const [open, setOpen] = useState<boolean>(openProp);
+  const [open, setOpenState] = useState<boolean>(openProp);
   const navigationId = 'navigation-menu';
   const menuTitle = title ? `${title}` : 'Navigation Menu';
 
   // Add unique Id to each item for aria and key purposes
   const items = useMemo(() => assignUniqueIds(itemsProp), [itemsProp]);
 
+  const setOpen = (nextOpen: boolean) => {
+    setOpenState(nextOpen);
+    onToggle?.(nextOpen);
+  };
+
   useEffect(() => {
     if (openProp !== undefined) {
-      setOpen(openProp);
+      setOpenState(openProp);
     }
   }, [openProp]);
 

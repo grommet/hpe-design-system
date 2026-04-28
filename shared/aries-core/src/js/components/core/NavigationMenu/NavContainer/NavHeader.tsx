@@ -7,6 +7,7 @@ interface NavHeaderProps {
   title?: string;
   navigationId?: string;
   open: boolean;
+  logo?: React.ReactNode;
   setOpen: (open: boolean) => void;
 }
 
@@ -15,6 +16,7 @@ export const NavHeader = ({
   navigationId,
   open,
   setOpen,
+  logo,
   ...rest
 }: NavHeaderProps) => {
   const [autoFocus, setAutoFocus] = useState(false);
@@ -48,7 +50,7 @@ export const NavHeader = ({
       flex={false}
       {...rest}
     >
-      {open && heading}
+      {open && (logo || heading)}
       <Button
         aria-controls={open ? navigationId : undefined}
         aria-expanded={open}

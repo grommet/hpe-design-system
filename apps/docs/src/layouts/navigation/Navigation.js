@@ -3,10 +3,13 @@ import { useAnalytics } from 'grommet';
 import { useRouter } from 'next/router';
 import { NavigationMenu } from '@shared/aries-core';
 import { navItems } from './navItems.ts';
+import { useNavState } from './NavContext';
+import { SideNavHeader } from './SideNavHeader';
 
 export const Navigation = ({ ...rest }) => {
   const router = useRouter();
   const sendAnalytics = useAnalytics();
+  const { navOpen, setNavOpen } = useNavState();
 
   const activeItem = router.pathname;
 
@@ -20,6 +23,9 @@ export const Navigation = ({ ...rest }) => {
     <NavigationMenu
       activeItem={activeItem}
       items={navItems}
+      header={<SideNavHeader open={navOpen} setOpen={setNavOpen} />}
+      open={navOpen}
+      onToggle={setNavOpen}
       onSelect={handleSelect}
       {...rest}
     />
