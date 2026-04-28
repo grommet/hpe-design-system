@@ -2,6 +2,7 @@ import 'dotenv/config';
 import * as fs from 'fs';
 
 import FigmaApi from '../figma_api.js';
+import { resolveFigmaSyncConfig } from '../figma_sync_config.js';
 
 import { green, verifyReferences } from '../utils.js';
 import {
@@ -11,33 +12,32 @@ import {
 
 // This script pushes design tokens from JSON files to Figma design files
 
+const FILE_TIERS = ['primitive', 'semantic', 'component'] as const;
+
 async function main() {
-  if (
-    !process.env.PERSONAL_ACCESS_TOKEN ||
-    !process.env.FILE_KEY_PRIMITIVE ||
-    !process.env.FILE_KEY_SEMANTIC ||
-    !process.env.FILE_KEY_COMPONENT
-  ) {
-    throw new Error(
-      'PERSONAL_ACCESS_TOKEN, FILE_KEY_PRIMITIVE, FILE_KEY_SEMANTIC, and FILE_KEY_COMPONENT environment variables are required',
-    );
-  }
-  const fileKeys: { [key: string]: string } = {
-    primitive: process.env.FILE_KEY_PRIMITIVE,
-    semantic: process.env.FILE_KEY_SEMANTIC,
-    component: process.env.FILE_KEY_COMPONENT,
-  };
+  const config = resolveFigmaSyncConfig();
+  const fileKeys = config.fileKeys;
+
+  console.log(`Running sync-tokens-to-figma for env: ${config.env}`);
 
   const TOKENS_DIR = 'tokens';
   const tokenDirs = fs
     .readdirSync(TOKENS_DIR, { withFileTypes: true })
-    .filter(dir => dir.isDirectory() && dir.name !== '.tmp')
+    .filter(
+      (dir): dir is fs.Dirent & { name: (typeof FILE_TIERS)[number] } =>
+        dir.isDirectory() &&
+        dir.name !== '.tmp' &&
+        FILE_TIERS.includes(dir.name as (typeof FILE_TIERS)[number]),
+    )
     .map(dir => dir.name);
 
-  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+  const api = new FigmaApi(config.personalAccessToken);
   const componentTokens = await api.getLocalVariables(fileKeys.component);
   const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
-  verifyReferences([componentTokens, semanticTokens]);
+  verifyReferences(
+    [componentTokens, semanticTokens],
+    config.expectedCollectionKeys,
+  );
 
   tokenDirs.forEach(async dir => {
     const tokensFiles = fs
@@ -49,7 +49,7 @@ async function main() {
 
     console.log('Read tokens files:', Object.keys(tokensByFile));
 
-    const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+    const api = new FigmaApi(config.personalAccessToken);
     const localVariables = await api.getLocalVariables(fileKeys[dir]);
 
     const postVariablesPayload = generatePostVariablesPayload(

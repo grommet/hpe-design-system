@@ -1,5 +1,6 @@
 import { readdirSync } from 'fs';
 import { ApiGetLocalVariablesResponse } from './figma_api.js';
+import { ExpectedCollectionKeys } from './figma_sync_config.js';
 
 export function green(msg: string) {
   return `\x1b[32m${msg}\x1b[0m`;
@@ -61,12 +62,21 @@ export const excludedNameParts = ['DEFAULT', 'REST'];
  */
 export const verifyReferences = (
   localTokens: ApiGetLocalVariablesResponse[],
+  expectedCollectionKeys?: ExpectedCollectionKeys,
 ) => {
+  const resolvedExpectedCollectionKeys: ExpectedCollectionKeys =
+    expectedCollectionKeys || {
+      primitives: process.env.FIGMA_PRIMITIVES_COLLECTION_KEY || '',
+      global: process.env.FIGMA_GLOBAL_COLLECTION_KEY || '',
+      color: process.env.FIGMA_COLOR_COLLECTION_KEY || '',
+      dimension: process.env.FIGMA_DIMENSION_COLLECTION_KEY || '',
+    };
+
   if (
-    !process.env.FIGMA_PRIMITIVES_COLLECTION_KEY ||
-    !process.env.FIGMA_GLOBAL_COLLECTION_KEY ||
-    !process.env.FIGMA_COLOR_COLLECTION_KEY ||
-    !process.env.FIGMA_DIMENSION_COLLECTION_KEY
+    !resolvedExpectedCollectionKeys.primitives ||
+    !resolvedExpectedCollectionKeys.global ||
+    !resolvedExpectedCollectionKeys.color ||
+    !resolvedExpectedCollectionKeys.dimension
   ) {
     throw new Error(
       'FIGMA_PRIMITIVES_COLLECTION_KEY, FIGMA_GLOBAL_COLLECTION_KEY, FIGMA_COLOR_COLLECTION_KEY, and FIGMA_DIMENSION_COLLECTION_KEY environment variables are required',
@@ -79,28 +89,28 @@ export const verifyReferences = (
       if (collection.remote === true) {
         if (
           collection.name === 'color' &&
-          collection.key !== process.env['FIGMA_COLOR_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.color
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'dimension' &&
-          collection.key !== process.env['FIGMA_DIMENSION_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.dimension
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'primitives' &&
-          collection.key !== process.env['FIGMA_PRIMITIVES_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.primitives
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'global' &&
-          collection.key !== process.env['FIGMA_GLOBAL_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.global
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),

@@ -2,13 +2,17 @@ import 'dotenv/config';
 import * as fs from 'fs';
 
 import FigmaApi from '../figma_api.js';
+import {
+  getCliArgValue,
+  resolveFigmaSyncConfig,
+} from '../figma_sync_config.js';
 
 import { green, verifyReferences } from '../utils.js';
 import { tokenFilesFromLocalVariables } from '../token_export.js';
 
 /**
  * Usage:
- * This script pulls design tokens from Figma and writes 
+ * This script pulls design tokens from Figma and writes
  * them to JSON files.
  *
  * // Defaults to writing to the tokens_new directory
@@ -21,6 +25,9 @@ import { tokenFilesFromLocalVariables } from '../token_export.js';
 /**
  * Recursively sorts object keys alphabetically
  */
+
+const FILE_TIERS = ['primitive', 'semantic', 'component'] as const;
+
 function sortObjectKeys(obj: any): any {
   if (Array.isArray(obj)) {
     return obj.map(sortObjectKeys);
@@ -37,44 +44,36 @@ function sortObjectKeys(obj: any): any {
 }
 
 async function main() {
-  if (
-    !process.env.PERSONAL_ACCESS_TOKEN ||
-    !process.env.FILE_KEY_PRIMITIVE ||
-    !process.env.FILE_KEY_SEMANTIC ||
-    !process.env.FILE_KEY_COMPONENT
-  ) {
-    throw new Error(
-      'PERSONAL_ACCESS_TOKEN, FILE_KEY_PRIMITIVE, FILE_KEY_SEMANTIC, and FILE_KEY_COMPONENT environment variables are required',
-    );
-  }
-  const fileKeys: { [key: string]: string } = {
-    primitive: process.env.FILE_KEY_PRIMITIVE,
-    semantic: process.env.FILE_KEY_SEMANTIC,
-    component: process.env.FILE_KEY_COMPONENT,
-  };
+  const config = resolveFigmaSyncConfig();
+  const fileKeys = config.fileKeys;
 
   const TOKENS_DIR = 'tokens';
   const tokenDirs = fs
     .readdirSync(TOKENS_DIR, { withFileTypes: true })
-    .filter(dir => dir.isDirectory())
+    .filter(
+      (dir): dir is fs.Dirent & { name: (typeof FILE_TIERS)[number] } =>
+        dir.isDirectory() &&
+        FILE_TIERS.includes(dir.name as (typeof FILE_TIERS)[number]),
+    )
     .map(dir => dir.name);
 
-  let outputDir = 'tokens_new';
+  const outputDir =
+    getCliArgValue(process.argv.slice(2), '--output') || 'tokens_new';
 
-  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+  console.log(`Running sync-figma-to-tokens for env: ${config.env}`);
+
+  const api = new FigmaApi(config.personalAccessToken);
   const componentTokens = await api.getLocalVariables(fileKeys.component);
   const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
-  verifyReferences([componentTokens, semanticTokens]);
+  verifyReferences(
+    [componentTokens, semanticTokens],
+    config.expectedCollectionKeys,
+  );
 
   tokenDirs.forEach(async dir => {
-    const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+    const api = new FigmaApi(config.personalAccessToken);
     const localVariables = await api.getLocalVariables(fileKeys[dir]);
     const tokensFiles = tokenFilesFromLocalVariables(localVariables);
-
-    const outputArgIdx = process.argv.indexOf('--output');
-    if (outputArgIdx !== -1) {
-      outputDir = process.argv[outputArgIdx + 1];
-    }
 
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir);

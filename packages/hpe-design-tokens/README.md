@@ -30,8 +30,8 @@ For usage instructions, see [HPE Design System design tokens documentation](http
 
 This package supports two sync directions:
 
-- Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --output tokens`
-- tokens JSON to Figma: `pnpm sync-tokens-to-figma`
+- Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --env=production --output tokens`
+- tokens JSON to Figma: `pnpm sync-tokens-to-figma -- --env=production`
 
 For environment-isolated test/prod sync design and rollout details, see [FIGMA_ENVIRONMENT_SYNC_PLAN.md](FIGMA_ENVIRONMENT_SYNC_PLAN.md).
 
@@ -41,16 +41,13 @@ Both scripts read environment variables from a local `.env` file.
 
 The following are required for `sync-figma-to-tokens` and `sync-tokens-to-figma`:
 
-- `PERSONAL_ACCESS_TOKEN`: Figma personal access token used in the `X-Figma-Token` request header.
-- `FILE_KEY_PRIMITIVE`: Figma file key for the primitives token file.
-- `FILE_KEY_SEMANTIC`: Figma file key for the semantic token file.
-- `FILE_KEY_COMPONENT`: Figma file key for the component token file.
-- `FIGMA_COLOR_COLLECTION_KEY`: Expected remote collection key for `color`.
-- `FIGMA_DIMENSION_COLLECTION_KEY`: Expected remote collection key for `dimension`.
-- `FIGMA_PRIMITIVES_COLLECTION_KEY`: Expected remote collection key for `primitives`.
-- `FIGMA_GLOBAL_COLLECTION_KEY`: Expected remote collection key for `global`.
+- `PRODUCTION_PERSONAL_ACCESS_TOKEN` or `TEST_PERSONAL_ACCESS_TOKEN`: Figma personal access token used in the `X-Figma-Token` request header.
+- `PRODUCTION_FILE_KEY_*` or `TEST_FILE_KEY_*`: Figma file keys for `primitive`, `semantic`, and `component` token files.
+- `PRODUCTION_FIGMA_*_COLLECTION_KEY` or `TEST_FIGMA_*_COLLECTION_KEY`: Expected remote collection keys for `color`, `dimension`, `primitives`, and `global`.
 
 Collection keys are used by reference validation in `verifyReferences` to detect invalid cross-file references.
+
+Legacy unscoped variable names (`FILE_KEY_*`, `FIGMA_*_COLLECTION_KEY`, `PERSONAL_ACCESS_TOKEN`) remain supported for `--env=production`.
 
 ### How To Source Values
 
@@ -115,12 +112,12 @@ cd packages/hpe-design-tokens
 
 ## `--output tokens` is the checked in source directory
 ## running the script with this option will likely create a large diff
-pnpm sync-figma-to-tokens -- --output tokens
+pnpm sync-figma-to-tokens -- --env=production --output tokens
 
 ## OR
 ## For QAing test runs, it may be useful to omit `--output tokens`
 ## The script default will output to `tokens_new`.
-pnpm sync-figma-to-tokens
+pnpm sync-figma-to-tokens -- --env=test
 ```
 
 ### GitHub Actions Branch Targeting For Tests

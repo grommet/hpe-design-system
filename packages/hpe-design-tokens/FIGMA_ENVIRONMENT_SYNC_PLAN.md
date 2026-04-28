@@ -252,6 +252,18 @@ Frozen artifacts:
 - Deliverables: environment resolver, `--env`, validation errors, docs/env updates
 - Exit: config resolution tested and deterministic
 
+Phase 1 execution status: completed
+
+Implemented artifacts:
+
+- Environment resolver: [src/figma_sync_config.ts](src/figma_sync_config.ts)
+- Push script wiring: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
+- Pull script wiring: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts)
+- Env-scoped reference validation input: [src/utils.ts](src/utils.ts)
+- Resolver tests: [src/tests/figma_sync_config.test.ts](src/tests/figma_sync_config.test.ts)
+- Env template updates: [.env.example](.env.example)
+- Usage docs updates: [README.md](README.md)
+
 ### Phase 2: Stage Executor
 
 - Owner: design-tokens maintainers
