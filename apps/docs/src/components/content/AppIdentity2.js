@@ -19,6 +19,7 @@ export const AppIdentity2 = (
 
   return (
     <Button
+      href={href}
       onClick={(e) => {
         e.preventDefault();
         setActiveItem?.('Home');
