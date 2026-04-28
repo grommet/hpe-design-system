@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  buildAliasLookup,
   countsFromPostPayload,
   emptyCounts,
   hasMutations,
@@ -47,5 +48,87 @@ describe('sync_events', () => {
         variableModeValues: { update: 0 },
       }),
     ).toBe(true);
+  });
+
+  it('builds alias lookup from local variables', () => {
+    const localVariables = {
+      status: 200,
+      error: false,
+      meta: {
+        variableCollections: {},
+        variables: {
+          v1: {
+            id: 'v1',
+            name: 'color/background/brand',
+            key: 'k1',
+            variableCollectionId: 'c1',
+            resolvedType: 'COLOR',
+            valuesByMode: {},
+            remote: false,
+            description: '',
+            hiddenFromPublishing: false,
+            scopes: ['ALL_SCOPES'],
+            codeSyntax: {},
+          },
+        },
+      },
+    };
+
+    const { aliasLookup, errors } = buildAliasLookup(localVariables as any, {
+      stage: 'primitive',
+      environment: 'test',
+    });
+
+    expect(aliasLookup).toEqual({
+      'color/background/brand': 'v1',
+    });
+    expect(errors).toEqual([]);
+  });
+
+  it('returns ALIAS_COLLISION errors for duplicate variable names', () => {
+    const localVariables = {
+      status: 200,
+      error: false,
+      meta: {
+        variableCollections: {},
+        variables: {
+          v1: {
+            id: 'v1',
+            name: 'color/background/brand',
+            key: 'k1',
+            variableCollectionId: 'c1',
+            resolvedType: 'COLOR',
+            valuesByMode: {},
+            remote: false,
+            description: '',
+            hiddenFromPublishing: false,
+            scopes: ['ALL_SCOPES'],
+            codeSyntax: {},
+          },
+          v2: {
+            id: 'v2',
+            name: 'color/background/brand',
+            key: 'k2',
+            variableCollectionId: 'c2',
+            resolvedType: 'COLOR',
+            valuesByMode: {},
+            remote: true,
+            description: '',
+            hiddenFromPublishing: false,
+            scopes: ['ALL_SCOPES'],
+            codeSyntax: {},
+          },
+        },
+      },
+    };
+
+    const { aliasLookup, errors } = buildAliasLookup(localVariables as any, {
+      stage: 'semantic',
+      environment: 'test',
+    });
+
+    expect(aliasLookup['color/background/brand']).toBe('v1');
+    expect(errors).toHaveLength(1);
+    expect(errors[0].code).toBe('ALIAS_COLLISION');
   });
 });

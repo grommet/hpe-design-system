@@ -5,20 +5,25 @@ import path from 'path';
 import FigmaApi from '../figma_api.js';
 import { resolveFigmaSyncConfig } from '../figma_sync_config.js';
 import {
+  buildAliasLookup,
   countsFromPostPayload,
   emitRunSummary,
   emitStageEvent,
   emptyCounts,
   FILE_TIERS,
+  FileTier,
   hasMutations,
   makeRunId,
   SCHEMA_VERSION,
   StageResult,
+  SyncError,
 } from '../sync_events.js';
 
 import { green, verifyReferences } from '../utils.js';
 import {
+  AliasResolutionError,
   generatePostVariablesPayload,
+  normalizeAliasReference,
   readJsonFiles,
 } from '../token_import.js';
 
@@ -30,8 +35,14 @@ async function main() {
   const runId = makeRunId();
   const runStartedAt = new Date().toISOString();
   const stageResults: StageResult[] = [];
-  const runErrors: { code: string; message: string; stage?: string }[] = [];
+  const runErrors: SyncError[] = [];
+  const aliasCacheByStage: Partial<Record<FileTier, Record<string, string>>> =
+    {};
   let runMutationsApplied = false;
+  const dependencyStageByStage: Partial<Record<FileTier, FileTier>> = {
+    semantic: 'primitive',
+    component: 'semantic',
+  };
 
   console.log(`Running sync-tokens-to-figma for env: ${config.env}`);
 
@@ -116,10 +127,37 @@ async function main() {
       console.log(`Read ${stage} token files:`, Object.keys(tokensByFile));
 
       const localVariables = await api.getLocalVariables(fileKeys[stage]);
+      const dependencyStage = dependencyStageByStage[stage];
+      const aliasLookup = dependencyStage
+        ? aliasCacheByStage[dependencyStage]
+        : undefined;
+      const stageAliasErrors: AliasResolutionError[] = [];
+
       const postVariablesPayload = generatePostVariablesPayload(
         tokensByFile,
         localVariables,
+        {
+          aliasLookup,
+          stage,
+          environment: config.env,
+          onAliasResolutionError: error => {
+            stageAliasErrors.push(error);
+          },
+        },
       );
+
+      if (stageAliasErrors.length) {
+        stageAliasErrors.forEach(error => {
+          runErrors.push({
+            ...error,
+            tokenPath: normalizeAliasReference(error.tokenPath),
+          });
+        });
+        throw new Error(
+          `Alias resolution failed for ${stage}: ${stageAliasErrors.length} unresolved aliases`,
+        );
+      }
+
       const counts = countsFromPostPayload(postVariablesPayload);
       const stageHasMutations = hasMutations(counts);
 
@@ -145,6 +183,22 @@ async function main() {
         runMutationsApplied = true;
       }
 
+      const refreshedVariables = await api.getLocalVariables(fileKeys[stage]);
+      const { aliasLookup: refreshedAliasLookup, errors: aliasCacheErrors } =
+        buildAliasLookup(refreshedVariables, {
+          stage,
+          environment: config.env,
+        });
+
+      aliasCacheByStage[stage] = refreshedAliasLookup;
+      runErrors.push(...aliasCacheErrors);
+
+      if (aliasCacheErrors.length) {
+        throw new Error(
+          `Alias cache build failed for ${stage}: ${aliasCacheErrors.length} collisions`,
+        );
+      }
+
       const stageFinishedAt = new Date().toISOString();
       emitStageEvent({
         schemaVersion: SCHEMA_VERSION,
@@ -156,7 +210,7 @@ async function main() {
         dryRun: config.dryRun,
         mutationsApplied: stageHasMutations && !config.dryRun,
         counts,
-        unresolvedAliasCount: 0,
+        unresolvedAliasCount: stageAliasErrors.length,
         startedAt: stageStartedAt,
         finishedAt: stageFinishedAt,
       });
@@ -167,6 +221,9 @@ async function main() {
       const stageFinishedAt = new Date().toISOString();
       const message = error instanceof Error ? error.message : String(error);
       const failedCounts = emptyCounts();
+      const stageAliasErrorCount = runErrors.filter(
+        err => err.stage === stage && err.code.startsWith('ALIAS_'),
+      ).length;
 
       emitStageEvent({
         schemaVersion: SCHEMA_VERSION,
@@ -178,13 +235,15 @@ async function main() {
         dryRun: config.dryRun,
         mutationsApplied: false,
         counts: failedCounts,
-        unresolvedAliasCount: 0,
+        unresolvedAliasCount: stageAliasErrorCount,
         startedAt: stageStartedAt,
         finishedAt: stageFinishedAt,
       });
 
       stageResults.push({ stage, status: 'failed', counts: failedCounts });
-      runErrors.push({ code: 'STAGE_FAILED', message, stage });
+      if (!runErrors.some(errorItem => errorItem.stage === stage)) {
+        runErrors.push({ code: 'STAGE_FAILED', message, stage });
+      }
 
       const skippedAt = new Date().toISOString();
       for (const remainingStage of FILE_TIERS.slice(
@@ -201,7 +260,7 @@ async function main() {
           dryRun: config.dryRun,
           mutationsApplied: false,
           counts,
-          unresolvedAliasCount: 0,
+          unresolvedAliasCount: stageAliasErrorCount,
           startedAt: skippedAt,
           finishedAt: skippedAt,
         });
@@ -214,7 +273,9 @@ async function main() {
         dryRun: config.dryRun,
         productionGuardrailPassed: true,
         mutationsApplied: runMutationsApplied,
-        unresolvedAliasCount: 0,
+        unresolvedAliasCount: runErrors.filter(errorItem =>
+          errorItem.code.startsWith('ALIAS_'),
+        ).length,
         stages: stageResults,
         errors: runErrors,
         startedAt: runStartedAt,
@@ -231,7 +292,9 @@ async function main() {
     dryRun: config.dryRun,
     productionGuardrailPassed: true,
     mutationsApplied: runMutationsApplied,
-    unresolvedAliasCount: 0,
+    unresolvedAliasCount: runErrors.filter(errorItem =>
+      errorItem.code.startsWith('ALIAS_'),
+    ).length,
     stages: stageResults,
     errors: runErrors,
     startedAt: runStartedAt,

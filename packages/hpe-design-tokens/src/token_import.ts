@@ -159,6 +159,23 @@ export type FlattenedTokensByFile = {
   };
 };
 
+export type AliasResolutionError = {
+  code: 'ALIAS_NOT_FOUND' | 'ALIAS_COLLISION' | 'ALIAS_CROSS_TIER_INVALID';
+  message: string;
+  stage?: string;
+  tokenPath: string;
+  sourceFile: string;
+  environment?: string;
+  remediation: string;
+};
+
+type GeneratePostVariablesPayloadOptions = {
+  aliasLookup?: Record<string, string>;
+  stage?: string;
+  environment?: string;
+  onAliasResolutionError?: (error: AliasResolutionError) => void;
+};
+
 export function readJsonFiles(files: string[]) {
   const tokensJsonByFile: FlattenedTokensByFile = {};
 
@@ -313,21 +330,34 @@ const tokenAliasToFigmaAlias = (alias: string): string => {
   return adjustedName;
 };
 
+export const normalizeAliasReference = (value: string): string => {
+  return tokenAliasToFigmaAlias(
+    value
+      .trim()
+      .replace(/\./g, '/')
+      .replace(/[\{\}]/g, ''),
+  );
+};
+
 function variableValueFromToken(
   token: Token,
+  tokenPath: string,
+  sourceFile: string,
   localVariablesByCollectionAndName: {
     [variableCollectionId: string]: { [variableName: string]: Variable };
   },
+  options: GeneratePostVariablesPayloadOptions = {},
 ): VariableValue {
   if (typeof token.$value === 'string' && isAlias(token.$value)) {
-    // Assume aliases are in the format {group.subgroup.token} with any number of optional groups/subgroups
-    // The Figma syntax for variable names is: group/subgroup/token
-    let value = token.$value
-      .trim()
-      .replace(/\./g, '/')
-      .replace(/[\{\}]/g, '');
+    const value = normalizeAliasReference(token.$value);
 
-    value = tokenAliasToFigmaAlias(value);
+    if (options.aliasLookup && options.aliasLookup[value]) {
+      return {
+        type: 'VARIABLE_ALIAS',
+        id: options.aliasLookup[value],
+      };
+    }
+
     // When mapping aliases to existing local variables, we assume that variable names
     // are unique *across all collections* in the Figma file
     // TO DO how will this work with our density token concept is there are repeated
@@ -341,6 +371,19 @@ function variableValueFromToken(
           id: localVariablesByName[value].id,
         };
       }
+    }
+
+    if (options.aliasLookup && options.onAliasResolutionError) {
+      options.onAliasResolutionError({
+        code: 'ALIAS_NOT_FOUND',
+        message: `Alias target not found for "${value}"`,
+        stage: options.stage,
+        tokenPath,
+        sourceFile,
+        environment: options.environment,
+        remediation:
+          'Ensure dependent stage variables are synced and alias cache was refreshed before retrying.',
+      });
     }
 
     // If we don't find a local variable matching the alias, we assume it's a variable
@@ -448,6 +491,7 @@ function tokenAndVariableDifferences(token: Token, variable: Variable | null) {
 export function generatePostVariablesPayload(
   tokensByFile: FlattenedTokensByFile,
   localVariables: ApiGetLocalVariablesResponse,
+  options: GeneratePostVariablesPayloadOptions = {},
 ) {
   const localVariableCollectionsByName: { [name: string]: VariableCollection } =
     {};
@@ -591,7 +635,10 @@ export function generatePostVariablesPayload(
         variable && variableMode ? variable.valuesByMode[modeId] : null;
       const newVariableValue = variableValueFromToken(
         token,
+        tokenName,
+        fileName,
         localVariablesByCollectionAndName,
+        options,
       );
 
       // Only include the variable mode value in the payload if it's different from the existing value

@@ -285,6 +285,16 @@ Implemented artifacts:
 - Deliverables: alias cache refresh hooks, structured alias failures
 - Exit: no cross-environment alias leakage
 
+Phase 3 execution status: completed
+
+Implemented artifacts:
+
+- Alias lookup + collision detection utility: [src/sync_events.ts](src/sync_events.ts)
+- Push stage alias cache refresh hooks + structured alias stage failures: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
+- Alias normalization + structured alias error callbacks in payload generation: [src/token_import.ts](src/token_import.ts)
+- Alias/cache utility tests: [src/tests/sync_events.test.ts](src/tests/sync_events.test.ts)
+- Alias rebinding hook tests: [src/tests/token_import_alias_resolution.test.ts](src/tests/token_import_alias_resolution.test.ts)
+
 ### Phase 4: Safety and Validation
 
 - Owner: design-tokens maintainers + release owner

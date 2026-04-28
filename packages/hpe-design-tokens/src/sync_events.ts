@@ -1,4 +1,7 @@
-import { ApiPostVariablesPayload } from './figma_api.js';
+import {
+  ApiGetLocalVariablesResponse,
+  ApiPostVariablesPayload,
+} from './figma_api.js';
 import { SyncEnvironment } from './figma_sync_config.js';
 
 export const SCHEMA_VERSION = '1.0.0';
@@ -30,6 +33,16 @@ export type StageResult = {
   stage: FileTier;
   status: StageStatus;
   counts: StageCounts;
+};
+
+export type SyncError = {
+  code: string;
+  message: string;
+  stage?: string;
+  tokenPath?: string;
+  sourceFile?: string;
+  environment?: string;
+  remediation?: string;
 };
 
 export type StageEvent = {
@@ -121,7 +134,7 @@ export function emitRunSummary({
   mutationsApplied: boolean;
   unresolvedAliasCount: number;
   stages: StageResult[];
-  errors: any[];
+  errors: SyncError[];
   startedAt: string;
   finishedAt: string;
 }) {
@@ -141,4 +154,39 @@ export function emitRunSummary({
       finishedAt,
     }),
   );
+}
+
+export function buildAliasLookup(
+  localVariables: ApiGetLocalVariablesResponse,
+  {
+    stage,
+    environment,
+  }: {
+    stage: FileTier;
+    environment: SyncEnvironment;
+  },
+) {
+  const aliasLookup: Record<string, string> = {};
+  const errors: SyncError[] = [];
+
+  Object.values(localVariables.meta.variables).forEach(variable => {
+    const existingId = aliasLookup[variable.name];
+    if (existingId && existingId !== variable.id) {
+      errors.push({
+        code: 'ALIAS_COLLISION',
+        message: `Alias cache collision for variable name "${variable.name}"`,
+        stage,
+        tokenPath: variable.name,
+        sourceFile: `${stage} variables`,
+        environment,
+        remediation:
+          'Ensure alias target names are unique within the environment context for this stage.',
+      });
+      return;
+    }
+
+    aliasLookup[variable.name] = variable.id;
+  });
+
+  return { aliasLookup, errors };
 }
