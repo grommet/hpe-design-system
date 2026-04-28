@@ -7,7 +7,6 @@ import { LayerHeader } from '.';
 
 export const NavigationPanel = ({
     activeItem,
-    setActiveItem,
     items,
     expanded = true,
     header,
@@ -17,13 +16,7 @@ export const NavigationPanel = ({
     const breakpoint = useContext(ResponsiveContext);
 
     const mobile = breakpoint === 'xsmall';
-    const onSelect = onSelectProp || (({
-        item,
-        event,
-    }) => {
-        event.preventDefault();
-        setActiveItem(item.label);
-    });
+    const onSelect = onSelectProp || (() => { });
 
     const navigationMenuProps = {
         header,
@@ -80,7 +73,6 @@ export const NavigationPanel = ({
                             header={
                                 <LayerHeader
                                     onClose={() => setOpenLayer(false)}
-                                    setActiveItem={setActiveItem}
                                 />
                             }
                             onSelect={({ item, event }) => {
@@ -106,7 +98,6 @@ export const NavigationPanel = ({
 
 NavigationPanel.propTypes = {
     activeItem: PropTypes.string,
-    setActiveItem: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,

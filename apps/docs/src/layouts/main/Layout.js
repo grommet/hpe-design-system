@@ -37,7 +37,6 @@ export const Layout = ({
 }) => {
 
   const [navOpen, setNavOpen] = useSessionStorage('navOpen', true);
-  const [activeItem, setActiveItem] = useSessionStorage('activeItem', 'Home');
 
   useEffect(() => {
     if (Config.gaId) {
@@ -130,17 +129,13 @@ export const Layout = ({
       </SkipLinks>
       <AppShell
         navOpen={navOpen}
-        setNavOpen={setNavOpen}
-        setActiveItem={setActiveItem}
         navigationMenu={
           <NavigationPanel
-            activeItem={activeItem}
-            setActiveItem={setActiveItem}
+            activeItem={router.pathname}
             items={[{ url: '/', label: 'Home' }, ...navItems]}
             expanded={navOpen}
             onSelect={({ item, event }) => {
               event.preventDefault();
-              setActiveItem(item.label);
               if (item.url) {
                 router.push(item.url);
               }
@@ -149,7 +144,6 @@ export const Layout = ({
               <NavHeader
                 open={navOpen}
                 setOpen={setNavOpen}
-                setActiveItem={setActiveItem}
               />
             }
           />

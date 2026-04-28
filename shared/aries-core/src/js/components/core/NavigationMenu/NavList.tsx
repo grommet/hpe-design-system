@@ -79,7 +79,9 @@ export const NavList = ({
       parents: string[] = [],
     ): string[] | null => {
       for (const item of itemsList) {
-        if (item.label === target) {
+        // matching by url or label to determine parents to expand
+        // so setActiveItem with label can expand the correct parents
+        if (item.url === target || item.label === target) {
           return parents;
         }
         if (item.children) {
@@ -160,7 +162,10 @@ export const NavList = ({
       },
     };
 
-    const active = activeItem === item.label;
+    // matching by url to ensure active item matches for backward/forward buttons, 
+    // page refresh, direct URL compatibility, but also allow matching by label 
+    // for cases where activeItem is not matched by url
+    const active = activeItem === item.url || activeItem === item.label;
 
     if (item.type === 'group') {
       return (

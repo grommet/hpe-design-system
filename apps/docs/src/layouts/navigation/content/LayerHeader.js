@@ -1,16 +1,14 @@
-import Link from 'next/link';
 import { useContext } from 'react';
-import { Button, Header, ResponsiveContext } from 'grommet';
+import { Box, Button, Header, ResponsiveContext } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
 import PropTypes from 'prop-types';
 import { AppIdentity2 } from '../../../components';
 
 
-export const LayerHeader = ({ onClose, setActiveItem, ...rest }) => {
+export const LayerHeader = ({ onClose, ...rest }) => {
     const breakpoint = useContext(ResponsiveContext);
 
     const mobile = breakpoint === 'xsmall';
-
     return (
         <Header
             pad={{
@@ -23,9 +21,9 @@ export const LayerHeader = ({ onClose, setActiveItem, ...rest }) => {
             justify="between"
             {...rest}
         >
-            <Link href="/" onClick={() => mobile ? onClose() : undefined}>
-                <AppIdentity2 logoOnly setActiveItem={setActiveItem} />
-            </Link>
+            <Box onClick={() => mobile ? onClose() : undefined}>
+                <AppIdentity2 logoOnly />
+            </Box>
             <Button
                 active
                 icon={<Sidebar
@@ -40,6 +38,4 @@ export const LayerHeader = ({ onClose, setActiveItem, ...rest }) => {
 
 LayerHeader.propTypes = {
     onClose: PropTypes.func.isRequired,
-    setActiveItem: PropTypes.func.isRequired,
 };
-

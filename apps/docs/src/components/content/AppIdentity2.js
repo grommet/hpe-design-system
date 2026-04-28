@@ -11,7 +11,6 @@ export const AppIdentity2 = (
     logoOnly = false,
     href = '/',
     title,
-    setActiveItem,
   }) => {
   const textSize = 'medium';
   const theme = useContext(ThemeContext);
@@ -22,7 +21,6 @@ export const AppIdentity2 = (
       href={href}
       onClick={(e) => {
         e.preventDefault();
-        setActiveItem?.('Home');
         router.push(href);
       }}
     >
@@ -62,6 +60,5 @@ AppIdentity2.propTypes = {
   logo: PropTypes.bool,
   logoOnly: PropTypes.bool,
   href: PropTypes.string,
-  setActiveItem: PropTypes.func,
   title: PropTypes.string,
 };

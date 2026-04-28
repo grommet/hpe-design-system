@@ -11,7 +11,7 @@ import { ThemeModeToggle, AppIdentity2 } from '../../components';
 
 import { Search } from '../navigation';
 
-export const AppHeader = ({ navOpen, setNavOpen, setActiveItem, ...rest }) => {
+export const AppHeader = ({ navOpen, ...rest }) => {
   const [showSearch, setShowSearch] = useState(false);
   const size = useContext(ResponsiveContext);
   const mobile = size === 'xsmall';
@@ -26,7 +26,6 @@ export const AppHeader = ({ navOpen, setNavOpen, setActiveItem, ...rest }) => {
       <AppIdentity2
         title="Design System"
         logo={!navOpen || mobile}
-        setActiveItem={setActiveItem}
       />
       <Box direction="row" align="center" gap="3xsmall">
         <Button
@@ -46,6 +45,4 @@ export const AppHeader = ({ navOpen, setNavOpen, setActiveItem, ...rest }) => {
 
 AppHeader.propTypes = {
   navOpen: PropTypes.bool,
-  setNavOpen: PropTypes.func,
-  setActiveItem: PropTypes.func,
 };

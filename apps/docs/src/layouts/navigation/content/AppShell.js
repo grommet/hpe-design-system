@@ -19,7 +19,6 @@ export const AppShell = ({
   navigationMenu,
   navOpen,
   mainContent,
-  setActiveItem,
 }) => {
   const breakpoint = useContext(ResponsiveContext);
 
@@ -42,7 +41,6 @@ export const AppShell = ({
         gridArea="header"
         background="background-front"
         navOpen={navOpen}
-        setActiveItem={setActiveItem}
       />
       <Main
         gridArea="main"
@@ -60,5 +58,4 @@ AppShell.propTypes = {
   navigationMenu: PropTypes.node,
   navOpen: PropTypes.bool,
   mainContent: PropTypes.node,
-  setActiveItem: PropTypes.func,
 };

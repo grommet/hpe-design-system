@@ -5,7 +5,7 @@ import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
 import { AppIdentity2 } from '../../../components';
 
 
-export const NavHeader = ({ open, setOpen, setActiveItem, ...rest }) => {
+export const NavHeader = ({ open, setOpen, ...rest }) => {
     const [autoFocus, setAutoFocus] = useState(false);
 
     // After mount set autoFocus to true
@@ -30,7 +30,7 @@ export const NavHeader = ({ open, setOpen, setActiveItem, ...rest }) => {
             {...rest}
         >
             {open && (
-                <AppIdentity2 setActiveItem={setActiveItem} logoOnly />
+                <AppIdentity2 logoOnly />
             )}
             <Button
                 a11yTitle={open ? 'Close navigation' : 'Open navigation'}
@@ -49,5 +49,4 @@ export const NavHeader = ({ open, setOpen, setActiveItem, ...rest }) => {
 NavHeader.propTypes = {
     open: PropTypes.bool.isRequired,
     setOpen: PropTypes.func.isRequired,
-    setActiveItem: PropTypes.func.isRequired,
 };
