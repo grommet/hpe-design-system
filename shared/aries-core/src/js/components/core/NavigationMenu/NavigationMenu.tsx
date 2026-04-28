@@ -64,6 +64,7 @@ interface NavigationMenuProps extends BoxProps {
   activeItem?: string;
   header?: React.ReactNode;
   items: NavItemType[];
+  logo?: React.ReactNode;
   open?: boolean;
   onToggle?: (open: boolean) => void;
   title?: string;
@@ -80,6 +81,7 @@ export const NavigationMenu = ({
   activeItem,
   header,
   items: itemsProp,
+  logo,
   open: openProp = true,
   onToggle,
   onSelect,
@@ -107,6 +109,7 @@ export const NavigationMenu = ({
   return (
     <NavContainer
       header={header}
+      logo={logo}
       navigationId={navigationId}
       open={open}
       setOpen={setOpen}
