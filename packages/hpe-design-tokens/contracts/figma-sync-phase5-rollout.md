@@ -49,3 +49,31 @@ pnpm sync-figma-to-tokens -- --env=test --output tokens_new_phase5_after
 - Pilot checklist completed in test environment.
 - Rollback drill completed and documented.
 - Machine-readable run-summary validated in CI.
+
+## Latest Execution Snapshot (2026-04-28)
+
+Status: in progress (blocked on preflight reference validation in test).
+
+Executed commands and outcomes:
+
+1. `pnpm sync-figma-to-tokens -- --env=test --output tokens_new_phase5`
+	- Outcome: failed preflight with `PREFLIGHT_FAILED` due invalid collection references.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/01-pull-test.log`
+2. `pnpm sync-tokens-to-figma -- --env=test --dry-run`
+	- Outcome: failed preflight before stage execution with `PREFLIGHT_FAILED` due invalid collection references.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/02-push-test-dry-run.log`
+3. `pnpm sync-tokens-to-figma -- --env=production`
+	- Outcome: failed fast on missing required production configuration.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/03-production-without-confirm.log`
+4. `pnpm sync-tokens-to-figma -- --env=production --confirm-production`
+	- Outcome: failed fast on missing required production configuration.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/04-production-with-confirm.log`
+5. `pnpm sync-discover-figma-collection-keys -- --env=test --pretty --output contracts/generated/phase5-rollout-evidence/05-collection-key-discovery.test.json`
+	- Outcome: succeeded; discovered key conflicts for `color` and `primitives` collections.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/05-collection-key-discovery.test.json`
+
+Immediate unblock actions:
+
+1. Resolve test-environment reference mismatches for aliases reported by preflight.
+2. Reconcile `color` and `primitives` collection key conflicts in test Figma libraries.
+3. Re-run pilot checklist starting from pull step after key reconciliation.

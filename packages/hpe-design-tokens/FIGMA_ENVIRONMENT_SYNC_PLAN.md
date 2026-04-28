@@ -328,6 +328,12 @@ Implemented artifacts:
 - Pilot and rollback drill runbook: [contracts/figma-sync-phase5-rollout.md](contracts/figma-sync-phase5-rollout.md)
 - Contract test command: [package.json](package.json)
 
+Operational rollout execution status (2026-04-28): in progress (blocked)
+
+- Pilot execution is currently blocked by preflight reference validation failures in the test environment.
+- Discovery diagnostics identified multi-candidate collection key conflicts for `color` and `primitives` in test.
+- Latest execution evidence is recorded in `contracts/generated/phase5-rollout-evidence/` and summarized in [contracts/figma-sync-phase5-rollout.md](contracts/figma-sync-phase5-rollout.md).
+
 ## Test Plan
 
 ### Unit
