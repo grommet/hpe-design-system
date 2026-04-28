@@ -1,3 +1,7 @@
+---
+applyTo: ".github/agents/*.agent.md"
+---
+
 # Component Docs Refactor: Executing the Plan
 
 Welcome to the component documentation refactor project! The goal of this effort is to establish a rigorous, machine-readable YAML "source of truth" for every component while simultaneously standardizing our user-facing MDX pages.

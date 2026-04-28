@@ -142,12 +142,24 @@ After completion, verify:
 
 > "Invoking @review-copy-agent…"
 
-After the copy review report is returned, present its findings to the user and add a reminder:
+After the copy review completes, invoke `@verify-render-agent [name]`.
 
-> "Copy review complete. Next steps:
-> 1. Address any **Must fix** items from the review above.
-> 2. Mark `[name]` as complete in `.github/docs-refactor-plan.md` (change `- [ ]` to `- [x]`).
-> 3. Open a PR with the title: `docs: refactor [ComponentName] component`."
+> "Invoking @verify-render-agent…"
+
+If the build fails, report the errors returned by `verify-render-agent` and stop the pipeline — do not proceed to Stage 5 until the build passes.
+
+If the build passes, invoke `@update-checklist-agent [name]` to mark the component complete in the plan.
+
+> "Invoking @update-checklist-agent…"
+
+After all three complete, present a final summary:
+
+> "Pipeline complete for **[ComponentName]**.
+> - Copy review: [N] changes applied — review `git diff` to confirm.
+> - Build: ✓ passed / ✗ [N] errors (see above).
+> - Checklist: `[name]` marked complete in `.github/docs-refactor-plan.md`.
+>
+> Open a PR with the title: `docs: refactor [ComponentName] component`."
 
 #### Error handling
 

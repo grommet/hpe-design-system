@@ -56,16 +56,18 @@ You are the first step in the per-component docs refactor pipeline. Read `.githu
 
 7. **Save the YAML** — write the validated output to `shared/data-structure/components/[component-name].yaml`.
 
-8. **Log inferred fields in the TODO file** — if any fields were inferred rather than extracted from the source MDX (`anatomy`, `usage.whenToUse`, `dosAndDonts`), create or append to `apps/docs/todos/TODO-[component-name].md` with a section titled `## Inferred fields — verify before merging`. List each inferred field and recommend verifying the content against the Figma file and grommet source before the PR is merged. If nothing was inferred, skip this step.
+8. **Sync description to `components.js`** — open `apps/docs/src/data/structures/components.js` and find the entry for `[component-name]`. Update its `description` field to match the `description` value finalized in the YAML (single sentence, no markdown). If no entry exists for the component, add a note to the TODO file flagging it for manual addition.
 
-9. **Stub the DEPRECATED file** — create `apps/docs/todos/DEPRECATED-[component-name].md` with a section for each piece of unmappable content. For each entry include:
+9. **Log inferred fields in the TODO file** — if any fields were inferred rather than extracted from the source MDX (`anatomy`, `usage.whenToUse`, `dosAndDonts`), create or append to `apps/docs/todos/TODO-[component-name].md` with a section titled `## Inferred fields — verify before merging`. List each inferred field and recommend verifying the content against the Figma file and grommet source before the PR is merged. If nothing was inferred, skip this step.
+
+10. **Stub the DEPRECATED file** — create `apps/docs/todos/DEPRECATED-[component-name].md` with a section for each piece of unmappable content. For each entry include:
    - The original section name or content excerpt
    - Why it didn't map to the schema
    - Whether it may have value worth preserving and where it could potentially live
 
    If nothing was unmappable, create the file with a brief note confirming the review was done and no content was dropped.
 
-10. **Rename the original MDX to `.bak`** — rename `apps/docs/src/pages/components/[component-name].mdx` to `apps/docs/src/pages/components/[component-name].mdx.bak`. This protects Next.js page-level imports and frontmatter so `generate-mdx-agent` can merge them back later.
+11. **Rename the original MDX to `.bak`** — rename `apps/docs/src/pages/components/[component-name].mdx` to `apps/docs/src/pages/components/[component-name].mdx.bak`. This protects Next.js page-level imports and frontmatter so `generate-mdx-agent` can merge them back later.
 
 ## Constraints
 
@@ -75,6 +77,7 @@ You are the first step in the per-component docs refactor pipeline. Read `.githu
 - **`whenToUse` items must be task-oriented** — they describe the user's goal (e.g., "Submitting a form"), not a design rationale (e.g., "When there are 5 or more options").
 - **`description` must be a single sentence.** No markdown formatting inside the value.
 - **Do not rename the MDX to `.bak` until** the YAML has been saved successfully and validated.
+- **Do not update `components.js`** until the YAML `description` has been finalised and validated.
 
 ## Output Format
 
@@ -85,6 +88,9 @@ Extracted and saved:
 - shared/data-structure/components/[name].yaml
   - Validation issues found and fixed: [list or "none"]
   - Validation issues that could not be resolved: [list or "none"]
+
+components.js synced:
+- apps/docs/src/data/structures/components.js → [component-name] description updated / "No entry found — flagged in TODO"
 
 Deprecated content logged:
 - apps/docs/todos/DEPRECATED-[name].md

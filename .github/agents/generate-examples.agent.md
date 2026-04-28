@@ -1,4 +1,5 @@
 ---
+name: generate-examples-agent
 description: "Use when generating coded React examples for each use case in a component MDX page. Triggered after generate-mdx runs and TODO placeholders exist for use case examples. Creates Grommet + HPE theme examples, registers them in the component's index.js, and replaces TODO placeholders in the MDX."
 tools: [read, edit, search]
 argument-hint: "Component name (e.g. Checkbox, Tag, Select)"
