@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Box, Button, Image, Text } from 'grommet';
 import { ThemeContext } from 'styled-components';
@@ -14,12 +15,15 @@ export const AppIdentity2 = (
   }) => {
   const textSize = 'medium';
   const theme = useContext(ThemeContext);
-
+  const router = useRouter();
 
   return (
     <Button
-      href={href}
-      onClick={() => setActiveItem('Home')}
+      onClick={(e) => {
+        e.preventDefault();
+        setActiveItem?.('Home');
+        router.push(href);
+      }}
     >
       <Box
         direction="row"

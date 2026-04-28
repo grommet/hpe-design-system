@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button } from 'grommet';
 import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
@@ -31,9 +30,7 @@ export const NavHeader = ({ open, setOpen, setActiveItem, ...rest }) => {
             {...rest}
         >
             {open && (
-                <Link href="/">
-                    <AppIdentity2 setActiveItem={setActiveItem} logoOnly />
-                </Link>
+                <AppIdentity2 setActiveItem={setActiveItem} logoOnly />
             )}
             <Button
                 a11yTitle={open ? 'Close navigation' : 'Open navigation'}

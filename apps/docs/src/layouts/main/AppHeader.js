@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import Link from 'next/link';
 import {
   Box,
   Button,
@@ -23,14 +22,12 @@ export const AppHeader = ({ navOpen, setNavOpen, setActiveItem, ...rest }) => {
       pad={{ horizontal: 'medium', vertical: '3xsmall' }}
       {...rest}
     >
-      <Link href="/">
-        {/* Show new HPE logo in header when nav is collapsed or on mobile */}
-        <AppIdentity2
-          title="Design System"
-          logo={!navOpen || mobile}
-          setActiveItem={setActiveItem}
-        />
-      </Link>
+      {/* Show new HPE logo in header when nav is collapsed or on mobile */}
+      <AppIdentity2
+        title="Design System"
+        logo={!navOpen || mobile}
+        setActiveItem={setActiveItem}
+      />
       <Box direction="row" align="center" gap="3xsmall">
         <Button
           a11yTitle="Search"
