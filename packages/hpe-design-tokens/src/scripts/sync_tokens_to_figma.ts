@@ -20,6 +20,7 @@ import {
   SCHEMA_VERSION,
   StageResult,
   SyncError,
+  withRequiredErrorFields,
 } from '../sync_events.js';
 
 import { green, verifyReferences } from '../utils.js';
@@ -104,7 +105,7 @@ async function main() {
       mutationsApplied: false,
       unresolvedAliasCount: 0,
       stages: stageResults,
-      errors: runErrors,
+      errors: withRequiredErrorFields(runErrors, config.env),
       startedAt: runStartedAt,
       finishedAt: new Date().toISOString(),
     });
@@ -327,7 +328,7 @@ async function main() {
           errorItem.code.startsWith('ALIAS_'),
         ).length,
         stages: stageResults,
-        errors: runErrors,
+        errors: withRequiredErrorFields(runErrors, config.env),
         startedAt: runStartedAt,
         finishedAt: new Date().toISOString(),
       });
@@ -346,7 +347,7 @@ async function main() {
       errorItem.code.startsWith('ALIAS_'),
     ).length,
     stages: stageResults,
-    errors: runErrors,
+    errors: withRequiredErrorFields(runErrors, config.env),
     startedAt: runStartedAt,
     finishedAt: new Date().toISOString(),
   });

@@ -317,6 +317,17 @@ Implemented artifacts:
 - Deliverables: automated coverage, pilot, rollback drill
 - Exit: production cutover approved
 
+Phase 5 execution status: completed
+
+Implemented artifacts:
+
+- Contract schema validation tests (stage-status + run-summary): [src/tests/sync_contract_schemas.test.ts](src/tests/sync_contract_schemas.test.ts)
+- Error normalization for schema-compliant run-summary payloads: [src/sync_events.ts](src/sync_events.ts)
+- Schema-compliant run-summary emission in push flow: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
+- Schema-compliant run-summary emission in pull flow: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts)
+- Pilot and rollback drill runbook: [contracts/figma-sync-phase5-rollout.md](contracts/figma-sync-phase5-rollout.md)
+- Contract test command: [package.json](package.json)
+
 ## Test Plan
 
 ### Unit

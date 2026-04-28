@@ -45,6 +45,33 @@ export type SyncError = {
   remediation?: string;
 };
 
+function defaultRemediationForCode(code: string) {
+  if (code.startsWith('ALIAS_')) {
+    return 'Resolve alias mapping issues for the target environment and rerun the failed stage.';
+  }
+
+  if (code === 'PREFLIGHT_FAILED') {
+    return 'Fix preflight validation errors and rerun the command.';
+  }
+
+  if (code === 'STAGE_FAILED') {
+    return 'Inspect stage logs, correct the failing token or API input, and retry.';
+  }
+
+  return 'Inspect sync logs and retry after correcting the reported issue.';
+}
+
+export function withRequiredErrorFields(
+  errors: SyncError[],
+  environment: SyncEnvironment,
+) {
+  return errors.map(error => ({
+    ...error,
+    environment: error.environment ?? environment,
+    remediation: error.remediation ?? defaultRemediationForCode(error.code),
+  }));
+}
+
 export type StageEvent = {
   schemaVersion: string;
   eventType: 'stage-status';
