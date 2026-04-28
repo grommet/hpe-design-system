@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Box, Button, Header, ResponsiveContext } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
 import PropTypes from 'prop-types';
-import { AppIdentity2 } from '../../../components';
+import { BrandIdentity } from '../../../components';
 
 
 export const LayerHeader = ({ onClose, ...rest }) => {
@@ -22,7 +22,7 @@ export const LayerHeader = ({ onClose, ...rest }) => {
             {...rest}
         >
             <Box onClick={() => mobile ? onClose() : undefined}>
-                <AppIdentity2 logoOnly />
+                <BrandIdentity logoOnly />
             </Box>
             <Button
                 active

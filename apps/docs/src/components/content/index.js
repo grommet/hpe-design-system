@@ -1,5 +1,5 @@
 export * from './AppIdentity';
-export * from './AppIdentity2';
+export * from './BrandIdentity';
 export * from './CollapsibleSection';
 export * from './ColorCompliance';
 export * from './ColorSwatch';

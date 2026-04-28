@@ -7,7 +7,7 @@ import {
 } from 'grommet';
 import PropTypes from 'prop-types';
 import { Search as SearchIcon } from '@hpe-design/icons-grommet';
-import { ThemeModeToggle, AppIdentity2 } from '../../components';
+import { ThemeModeToggle, BrandIdentity } from '../../components';
 
 import { Search } from '../navigation';
 
@@ -23,7 +23,7 @@ export const AppHeader = ({ navOpen, ...rest }) => {
       {...rest}
     >
       {/* Show new HPE logo in header when nav is collapsed or on mobile */}
-      <AppIdentity2
+      <BrandIdentity
         title="Design System"
         logo={!navOpen || mobile}
       />

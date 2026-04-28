@@ -5,7 +5,7 @@ import { Box, Button, Image, Text } from 'grommet';
 import { ThemeContext } from 'styled-components';
 
 
-export const AppIdentity2 = (
+export const BrandIdentity = (
   {
     logo = true,
     logoOnly = false,
@@ -56,7 +56,7 @@ export const AppIdentity2 = (
 
 
 
-AppIdentity2.propTypes = {
+BrandIdentity.propTypes = {
   logo: PropTypes.bool,
   logoOnly: PropTypes.bool,
   href: PropTypes.string,

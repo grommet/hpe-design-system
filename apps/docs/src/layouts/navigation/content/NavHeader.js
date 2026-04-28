@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button } from 'grommet';
 import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
-import { AppIdentity2 } from '../../../components';
+import { BrandIdentity } from '../../../components';
 
 
 export const NavHeader = ({ open, setOpen, ...rest }) => {
@@ -30,7 +30,7 @@ export const NavHeader = ({ open, setOpen, ...rest }) => {
             {...rest}
         >
             {open && (
-                <AppIdentity2 logoOnly />
+                <BrandIdentity logoOnly />
             )}
             <Button
                 a11yTitle={open ? 'Close navigation' : 'Open navigation'}
