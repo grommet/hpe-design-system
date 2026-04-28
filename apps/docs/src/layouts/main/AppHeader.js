@@ -6,6 +6,7 @@ import {
   Page,
   PageContent,
 } from 'grommet';
+import Link from 'next/link';
 import { Search as SearchIcon } from '@hpe-design/icons-grommet';
 import { ThemeModeToggle, BrandIdentity } from '../../components';
 import { Search } from '../navigation';
@@ -24,10 +25,12 @@ const StyledHeader = ({ ...rest }) => {
           }}
         >
           {/* Show new HPE logo in header when nav is collapsed */}
-          <BrandIdentity
-            title="Design System"
-            logo={!navOpen}
-          />
+          <Link href="/" passHref legacyBehavior>
+            <BrandIdentity
+              title="Design System"
+              logo={!navOpen}
+            />
+          </Link>
           <Box direction="row" align="center" gap="3xsmall">
             <Button
               a11yTitle="Search"
