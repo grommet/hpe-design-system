@@ -106,7 +106,6 @@ NavigationPanel.propTypes = {
         }),
     ).isRequired,
     expanded: PropTypes.bool,
-    title: PropTypes.string,
     header: PropTypes.node,
     onSelect: PropTypes.func,
 };
