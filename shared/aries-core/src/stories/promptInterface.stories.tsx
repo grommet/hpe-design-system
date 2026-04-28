@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PromptInterface as PromptInterfaceStory } from '../js/components/core/PromptInterface';
+import { PromptInterface as PromptInterfaceStory } from '../js/components';
 // @ts-expect-error - Vite raw import for story source display
 import PromptInterfaceSource from '../js/components/core/PromptInterface/PromptInterface.tsx?raw';
 import { Box } from 'grommet/components/Box';
