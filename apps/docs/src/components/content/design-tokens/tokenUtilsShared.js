@@ -20,6 +20,16 @@ const getCollectionFromMode = mode => {
   return mode;
 };
 
+const getTargetLevel = (structuredTokens, rootKey) => {
+  if (!rootKey) return structuredTokens;
+
+  if (!(rootKey in structuredTokens)) {
+    Object.assign(structuredTokens, { [rootKey]: {} });
+  }
+
+  return structuredTokens[rootKey];
+};
+
 /**
  * Generic function to structure tokens from a source into a nested object
  * @param {Object} structuredTokens - The target structured tokens object
@@ -39,8 +49,7 @@ const addStructuredTokens = (
   Object.keys(tokens).forEach(mode => {
     Object.keys(tokens[mode]).forEach(token => {
       const currentToken = tokens[mode][token];
-      const parts = token.split('.');
-      const category = parts[1];
+      const category = token.split('.')[1];
       const level = getCollectionFromMode(mode);
 
       const normalizedMode =
@@ -58,11 +67,8 @@ const addStructuredTokens = (
         ? transformTokenData(token, currentToken)
         : currentToken;
 
-      const nextTokens = structuredTokens;
-
       // Navigate/create the nested structure
-      if (rootKey && !(rootKey in nextTokens)) nextTokens[rootKey] = {};
-      const targetLevel = rootKey ? nextTokens[rootKey] : nextTokens;
+      const targetLevel = getTargetLevel(structuredTokens, rootKey);
 
       if (!(level in targetLevel)) targetLevel[level] = {};
       if (!(category in targetLevel[level])) targetLevel[level][category] = {};

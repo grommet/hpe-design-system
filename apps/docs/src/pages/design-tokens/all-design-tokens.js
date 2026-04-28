@@ -144,6 +144,22 @@ const tokenTypeOptions = tokenTypeOrder.map(type => ({
   value: type,
 }));
 
+const managedCollectionsBySource = {
+  grommetThemeHpe: ['component', 'primitives'],
+  figma: ['component', 'primitives'],
+};
+
+const managedCategoriesBySource = {
+  grommetThemeHpe: ['focusIndicator', 'fontStack'],
+  figma: ['focusIndicator'],
+};
+
+const isManagedCollectionForSource = (source, collection) =>
+  managedCollectionsBySource[source]?.includes(collection);
+
+const isManagedCategoryForSource = (source, category) =>
+  managedCategoriesBySource[source]?.includes(category);
+
 const getEmptyStateMessage = type => {
   if (type === 'grommetThemeHpe') return 'N/A. Handled by `grommet-theme-hpe`.';
   if (type === 'figma') return 'N/A. Handled by Figma library.';
@@ -222,6 +238,23 @@ const normalizeTokenTypes = value => {
   return next.length > 0 ? next : ['docs'];
 };
 
+const normalizeQuerySyncState = ({ token, tokenTypes, mode }) => {
+  const normalizedToken = token || '';
+  const normalizedMode = mode || '';
+  const normalizedTokenTypes = tokenTypes
+    ? normalizeTokenTypes(tokenTypes.split(',')).join(',')
+    : '';
+
+  return {
+    token: normalizedToken,
+    tokenTypes: normalizedTokenTypes,
+    mode: normalizedMode,
+  };
+};
+
+const toQuerySyncKey = ({ token, tokenTypes, mode }) =>
+  `${token}|${tokenTypes}|${mode}`;
+
 const getInitialTokenTypes = () => {
   if (typeof window === 'undefined') return ['docs'];
 
@@ -241,11 +274,13 @@ const AllTokens = () => {
   const [selectedTokenTypes, setSelectedTokenTypes] =
     useState(getInitialTokenTypes);
   const [isUrlSyncReady, setIsUrlSyncReady] = useState(false);
-  const pendingTokenTypesSyncRef = useRef('');
-  const pendingTokenSyncRef = useRef('');
-  const pendingModeSyncRef = useRef('');
+  const pendingQuerySyncRef = useRef('');
   const breakpoint = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
+  const defaultActiveTokenPath = useMemo(
+    () => getDefaultActiveTokenPath(),
+    [],
+  );
   const {
     data,
     setData,
@@ -254,12 +289,15 @@ const AllTokens = () => {
     selectedMode,
     setSelectedMode,
     modes,
-  } = useDesignTokens(getDefaultActiveTokenPath());
+  } = useDesignTokens(defaultActiveTokenPath);
 
   const primaryTokenType = useMemo(
     () => tokenTypeOrder.find(type => selectedTokenTypes.includes(type)),
     [selectedTokenTypes],
   );
+  const { isReady, pathname, query, replace } = router;
+  const { mode: queryMode, token: queryToken, tokenTypes: queryTokenTypes } =
+    query;
   const isDesktop = ['large', 'xlarge'].includes(breakpoint);
 
   useEffect(() => {
@@ -272,11 +310,7 @@ const AllTokens = () => {
   );
 
   useEffect(() => {
-    const isSyncPending =
-      pendingTokenTypesSyncRef.current ||
-      pendingTokenSyncRef.current ||
-      pendingModeSyncRef.current;
-    if (isSyncPending) return;
+    if (pendingQuerySyncRef.current) return;
 
     const activePrefix = getActivePrefix(primaryTokenType);
     const unprefixedActive = getPathWithoutPrefix(active, primaryTokenType);
@@ -355,36 +389,14 @@ const AllTokens = () => {
   const displayHeadingLabel = selectedTokenTypes.includes('grommetThemeHpe')
     ? grommetThemeHpeHeadingLabelMap[activeCategoryKey] || activeHeadingLabel
     : activeHeadingLabel;
-  const showGrommetThemeHpeManagedEmptyState =
-    selectedTokenTypes.length === 1 &&
-    primaryTokenType === 'grommetThemeHpe' &&
-    ['component', 'primitives'].includes(activeCollectionKey);
-  const showGrommetThemeHpeCategoryEmptyState =
-    selectedTokenTypes.length === 1 &&
-    primaryTokenType === 'grommetThemeHpe' &&
-    ['focusIndicator', 'fontStack'].includes(activeCategoryKey);
-  const showFigmaManagedEmptyState =
-    selectedTokenTypes.length === 1 &&
-    primaryTokenType === 'figma' &&
-    ['component', 'primitives'].includes(activeCollectionKey);
-  const showFigmaCategoryEmptyState =
-    selectedTokenTypes.length === 1 &&
-    primaryTokenType === 'figma' &&
-    ['focusIndicator'].includes(activeCategoryKey);
-  const showGrommetThemeHpeEmptyState =
-    showGrommetThemeHpeManagedEmptyState ||
-    showGrommetThemeHpeCategoryEmptyState;
-  const isFigmaManagedEmptyState =
-    showFigmaManagedEmptyState || showFigmaCategoryEmptyState;
-  const showSourceEmptyState =
-    showGrommetThemeHpeEmptyState || isFigmaManagedEmptyState;
-  const sourceEmptyStateText = isFigmaManagedEmptyState
+  const isSingleTokenTypeSelected = selectedTokenTypes.length === 1;
+  const showManagedEmptyState =
+    isSingleTokenTypeSelected &&
+    (isManagedCollectionForSource(primaryTokenType, activeCollectionKey) ||
+      isManagedCategoryForSource(primaryTokenType, activeCategoryKey));
+  const sourceEmptyStateText = primaryTokenType === 'figma'
     ? 'Handled by Figma library.'
     : 'Handled by grommet-theme-hpe.';
-  const showManagedEmptyState =
-    showGrommetThemeHpeEmptyState ||
-    showFigmaManagedEmptyState ||
-    showFigmaCategoryEmptyState;
 
   const tableData = useMemo(() => {
     const [activeCollectionName, activeCategoryName] = displayActive.split('.');
@@ -423,16 +435,14 @@ const AllTokens = () => {
         const canonicalToken = Array.isArray(datum.path)
           ? datum.path.join('.')
           : datum.sourceToken || datum.token;
-        let tokenValue = datum.displayToken || datum.token;
+        let tokenValue = datum.token;
         if (type === 'grommetThemeHpe') {
           if (
             selectedTokenTypes.length > 1 &&
-            ['component', 'primitives'].includes(activeCollectionKey)
+            isManagedCollectionForSource(type, activeCollectionKey)
           ) {
             tokenValue = getEmptyStateMessage(type);
-          } else if (
-            ['focusIndicator', 'fontStack'].includes(activeCategoryKey)
-          ) {
+          } else if (isManagedCategoryForSource(type, activeCategoryKey)) {
             tokenValue = getEmptyStateMessage(type);
           } else {
             tokenValue = getGrommetThemeHpeDisplayToken(
@@ -443,8 +453,8 @@ const AllTokens = () => {
         } else if (
           type === 'figma' &&
           selectedTokenTypes.length > 1 &&
-          (['component', 'primitives'].includes(activeCollectionKey) ||
-            activeCategoryKey === 'focusIndicator')
+          (isManagedCollectionForSource(type, activeCollectionKey) ||
+            isManagedCategoryForSource(type, activeCategoryKey))
         ) {
           tokenValue = getEmptyStateMessage(type);
         }
@@ -502,17 +512,22 @@ const AllTokens = () => {
   );
 
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!isReady) return;
 
-    const tokenTypesFromQuery = getSingleQueryValue(router.query.tokenTypes);
-    const normalizedTokenTypesFromQuery = tokenTypesFromQuery
-      ? normalizeTokenTypes(tokenTypesFromQuery.split(',')).join(',')
-      : '';
+    const tokenTypesFromQuery = getSingleQueryValue(queryTokenTypes) || '';
+    const modeFromQuery = getSingleQueryValue(queryMode) || '';
+    const tokenFromQuery = getSingleQueryValue(queryToken) || '';
+    const normalizedQueryState = normalizeQuerySyncState({
+      token: tokenFromQuery,
+      tokenTypes: tokenTypesFromQuery,
+      mode: modeFromQuery,
+    });
 
-    // Ignore stale query values while a newer token type selection is pending.
-    if (pendingTokenTypesSyncRef.current) {
-      if (normalizedTokenTypesFromQuery === pendingTokenTypesSyncRef.current) {
-        pendingTokenTypesSyncRef.current = '';
+    // Ignore stale query values while a newer local selection is pending.
+    if (pendingQuerySyncRef.current) {
+      const queryStateKey = toQuerySyncKey(normalizedQueryState);
+      if (queryStateKey === pendingQuerySyncRef.current) {
+        pendingQuerySyncRef.current = '';
       } else {
         return;
       }
@@ -531,32 +546,10 @@ const AllTokens = () => {
       });
     }
 
-    const modeFromQuery = getSingleQueryValue(router.query.mode);
-
-    // Ignore stale mode query values while a newer mode selection is pending.
-    if (pendingModeSyncRef.current) {
-      if (modeFromQuery === pendingModeSyncRef.current) {
-        pendingModeSyncRef.current = '';
-      } else {
-        return;
-      }
-    }
-
     if (modeFromQuery) {
       setSelectedMode(prevMode =>
         prevMode === modeFromQuery ? prevMode : modeFromQuery,
       );
-    }
-
-    const tokenFromQuery = getSingleQueryValue(router.query.token);
-
-    // Ignore stale token query values while a newer token selection is pending.
-    if (pendingTokenSyncRef.current) {
-      if (tokenFromQuery === pendingTokenSyncRef.current) {
-        pendingTokenSyncRef.current = '';
-      } else {
-        return;
-      }
     }
 
     if (!tokenFromQuery) {
@@ -574,48 +567,60 @@ const AllTokens = () => {
     setIsUrlSyncReady(true);
   }, [
     primaryTokenType,
-    router.isReady,
-    router.query.mode,
-    router.query.token,
-    router.query.tokenTypes,
+    isReady,
+    queryMode,
+    queryToken,
+    queryTokenTypes,
     setActive,
     setSelectedMode,
   ]);
 
   useEffect(() => {
-    if (!router.isReady || !isUrlSyncReady) return;
+    if (!isReady || !isUrlSyncReady) return;
 
-    const tokenFromQuery = getSingleQueryValue(router.query.token);
-    const tokenTypesFromQuery = getSingleQueryValue(router.query.tokenTypes);
-    const modeFromQuery = getSingleQueryValue(router.query.mode);
+    const tokenFromQuery = getSingleQueryValue(queryToken) || '';
+    const tokenTypesFromQuery = getSingleQueryValue(queryTokenTypes) || '';
+    const modeFromQuery = getSingleQueryValue(queryMode) || '';
 
     const unprefixedActive = getPathWithoutPrefix(active, primaryTokenType);
     if (!unprefixedActive) return;
 
-    const nextTokenParam = unprefixedActive.replaceAll('.', '/');
-    const nextTokenTypesParam = selectedTokenTypes.join(',');
-    const nextModeParam = selectedMode;
+    const nextQueryState = normalizeQuerySyncState({
+      token: unprefixedActive.replaceAll('.', '/'),
+      tokenTypes: selectedTokenTypes.join(','),
+      mode: selectedMode,
+    });
+    const currentQueryState = normalizeQuerySyncState({
+      token: tokenFromQuery,
+      tokenTypes: tokenTypesFromQuery,
+      mode: modeFromQuery,
+    });
+
+    if (toQuerySyncKey(currentQueryState) === toQuerySyncKey(nextQueryState)) {
+      if (pendingQuerySyncRef.current) pendingQuerySyncRef.current = '';
+      return;
+    }
+
+    pendingQuerySyncRef.current = toQuerySyncKey(nextQueryState);
+
     if (
-      tokenFromQuery === nextTokenParam &&
-      tokenTypesFromQuery === nextTokenTypesParam &&
-      modeFromQuery === nextModeParam
+      tokenFromQuery === nextQueryState.token &&
+      tokenTypesFromQuery === nextQueryState.tokenTypes &&
+      modeFromQuery === nextQueryState.mode
     )
       return;
 
-    pendingModeSyncRef.current = nextModeParam || '';
-    pendingTokenSyncRef.current = nextTokenParam || '';
-
     const nextQuery = {
-      ...router.query,
-      token: nextTokenParam,
-      tokenTypes: nextTokenTypesParam,
+      ...query,
+      token: nextQueryState.token,
+      tokenTypes: nextQueryState.tokenTypes,
     };
-    if (nextModeParam) nextQuery.mode = nextModeParam;
+    if (nextQueryState.mode) nextQuery.mode = nextQueryState.mode;
     else delete nextQuery.mode;
 
-    router.replace(
+    replace(
       {
-        pathname: router.pathname,
+        pathname,
         query: nextQuery,
       },
       undefined,
@@ -625,12 +630,13 @@ const AllTokens = () => {
     active,
     isUrlSyncReady,
     primaryTokenType,
-    router,
-    router.isReady,
-    router.pathname,
-    router.query.mode,
-    router.query.token,
-    router.query.tokenTypes,
+    isReady,
+    pathname,
+    query,
+    queryMode,
+    queryToken,
+    queryTokenTypes,
+    replace,
     selectedMode,
     selectedTokenTypes,
   ]);
@@ -666,9 +672,15 @@ const AllTokens = () => {
                       active,
                       primaryTokenType,
                     ).replaceAll('.', '/');
-                    pendingTokenSyncRef.current = currentTokenParam;
-                    pendingTokenTypesSyncRef.current =
-                      normalizedValue.join(',');
+
+                    pendingQuerySyncRef.current = toQuerySyncKey(
+                      normalizeQuerySyncState({
+                        token: currentTokenParam,
+                        tokenTypes: normalizedValue.join(','),
+                        mode: getSingleQueryValue(queryMode) || selectedMode,
+                      }),
+                    );
+
                     setSelectedTokenTypes(normalizedValue);
                   }}
                 />
@@ -721,11 +733,11 @@ const AllTokens = () => {
               <Box gap="small">
                 <DesignTokensTable
                   active={active}
-                  data={showSourceEmptyState ? [] : tableData}
+                  data={showManagedEmptyState ? [] : tableData}
                   toolbar
                   tokenTypeColumns={tokenTypeColumns}
                 />
-                {showSourceEmptyState ? (
+                {showManagedEmptyState ? (
                   <Box
                     alignSelf="center"
                     align="center"

@@ -18,9 +18,9 @@ import {
   BorderPreview,
   WeightPreview,
   TextPreview,
+  getTokenGroupByActivePath,
   getTokens,
   useDesignTokens,
-  structuredTokens,
 } from './designTokenUtils';
 import { DesignTokenContext } from './DesignTokenContext';
 
@@ -72,17 +72,15 @@ const getTokenColumn = (property, header) => ({
       property === 'token' ? datum.sourceToken || datum.token : datum[property];
 
     return (
-      <Box direction="row">
-        <Box
-          background="background-contrast"
-          pad="3xsmall"
-          round="xsmall"
-          style={{ fontFamily: 'Menlo' }}
-        >
-          <Text size="xsmall" style={{ whiteSpace: 'nowrap' }}>
-            {displayValue || '--'}
-          </Text>
-        </Box>
+      <Box
+        background="background-contrast"
+        pad="3xsmall"
+        round="xsmall"
+        style={{ fontFamily: 'Menlo' }}
+      >
+        <Text size="xsmall" style={{ whiteSpace: 'nowrap' }}>
+          {displayValue || '--'}
+        </Text>
       </Box>
     );
   },
@@ -92,7 +90,7 @@ const descriptionColumn = {
   property: 'description',
   header: 'Description',
   size: 'large',
-  render: datum => <Text>{datum.description ? datum.description : '--'}</Text>,
+  render: datum => <Text>{datum.description || '--'}</Text>,
 };
 
 const formatTokenValue = value => {
@@ -133,11 +131,16 @@ export const DesignTokensTable = ({
     setSelectedMode: setHookSelectedMode,
   } = useDesignTokens(active);
 
-  const handleMode = setSelectedMode || setHookSelectedMode;
-  const handleData = setData || setHookData;
-  const mode = selectedMode || hookSelectedMode;
-  const modeOptions = modes || hookModes;
-  const currentData = dataProp || contextData || hookData;
+  const hasContextState =
+    typeof setData === 'function' &&
+    typeof setSelectedMode === 'function' &&
+    Array.isArray(modes);
+
+  const handleMode = hasContextState ? setSelectedMode : setHookSelectedMode;
+  const handleData = hasContextState ? setData : setHookData;
+  const mode = hasContextState ? selectedMode : hookSelectedMode;
+  const modeOptions = hasContextState ? modes : hookModes;
+  const currentData = dataProp ?? (hasContextState ? contextData : hookData);
 
   const columns = useMemo(() => {
     const dynamicTokenColumns =
@@ -198,13 +201,10 @@ export const DesignTokensTable = ({
                     options={modeOptions}
                     value={mode}
                     onChange={({ option }) => {
-                      const keyPath = active.split('.');
+                      const tokenGroup = getTokenGroupByActivePath(active);
+                      if (!tokenGroup) return;
 
-                      let res = structuredTokens;
-                      keyPath.forEach(key => {
-                        res = res[key];
-                      });
-                      handleData(getTokens(res, option));
+                      handleData(getTokens(tokenGroup, option));
                       handleMode(option);
                     }}
                   />

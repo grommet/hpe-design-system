@@ -8,9 +8,7 @@ const addFigmaTokens = structuredTokens => {
     transformTokenName: toFigmaTokenName,
     transformTokenData: (token, currentToken) => ({
       ...currentToken,
-      $name: currentToken.$name
-        ? toFigmaTokenName(currentToken.$name)
-        : toFigmaTokenName(token),
+      $name: toFigmaTokenName(currentToken.$name || token),
     }),
   });
 };

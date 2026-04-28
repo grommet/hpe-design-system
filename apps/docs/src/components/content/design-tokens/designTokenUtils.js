@@ -68,19 +68,18 @@ const getTokens = (tokenObj, mode) =>
       path: tokenObj[key]?.modes[mode]?.path,
       type: tokenObj[key]?.modes[mode]?.$type,
       description: tokenObj[key]?.modes[mode]?.$description,
-      value: tokenObj[key]?.modes[mode].$value,
+      value: tokenObj[key]?.modes[mode]?.$value,
     };
   });
 
+const getTokenGroupByActivePath = active => {
+  if (!active) return undefined;
+
+  return active.split('.').reduce((acc, key) => acc?.[key], structuredTokens);
+};
+
 const getCurrentTokens = active => {
-  if (!active) return [[], [], ''];
-
-  const keyPath = active.split('.');
-
-  let res = structuredTokens;
-  keyPath.forEach(key => {
-    if (res) res = res[key];
-  });
+  const res = getTokenGroupByActivePath(active);
 
   if (!res || Object.keys(res).length === 0) return [[], [], ''];
 
@@ -147,5 +146,6 @@ export {
   WeightPreview,
   TextPreview,
   getTokens,
+  getTokenGroupByActivePath,
   useDesignTokens,
 };
