@@ -17,8 +17,7 @@ import {
   NavigationPanel,
 } from '../navigation/content';
 import { DocsLayout } from '..';
-// eslint-disable-next-line import/extensions, import/no-unresolved
-import { navItems } from '../navigation/navItems';
+import { navItems } from '../navigation/navItems.ts';
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getPrimaryPageByName, structureIndexes } from '../../data';
