@@ -23,15 +23,15 @@ You are the first step in the per-component docs refactor pipeline. Read `.githu
 
 4. **Extract and map content** — translate every piece of content from the MDX into the corresponding field in the `ComponentDefinition` schema:
    - `description` — single precise sentence from the component's intro prose
-   - `usage.whenToUse` — scenario-driven items; rewrite any structural rationales as user-task descriptions
+   - `usage.whenToUse` — scenario-driven items; rewrite any structural rationales as user-task descriptions. If the source MDX has no use cases or they are too thin to extract meaningful scenarios, infer realistic user-task scenarios from your knowledge of the component.
    - `usage.whenToAvoid` — counter-indications only; do not duplicate `whenToUse`
    - `variants` — stable named configurations (e.g., primary, icon-only); never transient states
    - `behaviors.interactiveStates` — hover, focus, active, pressed
    - `behaviors.applicationStates` — disabled, loading, error, read-only, success
    - `behaviors.dataStates` — empty, populated, loading data, error fetching
-   - `anatomy` — structural parts with label, region, purpose, availability, and notes
+   - `anatomy` — structural parts with label, region, purpose, availability, and notes. If the source MDX has no anatomy section, infer the structural parts from your knowledge of the component.
    - `contentGuidelines` — writing rules for text placed inside the component
-   - `dosAndDonts` — paired do/dont entries, each with a `do`, `dont`, and optional `reason`
+   - `dosAndDonts` — paired do/dont entries, each with a `do`, `dont`, and optional `reason`. If the source MDX has no do/don't content, infer representative pairs from your knowledge of the component.
    - `accessibility` — keyboard interactions, ARIA attributes, announcements, WCAG criteria
    - `props` — name, type, required, description, defaultValue for each prop
    - `examples` — **do NOT copy raw code**; reference existing example files as relative paths:
@@ -56,19 +56,21 @@ You are the first step in the per-component docs refactor pipeline. Read `.githu
 
 7. **Save the YAML** — write the validated output to `shared/data-structure/components/[component-name].yaml`.
 
-8. **Stub the DEPRECATED file** — create `apps/docs/todos/DEPRECATED-[component-name].md` with a section for each piece of unmappable content. For each entry include:
+8. **Log inferred fields in the TODO file** — if any fields were inferred rather than extracted from the source MDX (`anatomy`, `usage.whenToUse`, `dosAndDonts`), create or append to `apps/docs/todos/TODO-[component-name].md` with a section titled `## Inferred fields — verify before merging`. List each inferred field and recommend verifying the content against the Figma file and grommet source before the PR is merged. If nothing was inferred, skip this step.
+
+9. **Stub the DEPRECATED file** — create `apps/docs/todos/DEPRECATED-[component-name].md` with a section for each piece of unmappable content. For each entry include:
    - The original section name or content excerpt
    - Why it didn't map to the schema
    - Whether it may have value worth preserving and where it could potentially live
 
    If nothing was unmappable, create the file with a brief note confirming the review was done and no content was dropped.
 
-9. **Rename the original MDX to `.bak`** — rename `apps/docs/src/pages/components/[component-name].mdx` to `apps/docs/src/pages/components/[component-name].mdx.bak`. This protects Next.js page-level imports and frontmatter so `generate-mdx-agent` can merge them back later.
+10. **Rename the original MDX to `.bak`** — rename `apps/docs/src/pages/components/[component-name].mdx` to `apps/docs/src/pages/components/[component-name].mdx.bak`. This protects Next.js page-level imports and frontmatter so `generate-mdx-agent` can merge them back later.
 
 ## Constraints
 
 - **Never copy raw React/JSX code into the YAML.** Example files must always be `path:` references pointing to files in `apps/docs/src/examples/components/`.
-- **Never fabricate information** to fill schema gaps. If a required field has no corresponding content in the MDX, omit it so the gap is visible, and note it in the DEPRECATED file.
+- **Never fabricate information** to fill schema gaps. If a required field has no corresponding content in the MDX, omit it so the gap is visible, and note it in the DEPRECATED file. Exception: the structural/visual fields `anatomy`, `dosAndDonts`, and `usage.whenToUse` may be inferred from your knowledge of the component when absent from the source — log each inferred field in the TODO file for human review.
 - **Variants are not states.** Disabled, loading, hover, focus, error, and similar transient conditions belong in `behaviors`, never in `variants`.
 - **`whenToUse` items must be task-oriented** — they describe the user's goal (e.g., "Submitting a form"), not a design rationale (e.g., "When there are 5 or more options").
 - **`description` must be a single sentence.** No markdown formatting inside the value.

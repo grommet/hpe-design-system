@@ -41,9 +41,9 @@ You are the second step in the per-component docs refactor pipeline, running aft
    - Do NOT surface `whenToAvoid` items here.
 
    **Anatomy (`## Anatomy`):**
-   - Render `anatomy` entries as a markdown table with columns: `Label`, `Region`, `Purpose`, `Required`, `Notes`.
-   - For required parts: `<span><Checkmark a11yTitle="true" size="small" /></span>`. For optional: `Optional`.
    - Include a placeholder image comment above the table: `{/* TODO: Add anatomy diagram image */}`.
+   - If `anatomy` entries are present in the YAML, render them as a markdown table with columns: `Label`, `Region`, `Purpose`, `Required`, `Notes`. For required parts: `<span><Checkmark a11yTitle="true" size="small" /></span>`. For optional: `Optional`.
+   - If `anatomy` is absent from the YAML, insert `{/* TODO: Add anatomy table — define label, region, purpose, required, and notes for each part */}` below the image placeholder, and list "Anatomy table" in the TODO placeholders section of your output summary.
 
    **Variants (`## Variants`):**
    - Render each `variants` entry with its name as a `###` subheading, followed by its `description` and `when` guidance.
@@ -78,6 +78,8 @@ You are the second step in the per-component docs refactor pipeline, running aft
    - Any other page-routing or meta-level code that is not component documentation content
 
    After restoring, add import lines for any new named example exports that appear in the generated MDX body but are not yet present in the import block. Import from `'../../examples'`.
+   - If the anatomy section is rendered, ensure `import { Checkmark } from '@hpe-design/icons-grommet'` is present.
+   - If the Dos and Don'ts section is rendered, ensure `BestPracticeGroup` is included in the layouts import (e.g. `import { AccessibilitySection, BestPracticeGroup, Example } from '../../layouts'`).
 
 6. **Save the new MDX** — write the complete result (frontmatter + imports + generated body with restored wrappers) to `apps/docs/src/pages/components/[component-name].mdx`.
 
