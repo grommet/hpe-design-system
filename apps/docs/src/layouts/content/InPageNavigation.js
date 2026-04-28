@@ -118,9 +118,8 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Box pad={{ left: subsectionPad, right: '5xsmall' }}>
+            <Box key={index} pad={{ left: subsectionPad, right: '5xsmall' }}>
               <Link
-                key={index}
                 href={`#${nameToSlug(headingTitle)}`}
                 passHref
                 legacyBehavior
