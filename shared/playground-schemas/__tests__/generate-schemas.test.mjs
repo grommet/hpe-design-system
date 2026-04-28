@@ -40,9 +40,10 @@ describe('generate-schemas — generated output', () => {
     const { schema } = await import(
       toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
+    const VALID_TYPES = ['boolean', 'string', 'number', 'enum', 'union'];
     schema.forEach(prop => {
       expect(typeof prop.name).toBe('string');
-      expect(typeof prop.type).toBe('string');
+      expect(VALID_TYPES).toContain(prop.type);
     });
   });
 
