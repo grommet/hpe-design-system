@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { PromptInterface as PromptInterfaceStory } from '../js/components/core/PromptInterface';
+// @ts-expect-error - Vite raw import for story source display
 import PromptInterfaceSource from '../js/components/core/PromptInterface/PromptInterface.tsx?raw';
+import { Box } from 'grommet/components/Box';
 
 const meta = {
   title: 'Patterns/Prompt Interface',
@@ -15,22 +17,26 @@ export default meta;
 
 export const PromptInterface = {
   render: () => {
-    const [formValue, setFormValue] = useState<{ message: string }>({ message: '' });
+    const [formValue, setFormValue] = useState<{ message: string }>({
+      message: '',
+    });
 
     const onChange = (newValue: { message: string }) => {
       setFormValue(newValue);
     };
 
     const onSubmit = () => {
-      console.log('Submitted message:', formValue.message);
+      console.log('Submitted message:', formValue);
     };
 
     return (
-      <PromptInterfaceStory
-        formValue={formValue}
-        onChange={onChange}
-        onSubmit={onSubmit}
-      />
+      <Box width={{ min: 'medium', max: 'large' }} pad="medium">
+        <PromptInterfaceStory
+          formValue={formValue}
+          onChange={onChange}
+          onSubmit={onSubmit}
+        />
+      </Box>
     );
   },
   parameters: {

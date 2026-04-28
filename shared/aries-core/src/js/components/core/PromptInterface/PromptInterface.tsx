@@ -1,12 +1,19 @@
-import { useEffect, useState } from 'react';
-import { Box, Button, Footer, Form, FormField, TextArea } from 'grommet';
+import { useEffect, useRef, useState } from 'react';
+import {
+  Box,
+  Button,
+  FileInput,
+  Footer,
+  Form,
+  FormField,
+  TextArea,
+} from 'grommet';
 import { Add, Send } from '@hpe-design/icons-grommet';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
-import { FileUpload } from './components';
 
 interface PromptInterfaceProps {
-  formValue: { message: string };
-  onChange: (nextValue: { message: string }) => void;
+  formValue: { message: string; files?: FileList };
+  onChange: (nextValue: { message: string; files?: FileList }) => void;
   onSubmit: () => void;
 }
 
@@ -19,11 +26,13 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
   const textareaId = 'message';
   const defaultRows = 2;
   const [rows, setRows] = useState<number | undefined>(defaultRows);
-	const [addFiles, setAddFiles] = useState<boolean>(false);
+  const [addFiles, setAddFiles] = useState<boolean>(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   // Dynamically adjust TextArea rows based on content, with a minimum of defaultRows
   useEffect(() => {
-    const el = document.getElementById(textareaId);
+    const el = textAreaRef.current;
     if (!el) return;
     const style = window.getComputedStyle(el);
     const lineHeight = parseInt(style.lineHeight || '0', 10);
@@ -39,15 +48,37 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
     }
   }, [formValue.message]);
 
+  const handleAddContext = () => {
+    setAddFiles(true);
+    setTimeout(() => {
+      textAreaRef.current?.blur();
+      fileInputRef.current?.focus();
+    }, 1);
+  };
+
   return (
     <>
       <Form value={formValue} onChange={onChange} {...rest}>
         <FormField name="message">
+          <Box pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}>
+            {addFiles && (
+              <FileInput
+                ref={fileInputRef}
+                onChange={event => {
+                  onChange({
+                    ...formValue,
+                    files: event.target.files || undefined,
+                  });
+                }}
+              />
+            )}
+          </Box>
           <Box pad={{ top: '3xsmall' }}>
             <ScreenReaderOnly>
               <label htmlFor={textareaId}>Message</label>
             </ScreenReaderOnly>
             <TextArea
+              ref={textAreaRef}
               id={textareaId}
               name="message"
               placeholder="Enter your message..."
@@ -70,7 +101,7 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
               <Button
                 a11yTitle="Add context"
                 icon={<Add />}
-                onClick={() => setAddFiles(true)}
+                onClick={handleAddContext}
                 secondary
               />
             </Box>
@@ -83,7 +114,6 @@ export const PromptInterface: React.FC<PromptInterfaceProps> = ({
           </Footer>
         </FormField>
       </Form>
-      {addFiles && <FileUpload onClose={() => setAddFiles(false)} />}
     </>
   );
 };
