@@ -1,14 +1,14 @@
-# Playground
+# @shared/playground-schemas
 
-This directory contains the schema system that powers the component Playground
-in the docs app. The Playground lets users interactively change component props
-and see the result in real time.
+Codegen tooling and shared schema primitives for the component Playground in
+the HPE Design System docs app. Lives under `shared/` so it is a proper
+workspace package with a clear place in the build dependency graph.
 
 ## Directory structure
 
 ```
-playground/
-  README.md              # This file
+shared/playground-schemas/
+  package.json           # Workspace package — @shared/playground-schemas
   schema.js              # Shared type definitions and prop helper factories
   generated/             # Auto-generated schema files — do not edit by hand
     Button.js
@@ -35,7 +35,7 @@ component's `index.d.ts` from the installed grommet package, classifies every
 prop type, and outputs a `PropDescriptor[]` array using the schema helpers.
 
 **Do not edit these files by hand** — they will be overwritten on the next run.
-They are also regenerated automatically on every `pnpm build`.
+They are also regenerated automatically as part of `pnpm build` in `apps/docs`.
 
 ---
 
@@ -65,28 +65,19 @@ Use the `exclude` prop to hide props that aren't relevant on a given page
 
 ## Regenerating schemas after a grommet update
 
-Schemas are regenerated automatically as part of `pnpm build`. To regenerate
-manually, run from the `apps/docs` directory:
+Schemas are regenerated automatically as part of `pnpm build` in `apps/docs`.
+To regenerate manually, run from the monorepo root:
 
 ```sh
-# Regenerate all components listed in the script's COMPONENTS array
-pnpm generate:schemas
+# Regenerate all components listed in COMPONENTS
+pnpm --filter @shared/playground-schemas build
 
 # Regenerate specific components only
-pnpm generate:schemas Button TextInput
+node shared/playground-schemas/scripts/generate-schemas.mjs Button TextInput
 
 # Regenerate AND scaffold a starter components/ conf file
-pnpm generate:schemas --scaffold Button TextInput
+node shared/playground-schemas/scripts/generate-schemas.mjs --scaffold Button
 ```
-
-Or from the monorepo root:
-
-```sh
-pnpm --filter docs generate:schemas
-```
-
-Commit the updated files in `generated/` as part of the same PR as the grommet
-version bump.
 
 ---
 
@@ -95,28 +86,24 @@ version bump.
 1. **Add the component** to the `COMPONENTS` array in
    `scripts/generate-schemas.mjs`.
 
-2. **Run the codegen script** to produce the generated schema:
+2. **Run the codegen** to produce the generated schema:
 
    ```sh
-   pnpm generate:schemas MyComponent
+   pnpm --filter @shared/playground-schemas build
    ```
 
    This creates `generated/MyComponent.js`.
 
-3. **Add the component to `loadSchema()`** in
-   `src/components/Playground/index.jsx`:
-
-   ```js
-   case 'MyComponent':
-     return (await import('../../data/playground/generated/MyComponent.js'))
-       .myComponentSchema;
-   ```
-
-4. **Drop `<Playground>` into the MDX page**, excluding any props you don't
+3. **Drop `<Playground>` into the MDX page**, excluding any props you don't
    want to expose:
+
    ```jsx
    <Playground component="MyComponent" exclude={['as', 'style', 'onClick']} />
    ```
+
+   The `Playground` component dynamically imports
+   `@shared/playground-schemas/generated/<ComponentName>` — no manual wiring
+   needed.
 
 ---
 

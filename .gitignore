@@ -37,3 +37,6 @@ report*
 .tailwind-app
 .vscode
 *storybook.log
+
+# Playground schemas — auto-generated at build time, do not commit
+apps/docs/src/data/playground/generated/

@@ -27,49 +27,49 @@ describe('generate-schemas — generated output', () => {
     expect(fs.existsSync(GENERATED_DIR)).toBe(true);
   });
 
-  it('Button.js exists and exports buttonSchema', async () => {
+  it('Button.js exists and exports schema', async () => {
     const buttonFile = path.join(GENERATED_DIR, 'Button.js');
     expect(fs.existsSync(buttonFile)).toBe(true);
 
     const mod = await import(toFileURL(buttonFile));
-    expect(Array.isArray(mod.buttonSchema)).toBe(true);
-    expect(mod.buttonSchema.length).toBeGreaterThan(0);
+    expect(Array.isArray(mod.schema)).toBe(true);
+    expect(mod.schema.length).toBeGreaterThan(0);
   });
 
-  it('every entry in buttonSchema has name and type fields', async () => {
-    const { buttonSchema } = await import(
+  it('every entry in schema has name and type fields', async () => {
+    const { schema } = await import(
       toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
-    buttonSchema.forEach(prop => {
+    schema.forEach(prop => {
       expect(typeof prop.name).toBe('string');
       expect(typeof prop.type).toBe('string');
     });
   });
 
-  it('buttonSchema contains expected core props', async () => {
-    const { buttonSchema } = await import(
+  it('schema contains expected core props', async () => {
+    const { schema } = await import(
       toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
-    const names = buttonSchema.map(p => p.name);
+    const names = schema.map(p => p.name);
     expect(names).toContain('disabled');
     expect(names).toContain('label');
     expect(names).toContain('size');
   });
 
   it('disabled prop is typed as boolean', async () => {
-    const { buttonSchema } = await import(
+    const { schema } = await import(
       toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
-    const disabled = buttonSchema.find(p => p.name === 'disabled');
+    const disabled = schema.find(p => p.name === 'disabled');
     expect(disabled).toBeDefined();
     expect(disabled.type).toBe('boolean');
   });
 
   it('size prop is typed as string or enum', async () => {
-    const { buttonSchema } = await import(
+    const { schema } = await import(
       toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
-    const size = buttonSchema.find(p => p.name === 'size');
+    const size = schema.find(p => p.name === 'size');
     expect(size).toBeDefined();
     // grommet types size as string; if it's an enum options array is non-empty
     expect(['string', 'enum']).toContain(size.type);
@@ -80,10 +80,10 @@ describe('generate-schemas — generated output', () => {
   });
 
   it('badge prop is typed as union of boolean | number | string', async () => {
-    const { buttonSchema } = await import(
+    const { schema } = await import(
       toFileURL(path.join(GENERATED_DIR, 'Button.js'))
     );
-    const badge = buttonSchema.find(p => p.name === 'badge');
+    const badge = schema.find(p => p.name === 'badge');
     expect(badge).toBeDefined();
     expect(badge.type).toBe('union');
     const unionTypes = badge.types.map(t => t.type);

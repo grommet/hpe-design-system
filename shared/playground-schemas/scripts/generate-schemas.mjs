@@ -4,25 +4,24 @@
  *
  * Reads grommet component index.d.ts files via the TypeScript compiler API
  * and outputs a generated schema file per component into:
- *   src/data/playground/generated/<ComponentName>.js
+ *   shared/playground-schemas/generated/<ComponentName>.js
  *
  * The generated file exports:
- *   - `<componentName>Schema`  — PropDescriptor[] derived from the .d.ts
+ *   - `schema`  — PropDescriptor[] derived from the .d.ts
  *
  * A hand-authored conf file at:
- *   src/data/playground/components/<ComponentName>.js
+ *   shared/playground-schemas/components/<ComponentName>.js
  * then imports the generated schema and adds the conf object on top.
  *
  * Usage:
- *   node src/data/playground/scripts/generate-schemas.mjs \
- *     [--scaffold] [ComponentName...]
+ *   node scripts/generate-schemas.mjs [--scaffold] [ComponentName...]
  *
  * Examples:
- *   node src/data/playground/scripts/generate-schemas.mjs
+ *   node scripts/generate-schemas.mjs
  *     → regenerates all components listed in COMPONENTS
- *   node src/data/playground/scripts/generate-schemas.mjs Button TextInput
+ *   node scripts/generate-schemas.mjs Button TextInput
  *     → regenerates only Button and TextInput
- *   node src/data/playground/scripts/generate-schemas.mjs --scaffold CheckBox
+ *   node scripts/generate-schemas.mjs --scaffold CheckBox
  *     → regenerates CheckBox schema AND writes a starter
  *       components/CheckBox.js
  *       with all props set to enabled: false (flip to true to show in
@@ -428,7 +427,7 @@ function generateFile(componentName, props) {
 
   return `// @ts-check
 // ⚠️  AUTO-GENERATED — do not edit by hand.
-// Re-run: node src/data/playground/scripts/generate-schemas.mjs \\
+// Re-run: node scripts/generate-schemas.mjs \
 //   ${componentName}
 /** @typedef {import('../schema').PropDescriptor} PropDescriptor */
 
@@ -438,7 +437,7 @@ ${importBlock}
 // enable/disable individual props for the Playground.
 
 /** @type {PropDescriptor[]} */
-export const ${varName}Schema = [
+export const schema = [
 ${calls.join('\n')}
 ];
 `;
@@ -463,7 +462,7 @@ function generateConfFile(componentName, props) {
   return `// @ts-check
 /** @typedef {import('../schema').ComponentConf} ComponentConf */
 
-export { ${varName}Schema } from '../generated/${componentName}';
+export { schema as ${varName}Schema } from '../generated/${componentName}';
 
 // Scaffold generated — flip props to \`enabled: true\` to show in Playground.
 /** @type {ComponentConf} */
