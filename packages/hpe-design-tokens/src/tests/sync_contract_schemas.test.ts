@@ -42,6 +42,9 @@ describe('sync contract schemas', () => {
   const runSummarySchema = loadSchema(
     path.join(schemaDir, 'figma-sync.run-summary.schema.json'),
   );
+  const collectionKeyDiscoverySchema = loadSchema(
+    path.join(schemaDir, 'figma-sync.collection-key-discovery.schema.json'),
+  );
   const errorSchema = loadSchema(
     path.join(schemaDir, 'figma-sync.error.schema.json'),
   );
@@ -52,6 +55,9 @@ describe('sync contract schemas', () => {
 
   const validateStage = ajv.compile(stageStatusSchema);
   const validateRunSummary = ajv.compile(runSummarySchema);
+  const validateCollectionKeyDiscovery = ajv.compile(
+    collectionKeyDiscoverySchema,
+  );
 
   it('emits stage-status event that matches frozen schema', () => {
     const now = new Date().toISOString();
@@ -120,5 +126,103 @@ describe('sync contract schemas', () => {
     const summary = parseConsoleJson(logSpy.mock.calls[0][0]);
     expect(validateRunSummary(summary)).toBe(true);
     logSpy.mockRestore();
+  });
+
+  it('validates collection-key-discovery report schema', () => {
+    const report = {
+      schemaVersion: '1.0.0',
+      eventType: 'collection-key-discovery',
+      runId: 'run-3',
+      environment: 'test',
+      generatedAt: '2026-04-28T20:32:01.152Z',
+      files: [
+        {
+          tier: 'primitive',
+          fileKey: 'file-key-primitive',
+          remoteCollections: [
+            {
+              id: 'VariableCollectionId:abc/123',
+              name: 'color',
+              key: 'abc123',
+              variableCount: 2,
+              modeNames: ['light', 'dark'],
+            },
+          ],
+        },
+      ],
+      collections: {
+        color: {
+          collectionName: 'color',
+          configuredKey: 'abc123',
+          recommendation: {
+            key: null,
+            reason: 'multiple-candidates',
+          },
+          candidates: [
+            {
+              key: 'abc123',
+              observedInTiers: ['primitive'],
+              variableReferenceCount: 2,
+              isConfiguredKey: true,
+            },
+            {
+              key: 'def456',
+              observedInTiers: ['component'],
+              variableReferenceCount: 10,
+              isConfiguredKey: false,
+            },
+          ],
+        },
+        dimension: {
+          collectionName: 'dimension',
+          configuredKey: null,
+          recommendation: {
+            key: null,
+            reason: 'none-found',
+          },
+          candidates: [],
+        },
+        primitives: {
+          collectionName: 'primitives',
+          configuredKey: 'prim123',
+          recommendation: {
+            key: 'prim123',
+            reason: 'single-candidate',
+          },
+          candidates: [
+            {
+              key: 'prim123',
+              observedInTiers: ['semantic'],
+              variableReferenceCount: 25,
+              isConfiguredKey: true,
+            },
+          ],
+        },
+        global: {
+          collectionName: 'global',
+          configuredKey: 'glob123',
+          recommendation: {
+            key: 'glob123',
+            reason: 'single-candidate',
+          },
+          candidates: [
+            {
+              key: 'glob123',
+              observedInTiers: ['component'],
+              variableReferenceCount: 4,
+              isConfiguredKey: true,
+            },
+          ],
+        },
+      },
+      conflicts: [
+        {
+          collectionName: 'color',
+          candidateKeys: ['abc123', 'def456'],
+        },
+      ],
+    };
+
+    expect(validateCollectionKeyDiscovery(report)).toBe(true);
   });
 });

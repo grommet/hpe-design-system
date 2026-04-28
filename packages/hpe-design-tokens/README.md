@@ -32,6 +32,7 @@ This package supports two sync directions:
 
 - Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --env=production --output tokens`
 - tokens JSON to Figma: `pnpm sync-tokens-to-figma -- --env=production`
+- read-only collection key discovery: `pnpm sync-discover-figma-collection-keys -- --env=test --pretty`
 
 For environment-isolated test/prod sync design and rollout details, see [FIGMA_ENVIRONMENT_SYNC_PLAN.md](FIGMA_ENVIRONMENT_SYNC_PLAN.md).
 
@@ -119,6 +120,35 @@ pnpm sync-figma-to-tokens -- --env=production --output tokens
 ## The script default will output to `tokens_new`.
 pnpm sync-figma-to-tokens -- --env=test
 ```
+
+### Read-Only Collection Key Discovery
+
+Use this to inspect and validate candidate remote collection keys before syncing.
+
+Example commands:
+
+```bash
+cd packages/hpe-design-tokens
+
+# Print compact machine-readable JSON to stdout
+pnpm sync-discover-figma-collection-keys -- --env=test
+
+# Pretty print and save report to a file
+pnpm sync-discover-figma-collection-keys -- --env=test --pretty --output contracts/generated/figma-collection-key-discovery.test.json
+```
+
+Machine-readable report fields include:
+
+- `eventType`: `collection-key-discovery`
+- `environment`
+- `files`: per-tier remote collections observed
+- `collections`: candidates, configured key, and recommendation per collection name
+- `conflicts`: collection names with multiple candidate keys
+
+The discovery command is read-only: it performs only Figma GET requests and does not post mutations.
+
+Committed contract assets live in `contracts/schemas` and hand-authored docs in `contracts/*.md`.
+Generated diagnostics output should be written under `contracts/generated/`.
 
 ### GitHub Actions Branch Targeting For Tests
 

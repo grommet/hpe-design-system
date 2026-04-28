@@ -37,3 +37,6 @@ report*
 .tailwind-app
 .vscode
 *storybook.log
+
+# generated diagnostics artifacts (kept out of committed contract assets)
+packages/hpe-design-tokens/contracts/generated/
