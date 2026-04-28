@@ -11,7 +11,7 @@
 import { describe, it, expect } from 'vitest';
 
 // ---------------------------------------------------------------------------
-// Helpers — mock schema (mirrors PropDescriptor shape from schema.ts)
+// Helpers — mock schema (mirrors PropDescriptor shape from schema.js)
 // ---------------------------------------------------------------------------
 
 const mockButtonSchema = [
