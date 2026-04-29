@@ -20,7 +20,7 @@ export const CustomizableGrid = ({ data, onOrder, onResize: onResizeProp, resize
 
   const currentItems = orderingData || data;
 
-  console.log('dragging', dragging);
+  // console.log('dragging', dragging);
 
   const renderItem = (item, index) => {
 
@@ -42,6 +42,7 @@ export const CustomizableGrid = ({ data, onOrder, onResize: onResizeProp, resize
     const onOrderProps = onOrder ? {
       draggable: true,
       onDragStart: (event) => {
+        // console.log('start', item.id, index);
         event.dataTransfer.setData('text/plain', '');
         // allowed per
         // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#define_the_drag_effect
@@ -53,21 +54,20 @@ export const CustomizableGrid = ({ data, onOrder, onResize: onResizeProp, resize
         setDragging(undefined);
         setOrderingData(undefined);
       },
+      onDragEnter: (event) => {
+        // console.log('enter', item.id, index);
+        if (dragging !== undefined && dragging !== index) {
+          // Ignore synthetic re-fires caused by entering a child of this element
+          if (event.currentTarget.contains(event.relatedTarget)) return;
+          event.dataTransfer.dropEffect = 'move';
+          setOrderingData(reorder(currentItems, dragging, index));
+          setDragging(index);
+        }
+      },
       onDragOver: (event) => {
         if (dragging !== undefined) {
-          console.log('dragover', index);
+          // preventDefault is required to allow the drop to occur
           event.preventDefault();
-          if (dragging !== index) {
-            event.dataTransfer.dropEffect = 'move';
-            setOrderingData(
-              reorder(
-                currentItems,
-                dragging,
-                index,
-              ),
-            );
-            setDragging(index);
-          }
         }
       },
       onDrop: () => {
