@@ -1,0 +1,24 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: docs-refactor
+  version: 1.0.0
+  status: planned
+  owner: design-system
+spec:
+  summary: Migrate docs-refactor knowledge assets into the capability model.
+  entrypoint:
+    agent: docs-refactor-orchestrator
+    args: "<component-name>"
+  dependencies:
+    external:
+      - path: .github/agents/
+      - path: .github/instructions/
+      - path: .github/docs-refactor-plan.md
+      - path: shared/data-structure/
+  assets:
+    agents:
+      - docs-refactor-orchestrator.agent.md
+  stages:
+    - id: scaffolded
+      when: "exists(knowledge/capabilities/docs-refactor/manifest.yaml)"
