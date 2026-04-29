@@ -3,22 +3,56 @@ kind: CapabilityManifest
 metadata:
   name: docs-refactor
   version: 1.0.0
-  status: planned
+  status: active
   owner: design-system
 spec:
-  summary: Migrate docs-refactor knowledge assets into the capability model.
+  summary: Refactor component documentation from legacy MDX to YAML-driven standardized MDX.
   entrypoint:
     agent: docs-refactor-orchestrator
     args: "<component-name>"
   dependencies:
+    data:
+      - path: knowledge/core/data/types.ts
+      - path: knowledge/core/data/components/*
+    skills:
+      - path: knowledge/core/skills/writing-style.skill.md
+      - path: knowledge/core/skills/source-extraction.skill.md
+      - path: knowledge/core/skills/schema-to-doc-generation.skill.md
+      - path: knowledge/core/skills/example-synthesis.skill.md
+      - path: knowledge/core/skills/guidance-authoring.skill.md
+      - path: knowledge/core/skills/content-quality-review.skill.md
+      - path: knowledge/core/skills/delta-analysis-and-todo.skill.md
+      - path: knowledge/core/skills/build-verify-and-repair.skill.md
+      - path: knowledge/core/skills/workflow-orchestration.skill.md
+      - path: knowledge/core/skills/progress-tracking.skill.md
     external:
-      - path: .github/agents/
-      - path: .github/instructions/
-      - path: .github/docs-refactor-plan.md
-      - path: shared/data-structure/
+      - path: apps/docs/COMPONENT_TEMPLATE.md
+      - path: apps/docs/src/pages/components/
+      - path: apps/docs/todos/
+      - path: knowledge/archive/prompts/
   assets:
     agents:
       - docs-refactor-orchestrator.agent.md
+      - extract-yaml.agent.md
+      - generate-mdx.agent.md
+      - generate-examples.agent.md
+      - dos-donts.agent.md
+      - create-todos.agent.md
+      - review-copy.agent.md
+      - verify-render.agent.md
+      - update-checklist.agent.md
+    skills:
+      - execution.skill.md
   stages:
-    - id: scaffolded
-      when: "exists(knowledge/capabilities/docs-refactor/manifest.yaml)"
+    - id: extracted
+      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
+    - id: generated
+      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx) && !exists(apps/docs/src/pages/components/[component].mdx.bak)"
+    - id: todos-created
+      when: "exists(apps/docs/todos/TODO-[component].md)"
+    - id: reviewed
+      when: "exists(apps/docs/src/pages/components/[component].mdx) && !matches(file_content, /TODO.*example/i)"
+    - id: rendered
+      when: "last_build_success() && !exists(console_errors)"
+    - id: complete
+      when: "exists(knowledge/capabilities/docs-refactor/plan.md) && match_entry(plan.md, /.*\\[[xX]\\].*\\[component\\].*/) "
