@@ -38,6 +38,8 @@ Apply these in order within a single iteration — resolve all auto-fixable erro
 | **Export not found** | `Export '[name]' was not found` or `Cannot find module` for an example | Read `apps/docs/src/examples/components/[component-name]/index.js` to find the correct export name. Fix the import statement in the live `.mdx`. |
 | **Bare JSX comment child** | `cloneElement`/`undefined children`, or only child is `{/* ... */}` | Wrap the bare comment in `<div>{/* ... */}</div>` inside the offending `<Example bestPractice>` block in the live `.mdx`. |
 | **Unclosed MDX tag** | MDX parse error referencing a specific line | Close the tag at the indicated location in the live `.mdx`. |
+| **Misnamed or duplicate index exports** | `Module not found: Can't resolve './[Name]'` where the erroring file is an `index.js` | Read the `index.js`. List the actual files on disk in the same directory. Remove any `export *` lines whose target does not match a file on disk. Deduplicate remaining lines (keep first occurrence). Write the cleaned exports back. |
+| **Doubled file content** | `Identifier '[Name]' has already been declared` or `Module parse failed: Identifier ... already been declared` inside an example `.js` file | Read the file. Find all `export const [SameName]` declarations. Locate the first closing `};` that ends the first export. Discard all content after that line. Write the truncated content back. |
 | **Missing example file** | `Cannot find module` for a file that does not exist on disk | **Escalate** — do not attempt to create the file. Report: file path, which agent should create it (`generate-examples-agent` or `dos-donts-agent`). |
 | **Logic/runtime error in example code** | Error inside an example `.js` file body | **Escalate** — report the file, the error, and a suggested fix for the user to apply manually. |
 
@@ -45,7 +47,7 @@ Apply these in order within a single iteration — resolve all auto-fixable erro
 
 - **Never create new files.** Every fix must be an edit to a file that already exists.
 - **Never touch `.bak` files** other than reading from them for the WCAG fix.
-- **Only edit the live `.mdx` and its YAML.** Do not modify example `.js` files unless the error is an import name mismatch inside the `.mdx` itself.
+- **Only edit the live `.mdx` and its YAML** for content/import errors. You may also edit example `.js` files and their `index.js` when the error is a **parse-level** issue (doubled file content, misnamed or duplicate exports) — never for logic or runtime errors.
 - **One change log entry per file changed per iteration.** Record the before and after for every edit.
 - If the build takes longer than 5 minutes, report a timeout and suggest running `pnpm dev` instead for faster feedback.
 
