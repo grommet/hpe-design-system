@@ -45,6 +45,7 @@
     "lint": "pnpm -r lint --cache",
     "start:docs": "pnpm --filter docs start",
     "start:design-tokens-manager": "pnpm --filter design-tokens-manager dev",
+    "start:style-compass": "pnpm --filter style-compass dev",
     "start:grommet-app": "pnpm --filter grommet-app dev",
     "storybook:icons-grommet": "pnpm --filter \"@hpe-design/icons-grommet\" storybook",
     "storybook:core": "pnpm --filter \"@shared/aries-core\" storybook"

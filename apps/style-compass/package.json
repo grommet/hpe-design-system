@@ -1,0 +1,38 @@
+{
+  "name": "style-compass",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hpe-design/icons-grommet": "catalog:",
+    "@shared/aries-core": "workspace:*",
+    "grommet": "catalog:",
+    "grommet-icons": "catalog:",
+    "grommet-theme-hpe": "catalog:",
+    "hpe-design-tokens": "workspace:*",
+    "prop-types": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router-dom": "^6.28.0",
+    "styled-components": "catalog:"
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "globals": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vite": "^5.2.0"
+  }
+}
