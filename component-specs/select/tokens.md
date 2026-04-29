@@ -1,7 +1,7 @@
 # Select — Tokens
 
 > Source: `grommet-theme-hpe` `src/js/themes/hpe.js`
-> Status: v2 — GAP-001 corrected; CSS variable names updated to camelCase
+> Status: v3 — GAP-007, GAP-008, GAP-010 corrected
 > Token usage guide: see `component-specs/tokens-usage.md`
 
 ---
@@ -10,8 +10,11 @@
 
 | Version | Change |
 |---|---|
-| v2 | GAP-001: CSS variable column updated from kebab-case to camelCase to match actual `hpe-design-tokens` build output |
-| v2 | GAP-003: Focus indicator variables corrected to `--hpe-focusIndicator-outline` and `--hpe-focusIndicator-boxShadow` |
+| v2 | GAP-001: CSS variable names corrected to camelCase |
+| v2 | GAP-003: Focus indicator tokens corrected |
+| v3 | GAP-007: `minHeight` token added to Trigger sizing |
+| v3 | GAP-008: `fontSize` and `lineHeight` tokens added to Trigger |
+| v3 | GAP-010: Icon size token added to Trigger Icon |
 
 ---
 
@@ -33,7 +36,7 @@ Token layers used in this component:
 
 ⚠️ CSS variable names marked with `*` are pending final verification
 against the built `dist/css/` output. The camelCase pattern is confirmed
-by GAP-003 findings — apply consistently until a full audit is done.
+by GAP-001 findings — apply consistently until a full audit is done.
 
 ---
 
@@ -41,7 +44,7 @@ by GAP-003 findings — apply consistently until a full audit is done.
 
 Multi-word segments in CSS variable names use camelCase:
 
-| v1 (incorrect) | v2 (correct) |
+| kebab-case (incorrect) | camelCase (correct) |
 |---|---|
 | `--hpe-form-field-...` | `--hpe-formField-...` |
 | `--hpe-focus-indicator-...` | `--hpe-focusIndicator-...` |
@@ -49,13 +52,14 @@ Multi-word segments in CSS variable names use camelCase:
 | `--hpe-...-border-radius` | `--hpe-...-borderRadius` |
 | `--hpe-...-border-width` | `--hpe-...-borderWidth` |
 | `--hpe-...-font-weight` | `--hpe-...-fontWeight` |
+| `--hpe-...-font-size` | `--hpe-...-fontSize` |
+| `--hpe-...-line-height` | `--hpe-...-lineHeight` |
+| `--hpe-...-min-height` | `--hpe-...-minHeight` |
 | `--hpe-...-padding-x` | `--hpe-...-paddingX` |
 | `--hpe-...-padding-y` | `--hpe-...-paddingY` |
 | `--hpe-...-gap-y` | `--hpe-...-gapY` |
 | `--hpe-...-z-index` | `--hpe-...-zIndex` |
 | `--hpe-...-text-color` | `--hpe-...-textColor` |
-| `--hpe-...-border-top-left-radius` | `--hpe-...-borderTopLeftRadius` |
-| `--hpe-...-border-bottom-left-radius` | `--hpe-...-borderBottomLeftRadius` |
 
 ---
 
@@ -64,32 +68,51 @@ Multi-word segments in CSS variable names use camelCase:
 > Tokens inherited from FormField spec.
 > Do not redefine these in a Select-specific stylesheet.
 
-| Property | State | Layer | Token path | CSS variable | Notes |
-|---|---|---|---|---|---|
-| Border color | rest | F | `components.hpe.formField.default.input.container.rest.borderColor` | `--hpe-formField-default-input-container-rest-borderColor`* | |
-| Border width | all | F | `components.hpe.formField.default.medium.input.container.borderWidth` | `--hpe-formField-default-medium-input-container-borderWidth`* | |
-| Border radius | all | F | `components.hpe.formField.default.medium.input.container.borderRadius` | `--hpe-formField-default-medium-input-container-borderRadius`* | All four corners |
-| Padding X | all | F | `components.hpe.formField.default.medium.input.container.paddingX` | `--hpe-formField-default-medium-input-container-paddingX`* | |
-| Padding Y | all | F | `components.hpe.formField.default.medium.input.container.paddingY` | `--hpe-formField-default-medium-input-container-paddingY`* | |
-| Border color | disabled | F | `components.hpe.formField.default.input.container.disabled.rest.borderColor` | `--hpe-formField-default-input-container-disabled-rest-borderColor`* | Whole control opacity also applied |
-| Border color | error | F | `components.hpe.formField.default.input.container.error.rest.borderColor` | `--hpe-formField-default-input-container-error-rest-borderColor`* | |
+### Sizing (medium)
+
+| Property | Layer | Token path | CSS variable | Notes |
+|---|---|---|---|---|
+| Min height | F | `components.hpe.formField.default.medium.input.container.minHeight` | `--hpe-formField-default-medium-input-container-minHeight` | Resolves to 36px — GAP-007 |
+| Padding X | F | `components.hpe.formField.default.medium.input.container.paddingX` | `--hpe-formField-default-medium-input-container-paddingX`* | |
+| Padding Y | F | `components.hpe.formField.default.medium.input.container.paddingY` | `--hpe-formField-default-medium-input-container-paddingY`* | |
+| Border radius | F | `components.hpe.formField.default.medium.input.container.borderRadius` | `--hpe-formField-default-medium-input-container-borderRadius`* | All four corners |
+| Border width | F | `components.hpe.formField.default.medium.input.container.borderWidth` | `--hpe-formField-default-medium-input-container-borderWidth`* | |
+
+### States
+
+| Property | State | Layer | CSS variable |
+|---|---|---|---|
+| Border color | rest | F | `--hpe-formField-default-input-container-rest-borderColor`* |
+| Border color | disabled | F | `--hpe-formField-default-input-container-disabled-rest-borderColor`* |
+| Border color | error | F | `--hpe-formField-default-input-container-error-rest-borderColor`* |
 
 ---
 
 ## 2. Value / Placeholder
 
+> GAP-008 corrected: fontSize and lineHeight now documented.
+> These are required to produce the correct trigger height calculation:
+> 1px border + paddingY + lineHeight + paddingY + 1px border = minHeight (36px)
+
 | Property | State | Layer | Token path | CSS variable | Notes |
 |---|---|---|---|---|---|
+| Font size | all | F | `components.hpe.formField.default.medium.value.fontSize` | `--hpe-formField-default-medium-value-fontSize`* | Resolves to 1rem |
+| Line height | all | F | `components.hpe.formField.default.medium.value.lineHeight` | `--hpe-formField-default-medium-value-lineHeight`* | Resolves to 1.5rem |
+| Font weight | all | F | `components.hpe.formField.default.medium.value.fontWeight` | `--hpe-formField-default-medium-value-fontWeight`* | |
 | Text color | populated | S | `hpe.color.text.default` | `--hpe-color-text-default`* | |
 | Text color | placeholder | S | `hpe.color.text.placeholder` | `--hpe-color-text-placeholder`* | |
-| Font weight | all | F | `components.hpe.formField.default.medium.value.fontWeight` | `--hpe-formField-default-medium-value-fontWeight`* | |
+| Text color | disabled | S | `hpe.color.text.disabled` | `--hpe-color-text-disabled`* | |
 
 ---
 
 ## 3. Trigger Icon
 
+> GAP-010 corrected: icon size token now documented.
+> Do not use the grommet-icons `size` prop to control size — use CSS only.
+
 | Property | State | Layer | Token path | CSS variable | Notes |
 |---|---|---|---|---|---|
+| Size (width + height) | all | S | `hpe.element.medium.icon.size` | `--hpe-element-medium-icon-size` | Resolves to 16px — apply via CSS, not grommet-icons `size` prop |
 | Color | rest | S | `hpe.color.icon.default` | `--hpe-color-icon-default`* | |
 | Color | disabled | S | `hpe.color.icon.disabled` | `--hpe-color-icon-disabled`* | Inherits via control opacity |
 
@@ -97,43 +120,35 @@ Multi-word segments in CSS variable names use camelCase:
 
 ## 4. Focus Ring
 
-> GAP-003 corrected: v1 spec referenced three separate tokens that do not
-> exist. The actual tokens are compound shorthands. Both must be applied
-> together to render the complete two-colour HPE focus ring.
+> GAP-003 corrected: two-token compound focus ring.
+> Both tokens must be applied together.
 
-| Property | Layer | Token path | CSS variable | Notes |
-|---|---|---|---|---|
-| Outer ring (outline shorthand) | S | `hpe.focusIndicator.outline` | `--hpe-focusIndicator-outline` | ✓ Confirmed |
-| Inner ring (box-shadow shorthand) | S | `hpe.focusIndicator.boxShadow` | `--hpe-focusIndicator-boxShadow` | ✓ Confirmed — was omitted in v1 |
-
-Usage in CSS:
-```css
-.hpe-select__trigger:focus-visible {
-  outline: var(--hpe-focusIndicator-outline);
-  box-shadow: var(--hpe-focusIndicator-boxShadow);
-}
-```
+| Property | Layer | CSS variable | Notes |
+|---|---|---|---|
+| Outer ring (outline shorthand) | S | `--hpe-focusIndicator-outline` | ✓ Confirmed |
+| Outline offset | S | `--hpe-focusIndicator-outlineOffset` | ✓ Confirmed |
+| Inner ring (box-shadow shorthand) | S | `--hpe-focusIndicator-boxShadow` | ✓ Confirmed — omitted in v1 |
 
 ---
 
 ## 5. Drop (Dropdown Container)
 
-| Property | State | Layer | Token path | CSS variable | Notes |
-|---|---|---|---|---|---|
-| Background | open | C | `components.hpe.drop.default.background` | `--hpe-drop-default-background`* | |
-| Border radius | open | C | `components.hpe.drop.default.borderRadius` | `--hpe-drop-default-borderRadius`* | |
-| Margin (gap from trigger) | open | C | `components.hpe.drop.default.margin` | `--hpe-drop-default-margin`* | GAP-002: cannot be used as CSS variable in `sideOffset` — pass resolved value as JS number |
-| Shadow | open | S | `hpe.shadow.medium` | `--hpe-shadow-medium`* | |
-| Padding X | open | C | `components.hpe.select.default.medium.drop.paddingX` | `--hpe-select-default-medium-drop-paddingX`* | |
-| Padding Y | open | C | `components.hpe.select.default.medium.drop.paddingY` | `--hpe-select-default-medium-drop-paddingY`* | Top only |
-| Gap between options | open | C | `components.hpe.select.default.medium.drop.gapY` | `--hpe-select-default-medium-drop-gapY`* | |
-| Z-index | open | C | `components.hpe.drop.default.zIndex` | `--hpe-drop-default-zIndex`* | Must clear HPE global header |
+| Property | State | Layer | CSS variable | Notes |
+|---|---|---|---|---|
+| Background | open | C | `--hpe-drop-default-background`* | |
+| Border radius | open | C | `--hpe-drop-default-borderRadius`* | |
+| Margin (gap from trigger) | open | C | `--hpe-drop-default-margin`* | GAP-002: cannot be used in `sideOffset` — pass resolved value as JS number |
+| Shadow | open | S | `--hpe-shadow-medium`* | |
+| Padding X | open | C | `--hpe-select-default-medium-drop-paddingX`* | |
+| Padding Y | open | C | `--hpe-select-default-medium-drop-paddingY`* | GAP-009 corrected: apply to both top AND bottom — see constraints §2 |
+| Gap between options | open | C | `--hpe-select-default-medium-drop-gapY`* | Between items only — not after last item |
+| Z-index | open | C | `--hpe-drop-default-zIndex`* | Must clear HPE global header |
 
 ---
 
 ## 6. Listbox
 
-No dedicated tokens — scroll container only. Visual appearance comes from Drop tokens above.
+No dedicated tokens — scroll container only.
 
 ---
 
@@ -141,12 +156,12 @@ No dedicated tokens — scroll container only. Visual appearance comes from Drop
 
 ### Sizing (medium)
 
-| Property | Layer | Token path | CSS variable |
-|---|---|---|---|
-| Padding X | C | `components.hpe.select.default.medium.option.paddingX` | `--hpe-select-default-medium-option-paddingX`* |
-| Padding Y | C | `components.hpe.select.default.medium.option.paddingY` | `--hpe-select-default-medium-option-paddingY`* |
-| Border radius | C | `components.hpe.select.default.medium.option.borderRadius` | `--hpe-select-default-medium-option-borderRadius`* |
-| Border width | C | `components.hpe.select.default.medium.option.borderWidth` | `--hpe-select-default-medium-option-borderWidth`* |
+| Property | Layer | CSS variable |
+|---|---|---|
+| Padding X | C | `--hpe-select-default-medium-option-paddingX`* |
+| Padding Y | C | `--hpe-select-default-medium-option-paddingY`* |
+| Border radius | C | `--hpe-select-default-medium-option-borderRadius`* |
+| Border width | C | `--hpe-select-default-medium-option-borderWidth`* |
 
 ### States
 
@@ -189,8 +204,6 @@ No dedicated tokens — scroll container only. Visual appearance comes from Drop
 
 ## 9. Clear Button
 
-Reuses option tokens intentionally.
-
 | Property | State | Layer | CSS variable |
 |---|---|---|---|
 | Padding X | all | C | `--hpe-select-default-medium-option-paddingX`* |
@@ -209,12 +222,11 @@ Reuses option tokens intentionally.
 | Part | Component tokens | Semantic tokens | Hardcoded values | Gaps |
 |---|---|---|---|---|
 | Trigger | Via FormField | — | `opacity: 0.3` on disabled | Disabled opacity has no token |
-| Value / Placeholder | Partial (font weight) | Text, placeholder colors | — | — |
-| Trigger Icon | — | `icon` color alias | — | No component token |
-| Focus Ring | — | `focusIndicator` shorthands | — | v1 omitted inner ring (fixed) |
+| Value / Placeholder | fontSize, lineHeight, fontWeight | Text colors | — | — |
+| Trigger Icon | — | Icon color, icon size | — | — |
+| Focus Ring | — | `focusIndicator` shorthands | — | — |
 | Drop | ✓ Full coverage | Shadow | sideOffset hardcoded (GAP-002) | — |
 | Listbox | — | — | — | No tokens needed |
 | Option | ✓ Full coverage | — | — | — |
 | Selected Marker | ✓ Full coverage | Border-disabled (fallback) | — | — |
 | Clear Button | Reuses option tokens | `text-strong` | — | — |
-| Search Input | — | Via FormField | — | — |
