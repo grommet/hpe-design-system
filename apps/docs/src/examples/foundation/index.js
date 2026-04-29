@@ -1,5 +1,6 @@
 export * from './accessibility';
 export * from './background-colors';
+export * from './style-compass';
 export * from './branding';
 export * from './color';
 export * from './content-container-sizes';

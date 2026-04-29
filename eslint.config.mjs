@@ -119,7 +119,11 @@ export default defineConfig([
           // contentForSearch is generated and may be missing on a fresh clone.
           // Ignore this unresolved import so lint is stable before docs generation runs.
           // No inline eslint-disable is needed; eslint --fix prunes it as "unused".
-          ignore: ['data/search/contentForSearch$'],
+          ignore: [
+            'data/search/contentForSearch$',
+            // Cross-app re-export: resolvable by Next.js but not ESLint
+            'style-compass/src/routes',
+          ],
         },
       ],
     },

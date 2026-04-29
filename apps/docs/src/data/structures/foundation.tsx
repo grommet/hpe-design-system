@@ -654,6 +654,17 @@ export const foundation = [
     relatedContent: ['Tshirt sizing', 'Scale system', 'Spacing'],
   },
   {
+    name: 'Style Compass',
+    available: true,
+    // eslint-disable-next-line max-len
+    description: 'An interactive guide to choosing the right HPE design token for your use case.',
+    // eslint-disable-next-line max-len
+    seoDescription: 'Use the HPE Design System Style Compass to find the correct design token for your styling need.',
+    sections: [],
+    relatedContent: ['Design tokens', 'Color', 'All design tokens'],
+    tags: ['tokens', 'decision tree', 'style', 'compass', 'token picker'],
+  },
+  {
     name: 'Component sizes',
     category: 'Layout',
     cardOrder: 5,
