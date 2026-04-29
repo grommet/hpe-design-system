@@ -1,5 +1,5 @@
 ---
-applyTo: ".github/agents/*.agent.md"
+applyTo: "knowledge/capabilities/docs-refactor/*.agent.md"
 ---
 
 # Component Docs Refactor: Executing the Plan
@@ -11,12 +11,12 @@ This guide describes the full pipeline and the agents that power each step. The 
 ## Prerequisites
 
 1. Ensure you have **GitHub Copilot Chat** installed and active in VS Code with agent mode enabled.
-2. Read the project plan: `.github/docs-refactor-plan.md`
+2. Read the project plan: `knowledge/capabilities/docs-refactor/plan.md`
 3. Identify which component you are assigned to refactor (check the "Full Component Checklist" at the bottom of the plan file).
 
 ## The Agent Pipeline
 
-Each step in the per-component refactor is owned by a dedicated Copilot agent. Agents are located in `.github/agents/`. Run them in the order below. Steps 3 and 4 can run in parallel.
+Each step in the per-component refactor is owned by a dedicated Copilot agent. Agents are located in `knowledge/capabilities/docs-refactor/`. Run them in the order below. Steps 3 and 4 can run in parallel.
 
 ```
 [1] extract-yaml-agent
@@ -83,11 +83,11 @@ Open the component page in the browser and check the console for errors — espe
 
 1. Commit your new YAML file, the updated MDX file, any new example files, and the TODO/DEPRECATED files.
 2. Title the PR `docs: refactor [Component] component`.
-3. Confirm your component was checked off in the Full Component Checklist at the bottom of `.github/docs-refactor-plan.md` by `update-checklist-agent`.
+3. Confirm your component was checked off in the Full Component Checklist at the bottom of `knowledge/capabilities/docs-refactor/plan.md` by `update-checklist-agent`.
 
 ---
 
 ## Reference
 
-- `.github/agents/` — all agent files; read these for details on what each agent does.
-- `.github/prompts/extract-component-yaml.prompt.md` and `.github/prompts/generate-mdx.prompt.md` — kept as documentation references; the agent pipeline supersedes them for active use.
+- `knowledge/capabilities/docs-refactor/` — all agent files; read these for details on what each agent does.
+- `knowledge/archive/prompts/extract-component-yaml.prompt.md` and `knowledge/archive/prompts/generate-mdx.prompt.md` — kept as documentation references; the agent pipeline supersedes them for active use.

@@ -9,7 +9,7 @@ Can you help us create an implementation plan for refactoring the documentation?
 ## Objectives
 
 1. **Improve Structure**: Reorganize the documentation to create a more logical flow, following a consistent component documenation template (`apps/docs/COMPONENT_TEMPLATE.md`) and content sections.
-2. **Data-Driven Content**: All component definitions are defined in a structured data format (YAML, `shared/data-structure/COMPONENT_EXAMPLE.yaml` & `shared/data-structure/types.ts`). The documentation should be generated from this data to ensure consistency and ease of updates.
+2. **Data-Driven Content**: All component definitions are defined in a structured data format (YAML, `knowledge/core/data/COMPONENT_EXAMPLE.yaml` & `knowledge/core/data/types.ts`). The documentation should be generated from this data to ensure consistency and ease of updates.
 3. **Enhanced Readability**: See `writing-documentation.instruction.md` for guidelines on tone, voice, and style to ensure the documentation is clear and engaging.
 
 ## Scope

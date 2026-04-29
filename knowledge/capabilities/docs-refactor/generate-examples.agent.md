@@ -25,7 +25,7 @@ You are a specialist React developer for the HPE Design System. Your job is to i
 
 1. **Read the MDX file** for the component to identify every use case TODO placeholder. Extract the use case name (the `###` heading above it) and the description of the desired example from the TODO comment. **Skip any use case that already has a real `<Example>` block (not a TODO) — do not overwrite existing examples.**
 
-2. **Read the component's YAML** at `shared/data-structure/components/[component-name].yaml` to understand its props, behaviors, and use cases in depth. This is the authoritative source for design intent.
+2. **Read the component's YAML** at `knowledge/core/data/components/[component-name].yaml` to understand its props, behaviors, and use cases in depth. This is the authoritative source for design intent.
 
 3. **Browse existing examples** to understand file conventions: named export, single functional component, Grommet imports, no default export.
    - First check `apps/docs/src/examples/components/[component-name]/` — if files already exist there, use them as the primary reference.
@@ -48,7 +48,7 @@ You are a specialist React developer for the HPE Design System. Your job is to i
 
 2.5. **Discover composition context** — run this once before writing any example. Some components are only meaningful when rendered inside a host component (e.g. Search inside a Toolbar inside a DataTable). Identifying that host first prevents thin, decontextualised examples.
 
-   **a. Reverse lookup:** Grep `shared/data-structure/components/*.yaml` for `- [component-id]` under `relatedComponents` blocks to find which other components list the target as a relative. Collect those as candidate host components.
+   **a. Reverse lookup:** Grep `knowledge/core/data/components/*.yaml` for `- [component-id]` under `relatedComponents` blocks to find which other components list the target as a relative. Collect those as candidate host components.
 
    **b. Keyword heuristic:** For each use case TODO, scan its heading and description for trigger phrases and map to a candidate host:
 

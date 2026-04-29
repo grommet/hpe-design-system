@@ -4,7 +4,7 @@
 
 **Do not author the component name or description in this file.** The description rendered on the page is sourced from the component's entry in `apps/docs/src/data/structures/components.js`.
 
-**Keep `components.js` and the YAML in sync:** The `description` field in `shared/data-structure/components/[name].yaml` is the source of truth for the refactor. After finalizing the YAML description, copy it into the matching entry in `components.js`. It should be a single, precise sentence. Do not copy it into the MDX body.
+**Keep `components.js` and the YAML in sync:** The `description` field in `knowledge/core/data/components/[name].yaml` is the source of truth for the refactor. After finalizing the YAML description, copy it into the matching entry in `components.js`. It should be a single, precise sentence. Do not copy it into the MDX body.
 
 <!-- Component "playground" goes here. Playground is an interactive example to explore
 component properties and inspect code -- similar to an embedded Storybook example.
