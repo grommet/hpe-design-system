@@ -1,0 +1,1746 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "description": "HPE Design System token decision tree. Helps humans and AI select the correct design token by walking through intent-based questions. Start at 'root' and follow the options until you reach a 'result' node.",
+  "usage": {
+    "human": "Navigate the tree by answering each question. Follow the 'next' references until you reach a 'result' with token names.",
+    "ai": "Given a styling task, walk the tree from 'root'. At each node, select the option whose 'description' best matches the user's intent. The 'result' contains the correct token names and usage hints."
+  },
+  "tree": {
+    "id": "root",
+    "question": "Are you styling a specific HPE component, or do you need a general design token?",
+    "options": [
+      {
+        "label": "A specific component",
+        "description": "I'm styling a known component like a Button, Select, Checkbox, etc. and want the exact component-level tokens for it.",
+        "hint": "HPE guidance: always prefer component tokens over semantic tokens when available.",
+        "next": {
+          "id": "component",
+          "question": "Which component are you styling?",
+          "options": [
+            {
+              "label": "Anchor / Link",
+              "description": "A text hyperlink, optionally with an icon.",
+              "next": {
+                "id": "anchor",
+                "question": "What do you need for the Anchor?",
+                "options": [
+                  {
+                    "label": "Sizing",
+                    "description": "Font size, line height, gap between text and icon — varies by size.",
+                    "next": {
+                      "id": "anchor-size",
+                      "question": "What size?",
+                      "options": [
+                        {
+                          "label": "xsmall",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.xsmall.fontSize",
+                              "hpe.anchor.default.xsmall.lineHeight",
+                              "hpe.anchor.default.xsmall.gapX"
+                            ],
+                            "description": "Anchor sizing at xsmall. gapX is the horizontal space between the link text and an inline icon."
+                          }
+                        },
+                        {
+                          "label": "small",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.small.fontSize",
+                              "hpe.anchor.default.small.lineHeight",
+                              "hpe.anchor.default.small.gapX"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "medium",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.medium.fontSize",
+                              "hpe.anchor.default.medium.lineHeight",
+                              "hpe.anchor.default.medium.gapX"
+                            ],
+                            "description": "Medium is the default anchor size."
+                          }
+                        },
+                        {
+                          "label": "large",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.large.fontSize",
+                              "hpe.anchor.default.large.lineHeight",
+                              "hpe.anchor.default.large.gapX"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "xlarge",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.xlarge.fontSize",
+                              "hpe.anchor.default.xlarge.lineHeight",
+                              "hpe.anchor.default.xlarge.gapX"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "xxlarge",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.xxlarge.fontSize",
+                              "hpe.anchor.default.xxlarge.lineHeight",
+                              "hpe.anchor.default.xxlarge.gapX"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "3xlarge",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.3xlarge.fontSize",
+                              "hpe.anchor.default.3xlarge.lineHeight",
+                              "hpe.anchor.default.3xlarge.gapX"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "4xlarge",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.4xlarge.fontSize",
+                              "hpe.anchor.default.4xlarge.lineHeight",
+                              "hpe.anchor.default.4xlarge.gapX"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "5xlarge",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.5xlarge.fontSize",
+                              "hpe.anchor.default.5xlarge.lineHeight",
+                              "hpe.anchor.default.5xlarge.gapX"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Appearance & states",
+                    "description": "Text color, font weight, text decoration — varies by interaction state.",
+                    "next": {
+                      "id": "anchor-state",
+                      "question": "What interaction state?",
+                      "options": [
+                        {
+                          "label": "Rest (default)",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.rest.textColor",
+                              "hpe.anchor.default.rest.fontWeight",
+                              "hpe.anchor.default.rest.textDecoration"
+                            ],
+                            "description": "Default resting state of the anchor link."
+                          }
+                        },
+                        {
+                          "label": "Hover",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.hover.textColor",
+                              "hpe.anchor.default.hover.fontWeight",
+                              "hpe.anchor.default.hover.textDecoration"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Disabled",
+                          "result": {
+                            "tokens": [
+                              "hpe.anchor.default.disabled.rest.textColor",
+                              "hpe.anchor.default.disabled.rest.fontWeight",
+                              "hpe.anchor.default.disabled.rest.textDecoration"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Button",
+              "description": "Buttons of all kinds — primary, secondary, default (ghost), toolbar, CTA.",
+              "next": {
+                "id": "button",
+                "question": "What variant of button?",
+                "options": [
+                  {
+                    "label": "Default (ghost/text)",
+                    "description": "A button with no fill in its resting state. Text and optional icon only.",
+                    "next": {
+                      "id": "button-default",
+                      "question": "Does the button have a text label, or is it icon-only?",
+                      "options": [
+                        {
+                          "label": "Text label (with optional icon)",
+                          "next": {
+                            "id": "button-default-text",
+                            "question": "What do you need?",
+                            "options": [
+                              {
+                                "label": "Sizing",
+                                "next": {
+                                  "id": "button-default-text-size",
+                                  "question": "What size?",
+                                  "options": [
+                                    {
+                                      "label": "small",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.small.borderRadius",
+                                          "hpe.button.default.small.borderWidth",
+                                          "hpe.button.default.small.fontSize",
+                                          "hpe.button.default.small.gapX",
+                                          "hpe.button.default.small.lineHeight",
+                                          "hpe.button.default.small.minHeight",
+                                          "hpe.button.default.small.paddingX",
+                                          "hpe.button.default.small.paddingY"
+                                        ],
+                                        "description": "Small button sizing. gapX is the space between icon and text."
+                                      }
+                                    },
+                                    {
+                                      "label": "medium",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.medium.borderRadius",
+                                          "hpe.button.default.medium.borderWidth",
+                                          "hpe.button.default.medium.fontSize",
+                                          "hpe.button.default.medium.gapX",
+                                          "hpe.button.default.medium.lineHeight",
+                                          "hpe.button.default.medium.minHeight",
+                                          "hpe.button.default.medium.paddingX",
+                                          "hpe.button.default.medium.paddingY"
+                                        ],
+                                        "description": "Medium is the default button size."
+                                      }
+                                    },
+                                    {
+                                      "label": "large",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.large.borderRadius",
+                                          "hpe.button.default.large.borderWidth",
+                                          "hpe.button.default.large.fontSize",
+                                          "hpe.button.default.large.gapX",
+                                          "hpe.button.default.large.lineHeight",
+                                          "hpe.button.default.large.minHeight",
+                                          "hpe.button.default.large.paddingX",
+                                          "hpe.button.default.large.paddingY"
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Colors & states",
+                                "next": {
+                                  "id": "button-default-text-state",
+                                  "question": "What interaction state?",
+                                  "options": [
+                                    {
+                                      "label": "Rest",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.rest.background",
+                                          "hpe.button.default.rest.borderColor",
+                                          "hpe.button.default.rest.fontWeight",
+                                          "hpe.button.default.rest.iconColor",
+                                          "hpe.button.default.rest.textColor"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "label": "Hover",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.hover.background",
+                                          "hpe.button.default.hover.borderColor",
+                                          "hpe.button.default.hover.fontWeight",
+                                          "hpe.button.default.hover.iconColor",
+                                          "hpe.button.default.hover.textColor"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "label": "Disabled",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.disabled.rest.background",
+                                          "hpe.button.default.disabled.rest.borderColor",
+                                          "hpe.button.default.disabled.rest.fontWeight",
+                                          "hpe.button.default.disabled.rest.iconColor",
+                                          "hpe.button.default.disabled.rest.textColor"
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Icon only (no text label)",
+                          "description": "Icon-only buttons have equal padding and square proportions.",
+                          "next": {
+                            "id": "button-default-icononly-size",
+                            "question": "What size?",
+                            "options": [
+                              {
+                                "label": "small",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.button.default.small.iconOnly.borderRadius",
+                                    "hpe.button.default.small.iconOnly.borderWidth",
+                                    "hpe.button.default.small.iconOnly.fontSize",
+                                    "hpe.button.default.small.iconOnly.gapX",
+                                    "hpe.button.default.small.iconOnly.lineHeight",
+                                    "hpe.button.default.small.iconOnly.minHeight",
+                                    "hpe.button.default.small.iconOnly.minWidth",
+                                    "hpe.button.default.small.iconOnly.paddingX",
+                                    "hpe.button.default.small.iconOnly.paddingY"
+                                  ],
+                                  "description": "Icon-only buttons use equal paddingX and paddingY to form a circle/square shape."
+                                }
+                              },
+                              {
+                                "label": "medium",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.button.default.medium.iconOnly.borderRadius",
+                                    "hpe.button.default.medium.iconOnly.borderWidth",
+                                    "hpe.button.default.medium.iconOnly.fontSize",
+                                    "hpe.button.default.medium.iconOnly.gapX",
+                                    "hpe.button.default.medium.iconOnly.lineHeight",
+                                    "hpe.button.default.medium.iconOnly.minHeight",
+                                    "hpe.button.default.medium.iconOnly.minWidth",
+                                    "hpe.button.default.medium.iconOnly.paddingX",
+                                    "hpe.button.default.medium.iconOnly.paddingY"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "large",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.button.default.large.iconOnly.borderRadius",
+                                    "hpe.button.default.large.iconOnly.borderWidth",
+                                    "hpe.button.default.large.iconOnly.fontSize",
+                                    "hpe.button.default.large.iconOnly.gapX",
+                                    "hpe.button.default.large.iconOnly.lineHeight",
+                                    "hpe.button.default.large.iconOnly.minHeight",
+                                    "hpe.button.default.large.iconOnly.minWidth",
+                                    "hpe.button.default.large.iconOnly.paddingX",
+                                    "hpe.button.default.large.iconOnly.paddingY"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Primary (filled, brand)",
+                    "description": "The main call-to-action button with a solid brand-colored fill.",
+                    "next": {
+                      "id": "button-primary",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Sizing",
+                          "next": {
+                            "id": "button-primary-size",
+                            "question": "What size?",
+                            "options": [
+                              { "label": "small", "result": { "tokens": ["hpe.button.primary.small.borderRadius", "hpe.button.primary.small.borderWidth", "hpe.button.primary.small.fontSize", "hpe.button.primary.small.gapX", "hpe.button.primary.small.lineHeight", "hpe.button.primary.small.minHeight", "hpe.button.primary.small.paddingX", "hpe.button.primary.small.paddingY"] } },
+                              { "label": "medium", "result": { "tokens": ["hpe.button.primary.medium.borderRadius", "hpe.button.primary.medium.borderWidth", "hpe.button.primary.medium.fontSize", "hpe.button.primary.medium.gapX", "hpe.button.primary.medium.lineHeight", "hpe.button.primary.medium.minHeight", "hpe.button.primary.medium.paddingX", "hpe.button.primary.medium.paddingY"] } },
+                              { "label": "large", "result": { "tokens": ["hpe.button.primary.large.borderRadius", "hpe.button.primary.large.borderWidth", "hpe.button.primary.large.fontSize", "hpe.button.primary.large.gapX", "hpe.button.primary.large.lineHeight", "hpe.button.primary.large.minHeight", "hpe.button.primary.large.paddingX", "hpe.button.primary.large.paddingY"] } }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "button-primary-state",
+                            "question": "What interaction state?",
+                            "options": [
+                              { "label": "Rest", "result": { "tokens": ["hpe.button.primary.rest.background", "hpe.button.primary.rest.borderColor", "hpe.button.primary.rest.fontWeight", "hpe.button.primary.rest.iconColor", "hpe.button.primary.rest.textColor"] } },
+                              { "label": "Hover", "result": { "tokens": ["hpe.button.primary.hover.background", "hpe.button.primary.hover.borderColor", "hpe.button.primary.hover.fontWeight", "hpe.button.primary.hover.iconColor", "hpe.button.primary.hover.textColor"] } },
+                              { "label": "Disabled", "result": { "tokens": ["hpe.button.primary.disabled.rest.background", "hpe.button.primary.disabled.rest.borderColor", "hpe.button.primary.disabled.rest.fontWeight", "hpe.button.primary.disabled.rest.iconColor", "hpe.button.primary.disabled.rest.textColor"] } }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Secondary (outlined)",
+                    "description": "A supporting action button with a visible border and no fill.",
+                    "next": {
+                      "id": "button-secondary",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Sizing",
+                          "next": {
+                            "id": "button-secondary-size",
+                            "question": "What size?",
+                            "options": [
+                              { "label": "small", "result": { "tokens": ["hpe.button.secondary.small.borderRadius", "hpe.button.secondary.small.borderWidth", "hpe.button.secondary.small.fontSize", "hpe.button.secondary.small.gapX", "hpe.button.secondary.small.lineHeight", "hpe.button.secondary.small.minHeight", "hpe.button.secondary.small.paddingX", "hpe.button.secondary.small.paddingY"] } },
+                              { "label": "medium", "result": { "tokens": ["hpe.button.secondary.medium.borderRadius", "hpe.button.secondary.medium.borderWidth", "hpe.button.secondary.medium.fontSize", "hpe.button.secondary.medium.gapX", "hpe.button.secondary.medium.lineHeight", "hpe.button.secondary.medium.minHeight", "hpe.button.secondary.medium.paddingX", "hpe.button.secondary.medium.paddingY"] } },
+                              { "label": "large", "result": { "tokens": ["hpe.button.secondary.large.borderRadius", "hpe.button.secondary.large.borderWidth", "hpe.button.secondary.large.fontSize", "hpe.button.secondary.large.gapX", "hpe.button.secondary.large.lineHeight", "hpe.button.secondary.large.minHeight", "hpe.button.secondary.large.paddingX", "hpe.button.secondary.large.paddingY"] } }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "button-secondary-state",
+                            "question": "What interaction state?",
+                            "options": [
+                              { "label": "Rest", "result": { "tokens": ["hpe.button.secondary.rest.background", "hpe.button.secondary.rest.borderColor", "hpe.button.secondary.rest.fontWeight", "hpe.button.secondary.rest.iconColor", "hpe.button.secondary.rest.textColor"] } },
+                              { "label": "Hover", "result": { "tokens": ["hpe.button.secondary.hover.background", "hpe.button.secondary.hover.borderColor", "hpe.button.secondary.hover.fontWeight", "hpe.button.secondary.hover.iconColor", "hpe.button.secondary.hover.textColor"] } },
+                              { "label": "Disabled", "result": { "tokens": ["hpe.button.secondary.disabled.rest.background", "hpe.button.secondary.disabled.rest.borderColor", "hpe.button.secondary.disabled.rest.fontWeight", "hpe.button.secondary.disabled.rest.iconColor", "hpe.button.secondary.disabled.rest.textColor"] } }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Toolbar",
+                    "description": "A compact button style used inside toolbars and action bars.",
+                    "next": {
+                      "id": "button-toolbar",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Sizing",
+                          "next": {
+                            "id": "button-toolbar-size",
+                            "question": "What size?",
+                            "options": [
+                              { "label": "small", "result": { "tokens": ["hpe.button.toolbar.small.borderRadius", "hpe.button.toolbar.small.borderWidth", "hpe.button.toolbar.small.fontSize", "hpe.button.toolbar.small.gapX", "hpe.button.toolbar.small.lineHeight", "hpe.button.toolbar.small.minHeight", "hpe.button.toolbar.small.paddingX", "hpe.button.toolbar.small.paddingY"] } },
+                              { "label": "medium", "result": { "tokens": ["hpe.button.toolbar.medium.borderRadius", "hpe.button.toolbar.medium.borderWidth", "hpe.button.toolbar.medium.fontSize", "hpe.button.toolbar.medium.gapX", "hpe.button.toolbar.medium.lineHeight", "hpe.button.toolbar.medium.minHeight", "hpe.button.toolbar.medium.paddingX", "hpe.button.toolbar.medium.paddingY"] } },
+                              { "label": "large", "result": { "tokens": ["hpe.button.toolbar.large.borderRadius", "hpe.button.toolbar.large.borderWidth", "hpe.button.toolbar.large.fontSize", "hpe.button.toolbar.large.gapX", "hpe.button.toolbar.large.lineHeight", "hpe.button.toolbar.large.minHeight", "hpe.button.toolbar.large.paddingX", "hpe.button.toolbar.large.paddingY"] } }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "button-toolbar-state",
+                            "question": "What interaction state?",
+                            "options": [
+                              { "label": "Rest", "result": { "tokens": ["hpe.button.toolbar.rest.background", "hpe.button.toolbar.rest.borderColor", "hpe.button.toolbar.rest.fontWeight", "hpe.button.toolbar.rest.iconColor", "hpe.button.toolbar.rest.textColor"] } },
+                              { "label": "Hover", "result": { "tokens": ["hpe.button.toolbar.hover.background", "hpe.button.toolbar.hover.borderColor", "hpe.button.toolbar.hover.fontWeight", "hpe.button.toolbar.hover.iconColor", "hpe.button.toolbar.hover.textColor"] } },
+                              { "label": "Disabled", "result": { "tokens": ["hpe.button.toolbar.disabled.rest.background", "hpe.button.toolbar.disabled.rest.borderColor", "hpe.button.toolbar.disabled.rest.fontWeight", "hpe.button.toolbar.disabled.rest.iconColor", "hpe.button.toolbar.disabled.rest.textColor"] } }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Checkbox",
+              "description": "A checkbox with a tickable control and a label.",
+              "next": {
+                "id": "checkbox",
+                "question": "What part of the Checkbox are you styling?",
+                "hint": "The 'control' is the square box you tick. The 'label' is the text beside it.",
+                "options": [
+                  {
+                    "label": "The checkbox control (the square box)",
+                    "next": {
+                      "id": "checkbox-control",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "checkbox-control-state",
+                            "question": "What state is the checkbox in?",
+                            "options": [
+                              {
+                                "label": "Unchecked (rest)",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.checkbox.default.control.rest.background",
+                                    "hpe.checkbox.default.control.rest.borderColor"
+                                  ],
+                                  "description": "The empty, unchecked checkbox at rest."
+                                }
+                              },
+                              {
+                                "label": "Unchecked hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.checkbox.default.control.hover.background"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Checked (selected)",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.checkbox.default.control.selected.rest.background",
+                                    "hpe.checkbox.default.control.selected.rest.borderColor",
+                                    "hpe.checkbox.default.control.selected.rest.iconColor"
+                                  ],
+                                  "description": "The filled, checked checkbox. iconColor is the colour of the checkmark icon."
+                                }
+                              },
+                              {
+                                "label": "Checked hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.checkbox.default.control.selected.hover.background",
+                                    "hpe.checkbox.default.control.selected.hover.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.checkbox.default.control.disabled.rest.background",
+                                    "hpe.checkbox.default.control.disabled.rest.borderColor",
+                                    "hpe.checkbox.default.control.disabled.rest.iconColor"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing (dimensions of the box)",
+                          "result": {
+                            "tokens": [
+                              "hpe.checkbox.default.medium.control.borderWidth",
+                              "hpe.checkbox.default.medium.control.borderRadius",
+                              "hpe.checkbox.default.medium.control.width",
+                              "hpe.checkbox.default.medium.control.height"
+                            ],
+                            "description": "The physical size of the checkbox box."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "The label text",
+                    "next": {
+                      "id": "checkbox-label",
+                      "question": "What state?",
+                      "options": [
+                        {
+                          "label": "Rest",
+                          "result": {
+                            "tokens": [
+                              "hpe.checkbox.default.label.rest.fontWeight",
+                              "hpe.checkbox.default.label.rest.textColor"
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Disabled",
+                          "result": {
+                            "tokens": [
+                              "hpe.checkbox.default.label.disabled.rest.textColor"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Overall spacing (gap between control and label)",
+                    "result": {
+                      "tokens": [
+                        "hpe.checkbox.default.medium.gapX"
+                      ],
+                      "description": "The horizontal gap between the checkbox square and its label text."
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Switch (Toggle)",
+              "description": "A toggle switch with a sliding handle on a track.",
+              "next": {
+                "id": "switch",
+                "question": "What part of the Switch are you styling?",
+                "hint": "The 'track' is the elongated pill background. The 'handle' is the circular knob that slides left/right.",
+                "options": [
+                  {
+                    "label": "The track (the background pill)",
+                    "next": {
+                      "id": "switch-track",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "switch-track-state",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Off (rest)",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.switch.default.control.track.rest.background",
+                                    "hpe.switch.default.control.track.rest.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Off hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.switch.default.control.track.hover.background",
+                                    "hpe.switch.default.control.track.hover.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "On (selected)",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.switch.default.control.track.selected.rest.background"
+                                  ],
+                                  "description": "The track background when the switch is toggled ON."
+                                }
+                              },
+                              {
+                                "label": "On hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.switch.default.control.track.selected.hover.background",
+                                    "hpe.switch.default.control.track.selected.hover.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.switch.default.control.track.disabled.rest.background"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing",
+                          "result": {
+                            "tokens": [
+                              "hpe.switch.default.medium.control.track.width",
+                              "hpe.switch.default.medium.control.track.height",
+                              "hpe.switch.default.medium.control.track.borderWidth",
+                              "hpe.switch.default.medium.control.track.borderRadius"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "The handle (the sliding knob)",
+                    "next": {
+                      "id": "switch-handle",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "switch-handle-state",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.switch.default.control.handle.rest.background",
+                                    "hpe.switch.default.control.handle.rest.borderColor",
+                                    "hpe.switch.default.control.handle.rest.boxShadow"
+                                  ],
+                                  "description": "boxShadow references an elevation token that creates the raised appearance of the handle."
+                                }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.switch.default.control.handle.disabled.rest.borderColor"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing",
+                          "result": {
+                            "tokens": [
+                              "hpe.switch.default.medium.control.handle.width",
+                              "hpe.switch.default.medium.control.handle.height",
+                              "hpe.switch.default.medium.control.handle.borderWidth"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "RadioButton",
+              "description": "A radio button with a circular control and label.",
+              "next": {
+                "id": "radio",
+                "question": "What part of the Radio Button are you styling?",
+                "hint": "The 'control' is the circular selector. The inner dot appears when selected.",
+                "options": [
+                  {
+                    "label": "The radio control (the circle)",
+                    "next": {
+                      "id": "radio-control",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "radio-control-state",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Unselected (rest)",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.radioButton.default.control.rest.borderColor",
+                                    "hpe.radioButton.default.control.rest.background"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Unselected hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.radioButton.default.control.hover.borderColor",
+                                    "hpe.radioButton.default.control.hover.background"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Selected",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.radioButton.default.control.selected.rest.background",
+                                    "hpe.radioButton.default.control.selected.rest.borderColor",
+                                    "hpe.radioButton.default.control.selected.rest.iconColor"
+                                  ],
+                                  "description": "iconColor is the colour of the inner dot/circle when selected."
+                                }
+                              },
+                              {
+                                "label": "Selected hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.radioButton.default.control.selected.hover.background",
+                                    "hpe.radioButton.default.control.selected.hover.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.radioButton.default.control.disabled.rest.background",
+                                    "hpe.radioButton.default.control.disabled.rest.borderColor"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing",
+                          "result": {
+                            "tokens": [
+                              "hpe.radioButton.default.medium.control.borderWidth",
+                              "hpe.radioButton.default.medium.control.width",
+                              "hpe.radioButton.default.medium.control.height"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "The label text",
+                    "result": {
+                      "tokens": [
+                        "hpe.radioButton.default.label.rest.fontWeight",
+                        "hpe.radioButton.default.label.rest.textColor"
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Overall spacing",
+                    "result": {
+                      "tokens": [
+                        "hpe.radioButton.default.medium.gapX"
+                      ],
+                      "description": "Gap between the radio circle and its label."
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Select (Dropdown)",
+              "description": "A dropdown selector with a trigger input, a floating option list, and individual options.",
+              "next": {
+                "id": "select",
+                "question": "What part of the Select are you styling?",
+                "hint": "In the HPE Design System, Select always appears inside a FormField. The trigger area is styled by FormField input container tokens. The floating dropdown ('drop') and individual options have their own Select-specific tokens. There's also a selection marker — a small left-side bar indicating focus/selection.",
+                "options": [
+                  {
+                    "label": "The trigger / control (the visible input area)",
+                    "description": "The bordered input area you click to open the dropdown.",
+                    "result": {
+                      "tokens": [],
+                      "description": "The Select trigger is styled by FormField input container tokens. In the HPE Design System, Select always appears inside a FormField — the border, padding, border-radius, and state styling (rest, hover, error, read-only) all come from FormField input container tokens. Navigate to FormField → 'The input container' for the full set.",
+                      "seeAlso": ["formfield-input-container"]
+                    }
+                  },
+                  {
+                    "label": "The dropdown container (the floating panel that opens)",
+                    "description": "The outer container of the dropdown options list.",
+                    "result": {
+                      "tokens": [
+                        "hpe.select.default.medium.drop.paddingX",
+                        "hpe.select.default.medium.drop.paddingY",
+                        "hpe.select.default.medium.drop.gapY"
+                      ],
+                      "description": "paddingX/paddingY control the inner padding of the dropdown panel. gapY is the vertical spacing between options. The dropdown itself sits inside a Drop component — use hpe.drop.default.* for the outer container background, border-radius, and z-index.",
+                      "seeAlso": ["drop"]
+                    }
+                  },
+                  {
+                    "label": "An individual option (a row in the list)",
+                    "next": {
+                      "id": "select-option",
+                      "question": "What do you need for the option?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "select-option-state",
+                            "question": "What state is the option in?",
+                            "options": [
+                              {
+                                "label": "Rest (default, unselected)",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.select.default.option.rest.fontWeight",
+                                    "hpe.select.default.option.rest.textColor",
+                                    "hpe.select.default.option.rest.background",
+                                    "hpe.select.default.option.rest.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.select.default.option.hover.background",
+                                    "hpe.select.default.option.hover.borderColor",
+                                    "hpe.select.default.option.hover.textColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Selected (the chosen option)",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.select.default.option.selected.rest.background",
+                                    "hpe.select.default.option.selected.rest.borderColor",
+                                    "hpe.select.default.option.selected.rest.textColor",
+                                    "hpe.select.default.option.selected.rest.fontWeight"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Selected + hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.select.default.option.selected.hover.background",
+                                    "hpe.select.default.option.selected.hover.textColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.select.default.option.disabled.rest.background",
+                                    "hpe.select.default.option.disabled.rest.borderColor",
+                                    "hpe.select.default.option.disabled.rest.textColor",
+                                    "hpe.select.default.option.disabled.rest.fontWeight"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing (padding, border-radius)",
+                          "result": {
+                            "tokens": [
+                              "hpe.select.default.medium.option.paddingX",
+                              "hpe.select.default.medium.option.paddingY",
+                              "hpe.select.default.medium.option.borderRadius",
+                              "hpe.select.default.medium.option.borderWidth"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "The selection marker (left-side focus indicator on options)",
+                    "description": "A small vertical bar on the left edge of focused/selected options, providing a visual affordance for keyboard navigation. Typically implemented as a ::before pseudo-element.",
+                    "result": {
+                      "tokens": [
+                        "hpe.select.default.medium.option.marker.width",
+                        "hpe.select.default.medium.option.marker.top",
+                        "hpe.select.default.medium.option.marker.bottom",
+                        "hpe.select.default.medium.option.marker.left",
+                        "hpe.select.default.medium.option.marker.borderTopLeftRadius",
+                        "hpe.select.default.medium.option.marker.borderBottomLeftRadius"
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Menu",
+              "description": "A dropdown menu with action items, optionally grouped with separators.",
+              "next": {
+                "id": "menu",
+                "question": "What part of the Menu are you styling?",
+                "hint": "Menus can have grouped sections of items separated by dividers. The menu itself sits inside a Drop component.",
+                "options": [
+                  {
+                    "label": "A menu item (a single action row)",
+                    "next": {
+                      "id": "menu-item",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "menu-item-state",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.menu.default.item.rest.iconColor",
+                                    "hpe.menu.default.item.rest.textColor",
+                                    "hpe.menu.default.item.rest.fontWeight"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.menu.default.item.hover.background",
+                                    "hpe.menu.default.item.hover.iconColor",
+                                    "hpe.menu.default.item.hover.textColor"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing",
+                          "result": {
+                            "tokens": [
+                              "hpe.menu.default.medium.item.paddingX",
+                              "hpe.menu.default.medium.item.paddingY",
+                              "hpe.menu.default.medium.item.fontSize",
+                              "hpe.menu.default.medium.item.lineHeight",
+                              "hpe.menu.default.medium.item.gapX",
+                              "hpe.menu.default.medium.item.borderRadius"
+                            ],
+                            "description": "gapX is the space between the item's icon and text."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "The group container (wraps a section of related items)",
+                    "result": {
+                      "tokens": [
+                        "hpe.menu.default.medium.group.container.paddingX",
+                        "hpe.menu.default.medium.group.container.paddingY",
+                        "hpe.menu.default.medium.group.container.gapY"
+                      ],
+                      "description": "The container around a group of related menu items. gapY is the vertical spacing between items within the group."
+                    }
+                  },
+                  {
+                    "label": "The group separator (divider line between groups)",
+                    "result": {
+                      "tokens": [
+                        "hpe.menu.default.group.separator.background",
+                        "hpe.menu.default.medium.group.separator.height"
+                      ],
+                      "description": "The horizontal divider line between menu groups."
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Drop (floating container)",
+              "description": "The generic floating container used by Select dropdowns, Menus, Tooltips, and Popovers.",
+              "next": {
+                "id": "drop",
+                "question": "What do you need for the Drop container?",
+                "hint": "The Drop is the outer floating container. Select and Menu options sit inside a Drop. Use these tokens if you're building a custom popover, tooltip, or any floating UI element.",
+                "options": [
+                  {
+                    "label": "All Drop tokens",
+                    "result": {
+                      "tokens": [
+                        "hpe.drop.default.background",
+                        "hpe.drop.default.borderRadius",
+                        "hpe.drop.default.margin",
+                        "hpe.drop.default.zIndex"
+                      ],
+                      "description": "Background, border-radius, margin, and z-index for the floating container."
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "FormField",
+              "description": "The wrapper around form inputs — provides label, border, error states, and help text.",
+              "next": {
+                "id": "formfield",
+                "question": "What part of the Form Field are you styling?",
+                "hint": "A FormField wraps inputs. The 'input container' is the bordered box around a single input (text, select). The 'input group' is for when the field wraps multiple checkboxes or radios.",
+                "options": [
+                  {
+                    "label": "The input container (bordered box around a single input)",
+                    "next": {
+                      "id": "formfield-input-container",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "formfield-input-state",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.container.rest.borderColor",
+                                    "hpe.formField.default.input.container.rest.background"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.container.hover.background"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Error",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.container.error.rest.borderColor"
+                                  ],
+                                  "description": "The border turns to an error colour when the field has a validation error."
+                                }
+                              },
+                              {
+                                "label": "Read-only",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.container.readOnly.rest.background",
+                                    "hpe.formField.default.input.container.readOnly.rest.borderColor"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.input.container.paddingX",
+                              "hpe.formField.default.medium.input.container.paddingY",
+                              "hpe.formField.default.medium.input.container.borderRadius",
+                              "hpe.formField.default.medium.input.container.borderWidth"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "The input group container (wraps a set of checkboxes or radios)",
+                    "description": "When a FormField contains a CheckboxGroup or RadioButtonGroup, this is the bordered container around all the options.",
+                    "next": {
+                      "id": "formfield-group",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "formfield-group-state",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.group.container.rest.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Error",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.group.container.error.rest.borderColor"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.input.group.container.paddingX",
+                              "hpe.formField.default.medium.input.group.container.paddingY"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "An item within a group (each checkbox/radio row)",
+                    "description": "Each individual checkbox or radio option row inside a group.",
+                    "next": {
+                      "id": "formfield-group-item",
+                      "question": "What do you need?",
+                      "options": [
+                        {
+                          "label": "Colors & states",
+                          "next": {
+                            "id": "formfield-group-item-state",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.group.item.rest.borderColor"
+                                  ]
+                                }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.group.item.hover.background"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Sizing",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.input.group.item.paddingX",
+                              "hpe.formField.default.medium.input.group.item.paddingY",
+                              "hpe.formField.default.medium.input.group.item.borderRadius",
+                              "hpe.formField.default.medium.input.group.item.borderWidth"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "The value text (text inside the input)",
+                    "result": {
+                      "tokens": [
+                        "hpe.formField.default.medium.value.fontWeight"
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Data Table cells",
+              "description": "Body cells, header cells, or footer cells in a data table.",
+              "next": {
+                "id": "datatable",
+                "question": "Which part of the table?",
+                "options": [
+                  {
+                    "label": "Body cell (DataCell)",
+                    "next": {
+                      "id": "datacell-size",
+                      "question": "What size?",
+                      "options": [
+                        { "label": "small", "result": { "tokens": ["hpe.dataCell.default.small.paddingX", "hpe.dataCell.default.small.paddingY", "hpe.dataCell.default.small.fontSize", "hpe.dataCell.default.small.lineHeight"] } },
+                        { "label": "medium", "result": { "tokens": ["hpe.dataCell.default.medium.paddingX", "hpe.dataCell.default.medium.paddingY", "hpe.dataCell.default.medium.fontSize", "hpe.dataCell.default.medium.lineHeight"] } },
+                        { "label": "large", "result": { "tokens": ["hpe.dataCell.default.large.paddingX", "hpe.dataCell.default.large.paddingY", "hpe.dataCell.default.large.fontSize", "hpe.dataCell.default.large.lineHeight"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Header cell (HeaderCell)",
+                    "next": {
+                      "id": "headercell-size",
+                      "question": "What size?",
+                      "options": [
+                        { "label": "small", "result": { "tokens": ["hpe.headerCell.default.small.paddingX", "hpe.headerCell.default.small.paddingY", "hpe.headerCell.default.small.fontSize", "hpe.headerCell.default.small.lineHeight"] } },
+                        { "label": "medium", "result": { "tokens": ["hpe.headerCell.default.medium.paddingX", "hpe.headerCell.default.medium.paddingY", "hpe.headerCell.default.medium.fontSize", "hpe.headerCell.default.medium.lineHeight"] } },
+                        { "label": "large", "result": { "tokens": ["hpe.headerCell.default.large.paddingX", "hpe.headerCell.default.large.paddingY", "hpe.headerCell.default.large.fontSize", "hpe.headerCell.default.large.lineHeight"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Footer cell (FooterCell)",
+                    "next": {
+                      "id": "footercell-size",
+                      "question": "What size?",
+                      "options": [
+                        { "label": "small", "result": { "tokens": ["hpe.footerCell.default.small.paddingX", "hpe.footerCell.default.small.paddingY", "hpe.footerCell.default.small.fontSize", "hpe.footerCell.default.small.lineHeight"] } },
+                        { "label": "medium", "result": { "tokens": ["hpe.footerCell.default.medium.paddingX", "hpe.footerCell.default.medium.paddingY", "hpe.footerCell.default.medium.fontSize", "hpe.footerCell.default.medium.lineHeight"] } },
+                        { "label": "large", "result": { "tokens": ["hpe.footerCell.default.large.paddingX", "hpe.footerCell.default.large.paddingY", "hpe.footerCell.default.large.fontSize", "hpe.footerCell.default.large.lineHeight"] } }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Element (shared sizing foundation)",
+              "description": "Base sizing tokens that all interactive components reference. Use these when building a custom interactive element that should align with HPE's sizing system.",
+              "next": {
+                "id": "element-size",
+                "question": "What size?",
+                "options": [
+                  {
+                    "label": "xsmall",
+                    "result": {
+                      "tokens": ["hpe.element.xsmall.borderWidth", "hpe.element.xsmall.fontSize", "hpe.element.xsmall.height", "hpe.element.xsmall.minHeight", "hpe.element.xsmall.paddingX.default", "hpe.element.xsmall.paddingX.narrow", "hpe.element.xsmall.paddingX.wide", "hpe.element.xsmall.paddingY", "hpe.element.xsmall.icon.size", "hpe.element.xsmall.lineHeight", "hpe.element.xsmall.textToElementX", "hpe.element.xsmall.textToIconX", "hpe.element.xsmall.width"],
+                      "description": "paddingX has 3 variants: 'default' for standard use, 'narrow' for compact contexts, 'wide' for spacious contexts. textToIconX is the gap between text and an icon. textToElementX is the gap between text and an adjacent element."
+                    }
+                  },
+                  {
+                    "label": "small",
+                    "result": {
+                      "tokens": ["hpe.element.small.borderWidth", "hpe.element.small.fontSize", "hpe.element.small.height", "hpe.element.small.minHeight", "hpe.element.small.paddingX.default", "hpe.element.small.paddingX.narrow", "hpe.element.small.paddingX.wide", "hpe.element.small.paddingY", "hpe.element.small.icon.size", "hpe.element.small.lineHeight", "hpe.element.small.textToElementX", "hpe.element.small.textToIconX", "hpe.element.small.width"]
+                    }
+                  },
+                  {
+                    "label": "medium",
+                    "result": {
+                      "tokens": ["hpe.element.medium.borderWidth", "hpe.element.medium.fontSize", "hpe.element.medium.height", "hpe.element.medium.minHeight", "hpe.element.medium.paddingX.default", "hpe.element.medium.paddingX.narrow", "hpe.element.medium.paddingX.wide", "hpe.element.medium.paddingY", "hpe.element.medium.icon.size", "hpe.element.medium.lineHeight", "hpe.element.medium.textToElementX", "hpe.element.medium.textToIconX", "hpe.element.medium.width"],
+                      "description": "Medium is the default element size for most interactive components."
+                    }
+                  },
+                  {
+                    "label": "large",
+                    "result": {
+                      "tokens": ["hpe.element.large.borderWidth", "hpe.element.large.fontSize", "hpe.element.large.height", "hpe.element.large.minHeight", "hpe.element.large.paddingX.default", "hpe.element.large.paddingX.narrow", "hpe.element.large.paddingX.wide", "hpe.element.large.paddingY", "hpe.element.large.icon.size", "hpe.element.large.lineHeight", "hpe.element.large.textToElementX", "hpe.element.large.textToIconX", "hpe.element.large.width"]
+                    }
+                  },
+                  {
+                    "label": "xlarge",
+                    "result": {
+                      "tokens": ["hpe.element.xlarge.borderWidth", "hpe.element.xlarge.fontSize", "hpe.element.xlarge.height", "hpe.element.xlarge.minHeight", "hpe.element.xlarge.paddingX.default", "hpe.element.xlarge.paddingX.narrow", "hpe.element.xlarge.paddingX.wide", "hpe.element.xlarge.paddingY", "hpe.element.xlarge.icon.size", "hpe.element.xlarge.lineHeight", "hpe.element.xlarge.textToElementX", "hpe.element.xlarge.textToIconX", "hpe.element.xlarge.width"]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Not sure / Not listed",
+              "description": "My component isn't in this list, or I don't know if it has component tokens.",
+              "hint": "Fall back to semantic tokens. They work for any component.",
+              "next": "_semantic"
+            }
+          ]
+        }
+      },
+      {
+        "label": "A general design token",
+        "description": "I need a semantic token for color, spacing, typography, border, or sizing — not tied to a specific component.",
+        "next": {
+          "id": "semantic",
+          "question": "What are you trying to style?",
+          "options": [
+            {
+              "label": "Color",
+              "description": "Background fills, text colors, icon colors, border colors, foreground fills, decorative colors, data visualisation, or focus indicators.",
+              "next": {
+                "id": "color",
+                "question": "What element needs color?",
+                "options": [
+                  {
+                    "label": "Background / Surface",
+                    "description": "A container, page region, or surface fill.",
+                    "next": {
+                      "id": "color-bg",
+                      "question": "What kind of surface?",
+                      "options": [
+                        {
+                          "label": "Page background (the overall app canvas)",
+                          "description": "Elevation level 0. The backdrop containers sit on.",
+                          "result": { "tokens": ["hpe.color.background.back"], "description": "The overall page/app background. Creates a backdrop for containers." }
+                        },
+                        {
+                          "label": "Container / Card (a surface sitting on the page)",
+                          "description": "Elevation level 1. Cards, data tables, content panels.",
+                          "result": { "tokens": ["hpe.color.background.front"], "description": "Lowest elevation for containers on top of the page." }
+                        },
+                        {
+                          "label": "Default container fill",
+                          "description": "Standard container background (white in light mode).",
+                          "result": { "tokens": ["hpe.color.background.default"] }
+                        },
+                        {
+                          "label": "Floating / Overlay (dropdown, popover, tooltip, layer)",
+                          "description": "Elevation level 2. Sits above everything else.",
+                          "result": { "tokens": ["hpe.color.background.floating"], "description": "Highest elevation for floating UI: dropdowns, popovers, layers, tooltips." }
+                        },
+                        {
+                          "label": "Screen overlay (dimmed backdrop behind a modal)",
+                          "result": { "tokens": ["hpe.color.background.screenOverlay"] }
+                        },
+                        {
+                          "label": "Subtle contrast (differentiate a region from its parent)",
+                          "result": { "tokens": ["hpe.color.background.contrast"], "description": "Use to create subtle differentiation between a component/container and the region it sits on. Has REST and hover variants." }
+                        },
+                        {
+                          "label": "Interactive hover/active (hover fill on transparent components)",
+                          "description": "E.g. menu items, list items that have no fill at rest.",
+                          "result": { "tokens": ["hpe.color.background.DEFAULT.hover", "hpe.color.background.DEFAULT.active"], "description": "Generic hover/active state for components with no fill at rest." }
+                        },
+                        {
+                          "label": "Status communication (warning, error, success, info, unknown)",
+                          "next": {
+                            "id": "color-bg-status",
+                            "question": "What status?",
+                            "options": [
+                              { "label": "Warning / Caution", "result": { "tokens": ["hpe.color.background.warning"], "description": "Use for backgrounds communicating warning or caution." } },
+                              { "label": "Critical / Error / Danger", "result": { "tokens": ["hpe.color.background.critical"], "description": "Use for backgrounds communicating errors or danger." } },
+                              { "label": "Success / OK", "result": { "tokens": ["hpe.color.background.ok"], "description": "Use for backgrounds communicating success." } },
+                              { "label": "Info / Neutral information", "result": { "tokens": ["hpe.color.background.info"], "description": "Use for backgrounds communicating neutral information." } },
+                              { "label": "Unknown", "result": { "tokens": ["hpe.color.background.unknown"], "description": "Use for backgrounds communicating unknown status." } }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Selected / Checked (checkboxes, toggles, active tabs)",
+                          "next": {
+                            "id": "color-bg-selected",
+                            "question": "What emphasis?",
+                            "options": [
+                              { "label": "Default selected (subtle highlight)", "result": { "tokens": ["hpe.color.background.selected.primary.DEFAULT.REST", "hpe.color.background.selected.primary.DEFAULT.hover"] } },
+                              { "label": "Strong selected (filled checkbox, active toggle)", "result": { "tokens": ["hpe.color.background.selected.primary.strong.REST", "hpe.color.background.selected.primary.strong.hover"] } }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Primary / Brand emphasis (CTA buttons, branded highlights)",
+                          "next": {
+                            "id": "color-bg-primary",
+                            "question": "What emphasis?",
+                            "options": [
+                              { "label": "Strong (CTA buttons, filled brand elements)", "result": { "tokens": ["hpe.color.background.primary.strong.REST", "hpe.color.background.primary.strong.hover"] } },
+                              { "label": "Extra strong (highest emphasis)", "result": { "tokens": ["hpe.color.background.primary.xstrong.REST"] } }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Neutral strong (dark badges, high-contrast elements)",
+                          "result": { "tokens": ["hpe.color.background.neutral.xstrong.REST", "hpe.color.background.neutral.xstrong.hover"], "description": "Highest emphasis neutral palette. Dark background for badges, tags, etc." }
+                        },
+                        {
+                          "label": "Disabled",
+                          "result": { "tokens": ["hpe.color.background.disabled"], "description": "Disabled background. Ensures disabled components are consistently styled." }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Text",
+                    "description": "Labels, paragraphs, headings — text colour.",
+                    "next": {
+                      "id": "color-text",
+                      "question": "What's the context?",
+                      "options": [
+                        { "label": "Default body text", "result": { "tokens": ["hpe.color.text.default"], "description": "Standard readable text on default backgrounds." } },
+                        { "label": "Strong / emphasized (headings, labels)", "result": { "tokens": ["hpe.color.text.strong"] } },
+                        { "label": "Weak / secondary (captions, helper text, metadata)", "result": { "tokens": ["hpe.color.text.weak"] } },
+                        { "label": "Placeholder text", "result": { "tokens": ["hpe.color.text.placeholder"] } },
+                        { "label": "Disabled text", "result": { "tokens": ["hpe.color.text.disabled"] } },
+                        {
+                          "label": "Status text (on standard backgrounds)",
+                          "next": {
+                            "id": "color-text-status",
+                            "question": "What status?",
+                            "options": [
+                              { "label": "Warning", "result": { "tokens": ["hpe.color.text.warning"] } },
+                              { "label": "Critical", "result": { "tokens": ["hpe.color.text.critical"] } },
+                              { "label": "OK / Success", "result": { "tokens": ["hpe.color.text.ok"] } },
+                              { "label": "Info", "result": { "tokens": ["hpe.color.text.info"] } },
+                              { "label": "Unknown", "result": { "tokens": ["hpe.color.text.unknown"] } }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Text ON a colored background",
+                          "description": "Text sitting on a primary, status, or strong background — needs specific pairing for accessible contrast.",
+                          "next": {
+                            "id": "color-text-on",
+                            "question": "What background is the text sitting on?",
+                            "options": [
+                              { "label": "Primary strong (green CTA button)", "result": { "tokens": ["hpe.color.text.onPrimaryStrong"] } },
+                              { "label": "Neutral xstrong (dark badge)", "result": { "tokens": ["hpe.color.text.onStrong"] } },
+                              { "label": "Selected primary (subtle)", "result": { "tokens": ["hpe.color.text.onSelectedPrimary"] } },
+                              { "label": "Selected primary strong", "result": { "tokens": ["hpe.color.text.onSelectedPrimaryStrong"] } },
+                              { "label": "Critical background", "result": { "tokens": ["hpe.color.text.onCritical", "hpe.color.text.onCritical.strong"] } },
+                              { "label": "Warning background", "result": { "tokens": ["hpe.color.text.onWarning", "hpe.color.text.onWarning.strong"] } },
+                              { "label": "OK / Success background", "result": { "tokens": ["hpe.color.text.onOk", "hpe.color.text.onOk.strong"] } },
+                              { "label": "Info background", "result": { "tokens": ["hpe.color.text.onInfo", "hpe.color.text.onInfo.strong"] } },
+                              { "label": "Unknown background", "result": { "tokens": ["hpe.color.text.onUnknown", "hpe.color.text.onUnknown.strong"] } }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Icon",
+                    "description": "Icon/glyph color.",
+                    "next": {
+                      "id": "color-icon",
+                      "question": "What's the context?",
+                      "options": [
+                        { "label": "Default icon", "result": { "tokens": ["hpe.color.icon.default"] } },
+                        { "label": "Strong / emphasized", "result": { "tokens": ["hpe.color.icon.strong"] } },
+                        { "label": "Disabled", "result": { "tokens": ["hpe.color.icon.disabled"] } },
+                        { "label": "On primary strong background", "result": { "tokens": ["hpe.color.icon.onPrimaryStrong"] } },
+                        { "label": "On neutral xstrong background", "result": { "tokens": ["hpe.color.icon.onStrong"] } },
+                        { "label": "On selected primary background", "result": { "tokens": ["hpe.color.icon.onSelectedPrimary"] } },
+                        { "label": "On selected primary strong background", "result": { "tokens": ["hpe.color.icon.onSelectedPrimaryStrong"] } },
+                        { "label": "Status: critical", "result": { "tokens": ["hpe.color.icon.critical"] } },
+                        { "label": "Status: warning", "result": { "tokens": ["hpe.color.icon.warning"] } },
+                        { "label": "Status: ok", "result": { "tokens": ["hpe.color.icon.ok"] } },
+                        { "label": "Status: info", "result": { "tokens": ["hpe.color.icon.info"] } },
+                        { "label": "Status: unknown", "result": { "tokens": ["hpe.color.icon.unknown"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Border (stroke color)",
+                    "next": {
+                      "id": "color-border",
+                      "question": "What's the purpose?",
+                      "options": [
+                        { "label": "Default border", "result": { "tokens": ["hpe.color.border.default"] } },
+                        { "label": "Strong / emphasized", "result": { "tokens": ["hpe.color.border.strong"] } },
+                        { "label": "Weak / subtle", "result": { "tokens": ["hpe.color.border.weak"] } },
+                        { "label": "Selected state", "result": { "tokens": ["hpe.color.border.selected"] } },
+                        { "label": "Disabled", "result": { "tokens": ["hpe.color.border.disabled"] } },
+                        { "label": "Status: critical", "result": { "tokens": ["hpe.color.border.critical"] } },
+                        { "label": "Status: warning", "result": { "tokens": ["hpe.color.border.warning"] } },
+                        { "label": "Status: ok", "result": { "tokens": ["hpe.color.border.ok"] } },
+                        { "label": "Status: info", "result": { "tokens": ["hpe.color.border.info"] } },
+                        { "label": "Status: unknown", "result": { "tokens": ["hpe.color.border.unknown"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Foreground (meters, progress bars, filled chart regions)",
+                    "next": {
+                      "id": "color-foreground",
+                      "question": "What status/meaning?",
+                      "options": [
+                        { "label": "Primary / brand", "result": { "tokens": ["hpe.color.foreground.primary"] } },
+                        { "label": "Critical", "result": { "tokens": ["hpe.color.foreground.critical"] } },
+                        { "label": "Warning", "result": { "tokens": ["hpe.color.foreground.warning"] } },
+                        { "label": "OK / Success", "result": { "tokens": ["hpe.color.foreground.ok"] } },
+                        { "label": "Unknown", "result": { "tokens": ["hpe.color.foreground.unknown"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Decorative (brand, illustration, non-semantic color)",
+                    "next": {
+                      "id": "color-decorative",
+                      "question": "What color?",
+                      "options": [
+                        { "label": "Brand (HPE green)", "result": { "tokens": ["hpe.color.decorative.brand"] } },
+                        { "label": "Green", "result": { "tokens": ["hpe.color.decorative.green"] } },
+                        { "label": "Blue", "result": { "tokens": ["hpe.color.decorative.blue"] } },
+                        { "label": "Purple", "result": { "tokens": ["hpe.color.decorative.purple"] } },
+                        { "label": "Cyan", "result": { "tokens": ["hpe.color.decorative.cyan"] } },
+                        { "label": "Neutral", "result": { "tokens": ["hpe.color.decorative.neutral"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Data visualisation (chart series colors)",
+                    "result": {
+                      "tokens": [
+                        "hpe.color.dataVis.categorical.10",
+                        "hpe.color.dataVis.categorical.20",
+                        "hpe.color.dataVis.categorical.30",
+                        "hpe.color.dataVis.categorical.40",
+                        "hpe.color.dataVis.categorical.50",
+                        "hpe.color.dataVis.categorical.60",
+                        "hpe.color.dataVis.categorical.70",
+                        "hpe.color.dataVis.categorical.80"
+                      ],
+                      "description": "Use in order (10, 20, 30...) for categorical chart series. Up to 8 distinct colors."
+                    }
+                  },
+                  {
+                    "label": "Focus indicator (keyboard focus ring)",
+                    "result": {
+                      "tokens": [
+                        "hpe.color.focus",
+                        "hpe.color.focus.support"
+                      ],
+                      "description": "Two-ring focus indicator. 'focus' is the primary outer ring, 'focus.support' is the inner contrasting ring."
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Spacing",
+              "description": "Gaps, padding, margins between elements.",
+              "result": {
+                "tokens": [
+                  "hpe.spacing.none",
+                  "hpe.spacing.hair",
+                  "hpe.spacing.6xsmall",
+                  "hpe.spacing.5xsmall",
+                  "hpe.spacing.4xsmall",
+                  "hpe.spacing.3xsmall",
+                  "hpe.spacing.xxsmall",
+                  "hpe.spacing.xsmall",
+                  "hpe.spacing.small",
+                  "hpe.spacing.medium",
+                  "hpe.spacing.large",
+                  "hpe.spacing.xlarge",
+                  "hpe.spacing.xxlarge",
+                  "hpe.spacing.3xlarge"
+                ],
+                "description": "Spacing scale for gaps, padding, and margins. Values are responsive — they change between 'large' (desktop) and 'small' (mobile) breakpoints."
+              }
+            },
+            {
+              "label": "Sizing (container widths/heights)",
+              "description": "Min/max widths and heights for containers, cards, grid items.",
+              "result": {
+                "tokens": [
+                  "hpe.container.5xsmall",
+                  "hpe.container.4xsmall",
+                  "hpe.container.3xsmall",
+                  "hpe.container.xxsmall",
+                  "hpe.container.xsmall",
+                  "hpe.container.small",
+                  "hpe.container.medium",
+                  "hpe.container.large",
+                  "hpe.container.xlarge",
+                  "hpe.container.xxlarge",
+                  "hpe.container.3xlarge"
+                ],
+                "description": "Use for min-width, max-width, min-height, max-height of layout containers."
+              }
+            },
+            {
+              "label": "Typography",
+              "description": "Font sizes, weights, line heights for headings and body text.",
+              "next": {
+                "id": "typography",
+                "question": "What kind of text?",
+                "options": [
+                  {
+                    "label": "Heading (h1–h6)",
+                    "next": {
+                      "id": "heading-size",
+                      "question": "What heading level?",
+                      "options": [
+                        { "label": "h1 (xlarge)", "result": { "tokens": ["hpe.heading.xlarge.fontSize", "hpe.heading.xlarge.fontWeight", "hpe.heading.xlarge.lineHeight"] } },
+                        { "label": "h2 (large)", "result": { "tokens": ["hpe.heading.large.fontSize", "hpe.heading.large.fontWeight", "hpe.heading.large.lineHeight"] } },
+                        { "label": "h3 (medium)", "result": { "tokens": ["hpe.heading.medium.fontSize", "hpe.heading.medium.fontWeight", "hpe.heading.medium.lineHeight"] } },
+                        { "label": "h4 (small)", "result": { "tokens": ["hpe.heading.small.fontSize", "hpe.heading.small.fontWeight", "hpe.heading.small.lineHeight"] } },
+                        { "label": "h5 (xsmall)", "result": { "tokens": ["hpe.heading.xsmall.fontSize", "hpe.heading.xsmall.fontWeight", "hpe.heading.xsmall.lineHeight"] } },
+                        { "label": "h6 (xxsmall)", "result": { "tokens": ["hpe.heading.xxsmall.fontSize", "hpe.heading.xxsmall.fontWeight", "hpe.heading.xxsmall.lineHeight"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Body text",
+                    "next": {
+                      "id": "text-size",
+                      "question": "What size?",
+                      "options": [
+                        { "label": "xsmall", "result": { "tokens": ["hpe.text.xsmall.fontSize", "hpe.text.xsmall.fontWeight", "hpe.text.xsmall.lineHeight", "hpe.text.xsmall.maxWidth"] } },
+                        { "label": "small", "result": { "tokens": ["hpe.text.small.fontSize", "hpe.text.small.fontWeight", "hpe.text.small.lineHeight", "hpe.text.small.maxWidth"] } },
+                        { "label": "medium", "result": { "tokens": ["hpe.text.medium.fontSize", "hpe.text.medium.fontWeight", "hpe.text.medium.lineHeight", "hpe.text.medium.maxWidth"], "description": "Medium is the default body text size." } },
+                        { "label": "large", "result": { "tokens": ["hpe.text.large.fontSize", "hpe.text.large.fontWeight", "hpe.text.large.lineHeight", "hpe.text.large.maxWidth"] } },
+                        { "label": "xlarge", "result": { "tokens": ["hpe.text.xlarge.fontSize", "hpe.text.xlarge.fontWeight", "hpe.text.xlarge.lineHeight", "hpe.text.xlarge.maxWidth"] } },
+                        { "label": "xxlarge", "result": { "tokens": ["hpe.text.xxlarge.fontSize", "hpe.text.xxlarge.fontWeight", "hpe.text.xxlarge.lineHeight", "hpe.text.xxlarge.maxWidth"] } },
+                        { "label": "3xlarge", "result": { "tokens": ["hpe.text.3xlarge.fontSize", "hpe.text.3xlarge.fontWeight", "hpe.text.3xlarge.lineHeight", "hpe.text.3xlarge.maxWidth"] } },
+                        { "label": "4xlarge", "result": { "tokens": ["hpe.text.4xlarge.fontSize", "hpe.text.4xlarge.fontWeight", "hpe.text.4xlarge.lineHeight", "hpe.text.4xlarge.maxWidth"] } },
+                        { "label": "5xlarge", "result": { "tokens": ["hpe.text.5xlarge.fontSize", "hpe.text.5xlarge.fontWeight", "hpe.text.5xlarge.lineHeight", "hpe.text.5xlarge.maxWidth"] } }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Font weight only",
+                    "result": {
+                      "tokens": [
+                        "hpe.fontWeight.thin",
+                        "hpe.fontWeight.light",
+                        "hpe.fontWeight.regular",
+                        "hpe.fontWeight.medium",
+                        "hpe.fontWeight.semibold",
+                        "hpe.fontWeight.bold",
+                        "hpe.fontWeight.black"
+                      ],
+                      "description": "'regular' (400) is the default. 'medium' (500) for emphasis. 'bold' (700) used sparingly."
+                    }
+                  },
+                  {
+                    "label": "Font family",
+                    "result": {
+                      "tokens": ["hpe.fontStack.primary"],
+                      "description": "The main font stack: 'HPE Graphik', Arial, sans-serif."
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Border",
+              "description": "Border widths (thickness) and corner radius (roundness).",
+              "next": {
+                "id": "border",
+                "question": "What property?",
+                "options": [
+                  {
+                    "label": "Border width (thickness)",
+                    "result": {
+                      "tokens": [
+                        "hpe.borderWidth.none",
+                        "hpe.borderWidth.xsmall",
+                        "hpe.borderWidth.small",
+                        "hpe.borderWidth.default",
+                        "hpe.borderWidth.medium",
+                        "hpe.borderWidth.large"
+                      ],
+                      "description": "'default' is the standard border width for most uses."
+                    }
+                  },
+                  {
+                    "label": "Corner radius (roundness)",
+                    "result": {
+                      "tokens": [
+                        "hpe.radius.none",
+                        "hpe.radius.xxsmall",
+                        "hpe.radius.xsmall",
+                        "hpe.radius.small",
+                        "hpe.radius.medium",
+                        "hpe.radius.large",
+                        "hpe.radius.xlarge",
+                        "hpe.radius.xxlarge",
+                        "hpe.radius.full"
+                      ],
+                      "description": "'full' creates a pill/circle shape. 'medium' is common for containers."
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Icon sizing",
+              "description": "Icon dimensions (width × height).",
+              "result": {
+                "tokens": [
+                  "hpe.icon.xsmall.size",
+                  "hpe.icon.small.size",
+                  "hpe.icon.medium.size",
+                  "hpe.icon.large.size",
+                  "hpe.icon.xlarge.size",
+                  "hpe.icon.xxlarge.size"
+                ],
+                "description": "Icon sizes. Use alongside element tokens to pair the right icon size with the right element size."
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
