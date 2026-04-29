@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box, Button, DataTable, Heading, Paragraph, Text } from 'grommet';
-import { CopyButton } from '@design-tokens-manager/components/CopyButton';
+import { CopyButton } from '../../../design-tokens-manager/src/components/CopyButton';
 import {
   ColorPreview,
   DimensionPreview,
@@ -8,7 +8,7 @@ import {
   BorderPreview,
   WeightPreview,
   TextPreview,
-} from '@docs/components/content/DesignTokensTable';
+} from '../../../docs/src/components/content/DesignTokensTable';
 import { resolveResultTokens } from '../lib/treeUtils';
 
 /**
