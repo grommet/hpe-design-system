@@ -11,4 +11,5 @@ spec:
     agent: alignment-audit-orchestrator
     args: "<scope>"
   assets:
-    agents: []
+    agents:
+      - alignment-audit-orchestrator.agent.md
