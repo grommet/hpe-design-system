@@ -133,7 +133,7 @@
         "properties": {
           "path": {
             "type": "string",
-            "pattern": "^(?!/)(?![A-Za-z]+://).+"
+            "pattern": "^(?![\\\\/])(?![A-Za-z]:[\\\\/])(?![A-Za-z]+://).+"
           }
         }
       }
