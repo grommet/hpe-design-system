@@ -11,16 +11,11 @@ This plan outlines the refactor of the HPE Design System component documentation
 
 ### 2. Standard Component Workflow (Execute per component)
 
-- [ ] Create a new YAML file for the component in `shared/data-structure/components/` as the new source of truth.
-- [ ] Extract existing MDX content into the newly created YAML format (using the extraction prompt), matching the `ComponentDefinition` schema in `shared/data-structure/types.ts`.
-  - _Mitigation:_ Ensure any existing code examples in the MDX are saved as file path references in the YAML `examples` array to avoid losing interactive code.
-  - _Mitigation:_ Validate the YAML structure visually or through repo scripts to ensure it strictly conforms to `types.ts` before proceeding. Sub-components (e.g. `CardBody`) should be evaluated for whether they require their own independent YAML file or can be reasoned about within the parent's definition.
-- [ ] Temporarily rename the old MDX file (e.g., `apps/docs/src/pages/components/[name].mdx.bak`) to preserve specific Next.js page imports and frontmatter.
-- [ ] Run the generation prompt (`.github/prompts/generate-mdx.prompt.md`) in Copilot Chat.
-- [ ] Save the generated output to `apps/docs/src/pages/components/[name].mdx` and restore any required Next.js page wrappers, React imports (such as `AccessibilitySection`), or frontmatter from the `.bak` file.
-- [ ] Delete the temporary `.bak` file to keep the repository clean.
-- [ ] Review copy against guidelines, note missing information or code example placeholders in `apps/docs/todos/TODO-[component].md`, and log any removed, unstructured legacy content in `apps/docs/todos/DEPRECATED-[component].md`.
-- [ ] Submit individual PRs (e.g., `docs: refactor [Component] component`).
+Each component is driven end-to-end by the orchestrator agent. From a feature branch, run:
+
+> `@docs-refactor-orchestrator [component-name]`
+
+The orchestrator detects the current pipeline stage, confirms before making any changes, and delegates to the appropriate agents in sequence. See `.github/instructions/docs-refactor-execution.md` for the full walkthrough.
 
 ### 3. Phased Rollout Targets
 
@@ -38,13 +33,12 @@ This plan outlines the refactor of the HPE Design System component documentation
 
 ## Decisions
 
-- Abstracted the per-component steps into a standalone workflow section to eliminate repetition across phases.
-- Added prompt-based YAML extraction and a `.mdx.bak` file renaming step to prevent accidental loss of React component usage and existing code examples.
-- Included an implicit cleanup step for the `.bak` files to prevent workspace clutter.
-- Clarified that sub-component architecture will need to be evaluated on a case-by-case basis during extraction (e.g. nested vs standalone YAML definitions).
-- Chose to use GitHub Copilot Chat prompts instead of an automated Node.js generation script to accommodate available LLM tooling and API key constraints.
+- Abstracted the per-component steps into a dedicated orchestrator agent (`docs-refactor-orchestrator`) so contributors run a single command rather than manually invoking each agent in sequence.
+- The orchestrator uses `.mdx.bak` file presence/absence as the primary pipeline state signal, avoiding any external state store.
+- Sub-component architecture (e.g. `CardBody`) is evaluated case-by-case during YAML extraction — either nested within the parent YAML or as a standalone file.
+- Prompt files (`.github/prompts/`) are retained as documentation references; the agent pipeline supersedes them for active use.
 - Segmented by complexity to isolate template edge cases early during the pilot phase.
-- Maintained a 1 PR per component structure to streamline PR feedback loops and quickly iterate on the script.
+- Maintained 1 PR per component to streamline feedback loops and iteration.
 
 ## Full Component Checklist
 
