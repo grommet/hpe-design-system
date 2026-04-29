@@ -66,7 +66,7 @@ export const DashboardCard = ({
     <Card
       {...inlineProps}
       // this is just to demo hover state
-      {...(!inline ? { onClick: () => {} } : {})}
+      {...(!inline && !controls ? { onClick: () => {} } : {})}
       {...skeletonProps}
       {...rest}
       >
@@ -74,7 +74,7 @@ export const DashboardCard = ({
         {...headerProps}
       >
         <Box direction="row" gap="small" align="start">
-          {controls && controls[0]}
+          {controls && <Box flex={false}>{controls[0]}</Box>}
           {icon && (
             <Box flex={false}>
               {skeleton ? <Skeleton height="xxsmall" width="xxsmall" /> : icon}

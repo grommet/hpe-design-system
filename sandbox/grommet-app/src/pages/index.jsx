@@ -49,13 +49,13 @@ function Home() {
 
   const [widgets, setWidgets] = useState([
     { id: 'billingSummary', component: <BillingSummary /> },
-    { id: 'deviceSummary', component: <DeviceSummary /> /* , size: '2x1', sizeProps: sizeToSpan['2x1'] */},
+    { id: 'deviceSummary', component: <DeviceSummary /> },
     { id: 'sustainabilityOverview', component: <SustainabilityOverview /> },
     { id: 'userOverview', component: <UserOverview /> },
     { id: 'notifications', component: <Notifications />, size: '2x1', sizeProps: sizeToSpan['2x1'] },
     { id: 'monthlyCharges', component: <MonthlyCharges /> },
     { id: 'expiringSubscriptions', component: <ExpiringSubscriptions /> },
-    { id: 'recentServices', component: <RecentServices compact />},
+    { id: 'recentServices', component: <RecentServices compact /> },
 
   ]);
 

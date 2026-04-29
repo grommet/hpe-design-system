@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { cloneElement, useState } from 'react';
-import { Grid } from 'grommet';
+import { Grid, Keyboard } from 'grommet';
 import { CustomizeMenu } from './CustomizeMenu';
 import { DragControl } from './DragControl';
 
@@ -75,30 +75,35 @@ export const CustomizableGrid = ({ data, onOrder, onResize: onResizeProp, resize
           onOrder(orderingData);
         }
       },
+      tabIndex: 0,
+      onFocus: (ev) => console.log('focus', item.id, index, ev.target),
+      onKeyDown: (event) => console.log('key down', item.id, index, event.key),
+      keyboard: {
+        onUp: (event) => {
+          console.log('up', index);
+          event.preventDefault();
+          move(-1);
+        },
+        onDown: (event) => {
+          console.log('down', index);
+          event.preventDefault();
+          move(1);
+        },
+        onLeft: (event) => {
+          console.log('left', index);
+          event.preventDefault();
+          move(-1);
+        },
+        onRight: (event) => {
+          console.log('right', index);
+          event.preventDefault();
+          move(1);
+        },
+      },
       controls: [
         <DragControl
           key={`move-${item.id || index}`}
           a11yTitle={`Move ${item.id || index}`}
-          onUp={(event) => {
-            console.log('up', index);
-            event.preventDefault();
-            move(-1);
-          }}
-          onDown={(event) => {
-            console.log('down', index);
-            event.preventDefault();
-            move(1);
-          }}
-          onLeft={(event) => {
-            console.log('left', index);
-            event.preventDefault();
-            move(-1);
-          }}
-          onRight={(event) => {
-            console.log('right', index);
-            event.preventDefault();
-            move(1);
-          }}
         />,
         <CustomizeMenu
           key={`menu-${item.id || index}`}
@@ -109,13 +114,20 @@ export const CustomizableGrid = ({ data, onOrder, onResize: onResizeProp, resize
       ],
     } : {};
 
+    const { controls, keyboard, ...wrapperProps } = onOrderProps;
 
-    console.log('rendering', item.id, onOrderProps, item.size);
-    return cloneElement(item.component, {
-      key: item.id || index,
-      ...onOrderProps,
-      style: item.sizeProps || {},
-    });
+    // console.log('rendering', item.id, onOrderProps, item.size);
+    return (
+      <Keyboard key={item.id || index} {...keyboard}>
+        <div
+          // display: grid makes the single child fill the wrapper (stretch in both axes)
+          style={{ ...item.sizeProps, display: 'grid' }}
+          {...wrapperProps}
+        >
+          {cloneElement(item.component, { controls })}
+        </div>
+      </Keyboard>
+    );
   };
 
   return (
