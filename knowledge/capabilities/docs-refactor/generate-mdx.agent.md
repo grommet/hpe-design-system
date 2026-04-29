@@ -1,7 +1,7 @@
 ---
 name: generate-mdx-agent
-description: "Use when: generating a new standardized MDX documentation page for a component from its YAML source of truth. Triggered after extract-yaml-agent has run and a .yaml file and .mdx.bak file exist for the component. Generates the MDX following COMPONENT_TEMPLATE.md and writing-documentation.instruction.md, then merges back Next.js page-level wrappers from the .bak. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/execution.skill.md."
-argument-hint: "Component name (e.g. checkbox, menu, select). Must match a .yaml file in knowledge/core/data/components/ and a .mdx.bak in apps/docs/src/pages/components/."
+description: 'Use when: generating a new standardized MDX documentation page for a component from its YAML source of truth. Triggered after extract-yaml-agent has run and a .yaml file and .mdx.bak file exist for the component. Generates the MDX following COMPONENT_TEMPLATE.md and knowledge/core/skills/writing-style.skill.md, then merges back Next.js page-level wrappers from the .bak. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/execution.skill.md.'
+argument-hint: 'Component name (e.g. checkbox, menu, select). Must match a .yaml file in knowledge/core/data/components/ and a .mdx.bak in apps/docs/src/pages/components/.'
 tools: [read, search, edit]
 ---
 
@@ -16,7 +16,7 @@ You are the second step in the per-component docs refactor pipeline, running aft
 2. **Determine the target component.** Read the component name from the user's message. If not provided, ask — do not guess. Confirm that both of the following exist before proceeding:
    - `knowledge/core/data/components/[component-name].yaml`
    - `apps/docs/src/pages/components/[component-name].mdx.bak`
-   If either is missing, stop and tell the user to run `extract-yaml-agent` first.
+     If either is missing, stop and tell the user to run `extract-yaml-agent` first.
 
 3. **Read all context files** — read all of the following before writing any MDX:
    - `knowledge/core/data/components/[component-name].yaml` — the content source of truth
@@ -93,7 +93,7 @@ You are the second step in the per-component docs refactor pipeline, running aft
 - **Never add a bare JSX comment as the only child** of an `<Example bestPractice>` block — this crashes `cloneElement` at runtime. Always wrap it in `<div>`.
 - **Gerund phrases only** for use case `###` subheadings. Never use noun phrases or questions.
 - **Do not invent sections** not present in `COMPONENT_TEMPLATE.md`.
-- **Follow `writing-documentation.instruction.md` strictly:** imperative tone, sentence case headings, short sentences, favor lists over paragraphs, assert non-negotiables with "Always" or "Never".
+- **Follow `knowledge/core/skills/writing-style.skill.md` strictly:** imperative tone, sentence case headings, short sentences, favor lists over paragraphs, assert non-negotiables with "Always" or "Never".
 
 ## Output Format
 
