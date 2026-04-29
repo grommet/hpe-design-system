@@ -47,11 +47,11 @@ spec:
     - id: extracted
       when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
     - id: generated
-      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx) && !exists(apps/docs/src/pages/components/[component].mdx.bak)"
+      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
     - id: todos-created
       when: "exists(apps/docs/todos/TODO-[component].md)"
     - id: reviewed
-      when: "exists(apps/docs/src/pages/components/[component].mdx) && !matches(file_content, /TODO.*example/i)"
+      when: "exists(apps/docs/src/pages/components/[component].mdx) && !exists(apps/docs/src/pages/components/[component].mdx.bak) && !matches(file_content, /TODO.*example/i)"
     - id: rendered
       when: "last_build_success() && !exists(console_errors)"
     - id: complete

@@ -23,7 +23,7 @@ This skill describes how to execute the docs-refactor capability workflow for a 
 
 ## The Agent Pipeline
 
-The docs-refactor workflow is driven by an orchestrator that manages nine specialized agents:
+The docs-refactor workflow is driven by an orchestrator (`docs-refactor-orchestrator`) that manages eight specialized agents in sequence:
 
 ```
 [1] extract-yaml-agent
