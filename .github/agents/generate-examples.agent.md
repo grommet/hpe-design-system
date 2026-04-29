@@ -46,6 +46,22 @@ You are a specialist React developer for the HPE Design System. Your job is to i
      ```
      Skip any of these steps if the line already exists.
 
+2.5. **Discover composition context** — run this once before writing any example. Some components are only meaningful when rendered inside a host component (e.g. Search inside a Toolbar inside a DataTable). Identifying that host first prevents thin, decontextualised examples.
+
+   **a. Reverse lookup:** Grep `shared/data-structure/components/*.yaml` for `- [component-id]` under `relatedComponents` blocks to find which other components list the target as a relative. Collect those as candidate host components.
+
+   **b. Keyword heuristic:** For each use case TODO, scan its heading and description for trigger phrases and map to a candidate host:
+
+   | Trigger phrases | Candidate host | Examples folder to read |
+   |---|---|---|
+   | "dense data", "table", "dataset", "records", "data view", "filter", "rows" | `datatable` + `toolbar` | `apps/docs/src/examples/components/datatable/` |
+   | "header", "site-wide", "application-level", "navigation" | `header` | `apps/docs/src/examples/components/header/` |
+   | "form", "submit", "field", "inputs" | `button` / layout | `apps/docs/src/examples/components/button/` |
+   | "dialog", "confirm", "modal", "overlay" | `layer` | `apps/docs/src/examples/components/layer/` |
+   | "page", "full layout" | `page` | `apps/docs/src/examples/components/page/` |
+
+   **c. Read host examples:** For each matched host, read 1–2 of its existing example files to understand the outer composition structure. Store as "composition reference for use case X." If no trigger phrases match and the reverse lookup returns nothing, proceed without a host context.
+
 5. **For each use case TODO**, create a new file:
    - Path: `apps/docs/src/examples/components/[component-name]/[ComponentName][UseCasePascalCase]Example.js`
    - **Naming rule for `[UseCasePascalCase]`:** capitalize every word in the use case title, strip articles (`a`, `an`, `the`), and remove non-alphanumeric characters. E.g., "Submitting a form" → `SubmittingForm`; "Triggering UI changes" → `TriggeringUIChanges`.
@@ -56,6 +72,7 @@ You are a specialist React developer for the HPE Design System. Your job is to i
      - If the component **controls a view or section**, show enough of that view to make the switch meaningful.
      - Ask: "If I removed this component from the example, would the use case still make sense visually?" If yes, add more context. If the example is already cluttered, reduce data rows/items rather than removing the surrounding structure.
      - Keep examples minimal but complete — reduce data (e.g., 3 rows instead of 10) rather than removing the structural context that tells the story.
+   - **If a composition context was identified for this use case (Step 2.5), use the host component's example as the outer shell.** Place the target component where it logically belongs within that shell — e.g. Search inside a `Toolbar` at the top of a `DataTable`; Search in the right slot of a `Header`. Do not flatten the host shell to "keep it simple" — the point of the use case is showing the component in its real, recognisable context.
    - If the use case involves interaction (e.g., submitting, toggling, confirming), use `useState` to make it live.
    - If the example uses a `Layer`, `ModalDialog`, or `Drop`: accept `containerRef` as a prop and pass it to the component's `target` prop. Mirror PropTypes declarations if other files in the folder use them. If the example has no overlay, omit `containerRef` from the signature entirely — and also omit the `PropTypes` import and any `.propTypes` declaration block, since referencing `PropTypes` without importing it causes a runtime `ReferenceError`.
 
@@ -83,7 +100,15 @@ For each example created, report:
 - A one-sentence summary of what the example demonstrates
 - Whether the MDX and index.js were updated successfully
 
-End with a summary table:
+End with a **Composition context** table followed by the **Examples summary** table:
+
+**Composition context:**
+
+| Use Case | Host component(s) identified | Reference example read |
+|----------|------------------------------|------------------------|
+| ... | datatable + toolbar / header / none | path/to/example.js |
+
+**Examples summary:**
 
 | Use Case | Example File | MDX Updated | Component index.js Updated |
 |----------|-------------|-------------|----------------------------|
