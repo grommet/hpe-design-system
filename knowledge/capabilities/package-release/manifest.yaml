@@ -1,0 +1,15 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: package-release
+  version: 1.0.0
+  status: planned
+  owner: design-system
+spec:
+  summary: Prepare, validate, and publish design-system packages with changelog and release safeguards.
+  entrypoint:
+    agent: package-release-orchestrator
+    args: "<package-name>"
+  assets:
+    agents:
+      - package-release-orchestrator.agent.md
