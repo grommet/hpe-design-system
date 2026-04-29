@@ -83,7 +83,7 @@ export const PopoverInlineExample = () => {
               a11yTitle="Informational help"
               aria-expanded={showPopover}
               aria-haspopup="true"
-              aria-controls="popover-info"
+              aria-controls={showPopover ? 'popover-info' : undefined}
             />
           </Box>
         </Box>

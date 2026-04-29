@@ -2,6 +2,7 @@ import { Notification } from 'grommet';
 import {
   ContentLayoutPreview,
   CodeBlocksPreview,
+  DoubleConfirmationPreview,
   EmptyStatePreview,
   FeedbackPreview,
   StatusIndicatorPreview,
@@ -121,6 +122,39 @@ export const templates = [
       'status panel',
       'monitoring center',
       'metrics board',
+    ],
+  },
+  {
+    name: 'Double confirmation',
+    available: true,
+    cardOrder: 100,
+    description:
+      // eslint-disable-next-line max-len
+      'A double confirmation exists to ensure that a high-impact action is deliberate and to prevent loss of any unsaved or user-entered information.',
+    preview: {
+      component: () => <DoubleConfirmationPreview />,
+      background: 'background-back',
+    },
+    seoDescription: `HPE Design System double confirmation template for screens 
+    featuring content within cards.`,
+    sections: [],
+    relatedContent: ['Layer', 'Page layouts', 'Content layouts'],
+    tags: [
+      'double confirmation',
+      'high-impact action',
+      'user confirmation',
+      'unsaved changes',
+      'prevent loss',
+      'layer',
+      'modal',
+      'dialog',
+      'confirmation',
+      'user intent',
+      'action confirmation',
+      'safety',
+      'error prevention',
+      'user feedback',
+      'interaction design',
     ],
   },
   {
@@ -323,6 +357,7 @@ export const templates = [
   },
   {
     name: 'Forms',
+    pages: ['Managing child objects'],
     available: true,
     cardOrder: 1,
     description: `Common form use cases from application configuration 
@@ -393,6 +428,7 @@ export const templates = [
   },
   {
     name: 'Managing child objects',
+    path: '/templates/forms/managing-child-objects',
     parentPage: 'Forms',
     available: true,
     description: `How to show, hide, and edit details of child 

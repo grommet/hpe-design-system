@@ -36,9 +36,6 @@ const mockApplications = [
 const meta = {
   title: 'Components/Data',
   component: Toolbar,
-  parameters: {
-    layout: 'fullscreen',
-  },
   argTypes: {},
 } satisfies Meta<typeof Toolbar>;
 

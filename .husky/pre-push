@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+set -e
+
+echo "..Running docs structure system tests"
+pnpm --filter docs run test:unit
+
+echo "Pre-push checks completed."

@@ -1,7 +1,6 @@
 import React from 'react';
-/* eslint-disable max-len */
-// eslint-disable-next-line import/no-unresolved
 import { CodeBlockExample } from 'apps/docs/src/examples/templates/code-blocks/CodeBlocks';
+import CodeBlockExampleSource from 'apps/docs/src/examples/templates/code-blocks/CodeBlocks.js?raw';
 
 const meta = {
   title: 'Patterns/Code Blocks',
@@ -16,4 +15,16 @@ export default meta;
 
 export const CodeBlock = {
   render: () => <CodeBlockExample />,
+  parameters: {
+    docs: {
+      source: {
+        code: CodeBlockExampleSource,
+        language: 'jsx',
+        type: 'code',
+      },
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+  },
 };

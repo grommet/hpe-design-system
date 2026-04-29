@@ -74,3 +74,15 @@ Run in production mode:
 pnpm build
 pnpm --filter docs start-server
 ```
+
+## Docs Structure Validation
+
+Structure validation policy and modes are documented in [apps/docs/README.md](apps/docs/README.md).
+
+Useful commands:
+
+```
+pnpm --filter docs validate:structure
+pnpm --filter docs build
+STRICT_STRUCTURE_VALIDATION=false pnpm --filter docs build
+```

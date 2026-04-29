@@ -1,40 +1,31 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Data, Toolbar, DataFilter } from 'grommet';
+import { useInert } from '@shared/hooks';
 
 export const DataFilterPreview = () => {
-  const ref = useRef();
-
-  useEffect(() => {
-    if (ref.current) {
-      const buttons = ref.current.querySelectorAll('button, input');
-      buttons.forEach(button => {
-        button.setAttribute('tabindex', '-1');
-      });
-    }
-  }, []);
+  const ref = useInert();
 
   return (
-    <div ref={ref}>
-      <Data
-        data={[
-          {
-            location: 'Fort Collins',
-          },
-          {
-            location: 'Boise',
-          },
-          {
-            location: 'Palo Alto',
-          },
-          {
-            location: 'San Francisco',
-          },
-        ]}
-      >
-        <Toolbar>
-          <DataFilter property="location" />
-        </Toolbar>
-      </Data>
-    </div>
+    <Data
+      ref={ref}
+      data={[
+        {
+          location: 'Fort Collins',
+        },
+        {
+          location: 'Boise',
+        },
+        {
+          location: 'Palo Alto',
+        },
+        {
+          location: 'San Francisco',
+        },
+      ]}
+    >
+      <Toolbar>
+        <DataFilter property="location" />
+      </Toolbar>
+    </Data>
   );
 };

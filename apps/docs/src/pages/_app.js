@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import React, { useEffect, createContext, useState, useMemo } from 'react';
 import { Layout, ThemeMode } from '../layouts';
 import { components } from '../components';
+import { getPrimaryPageByName, structureIndexes } from '../data';
 import {
   pageVisitTracker,
   getLocalStorageKey,
 } from '../utils/pageVisitTracker';
-import { nameToSlug, getPageDetails } from '../utils';
+import { nameToSlug } from '../utils';
 
 const slugToText = str => str.split('-').join(' ');
 
@@ -158,7 +159,8 @@ function App({ Component, pageProps, router }) {
       if (typeof window !== 'undefined') {
         const routeParts = router.route.split('/');
         let name = routeParts[routeParts.length - 1].split('-').join(' ');
-        const { name: pageName } = getPageDetails(name);
+        const { name: pageName } =
+          getPrimaryPageByName(name, structureIndexes) || {};
         name = name.charAt(0).toUpperCase() + name.slice(1);
         const localStorageKey = getLocalStorageKey(name);
         const now = new Date().getTime();

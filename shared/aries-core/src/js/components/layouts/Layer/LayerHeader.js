@@ -5,15 +5,23 @@ import { Close } from '@hpe-design/icons-grommet';
 
 export const LayerHeader = ({
   closeId,
-  informational,
+  headerId,
   title = 'Layer title',
   onClose,
   subtitle,
+  titleSize,
   ...rest
 }) => (
-  <Header flex={false} align="start" gap="xsmall" justify="between" {...rest}>
+  <Header
+    id={headerId}
+    flex={false}
+    align="start"
+    gap="xsmall"
+    justify="between"
+    {...rest}
+  >
     <Box>
-      <Heading id="layer-title" level={2} margin="none">
+      <Heading id="layer-title" level={2} margin="none" size={titleSize}>
         {title}
       </Heading>
       <Paragraph id="layer-subtitle" margin="none">
@@ -22,9 +30,8 @@ export const LayerHeader = ({
     </Box>
     {onClose ? (
       <Button
-        icon={<Close />}
+        icon={<Close id={closeId} />}
         onClick={onClose}
-        id={closeId}
         a11yTitle="Close modal"
       />
     ) : null}
@@ -33,8 +40,9 @@ export const LayerHeader = ({
 
 LayerHeader.propTypes = {
   closeId: PropTypes.string,
-  informational: PropTypes.bool,
+  headerId: PropTypes.string,
   onClose: PropTypes.func,
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  titleSize: PropTypes.string,
 };

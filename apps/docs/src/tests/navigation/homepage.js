@@ -12,7 +12,6 @@ test('should navigate to correct path in Header when clicked on', async t => {
   await t.click(element).expect(getLocation()).contains(expectedPath);
 });
 
-// eslint-disable-next-line max-len
 test(`should navigate to correct path in Header when choosen 
   via keyboard`, async t => {
   const page = 'Components';

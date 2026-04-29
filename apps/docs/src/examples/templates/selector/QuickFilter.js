@@ -339,6 +339,7 @@ export const QuickFilter = () => {
                 <DataTable
                   alignSelf="start"
                   columns={columns}
+                  placeholder={result.data.length === 0 ? 'No data' : undefined}
                   verticalAlign={{ body: 'top' }}
                 />
               </Box>

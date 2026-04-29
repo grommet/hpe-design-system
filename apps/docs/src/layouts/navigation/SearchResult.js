@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Box, Paragraph, Text } from 'grommet';
 
 import { useContext } from 'react';
-import { getPageDetails } from '../../utils';
+import { getPrimaryPageByName, structureIndexes } from '../../data';
 import { HighlightPhrase } from '../../components';
 
 import { pageVisitTracker } from '../../utils/pageVisitTracker';
@@ -11,7 +11,7 @@ import { ViewContext } from '../../pages/_app';
 
 export const SearchResult = ({ query, result }) => {
   const hub = result.url && result.url.split('/')[1].replaceAll('-', ' ');
-  const parent = getPageDetails(hub);
+  const parent = getPrimaryPageByName(hub, structureIndexes);
 
   const { contentHistory } = useContext(ViewContext);
   let showUpdate;

@@ -1079,7 +1079,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.background.contrast.DEFAULT.hover}"
+            "$value": "{color.background.DEFAULT.hover}"
           },
           "borderColor": {
             "$description": "",
@@ -1091,7 +1091,7 @@
               }
             },
             "$type": "color",
-            "$value": "{button.default.selected.rest.borderColor}"
+            "$value": "{color.border.selected.DEFAULT.REST}"
           },
           "fontWeight": {
             "$description": "",
@@ -1103,7 +1103,7 @@
               }
             },
             "$type": "number",
-            "$value": "{button.default.selected.rest.fontWeight}"
+            "$value": "{fontWeight.medium}"
           },
           "iconColor": {
             "$description": "",
@@ -1115,7 +1115,7 @@
               }
             },
             "$type": "color",
-            "$value": "{button.default.selected.rest.iconColor}"
+            "$value": "{color.icon.strong.REST}"
           },
           "textColor": {
             "$description": "",
@@ -1127,7 +1127,7 @@
               }
             },
             "$type": "color",
-            "$value": "{button.default.selected.rest.textColor}"
+            "$value": "{color.text.strong.REST}"
           }
         },
         "rest": {
@@ -1141,7 +1141,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.background.DEFAULT.active}"
+            "$value": "{color.transparent}"
           },
           "borderColor": {
             "$description": "",
@@ -1153,7 +1153,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.transparent}"
+            "$value": "{color.border.selected.DEFAULT.REST}"
           },
           "fontWeight": {
             "$description": "",
@@ -1165,7 +1165,7 @@
               }
             },
             "$type": "number",
-            "$value": "{fontWeight.semibold}"
+            "$value": "{fontWeight.medium}"
           },
           "iconColor": {
             "$description": "",
@@ -1177,7 +1177,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.icon.primary.DEFAULT.REST}"
+            "$value": "{color.icon.strong.REST}"
           },
           "textColor": {
             "$description": "",
@@ -1189,7 +1189,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.text.primary.DEFAULT.REST}"
+            "$value": "{color.text.strong.REST}"
           }
         }
       },
@@ -2435,7 +2435,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.background.contrast.DEFAULT.hover}"
+            "$value": "{color.background.DEFAULT.hover}"
           },
           "borderColor": {
             "$description": "",
@@ -2447,7 +2447,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.transparent}"
+            "$value": "{color.border.selected.DEFAULT.REST}"
           },
           "fontWeight": {
             "$description": "",
@@ -2497,7 +2497,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.background.contrast.DEFAULT.REST}"
+            "$value": "{color.transparent}"
           },
           "borderColor": {
             "$description": "",
@@ -2509,7 +2509,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.transparent}"
+            "$value": "{color.border.selected.DEFAULT.REST}"
           },
           "fontWeight": {
             "$description": "",
@@ -3791,7 +3791,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.background.selected.primary.DEFAULT.hover}"
+            "$value": "{color.background.DEFAULT.hover}"
           },
           "borderColor": {
             "$description": "",
@@ -3803,7 +3803,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.transparent}"
+            "$value": "{color.border.selected.DEFAULT.REST}"
           },
           "fontWeight": {
             "$description": "",
@@ -3815,7 +3815,7 @@
               }
             },
             "$type": "number",
-            "$value": "{fontWeight.semibold}"
+            "$value": "{fontWeight.medium}"
           },
           "iconColor": {
             "$description": "",
@@ -3827,7 +3827,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.icon.primary.DEFAULT.REST}"
+            "$value": "{color.icon.strong.REST}"
           },
           "textColor": {
             "$description": "",
@@ -3839,7 +3839,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.text.primary.DEFAULT.REST}"
+            "$value": "{color.text.strong.REST}"
           }
         },
         "rest": {
@@ -3853,7 +3853,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.background.selected.primary.DEFAULT.REST}"
+            "$value": "{color.transparent}"
           },
           "borderColor": {
             "$description": "",
@@ -3865,7 +3865,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.transparent}"
+            "$value": "{color.border.selected.DEFAULT.REST}"
           },
           "fontWeight": {
             "$description": "",
@@ -3877,7 +3877,7 @@
               }
             },
             "$type": "number",
-            "$value": "{fontWeight.semibold}"
+            "$value": "{fontWeight.medium}"
           },
           "iconColor": {
             "$description": "",
@@ -3889,7 +3889,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.icon.primary.DEFAULT.REST}"
+            "$value": "{color.icon.strong.REST}"
           },
           "textColor": {
             "$description": "",
@@ -3901,7 +3901,7 @@
               }
             },
             "$type": "color",
-            "$value": "{color.text.primary.DEFAULT.REST}"
+            "$value": "{color.text.strong.REST}"
           }
         }
       },
@@ -16083,7 +16083,7 @@
                   }
                 },
                 "$type": "number",
-                "$value": "{static.spacing.xxsmall}"
+                "$value": "{static.spacing.xsmall}"
               },
               "paddingY": {
                 "$description": "",

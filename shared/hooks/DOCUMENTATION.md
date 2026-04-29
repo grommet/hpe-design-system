@@ -20,6 +20,202 @@ This package is part of the HPE Design System monorepo and is available as a wor
 
 ## Available Hooks
 
+- [useInert](#useInert)
+- [useLocalStorage](#useLocalStorage)
+- [useSessionStorage](#useSessionStorage)
+
+### useInert
+
+A React hook that marks a container element as `inert`, blocking focus, pointer events, and assistive technology access for all descendants. Ideal for card previews and other non-interactive display surfaces.
+
+#### Features
+
+- **Container-level inert behavior**: Sets `inert` on the container so all descendants are handled automatically
+- **Restores previous state on cleanup**: Captures the prior `inert` value and restores it on unmount
+- **No manual descendant management**: Applies automatically to all descendants via inherited inert behavior
+- **No external ref required**: The hook creates and owns the ref internally — no `useRef` needed at the call site
+- **Zero configuration**: Takes no parameters — returns a ref to attach to the container
+- **Accessibility semantics**: Uses the [`inert` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inert), which removes the container and its descendants from the tab order and accessibility tree while active.
+
+#### Usage
+
+```typescript
+import { useInert } from '@shared/hooks';
+
+export const ComponentPreview = () => {
+  const ref = useInert();
+
+  return (
+    <div ref={ref}>
+      {/* Descendant interactive elements are disabled while the container is inert */}
+    </div>
+  );
+};
+```
+
+#### API
+
+```typescript
+const ref = useInert<T extends HTMLElement = HTMLDivElement>(): RefObject<T | null>
+```
+
+**Parameters:** none
+
+**Returns:**
+
+- `ref` (RefObject<T | null>): A ref to attach to the container element. The hook creates it internally — no `useRef` needed at the call site. The type parameter `T` defaults to `HTMLDivElement` so the common `<div ref={ref}>` case is type-safe without extra annotations, and can still be widened or narrowed for other element types as needed.
+
+#### Why the hook owns the ref
+
+The hook creates `useRef<T>(null)` internally and returns it. This keeps call sites to a single line and ensures the ref is always correctly initialized with `null` — the React best practice for DOM refs — without the consumer needing to know about it:
+
+```typescript
+// Clean — one line, ref is owned by the hook
+const ref = useInert();
+
+// Avoid — unnecessary manual ref management at the call site
+const ref = useRef(null);
+```
+
+### useLocalStorage
+
+A React hook that provides a simple way to manage browser localStorage with React state synchronization. Unlike sessionStorage, data persists across browser sessions and tab/window closes.
+
+#### Features
+
+- **Type-safe**: Full TypeScript support with generic typing
+- **SSR-compatible**: Safely handles server-side rendering scenarios
+- **Error handling**: Graceful fallback when localStorage is unavailable
+- **Function updates**: Supports both direct values and updater functions
+- **Cross-tab synchronization**: Automatically syncs changes across browser tabs via the `storage` event
+
+#### Usage
+
+```typescript
+import { useLocalStorage } from '@shared/hooks';
+
+const defaultUser = {
+  id: null,
+  email: '',
+};
+
+function MyComponent() {
+  // Basic usage with string
+  const [name, setName] = useLocalStorage('userName', 'Anonymous');
+
+  // Usage with objects (hoist non-primitive initial values to avoid recreating them on every render)
+  const [user, setUser] = useLocalStorage('user', defaultUser);
+
+  // Usage with function updates
+  const [count, setCount] = useLocalStorage('counter', 0);
+  const increment = () => setCount(prev => prev + 1);
+
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <button onClick={() => setName('John Doe')}>Set Name</button>
+
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+```
+
+#### API
+
+```typescript
+const [value, setValue] = useLocalStorage<T>(key: string, initialValue: T)
+```
+
+**Parameters:**
+
+- `key` (string): The localStorage key to store the value under
+- `initialValue` (T): The initial value to use if no stored value exists
+
+**Returns:**
+
+- `value` (T): The current value from localStorage or initialValue
+- `setValue` (function): Function to update the stored value
+
+**setValue function:**
+
+```typescript
+setValue(value: T | ((prevValue: T) => T)): void
+```
+
+#### Examples
+
+##### Basic String Storage
+
+```typescript
+const [username, setUsername] = useLocalStorage('username', '');
+
+// Direct value update
+setUsername('john_doe');
+
+// The value persists across browser sessions and page reloads
+```
+
+##### Object Storage
+
+```typescript
+interface UserPreferences {
+  theme: 'light' | 'dark';
+  notifications: boolean;
+}
+
+const [preferences, setPreferences] = useLocalStorage<UserPreferences>(
+  'userPrefs',
+  { theme: 'light', notifications: true },
+);
+
+// Update entire object
+setPreferences({ theme: 'dark', notifications: false });
+
+// Update using function (for partial updates)
+setPreferences(prev => ({ ...prev, theme: 'dark' }));
+```
+
+##### Array Storage
+
+```typescript
+const [items, setItems] = useLocalStorage<string[]>('items', []);
+
+// Add item
+setItems(prev => [...prev, 'new item']);
+
+// Remove item
+setItems(prev => prev.filter(item => item !== 'item to remove'));
+```
+
+#### Error Handling
+
+The hook includes built-in error handling for scenarios where localStorage is unavailable (e.g., private browsing mode, storage quota exceeded):
+
+- If localStorage operations fail, the hook logs the error and continues to work with in-memory state
+- SSR environments are handled gracefully by checking for `window` availability
+- Malformed JSON in storage is handled by falling back to the initial value
+
+#### Browser Support
+
+This hook works in all modern browsers that support:
+
+- React 16.8+ (hooks)
+- localStorage API
+- JSON.parse/stringify
+
+For older browsers or environments without localStorage, the hook will work as a regular `useState` hook.
+
+#### localStorage vs sessionStorage
+
+| Feature                  | `useLocalStorage`            | `useSessionStorage` |
+| ------------------------ | ---------------------------- | ------------------- |
+| Persists across sessions | Yes                          | No                  |
+| Shared across tabs       | Yes                          | No                  |
+| Cleared on tab close     | No                           | Yes                 |
+| Cross-tab sync           | Yes (native `storage` event) | No                  |
+
 ### useSessionStorage
 
 A React hook that provides a simple way to manage browser sessionStorage with React state synchronization.
@@ -34,10 +230,10 @@ A React hook that provides a simple way to manage browser sessionStorage with Re
 ##### To Do
 
 Consider supporting in the future. Session storage is isolated to a specific browser tab and is not shared across multiple tabs or windows.
+
 - **Cross-tab synchronization**: Automatically syncs changes across browser tabs
 
 Possible approach [useSyncExternalStore + BroadcastChannel API](#store-state-across-tabs).
-
 
 #### Usage
 
@@ -49,9 +245,9 @@ function MyComponent() {
   const [name, setName] = useSessionStorage('userName', 'Anonymous');
 
   // Usage with objects
-  const [user, setUser] = useSessionStorage('user', { 
-    id: null, 
-    email: '' 
+  const [user, setUser] = useSessionStorage('user', {
+    id: null,
+    email: '',
   });
 
   // Usage with function updates
@@ -61,14 +257,10 @@ function MyComponent() {
   return (
     <div>
       <p>Name: {name}</p>
-      <button onClick={() => setName('John Doe')}>
-        Set Name
-      </button>
-      
+      <button onClick={() => setName('John Doe')}>Set Name</button>
+
       <p>Count: {count}</p>
-      <button onClick={increment}>
-        Increment
-      </button>
+      <button onClick={increment}>Increment</button>
     </div>
   );
 }
@@ -81,14 +273,17 @@ const [value, setValue] = useSessionStorage<T>(key: string, initialValue: T)
 ```
 
 **Parameters:**
+
 - `key` (string): The sessionStorage key to store the value under
 - `initialValue` (T): The initial value to use if no stored value exists
 
 **Returns:**
+
 - `value` (T): The current value from sessionStorage or initialValue
 - `setValue` (function): Function to update the stored value
 
 **setValue function:**
+
 ```typescript
 setValue(value: T | ((prevValue: T) => T)): void
 ```
@@ -96,6 +291,7 @@ setValue(value: T | ((prevValue: T) => T)): void
 #### Examples
 
 ##### Basic String Storage
+
 ```typescript
 const [username, setUsername] = useSessionStorage('username', '');
 
@@ -106,6 +302,7 @@ setUsername('john_doe');
 ```
 
 ##### Object Storage
+
 ```typescript
 interface UserPreferences {
   theme: 'light' | 'dark';
@@ -114,7 +311,7 @@ interface UserPreferences {
 
 const [preferences, setPreferences] = useSessionStorage<UserPreferences>(
   'userPrefs',
-  { theme: 'light', notifications: true }
+  { theme: 'light', notifications: true },
 );
 
 // Update entire object
@@ -125,6 +322,7 @@ setPreferences(prev => ({ ...prev, theme: 'dark' }));
 ```
 
 ##### Array Storage
+
 ```typescript
 const [items, setItems] = useSessionStorage<string[]>('items', []);
 
@@ -146,6 +344,7 @@ The hook includes built-in error handling for scenarios where sessionStorage is 
 #### Browser Support
 
 This hook works in all modern browsers that support:
+
 - React 16.8+ (hooks)
 - sessionStorage API
 - JSON.parse/stringify
@@ -192,11 +391,15 @@ pnpm check-types
 shared/hooks/
 ├── src/
 │   ├── index.ts              # Main entry point, exports all hooks
-│   ├── useSessionStorage.ts   # useSessionStorage hook implementation
+│   ├── useInert.ts           # useInert hook implementation
+│   ├── useLocalStorage.ts    # useLocalStorage hook implementation
+│   ├── useSessionStorage.ts  # useSessionStorage hook implementation
 │   └── __tests__/
-│       └── setup.ts           # Test environment setup
+│       └── setup.ts          # Test environment setup
 ├── __tests__/
-│   └── useSessionStorage.test.ts  # Tests for useSessionStorage
+│   ├── useInert.test.tsx          # Tests for useInert
+│   ├── useLocalStorage.test.ts   # Tests for useLocalStorage
+│   └── useSessionStorage.test.ts # Tests for useSessionStorage
 ├── dist/                      # Built JavaScript files (generated)
 ├── package.json
 ├── tsconfig.json
@@ -269,7 +472,7 @@ export function subscribe(callback) {
 export function sendMessage(message, channelName) {
   if (!channel) {
     channel = new BroadcastChannel(channelName);
-    channel.onmessage = (event) => {
+    channel.onmessage = event => {
       // Update the state and notify listeners
       currentMessage = event.data;
       listeners.forEach(listener => listener());
@@ -282,7 +485,7 @@ export function sendMessage(message, channelName) {
 export function initChannel(channelName) {
   if (!channel) {
     channel = new BroadcastChannel(channelName);
-    channel.onmessage = (event) => {
+    channel.onmessage = event => {
       // Update the state and notify listeners
       currentMessage = event.data;
       listeners.forEach(listener => listener());
@@ -332,11 +535,14 @@ function BroadcastComponent() {
   return (
     <div>
       <h1>Cross-Tab State Sync</h1>
-      <p>Latest message from another tab: <b>{latestMessage || 'No messages yet.'}</b></p>
+      <p>
+        Latest message from another tab:{' '}
+        <b>{latestMessage || 'No messages yet.'}</b>
+      </p>
       <input
         type="text"
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={e => setInputValue(e.target.value)}
         placeholder="Type a message..."
       />
       <button onClick={handleSendMessage}>Send Message</button>

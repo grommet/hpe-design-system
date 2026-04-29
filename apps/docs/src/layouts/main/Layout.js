@@ -14,7 +14,8 @@ import {
 import { AppHeader, DocsLayout } from '..';
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
-import { getRelatedContent, getPageDetails } from '../../utils';
+import { getPrimaryPageByName, structureIndexes } from '../../data';
+import { getRelatedContent } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
@@ -41,7 +42,7 @@ export const Layout = ({
     seoDescription,
     pageLayout,
     render,
-  } = getPageDetails(titleProp);
+  } = getPrimaryPageByName(titleProp, structureIndexes) || {};
   const layout = isLanding ? 'plain' : pageLayout;
   const breakpoint = useContext(ResponsiveContext);
 

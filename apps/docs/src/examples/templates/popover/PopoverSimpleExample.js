@@ -28,7 +28,7 @@ export const PopoverSimpleExample = () => {
         aria-expanded={showPopover}
         a11yTitle="informational help"
         aria-haspopup="true"
-        aria-controls="simple-popover"
+        aria-controls={showPopover ? 'simple-popover' : undefined}
       />
       {showPopover && (
         <Popover

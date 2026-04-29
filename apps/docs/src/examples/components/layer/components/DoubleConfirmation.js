@@ -1,28 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Layer } from 'grommet';
-import { LayerHeader } from '@shared/aries-core';
+import { Button } from 'grommet';
+import { ModalDialog, ModalFooter } from '@shared/aries-core';
 import { useConfirmation } from './ConfirmationContext';
 
-export const DoubleConfirmation = ({ title, ...rest }) => {
+export const DoubleConfirmation = ({ title }) => {
   const { acceptConfirmation, cancelConfirmation } = useConfirmation();
-
   return (
-    <Layer {...rest}>
-      <Box pad="medium" gap="medium">
-        <LayerHeader
-          title={`Discard ${title}?`}
-          subtitle="Your changes will not be applied."
-        />
-        <Box direction="row" gap="xsmall" justify="end">
-          <Button label="Cancel" onClick={cancelConfirmation} />
-          <Button label="Discard" primary onClick={acceptConfirmation} />
-        </Box>
-      </Box>
-    </Layer>
+    <ModalDialog
+      title={`Discard ${title}?`}
+      subtitle="Your changes will not be applied."
+      onEsc={cancelConfirmation}
+    >
+      <ModalFooter>
+        <Button label="Cancel" onClick={cancelConfirmation} />
+        <Button label="Discard" primary onClick={acceptConfirmation} />
+      </ModalFooter>
+    </ModalDialog>
   );
 };
-
 DoubleConfirmation.propTypes = {
   title: PropTypes.string,
 };

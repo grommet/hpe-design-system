@@ -1,8 +1,13 @@
 import React from 'react';
 import { RadioButtonGroup } from 'grommet';
+import { useInert } from '@shared/hooks';
 
-export const RadioButtonGroupPreview = () => (
+export const RadioButtonGroupPreview = () => {
+  const ref = useInert();
+
+  return (
     <RadioButtonGroup
+      ref={ref}
       name="radio"
       aria-label="preview"
       options={[
@@ -12,3 +17,4 @@ export const RadioButtonGroupPreview = () => (
       ]}
     />
   );
+};

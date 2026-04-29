@@ -24,7 +24,7 @@ export const NavContainer = ({
     <Box
       pad={{ 
         horizontal: 'xsmall', 
-        bottom: '3xsmall' 
+        bottom: '3xsmall',
       }}
       width={open ? 'small' : undefined}
       {...rest}

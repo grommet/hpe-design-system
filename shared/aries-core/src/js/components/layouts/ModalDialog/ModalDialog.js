@@ -7,13 +7,15 @@ export const ModalDialog = ({
   title,
   subtitle,
   onClose,
+  boxProps,
   ...layerProps
 }) => (
   <Layer position="center" {...layerProps}>
-    <Box gap="medium" pad="medium" width={{ min: 'medium' }} flex="grow">
+    <ModalContainer
+      {...boxProps}>
       <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
       {children}
-    </Box>
+    </ModalContainer>
   </Layer>
 );
 
@@ -25,6 +27,33 @@ ModalDialog.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onClose: PropTypes.func,
+  boxProps: PropTypes.object,
+};
+
+export const ModalContainer = ({
+  children,
+  ...boxProps
+}) => {
+  return (
+    <Box
+      background="background-floating"
+      flex="grow"
+      gap="medium"
+      pad="medium"
+      round="medium"
+      width={{ min: 'medium' }}
+      {...boxProps}
+    >
+      {children}
+    </Box>
+  );
+};
+
+ModalContainer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]),
 };
 
 export const ModalBody = ({ children, ...boxProps }) => (
@@ -39,7 +68,7 @@ ModalBody.propTypes = {
 };
 
 export const ModalFooter = ({ children, ...boxProps }) => (
-  <Footer {...boxProps}>{children}</Footer>
+  <Footer justify="end" gap="xsmall" {...boxProps}>{children}</Footer>
 );
 
 ModalFooter.propTypes = {

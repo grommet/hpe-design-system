@@ -1,10 +1,15 @@
 import React from 'react';
 import { Toolbar, TextInput, DropButton } from 'grommet';
 import { Search, Filter } from '@hpe-design/icons-grommet';
+import { useInert } from '@shared/hooks';
 
-export const ToolBarPreview = () => (
-  <Toolbar>
-    <TextInput tabIndex={-1} icon={<Search />} />
-    <DropButton tabIndex={-1} kind="toolbar" icon={<Filter />} />
-  </Toolbar>
-);
+export const ToolBarPreview = () => {
+  const ref = useInert();
+
+  return (
+    <Toolbar ref={ref}>
+      <TextInput icon={<Search />} />
+      <DropButton kind="toolbar" icon={<Filter />} />
+    </Toolbar>
+  );
+};

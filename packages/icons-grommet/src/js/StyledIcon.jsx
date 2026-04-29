@@ -84,7 +84,7 @@ const IconInner = forwardRef(
   // https://github.com/grommet/grommet-icons/blob/master/src/js/StyledIcon.js
   // Disabling eslint rule for unused vars. Need to confirm whether 
   // it was intentional to not pass color, size, theme to the svg.
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   ({ a11yTitle, color, size, theme, ...rest }, ref) => (
     <svg ref={ref} aria-label={a11yTitle} {...rest} />
   ),

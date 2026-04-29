@@ -2,6 +2,37 @@
 
 For HPE designers and developers, this is the documentation site for the HPE Design System. 
 
+## Structure Validation Policy
+
+The docs structure data is validated during build and in CI.
+
+- Default behavior is strict: validation errors fail the process.
+- CI should remain strict and fail on data integrity issues.
+- Warn-only mode is for local migration/debug workflows only.
+
+Environment flags supported by the structure runtime:
+
+- `STRICT_STRUCTURE_VALIDATION=false` enables warn-only behavior.
+- `STRUCTURE_VALIDATION_WARN_ONLY=true` enables warn-only behavior.
+
+Common commands:
+
+```bash
+# Validate build-time structure constraints
+pnpm --filter docs validate:structure
+
+# Full strict build (default)
+pnpm --filter docs build
+
+# Local warn-only build (do not use in CI)
+STRICT_STRUCTURE_VALIDATION=false pnpm --filter docs build
+```
+
+CI workflow behavior:
+
+- `docs-validate-and-test`: structure validation + unit tests
+- `docs-build` (pull requests only): full docs production build gate
+
 ## Contributing Content
 
 TODOs:

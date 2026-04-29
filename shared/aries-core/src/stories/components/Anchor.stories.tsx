@@ -17,10 +17,10 @@ const meta = {
     'aria-label': ariaLabelArg,
     disabled: disabledArg,
     icon: iconArg,
-    label: labelArg,
     href: {
       control: { type: 'text' },
     },
+    label: labelArg,
     size: textSizesArg,
     reverse: reverseArg,
   },
@@ -35,8 +35,12 @@ export const Default: Story = {
   },
   args: {
     'aria-label': 'Navigate to link',
+    disabled: false,
+    icon: undefined,
     href: '#',
     label: 'Link',
+    size: undefined,
+    reverse: false,
   },
   name: 'Anchor',
 };

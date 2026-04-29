@@ -7,7 +7,7 @@ import { internalLink } from '../../components';
 import { SearchResult, SearchResults } from '.';
 import { siteContents } from '../../data/search/contentForSearch';
 
-const allSuggestions = getSearchSuggestions.filter(item => 
+const allSuggestions = getSearchSuggestions().filter(item =>
   item.value.searchable || item.value.searchable === undefined,
 ).map(page => {
   const { label, value } = page;

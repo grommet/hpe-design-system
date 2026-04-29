@@ -79,7 +79,7 @@ const Builder = () => {
                 variant.variant === 'default' && state === 'enabled'
                   ? 0
                   : `{${formValue.component}.${size}.${
-                      variant.variant ? `default.` : ''
+                      variant.variant ? 'default.' : ''
                     }enabled.${property}}`,
             };
 

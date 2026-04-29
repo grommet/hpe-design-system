@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Heading } from 'grommet';
+import { Button } from 'grommet';
+import {
+  LayerHeader,
+  ModalBody,
+  ModalContainer,
+  ModalFooter,
+} from '@shared/aries-core';
 
 export const ActionLabelTitle = ({ bestPractice = true }) => (
-  <Box gap="medium">
-    <Heading level={2} margin="none">
-      Create pipeline
-    </Heading>
-    <Box pad="medium" border={{ style: 'dashed' }}>
+  // applying elevation here to visually replicate Layer styling
+  // since this is presented in a Do-Dont example where we don't
+  // want to use Layer directly.
+  <ModalContainer elevation="large">
+    <LayerHeader title='Create pipeline' />
+    <ModalBody pad="medium" border={{ style: 'dashed' }} round="small">
       Body content goes here.
-    </Box>
-    <Box direction="row" gap="xsmall">
-      <Button label={`${bestPractice ? 'Create' : 'Add'} pipeline`} primary />
+    </ModalBody>
+    <ModalFooter>
       <Button label="Cancel" />
-    </Box>
-  </Box>
+      <Button label={`${bestPractice ? 'Create' : 'Add'} pipeline`} primary />
+    </ModalFooter>
+  </ModalContainer>
 );
 
 ActionLabelTitle.propTypes = {

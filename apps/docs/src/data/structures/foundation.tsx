@@ -252,6 +252,9 @@ export const foundation = [
     category: 'Assets',
     description: `Icons visually communicate actions, objects, and states —
       creating a consistent, recognizable language across our products.`,
+    seoDescription:
+      // eslint-disable-next-line max-len
+      'Icons visually communicate actions, objects, and states. Learn how to use and develop with HPE icons.',
     preview: {
       image: {
         src: {
@@ -628,7 +631,6 @@ export const foundation = [
     preview: {
       image: {
         src: {
-          // eslint-disable-next-line max-len
           light: '/foundationImages/foundation-preview-containersizing.svg',
           // eslint-disable-next-line max-len
           dark: '/foundationImages/foundation-preview-containersizing-invert.svg',
@@ -660,7 +662,6 @@ export const foundation = [
     preview: {
       image: {
         src: {
-          // eslint-disable-next-line max-len
           light: '/foundationImages/foundation-preview-componentsizing.svg',
           // eslint-disable-next-line max-len
           dark: '/foundationImages/foundation-preview-componentsizing-invert.svg',

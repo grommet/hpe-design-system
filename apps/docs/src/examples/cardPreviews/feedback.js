@@ -1,21 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { StarRating } from 'grommet';
+import { useInert } from '@shared/hooks';
 
 export const FeedbackPreview = () => {
-  const ref = useRef();
-
-  useEffect(() => {
-    if (ref.current) {
-      const buttons = ref.current.querySelectorAll('button, input');
-      buttons.forEach(button => {
-        button.setAttribute('tabindex', '-1');
-      });
-    }
-  }, []);
+  const ref = useInert();
 
   return (
-    <div ref={ref}>
-      <StarRating name="preview-card-example" aria-label="preview" />
-    </div>
+    <StarRating ref={ref} name="preview-card-example" aria-label="preview" />
   );
 };
