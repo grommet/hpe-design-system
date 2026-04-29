@@ -17,7 +17,7 @@ Read `.github/docs-refactor-plan.md` and `.github/instructions/docs-refactor-exe
 - **Agent delegation** — Invoke each subordinate agent in the correct order via the `agent` tool; handle parallel invocations at Stage 2 when both `generate-examples-agent` and `dos-donts-agent` are needed.
 - **Progress verification** — After each agent invocation, re-check the expected output files to confirm the stage advanced before continuing.
 - **Error handling** — If an agent does not produce its expected outputs, report the specific missing files, suggest a direct retry command, and stop the pipeline without auto-retrying.
-- **Pipeline completion guidance** — After `review-copy-agent` finishes, remind the user to address must-fix copy issues, mark the component complete in the plan checklist, and open a PR.
+- **Pipeline completion guidance** — After review/build/checklist steps finish, remind the user to address must-fix copy issues and open a PR.
 - **All-components overview** — When invoked without a component argument, produce a full status table across all components in the checklist without invoking any agents.
 
 ## Pipeline stages
@@ -31,8 +31,8 @@ The per-component refactor has the following ordered stages. A component's curre
 | 2 | **MDX generated** | `.yaml`, `.mdx.bak`, and `.mdx` all exist AND the MDX still has `{/* TODO */}` in Use Cases or `<div>{/* TODO */}` in Dos and Don'ts | `generate-examples-agent` and/or `dos-donts-agent` (parallel) |
 | 3 | **Examples pending** | `.mdx.bak` still exists AND `TODO-[name].md` does not exist | `create-todos-agent` |
 | 4 | **TODOs created** | `TODO-[name].md` and `DEPRECATED-[name].md` exist AND `.mdx.bak` has been deleted AND no copy review has been run | `review-copy-agent` |
-| 5 | **Copy reviewed** | All above complete AND component is not yet checked off in `docs-refactor-plan.md` | Ready to PR |
-| 6 | **Complete** | Component is checked off in `docs-refactor-plan.md` | — |
+| 5 | **Copy and render verified** | Stage 4 complete AND copy review has run AND docs build passed AND component is not yet checked off in `docs-refactor-plan.md` | `update-checklist-agent` |
+| 6 | **Complete** | Component is checked off in `docs-refactor-plan.md` | Ready to PR |
 
 For Stage 2 (parallel agents), check separately:
 - If `{/* TODO: Add a coded example */}` placeholders remain in the Use Cases section → `generate-examples-agent` still needed
@@ -73,7 +73,7 @@ For Stage 2 (parallel agents), check separately:
    - New `.mdx` exists but is identical to or substantially the same as `.mdx.bak` → `generate-mdx-agent` may not have run
 
 8. **Report the status** using the Status Report format below.
-   - If stage is 5 (Copy reviewed) or 6 (Complete): report only. Do not invoke any agents.
+   - If stage is 6 (Complete): report only. Do not invoke any agents.
    - If blockers exist: report blockers and stop. Do not invoke any agents until blockers are resolved.
 
 #### Phase 2 — Gate 1: Confirm pipeline run
@@ -138,7 +138,7 @@ After completion, verify:
 - `apps/docs/todos/DEPRECATED-[name].md` exists
 - `apps/docs/src/pages/components/[name].mdx.bak` no longer exists
 
-**Stage 4 → 5:** Invoke `@review-copy-agent [name]`
+**Stage 4 → 6:** Invoke `@review-copy-agent [name]`, then `@verify-render-agent [name]`, then `@update-checklist-agent [name]`
 
 > "Invoking @review-copy-agent…"
 
@@ -229,7 +229,7 @@ If a Gate refusal occurs at any point, report the final confirmed stage and stop
 [List any prerequisite problems, or "None"]
 ```
 
-If no blockers exist and stage is not 5 or 6, follow immediately with the Gate 1 confirmation prompt (see Phase 2 above).
+If no blockers exist and stage is not 6, follow immediately with the Gate 1 confirmation prompt (see Phase 2 above).
 
 ### Pipeline progress (Phase 3)
 
@@ -259,13 +259,19 @@ Example sequence:
 ✓ Stage 3 → 4 complete. TODO-checkbox.md and DEPRECATED-checkbox.md created. .mdx.bak deleted.
 
 > Invoking @review-copy-agent for checkbox…
-✓ Stage 4 → 5 complete. Copy review findings below.
+✓ Copy review complete.
+
+> Invoking @verify-render-agent for checkbox…
+✓ Docs build verification complete.
+
+> Invoking @update-checklist-agent for checkbox…
+✓ Stage 4 → 6 complete. Checklist updated.
 
 [Copy review output]
 
 Next steps:
 1. Address any Must fix items from the review above.
-2. Mark checkbox as complete in .github/docs-refactor-plan.md (change - [ ] to - [x]).
+2. Confirm checkbox is marked complete in .github/docs-refactor-plan.md.
 3. Open a PR with the title: docs: refactor Checkbox component.
 ```
 
@@ -276,7 +282,7 @@ Next steps:
 
 | Component | Stage | Next agent | Blocker |
 |---|---|---|---|
-| button | 5 — Copy reviewed | Ready to PR | — |
+| button | 6 — Complete | Ready to PR | — |
 | checkbox | 2 — MDX generated | generate-examples-agent, dos-donts-agent | — |
 | menu | 0 — Not started | extract-yaml-agent | — |
 | select | 1 — YAML extracted | generate-mdx-agent | Missing .mdx.bak |

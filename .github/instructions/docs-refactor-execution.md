@@ -28,6 +28,10 @@ Each step in the per-component refactor is owned by a dedicated Copilot agent. A
 [5] create-todos-agent
          ↓
 [6] review-copy-agent
+         ↓
+[7] verify-render-agent
+         ↓
+[8] update-checklist-agent
 ```
 
 Run `@docs-refactor-orchestrator` with no argument at any point to see the status of every component in a single table.
@@ -58,14 +62,15 @@ The orchestrator will:
 1. Scan the filesystem to detect the current pipeline stage for `button`.
 2. Present a status report showing which files exist and any blockers.
 3. List the agents it will invoke and ask for your confirmation before starting.
-4. Run each agent in sequence — `extract-yaml-agent` → `generate-mdx-agent` → `generate-examples-agent` / `dos-donts-agent` → `create-todos-agent` → `review-copy-agent` — pausing for a second confirmation before `create-todos-agent` deletes the `.mdx.bak`.
-5. After the copy review, remind you to address any must-fix items.
+4. Run each agent in sequence — `extract-yaml-agent` → `generate-mdx-agent` → `generate-examples-agent` / `dos-donts-agent` → `create-todos-agent` → `review-copy-agent` → `verify-render-agent` → `update-checklist-agent` — pausing for a second confirmation before `create-todos-agent` deletes the `.mdx.bak`.
+5. After the copy review, run a docs build check and then update the checklist entry for the component automatically.
+6. Remind you to address any must-fix copy-review items before opening the PR.
 
 If the orchestrator was interrupted or you need to resume mid-pipeline, run the same command again — it will pick up from the current stage.
 
 ### Step 3: Verify locally
 
-Build and run the `docs` app to confirm the new page renders without errors:
+The orchestrator runs `verify-render-agent` before completion. You should still spot-check locally by building or running the `docs` app:
 
 ```bash
 cd apps/docs
@@ -78,7 +83,7 @@ Open the component page in the browser and check the console for errors — espe
 
 1. Commit your new YAML file, the updated MDX file, any new example files, and the TODO/DEPRECATED files.
 2. Title the PR `docs: refactor [Component] component`.
-3. **Check off your component** in the Full Component Checklist at the bottom of `.github/docs-refactor-plan.md`. Include this change in the same commit or as a follow-up commit on the same branch before merging.
+3. Confirm your component was checked off in the Full Component Checklist at the bottom of `.github/docs-refactor-plan.md` by `update-checklist-agent`.
 
 ---
 
