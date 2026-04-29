@@ -1,11 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import { parse as parseYaml } from 'yaml';
 
-const repoRoot = process.cwd();
+const scriptFilePath = fileURLToPath(import.meta.url);
+const scriptDirPath = path.dirname(scriptFilePath);
+const repoRoot = path.resolve(scriptDirPath, '..');
 const capabilitiesDir = path.join(repoRoot, 'knowledge', 'capabilities');
 const schemaPath = path.join(
   repoRoot,
@@ -51,22 +54,31 @@ if (manifestFiles.length === 0) {
 let hasError = false;
 
 manifestFiles.forEach((manifestFile) => {
-  const source = fs.readFileSync(manifestFile, 'utf8');
-  const data = parseYaml(source);
-  const valid = validate(data);
+  const manifestPath = path.relative(repoRoot, manifestFile);
 
-  if (valid) {
-    console.log(`OK ${path.relative(repoRoot, manifestFile)}`);
-    return;
+  try {
+    const source = fs.readFileSync(manifestFile, 'utf8');
+    const data = parseYaml(source);
+    const valid = validate(data);
+
+    if (valid) {
+      console.log(`OK ${manifestPath}`);
+      return;
+    }
+
+    hasError = true;
+    console.error(`FAIL ${manifestPath}`);
+
+    (validate.errors || []).forEach((error) => {
+      const at = error.instancePath || '/';
+      console.error(`  - ${at}: ${error.message}`);
+    });
+  } catch (error) {
+    hasError = true;
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`FAIL ${manifestPath}`);
+    console.error(`  - YAML parse/validation error: ${message}`);
   }
-
-  hasError = true;
-  console.error(`FAIL ${path.relative(repoRoot, manifestFile)}`);
-
-  (validate.errors || []).forEach((error) => {
-    const at = error.instancePath || '/';
-    console.error(`  - ${at}: ${error.message}`);
-  });
 });
 
 if (hasError) {
