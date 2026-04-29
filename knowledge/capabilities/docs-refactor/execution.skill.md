@@ -69,10 +69,11 @@ The orchestrator will:
 1. Scan the filesystem to detect the current pipeline stage for your component.
 2. Present a status report showing what files exist and any blockers.
 3. List the agents it will delegate to and ask for your confirmation before starting.
-4. Run agents in sequence: `extract-yaml-agent` → `generate-mdx-agent` → `generate-examples-agent` / `dos-donts-agent` → `create-todos-agent` → `review-copy-agent` → `verify-render-agent` → `update-checklist-agent`.
-5. Pause before `create-todos-agent` deletes the `.mdx.bak` file (backup of old MDX) — this is your last chance to inspect the old version.
-6. After copy review, run a docs build check automatically and update the checklist.
-7. Remind you to address any must-fix copy-review items.
+4. Append wrapper telemetry events to `knowledge/capabilities/docs-refactor/.telemetry.log` around each delegated agent call.
+5. Run agents in sequence: `extract-yaml-agent` → `generate-mdx-agent` → `generate-examples-agent` / `dos-donts-agent` → `create-todos-agent` → `review-copy-agent` → `verify-render-agent` → `update-checklist-agent`.
+6. Pause before `create-todos-agent` deletes the `.mdx.bak` file (backup of old MDX) — this is your last chance to inspect the old version.
+7. After copy review, run a docs build check automatically and update the checklist.
+8. Remind you to address any must-fix copy-review items.
 
 **Resume capability**: If interrupted, run the same command again — the orchestrator will detect the current stage and pick up from where it left off.
 

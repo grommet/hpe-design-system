@@ -4,7 +4,7 @@ This capability supports workflow telemetry to help you understand pipeline perf
 
 ## Overview
 
-Telemetry is **automatically logged** by the `@docs-refactor-orchestrator` when you run a component refactor. Each event is appended to `.telemetry.log` as a structured JSON entry.
+Telemetry is emitted by wrapper logic in `@docs-refactor-orchestrator` when you run a component refactor. The initial implementation is orchestrator-only: subordinate agents do not write their own telemetry. Each event is appended to `.telemetry.log` as a structured JSON entry.
 
 ## Viewing Telemetry
 
@@ -86,20 +86,20 @@ Each telemetry event follows a strict schema (see `.telemetry.schema.json`). Eve
 
 When the orchestrator runs, it should:
 
-1. **Log stage transitions** at the start of each phase:
+1. **Log stage transitions** after a delegated step is verified and the stage has advanced:
    ```json
-   {"ts": "...", "component": "button", "eventType": "stage-transition", "from": "extracted", "to": "generated", "status": "success", "durationMs": 4230}
+   {"ts": "...", "component": "button", "eventType": "stage-transition", "stage": "generated", "status": "success", "metadata": {"fromStage": "extracted", "toStage": "generated"}}
    ```
 
-2. **Log agent invocations**:
+2. **Log agent invocations** around the delegation boundary:
    ```json
-   {"ts": "...", "component": "button", "eventType": "agent-start", "agent": "generate-mdx-agent", "status": "success"}
+   {"ts": "...", "component": "button", "eventType": "agent-start", "stage": "extracted", "agent": "generate-mdx-agent"}
    {"ts": "...", "component": "button", "eventType": "agent-complete", "agent": "generate-mdx-agent", "status": "success", "durationMs": 3800}
    ```
 
-3. **Log errors** if agents fail:
+3. **Log errors** if agents fail or do not produce expected outputs:
    ```json
-   {"ts": "...", "component": "button", "eventType": "agent-error", "agent": "create-todos-agent", "status": "failure", "error": "TODO file already exists"}
+   {"ts": "...", "component": "button", "eventType": "agent-error", "stage": "examples-pending", "agent": "create-todos-agent", "status": "failure", "error": "TODO file already exists", "metadata": {"missingFiles": ["apps/docs/todos/TODO-button.md"]}}
    ```
 
 4. **Log workflow completion**:
@@ -107,9 +107,9 @@ When the orchestrator runs, it should:
    {"ts": "...", "component": "button", "eventType": "workflow-complete", "status": "success", "durationMs": 18500}
    ```
 
-### For agent implementers
+### Scope
 
-Agents can optionally emit completion events by writing a JSON line to `.telemetry.log` before exiting. This is **optional** — the orchestrator will emit wrapper events regardless.
+This slice is intentionally orchestrator-only. Subordinate agents should not append their own telemetry yet. The orchestrator is the single writer for agent boundary events so timing and failure semantics stay consistent.
 
 ## Analyzing Patterns
 
@@ -156,8 +156,8 @@ To disable telemetry, set `enabled: false` in the manifest.
 ## Privacy & Storage
 
 - Telemetry logs are **local** to your repository and not sent anywhere.
-- Logs are **appendable** — they grow over time. Periodically clean old logs if needed:
+- Logs are **append-only** — they grow over time. Periodically clean old logs if needed:
   ```bash
   rm knowledge/capabilities/docs-refactor/.telemetry.log
   ```
-- Logs are **human-readable JSON**, suitable for grep/awk analysis or import into analytics tools.
+- Logs are **human-readable JSONL**, suitable for grep/awk analysis or import into analytics tools.
