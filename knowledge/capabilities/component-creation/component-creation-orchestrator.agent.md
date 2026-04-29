@@ -2,7 +2,7 @@
 name: component-creation-orchestrator
 description: 'Planned capability stub. Entry point for component creation workflow orchestration.'
 argument-hint: 'Component name (for example: segmented-control, tree-view).'
-tools: [read, search]
+tools: [read, agent, search]
 ---
 
 This is a planned capability stub.

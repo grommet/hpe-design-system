@@ -2,7 +2,7 @@
 name: package-release-orchestrator
 description: 'Planned capability stub. Entry point for package release workflow orchestration.'
 argument-hint: 'Package name (for example: hpe-design-tokens).'
-tools: [read, search]
+tools: [read, agent, search]
 ---
 
 This is a planned capability stub.

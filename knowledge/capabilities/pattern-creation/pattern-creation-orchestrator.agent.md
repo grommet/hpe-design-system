@@ -2,7 +2,7 @@
 name: pattern-creation-orchestrator
 description: 'Planned capability stub. Entry point for pattern creation workflow orchestration.'
 argument-hint: 'Pattern name (for example: dashboard-layout, filter-panel).'
-tools: [read, search]
+tools: [read, agent, search]
 ---
 
 This is a planned capability stub.

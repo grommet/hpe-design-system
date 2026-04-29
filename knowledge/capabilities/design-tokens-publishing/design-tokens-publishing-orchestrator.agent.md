@@ -2,7 +2,7 @@
 name: design-tokens-publishing-orchestrator
 description: 'Planned capability stub. Entry point for design tokens publishing workflow orchestration.'
 argument-hint: 'Token scope (for example: color, spacing, typography).'
-tools: [read, search]
+tools: [read, agent, search]
 ---
 
 This is a planned capability stub.

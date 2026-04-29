@@ -2,7 +2,7 @@
 name: alignment-audit-orchestrator
 description: 'Planned capability stub. Entry point for alignment audit workflow orchestration.'
 argument-hint: 'Audit scope (for example: docs, tokens, components).'
-tools: [read, search]
+tools: [read, agent, search]
 ---
 
 This is a planned capability stub.
