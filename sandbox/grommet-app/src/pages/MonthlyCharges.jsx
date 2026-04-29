@@ -4,12 +4,13 @@ import expenses from '../mockData/expenses.json';
 import { useContext } from 'react';
 import { SkeletonContext } from '../components';
 
-export const MonthlyCharges = () => {
+export const MonthlyCharges = ({ ...rest }) => {
   const skeleton = useContext(SkeletonContext);
   return (
     <DashboardCard
       title="Monthly charges"
       level={2}
+      {...rest}
       footer={
         <Notification
           message="Your networking expenses have increased by 23% this month. Set up a"

@@ -49,8 +49,14 @@ function Home() {
 
   const [widgets, setWidgets] = useState([
     { id: 'billingSummary', component: <BillingSummary /> },
-    { id: 'deviceSummary', component: <DeviceSummary /> },
+    { id: 'deviceSummary', component: <DeviceSummary /> /* , size: '2x1', sizeProps: sizeToSpan['2x1'] */},
     { id: 'sustainabilityOverview', component: <SustainabilityOverview /> },
+    { id: 'userOverview', component: <UserOverview /> },
+    { id: 'notifications', component: <Notifications />, size: '2x1', sizeProps: sizeToSpan['2x1'] },
+    { id: 'monthlyCharges', component: <MonthlyCharges /> },
+    { id: 'expiringSubscriptions', component: <ExpiringSubscriptions /> },
+    { id: 'recentServices', component: <RecentServices compact />},
+
   ]);
 
   return (
@@ -127,8 +133,8 @@ function Home() {
                       />
                     </SkeletonContext.Provider>
                   </Box>
-                  <RecentServices />
-                  <Box
+                  {/* <RecentServices /> */}
+                  {/* <Box
                     skeleton={insightsLoading ? skeletonAnimation : undefined}
                     gap="medium"
                   >
@@ -154,7 +160,7 @@ function Home() {
                         <ExpiringSubscriptions />
                       </Grid>
                     </SkeletonContext.Provider>
-                  </Box>
+                  </Box> */}
                 </Box>
               </Box>
               <ContentPane alignSelf="start" pad="large" animation="fadeIn">

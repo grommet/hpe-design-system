@@ -21,7 +21,6 @@ export const BillingSummary = ({ ...rest }) => {
         />
       }
       {...rest}
-      xstyle={{ gridColumn: 'span 2', gridRow: 'span 2' }}
     >
       <Box gap="medium">
         <Metric
