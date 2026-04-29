@@ -1,4 +1,5 @@
 import { Box, Text, Image } from 'grommet';
+import { Compass } from 'grommet-icons';
 
 export const foundation = [
   {
@@ -655,9 +656,18 @@ export const foundation = [
   },
   {
     name: 'Style Compass',
+    category: 'Assets',
+    cardOrder: 10,
     available: true,
     // eslint-disable-next-line max-len
     description: 'An interactive guide to choosing the right HPE design token for your use case.',
+    preview: {
+      component: () => (
+        <Box align="center" justify="center" fill>
+          <Compass size="large" color="text-strong" />
+        </Box>
+      ),
+    },
     // eslint-disable-next-line max-len
     seoDescription: 'Use the HPE Design System Style Compass to find the correct design token for your styling need.',
     sections: [],

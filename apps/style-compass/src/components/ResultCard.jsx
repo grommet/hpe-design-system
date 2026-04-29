@@ -8,7 +8,7 @@ import {
   BorderPreview,
   WeightPreview,
   TextPreview,
-} from '../../../docs/src/components/content/DesignTokensTable';
+} from '../../../docs/src/components/content/designTokenUtils';
 import { resolveResultTokens } from '../lib/treeUtils';
 
 /**
