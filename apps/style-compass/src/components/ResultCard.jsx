@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Button, DataTable, Heading, Paragraph, Text } from 'grommet';
+import { DataTable, Box, Text, Heading, Paragraph, Button } from 'grommet';
 import { CopyButton } from '../../../design-tokens-manager/src/components/CopyButton';
 import {
   ColorPreview,
@@ -86,10 +86,9 @@ const resultColumns = [
  *   3. seeAlso present → navigation buttons to related tree nodes
  */
 export const ResultCard = ({ result, onNavigate }) => {
-  const resolvedTokens =
-    result.tokens && result.tokens.length > 0
-      ? resolveResultTokens(result)
-      : [];
+  const resolvedTokens = result.tokens.length > 0
+    ? resolveResultTokens(result)
+    : [];
 
   return (
     <Box animation={{ type: 'fadeIn', duration: 300 }}>
