@@ -9,7 +9,17 @@
 >
 > Token consumption: CSS custom properties via `hpe-design-tokens`
 > Token setup: see `component-specs/tokens-usage.md`
-> Status: v1 draft
+> Status: v2 — GAP-001, GAP-002, GAP-003 corrected
+
+---
+
+## Changelog
+
+| Version | Change |
+|---|---|
+| v2 | GAP-001: All CSS variable names corrected to camelCase to match actual `hpe-design-tokens` build output |
+| v2 | GAP-002: `sideOffset` documented as a JS prop — CSS variable cannot be passed directly |
+| v2 | GAP-003: Focus indicator tokens corrected to `--hpe-focusIndicator-outline` and `--hpe-focusIndicator-boxShadow`; inner ring documented |
 
 ---
 
@@ -17,7 +27,7 @@
 
 Radix Select is a collection of unstyled, composable primitive parts.
 Every visual decision is left entirely to the implementor via CSS.
-Radix handles all behaviour: open/close, keyboard navigation, 
+Radix handles all behaviour: open/close, keyboard navigation,
 ARIA attributes, portal rendering, and collision detection.
 
 ### Anatomy part → Radix part mapping
@@ -38,7 +48,7 @@ ARIA attributes, portal rendering, and collision detection.
 
 > **Notable differences from Grommet:**
 > - Radix has no built-in Search or Clear — these must be built separately
-> - `<Select.ItemIndicator>` is a named part that only renders when the 
+> - `<Select.ItemIndicator>` is a named part that only renders when the
 >   item is selected — it is not a CSS pseudo-element
 > - Radix handles portal rendering automatically via `<Select.Portal>`
 
@@ -82,7 +92,12 @@ import 'hpe-design-tokens/dist/css/components.css';
 
 ```jsx
 import * as Select from '@radix-ui/react-select';
-import './select.css'; // your HPE token styles
+import './select.css';
+
+// GAP-002: sideOffset cannot accept a CSS variable — it requires a JS number.
+// Read the margin token value via getComputedStyle at runtime, or use the
+// known resolved value (6px = 6). See innovation/GAPS.md GAP-002.
+const DROP_MARGIN = 6;
 
 export const HPESelect = ({ placeholder, children, disabled, ...props }) => (
   <Select.Root disabled={disabled} {...props}>
@@ -95,7 +110,11 @@ export const HPESelect = ({ placeholder, children, disabled, ...props }) => (
     </Select.Trigger>
 
     <Select.Portal>
-      <Select.Content className="hpe-select__content" position="popper">
+      <Select.Content
+        className="hpe-select__content"
+        position="popper"
+        sideOffset={DROP_MARGIN}
+      >
         <Select.Viewport className="hpe-select__viewport">
           {children}
         </Select.Viewport>
@@ -113,15 +132,22 @@ export const HPESelectItem = ({ children, ...props }) => (
 );
 ```
 
-> **Note on `position="popper"`:** Radix Content supports two positioning 
-> modes — `"item-aligned"` (default, aligns drop over the selected item) 
+> **Note on `position="popper"`:** Radix Content supports two positioning
+> modes — `"item-aligned"` (default, aligns drop over the selected item)
 > and `"popper"` (aligns drop below the trigger like a standard dropdown).
-> HPE Select uses `"popper"` — it matches the Grommet Drop behaviour 
+> HPE Select uses `"popper"` — it matches the Grommet Drop behaviour
 > and the layout described in `anatomy.md`.
 
 ---
 
 ## CSS
+
+> **GAP-001 corrected:** All CSS variable names now use camelCase for
+> multi-word segments to match the actual `hpe-design-tokens` build output.
+> Pattern: `--hpe-[camelCaseComponent]-[path]-[camelCaseProperty]`
+> Example: `--hpe-formField-default-medium-input-container-borderRadius`
+> Variables marked `*` are still pending verification against
+> `dist/css/components.css`.
 
 ```css
 /* ===========================================
@@ -144,15 +170,15 @@ export const HPESelectItem = ({ children, ...props }) => (
   box-sizing: border-box;
 
   /* FormField input container tokens */
-  padding-block: var(--hpe-form-field-default-medium-input-container-padding-y);
-  padding-inline: var(--hpe-form-field-default-medium-input-container-padding-x);
-  border-radius: var(--hpe-form-field-default-medium-input-container-border-radius);
-  border-width: var(--hpe-form-field-default-medium-input-container-border-width);
+  padding-block: var(--hpe-formField-default-medium-input-container-paddingY);
+  padding-inline: var(--hpe-formField-default-medium-input-container-paddingX);
+  border-radius: var(--hpe-formField-default-medium-input-container-borderRadius);
+  border-width: var(--hpe-formField-default-medium-input-container-borderWidth);
   border-style: solid;
-  border-color: var(--hpe-form-field-default-input-container-rest-border-color);
+  border-color: var(--hpe-formField-default-input-container-rest-borderColor);
 
   /* Typography */
-  font-weight: var(--hpe-form-field-default-medium-value-font-weight);
+  font-weight: var(--hpe-formField-default-medium-value-fontWeight);
   color: var(--hpe-color-text-default);
 
   /* Behaviour */
@@ -167,11 +193,13 @@ export const HPESelectItem = ({ children, ...props }) => (
 }
 
 .hpe-select__trigger:focus-visible {
-  /* Global HPE focus ring — two-colour outline */
+  /* GAP-003 corrected: two-token focus ring
+     Outer ring: outline shorthand
+     Inner ring: box-shadow (omitted in v1 spec — now included) */
+  outline: var(--hpe-focusIndicator-outline);
+  box-shadow: var(--hpe-focusIndicator-boxShadow);
+
   /* Do not add border-color changes here — see constraints §1 */
-  outline: var(--hpe-focus-indicator-outline-width) solid
-    var(--hpe-focus-indicator-outline-color);
-  outline-offset: var(--hpe-focus-indicator-outline-offset);
 }
 
 .hpe-select__trigger[data-state="open"] {
@@ -210,27 +238,22 @@ export const HPESelectItem = ({ children, ...props }) => (
 .hpe-select__content {
   /* Surface */
   background: var(--hpe-drop-default-background);
-  border-radius: var(--hpe-drop-default-border-radius);
+  border-radius: var(--hpe-drop-default-borderRadius);
 
   /* Elevation */
   box-shadow: var(--hpe-shadow-medium);
 
-  /* Positioning offset from trigger */
-  /* With position="popper", use sideOffset for the margin token */
-  /* Pass sideOffset={margin} as a prop — see component structure above */
+  /* GAP-002: sideOffset (gap from trigger to drop) cannot use a CSS variable.
+     The resolved value of --hpe-drop-default-margin (6px) is passed as
+     sideOffset={6} on <Select.Content> in the JSX.
+     See innovation/GAPS.md GAP-002. */
 
   /* Z-index — must clear HPE global header (z-index 101) */
-  z-index: var(--hpe-drop-default-z-index);
+  z-index: var(--hpe-drop-default-zIndex);
 
   /* Width — must be at least as wide as trigger */
-  /* With position="popper" this is controlled via:
-     width: var(--radix-select-trigger-width);
-     See constraints §2 */
   min-width: var(--radix-select-trigger-width);
 }
-
-/* Radix provides --radix-select-trigger-width as a CSS variable
-   automatically when position="popper" — use it to match trigger width */
 
 
 /* -------------------------------------------
@@ -240,13 +263,13 @@ export const HPESelectItem = ({ children, ...props }) => (
 
 .hpe-select__viewport {
   /* Drop padding — top only, not bottom. See constraints §2 */
-  padding-top: var(--hpe-select-default-medium-drop-padding-y);
-  padding-inline: var(--hpe-select-default-medium-drop-padding-x);
+  padding-top: var(--hpe-select-default-medium-drop-paddingY);
+  padding-inline: var(--hpe-select-default-medium-drop-paddingX);
 
   /* Flex column layout with gap between options */
   display: flex;
   flex-direction: column;
-  gap: var(--hpe-select-default-medium-drop-gap-y);
+  gap: var(--hpe-select-default-medium-drop-gapY);
 
   /* No background, border, or radius — see constraints §3 */
 }
@@ -263,16 +286,16 @@ export const HPESelectItem = ({ children, ...props }) => (
   align-items: center;
 
   /* Sizing */
-  padding-block: var(--hpe-select-default-medium-option-padding-y);
-  padding-inline: var(--hpe-select-default-medium-option-padding-x);
-  border-radius: var(--hpe-select-default-medium-option-border-radius);
-  border-width: var(--hpe-select-default-medium-option-border-width);
+  padding-block: var(--hpe-select-default-medium-option-paddingY);
+  padding-inline: var(--hpe-select-default-medium-option-paddingX);
+  border-radius: var(--hpe-select-default-medium-option-borderRadius);
+  border-width: var(--hpe-select-default-medium-option-borderWidth);
   border-style: solid;
 
   /* Rest state */
-  border-color: var(--hpe-select-default-option-rest-border-color);
-  color: var(--hpe-select-default-option-rest-text-color);
-  font-weight: var(--hpe-select-default-option-rest-font-weight);
+  border-color: var(--hpe-select-default-option-rest-borderColor);
+  color: var(--hpe-select-default-option-rest-textColor);
+  font-weight: var(--hpe-select-default-option-rest-fontWeight);
 
   /* Behaviour */
   cursor: pointer;
@@ -282,38 +305,37 @@ export const HPESelectItem = ({ children, ...props }) => (
 }
 
 /* Hover state — also applies to keyboard focus within the list */
-/* Radix uses [data-highlighted] for both pointer hover and keyboard focus */
 
 .hpe-select__item[data-highlighted] {
   background: var(--hpe-select-default-option-hover-background);
-  border-color: var(--hpe-select-default-option-hover-border-color);
-  color: var(--hpe-select-default-option-hover-text-color);
-  outline: none; /* Focus ring is handled by data-highlighted, not :focus */
+  border-color: var(--hpe-select-default-option-hover-borderColor);
+  color: var(--hpe-select-default-option-hover-textColor);
+  outline: none; /* Focus ring handled by data-highlighted, not :focus */
 }
 
 /* Selected state */
 
 .hpe-select__item[data-state="checked"] {
   background: var(--hpe-select-default-option-selected-rest-background);
-  border-color: var(--hpe-select-default-option-selected-rest-border-color);
-  color: var(--hpe-select-default-option-selected-rest-text-color);
-  font-weight: var(--hpe-select-default-option-selected-rest-font-weight);
+  border-color: var(--hpe-select-default-option-selected-rest-borderColor);
+  color: var(--hpe-select-default-option-selected-rest-textColor);
+  font-weight: var(--hpe-select-default-option-selected-rest-fontWeight);
 }
 
 /* Selected + hover state */
 
 .hpe-select__item[data-state="checked"][data-highlighted] {
   background: var(--hpe-select-default-option-selected-hover-background);
-  color: var(--hpe-select-default-option-selected-hover-text-color);
+  color: var(--hpe-select-default-option-selected-hover-textColor);
 }
 
 /* Disabled state */
 
 .hpe-select__item[data-disabled] {
   background: var(--hpe-select-default-option-disabled-rest-background);
-  border-color: var(--hpe-select-default-option-disabled-rest-border-color);
-  color: var(--hpe-select-default-option-disabled-rest-text-color);
-  font-weight: var(--hpe-select-default-option-disabled-rest-font-weight);
+  border-color: var(--hpe-select-default-option-disabled-rest-borderColor);
+  color: var(--hpe-select-default-option-disabled-rest-textColor);
+  font-weight: var(--hpe-select-default-option-disabled-rest-fontWeight);
   cursor: default;
   pointer-events: none;
 }
@@ -321,36 +343,21 @@ export const HPESelectItem = ({ children, ...props }) => (
 
 /* -------------------------------------------
    6. Selected Marker (Select.ItemIndicator)
-
-   In Radix, ItemIndicator is a named component part that only
-   renders in the DOM when the item is selected.
-
-   In Grommet this is a ::before pseudo-element.
-   The anatomical intent is identical — a non-flow element on
-   the leading edge of the selected option.
-
-   See constraints §5 for positioning rules.
    ------------------------------------------- */
 
 .hpe-select__item-indicator {
-  /* Remove from layout flow */
   position: absolute;
-
-  /* Leading edge placement */
   left: var(--hpe-select-default-medium-option-marker-left);
   top: var(--hpe-select-default-medium-option-marker-top);
   bottom: var(--hpe-select-default-medium-option-marker-bottom);
-
-  /* Dimensions */
   width: var(--hpe-select-default-medium-option-marker-width);
 
   /* Rounded outer corners only — see constraints §5 */
-  border-top-left-radius: var(--hpe-select-default-medium-option-marker-border-top-left-radius);
-  border-bottom-left-radius: var(--hpe-select-default-medium-option-marker-border-bottom-left-radius);
+  border-top-left-radius: var(--hpe-select-default-medium-option-marker-borderTopLeftRadius);
+  border-bottom-left-radius: var(--hpe-select-default-medium-option-marker-borderBottomLeftRadius);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 
-  /* Colour — rest and hover use same token */
   background: var(--hpe-select-default-option-marker-rest-background);
 }
 
@@ -366,8 +373,8 @@ export const HPESelectItem = ({ children, ...props }) => (
    ------------------------------------------- */
 
 .hpe-select__label {
-  padding-block: var(--hpe-select-default-medium-option-padding-y);
-  padding-inline: var(--hpe-select-default-medium-option-padding-x);
+  padding-block: var(--hpe-select-default-medium-option-paddingY);
+  padding-inline: var(--hpe-select-default-medium-option-paddingX);
   color: var(--hpe-color-text-weak);
   font-size: smaller;
   cursor: default;
@@ -382,8 +389,8 @@ export const HPESelectItem = ({ children, ...props }) => (
 .hpe-select__separator {
   height: 1px;
   background: var(--hpe-color-border-weak);
-  margin-block: var(--hpe-select-default-medium-drop-gap-y);
-  margin-inline: var(--hpe-select-default-medium-drop-padding-x);
+  margin-block: var(--hpe-select-default-medium-drop-gapY);
+  margin-inline: var(--hpe-select-default-medium-drop-paddingX);
 }
 ```
 
@@ -393,15 +400,13 @@ export const HPESelectItem = ({ children, ...props }) => (
 
 | Topic | Note |
 |---|---|
-| **Portal** | Always wrap `<Select.Content>` in `<Select.Portal>`. This ensures the Drop renders outside the document flow. Without it, the Drop is inline and breaks layouts — see constraints §2 |
-| **Collision detection** | Radix handles intelligent Drop flipping automatically when `position="popper"`. No additional configuration needed — see constraints §2 |
-| **Trigger width matching** | With `position="popper"`, Radix exposes `--radix-select-trigger-width` as a CSS variable on the Content. Use `min-width: var(--radix-select-trigger-width)` to satisfy the width constraint |
-| **`sideOffset` prop** | Pass the margin token value to `<Select.Content sideOffset={...}>` to set the gap between trigger and drop. This replaces `global.drop.margin` from the Grommet mapping |
-| **`data-highlighted` vs `:hover`** | Always use `[data-highlighted]` for option hover/focus styles — not `:hover`. Radix removes pointer events during keyboard navigation, so `:hover` alone misses keyboard states |
-| **`ItemIndicator` rendering** | `<Select.ItemIndicator>` only renders in the DOM when `data-state="checked"`. It does not need a `display: none` rest state — Radix handles this |
-| **Search** | Radix Select has no built-in search. If needed, use `@radix-ui/react-select` with a controlled filter pattern, or switch to `@radix-ui/react-combobox` for searchable lists |
-| **Clear** | Radix Select has no built-in clear. Implement as a separate `<Select.Item value="">` styled with the Clear Button tokens, or as a button outside the Select that resets the value prop |
-| **Multi-select** | Radix Select does not support multi-select natively. Use a combination of checkboxes or `@radix-ui/react-popover` with a custom list for multi-select patterns |
+| **Portal** | Always wrap `<Select.Content>` in `<Select.Portal>`. Without it the Drop is inline and breaks layouts |
+| **Collision detection** | Radix handles Drop flipping automatically when `position="popper"` |
+| **Trigger width matching** | With `position="popper"`, Radix exposes `--radix-select-trigger-width` — use `min-width: var(--radix-select-trigger-width)` |
+| **`sideOffset` prop** | Must be a JS number — CSS variables cannot be passed. See GAP-002 |
+| **`data-highlighted` vs `:hover`** | Always use `[data-highlighted]` — Radix removes pointer events during keyboard navigation |
+| **`ItemIndicator` rendering** | Only renders in the DOM when `data-state="checked"` — no `display: none` needed |
+| **Focus ring** | Two tokens required: `--hpe-focusIndicator-outline` (outer) and `--hpe-focusIndicator-boxShadow` (inner). Both must be applied — see GAP-003 |
 
 ---
 
@@ -409,8 +414,8 @@ export const HPESelectItem = ({ children, ...props }) => (
 
 | Gap | Detail | Recommendation |
 |---|---|---|
-| No built-in Search | Radix Select has no search input | Use a combobox pattern or controlled filter with `@radix-ui/react-combobox` |
-| No built-in Clear | Radix has no clear affordance | Add a controlled reset button outside the Select, or a special empty-value Item |
+| No built-in Search | Radix Select has no search input | Use combobox pattern or controlled filter |
+| No built-in Clear | Radix has no clear affordance | Add a controlled reset button or empty-value Item |
 | No multi-select | Radix Select is single-select only | Use a Popover + custom list for multi-select |
-| `sideOffset` not a token | The margin between trigger and drop must be passed as a numeric prop | Read the margin token value and pass it as `sideOffset` on `<Select.Content>` |
-| No size variants | Only medium size is currently specified | When small/large tokens are added to `tokens.md`, add size modifier classes here |
+| `sideOffset` not a token | Must be passed as a numeric prop | See GAP-002 — hardcode resolved value with comment |
+| No size variants | Only medium size is currently specified | Add size modifier classes when small/large tokens land |
