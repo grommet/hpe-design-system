@@ -68,7 +68,7 @@ You are the second step in the per-component docs refactor pipeline, running aft
    - Render `accessibility.keyboard` as a markdown table with `Key` and `Action` columns.
    - Render `accessibility.aria` as a markdown table with `Attribute`, `Value`, and `Condition` columns.
    - Render `accessibility.announcements` as a markdown table with `Trigger` and `Message` columns.
-   - Always close the section with `<AccessibilitySection title="[ComponentName]" />`.
+   - Close the section with `<AccessibilitySection title="..." />`. The `title` value must be sourced in this order: (1) `accessibility.wcagDataFile` from the YAML if present, (2) the exact `title` prop found on the `<AccessibilitySection>` element in `.bak`. Do NOT default to the component name — doing so will cause a runtime crash if the corresponding JSON file does not exist in `apps/docs/src/data/wcag/`.
    - Only render subsection tables that have data.
 
 5. **Restore page-level wrappers from `.bak`** — open `[component-name].mdx.bak` and identify the following elements. Copy each one that is present into the new MDX in the correct position:

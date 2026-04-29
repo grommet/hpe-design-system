@@ -50,7 +50,12 @@ You are a specialist React developer for the HPE Design System. Your job is to i
    - Path: `apps/docs/src/examples/components/[component-name]/[ComponentName][UseCasePascalCase]Example.js`
    - **Naming rule for `[UseCasePascalCase]`:** capitalize every word in the use case title, strip articles (`a`, `an`, `the`), and remove non-alphanumeric characters. E.g., "Submitting a form" → `SubmittingForm`; "Triggering UI changes" → `TriggeringUIChanges`.
    - The example must be **representative** of the use case's stated goal — model realistic data, realistic user interaction, and realistic UI structure.
-   - Use `Box`, `Text`, `Button`, and other appropriate Grommet primitives. Compose components to show context, not just the bare component in isolation.
+   - Use `Box`, `Text`, `Button`, and other appropriate Grommet primitives. Every example must tell the user's task story — include the UI the component acts on, not just the component itself:
+     - If the component **filters or searches data**, show the data (a `DataTable`, a `List`, a set of `Card`s) alongside the control.
+     - If the component **triggers a workflow** (submit, confirm, open), show the form, dialog, or destination it leads to.
+     - If the component **controls a view or section**, show enough of that view to make the switch meaningful.
+     - Ask: "If I removed this component from the example, would the use case still make sense visually?" If yes, add more context. If the example is already cluttered, reduce data rows/items rather than removing the surrounding structure.
+     - Keep examples minimal but complete — reduce data (e.g., 3 rows instead of 10) rather than removing the structural context that tells the story.
    - If the use case involves interaction (e.g., submitting, toggling, confirming), use `useState` to make it live.
    - If the example uses a `Layer`, `ModalDialog`, or `Drop`: accept `containerRef` as a prop and pass it to the component's `target` prop. Mirror PropTypes declarations if other files in the folder use them. If the example has no overlay, omit `containerRef` from the signature entirely — and also omit the `PropTypes` import and any `.propTypes` declaration block, since referencing `PropTypes` without importing it causes a runtime `ReferenceError`.
 

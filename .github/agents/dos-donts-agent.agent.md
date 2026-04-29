@@ -60,6 +60,7 @@ import { ..., MenuGoodActionPreview, MenuBadActionPreview } from '../../examples
 - The visual difference between the Good and Bad previews must be immediately apparent and directly illustrate the `do` vs `dont` message text already set in the MDX.
 - Keep preview components minimal — only include the UI needed to make the concept clear. No lorem ipsum or filler content.
 - Only process `<BestPracticeGroup>` blocks whose child is a `<div>{/* TODO */}</div>` placeholder. **Never modify blocks that already have a real React component as their child.**
+- **Idempotent file creation:** before writing any preview file, check whether it already exists and contains a valid named export. If it does, skip creation entirely — do not overwrite or append. Apply the same check to `DosDonts/index.js` and the component `index.js`: only add an export line if it is not already present.
 - **Mirror, don't invent.** Every structural and styling decision in a preview file must be traceable to an existing example in the component's own `apps/docs/src/examples/components/[name]/` directory. If a wrapper, prop, color token, or import pattern does not appear in those files, do not introduce it. If you cannot point to a source for a decision, remove it.
 
 ## Approach

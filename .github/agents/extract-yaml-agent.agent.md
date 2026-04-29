@@ -32,7 +32,7 @@ You are the first step in the per-component docs refactor pipeline. Read `.githu
    - `anatomy` — structural parts with label, region, purpose, availability, and notes. If the source MDX has no anatomy section, infer the structural parts from your knowledge of the component.
    - `contentGuidelines` — writing rules for text placed inside the component
    - `dosAndDonts` — paired do/dont entries, each with a `do`, `dont`, and optional `reason`. If the source MDX has no do/don't content, infer representative pairs from your knowledge of the component.
-   - `accessibility` — keyboard interactions, ARIA attributes, announcements, WCAG criteria
+   - `accessibility` — keyboard interactions, ARIA attributes, announcements, WCAG criteria. Also look for `<AccessibilitySection title="...">` in the MDX and capture the exact `title` value as `accessibility.wcagDataFile`. Components that share their WCAG data file with a related component (e.g., Search using `TextInput`) will have a title that differs from their own component name — preserve it exactly.
    - `props` — name, type, required, description, defaultValue for each prop
    - `examples` — **do NOT copy raw code**; reference existing example files as relative paths:
      ```yaml
