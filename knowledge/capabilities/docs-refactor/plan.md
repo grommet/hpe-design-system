@@ -6,8 +6,8 @@ This plan outlines the refactor of the HPE Design System component documentation
 
 ### 1. Tooling & Setup
 
-- [x] Create a reusable GitHub Copilot prompt file (`.github/prompts/generate-mdx.prompt.md`).
-- [x] Create a prompt file for reverse-engineering existing MDX into YAML (`.github/prompts/extract-component-yaml.prompt.md`) to save manual extraction time.
+- [x] Create a reusable GitHub Copilot prompt file (`knowledge/archive/prompts/generate-mdx.prompt.md`).
+- [x] Create a prompt file for reverse-engineering existing MDX into YAML (`knowledge/archive/prompts/extract-component-yaml.prompt.md`) to save manual extraction time.
 
 ### 2. Standard Component Workflow (Execute per component)
 
@@ -15,7 +15,7 @@ Each component is driven end-to-end by the orchestrator agent. From a feature br
 
 > `@docs-refactor-orchestrator [component-name]`
 
-The orchestrator detects the current pipeline stage, confirms before making any changes, and delegates to the appropriate agents in sequence. See `.github/instructions/docs-refactor-execution.md` for the full walkthrough.
+The orchestrator detects the current pipeline stage, confirms before making any changes, and delegates to the appropriate agents in sequence. See `knowledge/capabilities/docs-refactor/execution.skill.md` for the full walkthrough.
 
 ### 3. Phased Rollout Targets
 
@@ -36,7 +36,7 @@ The orchestrator detects the current pipeline stage, confirms before making any 
 - Abstracted the per-component steps into a dedicated orchestrator agent (`docs-refactor-orchestrator`) so contributors run a single command rather than manually invoking each agent in sequence.
 - The orchestrator uses `.mdx.bak` file presence/absence as the primary pipeline state signal, avoiding any external state store.
 - Sub-component architecture (e.g. `CardBody`) is evaluated case-by-case during YAML extraction — either nested within the parent YAML or as a standalone file.
-- Prompt files (`.github/prompts/`) are retained as documentation references; the agent pipeline supersedes them for active use.
+- Prompt files (`knowledge/archive/prompts/`) are retained as documentation references; the agent pipeline supersedes them for active use.
 - Segmented by complexity to isolate template edge cases early during the pilot phase.
 - Maintained 1 PR per component to streamline feedback loops and iteration.
 

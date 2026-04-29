@@ -1,6 +1,6 @@
 ---
 name: verify-render-agent
-description: "Use when: verifying that a newly generated component MDX page builds and renders without errors in the docs app. Triggered after generate-mdx-agent, generate-examples-agent, and dos-donts-agent have all run. Runs 'pnpm build' in apps/docs, auto-fixes known error classes, and iterates until the build is clean or the iteration cap is reached. Part of the docs refactor workflow described in .github/docs-refactor-plan.md and .github/instructions/docs-refactor-execution.md."
+description: "Use when: verifying that a newly generated component MDX page builds and renders without errors in the docs app. Triggered after generate-mdx-agent, generate-examples-agent, and dos-donts-agent have all run. Runs 'pnpm build' in apps/docs, auto-fixes known error classes, and iterates until the build is clean or the iteration cap is reached. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/execution.skill.md."
 argument-hint: "Component name (e.g. checkbox, menu, select). Must match a .mdx file in apps/docs/src/pages/components/."
 tools: [read, search, edit, terminal]
 ---
@@ -34,7 +34,7 @@ Apply these in order within a single iteration — resolve all auto-fixable erro
 
 | Error type | Signal | Fix |
 |---|---|---|
-| **Missing WCAG JSON** | `Cannot find module '...wcag/[name].json'` | Read `<AccessibilitySection title="...">` from `apps/docs/src/pages/components/[component-name].mdx.bak`. Update `accessibility.wcagDataFile` in `shared/data-structure/components/[component-name].yaml` to that title value. Update the `title` prop on `<AccessibilitySection>` in the live `.mdx` to match. |
+| **Missing WCAG JSON** | `Cannot find module '...wcag/[name].json'` | Read `<AccessibilitySection title="...">` from `apps/docs/src/pages/components/[component-name].mdx.bak`. Update `accessibility.wcagDataFile` in `knowledge/core/data/components/[component-name].yaml` to that title value. Update the `title` prop on `<AccessibilitySection>` in the live `.mdx` to match. |
 | **Export not found** | `Export '[name]' was not found` or `Cannot find module` for an example | Read `apps/docs/src/examples/components/[component-name]/index.js` to find the correct export name. Fix the import statement in the live `.mdx`. |
 | **Bare JSX comment child** | `cloneElement`/`undefined children`, or only child is `{/* ... */}` | Wrap the bare comment in `<div>{/* ... */}</div>` inside the offending `<Example bestPractice>` block in the live `.mdx`. |
 | **Unclosed MDX tag** | MDX parse error referencing a specific line | Close the tag at the indicated location in the live `.mdx`. |

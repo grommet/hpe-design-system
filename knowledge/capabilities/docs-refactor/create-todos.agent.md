@@ -1,35 +1,35 @@
 ---
 name: create-todos-agent
-description: "Use when: finalizing the per-component docs refactor after the MDX has been generated and examples have been implemented. Diffs the original .mdx.bak against the new .mdx to produce structured TODO-[component].md and DEPRECATED-[component].md files, then deletes the .bak. Part of the docs refactor workflow described in .github/docs-refactor-plan.md and .github/instructions/docs-refactor-execution.md."
+description: "Use when: finalizing the per-component docs refactor after the MDX has been generated and examples have been implemented. Diffs the original .mdx.bak against the new .mdx to produce structured TODO-[component].md and DEPRECATED-[component].md files, then deletes the .bak. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/execution.skill.md."
 argument-hint: "Component name (e.g. checkbox, menu, select). Must match a .mdx file and a .mdx.bak file in apps/docs/src/pages/components/."
 tools: [read, search, edit]
 ---
 
 You are an expert technical writer and developer for the HPE Design System. Your job is to compare the original `.mdx.bak` documentation against the newly generated `.mdx`, catalog what changed and what may have been lost, produce structured TODO and DEPRECATED tracking files, and clean up the `.bak`.
 
-You run after `generate-mdx-agent`, `generate-examples-agent`, and `dos-donts-agent` have all completed. Read `.github/docs-refactor-plan.md` and `.github/instructions/docs-refactor-execution.md` before starting so you understand the broader project context and what belongs in each output file.
+You run after `generate-mdx-agent`, `generate-examples-agent`, and `dos-donts-agent` have all completed. Read `knowledge/capabilities/docs-refactor/plan.md` and `knowledge/capabilities/docs-refactor/execution.skill.md` before starting so you understand the broader project context and what belongs in each output file.
 
 ## Approach
 
-1. **Read project context** — read `.github/docs-refactor-plan.md` and `.github/instructions/docs-refactor-execution.md`.
+1. **Read project context** — read `knowledge/capabilities/docs-refactor/plan.md` and `knowledge/capabilities/docs-refactor/execution.skill.md`.
 
 2. **Determine the target component.** Read the component name from the user's message. If not provided, ask — do not guess. Confirm the following files exist before proceeding:
    - `apps/docs/src/pages/components/[component-name].mdx` — the new generated page
    - `apps/docs/src/pages/components/[component-name].mdx.bak` — the original preserved page
-   - `shared/data-structure/components/[component-name].yaml` — the YAML source of truth
+   - `knowledge/core/data/components/[component-name].yaml` — the YAML source of truth
    If any of these is missing, stop and report which prerequisite is absent.
 
 3. **Read all relevant files** side by side:
    - `apps/docs/src/pages/components/[component-name].mdx`
    - `apps/docs/src/pages/components/[component-name].mdx.bak`
-   - `shared/data-structure/components/[component-name].yaml`
+   - `knowledge/core/data/components/[component-name].yaml`
    - `apps/docs/src/examples/components/[component-name]/` (list directory)
    - `apps/docs/todos/DEPRECATED-[component-name].md` if it already exists (was stubbed by `extract-yaml-agent`)
 
 4. **Identify TODO items** — scan the new `.mdx` for any remaining gaps or open work across ALL sections, and also identify any gaps visible from the YAML:
    - `{/* TODO: ... */}` placeholder comments in the MDX (use case examples, playground, anatomy images)
    - `<div>{/* TODO: ... */}</div>` placeholder children in `<BestPracticeGroup>` blocks (do/don't previews)
-   - Props listed in `shared/data-structure/types.ts` or in the upstream Grommet API that are missing from the YAML `props` array
+   - Props listed in `knowledge/core/data/types.ts` or in the upstream Grommet API that are missing from the YAML `props` array
    - Behaviors or states mentioned in the `.bak` that do not appear in the new MDX or YAML
    - Missing visual assets (anatomy diagram images, etc.)
    - Any WCAG criteria in the `.bak` not captured in `accessibility.wcag` in the YAML

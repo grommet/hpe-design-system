@@ -7,20 +7,20 @@ flowchart LR
   %% Inputs and standards
   subgraph A[Source and Governance Resources]
     A1[Existing component MDX pages\napps/docs/src/pages/components/*.mdx]
-    A2[Extraction prompt\n.github/prompts/extract-component-yaml.prompt.md]
-    A3[Generation prompt\n.github/prompts/generate-mdx.prompt.md]
-    A4[Schema contract\nshared/data-structure/types.ts\nComponentDefinition]
+    A2[Extraction prompt\nknowledge/archive/prompts/extract-component-yaml.prompt.md]
+    A3[Generation prompt\nknowledge/archive/prompts/generate-mdx.prompt.md]
+    A4[Schema contract\nknowledge/core/data/types.ts\nComponentDefinition]
     A5[Authoring template\napps/docs/COMPONENT_TEMPLATE.md]
-    A6[Writing rules\n.github/instructions/writing-documentation.instruction.md]
-    A7[Execution runbook\n.github/instructions/docs-refactor-execution.md]
-    A8[Project tracking plan\n.github/docs-refactor-plan.md]
+    A6[Writing rules\nknowledge/core/skills/writing-style.skill.md]
+    A7[Execution runbook\nknowledge/capabilities/docs-refactor/execution.skill.md]
+    A8[Project tracking plan\nknowledge/capabilities/docs-refactor/plan.md]
     A9[Example code inventory\napps/docs/src/examples/components/*]
   end
 
   %% Transformation pipeline
   subgraph B[Refactor Pipeline Per Component]
     B1[Copilot extraction run]
-    B2[YAML source of truth\nshared/data-structure/components/component-name.yaml]
+    B2[YAML source of truth\nknowledge/core/data/components/component-name.yaml]
     B3[Schema and content validation]
     B4[Backup old MDX\ncomponent-name.mdx.bak]
     B5[Copilot MDX generation run]
@@ -99,13 +99,13 @@ flowchart TB
 
   %% Artifacts and checkpoints
   D1[Source MDX\napps/docs/src/pages/components/component-name.mdx]
-  D2[YAML definition\nshared/data-structure/components/component-name.yaml]
+  D2[YAML definition\nknowledge/core/data/components/component-name.yaml]
   D3[Generated MDX\napps/docs/src/pages/components/component-name.mdx]
   D4[Gap tracking\napps/docs/todos/TODO-component-name.md]
   D5[Legacy tracking\napps/docs/todos/DEPRECATED-component-name.md]
-  D6[Schema contract\nshared/data-structure/types.ts]
-  D7[Template and writing rules\napps/docs/COMPONENT_TEMPLATE.md\n.github/instructions/writing-documentation.instruction.md]
-  D8[Plan checklist\n.github/docs-refactor-plan.md]
+  D6[Schema contract\nknowledge/core/data/types.ts]
+  D7[Template and writing rules\napps/docs/COMPONENT_TEMPLATE.md\nknowledge/core/skills/writing-style.skill.md]
+  D8[Plan checklist\nknowledge/capabilities/docs-refactor/plan.md]
 
   %% Ownership links
   R1 -- curates --> D1

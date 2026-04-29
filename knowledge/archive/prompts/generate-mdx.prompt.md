@@ -4,11 +4,11 @@ You are an expert technical writer and developer for the HPE Design System. Your
 
 ## Instructions
 
-1. Read the provided YAML definition file for the component (e.g., `shared/data-structure/components/[component-name].yaml`).
+1. Read the provided YAML definition file for the component (e.g., `knowledge/core/data/components/[component-name].yaml`).
 2. Generate the MDX content following the exact section structure and guidelines defined in `apps/docs/COMPONENT_TEMPLATE.md`. Do not invent new sections.
    - **Do not render the component's `name` or `description` fields from the YAML as prose in the MDX.** These are injected by the page layout from the YAML automatically. Begin the MDX body directly with the playground `<Example>` block.
    - **Use cases:** Render each item in `usage.whenToUse` as a `###` subheading. Each subheading must be a gerund phrase (verb + -ing + object), e.g., "Submitting a form", "Triggering UI changes". Use Case descriptions must describe the user's task or goal, NOT a structural UI rationale. Follow with one or two sentences describing the scenario. Then: if a purpose-built example file exists in the `examples` array specifically for this use case, include it as a live `<Example>` block; if no dedicated example exists, insert a `{/* TODO: Add a coded example that demonstrates [use case description] */}` placeholder instead. Do NOT repurpose examples from Variants or other sections to fill a use case slot. Do NOT render `usage.whenToAvoid` items here — surface them as `dont` entries in `## Dos and Don'ts` instead.
-3. Adhere strictly to the writing style, tone, and voice outlined in `.github/instructions/writing-documentation.instruction.md`.
+3. Adhere strictly to the writing style, tone, and voice outlined in `knowledge/core/skills/writing-style.skill.md`.
    - Use imperative tone (e.g., "Include...", "Prevent...").
    - Omit needless words and keep sentences short.
    - Favor lists over dense paragraphs.
@@ -23,6 +23,6 @@ You are an expert technical writer and developer for the HPE Design System. Your
 
 When running this prompt, ensure that you have the following files included in your context:
 
-- The component's YAML file (from `shared/data-structure/components/`)
+- The component's YAML file (from `knowledge/core/data/components/`)
 - `apps/docs/COMPONENT_TEMPLATE.md`
-- `.github/instructions/writing-documentation.instruction.md`
+- `knowledge/core/skills/writing-style.skill.md`
