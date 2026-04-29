@@ -56,3 +56,14 @@ spec:
       when: "last_build_success() && !exists(console_errors)"
     - id: complete
       when: "exists(knowledge/capabilities/docs-refactor/plan.md) && match_entry(plan.md, /.*\\[[xX]\\].*\\[component\\].*/) "
+  x-telemetry:
+    enabled: true
+    logFile: knowledge/capabilities/docs-refactor/.telemetry.log
+    schema: knowledge/capabilities/docs-refactor/.telemetry.schema.json
+    events:
+      - stage-transition
+      - agent-start
+      - agent-complete
+      - agent-error
+      - workflow-complete
+      - workflow-error

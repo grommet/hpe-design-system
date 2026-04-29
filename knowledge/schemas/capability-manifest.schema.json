@@ -40,6 +40,11 @@
     "spec": {
       "type": "object",
       "additionalProperties": false,
+      "patternProperties": {
+        "^x-": {
+          "type": "object"
+        }
+      },
       "required": ["summary", "entrypoint", "assets"],
       "properties": {
         "summary": {
@@ -116,9 +121,6 @@
               }
             }
           }
-        },
-        "x-extensions": {
-          "type": "object"
         }
       }
     }
