@@ -12,39 +12,24 @@ import {
 import { StepQuestion } from '../components/StepQuestion';
 import { ResultCard } from '../components/ResultCard';
 
-/**
- * Orchestrates the Style Compass wizard. Owns all state and flow logic —
- * child components (StepQuestion, ResultCard) are stateless renderers.
- *
- * State shape:
- *   history     — stack of prior question nodes, used to power Back
- *   currentNode — the active node object from the decision tree
- *   result      — the active result object when a leaf option is selected,
- *                 or null when a question node is active
- */
 export const StyleCompass = () => {
   const refMap = useMemo(() => buildRefMap(styleCompassTree), []);
 
+  // State model per PRD Section 5: { history, currentNode }
+  // currentNode holds either a question node or a selected leaf option.
   const [history, setHistory] = useState([]);
   const [currentNode, setCurrentNode] = useState(styleCompassTree);
-  const [result, setResult] = useState(null);
-
-  // -------------------------------------------------------------------------
-  // Event handlers
-  // -------------------------------------------------------------------------
 
   const handleSelection = (option) => {
     if (isLeafOption(option)) {
-      // Leaf: show the result card
+      // Leaf: store the whole option as currentNode so isLeafOption works at render
       setHistory((prev) => [...prev, currentNode]);
-      setResult(option.result);
-      setCurrentNode(null);
+      setCurrentNode(option);
     } else {
-      // Navigation: resolve any string reference and move to the next node
+      // Navigation: resolve any string reference and move to the next question node
       const nextNode = resolveNext(refMap, option.next);
       setHistory((prev) => [...prev, currentNode]);
       setCurrentNode(nextNode);
-      setResult(null);
     }
   };
 
@@ -52,50 +37,32 @@ export const StyleCompass = () => {
     const prev = history[history.length - 1];
     setHistory((h) => h.slice(0, -1));
     setCurrentNode(prev);
-    setResult(null);
   };
 
   const handleReset = () => {
     setHistory([]);
     setCurrentNode(styleCompassTree);
-    setResult(null);
   };
 
-  /**
-   * seeAlso navigation: find the target node anywhere in the tree by ID,
-   * then navigate to it (pushing the current result state onto history as
-   * the "previous" question so Back works correctly).
-   */
   const handleNavigate = (nodeId) => {
     const target = findNodeById(styleCompassTree, nodeId);
     if (!target) return;
-    // Push the current displayed node so Back can return here
-    setHistory((prev) => [...prev, currentNode ?? result]);
+    setHistory((prev) => [...prev, currentNode]);
     setCurrentNode(target);
-    setResult(null);
   };
-
-  // -------------------------------------------------------------------------
-  // Render
-  // -------------------------------------------------------------------------
-
-  const isAtRoot = history.length === 0;
 
   return (
     <Page>
       <PageContent>
         <Box direction="row" justify="between" align="start">
           <Box>
-            <Heading level={1} margin="none">
-              Style compass
-            </Heading>
+            <Heading level={1} margin="none">Style compass</Heading>
             <Paragraph>
-              Use this token compass to find the right tokens for your
-              use-case.
+              Use this tokens compass to find the right tokens for your use-case.
             </Paragraph>
           </Box>
           <Box direction="row" gap="small" align="center" flex={false}>
-            {!isAtRoot && (
+            {history.length > 0 && (
               <Button
                 icon={<FormPrevious aria-hidden="true" />}
                 label="Back"
@@ -105,7 +72,7 @@ export const StyleCompass = () => {
             <Button
               label="Restart"
               onClick={handleReset}
-              disabled={isAtRoot}
+              disabled={history.length === 0}
             />
           </Box>
         </Box>
@@ -117,8 +84,8 @@ export const StyleCompass = () => {
               onSelect={handleSelection}
             />
           )}
-          {result && (
-            <ResultCard result={result} onNavigate={handleNavigate} />
+          {isLeafOption(currentNode) && (
+            <ResultCard result={currentNode.result} onNavigate={handleNavigate} />
           )}
         </Box>
       </PageContent>
