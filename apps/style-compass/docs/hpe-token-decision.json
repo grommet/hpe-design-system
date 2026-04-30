@@ -8,7 +8,7 @@
   },
   "tree": {
     "id": "root",
-    "question": "Are you styling a specific HPE component, or do you need a general design token?",
+    "question": "Are you styling a specific HPE component, or looking for a general style value?",
     "options": [
       {
         "label": "A specific component",
@@ -1635,7 +1635,7 @@
           "options": [
             {
               "label": "Color",
-              "description": "Background fills, text colors, icon colors, border colors, foreground fills, decorative colors, data visualisation, or focus indicators.",
+              "description": "Background fills, text colors, icon colors, border colors, foreground fills...",
               "next": {
                 "id": "color",
                 "question": "What element needs color?",
