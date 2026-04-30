@@ -198,6 +198,21 @@
                                   "question": "What size?",
                                   "options": [
                                     {
+                                      "label": "xsmall",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.xsmall.borderRadius",
+                                          "hpe.button.default.xsmall.borderWidth",
+                                          "hpe.button.default.xsmall.fontSize",
+                                          "hpe.button.default.xsmall.gapX",
+                                          "hpe.button.default.xsmall.lineHeight",
+                                          "hpe.button.default.xsmall.minHeight",
+                                          "hpe.button.default.xsmall.paddingX",
+                                          "hpe.button.default.xsmall.paddingY"
+                                        ]
+                                      }
+                                    },
+                                    {
                                       "label": "small",
                                       "result": {
                                         "tokens": [
@@ -241,6 +256,21 @@
                                           "hpe.button.default.large.minHeight",
                                           "hpe.button.default.large.paddingX",
                                           "hpe.button.default.large.paddingY"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "label": "xlarge",
+                                      "result": {
+                                        "tokens": [
+                                          "hpe.button.default.xlarge.borderRadius",
+                                          "hpe.button.default.xlarge.borderWidth",
+                                          "hpe.button.default.xlarge.fontSize",
+                                          "hpe.button.default.xlarge.gapX",
+                                          "hpe.button.default.xlarge.lineHeight",
+                                          "hpe.button.default.xlarge.minHeight",
+                                          "hpe.button.default.xlarge.paddingX",
+                                          "hpe.button.default.xlarge.paddingY"
                                         ]
                                       }
                                     }
@@ -303,6 +333,22 @@
                             "question": "What size?",
                             "options": [
                               {
+                                "label": "xsmall",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.button.default.xsmall.iconOnly.borderRadius",
+                                    "hpe.button.default.xsmall.iconOnly.borderWidth",
+                                    "hpe.button.default.xsmall.iconOnly.fontSize",
+                                    "hpe.button.default.xsmall.iconOnly.gapX",
+                                    "hpe.button.default.xsmall.iconOnly.lineHeight",
+                                    "hpe.button.default.xsmall.iconOnly.minHeight",
+                                    "hpe.button.default.xsmall.iconOnly.minWidth",
+                                    "hpe.button.default.xsmall.iconOnly.paddingX",
+                                    "hpe.button.default.xsmall.iconOnly.paddingY"
+                                  ]
+                                }
+                              },
+                              {
                                 "label": "small",
                                 "result": {
                                   "tokens": [
@@ -350,6 +396,22 @@
                                     "hpe.button.default.large.iconOnly.paddingY"
                                   ]
                                 }
+                              },
+                              {
+                                "label": "xlarge",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.button.default.xlarge.iconOnly.borderRadius",
+                                    "hpe.button.default.xlarge.iconOnly.borderWidth",
+                                    "hpe.button.default.xlarge.iconOnly.fontSize",
+                                    "hpe.button.default.xlarge.iconOnly.gapX",
+                                    "hpe.button.default.xlarge.iconOnly.lineHeight",
+                                    "hpe.button.default.xlarge.iconOnly.minHeight",
+                                    "hpe.button.default.xlarge.iconOnly.minWidth",
+                                    "hpe.button.default.xlarge.iconOnly.paddingX",
+                                    "hpe.button.default.xlarge.iconOnly.paddingY"
+                                  ]
+                                }
                               }
                             ]
                           }
@@ -370,9 +432,11 @@
                             "id": "button-primary-size",
                             "question": "What size?",
                             "options": [
+                              { "label": "xsmall", "result": { "tokens": ["hpe.button.primary.xsmall.borderRadius", "hpe.button.primary.xsmall.borderWidth", "hpe.button.primary.xsmall.fontSize", "hpe.button.primary.xsmall.gapX", "hpe.button.primary.xsmall.lineHeight", "hpe.button.primary.xsmall.minHeight", "hpe.button.primary.xsmall.paddingX", "hpe.button.primary.xsmall.paddingY"] } },
                               { "label": "small", "result": { "tokens": ["hpe.button.primary.small.borderRadius", "hpe.button.primary.small.borderWidth", "hpe.button.primary.small.fontSize", "hpe.button.primary.small.gapX", "hpe.button.primary.small.lineHeight", "hpe.button.primary.small.minHeight", "hpe.button.primary.small.paddingX", "hpe.button.primary.small.paddingY"] } },
                               { "label": "medium", "result": { "tokens": ["hpe.button.primary.medium.borderRadius", "hpe.button.primary.medium.borderWidth", "hpe.button.primary.medium.fontSize", "hpe.button.primary.medium.gapX", "hpe.button.primary.medium.lineHeight", "hpe.button.primary.medium.minHeight", "hpe.button.primary.medium.paddingX", "hpe.button.primary.medium.paddingY"] } },
-                              { "label": "large", "result": { "tokens": ["hpe.button.primary.large.borderRadius", "hpe.button.primary.large.borderWidth", "hpe.button.primary.large.fontSize", "hpe.button.primary.large.gapX", "hpe.button.primary.large.lineHeight", "hpe.button.primary.large.minHeight", "hpe.button.primary.large.paddingX", "hpe.button.primary.large.paddingY"] } }
+                              { "label": "large", "result": { "tokens": ["hpe.button.primary.large.borderRadius", "hpe.button.primary.large.borderWidth", "hpe.button.primary.large.fontSize", "hpe.button.primary.large.gapX", "hpe.button.primary.large.lineHeight", "hpe.button.primary.large.minHeight", "hpe.button.primary.large.paddingX", "hpe.button.primary.large.paddingY"] } },
+                              { "label": "xlarge", "result": { "tokens": ["hpe.button.primary.xlarge.borderRadius", "hpe.button.primary.xlarge.borderWidth", "hpe.button.primary.xlarge.fontSize", "hpe.button.primary.xlarge.gapX", "hpe.button.primary.xlarge.lineHeight", "hpe.button.primary.xlarge.minHeight", "hpe.button.primary.xlarge.paddingX", "hpe.button.primary.xlarge.paddingY"] } }
                             ]
                           }
                         },
@@ -404,9 +468,11 @@
                             "id": "button-secondary-size",
                             "question": "What size?",
                             "options": [
+                              { "label": "xsmall", "result": { "tokens": ["hpe.button.secondary.xsmall.borderRadius", "hpe.button.secondary.xsmall.borderWidth", "hpe.button.secondary.xsmall.fontSize", "hpe.button.secondary.xsmall.gapX", "hpe.button.secondary.xsmall.lineHeight", "hpe.button.secondary.xsmall.minHeight", "hpe.button.secondary.xsmall.paddingX", "hpe.button.secondary.xsmall.paddingY"] } },
                               { "label": "small", "result": { "tokens": ["hpe.button.secondary.small.borderRadius", "hpe.button.secondary.small.borderWidth", "hpe.button.secondary.small.fontSize", "hpe.button.secondary.small.gapX", "hpe.button.secondary.small.lineHeight", "hpe.button.secondary.small.minHeight", "hpe.button.secondary.small.paddingX", "hpe.button.secondary.small.paddingY"] } },
                               { "label": "medium", "result": { "tokens": ["hpe.button.secondary.medium.borderRadius", "hpe.button.secondary.medium.borderWidth", "hpe.button.secondary.medium.fontSize", "hpe.button.secondary.medium.gapX", "hpe.button.secondary.medium.lineHeight", "hpe.button.secondary.medium.minHeight", "hpe.button.secondary.medium.paddingX", "hpe.button.secondary.medium.paddingY"] } },
-                              { "label": "large", "result": { "tokens": ["hpe.button.secondary.large.borderRadius", "hpe.button.secondary.large.borderWidth", "hpe.button.secondary.large.fontSize", "hpe.button.secondary.large.gapX", "hpe.button.secondary.large.lineHeight", "hpe.button.secondary.large.minHeight", "hpe.button.secondary.large.paddingX", "hpe.button.secondary.large.paddingY"] } }
+                              { "label": "large", "result": { "tokens": ["hpe.button.secondary.large.borderRadius", "hpe.button.secondary.large.borderWidth", "hpe.button.secondary.large.fontSize", "hpe.button.secondary.large.gapX", "hpe.button.secondary.large.lineHeight", "hpe.button.secondary.large.minHeight", "hpe.button.secondary.large.paddingX", "hpe.button.secondary.large.paddingY"] } },
+                              { "label": "xlarge", "result": { "tokens": ["hpe.button.secondary.xlarge.borderRadius", "hpe.button.secondary.xlarge.borderWidth", "hpe.button.secondary.xlarge.fontSize", "hpe.button.secondary.xlarge.gapX", "hpe.button.secondary.xlarge.lineHeight", "hpe.button.secondary.xlarge.minHeight", "hpe.button.secondary.xlarge.paddingX", "hpe.button.secondary.xlarge.paddingY"] } }
                             ]
                           }
                         },
@@ -438,9 +504,11 @@
                             "id": "button-toolbar-size",
                             "question": "What size?",
                             "options": [
+                              { "label": "xsmall", "result": { "tokens": ["hpe.button.toolbar.xsmall.borderRadius", "hpe.button.toolbar.xsmall.borderWidth", "hpe.button.toolbar.xsmall.fontSize", "hpe.button.toolbar.xsmall.gapX", "hpe.button.toolbar.xsmall.lineHeight", "hpe.button.toolbar.xsmall.minHeight", "hpe.button.toolbar.xsmall.paddingX", "hpe.button.toolbar.xsmall.paddingY"] } },
                               { "label": "small", "result": { "tokens": ["hpe.button.toolbar.small.borderRadius", "hpe.button.toolbar.small.borderWidth", "hpe.button.toolbar.small.fontSize", "hpe.button.toolbar.small.gapX", "hpe.button.toolbar.small.lineHeight", "hpe.button.toolbar.small.minHeight", "hpe.button.toolbar.small.paddingX", "hpe.button.toolbar.small.paddingY"] } },
                               { "label": "medium", "result": { "tokens": ["hpe.button.toolbar.medium.borderRadius", "hpe.button.toolbar.medium.borderWidth", "hpe.button.toolbar.medium.fontSize", "hpe.button.toolbar.medium.gapX", "hpe.button.toolbar.medium.lineHeight", "hpe.button.toolbar.medium.minHeight", "hpe.button.toolbar.medium.paddingX", "hpe.button.toolbar.medium.paddingY"] } },
-                              { "label": "large", "result": { "tokens": ["hpe.button.toolbar.large.borderRadius", "hpe.button.toolbar.large.borderWidth", "hpe.button.toolbar.large.fontSize", "hpe.button.toolbar.large.gapX", "hpe.button.toolbar.large.lineHeight", "hpe.button.toolbar.large.minHeight", "hpe.button.toolbar.large.paddingX", "hpe.button.toolbar.large.paddingY"] } }
+                              { "label": "large", "result": { "tokens": ["hpe.button.toolbar.large.borderRadius", "hpe.button.toolbar.large.borderWidth", "hpe.button.toolbar.large.fontSize", "hpe.button.toolbar.large.gapX", "hpe.button.toolbar.large.lineHeight", "hpe.button.toolbar.large.minHeight", "hpe.button.toolbar.large.paddingX", "hpe.button.toolbar.large.paddingY"] } },
+                              { "label": "xlarge", "result": { "tokens": ["hpe.button.toolbar.xlarge.borderRadius", "hpe.button.toolbar.xlarge.borderWidth", "hpe.button.toolbar.xlarge.fontSize", "hpe.button.toolbar.xlarge.gapX", "hpe.button.toolbar.xlarge.lineHeight", "hpe.button.toolbar.xlarge.minHeight", "hpe.button.toolbar.xlarge.paddingX", "hpe.button.toolbar.xlarge.paddingY"] } }
                             ]
                           }
                         },
