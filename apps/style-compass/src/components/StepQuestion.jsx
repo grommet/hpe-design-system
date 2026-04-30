@@ -9,7 +9,7 @@ import { SelectorGroup, Selector } from '@shared/aries-core';
  */
 export const StepQuestion = ({ currentNode, onSelect }) => (
   <Box>
-    <Heading level={3} margin={{ top: 'medium', bottom: 'small' }}>
+    <Heading level={4} margin={{ top: 'medium', bottom: 'small' }}>
       {currentNode.question}
     </Heading>
     {currentNode.hint && (

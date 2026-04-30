@@ -664,7 +664,7 @@ export const foundation = [
     preview: {
       component: () => (
         <Box align="center" justify="center" fill>
-          <Compass size="large" color="text-strong" />
+          <Compass size="104px" color="icon-default" />
         </Box>
       ),
     },
