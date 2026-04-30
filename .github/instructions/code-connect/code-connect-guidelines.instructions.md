@@ -17,6 +17,47 @@ When wiring HPE Design System (Grommet) components to Figma using Code Connect, 
 3. **Map all properties:** Every Figma component property (variants, booleans, strings) must be mapped in the `props` block.
 4. **Sync after every change:** Run `pnpm run figma:sync` from `packages/code-connect` after creating or updating any Code Connect file.
 
+## Finding the Correct Node ID
+
+The `node-id` in the Figma URL must point to a `COMPONENT` or `COMPONENT_SET` node (purple ◆ or ◈ icon in the layers panel). To get the correct URL:
+
+1. In Figma, navigate to the component in the layers panel.
+2. Right-click the component and select **Copy link to selection**.
+3. Use the `node-id` from that URL in your `figma.connect` call.
+
+## Auto-Generating Boilerplate (Recommended)
+
+Instead of writing the `props` block by hand, use the `figma connect create` command to auto-generate a scaffolded `.figma.jsx` file directly from the Figma component URL. It reads all properties from Figma and pre-fills every mapping for you:
+
+```bash
+dotenv -e .env -- figma connect create "<figma-component-url>"
+```
+
+For example:
+
+```bash
+dotenv -e .env -- figma connect create "https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?node-id=2133-694"
+```
+
+This generates a file in the current directory with every Figma property already mapped. Then:
+
+1. Move the file to `packages/code-connect/src/`
+2. Review and adjust the Grommet prop names in the `example` function to match the actual API
+3. Run `pnpm run figma:sync` to publish
+
+This is the **recommended starting point** for any new component — it ensures no Figma properties are missed.
+
+To manually verify the node type and see its exact property names, run:
+
+```bash
+source .env && curl -s \
+  -H "X-Figma-Token: $FIGMA_ACCESS_TOKEN" \
+  "https://api.figma.com/v1/files/<fileKey>/nodes?ids=<nodeId>" | \
+  python3 -c "import sys,json; d=json.load(sys.stdin); node=list(d['nodes'].values())[0]['document']; print('Type:', node['type']); print('Props:', json.dumps(node.get('componentPropertyDefinitions',{}), indent=2))"
+```
+
+This will print the node type and the exact property names to use in your `props` block.
+
 ## What to Avoid
 
 1. **No page-level URLs:** Do not use a Figma page or frame URL — `node-id` must point to the exact component node.

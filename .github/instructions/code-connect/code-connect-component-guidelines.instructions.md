@@ -16,8 +16,12 @@ Before creating or updating a Code Connect file:
 
 1. **Component Name:** Identify the Grommet component to connect (e.g., `Button` from `grommet`).
 2. **Figma Source:** Capture the exact Figma component node URL, including the `node-id` query parameter.
-3. **Variant Inventory:** Review all Figma component properties (variants, booleans, strings) before mapping to confirm nothing is missed.
-4. **Repo Reference:** Locate the closest existing Code Connect file in `packages/code-connect/src/` before creating a new one.
+3. **Auto-generate boilerplate first:** Run `figma connect create` with the component URL to scaffold the full `props` block automatically — this is the recommended way to ensure no Figma properties are missed:
+   ```bash
+   dotenv -e .env -- figma connect create "<figma-component-url>"
+   ```
+4. **Variant Inventory:** After generating, review the scaffolded props against the Figma component panel to confirm all properties are mapped correctly.
+5. **Repo Reference:** Locate the closest existing Code Connect file in `packages/code-connect/src/` before creating a new one.
 
 ## Required Imports
 
@@ -58,13 +62,26 @@ figma.connect(
 
 Use the appropriate `figma.*` helper for each Figma property type:
 
-| Figma Property Type | Helper              | Usage                                          |
-| ------------------- | ------------------- | ---------------------------------------------- |
-| Text / string       | `figma.string`      | `label: figma.string('Label')`                 |
-| Boolean             | `figma.boolean`     | `disabled: figma.boolean('Disabled')`          |
-| Variant / enum      | `figma.enum`        | `size: figma.enum('Size', { small: 'small' })` |
-| Instance swap       | `figma.instance`    | `icon: figma.instance('Icon')`                 |
-| Nested props        | `figma.nestedProps` | Map sub-component properties                   |
+| Figma Property Type | Helper              | Usage                                                                            |
+| ------------------- | ------------------- | -------------------------------------------------------------------------------- |
+| Text / string       | `figma.string`      | `label: figma.string('Label')`                                                   |
+| Boolean             | `figma.boolean`     | `disabled: figma.boolean('Disabled')`                                            |
+| Boolean with values | `figma.boolean`     | `tip: figma.boolean('show Tip', { true: { content: 'Tip' }, false: undefined })` |
+| Variant / enum      | `figma.enum`        | `size: figma.enum('Size', { small: 'small' })`                                   |
+| Instance swap       | `figma.instance`    | `icon: figma.instance('Icon')`                                                   |
+| Nested props        | `figma.nestedProps` | Map sub-component properties                                                     |
+
+### String Property Names
+
+The Figma API returns property names with an internal ID suffix (e.g., `Label#70:14`). Code Connect only accepts the **base name before the `#`**. Always strip the suffix:
+
+```jsx
+// ✅ Correct
+label: figma.string('Label');
+
+// ❌ Wrong — will fail validation
+label: figma.string('Label#70:14');
+```
 
 ### Enum Mapping Rules
 
@@ -139,11 +156,22 @@ figma.connect(
 );
 ```
 
+## Publishing
+
+Run the following command from `packages/code-connect` to publish all Code Connect files to Figma. This uses `dotenv-cli` to automatically load `FIGMA_ACCESS_TOKEN` from the local `.env` file:
+
+```bash
+pnpm run figma:sync
+```
+
+Never pass the token directly in the terminal command. Store it only in `.env` (which is already covered by the root `.gitignore`).
+
 ## What to Avoid
 
 1. **No unmapped props:** Do not pass hardcoded values in the `example` function for props that should be driven by Figma.
 2. **No missing props:** Do not omit a Figma property from the `props` block without a documented reason.
-3. **No wrong node URL:** Always use the exact Figma component node URL with `node-id` — not a page or frame URL.
+3. **No wrong node URL:** Always use the exact Figma component node URL with `node-id` — not a page or frame URL. The target node must be a `COMPONENT` or `COMPONENT_SET` (purple diamond ◆ or ◈ icon in Figma layers panel). Linking to a frame or group will cause a validation error.
+4. **No conditional expressions in `example`:** The Code Connect parser does not support inline conditionals like `kind === 'primary'`. Map each boolean state as a separate `figma.enum` prop instead.
 
 ---
 

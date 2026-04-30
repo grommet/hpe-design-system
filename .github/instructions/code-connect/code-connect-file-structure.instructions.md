@@ -36,6 +36,21 @@ After creating or updating a Code Connect file, run the sync command from the `p
 pnpm run figma:sync
 ```
 
+### First-time Setup
+
+Before syncing for the first time, create a `.env` file in `packages/code-connect/` with your Figma Personal Access Token:
+
+```
+FIGMA_ACCESS_TOKEN="your_token_here"
+```
+
+Generate the token in **Figma > Settings > Account > Personal access tokens** with these scopes:
+
+- `file_content:read` (under Files)
+- `file_code_connect:write` (under Development)
+
+The `.env` file is covered by the root `.gitignore` and must never be committed.
+
 1. **Always sync after changes:** Do not leave Code Connect files unsynced — changes are only reflected in Figma after a successful sync.
 2. **Verify exit code:** Confirm the sync command exits with code `0` before considering the file complete.
 

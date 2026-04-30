@@ -20,14 +20,29 @@ figma.connect(
         xLarge: 'xlarge',
       }),
       disabled: figma.enum('State', { disabled: true }),
+      // Icon position variant
+      icon: figma.enum('Icon', {
+        left: 'left',
+        right: 'right',
+        icon: 'icon',
+      }),
+      // Boolean toggles
+      busy: figma.boolean('is Busy'),
+      badge: figma.boolean('show Badge'),
+      tip: figma.boolean('show Tip', {
+        true: { content: 'Tip content' },
+        false: undefined,
+      }),
     },
-    example: ({ label, primary, secondary, size, disabled }) => (
+    example: ({ label, primary, secondary, size, disabled, busy, tip }) => (
       <Button
         label={label}
         primary={primary}
         secondary={secondary}
         size={size}
         disabled={disabled}
+        busy={busy}
+        tip={tip}
       />
     ),
   },
