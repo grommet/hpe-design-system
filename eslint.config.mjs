@@ -128,6 +128,20 @@ export default defineConfig([
       ],
     },
   },
+  {
+    // StyleCompass.js re-exports from a sibling app via a relative path that
+    // crosses a package boundary. import/no-relative-packages would auto-fix
+    // this to a bare specifier (breaking the build), and import/extensions
+    // would complain about the missing .jsx. Disable both for this file only.
+    files: [
+      'apps/docs/src/examples/foundation/style-compass/StyleCompass.js',
+    ],
+    rules: {
+      'import/no-relative-packages': 'off',
+      'import/extensions': 'off',
+      'max-len': 'off',
+    },
+  },
   // TypeScript recommended rules — scoped to TS files only
   {
     files: ['**/*.{ts,tsx,mts,cts}'],
