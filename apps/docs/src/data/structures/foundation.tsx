@@ -660,7 +660,7 @@ export const foundation = [
     cardOrder: 10,
     available: true,
     // eslint-disable-next-line max-len
-    description: 'An interactive styling guide — answer a few questions about what you\'re building and get precise HPE style values.',
+    description: 'An interactive styling guide. Answer a few questions about what you\'re building and get precise HPE style values.',
     preview: {
       component: () => (
         <Box align="center" justify="center" fill>
