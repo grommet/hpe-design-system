@@ -4,7 +4,7 @@ import { SelectorGroup, Selector } from '@shared/aries-core';
 
 /**
  * Renders the current question node: question text, optional hint, and a
- * vertical list of Selector options. Generic — works for any question node
+ * vertical list of Selector options. Generic. Works for any question node
  * shape from the decision tree JSON.
  */
 export const StepQuestion = ({ currentNode, onSelect }) => (

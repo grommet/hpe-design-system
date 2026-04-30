@@ -1,5 +1,5 @@
 # PRD: Style Compass
-### VS Code Copilot Build Instructions — HPE Design System
+### VS Code Copilot Build Instructions  -  HPE Design System
 
 ---
 
@@ -14,7 +14,7 @@ a specific HPE component (Button, Select, Checkbox, etc.) or need a general sema
 From there, a series of progressively narrower questions guide them to the correct token(s). 
 At the end, the recommended design token(s) are surfaced in a result table.
 
-**Example flow A — Semantic path:**
+**Example flow A  -  Semantic path:**
 - **Step 1:** "Are you styling a specific HPE component, or do you need a general design 
   token?" → user picks "A general design token"
 - **Step 2:** "What are you trying to style?" → options: Color, Spacing, Sizing, Typography, 
@@ -25,50 +25,50 @@ At the end, the recommended design token(s) are surfaced in a result table.
   container fill, Floating / Overlay, Screen overlay, Subtle contrast, 
   Interactive hover/active, Status communication, Selected / Checked, Primary / Brand 
   emphasis, Neutral strong, Disabled
-- **Step 5:** Result — token table with swatch, token name, description, copy button
+- **Step 5:** Result  -  token table with swatch, token name, description, copy button
 
-**Example flow B — Component path:**
+**Example flow B  -  Component path:**
 - **Step 1:** "Are you styling a specific HPE component, or do you need a general design 
   token?" → user picks "A specific component"
 - **Step 2:** "Which component are you styling?" → Anchor, Button, Checkbox, Switch, Select, 
   Menu, FormField, etc.
 - **Step 3:** "What part of the Checkbox are you styling?" → The checkbox control, The label, 
-  Overall spacing — with a **hint** explaining anatomy: "The 'control' is the square box you 
+  Overall spacing  -  with a **hint** explaining anatomy: "The 'control' is the square box you 
   tick. The 'label' is the text beside it."
-- **Step 4:** Result — token table
+- **Step 4:** Result  -  token table
 
-**Example flow C — Cross-component redirect:**
+**Example flow C  -  Cross-component redirect:**
 - **Step 1:** User picks "A specific component"
 - **Step 2:** User picks "Select (Dropdown)"
 - **Step 3:** User picks "The trigger / control (the visible input area)"
-- **Step 4:** Guidance result — no token table, instead a description explaining that the 
+- **Step 4:** Guidance result  -  no token table, instead a description explaining that the 
   Select trigger is styled by FormField input container tokens, with a "Related" link to 
   navigate directly to the FormField input container node
 
 **Navigation:** The user can press **Back** to return one step, or **Restart** to return to 
-step 1. There are no breadcrumb tags or trail indicators — orientation is provided entirely by 
+step 1. There are no breadcrumb tags or trail indicators  -  orientation is provided entirely by 
 the question text changing at each step.
 
 ---
 
 ## 2. Repository Context
 
-**Repo:** `grommet/hpe-design-system` — a pnpm monorepo.
+**Repo:** `grommet/hpe-design-system`  -  a pnpm monorepo.
 
 **Tech stack:**
 - React (JSX/TSX), Vite
-- [Grommet](https://v2.grommet.io/) — all UI components must come from `grommet`
-- [`grommet-theme-hpe`](https://github.com/grommet/grommet-theme-hpe) — the HPE theme applied 
+- [Grommet](https://v2.grommet.io/)  -  all UI components must come from `grommet`
+- [`grommet-theme-hpe`](https://github.com/grommet/grommet-theme-hpe)  -  the HPE theme applied 
   at the root `<Grommet>` wrapper. **Do not override or extend styles inline.** All visual 
   styling (colors, spacing, borders, typography, border-radius, shadows) is provided by this 
   theme. Trust it completely.
-- `@shared/aries-core` — shared internal component library. Includes `Selector` and 
-  `SelectorGroup` — the primary selection controls for this feature.
-- `@hpe-design/icons-grommet` — HPE icon package
-- `hpe-design-tokens` — workspace package containing the design token JSON (provided 
+- `@shared/aries-core`  -  shared internal component library. Includes `Selector` and 
+  `SelectorGroup`  -  the primary selection controls for this feature.
+- `@hpe-design/icons-grommet`  -  HPE icon package
+- `hpe-design-tokens`  -  workspace package containing the design token JSON (provided 
   separately)
 
-**Existing reference app — use as structural template:**
+**Existing reference app  -  use as structural template:**
 ```
 apps/design-tokens-manager/
   src/
@@ -81,7 +81,7 @@ apps/design-tokens-manager/
   index.html
 ```
 
-**Key reusable components already in the repo — import, do not reimplement:**
+**Key reusable components already in the repo  -  import, do not reimplement:**
 
 | Component | Path |
 |---|---|
@@ -94,7 +94,7 @@ apps/design-tokens-manager/
 
 ---
 
-## 3. Deliverables — What to Build
+## 3. Deliverables  -  What to Build
 
 ### A. New standalone app: `apps/style-compass/`
 
@@ -126,7 +126,7 @@ A foundation page within the existing docs site, sitting alongside `color.mdx`,
 - Introduces Style Compass with a short description
 - Embeds the live interactive `StyleCompass` component as an `<Example>` (matching the pattern 
   used in other foundation/template pages)
-- Does **not** duplicate the app — it imports and renders the same component
+- Does **not** duplicate the app  -  it imports and renders the same component
 
 Also register the page in `apps/docs/src/data/structure.tsx` with:
 ```js
@@ -139,9 +139,9 @@ Also register the page in `apps/docs/src/data/structure.tsx` with:
 
 ---
 
-## 4. Architecture Principle — Separation of Concerns
+## 4. Architecture Principle  -  Separation of Concerns
 
-> ⚠️ **The app must be built systematically. Data drives the UI — the UI never hard-codes 
+> ⚠️ **The app must be built systematically. Data drives the UI  -  the UI never hard-codes 
 > data.**
 
 The decision tree JSON is the **single source of truth**. The components (`StepQuestion`, 
@@ -169,7 +169,7 @@ The decision tree JSON is the **single source of truth**. The components (`StepQ
    component delegates its styling to another (e.g. the Select trigger is styled by FormField 
    input container tokens, because Select always appears inside a FormField in the HPE Design 
    System), this is captured as a `seeAlso` reference and a descriptive `description` in the 
-   result node. The `ResultCard` renders this generically — it doesn't know or care that 
+   result node. The `ResultCard` renders this generically  -  it doesn't know or care that 
    Select specifically redirects to FormField. Any future component that delegates styling can 
    use the same pattern.
 
@@ -181,7 +181,7 @@ The decision tree JSON is the **single source of truth**. The components (`StepQ
 
 ```js
 {
-  history: [],            // Stack of prior node references — used to power "Back"
+  history: [],            // Stack of prior node references  -  used to power "Back"
   currentNode: tree       // The current node object from the decision tree
 }
 ```
@@ -204,7 +204,7 @@ const isNavigationOption = (option) => 'next' in option && isQuestionNode(option
 
 ### Page heading area
 
-The heading, subheading, and navigation buttons are laid out in a single horizontal row — 
+The heading, subheading, and navigation buttons are laid out in a single horizontal row  -  
 buttons are inline with the heading on the right, **not** in a sticky or fixed header:
 
 ```jsx
@@ -233,14 +233,14 @@ buttons are inline with the heading on the right, **not** in a sticky or fixed h
 ```
 
 ### Back button behaviour
-- Shown only when `history.length > 0` — **conditionally rendered, not just disabled**
+- Shown only when `history.length > 0`  -  **conditionally rendered, not just disabled**
 - On step 1, Back is completely absent from the UI
 - On steps 2+ it appears with a left-chevron icon to the left of the "Back" label
 - Clicking it pops the last entry from `history` and sets `currentNode` to it
 
 ### Restart button behaviour
 - Always rendered
-- Label is `"Restart"` — text only, **no icon**
+- Label is `"Restart"`  -  text only, **no icon**
 - Disabled when `history.length === 0` (i.e. on step 1, the user hasn't gone anywhere yet)
 - Clicking it clears `history` and sets `currentNode` back to the tree root
 
@@ -289,7 +289,7 @@ Do **not** use CSS keyframes or styled-components animations:
 
 ## 6. Component Specifications
 
-### `treeUtils.js` — Tree traversal and token resolution
+### `treeUtils.js`  -  Tree traversal and token resolution
 
 This utility module provides all logic for navigating the tree and resolving token display 
 data. It keeps rendering components stateless and data-driven.
@@ -325,7 +325,7 @@ export const findNodeById = (node, id) => {
   return null;
 };
 
-// Token resolution — turns a token name string into display data
+// Token resolution  -  turns a token name string into display data
 // by looking it up in the structuredTokens from designTokenUtils.js
 export const resolveToken = (tokenName) => {
   // tokenName e.g. "hpe.color.background.front"
@@ -390,12 +390,12 @@ Renders the current question, optional hint, and its selector options.
 ```
 
 **Layout rules:**
-- Selectors stack in a **single vertical column** — no `columns` prop on `SelectorGroup`
+- Selectors stack in a **single vertical column**  -  no `columns` prop on `SelectorGroup`
 - The `SelectorGroup` is wrapped in `<Box width="medium">` to constrain it to ~300px
 - Each `Selector` shows a **bold title** and **smaller description** below it
 - `value` and `key` use `option.label` (the JSON has no separate `value` field)
 - Do not add `background`, `border`, `color`, or `pad` props to `Selector` or `SelectorGroup` 
-  beyond what is shown above — visual treatment is fully handled by `grommet-theme-hpe`
+  beyond what is shown above  -  visual treatment is fully handled by `grommet-theme-hpe`
 
 ### `ResultCard.jsx`
 
@@ -407,7 +407,7 @@ Renders the result node. Handles three cases structurally (not by node ID):
 
 **`seeAlso` navigation:** When a user clicks a `seeAlso` button, the `onNavigate` callback 
 should find the referenced node by ID in the tree and navigate to it (pushing the current 
-node onto history). For example, the Select trigger has no tokens of its own — it renders 
+node onto history). For example, the Select trigger has no tokens of its own  -  it renders 
 guidance text explaining that Select always lives inside a FormField, and a "Related" link 
 to `formfield-input-container` so the user can jump directly to those tokens.
 
@@ -542,14 +542,14 @@ Reference implementation:
 **Key props:**
 - `SelectorGroup` wraps multiple `Selector` items
 - `Selector` props:
-  - `value` — uses `option.label` (the JSON has no separate value field)
-  - `title` — the **Selector Label / Identifier** → uses the JSON `label` field
-  - `description` — supporting detail → uses the JSON `description` field
-  - `direction="row"` — for horizontal layout if needed
+  - `value`  -  uses `option.label` (the JSON has no separate value field)
+  - `title`  -  the **Selector Label / Identifier** → uses the JSON `label` field
+  - `description`  -  supporting detail → uses the JSON `description` field
+  - `direction="row"`  -  for horizontal layout if needed
 
 ### Grommet layout component reference
 
-Use these for all layout and typography — do not use raw HTML `<div>`, `<p>`, `<h1>` etc.:
+Use these for all layout and typography  -  do not use raw HTML `<div>`, `<p>`, `<h1>` etc.:
 
 | Need | Component |
 |---|---|
@@ -566,7 +566,7 @@ Use these for all layout and typography — do not use raw HTML `<div>`, `<p>`, 
 
 ## 7. Data / JSON Structure
 
-The decision tree is supplied as a JS export. **The JSON is the single source of truth — the 
+The decision tree is supplied as a JS export. **The JSON is the single source of truth  -  the 
 UI renders it generically based on structural shape, never based on specific node IDs.**
 
 ### Node detection (no `type` field)
@@ -674,7 +674,7 @@ export const styleCompassTree = {
 {
   tokens: ['hpe.color.background.front', 'hpe.color.background.default'],  // array of token name strings
   description: 'Optional description of the result set.',                    // optional
-  seeAlso: ['formfield-input-container']                                     // optional — node IDs to cross-reference
+  seeAlso: ['formfield-input-container']                                     // optional  -  node IDs to cross-reference
 }
 ```
 
@@ -691,18 +691,18 @@ the user to FormField input container tokens via `seeAlso`.
 
 ---
 
-## 8. Theming Rules — CRITICAL
+## 8. Theming Rules  -  CRITICAL
 
 > ⚠️ **Copilot must not override grommet-theme-hpe styles.**
 
 - Do **not** pass `style={{}}` props with color, font, spacing, or border values (except 
   `fontFamily` on monospace token names, which has no theme equivalent)
-- Do **not** use hardcoded hex colors or pixel values — use Grommet's semantic token props 
+- Do **not** use hardcoded hex colors or pixel values  -  use Grommet's semantic token props 
   instead (e.g. `background="background-front"`, `color="text-strong"`)
 - Do **not** wrap components in `styled-components` with HPE-specific visual overrides
 - The `<Grommet theme={hpe}>` wrapper at the app root handles all visual styling. Trust it.
 - `grommet-theme-hpe` controls disabled state appearance, selected state on Selectors, focus 
-  rings, hover states — do not attempt to replicate or override any of these
+  rings, hover states  -  do not attempt to replicate or override any of these
 
 ---
 
@@ -734,10 +734,10 @@ Register in `apps/docs/src/data/structure.tsx` in the foundation section:
 ## 10. Build Checklist
 
 ### Architecture & data
-- [ ] Decision tree JSON is the single source of truth — UI renders it generically
+- [ ] Decision tree JSON is the single source of truth  -  UI renders it generically
 - [ ] `treeUtils.js` handles all tree traversal, node type detection, reference resolution, 
       and token value resolution
-- [ ] Token resolution uses existing `structuredTokens` from `designTokenUtils.js` — token 
+- [ ] Token resolution uses existing `structuredTokens` from `designTokenUtils.js`  -  token 
       name strings are resolved to `{ token, type, value, description }` at runtime
 - [ ] No per-node-ID special cases in rendering components
 - [ ] Editing the JSON (adding nodes, renaming options, restructuring) produces correct UI 
@@ -769,17 +769,17 @@ Register in `apps/docs/src/data/structure.tsx` in the foundation section:
 ### Page heading area
 - [ ] `<Heading level={1}>Style compass</Heading>` and `<Paragraph>` subheading on the left
 - [ ] Back and Restart buttons on the right, inline with heading (`justify="between"`)
-- [ ] **Back button** is conditionally *rendered* (not just disabled) — absent on step 1, 
+- [ ] **Back button** is conditionally *rendered* (not just disabled)  -  absent on step 1, 
       present on steps 2+
 - [ ] Back button has left-chevron icon (`<FormPrevious>`) to the left of "Back" label
-- [ ] **Restart button** uses `label="Restart"` only — no icon
+- [ ] **Restart button** uses `label="Restart"` only  -  no icon
 - [ ] Restart button is disabled when `history.length === 0`
 
 ### `StepQuestion.jsx`
 - [ ] Question text uses `<Heading level={3}>`
 - [ ] **Hint text** rendered below the question when `currentNode.hint` exists, as 
       `<Paragraph size="medium">`
-- [ ] `SelectorGroup` has **no** `columns` prop — single column layout
+- [ ] `SelectorGroup` has **no** `columns` prop  -  single column layout
 - [ ] `SelectorGroup` wrapped in `<Box width="medium">` to constrain width
 - [ ] `Selector` `title` prop receives the JSON `label` field
 - [ ] `Selector` `value` prop receives the JSON `label` field (no separate `value` in JSON)
@@ -790,15 +790,15 @@ Register in `apps/docs/src/data/structure.tsx` in the foundation section:
 - [ ] **When `tokens` array is non-empty:** Heading reads "Here are your tokens:", followed by 
       optional result-level description, then DataTable
 - [ ] **When `tokens` array is empty:** Heading reads "Guidance", followed by description 
-      text — no DataTable rendered
+      text  -  no DataTable rendered
 - [ ] **When `seeAlso` is present:** Render a "Related" section with Button links that 
       navigate to the referenced node IDs via `findNodeById()`
 - [ ] DataTable has 4 columns: Swatch, Token name, Description, Copy
-- [ ] **No column headers** on the DataTable — `header: ''` on every column
-- [ ] Preview type determined by `datum.type` and token name pattern — reuse preview 
+- [ ] **No column headers** on the DataTable  -  `header: ''` on every column
+- [ ] Preview type determined by `datum.type` and token name pattern  -  reuse preview 
       components from `DesignTokensTable.js`
 - [ ] Token name column: monospace font (`fontFamily: 'Menlo, monospace'`), full dot-notation
-- [ ] Copy button reuses `CopyButton` from `design-tokens-manager` — copies `datum.token` 
+- [ ] Copy button reuses `CopyButton` from `design-tokens-manager`  -  copies `datum.token` 
       string
 
 ### Theming

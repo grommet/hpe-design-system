@@ -16,7 +16,7 @@ import { Breadcrumb } from '../components/Breadcrumb';
 export const StyleCompass = () => {
   const refMap = useMemo(() => buildRefMap(styleCompassTree), []);
 
-  // history: array of { node, choiceLabel } — one entry per choice made.
+  // history: array of { node, choiceLabel }. One entry per choice made.
   // choiceLabel is the option.label the user selected at that step.
   const [history, setHistory] = useState([]);
   const [currentNode, setCurrentNode] = useState(styleCompassTree);

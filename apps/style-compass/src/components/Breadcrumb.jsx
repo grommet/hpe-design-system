@@ -3,7 +3,7 @@ import { Box, Tag, Text } from 'grommet';
 
 /**
  * Renders the trail of choices the user has made as clickable Tag pills.
- * Each crumb except the last is clickable — clicking it jumps back to
+ * Each crumb except the last is clickable. Clicking it jumps back to
  * the question node at that point in history and trims forward history.
  * The last crumb is non-clickable and represents the current position.
  */

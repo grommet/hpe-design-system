@@ -1,4 +1,4 @@
-# Style Compass — Decision Tree Writing Guide
+# Style Compass  -  Decision Tree Writing Guide
 
 This guide defines how to write content for `hpe-token-decision.json`.
 Follow it when adding new nodes, editing existing ones, or reviewing contributions.
@@ -9,7 +9,7 @@ It records agreed decisions so they don't need to be re-litigated each time.
 ## 1. The four content fields
 
 Every option in the tree can have up to four content-bearing fields.
-Each has a distinct job — do not blur their purposes.
+Each has a distinct job  -  do not blur their purposes.
 
 | Field | Where it appears | Job |
 |---|---|---|
@@ -59,7 +59,7 @@ Use ` / ` (with spaces) when two terms are **genuinely synonymous alternate name
 the same thing: `Anchor / Link`, `Switch / Toggle`, `Select / Dropdown`,
 `Critical / Error / Danger`.
 
-Do not use slashes to mean "or choose one of these" — that's what the next question is for.
+Do not use slashes to mean "or choose one of these"  -  that's what the next question is for.
 
 Do not use slashes when the parenthetical is an *explanation* of what the label means.
 That belongs in `description`:
@@ -92,7 +92,7 @@ This mirrors how a designer would point at a component and say "the thing I mean
 - **Always** include a description when a label's meaning is ambiguous without context.
 - **Omit** descriptions on leaf size options (`xsmall`, `small`, `medium`, etc.) unless
   one size needs a call-out (e.g. "Medium is the default size.").
-- **Omit** descriptions on state options (`Rest`, `Hover`, `Disabled`) — these are
+- **Omit** descriptions on state options (`Rest`, `Hover`, `Disabled`)  -  these are
   self-explanatory in context.
 - **Omit** state alias parentheticals such as `Rest (default)`, `On (selected)`,
   `Unchecked (rest)`. The alias adds no information and clutters the label. If the
@@ -130,7 +130,7 @@ Second person is fine but not required. Active voice. No marketing language.
 ## 4. Hint rules
 
 A `hint` appears once per question node, below the question heading, before the options.
-It provides context that applies to **all** options at that step — not to one specific option.
+It provides context that applies to **all** options at that step  -  not to one specific option.
 
 ### When to include a hint
 - When the user may not know the anatomy of a component well enough to choose confidently.
@@ -140,7 +140,7 @@ It provides context that applies to **all** options at that step — not to one 
 - When a string reference redirect is in use (the "Not sure / not listed" option).
 
 ### When not to use a hint
-- Do not use hints to explain individual options — that's what `description` is for.
+- Do not use hints to explain individual options  -  that's what `description` is for.
 - Do not repeat information that is already in the question text.
 
 ### Length
@@ -154,11 +154,11 @@ A `result.description` appears alongside the token table (or alone, for guidance
 
 ### Token table results
 - Include a result description when the token set needs context that token names alone
-  don't convey — e.g. what `gapX` means, which token is the default, caveats about use.
+  don't convey  -  e.g. what `gapX` means, which token is the default, caveats about use.
 - Omit it when the tokens are self-explanatory (`rest.background`, `hover.textColor`, etc.).
 
 ### Guidance-only results (empty `tokens` array)
-- **Always** include a `description` — it is the entire result content.
+- **Always** include a `description`  -  it is the entire result content.
 - Explain clearly why there are no tokens and what the user should do instead.
 - If a `seeAlso` reference is present, the description should prime the user for it:
   *"The Select trigger is styled by FormField input container tokens…"*
@@ -177,7 +177,7 @@ They are not shown to users but must be unique across the entire tree.
 - Prefix with the component or category: `formfield-label`, `color-bg-status`.
 - Make IDs descriptive enough to understand without context: `button-primary-state`
   not `b-p-s`.
-- Never change an ID once it is referenced by a `seeAlso` in another node —
+- Never change an ID once it is referenced by a `seeAlso` in another node  - 
   this would silently break navigation.
 
 ---
@@ -190,7 +190,7 @@ If a branch is getting deeper, look for a way to merge two steps.
 
 ### Option count
 Aim for **3–8 options per question**. Fewer than 3 suggests the step might be unnecessary.
-More than 8 is overwhelming — consider grouping or splitting the question.
+More than 8 is overwhelming  -  consider grouping or splitting the question.
 
 ### Leaf vs navigation
 An option should be a **leaf** (has `result`) when the answer uniquely identifies
@@ -220,9 +220,9 @@ These decisions have been made and should not be re-litigated without good reaso
 | Parenthetical clarifications move from `label` to `description` | Labels must be scannable; descriptions are the right place for clarifying content |
 | T-shirt sizes as labels stay lowercase (`xsmall`, `medium`) | Matches token naming convention and avoids inconsistency |
 | State labels (`Rest`, `Hover`, `Disabled`) have no descriptions | Self-explanatory in context; descriptions would add noise |
-| State alias parentheticals dropped (`Rest (default)`, `On (selected)`, etc.) | Aliases restate the label in different words — no information added |
+| State alias parentheticals dropped (`Rest (default)`, `On (selected)`, etc.) | Aliases restate the label in different words  -  no information added |
 | Slash notation for genuine synonyms only (`Switch / Toggle`, `Select / Dropdown`) | Slashes signal "same thing, two names"; explanations belong in `description` |
-| `h1 (xlarge)` — `h6 (xxsmall)` heading pairs kept with parentheticals | The parenthetical is the size-scale mapping, not a clarification. The pair is more useful as a compact reference than split across label + description |
+| `h1 (xlarge)`  -  `h6 (xxsmall)` heading pairs kept with parentheticals | The parenthetical is the size-scale mapping, not a clarification. The pair is more useful as a compact reference than split across label + description |
 | Component anatomy uses `"The [part]"` phrasing | Reads naturally when a designer points at a component |
 | No explicit `type` field on nodes | Node type is detected structurally by the renderer; adding `type` would be redundant and could go stale |
 | `tokens` array always present on result nodes, empty `[]` for guidance-only | Keeps result shape consistent; renderer switches on `tokens.length > 0` |

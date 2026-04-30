@@ -13,7 +13,7 @@ import { resolveResultTokens, resolveToken } from '../lib/treeUtils';
 
 /**
  * Determine which preview component to render based on token type and name.
- * Generic — relies on the datum's resolved type and token name pattern.
+ * Generic. Relies on the datum's resolved type and token name pattern.
  */
 const getPreview = (datum) => {
   if (datum.type === 'color') return <ColorPreview datum={datum} />;

@@ -28,7 +28,7 @@ export const findNodeById = (node, id) => {
   return null;
 };
 
-// Token resolution — turns a token name string into display data
+// Token resolution: turns a token name string into display data
 // by looking it up in the structuredTokens from designTokenUtils.js
 export const resolveToken = (tokenName) => {
   // tokenName e.g. "hpe.color.background.front"

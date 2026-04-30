@@ -27,7 +27,7 @@
                 "options": [
                   {
                     "label": "Sizing",
-                    "description": "Font size, line height, gap between text and icon — varies by size.",
+                    "description": "Font size, line height, gap between text and icon. Varies by size.",
                     "next": {
                       "id": "anchor-size",
                       "question": "What size?",
@@ -129,7 +129,7 @@
                   },
                   {
                     "label": "Appearance & states",
-                    "description": "Text color, font weight, text decoration — varies by interaction state.",
+                    "description": "Text color, font weight, text decoration. Varies by interaction state.",
                     "next": {
                       "id": "anchor-state",
                       "question": "What interaction state?",
@@ -173,7 +173,7 @@
             },
             {
               "label": "Button",
-              "description": "Buttons of all kinds — primary, secondary, default (ghost), toolbar, CTA.",
+              "description": "Buttons of all kinds: primary, secondary, default (ghost), toolbar, CTA.",
               "next": {
                 "id": "button",
                 "question": "What variant of button?",
@@ -827,14 +827,14 @@
               "next": {
                 "id": "select",
                 "question": "What part of the Select are you styling?",
-                "hint": "In the HPE Design System, Select always appears inside a FormField. The trigger area is styled by FormField input container tokens. The floating dropdown ('drop') and individual options have their own Select-specific tokens. There's also a selection marker — a small left-side bar indicating focus/selection.",
+                "hint": "In the HPE Design System, Select always appears inside a FormField. The trigger area is styled by FormField input container tokens. The floating dropdown ('drop') and individual options have their own Select-specific tokens. There's also a selection marker, a small left-side bar indicating focus/selection.",
                 "options": [
                   {
                     "label": "The trigger / control",
                     "description": "The bordered input area you click to open the dropdown.",
                     "result": {
                       "tokens": [],
-                      "description": "The Select trigger is styled by FormField input container tokens. In the HPE Design System, Select always appears inside a FormField — the border, padding, border-radius, and state styling (rest, hover, error, read-only) all come from FormField input container tokens. Navigate to FormField → 'The input container' for the full set.",
+                      "description": "The Select trigger is styled by FormField input container tokens. In the HPE Design System, Select always appears inside a FormField. The border, padding, border-radius, and state styling (rest, hover, error, read-only) all come from FormField input container tokens. Navigate to FormField → 'The input container' for the full set.",
                       "seeAlso": ["formfield-input-container"]
                     }
                   },
@@ -847,7 +847,7 @@
                         "hpe.select.default.medium.drop.paddingY",
                         "hpe.select.default.medium.drop.gapY"
                       ],
-                      "description": "paddingX/paddingY control the inner padding of the dropdown panel. gapY is the vertical spacing between options. The dropdown itself sits inside a Drop component — use hpe.drop.default.* for the outer container background, border-radius, and z-index.",
+                      "description": "paddingX/paddingY control the inner padding of the dropdown panel. gapY is the vertical spacing between options. The dropdown itself sits inside a Drop component. Use hpe.drop.default.* for the outer container background, border-radius, and z-index.",
                       "seeAlso": ["drop"]
                     }
                   },
@@ -1060,7 +1060,7 @@
             },
             {
               "label": "FormField",
-              "description": "The wrapper around form inputs — provides label, border, error states, and help text.",
+              "description": "The wrapper around form inputs. Provides label, border, error states, and help text.",
               "next": {
                 "id": "formfield",
                 "question": "What part of the Form Field are you styling?",
@@ -1068,7 +1068,7 @@
                 "options": [
                   {
                     "label": "The input container",
-                    "description": "The bordered box wrapping a single input — text field, Select, or similar.",
+                    "description": "The bordered box wrapping a single input: text field, Select, or similar.",
                     "next": {
                       "id": "formfield-input-container",
                       "question": "What do you need?",
@@ -1535,7 +1535,7 @@
                 "options": [
                   {
                     "label": "Body cell",
-                    "description": "DataCell — the standard data rows.",
+                    "description": "DataCell: the standard data rows.",
                     "next": {
                       "id": "datacell-size",
                       "question": "What size?",
@@ -1548,7 +1548,7 @@
                   },
                   {
                     "label": "Header cell",
-                    "description": "HeaderCell — the column header rows.",
+                    "description": "HeaderCell: the column header rows.",
                     "next": {
                       "id": "headercell-size",
                       "question": "What size?",
@@ -1561,7 +1561,7 @@
                   },
                   {
                     "label": "Footer cell",
-                    "description": "FooterCell — the summary row at the bottom.",
+                    "description": "FooterCell: the summary row at the bottom.",
                     "next": {
                       "id": "footercell-size",
                       "question": "What size?",
@@ -1628,7 +1628,7 @@
       },
       {
         "label": "A general design token",
-        "description": "I need a semantic token for color, spacing, typography, border, or sizing — not tied to a specific component.",
+        "description": "I need a semantic token for color, spacing, typography, border, or sizing, not tied to a specific component.",
         "next": {
           "id": "semantic",
           "question": "What are you trying to style?",
@@ -1735,7 +1735,7 @@
                   },
                   {
                     "label": "Text",
-                    "description": "Labels, paragraphs, headings — text colour.",
+                    "description": "Labels, paragraphs, headings. Text colour.",
                     "next": {
                       "id": "color-text",
                       "question": "What's the context?",
@@ -1762,7 +1762,7 @@
                         },
                         {
                           "label": "Text ON a colored background",
-                          "description": "Text sitting on a primary, status, or strong background — needs specific pairing for accessible contrast.",
+                          "description": "Text sitting on a primary, status, or strong background. Needs specific pairing for accessible contrast.",
                           "next": {
                             "id": "color-text-on",
                             "question": "What background is the text sitting on?",
@@ -1826,7 +1826,7 @@
                   },
                   {
                     "label": "Foreground",
-                    "description": "Colors for filled UI elements — meters, progress bars, and chart regions.",
+                    "description": "Colors for filled UI elements: meters, progress bars, and chart regions.",
                     "next": {
                       "id": "color-foreground",
                       "question": "What status/meaning?",
@@ -1846,7 +1846,7 @@
                       "id": "color-decorative",
                       "question": "What color?",
                       "options": [
-                        { "label": "Brand", "description": "HPE green — the primary brand color.", "result": { "tokens": ["hpe.color.decorative.brand"] } },
+                        { "label": "Brand", "description": "HPE green, the primary brand color.", "result": { "tokens": ["hpe.color.decorative.brand"] } },
                         { "label": "Green", "result": { "tokens": ["hpe.color.decorative.green"] } },
                         { "label": "Blue", "result": { "tokens": ["hpe.color.decorative.blue"] } },
                         { "label": "Purple", "result": { "tokens": ["hpe.color.decorative.purple"] } },
@@ -1904,7 +1904,7 @@
                   "hpe.spacing.xxlarge",
                   "hpe.spacing.3xlarge"
                 ],
-                "description": "Spacing scale for gaps, padding, and margins. Values are responsive — they change between 'large' (desktop) and 'small' (mobile) breakpoints."
+                "description": "Spacing scale for gaps, padding, and margins. Values are responsive; they change between 'large' (desktop) and 'small' (mobile) breakpoints."
               }
             },
             {
