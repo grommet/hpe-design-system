@@ -172,6 +172,7 @@ Never pass the token directly in the terminal command. Store it only in `.env` (
 2. **No missing props:** Do not omit a Figma property from the `props` block without a documented reason.
 3. **No wrong node URL:** Always use the exact Figma component node URL with `node-id` — not a page or frame URL. The target node must be a `COMPONENT` or `COMPONENT_SET` (purple diamond ◆ or ◈ icon in Figma layers panel). Linking to a frame or group will cause a validation error.
 4. **No conditional expressions in `example`:** The Code Connect parser does not support inline conditionals like `kind === 'primary'`. Map each boolean state as a separate `figma.enum` prop instead.
+5. **No `.map()` or dynamic iteration in `example`:** The Code Connect renderer cannot handle array iteration. Use static, explicit JSX children instead. For compound components like `Tabs`+`Tab`, hardcode representative children directly in the `example` function.
 
 ---
 
