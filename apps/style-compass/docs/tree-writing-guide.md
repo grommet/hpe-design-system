@@ -55,9 +55,24 @@ Parenthetical clarifications belong in `description`, not `label`.
 - **Lowercase** for t-shirt sizes and code values: `xsmall`, `medium`, `3xlarge`
 
 ### Slashes for equivalent alternatives
-Use ` / ` (with spaces) when two terms are genuinely interchangeable:
-`Anchor / Link`, `Floating / Overlay`, `Critical / Error / Danger`.
+Use ` / ` (with spaces) when two terms are **genuinely synonymous alternate names** for
+the same thing: `Anchor / Link`, `Switch / Toggle`, `Select / Dropdown`,
+`Critical / Error / Danger`.
+
 Do not use slashes to mean "or choose one of these" — that's what the next question is for.
+
+Do not use slashes when the parenthetical is an *explanation* of what the label means.
+That belongs in `description`:
+
+**Wrong** (explanation disguised as synonym):
+```json
+"label": "The track (the background pill)"
+```
+**Right**:
+```json
+"label": "The track",
+"description": "The elongated pill-shaped background of the toggle switch."
+```
 
 ### Anatomical labels ("The X")
 When asking about a part of a component, use `"The [part]"` phrasing consistently:
@@ -79,6 +94,9 @@ This mirrors how a designer would point at a component and say "the thing I mean
   one size needs a call-out (e.g. "Medium is the default size.").
 - **Omit** descriptions on state options (`Rest`, `Hover`, `Disabled`) — these are
   self-explanatory in context.
+- **Omit** state alias parentheticals such as `Rest (default)`, `On (selected)`,
+  `Unchecked (rest)`. The alias adds no information and clutters the label. If the
+  "default" state needs calling out, do it in `result.description`, not the label.
 
 ### What a description should say
 A description answers: *"What is this, and when would I use it?"*
@@ -202,6 +220,9 @@ These decisions have been made and should not be re-litigated without good reaso
 | Parenthetical clarifications move from `label` to `description` | Labels must be scannable; descriptions are the right place for clarifying content |
 | T-shirt sizes as labels stay lowercase (`xsmall`, `medium`) | Matches token naming convention and avoids inconsistency |
 | State labels (`Rest`, `Hover`, `Disabled`) have no descriptions | Self-explanatory in context; descriptions would add noise |
+| State alias parentheticals dropped (`Rest (default)`, `On (selected)`, etc.) | Aliases restate the label in different words — no information added |
+| Slash notation for genuine synonyms only (`Switch / Toggle`, `Select / Dropdown`) | Slashes signal "same thing, two names"; explanations belong in `description` |
+| `h1 (xlarge)` — `h6 (xxsmall)` heading pairs kept with parentheticals | The parenthetical is the size-scale mapping, not a clarification. The pair is more useful as a compact reference than split across label + description |
 | Component anatomy uses `"The [part]"` phrasing | Reads naturally when a designer points at a component |
 | No explicit `type` field on nodes | Node type is detected structurally by the renderer; adding `type` would be redundant and could go stale |
 | `tokens` array always present on result nodes, empty `[]` for guidance-only | Keeps result shape consistent; renderer switches on `tokens.length > 0` |
