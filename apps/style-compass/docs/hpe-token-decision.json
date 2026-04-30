@@ -1689,11 +1689,11 @@
                             "id": "color-bg-status",
                             "question": "What status?",
                             "options": [
-                              { "label": "Warning / Caution", "result": { "tokens": ["hpe.color.background.warning"], "description": "Use for backgrounds communicating warning or caution." } },
-                              { "label": "Critical / Error / Danger", "result": { "tokens": ["hpe.color.background.critical"], "description": "Use for backgrounds communicating errors or danger." } },
-                              { "label": "Success / OK", "result": { "tokens": ["hpe.color.background.ok"], "description": "Use for backgrounds communicating success." } },
-                              { "label": "Info / Neutral information", "result": { "tokens": ["hpe.color.background.info"], "description": "Use for backgrounds communicating neutral information." } },
-                              { "label": "Unknown", "result": { "tokens": ["hpe.color.background.unknown"], "description": "Use for backgrounds communicating unknown status." } }
+                              { "label": "Warning / Caution", "result": { "tokens": ["hpe.color.background.warning"], "description": "Use for backgrounds communicating warning or caution.", "pairings": ["hpe.color.text.onWarning", "hpe.color.text.onWarning.strong"], "related": ["hpe.color.text.warning", "hpe.color.icon.warning", "hpe.color.border.warning"] } },
+                              { "label": "Critical / Error / Danger", "result": { "tokens": ["hpe.color.background.critical"], "description": "Use for backgrounds communicating errors or danger.", "pairings": ["hpe.color.text.onCritical", "hpe.color.text.onCritical.strong"], "related": ["hpe.color.text.critical", "hpe.color.icon.critical", "hpe.color.border.critical"] } },
+                              { "label": "Success / OK", "result": { "tokens": ["hpe.color.background.ok"], "description": "Use for backgrounds communicating success.", "pairings": ["hpe.color.text.onOk", "hpe.color.text.onOk.strong"], "related": ["hpe.color.text.ok", "hpe.color.icon.ok", "hpe.color.border.ok"] } },
+                              { "label": "Info / Neutral information", "result": { "tokens": ["hpe.color.background.info"], "description": "Use for backgrounds communicating neutral information.", "pairings": ["hpe.color.text.onInfo", "hpe.color.text.onInfo.strong"], "related": ["hpe.color.text.info", "hpe.color.icon.info", "hpe.color.border.info"] } },
+                              { "label": "Unknown", "result": { "tokens": ["hpe.color.background.unknown"], "description": "Use for backgrounds communicating unknown status.", "pairings": ["hpe.color.text.onUnknown", "hpe.color.text.onUnknown.strong"], "related": ["hpe.color.text.unknown", "hpe.color.icon.unknown", "hpe.color.border.unknown"] } }
                             ]
                           }
                         },
@@ -1704,8 +1704,8 @@
                             "id": "color-bg-selected",
                             "question": "What emphasis?",
                             "options": [
-                              { "label": "Default selected", "description": "Subtle tonal highlight for the default selected state.", "result": { "tokens": ["hpe.color.background.selected.primary.DEFAULT.REST", "hpe.color.background.selected.primary.DEFAULT.hover"] } },
-                              { "label": "Strong selected", "description": "Filled background for checked checkboxes and active toggles.", "result": { "tokens": ["hpe.color.background.selected.primary.strong.REST", "hpe.color.background.selected.primary.strong.hover"] } }
+                              { "label": "Default selected", "description": "Subtle tonal highlight for the default selected state.", "result": { "tokens": ["hpe.color.background.selected.primary.DEFAULT.REST", "hpe.color.background.selected.primary.DEFAULT.hover"], "pairings": ["hpe.color.text.onSelectedPrimary", "hpe.color.icon.onSelectedPrimary"] } },
+                              { "label": "Strong selected", "description": "Filled background for checked checkboxes and active toggles.", "result": { "tokens": ["hpe.color.background.selected.primary.strong.REST", "hpe.color.background.selected.primary.strong.hover"], "pairings": ["hpe.color.text.onSelectedPrimaryStrong", "hpe.color.icon.onSelectedPrimaryStrong"] } }
                             ]
                           }
                         },
@@ -1716,15 +1716,15 @@
                             "id": "color-bg-primary",
                             "question": "What emphasis?",
                             "options": [
-                              { "label": "Strong", "description": "Standard filled brand background for primary CTA buttons.", "result": { "tokens": ["hpe.color.background.primary.strong.REST", "hpe.color.background.primary.strong.hover"] } },
-                              { "label": "Extra strong", "description": "Darkest brand fill. Highest brand emphasis.", "result": { "tokens": ["hpe.color.background.primary.xstrong.REST"] } }
+                              { "label": "Strong", "description": "Standard filled brand background for primary CTA buttons.", "result": { "tokens": ["hpe.color.background.primary.strong.REST", "hpe.color.background.primary.strong.hover"], "pairings": ["hpe.color.text.onPrimaryStrong", "hpe.color.icon.onPrimaryStrong"] } },
+                              { "label": "Extra strong", "description": "Darkest brand fill. Highest brand emphasis.", "result": { "tokens": ["hpe.color.background.primary.xstrong.REST"], "pairings": ["hpe.color.text.onPrimaryStrong", "hpe.color.icon.onPrimaryStrong"] } }
                             ]
                           }
                         },
                         {
                           "label": "Neutral strong",
                           "description": "Dark high-contrast backgrounds for badges and key figures.",
-                          "result": { "tokens": ["hpe.color.background.neutral.xstrong.REST", "hpe.color.background.neutral.xstrong.hover"], "description": "Highest emphasis neutral palette. Dark background for badges, tags, etc." }
+                          "result": { "tokens": ["hpe.color.background.neutral.xstrong.REST", "hpe.color.background.neutral.xstrong.hover"], "description": "Highest emphasis neutral palette. Dark background for badges, tags, etc.", "pairings": ["hpe.color.text.onStrong", "hpe.color.icon.onStrong"] }
                         },
                         {
                           "label": "Disabled",
@@ -1740,8 +1740,8 @@
                       "id": "color-text",
                       "question": "What's the context?",
                       "options": [
-                        { "label": "Default body text", "result": { "tokens": ["hpe.color.text.default"], "description": "Standard readable text on default backgrounds." } },
-                        { "label": "Strong / emphasized", "description": "For headings, labels, and prominent text.", "result": { "tokens": ["hpe.color.text.strong"] } },
+                        { "label": "Default body text", "result": { "tokens": ["hpe.color.text.default"], "description": "Standard readable text on default backgrounds.", "related": ["hpe.color.icon.default"] } },
+                        { "label": "Strong / emphasized", "description": "For headings, labels, and prominent text.", "result": { "tokens": ["hpe.color.text.strong"], "related": ["hpe.color.icon.strong"] } },
                         { "label": "Weak / secondary", "description": "For captions, helper text, and metadata.", "result": { "tokens": ["hpe.color.text.weak"] } },
                         { "label": "Placeholder text", "result": { "tokens": ["hpe.color.text.placeholder"] } },
                         { "label": "Disabled text", "result": { "tokens": ["hpe.color.text.disabled"] } },
@@ -1752,11 +1752,11 @@
                             "id": "color-text-status",
                             "question": "What status?",
                             "options": [
-                              { "label": "Warning", "result": { "tokens": ["hpe.color.text.warning"] } },
-                              { "label": "Critical", "result": { "tokens": ["hpe.color.text.critical"] } },
-                              { "label": "OK / Success", "result": { "tokens": ["hpe.color.text.ok"] } },
-                              { "label": "Info", "result": { "tokens": ["hpe.color.text.info"] } },
-                              { "label": "Unknown", "result": { "tokens": ["hpe.color.text.unknown"] } }
+                              { "label": "Warning", "result": { "tokens": ["hpe.color.text.warning"], "related": ["hpe.color.icon.warning", "hpe.color.border.warning", "hpe.color.background.warning"] } },
+                              { "label": "Critical", "result": { "tokens": ["hpe.color.text.critical"], "related": ["hpe.color.icon.critical", "hpe.color.border.critical", "hpe.color.background.critical"] } },
+                              { "label": "OK / Success", "result": { "tokens": ["hpe.color.text.ok"], "related": ["hpe.color.icon.ok", "hpe.color.border.ok", "hpe.color.background.ok"] } },
+                              { "label": "Info", "result": { "tokens": ["hpe.color.text.info"], "related": ["hpe.color.icon.info", "hpe.color.border.info", "hpe.color.background.info"] } },
+                              { "label": "Unknown", "result": { "tokens": ["hpe.color.text.unknown"], "related": ["hpe.color.icon.unknown", "hpe.color.border.unknown", "hpe.color.background.unknown"] } }
                             ]
                           }
                         },
@@ -1767,15 +1767,15 @@
                             "id": "color-text-on",
                             "question": "What background is the text sitting on?",
                             "options": [
-                              { "label": "Primary strong", "description": "Text on a green CTA button background.", "result": { "tokens": ["hpe.color.text.onPrimaryStrong"] } },
-                              { "label": "Neutral xstrong", "description": "Text on a dark badge or high-contrast neutral background.", "result": { "tokens": ["hpe.color.text.onStrong"] } },
-                              { "label": "Selected primary", "description": "Text on a subtle selected primary background.", "result": { "tokens": ["hpe.color.text.onSelectedPrimary"] } },
-                              { "label": "Selected primary strong", "result": { "tokens": ["hpe.color.text.onSelectedPrimaryStrong"] } },
-                              { "label": "Critical background", "result": { "tokens": ["hpe.color.text.onCritical", "hpe.color.text.onCritical.strong"] } },
-                              { "label": "Warning background", "result": { "tokens": ["hpe.color.text.onWarning", "hpe.color.text.onWarning.strong"] } },
-                              { "label": "OK / Success background", "result": { "tokens": ["hpe.color.text.onOk", "hpe.color.text.onOk.strong"] } },
-                              { "label": "Info background", "result": { "tokens": ["hpe.color.text.onInfo", "hpe.color.text.onInfo.strong"] } },
-                              { "label": "Unknown background", "result": { "tokens": ["hpe.color.text.onUnknown", "hpe.color.text.onUnknown.strong"] } }
+                              { "label": "Primary strong", "description": "Text on a green CTA button background.", "result": { "tokens": ["hpe.color.text.onPrimaryStrong"], "related": ["hpe.color.icon.onPrimaryStrong", "hpe.color.background.primary.strong.REST"] } },
+                              { "label": "Neutral xstrong", "description": "Text on a dark badge or high-contrast neutral background.", "result": { "tokens": ["hpe.color.text.onStrong"], "related": ["hpe.color.icon.onStrong", "hpe.color.background.neutral.xstrong.REST"] } },
+                              { "label": "Selected primary", "description": "Text on a subtle selected primary background.", "result": { "tokens": ["hpe.color.text.onSelectedPrimary"], "related": ["hpe.color.icon.onSelectedPrimary", "hpe.color.background.selected.primary.DEFAULT.REST"] } },
+                              { "label": "Selected primary strong", "result": { "tokens": ["hpe.color.text.onSelectedPrimaryStrong"], "related": ["hpe.color.icon.onSelectedPrimaryStrong", "hpe.color.background.selected.primary.strong.REST"] } },
+                              { "label": "Critical background", "result": { "tokens": ["hpe.color.text.onCritical", "hpe.color.text.onCritical.strong"], "related": ["hpe.color.background.critical"] } },
+                              { "label": "Warning background", "result": { "tokens": ["hpe.color.text.onWarning", "hpe.color.text.onWarning.strong"], "related": ["hpe.color.background.warning"] } },
+                              { "label": "OK / Success background", "result": { "tokens": ["hpe.color.text.onOk", "hpe.color.text.onOk.strong"], "related": ["hpe.color.background.ok"] } },
+                              { "label": "Info background", "result": { "tokens": ["hpe.color.text.onInfo", "hpe.color.text.onInfo.strong"], "related": ["hpe.color.background.info"] } },
+                              { "label": "Unknown background", "result": { "tokens": ["hpe.color.text.onUnknown", "hpe.color.text.onUnknown.strong"], "related": ["hpe.color.background.unknown"] } }
                             ]
                           }
                         }

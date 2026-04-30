@@ -9,7 +9,7 @@ import {
   WeightPreview,
   TextPreview,
 } from '../../../docs/src/components/content/designTokenUtils';
-import { resolveResultTokens } from '../lib/treeUtils';
+import { resolveResultTokens, resolveToken } from '../lib/treeUtils';
 
 /**
  * Determine which preview component to render based on token type and name.
@@ -89,13 +89,19 @@ export const ResultCard = ({ result, onNavigate }) => {
   const resolvedTokens = result.tokens.length > 0
     ? resolveResultTokens(result)
     : [];
+  const resolvedPairings = result.pairings?.length > 0
+    ? result.pairings.map(resolveToken)
+    : [];
+  const resolvedRelated = result.related?.length > 0
+    ? result.related.map(resolveToken)
+    : [];
 
   return (
     <Box animation={{ type: 'fadeIn', duration: 300 }}>
       {resolvedTokens.length > 0 ? (
         <>
           <Heading level={3} margin={{ top: 'medium', bottom: 'small' }}>
-            Here are your tokens:
+            Recommended style
           </Heading>
           {result.description && (
             <Paragraph size="medium" margin={{ bottom: 'small' }}>
@@ -116,6 +122,33 @@ export const ResultCard = ({ result, onNavigate }) => {
           <Paragraph size="medium">{result.description}</Paragraph>
         </>
       )}
+      {resolvedPairings.length > 0 && (
+        <>
+          <Heading level={4} margin={{ top: 'medium', bottom: 'xsmall' }}>
+            Pairs with
+          </Heading>
+          <Paragraph size="small" margin={{ bottom: 'small' }} color="text-weak">
+            Always use these alongside the values above for accessible contrast.
+          </Paragraph>
+          <DataTable
+            primaryKey="token"
+            columns={resultColumns}
+            data={resolvedPairings}
+          />
+        </>
+      )}
+      {resolvedRelated.length > 0 && (
+        <>
+          <Heading level={4} margin={{ top: 'medium', bottom: 'xsmall' }}>
+            Related
+          </Heading>
+          <DataTable
+            primaryKey="token"
+            columns={resultColumns}
+            data={resolvedRelated}
+          />
+        </>
+      )}
       {result.seeAlso && result.seeAlso.length > 0 && (
         <Box margin={{ top: 'medium' }} gap="small">
           <Text weight="bold">Related:</Text>
@@ -134,6 +167,8 @@ ResultCard.propTypes = {
   result: PropTypes.shape({
     tokens: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
+    pairings: PropTypes.arrayOf(PropTypes.string),
+    related: PropTypes.arrayOf(PropTypes.string),
     seeAlso: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   onNavigate: PropTypes.func.isRequired,
