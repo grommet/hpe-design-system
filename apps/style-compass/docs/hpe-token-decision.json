@@ -1110,6 +1110,15 @@
                                     "hpe.formField.default.input.container.readOnly.rest.borderColor"
                                   ]
                                 }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": {
+                                  "tokens": [
+                                    "hpe.formField.default.input.container.disabled.rest.background",
+                                    "hpe.formField.default.input.container.disabled.rest.borderColor"
+                                  ]
+                                }
                               }
                             ]
                           }
@@ -1219,10 +1228,295 @@
                     }
                   },
                   {
+                    "label": "The label text",
+                    "description": "The small bold label above the input.",
+                    "next": {
+                      "id": "formfield-label",
+                      "question": "What do you need for the label?",
+                      "options": [
+                        {
+                          "label": "Color",
+                          "next": {
+                            "id": "formfield-label-color",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": {
+                                  "tokens": ["hpe.formField.default.label.rest.textColor"],
+                                  "description": "The label text colour at rest."
+                                }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": {
+                                  "tokens": ["hpe.formField.default.label.disabled.rest.textColor"]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Typography",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.label.fontSize",
+                              "hpe.formField.default.medium.label.fontWeight",
+                              "hpe.formField.default.medium.label.lineHeight"
+                            ],
+                            "description": "Label text is xsmall and medium weight."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Help text (below the input)",
+                    "description": "The optional secondary text displayed beneath the input field.",
+                    "next": {
+                      "id": "formfield-help",
+                      "question": "What do you need for the help text?",
+                      "options": [
+                        {
+                          "label": "Color",
+                          "next": {
+                            "id": "formfield-help-color",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": { "tokens": ["hpe.formField.default.help.rest.textColor"] }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": { "tokens": ["hpe.formField.default.help.hover.textColor"] }
+                              },
+                              {
+                                "label": "Error",
+                                "result": { "tokens": ["hpe.formField.default.help.error.rest.textColor"] }
+                              },
+                              {
+                                "label": "Read-only",
+                                "result": { "tokens": ["hpe.formField.default.help.readOnly.rest.textColor"] }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": { "tokens": ["hpe.formField.default.help.disabled.rest.textColor"] }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Typography",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.help.fontSize",
+                              "hpe.formField.default.medium.help.fontWeight",
+                              "hpe.formField.default.medium.help.lineHeight"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Error message text",
+                    "description": "The validation error message shown below the field.",
+                    "next": {
+                      "id": "formfield-error",
+                      "question": "What do you need for the error message?",
+                      "options": [
+                        {
+                          "label": "Text color",
+                          "next": {
+                            "id": "formfield-error-color",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": { "tokens": ["hpe.formField.default.error.rest.textColor"] }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": { "tokens": ["hpe.formField.default.error.hover.textColor"] }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Icon color",
+                          "next": {
+                            "id": "formfield-error-icon",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": { "tokens": ["hpe.formField.default.error.rest.iconColor"] }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": { "tokens": ["hpe.formField.default.error.hover.iconColor"] }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Typography",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.error.fontSize",
+                              "hpe.formField.default.medium.error.fontWeight",
+                              "hpe.formField.default.medium.error.lineHeight"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Info message text",
+                    "description": "An informational message displayed below the field (non-error).",
+                    "next": {
+                      "id": "formfield-info",
+                      "question": "What do you need for the info message?",
+                      "options": [
+                        {
+                          "label": "Color",
+                          "next": {
+                            "id": "formfield-info-color",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": { "tokens": ["hpe.formField.default.info.rest.textColor"] }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": { "tokens": ["hpe.formField.default.info.hover.textColor"] }
+                              },
+                              {
+                                "label": "Error",
+                                "result": { "tokens": ["hpe.formField.default.info.error.rest.textColor"] }
+                              },
+                              {
+                                "label": "Read-only",
+                                "result": { "tokens": ["hpe.formField.default.info.readOnly.rest.textColor"] }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": { "tokens": ["hpe.formField.default.info.disabled.rest.textColor"] }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Typography",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.info.fontSize",
+                              "hpe.formField.default.medium.info.fontWeight",
+                              "hpe.formField.default.medium.info.lineHeight"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Placeholder text",
+                    "description": "The greyed-out hint text inside the input when it is empty.",
+                    "next": {
+                      "id": "formfield-placeholder",
+                      "question": "What do you need for the placeholder?",
+                      "options": [
+                        {
+                          "label": "Color",
+                          "next": {
+                            "id": "formfield-placeholder-color",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": { "tokens": ["hpe.formField.default.placeholder.rest.textColor"] }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": { "tokens": ["hpe.formField.default.placeholder.hover.textColor"] }
+                              },
+                              {
+                                "label": "Error",
+                                "result": { "tokens": ["hpe.formField.default.placeholder.error.rest.textColor"] }
+                              },
+                              {
+                                "label": "Read-only",
+                                "result": { "tokens": ["hpe.formField.default.placeholder.readOnly.rest.textColor"] }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": { "tokens": ["hpe.formField.default.placeholder.disabled.rest.textColor"] }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Typography",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.placeholder.fontSize",
+                              "hpe.formField.default.medium.placeholder.fontWeight",
+                              "hpe.formField.default.medium.placeholder.lineHeight"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
                     "label": "The value text (text inside the input)",
-                    "result": {
-                      "tokens": [
-                        "hpe.formField.default.medium.value.fontWeight"
+                    "description": "The typed or selected value shown inside the input.",
+                    "next": {
+                      "id": "formfield-value",
+                      "question": "What do you need for the value text?",
+                      "options": [
+                        {
+                          "label": "Color",
+                          "next": {
+                            "id": "formfield-value-color",
+                            "question": "What state?",
+                            "options": [
+                              {
+                                "label": "Rest",
+                                "result": { "tokens": ["hpe.formField.default.value.rest.textColor"] }
+                              },
+                              {
+                                "label": "Hover",
+                                "result": { "tokens": ["hpe.formField.default.value.hover.textColor"] }
+                              },
+                              {
+                                "label": "Error",
+                                "result": { "tokens": ["hpe.formField.default.value.error.rest.textColor"] }
+                              },
+                              {
+                                "label": "Read-only",
+                                "result": { "tokens": ["hpe.formField.default.value.readOnly.rest.textColor"] }
+                              },
+                              {
+                                "label": "Disabled",
+                                "result": { "tokens": ["hpe.formField.default.value.disabled.rest.textColor"] }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "label": "Typography",
+                          "result": {
+                            "tokens": [
+                              "hpe.formField.default.medium.value.fontSize",
+                              "hpe.formField.default.medium.value.fontWeight",
+                              "hpe.formField.default.medium.value.lineHeight"
+                            ]
+                          }
+                        }
                       ]
                     }
                   }
