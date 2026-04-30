@@ -11,20 +11,24 @@ import {
 } from '../lib/treeUtils';
 import { StepQuestion } from '../components/StepQuestion';
 import { ResultCard } from '../components/ResultCard';
+import { Breadcrumb } from '../components/Breadcrumb';
 
 export const StyleCompass = () => {
   const refMap = useMemo(() => buildRefMap(styleCompassTree), []);
 
+  // history: array of { node, choiceLabel } — one entry per choice made.
+  // choiceLabel is the option.label the user selected at that step.
   const [history, setHistory] = useState([]);
   const [currentNode, setCurrentNode] = useState(styleCompassTree);
 
   const handleSelection = (option) => {
+    const entry = { node: currentNode, choiceLabel: option.label };
     if (isLeafOption(option)) {
-      setHistory((prev) => [...prev, currentNode]);
+      setHistory((prev) => [...prev, entry]);
       setCurrentNode(option);
     } else {
       const nextNode = resolveNext(refMap, option.next);
-      setHistory((prev) => [...prev, currentNode]);
+      setHistory((prev) => [...prev, entry]);
       setCurrentNode(nextNode);
     }
   };
@@ -32,7 +36,7 @@ export const StyleCompass = () => {
   const handleBack = () => {
     const prev = history[history.length - 1];
     setHistory((h) => h.slice(0, -1));
-    setCurrentNode(prev);
+    setCurrentNode(prev.node);
   };
 
   const handleReset = () => {
@@ -40,15 +44,24 @@ export const StyleCompass = () => {
     setCurrentNode(styleCompassTree);
   };
 
+  // Jump back to the question node at history[index], trimming forward history.
+  const handleCrumbClick = (index) => {
+    setCurrentNode(history[index].node);
+    setHistory(history.slice(0, index));
+  };
+
   const handleNavigate = (nodeId) => {
     const target = findNodeById(styleCompassTree, nodeId);
     if (!target) return;
-    setHistory((prev) => [...prev, currentNode]);
+    // Use the nodeId as the crumb label for cross-tree navigations.
+    setHistory((prev) => [...prev, { node: currentNode, choiceLabel: nodeId }]);
     setCurrentNode(target);
   };
 
   return (
     <Box>
+      <Breadcrumb history={history} onCrumbClick={handleCrumbClick} />
+
       <Box direction="row" gap="small" margin={{ bottom: 'medium' }}>
         {history.length > 0 && (
           <Button
