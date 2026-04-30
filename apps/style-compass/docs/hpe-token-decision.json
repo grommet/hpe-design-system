@@ -135,7 +135,7 @@
                       "question": "What interaction state?",
                       "options": [
                         {
-                          "label": "Rest (default)",
+                          "label": "Rest",
                           "result": {
                             "tokens": [
                               "hpe.anchor.default.rest.textColor",
@@ -179,14 +179,14 @@
                 "question": "What variant of button?",
                 "options": [
                   {
-                    "label": "Default (ghost/text)",
+                    "label": "Default",
                     "description": "A button with no fill in its resting state. Text and optional icon only.",
                     "next": {
                       "id": "button-default",
                       "question": "Does the button have a text label, or is it icon-only?",
                       "options": [
                         {
-                          "label": "Text label (with optional icon)",
+                          "label": "Text label",
                           "next": {
                             "id": "button-default-text",
                             "question": "What do you need?",
@@ -296,7 +296,7 @@
                           }
                         },
                         {
-                          "label": "Icon only (no text label)",
+                          "label": "Icon only",
                           "description": "Icon-only buttons have equal padding and square proportions.",
                           "next": {
                             "id": "button-default-icononly-size",
@@ -358,7 +358,7 @@
                     }
                   },
                   {
-                    "label": "Primary (filled, brand)",
+                    "label": "Primary",
                     "description": "The main call-to-action button with a solid brand-colored fill.",
                     "next": {
                       "id": "button-primary",
@@ -392,7 +392,7 @@
                     }
                   },
                   {
-                    "label": "Secondary (outlined)",
+                    "label": "Secondary",
                     "description": "A supporting action button with a visible border and no fill.",
                     "next": {
                       "id": "button-secondary",
@@ -471,7 +471,7 @@
                 "hint": "The 'control' is the square box you tick. The 'label' is the text beside it.",
                 "options": [
                   {
-                    "label": "The checkbox control (the square box)",
+                    "label": "The checkbox control",
                     "next": {
                       "id": "checkbox-control",
                       "question": "What do you need?",
@@ -483,7 +483,7 @@
                             "question": "What state is the checkbox in?",
                             "options": [
                               {
-                                "label": "Unchecked (rest)",
+                                "label": "Unchecked",
                                 "result": {
                                   "tokens": [
                                     "hpe.checkbox.default.control.rest.background",
@@ -501,7 +501,7 @@
                                 }
                               },
                               {
-                                "label": "Checked (selected)",
+                                "label": "Checked",
                                 "result": {
                                   "tokens": [
                                     "hpe.checkbox.default.control.selected.rest.background",
@@ -534,7 +534,7 @@
                           }
                         },
                         {
-                          "label": "Sizing (dimensions of the box)",
+                          "label": "Sizing",
                           "result": {
                             "tokens": [
                               "hpe.checkbox.default.medium.control.borderWidth",
@@ -575,7 +575,7 @@
                     }
                   },
                   {
-                    "label": "Overall spacing (gap between control and label)",
+                    "label": "Overall spacing",
                     "result": {
                       "tokens": [
                         "hpe.checkbox.default.medium.gapX"
@@ -587,7 +587,7 @@
               }
             },
             {
-              "label": "Switch (Toggle)",
+              "label": "Switch / Toggle",
               "description": "A toggle switch with a sliding handle on a track.",
               "next": {
                 "id": "switch",
@@ -595,7 +595,7 @@
                 "hint": "The 'track' is the elongated pill background. The 'handle' is the circular knob that slides left/right.",
                 "options": [
                   {
-                    "label": "The track (the background pill)",
+                    "label": "The track",
                     "next": {
                       "id": "switch-track",
                       "question": "What do you need?",
@@ -607,7 +607,7 @@
                             "question": "What state?",
                             "options": [
                               {
-                                "label": "Off (rest)",
+                                "label": "Off",
                                 "result": {
                                   "tokens": [
                                     "hpe.switch.default.control.track.rest.background",
@@ -625,7 +625,7 @@
                                 }
                               },
                               {
-                                "label": "On (selected)",
+                                "label": "On",
                                 "result": {
                                   "tokens": [
                                     "hpe.switch.default.control.track.selected.rest.background"
@@ -668,7 +668,7 @@
                     }
                   },
                   {
-                    "label": "The handle (the sliding knob)",
+                    "label": "The handle",
                     "next": {
                       "id": "switch-handle",
                       "question": "What do you need?",
@@ -726,7 +726,7 @@
                 "hint": "The 'control' is the circular selector. The inner dot appears when selected.",
                 "options": [
                   {
-                    "label": "The radio control (the circle)",
+                    "label": "The radio control",
                     "next": {
                       "id": "radio-control",
                       "question": "What do you need?",
@@ -738,7 +738,7 @@
                             "question": "What state?",
                             "options": [
                               {
-                                "label": "Unselected (rest)",
+                                "label": "Unselected",
                                 "result": {
                                   "tokens": [
                                     "hpe.radioButton.default.control.rest.borderColor",
@@ -822,7 +822,7 @@
               }
             },
             {
-              "label": "Select (Dropdown)",
+              "label": "Select / Dropdown",
               "description": "A dropdown selector with a trigger input, a floating option list, and individual options.",
               "next": {
                 "id": "select",
@@ -830,7 +830,7 @@
                 "hint": "In the HPE Design System, Select always appears inside a FormField. The trigger area is styled by FormField input container tokens. The floating dropdown ('drop') and individual options have their own Select-specific tokens. There's also a selection marker — a small left-side bar indicating focus/selection.",
                 "options": [
                   {
-                    "label": "The trigger / control (the visible input area)",
+                    "label": "The trigger / control",
                     "description": "The bordered input area you click to open the dropdown.",
                     "result": {
                       "tokens": [],
@@ -839,7 +839,7 @@
                     }
                   },
                   {
-                    "label": "The dropdown container (the floating panel that opens)",
+                    "label": "The dropdown container",
                     "description": "The outer container of the dropdown options list.",
                     "result": {
                       "tokens": [
@@ -852,7 +852,8 @@
                     }
                   },
                   {
-                    "label": "An individual option (a row in the list)",
+                    "label": "An individual option",
+                    "description": "A single row in the dropdown options list.",
                     "next": {
                       "id": "select-option",
                       "question": "What do you need for the option?",
@@ -864,7 +865,7 @@
                             "question": "What state is the option in?",
                             "options": [
                               {
-                                "label": "Rest (default, unselected)",
+                                "label": "Rest",
                                 "result": {
                                   "tokens": [
                                     "hpe.select.default.option.rest.fontWeight",
@@ -885,7 +886,7 @@
                                 }
                               },
                               {
-                                "label": "Selected (the chosen option)",
+                                "label": "Selected",
                                 "result": {
                                   "tokens": [
                                     "hpe.select.default.option.selected.rest.background",
@@ -919,7 +920,7 @@
                           }
                         },
                         {
-                          "label": "Sizing (padding, border-radius)",
+                          "label": "Sizing",
                           "result": {
                             "tokens": [
                               "hpe.select.default.medium.option.paddingX",
@@ -933,7 +934,7 @@
                     }
                   },
                   {
-                    "label": "The selection marker (left-side focus indicator on options)",
+                    "label": "The selection marker",
                     "description": "A small vertical bar on the left edge of focused/selected options, providing a visual affordance for keyboard navigation. Typically implemented as a ::before pseudo-element.",
                     "result": {
                       "tokens": [
@@ -958,7 +959,8 @@
                 "hint": "Menus can have grouped sections of items separated by dividers. The menu itself sits inside a Drop component.",
                 "options": [
                   {
-                    "label": "A menu item (a single action row)",
+                    "label": "A menu item",
+                    "description": "A single clickable row in the menu list.",
                     "next": {
                       "id": "menu-item",
                       "question": "What do you need?",
@@ -1010,7 +1012,7 @@
                     }
                   },
                   {
-                    "label": "The group container (wraps a section of related items)",
+                    "label": "The group container",
                     "result": {
                       "tokens": [
                         "hpe.menu.default.medium.group.container.paddingX",
@@ -1021,7 +1023,7 @@
                     }
                   },
                   {
-                    "label": "The group separator (divider line between groups)",
+                    "label": "The group separator",
                     "result": {
                       "tokens": [
                         "hpe.menu.default.group.separator.background",
@@ -1034,7 +1036,7 @@
               }
             },
             {
-              "label": "Drop (floating container)",
+              "label": "Drop",
               "description": "The generic floating container used by Select dropdowns, Menus, Tooltips, and Popovers.",
               "next": {
                 "id": "drop",
@@ -1065,7 +1067,8 @@
                 "hint": "A FormField wraps inputs. The 'input container' is the bordered box around a single input (text, select). The 'input group' is for when the field wraps multiple checkboxes or radios.",
                 "options": [
                   {
-                    "label": "The input container (bordered box around a single input)",
+                    "label": "The input container",
+                    "description": "The bordered box wrapping a single input — text field, Select, or similar.",
                     "next": {
                       "id": "formfield-input-container",
                       "question": "What do you need?",
@@ -1138,7 +1141,7 @@
                     }
                   },
                   {
-                    "label": "The input group container (wraps a set of checkboxes or radios)",
+                    "label": "The input group container",
                     "description": "When a FormField contains a CheckboxGroup or RadioButtonGroup, this is the bordered container around all the options.",
                     "next": {
                       "id": "formfield-group",
@@ -1182,7 +1185,7 @@
                     }
                   },
                   {
-                    "label": "An item within a group (each checkbox/radio row)",
+                    "label": "An item within a group",
                     "description": "Each individual checkbox or radio option row inside a group.",
                     "next": {
                       "id": "formfield-group-item",
@@ -1271,7 +1274,7 @@
                     }
                   },
                   {
-                    "label": "Help text (below the input)",
+                    "label": "Help text",
                     "description": "The optional secondary text displayed beneath the input field.",
                     "next": {
                       "id": "formfield-help",
@@ -1472,7 +1475,7 @@
                     }
                   },
                   {
-                    "label": "The value text (text inside the input)",
+                    "label": "The value text",
                     "description": "The typed or selected value shown inside the input.",
                     "next": {
                       "id": "formfield-value",
@@ -1531,7 +1534,8 @@
                 "question": "Which part of the table?",
                 "options": [
                   {
-                    "label": "Body cell (DataCell)",
+                    "label": "Body cell",
+                    "description": "DataCell — the standard data rows.",
                     "next": {
                       "id": "datacell-size",
                       "question": "What size?",
@@ -1543,7 +1547,8 @@
                     }
                   },
                   {
-                    "label": "Header cell (HeaderCell)",
+                    "label": "Header cell",
+                    "description": "HeaderCell — the column header rows.",
                     "next": {
                       "id": "headercell-size",
                       "question": "What size?",
@@ -1555,7 +1560,8 @@
                     }
                   },
                   {
-                    "label": "Footer cell (FooterCell)",
+                    "label": "Footer cell",
+                    "description": "FooterCell — the summary row at the bottom.",
                     "next": {
                       "id": "footercell-size",
                       "question": "What size?",
@@ -1570,7 +1576,7 @@
               }
             },
             {
-              "label": "Element (shared sizing foundation)",
+              "label": "Element",
               "description": "Base sizing tokens that all interactive components reference. Use these when building a custom interactive element that should align with HPE's sizing system.",
               "next": {
                 "id": "element-size",
@@ -1642,12 +1648,12 @@
                       "question": "What kind of surface?",
                       "options": [
                         {
-                          "label": "Page background (the overall app canvas)",
+                          "label": "Page background",
                           "description": "Elevation level 0. The backdrop containers sit on.",
                           "result": { "tokens": ["hpe.color.background.back"], "description": "The overall page/app background. Creates a backdrop for containers." }
                         },
                         {
-                          "label": "Container / Card (a surface sitting on the page)",
+                          "label": "Container / Card",
                           "description": "Elevation level 1. Cards, data tables, content panels.",
                           "result": { "tokens": ["hpe.color.background.front"], "description": "Lowest elevation for containers on top of the page." }
                         },
@@ -1657,25 +1663,28 @@
                           "result": { "tokens": ["hpe.color.background.default"] }
                         },
                         {
-                          "label": "Floating / Overlay (dropdown, popover, tooltip, layer)",
+                          "label": "Floating / Overlay",
                           "description": "Elevation level 2. Sits above everything else.",
                           "result": { "tokens": ["hpe.color.background.floating"], "description": "Highest elevation for floating UI: dropdowns, popovers, layers, tooltips." }
                         },
                         {
-                          "label": "Screen overlay (dimmed backdrop behind a modal)",
+                          "label": "Screen overlay",
+                          "description": "The dimmed backdrop rendered behind a modal or dialog.",
                           "result": { "tokens": ["hpe.color.background.screenOverlay"] }
                         },
                         {
-                          "label": "Subtle contrast (differentiate a region from its parent)",
+                          "label": "Subtle contrast",
+                          "description": "Adds a subtle tonal shift between a region and the surface it sits on.",
                           "result": { "tokens": ["hpe.color.background.contrast"], "description": "Use to create subtle differentiation between a component/container and the region it sits on. Has REST and hover variants." }
                         },
                         {
-                          "label": "Interactive hover/active (hover fill on transparent components)",
+                          "label": "Interactive hover/active",
                           "description": "E.g. menu items, list items that have no fill at rest.",
                           "result": { "tokens": ["hpe.color.background.DEFAULT.hover", "hpe.color.background.DEFAULT.active"], "description": "Generic hover/active state for components with no fill at rest." }
                         },
                         {
-                          "label": "Status communication (warning, error, success, info, unknown)",
+                          "label": "Status communication",
+                          "description": "Backgrounds for warning, error, success, info, or unknown states.",
                           "next": {
                             "id": "color-bg-status",
                             "question": "What status?",
@@ -1689,29 +1698,32 @@
                           }
                         },
                         {
-                          "label": "Selected / Checked (checkboxes, toggles, active tabs)",
+                          "label": "Selected / Checked",
+                          "description": "Backgrounds for selected checkboxes, active toggles, and active tabs.",
                           "next": {
                             "id": "color-bg-selected",
                             "question": "What emphasis?",
                             "options": [
-                              { "label": "Default selected (subtle highlight)", "result": { "tokens": ["hpe.color.background.selected.primary.DEFAULT.REST", "hpe.color.background.selected.primary.DEFAULT.hover"] } },
-                              { "label": "Strong selected (filled checkbox, active toggle)", "result": { "tokens": ["hpe.color.background.selected.primary.strong.REST", "hpe.color.background.selected.primary.strong.hover"] } }
+                              { "label": "Default selected", "description": "Subtle tonal highlight for the default selected state.", "result": { "tokens": ["hpe.color.background.selected.primary.DEFAULT.REST", "hpe.color.background.selected.primary.DEFAULT.hover"] } },
+                              { "label": "Strong selected", "description": "Filled background for checked checkboxes and active toggles.", "result": { "tokens": ["hpe.color.background.selected.primary.strong.REST", "hpe.color.background.selected.primary.strong.hover"] } }
                             ]
                           }
                         },
                         {
-                          "label": "Primary / Brand emphasis (CTA buttons, branded highlights)",
+                          "label": "Primary / Brand emphasis",
+                          "description": "HPE green brand backgrounds for CTAs and branded elements.",
                           "next": {
                             "id": "color-bg-primary",
                             "question": "What emphasis?",
                             "options": [
-                              { "label": "Strong (CTA buttons, filled brand elements)", "result": { "tokens": ["hpe.color.background.primary.strong.REST", "hpe.color.background.primary.strong.hover"] } },
-                              { "label": "Extra strong (highest emphasis)", "result": { "tokens": ["hpe.color.background.primary.xstrong.REST"] } }
+                              { "label": "Strong", "description": "Standard filled brand background for primary CTA buttons.", "result": { "tokens": ["hpe.color.background.primary.strong.REST", "hpe.color.background.primary.strong.hover"] } },
+                              { "label": "Extra strong", "description": "Darkest brand fill. Highest brand emphasis.", "result": { "tokens": ["hpe.color.background.primary.xstrong.REST"] } }
                             ]
                           }
                         },
                         {
-                          "label": "Neutral strong (dark badges, high-contrast elements)",
+                          "label": "Neutral strong",
+                          "description": "Dark high-contrast backgrounds for badges and key figures.",
                           "result": { "tokens": ["hpe.color.background.neutral.xstrong.REST", "hpe.color.background.neutral.xstrong.hover"], "description": "Highest emphasis neutral palette. Dark background for badges, tags, etc." }
                         },
                         {
@@ -1729,12 +1741,13 @@
                       "question": "What's the context?",
                       "options": [
                         { "label": "Default body text", "result": { "tokens": ["hpe.color.text.default"], "description": "Standard readable text on default backgrounds." } },
-                        { "label": "Strong / emphasized (headings, labels)", "result": { "tokens": ["hpe.color.text.strong"] } },
-                        { "label": "Weak / secondary (captions, helper text, metadata)", "result": { "tokens": ["hpe.color.text.weak"] } },
+                        { "label": "Strong / emphasized", "description": "For headings, labels, and prominent text.", "result": { "tokens": ["hpe.color.text.strong"] } },
+                        { "label": "Weak / secondary", "description": "For captions, helper text, and metadata.", "result": { "tokens": ["hpe.color.text.weak"] } },
                         { "label": "Placeholder text", "result": { "tokens": ["hpe.color.text.placeholder"] } },
                         { "label": "Disabled text", "result": { "tokens": ["hpe.color.text.disabled"] } },
                         {
-                          "label": "Status text (on standard backgrounds)",
+                          "label": "Status text",
+                          "description": "Text colors communicating status on standard backgrounds.",
                           "next": {
                             "id": "color-text-status",
                             "question": "What status?",
@@ -1754,9 +1767,9 @@
                             "id": "color-text-on",
                             "question": "What background is the text sitting on?",
                             "options": [
-                              { "label": "Primary strong (green CTA button)", "result": { "tokens": ["hpe.color.text.onPrimaryStrong"] } },
-                              { "label": "Neutral xstrong (dark badge)", "result": { "tokens": ["hpe.color.text.onStrong"] } },
-                              { "label": "Selected primary (subtle)", "result": { "tokens": ["hpe.color.text.onSelectedPrimary"] } },
+                              { "label": "Primary strong", "description": "Text on a green CTA button background.", "result": { "tokens": ["hpe.color.text.onPrimaryStrong"] } },
+                              { "label": "Neutral xstrong", "description": "Text on a dark badge or high-contrast neutral background.", "result": { "tokens": ["hpe.color.text.onStrong"] } },
+                              { "label": "Selected primary", "description": "Text on a subtle selected primary background.", "result": { "tokens": ["hpe.color.text.onSelectedPrimary"] } },
                               { "label": "Selected primary strong", "result": { "tokens": ["hpe.color.text.onSelectedPrimaryStrong"] } },
                               { "label": "Critical background", "result": { "tokens": ["hpe.color.text.onCritical", "hpe.color.text.onCritical.strong"] } },
                               { "label": "Warning background", "result": { "tokens": ["hpe.color.text.onWarning", "hpe.color.text.onWarning.strong"] } },
@@ -1792,7 +1805,8 @@
                     }
                   },
                   {
-                    "label": "Border (stroke color)",
+                    "label": "Border",
+                    "description": "Stroke colors for interactive and structural elements.",
                     "next": {
                       "id": "color-border",
                       "question": "What's the purpose?",
@@ -1811,7 +1825,8 @@
                     }
                   },
                   {
-                    "label": "Foreground (meters, progress bars, filled chart regions)",
+                    "label": "Foreground",
+                    "description": "Colors for filled UI elements — meters, progress bars, and chart regions.",
                     "next": {
                       "id": "color-foreground",
                       "question": "What status/meaning?",
@@ -1825,12 +1840,13 @@
                     }
                   },
                   {
-                    "label": "Decorative (brand, illustration, non-semantic color)",
+                    "label": "Decorative",
+                    "description": "Non-semantic colors for brand elements, illustrations, and decoration.",
                     "next": {
                       "id": "color-decorative",
                       "question": "What color?",
                       "options": [
-                        { "label": "Brand (HPE green)", "result": { "tokens": ["hpe.color.decorative.brand"] } },
+                        { "label": "Brand", "description": "HPE green — the primary brand color.", "result": { "tokens": ["hpe.color.decorative.brand"] } },
                         { "label": "Green", "result": { "tokens": ["hpe.color.decorative.green"] } },
                         { "label": "Blue", "result": { "tokens": ["hpe.color.decorative.blue"] } },
                         { "label": "Purple", "result": { "tokens": ["hpe.color.decorative.purple"] } },
@@ -1840,7 +1856,7 @@
                     }
                   },
                   {
-                    "label": "Data visualisation (chart series colors)",
+                    "label": "Data visualisation",
                     "result": {
                       "tokens": [
                         "hpe.color.dataVis.categorical.10",
@@ -1856,7 +1872,7 @@
                     }
                   },
                   {
-                    "label": "Focus indicator (keyboard focus ring)",
+                    "label": "Focus indicator",
                     "result": {
                       "tokens": [
                         "hpe.color.focus",
@@ -1892,7 +1908,7 @@
               }
             },
             {
-              "label": "Sizing (container widths/heights)",
+              "label": "Sizing",
               "description": "Min/max widths and heights for containers, cards, grid items.",
               "result": {
                 "tokens": [
@@ -1984,7 +2000,7 @@
                 "question": "What property?",
                 "options": [
                   {
-                    "label": "Border width (thickness)",
+                    "label": "Border width",
                     "result": {
                       "tokens": [
                         "hpe.borderWidth.none",
@@ -1998,7 +2014,7 @@
                     }
                   },
                   {
-                    "label": "Corner radius (roundness)",
+                    "label": "Corner radius",
                     "result": {
                       "tokens": [
                         "hpe.radius.none",
