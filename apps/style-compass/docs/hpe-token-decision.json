@@ -1686,6 +1686,156 @@
               }
             },
             {
+              "label": "Notification / Toast",
+              "description": "In-page alerts and floating toast messages. No component-specific tokens exist — styling is built entirely from semantic tokens.",
+              "next": {
+                "id": "notification",
+                "question": "What type of notification?",
+                "options": [
+                  {
+                    "label": "Toast",
+                    "description": "Floating, temporary message that overlays content. The container background is always surface-level regardless of status.",
+                    "next": {
+                      "id": "notification-toast",
+                      "question": "What status?",
+                      "options": [
+                        {
+                          "label": "Critical / Error",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.front",
+                              "hpe.color.icon.critical",
+                              "hpe.color.text.default",
+                              "hpe.color.text.strong"
+                            ],
+                            "description": "Toast notifications always use background.front for the container — status is communicated by the icon color alone, not the background. Use text.default for the message body and text.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Warning / Caution",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.front",
+                              "hpe.color.icon.warning",
+                              "hpe.color.text.default",
+                              "hpe.color.text.strong"
+                            ],
+                            "description": "Toast notifications always use background.front for the container — status is communicated by the icon color alone, not the background. Use text.default for the message body and text.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Normal / Success",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.front",
+                              "hpe.color.icon.ok",
+                              "hpe.color.text.default",
+                              "hpe.color.text.strong"
+                            ],
+                            "description": "Toast notifications always use background.front for the container — status is communicated by the icon color alone, not the background. Use text.default for the message body and text.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Info",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.front",
+                              "hpe.color.icon.info",
+                              "hpe.color.text.default",
+                              "hpe.color.text.strong"
+                            ],
+                            "description": "Toast notifications always use background.front for the container — status is communicated by the icon color alone, not the background. Use text.default for the message body and text.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Unknown",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.front",
+                              "hpe.color.icon.unknown",
+                              "hpe.color.text.default",
+                              "hpe.color.text.strong"
+                            ],
+                            "description": "Toast notifications always use background.front for the container — status is communicated by the icon color alone, not the background. Use text.default for the message body and text.strong for the title."
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Inline / Global banner",
+                    "description": "Full-width, in-page notification that fills its container with a status background color.",
+                    "next": {
+                      "id": "notification-inline",
+                      "question": "What status?",
+                      "options": [
+                        {
+                          "label": "Critical / Error",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.critical",
+                              "hpe.color.icon.critical",
+                              "hpe.color.text.onCritical",
+                              "hpe.color.text.onCritical.strong"
+                            ],
+                            "description": "Inline notifications fill the container with a status background. Text must use the on-color variant to maintain contrast. Use text.onCritical for the message body and text.onCritical.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Warning / Caution",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.warning",
+                              "hpe.color.icon.warning",
+                              "hpe.color.text.onWarning",
+                              "hpe.color.text.onWarning.strong"
+                            ],
+                            "description": "Inline notifications fill the container with a status background. Text must use the on-color variant to maintain contrast. Use text.onWarning for the message body and text.onWarning.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Normal / Success",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.ok",
+                              "hpe.color.icon.ok",
+                              "hpe.color.text.onOk",
+                              "hpe.color.text.onOk.strong"
+                            ],
+                            "description": "Inline notifications fill the container with a status background. Text must use the on-color variant to maintain contrast. Use text.onOk for the message body and text.onOk.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Info",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.info",
+                              "hpe.color.icon.info",
+                              "hpe.color.text.onInfo",
+                              "hpe.color.text.onInfo.strong"
+                            ],
+                            "description": "Inline notifications fill the container with a status background. Text must use the on-color variant to maintain contrast. Use text.onInfo for the message body and text.onInfo.strong for the title."
+                          }
+                        },
+                        {
+                          "label": "Unknown",
+                          "result": {
+                            "tokens": [
+                              "hpe.color.background.unknown",
+                              "hpe.color.icon.unknown",
+                              "hpe.color.text.onUnknown",
+                              "hpe.color.text.onUnknown.strong"
+                            ],
+                            "description": "Inline notifications fill the container with a status background. Text must use the on-color variant to maintain contrast. Use text.onUnknown for the message body and text.onUnknown.strong for the title."
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
               "label": "Not sure / Not listed",
               "description": "My component isn't in this list, or I don't know if it has component tokens.",
               "hint": "Fall back to semantic tokens. They work for any component.",
