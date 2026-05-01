@@ -9,19 +9,23 @@ No framework references. Props are backed by anatomy parts and tokens.
 
 A Notification renders a status-aware message to the user. With no props
 beyond `title`, it renders an inline notification with `unknown` status,
-no close button, and no message body. The consumer controls:
+no close button, and no message body.
+
+The consumer controls:
 
 - The status and kind (inline / global / toast)
-- Whether the notification is dismissible
-- The title, message, and optional action links
-- For toast kind: positioning, auto-close timing
+- Whether the notification is dismissible (`onClose`)
+- The title, message, optional action links, and optional custom icon
+- For toast kind: viewport position, auto-close timing
 
 The component handles:
 
-- Selecting the correct status icon and background color from `tokens.md`
+- Selecting the correct status icon and background from `tokens.md`
 - Applying the correct layout for the chosen kind
-- Announcing content to assistive technologies via the live region
-- Auto-closing toast notifications after `duration` ms (default: 5000)
+- Text alignment to the left in all cases (constraints §10)
+- Icon alignment to the top of the first title line (constraints §11)
+- Announcing content to assistive technologies via the live region (constraints §8)
+- Auto-closing toast notifications after `duration` ms (default: 8000)
 - Pausing the auto-close timer on hover or focus (toast kind)
 
 ---
@@ -30,19 +34,20 @@ The component handles:
 
 | Prop | Type | Default | Required | Description |
 |---|---|---|---|---|
-| `title` | `string` | — | Yes | Primary heading text of the notification. |
-| `message` | `string \| node` | `undefined` | No | Optional body description. Plain strings are wrapped in a paragraph element; nodes are rendered as-is. |
+| `title` | `string` | — | Yes | Primary heading text. Always rendered. |
+| `message` | `string \| node` | `undefined` | No | Optional body description. Plain strings are wrapped in a text element; nodes are rendered as-is. |
 | `status` | `'critical' \| 'warning' \| 'normal' \| 'info' \| 'unknown'` | `'unknown'` | No | Status variant. Determines icon, background, and text colors. |
-| `kind` | `'inline' \| 'global' \| 'toast'` | `'inline'` | No | Presentation kind. Inline is embedded; global is full-width; toast is floating and auto-dismissing. |
-| `onClose` | `function` | `undefined` | No | If provided, a CloseButton is rendered. Called with the triggering event when the user dismisses the notification. |
+| `kind` | `'inline' \| 'global' \| 'toast'` | `'inline'` | No | Presentation kind. Inline is in-document; global is full-width; toast is floating and auto-dismissing. |
+| `onClose` | `function` | `undefined` | No | If provided, a CloseButton is rendered. Called with the triggering event when the notification is dismissed. |
 | `actions` | `array` | `undefined` | No | Array of action objects rendered as inline links. Each object: `{ label: string, href?: string, onClick?: function }`. |
-| `icon` | `node` | `undefined` | No | Custom icon element. Replaces the default status icon. Does not affect status semantics. |
+| `icon` | `node` | `undefined` | No | Custom icon element. Replaces the default StatusIcon. Does not affect status semantics. |
 | `autoClose` | `boolean` | `true` | No | Toast kind only. When `true`, the notification auto-closes after `duration` ms. Has no effect on inline or global kinds. |
-| `duration` | `number` | `5000` | No | Toast kind only. Time in milliseconds before the notification auto-closes. Only used when `autoClose` is `true`. |
+| `duration` | `number` | `8000` | No | Toast kind only. Time in milliseconds before auto-close fires. Only used when `autoClose` is `true`. |
 | `position` | `'top' \| 'top-left' \| 'top-right' \| 'bottom' \| 'bottom-left' \| 'bottom-right'` | `'top'` | No | Toast kind only. Viewport position for the FloatingLayer. |
-| `id` | `string` | `undefined` | No | HTML `id` attribute applied to the Container. Required when the consumer needs to reference the notification (e.g. for `aria-describedby`). |
+| `id` | `string` | `undefined` | No | HTML `id` on the Container. Required when the consumer needs to reference the notification (e.g. for `aria-describedby`). |
 | `messages` | `{ close: string }` | `{ close: 'Close notification' }` | No | Localised string overrides. `close` sets the accessible label of the CloseButton. |
-| `ariaLive` | `'polite' \| 'assertive'` | see description | No | Overrides the `aria-live` polarity. Default: `'assertive'` when `status='critical'`; `'polite'` for all other statuses. |
+| `ariaLive` | `'polite' \| 'assertive'` | see description | No | Overrides the `aria-live` polarity. Default: `'assertive'` when `status='critical'`; `'polite'` for all other statuses. See constraints §8. |
+| `time` | `number` | `undefined` | No | Alias for `duration`. When provided, overrides `duration`. Included for parity with the Grommet reference implementation. |
 
 ---
 
@@ -53,7 +58,7 @@ The component handles:
 | Prop | Purpose |
 |---|---|
 | `title` | Required heading |
-| `message` | Optional body description |
+| `message` | Optional body text |
 | `actions` | Optional inline action links |
 | `icon` | Optional custom icon override |
 
@@ -61,30 +66,31 @@ The component handles:
 
 | Prop | Purpose |
 |---|---|
-| `onClose` | Controls dismissibility and receives dismiss event |
+| `onClose` | Controls dismissibility; receives dismiss event |
 | `autoClose` | Enables/disables toast auto-close timer |
-| `duration` | Auto-close timer value (ms) |
+| `duration` | Auto-close timer value in ms |
+| `time` | Alias for `duration` |
 
 ### Appearance
 
 | Prop | Purpose |
 |---|---|
-| `status` | Status variant (critical, warning, normal, info, unknown) |
-| `kind` | Presentation kind (inline, global, toast) |
+| `status` | Status variant |
+| `kind` | Presentation kind (inline / global / toast) |
 
 ### Accessibility
 
 | Prop | Purpose |
 |---|---|
 | `id` | Anchors `aria-describedby` references |
-| `messages` | Localised strings (close button label) |
-| `ariaLive` | Live region polarity override |
+| `messages` | Localised strings — close button label |
+| `ariaLive` | Overrides ARIA live region polarity |
 
 ### Layout
 
 | Prop | Purpose |
 |---|---|
-| `position` | Viewport edge position for toast FloatingLayer |
+| `position` | Toast FloatingLayer viewport position |
 
 ---
 
@@ -92,11 +98,16 @@ The component handles:
 
 ### `onClose(event)`
 
-| Item | Detail |
-|---|---|
-| When it fires | User clicks the CloseButton, or the toast auto-close timer completes and the platform signals dismissal. |
-| Arguments | `event` — the synthetic pointer/keyboard event from the CloseButton click; `undefined` when fired by auto-close timer. |
-| Return value | Ignored. |
+- **When it fires:** User clicks the CloseButton, or presses Escape (platform-dependent) while the notification is focused.
+- **Arguments:** The triggering DOM event, or no argument if called by the auto-close timer.
+- **Return value:** Ignored.
+
+### `action.onClick(event)` (per action in the `actions` array)
+
+- **When it fires:** User clicks or activates the action link.
+- **Arguments:** The triggering DOM event.
+- **Return value:** Ignored.
+- **Note:** Clicking an action does not automatically close the notification — see constraints §9.
 
 ---
 
@@ -104,50 +115,42 @@ The component handles:
 
 ### `status`
 
-| Value | Description | Icon | Background |
-|---|---|---|---|
-| `'critical'` | Error or danger requiring immediate attention | StatusCritical | `--hpe-color-background-critical` |
-| `'warning'` | Caution — potential issue or risk | StatusWarning | `--hpe-color-background-warning` |
-| `'normal'` | Success or expected outcome | StatusGood | `--hpe-color-background-ok` |
-| `'info'` | Neutral informational message | Info | `--hpe-color-background-info` |
-| `'unknown'` | Status cannot be determined | StatusUnknown | `--hpe-color-background-unknown` |
+| Value | Description |
+|---|---|
+| `critical` | Error or danger — red background, StatusCritical icon |
+| `warning` | Caution — orange background, StatusWarning icon |
+| `normal` | Success or healthy — green background, StatusGood icon |
+| `info` | Neutral information — blue background, Info icon |
+| `unknown` | Status cannot be determined — grey background, StatusUnknown icon |
 
 ### `kind`
 
-| Value | Description | Layout |
-|---|---|---|
-| `'inline'` | Embedded in-page, rounded corners | column |
-| `'global'` | Full-width top-of-page banner | row |
-| `'toast'` | Floating auto-dismissing overlay | column |
+| Value | Description |
+|---|---|
+| `inline` | In-document; width follows parent; column layout; rounded corners |
+| `global` | Full-width banner; no border-radius; row layout |
+| `toast` | Floating overlay; auto-closing; always white background; column layout; shadow |
 
 ### `position` (toast kind only)
 
 | Value | Description |
 |---|---|
-| `'top'` | Centered at top of viewport |
-| `'top-left'` | Top-left corner |
-| `'top-right'` | Top-right corner |
-| `'bottom'` | Centered at bottom of viewport |
-| `'bottom-left'` | Bottom-left corner |
-| `'bottom-right'` | Bottom-right corner |
-
-### `ariaLive`
-
-| Value | Description |
-|---|---|
-| `'polite'` | Announced when the screen reader is idle |
-| `'assertive'` | Interrupts the screen reader immediately |
+| `top` | Centered at top of viewport (default) |
+| `top-left` | Top-left corner of viewport |
+| `top-right` | Top-right corner of viewport |
+| `bottom` | Centered at bottom of viewport |
+| `bottom-left` | Bottom-left corner of viewport |
+| `bottom-right` | Bottom-right corner of viewport |
 
 ---
 
 ## 6 — Accessibility props
 
-| Prop | ARIA attribute | Required | Default behaviour if omitted |
+| Prop | ARIA mapping | Required | Default behaviour if omitted |
 |---|---|---|---|
-| `ariaLive` | `aria-live` on Container | No | `'assertive'` for critical; `'polite'` for all others |
-| `messages.close` | `aria-label` on CloseButton | No | `'Close notification'` |
-| `id` | `id` on Container | No | No `id` applied; consumers must supply when referencing the notification |
-| `actions[].label` | Button/link text and accessible name | Yes (per action) | — |
+| `messages.close` | `aria-label` on the CloseButton | Required when `onClose` is provided | "Close notification" |
+| `ariaLive` | `aria-live` on the Container (inline/global) or live region type on FloatingLayer (toast) | No | `'assertive'` for `critical`; `'polite'` for all others |
+| `id` | `id` on the Container | No | No id attribute |
 
 ---
 
@@ -156,60 +159,56 @@ The component handles:
 ### Minimal — required props only
 
 ```
-<Notification title="File saved." />
+Notification
+  title = "System updated successfully"
 ```
 
-Renders an inline notification with unknown status, no close button,
-no message, and a default unknown status icon.
+Renders an inline notification with `unknown` status, no message, no close button.
 
 ### Typical — most common real-world usage
 
 ```
-<Notification
-  title="Upload failed."
-  message="The file exceeds the 50 MB size limit."
-  status="critical"
-  onClose={handleClose}
-/>
+Notification
+  title = "Node unreachable"
+  message = "Node cluster-3 has stopped responding."
+  status = critical
+  kind = inline
+  onClose = () => dismiss()
 ```
 
-Renders an inline critical notification with title, message body, and
-a close button.
+Renders an inline critical notification with a CloseButton.
 
 ### Full — all significant props set
 
 ```
-<Notification
-  title="Scheduled maintenance"
-  message="The system will be unavailable from 02:00–04:00 UTC."
-  status="warning"
-  kind="toast"
-  autoClose={true}
-  duration={8000}
-  position="top-right"
-  onClose={handleClose}
-  actions={[
-    { label: "View schedule", href: "/maintenance" },
-    { label: "Dismiss", onClick: handleClose }
-  ]}
-  messages={{ close: "Close maintenance alert" }}
-  ariaLive="polite"
-  id="maintenance-notification"
-/>
+Notification
+  title = "Storage threshold approaching"
+  message = "Disk usage is at 85%."
+  status = warning
+  kind = toast
+  autoClose = true
+  duration = 6000
+  position = top-right
+  onClose = () => dismissToast()
+  actions = [
+    { label: "Expand storage", href: "/storage/expand" },
+    { label: "Dismiss", onClick: () => dismissToast() }
+  ]
+  messages = { close: "Close warning" }
+  ariaLive = polite
 ```
 
-Renders a warning toast that auto-closes after 8 seconds, positioned
-at the top-right, with a message, two action links, and a close button.
+Renders a toast notification in the top-right corner. Auto-closes after 6 seconds.
+Shows a CloseButton and two action links.
 
 ---
 
 ## 8 — Props not provided
 
-| Omitted prop | Reason |
+| What | Why |
 |---|---|
-| `disabled` | Notifications are always active while visible. There is no disabled state concept for a notification. |
-| `size` | The component has no size variants in v1. The medium scale is always used. |
-| `animate` | Enter/exit animation is a platform-mapping concern, not a component API concern. |
-| `color` / `background` | Colors are fully determined by `status` and `kind` via design tokens. Allowing overrides would bypass the token system. |
-| `direction` | Layout direction is determined by `kind`, not exposed as a separate prop. |
-| `open` / `visible` | Notification presence is controlled by the consumer rendering it (mount/unmount). It does not manage its own visibility externally; toast visibility is managed internally via the auto-close lifecycle. |
+| `size` | No size variants in v1. Always renders at the medium scale. |
+| `animate` | Animation is a platform concern. No animation tokens exist. |
+| `open` | For inline and global kinds, visibility is controlled by the consumer rendering or not rendering the component. For toast kind, the auto-close timer and onClose handle visibility. An explicit `open` boolean is not exposed to avoid conflicting with the timer. |
+| `color` | Background and text color are determined by `status` via tokens. Custom colors are not exposed. |
+| `pad` | Internal padding values are fixed by the spec and must not be overridden per-instance. |

@@ -25,17 +25,15 @@ Specifically:
 Exactly one status may be active at a time:
 `critical`, `warning`, `normal`, `info`, or `unknown`.
 
-The combination of background color, icon color, and text colors defined
-in `tokens.md` for each status must all change together — never mix
-tokens from different statuses.
+The combination of background color, icon, icon color, and text colors
+defined in `tokens.md` for each status must all change together — never
+mix tokens from different statuses.
 
-For example, a `critical` notification must use:
-- `--hpe-color-background-critical` (inline/global)
-- `--hpe-color-icon-critical`
-- `--hpe-color-text-onCritical-strong` (title)
-- `--hpe-color-text-onCritical` (message)
-
-Not any combination from another status variant.
+For `critical` inline or global, ALL of the following must apply together:
+- Background: `--hpe-color-background-critical`
+- Icon: `StatusCritical` component with `--hpe-color-icon-critical`
+- Title color: `--hpe-color-text-onCritical-strong`
+- Message color: `--hpe-color-text-onCritical`
 
 ---
 
@@ -47,7 +45,7 @@ The component must not combine kind-specific tokens from different kinds.
 - `inline` uses `--hpe-radius-xsmall` and `--hpe-spacing-xsmall` padding.
 - `global` uses `--hpe-radius-none` and `--hpe-spacing-xlarge` padding.
 - `toast` uses `--hpe-radius-xsmall`, `--hpe-spacing-xsmall` padding,
-  and always `--hpe-color-background-front` regardless of status.
+  `--hpe-shadow-medium`, and always `--hpe-color-background-front`.
 
 ---
 
@@ -78,10 +76,10 @@ must prevent the timer entirely. The timer must:
 
 ---
 
-## §6 — Close button focus must always use all three focus tokens
+## §6 — Focus must always use all three focus tokens together
 
-When the CloseButton receives keyboard focus, all three focus indicator
-tokens must be applied together:
+When the CloseButton or any Action link receives keyboard focus, all three
+focus indicator tokens must be applied together:
 
 ```css
 outline: var(--hpe-focusIndicator-outline);
@@ -90,50 +88,79 @@ box-shadow: var(--hpe-focusIndicator-boxShadow);
 ```
 
 Never apply only one or two of these tokens. Never use `outline` alone.
-The same rule applies to any Action link that receives focus.
 
 ---
 
 ## §7 — Custom icon does not change status semantics
 
-When a custom `icon` is provided, it replaces the default StatusIcon
-visually. The status prop still determines the background color and text
-colors. The custom icon does not override the Container background or
-text tokens.
+When a custom `icon` prop is provided, it replaces the default StatusIcon
+visually. The `status` prop still determines the Container background and
+all text colors. The custom icon does not override any Container or text
+tokens.
 
 ---
 
 ## §8 — ARIA live region requirements
 
-- `inline` and `global` kinds must expose the notification as a live
-  region so assistive technologies announce the content.
-  - Default sensitivity: `aria-live="polite"` (or `role="status"`).
-  - For `critical` status: `aria-live="assertive"` (or `role="alert"`)
+- `inline` and `global` kinds must expose the notification as a live region
+  so assistive technologies announce the content on render.
+  - Default: `aria-live="polite"` (or equivalent `role="status"`).
+  - For `status='critical'`: `aria-live="assertive"` (or `role="alert"`)
     to interrupt the user immediately.
-- `toast` kind relies on the platform's live region mechanism.
-  Toasts must be announced at the appropriate priority matching the
-  `status` (polite for info/normal/warning/unknown; assertive for critical).
-- The close button must have an accessible label (e.g. "Close notification").
+- `toast` kind relies on the platform's live region mechanism (e.g. an
+  ARIA live region in the viewport container). Toasts must be announced
+  at the priority matching their status:
+  - `critical` → assertive / foreground
+  - all others → polite / background
+- The CloseButton must always have an accessible label (e.g. "Close notification").
 
 ---
 
-## §9 — Action links must not replace the close action
+## §9 — Actions must not replace the CloseButton
 
-The `actions` array provides supplementary links, not a replacement for
-the dismiss mechanism. If a notification is dismissible (`onClose` is
-provided), the CloseButton must still be rendered alongside any actions.
-An action link being clicked must not implicitly close the notification
-unless the consumer's `onClose` handler is also triggered.
+The `actions` array provides supplementary links, not a replacement for the
+dismiss mechanism. If a notification is dismissible (`onClose` is provided),
+the CloseButton must still be rendered alongside any actions. An action being
+clicked must not implicitly close the notification unless the consumer's
+`onClose` handler is also triggered.
 
 ---
 
-## §10 — No hardcoded values
+## §10 — Text alignment is always left
+
+All text in all parts of the notification — Title, Message, Actions —
+must be `text-align: left` in all three kinds (inline, global, toast).
+
+Text alignment must never be inherited from a parent or assumed to be left.
+It must be set explicitly on the Container or TextContainer so that it
+cannot be overridden by an ancestor with center or right alignment.
+
+There is no token for this value. Set `text-align: left` in CSS directly.
+
+---
+
+## §11 — Icon aligns to the top of the first line of text
+
+The StatusIcon must be aligned to the **top** of the TextContainer, not
+centered on the full notification height. When the message is long and wraps
+to multiple lines, the icon must remain pinned to the top alongside the title,
+not drift to the vertical center.
+
+Implement by setting `align-items: flex-start` (or equivalent) on the row
+that contains the IconContainer and TextContainer.
+
+This constraint applies to all three kinds and is not status-specific.
+
+---
+
+## §12 — No hardcoded values
 
 All visual properties must use CSS custom properties from `hpe-design-tokens`.
 If a token is missing, log it in `gaps.md` with a workaround comment.
 
-Current known exception:
+Current known exceptions:
 
 - Toast FloatingLayer `z-index` has no dedicated token.
-  Workaround: use `var(--hpe-drop-default-zIndex)` with a comment.
+  Workaround: `var(--hpe-drop-default-zIndex)` with a comment.
   See GAP-002.
+- `text-align: left` has no token — set literally. See §10.
