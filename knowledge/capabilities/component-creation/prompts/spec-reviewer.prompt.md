@@ -82,6 +82,49 @@ Then read the component spec:
 - Does any document contain hardcoded values not backed by a token?
 - Are all hardcoded values already logged in `gaps.md`?
 
+### 8 — Visual completeness (hard-fail checks)
+
+These are mandatory. If any item below is absent from the spec, log it as
+a gap — do not pass the review.
+
+- [ ] **Icon names** — does `tokens.md` or `anatomy.md` record the exact
+  icon component name per status? Color alone is not sufficient.
+  If absent → log as `Spec incomplete`
+
+- [ ] **Text alignment** — does `constraints.md` explicitly state
+  `text-align` for every kind (inline, global, toast)?
+  Assumed or inherited alignment is not acceptable.
+  If absent → log as `Spec incomplete`
+
+- [ ] **Icon vertical alignment** — does `anatomy.md` or `constraints.md`
+  state whether the icon aligns to the top, center, or cap-height of the
+  first line of adjacent title text?
+  If absent → log as `Spec incomplete`
+
+- [ ] **Internal gaps** — does `tokens.md` record separate gap tokens for:
+  - icon → text block
+  - title → description
+  - text block → close button
+  Conflated or missing gaps → log as `Spec incomplete`
+
+- [ ] **box-shadow / elevation** — for any floating or toast kind, does
+  `tokens.md` include a `box-shadow` or `elevation` entry?
+  Absence of shadow is not a valid default — it must be explicitly stated.
+  If absent → log as `Token missing`
+
+- [ ] **z-index** — for any floating or toast kind, is a z-index token or
+  workaround documented?
+  If absent → log as `Token missing`
+
+- [ ] **Padding levels** — does `tokens.md` distinguish between:
+  - container outer padding
+  - internal element padding (e.g. icon padding-top for alignment)
+  If conflated → log as `Spec incomplete`
+
+- [ ] **animation / transition** — are duration and easing values recorded
+  for any animated kind (e.g. toast enter/exit)?
+  If absent and the reference component animates → log as `Spec incomplete`
+
 ---
 
 ## Output
