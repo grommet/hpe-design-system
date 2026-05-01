@@ -1,0 +1,15 @@
+capability: component-creation
+status: active
+version: 0.1.0
+description: >
+  AI-assisted pipeline for writing HPE Design System component specs.
+  Produces tokens.md, anatomy.md, constraints.md, props.md, and
+  mappings/{{platform}}.md for any component.
+entry-point: "@component-creation-orchestrator <component-name>"
+prompts:
+  - prompts/spec-writer.prompt.md
+  - prompts/props-writer.prompt.md
+  - prompts/spec-reviewer.prompt.md
+  - prompts/mapping-writer.prompt.md
+  - prompts/mapping-reviewer.prompt.md
+maintainers: []
