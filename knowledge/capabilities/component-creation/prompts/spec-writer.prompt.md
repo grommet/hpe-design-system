@@ -93,6 +93,28 @@ Read in this exact order. Do not skip any step.
      cap-height of the first line of adjacent text
    - `animation` / `transition` — duration, easing, direction
    - `opacity` — for disabled state
+   - `icon variant` — explicitly verify whether the HPE theme uses filled
+     or outlined icon variants. In grommet-theme-hpe, status icons use the
+     filled (`Small`) suffix variants (e.g. `StatusGoodSmall`, not `StatusGood`,
+     `StatusCriticalSmall`, not `StatusCritical`). Record the exact component
+     name including suffix — the wrong suffix produces the wrong icon shape.
+
+   - `internal gap values` — internal gaps (title→description, icon→text)
+     are always tight spacing tokens (`xsmall`, `3xsmall`, `2xsmall`).
+     If the theme records a gap that maps to `medium` or larger, stop and
+     re-read the theme entry — layout-level tokens are never used for
+     internal text spacing. Confirm the px value from `dimension.css` before
+     recording.
+
+   - `font-weight resolved value` — do not record a font-weight token name
+     without confirming its resolved value in `dimension.css`. `medium` and
+     `bold` are different weights. If the title appears visually bold in the
+     reference, confirm the token resolves to `600` or higher before using it.
+
+   - `close icon size` — verify the close icon size token resolves to the
+     same visual size as the reference close button. Check the px value in
+     `dimension.css`. If the resolved value is smaller than the status icon,
+     flag it — they should be the same size in the HPE theme.
 
 ### Step C — Token verification (always required)
 
@@ -290,3 +312,7 @@ Before finishing, confirm:
 - [ ] Each gap value recorded separately (icon→text, title→description etc.)
 - [ ] Exact icon component name recorded per status — not just icon color
 - [ ] Icon vertical alignment behaviour stated in anatomy.md
+- [ ] Icon variant suffix confirmed (filled Small vs outlined) — not just icon name
+- [ ] Internal gap token px value confirmed in dimension.css — not a layout-level token
+- [ ] Title font-weight token resolved value confirmed — must be 600 or higher if bold
+- [ ] Close icon size token px value confirmed — matches status icon size
