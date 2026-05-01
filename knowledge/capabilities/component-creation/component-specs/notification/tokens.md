@@ -1,203 +1,254 @@
 # Notification — tokens.md
 
-All visual design tokens required to style the Notification component.
-No framework references. No hardcoded values.
-
-> **Note:** No `--hpe-notification-*` component tokens exist in
-> `hpe-design-tokens`. All tokens are semantic (S layer). See GAP-001.
+Platform-agnostic visual token specification for the `notification` component.
+All token names confirmed against `hpe-design-tokens` dist CSS files.
+No framework references.
 
 ---
 
-## Legend
+## How to read this file
 
-| Symbol | Meaning |
+| Column | Meaning |
 |---|---|
-| `C` | Component token (`components.hpe.*`) |
-| `S` | Semantic token (`hpe.color.*`, `hpe.spacing.*` etc.) |
-| _(no marker)_ | Confirmed present in `hpe-design-tokens` |
-| `*` | Unverified — camelCase pattern applied but not confirmed |
-| `⛔` | Confirmed missing — logged as GAP-XXX |
+| Property | The CSS property this token sets |
+| State | The visual state it applies to |
+| Layer | `C` = component token, `S` = semantic token |
+| CSS variable | The confirmed token name |
+| Notes | Context, constraint cross-references, or gap refs |
+
+Markers on token names:
+- _(none)_ — confirmed present in `hpe-design-tokens`
+- `*` — camelCase pattern applied, not fully confirmed
+- `⛔` — confirmed absent — logged as GAP
 
 ---
 
-## Container
+## 1 — Container
 
-The root element of the notification. Appearance varies by `kind`
-(`inline`, `global`, `toast`) and `status`.
+The outer flex row wrapper. Present for all three kinds: inline, global, toast.
 
-| Property | State | Layer | Token path | CSS variable | Notes |
+### 1a — Background
+
+Status backgrounds apply to inline and global kinds only.
+Toast always uses `background-front` regardless of status — see constraints §4.
+
+| Property | Status | Kind | Layer | CSS variable | Notes |
 |---|---|---|---|---|---|
-| background-color | rest | S | hpe.color.background.critical | `--hpe-color-background-critical` | status=critical, kind=inline or global |
-| background-color | rest | S | hpe.color.background.warning | `--hpe-color-background-warning` | status=warning, kind=inline or global |
-| background-color | rest | S | hpe.color.background.ok | `--hpe-color-background-ok` | status=normal, kind=inline or global |
-| background-color | rest | S | hpe.color.background.info | `--hpe-color-background-info` | status=info, kind=inline or global |
-| background-color | rest | S | hpe.color.background.unknown | `--hpe-color-background-unknown` | status=unknown, kind=inline or global |
-| background-color | rest | S | hpe.color.background.front | `--hpe-color-background-front` | kind=toast, all statuses; see constraints §4 |
-| border-radius | rest | S | hpe.radius.xsmall | `--hpe-radius-xsmall` | kind=inline or toast (6px) |
-| border-radius | rest | S | hpe.radius.none | `--hpe-radius-none` | kind=global |
-| padding-inline | rest | S | hpe.spacing.xsmall | `--hpe-spacing-xsmall` | kind=inline or toast (12px); see padding split note below |
-| padding-block | rest | S | hpe.spacing.3xsmall | `--hpe-spacing-3xsmall` | all kinds (6px) |
-| padding-inline | rest | S | hpe.spacing.xlarge | `--hpe-spacing-xlarge` | kind=global |
-| box-shadow | rest | S | hpe.shadow.medium | `--hpe-shadow-medium` | kind=toast only; elevation of the floating notification card |
-| text-align | rest | — | — | — | always `left` for all kinds and statuses; no token — see constraints §10 |
+| background | — | toast (all statuses) | S | `--hpe-color-background-front` | Toast never uses a status background |
+| background | critical | inline, global | S | `--hpe-color-background-critical` | |
+| background | warning | inline, global | S | `--hpe-color-background-warning` | |
+| background | normal | inline, global | S | `--hpe-color-background-ok` | |
+| background | unknown | inline, global | S | `--hpe-color-background-unknown` | |
+| background | info | inline, global | S | `--hpe-color-background-info` | |
 
-> **Padding split note:** When a CloseButton is present, container padding is
-> split between the content area (left and block padding) and the close button
-> area (right and block padding). Neither side adds new padding values — the
-> same `--hpe-spacing-xsmall` / `--hpe-spacing-3xsmall` values are used, just
-> distributed so that no double-padding occurs in the middle.
+### 1b — Shape and elevation
+
+| Property | State | Kind | Layer | CSS variable | Notes |
+|---|---|---|---|---|---|
+| border-radius | rest | inline, toast | S | `--hpe-radius-xsmall` | |
+| border-radius | rest | global | S | `--hpe-radius-none` | Global spans full width — no rounded corners |
+| box-shadow | rest | toast | S | `--hpe-shadow-medium` | Floating card elevation — see constraints §4 |
+
+### 1c — Padding
+
+The outer container padding is split between the content area (start side) and
+the CloseButton (end side) to avoid double-padding when the close button is
+present. See constraints §1 and §8 (CloseButton) for the end-side padding.
+
+| Property | Kind | Layer | CSS variable | Resolved | Notes |
+|---|---|---|---|---|---|
+| padding-block | inline, toast | S | `--hpe-spacing-3xsmall` | 6px | Top and bottom |
+| padding-inline-start | inline, toast | S | `--hpe-spacing-xsmall` | 12px | Start side only; end side on CloseButton |
+| padding-block | global | S | `--hpe-spacing-3xsmall` | 6px | Same as inline |
+| padding-inline-start | global | S | `--hpe-spacing-xlarge` | 48px | Wide horizontal band — matches close button end padding |
+
+### 1d — Internal layout gap
+
+| Property | Layer | CSS variable | Resolved | Notes |
+|---|---|---|---|---|
+| gap (content area → CloseButton) | S | `--hpe-spacing-xsmall` | 12px | Flex gap between [IconContainer + TextContainer] and [CloseButton] |
+
+### 1e — z-index (toast kind only)
+
+No notification-specific z-index token exists in `hpe-design-tokens`.
+See GAP-002.
+
+| Property | Kind | Layer | CSS variable | Resolved | Notes |
+|---|---|---|---|---|---|
+| z-index | toast | S | `--hpe-drop-default-zIndex` | 110 | GAP-002 workaround — confirmed present in components.css; used because no notification-specific token exists |
 
 ---
 
-## StatusIcon
+## 2 — IconContainer
 
-The status-specific icon. One of five named icons from the HPE icon library.
-Can be replaced by a custom `icon` prop — see constraints §7.
+Wrapper around the status icon. Provides the gap between the icon and the
+TextContainer via padding-inline-end only.
 
-### Icon component per status
+| Property | Layer | CSS variable | Resolved | Notes |
+|---|---|---|---|---|
+| padding-inline-end | S | `--hpe-spacing-xsmall` | 12px | Gap from icon to TextContainer |
 
-| Status | Icon component | Package |
+---
+
+## 3 — StatusIcon
+
+The status icon rendered inside IconContainer. See constraints §2.
+
+### 3a — Icon component names (from `@hpe-design/icons-grommet`)
+
+| Status | Icon component | Notes |
 |---|---|---|
-| `critical` | `StatusCritical` | `@hpe-design/icons-grommet` |
-| `warning` | `StatusWarning` | `@hpe-design/icons-grommet` |
-| `normal` | `StatusGood` | `@hpe-design/icons-grommet` |
-| `info` | `Info` | `@hpe-design/icons-grommet` |
-| `unknown` | `StatusUnknown` | `@hpe-design/icons-grommet` |
+| critical | `StatusCritical` | |
+| warning | `StatusWarning` | |
+| normal | `StatusGood` | |
+| unknown | `StatusUnknown` | |
+| info | `Info` | |
 
-The icon component name is part of the spec, not just the color. Implementations
-must use these exact icons unless the consumer overrides via the `icon` prop.
+Close button icon: `Close` (from `@hpe-design/icons-grommet`)
 
-### Icon tokens
+### 3b — Size and color
 
-| Property | State | Layer | Token path | CSS variable | Notes |
+| Property | Status | Layer | CSS variable | Resolved | Notes |
 |---|---|---|---|---|---|
-| color | rest | S | hpe.color.icon.critical | `--hpe-color-icon-critical` | status=critical |
-| color | rest | S | hpe.color.icon.warning | `--hpe-color-icon-warning` | status=warning |
-| color | rest | S | hpe.color.icon.ok | `--hpe-color-icon-ok` | status=normal |
-| color | rest | S | hpe.color.icon.info | `--hpe-color-icon-info` | status=info |
-| color | rest | S | hpe.color.icon.unknown | `--hpe-color-icon-unknown` | status=unknown |
-| size (width + height) | rest | S | hpe.icon.medium.size | `--hpe-icon-medium-size` | shared with CloseButton icon (16px) |
+| width, height | all | S | `--hpe-icon-medium-size` | 16px | `medium` icon size from reference |
+| color | critical | S | `--hpe-color-icon-critical` | | |
+| color | warning | S | `--hpe-color-icon-warning` | | |
+| color | normal | S | `--hpe-color-icon-ok` | | |
+| color | unknown | S | `--hpe-color-icon-unknown` | | |
+| color | info | S | `--hpe-color-icon-info` | | |
 
 ---
 
-## IconContainer
+## 4 — TextContainer
 
-Wraps the StatusIcon. Provides right-side spacing between the icon and
-the TextContainer. Does not set an alignment property of its own — icon
-vertical alignment is governed by the outer layout; see constraints §11.
+Vertical flex column holding Title and Message. See constraints §11.
 
-| Property | State | Layer | Token path | CSS variable | Notes |
-|---|---|---|---|---|---|
-| padding-inline-end | rest | S | hpe.spacing.xsmall | `--hpe-spacing-xsmall` | right padding only (12px); separates icon from TextContainer |
+| Property | Layer | CSS variable | Resolved | Notes |
+|---|---|---|---|---|
+| gap (title → message) | S | `--hpe-spacing-medium` | 24px | Vertical gap between Title and Message; confirmed from reference theme |
 
----
-
-## ContentRow gap
-
-The gap on the outer container row — between the `[IconContainer + TextContainer]`
-group and the `[CloseButton]`.
-
-| Property | State | Layer | Token path | CSS variable | Notes |
-|---|---|---|---|---|---|
-| gap | rest | S | hpe.spacing.xsmall | `--hpe-spacing-xsmall` | horizontal gap between content area and close button (12px) |
+> **Note on 24px gap:** `--hpe-spacing-medium` (24px) is confirmed from the
+> reference theme entry (`textContainer.gap: 'medium'`). This is the
+> intentional HPE design decision — not an error.
 
 ---
 
-## TextContainer
+## 5 — Title
 
-Wraps Title and (optionally) Message. Controls vertical gap between them
-in column layout (inline and toast kinds). In global kind (row layout) title
-and message are inline; this gap does not apply.
+The primary label of the notification.
 
-| Property | State | Layer | Token path | CSS variable | Notes |
+### 5a — Typography
+
+| Property | State | Layer | CSS variable | Resolved | Notes |
 |---|---|---|---|---|---|
-| gap | rest | S | hpe.spacing.medium | `--hpe-spacing-medium` | vertical gap between Title and Message in column layout (24px) |
+| font-size | rest | S | `--hpe-text-medium-fontSize` | 1rem | |
+| line-height | rest | S | `--hpe-text-medium-lineHeight` | 1.5rem | |
+| font-weight | rest | S | `--hpe-fontWeight-medium` | 500 | Not bold (700); medium (500) — confirmed from theme |
+| text-align | rest | — | _(no token)_ | left | Set literally — see constraints §10 |
+
+### 5b — Color per status × kind
+
+Toast always overrides per-status title colors. See constraints §4.
+
+| Status | Kind | Layer | CSS variable | Notes |
+|---|---|---|---|---|
+| critical | inline, global | S | `--hpe-color-text-onCritical-strong` | |
+| warning | inline, global | S | `--hpe-color-text-onWarning-strong` | |
+| normal | inline, global | S | `--hpe-color-text-onOk-strong` | |
+| unknown | inline, global | S | `--hpe-color-text-onUnknown-strong` | |
+| info | inline, global | S | `--hpe-color-text-onInfo-strong` | |
+| all statuses | toast | S | `--hpe-color-text-strong` | Toast always uses strong text regardless of status |
 
 ---
 
-## Title
+## 6 — Message
 
-Primary heading text. Required.
+Body text displayed below the Title (column layout for inline/toast) or
+inline with the Title (row layout for global).
 
-| Property | State | Layer | Token path | CSS variable | Notes |
+### 6a — Typography
+
+| Property | State | Layer | CSS variable | Resolved | Notes |
 |---|---|---|---|---|---|
-| color | rest | S | hpe.color.text.strong | `--hpe-color-text-strong` | kind=toast, all statuses; see constraints §4 |
-| color | rest | S | hpe.color.text.onCritical.strong | `--hpe-color-text-onCritical-strong` | status=critical, kind=inline or global |
-| color | rest | S | hpe.color.text.onWarning.strong | `--hpe-color-text-onWarning-strong` | status=warning, kind=inline or global |
-| color | rest | S | hpe.color.text.onOk.strong | `--hpe-color-text-onOk-strong` | status=normal, kind=inline or global |
-| color | rest | S | hpe.color.text.onInfo.strong | `--hpe-color-text-onInfo-strong` | status=info, kind=inline or global |
-| color | rest | S | hpe.color.text.onUnknown.strong | `--hpe-color-text-onUnknown-strong` | status=unknown, kind=inline or global |
-| font-weight | rest | S | hpe.fontWeight.medium | `--hpe-fontWeight-medium` | all statuses, all kinds |
-| font-size | rest | S | hpe.text.medium.fontSize | `--hpe-text-medium-fontSize` | |
-| line-height | rest | S | hpe.text.medium.lineHeight | `--hpe-text-medium-lineHeight` | |
-| text-align | rest | — | — | — | always `left`; inherited from Container; see constraints §10 |
+| font-size | rest | S | `--hpe-text-medium-fontSize` | 1rem | |
+| line-height | rest | S | `--hpe-text-medium-lineHeight` | 1.5rem | |
+| font-weight | rest | S | `--hpe-fontWeight-regular` | 400 | |
+| text-align | rest | — | _(no token)_ | left | Set literally — see constraints §10 |
+
+### 6b — Color per status × kind
+
+| Status | Kind | Layer | CSS variable | Notes |
+|---|---|---|---|---|
+| critical | inline, global | S | `--hpe-color-text-onCritical` | |
+| warning | inline, global | S | `--hpe-color-text-onWarning` | |
+| normal | inline, global | S | `--hpe-color-text-onOk` | |
+| unknown | inline, global | S | `--hpe-color-text-onUnknown` | |
+| info | inline, global | S | `--hpe-color-text-onInfo` | |
+| all statuses | toast | S | `--hpe-color-text-default` | Toast always uses default text |
+
+### 6c — Message text trailing margin (before first inline action)
+
+| Property | Layer | CSS variable | Resolved | Notes |
+|---|---|---|---|---|
+| margin-inline-end | S | `--hpe-spacing-3xsmall` | 6px | Space between message text and first action |
 
 ---
 
-## Message
+## 7 — Actions
 
-Optional body/description text. Rendered beneath the title in column layout
-(inline, toast), or inline with title in row layout (global).
+Zero or more inline anchor or button links appended after the message text.
 
-| Property | State | Layer | Token path | CSS variable | Notes |
-|---|---|---|---|---|---|
-| color | rest | S | hpe.color.text.default | `--hpe-color-text-default` | kind=toast, all statuses; see constraints §4 |
-| color | rest | S | hpe.color.text.onCritical | `--hpe-color-text-onCritical` | status=critical, kind=inline or global |
-| color | rest | S | hpe.color.text.onWarning | `--hpe-color-text-onWarning` | status=warning, kind=inline or global |
-| color | rest | S | hpe.color.text.onOk | `--hpe-color-text-onOk` | status=normal, kind=inline or global |
-| color | rest | S | hpe.color.text.onInfo | `--hpe-color-text-onInfo` | status=info, kind=inline or global |
-| color | rest | S | hpe.color.text.onUnknown | `--hpe-color-text-onUnknown` | status=unknown, kind=inline or global |
-| font-size | rest | S | hpe.text.medium.fontSize | `--hpe-text-medium-fontSize` | |
-| font-weight | rest | S | hpe.fontWeight.regular | `--hpe-fontWeight-regular` | |
-| line-height | rest | S | hpe.text.medium.lineHeight | `--hpe-text-medium-lineHeight` | |
-| margin-inline-end | rest | S | hpe.spacing.3xsmall | `--hpe-spacing-3xsmall` | right margin on the message text span, before the first action (6px) |
-| text-align | rest | — | — | — | always `left`; inherited from Container; see constraints §10 |
+| Property | Layer | CSS variable | Resolved | Notes |
+|---|---|---|---|---|
+| margin-inline-end | S | `--hpe-spacing-3xsmall` | 6px | Space after each action before the next |
 
----
+**Focus state** — all three tokens applied together (constraints §6):
 
-## Actions
+| Property | Layer | CSS variable |
+|---|---|---|
+| outline | S | `--hpe-focusIndicator-outline` |
+| outline-offset | S | `--hpe-focusIndicator-outlineOffset` |
+| box-shadow | S | `--hpe-focusIndicator-boxShadow` |
 
-Optional inline action link(s). Rendered inside the Message area.
-Action link color, text-decoration, and focus ring are inherited from the
-Anchor/Button component token layer and are not redefined here.
-
-| Property | State | Layer | Token path | CSS variable | Notes |
-|---|---|---|---|---|---|
-| margin-inline-end | rest | S | hpe.spacing.3xsmall | `--hpe-spacing-3xsmall` | right spacing after each action link (6px) |
-| outline | focus | S | hpe.focusIndicator.outline | `--hpe-focusIndicator-outline` | all three focus tokens applied together — see constraints §6 |
-| outline-offset | focus | S | hpe.focusIndicator.outlineOffset | `--hpe-focusIndicator-outlineOffset` | |
-| box-shadow | focus | S | hpe.focusIndicator.boxShadow | `--hpe-focusIndicator-boxShadow` | |
-
-> **Hover/active note:** Hover and active appearance for action links
-> delegates to the Anchor/Button component token layer. See GAP-003.
+**Hover / active:** Delegated to the Anchor or Button component's own token
+layer. No notification-specific tokens exist. See GAP-003.
 
 ---
 
-## CloseButton
+## 8 — CloseButton
 
-Icon button that dismisses the notification. Conditional — only rendered
-when `onClose` is provided. Uses the `Close` icon from `@hpe-design/icons-grommet`.
+Dismiss button at the end of the container. Conditional — only present when
+an `onClose` handler is provided. See constraints §9.
 
-| Property | State | Layer | Token path | CSS variable | Notes |
+### 8a — Padding (end side)
+
+The CloseButton carries `padding-inline-end` and `padding-block` to provide
+the end-side outer spacing that the container's `padding-inline-start` covers
+on the start side. This prevents double padding.
+
+| Property | Kind | Layer | CSS variable | Resolved | Notes |
 |---|---|---|---|---|---|
-| icon color | rest | S | hpe.color.icon.default | `--hpe-color-icon-default` | |
-| icon size (width + height) | rest | S | hpe.icon.medium.size | `--hpe-icon-medium-size` | shared with StatusIcon |
-| outline | focus | S | hpe.focusIndicator.outline | `--hpe-focusIndicator-outline` | all three focus tokens applied together — see constraints §6 |
-| outline-offset | focus | S | hpe.focusIndicator.outlineOffset | `--hpe-focusIndicator-outlineOffset` | |
-| box-shadow | focus | S | hpe.focusIndicator.boxShadow | `--hpe-focusIndicator-boxShadow` | |
+| padding-block | inline, toast | S | `--hpe-spacing-3xsmall` | 6px | Matches container padding-block |
+| padding-inline-end | inline, toast | S | `--hpe-spacing-xsmall` | 12px | End-side outer spacing |
+| padding-block | global | S | `--hpe-spacing-3xsmall` | 6px | Matches container padding-block |
+| padding-inline-end | global | S | `--hpe-spacing-xlarge` | 48px | Matches global start-side padding |
 
-> **Hover/active delegation:** Hover and active state appearance is provided
-> by the underlying Button component's own token layer. No notification-specific
-> hover or active tokens exist. See GAP-003.
+### 8b — Icon
 
----
-
-## FloatingLayer (toast kind only)
-
-The fixed-position overlay that positions toast notifications on screen.
-The notification card shadow is defined on the Container above.
-The FloatingLayer provides only positioning.
-
-| Property | State | Layer | Token path | CSS variable | Notes |
+| Property | State | Layer | CSS variable | Resolved | Notes |
 |---|---|---|---|---|---|
-| z-index | rest | ⛔ | — | — | No dedicated z-index token for toast overlay — see GAP-002; use `--hpe-drop-default-zIndex` as workaround |
+| width, height | rest | S | `--hpe-icon-medium-size` | 16px | Same size as StatusIcon |
+| color | rest | S | `--hpe-color-icon-default` | | Default interactive icon color |
+
+### 8c — Focus state
+
+All three tokens applied together — constraints §6.
+
+| Property | Layer | CSS variable |
+|---|---|---|
+| outline | S | `--hpe-focusIndicator-outline` |
+| outline-offset | S | `--hpe-focusIndicator-outlineOffset` |
+| box-shadow | S | `--hpe-focusIndicator-boxShadow` |
+
+**Hover / active:** Delegated to the Button component's own token layer.
+No notification-specific tokens exist. See GAP-003.

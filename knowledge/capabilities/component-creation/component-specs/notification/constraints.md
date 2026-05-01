@@ -1,166 +1,157 @@
 # Notification — constraints.md
 
-Rules that must never be broken regardless of framework or implementation.
-Every constraint references exact CSS variable names from `tokens.md`.
+Platform-agnostic implementation rules for the `notification` component.
+These constraints must be respected in every framework mapping.
+No framework references.
 
 ---
 
 ## §1 — No layout shift between states
 
-Do not change the size, padding, or border-width of any part when
-transitioning between states (rest → hover → focus → active → dismissed).
-Specifically:
-
-- Container `padding-inline` and `padding-block` must remain fixed at
-  `--hpe-spacing-xsmall` / `--hpe-spacing-3xsmall` (inline/toast) or
-  `--hpe-spacing-xlarge` / `--hpe-spacing-3xsmall` (global) across all states.
-- CloseButton must not change its own padding, size, or border on hover or focus.
-- No border is added or removed on interaction; shape changes must not shift
-  surrounding content.
+The Container must not change its size, padding, or border between states.
+`padding-block`, `padding-inline-start`, `border-radius`, and `box-shadow`
+are fixed at rest and must not change on hover, focus, or any other state.
+Changes to content (e.g. message text length) may affect height, but padding
+and shape must remain stable.
 
 ---
 
-## §2 — Status is mutually exclusive
+## §2 — Status colors are mutually exclusive
 
-Exactly one status may be active at a time:
-`critical`, `warning`, `normal`, `info`, or `unknown`.
+Exactly one status is active at a time. The corresponding background,
+icon color, title color, and message color tokens must all be applied together.
+Partial application (e.g. background but not icon color) is not permitted.
 
-The combination of background color, icon, icon color, and text colors
-defined in `tokens.md` for each status must all change together — never
-mix tokens from different statuses.
+Status → token sets:
 
-For `critical` inline or global, ALL of the following must apply together:
-- Background: `--hpe-color-background-critical`
-- Icon: `StatusCritical` component with `--hpe-color-icon-critical`
-- Title color: `--hpe-color-text-onCritical-strong`
-- Message color: `--hpe-color-text-onCritical`
-
----
-
-## §3 — Kind is mutually exclusive
-
-Exactly one kind may be active at a time: `inline`, `global`, or `toast`.
-The component must not combine kind-specific tokens from different kinds.
-
-- `inline` uses `--hpe-radius-xsmall` and `--hpe-spacing-xsmall` padding.
-- `global` uses `--hpe-radius-none` and `--hpe-spacing-xlarge` padding.
-- `toast` uses `--hpe-radius-xsmall`, `--hpe-spacing-xsmall` padding,
-  `--hpe-shadow-medium`, and always `--hpe-color-background-front`.
+| Status | Background (inline/global) | Icon | Title (inline/global) | Message (inline/global) |
+|---|---|---|---|---|
+| critical | `--hpe-color-background-critical` | `--hpe-color-icon-critical` | `--hpe-color-text-onCritical-strong` | `--hpe-color-text-onCritical` |
+| warning | `--hpe-color-background-warning` | `--hpe-color-icon-warning` | `--hpe-color-text-onWarning-strong` | `--hpe-color-text-onWarning` |
+| normal | `--hpe-color-background-ok` | `--hpe-color-icon-ok` | `--hpe-color-text-onOk-strong` | `--hpe-color-text-onOk` |
+| unknown | `--hpe-color-background-unknown` | `--hpe-color-icon-unknown` | `--hpe-color-text-onUnknown-strong` | `--hpe-color-text-onUnknown` |
+| info | `--hpe-color-background-info` | `--hpe-color-icon-info` | `--hpe-color-text-onInfo-strong` | `--hpe-color-text-onInfo` |
 
 ---
 
-## §4 — Toast background is always front regardless of status
+## §3 — Kind variants are mutually exclusive
 
-When `kind = 'toast'`, the Container background must always be
-`--hpe-color-background-front`. The status-specific backgrounds
-(`--hpe-color-background-critical`, etc.) must NOT be applied in
-toast kind.
+A notification is in exactly one kind at a time: inline, global, or toast.
+The kind determines:
+- Container shape: `--hpe-radius-xsmall` (inline/toast) or `--hpe-radius-none` (global)
+- Horizontal padding: `--hpe-spacing-xsmall` (inline/toast) or `--hpe-spacing-xlarge` (global)
+- Layout of Title + Message: column (inline/toast) or inline row (global)
+- FloatingLayer: present (toast only)
 
-The status icon color still uses the status-specific icon token
-(`--hpe-color-icon-critical` etc.) to convey status in the toast.
-
-Title must use `--hpe-color-text-strong` and message must use
-`--hpe-color-text-default` in toast kind — not the `onX` variants.
+No combination of kind tokens may be applied simultaneously.
 
 ---
 
-## §5 — Toast auto-closes by default
+## §4 — Toast always overrides status background and text colors
 
-When `kind = 'toast'`, the notification must auto-close after the
-configured `duration` has elapsed. A consumer setting `autoClose = false`
-must prevent the timer entirely. The timer must:
-
-- Pause when the user focuses or hovers on the notification.
-- Resume when focus/hover is lost.
-- Be cancelled if the notification is explicitly dismissed before it fires.
+When `kind='toast'`, status background tokens must NOT be applied to the
+Container. The Container must use `--hpe-color-background-front` exclusively.
+Similarly, Title and Message text colors must use `--hpe-color-text-strong`
+and `--hpe-color-text-default` respectively — not the per-status on-color
+variants. The `box-shadow: --hpe-shadow-medium` token must also be applied
+to the toast Container. Omitting the shadow is not acceptable.
 
 ---
 
-## §6 — Focus must always use all three focus tokens together
+## §5 — Auto-close timer pauses on hover and on focus
 
-When the CloseButton or any Action link receives keyboard focus, all three
-focus indicator tokens must be applied together:
+For `kind='toast'` with `autoClose=true`, the dismiss timer must be suspended
+while the pointer is over the toast or keyboard focus is within the toast.
+The timer resumes when the pointer leaves or focus moves out. This ensures
+users who are reading or interacting with the notification are not interrupted.
 
-```css
-outline: var(--hpe-focusIndicator-outline);
+---
+
+## §6 — Focus indicator uses all three tokens together
+
+The focus ring for CloseButton and Actions must always apply all three tokens:
+
+```
+outline:        var(--hpe-focusIndicator-outline);
 outline-offset: var(--hpe-focusIndicator-outlineOffset);
-box-shadow: var(--hpe-focusIndicator-boxShadow);
+box-shadow:     var(--hpe-focusIndicator-boxShadow);
 ```
 
-Never apply only one or two of these tokens. Never use `outline` alone.
+Never use only one or two of these tokens. Never substitute a custom
+`outline` or `box-shadow` value — it will break the two-colour ring.
+These tokens are defined in `global.css` and apply to `:focus-visible` only.
 
 ---
 
-## §7 — Custom icon does not change status semantics
+## §7 — CloseIcon and StatusIcon use the same size token
 
-When a custom `icon` prop is provided, it replaces the default StatusIcon
-visually. The `status` prop still determines the Container background and
-all text colors. The custom icon does not override any Container or text
-tokens.
+Both the status icon and the close button icon must be sized using:
 
----
+```
+width:  var(--hpe-icon-medium-size);   /* 16px */
+height: var(--hpe-icon-medium-size);   /* 16px */
+```
 
-## §8 — ARIA live region requirements
-
-- `inline` and `global` kinds must expose the notification as a live region
-  so assistive technologies announce the content on render.
-  - Default: `aria-live="polite"` (or equivalent `role="status"`).
-  - For `status='critical'`: `aria-live="assertive"` (or `role="alert"`)
-    to interrupt the user immediately.
-- `toast` kind relies on the platform's live region mechanism (e.g. an
-  ARIA live region in the viewport container). Toasts must be announced
-  at the priority matching their status:
-  - `critical` → assertive / foreground
-  - all others → polite / background
-- The CloseButton must always have an accessible label (e.g. "Close notification").
+Sizing via a component-specific prop (e.g. `size="medium"`) is acceptable
+only when it resolves to the same 16px value. If the prop does not respect
+this token, use CSS to override.
 
 ---
 
-## §9 — Actions must not replace the CloseButton
+## §8 — ARIA requirements
 
-The `actions` array provides supplementary links, not a replacement for the
-dismiss mechanism. If a notification is dismissible (`onClose` is provided),
-the CloseButton must still be rendered alongside any actions. An action being
-clicked must not implicitly close the notification unless the consumer's
-`onClose` handler is also triggered.
+| Kind | Role | aria-live | Notes |
+|---|---|---|---|
+| inline | `status` or `alert` | `polite` (default) or `assertive` for critical | `aria-atomic="true"` required |
+| global | `status` or `alert` | `polite` (default) or `assertive` for critical | `aria-atomic="true"` required |
+| toast | Managed by live region primitive | `polite` (default) or `assertive` for critical | Implemented via the platform's live region mechanism |
+
+- `status='critical'` should use `aria-live="assertive"` (interrupts the user)
+- All other statuses use `aria-live="polite"` (waits for idle)
+- The StatusIcon must be `aria-hidden="true"` — status is conveyed in the Title text
+- The CloseButton must have an accessible label (e.g. `aria-label="Close notification"`)
+
+---
+
+## §9 — CloseButton is conditional
+
+The CloseButton must only be rendered when an `onClose` handler is provided.
+When absent, there must be no reserved space, no invisible button, and no
+padding gap where the button would appear. The Container end-side padding
+must be applied directly to the content area when no CloseButton is present.
 
 ---
 
 ## §10 — Text alignment is always left
 
-All text in all parts of the notification — Title, Message, Actions —
-must be `text-align: left` in all three kinds (inline, global, toast).
-
-Text alignment must never be inherited from a parent or assumed to be left.
-It must be set explicitly on the Container or TextContainer so that it
-cannot be overridden by an ancestor with center or right alignment.
-
-There is no token for this value. Set `text-align: left` in CSS directly.
+`text-align: left` must be set explicitly on the Container, Title, and Message.
+Never rely on browser defaults or inherited values.
+There is no token for this value — set it as the literal value `left`.
+This applies to all three kinds (inline, global, toast) without exception.
 
 ---
 
 ## §11 — Icon aligns to the top of the first line of text
 
-The StatusIcon must be aligned to the **top** of the TextContainer, not
-centered on the full notification height. When the message is long and wraps
-to multiple lines, the icon must remain pinned to the top alongside the title,
-not drift to the vertical center.
+The StatusIcon must align to the cap-height of the first line of the adjacent
+Title text, not the center of the full text block. This is achieved by:
 
-Implement by setting `align-items: flex-start` (or equivalent) on the row
-that contains the IconContainer and TextContainer.
+```
+align-items: flex-start;
+```
 
-This constraint applies to all three kinds and is not status-specific.
+on the Container (or the inner row that contains the IconContainer and
+TextContainer). This ensures that when the message is long and wraps to
+multiple lines, the icon remains pinned to the top of the content — not
+floating mid-way through the text block.
 
 ---
 
-## §12 — No hardcoded values
+## §12 — All visual properties must use CSS custom properties
 
-All visual properties must use CSS custom properties from `hpe-design-tokens`.
-If a token is missing, log it in `gaps.md` with a workaround comment.
-
-Current known exceptions:
-
-- Toast FloatingLayer `z-index` has no dedicated token.
-  Workaround: `var(--hpe-drop-default-zIndex)` with a comment.
-  See GAP-002.
-- `text-align: left` has no token — set literally. See §10.
+Every colour, spacing, radius, shadow, font-size, font-weight, line-height,
+and z-index value must be sourced from an `hpe-design-tokens` CSS variable.
+If a required token does not exist, log it in `gaps.md` and document
+the workaround used (e.g. a sibling semantic token or a hardcoded exception
+with a comment). Hardcoded values with no token equivalent and no gap entry
+are not permitted.

@@ -1,191 +1,172 @@
 # Notification — anatomy.md
 
+Platform-agnostic structural specification for the `notification` component.
+No framework references.
+
 ---
 
 ## 1 — Overview
 
-A Notification communicates a system message, status event, or feedback
-to the user. It combines a status icon, a title, an optional message body,
-optional action links, and an optional dismiss button.
+A Notification communicates system or application events to the user.
+It appears in one of three layout kinds:
 
-The component has three **kinds**:
+- **inline** — embedded in the page flow at the point of relevance
+- **global** — a full-width banner, typically at the top of the page
+- **toast** — a floating overlay that auto-dismisses after a timer expires
 
-| Kind | Description |
-|---|---|
-| `inline` | Embedded in-page at the point of relevance. Default kind. |
-| `global` | Full-width banner anchored to the top of the page. |
-| `toast` | Floating, self-dismissing overlay positioned at the edge of the viewport. |
-
-The component has five **status variants**:
-
-| Status | Icon | Background |
-|---|---|---|
-| `critical` | StatusCritical | background-critical |
-| `warning` | StatusWarning | background-warning |
-| `normal` | StatusGood | background-ok |
-| `info` | Info | background-info |
-| `unknown` | StatusUnknown | background-unknown |
+The component carries a `status` that drives background color, icon, and
+text colors. Five statuses are defined: critical, warning, normal, unknown, info.
 
 ---
 
-## 2 — ASCII diagrams
+## 2 — Parts
 
-### Inline and toast kinds — column layout, title + message
+| Part | Always present | Conditional | Notes |
+|---|---|---|---|
+| Container | ✓ | | Outer flex row; present in all kinds |
+| IconContainer | ✓ | | Wraps StatusIcon; provides gap to TextContainer |
+| StatusIcon | ✓ | | Status-specific icon; replaced by consumer-supplied icon prop |
+| TextContainer | ✓ | | Vertical flex column; holds Title and Message |
+| Title | ✓ | | Primary label; always present |
+| Message | | ✓ | Body text; optional |
+| MessageText | | ✓ | Span within Message holding the text string; provides trailing margin before actions |
+| Actions | | ✓ | Zero or more inline links/buttons after the message text |
+| CloseButton | | ✓ | Dismiss button; present only when `onClose` is provided |
+| CloseIcon | | ✓ | Icon inside CloseButton |
+| FloatingLayer | | ✓ | Positioning container for toast kind only |
 
-```
-┌──────────────────────────────────────────────────────────┐
-│ [Icon]  Title text                              [✕ Close] │
-│         Message body text. Actions here.                  │
-└──────────────────────────────────────────────────────────┘
-```
+---
 
-### Inline — title only (no message, no close)
+## 3 — Visual structure
 
-```
-┌──────────────────────────────────────────────────────┐
-│ [Icon]  Title text                                   │
-└──────────────────────────────────────────────────────┘
-```
-
-### Global kind — row layout, full-width, no border-radius
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│   [Icon]  Title text   Message body text. Action link.       [✕ Close] │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
-### Toast kind — floating, column layout, with shadow
+### Inline / global kind
 
 ```
-                                         ┌───────────────────────────────┐
-                                         │ [Icon]  Title      [✕ Close]  │
-                                         │         Message body.          │
-                                         └───────────────────────────────┘
-                                           ╲ (box-shadow: --hpe-shadow-medium)
-  (positioned at viewport edge via FloatingLayer — default: top)
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  ┌──────────┐  ┌──────────────────────────────────┐  ┌───────┐ │
+│  │StatusIcon│  │ Title text                        │  │ Close │ │
+│  └──────────┘  │                                   │  │  Icon │ │
+│  IconContainer │ Message text  [Action]  [Action]  │  └───────┘ │
+│                └──────────────────────────────────┘            │
+│                  TextContainer                     CloseButton  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+         Container (flex row, align-items: flex-start)
+```
+
+For global kind: Title and Message are inline (on the same line), so the
+TextContainer appears as a single text row rather than a column stack.
+
+### Toast kind (floating)
+
+```
+                          ┌────────────────────────────────────┐
+                          │ ╔══════════════════════════════════╗│
+                          │ ║                                  ║│  ← box-shadow
+                          │ ║  [Icon]  Title text      [Close] ║│
+                          │ ║          Message text [Action]   ║│
+                          │ ║                                  ║│
+                          │ ╚══════════════════════════════════╝│
+                          │  FloatingLayer (fixed position)     │
+                          └────────────────────────────────────┘
 ```
 
 ---
 
-## 3 — Parts table
+## 4 — Icon component names
 
-| Part | Description | Always present |
+All status icons are from `@hpe-design/icons-grommet`.
+
+| Status | Icon component | Close button icon |
 |---|---|---|
-| Container | Root element. Styled per kind and status. Holds all other parts. | Yes |
-| StatusIcon | Status-specific icon from `@hpe-design/icons-grommet`. See icon table in §4. Can be replaced via `icon` prop. | Yes |
-| IconContainer | Wrapper around StatusIcon. Provides right-side padding to separate icon from text. | Yes |
-| TextContainer | Wrapper around Title and (optionally) Message. Provides vertical gap between them. | Yes |
-| Title | Primary heading text. Always rendered. | Yes |
-| Message | Optional body text below the title (column layout) or inline with title (row layout). | No — conditional on `message` prop |
-| CloseButton | Icon button using the `Close` icon. Dismisses the notification. | No — conditional on `onClose` prop |
-| Actions | One or more inline action links inside the message area. | No — conditional on `actions` prop |
-| FloatingLayer | Fixed-position overlay placing the Container at a viewport edge. | No — toast kind only |
+| critical | `StatusCritical` | `Close` |
+| warning | `StatusWarning` | `Close` |
+| normal | `StatusGood` | `Close` |
+| unknown | `StatusUnknown` | `Close` |
+| info | `Info` | `Close` |
 
----
-
-## 4 — Icon names per status
-
-The following named icons from `@hpe-design/icons-grommet` are the correct
-icons for each status. These names are part of the spec.
-
-| Status | Icon component name | Package |
-|---|---|---|
-| `critical` | `StatusCritical` | `@hpe-design/icons-grommet` |
-| `warning` | `StatusWarning` | `@hpe-design/icons-grommet` |
-| `normal` | `StatusGood` | `@hpe-design/icons-grommet` |
-| `info` | `Info` | `@hpe-design/icons-grommet` |
-| `unknown` | `StatusUnknown` | `@hpe-design/icons-grommet` |
-
-The CloseButton uses the `Close` icon from `@hpe-design/icons-grommet`.
-
-Implementations that do not have access to `@hpe-design/icons-grommet`
-must substitute equivalent SVG icons and log a gap.
+The StatusIcon is decorative when the status is also communicated in the Title
+text. It must be marked `aria-hidden="true"` on the icon wrapper.
 
 ---
 
 ## 5 — States
 
-| State | Trigger | Applies to |
+| State | Applies to | Description |
 |---|---|---|
-| rest | Default — no interaction | Container, StatusIcon, Title, Message, CloseButton, Actions |
-| hover | Pointer over CloseButton or Actions | CloseButton, Actions |
-| focus | Keyboard focus on CloseButton or an Action | CloseButton, Actions |
-| active | Pointer down on CloseButton or an Action | CloseButton, Actions |
-| dismissed | `onClose` fires; or toast auto-close timer expires | Container hides (unmounted or rendered false) |
-| visible | toast kind: notification is open | FloatingLayer visible |
-| hidden | toast kind: after dismiss or auto-close timer | FloatingLayer hidden |
-
-### Status variants (not interactive states)
-
-Status (`critical`, `warning`, `normal`, `info`, `unknown`) is set at
-render time and does not change interactively. It determines background,
-icon, and text colors simultaneously — they always change together.
+| rest (open) | Container, all parts | Default visible state |
+| hover | Toast Container | Auto-close timer pauses while pointer is over the toast |
+| focus | CloseButton, Actions | Focus ring using all three focusIndicator tokens |
+| active | CloseButton, Actions | Pressed state — delegated to Button / Anchor |
+| dismissed | Container | Consumer unmounts for inline/global; auto-close or close event for toast |
+| swipe | Toast Container | Swipe-to-dismiss gesture (platform-specific) |
 
 ---
 
-## 6 — Size variants
+## 6 — Kinds
 
-The Notification has **no size variants** in v1. Icon, text, and spacing
-always use the `medium` scale.
+### inline
+- Embedded in page flow; takes its natural width
+- Status background applied to container
+- `border-radius: --hpe-radius-xsmall`
+- Title and Message in column layout (Message below Title)
+- CloseButton optional
 
----
+### global
+- Full-width banner; typically at viewport or page top
+- Status background applied to container
+- `border-radius: --hpe-radius-none`
+- `padding-inline-start/end: --hpe-spacing-xlarge` (48px) — wider horizontal padding
+- Title and Message rendered inline (on the same line)
+- CloseButton optional
 
-## 7 — Layout behaviour
-
-### Inline kind
-
-- Width: determined by the containing element (fills parent width).
-- Direction: `column`. The icon and title share the first row. The message
-  renders in a separate row directly below the title.
-- Border-radius: `--hpe-radius-xsmall` (rounded corners).
-- Padding: `--hpe-spacing-xsmall` inline, `--hpe-spacing-3xsmall` block.
-- Not floating — anchored in document flow.
-- `text-align: left` — see constraints §10.
-
-### Global kind
-
-- Width: full width of the page/viewport.
-- Direction: `row`. Icon, title, message, actions, and close button are
-  all on a single horizontal line.
-- No border-radius (`--hpe-radius-none`).
-- Padding: `--hpe-spacing-xlarge` inline, `--hpe-spacing-3xsmall` block.
-- Anchored to the top of the page; not floating.
-- `text-align: left` — see constraints §10.
-
-### Toast kind
-
-- Width: determined by content. Does not span full width.
-- Direction: `column` (same as inline kind).
-- Border-radius: `--hpe-radius-xsmall`.
-- Padding: `--hpe-spacing-xsmall` inline, `--hpe-spacing-3xsmall` block.
-- Box-shadow: `--hpe-shadow-medium` (floating card elevation).
-- Background always `--hpe-color-background-front` regardless of status —
-  see constraints §4.
-- Positioned at the edge of the viewport via FloatingLayer. Default position: `top`.
-- Multiple toasts stack vertically within the FloatingLayer.
-- `text-align: left` — see constraints §10.
-
-### Icon vertical alignment
-
-The StatusIcon aligns to the **top** of the adjacent TextContainer — not
-centered on the full notification height. This is achieved by setting
-`align-items: flex-start` (or equivalent) on the row that contains the
-IconContainer and TextContainer. See constraints §11.
-
-### Overflow
-
-- Text wraps within the TextContainer.
-- Long action labels wrap to the next line within the message area.
-- The Container never clips or scrolls — it grows vertically with content.
+### toast
+- Floating overlay rendered in a dedicated viewport position
+- Background always `--hpe-color-background-front` — never status background
+- `border-radius: --hpe-radius-xsmall`
+- `box-shadow: --hpe-shadow-medium` — required elevation for floating cards
+- Auto-close timer (default 8 000 ms); pauses on hover and focus
+- Title and Message in column layout (Message below Title)
+- CloseButton optional; auto-close handles dismiss independently
+- Rendered inside a FloatingLayer with z-index `--hpe-drop-default-zIndex` (GAP-002)
 
 ---
 
-## 8 — Out of scope
+## 7 — Statuses
 
-- No progress bar or countdown timer on toast.
-- No animation tokens — entry/exit animation (if any) is outside the
-  token spec. Platforms may implement animation using their own primitives.
-- No stacking/queue management — FloatingLayer positioning does not
-  manage a notification queue. The consumer controls which notifications
-  are open.
+| Status value | Background token (inline/global) | Icon | Icon color token |
+|---|---|---|---|
+| critical | `--hpe-color-background-critical` | `StatusCritical` | `--hpe-color-icon-critical` |
+| warning | `--hpe-color-background-warning` | `StatusWarning` | `--hpe-color-icon-warning` |
+| normal | `--hpe-color-background-ok` | `StatusGood` | `--hpe-color-icon-ok` |
+| unknown | `--hpe-color-background-unknown` | `StatusUnknown` | `--hpe-color-icon-unknown` |
+| info | `--hpe-color-background-info` | `Info` | `--hpe-color-icon-info` |
+
+---
+
+## 8 — Layout behaviour
+
+- The Container is always a horizontal flex row (`flex-direction: row`)
+- `align-items: flex-start` on the Container — the StatusIcon aligns to the
+  top of the first line of the adjacent Title text, not the center of the
+  text block. See constraints §11.
+- `text-align: left` must be set explicitly on all text parts — never assumed
+  or inherited. See constraints §10.
+- The TextContainer is a vertical flex column for inline and toast kinds.
+  For the global kind, Title and Message are rendered inline on the same line.
+- When the CloseButton is absent, the TextContainer's padding-inline-end is
+  applied directly to the Container. When the CloseButton is present, the
+  end-side padding is carried by the CloseButton itself.
+- The FloatingLayer (toast only) controls viewport position. The Container
+  inside it takes its natural width.
+
+---
+
+## 9 — Out of scope
+
+- Notification queue management (multiple simultaneous toasts)
+- Notification grouping or stacking layout
+- Animation tokens for toast enter / exit transitions — no tokens exist in
+  `hpe-design-tokens` for motion timing (see GAP-003 note in gaps.md)
+- Per-notification width limits
