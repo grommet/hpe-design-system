@@ -16,7 +16,7 @@ The refactor pipeline transforms existing component MDX pages into standardized 
 4. **Quality**: Review copy for writing standards compliance, verify rendering, and create migration tracking.
 5. **Delivery**: Package one component per PR with TODO/DEPRECATED tracking for human review.
 
-See `execution.skill.md` for the detailed per-component workflow.
+See `docs/execution.skill.md` for the detailed per-component workflow.
 
 ## Resources
 
@@ -24,20 +24,44 @@ See `execution.skill.md` for the detailed per-component workflow.
 - **Template**: `apps/docs/COMPONENT_TEMPLATE.md` — MDX page structure contract
 - **Writing rules**: `knowledge/core/skills/writing-style.skill.md` — Tone and formatting standards
 - **Plan**: `plan.md` — Component checklist and rollout tracking
+- **Telemetry reference**: `docs/TELEMETRY.md` — Event model, metrics, dashboards, and troubleshooting
 
 ## Agents
 
 Nine specialized agents compose the pipeline:
 
-1. `extract-yaml.agent.md` — Reverse-engineer legacy MDX to YAML
-2. `generate-mdx.agent.md` — Synthesize standardized MDX from YAML
-3. `generate-examples.agent.md` — Create code examples for use cases
-4. `dos-donts.agent.md` — Author usage guidance pairs
-5. `create-todos.agent.md` — Diff old vs. new and emit tracking
-6. `review-copy.agent.md` — Audit writing quality and apply fixes
-7. `verify-render.agent.md` — Run build and auto-repair known errors
-8. `update-checklist.agent.md` — Mark component complete in plan
+1. `agents/extract-yaml.agent.md` — Reverse-engineer legacy MDX to YAML
+2. `agents/generate-mdx.agent.md` — Synthesize standardized MDX from YAML
+3. `agents/generate-examples.agent.md` — Create code examples for use cases
+4. `agents/dos-donts.agent.md` — Author usage guidance pairs
+5. `agents/create-todos.agent.md` — Diff old vs. new and emit tracking
+6. `agents/review-copy.agent.md` — Audit writing quality and apply fixes
+7. `agents/verify-render.agent.md` — Run build and auto-repair known errors
+8. `agents/update-checklist.agent.md` — Mark component complete in plan
 9. `docs-refactor-orchestrator.agent.md` — Master controller and stage detector
+
+The orchestrator remains at the capability root for discoverability; subordinate agents are grouped under `agents/`.
+
+## Telemetry
+
+Telemetry is enabled for this capability and records orchestrator and agent boundary events to:
+
+- `knowledge/capabilities/docs-refactor/.telemetry.log`
+
+Quick commands:
+
+- `pnpm telemetry:write --component <name> --eventType <type> [flags]`
+- `pnpm telemetry:status --component <name> --view summary`
+- `pnpm telemetry:status --component <name> --view all --htmlOut knowledge/capabilities/docs-refactor/telemetry-dashboard.html --svgOut knowledge/capabilities/docs-refactor/telemetry-dashboard.svg`
+
+Summary metrics include:
+
+- `Workflow Elapsed`: wall-clock duration for a run
+- `Delegated`: summed `agent-complete` durations
+- `Orchestrator`: estimated/recorded orchestrator management time
+- `Overhead`: `Workflow Elapsed - Delegated`
+
+For full details, examples, and troubleshooting, see `docs/TELEMETRY.md`.
 
 ## Manifest
 

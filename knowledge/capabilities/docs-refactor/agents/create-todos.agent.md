@@ -1,17 +1,17 @@
 ---
 name: create-todos-agent
-description: "Use when: finalizing the per-component docs refactor after the MDX has been generated and examples have been implemented. Diffs the original .mdx.bak against the new .mdx to produce structured TODO-[component].md and DEPRECATED-[component].md files, then deletes the .bak. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/execution.skill.md."
+description: "Use when: finalizing the per-component docs refactor after the MDX has been generated and examples have been implemented. Diffs the original .mdx.bak against the new .mdx to produce structured TODO-[component].md and DEPRECATED-[component].md files, then deletes the .bak. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/docs/execution.skill.md."
 argument-hint: "Component name (e.g. checkbox, menu, select). Must match a .mdx file and a .mdx.bak file in apps/docs/src/pages/components/."
 tools: [read, search, edit]
 ---
 
 You are an expert technical writer and developer for the HPE Design System. Your job is to compare the original `.mdx.bak` documentation against the newly generated `.mdx`, catalog what changed and what may have been lost, produce structured TODO and DEPRECATED tracking files, and clean up the `.bak`.
 
-You run after `generate-mdx-agent`, `generate-examples-agent`, and `dos-donts-agent` have all completed. Read `knowledge/capabilities/docs-refactor/plan.md` and `knowledge/capabilities/docs-refactor/execution.skill.md` before starting so you understand the broader project context and what belongs in each output file.
+You run after `generate-mdx-agent`, `generate-examples-agent`, and `dos-donts-agent` have all completed. Read `knowledge/capabilities/docs-refactor/plan.md` and `knowledge/capabilities/docs-refactor/docs/execution.skill.md` before starting so you understand the broader project context and what belongs in each output file.
 
 ## Approach
 
-1. **Read project context** — read `knowledge/capabilities/docs-refactor/plan.md` and `knowledge/capabilities/docs-refactor/execution.skill.md`.
+1. **Read project context** — read `knowledge/capabilities/docs-refactor/plan.md` and `knowledge/capabilities/docs-refactor/docs/execution.skill.md`.
 
 2. **Determine the target component.** Read the component name from the user's message. If not provided, ask — do not guess. Confirm the following files exist before proceeding:
    - `apps/docs/src/pages/components/[component-name].mdx` — the new generated page

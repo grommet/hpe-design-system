@@ -33,16 +33,16 @@ spec:
   assets:
     agents:
       - docs-refactor-orchestrator.agent.md
-      - extract-yaml.agent.md
-      - generate-mdx.agent.md
-      - generate-examples.agent.md
-      - dos-donts.agent.md
-      - create-todos.agent.md
-      - review-copy.agent.md
-      - verify-render.agent.md
-      - update-checklist.agent.md
+      - agents/extract-yaml.agent.md
+      - agents/generate-mdx.agent.md
+      - agents/generate-examples.agent.md
+      - agents/dos-donts.agent.md
+      - agents/create-todos.agent.md
+      - agents/review-copy.agent.md
+      - agents/verify-render.agent.md
+      - agents/update-checklist.agent.md
     skills:
-      - execution.skill.md
+      - docs/execution.skill.md
   stages:
     - id: extracted
       when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
@@ -56,3 +56,15 @@ spec:
       when: "last_build_success() && !exists(console_errors)"
     - id: complete
       when: "exists(knowledge/capabilities/docs-refactor/plan.md) && match_entry(plan.md, /.*\\[[xX]\\].*\\[component\\].*/) "
+  x-extensions:
+    telemetry:
+      enabled: true
+      logFile: knowledge/capabilities/docs-refactor/.telemetry.log
+      schema: knowledge/capabilities/docs-refactor/.telemetry.schema.json
+      events:
+        - stage-transition
+        - agent-start
+        - agent-complete
+        - agent-error
+        - workflow-complete
+        - workflow-error
