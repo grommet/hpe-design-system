@@ -23,6 +23,23 @@ Every component spec consists of five documents produced in this order:
 Documents 1–4 must contain no framework references. Framework-specific
 details belong exclusively in `mappings/`.
 
+## Reference source paths
+
+When {{REFERENCE_COMPONENT}} is not `none`, read these two files:
+
+| What | Path |
+|---|---|
+| Component source | `node_modules/{{REFERENCE_PACKAGE}}/src/js/components/{{REFERENCE_COMPONENT}}/{{REFERENCE_COMPONENT}}.js` |
+| Theme entry | `node_modules/grommet-theme-hpe/src/js/themes/hpe.js` — search for `{{REFERENCE_COMPONENT}}:` (lowercase) |
+
+These paths assume {{REFERENCE_PACKAGE}} follows the standard Grommet
+folder convention. If the file is not found at this path, check:
+- `node_modules/{{REFERENCE_PACKAGE}}/src/components/{{REFERENCE_COMPONENT}}/index.js`
+- `node_modules/{{REFERENCE_PACKAGE}}/components/{{REFERENCE_COMPONENT}}.js`
+
+Never hallucinate the component API — if the file cannot be found, log
+a gap and derive from the grommet-theme-hpe entry alone.
+
 ---
 
 ## §1 — Token naming
