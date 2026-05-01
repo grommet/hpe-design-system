@@ -2,9 +2,11 @@
 
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import yaml from 'yaml';
 
-const ROOT = process.cwd();
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(SCRIPT_DIR, '..');
 const MANIFEST_PATH = path.resolve(
   ROOT,
   'knowledge/capabilities/docs-refactor/manifest.yaml',
@@ -47,7 +49,7 @@ Options:
 }
 /* eslint-enable max-len */
 
-  function parseSinceFilter(sinceArg) {
+function parseSinceFilter(sinceArg) {
   if (!sinceArg) return null;
   const units = { h: 3600000, m: 60000, s: 1000 };
   const match = String(sinceArg).match(/^(\d+)([hms])$/);
@@ -58,13 +60,25 @@ Options:
   return Date.now() - Number(match[1]) * units[match[2]];
 }
 
-function getLogPath() {
+function loadTelemetryConfig() {
+  if (!fs.existsSync(MANIFEST_PATH)) {
+    throw new Error(`Manifest not found: ${MANIFEST_PATH}`);
+  }
+
   const manifest = yaml.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
   const cfg = manifest?.spec?.['x-extensions']?.telemetry ?? {};
-  return path.resolve(
-    ROOT,
-    cfg.logFile || 'knowledge/capabilities/docs-refactor/.telemetry.log',
-  );
+
+  return {
+    logFile: path.resolve(
+      ROOT,
+      cfg.logFile || 'knowledge/capabilities/docs-refactor/.telemetry.log',
+    ),
+  };
+}
+
+function getLogPath() {
+  const cfg = loadTelemetryConfig();
+  return cfg.logFile;
 }
 
 function readTelemetry(logPath) {

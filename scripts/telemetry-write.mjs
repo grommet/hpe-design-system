@@ -2,24 +2,32 @@
 
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import yaml from 'yaml';
-import Ajv2020 from 'ajv/dist/2020.js';
+import Ajv2020 from 'ajv/dist/2020.js'; // eslint-disable-line import/extensions
 import addFormats from 'ajv-formats';
 
-const ROOT = process.cwd();
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(SCRIPT_DIR, '..');
 const MANIFEST_PATH = path.resolve(
   ROOT,
-  'knowledge/capabilities/docs-refactor/manifest.yaml'
+  'knowledge/capabilities/docs-refactor/manifest.yaml',
 );
 
 function parseArgs(argv) {
   const parsed = {};
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
-    if (!arg.startsWith('--')) continue;
-    const key = arg.slice(2);
-    const value = argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[++i] : true;
-    parsed[key] = value;
+    if (arg.startsWith('--')) {
+      const key = arg.slice(2);
+      const nextArg = argv[i + 1];
+      const hasValue = nextArg && !nextArg.startsWith('--');
+      const value = hasValue ? nextArg : true;
+      if (hasValue) {
+        i += 1;
+      }
+      parsed[key] = value;
+    }
   }
   return parsed;
 }
@@ -36,11 +44,12 @@ function loadTelemetryConfig() {
     enabled: cfg.enabled !== false,
     logFile: path.resolve(
       ROOT,
-      cfg.logFile || 'knowledge/capabilities/docs-refactor/.telemetry.log'
+      cfg.logFile || 'knowledge/capabilities/docs-refactor/.telemetry.log',
     ),
     schema: path.resolve(
       ROOT,
-      cfg.schema || 'knowledge/capabilities/docs-refactor/.telemetry.schema.json'
+      cfg.schema ||
+        'knowledge/capabilities/docs-refactor/.telemetry.schema.json',
     ),
   };
 }
@@ -137,11 +146,11 @@ function toDurationMs(value) {
 
 function getCurrentRunEvents(componentEvents) {
   const ordered = [...componentEvents].sort(
-    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts)
+    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts),
   );
 
   let startIndex = 0;
-  for (let i = ordered.length - 2; i >= 0; i -= 1) {
+  for (let i = ordered.length - 1; i >= 0; i -= 1) {
     if (isWorkflowTerminalEvent(ordered[i])) {
       startIndex = i + 1;
       break;
@@ -157,7 +166,7 @@ function computeWorkflowMetrics(events) {
   }
 
   const ordered = [...events].sort(
-    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts)
+    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts),
   );
   const firstTs = toTimestampMs(ordered[0].ts);
   const lastTs = toTimestampMs(ordered[ordered.length - 1].ts);
@@ -174,16 +183,18 @@ function computeWorkflowMetrics(events) {
       (event) =>
         event.eventType === 'stage-transition' ||
         event.eventType === 'workflow-complete' ||
-        event.eventType === 'workflow-error'
+        event.eventType === 'workflow-error',
     )
     .reduce((sum, event) => sum + toDurationMs(event.durationMs), 0);
 
   const orchestrationOverheadMs = Math.max(
     0,
-    workflowElapsedMs - delegatedDurationMs
+    workflowElapsedMs - delegatedDurationMs,
   );
   const orchestratorActiveMs =
-    explicitOrchestratorMs > 0 ? explicitOrchestratorMs : orchestrationOverheadMs;
+    explicitOrchestratorMs > 0
+      ? explicitOrchestratorMs
+      : orchestrationOverheadMs;
 
   return {
     workflowElapsedMs,
@@ -200,7 +211,7 @@ function applyWorkflowMetrics(event, logFile) {
 
   const existingEvents = readExistingEvents(logFile);
   const componentEvents = existingEvents.filter(
-    (existing) => existing.component === event.component
+    (existing) => existing.component === event.component,
   );
   const runEvents = getCurrentRunEvents(componentEvents);
   const runWithTerminal = [...runEvents, event];
@@ -230,7 +241,10 @@ function main() {
 
   if (!args.component || !args.eventType) {
     console.error(
-      'Usage: pnpm telemetry:write --component <name> --eventType <type> [--stage <stage>] [--agent <agent>] [--status <success|failure|skipped>] [--durationMs <ms>] [--error <message>] [--metadata <json>]'
+      'Usage: pnpm telemetry:write --component <name> ' +
+        '--eventType <type> [--stage <stage>] [--agent <agent>] ' +
+        '[--status <success|failure|skipped>] [--durationMs <ms>] ' +
+        '[--error <message>] [--metadata <json>]',
     );
     process.exit(1);
   }
@@ -242,8 +256,11 @@ function main() {
   fs.mkdirSync(path.dirname(cfg.logFile), { recursive: true });
   fs.appendFileSync(cfg.logFile, `${JSON.stringify(enrichedEvent)}\n`, 'utf8');
 
+  const agentSuffix = enrichedEvent.agent ? ` (${enrichedEvent.agent})` : '';
   console.log(
-    `Telemetry appended: ${enrichedEvent.component} ${enrichedEvent.eventType}${enrichedEvent.agent ? ` (${enrichedEvent.agent})` : ''}`
+    `Telemetry appended: ${enrichedEvent.component} ${
+      enrichedEvent.eventType
+    }${agentSuffix}`,
   );
 }
 
