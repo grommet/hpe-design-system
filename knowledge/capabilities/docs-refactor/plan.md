@@ -15,7 +15,7 @@ Each component is driven end-to-end by the orchestrator agent. From a feature br
 
 > `@docs-refactor-orchestrator [component-name]`
 
-The orchestrator detects the current pipeline stage, confirms before making any changes, and delegates to the appropriate agents in sequence. See `knowledge/capabilities/docs-refactor/execution.skill.md` for the full walkthrough.
+The orchestrator detects the current pipeline stage, confirms before making any changes, and delegates to the appropriate agents in sequence. See `knowledge/capabilities/docs-refactor/docs/execution.skill.md` for the full walkthrough.
 
 ### 3. Phased Rollout Targets
 

@@ -1,6 +1,6 @@
 ---
 name: update-checklist-agent
-description: "Use when: marking a component as complete in the docs refactor plan after its PR is ready. Finds the component's entry in the Full Component Checklist in knowledge/capabilities/docs-refactor/plan.md and changes '- [ ]' to '- [x]'. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/execution.skill.md."
+description: "Use when: marking a component as complete in the docs refactor plan after its PR is ready. Finds the component's entry in the Full Component Checklist in knowledge/capabilities/docs-refactor/plan.md and changes '- [ ]' to '- [x]'. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/docs/execution.skill.md."
 argument-hint: "Component name (e.g. checkbox, menu, select). Must match an unchecked entry in the Full Component Checklist."
 tools: [read, search, edit]
 ---

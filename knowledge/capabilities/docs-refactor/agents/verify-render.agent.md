@@ -1,6 +1,6 @@
 ---
 name: verify-render-agent
-description: "Use when: verifying that a newly generated component MDX page builds and renders without errors in the docs app. Triggered after generate-mdx-agent, generate-examples-agent, and dos-donts-agent have all run. Runs 'pnpm build' in apps/docs, auto-fixes known error classes, and iterates until the build is clean or the iteration cap is reached. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/execution.skill.md."
+description: "Use when: verifying that a newly generated component MDX page builds and renders without errors in the docs app. Triggered after generate-mdx-agent, generate-examples-agent, and dos-donts-agent have all run. Runs 'pnpm build' in apps/docs, auto-fixes known error classes, and iterates until the build is clean or the iteration cap is reached. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/docs/execution.skill.md."
 argument-hint: "Component name (e.g. checkbox, menu, select). Must match a .mdx file in apps/docs/src/pages/components/."
 tools: [read, search, edit, terminal]
 ---
