@@ -52,8 +52,8 @@ The per-component refactor has the following ordered stages. A component's curre
 | 2     | **MDX generated**            | `.yaml`, `.mdx.bak`, and `.mdx` all exist AND the MDX still has `{/* TODO */}` in Use Cases or `<div>{/* TODO */}` in Dos and Don'ts | `generate-examples-agent` and/or `dos-donts-agent` (parallel) |
 | 3     | **Examples pending**         | `.mdx.bak` still exists AND `TODO-[name].md` does not exist                                                                          | `create-todos-agent`                                          |
 | 4     | **TODOs created**            | `TODO-[name].md` and `DEPRECATED-[name].md` exist AND `.mdx.bak` has been deleted AND no copy review has been run                    | `review-copy-agent`                                           |
-| 5     | **Copy and render verified** | Stage 4 complete AND copy review has run AND docs build passed AND component is not yet checked off in `docs-refactor-plan.md`       | `update-checklist-agent`                                      |
-| 6     | **Complete**                 | Component is checked off in `docs-refactor-plan.md`                                                                                  | Ready to PR                                                   |
+| 5     | **Copy and render verified** | Stage 4 complete AND copy review has run AND docs build passed AND component is not yet checked off in `plan.md`                     | `update-checklist-agent`                                      |
+| 6     | **Complete**                 | Component is checked off in `plan.md`                                                                                                | Ready to PR                                                   |
 
 For Stage 2 (parallel agents), check separately:
 
