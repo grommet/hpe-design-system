@@ -7,21 +7,28 @@ import yaml from 'yaml';
 const ROOT = process.cwd();
 const MANIFEST_PATH = path.resolve(
   ROOT,
-  'knowledge/capabilities/docs-refactor/manifest.yaml'
+  'knowledge/capabilities/docs-refactor/manifest.yaml',
 );
 
 function parseArgs(argv) {
   const parsed = {};
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
-    if (!arg.startsWith('--')) continue;
-    const key = arg.slice(2);
-    const value = argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[++i] : true;
-    parsed[key] = value;
+    if (arg.startsWith('--')) {
+      const key = arg.slice(2);
+      let value = true;
+      const nextArg = argv[i + 1];
+      if (nextArg && !nextArg.startsWith('--')) {
+        value = nextArg;
+        i += 1;
+      }
+      parsed[key] = value;
+    }
   }
   return parsed;
 }
 
+/* eslint-disable max-len */
 function printHelp() {
   console.log(`
 Docs refactor telemetry viewer
@@ -38,8 +45,9 @@ Options:
   --help                 Show this help
 `);
 }
+/* eslint-enable max-len */
 
-function parseSinceFilter(sinceArg) {
+  function parseSinceFilter(sinceArg) {
   if (!sinceArg) return null;
   const units = { h: 3600000, m: 60000, s: 1000 };
   const match = String(sinceArg).match(/^(\d+)([hms])$/);
@@ -55,7 +63,7 @@ function getLogPath() {
   const cfg = manifest?.spec?.['x-extensions']?.telemetry ?? {};
   return path.resolve(
     ROOT,
-    cfg.logFile || 'knowledge/capabilities/docs-refactor/.telemetry.log'
+    cfg.logFile || 'knowledge/capabilities/docs-refactor/.telemetry.log',
   );
 }
 
@@ -64,9 +72,9 @@ function readTelemetry(logPath) {
   return fs
     .readFileSync(logPath, 'utf8')
     .split('\n')
-    .map((line) => line.trim())
+    .map(line => line.trim())
     .filter(Boolean)
-    .map((line) => {
+    .map(line => {
       try {
         return JSON.parse(line);
       } catch {
@@ -97,7 +105,7 @@ function formatDuration(ms) {
 
 function filterEvents(events, args) {
   const sinceCutoff = parseSinceFilter(args.since);
-  return events.filter((e) => {
+  return events.filter(e => {
     if (sinceCutoff && new Date(e.ts).getTime() < sinceCutoff) return false;
     if (args.component && e.component !== args.component) return false;
     return true;
@@ -106,7 +114,7 @@ function filterEvents(events, args) {
 
 function groupByComponent(events) {
   const grouped = {};
-  events.forEach((event) => {
+  events.forEach(event => {
     grouped[event.component] = grouped[event.component] || [];
     grouped[event.component].push(event);
   });
@@ -136,7 +144,7 @@ function toDurationMs(value) {
 
 function getCurrentRunEvents(componentEvents) {
   const ordered = [...componentEvents].sort(
-    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts)
+    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts),
   );
 
   let startIndex = 0;
@@ -161,7 +169,7 @@ function computeWorkflowMetrics(events) {
   }
 
   const ordered = [...events].sort(
-    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts)
+    (a, b) => toTimestampMs(a.ts) - toTimestampMs(b.ts),
   );
   const firstTs = toTimestampMs(ordered[0].ts);
   const lastTs = toTimestampMs(ordered[ordered.length - 1].ts);
@@ -170,24 +178,26 @@ function computeWorkflowMetrics(events) {
     firstTs === null || lastTs === null ? 0 : Math.max(0, lastTs - firstTs);
 
   const delegatedDurationMs = ordered
-    .filter((event) => event.eventType === 'agent-complete')
+    .filter(event => event.eventType === 'agent-complete')
     .reduce((sum, event) => sum + toDurationMs(event.durationMs), 0);
 
   const explicitOrchestratorMs = ordered
     .filter(
-      (event) =>
+      event =>
         event.eventType === 'stage-transition' ||
         event.eventType === 'workflow-complete' ||
-        event.eventType === 'workflow-error'
+        event.eventType === 'workflow-error',
     )
     .reduce((sum, event) => sum + toDurationMs(event.durationMs), 0);
 
   const orchestrationOverheadMs = Math.max(
     0,
-    workflowElapsedMs - delegatedDurationMs
+    workflowElapsedMs - delegatedDurationMs,
   );
   const orchestratorActiveMs =
-    explicitOrchestratorMs > 0 ? explicitOrchestratorMs : orchestrationOverheadMs;
+    explicitOrchestratorMs > 0
+      ? explicitOrchestratorMs
+      : orchestrationOverheadMs;
 
   return {
     workflowElapsedMs,
@@ -201,11 +211,11 @@ function getComponentSummary(componentEvents) {
   const latest = componentEvents[componentEvents.length - 1];
   const lastStageEvent = [...componentEvents]
     .reverse()
-    .find((e) => e.eventType === 'stage-transition');
+    .find(e => e.eventType === 'stage-transition');
   const stage = latest.stage || (lastStageEvent && lastStageEvent.stage) || '—';
   const duration = componentEvents.reduce(
     (sum, e) => sum + (Number.isFinite(e.durationMs) ? e.durationMs : 0),
-    0
+    0,
   );
   const runEvents = getCurrentRunEvents(componentEvents);
   const computedMetrics = computeWorkflowMetrics(runEvents);
@@ -214,9 +224,11 @@ function getComponentSummary(componentEvents) {
     ? {
         workflowElapsedMs: toDurationMs(metadataMetrics.workflowElapsedMs),
         delegatedDurationMs: toDurationMs(metadataMetrics.delegatedDurationMs),
-        orchestratorActiveMs: toDurationMs(metadataMetrics.orchestratorActiveMs),
+        orchestratorActiveMs: toDurationMs(
+          metadataMetrics.orchestratorActiveMs,
+        ),
         orchestrationOverheadMs: toDurationMs(
-          metadataMetrics.orchestrationOverheadMs
+          metadataMetrics.orchestrationOverheadMs,
         ),
       }
     : computedMetrics;
@@ -247,7 +259,7 @@ function displaySummary(filtered) {
     'Elapsed'.padEnd(10),
     'Delegated'.padEnd(10),
     'Orch'.padEnd(10),
-    'Overhead'
+    'Overhead',
   );
   console.log('-'.repeat(104));
 
@@ -263,7 +275,7 @@ function displaySummary(filtered) {
         formatDuration(summary.workflowMetrics.workflowElapsedMs).padEnd(10),
         formatDuration(summary.workflowMetrics.delegatedDurationMs).padEnd(10),
         formatDuration(summary.workflowMetrics.orchestratorActiveMs).padEnd(10),
-        formatDuration(summary.workflowMetrics.orchestrationOverheadMs)
+        formatDuration(summary.workflowMetrics.orchestrationOverheadMs),
       );
     });
 
@@ -277,7 +289,7 @@ function displayTimeline(filtered) {
   }
 
   const sorted = [...filtered].sort(
-    (a, b) => new Date(a.ts).getTime() - new Date(b.ts).getTime()
+    (a, b) => new Date(a.ts).getTime() - new Date(b.ts).getTime(),
   );
 
   console.log('\nDocs Refactor Telemetry Timeline\n');
@@ -288,11 +300,11 @@ function displayTimeline(filtered) {
     'Stage'.padEnd(18),
     'Agent'.padEnd(24),
     'Status'.padEnd(8),
-    'Duration'
+    'Duration',
   );
   console.log('-'.repeat(124));
 
-  sorted.forEach((e) => {
+  sorted.forEach(e => {
     console.log(
       String(e.ts || '—').padEnd(25),
       String(e.component || '—').padEnd(14),
@@ -300,7 +312,7 @@ function displayTimeline(filtered) {
       String(e.stage || '—').padEnd(18),
       String(e.agent || '—').padEnd(24),
       String(e.status || '—').padEnd(8),
-      formatDuration(e.durationMs)
+      formatDuration(e.durationMs),
     );
   });
   console.log('');
@@ -313,7 +325,7 @@ function displayAgentChart(filtered) {
   }
 
   const completes = filtered.filter(
-    (e) => e.eventType === 'agent-complete' && e.agent
+    e => e.eventType === 'agent-complete' && e.agent,
   );
 
   if (completes.length === 0) {
@@ -322,7 +334,7 @@ function displayAgentChart(filtered) {
   }
 
   const totals = {};
-  completes.forEach((e) => {
+  completes.forEach(e => {
     totals[e.agent] = (totals[e.agent] || 0) + (Number(e.durationMs) || 0);
   });
 
@@ -337,7 +349,7 @@ function displayAgentChart(filtered) {
     console.log(
       agent.padEnd(26),
       bar.padEnd(maxWidth),
-      formatDuration(duration)
+      formatDuration(duration),
     );
   });
   console.log('');
@@ -356,11 +368,10 @@ function getAgentDurationRows(events) {
   const totals = {};
 
   events
-    .filter((event) => event.eventType === 'agent-complete' && event.agent)
-    .forEach((event) => {
+    .filter(event => event.eventType === 'agent-complete' && event.agent)
+    .forEach(event => {
       totals[event.agent] =
-        (totals[event.agent] || 0) +
-        (Number(event.durationMs) || 0);
+        (totals[event.agent] || 0) + (Number(event.durationMs) || 0);
     });
 
   return Object.entries(totals).sort((a, b) => b[1] - a[1]);
@@ -370,15 +381,17 @@ function getStageTransitionRows(events) {
   const totals = {};
 
   events
-    .filter((event) => event.eventType === 'stage-transition' && event.stage)
-    .forEach((event) => {
+    .filter(event => event.eventType === 'stage-transition' && event.stage)
+    .forEach(event => {
       totals[event.stage] = (totals[event.stage] || 0) + 1;
     });
 
   return Object.entries(totals).sort(
-    (a, b) => b[1] - a[1] || a[0].localeCompare(b[0])
+    (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
   );
 }
+
+/* eslint-disable max-len */
 
 function renderHorizontalBarSvg({
   rows,
@@ -408,7 +421,7 @@ function renderHorizontalBarSvg({
       const y = topPad + index * rowHeight;
       const scaledWidth = Math.max(
         2,
-        Math.round((value / maxValue) * chartWidth)
+        Math.round((value / maxValue) * chartWidth),
       );
       const labelY = y + 14;
       const valueX = leftPad + scaledWidth + 10;
@@ -437,7 +450,7 @@ function renderAgentDurationSvg(rows) {
     description: 'Horizontal bar chart of total telemetry duration by agent.',
     idPrefix: 'telemetry-agent-chart',
     barColor: '#00739d',
-    valueFormatter: (value) => formatDuration(value),
+    valueFormatter: value => formatDuration(value),
   });
 }
 
@@ -449,7 +462,7 @@ function renderStageTransitionSvg(rows) {
       'Horizontal bar chart of stage-transition event counts by stage.',
     idPrefix: 'telemetry-stage-chart',
     barColor: '#0b6e4f',
-    valueFormatter: (value) => `${value} event${value === 1 ? '' : 's'}`,
+    valueFormatter: value => `${value} event${value === 1 ? '' : 's'}`,
   });
 }
 
@@ -496,7 +509,8 @@ function writeHtmlDashboard(filtered, htmlOutArg) {
 
   const outPath = path.resolve(
     ROOT,
-    htmlOutArg || 'knowledge/capabilities/docs-refactor/.telemetry.dashboard.html'
+    htmlOutArg ||
+      'knowledge/capabilities/docs-refactor/.telemetry.dashboard.html',
   );
 
   const byComponent = groupByComponent(filtered);
@@ -509,17 +523,17 @@ function writeHtmlDashboard(filtered, htmlOutArg) {
     .map(([component, events]) => {
       const summary = getComponentSummary(events);
       return `<tr><td>${escapeHtml(component)}</td><td>${escapeHtml(
-        summary.stage
+        summary.stage,
       )}</td><td>${escapeHtml(
-        summary.latest.status || '—'
+        summary.latest.status || '—',
       )}</td><td>${summary.count}</td><td>${escapeHtml(
-        formatDuration(summary.workflowMetrics.workflowElapsedMs)
+        formatDuration(summary.workflowMetrics.workflowElapsedMs),
       )}</td><td>${escapeHtml(
-        formatDuration(summary.workflowMetrics.delegatedDurationMs)
+        formatDuration(summary.workflowMetrics.delegatedDurationMs),
       )}</td><td>${escapeHtml(
-        formatDuration(summary.workflowMetrics.orchestratorActiveMs)
+        formatDuration(summary.workflowMetrics.orchestratorActiveMs),
       )}</td><td>${escapeHtml(
-        formatDuration(summary.workflowMetrics.orchestrationOverheadMs)
+        formatDuration(summary.workflowMetrics.orchestrationOverheadMs),
       )}</td></tr>`;
     })
     .join('\n');
@@ -527,14 +541,14 @@ function writeHtmlDashboard(filtered, htmlOutArg) {
   const timelineRows = [...filtered]
     .sort((a, b) => new Date(a.ts).getTime() - new Date(b.ts).getTime())
     .map(
-      (e) =>
+      e =>
         `<tr><td>${escapeHtml(e.ts || '—')}</td><td>${escapeHtml(
-          e.component || '—'
+          e.component || '—',
         )}</td><td>${escapeHtml(e.eventType || '—')}</td><td>${escapeHtml(
-          e.stage || '—'
+          e.stage || '—',
         )}</td><td>${escapeHtml(e.agent || '—')}</td><td>${escapeHtml(
-          e.status || '—'
-        )}</td><td>${escapeHtml(formatDuration(e.durationMs))}</td></tr>`
+          e.status || '—',
+        )}</td><td>${escapeHtml(formatDuration(e.durationMs))}</td></tr>`,
     )
     .join('\n');
 
@@ -592,6 +606,8 @@ function writeHtmlDashboard(filtered, htmlOutArg) {
   console.log(`HTML dashboard written: ${outPath}`);
 }
 
+/* eslint-enable max-len */
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
   if (args.help) {
@@ -634,7 +650,9 @@ function main() {
     return;
   }
 
-  console.error('Invalid --view value. Use: summary | timeline | chart | html | all');
+  console.error(
+    'Invalid --view value. Use: summary | timeline | chart | html | all',
+  );
   process.exit(1);
 }
 
