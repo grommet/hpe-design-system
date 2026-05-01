@@ -14,7 +14,7 @@ You are running the full HPE Design System component spec pipeline for:
 | Variable | Value |
 |---|---|
 | Component | **notification** |
-| Reference component | **none** |
+| Reference component | **Notification** |
 | Reference theme | **grommet-theme-hpe** |
 | Reference package | **grommet** |
 | Target platform | **radix** |
@@ -43,7 +43,7 @@ Follow all instructions in:
 
 Using these values:
 - `{{COMPONENT_NAME}}` = notification
-- `{{REFERENCE_COMPONENT}}` = none
+- `{{REFERENCE_COMPONENT}}` = Notification
 - `{{REFERENCE_THEME}}` = grommet-theme-hpe
 - `{{REFERENCE_PACKAGE}}` = grommet
 
