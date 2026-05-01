@@ -97,3 +97,122 @@ tokens so implementations are not required to import Button component tokens.
 
 **Verdict:** Pass — no new gaps found beyond GAP-001, GAP-002, GAP-003 logged at
 spec-writing time.
+
+---
+
+### GAP-004 — `autoClose=false` cannot map directly to Radix `duration` prop
+
+**Discovered in:** mappings/radix.md
+**Step:** Mapping writing (radix)
+**Type:** Platform conflict
+**Description:** The spec defines `autoClose` as a boolean prop. Radix
+`Toast.Root` accepts `duration` as a number (ms) and has no boolean "never
+auto-close" option. Passing a boolean directly is not valid.
+**Current workaround:** Translate `autoClose=false` to `duration={Infinity}`.
+This is not validated by Radix prop types and may break if Radix changes timer
+behaviour internally.
+**Recommended fix:** Confirm that `Infinity` is a stable workaround in the
+Radix Toast implementation. Alternatively expose only `duration` and require
+consumers to pass a very large number instead of `autoClose=false`.
+**Status:** Open
+
+---
+
+### GAP-005 — `duration` / `time` prop value cannot be a CSS variable
+
+**Discovered in:** mappings/radix.md
+**Step:** Mapping writing (radix)
+**Type:** Platform conflict
+**Description:** The spec's `duration` prop (and `time` alias) expects a
+number in milliseconds. Radix reads `duration` as a JavaScript number at
+runtime. There is no mechanism to supply this value via a CSS custom property
+— the token system cannot inject timing values into JS props.
+**Current workaround:** Consumer passes a JS number (e.g. `duration={8000}`).
+No token is used for this value.
+**Recommended fix:** Accept this as an inherent platform constraint. Document
+that `duration` is always a JS number and cannot be themed via CSS tokens.
+If a design token for notification timing is needed in future, it would have
+to be read via `getComputedStyle` and passed to the component as a number.
+**Status:** Open
+
+---
+
+### GAP-006 — `@hpe-design/icons-grommet` not installed in radix-test project
+
+**Discovered in:** mappings/radix.md
+**Step:** Mapping writing (radix)
+**Type:** Spec incomplete
+**Description:** The spec (anatomy §4, tokens.md StatusIcon section) requires
+specific icon components from `@hpe-design/icons-grommet`:
+`StatusCritical`, `StatusWarning`, `StatusGood`, `Info`, `StatusUnknown`, `Close`.
+The radix-test project has `grommet-icons` installed but not `@hpe-design/icons-grommet`.
+These are different packages — `grommet-icons` icon names and shapes differ from
+`@hpe-design/icons-grommet`. For example, the Grommet base theme uses
+`StatusCriticalSmall` while the HPE theme uses `StatusCritical`.
+**Current workaround:** Inline SVG substitutes used in the implementation.
+These are approximate — not the canonical HPE-branded icons.
+**Recommended fix:** Install `@hpe-design/icons-grommet` in the radix-test project
+and replace the inline SVGs with the correct named imports.
+**Status:** Open
+
+---
+
+### GAP-007 — Swipe animation CSS uses Radix-internal variables and hardcoded durations
+
+**Discovered in:** mappings/radix.md
+**Step:** Mapping writing (radix)
+**Type:** Token missing
+**Description:** The swipe-to-dismiss animation requires:
+1. `--radix-toast-swipe-move-x` and `--radix-toast-swipe-end-x` — Radix-internal
+   CSS variables not available as design tokens.
+2. Transition and animation durations (200ms, 100ms) — no token equivalents
+   exist in `hpe-design-tokens` for motion timing.
+**Current workaround:** Hardcoded durations used with `/* GAP-007 */` comments.
+Radix-internal variables used as-is.
+**Recommended fix:** Add motion/duration tokens to `hpe-design-tokens` (e.g.
+`--hpe-motion-duration-fast`, `--hpe-motion-duration-xfast`) and apply them here.
+The Radix-internal variables are not resolvable without a Radix code change.
+**Status:** Open
+
+---
+
+## Summary (updated)
+
+| # | Title | Discovered in | Step | Type | Status |
+|---|---|---|---|---|---|
+| 001 | No notification component tokens | tokens.md | Spec writing | Token missing | Open |
+| 002 | No z-index token for toast FloatingLayer | tokens.md | Spec writing | Token missing | Open |
+| 003 | CloseButton and Actions hover/active states not covered | tokens.md | Spec writing | Spec incomplete | Open |
+| 004 | `autoClose=false` cannot map to Radix `duration` | mappings/radix.md | Mapping writing (radix) | Platform conflict | Open |
+| 005 | `duration` value cannot be a CSS variable in Radix | mappings/radix.md | Mapping writing (radix) | Platform conflict | Open |
+| 006 | `@hpe-design/icons-grommet` not installed in project | mappings/radix.md | Mapping writing (radix) | Spec incomplete | Open |
+| 007 | Swipe animation uses hardcoded durations and Radix-internal vars | mappings/radix.md | Mapping writing (radix) | Token missing | Open |
+
+---
+
+## Mapping Review Summary — notification / radix
+
+### Checks performed
+
+| Check | Result |
+|---|---|
+| Every anatomy part mapped to a Radix primitive | Pass |
+| Every anatomy part styled in the CSS | Pass |
+| Every prop from props.md mapped | Pass |
+| Every state from anatomy.md mapped | Pass |
+| All CSS variables exist in tokens.md | Pass |
+| All CSS variables confirmed in hpe-design-tokens package | Pass |
+| All CSS variables are camelCase | Pass |
+| All three focus tokens applied together | Pass — constraints §6 |
+| Disabled state uses opacity on root | Pass — no disabled state on Notification Container; CloseButton/Actions delegate to Button |
+| No hardcoded values without a logged gap | Pass — 200ms/100ms logged GAP-007; `text-align: left` documented §10 |
+| `text-align: left` explicit in CSS | Pass — set on `.hpe-notification` |
+| `align-items: flex-start` for icon top-alignment | Pass — set on `.hpe-notification` |
+| `--hpe-shadow-medium` on toast Container | Pass |
+| Padding split correctly implemented | Pass — start-side on container, end-side on CloseButton |
+| ContentRow gap implemented | Pass — `margin-inline-start` on CloseButton |
+| Status backgrounds excluded from toast | Pass — only `.hpe-notification--inline` and `--global` selectors |
+| Cross-document consistency (part names, prop names, constraint refs) | Pass |
+
+**Verdict:** Passed — no new gaps found beyond GAP-004 through GAP-007 logged
+during mapping writing. Mapping is ready for implementation.
