@@ -105,8 +105,9 @@ Other views:
 
 Generated outputs:
 
-- HTML dashboard: `knowledge/capabilities/docs-refactor/telemetry-dashboard.html`
-- Standalone SVG dashboard: `knowledge/capabilities/docs-refactor/telemetry-dashboard.svg`
+- Default HTML dashboard output (when `--htmlOut` is not provided): `knowledge/capabilities/docs-refactor/.telemetry.dashboard.html`
+- Custom HTML dashboard output: pass `--htmlOut`, for example `knowledge/capabilities/docs-refactor/telemetry-dashboard.html`
+- Standalone SVG dashboard: only generated when `--svgOut` is provided, for example `knowledge/capabilities/docs-refactor/telemetry-dashboard.svg`
 
 The HTML dashboard includes:
 
