@@ -53,21 +53,46 @@ Read in this exact order. Do not skip any step.
 
 ### Step B — Reference sources (skip if {{REFERENCE_COMPONENT}} is `none`)
 
-4. The source of `{{REFERENCE_COMPONENT}}` in `{{REFERENCE_PACKAGE}}` —
-   study to understand all states, variants, anatomy parts, and interaction
-   behaviours the component must support. Look for: parts rendered, states
-   handled, keyboard behaviour, ARIA attributes, size variants.
+4. Read the source of `{{REFERENCE_COMPONENT}}` at:
+   `node_modules/{{REFERENCE_PACKAGE}}/src/js/components/{{REFERENCE_COMPONENT}}/{{REFERENCE_COMPONENT}}.js`
 
-5. The `{{REFERENCE_COMPONENT}}` entry in `{{REFERENCE_THEME}}` —
-   study to understand design decisions: values per state, what tokens map
-   to what visual properties, and the intended visual output.
+   Study to understand all states, variants, anatomy parts, and interaction
+   behaviours. Look for: parts rendered, states handled, keyboard behaviour,
+   ARIA attributes, size variants, kinds (e.g. inline/global/toast).
 
-   Pay particular attention to:
-   - Color values per state (rest, hover, focus, active, disabled, error)
-   - Sizing values (padding, min-height, border-radius, border-width)
-   - Typography values (font-size, font-weight, line-height)
-   - Shadow, z-index, and drop/overlay behaviour
-   - Any values that differ between size variants (small, medium, large)
+   If the file is not found at this path, check:
+   - `node_modules/{{REFERENCE_PACKAGE}}/src/components/{{REFERENCE_COMPONENT}}/index.js`
+   - `node_modules/{{REFERENCE_PACKAGE}}/components/{{REFERENCE_COMPONENT}}.js`
+
+   Never hallucinate the component API — if the file cannot be found, log
+   a gap and derive from the theme entry alone.
+
+5. Read the `{{REFERENCE_COMPONENT}}` theme entry at:
+   `node_modules/{{REFERENCE_THEME}}/src/js/themes/hpe.js`
+
+   Search for `{{REFERENCE_COMPONENT}}:` (lowercase) within that file.
+   This is the visual source of truth.
+
+   You MUST audit every anatomy part against this complete property checklist.
+   Do not skip a property because it seems obvious or implied:
+
+   **Per anatomy part, record every property that has a non-default value:**
+   - `background` — per state AND per kind (inline/global/toast)
+   - `color` — text color, icon color, per status and per state
+   - `border` — width, color, radius, per state
+   - `padding` — container outer padding AND internal element padding separately
+   - `gap` — between every sibling element (icon→text, title→description,
+     text→close button). Do not conflate these — record each gap separately.
+   - `min-height` / `height`
+   - `font-size`, `font-weight`, `line-height` — per text element
+   - `text-align` — must be explicitly stated, never assumed
+   - `box-shadow` / `elevation` — especially for floating/toast kinds
+   - `z-index` — for any floating kind
+   - `icon` — the exact icon component name per status, not just the color
+   - `icon alignment` — whether the icon aligns to the top, center, or
+     cap-height of the first line of adjacent text
+   - `animation` / `transition` — duration, easing, direction
+   - `opacity` — for disabled state
 
 ### Step C — Token verification (always required)
 
@@ -186,7 +211,17 @@ Rules that must never be broken regardless of framework or implementation.
   - Focus (always the three-token focus ring)
   - Mutually exclusive states (error vs success vs info vs help)
   - Accessibility (ARIA, keyboard, screen reader behaviour)
-  - Hardcoded value policy (always the final constraint)
+  - Hardcoded value policy
+  - Text alignment — must be explicitly stated for every kind as a constraint.
+    Never rely on browser or inherited defaults.
+  - Icon alignment — icon must align to the cap-height of the first line of
+    the adjacent title text, not to the center of the whole text block.
+    State this as an explicit constraint with the CSS rule required.
+  - Internal gaps — the gap between title and description must use a tighter
+    spacing token than layout-level gaps. Verify the correct token against
+    the reference theme. State the exact token name as a constraint.
+  - Shadow — any floating or toast kind must explicitly state its box-shadow
+    token as a constraint. Absence of shadow is not a valid default.
 - Flag any constraint without a token backing as a gap in gaps.md
 - Final constraint is always:
   > All visual properties must use CSS custom properties from hpe-design-tokens.
@@ -249,3 +284,9 @@ Before finishing, confirm:
 - [ ] No kebab-case token names in any output
 - [ ] No invented token names — all unknowns flagged
 - [ ] No framework references in any output document
+- [ ] Every anatomy part audited against the full CSS property checklist
+- [ ] box-shadow / elevation recorded for every floating or toast kind
+- [ ] text-align explicitly stated for every kind — never assumed
+- [ ] Each gap value recorded separately (icon→text, title→description etc.)
+- [ ] Exact icon component name recorded per status — not just icon color
+- [ ] Icon vertical alignment behaviour stated in anatomy.md
