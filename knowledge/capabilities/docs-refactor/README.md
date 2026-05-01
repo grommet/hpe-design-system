@@ -24,6 +24,7 @@ See `execution.skill.md` for the detailed per-component workflow.
 - **Template**: `apps/docs/COMPONENT_TEMPLATE.md` — MDX page structure contract
 - **Writing rules**: `knowledge/core/skills/writing-style.skill.md` — Tone and formatting standards
 - **Plan**: `plan.md` — Component checklist and rollout tracking
+- **Telemetry reference**: `TELEMETRY.md` — Event model, metrics, dashboards, and troubleshooting
 
 ## Agents
 
@@ -38,6 +39,27 @@ Nine specialized agents compose the pipeline:
 7. `verify-render.agent.md` — Run build and auto-repair known errors
 8. `update-checklist.agent.md` — Mark component complete in plan
 9. `docs-refactor-orchestrator.agent.md` — Master controller and stage detector
+
+## Telemetry
+
+Telemetry is enabled for this capability and records orchestrator and agent boundary events to:
+
+- `knowledge/capabilities/docs-refactor/.telemetry.log`
+
+Quick commands:
+
+- `pnpm telemetry:write --component <name> --eventType <type> [flags]`
+- `pnpm telemetry:status --component <name> --view summary`
+- `pnpm telemetry:status --component <name> --view all --htmlOut knowledge/capabilities/docs-refactor/telemetry-dashboard.html --svgOut knowledge/capabilities/docs-refactor/telemetry-dashboard.svg`
+
+Summary metrics include:
+
+- `Workflow Elapsed`: wall-clock duration for a run
+- `Delegated`: summed `agent-complete` durations
+- `Orchestrator`: estimated/recorded orchestrator management time
+- `Overhead`: `Workflow Elapsed - Delegated`
+
+For full details, examples, and troubleshooting, see `TELEMETRY.md`.
 
 ## Manifest
 
