@@ -7,6 +7,7 @@
     "figma:sync": "dotenv -e .env -- figma connect publish"
   },
   "dependencies": {
+    "@hpe-design/icons-grommet": "workspace:*",
     "grommet": "catalog:",
     "react": "catalog:"
   },

@@ -1,5 +1,6 @@
 import figma from '@figma/code-connect';
 import { Button } from 'grommet';
+import { Add } from '@hpe-design/icons-grommet';
 
 /**
  * Figma Code Connect mapping for the HPE Design System Button
@@ -20,28 +21,49 @@ figma.connect(
         xLarge: 'xlarge',
       }),
       disabled: figma.enum('State', { disabled: true }),
-      // Icon position variant
+      // Icon position: 'none' produces undefined (no icon prop), others show <Add />
+      // 'right' also sets reverse={true} to place icon after label
       icon: figma.enum('Icon', {
-        left: 'left',
-        right: 'right',
-        icon: 'icon',
+        left: <Add />,
+        right: <Add />,
+        icon: <Add />,
+      }),
+      reverse: figma.enum('Icon', {
+        right: true,
       }),
       // Boolean toggles
       busy: figma.boolean('is Busy'),
-      badge: figma.boolean('show Badge'),
+      badge: figma.boolean('show Badge', {
+        true: true,
+        false: undefined,
+      }),
       tip: figma.boolean('show Tip', {
         true: { content: 'Tip content' },
         false: undefined,
       }),
     },
-    example: ({ label, primary, secondary, size, disabled, busy, tip }) => (
+    example: ({
+      label,
+      primary,
+      secondary,
+      size,
+      disabled,
+      icon,
+      reverse,
+      busy,
+      badge,
+      tip,
+    }) => (
       <Button
         label={label}
         primary={primary}
         secondary={secondary}
         size={size}
         disabled={disabled}
+        icon={icon}
+        reverse={reverse}
         busy={busy}
+        badge={badge}
         tip={tip}
       />
     ),

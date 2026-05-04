@@ -349,6 +349,9 @@ importers:
 
   packages/code-connect:
     dependencies:
+      '@hpe-design/icons-grommet':
+        specifier: workspace:*
+        version: link:../icons-grommet
       grommet:
         specifier: 'catalog:'
         version: 2.54.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(styled-components@6.1.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
