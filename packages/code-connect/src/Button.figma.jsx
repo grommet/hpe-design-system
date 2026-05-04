@@ -21,6 +21,7 @@ figma.connect(
         xLarge: 'xlarge',
       }),
       disabled: figma.enum('State', { disabled: true }),
+      active: figma.enum('State', { active: true }),
       // Icon position: 'none' produces undefined (no icon prop), others show <Add />
       // 'right' also sets reverse={true} to place icon after label
       icon: figma.enum('Icon', {
@@ -48,6 +49,7 @@ figma.connect(
       secondary,
       size,
       disabled,
+      active,
       icon,
       reverse,
       busy,
@@ -60,6 +62,7 @@ figma.connect(
         secondary={secondary}
         size={size}
         disabled={disabled}
+        active={active}
         icon={icon}
         reverse={reverse}
         busy={busy}
