@@ -12,7 +12,7 @@
     "options": [
       {
         "label": "A specific component",
-        "description": "I'm styling a known component like a Button, Select, Checkbox, etc. and want the exact component-level tokens for it.",
+        "description": "I'm styling a known component like a Button, Select, Checkbox, etc.",
         "hint": "HPE guidance: always prefer component tokens over semantic tokens when available.",
         "next": {
           "id": "component",
