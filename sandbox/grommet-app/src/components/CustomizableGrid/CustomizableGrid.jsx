@@ -1,105 +1,35 @@
 import PropTypes from 'prop-types';
-import { cloneElement, useState } from 'react';
-import { Grid, Keyboard } from 'grommet';
+import { cloneElement } from 'react';
+import { OrderableGrid } from '../OrderableGrid/OrderableGrid';
 import { CustomizeMenu } from './CustomizeMenu';
 import { DragControl } from './DragControl';
 
-const reorder = (array, source, target) => {
-  const result = array.slice(0);
-  const tmp = result[source];
-  if (source < target)
-    for (let i = source; i < target; i += 1) result[i] = result[i + 1];
-  else for (let i = source; i > target; i -= 1) result[i] = result[i - 1];
-  result[target] = tmp;
-  return result;
+const sizeToSpan = {
+  '1x1': { gridColumn: 'span 1', gridRow: 'span 1' },
+  '1x2': { gridColumn: 'span 1', gridRow: 'span 2' },
+  '1x3': { gridColumn: 'span 1', gridRow: 'span 3' },
+  '2x1': { gridColumn: 'span 2', gridRow: 'span 1' },
+  '2x2': { gridColumn: 'span 2', gridRow: 'span 2' },
+  '2x3': { gridColumn: 'span 2', gridRow: 'span 3' },
+  '3x1': { gridColumn: 'span 3', gridRow: 'span 1' },
+  '3x2': { gridColumn: 'span 3', gridRow: 'span 2' },
+  '3x3': { gridColumn: 'span 3', gridRow: 'span 3' },
 };
+const resizeOptions = Object.keys(sizeToSpan);
 
-export const CustomizableGrid = ({ data, onOrder, onResize: onResizeProp, resizeOptions, ...rest }) => {
-  const [dragging, setDragging] = useState();
-  const [orderingData, setOrderingData] = useState();
-
-  const currentItems = orderingData || data;
-
-  // console.log('dragging', dragging);
+export const CustomizableGrid = ({ data, onOrder, onResize, ...rest }) => {
+ 
+  const handleOrder = (nextChildren) => {
+    if (onOrder) {
+      const nextData = nextChildren.map(child =>
+        data.find(item => item.id === child.props.id),
+      );
+      onOrder(nextData);
+    }
+  };
 
   const renderItem = (item, index) => {
-
-    const move = (count) => {
-      const newIndex = index + count;
-      onOrder(reorder(
-        currentItems,
-        index, 
-        Math.max(0, Math.min(newIndex, currentItems.length - 1)),
-      ));
-    };
-
-    const onResize = (newSize) => {
-      if (onResizeProp) {
-        onResizeProp(item.id, newSize);
-      }
-    };
-
     const onOrderProps = onOrder ? {
-      draggable: true,
-      onDragStart: (event) => {
-        // console.log('start', item.id, index);
-        event.dataTransfer.setData('text/plain', '');
-        // allowed per
-        // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#define_the_drag_effect
-        event.dataTransfer.effectAllowed = 'move';
-        setDragging(index);
-        // updateFocused(undefined);
-      },
-      onDragEnd: () => {
-        setDragging(undefined);
-        setOrderingData(undefined);
-      },
-      onDragEnter: (event) => {
-        // console.log('enter', item.id, index);
-        if (dragging !== undefined && dragging !== index) {
-          // Ignore synthetic re-fires caused by entering a child of this element
-          if (event.currentTarget.contains(event.relatedTarget)) return;
-          event.dataTransfer.dropEffect = 'move';
-          setOrderingData(reorder(currentItems, dragging, index));
-          setDragging(index);
-        }
-      },
-      onDragOver: (event) => {
-        if (dragging !== undefined) {
-          // preventDefault is required to allow the drop to occur
-          event.preventDefault();
-        }
-      },
-      onDrop: () => {
-        if (orderingData) {
-          onOrder(orderingData);
-        }
-      },
-      tabIndex: 0,
-      onFocus: (ev) => console.log('focus', item.id, index, ev.target),
-      onKeyDown: (event) => console.log('key down', item.id, index, event.key),
-      keyboard: {
-        onUp: (event) => {
-          console.log('up', index);
-          event.preventDefault();
-          move(-1);
-        },
-        onDown: (event) => {
-          console.log('down', index);
-          event.preventDefault();
-          move(1);
-        },
-        onLeft: (event) => {
-          console.log('left', index);
-          event.preventDefault();
-          move(-1);
-        },
-        onRight: (event) => {
-          console.log('right', index);
-          event.preventDefault();
-          move(1);
-        },
-      },
       controls: [
         <DragControl
           key={`move-${item.id || index}`}
@@ -108,32 +38,25 @@ export const CustomizableGrid = ({ data, onOrder, onResize: onResizeProp, resize
         <CustomizeMenu
           key={`menu-${item.id || index}`}
           item={item}
-          onResize={onResize}
+          onResize={(newSize) => {
+            if (onResize) {
+              onResize(item.id, newSize);
+            }
+          }}
           resizeOptions={resizeOptions}
         />,
       ],
     } : {};
 
-    const { controls, keyboard, ...wrapperProps } = onOrderProps;
-
-    // console.log('rendering', item.id, onOrderProps, item.size);
-    return (
-      <Keyboard key={item.id || index} {...keyboard}>
-        <div
-          // display: grid makes the single child fill the wrapper (stretch in both axes)
-          style={{ ...item.sizeProps, display: 'grid' }}
-          {...wrapperProps}
-        >
-          {cloneElement(item.component, { controls })}
-        </div>
-      </Keyboard>
-    );
+    return cloneElement(item.component, { id: item.id, key: item.id, ...onOrderProps });
   };
 
+  const itemStyles = data.map(item => sizeToSpan[item.size] || {});
+
   return (
-    <Grid {...rest}>
-      {currentItems.map((item, index) => renderItem(item, index))}
-    </Grid>
+    <OrderableGrid itemStyles={itemStyles} onOrder={onOrder ? handleOrder : undefined} {...rest} >
+      {data.map((item, index) => renderItem(item, index))}
+    </OrderableGrid>
   );
 };
 
@@ -141,8 +64,8 @@ CustomizableGrid.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     component: PropTypes.node.isRequired,
+    size: PropTypes.string,
   })).isRequired,
   onOrder: PropTypes.func,
   onResize: PropTypes.func,
-  resizeOptions: PropTypes.arrayOf(PropTypes.string),
 };

@@ -25,19 +25,6 @@ import { CustomizableGrid, CustomizeHeader, SkeletonContext } from '../component
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 import { useState } from 'react';
 
-const sizeToSpan = {
-  '1x1': { gridColumn: 'span 1', gridRow: 'span 1' },
-  '1x2': { gridColumn: 'span 1', gridRow: 'span 2' },
-  '1x3': { gridColumn: 'span 1', gridRow: 'span 3' },
-  '2x1': { gridColumn: 'span 2', gridRow: 'span 1' },
-  '2x2': { gridColumn: 'span 2', gridRow: 'span 2' },
-  '2x3': { gridColumn: 'span 2', gridRow: 'span 3' },
-  '3x1': { gridColumn: 'span 3', gridRow: 'span 1' },
-  '3x2': { gridColumn: 'span 3', gridRow: 'span 2' },
-  '3x3': { gridColumn: 'span 3', gridRow: 'span 3' },
-};
-const resizeOptions = Object.keys(sizeToSpan);
-
 const Divider = () => <Box border={{ side: 'bottom', color: 'border-weak' }} />;
 
 function Home() {
@@ -52,7 +39,7 @@ function Home() {
     { id: 'deviceSummary', component: <DeviceSummary /> },
     { id: 'sustainabilityOverview', component: <SustainabilityOverview /> },
     { id: 'userOverview', component: <UserOverview /> },
-    { id: 'notifications', component: <Notifications />, size: '2x1', sizeProps: sizeToSpan['2x1'] },
+    { id: 'notifications', component: <Notifications />, size: '2x1' },
     { id: 'monthlyCharges', component: <MonthlyCharges /> },
     { id: 'expiringSubscriptions', component: <ExpiringSubscriptions /> },
     { id: 'recentServices', component: <RecentServices compact /> },
@@ -123,13 +110,11 @@ function Home() {
                             widget.id === id ? {
                               ...widget,
                               size: size?.size,
-                              sizeProps: sizeToSpan[size?.size],
                             } : widget
 
                           ));
                           setWidgets(nextWidgets);
                         }}
-                        resizeOptions={resizeOptions}
                       />
                     </SkeletonContext.Provider>
                   </Box>
