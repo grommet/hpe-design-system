@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -10,11 +10,11 @@ import Link from 'next/link';
 import { Search as SearchIcon } from '@hpe-design/icons-grommet';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 import { Search } from '../navigation';
-import { ViewContext } from '../../pages/_app';
+import { useNavState } from '../navigation/NavContext';
 
 const StyledHeader = ({ ...rest }) => {
   const [showSearch, setShowSearch] = useState(false);
-  const { navOpen } = useContext(ViewContext);
+  const { navOpen } = useNavState();
 
   return (
     <Page {...rest}>
