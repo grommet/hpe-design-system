@@ -4,12 +4,7 @@ This plan outlines the refactor of the HPE Design System component documentation
 
 ## Steps
 
-### 1. Tooling & Setup
-
-- [x] Create a reusable GitHub Copilot prompt file (`knowledge/archive/prompts/generate-mdx.prompt.md`).
-- [x] Create a prompt file for reverse-engineering existing MDX into YAML (`knowledge/archive/prompts/extract-component-yaml.prompt.md`) to save manual extraction time.
-
-### 2. Standard Component Workflow (Execute per component)
+### 1. Standard Component Workflow (Execute per component)
 
 Each component is driven end-to-end by the orchestrator agent. From a feature branch, run:
 
@@ -17,19 +12,12 @@ Each component is driven end-to-end by the orchestrator agent. From a feature br
 
 The orchestrator detects the current pipeline stage, confirms before making any changes, and delegates to the appropriate agents in sequence. See `knowledge/capabilities/docs-refactor/docs/execution.skill.md` for the full walkthrough.
 
-### 3. Phased Rollout Targets
+### 2. Phased Rollout Targets
 
 - **Phase 1: Pilot Components (Low Complexity)**: `button`, `checkbox`, `menu`
 - **Phase 2: Inputs & Controls (Medium Complexity)**: `select`, `textinput`, `radiobuttongroup`
 - **Phase 3: Complex Components (High Complexity)**: `accordion`, `card`, `layer`, `datatable`
 - **Phase 4: Remaining Components Sweep**: Iterate through the remaining `~30` files in `apps/docs/src/pages/components/`.
-
-## Verification
-
-- [ ] Build and run the Next.js `docs` app to verify that the newly generated MDX files render correctly and without errors.
-- [ ] Run the project formatter/linter over the generated MDX files to ensure trailing syntax errors aren't introduced.
-- [ ] Confirm the generated content strictly adheres to `writing-documentation.instruction.md` (e.g., imperative tone, concise bullet points instead of paragraphs).
-- [ ] Review the `TODO-[component].md` per PR to ensure no undocumented gaps slip through, and that code example placeholders are clear. Review `DEPRECATED-[component].md` to ensure valuable content wasn't lost. _Either resolve the missing documentation gaps directly during the PR, or translate the TODO list into tracking GitHub Issues to address them post-migration._
 
 ## Decisions
 
