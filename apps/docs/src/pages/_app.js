@@ -46,6 +46,8 @@ function App({ Component, pageProps, router }) {
   // state that holds boolean for whether or not
   // update info is ready to be rendered
   const [pageUpdateReady, setPageUpdateReady] = useState(false);
+  // nav open/close state shared via context
+  const [navOpen, setNavOpen] = useState(true);
 
   // this effect is only for the first time _app mounts
   useEffect(() => {
@@ -200,8 +202,14 @@ function App({ Component, pageProps, router }) {
     slugToText(route[route.length - 2]);
 
   const viewContextValue = useMemo(() => {
-    return { contentHistory, pageUpdateReady, setPageUpdateReady };
-  }, [contentHistory, pageUpdateReady]);
+    return {
+      contentHistory,
+      pageUpdateReady,
+      setPageUpdateReady,
+      navOpen,
+      setNavOpen,
+    };
+  }, [contentHistory, pageUpdateReady, navOpen]);
 
   return (
     <ThemeMode>

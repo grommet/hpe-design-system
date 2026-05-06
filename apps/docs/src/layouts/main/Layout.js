@@ -22,7 +22,6 @@ import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
 import { Navigation } from '../navigation';
-import { NavProvider } from '../navigation/NavContext';
 
 const gridAreas = [
   ['nav', 'header', 'context-pane'],
@@ -75,8 +74,12 @@ export const Layout = ({
     { id: 'main', label: 'Main Content' },
   ].filter(link => link !== undefined);
 
-  const { contentHistory, pageUpdateReady, setPageUpdateReady } =
-    useContext(ViewContext);
+  const {
+    contentHistory,
+    pageUpdateReady,
+    setPageUpdateReady,
+    navOpen,
+    setNavOpen } = useContext(ViewContext);
 
   // every time a new page loads, initalize ready
   // state to false, until app.js declares otherwise
@@ -104,45 +107,45 @@ export const Layout = ({
         {backgroundImage && (
           <PageBackground backgroundImage={backgroundImage} />
         )}
-        <NavProvider>
-          <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
-            {/* Only render Header for non-home pages.
+        <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
+          {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
-            {title && title.toLowerCase() !== 'home' && (
-              <AppHeader gridArea="header" />
-            )}
-            <Navigation
-              gridArea="nav"
-              as="aside"
-              a11yTitle="Site navigation"
-              background="background-front" />
-            <Main overflow="visible" gridArea="main">
-              <Page>
-                {layout !== 'plain' ? (
-                  <DocsLayout
-                    title={title}
-                    topic={topic}
-                    render={render}
-                    headings={headings}
-                    relatedContent={relatedContent}
-                    showInPageNav={showInPageNav}
-                    pageUpdateReady={pageUpdateReady}
-                    contentHistory={contentHistory}
-                  >
-                    {children}
-                  </DocsLayout>
-                ) : (
-                  <>
-                    <SkipLinkTarget id="main" label="Main content" />
-                    {children}
-                  </>
-                )}
-              </Page>
-            </Main>
-            <UserFeedback />
-          </Grid>
-        </NavProvider>
+          {title && title.toLowerCase() !== 'home' && (
+            <AppHeader gridArea="header" />
+          )}
+          <Navigation
+            navOpen={navOpen}
+            setNavOpen={setNavOpen}
+            gridArea="nav"
+            as="aside"
+            a11yTitle="Site navigation"
+            background="background-front" />
+          <Main overflow="visible" gridArea="main">
+            <Page>
+              {layout !== 'plain' ? (
+                <DocsLayout
+                  title={title}
+                  topic={topic}
+                  render={render}
+                  headings={headings}
+                  relatedContent={relatedContent}
+                  showInPageNav={showInPageNav}
+                  pageUpdateReady={pageUpdateReady}
+                  contentHistory={contentHistory}
+                >
+                  {children}
+                </DocsLayout>
+              ) : (
+                <>
+                  <SkipLinkTarget id="main" label="Main content" />
+                  {children}
+                </>
+              )}
+            </Page>
+          </Main>
+          <UserFeedback />
+        </Grid>
       </Stack>
     </>
   );

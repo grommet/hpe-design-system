@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import {
   Box,
   Button,
@@ -8,13 +8,13 @@ import {
 } from 'grommet';
 import Link from 'next/link';
 import { Search as SearchIcon } from '@hpe-design/icons-grommet';
-import { ThemeModeToggle, BrandIdentity } from '../../components';
+import { ThemeModeToggle, AppIdentity } from '../../components';
 import { Search } from '../navigation';
-import { useNavState } from '../navigation/NavContext';
+import { ViewContext } from '../../pages/_app';
 
 const StyledHeader = ({ ...rest }) => {
   const [showSearch, setShowSearch] = useState(false);
-  const { navOpen } = useNavState();
+  const { navOpen } = useContext(ViewContext);
 
   return (
     <Page {...rest}>
@@ -24,9 +24,10 @@ const StyledHeader = ({ ...rest }) => {
             vertical: 'medium',
           }}
         >
-          {/* Show new HPE logo in header when nav is collapsed */}
+          {/* Show HPE logo + title in header when nav is collapsed */}
           <Link href="/" passHref legacyBehavior>
-            <BrandIdentity
+            <AppIdentity
+              brand="hpe2"
               title="Design System"
               logo={!navOpen}
             />
@@ -46,5 +47,6 @@ const StyledHeader = ({ ...rest }) => {
     </Page>
   );
 };
+
 
 export { StyledHeader as AppHeader };

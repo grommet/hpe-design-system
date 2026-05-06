@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Box, Button } from 'grommet';
 import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
-import { BrandIdentity } from '../../components';
+import { AppIdentity } from '../../components';
 
 export const SideNavHeader = ({ open, setOpen }) => {
     const [autoFocus, setAutoFocus] = useState(false);
@@ -32,7 +32,7 @@ export const SideNavHeader = ({ open, setOpen }) => {
         >
             {open && (
                 <Link href="/" passHref legacyBehavior>
-                    <BrandIdentity logoOnly a11yTitle="Go to home" />
+                    <AppIdentity brand="hpe2" logoOnly />
                 </Link>
             )}
             <Button
