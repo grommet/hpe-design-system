@@ -41,6 +41,7 @@ export const SideNavHeader = ({ open, setOpen }) => {
                 active={open}
                 alignSelf="start"
                 autoFocus={autoFocus}
+                a11yTitle={open ? 'Close navigation' : 'Open navigation'}
                 icon={<SidebarIcon aria-hidden />}
                 onClick={() => setOpen(!open)}
                 tip={open ? 'Close navigation' : 'Open navigation'}
