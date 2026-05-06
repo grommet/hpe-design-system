@@ -30,6 +30,14 @@ export const SideNavHeader = ({ open, setOpen }) => {
             }}
             flex={false}
         >
+            {/* legacyBehavior restores pre-Next.js 13 behavior where Link
+              does not render its own <a>, instead passing href/onClick to
+              the child via cloneElement and attaches a ref via React's ref 
+              forwarding. Required here because AppIdentity already renders 
+              an anchor via its <Button href>. This prop has been dropped 
+              in Next.js 13.15.11+, so this will need to be  refactored when 
+              upgrading. More details:
+              https://nextjs.org/docs/13/pages/api-reference/components/link#legacybehavior */}
             {open && (
                 <Link href="/" passHref legacyBehavior>
                     <AppIdentity logoOnly />
