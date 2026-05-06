@@ -115,6 +115,7 @@ export const Layout = ({
             <Navigation
               gridArea="nav"
               as="aside"
+              a11yTitle="Site navigation"
               background="background-front" />
             <Main overflow="visible" gridArea="main">
               <Page>

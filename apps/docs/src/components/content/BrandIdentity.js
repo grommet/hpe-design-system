@@ -14,12 +14,13 @@ export const BrandIdentity = forwardRef(
     }, ref) => {
         const textSize = 'medium';
         const theme = useContext(ThemeContext);
-
+        const linkLabel = title ? `Go to ${title} home` : 'Go to home';
 
         return (
             <Button
                 href={href}
                 ref={ref}
+                a11yTitle={linkLabel}
                 {...rest}
             >
                 <Box
