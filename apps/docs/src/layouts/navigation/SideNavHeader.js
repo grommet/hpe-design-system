@@ -32,7 +32,7 @@ export const SideNavHeader = ({ open, setOpen }) => {
         >
             {open && (
                 <Link href="/" passHref legacyBehavior>
-                    <AppIdentity brand="hpe2" logoOnly />
+                    <AppIdentity logoOnly />
                 </Link>
             )}
             <Button

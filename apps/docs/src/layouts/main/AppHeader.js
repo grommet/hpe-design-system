@@ -27,7 +27,6 @@ const StyledHeader = ({ ...rest }) => {
           {/* Show HPE logo + title in header when nav is collapsed */}
           <Link href="/" passHref legacyBehavior>
             <AppIdentity
-              brand="hpe2"
               title="Design System"
               logo={!navOpen}
             />
