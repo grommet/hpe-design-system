@@ -161,7 +161,7 @@ const isManagedCategoryForSource = (source, category) =>
   managedCategoriesBySource[source]?.includes(category);
 
 const getEmptyStateMessage = type => {
-  if (type === 'grommetThemeHpe') return 'N/A. Handled by `grommet-theme-hpe`.';
+  if (type === 'grommetThemeHpe') return 'N/A. Handled by grommet-theme-hpe.';
   if (type === 'figma') return 'N/A. Handled by Figma library.';
   return '--';
 };
