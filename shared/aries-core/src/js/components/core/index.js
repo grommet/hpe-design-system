@@ -1,6 +1,7 @@
 export * from './Identifier';
 export * from './NavigationMenu/index.ts';
 export * from './Popover';
+export * from './PromptInterface';
 export * from './RangeSelector';
 export * from './Tile';
 export * from './Tiles';
