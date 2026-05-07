@@ -100,7 +100,7 @@ Open the component page in your browser and check for errors in the console, esp
 - `knowledge/capabilities/docs-refactor/` — All capability assets (agents, plan, execution instructions)
 - `knowledge/core/skills/` — Shared reusable methodologies (extraction, generation, quality review, etc.)
 - `knowledge/core/data/types.ts` — Schema contract for YAML definitions
-- `apps/docs/COMPONENT_TEMPLATE.md` — MDX page structure and wiring template
+- `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` — MDX page structure and wiring template
 - `knowledge/core/skills/writing-style.skill.md` — Writing standards and voice guide
 
 ## Troubleshooting

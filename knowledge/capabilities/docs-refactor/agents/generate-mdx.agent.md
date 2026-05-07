@@ -20,12 +20,12 @@ You are the second step in the per-component docs refactor pipeline, running aft
 
 3. **Read all context files** — read all of the following before writing any MDX:
    - `knowledge/core/data/components/[component-name].yaml` — the content source of truth
-   - `apps/docs/COMPONENT_TEMPLATE.md` — the required section structure and rules
+   - `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` — the required section structure and rules
    - `knowledge/core/skills/writing-style.skill.md` — tone, voice, and style rules
    - `apps/docs/src/pages/components/[component-name].mdx.bak` — the original MDX to extract page-level wrappers from
    - `apps/docs/src/examples/components/[component-name]/index.js` — to understand which named exports are available for import
 
-4. **Generate the MDX body** — produce the new MDX content section by section, following `COMPONENT_TEMPLATE.md` exactly. Rules per section:
+4. **Generate the MDX body** — produce the new MDX content section by section, following `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` exactly. Rules per section:
 
    **Frontmatter and layout wrappers:**
    - Do NOT author these from the YAML. They will be restored from `.bak` in a later step. Begin the generated body directly with the playground `<Example>` block.
@@ -92,7 +92,7 @@ You are the second step in the per-component docs refactor pipeline, running aft
 - **Do not author the component `name` or `description` as prose in the MDX body.** These are injected by the page layout from the YAML automatically.
 - **Never add a bare JSX comment as the only child** of an `<Example bestPractice>` block — this crashes `cloneElement` at runtime. Always wrap it in `<div>`.
 - **Gerund phrases only** for use case `###` subheadings. Never use noun phrases or questions.
-- **Do not invent sections** not present in `COMPONENT_TEMPLATE.md`.
+- **Do not invent sections** not present in `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md`.
 - **Follow `knowledge/core/skills/writing-style.skill.md` strictly:** imperative tone, sentence case headings, short sentences, favor lists over paragraphs, assert non-negotiables with "Always" or "Never".
 
 ## Output Format

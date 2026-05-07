@@ -26,7 +26,7 @@ spec:
       - path: knowledge/core/skills/workflow-orchestration.skill.md
       - path: knowledge/core/skills/progress-tracking.skill.md
     external:
-      - path: apps/docs/COMPONENT_TEMPLATE.md
+      - path: knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md
       - path: apps/docs/src/pages/components/
       - path: apps/docs/todos/
       - path: knowledge/archive/prompts/

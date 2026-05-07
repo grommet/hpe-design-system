@@ -21,7 +21,7 @@ See `docs/execution.skill.md` for the detailed per-component workflow.
 ## Resources
 
 - **Schema**: `knowledge/core/data/types.ts` — ComponentDefinition interface
-- **Template**: `apps/docs/COMPONENT_TEMPLATE.md` — MDX page structure contract
+- **Template**: `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` — MDX page structure contract
 - **Writing rules**: `knowledge/core/skills/writing-style.skill.md` — Tone and formatting standards
 - **Plan**: `plan.md` — Component checklist and rollout tracking
 - **Telemetry reference**: `docs/TELEMETRY.md` — Event model, metrics, dashboards, and troubleshooting

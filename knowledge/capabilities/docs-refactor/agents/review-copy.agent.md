@@ -18,7 +18,7 @@ You run after `generate-mdx-agent` has produced `[component-name].mdx`. Read `kn
 3. **Read all context files**:
    - `apps/docs/src/pages/components/[component-name].mdx` — the content to audit
    - `knowledge/core/skills/writing-style.skill.md` — the authoritative style rules
-   - `apps/docs/COMPONENT_TEMPLATE.md` — structural rules and per-section guidance
+   - `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` — structural rules and per-section guidance
 
 4. **Audit the MDX copy** against every rule in `writing-documentation.instruction.md`. Check each of the following categories:
 
