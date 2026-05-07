@@ -35,8 +35,8 @@ You are the second step in the per-component docs refactor pipeline, running aft
 
    **Use cases (`## Use cases`):**
    - Render each `usage.whenToUse` item as a `###` subheading using a gerund phrase (verb + -ing + object), e.g., "Submitting a form".
-   - Follow each subheading with one to two sentences describing the user's task or goal.
-   - If a purpose-built example file exists in the `examples` array for this use case, include it as a live `<Example>` block. If not, insert `{/* TODO: Add a coded example that demonstrates [use case description] */}`.
+   - Follow each subheading with **three to five sentences** expanding the YAML `whenToUse` item. Do NOT copy the YAML item verbatim — the YAML is a one-sentence summary; the MDX description is the expanded version. Each description must cover: (1) the user's goal as a concrete task, (2) the surrounding UI context naming the host component or layout region explicitly, (3) the data or content present with realistic specifics — not "Item 1, Item 2", (4) what the user does and what changes in the UI. Follow the **Prose depth rule** in `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md`.
+   - If a purpose-built example file exists in the `examples` array for this use case, include it as a live `<Example>` block. If not, insert a multi-line structured TODO brief following the **TODO brief format** defined in `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md`. Populate every field (GOAL, CONTEXT, DATA, INTERACTION, STATE, LAYOUT, CONSTRAINTS) with specifics derived from the YAML and your knowledge of the component. Do NOT leave any field generic. A thin TODO brief produces a thin example.
    - Do NOT repurpose examples from Variants or other sections to fill a use case slot.
    - Do NOT surface `whenToAvoid` items here.
 
