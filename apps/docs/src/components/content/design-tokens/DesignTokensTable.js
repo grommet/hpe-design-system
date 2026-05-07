@@ -76,7 +76,7 @@ const getTokenColumn = (property, header) => ({
         background="background-contrast"
         pad="3xsmall"
         round="xsmall"
-        style={{ fontFamily: 'Menlo' }}
+        style={{ fontFamily: 'Consolas, Menlo, monospace' }}
       >
         <Text size="xsmall" style={{ whiteSpace: 'nowrap' }}>
           {displayValue || '--'}
