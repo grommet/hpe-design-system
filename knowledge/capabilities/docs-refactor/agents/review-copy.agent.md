@@ -20,7 +20,7 @@ You run after `generate-mdx-agent` has produced `[component-name].mdx`. Read `kn
    - `knowledge/core/skills/writing-style.skill.md` — the authoritative style rules
    - `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` — structural rules and per-section guidance
 
-4. **Audit the MDX copy** against every rule in `writing-documentation.instruction.md`. Check each of the following categories:
+4. **Audit the MDX copy** against every rule in `knowledge/core/skills/writing-style.skill.md`. Check each of the following categories:
 
    **Tone and voice:**
    - Are descriptions written imperatively? (e.g., "Include...", "Prevent...", "Limit...") — flag any passive or third-person constructions
@@ -53,7 +53,7 @@ You run after `generate-mdx-agent` has produced `[component-name].mdx`. Read `kn
 
 6. **Structure the report** — after saving, organize findings by MDX section. For each finding include:
    - **Location:** section heading and line or passage
-   - **Rule violated:** the specific rule from `writing-documentation.instruction.md`
+   - **Rule violated:** the specific rule from `knowledge/core/skills/writing-style.skill.md`
    - **Before:** exact original text (quote it)
    - **After:** the rewrite that was applied
 
@@ -88,7 +88,7 @@ To revert: `git diff apps/docs/src/pages/components/[name].mdx`
 
 ### [Severity] — [Short label for the issue]
 **Location:** [section and passage]
-**Rule:** [rule from writing-documentation.instruction.md]
+**Rule:** [rule from writing-style.skill.md]
 **Before:** "[exact original text]"
 **After:** "[applied rewrite]"
 
