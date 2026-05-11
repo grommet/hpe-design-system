@@ -16,6 +16,7 @@ import {
 import { Close, Folder, Menu, StatusWarning } from '@hpe-design/icons-grommet';
 import { useRouter } from 'next/router';
 import { ThemeContext } from 'styled-components';
+import { EmptyState } from '@shared/aries-core';
 import {
   getDefaultActiveTokenPath,
   getTokens,
@@ -277,10 +278,7 @@ const AllTokens = () => {
   const pendingQuerySyncRef = useRef('');
   const breakpoint = useContext(ResponsiveContext);
   const theme = useContext(ThemeContext);
-  const defaultActiveTokenPath = useMemo(
-    () => getDefaultActiveTokenPath(),
-    [],
-  );
+  const defaultActiveTokenPath = useMemo(() => getDefaultActiveTokenPath(), []);
   const {
     data,
     setData,
@@ -296,8 +294,11 @@ const AllTokens = () => {
     [selectedTokenTypes],
   );
   const { isReady, pathname, query, replace } = router;
-  const { mode: queryMode, token: queryToken, tokenTypes: queryTokenTypes } =
-    query;
+  const {
+    mode: queryMode,
+    token: queryToken,
+    tokenTypes: queryTokenTypes,
+  } = query;
   const isDesktop = ['large', 'xlarge'].includes(breakpoint);
 
   useEffect(() => {
@@ -394,9 +395,10 @@ const AllTokens = () => {
     isSingleTokenTypeSelected &&
     (isManagedCollectionForSource(primaryTokenType, activeCollectionKey) ||
       isManagedCategoryForSource(primaryTokenType, activeCategoryKey));
-  const sourceEmptyStateText = primaryTokenType === 'figma'
-    ? 'Handled by Figma library.'
-    : 'Handled by grommet-theme-hpe.';
+  const sourceEmptyStateText =
+    primaryTokenType === 'figma'
+      ? 'Handled by Figma library.'
+      : 'Handled by grommet-theme-hpe.';
 
   const tableData = useMemo(() => {
     const [activeCollectionName, activeCategoryName] = displayActive.split('.');
@@ -658,51 +660,52 @@ const AllTokens = () => {
             </Box>
           ) : undefined}
           <PageContent pad="none" alignSelf="start">
-            <Box pad="medium" round="xlarge" background="background-front">
-              <Box margin={{ bottom: 'medium' }}>
-                <ToggleGroup
-                  a11yTitle="Select token types to compare"
-                  multiple
-                  options={tokenTypeOptions}
-                  value={selectedTokenTypes}
-                  onToggle={({ value }) => {
-                    const nextValue = Array.isArray(value) ? value : [value];
-                    const normalizedValue = normalizeTokenTypes(nextValue);
-                    const currentTokenParam = getPathWithoutPrefix(
-                      active,
-                      primaryTokenType,
-                    ).replaceAll('.', '/');
-
-                    pendingQuerySyncRef.current = toQuerySyncKey(
-                      normalizeQuerySyncState({
-                        token: currentTokenParam,
-                        tokenTypes: normalizedValue.join(','),
-                        mode: getSingleQueryValue(queryMode) || selectedMode,
-                      }),
-                    );
-
-                    setSelectedTokenTypes(normalizedValue);
-                  }}
+            <Box
+              pad="medium"
+              gap="small"
+              round="xlarge"
+              background="background-front"
+            >
+              {!isDesktop ? (
+                <Button
+                  icon={<Menu />}
+                  a11yTitle="Open design tokens menu"
+                  align="center"
+                  onClick={() => setOpenLayer(true)}
                 />
-              </Box>
-              <Box gap="xsmall" margin={{ bottom: 'xsmall' }}>
-                <Box direction="row" align="center" gap="xsmall">
-                  {!isDesktop ? (
-                    <Button
-                      icon={<Menu />}
-                      a11yTitle="Open design tokens menu"
-                      margin={{ top: '3xsmall' }}
-                      onClick={() => setOpenLayer(true)}
-                    />
+              ) : undefined}
+              <ToggleGroup
+                a11yTitle="Select token types to compare"
+                multiple
+                options={tokenTypeOptions}
+                value={selectedTokenTypes}
+                onToggle={({ value }) => {
+                  const nextValue = Array.isArray(value) ? value : [value];
+                  const normalizedValue = normalizeTokenTypes(nextValue);
+                  const currentTokenParam = getPathWithoutPrefix(
+                    active,
+                    primaryTokenType,
+                  ).replaceAll('.', '/');
+
+                  pendingQuerySyncRef.current = toQuerySyncKey(
+                    normalizeQuerySyncState({
+                      token: currentTokenParam,
+                      tokenTypes: normalizedValue.join(','),
+                      mode: getSingleQueryValue(queryMode) || selectedMode,
+                    }),
+                  );
+
+                  setSelectedTokenTypes(normalizedValue);
+                }}
+              />
+              <Box direction="row" align="center">
+                <Box gap="2xsmall">
+                  {activeCollectionLabel ? (
+                    <Text>{activeCollectionLabel}</Text>
                   ) : undefined}
-                  <Box gap="2xsmall">
-                    {activeCollectionLabel ? (
-                      <Text>{activeCollectionLabel}</Text>
-                    ) : undefined}
-                    <Heading level={2} margin="none" id="token-table-heading">
-                      {displayHeadingLabel}
-                    </Heading>
-                  </Box>
+                  <Heading level={2} margin="none" id="token-table-heading">
+                    {displayHeadingLabel}
+                  </Heading>
                 </Box>
               </Box>
               {/* eslint-disable-next-line no-nested-ternary */}
@@ -712,7 +715,6 @@ const AllTokens = () => {
                   message={`Base tokens should never be used directly. 
                 Semantic or component tokens should be used instead. 
                 These are here purely for documentation.`}
-                  margin={{ top: 'xsmall' }}
                 />
               ) : !showManagedEmptyState && active.includes('static') ? (
                 <Notification
@@ -721,7 +723,6 @@ const AllTokens = () => {
                     layouts; use semantic tokens instead. Static tokens may
                     be used for custom "elements" when element tokens 
                     don't suffice.`}
-                  margin={{ top: 'xsmall' }}
                   actions={[
                     {
                       label: 'Learn about element tokens',
@@ -738,18 +739,14 @@ const AllTokens = () => {
                   tokenTypeColumns={tokenTypeColumns}
                 />
                 {showManagedEmptyState ? (
-                  <Box
-                    alignSelf="center"
-                    align="center"
-                    gap="xxsmall"
-                    margin={{ bottom: 'medium' }}
-                  >
-                    <StatusWarning aria-hidden="true" color="icon-warning" />
-                    <Heading level={3} size="small" margin="none">
-                      Not applicable
-                    </Heading>
-                    <Text>{sourceEmptyStateText}</Text>
-                  </Box>
+                  <EmptyState
+                    icon={
+                      <StatusWarning aria-hidden="true" color="icon-warning" />
+                    }
+                    title="Not applicable"
+                    level="3"
+                    description={sourceEmptyStateText}
+                  />
                 ) : undefined}
               </Box>
             </Box>
