@@ -18,6 +18,7 @@ Read `knowledge/capabilities/docs-refactor/plan.md` and `knowledge/capabilities/
 - **Telemetry emission** — Write wrapper telemetry events for stage transitions and agent boundaries when telemetry is enabled in the capability manifest.
 - **Progress verification** — After each agent invocation, re-check the expected output files to confirm the stage advanced before continuing.
 - **Error handling** — If an agent does not produce its expected outputs, report the specific missing files, suggest a direct retry command, and stop the pipeline without auto-retrying.
+- **Quality assurance** — After each worker agent, invoke `@qa-agent` with the component name and stage ID; retry the worker (up to 2 times) if QA fails; halt and escalate to the user if QA still fails after retries.
 - **Pipeline completion guidance** — After review/build/checklist steps finish, remind the user to address must-fix copy issues and open a PR.
 - **All-components overview** — When invoked without a component argument, produce a full status table across all components in the checklist without invoking any agents.
 
@@ -33,11 +34,13 @@ pnpm telemetry:write --component <component-name> --eventType <event-type> [--st
 
 Boundary policy:
 
-1. Emit `agent-start` immediately before invoking each subordinate agent.
+1. Emit `agent-start` immediately before invoking each subordinate agent (including `@qa-agent`).
 2. Emit `agent-complete` after expected outputs are verified.
 3. Emit `stage-transition` when the stage advances.
 4. Emit `agent-error` and `workflow-error` before stopping on failure.
-5. Emit `workflow-complete` once checklist update succeeds.
+5. Emit `qa-pass` after `@qa-agent` clears a stage's quality checks.
+6. Emit `qa-fail` when `@qa-agent` fails after all retries; then stop the pipeline.
+7. Emit `workflow-complete` once checklist update and final QA succeed.
 
 The writer validates against `knowledge/capabilities/docs-refactor/.telemetry.schema.json` and appends JSONL lines to `knowledge/capabilities/docs-refactor/.telemetry.log`.
 
@@ -100,15 +103,17 @@ For Stage 2 (parallel agents), check separately:
 
 #### Phase 2 — Gate 1: Confirm pipeline run
 
-9. **Present the agent queue** — list every agent that will run given the current stage, in order. For stage 2, note that `generate-examples-agent` and `dos-donts-agent` can run in parallel if both are needed.
+9. **Present the agent queue** — list every agent that will run given the current stage, in order. For stage 2, note that `generate-examples-agent` and `dos-donts-agent` can run in parallel if both are needed. Note that `@qa-agent` runs after every worker agent and is not listed separately — it is part of each step.
 
 10. **Ask the user for confirmation** before invoking any agent:
 
     > "Ready to run the pipeline for **[ComponentName]** from stage [N]. The following agents will run in order:
     >
-    > 1. `@[agent-1]` — [one-line description of what it will do]
-    > 2. `@[agent-2]` — [one-line description]
+    > 1. `@[agent-1]` — [one-line description of what it will do] *(followed by `@qa-agent` quality check)*
+    > 2. `@[agent-2]` — [one-line description] *(followed by `@qa-agent` quality check)*
     >    …
+    >
+    > `@qa-agent` runs after each step. If QA fails, the worker re-runs automatically (up to 2 retries) before escalating to you.
     >
     > Proceed? (yes / no)"
     - If the user says **no**: stop. Report the final confirmed stage.
@@ -116,13 +121,38 @@ For Stage 2 (parallel agents), check separately:
 
 #### Phase 3 — Delegation loop
 
-Run each agent in order. After every invocation, re-check the relevant files to confirm the stage advanced before continuing to the next agent. If an expected output file is missing after an agent completes, report the failure (see Error Handling below) and stop.
+Run each agent in order. After every invocation, re-check the relevant files to confirm the stage advanced, then invoke `@qa-agent` to validate output quality before advancing. If an expected output file is missing, report the failure (see Error Handling below) and stop before invoking QA.
+
+**QA wrap pattern** — apply after every worker agent's output files are verified:
+
+1. Invoke `@qa-agent [name] [stage-id]`.
+2. **If PASS**: emit `qa-pass` telemetry and advance to the next stage.
+3. **If FAIL**: re-invoke the worker agent, passing the QA report as context: *"Re-running @[worker-agent] [name]. Previous QA check found: [issues list]."* Then invoke `@qa-agent [name] [stage-id]` again.
+   - If PASS: emit `qa-pass` telemetry and advance.
+   - If FAIL: re-invoke the worker one final time with the updated QA report. Then invoke `@qa-agent [name] [stage-id]` one last time.
+     - If PASS: emit `qa-pass` telemetry and advance.
+     - If FAIL: emit `qa-fail` and `workflow-error` telemetry. Present the full QA report to the user and **stop the pipeline**. Suggest re-running `@[worker-agent] [name]` manually after the user resolves the issues.
+
+Maximum retries: **2** (3 total attempts). Never exceed this limit.
+
+**QA telemetry commands** (substitute the actual `[stage-id]` at each step):
+
+```bash
+pnpm telemetry:write --component [name] --eventType agent-start --stage [stage-id] --agent qa-agent
+# ...invoke @qa-agent [name] [stage-id]...
+# If PASS:
+pnpm telemetry:write --component [name] --eventType qa-pass --stage [stage-id] --agent qa-agent --status success
+# If FAIL after all retries:
+pnpm telemetry:write --component [name] --eventType qa-fail --stage [stage-id] --agent qa-agent --status failure --error "[summary of issues]"
+pnpm telemetry:write --component [name] --eventType workflow-error --stage [stage-id] --status failure --error "QA check failed after 2 retries at [stage-id]"
+```
 
 For every step below, emit telemetry in this order:
 
 1. `agent-start` before invoking the agent
 2. `agent-complete` after verifying expected outputs
-3. `stage-transition` after confirming stage advancement
+3. Apply the **QA wrap** (as above) before emitting `stage-transition`
+4. `stage-transition` after QA passes and the stage advances
 
 **Stage 0 → 1:** Invoke `@extract-yaml-agent [name]`
 
@@ -142,6 +172,8 @@ After completion, verify:
 - `knowledge/core/data/components/[name].yaml` exists
 - `apps/docs/src/pages/components/[name].mdx.bak` exists
 
+Then apply the **QA wrap** for stage `extracted`.
+
 **Stage 1 → 2:** Invoke `@generate-mdx-agent [name]`
 
 > "Invoking @generate-mdx-agent…"
@@ -159,6 +191,8 @@ After completion, verify:
 
 - `apps/docs/src/pages/components/[name].mdx` exists
 - Rescan MDX for remaining TODO placeholders to set up the correct Stage 2 sub-tasks
+
+Then apply the **QA wrap** for stage `generated`.
 
 **Stage 2 → 3:** Invoke agents in parallel based on remaining TODOs
 
@@ -183,6 +217,8 @@ pnpm telemetry:write --component [name] --eventType stage-transition --stage exa
 ```
 
 After completion, rescan the MDX. If TODOs still remain, report which placeholders were not replaced and stop.
+
+Then apply the **QA wrap** for stage `examples-complete`.
 
 **Stage 3 → 4: Gate 2 — Confirm `.bak` deletion**
 
@@ -210,6 +246,8 @@ After completion, verify:
 - `apps/docs/todos/DEPRECATED-[name].md` exists
 - `apps/docs/src/pages/components/[name].mdx.bak` no longer exists
 
+Then apply the **QA wrap** for stage `todos-created`.
+
 **Stage 4 → 6:** Invoke `@review-copy-agent [name]`, then `@verify-render-agent [name]`, then `@update-checklist-agent [name]`
 
 > "Invoking @review-copy-agent…"
@@ -223,7 +261,9 @@ pnpm telemetry:write --component [name] --eventType agent-complete --stage revie
 pnpm telemetry:write --component [name] --eventType stage-transition --stage reviewed --status success --metadata '{"fromStage":"todos-created","toStage":"reviewed"}'
 ```
 
-After the copy review completes, invoke `@verify-render-agent [name]`.
+Then apply the **QA wrap** for stage `reviewed`.
+
+After the copy review QA passes, invoke `@verify-render-agent [name]`.
 
 > "Invoking @verify-render-agent…"
 
@@ -236,9 +276,11 @@ pnpm telemetry:write --component [name] --eventType agent-complete --stage rende
 pnpm telemetry:write --component [name] --eventType stage-transition --stage rendered --status success --metadata '{"fromStage":"reviewed","toStage":"rendered"}'
 ```
 
-If the build fails, report the errors returned by `verify-render-agent` and stop the pipeline — do not proceed to Stage 5 until the build passes.
+If the build fails, report the errors returned by `verify-render-agent` and stop the pipeline — do not proceed until the build passes.
 
-If the build passes, invoke `@update-checklist-agent [name]` to mark the component complete in the plan.
+If the build passes, apply the **QA wrap** for stage `rendered`. When invoking `@qa-agent [name] rendered`, include the full verify-render report in the invocation context: *"Invoking @qa-agent [name] rendered. verify-render report: [paste full report]."*
+
+After the rendered QA passes, invoke `@update-checklist-agent [name]` to mark the component complete in the plan.
 
 > "Invoking @update-checklist-agent…"
 
@@ -252,7 +294,9 @@ pnpm telemetry:write --component [name] --eventType stage-transition --stage com
 pnpm telemetry:write --component [name] --eventType workflow-complete --stage complete --status success --durationMs [workflow-ms]
 ```
 
-After all three complete, present a final summary:
+Then apply the **QA wrap** for stage `complete`.
+
+After all three complete and QA passes, present a final summary:
 
 > "Pipeline complete for **[ComponentName]**.
 >
@@ -281,6 +325,19 @@ Example:
 
 > "**Pipeline error at Stage 1:** `@generate-mdx-agent` completed but `apps/docs/src/pages/components/[name].mdx` was not found. Re-run `@generate-mdx-agent [name]` to retry this step."
 
+If `@qa-agent` fails after 2 retries:
+
+1. Present the full QA report to the user.
+2. Suggest resolving each listed issue manually, then re-running `@[worker-agent] [component-name]` followed by `@docs-refactor-orchestrator [component-name]` to resume.
+3. Emit telemetry failure events:
+
+```bash
+pnpm telemetry:write --component [name] --eventType qa-fail --stage [current-stage] --agent qa-agent --status failure --error "[summary of issues]"
+pnpm telemetry:write --component [name] --eventType workflow-error --stage [current-stage] --status failure --error "QA check failed after 2 retries at [current-stage]"
+```
+
+4. Stop the pipeline. Do not advance to the next stage until the issue is resolved and `@qa-agent` returns PASS.
+
 If a Gate refusal occurs at any point, report the final confirmed stage and stop cleanly.
 
 ### All-components mode (no component name provided)
@@ -296,6 +353,7 @@ If a Gate refusal occurs at any point, report the final confirmed stage and stop
 - **Never modify files directly.** All file edits go through subordinate agents.
 - **Never guess** about file existence — always check.
 - **Never skip a Gate.** Gate 1 and Gate 2 must both be presented and confirmed before the relevant agents run.
+- **Never skip QA.** `@qa-agent` must run after every worker agent before advancing to the next stage. If `@qa-agent` returns FAIL, apply the retry policy defined in Phase 3 — do not advance regardless of time pressure.
 - If the component name is ambiguous (e.g., matches multiple paths like `card/index`, `card/navigational-card`), list all matches and ask the user to clarify.
 
 ## Inputs
@@ -353,27 +411,34 @@ Example sequence:
 ```
 > Invoking @extract-yaml-agent for checkbox…
 ✓ Stage 0 → 1 complete. YAML and .mdx.bak created.
+> QA: ✓ PASS (extracted)
 
 > Invoking @generate-mdx-agent for checkbox…
 ✓ Stage 1 → 2 complete. MDX generated (3 use case TODOs, 2 do/don't TODOs remaining).
+> QA: ✓ PASS (generated)
 
 > Invoking @generate-examples-agent for checkbox…
 > Invoking @dos-donts-agent for checkbox…
 ✓ Stage 2 → 3 complete. All TODO placeholders replaced.
+> QA: ✓ PASS (examples-complete)
 
 [Gate 2 warning presented here]
 
 > Invoking @create-todos-agent for checkbox…
 ✓ Stage 3 → 4 complete. TODO-checkbox.md and DEPRECATED-checkbox.md created. .mdx.bak deleted.
+> QA: ✓ PASS (todos-created)
 
 > Invoking @review-copy-agent for checkbox…
 ✓ Copy review complete.
+> QA: ✓ PASS (reviewed)
 
 > Invoking @verify-render-agent for checkbox…
 ✓ Docs build verification complete.
+> QA: ✓ PASS (rendered)
 
 > Invoking @update-checklist-agent for checkbox…
 ✓ Stage 4 → 6 complete. Checklist updated.
+> QA: ✓ PASS (complete)
 
 [Copy review output]
 

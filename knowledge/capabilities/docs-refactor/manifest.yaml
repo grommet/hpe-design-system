@@ -41,6 +41,7 @@ spec:
       - agents/review-copy.agent.md
       - agents/verify-render.agent.md
       - agents/update-checklist.agent.md
+      - agents/qa.agent.md
     skills:
       - docs/execution.skill.md
   stages:
@@ -66,5 +67,7 @@ spec:
         - agent-start
         - agent-complete
         - agent-error
+        - qa-pass
+        - qa-fail
         - workflow-complete
         - workflow-error

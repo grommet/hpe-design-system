@@ -23,23 +23,26 @@ This skill describes how to execute the docs-refactor capability workflow for a 
 
 ## The Agent Pipeline
 
-The docs-refactor workflow is driven by an orchestrator (`docs-refactor-orchestrator`) that manages eight specialized agents in sequence:
+The docs-refactor workflow is driven by an orchestrator (`docs-refactor-orchestrator`) that manages eight specialized agents in sequence, with `qa-agent` running after each one:
 
 ```
 [1] extract-yaml-agent
-         ↓
+         ↓ @qa-agent (extracted)
 [2] generate-mdx-agent
-         ↓
+         ↓ @qa-agent (generated)
 [3] generate-examples-agent  +  [4] dos-donts-agent   ← parallel
-         ↓
+         ↓ @qa-agent (examples-complete)
 [5] create-todos-agent
-         ↓
+         ↓ @qa-agent (todos-created)
 [6] review-copy-agent
-         ↓
+         ↓ @qa-agent (reviewed)
 [7] verify-render-agent
-         ↓
+         ↓ @qa-agent (rendered)
 [8] update-checklist-agent
+         ↓ @qa-agent (complete)
 ```
+
+`@qa-agent` is read-only and purely evaluative — it never edits files. If QA fails, the orchestrator automatically re-runs the preceding worker agent with the QA findings as context (up to 2 retries). After 2 failed retries the pipeline halts and escalates to you.
 
 **Shortcut**: Run `@docs-refactor-orchestrator` with no argument to see the status of all components in a single report.
 
@@ -69,7 +72,7 @@ The orchestrator will:
 1. Scan the filesystem to detect the current pipeline stage for your component.
 2. Present a status report showing what files exist and any blockers.
 3. List the agents it will delegate to and ask for your confirmation before starting.
-4. Run agents in sequence: `extract-yaml-agent` → `generate-mdx-agent` → `generate-examples-agent` / `dos-donts-agent` → `create-todos-agent` → `review-copy-agent` → `verify-render-agent` → `update-checklist-agent`.
+4. Run agents in sequence: `extract-yaml-agent` → `generate-mdx-agent` → `generate-examples-agent` / `dos-donts-agent` → `create-todos-agent` → `review-copy-agent` → `verify-render-agent` → `update-checklist-agent`. After each agent, `@qa-agent` evaluates the outputs and the orchestrator retries the worker (up to 2 times) if QA fails.
 5. Pause before `create-todos-agent` deletes the `.mdx.bak` file (backup of old MDX) — this is your last chance to inspect the old version.
 6. After copy review, run a docs build check automatically and update the checklist.
 7. Remind you to address any must-fix copy-review items.
