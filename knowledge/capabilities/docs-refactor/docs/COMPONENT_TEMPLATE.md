@@ -12,13 +12,63 @@ component properties and inspect code -- similar to an embedded Storybook exampl
 
 ## Use cases (mandatory)
 
-Document the specific scenarios in which this component is the right choice. Each use case is a `###` subheading followed by one or two sentences describing the scenario, then a coded example that demonstrates it.
+Document the specific scenarios in which this component is the right choice. Each use case is a `###` subheading followed by a rich description and a coded example that demonstrates it.
 
 - **Name each use case using a gerund phrase** (verb + -ing + object), e.g., "Submitting a form", "Triggering UI changes", "Toggling between states". This creates consistent, scannable subheadings across all component pages.
 - **Describe the user's task or goal** (e.g., "Specifying a location", "Opting into an agreement"), NOT a structural UI rationale (e.g., "Conserving screen space", "When there are 5 or more items").
 - Each subheading answers: *"In what specific situation would I reach for this component?"*
 - Do NOT include counter-indications ("when not to use") here. Counter-indications have a clear opposing pattern and belong in a section that documents paired do/don't comparisons. If no section fits, log the content in the TODO or DEPRECATED file.
 - Do NOT use a flat bulleted list of actions. Every use case must be a named `###` subheading.
+
+### Prose depth rule
+
+Write **three to five sentences** per use case description. Do NOT copy the YAML `whenToUse` item verbatim — that is a one-sentence summary. The MDX description is the expanded, human-facing version. Each description must cover all four of these:
+
+1. **Goal** — the user's task stated as a concrete action (e.g., "The user selects which notification channels receive alerts before saving their account preferences.")
+2. **Context** — the host component or page region this component lives inside, named explicitly (e.g., "inside a `Form` with a submit `Button`", "inside a `DataTable` `Toolbar`", "standalone, no host required")
+3. **Data** — the specific content present in the scene with realistic values, not placeholders (e.g., "four checkboxes — Email, SMS, Push notifications, Slack — with Email pre-checked by default")
+4. **Outcome** — what the user does and what changes in the UI as a direct result (e.g., "checking a row reveals a bulk action bar with Delete and Export buttons")
+
+The description must be specific enough that a developer could implement a representative coded example without asking a follow-up question.
+
+### TODO brief format
+
+When no coded example exists yet, insert a multi-line structured brief as the placeholder comment. Populate every field with specifics — a thin brief produces a thin example.
+
+```
+{/* TODO: [Use case name]
+
+  GOAL
+  [What the user is trying to accomplish as a concrete task sentence.]
+
+  CONTEXT
+  [The host component or page region. Name it explicitly — e.g.
+  "Inside a Form with a submit Button", "Inside a DataTable Toolbar",
+  "Standalone, no host required".]
+
+  DATA
+  [Specific fields and realistic values present in the scene.
+  Not "Item 1, Item 2" — e.g. "4 checkboxes: Email, SMS, Push,
+  Slack. Email pre-checked by default."]
+
+  INTERACTION
+  [What the user does and what changes as a direct result.
+  e.g. "Checking a row reveals a bulk action bar with Delete and
+  Export buttons."]
+
+  STATE
+  [Whether useState is needed. Variable names, types, and shapes.
+  e.g. "selected: string[] — ids of checked rows."]
+
+  LAYOUT
+  [Approximate height prop, wrapper, padding.
+  e.g. "height={{ min: 'small' }}, Box pad='medium'."]
+
+  CONSTRAINTS
+  [What must NOT appear, and which props must be demonstrated.
+  e.g. "Never use RadioButtonGroup. Must show multi-select is valid."]
+*/}
+```
 
 ## Anatomy (mandatory)
 

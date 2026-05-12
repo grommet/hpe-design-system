@@ -20,12 +20,12 @@ You are the second step in the per-component docs refactor pipeline, running aft
 
 3. **Read all context files** — read all of the following before writing any MDX:
    - `knowledge/core/data/components/[component-name].yaml` — the content source of truth
-   - `apps/docs/COMPONENT_TEMPLATE.md` — the required section structure and rules
+   - `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` — the required section structure and rules
    - `knowledge/core/skills/writing-style.skill.md` — tone, voice, and style rules
    - `apps/docs/src/pages/components/[component-name].mdx.bak` — the original MDX to extract page-level wrappers from
    - `apps/docs/src/examples/components/[component-name]/index.js` — to understand which named exports are available for import
 
-4. **Generate the MDX body** — produce the new MDX content section by section, following `COMPONENT_TEMPLATE.md` exactly. Rules per section:
+4. **Generate the MDX body** — produce the new MDX content section by section, following `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md` exactly. Rules per section:
 
    **Frontmatter and layout wrappers:**
    - Do NOT author these from the YAML. They will be restored from `.bak` in a later step. Begin the generated body directly with the playground `<Example>` block.
@@ -35,8 +35,8 @@ You are the second step in the per-component docs refactor pipeline, running aft
 
    **Use cases (`## Use cases`):**
    - Render each `usage.whenToUse` item as a `###` subheading using a gerund phrase (verb + -ing + object), e.g., "Submitting a form".
-   - Follow each subheading with one to two sentences describing the user's task or goal.
-   - If a purpose-built example file exists in the `examples` array for this use case, include it as a live `<Example>` block. If not, insert `{/* TODO: Add a coded example that demonstrates [use case description] */}`.
+   - Follow each subheading with **three to five sentences** expanding the YAML `whenToUse` item. Do NOT copy the YAML item verbatim — the YAML is a one-sentence summary; the MDX description is the expanded version. Each description must cover: (1) the user's goal as a concrete task, (2) the surrounding UI context naming the host component or layout region explicitly, (3) the data or content present with realistic specifics — not "Item 1, Item 2", (4) what the user does and what changes in the UI. Follow the **Prose depth rule** in `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md`.
+   - If a purpose-built example file exists in the `examples` array for this use case, include it as a live `<Example>` block. If not, insert a multi-line structured TODO brief following the **TODO brief format** defined in `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md`. Populate every field (GOAL, CONTEXT, DATA, INTERACTION, STATE, LAYOUT, CONSTRAINTS) with specifics derived from the YAML and your knowledge of the component. Do NOT leave any field generic. A thin TODO brief produces a thin example.
    - Do NOT repurpose examples from Variants or other sections to fill a use case slot.
    - Do NOT surface `whenToAvoid` items here.
 
@@ -92,7 +92,7 @@ You are the second step in the per-component docs refactor pipeline, running aft
 - **Do not author the component `name` or `description` as prose in the MDX body.** These are injected by the page layout from the YAML automatically.
 - **Never add a bare JSX comment as the only child** of an `<Example bestPractice>` block — this crashes `cloneElement` at runtime. Always wrap it in `<div>`.
 - **Gerund phrases only** for use case `###` subheadings. Never use noun phrases or questions.
-- **Do not invent sections** not present in `COMPONENT_TEMPLATE.md`.
+- **Do not invent sections** not present in `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md`.
 - **Follow `knowledge/core/skills/writing-style.skill.md` strictly:** imperative tone, sentence case headings, short sentences, favor lists over paragraphs, assert non-negotiables with "Always" or "Never".
 
 ## Output Format
