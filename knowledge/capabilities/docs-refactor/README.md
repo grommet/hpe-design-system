@@ -28,7 +28,7 @@ See `docs/execution.skill.md` for the detailed per-component workflow.
 
 ## Agents
 
-Nine specialized agents compose the pipeline:
+Ten specialized agents compose the pipeline:
 
 1. `agents/extract-yaml.agent.md` — Reverse-engineer legacy MDX to YAML
 2. `agents/generate-mdx.agent.md` — Synthesize standardized MDX from YAML
@@ -38,7 +38,8 @@ Nine specialized agents compose the pipeline:
 6. `agents/review-copy.agent.md` — Audit writing quality and apply fixes
 7. `agents/verify-render.agent.md` — Run build and auto-repair known errors
 8. `agents/update-checklist.agent.md` — Mark component complete in plan
-9. `docs-refactor-orchestrator.agent.md` — Master controller and stage detector
+9. `agents/qa.agent.md` — Evaluate agent outputs and return PASS/FAIL quality reports (read-only; runs after every worker agent)
+10. `docs-refactor-orchestrator.agent.md` — Master controller and stage detector
 
 The orchestrator remains at the capability root for discoverability; subordinate agents are grouped under `agents/`.
 
