@@ -215,13 +215,12 @@ export const DesignTokensTable = ({
           <DataSummary />
         </>
       ) : undefined}
-      <Box height={{ max: 'xlarge' }} overflow="auto">
+      <Box width="max-content" height={{ max: 'xlarge' }} overflow="auto">
         <DataTable
           aria-describedby="token-table-heading"
           verticalAlign="top"
           primaryKey="id"
           columns={columns}
-          style={{ minWidth: 'max-content' }}
         />
       </Box>
     </Data>
