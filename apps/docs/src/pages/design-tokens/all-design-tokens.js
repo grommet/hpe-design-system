@@ -10,9 +10,12 @@ import {
   Layer,
   Notification,
   ResponsiveContext,
+  Text,
+  Anchor,
 } from 'grommet';
 import { Close, Folder, Menu } from '@hpe-design/icons-grommet';
 import { ThemeContext } from 'styled-components';
+import { SelectorGroup, Selector } from '@shared/aries-core';
 import {
   structuredTokens,
   DesignTokenContext,
@@ -20,10 +23,70 @@ import {
   useDesignTokens,
 } from '../../components';
 
-const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
+const FLAVORS = [
+  {
+    value: 'hpe',
+    title: 'HPE Design Tokens',
+    subtitle: 'Available via hpe-design-tokens package',
+  },
+  {
+    value: 'grommet',
+    title: 'Tokens for Grommet Theme HPE',
+    subtitle: 'Available via grommet-theme-hpe',
+  },
+  {
+    value: 'figma',
+    title: 'Tokens for Figma',
+    subtitle: 'Available via Figma variables',
+  },
+];
+
+const FLAVOR_MESSAGES = {
+  hpe: {
+    message:
+      // eslint-disable-next-line max-len
+      'These are the design tokens available via the hpe-design-tokens package. Use this view when you need the base values that all other deliveries are based from.',
+  },
+  grommet: {
+    message: (
+      <Text>
+        These tokens represent how the base values are implemented in the
+        grommet-theme-hpe package. Grommet already includes many foundational
+        tokens out of the box, so this view provides only the tokens necessary
+        to build layouts that follow the HPE theme. Visit{' '}
+        <Anchor href="/design-tokens/using-design-tokens-in-code">
+          Using tokens in Grommet
+        </Anchor>{' '}
+        for more information.
+      </Text>
+    ),
+  },
+  figma: {
+    message: (
+      <Text>
+        These tokens represent how the base values are implemented in Figma
+        variables. Figma libraries already include many foundational tokens out
+        of the box, so this view provides only the tokens necessary to build
+        layouts that follow the HPE theme. Visit{' '}
+        <Anchor href="/design-tokens/using-design-tokens-in-figma">
+          Using design tokens in Figma
+        </Anchor>{' '}
+        for more information.
+      </Text>
+    ),
+  },
+};
+
+const NavSection = ({
+  active,
+  collection,
+  setActive,
+  tokens: tokensObj,
+  allTokens,
+}) => {
   const activeParts = active.split('.');
   const [open, setOpen] = useState(
-    activeParts[activeParts.length - 1] in structuredTokens[collection],
+    activeParts[activeParts.length - 1] in (allTokens || tokensObj)[collection],
   );
 
   return (
@@ -63,6 +126,7 @@ const Nav = ({ active, setActive, tokens: tokensObj }) => {
     <NavSection
       key={collection}
       tokens={tokensObj}
+      allTokens={tokensObj}
       collection={collection}
       active={active}
       setActive={setActive}
@@ -111,12 +175,30 @@ const AllTokens = () => {
     selectedMode,
     setSelectedMode,
     modes,
+    flavor,
+    setFlavor,
+    syntax,
+    setSyntax,
   } = useDesignTokens('semantic.color');
 
   useEffect(() => {
     if (openLayer && ['large', 'xlarge'].includes(breakpoint))
       setOpenLayer(false);
   }, [breakpoint, openLayer]);
+
+  // When switching to Grommet/Figma (semantic-only), reset active if it is
+  // currently pointing at a non-semantic collection (primitives / component).
+  useEffect(() => {
+    if (flavor !== 'hpe' && !active.startsWith('semantic')) {
+      setActive('semantic.color');
+    }
+  }, [flavor, active, setActive]);
+
+  // Semantic-only structured tokens for Grommet and Figma nav
+  const navTokens =
+    flavor !== 'hpe'
+      ? { semantic: structuredTokens.semantic }
+      : structuredTokens;
 
   const contextValue = useMemo(
     () => ({
@@ -127,8 +209,24 @@ const AllTokens = () => {
       selectedMode,
       setSelectedMode,
       modes,
+      flavor,
+      setFlavor,
+      syntax,
+      setSyntax,
     }),
-    [data, setData, active, setActive, selectedMode, setSelectedMode, modes],
+    [
+      data,
+      setData,
+      active,
+      setActive,
+      selectedMode,
+      setSelectedMode,
+      modes,
+      flavor,
+      setFlavor,
+      syntax,
+      setSyntax,
+    ],
   );
 
   const onActive = value => {
@@ -137,7 +235,7 @@ const AllTokens = () => {
   };
 
   const navContent = (
-    <Nav tokens={structuredTokens} active={active} setActive={onActive} />
+    <Nav tokens={navTokens} active={active} setActive={onActive} />
   );
 
   const activeCollection = active
@@ -150,73 +248,107 @@ const AllTokens = () => {
   return (
     <DesignTokenContext.Provider value={contextValue}>
       <Page>
-        <Box direction="row" gap="xlarge">
-          {['large', 'xlarge'].includes(breakpoint) ? (
-            <Box
-              flex="grow"
-              style={{
-                position: 'sticky',
-                top: theme.global.edgeSize.medium,
-              }}
-              height="100vh"
+        <PageContent pad="none" alignSelf="start">
+          {/* Flavor selector */}
+          <Box pad={{ bottom: 'medium' }}>
+            <SelectorGroup
+              a11yTitle="Select token flavor"
+              value={flavor}
+              onSelect={({ value: nextFlavor }) => setFlavor(nextFlavor)}
+              layout="fit"
             >
-              <NavPane overflow="auto">{navContent}</NavPane>
-            </Box>
-          ) : undefined}
-          <PageContent pad="none" alignSelf="start">
-            <Box pad="medium" round="xlarge" background="background-front">
-              <Box direction="row" align="center" gap="xsmall">
-                {!['large', 'xlarge'].includes(breakpoint) ? (
-                  <Button
-                    icon={<Menu />}
-                    a11yTitle="Open design tokens menu"
-                    margin={{ top: '3xsmall' }}
-                    onClick={() => setOpenLayer(true)}
-                  />
-                ) : undefined}
-                <Heading level={2} margin="none" id="token-table-heading">
-                  {activeCollection}
-                </Heading>
+              {FLAVORS.map(f => (
+                <Selector
+                  key={f.value}
+                  value={f.value}
+                  indicator={false}
+                  pad="small"
+                >
+                  <Box>
+                    <Text weight="bold" size="small">
+                      {f.title}
+                    </Text>
+                    <Text size="xsmall" color="text-weak">
+                      {f.subtitle}
+                    </Text>
+                  </Box>
+                </Selector>
+              ))}
+            </SelectorGroup>
+          </Box>
+          {/* Flavor info message */}
+          <Notification
+            status="info"
+            message={FLAVOR_MESSAGES[flavor]?.message}
+            margin={{ bottom: 'medium' }}
+          />
+          <Box direction="row" gap="xlarge">
+            {['large', 'xlarge'].includes(breakpoint) ? (
+              <Box
+                flex={false}
+                width="small"
+                style={{
+                  position: 'sticky',
+                  top: theme.global.edgeSize.medium,
+                }}
+                height="100vh"
+              >
+                <NavPane overflow="auto">{navContent}</NavPane>
               </Box>
-              {/* eslint-disable-next-line no-nested-ternary */}
-              {active.includes('base') ? (
-                <Notification
-                  status="warning"
-                  message={`Base tokens should never be used directly. 
+            ) : undefined}
+            <Box flex="grow">
+              <Box pad="medium" round="xlarge" background="background-front">
+                <Box direction="row" align="center" gap="xsmall">
+                  {!['large', 'xlarge'].includes(breakpoint) ? (
+                    <Button
+                      icon={<Menu />}
+                      a11yTitle="Open design tokens menu"
+                      margin={{ top: '3xsmall' }}
+                      onClick={() => setOpenLayer(true)}
+                    />
+                  ) : undefined}
+                  <Heading level={2} margin="none" id="token-table-heading">
+                    {activeCollection}
+                  </Heading>
+                </Box>
+                {/* eslint-disable-next-line no-nested-ternary */}
+                {active.includes('base') ? (
+                  <Notification
+                    status="warning"
+                    message={`Base tokens should never be used directly. 
                 Semantic or component tokens should be used instead. 
                 These are here purely for documentation.`}
-                  margin={{ top: 'xsmall' }}
-                />
-              ) : active.includes('static') ? (
-                <Notification
-                  status="info"
-                  message={`Static tokens should never be used to compose 
+                    margin={{ top: 'xsmall' }}
+                  />
+                ) : active.includes('static') ? (
+                  <Notification
+                    status="info"
+                    message={`Static tokens should never be used to compose 
                     layouts; use semantic tokens instead. Static tokens may
                     be used for custom "elements" when element tokens 
                     don't suffice.`}
-                  margin={{ top: 'xsmall' }}
-                  actions={[
-                    {
-                      label: 'Learn about element tokens',
-                      href: '/design-tokens/element',
-                    },
-                  ]}
+                    margin={{ top: 'xsmall' }}
+                    actions={[
+                      {
+                        label: 'Learn about element tokens',
+                        href: '/design-tokens/element',
+                      },
+                    ]}
+                  />
+                ) : undefined}
+                <DesignTokensTable
+                  active={active}
+                  data={data}
+                  maxHeight={false}
+                  toolbar
                 />
-              ) : undefined}
-              <DesignTokensTable
-                active={active}
-                data={data}
-                maxHeight={false}
-                toolbar
-              />
+              </Box>
             </Box>
-          </PageContent>
-          {openLayer && (
-            <NavLayer onClose={() => setOpenLayer(false)}>
-              {navContent}
-            </NavLayer>
-          )}
-        </Box>
+          </Box>
+        </PageContent>
+        {openLayer && (
+          <NavLayer onClose={() => setOpenLayer(false)}>{navContent}</NavLayer>
+        )}
       </Page>
     </DesignTokenContext.Provider>
   );
