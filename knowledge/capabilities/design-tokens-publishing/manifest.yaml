@@ -1,0 +1,15 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: design-tokens-publishing
+  version: 1.0.0
+  status: planned
+  owner: design-system
+spec:
+  summary: Coordinate token updates from source changes through package generation and release checks.
+  entrypoint:
+    agent: design-tokens-publishing-orchestrator
+    args: "<token-scope>"
+  assets:
+    agents:
+      - design-tokens-publishing-orchestrator.agent.md
