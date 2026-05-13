@@ -8,6 +8,7 @@ import StickerSheet from './pages/sticker-sheet/index';
 import HoverStaging from './pages/hover-staging/index';
 import { Layouts, routes as layoutRoutes } from './pages/layouts';
 import { GlobalHeader } from './components/GlobalHeader';
+import { Login } from './Login';
 import { FloatingActionButton } from './components';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
 import {
@@ -25,6 +26,13 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem('darkMode') === 'true' || false,
   );
+
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem('design-tokens-demo') || false,
+  );
+  useEffect(() => {
+    if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
+  }, []);
   useEffect(() => {
     if (darkMode) localStorage.setItem('darkMode', 'true');
     else localStorage.setItem('darkMode', 'false');
@@ -70,7 +78,8 @@ const App = () => {
       }}
       style={{ display: 'relative' }}
     >
-      {loading ? (
+      {authenticated ? (
+        loading ? (
         <Box
           background="background"
           align="center"
@@ -133,6 +142,8 @@ const App = () => {
             ) : undefined}
           </WorkspaceContext.Provider>
         </BackgroundContext.Provider>
+      ) : (
+        <Login setAuthenticated={setAuthenticated} />
       )}
     </Grommet>
   );
