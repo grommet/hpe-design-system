@@ -100,6 +100,11 @@ const StickerSheet = () => {
               subtitle={`To be used for visual regression comparisons from 
             current theme to the next.`}
               parent={<Anchor as={Link} to="/" label="Home" icon={<Left />} />}
+              actions={
+                <Anchor as={Link} to="/hover-staging">
+                  Hover state staging →
+                </Anchor>
+              }
               // hide actions from demo deploy
               // actions={
               //   <Box direction="row" gap="xsmall">
