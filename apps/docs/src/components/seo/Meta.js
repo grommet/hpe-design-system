@@ -22,7 +22,7 @@ export const Meta = ({
   const trustarcImg = 'https://consent.trustarc.com/get https://consent-pref.trustarc.com/defaultconsentmanager/optin';
   const trustarcFont = 'https://consent.trustarc.com/get';
   const csp = `default-src 'self' 'unsafe-eval';
-  style-src 'self' *.hpe.com/hfws-static/6/css/ 'unsafe-inline';
+  style-src 'self' *.hpe.com/hfws-static/6/css/ *.hpe.com/hfws-static/6/min/css/ 'unsafe-inline';
   connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://api.github.com/repos/grommet/hpe-design-system/pulls https://api.github.com/repos/grommet/hpe-design-system/commits https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://iad1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/ https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json ${trustarcConnect};
   media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/;
   img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/ https://d3hq6blov2iije.cloudfront.net/images/textures/ https://d3hq6blov2iije.cloudfront.net/images/gradients/ https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/ ${trustarcImg};
