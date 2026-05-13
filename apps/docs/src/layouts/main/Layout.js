@@ -148,7 +148,8 @@ export const Layout = ({
           gridArea="nav"
           as="aside"
           aria-label="navigation"
-          background="background-front" />
+          background="background-front"
+        />
         <AppHeader
           gridArea="header"
           background="background-back"
