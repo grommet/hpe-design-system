@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
 import {
+  Grid,
   Main,
   Page,
   ResponsiveContext,
@@ -10,9 +11,8 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
-  Grid,
 } from 'grommet';
-import { AppHeader, DocsLayout } from '..';
+import { DocsLayout } from '..';
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
 import { getPrimaryPageByName, structureIndexes } from '../../data';
@@ -21,6 +21,7 @@ import { getRelatedContent } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
+import { AppHeader } from './AppHeader';
 import { Navigation } from '../navigation';
 
 const gridAreas = [
@@ -83,60 +84,82 @@ export const Layout = ({
     setPageUpdateReady(false);
   }, [setPageUpdateReady, title]);
 
+  const mainContent = (
+    <Stack
+      fill
+      guidingChild={backgroundImage && 'last'}
+    >
+      {backgroundImage && (
+        <PageBackground
+          backgroundImage={backgroundImage}
+        />
+      )}
+      <Page>
+        {layout !== 'plain' ? (
+          <DocsLayout
+            title={title}
+            topic={topic}
+            render={render}
+            headings={headings}
+            relatedContent={relatedContent}
+            showInPageNav={showInPageNav}
+            pageUpdateReady={pageUpdateReady}
+            contentHistory={contentHistory}
+          >
+            {children}
+          </DocsLayout>
+        ) : (
+          <>
+            <SkipLinkTarget
+              id="main"
+              label="Main content"
+            />
+            {children}
+          </>
+        )}
+      </Page>
+      <UserFeedback />
+    </Stack>
+  );
+
   return (
     <>
       <Meta
         title={title}
         render={render}
         description={seoDescription}
-        canonicalUrl={`https://design-system.hpe.design${router.route}`}
+        canonicalUrl={
+          `https://design-system.hpe.design${router.route}`
+        }
       />
       <SkipLinks id="skip-links">
         {skiplinks.map(({ id, label }) => (
           <SkipLink key={id} id={id} label={label} />
         ))}
       </SkipLinks>
-      {/* When a backgroundImage is present, the main page content becomes 
-      the `last` child. We want this content to drive the layout.
-      For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
-      <Stack fill guidingChild={backgroundImage && 'last'}>
-        {backgroundImage && (
-          <PageBackground backgroundImage={backgroundImage} />
-        )}
-        <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
-          {/* Only render Header for non-home pages.
-              Homepage header is rendered in index.js
-              to have the same background as the hero. */}
-          {title && title.toLowerCase() !== 'home' && (
-            <AppHeader gridArea="header" />
-          )}
-          <Navigation gridArea="nav" as="aside" background="background-front" />
-          <Main overflow="visible" gridArea="main">
-            <Page>
-              {layout !== 'plain' ? (
-                <DocsLayout
-                  title={title}
-                  topic={topic}
-                  render={render}
-                  headings={headings}
-                  relatedContent={relatedContent}
-                  showInPageNav={showInPageNav}
-                  pageUpdateReady={pageUpdateReady}
-                  contentHistory={contentHistory}
-                >
-                  {children}
-                </DocsLayout>
-              ) : (
-                <>
-                  <SkipLinkTarget id="main" label="Main content" />
-                  {children}
-                </>
-              )}
-            </Page>
-          </Main>
-          <UserFeedback />
-        </Grid>
-      </Stack>
+      <Grid
+        areas={gridAreas}
+        columns={gridColumns}
+        rows={gridRows}
+        height="100vh"
+      >
+
+        <Navigation
+          gridArea="nav"
+          as="aside"
+          aria-label="navigation"
+          background="background-front" />
+        <AppHeader
+          gridArea="header"
+          background="background-back"
+        />
+        <Main
+          gridArea="main"
+          background="background-back"
+        >
+          {mainContent}
+        </Main>
+      </Grid>
     </>
   );
 };

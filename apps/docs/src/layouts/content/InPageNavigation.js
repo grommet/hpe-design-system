@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
@@ -7,37 +7,49 @@ import { StatusGood } from '@hpe-design/icons-grommet';
 import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
 
-const useActiveHeadingId = (headings, options) => {
+const useActiveHeadingId = (headings, offset = 0) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
-  const observer = useRef();
-  // useEffect finds which page heading is on screen as the user scrolls
+
   useEffect(() => {
-    // if at top of page, do not show active heading on ToC
-    window.onscroll = () => {
-      if (window.pageYOffset === 0) {
+    // Main is the scroll container within the Grid layout
+    const scrollContainer = document.querySelector('main');
+    if (!scrollContainer) return undefined;
+
+    const handleScroll = () => {
+      if (scrollContainer.scrollTop === 0) {
         setActiveHeadingId(null);
-      } else {
-        // find page active page heading
-        const elements = headings.map(heading =>
-          document.getElementById(nameToSlug(heading[1])),
-        );
-        observer.current?.disconnect();
-        observer.current = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry?.isIntersecting) {
-              setActiveHeadingId(entry.target.id);
-            }
-          });
-        }, options);
-        elements.forEach(el => {
-          if (el) {
-            observer.current?.observe(el);
-          }
-        });
+        return;
       }
-      return () => observer.current?.disconnect();
+      // Find the last heading that has scrolled past the top of main.
+      // Measure relative to the scroll container, not the viewport,
+      // since main starts below the header in the grid layout.
+      const containerTop = scrollContainer.getBoundingClientRect().top;
+      let currentId = null;
+      for (let i = 0; i < headings.length; i += 1) {
+        const id = nameToSlug(headings[i][1]);
+        const el = document.getElementById(id);
+        if (el) {
+          const relativeTop = el.getBoundingClientRect().top - containerTop;
+          if (relativeTop <= offset) {
+            currentId = id;
+          }
+        }
+      }
+      setActiveHeadingId(currentId);
     };
-  }, [headings, options]);
+
+    scrollContainer.addEventListener(
+      'scroll', handleScroll,
+    );
+    handleScroll();
+
+    return () => {
+      scrollContainer.removeEventListener(
+        'scroll', handleScroll,
+      );
+    };
+  }, [headings, offset]);
+
   return activeHeadingId;
 };
 
@@ -48,12 +60,8 @@ export const InPageNavigation = ({ headings, title }) => {
   xlarge = parseInt(xlarge.replace('px', ''), 10); // 48
   medium = parseInt(medium.replace('px', ''), 10); // 24
 
-  // top and bottom margin values to calculate intersection window
-  const topMargin = xlarge;
-  const bottomMargin = `-${2 * xlarge}`;
-  const activeId = useActiveHeadingId(headings, {
-    rootMargin: `${topMargin}% 0% ${bottomMargin}% 0%`,
-  });
+  // offset derived from theme tokens (header + content padding)
+  const activeId = useActiveHeadingId(headings, xlarge + medium);
 
   // align "Jump to section" with page title at start
   const marginTop = `${xlarge + medium}px`;
@@ -118,9 +126,14 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Box pad={{ left: subsectionPad, right: '5xsmall' }}>
+            <Box
+              key={index}
+              pad={{
+                left: subsectionPad,
+                right: '5xsmall',
+              }}
+            >
               <Link
-                key={index}
                 href={`#${nameToSlug(headingTitle)}`}
                 passHref
                 legacyBehavior
