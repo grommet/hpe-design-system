@@ -21,6 +21,8 @@ export const Meta = ({
   const trustarcScript = 'https://consent.trustarc.com/notice https://consent.trustarc.com/asset/';
   const trustarcImg = 'https://consent.trustarc.com/get https://consent-pref.trustarc.com/defaultconsentmanager/optin';
   const trustarcFont = 'https://consent.trustarc.com/get';
+  const trustarcFrame = 'https://consent-pref.trustarc.com/';
+
   const csp = `default-src 'self' 'unsafe-eval';
   style-src 'self' *.hpe.com/hfws-static/6/css/ *.hpe.com/hfws-static/6/min/css/ 'unsafe-inline';
   connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://api.github.com/repos/grommet/hpe-design-system/pulls https://api.github.com/repos/grommet/hpe-design-system/commits https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://iad1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/ https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json ${trustarcConnect};
@@ -31,6 +33,7 @@ export const Meta = ({
     process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
   };
   font-src *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/ ${trustarcFont};
+  frame-src ${trustarcFrame};
   object-src 'none';`;
 
   /*
