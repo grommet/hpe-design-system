@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
@@ -10,17 +10,14 @@ import { ViewContext } from '../../pages/_app';
 const useActiveHeadingId = (headings, options) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
   const observer = useRef();
-
   // useEffect finds which page heading is on screen as the user scrolls
   useEffect(() => {
-    // Main is the scroll container in the Grid layout
-    const scrollContainer = document.querySelector('main');
-    if (!scrollContainer) return undefined;
-
-    const handleScroll = () => {
-      if (scrollContainer.scrollTop === 0) {
+    // if at top of page, do not show active heading on ToC
+    window.onscroll = () => {
+      if (window.pageYOffset === 0) {
         setActiveHeadingId(null);
       } else {
+        // find page active page heading
         const elements = headings.map(heading =>
           document.getElementById(nameToSlug(heading[1])),
         );
@@ -31,24 +28,16 @@ const useActiveHeadingId = (headings, options) => {
               setActiveHeadingId(entry.target.id);
             }
           });
-        }, { root: scrollContainer, ...options });
+        }, options);
         elements.forEach(el => {
           if (el) {
             observer.current?.observe(el);
           }
         });
       }
-    };
-
-    scrollContainer.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => {
-      scrollContainer.removeEventListener('scroll', handleScroll);
-      observer.current?.disconnect();
+      return () => observer.current?.disconnect();
     };
   }, [headings, options]);
-
   return activeHeadingId;
 };
 
@@ -129,14 +118,9 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Box
-              key={index}
-              pad={{
-                left: subsectionPad,
-                right: '5xsmall',
-              }}
-            >
+            <Box pad={{ left: subsectionPad, right: '5xsmall' }}>
               <Link
+                key={index}
                 href={`#${nameToSlug(headingTitle)}`}
                 passHref
                 legacyBehavior
