@@ -35,6 +35,7 @@ const StyledHeader = ({ ...rest }) => {
               https://nextjs.org/docs/13/pages/api-reference/components/link#legacybehavior */}
           <Link href="/" passHref legacyBehavior>
             <AppIdentity
+              key={navOpen ? 'text' : 'logo'}
               title="Design System"
               logo={!navOpen}
             />

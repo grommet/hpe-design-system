@@ -6,7 +6,7 @@ import { ThemeContext } from 'styled-components';
 const HpeLogo = () => {
   const theme = useContext(ThemeContext);
   return (
-    <Box width="4xsmall">
+    <Box width="4xsmall" animation={{ type: 'fadeIn', duration: 500 }}>
       <Image
         alt="HPE logo"
         fit="contain"
@@ -45,9 +45,11 @@ export const AppIdentity = forwardRef(
           {!logoOnly && (
             <Box direction="row" gap="3xsmall" wrap>
               {!logo &&
-                <Text weight="bold" size={textSize} color="text-strong">
-                  HPE
-                </Text>
+                <Box animation={{ type: 'fadeIn', duration: 500 }}>
+                  <Text weight="bold" size={textSize} color="text-strong">
+                    HPE
+                  </Text>
+                </Box>
               }
               <Text size={textSize} color="text-strong">
                 {title}
