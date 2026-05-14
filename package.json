@@ -13,8 +13,10 @@
     "@babel/preset-react": "catalog:",
     "@eslint/compat": "^2.0.3",
     "@eslint/eslintrc": "^3.3.5",
-    "eslint": "catalog:",
     "@eslint/js": "catalog:",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "eslint": "catalog:",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-grommet": "https://github.com/grommet/eslint-plugin-grommet/tarball/stable",
@@ -30,7 +32,8 @@
     "prettier": "catalog:",
     "tsx": "^4.21.0",
     "typescript": "catalog:",
-    "typescript-eslint": "catalog:"
+    "typescript-eslint": "catalog:",
+    "yaml": "^2.8.3"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.9",
@@ -43,6 +46,9 @@
     "prepare": "husky install",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint --cache",
+    "validate:capability-manifests": "node scripts/validate-capability-manifests.mjs",
+    "telemetry:write": "node scripts/telemetry-write.mjs",
+    "telemetry:status": "node scripts/telemetry-status.mjs",
     "start:docs": "pnpm --filter docs start",
     "start:design-tokens-manager": "pnpm --filter design-tokens-manager dev",
     "start:grommet-app": "pnpm --filter grommet-app dev",

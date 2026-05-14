@@ -1,0 +1,70 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: docs-refactor
+  version: 1.0.0
+  status: active
+  owner: design-system
+spec:
+  summary: Refactor component documentation from legacy MDX to YAML-driven standardized MDX.
+  entrypoint:
+    agent: docs-refactor-orchestrator
+    args: "<component-name>"
+  dependencies:
+    data:
+      - path: knowledge/core/data/types.ts
+      - path: knowledge/core/data/components/*
+    skills:
+      - path: knowledge/core/skills/writing-style.skill.md
+      - path: knowledge/core/skills/source-extraction.skill.md
+      - path: knowledge/core/skills/schema-to-doc-generation.skill.md
+      - path: knowledge/core/skills/example-synthesis.skill.md
+      - path: knowledge/core/skills/guidance-authoring.skill.md
+      - path: knowledge/core/skills/content-quality-review.skill.md
+      - path: knowledge/core/skills/delta-analysis-and-todo.skill.md
+      - path: knowledge/core/skills/build-verify-and-repair.skill.md
+      - path: knowledge/core/skills/workflow-orchestration.skill.md
+      - path: knowledge/core/skills/progress-tracking.skill.md
+    external:
+      - path: knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md
+      - path: apps/docs/src/pages/components/
+      - path: apps/docs/todos/
+      - path: knowledge/archive/prompts/
+  assets:
+    agents:
+      - docs-refactor-orchestrator.agent.md
+      - agents/extract-yaml.agent.md
+      - agents/generate-mdx.agent.md
+      - agents/generate-examples.agent.md
+      - agents/dos-donts.agent.md
+      - agents/create-todos.agent.md
+      - agents/review-copy.agent.md
+      - agents/verify-render.agent.md
+      - agents/update-checklist.agent.md
+    skills:
+      - docs/execution.skill.md
+  stages:
+    - id: extracted
+      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
+    - id: generated
+      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
+    - id: todos-created
+      when: "exists(apps/docs/todos/TODO-[component].md)"
+    - id: reviewed
+      when: "exists(apps/docs/src/pages/components/[component].mdx) && !exists(apps/docs/src/pages/components/[component].mdx.bak) && !matches(file_content, /TODO.*example/i)"
+    - id: rendered
+      when: "last_build_success() && !exists(console_errors)"
+    - id: complete
+      when: "exists(knowledge/capabilities/docs-refactor/plan.md) && match_entry(plan.md, /.*\\[[xX]\\].*\\[component\\].*/) "
+  x-extensions:
+    telemetry:
+      enabled: true
+      logFile: knowledge/capabilities/docs-refactor/.telemetry.log
+      schema: knowledge/capabilities/docs-refactor/.telemetry.schema.json
+      events:
+        - stage-transition
+        - agent-start
+        - agent-complete
+        - agent-error
+        - workflow-complete
+        - workflow-error
