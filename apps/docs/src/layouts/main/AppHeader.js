@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Link from 'next/link';
 import {
   Box,
   Button,
@@ -7,12 +6,15 @@ import {
   Page,
   PageContent,
 } from 'grommet';
+import Link from 'next/link';
 import { Search as SearchIcon } from '@hpe-design/icons-grommet';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 import { Search } from '../navigation';
+import { useNavState } from '../navigation/NavContext';
 
 const StyledHeader = ({ ...rest }) => {
   const [showSearch, setShowSearch] = useState(false);
+  const { navOpen } = useNavState();
 
   return (
     <Page {...rest}>
@@ -22,8 +24,21 @@ const StyledHeader = ({ ...rest }) => {
             vertical: 'medium',
           }}
         >
+          {/* Show HPE logo + title in header when nav is collapsed */}
+          {/* legacyBehavior restores pre-Next.js 13 behavior where Link
+              does not render its own <a>, instead passing href/onClick to
+              the child via cloneElement and attaches a ref via React's ref 
+              forwarding. Required here because AppIdentity already renders 
+              an anchor via its <Button href>. This prop has been dropped 
+              in Next.js 13.15.11+, so this will need to be  refactored when 
+              upgrading. More details:
+              https://nextjs.org/docs/13/pages/api-reference/components/link#legacybehavior */}
           <Link href="/" passHref legacyBehavior>
-            <AppIdentity brand="hpe" logo={false} title="Design System" />
+            <AppIdentity
+              key={navOpen ? 'text' : 'logo'}
+              title="Design System"
+              logo={!navOpen}
+            />
           </Link>
           <Box direction="row" align="center" gap="3xsmall">
             <Button
@@ -40,5 +55,6 @@ const StyledHeader = ({ ...rest }) => {
     </Page>
   );
 };
+
 
 export { StyledHeader as AppHeader };
