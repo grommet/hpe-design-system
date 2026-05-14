@@ -118,11 +118,11 @@ export const Layout = ({
             gridArea="nav"
             as="aside"
             background="background-front"
+            height="100vh"
+            overflow="auto"
             style={{
               position: 'sticky',
               top: 0,
-              height: '100vh',
-              overflow: 'auto',
             }}
           />
           <Main overflow="visible" gridArea="main">
