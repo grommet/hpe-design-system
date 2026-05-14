@@ -1,45 +1,56 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Text } from 'grommet';
-// TODO replace with DS icon package when available
-import { Aruba } from 'grommet-icons';
-import { Element } from '@hpe-design/icons-grommet';
+import { Box, Button, Image, Text } from 'grommet';
+import { ThemeContext } from 'styled-components';
 
-const brands = {
-  hpe: {
-    name: 'HPE',
-    logo: <Element color="brand" height="medium" />,
-  },
-  aruba: {
-    name: 'Aruba',
-    logo: <Aruba color="plain" height="medium" />,
-  },
+const HpeLogo = () => {
+  const theme = useContext(ThemeContext);
+  return (
+    <Box width="4xsmall" animation={{ type: 'fadeIn', duration: 500 }}>
+      <Image
+        alt="HPE logo"
+        fit="contain"
+        src={theme?.dark
+          ? '/HPE_logo_full-clr_rev_rgb.svg'
+          : '/HPE_logo_full-clr_pos_rgb.svg'}
+      />
+    </Box>
+  );
 };
-
 export const AppIdentity = forwardRef(
   (
-    { brand, logo = true, logoOnly = false, href = '/', title, ...rest },
+    {
+      logo = true,
+      logoOnly = false,
+      title = 'HPE Design System',
+      ...rest
+    },
     ref,
   ) => {
     const textSize = 'medium';
-
+    const href = '/';
+    const linkLabel = title ? `Go to ${title} home` : 'Go to home';
     return (
-      <Button href={href} ref={ref} {...rest}>
+      <Button href={href} ref={ref} a11yTitle={linkLabel} {...rest}>
         <Box
           direction="row"
-          align="start"
-          gap="medium"
+          align="center"
+          gap="xsmall"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
           pad={{ vertical: 'xsmall' }}
           responsive={false}
         >
-          {brand && logo && brands[brand].logo}
+          {logo && <HpeLogo />}
           {!logoOnly && (
             <Box direction="row" gap="3xsmall" wrap>
-              <Text weight="bold" size={textSize} color="text-strong">
-                {brands[brand].name}
-              </Text>
+              {!logo &&
+                <Box animation={{ type: 'fadeIn', duration: 500 }}>
+                  <Text weight="bold" size={textSize} color="text-strong">
+                    HPE
+                  </Text>
+                </Box>
+              }
               <Text size={textSize} color="text-strong">
                 {title}
               </Text>
@@ -50,11 +61,8 @@ export const AppIdentity = forwardRef(
     );
   },
 );
-
 AppIdentity.propTypes = {
-  brand: PropTypes.string.isRequired,
   logo: PropTypes.bool,
   logoOnly: PropTypes.bool,
-  href: PropTypes.string,
   title: PropTypes.string,
 };

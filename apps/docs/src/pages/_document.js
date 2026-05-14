@@ -43,7 +43,7 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <div id="header" className="header" />
+          {/* <div id="header" className="header" /> */}
           <Main />
           <div id="footer" className="footer" />
           <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />
