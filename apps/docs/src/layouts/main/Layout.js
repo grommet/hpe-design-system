@@ -124,6 +124,7 @@ export const Layout = ({
             style={{
               position: 'sticky',
               top: 0,
+              overscrollBehavior: 'contain',
             }}
           />
           <Main overflow="visible" gridArea="main">
