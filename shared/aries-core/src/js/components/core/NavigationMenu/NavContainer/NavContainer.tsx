@@ -18,16 +18,15 @@ export const NavContainer = ({
   open,
   setOpen,
   title,
+  overflow,
   ...rest
 }: NavContainerProps) => {
   return (
     <Box
-      pad={{ 
-        horizontal: 'xsmall', 
-        bottom: '3xsmall' 
-      }}
-      width={open ? 'small' : undefined}
       {...rest}
+      direction="column"
+      overflow="hidden"
+      width={open ? 'small' : undefined}
     >
       {header || (
         <NavHeader
@@ -37,7 +36,17 @@ export const NavContainer = ({
           setOpen={setOpen}
         />
       )}
-      {children}
+      {/* Items scroll independently of the sticky header above. pad.top
+          ensures the first item's focus ring isn't clipped by the overflow
+          boundary when scrollTop is at its floor (0). */}
+      <Box
+        overflow={overflow ?? 'auto'}
+        flex
+        pad={{ top: '3xsmall', horizontal: 'xsmall', bottom: '3xsmall' }}
+        style={{ scrollPaddingTop: '6px' }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 };
