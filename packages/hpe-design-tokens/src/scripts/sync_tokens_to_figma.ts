@@ -40,12 +40,11 @@ async function main() {
   const runStartedAt = new Date().toISOString();
   const stageResults: StageResult[] = [];
   const runErrors: SyncError[] = [];
-  const aliasCacheByStage: Partial<Record<FileTier, Record<string, string>>> =
-    {};
   let runMutationsApplied = false;
-  const dependencyStageByStage: Partial<Record<FileTier, FileTier>> = {
-    semantic: 'primitive',
-    component: 'semantic',
+  const hasDependencyStage: Set<FileTier> = new Set(['semantic', 'component']);
+  const dependencyFileKeyByStage: Partial<Record<FileTier, string>> = {
+    semantic: config.fileKeys.primitive,
+    component: config.fileKeys.semantic,
   };
 
   console.log(`Running sync-tokens-to-figma for env: ${config.env}`);
@@ -74,6 +73,7 @@ async function main() {
     const referenceReport = verifyReferences(
       [componentTokens, semanticTokens],
       config.expectedCollectionKeys,
+      { bootstrap: config.bootstrap },
     );
 
     console.log(
@@ -178,10 +178,112 @@ async function main() {
       console.log(`Read ${stage} token files:`, Object.keys(tokensByFile));
 
       const localVariables = await api.getLocalVariables(fileKeys[stage]);
-      const dependencyStage = dependencyStageByStage[stage];
-      const aliasLookup = dependencyStage
-        ? aliasCacheByStage[dependencyStage]
-        : undefined;
+
+      // Build alias lookup in two passes:
+      // Pass 1 — published vars from the dependency file. Covers ALL vars.
+      //   subscribed_ids are remapped to this file's subscription hash, since
+      //   each subscriber file receives a distinct hash per subscription
+      //   relationship (hash extracted from the 1–3 canonical remote vars
+      //   that ARE explicitly referenced in this file).
+      // Pass 2 — canonical remote vars from THIS file. Confirmed-correct IDs
+      //   for explicitly-referenced vars; overrides Pass 1 for those vars.
+      const canonicalKeySet = new Set(
+        Object.values(config.expectedCollectionKeys),
+      );
+      const depFileKey = dependencyFileKeyByStage[stage];
+      const aliasLookup =
+        hasDependencyStage.has(stage) && depFileKey
+          ? await (async () => {
+              // Pass 2 source: canonical remote vars (per-collection hash seed).
+              const localRemoteVars = Object.fromEntries(
+                Object.entries(localVariables.meta.variables).filter(
+                  ([, v]) => {
+                    if (!v.remote) return false;
+                    const coll =
+                      localVariables.meta.variableCollections[
+                        v.variableCollectionId
+                      ];
+                    return !!coll?.key && canonicalKeySet.has(coll.key);
+                  },
+                ),
+              );
+
+              // Extract subscription hash for each canonical collection.
+              // ID format: VariableID:{hash}/{nodeId}
+              const collHashByKey: Record<string, string> = {};
+              for (const v of Object.values(localRemoteVars)) {
+                const coll =
+                  localVariables.meta.variableCollections[
+                    v.variableCollectionId
+                  ];
+                if (!coll?.key) continue;
+                const [, hash] = v.id.match(/^VariableID:([^/]+)\//) ?? [];
+                if (hash && !collHashByKey[coll.key]) {
+                  collHashByKey[coll.key] = hash;
+                }
+              }
+
+              // Pass 1: fetch and remap published vars from the dependency file.
+              const publishedDep = await api.getPublishedVariables(depFileKey);
+              const depCollKeyById: Record<string, string> = {};
+              for (const [cid, c] of Object.entries(
+                publishedDep.meta.variableCollections,
+              )) {
+                if (c.key) depCollKeyById[cid] = c.key;
+              }
+              const remappedVars = Object.fromEntries(
+                Object.entries(publishedDep.meta.variables).map(([vid, v]) => {
+                  const collKey = depCollKeyById[v.variableCollectionId];
+                  const compHash = collKey ? collHashByKey[collKey] : undefined;
+                  const subId = v.subscribed_id ?? v.id;
+                  if (compHash && subId) {
+                    const remapped = subId.replace(
+                      /^VariableID:[^/]+\//,
+                      `VariableID:${compHash}/`,
+                    );
+                    return [vid, { ...v, subscribed_id: remapped }];
+                  }
+                  return [vid, v];
+                }),
+              );
+              const baseLookup = buildAliasLookup(
+                {
+                  ...publishedDep,
+                  meta: { ...publishedDep.meta, variables: remappedVars },
+                },
+                { stage, environment: config.env },
+              ).aliasLookup;
+
+              const localOverride = buildAliasLookup(
+                {
+                  ...localVariables,
+                  meta: {
+                    ...localVariables.meta,
+                    variables: localRemoteVars,
+                  },
+                },
+                { stage, environment: config.env },
+              ).aliasLookup;
+
+              const merged = { ...baseLookup, ...localOverride };
+
+              // Figma requires alias targets to be present in this file's
+              // remote variable list (getLocalVariables). Filter to only
+              // in-scope IDs to avoid 400 "does not exist" errors for
+              // remote vars that haven't been imported yet. Once the
+              // library is fully imported (e.g., via Figma's Swap Library
+              // UI), this filter will pass all remapped IDs through.
+              const inScopeIds = new Set(
+                Object.values(localVariables.meta.variables)
+                  .filter(v => v.remote)
+                  .map(v => v.id),
+              );
+              return Object.fromEntries(
+                Object.entries(merged).filter(([, id]) => inScopeIds.has(id)),
+              );
+            })()
+          : undefined;
+
       const stageAliasErrors: AliasResolutionError[] = [];
 
       const postVariablesPayload = generatePostVariablesPayload(
@@ -232,22 +334,6 @@ async function main() {
 
         console.log(`"${stage}" POST variables API response:`, apiResp);
         runMutationsApplied = true;
-      }
-
-      const refreshedVariables = await api.getLocalVariables(fileKeys[stage]);
-      const { aliasLookup: refreshedAliasLookup, errors: aliasCacheErrors } =
-        buildAliasLookup(refreshedVariables, {
-          stage,
-          environment: config.env,
-        });
-
-      aliasCacheByStage[stage] = refreshedAliasLookup;
-      runErrors.push(...aliasCacheErrors);
-
-      if (aliasCacheErrors.length) {
-        throw new Error(
-          `Alias cache build failed for ${stage}: ${aliasCacheErrors.length} collisions`,
-        );
       }
 
       const stageFinishedAt = new Date().toISOString();

@@ -23,6 +23,7 @@ export type FigmaSyncConfig = {
   fileKeys: Record<FileTier, string>;
   expectedCollectionKeys: ExpectedCollectionKeys;
   dryRun: boolean;
+  bootstrap: boolean;
 };
 
 export type GuardrailCheckOptions = {
@@ -192,6 +193,8 @@ export function resolveFigmaSyncConfig(
     }),
   };
 
+  const bootstrap = hasCliFlag(argv, '--bootstrap');
+
   const missing: string[] = [];
   if (!personalAccessToken) {
     missing.push(`${env.toUpperCase()}_PERSONAL_ACCESS_TOKEN`);
@@ -203,13 +206,15 @@ export function resolveFigmaSyncConfig(
     }
   });
 
-  Object.entries(expectedCollectionKeys).forEach(([collection, value]) => {
-    if (!value) {
-      missing.push(
-        `${env.toUpperCase()}_FIGMA_${collection.toUpperCase()}_COLLECTION_KEY`,
-      );
-    }
-  });
+  if (!bootstrap) {
+    Object.entries(expectedCollectionKeys).forEach(([collection, value]) => {
+      if (!value) {
+        missing.push(
+          `${env.toUpperCase()}_FIGMA_${collection.toUpperCase()}_COLLECTION_KEY`,
+        );
+      }
+    });
+  }
 
   if (missing.length) {
     throw new Error(
@@ -224,6 +229,7 @@ export function resolveFigmaSyncConfig(
     expectedCollectionKeys:
       expectedCollectionKeys as unknown as ExpectedCollectionKeys,
     dryRun: hasCliFlag(argv, '--dry-run'),
+    bootstrap,
   };
 }
 

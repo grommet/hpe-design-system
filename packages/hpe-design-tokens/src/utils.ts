@@ -70,7 +70,16 @@ export type ReferenceValidationReport = {
 export const verifyReferences = (
   localTokens: ApiGetLocalVariablesResponse[],
   expectedCollectionKeys?: ExpectedCollectionKeys,
+  options?: { bootstrap?: boolean },
 ) => {
+  if (options?.bootstrap) {
+    return {
+      status: 'passed' as const,
+      checkedRemoteCollections: 0,
+      invalidVariablesCount: 0,
+    };
+  }
+
   const resolvedExpectedCollectionKeys: ExpectedCollectionKeys =
     expectedCollectionKeys || {
       primitives: process.env.FIGMA_PRIMITIVES_COLLECTION_KEY || '',

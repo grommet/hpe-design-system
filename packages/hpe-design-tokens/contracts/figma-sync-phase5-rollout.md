@@ -12,7 +12,7 @@ Operationalize the environment-isolated sync flow with repeatable pilot checks a
 4. Run push to test (non-dry-run) and verify expected stage progression.
 5. Repeat the same push and confirm no-op behavior in stage counts.
 6. Run pull again and diff token output against expected snapshot.
-
+                                                    
 ## Recommended Commands
 
 ```bash
@@ -77,3 +77,74 @@ Immediate unblock actions:
 1. Resolve test-environment reference mismatches for aliases reported by preflight.
 2. Reconcile `color` and `primitives` collection key conflicts in test Figma libraries.
 3. Re-run pilot checklist starting from pull step after key reconciliation.
+
+## Latest Execution Snapshot (2026-05-14)
+
+Status: in progress (blocked on missing test environment credential).
+
+Executed commands and outcomes:
+
+1. `pnpm sync-figma-to-tokens -- --env=test --output tokens_new_phase5`
+	- Outcome: failed before preflight execution with missing `TEST_PERSONAL_ACCESS_TOKEN`.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/01-pull-test.log`
+2. `pnpm sync-tokens-to-figma -- --env=test --dry-run`
+	- Outcome: failed before preflight execution with missing `TEST_PERSONAL_ACCESS_TOKEN`.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/02-push-test-dry-run.log`
+3. `pnpm sync-tokens-to-figma -- --env=test`
+	- Outcome: failed before preflight execution with missing `TEST_PERSONAL_ACCESS_TOKEN`.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/03-push-test.log`
+4. `pnpm sync-tokens-to-figma -- --env=test` (repeat)
+	- Outcome: failed before preflight execution with missing `TEST_PERSONAL_ACCESS_TOKEN`.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/04-push-test-repeat.log`
+5. `pnpm sync-figma-to-tokens -- --env=test --output tokens_new_phase5_after`
+	- Outcome: failed before preflight execution with missing `TEST_PERSONAL_ACCESS_TOKEN`.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/05-pull-test-after.log`
+6. `pnpm sync-discover-figma-collection-keys -- --env=test --pretty --output contracts/generated/phase5-rollout-evidence/05-collection-key-discovery.test.json`
+	- Outcome: failed before discovery execution with missing `TEST_PERSONAL_ACCESS_TOKEN`.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/05-collection-key-discovery.log`
+
+Run summary record:
+
+- `contracts/generated/phase5-rollout-evidence/00-summary.txt` contains per-command exit codes for this execution.
+
+Immediate unblock actions:
+
+1. Restore `TEST_PERSONAL_ACCESS_TOKEN` in local environment configuration.
+2. Re-run pilot checklist from step 1 and compare against the prior 2026-04-28 diagnostic baseline.
+3. Continue remediation of reference/key conflicts once test credentials are available again.
+
+## Latest Execution Snapshot (2026-05-14, retry after restoring test token)
+
+Status: in progress (blocked on preflight reference validation in test).
+
+Executed commands and outcomes:
+
+1. `pnpm sync-figma-to-tokens -- --env=test --output tokens_new_phase5`
+	- Outcome: command executed and failed at preflight with `PREFLIGHT_FAILED` due invalid collection references.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/01-pull-test.log`
+2. `pnpm sync-tokens-to-figma -- --env=test --dry-run`
+	- Outcome: command executed and failed at preflight with `PREFLIGHT_FAILED` due invalid collection references.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/02-push-test-dry-run.log`
+3. `pnpm sync-tokens-to-figma -- --env=test`
+	- Outcome: command executed and failed at preflight with `PREFLIGHT_FAILED` due invalid collection references.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/03-push-test.log`
+4. `pnpm sync-tokens-to-figma -- --env=test` (repeat)
+	- Outcome: command executed and failed at preflight with `PREFLIGHT_FAILED` due invalid collection references.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/04-push-test-repeat.log`
+5. `pnpm sync-figma-to-tokens -- --env=test --output tokens_new_phase5_after`
+	- Outcome: command executed and failed at preflight with `PREFLIGHT_FAILED` due invalid collection references.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/05-pull-test-after.log`
+6. `pnpm sync-discover-figma-collection-keys -- --env=test --pretty --output contracts/generated/phase5-rollout-evidence/05-collection-key-discovery.test.json`
+	- Outcome: succeeded; discovery report generated with conflicts for `color` and `primitives`.
+	- Evidence: `contracts/generated/phase5-rollout-evidence/05-collection-key-discovery.log`
+	- Report: `contracts/generated/phase5-rollout-evidence/05-collection-key-discovery.test.json`
+
+Run summary record:
+
+- `contracts/generated/phase5-rollout-evidence/00-summary.txt` contains per-command exit codes for this retry run.
+
+Immediate unblock actions:
+
+1. Fix invalid collection references reported by preflight in the test Figma libraries.
+2. Resolve `color` and `primitives` key conflicts identified by discovery.
+3. Re-run the same pilot command set and continue only after preflight passes.

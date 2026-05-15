@@ -197,8 +197,9 @@ export function buildAliasLookup(
   const errors: SyncError[] = [];
 
   Object.values(localVariables.meta.variables).forEach(variable => {
+    const resolvedId = variable.subscribed_id ?? variable.id;
     const existingId = aliasLookup[variable.name];
-    if (existingId && existingId !== variable.id) {
+    if (existingId && existingId !== resolvedId) {
       errors.push({
         code: 'ALIAS_COLLISION',
         message: `Alias cache collision for variable name "${variable.name}"`,
@@ -212,7 +213,7 @@ export function buildAliasLookup(
       return;
     }
 
-    aliasLookup[variable.name] = variable.id;
+    aliasLookup[variable.name] = resolvedId;
   });
 
   return { aliasLookup, errors };

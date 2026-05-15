@@ -147,6 +147,37 @@ Machine-readable report fields include:
 
 The discovery command is read-only: it performs only Figma GET requests and does not post mutations.
 
+### Programmatic Alias Rebinding Cleanup
+
+Use this remediation script to rebind alias references from non-canonical remote collection keys to canonical keys.
+
+Default behavior is read-only (dry-run). Add `--apply` to post updates.
+
+Example commands:
+
+```bash
+cd packages/hpe-design-tokens
+
+# Dry run: report proposed rebinds for color and primitives (default target collections)
+pnpm sync-rebind-figma-aliases -- --env=test --pretty --output contracts/generated/alias-rebind-remediation.test.json
+
+# Apply mode: write alias rebind updates through POST /variables
+pnpm sync-rebind-figma-aliases -- --env=test --apply --pretty --output contracts/generated/alias-rebind-remediation-applied.test.json
+
+# Optional: target additional collection names
+pnpm sync-rebind-figma-aliases -- --env=test --collections=color,primitives,dimension --pretty
+```
+
+Report fields include:
+
+- `eventType`: `alias-rebind-remediation`
+- `dryRun`
+- `targetCollections`
+- per-tier `rebindingPlan` and `unresolved`
+- aggregate `summary` counts
+
+The remediation script updates only alias mode values and does not create/delete collections.
+
 Committed contract assets live in `contracts/schemas` and hand-authored docs in `contracts/*.md`.
 Generated diagnostics output should be written under `contracts/generated/`.
 

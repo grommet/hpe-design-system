@@ -89,6 +89,7 @@ async function main() {
     const referenceReport = verifyReferences(
       [componentTokens, semanticTokens],
       config.expectedCollectionKeys,
+      { bootstrap: config.bootstrap },
     );
 
     console.log(

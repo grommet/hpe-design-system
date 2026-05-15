@@ -23,10 +23,9 @@ export interface VariableCollection {
   variableIds?: string[];
 }
 
-export interface VariableCollectionChange
-  extends Partial<
-    Pick<VariableCollection, 'id' | 'name' | 'hiddenFromPublishing'>
-  > {
+export interface VariableCollectionChange extends Partial<
+  Pick<VariableCollection, 'id' | 'name' | 'hiddenFromPublishing'>
+> {
   action: 'CREATE' | 'UPDATE' | 'DELETE';
   initialModeId?: string;
 }
@@ -75,22 +74,26 @@ export interface Variable {
   hiddenFromPublishing: boolean;
   scopes: VariableScope[];
   codeSyntax: VariableCodeSyntax;
+  /**
+   * Present on published variables. Use this ID (not `id`) when creating
+   * cross-file aliases from subscriber files.
+   */
+  subscribed_id?: string;
 }
 
-export interface VariableChange
-  extends Partial<
-    Pick<
-      Variable,
-      | 'id'
-      | 'name'
-      | 'variableCollectionId'
-      | 'resolvedType'
-      | 'description'
-      | 'hiddenFromPublishing'
-      | 'scopes'
-      | 'codeSyntax'
-    >
-  > {
+export interface VariableChange extends Partial<
+  Pick<
+    Variable,
+    | 'id'
+    | 'name'
+    | 'variableCollectionId'
+    | 'resolvedType'
+    | 'description'
+    | 'hiddenFromPublishing'
+    | 'scopes'
+    | 'codeSyntax'
+  >
+> {
   action: 'CREATE' | 'UPDATE' | 'DELETE';
 }
 
@@ -108,6 +111,9 @@ export interface ApiGetLocalVariablesResponse {
     variables: { [id: string]: Variable };
   };
 }
+
+/** Published variables — include `subscribed_id` for cross-file aliases. */
+export type ApiGetPublishedVariablesResponse = ApiGetLocalVariablesResponse;
 
 export interface ApiPostVariablesPayload {
   variableCollections?: VariableCollectionChange[];
@@ -133,6 +139,18 @@ export default class FigmaApi {
   async getLocalVariables(fileKey: string) {
     const resp = await axios.request<ApiGetLocalVariablesResponse>({
       url: `${this.baseUrl}/v1/files/${fileKey}/variables/local`,
+      headers: {
+        Accept: '*/*',
+        'X-Figma-Token': this.token,
+      },
+    });
+
+    return resp.data;
+  }
+
+  async getPublishedVariables(fileKey: string) {
+    const resp = await axios.request<ApiGetPublishedVariablesResponse>({
+      url: `${this.baseUrl}/v1/files/${fileKey}/variables/published`,
       headers: {
         Accept: '*/*',
         'X-Figma-Token': this.token,
