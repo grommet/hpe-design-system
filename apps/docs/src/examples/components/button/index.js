@@ -1,13 +1,17 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 export * from './ButtonAlignmentTable';
+export * from './ButtonBeginNewTaskExample';
 export * from './ButtonExample';
 export * from './ButtonBadgeExample';
 export * from './ButtonBusyExample';
 export * from './ButtonBusySimpleExample';
+export * from './ButtonCancelExample';
 export * from './ButtonIconExample';
 export * from './ButtonLeftAlignExample';
+export * from './ButtonPrimaryCtaExample';
 export * from './ButtonRightAlignExample';
+export * from './ButtonSecondaryActionsExample';
 export * from './ButtonSizingExample';
 export * from './ButtonStatesExample';
 export * from './ButtonWizardStepExample';

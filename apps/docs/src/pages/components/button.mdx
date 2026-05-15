@@ -6,6 +6,7 @@ import {
 } from '../../layouts';
 import {
   ButtonAlignmentTable,
+  ButtonBeginNewTaskExample,
   ButtonBadActionLabelsPreview,
   ButtonBadCancelPreview,
   ButtonBadGroupPreview,
@@ -13,7 +14,10 @@ import {
   ButtonBadgeExample,
   ButtonBusyExample,
   ButtonBusySimpleExample,
+  ButtonCancelExample,
   ButtonExample,
+  ButtonPrimaryCtaExample,
+  ButtonSecondaryActionsExample,
   ButtonGoodActionLabelsPreview,
   ButtonGoodCancelPreview,
   ButtonGoodLongTitlePreview,
@@ -23,7 +27,6 @@ import {
   ButtonRightAlignExample,
   ButtonSizingExample,
   ButtonStatesExample,
-  ButtonWizardStepExample,
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
@@ -43,9 +46,9 @@ import {
 
 ## Use Cases
 
-### Submitting a form to send or save user-entered data
+### Submitting a form
 
-The user completes a form and activates a submit button to persist their input to a backend service. This use case arises inside a `Form` containing one or more fields — for example, a login form with an email input and password field — where the button triggers server-side processing such as authentication or record creation. Use a verb–noun label that names the action and its target object (e.g., "Save changes", "Create account"). Activating the button enters a busy state while the request is in flight; on success, the form closes or transitions to a confirmation view. Reserve the busy state for short async operations of a few seconds or less — for longer-running processes, use a separate notification pattern instead.
+The user completes a form and activates a submit button to persist their input. Use a verb–noun label naming the action and target (e.g., "Save changes", "Create account"). The button enters a busy state while the request is in flight; on success, the form closes or transitions to a confirmation view. Reserve the busy state for short async operations — for longer-running processes, use a separate notification pattern.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
@@ -55,21 +58,20 @@ The user completes a form and activates a submit button to persist their input t
   <ButtonBusySimpleExample />
 </Example>
 
-### Beginning a new task such as creating, scheduling, deploying, or adding a resource
+### Beginning a new task
 
-The user initiates a workflow for a resource that does not yet exist — for example, clicking "Create device" on a device management page to launch a configuration wizard, or clicking "Deploy application" in a pipeline view to start an automated job. This button is the primary action on the page, carrying a verb–noun label that names both the action and the object being acted upon (e.g., "Create device", "Schedule backup"). It carries the highest visual prominence on the screen; use it only once per view. Activating it navigates the user to the next step or opens the first stage of the workflow.
+The user initiates a workflow for a resource that doesn't yet exist — for example, clicking "Create device" on a device management page or "Deploy application" in a pipeline view. This is the primary action on the page; use it once per view with a verb–noun label (e.g., "Create device", "Schedule backup"). Activating it navigates to the next step or opens the first stage of the workflow.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/PrimaryButtonExample.js"
   height={{ min: 'small' }}
 >
-  <PrimaryButtonExample />
+  <ButtonBeginNewTaskExample />
 </Example>
 
-### Triggering a new UI element to appear on the page, such as a modal, dialog, or side panel
+### Triggering a UI element
 
-The user activates a button to reveal an overlay or inline panel without leaving the current page. A common example is an "Edit" or "Settings" button within a data table row that opens a side panel containing a pre-populated form — the user reviews and modifies fields, then submits without losing their place in the table. Place the triggering button inline with the data it controls, using default or secondary styling. When the overlay opens, focus moves into the overlay; when it closes, focus returns to the triggering button so the user can continue their task.
+The user activates a button to reveal an overlay or inline panel without leaving the current page — for example, an "Edit" button in a data table row that opens a pre-populated side panel. Place the triggering button inline with the data it controls. When the overlay opens, focus moves into it; when closed, focus returns to the triggering button.
 
 <Example
   code={[
@@ -85,49 +87,38 @@ The user activates a button to reveal an overlay or inline panel without leaving
   <ButtonBusyExample />
 </Example>
 
-### Specifying a new or next step in a multi-step process or wizard
+### Providing a primary call to action
+
+A single primary button stands out visually among all other controls, signaling the most important or recommended action on the page. For example, "Activate service" on a dashboard draws the user's eye to the recommended next step. Use at most one primary button per view; all other actions use secondary or default styling.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
-  height={{ min: 'large' }}
->
-  <ButtonWizardStepExample />
-</Example>
-
-### Providing a primary call to action that highlights the most important action on a page
-
-A page exposes a single primary button that stands out visually among all other controls, signaling to users the most important or recommended action available at that moment. For example, on a dashboard listing inactive services, a primary "Activate service" button draws the user's eye to the recommended next step, while secondary and default buttons surface supporting actions. Use at most one primary button per view; all other actions use secondary or default styling.
-
-<Example
-  docs="https://v2.grommet.io/button?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonExample.js"
   height={{ min: 'small' }}
 >
-  <ButtonExample />
+  <ButtonPrimaryCtaExample />
 </Example>
 
-### Presenting secondary or supporting actions alongside a primary action
+### Presenting secondary actions
 
-The user has several options available in a given context, and secondary buttons surface supporting actions that complement the primary call to action without competing with it. For example, on a resource detail page, a primary "Edit resource" button is the recommended action, while a secondary "Download report" button offers a useful but non-critical alternative. Multiple secondary buttons may appear per view, each representing a distinct and meaningful action. They follow the same verb–noun labeling convention as primary buttons, though the noun may be omitted when context makes the target object clear.
+Secondary buttons surface supporting actions that complement the primary call to action without competing with it — for example, "Download report" alongside a primary "Edit resource". Multiple secondary buttons may appear per view, each representing a distinct and meaningful action.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/SecondaryButtonExample.js"
   height={{ min: 'small' }}
 >
-  <SecondaryButtonExample />
+  <ButtonSecondaryActionsExample />
 </Example>
 
-### Enabling users to cancel or dismiss the current screen and return to the previous one
+### Cancelling or dismissing
 
-A cancel button gives users an explicit escape hatch to abandon an in-progress workflow — for example, closing a multi-field "Create device" form and returning to the device list without saving any data. Use default (neutral) styling for cancel buttons and position them according to the established button hierarchy for the surface (modal footer, drawer footer, inline form). Use "Cancel" as the label unless a more specific verb improves clarity (e.g., "Discard changes").
+A cancel button gives users an escape hatch to abandon an in-progress workflow without saving — for example, closing a "Create device" form and returning to the device list. Use default styling and position per established hierarchy. Use "Cancel" as the label unless a more specific verb improves clarity (e.g., "Discard changes").
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/DosDonts/ButtonGoodCancelPreview.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonCancelExample.js"
   height={{ min: 'small' }}
 >
-  <ButtonGoodCancelPreview />
+  <ButtonCancelExample />
 </Example>
 
 ## Anatomy
