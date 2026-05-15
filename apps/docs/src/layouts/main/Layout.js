@@ -105,10 +105,14 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <NavProvider>
-          <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
+          <Grid
+            areas={gridAreas}
+            columns={gridColumns}
+            rows={gridRows}
+          >
             {/* Only render Header for non-home pages.
-                Homepage header is rendered in index.js
-                to have the same background as the hero. */}
+              Homepage header is rendered in index.js
+              to have the same background as the hero. */}
             {title && title.toLowerCase() !== 'home' && (
               <AppHeader gridArea="header" />
             )}
@@ -116,7 +120,15 @@ export const Layout = ({
               gridArea="nav"
               as="aside"
               a11yTitle="Site navigation"
-              background="background-front" />
+              background="background-front"
+              height="100vh"
+              overflow="auto"
+              style={{
+                position: 'sticky',
+                top: 0,
+                overscrollBehavior: 'contain',
+              }}
+            />
             <Main overflow="visible" gridArea="main">
               <Page>
                 {layout !== 'plain' ? (
