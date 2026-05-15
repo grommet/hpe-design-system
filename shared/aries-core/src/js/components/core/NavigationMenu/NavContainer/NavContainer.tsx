@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Box } from 'grommet';
+import { Box, ThemeType } from 'grommet';
 import { ThemeContext } from 'styled-components';
 import { NavHeader } from './NavHeader';
 
@@ -23,7 +23,11 @@ export const NavContainer = ({
   overflow,
   ...rest
 }: NavContainerProps) => {
-  const theme = useContext(ThemeContext) as any;
+  // ThemeType only includes base grommet edgeSize keys; HPE extends it with
+  // additional sizes (e.g. '3xsmall'). The intersection adds them explicitly.
+  const theme = useContext(ThemeContext) as ThemeType & {
+    global: { edgeSize: Record<string, string> };
+  };
   return (
     <Box {...rest} width={open ? 'small' : undefined}>
       {header || (
