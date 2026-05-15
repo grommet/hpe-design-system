@@ -8,9 +8,9 @@ import {
   Heading,
   PageContent,
   RadioButton,
-  RadioButtonGroup,
   Text,
   TextInput,
+  ToggleGroup,
 } from 'grommet';
 import { currentTheme, option1Theme, option2Theme } from '../examples/hover-sticker-sheet/themes';
 import { StickerSheet } from '../examples/hover-sticker-sheet/StickerSheet';
@@ -77,12 +77,10 @@ const HoverStickerSheet = () => {
           {/* ── Option selector ───────────────────────────────────── */}
           <Box gap="small">
             <Text weight="bold">Hover option:</Text>
-            <RadioButtonGroup
-              name="hover-option"
-              direction="row"
+            <ToggleGroup
               options={['Current', 'Option 1', 'Option 2']}
               value={option}
-              onChange={e => setOption(e.target.value)}
+              onToggle={({ value }) => setOption(value)}
             />
             <Box
               background="background-contrast"
