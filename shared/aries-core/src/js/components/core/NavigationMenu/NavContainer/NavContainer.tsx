@@ -24,7 +24,6 @@ export const NavContainer = ({
   return (
     <Box
       {...rest}
-      direction="column"
       overflow="hidden"
       width={open ? 'small' : undefined}
     >
