@@ -77,13 +77,12 @@ props:
 
 usage:
   whenToUse:
-    - "Submitting a form to send or save user-entered data."
-    - "Beginning a new task such as creating, scheduling, deploying, or adding a resource."
-    - "Triggering a new UI element to appear on the page, such as a modal, dialog, or side panel."
-    - "Specifying a new or next step in a multi-step process or wizard."
-    - "Providing a primary call to action that highlights the most important action on a page."
-    - "Presenting secondary or supporting actions alongside a primary action."
-    - "Enabling users to cancel or dismiss the current screen and return to the previous one."
+    - "Submitting a form."
+    - "Beginning a new task."
+    - "Triggering a UI element such as a modal, dialog, or side panel."
+    - "Providing a primary call to action."
+    - "Presenting secondary actions alongside a primary action."
+    - "Cancelling or dismissing the current screen."
   whenToAvoid:
     - "Do not use a Button for navigation to another URL or page — use an Anchor or Link instead."
     - "Avoid showing a disabled button for actions that don't apply in context; remove it entirely or leave it active with on-click messaging explaining why the action is unavailable."
