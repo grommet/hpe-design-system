@@ -22,11 +22,7 @@ export const NavContainer = ({
   ...rest
 }: NavContainerProps) => {
   return (
-    <Box
-      {...rest}
-      overflow="hidden"
-      width={open ? 'small' : undefined}
-    >
+    <Box {...rest} width={open ? 'small' : undefined}>
       {header || (
         <NavHeader
           title={title}
@@ -39,10 +35,9 @@ export const NavContainer = ({
           ensures the first item's focus ring isn't clipped by the overflow
           boundary when scrollTop is at its floor (0). */}
       <Box
-        overflow={overflow ?? 'auto'}
-        flex
         pad={{ top: '3xsmall', horizontal: 'xsmall', bottom: '3xsmall' }}
         style={{ scrollPaddingTop: '6px' }}
+        overflow="auto"
       >
         {children}
       </Box>
