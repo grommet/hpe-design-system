@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { Box } from 'grommet';
+import { ThemeContext } from 'styled-components';
 import { NavHeader } from './NavHeader';
 
 interface NavContainerProps {
@@ -21,6 +23,7 @@ export const NavContainer = ({
   overflow,
   ...rest
 }: NavContainerProps) => {
+  const theme = useContext(ThemeContext) as any;
   return (
     <Box {...rest} width={open ? 'small' : undefined}>
       {header || (
@@ -36,7 +39,7 @@ export const NavContainer = ({
           boundary when scrollTop is at its floor (0). */}
       <Box
         pad={{ top: '3xsmall', horizontal: 'xsmall', bottom: '3xsmall' }}
-        style={{ scrollPaddingTop: '6px' }}
+        style={{ scrollPaddingTop: theme.global.edgeSize['3xsmall'] }}
         overflow="auto"
       >
         {children}
