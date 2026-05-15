@@ -180,7 +180,6 @@ export const DesignTokensTable = ({
   return (
     <Data
       data={currentData}
-      pad={{ vertical: 'medium' }}
       properties={dataProperties}
     >
       {toolbar ? (
