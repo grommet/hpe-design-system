@@ -6,7 +6,7 @@ import { Add } from '@hpe-design/icons-grommet';
 import {
   structuredTokens,
   getTokens,
-} from '../../../components/content/designTokenUtils';
+} from '../../../components';
 
 // Fetch theme aware color tokens
 const useColorTokens = () => {

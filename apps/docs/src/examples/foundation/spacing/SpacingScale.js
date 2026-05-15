@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
-import { useDesignTokens } from '../../../components/content/designTokenUtils';
+import { useDesignTokens } from '../../../components';
 
 const Space = ({ token }) => {
   return (
