@@ -75,22 +75,22 @@ async function buildCrossFileAliasLookup(
   // Extract subscription hash for each canonical collection.
   // ID format: VariableID:{hash}/{nodeId}
   const collHashByKey: Record<string, string> = {};
-  for (const v of Object.values(localRemoteVars)) {
+  Object.values(localRemoteVars).forEach(v => {
     const coll = localCollections[v.variableCollectionId];
-    if (!coll?.key) continue;
+    if (!coll?.key) return;
     const [, hash] = v.id.match(/^VariableID:([^/]+)\//) ?? [];
     if (hash && !collHashByKey[coll.key]) {
       collHashByKey[coll.key] = hash;
     }
-  }
+  });
 
   // Pass 1: fetch and remap published vars from the dependency file.
   const publishedDep = await api.getPublishedVariables(depFileKey);
   const depCollections = publishedDep.meta.variableCollections;
   const depCollKeyById: Record<string, string> = {};
-  for (const [cid, c] of Object.entries(depCollections)) {
+  Object.entries(depCollections).forEach(([cid, c]) => {
     if (c.key) depCollKeyById[cid] = c.key;
-  }
+  });
   const remappedVars = Object.fromEntries(
     Object.entries(publishedDep.meta.variables).map(([vid, v]) => {
       const collKey = depCollKeyById[v.variableCollectionId];
@@ -143,7 +143,7 @@ async function buildCrossFileAliasLookup(
 
 async function main() {
   const config = resolveFigmaSyncConfig();
-  const fileKeys = config.fileKeys;
+  const { fileKeys } = config;
   const runId = makeRunId();
   const runStartedAt = new Date().toISOString();
   const stageResults: StageResult[] = [];
@@ -151,8 +151,8 @@ async function main() {
   let runMutationsApplied = false;
   const hasDependencyStage: Set<FileTier> = new Set(['semantic', 'component']);
   const dependencyFileKeyByStage: Partial<Record<FileTier, string>> = {
-    semantic: config.fileKeys.primitive,
-    component: config.fileKeys.semantic,
+    semantic: fileKeys.primitive,
+    component: fileKeys.semantic,
   };
 
   console.log(`Running sync-tokens-to-figma for env: ${config.env}`);
@@ -202,7 +202,8 @@ async function main() {
       message,
       environment: config.env,
       remediation:
-        'Review production guardrail and reference validation requirements, then retry.',
+        'Review production guardrail and reference validation ' +
+        'requirements, then retry.',
     });
 
     emitRunSummary({
@@ -221,7 +222,9 @@ async function main() {
     throw error;
   }
 
-  for (const stage of FILE_TIERS) {
+  await FILE_TIERS.reduce<Promise<void>>(async (chainPromise, stage) => {
+    await chainPromise;
+
     const plannedAt = new Date().toISOString();
     emitStageEvent({
       schemaVersion: SCHEMA_VERSION,
@@ -256,7 +259,7 @@ async function main() {
         finishedAt: skippedAt,
       });
       stageResults.push({ stage, status: 'skipped', counts });
-      continue;
+      return;
     }
 
     const stageStartedAt = new Date().toISOString();
@@ -334,7 +337,8 @@ async function main() {
           });
         });
         throw new Error(
-          `Alias resolution failed for ${stage}: ${stageAliasErrors.length} unresolved aliases`,
+          `Alias resolution failed for ${stage}: ` +
+            `${stageAliasErrors.length} unresolved aliases`,
         );
       }
 
@@ -410,9 +414,8 @@ async function main() {
       }
 
       const skippedAt = new Date().toISOString();
-      for (const remainingStage of FILE_TIERS.slice(
-        FILE_TIERS.indexOf(stage) + 1,
-      )) {
+      const remainingStages = FILE_TIERS.slice(FILE_TIERS.indexOf(stage) + 1);
+      remainingStages.forEach(remainingStage => {
         const counts = emptyCounts();
         emitStageEvent({
           schemaVersion: SCHEMA_VERSION,
@@ -429,7 +432,7 @@ async function main() {
           finishedAt: skippedAt,
         });
         stageResults.push({ stage: remainingStage, status: 'skipped', counts });
-      }
+      });
 
       emitRunSummary({
         runId,
@@ -448,7 +451,7 @@ async function main() {
 
       throw error;
     }
-  }
+  }, Promise.resolve());
 
   emitRunSummary({
     runId,
