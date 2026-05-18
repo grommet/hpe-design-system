@@ -1,7 +1,5 @@
 
-import { useContext, useEffect, useState } from 'react';
-import { Box, Button, Layer, ResponsiveContext, useAnalytics } from 'grommet';
-import { Sidebar } from '@hpe-design/icons-grommet';
+import { useAnalytics, Layer } from 'grommet';
 import { useRouter } from 'next/router';
 import { NavigationMenu } from '@shared/aries-core';
 import { navItems } from './navItems.ts';
@@ -11,74 +9,48 @@ import { SideNavHeader } from './SideNavHeader';
 export const Navigation = ({ ...rest }) => {
   const router = useRouter();
   const sendAnalytics = useAnalytics();
-  const { navOpen, setNavOpen } = useNavState();
-  const [openLayer, setOpenLayer] = useState(false);
-  const breakpoint = useContext(ResponsiveContext);
+  const {
+    navOpen, setNavOpen, isMobile, mobileNavOpen, setMobileNavOpen,
+  } = useNavState();
 
-  const mobile = breakpoint === 'xsmall';
   const activeItem = router.pathname;
 
   const handleSelect = ({ item, event }) => {
     event.preventDefault();
     router.push(item.url);
     sendAnalytics({ type: 'navItemClick', href: item.url });
-  };
-
-  // Close layer when breakpoint changes to non-mobile
-  useEffect(() => {
-    if (!mobile && openLayer) {
-      setOpenLayer(false);
+    if (isMobile) {
+      setMobileNavOpen(false);
     }
-  }, [mobile, openLayer]);
-
-  const navigationMenuProps = {
-    activeItem,
-    items: navItems,
-    header: <SideNavHeader open={navOpen} setOpen={setNavOpen} />,
-    open: navOpen,
-    onSelect: handleSelect,
-    ...rest,
   };
 
-  return mobile ? (
-    <>
-      <Box justify="center" fill pad={{ horizontal: 'xxsmall' }}>
-        <Button
-          a11yTitle="Open navigation menu"
-          icon={<Sidebar />}
-          onClick={() => setOpenLayer(true)}
-        />
-      </Box>
-      {openLayer && (
-        <Layer
-          onEsc={() => setOpenLayer(false)}
-          onClickOutside={() => setOpenLayer(false)}
-          position="left"
-        >
-          <Box overflow="auto">
-            <NavigationMenu
-              {...navigationMenuProps}
-              open
-              gap="medium"
-              width={undefined}
-              header={
-                <SideNavHeader
-                  open
-                  setOpen={() => setOpenLayer(false)}
-                />
-              }
-              onSelect={({ item, event }) => {
-                handleSelect({ item, event });
-                if (!item.children) {
-                  setOpenLayer(false);
-                }
-              }}
-            />
-          </Box>
-        </Layer>
-      )}
-    </>
-  ) : (
-    <NavigationMenu {...navigationMenuProps} />
+  // On mobile, always show nav expanded; Layer controls visibility
+  const isOpen = isMobile ? true : navOpen;
+
+  const navMenu = (
+    <NavigationMenu
+      activeItem={activeItem}
+      items={navItems}
+      header={<SideNavHeader open={isOpen} setOpen={setNavOpen} />}
+      open={isOpen}
+      onSelect={handleSelect}
+      {...rest}
+    />
   );
+
+  // On mobile, render nothing inline; show a full-screen Layer instead
+  if (isMobile) {
+    if (!mobileNavOpen) return null;
+    return (
+      <Layer
+        onClickOutside={() => setMobileNavOpen(false)}
+        position="left"
+        onEsc={() => setMobileNavOpen(false)}
+      >
+        {navMenu}
+      </Layer>
+    );
+  }
+
+  return navMenu;
 };

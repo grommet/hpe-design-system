@@ -56,6 +56,7 @@ export const Layout = ({
   } = getPrimaryPageByName(titleProp, structureIndexes) || {};
   const layout = isLanding ? 'plain' : pageLayout;
   const breakpoint = useContext(ResponsiveContext);
+  const isMobile = ['xsmall', 'small'].includes(breakpoint);
 
   const match = siteContents.find(item =>
     item?.name === 'Index'
@@ -121,9 +122,10 @@ export const Layout = ({
               as="aside"
               a11yTitle="Site navigation"
               background="background-front"
-              height="100vh"
+              height={isMobile ? undefined : '100vh'}
+              fill={isMobile || undefined}
               overflow="auto"
-              style={{
+              style={isMobile ? undefined : {
                 position: 'sticky',
                 top: 0,
                 overscrollBehavior: 'contain',
@@ -152,10 +154,10 @@ export const Layout = ({
                 )}
               </Page>
             </Main>
-            <UserFeedback />
           </Grid>
         </NavProvider>
       </Stack>
+      <UserFeedback />
     </>
   );
 };
