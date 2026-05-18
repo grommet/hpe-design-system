@@ -2,10 +2,11 @@ import 'dotenv/config';
 import * as fs from 'fs';
 import path from 'path';
 
-import FigmaApi from '../figma_api.js';
+import FigmaApi, { ApiGetLocalVariablesResponse } from '../figma_api.js';
 import {
   ensureProductionMutationGuardrails,
   resolveFigmaSyncConfig,
+  SyncEnvironment,
 } from '../figma_sync_config.js';
 import {
   buildAliasLookup,
@@ -32,6 +33,113 @@ import {
 } from '../token_import.js';
 
 // This script pushes design tokens from JSON files to Figma design files
+
+/**
+ * Builds the cross-file alias lookup for a stage that depends on a separate
+ * Figma library file.
+ *
+ * Figma assigns a unique subscription hash per subscriber relationship, so the
+ * `subscribed_id` values returned by `getPublishedVariables` may not match the
+ * hash that the current file uses for those same remote vars. This function
+ * performs a two-pass approach:
+ *
+ * 1. Extract each canonical collection's subscription hash from
+ *    `localVariables` (already in the file's remote variable list).
+ * 2. Fetch published vars from `depFileKey`, remap their `subscribed_id`
+ *    fields to use the subscriber-file's hashes, and build an alias lookup.
+ * 3. Merge with a lookup built from the already-imported remote vars (pass 2
+ *    takes precedence), then filter to IDs that are in scope in the file.
+ *
+ * Returns a `canonicalName -> variableId` map ready to be passed to
+ * `generatePostVariablesPayload`.
+ */
+async function buildCrossFileAliasLookup(
+  api: FigmaApi,
+  depFileKey: string,
+  localVariables: ApiGetLocalVariablesResponse,
+  canonicalKeySet: Set<string>,
+  stage: FileTier,
+  environment: SyncEnvironment,
+): Promise<Record<string, string>> {
+  const localCollections = localVariables.meta.variableCollections;
+
+  // Pass 2 source: canonical remote vars (per-collection hash seed).
+  const localRemoteVars = Object.fromEntries(
+    Object.entries(localVariables.meta.variables).filter(([, v]) => {
+      if (!v.remote) return false;
+      const coll = localCollections[v.variableCollectionId];
+      return !!coll?.key && canonicalKeySet.has(coll.key);
+    }),
+  );
+
+  // Extract subscription hash for each canonical collection.
+  // ID format: VariableID:{hash}/{nodeId}
+  const collHashByKey: Record<string, string> = {};
+  for (const v of Object.values(localRemoteVars)) {
+    const coll = localCollections[v.variableCollectionId];
+    if (!coll?.key) continue;
+    const [, hash] = v.id.match(/^VariableID:([^/]+)\//) ?? [];
+    if (hash && !collHashByKey[coll.key]) {
+      collHashByKey[coll.key] = hash;
+    }
+  }
+
+  // Pass 1: fetch and remap published vars from the dependency file.
+  const publishedDep = await api.getPublishedVariables(depFileKey);
+  const depCollections = publishedDep.meta.variableCollections;
+  const depCollKeyById: Record<string, string> = {};
+  for (const [cid, c] of Object.entries(depCollections)) {
+    if (c.key) depCollKeyById[cid] = c.key;
+  }
+  const remappedVars = Object.fromEntries(
+    Object.entries(publishedDep.meta.variables).map(([vid, v]) => {
+      const collKey = depCollKeyById[v.variableCollectionId];
+      const compHash = collKey ? collHashByKey[collKey] : undefined;
+      const subId = v.subscribed_id ?? v.id;
+      if (compHash && subId) {
+        const remapped = subId.replace(
+          /^VariableID:[^/]+\//,
+          `VariableID:${compHash}/`,
+        );
+        return [vid, { ...v, subscribed_id: remapped }];
+      }
+      return [vid, v];
+    }),
+  );
+  const baseLookup = buildAliasLookup(
+    {
+      ...publishedDep,
+      meta: { ...publishedDep.meta, variables: remappedVars },
+    },
+    { stage, environment },
+  ).aliasLookup;
+
+  const localOverride = buildAliasLookup(
+    {
+      ...localVariables,
+      meta: { ...localVariables.meta, variables: localRemoteVars },
+    },
+    { stage, environment },
+  ).aliasLookup;
+
+  const merged = { ...baseLookup, ...localOverride };
+
+  // Figma requires alias targets to be present in this file's
+  // remote variable list (getLocalVariables). Filter to only
+  // in-scope IDs to avoid 400 "does not exist" errors for
+  // remote vars that haven't been imported yet. Once all
+  // library vars are imported (e.g., via a Figma Plugin that
+  // calls importVariableByKeyAsync for each published var),
+  // this filter will pass all remapped IDs through.
+  const inScopeIds = new Set(
+    Object.values(localVariables.meta.variables)
+      .filter(v => v.remote)
+      .map(v => v.id),
+  );
+  return Object.fromEntries(
+    Object.entries(merged).filter(([, id]) => inScopeIds.has(id)),
+  );
+}
 
 async function main() {
   const config = resolveFigmaSyncConfig();
@@ -193,95 +301,14 @@ async function main() {
       const depFileKey = dependencyFileKeyByStage[stage];
       const aliasLookup =
         hasDependencyStage.has(stage) && depFileKey
-          ? await (async () => {
-              // Pass 2 source: canonical remote vars (per-collection hash seed).
-              const localRemoteVars = Object.fromEntries(
-                Object.entries(localVariables.meta.variables).filter(
-                  ([, v]) => {
-                    if (!v.remote) return false;
-                    const coll =
-                      localVariables.meta.variableCollections[
-                        v.variableCollectionId
-                      ];
-                    return !!coll?.key && canonicalKeySet.has(coll.key);
-                  },
-                ),
-              );
-
-              // Extract subscription hash for each canonical collection.
-              // ID format: VariableID:{hash}/{nodeId}
-              const collHashByKey: Record<string, string> = {};
-              for (const v of Object.values(localRemoteVars)) {
-                const coll =
-                  localVariables.meta.variableCollections[
-                    v.variableCollectionId
-                  ];
-                if (!coll?.key) continue;
-                const [, hash] = v.id.match(/^VariableID:([^/]+)\//) ?? [];
-                if (hash && !collHashByKey[coll.key]) {
-                  collHashByKey[coll.key] = hash;
-                }
-              }
-
-              // Pass 1: fetch and remap published vars from the dependency file.
-              const publishedDep = await api.getPublishedVariables(depFileKey);
-              const depCollKeyById: Record<string, string> = {};
-              for (const [cid, c] of Object.entries(
-                publishedDep.meta.variableCollections,
-              )) {
-                if (c.key) depCollKeyById[cid] = c.key;
-              }
-              const remappedVars = Object.fromEntries(
-                Object.entries(publishedDep.meta.variables).map(([vid, v]) => {
-                  const collKey = depCollKeyById[v.variableCollectionId];
-                  const compHash = collKey ? collHashByKey[collKey] : undefined;
-                  const subId = v.subscribed_id ?? v.id;
-                  if (compHash && subId) {
-                    const remapped = subId.replace(
-                      /^VariableID:[^/]+\//,
-                      `VariableID:${compHash}/`,
-                    );
-                    return [vid, { ...v, subscribed_id: remapped }];
-                  }
-                  return [vid, v];
-                }),
-              );
-              const baseLookup = buildAliasLookup(
-                {
-                  ...publishedDep,
-                  meta: { ...publishedDep.meta, variables: remappedVars },
-                },
-                { stage, environment: config.env },
-              ).aliasLookup;
-
-              const localOverride = buildAliasLookup(
-                {
-                  ...localVariables,
-                  meta: {
-                    ...localVariables.meta,
-                    variables: localRemoteVars,
-                  },
-                },
-                { stage, environment: config.env },
-              ).aliasLookup;
-
-              const merged = { ...baseLookup, ...localOverride };
-
-              // Figma requires alias targets to be present in this file's
-              // remote variable list (getLocalVariables). Filter to only
-              // in-scope IDs to avoid 400 "does not exist" errors for
-              // remote vars that haven't been imported yet. Once the
-              // library is fully imported (e.g., via Figma's Swap Library
-              // UI), this filter will pass all remapped IDs through.
-              const inScopeIds = new Set(
-                Object.values(localVariables.meta.variables)
-                  .filter(v => v.remote)
-                  .map(v => v.id),
-              );
-              return Object.fromEntries(
-                Object.entries(merged).filter(([, id]) => inScopeIds.has(id)),
-              );
-            })()
+          ? await buildCrossFileAliasLookup(
+              api,
+              depFileKey,
+              localVariables,
+              canonicalKeySet,
+              stage,
+              config.env,
+            )
           : undefined;
 
       const stageAliasErrors: AliasResolutionError[] = [];

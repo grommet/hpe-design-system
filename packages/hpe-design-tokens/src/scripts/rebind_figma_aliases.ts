@@ -1,3 +1,13 @@
+/**
+ * @deprecated
+ * This script was a standalone remediation tool for rebinding legacy
+ * cross-file aliases to canonical collection targets. Its functionality
+ * has been superseded by the `--bootstrap` flag and the two-pass
+ * `buildCrossFileAliasLookup` approach built into sync_tokens_to_figma.ts.
+ *
+ * Kept for reference and diagnostics only. Do not use in the regular
+ * sync workflow.
+ */
 import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';

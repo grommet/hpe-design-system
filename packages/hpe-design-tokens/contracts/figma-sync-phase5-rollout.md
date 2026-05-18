@@ -148,3 +148,40 @@ Immediate unblock actions:
 1. Fix invalid collection references reported by preflight in the test Figma libraries.
 2. Resolve `color` and `primitives` key conflicts identified by discovery.
 3. Re-run the same pilot command set and continue only after preflight passes.
+
+## Latest Execution Snapshot (2026-05-15)
+
+Status: **completed** — all three stages passed with `productionGuardrailPassed: true`, 0 errors, 0 unresolved aliases.
+
+Key findings from this run:
+
+- Figma assigns a distinct subscription hash per subscriber relationship. The
+  `subscribed_id` returned by `getPublishedVariables` does not universally match
+  the hash that a specific subscriber file uses. A two-pass lookup is required:
+  extract the per-collection hash from `getLocalVariables`, then remap
+  `subscribed_id` values before building the alias lookup.
+- Figma's "Swap Library" UI does **not** swap variable aliases — only styles and
+  components. Migrating variable aliases to a new library subscription requires
+  a Figma Plugin (`importVariableByKeyAsync` + `setValueForMode`).
+- All legacy dimension aliases (39 variables) were migrated to the canonical
+  semantic dimension collection via a one-time Figma Plugin execution.
+- The `--bootstrap` flag was introduced to skip collection-key validation and
+  preflight reference checks for the initial push to fresh files.
+
+Final remote subscription state in test component file:
+
+| Collection | Source file | Status |
+|---|---|---|
+| color | semantic | canonical |
+| dimension | semantic | canonical |
+| global | semantic | canonical |
+| primitives | primitive | canonical |
+
+Executed commands:
+
+1. `pnpm sync-tokens-to-figma -- --env=test --bootstrap`
+	- Outcome: all 3 stages succeeded (primitive, semantic, component).
+2. `pnpm sync-figma-to-tokens -- --env=test --output tokens_fresh_baseline`
+	- Outcome: succeeded; round-trip content 100% identical to source JSON.
+3. `pnpm sync-tokens-to-figma -- --env=test`
+	- Outcome: all 3 stages succeeded, `productionGuardrailPassed: true`, 0 errors.

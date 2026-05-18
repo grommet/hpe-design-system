@@ -112,7 +112,12 @@ export interface ApiGetLocalVariablesResponse {
   };
 }
 
-/** Published variables — include `subscribed_id` for cross-file aliases. */
+/**
+ * Published variables response. Structurally identical to
+ * ApiGetLocalVariablesResponse but every Variable in `meta.variables`
+ * has `subscribed_id` populated — use that field (not `id`) when
+ * building cross-file alias targets for subscriber files.
+ */
 export type ApiGetPublishedVariablesResponse = ApiGetLocalVariablesResponse;
 
 export interface ApiPostVariablesPayload {

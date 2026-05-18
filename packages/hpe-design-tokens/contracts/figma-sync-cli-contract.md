@@ -15,6 +15,11 @@ Owner: design-tokens maintainers + DX/CI owner
 - `--dry-run`: plan-only mode. No POST calls to mutate variables.
 - `--confirm-production`: required locally for mutating production.
 - `--config`: optional config file path.
+- `--bootstrap`: skip collection-key validation and preflight reference checks.
+  Use only when setting up a fresh Figma environment whose collection keys are
+  not yet known. Discover keys after the first successful bootstrap run using
+  `pnpm sync-discover-figma-collection-keys`, populate `.env`, then switch to
+  the normal (non-bootstrap) workflow. Must not be used in production CI runs.
 
 ## Resolution Precedence
 

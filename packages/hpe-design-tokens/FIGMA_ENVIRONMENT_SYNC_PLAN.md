@@ -16,7 +16,7 @@ This plan is written for engineers and automation agents.
 
 - Current push uses a single environment key set: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts#L16).
 - Current pull uses a single environment key set: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts#L41).
-- Current alias resolution is local-snapshot/id based: [src/token_import.ts](src/token_import.ts#L317).
+- Current alias resolution uses a two-pass published+local approach: for each stage that depends on another file, the script fetches published variables from the dependency file, remaps their `subscribed_id` fields to the subscriber file's per-collection hash (extracted from `getLocalVariables`), then merges with any already-imported remote vars and filters to in-scope IDs. See [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts).
 - Current reference verification is single-environment: [src/utils.ts](src/utils.ts#L64).
 
 ## Target Architecture
@@ -59,7 +59,10 @@ Fixed stage order:
 Invariants:
 
 - Next stage starts only if previous stage succeeded.
-- Alias cache is rebuilt from remote state after each successful stage.
+- After each successful stage, the two-pass alias lookup is rebuilt from the
+  dependency file's published variables, re-fetching `getPublishedVariables` and
+  re-extracting subscription hashes from `getLocalVariables` at that point in
+  the run. This ensures alias IDs always reflect the actual remote state.
 - No alias ids are reused across runs.
 
 ### Alias Rebinding Contract
