@@ -1,117 +1,471 @@
 import 'dotenv/config';
 import * as fs from 'fs';
+import path from 'path';
 
-import FigmaApi from '../figma_api.js';
+import FigmaApi, { ApiGetLocalVariablesResponse } from '../figma_api.js';
+import {
+  ensureProductionMutationGuardrails,
+  resolveFigmaSyncConfig,
+  SyncEnvironment,
+} from '../figma_sync_config.js';
+import {
+  buildAliasLookup,
+  countsFromPostPayload,
+  emitRunSummary,
+  emitStageEvent,
+  emptyCounts,
+  FILE_TIERS,
+  FileTier,
+  hasMutations,
+  makeRunId,
+  SCHEMA_VERSION,
+  StageResult,
+  SyncError,
+  withRequiredErrorFields,
+} from '../sync_events.js';
 
 import { green, verifyReferences } from '../utils.js';
 import {
+  AliasResolutionError,
   generatePostVariablesPayload,
+  normalizeAliasReference,
   readJsonFiles,
 } from '../token_import.js';
 
 // This script pushes design tokens from JSON files to Figma design files
 
+/**
+ * Builds the cross-file alias lookup for a stage that depends on a separate
+ * Figma library file.
+ *
+ * Figma assigns a unique subscription hash per subscriber relationship, so the
+ * `subscribed_id` values returned by `getPublishedVariables` may not match the
+ * hash that the current file uses for those same remote vars. This function
+ * performs a two-pass approach:
+ *
+ * 1. Extract each canonical collection's subscription hash from
+ *    `localVariables` (already in the file's remote variable list).
+ * 2. Fetch published vars from `depFileKey`, remap their `subscribed_id`
+ *    fields to use the subscriber-file's hashes, and build an alias lookup.
+ * 3. Merge with a lookup built from the already-imported remote vars (pass 2
+ *    takes precedence), then filter to IDs that are in scope in the file.
+ *
+ * Returns a `canonicalName -> variableId` map ready to be passed to
+ * `generatePostVariablesPayload`.
+ */
+async function buildCrossFileAliasLookup(
+  api: FigmaApi,
+  depFileKey: string,
+  localVariables: ApiGetLocalVariablesResponse,
+  canonicalKeySet: Set<string>,
+  stage: FileTier,
+  environment: SyncEnvironment,
+): Promise<Record<string, string>> {
+  const localCollections = localVariables.meta.variableCollections;
+
+  // Pass 2 source: canonical remote vars (per-collection hash seed).
+  const localRemoteVars = Object.fromEntries(
+    Object.entries(localVariables.meta.variables).filter(([, v]) => {
+      if (!v.remote) return false;
+      const coll = localCollections[v.variableCollectionId];
+      return !!coll?.key && canonicalKeySet.has(coll.key);
+    }),
+  );
+
+  // Extract subscription hash for each canonical collection.
+  // ID format: VariableID:{hash}/{nodeId}
+  const collHashByKey: Record<string, string> = {};
+  Object.values(localRemoteVars).forEach(v => {
+    const coll = localCollections[v.variableCollectionId];
+    if (!coll?.key) return;
+    const [, hash] = v.id.match(/^VariableID:([^/]+)\//) ?? [];
+    if (hash && !collHashByKey[coll.key]) {
+      collHashByKey[coll.key] = hash;
+    }
+  });
+
+  // Pass 1: fetch and remap published vars from the dependency file.
+  const publishedDep = await api.getPublishedVariables(depFileKey);
+  const depCollections = publishedDep.meta.variableCollections;
+  const depCollKeyById: Record<string, string> = {};
+  Object.entries(depCollections).forEach(([cid, c]) => {
+    if (c.key) depCollKeyById[cid] = c.key;
+  });
+  const remappedVars = Object.fromEntries(
+    Object.entries(publishedDep.meta.variables).map(([vid, v]) => {
+      const collKey = depCollKeyById[v.variableCollectionId];
+      const compHash = collKey ? collHashByKey[collKey] : undefined;
+      const subId = v.subscribed_id ?? v.id;
+      if (compHash && subId) {
+        const remapped = subId.replace(
+          /^VariableID:[^/]+\//,
+          `VariableID:${compHash}/`,
+        );
+        return [vid, { ...v, subscribed_id: remapped }];
+      }
+      return [vid, v];
+    }),
+  );
+  const baseLookup = buildAliasLookup(
+    {
+      ...publishedDep,
+      meta: { ...publishedDep.meta, variables: remappedVars },
+    },
+    { stage, environment },
+  ).aliasLookup;
+
+  const localOverride = buildAliasLookup(
+    {
+      ...localVariables,
+      meta: { ...localVariables.meta, variables: localRemoteVars },
+    },
+    { stage, environment },
+  ).aliasLookup;
+
+  const merged = { ...baseLookup, ...localOverride };
+
+  // Figma requires alias targets to be present in this file's
+  // remote variable list (getLocalVariables). Filter to only
+  // in-scope IDs to avoid 400 "does not exist" errors for
+  // remote vars that haven't been imported yet. Once all
+  // library vars are imported (e.g., via a Figma Plugin that
+  // calls importVariableByKeyAsync for each published var),
+  // this filter will pass all remapped IDs through.
+  const inScopeIds = new Set(
+    Object.values(localVariables.meta.variables)
+      .filter(v => v.remote)
+      .map(v => v.id),
+  );
+  return Object.fromEntries(
+    Object.entries(merged).filter(([, id]) => inScopeIds.has(id)),
+  );
+}
+
 async function main() {
-  if (
-    !process.env.PERSONAL_ACCESS_TOKEN ||
-    !process.env.FILE_KEY_PRIMITIVE ||
-    !process.env.FILE_KEY_SEMANTIC ||
-    !process.env.FILE_KEY_COMPONENT
-  ) {
-    throw new Error(
-      'PERSONAL_ACCESS_TOKEN, FILE_KEY_PRIMITIVE, FILE_KEY_SEMANTIC, and FILE_KEY_COMPONENT environment variables are required',
-    );
-  }
-  const fileKeys: { [key: string]: string } = {
-    primitive: process.env.FILE_KEY_PRIMITIVE,
-    semantic: process.env.FILE_KEY_SEMANTIC,
-    component: process.env.FILE_KEY_COMPONENT,
+  const config = resolveFigmaSyncConfig();
+  const { fileKeys } = config;
+  const runId = makeRunId();
+  const runStartedAt = new Date().toISOString();
+  const stageResults: StageResult[] = [];
+  const runErrors: SyncError[] = [];
+  let runMutationsApplied = false;
+  const hasDependencyStage: Set<FileTier> = new Set(['semantic', 'component']);
+  const dependencyFileKeyByStage: Partial<Record<FileTier, string>> = {
+    semantic: fileKeys.primitive,
+    component: fileKeys.semantic,
   };
 
+  console.log(`Running sync-tokens-to-figma for env: ${config.env}`);
+
   const TOKENS_DIR = 'tokens';
-  const tokenDirs = fs
-    .readdirSync(TOKENS_DIR, { withFileTypes: true })
-    .filter(dir => dir.isDirectory() && dir.name !== '.tmp')
-    .map(dir => dir.name);
+  const availableTokenDirs = new Set(
+    fs
+      .readdirSync(TOKENS_DIR, { withFileTypes: true })
+      .filter(dir => dir.isDirectory() && dir.name !== '.tmp')
+      .map(dir => dir.name),
+  );
 
-  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
-  const componentTokens = await api.getLocalVariables(fileKeys.component);
-  const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
-  verifyReferences([componentTokens, semanticTokens]);
+  const api = new FigmaApi(config.personalAccessToken);
+  let productionGuardrailPassed = true;
 
-  tokenDirs.forEach(async dir => {
-    const tokensFiles = fs
-      .readdirSync(`${TOKENS_DIR}/${dir}`)
-      .map((file: string) => `${TOKENS_DIR}/${dir}/${file}`)
-      .filter(file => file);
+  try {
+    const guardrailResult = ensureProductionMutationGuardrails(config, {
+      argv: process.argv.slice(2),
+      env: process.env,
+      isMutating: !config.dryRun,
+    });
+    productionGuardrailPassed = guardrailResult.passed;
 
-    const tokensByFile = readJsonFiles(tokensFiles);
-
-    console.log('Read tokens files:', Object.keys(tokensByFile));
-
-    const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
-    const localVariables = await api.getLocalVariables(fileKeys[dir]);
-
-    const postVariablesPayload = generatePostVariablesPayload(
-      tokensByFile,
-      localVariables,
+    const componentTokens = await api.getLocalVariables(fileKeys.component);
+    const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
+    const referenceReport = verifyReferences(
+      [componentTokens, semanticTokens],
+      config.expectedCollectionKeys,
+      { bootstrap: config.bootstrap },
     );
 
-    if (
-      Object.values(postVariablesPayload).every(value => value.length === 0)
-    ) {
-      console.log(
-        green(`✅ "${dir}" tokens are already up to date with the Figma file`),
-      );
+    console.log(
+      JSON.stringify({
+        schemaVersion: SCHEMA_VERSION,
+        eventType: 'preflight-validation',
+        runId,
+        environment: config.env,
+        dryRun: config.dryRun,
+        productionGuardrailPassed,
+        referenceValidation: referenceReport,
+      }),
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    runErrors.push({
+      code: 'PREFLIGHT_FAILED',
+      message,
+      environment: config.env,
+      remediation:
+        'Review production guardrail and reference validation ' +
+        'requirements, then retry.',
+    });
+
+    emitRunSummary({
+      runId,
+      environment: config.env,
+      dryRun: config.dryRun,
+      productionGuardrailPassed: false,
+      mutationsApplied: false,
+      unresolvedAliasCount: 0,
+      stages: stageResults,
+      errors: withRequiredErrorFields(runErrors, config.env),
+      startedAt: runStartedAt,
+      finishedAt: new Date().toISOString(),
+    });
+
+    throw error;
+  }
+
+  await FILE_TIERS.reduce<Promise<void>>(async (chainPromise, stage) => {
+    await chainPromise;
+
+    const plannedAt = new Date().toISOString();
+    emitStageEvent({
+      schemaVersion: SCHEMA_VERSION,
+      eventType: 'stage-status',
+      runId,
+      environment: config.env,
+      stage,
+      status: 'planned',
+      dryRun: config.dryRun,
+      mutationsApplied: false,
+      counts: emptyCounts(),
+      unresolvedAliasCount: 0,
+      startedAt: plannedAt,
+      finishedAt: plannedAt,
+    });
+
+    if (!availableTokenDirs.has(stage)) {
+      const skippedAt = new Date().toISOString();
+      const counts = emptyCounts();
+      emitStageEvent({
+        schemaVersion: SCHEMA_VERSION,
+        eventType: 'stage-status',
+        runId,
+        environment: config.env,
+        stage,
+        status: 'skipped',
+        dryRun: config.dryRun,
+        mutationsApplied: false,
+        counts,
+        unresolvedAliasCount: 0,
+        startedAt: skippedAt,
+        finishedAt: skippedAt,
+      });
+      stageResults.push({ stage, status: 'skipped', counts });
       return;
     }
 
-    const apiResp = await api.postVariables(
-      fileKeys[dir],
-      postVariablesPayload,
-    );
+    const stageStartedAt = new Date().toISOString();
+    emitStageEvent({
+      schemaVersion: SCHEMA_VERSION,
+      eventType: 'stage-status',
+      runId,
+      environment: config.env,
+      stage,
+      status: 'running',
+      dryRun: config.dryRun,
+      mutationsApplied: false,
+      counts: emptyCounts(),
+      unresolvedAliasCount: 0,
+      startedAt: stageStartedAt,
+      finishedAt: stageStartedAt,
+    });
 
-    console.log(`"${dir}" POST variables API response:`, apiResp);
+    try {
+      const tokensDir = path.join(TOKENS_DIR, stage);
+      const tokensFiles = fs
+        .readdirSync(tokensDir)
+        .map((file: string) => path.join(tokensDir, file))
+        .filter(file => file);
 
-    if (
-      postVariablesPayload.variableCollections &&
-      postVariablesPayload.variableCollections.length
-    ) {
-      console.log(
-        `Updated "${dir}" variable collections`,
-        postVariablesPayload.variableCollections,
+      const tokensByFile = readJsonFiles(tokensFiles);
+      console.log(`Read ${stage} token files:`, Object.keys(tokensByFile));
+
+      const localVariables = await api.getLocalVariables(fileKeys[stage]);
+
+      // Build alias lookup in two passes:
+      // Pass 1 — published vars from the dependency file. Covers ALL vars.
+      //   subscribed_ids are remapped to this file's subscription hash, since
+      //   each subscriber file receives a distinct hash per subscription
+      //   relationship (hash extracted from the 1–3 canonical remote vars
+      //   that ARE explicitly referenced in this file).
+      // Pass 2 — canonical remote vars from THIS file. Confirmed-correct IDs
+      //   for explicitly-referenced vars; overrides Pass 1 for those vars.
+      const canonicalKeySet = new Set(
+        Object.values(config.expectedCollectionKeys),
       );
-    }
+      const depFileKey = dependencyFileKeyByStage[stage];
+      const aliasLookup =
+        hasDependencyStage.has(stage) && depFileKey
+          ? await buildCrossFileAliasLookup(
+              api,
+              depFileKey,
+              localVariables,
+              canonicalKeySet,
+              stage,
+              config.env,
+            )
+          : undefined;
 
-    if (
-      postVariablesPayload.variableModes &&
-      postVariablesPayload.variableModes.length
-    ) {
-      console.log(
-        `Updated "${dir}" variable modes`,
-        postVariablesPayload.variableModes,
+      const stageAliasErrors: AliasResolutionError[] = [];
+
+      const postVariablesPayload = generatePostVariablesPayload(
+        tokensByFile,
+        localVariables,
+        {
+          aliasLookup,
+          stage,
+          environment: config.env,
+          onAliasResolutionError: error => {
+            stageAliasErrors.push(error);
+          },
+        },
       );
-    }
 
-    if (
-      postVariablesPayload.variables &&
-      postVariablesPayload.variables.length
-    ) {
-      console.log(`Updated "${dir}" variables`, postVariablesPayload.variables);
-    }
+      if (stageAliasErrors.length) {
+        stageAliasErrors.forEach(error => {
+          runErrors.push({
+            ...error,
+            tokenPath: normalizeAliasReference(error.tokenPath),
+          });
+        });
+        throw new Error(
+          `Alias resolution failed for ${stage}: ` +
+            `${stageAliasErrors.length} unresolved aliases`,
+        );
+      }
 
-    if (
-      postVariablesPayload.variableModeValues &&
-      postVariablesPayload.variableModeValues.length
-    ) {
-      console.log(
-        `Updated "${dir}" variable mode values`,
-        postVariablesPayload.variableModeValues,
-      );
+      const counts = countsFromPostPayload(postVariablesPayload);
+      const stageHasMutations = hasMutations(counts);
+
+      if (!stageHasMutations) {
+        console.log(
+          green(
+            `✅ "${stage}" tokens are already up to date with the Figma file`,
+          ),
+        );
+      } else if (config.dryRun) {
+        console.log(
+          green(
+            `✅ Dry run: "${stage}" has planned updates, no mutations applied`,
+          ),
+        );
+      } else {
+        const apiResp = await api.postVariables(
+          fileKeys[stage],
+          postVariablesPayload,
+        );
+
+        console.log(`"${stage}" POST variables API response:`, apiResp);
+        runMutationsApplied = true;
+      }
+
+      const stageFinishedAt = new Date().toISOString();
+      emitStageEvent({
+        schemaVersion: SCHEMA_VERSION,
+        eventType: 'stage-status',
+        runId,
+        environment: config.env,
+        stage,
+        status: 'succeeded',
+        dryRun: config.dryRun,
+        mutationsApplied: stageHasMutations && !config.dryRun,
+        counts,
+        unresolvedAliasCount: stageAliasErrors.length,
+        startedAt: stageStartedAt,
+        finishedAt: stageFinishedAt,
+      });
+
+      stageResults.push({ stage, status: 'succeeded', counts });
+      console.log(green(`✅ Completed ${stage} stage`));
+    } catch (error) {
+      const stageFinishedAt = new Date().toISOString();
+      const message = error instanceof Error ? error.message : String(error);
+      const failedCounts = emptyCounts();
+      const stageAliasErrorCount = runErrors.filter(
+        err => err.stage === stage && err.code.startsWith('ALIAS_'),
+      ).length;
+
+      emitStageEvent({
+        schemaVersion: SCHEMA_VERSION,
+        eventType: 'stage-status',
+        runId,
+        environment: config.env,
+        stage,
+        status: 'failed',
+        dryRun: config.dryRun,
+        mutationsApplied: false,
+        counts: failedCounts,
+        unresolvedAliasCount: stageAliasErrorCount,
+        startedAt: stageStartedAt,
+        finishedAt: stageFinishedAt,
+      });
+
+      stageResults.push({ stage, status: 'failed', counts: failedCounts });
+      if (!runErrors.some(errorItem => errorItem.stage === stage)) {
+        runErrors.push({ code: 'STAGE_FAILED', message, stage });
+      }
+
+      const skippedAt = new Date().toISOString();
+      const remainingStages = FILE_TIERS.slice(FILE_TIERS.indexOf(stage) + 1);
+      remainingStages.forEach(remainingStage => {
+        const counts = emptyCounts();
+        emitStageEvent({
+          schemaVersion: SCHEMA_VERSION,
+          eventType: 'stage-status',
+          runId,
+          environment: config.env,
+          stage: remainingStage,
+          status: 'skipped',
+          dryRun: config.dryRun,
+          mutationsApplied: false,
+          counts,
+          unresolvedAliasCount: stageAliasErrorCount,
+          startedAt: skippedAt,
+          finishedAt: skippedAt,
+        });
+        stageResults.push({ stage: remainingStage, status: 'skipped', counts });
+      });
+
+      emitRunSummary({
+        runId,
+        environment: config.env,
+        dryRun: config.dryRun,
+        productionGuardrailPassed,
+        mutationsApplied: runMutationsApplied,
+        unresolvedAliasCount: runErrors.filter(errorItem =>
+          errorItem.code.startsWith('ALIAS_'),
+        ).length,
+        stages: stageResults,
+        errors: withRequiredErrorFields(runErrors, config.env),
+        startedAt: runStartedAt,
+        finishedAt: new Date().toISOString(),
+      });
+
+      throw error;
     }
-    console.log(
-      green(`✅ Figma files have been updated with the new ${dir} tokens`),
-    );
+  }, Promise.resolve());
+
+  emitRunSummary({
+    runId,
+    environment: config.env,
+    dryRun: config.dryRun,
+    productionGuardrailPassed,
+    mutationsApplied: runMutationsApplied,
+    unresolvedAliasCount: runErrors.filter(errorItem =>
+      errorItem.code.startsWith('ALIAS_'),
+    ).length,
+    stages: stageResults,
+    errors: withRequiredErrorFields(runErrors, config.env),
+    startedAt: runStartedAt,
+    finishedAt: new Date().toISOString(),
   });
 }
 

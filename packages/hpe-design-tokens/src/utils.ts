@@ -1,5 +1,6 @@
 import { readdirSync } from 'fs';
 import { ApiGetLocalVariablesResponse } from './figma_api.js';
+import { ExpectedCollectionKeys } from './figma_sync_config.js';
 
 export function green(msg: string) {
   return `\x1b[32m${msg}\x1b[0m`;
@@ -56,51 +57,78 @@ export const nonComponentTokens: string[] = [
 export const numberToPixel = (value: number): string => `${value}px`;
 
 export const excludedNameParts = ['DEFAULT', 'REST'];
+
+export type ReferenceValidationReport = {
+  status: 'passed' | 'failed';
+  checkedRemoteCollections: number;
+  invalidVariablesCount: number;
+};
+
 /**
  * Ensure variable references are to valid collections. Log errors for any variables referencing invalid Figma files.
  */
 export const verifyReferences = (
   localTokens: ApiGetLocalVariablesResponse[],
+  expectedCollectionKeys?: ExpectedCollectionKeys,
+  options?: { bootstrap?: boolean },
 ) => {
+  if (options?.bootstrap) {
+    return {
+      status: 'passed' as const,
+      checkedRemoteCollections: 0,
+      invalidVariablesCount: 0,
+    };
+  }
+
+  const resolvedExpectedCollectionKeys: ExpectedCollectionKeys =
+    expectedCollectionKeys || {
+      primitives: process.env.FIGMA_PRIMITIVES_COLLECTION_KEY || '',
+      global: process.env.FIGMA_GLOBAL_COLLECTION_KEY || '',
+      color: process.env.FIGMA_COLOR_COLLECTION_KEY || '',
+      dimension: process.env.FIGMA_DIMENSION_COLLECTION_KEY || '',
+    };
+
   if (
-    !process.env.FIGMA_PRIMITIVES_COLLECTION_KEY ||
-    !process.env.FIGMA_GLOBAL_COLLECTION_KEY ||
-    !process.env.FIGMA_COLOR_COLLECTION_KEY ||
-    !process.env.FIGMA_DIMENSION_COLLECTION_KEY
+    !resolvedExpectedCollectionKeys.primitives ||
+    !resolvedExpectedCollectionKeys.global ||
+    !resolvedExpectedCollectionKeys.color ||
+    !resolvedExpectedCollectionKeys.dimension
   ) {
     throw new Error(
       'FIGMA_PRIMITIVES_COLLECTION_KEY, FIGMA_GLOBAL_COLLECTION_KEY, FIGMA_COLOR_COLLECTION_KEY, and FIGMA_DIMENSION_COLLECTION_KEY environment variables are required',
     );
   }
   const invalidVariables: string[] = [];
+  let checkedRemoteCollections = 0;
   localTokens.forEach(tokens => {
     Object.keys(tokens.meta.variableCollections).forEach(key => {
       const collection = tokens.meta.variableCollections[key];
       if (collection.remote === true) {
+        checkedRemoteCollections += 1;
         if (
           collection.name === 'color' &&
-          collection.key !== process.env['FIGMA_COLOR_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.color
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'dimension' &&
-          collection.key !== process.env['FIGMA_DIMENSION_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.dimension
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'primitives' &&
-          collection.key !== process.env['FIGMA_PRIMITIVES_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.primitives
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'global' &&
-          collection.key !== process.env['FIGMA_GLOBAL_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.global
         ) {
           collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
@@ -129,6 +157,12 @@ export const verifyReferences = (
     throw new Error(
       'Invalid references were found. Resolve reference errors in Figma.',
     );
+
+  return {
+    status: 'passed',
+    checkedRemoteCollections,
+    invalidVariablesCount: 0,
+  } as ReferenceValidationReport;
 };
 
 const TOKENS_DIR = 'tokens';
