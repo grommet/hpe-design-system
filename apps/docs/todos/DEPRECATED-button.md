@@ -30,7 +30,11 @@ when `generate-mdx-agent` reconstructs the page.
 
 ---
 
+<!--
 ## 2. Toggle buttons guidance section
+
+> ✅ Resolved — added as the **Toggle** variant in `button.mdx` (Variants section),
+> with a `ButtonToggleExample.js` demonstrating the `active` prop and state-reflecting labels.
 
 **Source section:** `### Toggle buttons` and `#### Toggle buttons with icons`
 
@@ -43,10 +47,16 @@ any schema field cleanly.
 **Potential value:** Medium — consider adding a `patterns` or `usagePatterns` field to
 `ComponentDefinition` for behavioral recipes like toggle. Alternatively, this content could live in
 a dedicated Toggle Button pattern page.
+-->
 
 ---
 
+<!--
 ## 3. Primary buttons prose section (separate from Variants)
+
+> ✅ Resolved — content deprecated. The marketing-flavored rationale ("unlocking new value,"
+> "enabling a new experience") overlaps with `usage.whenToUse` and does not need to be preserved.
+> The technical guidance is fully covered by `variants[primary]` in `button.yaml`.
 
 **Source section:** `## Primary buttons` (distinct from `## Variants → ### Primary button`)
 
@@ -59,6 +69,7 @@ experience") was condensed into `usage.whenToUse` but the full text was not pres
 **Potential value:** Low-medium — the extra prose is marketing-flavored rationale that overlaps with
 `usage.whenToUse`. Recommend collapsing it fully into `usage.whenToUse` and `variants[primary].when`
 during MDX reconstruction.
+-->
 
 ---
 
@@ -66,11 +77,12 @@ during MDX reconstruction.
 
 **Source section:** `### Button alignment` — `<ButtonAlignmentTable />`
 
-**Why it didn't map:** `ButtonAlignmentTable` is an interactive React component that renders a
-reference table mapping button alignment rules to layout contexts (drawers, modals, inline forms,
-etc.). The tabular content is not in the MDX source itself — it lives inside the component file. The
-YAML references it as an `examples` path entry, but the actual alignment rules are not captured as
-structured data.
+**Status:** `<ButtonAlignmentTable />` is imported and rendering in `button.mdx` — the section is
+not missing from the page. The note below refers only to the YAML schema gap.
+
+**Why it didn't map:** The alignment rules live inside the component file, not as structured data in
+`button.yaml`. The YAML references it as an `examples` path entry but does not capture the actual
+alignment rules (left vs. right by surface context, ordering within a group).
 
 **Potential value:** High — the alignment rules are substantive design guidance. Recommend either
 extracting the table content into a dedicated `alignment` field in the schema, or ensuring the
@@ -78,7 +90,11 @@ component file is reviewed when the MDX is regenerated.
 
 ---
 
+<!--
 ## 5. ActionLabels example cross-component reference
+
+> ✅ Resolved — created `ButtonActionLabelsExample.js` in the button examples directory.
+> Added to the **Content Guidelines** section of `button.mdx` and to the `examples` array in `button.yaml`.
 
 **Source import:**
 ```js
@@ -95,10 +111,16 @@ YAML `examples` array.
 **Potential value:** High — the example effectively illustrates the labeling best practice. Recommend
 either duplicating or moving a version of `ActionLabels` into the button examples directory, or
 creating a dedicated `ActionLabelsButtonExample.js` that does not carry Layer-specific imports.
+-->
 
 ---
 
+<!--
 ## 6. Buttons vs. Anchors — nuanced HTML semantics guidance
+
+> ✅ Resolved — added a **"Buttons vs. anchors"** subsection to the `## Accessibility` section in
+> `button.mdx`, including the screen-reader heuristic and a cross-reference to
+> [Anchor WCAG compliance](/components/anchor#wcag-compliance).
 
 **Source section:** `### Buttons vs. anchors` and `### A11y guidance` (accessibility section)
 
@@ -110,10 +132,16 @@ the reference to the Anchor WCAG rules page (`/components/anchor#wcag-compliance
 **Potential value:** Medium — the cross-reference to Anchor accessibility is useful. Recommend
 preserving it in the MDX when `generate-mdx-agent` reconstructs the page by including a prose note
 in the accessibility section.
+-->
 
 ---
 
+<!--
 ## 7. Responsiveness — Button ordering guidance
+
+> ✅ Resolved — the ordering rule ("Primary first, followed by Secondary, then Default") is now
+> included in the `#### Button alignment and ordering` section prose in `button.mdx`, alongside
+> the `<ButtonAlignmentTable />` and the left/right alignment examples.
 
 **Source section:** `### Button ordering`
 
@@ -126,3 +154,4 @@ in `examples`, but the ordering rule itself was not captured.
 **Potential value:** Medium — this is actionable design guidance. Recommend capturing it in a
 `layout` or `ordering` sub-field, or folding it into a `dosAndDonts` entry during MDX
 reconstruction.
+-->
