@@ -145,6 +145,14 @@ const initialStructure = [
   learn,
   templates,
   tokens,
+  // Temporary feedback page — not in navigation, not indexed by search
+  [
+    {
+      name: 'Hover Sticker Sheet',
+      path: '/hover-sticker-sheet',
+      searchable: false,
+    },
+  ],
 ].flat() as StructurePage[];
 
 export const structure = initialStructure;
