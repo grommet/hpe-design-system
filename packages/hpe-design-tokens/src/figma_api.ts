@@ -67,7 +67,8 @@ export interface Variable {
   name: string;
   key: string;
   variableCollectionId: string;
-  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | 'SHADOW' | 'BORDER'; // SHADOW, BORDER is custom for w3c spec
+  // SHADOW and BORDER are custom types for the W3C design token spec
+  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | 'SHADOW' | 'BORDER';
   valuesByMode: { [modeId: string]: VariableValue };
   remote: boolean;
   description: string;
@@ -135,6 +136,7 @@ interface ApiPostVariablesResponse {
 
 export default class FigmaApi {
   private baseUrl = 'https://api.figma.com';
+
   private token: string;
 
   constructor(token: string) {
