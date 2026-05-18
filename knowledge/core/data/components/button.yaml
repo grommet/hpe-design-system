@@ -169,6 +169,9 @@ examples:
     path: apps/docs/src/examples/components/button/DosDonts/ButtonGoodLongTitlePreview.js
   - description: Don't — horizontal inline button group on small screen widths.
     path: apps/docs/src/examples/components/button/DosDonts/ButtonBadGroupPreview.js
+  - description: Verb–noun action label example showing correct labeling convention
+      (primary action includes noun; secondary omits it when context is clear).
+    path: apps/docs/src/examples/components/button/ButtonActionLabelsExample.js
 
 anatomy:
   - label: "1"

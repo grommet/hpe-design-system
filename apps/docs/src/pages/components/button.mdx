@@ -5,6 +5,7 @@ import {
   Example,
 } from '../../layouts';
 import {
+  ButtonActionLabelsExample,
   ButtonAlignmentTable,
   ButtonBeginNewTaskExample,
   ButtonBadActionLabelsPreview,
@@ -27,6 +28,7 @@ import {
   ButtonRightAlignExample,
   ButtonSizingExample,
   ButtonStatesExample,
+  ButtonToggleExample,
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
@@ -216,6 +218,18 @@ A button with a small badge indicator overlaid to show a count or notification s
   <ButtonBadgeExample />
 </Example>
 
+### Toggle
+
+A button that switches between two states — on/off, active/inactive — using the `active` prop. Use when the button represents a persistent setting the user can flip, such as enabling notifications or toggling a view mode. Label the button to reflect the current state so the user always knows what will happen next (e.g., "Notifications on" / "Notifications off").
+
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonToggleExample.js"
+  height={{ min: 'small' }}
+>
+  <ButtonToggleExample />
+</Example>
+
 ## Dos and Don'ts
 
 <BestPracticeGroup>
@@ -390,6 +404,14 @@ Use a `Button` when the interaction performs an in-page action (submit, create, 
 - For icon toggle buttons, limit labels to 2–3 words; use verbs first (e.g., "Hide / View", "Favorite / Unfavorite", "Like / Dislike").
 - Use sentence case capitalization; avoid articles such as "the" or "a" in toggle button labels.
 
+<Example
+  docs="https://v2.grommet.io/button?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonActionLabelsExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <ButtonActionLabelsExample />
+</Example>
+
 ## Accessibility
 
 ### Keyboard interaction
@@ -408,6 +430,12 @@ Use a `Button` when the interaction performs an in-page action (submit, create, 
 | `a11yTitle`     | Descriptive string | HPE Design System prop equivalent to `aria-label`; use for icon-only buttons.                            |
 | `aria-disabled` | `"true"`           | When the button is in a disabled state.                                                                  |
 | `role`          | `button`           | Applied automatically by the browser for native `<button>` elements; verify when using a custom element. |
+
+### Buttons vs. anchors
+
+Use a `Button` when an action happens on the page — submitting a form, opening a dialog, or triggering a state change. Use an `Anchor` (or a native `<a>`) when the user navigates to a new location.
+
+See [Anchor WCAG compliance](/components/anchor#wcag-compliance) for the related accessibility rules.
 
 ### Screen reader announcements
 

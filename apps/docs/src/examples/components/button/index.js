@@ -1,3 +1,4 @@
+export * from './ButtonActionLabelsExample';
 export * from './ButtonAlignmentTable';
 export * from './ButtonBeginNewTaskExample';
 export * from './ButtonExample';
@@ -12,6 +13,7 @@ export * from './ButtonRightAlignExample';
 export * from './ButtonSecondaryActionsExample';
 export * from './ButtonSizingExample';
 export * from './ButtonStatesExample';
+export * from './ButtonToggleExample';
 export * from './ButtonWizardStepExample';
 export * from './DefaultButtonExample';
 export * from './DosDonts';
