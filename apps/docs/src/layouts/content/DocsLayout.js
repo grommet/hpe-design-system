@@ -35,6 +35,7 @@ export const DocsLayout = ({
       )}
       <Box
         fill="horizontal"
+        style={{ minWidth: 0, overflowWrap: 'break-word' }}
       >
         <SkipLinkTarget id="main" label="Main content" />
         <ContentSection pad={{ top: 'none' }}>
