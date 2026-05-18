@@ -9,7 +9,6 @@ import {
   FormField,
   Grid,
   Heading,
-  RadioButton,
   RadioButtonGroup,
   Select,
   SelectMultiple,
@@ -207,47 +206,6 @@ export const StickerSheet = () => {
                   onChange={({ value: v }) => setCheckGroupVal(v)}
                 />
               </FormField>
-            }
-          />
-
-          {/* RadioButton */}
-          <DualCard
-            title="RadioButton"
-            standalone={
-              <Box gap="xsmall">
-                <RadioButton
-                  name="rb-s-1"
-                  label="Unchecked"
-                  checked={false}
-                  onChange={() => {}}
-                />
-                <RadioButton
-                  name="rb-s-2"
-                  label="Checked"
-                  checked
-                  onChange={() => {}}
-                />
-              </Box>
-            }
-            inFormField={
-              <Box gap="xsmall">
-                <FormField>
-                  <RadioButton
-                    name="rb-ff-1"
-                    label="Unchecked"
-                    checked={false}
-                    onChange={() => {}}
-                  />
-                </FormField>
-                <FormField>
-                  <RadioButton
-                    name="rb-ff-2"
-                    label="Checked"
-                    checked
-                    onChange={() => {}}
-                  />
-                </FormField>
-              </Box>
             }
           />
 

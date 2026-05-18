@@ -7,7 +7,6 @@ import {
   Grommet,
   Heading,
   PageContent,
-  RadioButton,
   Text,
   TextInput,
   ToggleGroup,
@@ -26,12 +25,12 @@ const DESCRIPTIONS = {
   Current: [
     'Unchecked checkboxes show a background fill on hover.',
     'Form input borders do not change on hover.',
-    'RadioButton border darkens on hover (unchecked and checked).',
+    'RadioButtonGroup border darkens on hover (unchecked and checked).',
   ],
   'Option 1': [
     'No background fill on unchecked checkbox hover.',
     'Checkbox border darkens on hover for unchecked state only.',
-    'RadioButton border darkens on hover for unchecked state only.',
+    'RadioButtonGroup border darkens on hover for unchecked state only.',
   ],
   'Option 2': [
     'All inputs get a darker border on hover.',
@@ -99,12 +98,6 @@ const HoverStickerSheet = () => {
               <Box direction="row" gap="large" align="center" wrap>
                 <CheckBox
                   label="Checkbox"
-                  checked={false}
-                  onChange={() => {}}
-                />
-                <RadioButton
-                  name="preview-rb"
-                  label="Radio button"
                   checked={false}
                   onChange={() => {}}
                 />
