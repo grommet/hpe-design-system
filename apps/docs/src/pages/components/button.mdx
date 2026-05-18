@@ -71,24 +71,6 @@ The user initiates a workflow for a resource that doesn't yet exist — for exam
   <ButtonBeginNewTaskExample />
 </Example>
 
-### Triggering a UI element
-
-The user activates a button to reveal an overlay or inline panel without leaving the current page — for example, an "Edit" button in a data table row that opens a pre-populated side panel. Place the triggering button inline with the data it controls. When the overlay opens, focus moves into it; when closed, focus returns to the triggering button.
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonBusyExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ButtonGroup/ButtonGroup.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
-  ]}
-  docs="https://v2.grommet.io/button?theme=hpe#props"
-  screenContainer
-  showResponsiveControls={[]}
-  height="600px"
->
-  <ButtonBusyExample />
-</Example>
-
 ### Providing a primary call to action
 
 A single primary button stands out visually among all other controls, signaling the most important or recommended action on the page. For example, "Activate service" on a dashboard draws the user's eye to the recommended next step. Use at most one primary button per view; all other actions use secondary or default styling.

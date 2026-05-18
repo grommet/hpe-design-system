@@ -79,7 +79,6 @@ usage:
   whenToUse:
     - "Submitting a form."
     - "Beginning a new task."
-    - "Triggering a UI element such as a modal, dialog, or side panel."
     - "Providing a primary call to action."
     - "Presenting secondary actions alongside a primary action."
     - "Cancelling or dismissing the current screen."
