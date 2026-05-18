@@ -28,15 +28,33 @@ For usage instructions, see [HPE Design System design tokens documentation](http
 
 ## Figma Sync Setup
 
-This package supports two sync directions:
+This package includes scripts for syncing design tokens between JSON source files and Figma. Two sync directions are supported, plus a read-only discovery command:
 
-- Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --env=production --output tokens`
-- tokens JSON to Figma: `pnpm sync-tokens-to-figma -- --env=production`
-- read-only collection key discovery: `pnpm sync-discover-figma-collection-keys -- --env=test --pretty`
+| Command | Purpose |
+|---|---|
+| `pnpm sync-tokens-to-figma -- --env=<env> [--dry-run] [--confirm-production]` | Push JSON tokens to Figma |
+| `pnpm sync-figma-to-tokens -- --env=<env> --output <dir>` | Pull Figma variables back to JSON |
+| `pnpm sync-discover-figma-collection-keys -- --env=<env> --pretty` | Inspect remote collection keys (read-only) |
 
 For environment-isolated test/prod sync design and rollout details, see [FIGMA_ENVIRONMENT_SYNC_PLAN.md](FIGMA_ENVIRONMENT_SYNC_PLAN.md).
 
-Both scripts read environment variables from a local `.env` file.
+All scripts read environment variables from a local `.env` file (see `.env.example`).
+
+### Architecture Overview
+
+Tokens are managed across three Figma files in a directed dependency chain:
+
+| Tier | Role | Collections owned |
+|---|---|---|
+| `primitive` | Base values — raw colors, spacing scales, etc. | `primitives` |
+| `semantic` | Semantic decisions — themed color roles, dimension roles | `color`, `dimension`, `global` |
+| `component` | Component-level tokens; subscribes to the semantic library | `component`, `element` |
+
+**Push (`sync-tokens-to-figma`):** stages run sequentially — `primitive` → `semantic` → `component`. Each stage fetches the previous stage's published variables to resolve cross-file aliases before posting mutations to Figma.
+
+**Pull (`sync-figma-to-tokens`):** reads live Figma variable state and writes it to the JSON token files in `tokens/`.
+
+**Preflight validation** runs before any mutations and confirms that all remote collection references in the Figma files point to the expected canonical library keys configured in `.env`. A run aborts with `PREFLIGHT_FAILED` if any reference is stale. For data model details, see [DOCUMENTATION.md](DOCUMENTATION.md).
 
 ### Required Environment Variables
 
@@ -57,7 +75,9 @@ Legacy unscoped variable names (`FILE_KEY_*`, `FIGMA_*_COLLECTION_KEY`, `PERSONA
 2. `FILE_KEY_*`
   - Open each Figma file URL and copy the segment after `/file/` or `/design/` (the file key).
 3. `FIGMA_*_COLLECTION_KEY`
-  - Fetch local variables for each file and read `meta.variableCollections[*].key` for the collections named `color`, `dimension`, `primitives`, and `global`.
+  - Run `pnpm sync-discover-figma-collection-keys -- --env=<env> --pretty` to list all remote collection keys across the three files and identify the correct key for each collection name.
+  - Alternatively, fetch local variables for each file directly and read `meta.variableCollections[*].key` for collections named `color`, `dimension`, `primitives`, and `global`.
+  - When setting up a brand-new Figma environment, leave these blank and use `--bootstrap` on the first push (see below).
 
 Example command to distinguish collection instances across files:
 
@@ -106,24 +126,50 @@ Columns in output:
 - variable_count
 - modes
 
-### Local Test Run
+### Bootstrap: Setting Up a New Figma Environment
+
+When pointing the sync at brand-new Figma files whose collection keys are not yet known, use `--bootstrap` to skip key validation on the first push:
 
 ```bash
 cd packages/hpe-design-tokens
 
-## `--output tokens` is the checked in source directory
-## running the script with this option will likely create a large diff
-pnpm sync-figma-to-tokens -- --env=production --output tokens
+# 1. Push tokens to the new files (skips collection-key validation)
+pnpm sync-tokens-to-figma -- --env=test --bootstrap
 
-## OR
-## For QAing test runs, it may be useful to omit `--output tokens`
-## The script default will output to `tokens_new`.
-pnpm sync-figma-to-tokens -- --env=test
+# 2. Discover the collection keys Figma assigned
+pnpm sync-discover-figma-collection-keys -- --env=test --pretty
+
+# 3. Populate TEST_FIGMA_*_COLLECTION_KEY in .env with the discovered keys.
+#    All subsequent runs should omit --bootstrap.
+pnpm sync-tokens-to-figma -- --env=test
+```
+
+Do not use `--bootstrap` in CI or for routine production syncs.
+
+### Running the Sync
+
+```bash
+cd packages/hpe-design-tokens
+
+# Push tokens to test Figma files — dry-run (plan what would change, no mutations)
+pnpm sync-tokens-to-figma -- --env=test --dry-run
+
+# Push tokens to test Figma files — apply mutations
+pnpm sync-tokens-to-figma -- --env=test
+
+# Push tokens to production — requires --confirm-production locally
+pnpm sync-tokens-to-figma -- --env=production --confirm-production
+
+# Pull Figma variables to a local directory for QA / diffing
+pnpm sync-figma-to-tokens -- --env=test --output tokens_qa
+
+# Pull to the checked-in tokens/ directory (produces a diff if anything changed)
+pnpm sync-figma-to-tokens -- --env=production --output tokens
 ```
 
 ### Read-Only Collection Key Discovery
 
-Use this to inspect and validate candidate remote collection keys before syncing.
+Use this to inspect candidate remote collection keys before syncing, or as the required follow-up step after a `--bootstrap` push to discover the keys Figma assigned and populate your `.env`.
 
 Example commands:
 
@@ -146,37 +192,6 @@ Machine-readable report fields include:
 - `conflicts`: collection names with multiple candidate keys
 
 The discovery command is read-only: it performs only Figma GET requests and does not post mutations.
-
-### Programmatic Alias Rebinding Cleanup
-
-Use this remediation script to rebind alias references from non-canonical remote collection keys to canonical keys.
-
-Default behavior is read-only (dry-run). Add `--apply` to post updates.
-
-Example commands:
-
-```bash
-cd packages/hpe-design-tokens
-
-# Dry run: report proposed rebinds for color and primitives (default target collections)
-pnpm sync-rebind-figma-aliases -- --env=test --pretty --output contracts/generated/alias-rebind-remediation.test.json
-
-# Apply mode: write alias rebind updates through POST /variables
-pnpm sync-rebind-figma-aliases -- --env=test --apply --pretty --output contracts/generated/alias-rebind-remediation-applied.test.json
-
-# Optional: target additional collection names
-pnpm sync-rebind-figma-aliases -- --env=test --collections=color,primitives,dimension --pretty
-```
-
-Report fields include:
-
-- `eventType`: `alias-rebind-remediation`
-- `dryRun`
-- `targetCollections`
-- per-tier `rebindingPlan` and `unresolved`
-- aggregate `summary` counts
-
-The remediation script updates only alias mode values and does not create/delete collections.
 
 Committed contract assets live in `contracts/schemas` and hand-authored docs in `contracts/*.md`.
 Generated diagnostics output should be written under `contracts/generated/`.
