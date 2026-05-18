@@ -42,7 +42,7 @@ export const ButtonSecondaryActionsExample = () => (
           primary
         />
         <Button
-          label="Download report"
+          label="Download"
           onClick={() => {}}
           secondary
         />
