@@ -1,6 +1,7 @@
 export * from './Card';
 export * from './CollapsibleMenu';
 export * from './ContentPane';
+export * from './CustomizableGrid';
 export * from './DashboardCard';
 export * from './EmptyState';
 export * from './FloatingActionButton';

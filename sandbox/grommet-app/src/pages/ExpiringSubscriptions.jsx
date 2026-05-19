@@ -5,12 +5,13 @@ import services from '../mockData/services.json';
 import { useContext } from 'react';
 import { SkeletonContext } from '../components';
 
-export const ExpiringSubscriptions = () => {
+export const ExpiringSubscriptions = ({ ...rest }) => {
   const skeleton = useContext(SkeletonContext);
   return (
     <DashboardCard
       title="Expiring subscriptions"
       level={2}
+      {...rest}
       footer={
         <Notification
           message="12 of your subscriptions will this month."

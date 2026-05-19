@@ -7,7 +7,7 @@ const currencyOptions = {
   maximumFractionDigits: 2,
 };
 
-export const BillingSummary = () => {
+export const BillingSummary = ({ ...rest }) => {
   return (
     <DashboardCard
       title="Billing summary"
@@ -20,6 +20,7 @@ export const BillingSummary = () => {
           actions={[{ label: 'budget alert.' }]}
         />
       }
+      {...rest}
     >
       <Box gap="medium">
         <Metric

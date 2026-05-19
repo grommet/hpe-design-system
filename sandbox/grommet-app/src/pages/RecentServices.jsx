@@ -3,7 +3,7 @@ import { Anchor, List, Grid, Text, Box, Button, Skeleton } from 'grommet';
 import { Link } from 'react-router-dom';
 import services from '../mockData/services.json';
 import { Apps, List as ListIcon } from '@hpe-design/icons-grommet';
-import { Card } from '../components';
+import { Card, DashboardCard } from '../components';
 import ContentPane from '../components/ContentPane';
 import { useLoading, skeleton as skeletonAnimation } from '../utils/skeleton';
 
@@ -16,14 +16,14 @@ const dates = [
 ];
 
 // eslint-disable-next-line react/prop-types
-export const RecentServices = ({ compact }) => {
+export const RecentServices = ({ compact, ...rest }) => {
   const [cards, setCards] = useState(false);
   const recentServices = services.services.slice(0, compact ? 4 : 5);
   const skeleton = useLoading(1000);
 
   if (compact)
     return (
-      <Card title="Recent services" level={2} onClick={() => {}}>
+      <DashboardCard title="Recent services" level={2} onClick={() => {}} {...rest}>
         <List
           data={recentServices}
           defaultItemProps={{
@@ -44,7 +44,7 @@ export const RecentServices = ({ compact }) => {
             </Box>
           )}
         </List>
-      </Card>
+      </DashboardCard>
     );
 
   let content;

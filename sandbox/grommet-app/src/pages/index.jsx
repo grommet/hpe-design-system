@@ -21,8 +21,10 @@ import { DeviceSummary } from './DeviceSummary';
 import { UserOverview } from './UserOverview';
 import { ExpiringSubscriptions } from './ExpiringSubscriptions';
 import { MonthlyCharges } from './MonthlyCharges';
-import { SkeletonContext } from '../components';
+import { CustomizableGrid, CustomizeHeader, SkeletonContext } from '../components';
+// import { CustomizableCards } from '../components/CustomizableGrid/CustomizableCards';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
+import { useState } from 'react';
 
 const Divider = () => <Box border={{ side: 'bottom', color: 'border-weak' }} />;
 
@@ -30,7 +32,30 @@ function Home() {
   const getStartedLoading = useLoading(250);
   const insightsLoading = useLoading(2000);
   const sidePanelLoading = useLoading(250);
+
+  const [customizeOpen, setCustomizeOpen] = useState(false);
+
+  const [widgets, setWidgets] = useState([
+    { id: 'billingSummary', component: <BillingSummary /> },
+    { id: 'deviceSummary', component: <DeviceSummary /> },
+    { id: 'sustainabilityOverview', component: <SustainabilityOverview /> },
+    { id: 'userOverview', component: <UserOverview /> },
+    { id: 'notifications', component: <Notifications />, size: { columns: 2, rows: 1 } },
+    { id: 'monthlyCharges', component: <MonthlyCharges /> },
+    { id: 'expiringSubscriptions', component: <ExpiringSubscriptions /> },
+    { id: 'recentServices', component: <RecentServices compact /> },
+
+  ]);
+
   return (
+    <>
+      {customizeOpen && (
+        <CustomizeHeader
+          onCancel={() => setCustomizeOpen(false)}
+          onSave={() => setCustomizeOpen(false)}
+          onAddWidget={() => { }}
+        />
+      )}
     <Page pad={{ top: 'large', bottom: 'xlarge' }}>
       <PageContent gap="medium" responsive="container">
         <ResponsiveContext.Consumer>
@@ -46,11 +71,15 @@ function Home() {
               <Box gap="medium">
                 <PageHeader
                   title="Home"
-                  actions={
-                    <Button label="Customize" icon={<Configure />} reverse />
-                  }
+                    actions={!customizeOpen ?
+                      <Button label="Customize" icon={<Configure />} reverse
+                        onClick={() => setCustomizeOpen(!customizeOpen)}
+                      />
+                      : undefined
+                    }
                   pad="none"
                 />
+               
                 <Box gap="large" animation="fadeIn">
                   <Box
                     skeleton={getStartedLoading ? skeletonAnimation : undefined}
@@ -67,22 +96,47 @@ function Home() {
                     <SkeletonContext.Provider
                       value={insightsLoading ? skeletonAnimation : undefined}
                     >
-                      <Grid
+                      <CustomizableGrid
                         columns={
                           size === 'xlarge'
                             ? ['flex', 'flex', 'flex']
                             : ['auto']
                         }
                         gap="medium"
-                      >
-                        <BillingSummary />
-                        <DeviceSummary />
-                        <SustainabilityOverview />
-                      </Grid>
+                        data={widgets}
+                        onOrder={customizeOpen ? setWidgets : undefined}
+                        onResize={(id, size) => {
+                          console.log('resize', id, size);
+                          const nextWidgets = widgets.map(widget => (
+                            widget.id === id ? {
+                              ...widget,
+                              size: size?.size,
+                            } : widget
+
+                          ));
+                          setWidgets(nextWidgets);
+                        }}
+                      />
+                      {/* <CustomizableCards
+                        columns={
+                          size === 'xlarge'
+                            ? ['flex', 'flex', 'flex']
+                            : ['auto']
+                        }
+                        data={widgets}
+                        onOrder={customizeOpen ? setWidgets : undefined}
+                        onResize={(id, size) => {
+                          console.log('resize', id, size);
+                          const nextWidgets = widgets.map(widget => (
+                            widget.id === id ? { ...widget, size } : widget
+                          ));
+                          setWidgets(nextWidgets);
+                        }}
+                      /> */}
                     </SkeletonContext.Provider>
                   </Box>
-                  <RecentServices />
-                  <Box
+                  {/* <RecentServices /> */}
+                  {/* <Box
                     skeleton={insightsLoading ? skeletonAnimation : undefined}
                     gap="medium"
                   >
@@ -108,7 +162,7 @@ function Home() {
                         <ExpiringSubscriptions />
                       </Grid>
                     </SkeletonContext.Provider>
-                  </Box>
+                  </Box> */}
                 </Box>
               </Box>
               <ContentPane alignSelf="start" pad="large" animation="fadeIn">
@@ -129,6 +183,7 @@ function Home() {
         </ResponsiveContext.Consumer>
       </PageContent>
     </Page>
+    </>
   );
 }
 
