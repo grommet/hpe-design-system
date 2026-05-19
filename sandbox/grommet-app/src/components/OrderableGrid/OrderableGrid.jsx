@@ -18,12 +18,10 @@ const reorder = (array, source, target) => {
   return result;
 };
 
-export const OrderableGrid = ({ children, itemStyles, onOrder, ...rest }) => {
+export const OrderableGrid = ({ children, onOrder, ...rest }) => {
   const [dragging, setDragging] = useState();
   const [orderedChildren, setOrderedChildren] = useState();
-  const [orderedItemStyles, setOrderedItemStyles] = useState();
   const currentItems = orderedChildren || children;
-  const currentItemStyles = orderedItemStyles || itemStyles;
   
   const renderChild = (child, index) => {
 
@@ -48,7 +46,6 @@ export const OrderableGrid = ({ children, itemStyles, onOrder, ...rest }) => {
       onDragEnd: () => {
         setDragging(undefined);
         setOrderedChildren(undefined);
-        setOrderedItemStyles(undefined);
       },
       onDragEnter: (event) => {
         if (dragging !== undefined && dragging !== index) {
@@ -56,7 +53,6 @@ export const OrderableGrid = ({ children, itemStyles, onOrder, ...rest }) => {
           if (event.currentTarget.contains(event.relatedTarget)) return;
           event.dataTransfer.dropEffect = 'move';
           setOrderedChildren(reorder(currentItems, dragging, index));
-          setOrderedItemStyles(reorder(currentItemStyles, dragging, index));
           setDragging(index);
         }
       },
@@ -93,11 +89,13 @@ export const OrderableGrid = ({ children, itemStyles, onOrder, ...rest }) => {
     } : {};
 
     const { keyboard, ...wrapperProps } = onOrderProps;
+ 
+    const sizeStyles = {};
 
     let content = child;
-    if (currentItemStyles?.[index]) {
+    if (onOrder || sizeStyles) {
       content = (
-        <StyledDraggableCell {...wrapperProps} style={{ ...currentItemStyles[index] }}>
+        <StyledDraggableCell {...wrapperProps} style={{ ...sizeStyles }}>
           {child}
         </StyledDraggableCell>
       );
@@ -119,6 +117,5 @@ export const OrderableGrid = ({ children, itemStyles, onOrder, ...rest }) => {
 
 OrderableGrid.propTypes = {
   children: PropTypes.node,
-  itemStyles: PropTypes.objectOf(PropTypes.object),
   onOrder: PropTypes.func,
 };

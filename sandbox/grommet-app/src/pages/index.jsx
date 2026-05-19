@@ -22,6 +22,7 @@ import { UserOverview } from './UserOverview';
 import { ExpiringSubscriptions } from './ExpiringSubscriptions';
 import { MonthlyCharges } from './MonthlyCharges';
 import { CustomizableGrid, CustomizeHeader, SkeletonContext } from '../components';
+// import { CustomizableCards } from '../components/CustomizableGrid/CustomizableCards';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 import { useState } from 'react';
 
@@ -39,7 +40,7 @@ function Home() {
     { id: 'deviceSummary', component: <DeviceSummary /> },
     { id: 'sustainabilityOverview', component: <SustainabilityOverview /> },
     { id: 'userOverview', component: <UserOverview /> },
-    { id: 'notifications', component: <Notifications />, size: '2x1' },
+    { id: 'notifications', component: <Notifications />, size: { columns: 2, rows: 1 } },
     { id: 'monthlyCharges', component: <MonthlyCharges /> },
     { id: 'expiringSubscriptions', component: <ExpiringSubscriptions /> },
     { id: 'recentServices', component: <RecentServices compact /> },
@@ -116,6 +117,22 @@ function Home() {
                           setWidgets(nextWidgets);
                         }}
                       />
+                      {/* <CustomizableCards
+                        columns={
+                          size === 'xlarge'
+                            ? ['flex', 'flex', 'flex']
+                            : ['auto']
+                        }
+                        data={widgets}
+                        onOrder={customizeOpen ? setWidgets : undefined}
+                        onResize={(id, size) => {
+                          console.log('resize', id, size);
+                          const nextWidgets = widgets.map(widget => (
+                            widget.id === id ? { ...widget, size } : widget
+                          ));
+                          setWidgets(nextWidgets);
+                        }}
+                      /> */}
                     </SkeletonContext.Provider>
                   </Box>
                   {/* <RecentServices /> */}
