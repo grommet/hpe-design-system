@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Box, Button } from 'grommet';
-import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
+import { Sidebar } from '@hpe-design/icons-grommet';
 import { AppIdentity } from '../../components';
 
 export const SideNavHeader = ({ open, setOpen }) => {
     const [autoFocus, setAutoFocus] = useState(false);
+
     // After mount set autoFocus to true
     useEffect(() => {
         setAutoFocus(true);
@@ -50,7 +51,7 @@ export const SideNavHeader = ({ open, setOpen }) => {
                 alignSelf="start"
                 autoFocus={autoFocus}
                 a11yTitle={open ? 'Close navigation' : 'Open navigation'}
-                icon={<SidebarIcon aria-hidden />}
+                icon={<Sidebar aria-hidden />}
                 onClick={() => setOpen(!open)}
                 tip={open ? 'Close navigation' : 'Open navigation'}
             />

@@ -79,7 +79,7 @@ export const Community = ({ ...rest }) => {
           columns="medium"
           rows={[['auto', 'full']]}
           gap={{ row: 'xlarge', column: 'xsmall' }}
-          fill
+          fill="horizontal"
         >
           <SlackOption />
           {/* <Roadmap />
