@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { NavigationMenu } from '@shared/aries-core';
 import { navItems } from './navItems.ts';
 import { useNavState } from './NavContext';
+import { MobileNavHeader } from './MobileNavHeader';
 import { SideNavHeader } from './SideNavHeader';
 
 export const Navigation = ({ ...rest }) => {
@@ -24,22 +25,8 @@ export const Navigation = ({ ...rest }) => {
     }
   };
 
-  // On mobile, always show nav expanded; Layer controls visibility
-  const isOpen = isMobile ? true : navOpen;
-
   // On mobile, render nothing inline; show a full-screen Layer instead
   if (isMobile && !mobileNavOpen) return null;
-
-  const navMenu = (
-    <NavigationMenu
-      activeItem={activeItem}
-      items={navItems}
-      header={<SideNavHeader open={isOpen} setOpen={setNavOpen} />}
-      open={isOpen}
-      onSelect={handleSelect}
-      {...rest}
-    />
-  );
 
   if (isMobile) {
     return (
@@ -48,10 +35,26 @@ export const Navigation = ({ ...rest }) => {
         position="left"
         onEsc={() => setMobileNavOpen(false)}
       >
-        {navMenu}
+        <NavigationMenu
+          activeItem={activeItem}
+          items={navItems}
+          header={<MobileNavHeader />}
+          open
+          onSelect={handleSelect}
+          {...rest}
+        />
       </Layer>
     );
   }
 
-  return navMenu;
+  return (
+    <NavigationMenu
+      activeItem={activeItem}
+      items={navItems}
+      header={<SideNavHeader open={navOpen} setOpen={setNavOpen} />}
+      open={navOpen}
+      onSelect={handleSelect}
+      {...rest}
+    />
+  );
 };
