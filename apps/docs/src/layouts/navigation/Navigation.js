@@ -27,6 +27,9 @@ export const Navigation = ({ ...rest }) => {
   // On mobile, always show nav expanded; Layer controls visibility
   const isOpen = isMobile ? true : navOpen;
 
+  // On mobile, render nothing inline; show a full-screen Layer instead
+  if (isMobile && !mobileNavOpen) return null;
+
   const navMenu = (
     <NavigationMenu
       activeItem={activeItem}
@@ -38,9 +41,7 @@ export const Navigation = ({ ...rest }) => {
     />
   );
 
-  // On mobile, render nothing inline; show a full-screen Layer instead
   if (isMobile) {
-    if (!mobileNavOpen) return null;
     return (
       <Layer
         onClickOutside={() => setMobileNavOpen(false)}

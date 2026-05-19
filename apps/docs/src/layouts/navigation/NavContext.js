@@ -3,7 +3,7 @@ import {
     useContext,
     useState,
     useMemo,
-    useCallback,
+    useEffect,
 } from 'react';
 import { ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
@@ -26,23 +26,22 @@ export const NavProvider = ({ children }) => {
     // Mobile drawer visibility state (default: closed)
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-    const toggleNav = useCallback((val) => {
-        setNavOpen(val);
-    }, []);
-
-    const toggleMobileNav = useCallback((val) => {
-        setMobileNavOpen(val);
-    }, []);
+    // Reset mobile drawer when leaving mobile breakpoint
+    useEffect(() => {
+        if (!isMobile) {
+            setMobileNavOpen(false);
+        }
+    }, [isMobile]);
 
     const value = useMemo(
         () => ({
             navOpen,
-            setNavOpen: toggleNav,
+            setNavOpen,
             mobileNavOpen,
-            setMobileNavOpen: toggleMobileNav,
+            setMobileNavOpen,
             isMobile,
         }),
-        [navOpen, toggleNav, mobileNavOpen, toggleMobileNav, isMobile],
+        [navOpen, mobileNavOpen, isMobile],
     );
 
     return <NavContext.Provider value={value}>{children}</NavContext.Provider>;

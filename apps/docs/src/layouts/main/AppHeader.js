@@ -34,6 +34,7 @@ const StyledHeader = ({ ...rest }) => {
                 a11yTitle="Open navigation menu"
                 icon={<SidebarIcon />}
                 onClick={() => setMobileNavOpen(true)}
+                tip="Open navigation menu"
               />
             )}
             {/* Show HPE logo + title in header when nav is collapsed */}
