@@ -195,13 +195,6 @@ anatomy:
     purpose: Conveys additional information such as a notification count or attention
       indicator overlaid on the button.
     availability: optional
-  - label: 1d
-    region: Busy / success indicator
-    purpose: Communicates that an action is in progress (spinner) or has completed
-      successfully (check mark).
-    availability: optional
-    notes: Only visible during busy or success application states.
-
 behaviors:
   interactiveStates:
     - rest
