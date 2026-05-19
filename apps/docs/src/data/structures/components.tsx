@@ -102,7 +102,7 @@ export const components = [
     accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
-      'Buttons are graphic elements that indicate to users that actions can be performed.',
+      'A clickable control that triggers an action, submits a form, or initiates a new task without navigating away from the current page.',
     seoDescription:
       'Buttons indicate that actions can be performed. See HPE styling for different states, colors, placement, etc.',
     relatedContent: ['Anchor', 'Menu', 'Tabs'],
