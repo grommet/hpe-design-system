@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Button, Header } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
@@ -6,6 +7,18 @@ import { AppIdentity } from '../../components';
 
 export const MobileNavHeader = ({ ...rest }) => {
     const { setMobileNavOpen } = useNavState();
+    const buttonRef = useRef(null);
+
+    // Grommet L
+    // ayer's FocusedContainer focuses the first focusable
+    // descendant on mount. setTimeout defers our .focus() call to run
+    // after Layer's focus management completes.
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            buttonRef.current?.focus();
+        }, 0);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <Header
@@ -31,6 +44,7 @@ export const MobileNavHeader = ({ ...rest }) => {
                 <AppIdentity logoOnly />
             </Link>
             <Button
+                ref={buttonRef}
                 active
                 aria-controls="navigation-menu"
                 aria-expanded
