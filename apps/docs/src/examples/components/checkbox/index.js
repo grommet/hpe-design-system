@@ -1,6 +1,5 @@
 export * from './CheckBoxDisabledExample';
 export * from './CheckBoxSelectingItemsListExample';
-export * from './CheckBoxSelectingMultipleOptionsExample';
 export * from './CheckBoxShowingHidingContentExample';
 export * from './CheckBoxSimpleExample';
 export * from './CheckBoxSolelyExample';

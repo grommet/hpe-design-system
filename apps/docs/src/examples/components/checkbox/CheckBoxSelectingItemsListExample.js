@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, CheckBox, Text } from 'grommet';
+import { Box, CheckBox } from 'grommet';
 
 const servers = [
   { id: 'web-01', name: 'web-server-01' },
@@ -32,22 +32,6 @@ export const CheckBoxSelectingItemsListExample = () => {
 
   return (
     <Box width="medium" gap="small">
-      {selected.length > 0 && (
-        <Box
-          direction="row"
-          gap="small"
-          pad="xsmall"
-          background="background-contrast"
-          round="xsmall"
-          align="center"
-        >
-          <Text size="small">
-            {selected.length} selected
-          </Text>
-          <Button label="Delete" size="small" />
-          <Button label="Export" size="small" />
-        </Box>
-      )}
       <Box
         border={{ color: 'border', size: 'xsmall' }}
         round="xsmall"

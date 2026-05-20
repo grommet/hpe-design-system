@@ -55,7 +55,6 @@ usage:
     - Allowing a user to opt in to or acknowledge something, such as a privacy policy or terms and conditions.
     - Serving as a UI control that shows or hides page content when no form submission is needed.
     - Allowing an item to be selected within a list, table row, or dropdown.
-    - Presenting a group of options where the user may select multiple items simultaneously.
   whenToAvoid:
     - Do not use CheckBox when only one option may be selected from a list — use RadioButtonGroup instead.
     - Do not use CheckBox as a primary action trigger — use Button instead.

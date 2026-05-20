@@ -8,47 +8,58 @@ import {
 } from 'grommet';
 
 export const CheckBoxShowingHidingContentExample = () => {
-  const [advanced, setAdvanced] = useState(false);
+  const [shipToDifferent, setShipToDifferent] = useState(false);
   return (
     <Box width="medium">
       <Form>
+        <FormField
+          label="Billing address"
+          htmlFor="billing-address"
+          name="billing-address"
+        >
+          <TextInput
+            id="billing-address"
+            name="billing-address"
+            placeholder="123 Main St, City, State"
+          />
+        </FormField>
         {/* CheckBox label provides the accessible name;
-         htmlFor on FormField would create a duplicate
-         label, causing an a11y violation. */}
+            htmlFor on FormField would create a duplicate
+            label, causing an a11y violation. */}
         {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
-        <FormField name="advanced-settings">
+        <FormField name="ship-to-different">
           <CheckBox
-            name="advanced-settings"
-            id="advanced-settings"
-            label="Enable advanced settings"
-            checked={advanced}
+            id="ship-to-different"
+            name="ship-to-different"
+            label="Ship to a different address"
+            checked={shipToDifferent}
             onChange={event =>
-              setAdvanced(event.target.checked)
+              setShipToDifferent(event.target.checked)
             }
           />
         </FormField>
-        {advanced && (
+        {shipToDifferent && (
           <Box gap="small">
             <FormField
-              label="Timeout (seconds)"
-              name="timeout"
-              htmlFor="timeout"
+              label="Shipping address"
+              htmlFor="shipping-address"
+              name="shipping-address"
             >
               <TextInput
-                id="timeout"
-                name="timeout"
-                placeholder="30"
+                id="shipping-address"
+                name="shipping-address"
+                placeholder="456 Other St, City, State"
               />
             </FormField>
             <FormField
-              label="Retry limit"
-              name="retry-limit"
-              htmlFor="retry-limit"
+              label="Shipping note"
+              htmlFor="shipping-note"
+              name="shipping-note"
             >
               <TextInput
-                id="retry-limit"
-                name="retry-limit"
-                placeholder="3"
+                id="shipping-note"
+                name="shipping-note"
+                placeholder="Leave at front door"
               />
             </FormField>
           </Box>

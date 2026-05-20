@@ -13,7 +13,6 @@ import {
   CheckBoxGoodLabeledPreview,
   CheckBoxGoodToggleUsagePreview,
   CheckBoxSelectingItemsListExample,
-  CheckBoxSelectingMultipleOptionsExample,
   CheckBoxShowingHidingContentExample,
   CheckBoxSimpleExample,
   CheckBoxSolelyExample,
@@ -41,12 +40,14 @@ The user reads a statement — such as a privacy policy, terms of service, or di
 <Example
   docs="https://v2.grommet.io/checkbox?theme=hpe#props"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxSolelyExample.js"
-  height={{ min: 'xsmall' }}
+  height={{ min: 'small' }}
 >
   <CheckBoxSolelyExample />
 </Example>
 
 ### Revealing content conditionally
+
+Use a checkbox to show or hide additional fields or sections based on the user's choice. This keeps the form compact by surfacing detail only when relevant. The label should make the consequence of checking the box clear, for example, "Ship to a different address".
 
 <Example
   height={{ min: 'small' }}
@@ -56,18 +57,12 @@ The user reads a statement — such as a privacy policy, terms of service, or di
 
 ### Selecting items from a list
 
+Use a parent checkbox with `indeterminate` support to let users select all, some, or none of a set of items. The parent reflects the mixed state when only a subset of children are checked.
+
 <Example
   height={{ min: 'small' }}
 >
   <CheckBoxSelectingItemsListExample />
-</Example>
-
-### Selecting multiple options from a group
-
-<Example
-  height={{ min: 'small' }}
->
-  <CheckBoxSelectingMultipleOptionsExample />
 </Example>
 
 ## Anatomy
