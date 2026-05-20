@@ -7,11 +7,12 @@ import {
   Grommet,
   Heading,
   PageContent,
+  RadioButton,
   Text,
   TextInput,
   ToggleGroup,
 } from 'grommet';
-import { currentTheme, option1Theme, option2Theme } from '../examples/hover-sticker-sheet/themes';
+import { currentTheme, option1Theme, option2Theme, option3Theme } from '../examples/hover-sticker-sheet/themes';
 import { StickerSheet } from '../examples/hover-sticker-sheet/StickerSheet';
 import { ExampleForm } from '../examples/hover-sticker-sheet/ExampleForm';
 
@@ -19,6 +20,7 @@ const THEMES = {
   Current: currentTheme,
   'Option 1': option1Theme,
   'Option 2': option2Theme,
+  'Option 3': option3Theme,
 };
 
 const DESCRIPTIONS = {
@@ -34,6 +36,10 @@ const DESCRIPTIONS = {
   ],
   'Option 2': [
     'All inputs get a darker border on hover.',
+  ],
+  'Option 3': [
+    'Unchecked checkbox and radio button get a background fill (background-hover) and a darker border on hover.',
+    'Other form inputs are unchanged on hover.',
   ],
 };
 
@@ -77,7 +83,7 @@ const HoverStickerSheet = () => {
           <Box gap="small">
             <Text weight="bold">Hover option:</Text>
             <ToggleGroup
-              options={['Current', 'Option 1', 'Option 2']}
+              options={['Current', 'Option 1', 'Option 2', 'Option 3']}
               value={option}
               onToggle={({ value }) => setOption(value)}
             />
@@ -98,6 +104,12 @@ const HoverStickerSheet = () => {
               <Box direction="row" gap="large" align="center" wrap>
                 <CheckBox
                   label="Checkbox"
+                  checked={false}
+                  onChange={() => {}}
+                />
+                <RadioButton
+                  name="preview-rb"
+                  label="Radio button"
                   checked={false}
                   onChange={() => {}}
                 />

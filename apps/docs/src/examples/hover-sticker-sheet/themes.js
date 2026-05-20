@@ -114,3 +114,49 @@ export const option2Theme = deepMerge(hpe, {
     extend: formFieldWithHoverBorder,
   },
 });
+
+// ─── Option 3 helpers ────────────────────────────────────────────────────────
+
+// Like Option 1 but unchecked checkboxes get background-hover fill on hover
+// in addition to the darker border.
+const checkWithHoverFill = props => {
+  const base =
+    typeof hpe.checkBox?.check?.extend === 'function'
+      ? hpe.checkBox.check.extend(props)
+      : hpe.checkBox?.check?.extend ?? '';
+  const { checked, indeterminate, disabled } = props;
+  if (!checked && !indeterminate && !disabled) {
+    const bgHoverColor = resolveColor('background-hover', props.theme);
+    return `${base}\n&:hover { background: ${bgHoverColor}; }`;
+  }
+  if (indeterminate && !disabled) {
+    return `${base}\n&:hover { border-color: rgba(0, 0, 0, 0); }`;
+  }
+  return base;
+};
+
+// Unchecked radio buttons get background-hover fill + border-strong on hover.
+// Checked radio buttons keep their default border (no darkening).
+const radiobuttonExtendOption3 = props => {
+  const borderDefault = resolveColor('border-default', props.theme);
+  const borderStrongColor = resolveColor('border-strong', props.theme);
+  const bgHoverColor = resolveColor('background-hover', props.theme);
+  return `
+&:hover input:not([disabled]):not(:checked) + div,
+&:hover input:not([disabled]):not(:checked) + span {
+  background: ${bgHoverColor};
+  border-color: ${borderStrongColor};
+}
+&:hover input:checked + div,
+&:hover input:checked + span {
+  border-color: ${borderDefault};
+}`;
+};
+
+export const option3Theme = deepMerge(hpe, {
+  checkBox: {
+    check: { extend: checkWithHoverFill },
+    extend: checkboxExtend,
+  },
+  radioButton: { extend: radiobuttonExtendOption3 },
+});
