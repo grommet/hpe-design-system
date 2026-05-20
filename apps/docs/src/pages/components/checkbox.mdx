@@ -8,6 +8,7 @@ import {
   CheckBoxBadFormFieldUsagePreview,
   CheckBoxBadLabeledPreview,
   CheckBoxBadToggleUsagePreview,
+  CheckBoxDefaultExample,
   CheckBoxDisabledExample,
   CheckBoxGoodFormFieldUsagePreview,
   CheckBoxGoodLabeledPreview,
@@ -83,15 +84,15 @@ A standard square checkbox used inside or outside a `FormField`. Use inside a `F
 
 <Example
   docs="https://v2.grommet.io/checkbox?theme=hpe#props"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxSimpleExample.js"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxDefaultExample.js"
   height={{ min: 'xsmall' }}
 >
-  <CheckBoxSimpleExample />
+  <CheckBoxDefaultExample />
 </Example>
 
 ### Toggle
 
-Renders the checkbox as a toggle switch. Use toggle when the user controls a single on/off setting that takes effect immediately without form submission. In a group containing only toggles, place the text label on the left and the toggle on the right using the `reverse` prop.
+Renders the checkbox as a toggle switch. Use toggle when the user controls a single on/off setting that takes effect immediately without form submission. Place the text label on the left and the toggle on the right using the `reverse` prop.
 
 <Example
   docs="https://v2.grommet.io/checkbox?theme=hpe#props"
@@ -186,7 +187,7 @@ Renders the checkbox as a toggle switch. Use toggle when the user controls a sin
   <CheckBoxDisabledExample />
 </Example>
 
-**Indeterminate** — indicates that only a subset of child checkboxes in a group are selected. Use indeterminate only on a parent checkbox that controls a list of child checkboxes.
+**Indeterminate** — indicates that only a subset of child items in a list are selected. Use indeterminate only on a parent checkbox that controls a list of child checkboxes.
 
 **Validation error** — appears via the enclosing `FormField` when the checkbox fails form validation.
 
@@ -202,7 +203,7 @@ Renders the checkbox as a toggle switch. Use toggle when the user controls a sin
 
 - Use concise, action-oriented label text that clearly describes what selecting the checkbox means.
 - Avoid double negatives in labels. Instead of "Do not disable notifications," write "Enable notifications."
-- When used in a group, ensure each label is distinct and does not merely repeat the group heading.
+- Ensure each label is distinct and clearly describes the individual choice.
 
 ## Accessibility
 

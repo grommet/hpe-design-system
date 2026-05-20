@@ -1,6 +1,6 @@
 id: checkbox
 name: CheckBox
-description: A form control for presenting individual or grouped binary choices, supporting checked, unchecked, and indeterminate states.
+description: A form control for presenting a binary choice, supporting checked, unchecked, and indeterminate states.
 importPath: grommet
 props:
   - name: checked
@@ -113,7 +113,7 @@ behaviors:
 contentGuidelines:
   - Use concise, action-oriented label text that clearly describes what selecting the checkbox means.
   - Avoid double negatives in labels such as "Do not disable notifications."
-  - When used in a group, ensure each label is distinct and does not merely repeat the group heading.
+  - Ensure each label is distinct and clearly describes the individual choice.
 dosAndDonts:
   - do: Use CheckBox inside a FormField when help text, error messages, or validation feedback may be needed.
     dont: >-
@@ -162,6 +162,5 @@ accessibility:
       status: pass
   wcagDataFile: checkbox
 relatedComponents:
-  - CheckBoxGroup
   - RadioButtonGroup
   - Select

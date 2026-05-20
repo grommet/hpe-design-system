@@ -691,7 +691,7 @@ export const components = [
     accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
-      'A form control for presenting individual or grouped binary choices, supporting checked, unchecked, and indeterminate states.',
+      'A form control for presenting a binary choice, supporting checked, unchecked, and indeterminate states.',
     seoDescription:
       'Checkbox component for HPE Design System. UX usage examples and guidance on how to ensure a checkbox maintains accessiblity.',
     sections: [

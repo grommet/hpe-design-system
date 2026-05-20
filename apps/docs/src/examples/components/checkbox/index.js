@@ -1,3 +1,4 @@
+export * from './CheckBoxDefaultExample';
 export * from './CheckBoxDisabledExample';
 export * from './CheckBoxSelectingItemsListExample';
 export * from './CheckBoxShowingHidingContentExample';
