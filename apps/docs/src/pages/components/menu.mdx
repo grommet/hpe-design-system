@@ -34,9 +34,9 @@ import {
 
 ## Use cases
 
-### Organizing application-level navigation and user tasks
+### Presenting application-level navigation and tasks
 
-Use Menu inside a Header component to give users a single, consistent location for account management and application-wide actions on every page. The trigger button sits alongside the application name and global controls, keeping the header uncluttered while still surfacing important options. Typical items include "Account settings," "Change password," "Notification preferences," and "Sign out," organized so that account management actions appear first and the session-ending action appears last. When the user clicks the trigger, the dropdown opens and selecting an item either navigates to the corresponding page or executes the operation immediately.
+Use Menu within the header to organize and present application-level navigation or related user tasks in a single, easily accessible location.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/menu/MenuHeaderExample.js"
@@ -47,9 +47,10 @@ Use Menu inside a Header component to give users a single, consistent location f
   <MenuHeaderExample />
 </Example>
 
-### Presenting batch actions for a data collection
+### Grouping batch actions for data sets
 
-Use Menu in a toolbar above a DataTable when users need to apply an operation to one or more selected records simultaneously. Apply `kind="toolbar"` so the Menu aligns visually with adjacent controls such as search and filters. Group items like "Export selected," "Add to group," "Power on," and "Delete" by category — executing actions first, destructive actions last — with dividers separating the groups. Once the user has checked one or more rows, they open the Menu and choose an action, which is applied to every selected record at once.
+Use Menu within a toolbar to present batch actions for data collection objects or records alongside other controls, ensuring equal prominence and visual alignment. Apply `kind = "toolbar"` in these cases.
+In this example, actions are grouped into executing and configuration categories, with executing actions first because they are most frequently used. For more details on grouping and ordering, see [Organizing menu items](#organizing-menu-items).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/menu/MenuBatchActionsExample.js"
@@ -59,9 +60,12 @@ Use Menu in a toolbar above a DataTable when users need to apply an operation to
   <MenuBatchActionsExample />
 </Example>
 
-### Providing item-specific actions for individual records
+### Grouping item-specific actions
 
-Use Menu within each row of a List or DataTable to scope actions to a single record. An icon-only trigger — such as an ellipsis or gear icon — keeps the row compact while still exposing the full range of actions available for that item. Typical items include "View details," "Edit," "Power on / off," "Reset," and "Delete," grouped into configuration, execution, and destructive categories, with Delete placed last. The user clicks the trigger icon on the target row; the dropdown opens and selecting an action executes it immediately or navigates to a detail view for that record.
+Use Menu within each list item when you need to provide actions for an individual object or record.
+When space is limited and actions are easily recognized by their icon, use the icon-only version of the Menu.
+In this example, actions are grouped into configuration, executing, and dangerous categories, with configuration first and delete last.
+For more details on grouping and ordering, see [Organizing menu items](#organizing-menu-items).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/menu/MenuRecordActionsExample.js"
