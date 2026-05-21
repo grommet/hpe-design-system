@@ -97,11 +97,10 @@ export const ButtonAnatomy = () => {
                 <Box
                     gridArea="button-area"
                     align="start"
-                    id="button-container"
-                    border={{ style: 'dashed' }}
-                    round="small"
                 >
                     <Button
+                        id="button-container"
+                        secondary
                         label={<Box id="button-label">Notifications</Box>}
                         icon={<Notification id="button-icon" />}
                         tabIndex={-1}
