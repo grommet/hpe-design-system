@@ -9,8 +9,7 @@ export const MobileNavHeader = ({ ...rest }) => {
     const { setMobileNavOpen } = useNavState();
     const buttonRef = useRef(null);
 
-    // Grommet L
-    // ayer's FocusedContainer focuses the first focusable
+    // Grommet Layer's FocusedContainer focuses the first focusable
     // descendant on mount. setTimeout defers our .focus() call to run
     // after Layer's focus management completes.
     useEffect(() => {
