@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button, NameValueList, NameValuePair, Text } from 'grommet';
 import { ButtonGroup } from '@shared/aries-core';
 
 const stats = [
@@ -9,49 +9,33 @@ const stats = [
 ];
 
 export const ButtonSecondaryActionsExample = () => (
-  <Box align="center" fill justify="center" pad="medium">
-    <Box
-      background="background-front"
-      gap="medium"
-      pad="medium"
-      round="small"
-      width="large"
-    >
-      <Box gap="xsmall">
-        <Text size="large" weight="bold">
+  <Box background="background-front" gap="large" pad="medium" round="small">
+    <Box gap="small">
+      <>
+        <Text size="xlarge" weight="bold">
           Storage Array SAA-01
         </Text>
-        <Text color="text-weak" size="small">
-          Region: US West · Tier: Premium
-        </Text>
-      </Box>
-      <Box direction="row" gap="large">
+        <Text size="small">Region: US West · Tier: Premium</Text>
+      </>
+      <NameValueList
+        layout="grid"
+        pairProps={{ direction: 'column' }}
+        nameProps={{ width: { min: '5xsmall', max: 'max-content' } }}
+        valueProps={{ width: { min: '5xsmall', max: 'max-content' } }}
+      >
         {stats.map(({ label, value }) => (
-          <Box key={label} gap="xsmall">
-            <Text color="text-weak" size="small">
-              {label}
+          <NameValuePair key={label} name={<Text size="small">{label}</Text>}>
+            <Text color="text-strong" weight="bold">
+              {value}
             </Text>
-            <Text weight="bold">{value}</Text>
-          </Box>
+          </NameValuePair>
         ))}
-      </Box>
-      <ButtonGroup>
-        <Button
-          label="Edit resource"
-          onClick={() => {}}
-          primary
-        />
-        <Button
-          label="Download"
-          onClick={() => {}}
-          secondary
-        />
-        <Button
-          label="Clone"
-          onClick={() => {}}
-          secondary
-        />
-      </ButtonGroup>
+      </NameValueList>
     </Box>
+    <ButtonGroup>
+      <Button label="Edit resource" onClick={() => {}} primary />
+      <Button label="Download" onClick={() => {}} secondary />
+      <Button label="Clone" onClick={() => {}} secondary />
+    </ButtonGroup>
   </Box>
 );

@@ -42,7 +42,7 @@ export const ButtonBeginNewTaskExample = () => {
         <Button
           label="Create device"
           onClick={() => setOpen(true)}
-          primary
+          secondary
         />
       </Box>
       <DataTable
