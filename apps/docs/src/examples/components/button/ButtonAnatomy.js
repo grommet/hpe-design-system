@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Button, Grid, Diagram, Stack, Text } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Button, Grid, Diagram, Stack, Text, ThemeContext } from 'grommet';
 import { Notification } from '@hpe-design/icons-grommet';
 import { Annotation } from '../../../layouts';
 
@@ -59,6 +59,7 @@ const AnatomyGrid = ({ ...rest }) => (
 );
 
 export const ButtonAnatomy = () => {
+    const theme = useContext(ThemeContext);
     const annotations = [
         {
             id: '1',
@@ -94,20 +95,24 @@ export const ButtonAnatomy = () => {
                     />
                 ))}
 
-                <Box
-                    gridArea="button-area"
-                    align="start"
-                >
+                <Box gridArea="button-area" align="start">
                     <Button
                         id="button-container"
                         secondary
                         label={<Box id="button-label">Notifications</Box>}
                         icon={<Notification id="button-icon" />}
                         tabIndex={-1}
+                        // we need to build the badge manually here because 
+                        // the built-in badge colors are theme-driven;
+                        // this anatomy example needs explicit color 
+                        // control in this context.
                         badge={
                             <Box
                                 id="button-badge"
-                                background="background-neutral-xstrong"
+                                background={{
+                                    color: 'background-neutral-xstrong',
+                                    dark: theme.dark,
+                                }}
                                 round
                                 align="center"
                                 justify="center"
@@ -115,9 +120,10 @@ export const ButtonAnatomy = () => {
                                 height="18px"
                             >
                                 <Text
+                                    color="text-onStrong"
                                     size="xsmall"
-                                    color="text-strong"
-                                    weight="normal">
+                                    weight="normal"
+                                >
                                     2
                                 </Text>
                             </Box>
