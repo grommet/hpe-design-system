@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Button,
-  Form,
-  FormField,
-  TextInput,
-} from 'grommet';
+import { Box, Button, Form, FormField, TextInput } from 'grommet';
 import { ButtonGroup } from '@shared/aries-core';
 
 export const ButtonBusySimpleExample = () => {
@@ -13,23 +7,19 @@ export const ButtonBusySimpleExample = () => {
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = () => {
-    if (success) return;
+    if (busy || success) return;
     setBusy(true);
     setTimeout(() => {
       setBusy(false);
       setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 3500);
     }, 2000);
-    setTimeout(() => {
-      setSuccess(false);
-    }, 3500);
   };
 
   return (
-    <Box
-      align="center"
-      fill
-      justify="center"
-    >
+    <Box align="center" fill justify="center">
       <Box
         background="background-front"
         pad="medium"
@@ -62,11 +52,7 @@ export const ButtonBusySimpleExample = () => {
               type="email"
             />
           </FormField>
-          <FormField
-            htmlFor="jobTitle"
-            label="Job title"
-            name="jobTitle"
-          >
+          <FormField htmlFor="jobTitle" label="Job title" name="jobTitle">
             <TextInput
               id="jobTitle"
               name="jobTitle"
