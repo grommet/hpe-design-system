@@ -11,8 +11,10 @@ import {
   MenuDangerousExample,
   MenuDefaultExample,
   MenuDisabledExample,
+  MenuDividersExample,
   MenuExample,
   MenuGroupingExample,
+  MenuKindExample,
   MenuHeaderExample,
   MenuIconExample,
   MenuItemCountExample,
@@ -128,6 +130,30 @@ A Menu styled to integrate visually with a toolbar, using `kind="toolbar"` to ma
   height={{ min: 'small' }}
 >
   <MenuToolbarExample />
+</Example>
+
+### Primary and secondary
+
+A Menu trigger button styled as a primary or secondary button using `kind="primary"` or `kind="secondary"`. Use when the menu needs stronger visual hierarchy — for example, when the menu is the primary call-to-action on a page or when it must be clearly differentiated from surrounding controls.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/menu/MenuKindExample.js"
+  docs="https://v2.grommet.io/menu?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <MenuKindExample />
+</Example>
+
+### Menu with dividers
+
+A Menu that uses dividers to visually separate groups of related actions. Pass an array of arrays to the `items` prop — each inner array represents a group, and a divider is automatically rendered between groups. Use dividers to communicate logical groupings and help users scan the available actions more quickly.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/menu/MenuDividersExample.js"
+  docs="https://v2.grommet.io/menu?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <MenuDividersExample />
 </Example>
 
 ## Dos and don'ts

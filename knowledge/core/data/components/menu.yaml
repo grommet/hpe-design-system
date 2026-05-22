@@ -38,11 +38,14 @@ props:
       Custom screen reader announcements for opening and closing the menu.
       Defaults to "Open Menu" and "Close Menu".
   - name: kind
-    type: "'toolbar'"
+    type: "'toolbar' | 'primary' | 'secondary'"
     required: false
     description: >-
       Visual style variant. Set to "toolbar" when placing the menu inside a
-      toolbar alongside other controls such as filters or search.
+      toolbar alongside other controls such as filters or search. Set to
+      "primary" or "secondary" when the menu trigger needs stronger visual
+      hierarchy — for example, when it is the primary call-to-action on a
+      page or must be clearly differentiated from surrounding controls.
   - name: dropAlign
     type: "{ top?: string, bottom?: string, left?: string, right?: string }"
     required: false
@@ -103,6 +106,28 @@ variants:
     when: >-
       When presenting batch actions for a data collection within a toolbar
       alongside filters, search, and other control elements.
+  - name: primary
+    description: >-
+      Menu trigger button styled as a primary button using kind="primary",
+      giving it the highest visual prominence on the page.
+    when: >-
+      When the menu is the primary call-to-action on a page and needs to
+      stand out from surrounding controls.
+  - name: secondary
+    description: >-
+      Menu trigger button styled as a secondary button using kind="secondary",
+      providing a prominent but subordinate alternative to a primary action.
+    when: >-
+      When the menu must be clearly differentiated from surrounding controls
+      but should not compete with a primary action.
+  - name: with-dividers
+    description: >-
+      Menu that groups related actions with dividers between them. Pass an
+      array of arrays to the items prop — each inner array is a group, and
+      a divider is automatically rendered between groups.
+    when: >-
+      When the menu contains multiple logical groupings of actions and
+      dividers help users scan and understand the available options.
 
 examples:
   - description: Default menu with a text label and a list of actions.
@@ -141,6 +166,14 @@ examples:
       Menu illustrating recommended item-count limits for scannability and
       cognitive ease.
     path: apps/docs/src/examples/components/menu/MenuItemCountExample.js
+  - description: >-
+      Menu trigger styled as primary and secondary buttons to demonstrate
+      visual hierarchy options using kind="primary" and kind="secondary".
+    path: apps/docs/src/examples/components/menu/MenuKindExample.js
+  - description: >-
+      Menu using grouped items (array of arrays) to automatically render
+      dividers between related action groups.
+    path: apps/docs/src/examples/components/menu/MenuDividersExample.js
 
 anatomy:
   - label: '1'
