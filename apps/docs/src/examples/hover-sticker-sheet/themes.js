@@ -184,7 +184,38 @@ const formFieldOption4Extend = props => {
 }`;
 };
 
+// Darken the checked control fill when any part of the row label is hovered,
+// not just when the pointer is directly over the control square/circle.
+const checkboxExtendOption4 = props => {
+  const checkedHoverBg = resolveColor(
+    'background-selected-primary-strong-hover',
+    props.theme,
+  );
+  return `${checkboxExtend(props)}
+  &:hover input:checked:not([disabled]) + div {
+    background: ${checkedHoverBg};
+  }`;
+};
+
+const radiobuttonExtendOption4 = props => {
+  const checkedHoverBg = resolveColor(
+    'background-selected-primary-strong-hover',
+    props.theme,
+  );
+  return `${radiobuttonExtend(props)}
+  &:hover input:checked:not([disabled]) + div,
+  &:hover input:checked:not([disabled]) + span {
+    background: ${checkedHoverBg};
+  }`;
+};
+
 export const option4Theme = deepMerge(option2Theme, {
+  checkBox: {
+    extend: checkboxExtendOption4,
+  },
+  radioButton: {
+    extend: radiobuttonExtendOption4,
+  },
   formField: {
     extend: formFieldOption4Extend,
   },
