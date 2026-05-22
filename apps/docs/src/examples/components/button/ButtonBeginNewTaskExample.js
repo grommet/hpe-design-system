@@ -9,6 +9,7 @@ import {
   Select,
   Text,
   TextInput,
+  Heading,
 } from 'grommet';
 import { FormClose } from 'grommet-icons';
 
@@ -31,9 +32,9 @@ export const ButtonBeginNewTaskExample = () => {
     <Box gap="medium" pad="medium" width="large">
       <Box align="center" direction="row" justify="between">
         <Box gap="xsmall">
-          <Text id="devices-heading" size="large" weight="bold">
+          <Heading level={2} margin="none">
             Devices
-          </Text>
+          </Heading>
           <Text color="text-weak" size="small">
             {devices.length} items
           </Text>
