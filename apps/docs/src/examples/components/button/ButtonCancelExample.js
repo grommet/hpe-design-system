@@ -37,12 +37,7 @@ export const ButtonCancelExample = () => {
 
   if (!editing) {
     return (
-      <Box
-        align="center"
-        fill
-        justify="center"
-        pad="medium"
-      >
+      <Box align="center" fill justify="center" pad="medium">
         <Box
           background="background-front"
           gap="medium"
@@ -70,68 +65,47 @@ export const ButtonCancelExample = () => {
   }
 
   return (
-    <Box
-      align="center"
-      fill
-      justify="center"
-      pad="medium"
-    >
-      <Box
-        background="background-front"
-        gap="medium"
-        pad="medium"
-        round="small"
-        width="medium"
-      >
-        <Form onSubmit={handleSave}>
-          <FormField
-            htmlFor="name"
-            label="Device name"
-            name="name"
-            required
-          >
-            <TextInput
-              id="name"
-              name="name"
-              onChange={e =>
-                setDraft(prev => ({
-                  ...prev,
-                  name: e.target.value,
-                }))
-              }
-              value={draft.name}
-            />
-          </FormField>
-          <FormField
-            htmlFor="description"
-            label="Description"
-            name="description"
-          >
-            <TextArea
-              id="description"
+    <Box background="background-front" pad="medium" round="small">
+      <Form onSubmit={handleSave}>
+        <Box width="medium" gap="medium">
+          <>
+            <FormField htmlFor="name" label="Device name" name="name" required>
+              <TextInput
+                id="name"
+                name="name"
+                onChange={e =>
+                  setDraft(prev => ({
+                    ...prev,
+                    name: e.target.value,
+                  }))
+                }
+                value={draft.name}
+              />
+            </FormField>
+            <FormField
+              htmlFor="description"
+              label="Description"
               name="description"
-              onChange={e =>
-                setDraft(prev => ({
-                  ...prev,
-                  description: e.target.value,
-                }))
-              }
-              value={draft.description}
-            />
-          </FormField>
-          <ButtonGroup pad={{ top: 'medium' }}>
-            <Button
-              label="Save changes"
-              primary
-              type="submit"
-            />
-            <Button
-              label="Cancel"
-              onClick={handleCancel}
-            />
+            >
+              <TextArea
+                id="description"
+                name="description"
+                onChange={e =>
+                  setDraft(prev => ({
+                    ...prev,
+                    description: e.target.value,
+                  }))
+                }
+                value={draft.description}
+              />
+            </FormField>
+          </>
+          <ButtonGroup>
+            <Button label="Save changes" primary type="submit" />
+            <Button label="Cancel" onClick={handleCancel} />
           </ButtonGroup>
-        </Form>
-      </Box>
+        </Box>
+      </Form>
     </Box>
   );
 };
