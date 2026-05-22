@@ -49,6 +49,7 @@ export const Meta = ({
   font-src *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/ ${trustarcFont};
   frame-src ${trustarcFrame};
   object-src 'none';`;
+  /* eslint-enable max-len */
 
   /*
    * IMPORTANT: `<meta>` tags need to be contained as **direct** children of
