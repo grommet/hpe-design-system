@@ -102,10 +102,11 @@ export const ButtonAnatomy = () => {
                         label={<Box id="button-label">Notifications</Box>}
                         icon={<Notification id="button-icon" />}
                         tabIndex={-1}
-                        // we need to build the badge manually here because 
-                        // the built-in badge colors are theme-driven;
-                        // this anatomy example needs explicit color 
-                        // control in this context.
+                        // we need to build the badge manually so we can attach 
+                        // `id="button-badge"` for the anatomy diagram target. 
+                        // So, we cannot rely on the out-of-the-box badge here  
+                        // which already has theme-driven colors. 
+                        // Hence, we apply an explicit theme workaround.
                         badge={
                             <Box
                                 id="button-badge"
