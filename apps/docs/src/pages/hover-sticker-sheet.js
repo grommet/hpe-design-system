@@ -12,15 +12,18 @@ import {
   TextInput,
   ToggleGroup,
 } from 'grommet';
-import { currentTheme, option1Theme, option2Theme, option3Theme } from '../examples/hover-sticker-sheet/themes';
+import { currentTheme, option1Theme, option2Theme, option3Theme, option4Theme } from '../examples/hover-sticker-sheet/themes';
 import { StickerSheet } from '../examples/hover-sticker-sheet/StickerSheet';
 import { ExampleForm } from '../examples/hover-sticker-sheet/ExampleForm';
+import { WizardExample } from '../examples/hover-sticker-sheet/WizardExample';
+import { InstanceConfigExample } from '../examples/hover-sticker-sheet/InstanceConfigExample';
 
 const THEMES = {
   Current: currentTheme,
   'Option 1': option1Theme,
   'Option 2': option2Theme,
   'Option 3': option3Theme,
+  'Option 4': option4Theme,
 };
 
 const DESCRIPTIONS = {
@@ -41,6 +44,11 @@ const DESCRIPTIONS = {
     'Unchecked checkbox and radio button get a background fill (background-hover) and a darker border on hover.',
     'Other form inputs are unchanged on hover.',
   ],
+  'Option 4': [
+    'Like Option 2: all inputs get a darker border on hover.',
+    'Row-level background fill is suppressed for items inside a CheckboxGroup or RadioButtonGroup.',
+    'Checkbox and radio controls look the same on hover whether standalone or inside a group.',
+  ],
 };
 
 const HoverStickerSheet = () => {
@@ -54,7 +62,7 @@ const HoverStickerSheet = () => {
       style={{ width: '100%' }}
     >
       <PageContent>
-        <Box pad={{ vertical: 'large' }} gap="xlarge">
+        <Box pad={{ vertical: 'large' }} gap="64px">
           {/* ── Page header ───────────────────────────────────────── */}
           <Box
             direction="row"
@@ -83,7 +91,7 @@ const HoverStickerSheet = () => {
           <Box gap="small">
             <Text weight="bold">Hover option:</Text>
             <ToggleGroup
-              options={['Current', 'Option 1', 'Option 2', 'Option 3']}
+              options={['Current', 'Option 1', 'Option 2', 'Option 3', 'Option 4']}
               value={option}
               onToggle={({ value }) => setOption(value)}
             />
@@ -133,7 +141,33 @@ const HoverStickerSheet = () => {
             <Text color="text-weak">
               A realistic form to experience hover states in context.
             </Text>
-            <ExampleForm />
+            <Box background="background-back" pad="medium" round="small">
+              <ExampleForm />
+            </Box>
+          </Box>
+
+          {/* ── VM Migration Wizard ───────────────────────────────── */}
+          <Box gap="small">
+            <Heading level={2} margin="none">
+              VM Migration Wizard
+            </Heading>
+            <Text color="text-weak">
+              A multi-step form with selects, text inputs, radio buttons and
+              toggles across 3 input steps.
+            </Text>
+            <WizardExample />
+          </Box>
+
+          {/* ── Instance Configuration ────────────────────────────── */}
+          <Box gap="small">
+            <Heading level={2} margin="none">
+              Instance Configuration
+            </Heading>
+            <Text color="text-weak">
+              A detail page with PageHeader, tabs, and a decorative Copilot
+              panel — a dense layout to test hover in context.
+            </Text>
+            <InstanceConfigExample />
           </Box>
         </Box>
       </PageContent>

@@ -160,3 +160,32 @@ export const option3Theme = deepMerge(hpe, {
   },
   radioButton: { extend: radiobuttonExtendOption3 },
 });
+
+// ─── Option 4 helpers ────────────────────────────────────────────────────────
+
+// Like Option 2, but suppress the row-level background fill for group items.
+//
+// The fill does NOT come from checkBox.hover.background — that token is already
+// transparent in the hpe theme. It comes from hpe's formField.extend, which
+// injects this CSS for checkbox/radio groups inside a FormField:
+//
+//   [role="group"], [role="radiogroup"] {
+//     label { &:hover:not([disabled]) { background: rgba(0,0,0,.04); } }
+//   }
+//
+// Fix: append an override rule with equal specificity, placed after the base
+// CSS so the cascade suppresses the fill.
+const formFieldOption4Extend = props => {
+  const base = formFieldWithHoverBorder(props);
+  return `${base}
+[class*="ContentBox"] [role="group"] label:hover:not([disabled]),
+[class*="ContentBox"] [role="radiogroup"] label:hover:not([disabled]) {
+  background: transparent;
+}`;
+};
+
+export const option4Theme = deepMerge(option2Theme, {
+  formField: {
+    extend: formFieldOption4Extend,
+  },
+});
