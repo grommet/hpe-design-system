@@ -62,6 +62,7 @@ export const ButtonCancelExample = () => {
             label="Edit device"
             onClick={handleEdit}
             secondary
+            alignSelf="start"
           />
         </Box>
       </Box>
