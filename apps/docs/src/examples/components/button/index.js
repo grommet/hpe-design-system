@@ -14,7 +14,6 @@ export * from './ButtonSecondaryActionsExample';
 export * from './ButtonSizingExample';
 export * from './ButtonStatesExample';
 export * from './ButtonToggleExample';
-export * from './ButtonWizardStepExample';
 export * from './DefaultButtonExample';
 export * from './DosDonts';
 export * from './PrimaryButtonExample';
