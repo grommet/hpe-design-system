@@ -117,6 +117,10 @@ export const Layout = ({
             {title && title.toLowerCase() !== 'home' && (
               <AppHeader gridArea="header" />
             )}
+            {/* Desktop-only: position: 'sticky' keeps the sidebar pinned while
+                main content scrolls. On mobile, nav renders inside a
+                Layer (fixed-position portal) where sticky has no
+                scroll ancestor and serves no purpose. */}
             <Navigation
               gridArea="nav"
               as="aside"
