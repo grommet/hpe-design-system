@@ -22,7 +22,7 @@ import { UserOverview } from './UserOverview';
 import { ExpiringSubscriptions } from './ExpiringSubscriptions';
 import { MonthlyCharges } from './MonthlyCharges';
 import { CustomizableGrid, CustomizeHeader, SkeletonContext } from '../components';
-// import { CustomizableCards } from '../components/CustomizableGrid/CustomizableCards';
+import { CustomizableCards } from '../components/CustomizableGrid/CustomizableCards';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 import { useState } from 'react';
 
@@ -96,6 +96,7 @@ function Home() {
                     <SkeletonContext.Provider
                       value={insightsLoading ? skeletonAnimation : undefined}
                     >
+                      {/*
                       <CustomizableGrid
                         columns={
                           size === 'xlarge'
@@ -116,8 +117,8 @@ function Home() {
                           ));
                           setWidgets(nextWidgets);
                         }}
-                      />
-                      {/* <CustomizableCards
+                      /> */}
+                      <CustomizableCards
                         columns={
                           size === 'xlarge'
                             ? ['flex', 'flex', 'flex']
@@ -132,7 +133,7 @@ function Home() {
                           ));
                           setWidgets(nextWidgets);
                         }}
-                      /> */}
+                      />
                     </SkeletonContext.Provider>
                   </Box>
                   {/* <RecentServices /> */}

@@ -88,6 +88,7 @@ const OrderableCards = React.forwardRef(
       };
 
       const onOrderProps = onOrder ? {
+        key: item?.id || index,
         draggable: true,
         onDragStart: (event) => {
           event.dataTransfer.setData('text/plain', '');
