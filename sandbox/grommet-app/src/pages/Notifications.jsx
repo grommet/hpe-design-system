@@ -37,10 +37,10 @@ const statuses = {
   },
 };
 
-export const Notifications = () => {
+export const Notifications = ({ ...rest }) => {
   const skeleton = useContext(SkeletonContext);
   return (
-    <DashboardCard title="Notifications" level={2} skeleton={false}>
+    <DashboardCard title="Notifications" level={2} skeleton={false} {...rest}>
       <Box gap="medium">
         <Box direction="row" gap="xsmall">
           <NotificationMetric status="critical" value={1} />

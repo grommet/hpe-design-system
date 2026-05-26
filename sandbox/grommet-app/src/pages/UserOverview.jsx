@@ -4,7 +4,7 @@ import { Legend } from '../components';
 import { useContext } from 'react';
 import { SkeletonContext } from '../components';
 
-export const UserOverview = () => {
+export const UserOverview = ({ ...rest }) => {
   const skeleton = useContext(SkeletonContext);
   return (
     <DashboardCard
@@ -18,6 +18,7 @@ export const UserOverview = () => {
           margin={{ top: 'medium' }}
         />
       }
+      {...rest}
     >
       <Box gap="medium">
         <Meter
