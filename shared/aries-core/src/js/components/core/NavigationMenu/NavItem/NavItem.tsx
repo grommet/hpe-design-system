@@ -61,7 +61,6 @@ export const NavItem = ({
               onSelect(e);
             }
           }}
-          role="menuitem"
           ref={ref as any}
           {...(rest as any)}
         >
