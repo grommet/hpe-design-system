@@ -49,12 +49,7 @@ export const MobileNavHeader = ({ ...rest }) => {
                 aria-expanded
                 alignSelf="start"
                 a11yTitle="Close navigation"
-                icon={
-                    <Sidebar
-                        aria-hidden
-                        style={{ rotate: '180deg' }}
-
-                    />}
+                icon={<Sidebar aria-hidden style={{ rotate: '180deg' }} />}
                 onClick={() => setMobileNavOpen(false)}
                 tip="Close navigation"
             />
