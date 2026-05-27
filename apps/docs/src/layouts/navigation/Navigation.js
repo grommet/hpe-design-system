@@ -32,6 +32,7 @@ export const Navigation = ({ ...rest }) => {
     return (
       <Layer
         onClickOutside={() => setMobileNavOpen(false)}
+        aria-label="Site navigation"
         position="left"
         onEsc={() => setMobileNavOpen(false)}
       >
