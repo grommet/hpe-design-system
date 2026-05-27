@@ -16,11 +16,7 @@ const stats = [
   { label: 'Status', value: 'Online' },
 ];
 
-export const ButtonSecondaryActionsExample = () => (
-  <ButtonSecondaryActionsContent />
-);
-
-const ButtonSecondaryActionsContent = () => {
+export const ButtonSecondaryActionsExample = () => {
   const size = useContext(ResponsiveContext);
   const mobileLayout = ['xsmall', 'small'].includes(size);
 
@@ -37,7 +33,6 @@ const ButtonSecondaryActionsContent = () => {
           <Heading level={3} margin="none">
             Storage Array SAA-01
           </Heading>
-
           <Text color="text-weak" size="small">
             Region: US West · Tier: Premium
           </Text>
@@ -54,18 +49,10 @@ const ButtonSecondaryActionsContent = () => {
           ))}
         </NameValueList>
         <ButtonGroup direction={mobileLayout ? 'column' : 'row'}>
-          <Button
-            label="Edit resource"
-            primary
-          />
-          <Button
-            label="Download"
-            secondary
-          />
-          <Button
-            label="Clone"
-            secondary
-          />
+          <Button label="Edit resource" primary />
+          <Button label="Download" secondary />
+          <Button label="Clone" secondary />
+
         </ButtonGroup>
       </Box>
     </Box>
