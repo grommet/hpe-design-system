@@ -11,7 +11,7 @@ import {
   TextInput,
   Heading,
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
+import { LayerHeader } from '@shared/aries-core';
 
 const devices = [
   { name: 'web-server-01', status: 'Active', type: 'Server' },
@@ -64,16 +64,7 @@ export const ButtonBeginNewTaskExample = () => {
             pad="medium"
             width="medium"
           >
-            <Box align="center" direction="row" justify="between">
-              <Text size="large" weight="bold">
-                Create device
-              </Text>
-              <Button
-                a11yTitle="Close panel"
-                icon={<FormClose />}
-                onClick={() => setOpen(false)}
-              />
-            </Box>
+            <LayerHeader title="Create device" onClose={() => setOpen(false)} />
             <Form>
               <FormField
                 htmlFor="device-name"
