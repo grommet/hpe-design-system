@@ -145,8 +145,6 @@ examples:
   - description: Simple busy and success state button used for short async actions
       such as form validation.
     path: apps/docs/src/examples/components/button/ButtonBusySimpleExample.js
-  - description: Busy button in a modal dialog with form submission context.
-    path: apps/docs/src/examples/components/button/ButtonBusyExample.js
   - description: Button sizing variants from small to xlarge.
     path: apps/docs/src/examples/components/button/ButtonSizingExample.js
   - description: Button alignment reference table for common layout contexts such as
