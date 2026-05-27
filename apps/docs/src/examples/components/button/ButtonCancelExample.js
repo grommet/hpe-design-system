@@ -4,6 +4,7 @@ import {
   Button,
   Form,
   FormField,
+  Heading,
   Text,
   TextArea,
   TextInput,
@@ -51,9 +52,10 @@ export const ButtonCancelExample = () => {
           width="medium"
         >
           <Box gap="xsmall">
-            <Text size="large" weight="bold">
+
+            <Heading level={3} margin="none">
               {device.name}
-            </Text>
+            </Heading>
             <Text color="text-weak" size="small">
               {device.description}
             </Text>
