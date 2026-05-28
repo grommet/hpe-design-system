@@ -1,11 +1,5 @@
 import { useState } from 'react';
-import {
-  Box,
-  Button,
-  Header,
-  Page,
-  PageContent,
-} from 'grommet';
+import { Box, Button, Header, Page, PageContent } from 'grommet';
 import Link from 'next/link';
 import {
   Sidebar as SidebarIcon,
@@ -69,6 +63,5 @@ const StyledHeader = ({ ...rest }) => {
     </Page>
   );
 };
-
 
 export { StyledHeader as AppHeader };

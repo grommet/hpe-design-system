@@ -1,4 +1,3 @@
-
 import { useAnalytics, Layer } from 'grommet';
 import { useRouter } from 'next/router';
 import { NavigationMenu } from '@shared/aries-core';
@@ -10,9 +9,8 @@ import { SideNavHeader } from './SideNavHeader';
 export const Navigation = ({ ...rest }) => {
   const router = useRouter();
   const sendAnalytics = useAnalytics();
-  const {
-    navOpen, setNavOpen, isMobile, mobileNavOpen, setMobileNavOpen,
-  } = useNavState();
+  const { navOpen, setNavOpen, isMobile, mobileNavOpen, setMobileNavOpen } =
+    useNavState();
 
   const activeItem = router.pathname;
 

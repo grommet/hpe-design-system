@@ -106,11 +106,7 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <NavProvider>
-          <Grid
-            areas={gridAreas}
-            columns={gridColumns}
-            rows={gridRows}
-          >
+          <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
             {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
@@ -125,11 +121,15 @@ export const Layout = ({
               height={isMobile ? undefined : '100vh'}
               fill={isMobile || undefined}
               overflow="auto"
-              style={isMobile ? undefined : {
-                position: 'sticky',
-                top: 0,
-                overscrollBehavior: 'contain',
-              }}
+              style={
+                isMobile
+                  ? undefined
+                  : {
+                      position: 'sticky',
+                      top: 0,
+                      overscrollBehavior: 'contain',
+                    }
+              }
             />
             <Main overflow="visible" gridArea="main">
               <Page>
