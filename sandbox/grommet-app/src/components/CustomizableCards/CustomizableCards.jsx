@@ -1,7 +1,8 @@
 import propTypes from 'prop-types';
 import { cloneElement } from 'react';
 
-import { OrderableCards } from '../OrderableCards/OrderableCards';
+//import { OrderableCards } from '../OrderableCards/OrderableCards';
+import { Cards } from 'grommet';
 import { CustomizeMenu } from './CustomizeMenu';
 import { DragControl } from './DragControl';
 
@@ -21,7 +22,7 @@ const resizeOptions = Object.keys(sizeToSpan);
 export const CustomizableCards = ({ data, onOrder, onResize, ...rest }) => {
  
   return (
-    <OrderableCards data={data} onOrder={onOrder} sizeKey="size"{...rest}>
+    <Cards data={data} onOrder={onOrder} sizeKey="size"{...rest}>
       {(item, index ) => { 
         const onOrderProps = onOrder ? {
           controls: [
@@ -44,7 +45,7 @@ export const CustomizableCards = ({ data, onOrder, onResize, ...rest }) => {
 
         return cloneElement(item.component, { id: item.id, key: item.id, ...onOrderProps });
       }}
-    </OrderableCards>
+    </Cards>
   );
 };
 

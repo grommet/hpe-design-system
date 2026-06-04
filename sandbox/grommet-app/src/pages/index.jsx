@@ -21,8 +21,7 @@ import { DeviceSummary } from './DeviceSummary';
 import { UserOverview } from './UserOverview';
 import { ExpiringSubscriptions } from './ExpiringSubscriptions';
 import { MonthlyCharges } from './MonthlyCharges';
-import { CustomizableGrid, CustomizeHeader, SkeletonContext } from '../components';
-import { CustomizableCards } from '../components/CustomizableGrid/CustomizableCards';
+import { CustomizableCards, CustomizeHeader, SkeletonContext } from '../components';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 import { useState } from 'react';
 
@@ -96,28 +95,6 @@ function Home() {
                     <SkeletonContext.Provider
                       value={insightsLoading ? skeletonAnimation : undefined}
                     >
-                      {/*
-                      <CustomizableGrid
-                        columns={
-                          size === 'xlarge'
-                            ? ['flex', 'flex', 'flex']
-                            : ['auto']
-                        }
-                        gap="medium"
-                        data={widgets}
-                        onOrder={customizeOpen ? setWidgets : undefined}
-                        onResize={(id, size) => {
-                          console.log('resize', id, size);
-                          const nextWidgets = widgets.map(widget => (
-                            widget.id === id ? {
-                              ...widget,
-                              size: size?.size,
-                            } : widget
-
-                          ));
-                          setWidgets(nextWidgets);
-                        }}
-                      /> */}
                       <CustomizableCards
                         columns={
                           size === 'xlarge'
@@ -127,7 +104,6 @@ function Home() {
                         data={widgets}
                         onOrder={customizeOpen ? setWidgets : undefined}
                         onResize={(id, size) => {
-                          console.log('resize', id, size);
                           const nextWidgets = widgets.map(widget => (
                             widget.id === id ? { ...widget, size } : widget
                           ));
