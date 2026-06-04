@@ -123,7 +123,7 @@ export const Layout = ({
               a11yTitle="Site navigation"
               background="background-front"
               height={isMobile ? undefined : '100vh'}
-              fill={isMobile || undefined}
+              fill={isMobile}
               overflow="auto"
               style={
                 isMobile
