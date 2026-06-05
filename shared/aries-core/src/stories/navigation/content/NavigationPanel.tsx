@@ -82,7 +82,7 @@ export const NavigationPanel = ({
             <NavigationMenu
               {...navigationMenuProps}
               gap="medium"
-              width={undefined} // full width when in mobile
+              fill="horizontal" // full width when in mobile
               header={
                 <LayerHeader
                   onClose={() => setOpenLayer(false)}
