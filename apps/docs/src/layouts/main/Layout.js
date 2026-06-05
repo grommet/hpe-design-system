@@ -106,30 +106,34 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <NavProvider>
-          <Grid
-            areas={gridAreas}
-            columns={gridColumns}
-            rows={gridRows}
-          >
+          <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
             {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
             {title && title.toLowerCase() !== 'home' && (
               <AppHeader gridArea="header" />
             )}
+            {/* Desktop-only: position: 'sticky' keeps the sidebar pinned while
+                main content scrolls. On mobile, nav renders inside a
+                Layer (fixed-position portal) where sticky has no
+                scroll ancestor and serves no purpose. */}
             <Navigation
               gridArea="nav"
               as="aside"
               a11yTitle="Site navigation"
               background="background-front"
               height={isMobile ? undefined : '100vh'}
-              fill={isMobile || undefined}
+              fill={isMobile}
               overflow="auto"
-              style={isMobile ? undefined : {
-                position: 'sticky',
-                top: 0,
-                overscrollBehavior: 'contain',
-              }}
+              style={
+                isMobile
+                  ? undefined
+                  : {
+                      position: 'sticky',
+                      top: 0,
+                      overscrollBehavior: 'contain',
+                    }
+              }
             />
             <Main overflow="visible" gridArea="main">
               <Page>
