@@ -8,7 +8,6 @@ export type NavItemWithLevel = NavItemType & { level?: number };
 
 const defaultItemProps = {
   pad: { vertical: '3xsmall' },
-  role: 'none',
 };
 interface NavListProps {
   items: NavItemWithLevel[];
@@ -195,7 +194,6 @@ export const NavList = ({
               <Down aria-hidden="true" />
             )
           }
-          aria-haspopup={!!item.children}
           aria-expanded={expandedItem}
           active={active}
           aria-current={active ? 'page' : undefined}
@@ -209,7 +207,6 @@ export const NavList = ({
         >
           <Collapsible open={expandedItem}>
             <NavList
-              role="menu"
               aria-labelledby={item.id}
               items={(item.children as NavItemWithLevel[]).map(child => ({
                 ...child,
@@ -247,7 +244,6 @@ export const NavList = ({
     <List
       data={adjustedItems}
       defaultItemProps={defaultItemProps}
-      role="menubar"
       {...rest}
     >
       {renderItem}
