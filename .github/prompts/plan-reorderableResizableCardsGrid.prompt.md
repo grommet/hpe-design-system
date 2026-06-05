@@ -63,10 +63,11 @@ Because layout is purely order-driven, all user interactions — drag-and-drop a
 
 ## Toggling Edit Mode
 
-The page header should include a "Customize" button (outside the grid) that sets a `customizeOpen` boolean in state. This state controls two things:
+The page header should include a "Customize" button (outside the grid) that sets a `customizeOpen` boolean in state. This state controls three things:
 
 1. Whether the page-level edit mode header (with Save/Cancel/Add Widget actions) is shown.
 2. Whether `onOrder` is passed to `Cards`. When `onOrder` is `undefined`, the grid renders as a static, non-draggable layout. When it is a state setter (e.g., `setWidgets`), `Cards` activates drag-and-drop reordering and calls that function with the updated array when the user drops a card in a new position.
+3. Whether non-customizable page content is dimmed and disabled (see [Dimming Non-Customizable Content](#dimming-non-customizable-content) below).
 
 ```jsx
 // Page header button
@@ -85,6 +86,55 @@ The page header should include a "Customize" button (outside the grid) that sets
   />
 )}
 ```
+
+---
+
+## Dimming Non-Customizable Content
+
+When customize mode is active, the page content that is _not_ part of the customizable grid should be visually de-emphasized. This directs the user's attention to the cards they are editing and prevents accidental interaction with the rest of the page.
+
+Create a `DimmableBox` styled component once at module level using `styled(Box)` from styled-components. It accepts a `dimmed` boolean prop that conditionally applies the dimmed styles:
+
+```js
+import styled, { css } from 'styled-components';
+
+const DimmableBox = styled(Box)`
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  ${({ dimmed }) => dimmed && css`
+    opacity: 0.3;
+    filter: blur(4px);
+    pointer-events: none;
+  `}
+`;
+```
+
+The `transition` is always present so the dimming animates smoothly in both directions (entering and leaving customize mode). When `dimmed` is true:
+- `opacity: 0.3` — visually fades the area out, making the customizable grid stand out by contrast.
+- `filter: blur(4px)` — adds a soft blur that reinforces that the area is inactive.
+- `pointer-events: none` — prevents clicks, hovers, and focus events from reaching any content inside the box, making it fully inert while the user is customizing.
+
+Wrap each non-customizable section of the page in `DimmableBox` and pass `dimmed={customizeOpen}`:
+
+```jsx
+{/* Page title / header area */}
+<DimmableBox dimmed={customizeOpen}>
+  <PageHeader title="Home" ... />
+</DimmableBox>
+
+{/* Other page widgets above/below the grid */}
+<DimmableBox dimmed={customizeOpen} skeleton={...}>
+  <GetStarted />
+</DimmableBox>
+
+{/* Side panel or other layout columns */}
+<DimmableBox as={ContentPane} dimmed={customizeOpen} alignSelf="start" pad="large">
+  ...
+</DimmableBox>
+```
+
+The `as` prop lets `DimmableBox` render as a different component (e.g., `ContentPane`) while still applying the styled-components styles — no need to add `DimmableBox` support to `ContentPane` itself.
+
+The `CustomizeHeader` (rendered outside the `Page`) and the `CustomizableCards` grid are **not** wrapped in `DimmableBox` and remain fully interactive.
 
 ---
 

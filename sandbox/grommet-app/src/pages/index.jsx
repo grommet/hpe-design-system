@@ -24,6 +24,18 @@ import { MonthlyCharges } from './MonthlyCharges';
 import { CustomizableCards, CustomizeHeader, SkeletonContext } from '../components';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 import { useState } from 'react';
+import styled, { css } from 'styled-components';
+
+// A Box that can be dimmed and blurred when the customize mode is active
+// The box also disables pointer events to prevent interaction with the content while customizing
+const DimmableBox = styled(Box)`
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  ${({ dimmed }) => dimmed && css`
+    opacity: 0.3;
+    filter: blur(4px);
+    pointer-events: none;
+  `}
+`;
 
 const Divider = () => <Box border={{ side: 'bottom', color: 'border-weak' }} />;
 
@@ -70,25 +82,26 @@ function Home() {
               <Box gap="medium">
                 <PageHeader
                   title="Home"
-                    actions={!customizeOpen ?
-                      <Button label="Customize" icon={<Configure />} reverse
-                        onClick={() => setCustomizeOpen(!customizeOpen)}
-                      />
-                      : undefined
-                    }
+                  actions={!customizeOpen ?
+                    <Button label="Customize" icon={<Configure />} reverse
+                      onClick={() => setCustomizeOpen(!customizeOpen)}
+                    />
+                    : undefined
+                  }
                   pad="none"
                 />
                
                 <Box gap="large" animation="fadeIn">
-                  <Box
+                  <DimmableBox
                     skeleton={getStartedLoading ? skeletonAnimation : undefined}
+                    dimmed={customizeOpen}
                   >
                     <SkeletonContext.Provider
                       value={getStartedLoading ? skeletonAnimation : undefined}
                     >
                       <GetStarted kind="next" />
                     </SkeletonContext.Provider>
-                  </Box>
+                  </DimmableBox>
                   <Box
                     skeleton={insightsLoading ? skeletonAnimation : undefined}
                   >
@@ -112,37 +125,15 @@ function Home() {
                       />
                     </SkeletonContext.Provider>
                   </Box>
-                  {/* <RecentServices /> */}
-                  {/* <Box
-                    skeleton={insightsLoading ? skeletonAnimation : undefined}
-                    gap="medium"
-                  >
-                    <SkeletonContext.Provider
-                      value={insightsLoading ? skeletonAnimation : undefined}
-                    >
-                      <Grid
-                        columns={
-                          size === 'xlarge' ? ['medium', 'flex'] : ['auto']
-                        }
-                        gap="medium"
-                      >
-                        <UserOverview />
-                        <Notifications />
-                      </Grid>
-                      <Grid
-                        columns={
-                          size === 'xlarge' ? ['flex', 'flex'] : ['auto']
-                        }
-                        gap="medium"
-                      >
-                        <MonthlyCharges />
-                        <ExpiringSubscriptions />
-                      </Grid>
-                    </SkeletonContext.Provider>
-                  </Box> */}
                 </Box>
               </Box>
-              <ContentPane alignSelf="start" pad="large" animation="fadeIn">
+              <DimmableBox
+                as={ContentPane}
+                alignSelf="start"
+                pad="large"
+                animation="fadeIn"
+                dimmed={customizeOpen}
+              >
                 <SkeletonContext.Provider
                   value={sidePanelLoading ? skeletonAnimation : undefined}
                 >
@@ -154,7 +145,7 @@ function Home() {
                     <Learn inline />
                   </Box>
                 </SkeletonContext.Provider>
-              </ContentPane>
+              </DimmableBox>
             </Grid>
           )}
         </ResponsiveContext.Consumer>
