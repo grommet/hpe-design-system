@@ -45,8 +45,8 @@ export const SingleFormFieldExample = () => {
           </Heading>
         </Header>
         <Text>
-          Are you sure you want to delete this cluster? Doing so will erase all
-          the data.
+          This will permanently delete the cluster 
+          and all its associated data.
         </Text>
         <Box
           // Padding used to prevent focus from being cutoff
@@ -76,7 +76,7 @@ export const SingleFormFieldExample = () => {
               direction="row"
             >
               <Button label="Cancel" />
-              <Button label="Delete cluster" primary type="submit" />
+              <Button label="Delete" primary type="submit" />
             </Box>
           </Form>
         </Box>
