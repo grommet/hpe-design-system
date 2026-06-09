@@ -3,7 +3,6 @@ export * from './ButtonAlignmentTable';
 export * from './ButtonBeginNewTaskExample';
 export * from './ButtonExample';
 export * from './ButtonBadgeExample';
-export * from './ButtonBusyExample';
 export * from './ButtonBusySimpleExample';
 export * from './ButtonCancelExample';
 export * from './ButtonIconExample';

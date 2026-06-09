@@ -66,6 +66,8 @@ The user initiates a workflow for a resource that doesn't yet exist — for exam
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
   height={{ min: 'small' }}
+  template
+  showResponsiveControls={[]}
 >
   <ButtonBeginNewTaskExample />
 </Example>
@@ -108,12 +110,12 @@ A cancel button gives users an escape hatch to abandon an in-progress workflow w
 
 {/* TODO: Add <Example plain> anatomy diagram once ButtonAnatomy component is created. */}
 
-| Label  | Region                       | Purpose                                                                                                    |                         Required                         | Notes                                                                                           |
-| :----: | ---------------------------- | ---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------------------------------------------------------------------- |
-| **1**  | **Button container**         | The interactive element that captures click or keyboard events and communicates affordance.                | <span><Checkmark a11yTitle="true" size="small" /></span> | Rendered as a `<button>` for in-page actions; use `<a>` only when the result is URL navigation. |
-| **1a** | **Button label**             | Communicates the action the button will perform when activated.                                            |                         Optional                         | Required unless an icon with `a11yTitle` provides the full accessible name.                     |
-| **1b** | **Button icon**              | Provides a visual cue that reinforces or replaces the label.                                               |                         Optional                         | When used without a visible label, `a11yTitle` or `aria-label` must be provided.                |
-| **1c** | **Badge**                    | Conveys additional information such as a notification count or attention indicator overlaid on the button. |                         Optional                         | --                                                                                              |
+| Label  | Region               | Purpose                                                                                                    |                         Required                         | Notes                                                                                           |
+| :----: | -------------------- | ---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------------------------------------------------------------------- |
+| **1**  | **Button container** | The interactive element that captures click or keyboard events and communicates affordance.                | <span><Checkmark a11yTitle="true" size="small" /></span> | Rendered as a `<button>` for in-page actions; use `<a>` only when the result is URL navigation. |
+| **1a** | **Button label**     | Communicates the action the button will perform when activated.                                            |                         Optional                         | Required unless an icon with `a11yTitle` provides the full accessible name.                     |
+| **1b** | **Button icon**      | Provides a visual cue that reinforces or replaces the label.                                               |                         Optional                         | When used without a visible label, `a11yTitle` or `aria-label` must be provided.                |
+| **1c** | **Badge**            | Conveys additional information such as a notification count or attention indicator overlaid on the button. |                         Optional                         | --                                                                                              |
 
 ## Variants
 
