@@ -1,23 +1,64 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
+  AnnounceContext,
   Box,
   Button,
+  Data,
+  DataFilters,
+  DataSearch,
+  DataSummary,
   DataTable,
   Form,
   FormField,
-  Layer,
-  Select,
-  Text,
-  TextInput,
   Heading,
+  Select,
+  Toolbar,
+  TextInput,
+  Page,
+  PageContent,
 } from 'grommet';
 import { LayerHeader } from '@shared/aries-core';
+import devices from '../../../data/mockData/devices.json';
+import {
+  ConfirmationContext,
+  ConfirmationProvider,
+  DoubleConfirmation,
+  Sidedrawer,
+  useConfirmation,
+} from '../layer/components';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
-const devices = [
-  { name: 'web-server-01', status: 'Active', type: 'Server' },
-  { name: 'db-node-02', status: 'Active', type: 'Database' },
-  { name: 'proxy-edge-03', status: 'Inactive', type: 'Proxy' },
-];
+export const ButtonBeginNewTaskExample = () => (
+  <ConfirmationProvider>
+    <ConfirmationContext.Consumer>
+      {({ showLayer, showConfirmation }) => (
+        <>
+          <DevicesPage />
+          {showLayer ? <AddDevices /> : null}
+          {showConfirmation ? <DoubleConfirmation title="devices" /> : null}
+        </>
+      )}
+    </ConfirmationContext.Consumer>
+  </ConfirmationProvider>
+);
+
+const AddDevices = ({ ...rest }) => {
+  const { onClose } = useConfirmation();
+  const announce = useContext(AnnounceContext);
+
+  useEffect(() => {
+    announce('Add devices modal opened', 'assertive');
+  }, [announce]);
+
+  return (
+    <Sidedrawer onEsc={onClose} {...rest}>
+      <LayerHeader title="Add devices" onClose={onClose} />
+      <LayerForm id="devices-form" onClose={onClose} />
+    </Sidedrawer>
+  );
+};
+
 
 const columns = [
   { header: 'Name', primary: true, property: 'name' },
@@ -25,100 +66,125 @@ const columns = [
   { header: 'Status', property: 'status' },
 ];
 
-export const ButtonBeginNewTaskExample = () => {
-  const [open, setOpen] = useState(false);
-
+const DevicesPage = () => {
+  const { setShowLayer } = useConfirmation();
   return (
-    <Box gap="medium" pad="medium" width="large">
-      <Box align="center" direction="row" justify="between">
-        <Box gap="xsmall">
-          <Heading level={2} margin="none">
+    <Page pad={{ bottom: 'xlarge' }}>
+      <PageContent>
+        <ContentPane gap="medium">
+          <Heading id="devices-heading" level={2} margin="none">
             Devices
           </Heading>
-          <Text color="text-weak" size="small">
-            {devices.length} items
-          </Text>
-        </Box>
+          <Data data={devices}>
+            <Toolbar>
+              <DataSearch />
+              <DataFilters layer />
+              <Box flex />
+              <Button
+                label="Create device"
+                onClick={() => setShowLayer(true)}
+                secondary
+              />
+            </Toolbar>
+            <DataSummary />
+            <Box height={{ max: 'medium' }} alignSelf="start" overflow="auto">
+              <DataTable
+                aria-describedby="devices-heading" columns={columns} />
+            </Box>
+          </Data>
+        </ContentPane>
+      </PageContent>
+    </Page>
+  );
+};
+
+const defaultFormValues = {
+  'device-name': '',
+  'device-type': '',
+  'device-status': '',
+};
+
+const LayerForm = ({ onClose, ...rest }) => {
+  const [formValue, setFormValue] = useState(defaultFormValues);
+  const { setShowLayer, setTouched } = useConfirmation();
+
+  // setTouched to false when form dismounts
+  useEffect(() => () => setTouched(false), [setTouched]);
+
+  return (
+    <Form
+      onSubmit={() => {
+        setShowLayer(false);
+      }}
+      messages={{
+        required: 'This is a required field.',
+      }}
+      value={formValue}
+      onChange={(nextValue, { touched }) => {
+        setFormValue(nextValue);
+        setTouched(Object.keys(touched).length);
+      }}
+      {...rest}
+    >
+      <FormField
+        label="Device name"
+        contentProps={{ width: 'medium' }}
+        name="device-name"
+        htmlFor="device-name"
+        required
+      >
+        <TextInput
+          id="device-name"
+          name="device-name"
+          placeholder="e.g. web-server-04"
+        />
+      </FormField>
+      <FormField
+        label="Type"
+        name="device-type"
+        htmlFor="device-type"
+        required
+      >
+        <Select
+          id="device-type"
+          name="device-type"
+          options={['Server', 'Database', 'Proxy']}
+          placeholder="Select type"
+        />
+      </FormField>
+      <FormField
+        label="Status"
+        name="device-status"
+        htmlFor="device-status"
+        required
+      >
+        <Select
+          id="device-status"
+          name="device-status"
+          options={['Active', 'Inactive']}
+          placeholder="Select status"
+        />
+      </FormField>
+      <Box
+        direction="row"
+        gap="xsmall"
+        flex={false}
+        margin={{ top: 'medium' }}
+      >
         <Button
           label="Create device"
-          onClick={() => setOpen(true)}
-          secondary
+          primary
+          type="submit"
+        />
+        <Button
+          label="Cancel"
+          onClick={onClose}
         />
       </Box>
-      <DataTable
-        aria-describedby="devices-heading"
-        columns={columns}
-        data={devices}
-      />
-      {open && (
-        <Layer
-          position="right"
-          full="vertical"
-          onClickOutside={() => setOpen(false)}
-          onEsc={() => setOpen(false)}
-        >
-          <Box
-            fill="vertical"
-            gap="medium"
-            overflow="auto"
-            pad="medium"
-            width="medium"
-          >
-            <LayerHeader title="Create device" onClose={() => setOpen(false)} />
-            <Form>
-              <FormField
-                htmlFor="device-name"
-                label="Device name"
-                name="name"
-                required
-              >
-                <TextInput
-                  id="device-name"
-                  name="name"
-                  placeholder="e.g. web-server-04"
-                />
-              </FormField>
-              <FormField
-                htmlFor="device-type"
-                label="Type"
-                name="type"
-                required
-              >
-                <Select
-                  id="device-type"
-                  name="type"
-                  options={['Server', 'Database', 'Proxy']}
-                  placeholder="Select type"
-                />
-              </FormField>
-              <FormField htmlFor="device-status" label="Status" name="status">
-                <Select
-                  id="device-status"
-                  name="status"
-                  options={['Active', 'Inactive']}
-                  placeholder="Select status"
-                />
-              </FormField>
-              <Box
-                direction="row"
-                gap="small"
-                justify="end"
-                margin={{ top: 'medium' }}
-              >
-                <Button
-                  label="Cancel"
-                  onClick={() => setOpen(false)}
-                />
-                <Button
-                  label="Create device"
-                  onClick={() => setOpen(false)}
-                  primary
-                />
-              </Box>
-            </Form>
-          </Box>
-        </Layer>
-      )}
-    </Box>
+    </Form>
   );
+};
+
+LayerForm.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
