@@ -29,7 +29,6 @@ export const CheckBoxControlMock = ({
   checkBoxTheme,
   controlId,
   indicatorId,
-  ...rest
 }) => {
   const iconSize = checkBoxTheme.icon.size || checkBoxTheme.size;
 
@@ -39,7 +38,6 @@ export const CheckBoxControlMock = ({
       align="center"
       justify="center"
       round={checkBoxTheme.check.radius}
-      {...rest}
     >
       <Box id={indicatorId} width={iconSize} height={iconSize}>
         <CheckmarkIcon
