@@ -1,3 +1,5 @@
+export * from './CheckBoxAnatomy';
+export * from './CheckBoxControlMock';
 export * from './CheckBoxDefaultExample';
 export * from './CheckBoxDisabledExample';
 export * from './CheckBoxSelectingItemsListExample';
