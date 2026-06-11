@@ -86,6 +86,10 @@ export const CheckBoxAnatomy = () => {
 
         <Box gridArea="checkbox-area" align="start">
           <CheckBox
+            // Keep this controlled so semantics match the checked mock visual
+            // and React won't warn about checked without an onChange handler.
+            checked
+            onChange={() => {}}
             label={
               <Box id="checkbox-label" align={checkboxTheme.label.align}>
                 Choice
