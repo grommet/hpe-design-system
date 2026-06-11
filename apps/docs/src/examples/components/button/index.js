@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 export * from './ButtonActionLabelsExample';
 export * from './ButtonAlignmentTable';
+export * from './ButtonAnatomy';
 export * from './ButtonBeginNewTaskExample';
 export * from './ButtonExample';
 export * from './ButtonBadgeExample';
