@@ -16,13 +16,13 @@ const CheckBoxControl = styled(Box)`
 `;
 
 const CheckmarkIcon = styled.svg`
-  width: ${({ theme }) => theme.checkBox.icon.size};
-  height: ${({ theme }) => theme.checkBox.icon.size};
+  width: ${({ theme }) => theme.checkBox.icon?.size};
+  height: ${({ theme }) => theme.checkBox.icon?.size};
   & path {
     fill: none;
     stroke-width: ${({ theme }) => theme.checkBox.check.thickness};
   }
-  ${({ theme }) => theme.checkBox.icon.extend};
+  ${({ theme }) => theme && theme.checkBox.icon.extend}
 `;
 
 export const CheckBoxControlMock = ({
