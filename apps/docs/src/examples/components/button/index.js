@@ -1,5 +1,6 @@
 export * from './ButtonActionLabelsExample';
 export * from './ButtonAlignmentTable';
+export * from './ButtonAnatomy';
 export * from './ButtonBeginNewTaskExample';
 export * from './ButtonExample';
 export * from './ButtonBadgeExample';
