@@ -15,8 +15,8 @@ export const ButtonBadActionLabelsPreview = () => (
       />
     </FormField>
     <ButtonGroup>
-      <Button primary label="Apply" onClick={() => {}} />
-      <Button label="Reset" onClick={() => {}} />
+      <Button primary label="Apply" />
+      <Button label="Reset" />
     </ButtonGroup>
   </Box>
 );
