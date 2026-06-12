@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import {
+  Box,
   Button,
   Heading,
-  Header,
   NameValueList,
   NameValuePair,
   ResponsiveContext,
+  Paragraph,
   Text,
 } from 'grommet';
 import { ButtonGroup } from '@shared/aries-core';
@@ -23,19 +24,14 @@ export const ButtonSecondaryActionsExample = () => {
 
   return (
     <ContentPane gap="medium" width="large">
-      <Header
-        direction="column"
-        align="start"
-        gap="5xsmall"
-        pad={{ horizontal: '5xsmall' }}
-      >
-        <Heading level={3} margin="none">
+      <Box gap="5xsmall">
+        <Heading level={2} margin="none">
           Storage Array SAA-01
         </Heading>
-        <Text color="text-weak">
+        <Paragraph margin="none" color="text-weak">
           Region: US West · Tier: Premium
-        </Text>
-      </Header>
+        </Paragraph>
+      </Box>
       <NameValueList
         valueProps={{ width: '4xsmall' }}
         pairProps={{ direction: 'column' }}
@@ -47,7 +43,10 @@ export const ButtonSecondaryActionsExample = () => {
           </NameValuePair>
         ))}
       </NameValueList>
-      <ButtonGroup direction={mobileLayout ? 'column' : 'row'}>
+      <ButtonGroup
+        direction={mobileLayout ? 'column' : 'row'}
+        margin={{ top: 'small' }}
+      >
         <Button label="Edit resource" primary />
         <Button label="Download" secondary />
         <Button label="Clone" secondary />

@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import { Button, Form, FormField, TextInput } from 'grommet';
-import { ButtonGroup } from '@shared/aries-core';
+import React, { useContext, useState } from 'react';
+import {
+  Box,
+  Button,
+  Form,
+  FormField,
+  ResponsiveContext,
+  TextInput,
+} from 'grommet';
 import { ContentPane } from '../../../layouts/content/ContentPane';
-
 
 export const ButtonBusySimpleExample = () => {
   const [busy, setBusy] = useState(false);
   const [success, setSuccess] = useState(false);
+  const size = useContext(ResponsiveContext);
 
   const handleSubmit = () => {
     if (busy || success) return;
@@ -21,7 +27,7 @@ export const ButtonBusySimpleExample = () => {
   };
 
   return (
-    <ContentPane gap="medium" width="medium">
+    <ContentPane width="medium">
       <Form onSubmit={handleSubmit}>
         <FormField
           htmlFor="fullName"
@@ -35,12 +41,7 @@ export const ButtonBusySimpleExample = () => {
             placeholder="Your full name"
           />
         </FormField>
-        <FormField
-          htmlFor="email"
-          label="Email address"
-          name="email"
-          required
-        >
+        <FormField htmlFor="email" label="Email address" name="email" required>
           <TextInput
             id="email"
             name="email"
@@ -55,7 +56,10 @@ export const ButtonBusySimpleExample = () => {
             placeholder="e.g. Platform engineer"
           />
         </FormField>
-        <ButtonGroup pad={{ top: 'medium' }}>
+        <Box
+          align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
+          margin={{ top: 'medium', bottom: 'xsmall' }}
+        >
           <Button
             busy={busy}
             label="Save profile"
@@ -63,7 +67,7 @@ export const ButtonBusySimpleExample = () => {
             success={success}
             type="submit"
           />
-        </ButtonGroup>
+        </Box>
       </Form>
     </ContentPane>
   );
