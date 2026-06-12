@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Box, CheckBox } from 'grommet';
 
 const servers = [
@@ -10,9 +11,7 @@ const servers = [
 export const CheckBoxSelectingItemsListExample = () => {
   const [selected, setSelected] = useState(['web-01']);
   const allSelected = selected.length === servers.length;
-  const someSelected =
-    selected.length > 0 &&
-    selected.length < servers.length;
+  const someSelected = selected.length > 0 && selected.length < servers.length;
 
   const toggleAll = event => {
     if (event.target.checked) {
@@ -31,57 +30,52 @@ export const CheckBoxSelectingItemsListExample = () => {
   };
 
   return (
-    <Box width="medium" gap="small">
-      <Box
-        border={{ color: 'border', size: 'xsmall' }}
-        round="xsmall"
-      >
-        <Box
-          direction="row"
-          align="center"
-          pad={{ vertical: 'xsmall', horizontal: 'small' }}
-          border={{
-            side: 'bottom',
-            color: 'border',
-            size: 'xsmall',
-          }}
-        >
+    <Box
+      width="medium"
+      border={{ color: 'border', size: 'xsmall' }}
+      round="xsmall"
+    >
+      <SelectionListRow>
+        <CheckBox
+          id="select-all"
+          name="select-all"
+          label="Select all"
+          checked={allSelected}
+          indeterminate={someSelected}
+          onChange={toggleAll}
+        />
+      </SelectionListRow>
+      {servers.map(server => (
+        <SelectionListRow key={server.id}>
           <CheckBox
-            id="select-all"
-            name="select-all"
-            label="Select all"
-            checked={allSelected}
-            indeterminate={someSelected}
-            onChange={toggleAll}
+            id={server.id}
+            name={server.id}
+            label={server.name}
+            checked={selected.includes(server.id)}
+            onChange={event => toggleOne(server.id, event.target.checked)}
           />
-        </Box>
-        {servers.map(server => (
-          <Box
-            key={server.id}
-            direction="row"
-            align="center"
-            pad={{
-              vertical: 'xsmall',
-              horizontal: 'small',
-            }}
-            border={{
-              side: 'bottom',
-              color: 'border',
-              size: 'xsmall',
-            }}
-          >
-            <CheckBox
-              id={server.id}
-              name={server.id}
-              label={server.name}
-              checked={selected.includes(server.id)}
-              onChange={event =>
-                toggleOne(server.id, event.target.checked)
-              }
-            />
-          </Box>
-        ))}
-      </Box>
+        </SelectionListRow>
+      ))}
     </Box>
   );
+};
+
+const SelectionListRow = ({ children, ...rest }) => (
+  <Box
+    direction="row"
+    align="center"
+    pad={{ vertical: 'xsmall', horizontal: 'small' }}
+    border={{
+      side: 'bottom',
+      color: 'border',
+      size: 'xsmall',
+    }}
+    {...rest}
+  >
+    {children}
+  </Box>
+);
+
+SelectionListRow.propTypes = {
+  children: PropTypes.node.isRequired,
 };
