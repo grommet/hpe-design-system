@@ -58,11 +58,13 @@ export const CheckBoxAnatomy = () => {
       id: 'checkbox-annotation-1',
       gridArea: 'annotation-1',
       target: '1',
+      style: { justifySelf: 'start' },
     },
     {
       id: 'checkbox-annotation-1a',
       gridArea: 'annotation-1a',
       target: '1a',
+      style: { justifySelf: 'start' },
     },
     {
       id: 'checkbox-annotation-2',
@@ -92,7 +94,7 @@ export const CheckBoxAnatomy = () => {
             onChange={() => {}}
             label={
               <Box id="checkbox-label" align={checkboxTheme.label.align}>
-                Choice
+                Enable notifications
               </Box>
             }
           >
