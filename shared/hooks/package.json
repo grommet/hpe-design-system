@@ -23,6 +23,7 @@
     "eslint": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "globals": "catalog:",
+    "grommet": "catalog:",
     "jsdom": "^26.1.0",
     "minimatch": "^10.0.3",
     "typescript": "catalog:",
