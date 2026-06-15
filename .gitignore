@@ -14,6 +14,7 @@
 *.next
 *storybook-static
 /apps/docs/src/data/search
+knowledge/capabilities/docs-refactor/.telemetry.log
 
 # yalc
 .yalc/

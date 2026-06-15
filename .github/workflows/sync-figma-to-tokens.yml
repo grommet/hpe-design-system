@@ -19,9 +19,9 @@ jobs:
       pull-requests: write
     steps:
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: '20.19.x'
+          node-version: '24.15.0'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
