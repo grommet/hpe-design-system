@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, CheckBox, Form, FormField, TextInput } from 'grommet';
+import { CheckBox, Form, FormField, TextInput } from 'grommet';
 import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const CheckBoxShowingHidingContentExample = () => {
@@ -28,18 +28,12 @@ export const CheckBoxShowingHidingContentExample = () => {
             name="ship-to-different"
             label="Ship to a different address"
             checked={shipToDifferent}
+            toggle
             onChange={event => setShipToDifferent(event.target.checked)}
           />
-<CheckBox
-id="ship-to-different"
-name="ship-to-different"
-label="Ship to a different address"
-toggle
-checked={shipToDifferent}
-            onChange={event => setShipToDifferent(event.target.checked)}
-/>
+        </FormField>
         {shipToDifferent && (
-          <Box gap="small">
+          <>
             <FormField
               label="Shipping address"
               htmlFor="shipping-address"
@@ -62,7 +56,7 @@ checked={shipToDifferent}
                 placeholder="Leave at front door"
               />
             </FormField>
-          </Box>
+          </>
         )}
       </Form>
     </ContentPane>

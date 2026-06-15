@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Box, CheckBox } from 'grommet';
+import { Box, CheckBox, List } from 'grommet';
 
 const servers = [
   { id: 'web-01', name: 'web-server-01' },
@@ -13,7 +12,7 @@ export const CheckBoxSelectingItemsListExample = () => {
   const allSelected = selected.length === servers.length;
   const someSelected = selected.length > 0 && selected.length < servers.length;
 
-  const toggleAll = event => {
+  const onCheckAll = event => {
     if (event.target.checked) {
       setSelected(servers.map(s => s.id));
     } else {
@@ -21,7 +20,7 @@ export const CheckBoxSelectingItemsListExample = () => {
     }
   };
 
-  const toggleOne = (id, checked) => {
+  const onCheck = (id, checked) => {
     if (checked) {
       setSelected(prev => [...prev, id]);
     } else {
@@ -32,50 +31,43 @@ export const CheckBoxSelectingItemsListExample = () => {
   return (
     <Box
       width="medium"
-      border={{ color: 'border', size: 'xsmall' }}
+      background="background-contrast"
+      pad="xxsmall"
       round="xsmall"
     >
-      <SelectionListRow>
+      <Box
+        pad={{ vertical: 'xsmall', horizontal: 'small' }}
+        border={{ side: 'bottom', color: 'border', size: 'xsmall' }}
+      >
         <CheckBox
           id="select-all"
           name="select-all"
           label="Select all"
           checked={allSelected}
           indeterminate={someSelected}
-          onChange={toggleAll}
+          onChange={onCheckAll}
         />
-      </SelectionListRow>
-      {servers.map(server => (
-        <SelectionListRow key={server.id}>
+      </Box>
+      <List
+        data={servers}
+        itemKey="id"
+        border={{ side: 'bottom', color: 'border', size: 'xsmall' }}
+        pad={{ vertical: 'xsmall', horizontal: 'small' }}
+        itemProps={{
+          // Avoid double border where the final row meets the container edge.
+          [servers.length - 1]: { border: undefined },
+        }}
+      >
+        {({ id, name }) => (
           <CheckBox
-            id={server.id}
-            name={server.id}
-            label={server.name}
-            checked={selected.includes(server.id)}
-            onChange={event => toggleOne(server.id, event.target.checked)}
+            id={id}
+            name={id}
+            label={name}
+            checked={selected.includes(id)}
+            onChange={event => onCheck(id, event.target.checked)}
           />
-        </SelectionListRow>
-      ))}
+        )}
+      </List>
     </Box>
   );
-};
-
-const SelectionListRow = ({ children, ...rest }) => (
-  <Box
-    direction="row"
-    align="center"
-    pad={{ vertical: 'xsmall', horizontal: 'small' }}
-    border={{
-      side: 'bottom',
-      color: 'border',
-      size: 'xsmall',
-    }}
-    {...rest}
-  >
-    {children}
-  </Box>
-);
-
-SelectionListRow.propTypes = {
-  children: PropTypes.node.isRequired,
 };
