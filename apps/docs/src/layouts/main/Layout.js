@@ -5,12 +5,12 @@ import { initialize, pageview } from 'react-ga';
 import {
   Main,
   Page,
-  ResponsiveContext,
   SkipLinkTarget,
   SkipLink,
   SkipLinks,
   Stack,
 } from 'grommet';
+import { useIsTabletAndUp } from '@shared/hooks';
 import { AppHeader, DocsLayout } from '..';
 import { Meta, PageBackground } from '../../components';
 import { Config } from '../../../config';
@@ -44,7 +44,7 @@ export const Layout = ({
     render,
   } = getPrimaryPageByName(titleProp, structureIndexes) || {};
   const layout = isLanding ? 'plain' : pageLayout;
-  const breakpoint = useContext(ResponsiveContext);
+  const isTabletAndUp = useIsTabletAndUp();
 
   const match = siteContents.find(item =>
     item?.name === 'Index'
@@ -53,8 +53,7 @@ export const Layout = ({
   );
   const regexp = new RegExp(/ #{1,3} (...+?) ?~{2}/, 'g');
   const headings = match && [...match.content.matchAll(regexp)];
-  const showInPageNav =
-    !['xsmall', 'small'].includes(breakpoint) && headings?.length > 0;
+  const showInPageNav = isTabletAndUp && headings?.length > 0;
 
   /* If no headings are found, do not show Table of Contents link, 
      instead set ToC skiplink as undefined and filter it out.
@@ -97,9 +96,7 @@ export const Layout = ({
           {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
-          {title && title.toLowerCase() !== 'home' && (
-            <AppHeader />
-          )}
+          {title && title.toLowerCase() !== 'home' && <AppHeader />}
           <Main overflow="visible">
             <Page>
               {layout !== 'plain' ? (

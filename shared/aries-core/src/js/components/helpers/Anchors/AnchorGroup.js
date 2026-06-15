@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ResponsiveContext } from 'grommet';
+import { useIsTabletAndUp } from '@shared/hooks';
 import { NavLink } from './NavLink';
 
 export const AnchorGroup = ({ items }) => {
-  const size = useContext(ResponsiveContext);
+  const isTabletAndUp = useIsTabletAndUp();
 
   return items
     ? items.map((item, index) => (
@@ -15,7 +15,7 @@ export const AnchorGroup = ({ items }) => {
           // label={item.label}
           // On desktop, allow final nav item to be completely right justified
           margin={
-            index === items.length - 1 && !['xsmall', 'small'].includes(size)
+            index === items.length - 1 && isTabletAndUp
               ? {
                   vertical: 'xsmall',
                   left: 'xsmall',
