@@ -30,7 +30,14 @@ export const CheckBoxShowingHidingContentExample = () => {
             checked={shipToDifferent}
             onChange={event => setShipToDifferent(event.target.checked)}
           />
-        </FormField>
+<CheckBox
+id="ship-to-different"
+name="ship-to-different"
+label="Ship to a different address"
+toggle
+checked={shipToDifferent}
+            onChange={event => setShipToDifferent(event.target.checked)}
+/>
         {shipToDifferent && (
           <Box gap="small">
             <FormField
