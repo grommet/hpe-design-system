@@ -289,7 +289,7 @@ const Docs = () => {
                             background="background-contrast"
                             pad="xsmall"
                             round="xsmall"
-                            style={{ fontFamily: 'Menlo' }}
+                            style={{ fontFamily: 'Consolas, Menlo, monospace' }}
                           >
                             <Text size="xsmall">{datum.token}</Text>
                           </Box>

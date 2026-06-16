@@ -19,7 +19,7 @@ export const GroupHeading = ({ id, item }: GroupHeadingProps) => {
   return (
       <Box
         direction="row"
-        margin={{left: 'xxsmall'}}
+        margin={{ left: 'xxsmall' }}
         pad={{
           left: getLeftIndent(item.level),
           top: 'xxsmall',

@@ -1,5 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 
+import { structure } from '../../../data';
+import { getPageDetails, nameToPath } from '../../../utils/search';
+
 vi.mock('../../../components', () => ({
   IconCircle: () => null,
   IconDiamond: () => null,
@@ -9,9 +12,6 @@ vi.mock('../../../components', () => ({
 }));
 
 vi.mock('../../../examples', () => ({}));
-
-import { structure } from '../../../data';
-import { getPageDetails, nameToPath } from '../../../utils/search';
 
 type NavPage = {
   name: string;

@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable max-len */
-/* eslint-disable import/extensions */
 import React from 'react';
 import { TwoColumnWizardExample } from 'apps/docs/src/examples/templates/wizard/TwoColumnWizardExample';
 import { WizardValidationExample } from 'apps/docs/src/examples/templates/wizard/WizardValidationExample';

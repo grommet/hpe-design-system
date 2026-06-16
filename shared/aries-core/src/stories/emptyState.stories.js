@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable max-len */
-/* eslint-disable import/extensions */
 import React from 'react';
 import { ActionEmptyState } from 'apps/docs/src/examples/templates/empty-state/ActionEmptyState';
 import { CardEmptyState } from 'apps/docs/src/examples/templates/empty-state/CardEmptyState';

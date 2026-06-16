@@ -1,6 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable max-len */
 import React from 'react';
 import { PopoverInlineExample } from 'apps/docs/src/examples/templates/popover/PopoverInlineExample';
 import { PopoverSimpleExample } from 'apps/docs/src/examples/templates/popover/PopoverSimpleExample';

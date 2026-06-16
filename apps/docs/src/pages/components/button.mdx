@@ -20,6 +20,7 @@ import {
   ButtonRightAlignExample,
   ButtonStatesExample,
   ButtonSizingExample,
+  ActionLabels,
   DefaultButtonExample,
   PrimaryButtonExample,
   SecondaryButtonExample,
@@ -65,6 +66,38 @@ Using the design system Button Component will ensure your button looks like a bu
 | **Add**    | "Add" is used when an object already exists. It builds an association between that object and another object or set of objects.                                                                           | When editing a device group, use "Add device" to add an existing device to the group.                                               |
 | **New**    | "New" opens a template, or blank canvas, of a given object type to allow for user input. The object will not be added as a record in a database until a "Create" or submission action has been completed. | When starting the configuration process for a new device, use "New device" to initiate the process.                                 |
 | **Create** | "Create" is typically used for form submission, to submit user input and create an instance of an object.                                                                                                 | After completing inputs related to configuring a new device, use "Create device" to submit the data and create the object instance. |
+
+#### Action label conventions
+
+In a set of actions, the primary button should be labeled using the verb + noun format (e.g., "Apply filters").
+
+The noun may be omitted from labels beyond the primary button if the action is clear and unambiguous (e.g. "Reset" instead of "Reset filters").
+
+When in doubt, follow the verb + noun convention to ensure clarity.
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use the full verb–noun phrase for the primary action, and omit the noun for subsequent actions.',
+    }}
+    width="100%"
+  >
+    <ActionLabels />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don't omit the noun from the primary action as this can cause ambiguity about what the actions refer to.`,
+    }}
+    width="100%"
+  >
+    <ActionLabels bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
 
 ### Button alignment
 

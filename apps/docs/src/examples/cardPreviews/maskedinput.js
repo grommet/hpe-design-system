@@ -1,8 +1,13 @@
 import React from 'react';
 import { MaskedInput } from 'grommet';
+import { useInert } from '@shared/hooks';
 
-export const MaskedInputPreview = () => (
+export const MaskedInputPreview = () => {
+  const ref = useInert();
+
+  return (
     <MaskedInput
+      ref={ref}
       aria-label="preview"
       mask={[
         {
@@ -17,6 +22,6 @@ export const MaskedInputPreview = () => (
           placeholder: 'ap',
         },
       ]}
-      tabIndex={-1}
     />
   );
+};

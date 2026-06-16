@@ -1,6 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable max-len */
-/* eslint-disable import/extensions */
 import React from 'react';
 import { BannerContentLayoutExample } from 'apps/docs/src/examples/templates/global-banner-notifications/BannerContentLayoutExample';
 import { BannerNotificationCritical } from 'apps/docs/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCritical';

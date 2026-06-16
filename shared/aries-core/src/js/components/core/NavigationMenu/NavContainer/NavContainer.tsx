@@ -20,7 +20,6 @@ export const NavContainer = ({
   open,
   setOpen,
   title,
-  overflow,
   ...rest
 }: NavContainerProps) => {
   // ThemeType only includes base grommet edgeSize keys; HPE extends it with

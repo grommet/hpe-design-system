@@ -47,7 +47,7 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
         } else {
           try {
             setStoredValue(JSON.parse(event.newValue));
-          } catch (error) {
+          } catch {
             setStoredValue(initialValue);
           }
         }
@@ -62,7 +62,7 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
         window.removeEventListener('storage', onStorageChange);
       }
     };
-  }, [key, initialValue]);
+  }, [key, initialValue, isBrowser]);
 
   return [storedValue, setValue] as const;
 };

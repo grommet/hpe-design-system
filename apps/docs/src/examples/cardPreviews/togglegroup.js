@@ -1,18 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Box, ToggleGroup } from 'grommet';
 import { Table, List, Map } from '@hpe-design/icons-grommet';
+import { useInert } from '@shared/hooks';
 
 export const ToggleGroupPreview = () => {
-  const ref = useRef();
-
-  useEffect(() => {
-    if (ref.current) {
-      const buttons = ref.current.querySelectorAll('button');
-      buttons.forEach(button => {
-        button.setAttribute('tabindex', '-1');
-      });
-    }
-  }, []);
+  const ref = useInert();
 
   return (
     <Box align="center" justify="center" ref={ref}>

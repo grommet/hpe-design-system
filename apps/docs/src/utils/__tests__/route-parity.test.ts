@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { nameToPath, getPageDetails } from '../search';
 
 vi.mock('../../components', () => ({
   IconCircle: () => null,
@@ -10,7 +11,6 @@ vi.mock('../../components', () => ({
 
 vi.mock('../../examples', () => ({}));
 
-import { nameToPath, getPageDetails } from '../search';
 
 /**
  * Route Parity Tests for Phase 2 Migration
@@ -88,6 +88,7 @@ describe('Route Parity (Phase 2 Acceptance Criteria)', () => {
 
   describe('Parent Page References', () => {
     HARDCODED_ROUTES.forEach(route => {
+      // eslint-disable-next-line max-len
       it(`${route.pageName} has parentPage defined as ${route.parentPage}`, () => {
         const page = getPageDetails(route.pageName) as {
           parentPage?: string;
@@ -99,6 +100,7 @@ describe('Route Parity (Phase 2 Acceptance Criteria)', () => {
 
   describe('Phase 2 Acceptance: Explicit Path Property', () => {
     it('page definitions now have explicit path properties for routing', () => {
+      // eslint-disable-next-line max-len
       // Phase 2 progress: All 6 hardcoded routes now have explicit path properties
       // in structure data instead of relying on hardcoded conditionals.
       // This test verifies that the migration is working.
@@ -113,6 +115,7 @@ describe('Route Parity (Phase 2 Acceptance Criteria)', () => {
   });
 
   describe('Phase 2 Success: All Routes Use Data-Driven Paths', () => {
+    // eslint-disable-next-line max-len
     // This describe block monitors progress toward removing hardcoded exceptions.
 
     it('all hardcoded routes resolve correctly via path property', () => {

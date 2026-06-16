@@ -6,17 +6,17 @@ export const SpecialtyBackgrounds = () => {
   return (
     <Box align="center" gap="xlarge">
       <Box
-        background={{ color: 'background-primary-strong', dark: false }}
+        background={{ color: 'background-primary-strong' }}
         pad="medium"
         round="xlarge"
         gap="medium"
       >
-        <Text color="text-onStrong" size="large" weight={500}>
+        <Text color="text-onPrimaryStrong" size="large" weight={500}>
           color.background.primary.strong
         </Text>
         <Box gap="xsmall">
           <Box direction="row" gap="xsmall">
-            <Text color="text-onStrong" weight={500}>
+            <Text color="text-onPrimaryStrong" weight={500}>
               Aa
             </Text>
             <Text color="text-onPrimaryStrong">color.text.onPrimaryStrong</Text>

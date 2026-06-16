@@ -1,0 +1,96 @@
+import { Checkmark } from '@hpe-design/icons-grommet';
+import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  ConfigurationForm,
+  DoubleConfirmationAnatomy,
+  DoubleConfirmationBestPractice,
+  DoubleConfirmationExample,
+} from '../../examples';
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/double-confirmation/DoubleConfirmationExample.js"
+  docs="https://v2.grommet.io/layer?theme=hpe"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2567-534&t=6zfWJlYNDdZ4YwHx-1"
+  showResponsiveControls={['fullScreen']}
+  screenContainer
+  height="650px"
+  width="100%"
+>
+  <DoubleConfirmationExample />
+</Example>
+
+## Use cases
+
+### Confirming unsaved changes
+
+Use this pattern when closing a layer could result in losing unsaved or newly entered information. In this example, the layer closes immediately when no changes have been made, but triggers a double confirmation when the form contains edits, helping prevent unintended loss of input.
+
+<Example
+  docs="https://v2.grommet.io/layer?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layer/ConfigurationForm.js"
+  height={{ min: 'xsmall' }}
+  template
+  showResponsiveControls={[]}
+>
+  <ConfigurationForm />
+</Example>
+
+## Anatomy
+
+<Example
+  caption="Diagram illustrating the parts composing a double confirmation."
+  plain
+>
+  <DoubleConfirmationAnatomy />
+</Example>
+
+| Label  | Region       | Purpose                                                              |                  Required                   | Notes                                                                                                      |
+| ------ | ------------ | -------------------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------- |
+| **1a** | **Title**    | Explains that data will be discarded when the user closes the layer. | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                         |
+| **1b** | **Subtitle** | To clarify that changes will not be saved.                           | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                         |
+| **2**  | **Footer**   | Contains two actions: "Cancel" and "Discard"                         | <span><Checkmark a11yTitle="true" size="small" /></span> | The actions should be right-aligned with primary action on the right, to align with center layer guidance. |
+
+## Dos and Do nots
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message:
+        'Lead with the single action that needs to be confirmed. In most cases, this is "Discard" followed by a noun of what will be discarded.',
+    }}
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don't add unnecessary instructions or phrasing that causes doubt about what will happen or questions the user’s intent.`,
+    }}
+  >
+    <DoubleConfirmationBestPractice bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'do',
+      message: 'Align the primary action verb with the title.',
+    }}
+  >
+    <DoubleConfirmationBestPractice />
+  </Example>
+  <Example
+    height={{ min: 'xsmall' }}
+    bestPractice={{
+      type: 'dont',
+      message: `Don’t use generic labels like “Yes.” The button text should clearly state the action.`,
+    }}
+  >
+    <DoubleConfirmationBestPractice bestPractice="badLabel" />
+  </Example>
+</BestPracticeGroup>

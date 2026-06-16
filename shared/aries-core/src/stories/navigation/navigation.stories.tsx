@@ -1,14 +1,12 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 import { NavigationMenuExample } from './NavigationMenuExample';
 import { NavigationMenuSubheadings } from './NavigationMenuSubheadings';
-// ts-ignore is intentional: TypeScript can't resolve webpack's ?raw query syntax.
+// ts-expect-error is intentional: TypeScript can't resolve webpack's ?raw query syntax.
 // This file is excluded from tsconfig.json to keep story files out of the library
 // build, so ambient module declarations (raw.d.ts) don't apply here.
 // The import works correctly at runtime via the webpack asset/source rule.
-// @ts-ignore
+// @ts-expect-error TypeScript can't resolve webpack's ?raw query syntax
 import NavigationMenuExampleSource from './NavigationMenuExample.tsx?raw';
-// @ts-ignore
+// @ts-expect-error TypeScript can't resolve webpack's ?raw query syntax
 import NavigationMenuSubheadingsSource from './NavigationMenuSubheadings.tsx?raw';
 
 const meta = {

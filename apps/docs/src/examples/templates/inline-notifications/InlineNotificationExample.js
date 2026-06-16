@@ -99,7 +99,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
               />
             </Box>
           </ModalBody>
-          <ModalFooter justify="end">
+          <ModalFooter>
             <ButtonGroup>
               <Button label="Close" secondary onClick={onClose} />
             </ButtonGroup>

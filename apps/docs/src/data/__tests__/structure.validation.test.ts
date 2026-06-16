@@ -2,6 +2,14 @@ import { describe, it, expect, vi } from 'vitest';
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 
+import { categoryMapping, structure } from '../structure';
+import { nameToSlug } from '../structureIndexes';
+import {
+  ALLOWED_CATEGORIES,
+  validateStructureData,
+} from '../structureValidation';
+import { nameToPath } from '../../utils/search';
+
 // Importing ../structure pulls in React components and other heavier modules
 // that are not needed for these schema-validation tests and can make the test
 // environment harder to configure (e.g. requiring DOM/rendering setup or
@@ -20,14 +28,6 @@ vi.mock('../../components', () => ({
 }));
 
 vi.mock('../../examples', () => ({}));
-
-import { categoryMapping, structure } from '../structure';
-import { nameToSlug } from '../structureIndexes';
-import {
-  ALLOWED_CATEGORIES,
-  validateStructureData,
-} from '../structureValidation';
-import { nameToPath } from '../../utils/search';
 
 type StructurePage = {
   name: string;
@@ -68,12 +68,15 @@ const getPageRoutes = async (dirPath: string): Promise<string[]> => {
   const entries = await readdir(dirPath, { withFileTypes: true });
   const routes: string[] = [];
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const entry of entries) {
     const absolutePath = path.join(dirPath, entry.name);
 
     if (entry.isDirectory()) {
+      // eslint-disable-next-line no-await-in-loop
       const nestedRoutes = await getPageRoutes(absolutePath);
       routes.push(...nestedRoutes);
+      // eslint-disable-next-line no-continue
       continue;
     }
 
@@ -140,6 +143,7 @@ describe('Structure Data Validation', () => {
             expect(childName.length).toBeGreaterThan(0);
             expect(
               allNames.has(childName),
+              // eslint-disable-next-line max-len
               `"${page.name}" references child "${childName}" which does not exist in structure`,
             ).toBe(true);
           });
@@ -200,6 +204,7 @@ describe('Structure Data Validation', () => {
           page.relatedContent.forEach(relatedPageName => {
             expect(
               allNames.has(relatedPageName),
+              // eslint-disable-next-line max-len
               `Missing relatedContent "${relatedPageName}" referenced by "${page.name}"`,
             ).toBe(true);
           });
