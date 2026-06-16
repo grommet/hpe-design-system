@@ -58,9 +58,7 @@ const formatMatchedPhrase = (matchObj, highlightProps) => {
       nextIndex = match.index + match[0].length;
       nextPhrase.push(
         <HighlightedText key={index} fade={fade} {...rest}>
-          &nbsp;
           {match.input.slice(match.index, match.index + match[0].length)}
-          &nbsp;
         </HighlightedText>,
       );
       if (index + 1 === matchObj.length) {
