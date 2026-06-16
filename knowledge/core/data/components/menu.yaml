@@ -5,8 +5,62 @@ description: >-
   button, enabling users to access contextual operations without cluttering
   the interface.
 importPath: grommet
-
 props:
+  - name: a11yTitle
+    type: string
+    required: false
+    description: >-
+      Accessible title for the menu trigger button. Use for icon-only menus
+      that have no visible label to ensure screen reader users understand
+      the button's purpose. When provided, an aria-label is added
+      to the trigger button.
+  - name: alignSelf
+    type: "'start' | 'center' | 'end' | 'stretch' | 'baseline'"
+    required: false
+    description: >-
+      How to align along the cross axis when contained in a Box or along the
+      column axis when contained in a Grid.
+  - name: children
+    type: '((props: object) => React.ReactNode) | React.ReactNode'
+    required: false
+    description: >-
+      Custom trigger content. Can be a render function or a React node.
+      When using a function, it receives menu state props and should return
+      the visual representation.
+  - name: disabled
+    type: boolean
+    required: false
+    description: Disables the menu trigger button when true.
+    defaultValue: false
+  - name: dropAlign
+    type: >-
+      { top?: 'top' | 'bottom', bottom?: 'top' | 'bottom', left?: 'left' |
+      'right', right?: 'left' | 'right' }
+    required: false
+    description: Alignment of the dropdown relative to the trigger button.
+  - name: dropBackground
+    type: >-
+      string | { color?: string, opacity?: 'weak' | 'medium' | 'strong' |
+      boolean | number }
+    required: false
+    description: Background color or background config for the open dropdown.
+  - name: dropProps
+    type: object
+    required: false
+    description: Additional Drop props applied to the dropdown container.
+  - name: dropTarget
+    type: object
+    required: false
+    description: >-
+      React ref object used as the alignment target for the dropdown.
+  - name: gridArea
+    type: string
+    required: false
+    description: The name of the area to place this inside a parent Grid.
+  - name: icon
+    type: boolean | React.ReactNode
+    required: false
+    description: Icon shown on the menu trigger.
   - name: items
     type: >-
       { label: string, onClick?: () => void, icon?: React.ReactNode, gap?:
@@ -16,49 +70,36 @@ props:
       Array of menu items. Each item may include a label, a click handler,
       and an icon. Items can be grouped using sub-arrays separated by
       dividers.
+  - name: justifyContent
+    type: "'start' | 'center' | 'end' | 'between' | 'around' | 'stretch'"
+    required: false
+    description: How to align trigger contents along the row axis.
   - name: label
     type: string | React.ReactNode
     required: false
     description: Label displayed on the menu trigger button.
+  - name: margin
+    type: string | object
+    required: false
+    description: The amount of margin around the component.
   - name: icon
     type: React.ReactNode
     required: false
     description: Icon displayed on the menu trigger button.
-  - name: a11yTitle
-    type: string
-    required: false
-    description: >-
-      Accessible title for the menu trigger button. Use for icon-only menus
-      that have no visible label to ensure screen reader users understand
-      the button's purpose.
   - name: messages
-    type: "{ openMenu?: string, closeMenu?: string }"
+    type: '{ openMenu?: string, closeMenu?: string }'
     required: false
     description: >-
       Custom screen reader announcements for opening and closing the menu.
       Defaults to "Open Menu" and "Close Menu".
-  - name: kind
-    type: "'toolbar' | 'primary' | 'secondary'"
-    required: false
-    description: >-
-      Visual style variant. Set to "toolbar" when placing the menu inside a
-      toolbar alongside other controls such as filters or search. Set to
-      "primary" or "secondary" when the menu trigger needs stronger visual
-      hierarchy — for example, when it is the primary call-to-action on a
-      page or must be clearly differentiated from surrounding controls.
-  - name: dropAlign
-    type: "{ top?: string, bottom?: string, left?: string, right?: string }"
-    required: false
-    description: Alignment of the dropdown relative to the trigger button.
-  - name: size
-    type: "'small' | 'medium' | 'large'"
-    required: false
-    description: Size of the menu trigger button.
-  - name: disabled
+  - name: open
     type: boolean
     required: false
-    description: Disables the menu trigger button when true.
-    defaultValue: false
+    description: Whether the menu is open.
+  - name: size
+    type: "'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'"
+    required: false
+    description: Size of the menu trigger button.
 
 usage:
   whenToUse:
