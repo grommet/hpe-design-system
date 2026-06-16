@@ -11,9 +11,14 @@ export const CustomizeMenu = ({ item, onResize, resizeOptions, ...rest }) => {
     <>
       <Menu
         icon={<More />}
-        items={[{ label: 'Resize', onClick: () => setResizeOpen(true) },
-        { label: <Box border={{ side: 'bottom' }} /> },
-        { label: 'Remove', onClick: () => { } }]}
+        items={[
+          [
+            { label: 'Resize', onClick: () => setResizeOpen(true) },
+          ],
+          [
+            { label: 'Remove', onClick: () => { } },
+          ],
+        ]}
         {...rest}
       />
       {resizeOpen && <ResizeDialog 
