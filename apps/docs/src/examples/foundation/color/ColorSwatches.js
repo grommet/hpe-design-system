@@ -175,7 +175,7 @@ const accentPlaceholderTokens = [
   },
   {
     id: 'hpe.color.border.accent.blue.weak',
-    token: 'hpe.color.border.accent.blue.weak',
+    token: 'hpe.color.border.accent.blue.strong',
     value: '#93C5FD',
   },
   {
@@ -184,8 +184,8 @@ const accentPlaceholderTokens = [
     value: '#06B6D4',
   },
   {
-    id: 'hpe.color.border.accent.purple.weak',
-    token: 'hpe.color.border.accent.purple.weak',
+    id: 'hpe.color.border.accent.purple.strong',
+    token: 'hpe.color.border.accent.purple.strong',
     value: '#C4B5FD',
   },
 ];
