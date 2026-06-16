@@ -28,7 +28,11 @@ export const NavContainer = ({
     global: { edgeSize: Record<string, string> };
   };
   return (
-    <Box width={open ? 'small' : undefined} {...rest}>
+    <Box
+      pad={{ horizontal: '3xsmall' }}
+      width={open ? 'small' : undefined}
+      {...rest}
+    >
       {header || (
         <NavHeader
           title={title}
