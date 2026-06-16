@@ -8,6 +8,7 @@ import {
   CheckBoxBadFormFieldUsagePreview,
   CheckBoxBadLabeledPreview,
   CheckBoxBadToggleUsagePreview,
+  CheckBoxAnatomy,
   CheckBoxDefaultExample,
   CheckBoxDisabledExample,
   CheckBoxGoodFormFieldUsagePreview,
@@ -50,9 +51,7 @@ The user reads a statement — such as a privacy policy, terms of service, or di
 
 Use a checkbox to show or hide additional fields or sections based on the user's choice. This keeps the form compact by surfacing detail only when relevant. The label should make the consequence of checking the box clear, for example, "Ship to a different address".
 
-<Example
-  height={{ min: 'small' }}
->
+<Example height={{ min: 'small' }}>
   <CheckBoxShowingHidingContentExample />
 </Example>
 
@@ -60,21 +59,21 @@ Use a checkbox to show or hide additional fields or sections based on the user's
 
 Use a parent checkbox with `indeterminate` support to let users select all, some, or none of a set of items. The parent reflects the mixed state when only a subset of children are checked.
 
-<Example
-  height={{ min: 'small' }}
->
+<Example height={{ min: 'small' }}>
   <CheckBoxSelectingItemsListExample />
 </Example>
 
 ## Anatomy
 
-{/* TODO: Add anatomy diagram image */}
+<Example caption="Diagram illustrating the parts composing CheckBox." plain>
+  <CheckBoxAnatomy />
+</Example>
 
-| Label  | Region                  | Purpose                                                                        |                         Required                         | Notes                                                                                          |
-| :----: | ----------------------- | ------------------------------------------------------------------------------ | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------- |
-| **1**  | **Checkbox control**    | The interactive element that reflects and toggles the checked state.           | <span><Checkmark a11yTitle="true" size="small" /></span> | Renders as a toggle switch when the `toggle` prop is `true`.                                   |
-| **1a** | **Checkmark indicator** | Visual indicator of the checked state.                                         |                         Optional                         | Visible only when checked; replaced by a dash in the indeterminate state.                      |
-| **2**  | **Label**               | Provides the accessible name and visible description for the checkbox.         |                         Optional                         | Required for accessibility unless `aria-label` or `aria-labelledby` is provided externally.   |
+| Label  | Region                  | Purpose                                                                |                         Required                         | Notes                                                                                       |
+| :----: | ----------------------- | ---------------------------------------------------------------------- | :------------------------------------------------------: | ------------------------------------------------------------------------------------------- |
+| **1**  | **Checkbox control**    | The interactive element that reflects and toggles the checked state.   | <span><Checkmark a11yTitle="true" size="small" /></span> | Renders as a toggle switch when the `toggle` prop is `true`.                                |
+| **1a** | **Checkmark indicator** | Visual indicator of the checked state.                                 |                         Optional                         | Visible only when checked; replaced by a dash in the indeterminate state.                   |
+| **2**  | **Label**               | Provides the accessible name and visible description for the checkbox. |                         Optional                         | Required for accessibility unless `aria-label` or `aria-labelledby` is provided externally. |
 
 ## Variants
 
@@ -215,11 +214,11 @@ When rendering a CheckBox without a `label` prop, always provide an `aria-label`
 
 ### Keyboard interactions
 
-| Key          | Action                                         |
-| ------------ | ---------------------------------------------- |
-| Space        | Toggles the checked state of a focused checkbox. |
-| Tab          | Moves focus to the next focusable element.      |
-| Shift + Tab  | Moves focus to the previous focusable element. |
+| Key         | Action                                           |
+| ----------- | ------------------------------------------------ |
+| Space       | Toggles the checked state of a focused checkbox. |
+| Tab         | Moves focus to the next focusable element.       |
+| Shift + Tab | Moves focus to the previous focusable element.   |
 
 ### ARIA
 
@@ -232,4 +231,4 @@ When rendering a CheckBox without a `label` prop, always provide an `aria-label`
 
 ### WCAG compliance
 
-<AccessibilitySection title='checkbox' />
+<AccessibilitySection title="checkbox" />

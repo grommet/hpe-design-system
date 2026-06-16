@@ -1,3 +1,4 @@
+export * from './CheckBoxAnatomy';
 export * from './CheckBoxDefaultExample';
 export * from './CheckBoxDisabledExample';
 export * from './CheckBoxSelectingItemsListExample';
