@@ -28,11 +28,11 @@ export const CheckBoxSelectingItemsListExample = () => {
     }
   };
 
-  const itemProps = servers.map((server, index) => ({
+  const itemProps = servers.map(server => ({
     // Highlight the row only when its item is checked.
     background: selected.includes(server.id) ? 'background-hover' : undefined,
     // Avoid double border where the final row meets the container edge.
-    ...(index === servers.length - 1 && { border: undefined }),
+    [servers.length - 1]: { border: undefined },
   }));
 
   return (
