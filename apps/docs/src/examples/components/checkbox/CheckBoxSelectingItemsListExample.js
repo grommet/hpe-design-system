@@ -28,16 +28,23 @@ export const CheckBoxSelectingItemsListExample = () => {
     }
   };
 
+  const itemProps = servers.map((server, index) => ({
+    // Highlight the row only when its item is checked.
+    background: selected.includes(server.id) ? 'background-hover' : undefined,
+    // Avoid double border where the final row meets the container edge.
+    ...(index === servers.length - 1 && { border: undefined }),
+  }));
+
   return (
     <Box
       width="medium"
-      background="background-contrast"
-      pad="xxsmall"
-      round="xsmall"
+      background="background-front"
+      pad="medium"
+      round="medium"
     >
       <Box
-        pad={{ vertical: 'xsmall', horizontal: 'small' }}
-        border={{ side: 'bottom', color: 'border', size: 'xsmall' }}
+        pad="xsmall"
+        border={{ side: 'bottom', color: 'border-weak', size: 'default' }}
       >
         <CheckBox
           id="select-all"
@@ -51,12 +58,9 @@ export const CheckBoxSelectingItemsListExample = () => {
       <List
         data={servers}
         itemKey="id"
-        border={{ side: 'bottom', color: 'border', size: 'xsmall' }}
-        pad={{ vertical: 'xsmall', horizontal: 'small' }}
-        itemProps={{
-          // Avoid double border where the final row meets the container edge.
-          [servers.length - 1]: { border: undefined },
-        }}
+        border={{ side: 'bottom', color: 'border-weak', size: 'default' }}
+        pad="xsmall"
+        itemProps={itemProps}
       >
         {({ id, name }) => (
           <CheckBox
