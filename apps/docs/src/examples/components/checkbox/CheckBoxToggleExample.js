@@ -12,7 +12,7 @@ export const CheckBoxToggleExample = () => {
         <CheckBox
           name="checkbox-toggle"
           id="checkbox-toggle"
-          label="Choice"
+          label="Dark Mode"
           checked={checked}
           onChange={event => setChecked(event.target.checked)}
           toggle
