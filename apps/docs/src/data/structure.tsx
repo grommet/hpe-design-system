@@ -29,7 +29,7 @@ const templates = Structure.from(templatesArr);
 
 export const categoryOrders: Record<string, string[]> = {
   Foundation: ['Getting started', 'Philosophy', 'HPE Brand', 'Color', 'Layout'],
-  Components: ['Layouts', 'Controls', 'Inputs', 'Data', 'Visualization'],
+  Components: ['Layouts', 'Controls', 'Inputs', 'Data', 'Visualizations'],
   'Design tokens': ['Getting started', 'Building with tokens'],
   Learn: ['Tutorials', 'How-to guides'],
 };
