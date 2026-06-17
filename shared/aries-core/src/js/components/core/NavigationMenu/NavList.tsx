@@ -162,9 +162,9 @@ export const NavList = ({
       },
     };
 
-    const active = item.url
-      ? activeItem === item.url
-      : activeItem === item.label;
+    const active =
+      (item.url !== undefined && activeItem === item.url) ||
+      activeItem === item.label;
 
     if (item.type === 'group') {
       return (
