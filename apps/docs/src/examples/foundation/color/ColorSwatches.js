@@ -47,6 +47,7 @@ ColorSwatch.propTypes = {
 const SwatchGroup = ({ children }) => (
   <Box
     background="background-front"
+    margin={{ bottom: 'medium' }}
     pad="medium"
     gap="medium"
     width={{ max: 'xlarge', min: 'xsmall' }}
