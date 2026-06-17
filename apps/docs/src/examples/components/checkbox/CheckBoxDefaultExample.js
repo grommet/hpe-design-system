@@ -11,7 +11,7 @@ export const CheckBoxDefaultExample = () => {
       <FormField name="checkbox-default" fill>
         <CheckBox
           name="checkbox-default"
-          label="Choice"
+          label="Enable notifications"
           id="default-checkbox"
           checked={checked}
           onChange={event => setChecked(event.target.checked)}
