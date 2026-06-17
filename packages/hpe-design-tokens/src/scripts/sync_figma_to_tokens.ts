@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import { execFileSync } from 'child_process';
 import * as fs from 'fs';
 import path from 'path';
 
@@ -51,6 +52,19 @@ function sortObjectKeys(obj: any): any {
     return sortedObj;
   }
   return obj;
+}
+
+function formatOutputWithPrettier(outputDirectory: string) {
+  try {
+    execFileSync('pnpm', ['exec', 'prettier', outputDirectory, '--write'], {
+      stdio: 'inherit',
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(
+      `Failed to format synced token files with Prettier for ${outputDirectory}: ${message}`,
+    );
+  }
 }
 
 async function main() {
@@ -281,6 +295,8 @@ async function main() {
       throw error;
     }
   }
+
+  formatOutputWithPrettier(outputDir);
 
   emitRunSummary({
     runId,
