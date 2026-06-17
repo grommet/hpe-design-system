@@ -321,7 +321,7 @@ export const foundation = [
     name: 'Philosophy and principles',
     category: 'Philosophy',
     cardOrder: 1,
-    description: `What the HPE Design System is and why we're creating it.`,
+    description: 'What the HPE Design System is and why we\'re creating it.',
     preview: {
       image: {
         src: {

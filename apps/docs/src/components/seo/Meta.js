@@ -17,9 +17,12 @@ export const Meta = ({
   const segment = 'corporate';
   const lifecycle = 'support';
   const pageContent = 'products';
-  const trustarcConnect = 'https://consent-pref.trustarc.com/defaultconsentmanager/ https://consent.trustarc.com/analytics';
-  const trustarcScript = 'https://consent.trustarc.com/notice https://consent.trustarc.com/asset/';
-  const trustarcImg = 'https://consent.trustarc.com/get https://consent-pref.trustarc.com/defaultconsentmanager/optin';
+  const trustarcConnect =
+    'https://consent-pref.trustarc.com/defaultconsentmanager/ https://consent.trustarc.com/analytics';
+  const trustarcScript =
+    'https://consent.trustarc.com/notice https://consent.trustarc.com/asset/';
+  const trustarcImg =
+    'https://consent.trustarc.com/get https://consent-pref.trustarc.com/defaultconsentmanager/optin';
   const trustarcFont = 'https://consent.trustarc.com/get';
   const trustarcFrame = 'https://consent-pref.trustarc.com/';
 

@@ -78,7 +78,10 @@ export const NavList = ({
       parents: string[] = [],
     ): string[] | null => {
       for (const item of itemsList) {
-        if ((item.url && item.url === target) || (!item.url && item.label === target)) {
+        if (
+          (item.url && item.url === target) ||
+          (!item.url && item.label === target)
+        ) {
           return parents;
         }
         if (item.children) {
@@ -210,7 +213,10 @@ export const NavList = ({
               aria-labelledby={item.id}
               items={(item.children as NavItemWithLevel[]).map(child => ({
                 ...child,
-                level: child.level !== undefined ? child.level : (item.level || 0) + 1,
+                level:
+                  child.level !== undefined
+                    ? child.level
+                    : (item.level || 0) + 1,
               }))}
               activeItem={activeItem}
               onSelect={onSelect}
@@ -241,11 +247,7 @@ export const NavList = ({
   };
 
   return (
-    <List
-      data={adjustedItems}
-      defaultItemProps={defaultItemProps}
-      {...rest}
-    >
+    <List data={adjustedItems} defaultItemProps={defaultItemProps} {...rest}>
       {renderItem}
     </List>
   );
