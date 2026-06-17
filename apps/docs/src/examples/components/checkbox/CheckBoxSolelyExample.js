@@ -15,10 +15,12 @@ export const CheckBoxSolelyExample = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <ContentPane width="medium">
+    <ContentPane>
       <Form>
-        <Box gap="small">
-          <Box>
+        {/* using content-driven container 
+        https://design-system.hpe.design/templates/content-layouts?q=content#content-driven-layouts */}
+        <Box gap="small" width="medium">
+          <>
             <FormField label="Email" htmlFor="signin-email" name="email">
               <TextInput
                 id="signin-email"
@@ -52,17 +54,16 @@ export const CheckBoxSolelyExample = () => {
                 onChange={event => setChecked(event.target.checked)}
               />
             </FormField>
-          </Box>
-          <Box
-            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-          >
-            <Button
-              label="Create account"
-              primary
-              type="submit"
-              disabled={!checked}
-            />
-          </Box>
+          </>
+          <Button
+            alignSelf={
+              !['xsmall', 'small'].includes(size) ? 'start' : undefined
+            } // moved alignment to button and eliminated extraneous Box
+            label="Create account"
+            primary
+            type="submit"
+            disabled={!checked}
+          />
         </Box>
       </Form>
     </ContentPane>
