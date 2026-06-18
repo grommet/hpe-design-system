@@ -69,11 +69,11 @@ Use a parent checkbox with `indeterminate` support to let users select all, some
   <CheckBoxAnatomy />
 </Example>
 
-| Label  | Region                  | Purpose                                                                |                         Required                         | Notes                                                                                       |
-| :----: | ----------------------- | ---------------------------------------------------------------------- | :------------------------------------------------------: | ------------------------------------------------------------------------------------------- |
-| **1**  | **Checkbox control**    | The interactive element that reflects and toggles the checked state.   | <span><Checkmark a11yTitle="true" size="small" /></span> | Renders as a toggle switch when the toggle prop is true.                                    |
-| **1a** | **Checkmark indicator** | Visual indicator of the checked state.                                 |                         Optional                         | Visible only when checked; replaced by a dash in the indeterminate state.                   |
-| **2**  | **Label**               | Provides the visible description for the checkbox.                     | <span><Checkmark a11yTitle="true" size="small" /></span> |                                                                                             |
+| Label  | Region                  | Purpose                                                                |                         Required                         | Notes                                                                                                    |
+| :----: | ----------------------- | ---------------------------------------------------------------------- | :------------------------------------------------------: | -------------------------------------------------------------------------------------------------------- |
+| **1**  | **Checkbox control**    | The interactive element that reflects and toggles the checked state.   | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Renders as a toggle switch when the `toggle` prop is `true`.</span>                                |
+| **1a** | **Checkmark indicator** | Visual indicator of the checked state.                                 |                         Optional                         | Visible only when checked; replaced by a dash in the indeterminate state.                                |
+| **2**  | **Label**               | Provides the accessible name and visible description for the checkbox. |                         Optional                         | <span>Required for accessibility unless `aria-label` or `aria-labelledby` is provided externally.</span> |
 
 ## Variants
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, CheckBox } from 'grommet';
+import { Box, CheckBox, List } from 'grommet';
 
 const servers = [
   { id: 'web-01', name: 'web-server-01' },
@@ -10,11 +10,9 @@ const servers = [
 export const CheckBoxSelectingItemsListExample = () => {
   const [selected, setSelected] = useState(['web-01']);
   const allSelected = selected.length === servers.length;
-  const someSelected =
-    selected.length > 0 &&
-    selected.length < servers.length;
+  const someSelected = selected.length > 0 && selected.length < servers.length;
 
-  const toggleAll = event => {
+  const onCheckAll = event => {
     if (event.target.checked) {
       setSelected(servers.map(s => s.id));
     } else {
@@ -22,7 +20,7 @@ export const CheckBoxSelectingItemsListExample = () => {
     }
   };
 
-  const toggleOne = (id, checked) => {
+  const onCheck = (id, checked) => {
     if (checked) {
       setSelected(prev => [...prev, id]);
     } else {
@@ -30,58 +28,50 @@ export const CheckBoxSelectingItemsListExample = () => {
     }
   };
 
+  const itemProps = servers.map(server => ({
+    // Highlight the row only when its item is checked.
+    background: selected.includes(server.id) ? 'background-hover' : undefined,
+    // Avoid double border where the final row meets the container edge.
+    [servers.length - 1]: { border: undefined },
+  }));
+
   return (
-    <Box width="medium" gap="small">
+    <Box
+      width="medium"
+      background="background-front"
+      pad="medium"
+      round="medium"
+    >
       <Box
-        border={{ color: 'border', size: 'xsmall' }}
-        round="xsmall"
+        pad="xsmall"
+        border={{ side: 'bottom', color: 'border-weak', size: 'default' }}
       >
-        <Box
-          direction="row"
-          align="center"
-          pad={{ vertical: 'xsmall', horizontal: 'small' }}
-          border={{
-            side: 'bottom',
-            color: 'border',
-            size: 'xsmall',
-          }}
-        >
-          <CheckBox
-            id="select-all"
-            name="select-all"
-            label="Select all"
-            checked={allSelected}
-            indeterminate={someSelected}
-            onChange={toggleAll}
-          />
-        </Box>
-        {servers.map(server => (
-          <Box
-            key={server.id}
-            direction="row"
-            align="center"
-            pad={{
-              vertical: 'xsmall',
-              horizontal: 'small',
-            }}
-            border={{
-              side: 'bottom',
-              color: 'border',
-              size: 'xsmall',
-            }}
-          >
-            <CheckBox
-              id={server.id}
-              name={server.id}
-              label={server.name}
-              checked={selected.includes(server.id)}
-              onChange={event =>
-                toggleOne(server.id, event.target.checked)
-              }
-            />
-          </Box>
-        ))}
+        <CheckBox
+          id="select-all"
+          name="select-all"
+          label="Select all"
+          checked={allSelected}
+          indeterminate={someSelected}
+          onChange={onCheckAll}
+        />
       </Box>
+      <List
+        data={servers}
+        itemKey="id"
+        border={{ side: 'bottom', color: 'border-weak', size: 'default' }}
+        pad="xsmall"
+        itemProps={itemProps}
+      >
+        {({ id, name }) => (
+          <CheckBox
+            id={id}
+            name={id}
+            label={name}
+            checked={selected.includes(id)}
+            onChange={event => onCheck(id, event.target.checked)}
+          />
+        )}
+      </List>
     </Box>
   );
 };

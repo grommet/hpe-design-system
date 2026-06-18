@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  CheckBox,
-  Form,
-  FormField,
-  TextInput,
-} from 'grommet';
+import { CheckBox, Form, FormField, TextInput } from 'grommet';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const CheckBoxShowingHidingContentExample = () => {
   const [shipToDifferent, setShipToDifferent] = useState(false);
   return (
-    <Box width="medium">
+    <ContentPane width="medium">
       <Form>
         <FormField
           label="Billing address"
@@ -33,13 +28,12 @@ export const CheckBoxShowingHidingContentExample = () => {
             name="ship-to-different"
             label="Ship to a different address"
             checked={shipToDifferent}
-            onChange={event =>
-              setShipToDifferent(event.target.checked)
-            }
+            toggle
+            onChange={event => setShipToDifferent(event.target.checked)}
           />
         </FormField>
         {shipToDifferent && (
-          <Box gap="small">
+          <>
             <FormField
               label="Shipping address"
               htmlFor="shipping-address"
@@ -62,9 +56,9 @@ export const CheckBoxShowingHidingContentExample = () => {
                 placeholder="Leave at front door"
               />
             </FormField>
-          </Box>
+          </>
         )}
       </Form>
-    </Box>
+    </ContentPane>
   );
 };
