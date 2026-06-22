@@ -39,7 +39,7 @@ export const ButtonCancelExample = () => {
             {showLayer ? (
               <EditDevice device={device} setDevice={setDevice} />
             ) : null}
-            {showConfirmation ? <DoubleConfirmation title="device" /> : null}
+            {showConfirmation ? <DoubleConfirmation title="device edits" /> : null}
           </>
         )}
       </ConfirmationContext.Consumer>
