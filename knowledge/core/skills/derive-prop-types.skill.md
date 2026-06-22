@@ -74,7 +74,7 @@ review.
 - If existing documentation lists a prop absent from the definition, drop it from `props` and
   log it as a candidate for removal/verification — do not carry it forward.
 
-## Reuse constraints
+## Reuse Constraints
 
 - Requires read access to the resolved TypeScript definition.
 - Must remain deterministic for the same definition input.
