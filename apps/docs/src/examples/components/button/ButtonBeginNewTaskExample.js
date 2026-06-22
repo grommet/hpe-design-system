@@ -36,7 +36,7 @@ export const ButtonBeginNewTaskExample = () => (
         <>
           <DevicesPage />
           {showLayer ? <AddDevices /> : null}
-          {showConfirmation ? <DoubleConfirmation title="devices" /> : null}
+          {showConfirmation ? <DoubleConfirmation title="device" /> : null}
         </>
       )}
     </ConfirmationContext.Consumer>
