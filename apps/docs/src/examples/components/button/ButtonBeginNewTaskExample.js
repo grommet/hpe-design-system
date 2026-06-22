@@ -53,7 +53,7 @@ const AddDevice = ({ ...rest }) => {
 
   return (
     <Sidedrawer onEsc={onClose} {...rest}>
-      <LayerHeader title="Add devices" onClose={onClose} />
+      <LayerHeader title="Add device" onClose={onClose} />
       <LayerForm id="devices-form" onClose={onClose} />
     </Sidedrawer>
   );
