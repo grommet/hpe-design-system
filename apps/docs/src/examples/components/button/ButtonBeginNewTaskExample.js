@@ -35,7 +35,7 @@ export const ButtonBeginNewTaskExample = () => (
       {({ showLayer, showConfirmation }) => (
         <>
           <DevicesPage />
-          {showLayer ? <AddDevices /> : null}
+          {showLayer ? <AddDevice /> : null}
           {showConfirmation ? <DoubleConfirmation title="device" /> : null}
         </>
       )}
@@ -54,11 +54,10 @@ const AddDevice = ({ ...rest }) => {
   return (
     <Sidedrawer onEsc={onClose} {...rest}>
       <LayerHeader title="Add device" onClose={onClose} />
-      <LayerForm id="devices-form" onClose={onClose} />
+      <CreateDeviceForm id="devices-form" onClose={onClose} />
     </Sidedrawer>
   );
 };
-
 
 const columns = [
   { header: 'Name', primary: true, property: 'name' },
@@ -88,8 +87,7 @@ const DevicesPage = () => {
             </Toolbar>
             <DataSummary />
             <Box height={{ max: 'medium' }} alignSelf="start" overflow="auto">
-              <DataTable
-                aria-describedby="devices-heading" columns={columns} />
+              <DataTable aria-describedby="devices-heading" columns={columns} />
             </Box>
           </Data>
         </ContentPane>
@@ -139,12 +137,7 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
           placeholder="e.g. web-server-04"
         />
       </FormField>
-      <FormField
-        label="Type"
-        name="device-type"
-        htmlFor="device-type"
-        required
-      >
+      <FormField label="Type" name="device-type" htmlFor="device-type" required>
         <Select
           id="device-type"
           name="device-type"
@@ -165,26 +158,14 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
           placeholder="Select status"
         />
       </FormField>
-      <Box
-        direction="row"
-        gap="xsmall"
-        flex={false}
-        margin={{ top: 'medium' }}
-      >
-        <Button
-          label="Create device"
-          primary
-          type="submit"
-        />
-        <Button
-          label="Cancel"
-          onClick={onClose}
-        />
+      <Box direction="row" gap="xsmall" flex={false} margin={{ top: 'medium' }}>
+        <Button label="Create device" primary type="submit" />
+        <Button label="Cancel" onClick={onClose} />
       </Box>
     </Form>
   );
 };
 
-LayerForm.propTypes = {
+CreateDeviceForm.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
