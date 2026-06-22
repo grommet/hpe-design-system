@@ -48,7 +48,7 @@ const AddDevice = ({ ...rest }) => {
   const announce = useContext(AnnounceContext);
 
   useEffect(() => {
-    announce('Add devices modal opened', 'assertive');
+    announce('Add device modal opened', 'assertive');
   }, [announce]);
 
   return (
