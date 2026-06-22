@@ -43,7 +43,7 @@ export const ButtonBeginNewTaskExample = () => (
   </ConfirmationProvider>
 );
 
-const AddDevices = ({ ...rest }) => {
+const AddDevice = ({ ...rest }) => {
   const { onClose } = useConfirmation();
   const announce = useContext(AnnounceContext);
 
