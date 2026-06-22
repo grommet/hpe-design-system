@@ -104,7 +104,7 @@ const defaultFormValues = {
   'device-status': '',
 };
 
-const LayerForm = ({ onClose, ...rest }) => {
+const CreateDeviceForm = ({ onClose, ...rest }) => {
   const [formValue, setFormValue] = useState(defaultFormValues);
   const { setShowLayer, setTouched } = useConfirmation();
 
