@@ -26,11 +26,11 @@ export const Meta = ({
   const csp = `default-src 'self' 'unsafe-eval';
   style-src 'self' *.hpe.com/hfws-static/6/css/
     *.hpe.com/hfws-static/6/min/css/ 'unsafe-inline';
-  connect-src 'self' 
-    *.githubusercontent.com/grommet/hpe-design-system/ 
-    https://api.github.com/repos/grommet/hpe-design-system/pulls 
-    https://api.github.com/repos/grommet/hpe-design-system/commits 
-    https://www.google-analytics.com https://www.github.com/grommet/ 
+  connect-src 'self'
+    *.githubusercontent.com/grommet/hpe-design-system/
+    https://api.github.com/repos/grommet/hpe-design-system/pulls
+    https://api.github.com/repos/grommet/hpe-design-system/commits
+    https://www.google-analytics.com https://www.github.com/grommet/
     https://eyes.applitools.com *.hpe.com/hpe/api/ 
     https://iad1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/ 
     https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json 
