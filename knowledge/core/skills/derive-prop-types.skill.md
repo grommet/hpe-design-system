@@ -50,7 +50,7 @@ outside the type is ever added.
    `knowledge/core/data/types.ts`.
 5. Record any member whose type cannot be resolved in the gap list rather than guessing.
 
-## Failure handling
+## Failure Handling
 
 - If the grommet TypeScript definition cannot be found, emit an empty `props` array (`props: []`) and
   add a blocking gap note naming the paths searched for human review.
