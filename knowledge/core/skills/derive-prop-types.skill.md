@@ -50,17 +50,6 @@ outside the type is ever added.
    `knowledge/core/data/types.ts`.
 5. Record any member whose type cannot be resolved in the gap list rather than guessing.
 
-## Hard constraints
-
-- **Derive every prop from the TypeScript definition.** A prop may appear in `props` only if
-  it exists in the resolved interface/type.
-- **Never add props that are not in the definition.** Do not introduce props from memory,
-  from other components, from example code, or from prose in the MDX.
-- **Never rename, alias, or merge props.** Property names must match the type exactly.
-- **Do not fabricate types, defaults, or required flags.** Optionality and types come from
-  the definition, not assumption.
-- **Prefer explicit gaps over invention.** When the definition is unavailable, emit `props: []` and log the gap. When a member's type cannot be resolved, keep the prop and flag it in the gap list.
-
 ## Failure handling
 
 - If the grommet TypeScript definition cannot be found, emit an empty `props` array (`props: []`) and
