@@ -110,12 +110,12 @@ A cancel button gives users an escape hatch to abandon an in-progress workflow w
 
 {/* TODO: Add <Example plain> anatomy diagram once ButtonAnatomy component is created. */}
 
-| Label  | Region               | Purpose                                                                                                    |                         Required                         | Notes                                                                                           |
-| :----: | -------------------- | ---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------------------------------------------------------------------- |
-| **1**  | **Button container** | The interactive element that captures click or keyboard events and communicates affordance.                | <span><Checkmark a11yTitle="true" size="small" /></span> | Rendered as a `<button>` for in-page actions; use `<a>` only when the result is URL navigation. |
-| **1a** | **Button label**     | Communicates the action the button will perform when activated.                                            |                         Optional                         | Required unless an icon with `a11yTitle` provides the full accessible name.                     |
-| **1b** | **Button icon**      | Provides a visual cue that reinforces or replaces the label.                                               |                         Optional                         | When used without a visible label, `a11yTitle` or `aria-label` must be provided.                |
-| **1c** | **Badge**            | Conveys additional information such as a notification count or attention indicator overlaid on the button. |                         Optional                         | --                                                                                              |
+| Label  | Region               | Purpose                                                                                                    |                         Required                         | Notes                                                                                                        |
+| :----: | -------------------- | ---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------ |
+| **1**  | **Button container** | The interactive element that captures click or keyboard events and communicates affordance.                | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Rendered as a `<button>` for in-page actions; use `<a>` only when the result is URL navigation.</span> |
+| **1a** | **Button label**     | Communicates the action the button will perform when activated.                                            |                         Optional                         | <span>Required unless an icon with `a11yTitle` provides the full accessible name.</span>                     |
+| **1b** | **Button icon**      | Provides a visual cue that reinforces or replaces the label.                                               |                         Optional                         | <span>When used without a visible label, `a11yTitle` or `aria-label` must be provided.</span>                |
+| **1c** | **Badge**            | Conveys additional information such as a notification count or attention indicator overlaid on the button. |                         Optional                         | --                                                                                                           |
 
 ## Variants
 
@@ -398,20 +398,20 @@ Use a `Button` when the interaction performs an in-page action (submit, create, 
 
 ### Keyboard interaction
 
-| Key           | Action                                                   |
-| ------------- | -------------------------------------------------------- |
-| Enter / Space | Activates the button and triggers its `onClick` handler. |
-| Tab           | Moves focus to the next focusable element.               |
-| Shift + Tab   | Moves focus to the previous focusable element.           |
+| Key           | Action                                                                |
+| ------------- | --------------------------------------------------------------------- |
+| Enter / Space | <span>Activates the button and triggers its `onClick` handler.</span> |
+| Tab           | Moves focus to the next focusable element.                            |
+| Shift + Tab   | Moves focus to the previous focusable element.                        |
 
 ### ARIA
 
-| Attribute       | Value              | When to apply                                                                                            |
-| --------------- | ------------------ | -------------------------------------------------------------------------------------------------------- |
-| `aria-label`    | Descriptive string | When the button has no visible text label (icon-only buttons).                                           |
-| `a11yTitle`     | Descriptive string | HPE Design System prop equivalent to `aria-label`; use for icon-only buttons.                            |
-| `aria-disabled` | `"true"`           | When the button is in a disabled state.                                                                  |
-| `role`          | `button`           | Applied automatically by the browser for native `<button>` elements; verify when using a custom element. |
+| Attribute       | Value              | When to apply                                                                                                         |
+| --------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `aria-label`    | Descriptive string | When the button has no visible text label (icon-only buttons).                                                        |
+| `a11yTitle`     | Descriptive string | <span>HPE Design System prop equivalent to `aria-label`; use for icon-only buttons.</span>                            |
+| `aria-disabled` | `"true"`           | When the button is in a disabled state.                                                                               |
+| `role`          | `button`           | <span>Applied automatically by the browser for native `<button>` elements; verify when using a custom element.</span> |
 
 ### Buttons vs. anchors
 
