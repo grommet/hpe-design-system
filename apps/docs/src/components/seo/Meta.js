@@ -24,7 +24,7 @@ export const Meta = ({
   const trustarcFrame = 'https://consent-pref.trustarc.com/';
 
   const csp = `default-src 'self' 'unsafe-eval';
-  style-src 'self' *.hpe.com/hfws-static/6/css/ 
+  style-src 'self' *.hpe.com/hfws-static/6/css/
     *.hpe.com/hfws-static/6/min/css/ 'unsafe-inline';
   connect-src 'self' 
     *.githubusercontent.com/grommet/hpe-design-system/ 
