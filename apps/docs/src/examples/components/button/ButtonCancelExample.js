@@ -39,7 +39,9 @@ export const ButtonCancelExample = () => {
             {showLayer ? (
               <EditDevice device={device} setDevice={setDevice} />
             ) : null}
-            {showConfirmation ? <DoubleConfirmation title="device edits" /> : null}
+            {showConfirmation ? (
+              <DoubleConfirmation title="device edits" />
+            ) : null}
           </>
         )}
       </ConfirmationContext.Consumer>
@@ -52,20 +54,20 @@ const DeviceOverview = ({ device }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <ContentPane gap="medium" width="medium">
-      <Box gap="5xsmall">
-        <Heading level={2} margin="none">
-          {device.name}
-        </Heading>
-        <Paragraph margin="none" color="text-weak">
-          {device.description}
-        </Paragraph>
-      </Box>
-      <Box
-        align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-        margin={{ top: 'small' }}
-      >
+    <ContentPane>
+      {/* using content-driven container 
+        https://design-system.hpe.design/templates/content-layouts?q=content#content-driven-layouts */}
+      <Box gap="medium" width="medium">
+        <Box gap="5xsmall">
+          <Heading level={2} margin="none">
+            {device.name}
+          </Heading>
+          <Paragraph margin="none" color="text-weak">
+            {device.description}
+          </Paragraph>
+        </Box>
         <Button
+          alignSelf={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
           label="Edit device"
           onClick={() => setShowLayer(true)}
           secondary
@@ -86,7 +88,7 @@ const EditDevice = ({ device, setDevice, ...rest }) => {
   return (
     <Sidedrawer onEsc={onClose} {...rest}>
       <LayerHeader title="Edit device" onClose={onClose} />
-      <LayerForm
+      <EditDeviceForm
         id="edit-device-form"
         device={device}
         setDevice={setDevice}
@@ -96,7 +98,7 @@ const EditDevice = ({ device, setDevice, ...rest }) => {
   );
 };
 
-const LayerForm = ({ device, setDevice, onClose, ...rest }) => {
+const EditDeviceForm = ({ device, setDevice, onClose, ...rest }) => {
   const [draft, setDraft] = useState(device);
   const { setShowLayer, setTouched } = useConfirmation();
 
@@ -124,46 +126,48 @@ const LayerForm = ({ device, setDevice, onClose, ...rest }) => {
       }}
       {...rest}
     >
-      <FormField
-        label="Device name"
-        contentProps={{ width: 'medium' }}
-        htmlFor="device-name"
-        name="device-name"
-        required
-      >
-        <TextInput
-          id="device-name"
-          name="device-name"
-          onChange={event =>
-            setDraft(prev => ({
-              ...prev,
-              name: event.target.value,
-            }))
-          }
-          value={draft.name}
-        />
-      </FormField>
-      <FormField
-        contentProps={{ width: 'medium' }}
-        htmlFor="device-description"
-        label="Description"
-        name="device-description"
-      >
-        <TextArea
-          id="device-description"
-          name="device-description"
-          onChange={event =>
-            setDraft(prev => ({
-              ...prev,
-              description: event.target.value,
-            }))
-          }
-          value={draft.description}
-        />
-      </FormField>
-      <Box direction="row" gap="xsmall" flex={false} margin={{ top: 'medium' }}>
-        <Button label="Save changes" primary type="submit" />
-        <Button label="Cancel" onClick={onClose} />
+      <Box gap="medium" width="medium">
+        <>
+          <FormField
+            label="Device name"
+            htmlFor="device-name"
+            name="device-name"
+            required
+          >
+            <TextInput
+              id="device-name"
+              name="device-name"
+              onChange={event =>
+                setDraft(prev => ({
+                  ...prev,
+                  name: event.target.value,
+                }))
+              }
+              value={draft.name}
+            />
+          </FormField>
+          <FormField
+            htmlFor="device-description"
+            label="Description"
+            name="device-description"
+          >
+            <TextArea
+              id="device-description"
+              name="device-description"
+              onChange={event =>
+                setDraft(prev => ({
+                  ...prev,
+                  description: event.target.value,
+                }))
+              }
+              value={draft.description}
+            />
+          </FormField>
+        </>
+        <Box direction="row" gap="xsmall" flex={false}>
+          <Button label="Save changes" primary type="submit" />
+          <Button label="Cancel" onClick={onClose} />
+        </Box>
       </Box>
     </Form>
   );
@@ -184,7 +188,7 @@ EditDevice.propTypes = {
   setDevice: PropTypes.func.isRequired,
 };
 
-LayerForm.propTypes = {
+EditDeviceForm.propTypes = {
   device: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,

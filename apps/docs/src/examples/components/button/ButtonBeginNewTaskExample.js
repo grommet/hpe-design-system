@@ -124,43 +124,53 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
       }}
       {...rest}
     >
-      <FormField
-        label="Device name"
-        contentProps={{ width: 'medium' }}
-        name="device-name"
-        htmlFor="device-name"
-        required
-      >
-        <TextInput
-          id="device-name"
-          name="device-name"
-          placeholder="e.g. web-server-04"
-        />
-      </FormField>
-      <FormField label="Type" name="device-type" htmlFor="device-type" required>
-        <Select
-          id="device-type"
-          name="device-type"
-          options={['Server', 'Database', 'Proxy']}
-          placeholder="Select type"
-        />
-      </FormField>
-      <FormField
-        label="Status"
-        name="device-status"
-        htmlFor="device-status"
-        required
-      >
-        <Select
-          id="device-status"
-          name="device-status"
-          options={['Active', 'Inactive']}
-          placeholder="Select status"
-        />
-      </FormField>
-      <Box direction="row" gap="xsmall" flex={false} margin={{ top: 'medium' }}>
-        <Button label="Create device" primary type="submit" />
-        <Button label="Cancel" onClick={onClose} />
+      {/* using content-driven container 
+        https://design-system.hpe.design/templates/content-layouts?q=content#content-driven-layouts */}
+      <Box gap="medium" width="medium">
+        <Box>
+          <FormField
+            label="Device name"
+            name="device-name"
+            htmlFor="device-name"
+            required
+          >
+            <TextInput
+              id="device-name"
+              name="device-name"
+              placeholder="e.g. web-server-04"
+            />
+          </FormField>
+          <FormField
+            label="Type"
+            name="device-type"
+            htmlFor="device-type"
+            required
+          >
+            <Select
+              id="device-type"
+              name="device-type"
+              options={['Server', 'Database', 'Proxy']}
+              placeholder="Select type"
+            />
+          </FormField>
+          <FormField
+            label="Status"
+            name="device-status"
+            htmlFor="device-status"
+            required
+          >
+            <Select
+              id="device-status"
+              name="device-status"
+              options={['Active', 'Inactive']}
+              placeholder="Select status"
+            />
+          </FormField>
+        </Box>
+        <Box direction="row" gap="xsmall" flex={false}>
+          <Button label="Create device" primary type="submit" />
+          <Button label="Cancel" onClick={onClose} />
+        </Box>
       </Box>
     </Form>
   );
