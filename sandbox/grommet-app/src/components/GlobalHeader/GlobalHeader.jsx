@@ -15,8 +15,8 @@ import {
   DropButton,
   TextInput,
   ToggleGroup,
-  ResponsiveContext,
 } from 'grommet';
+import { useBreakpoint, useIsTabletAndUp } from '@shared/hooks';
 import {
   Search,
   User,
@@ -39,7 +39,8 @@ export const GlobalHeader = ({
   ...rest
 }) => {
   const theme = useContext(ThemeContext);
-  const breakpoint = useContext(ResponsiveContext);
+  const breakpoint = useBreakpoint();
+  const isTabletAndUp = useIsTabletAndUp();
   const logoSrc =
     activeTheme === 'v2'
       ? `/hpe-grnlk-${!theme.dark ? 'pos' : 'rev'}-rgb.svg`
@@ -58,8 +59,8 @@ export const GlobalHeader = ({
             activeTheme === 'v2'
               ? 'transparent'
               : activeTheme === 'v1'
-              ? 'background-primary-xstrong'
-              : 'background-front'
+                ? 'background-primary-xstrong'
+                : 'background-front'
           }
           elevation={activeTheme !== 'v0' ? 'none' : 'small'}
           pad={{ horizontal: 'xsmall', vertical: 'small' }}
@@ -78,7 +79,7 @@ export const GlobalHeader = ({
                 <Image src={logoSrc} fit="contain" alt="HPE GreenLake badge" />
               </Box>
             </Link>
-            {!['xsmall', 'small'].includes(breakpoint) ? (
+            {isTabletAndUp ? (
               <Box width={breakpoint === 'medium' ? 'medium' : 'large'}>
                 <TextInput
                   icon={<Search id="global-header-search" />}

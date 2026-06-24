@@ -20,9 +20,249 @@ This package is part of the HPE Design System monorepo and is available as a wor
 
 ## Available Hooks
 
-- [useInert](#useInert)
-- [useLocalStorage](#useLocalStorage)
-- [useSessionStorage](#useSessionStorage)
+- [useBreakpoint](#usebreakpoint)
+- [Responsive Predicates](#responsive-predicates)
+  - [useIsMobile](#useismobile)
+  - [useIsTabletAndUp](#useistabletandup)
+  - [useIsMobileOrTablet](#useismobileortablet)
+  - [useIsDesktop](#useisdesktop)
+  - [useIsBreakpoint](#useisbreakpoint-factory)
+- [useInert](#useinert)
+- [useLocalStorage](#uselocalstorage)
+- [useSessionStorage](#usesessionstorage)
+
+### useBreakpoint
+
+A React hook that returns the current responsive breakpoint string from Grommet's ResponsiveContext. Use this as the **single source of truth for responsive breakpoint detection** across the codebase. When you need a raw string value — for example, as an object key or in a switch statement — use this directly. For boolean responsive checks, prefer the [semantic predicate hooks](#responsive-predicates), which are built on top of this hook.
+
+#### Features
+
+- **Single source of truth**: Replaces scattered `useContext(ResponsiveContext)` calls
+- **Type-safe**: Returns a string breakpoint value
+- **Clean API**: One-liner to get the current breakpoint
+- **SSR-compatible**: Works seamlessly with server-side rendering
+
+#### Usage
+
+```typescript
+import { useBreakpoint } from '@shared/hooks';
+
+function MyComponent() {
+  const breakpoint = useBreakpoint(); // 'xsmall', 'small', 'medium', 'large', or 'xlarge'
+
+  // Good use case: raw string as an object key
+  const gridAreas = responsiveGridAreas[breakpoint] ?? defaultGridAreas;
+
+  return <Grid areas={gridAreas} />;
+}
+```
+
+#### API
+
+```typescript
+const breakpoint = useBreakpoint(): string
+```
+
+**Parameters:** none
+
+**Returns:**
+
+- `breakpoint` (string): The current Grommet breakpoint ('xsmall', 'small', 'medium', 'large', or 'xlarge')
+
+---
+
+## Responsive Predicates
+
+A suite of semantic hooks for responsive design built on top of `useBreakpoint()`. These eliminate repetitive `.includes()` checks and provide clear, self-documenting code.
+
+### useIsMobile
+
+Checks if the current breakpoint is mobile-sized (xsmall or small).
+
+#### Usage
+
+```typescript
+import { useIsMobile } from '@shared/hooks';
+
+function MyComponent() {
+  const isMobile = useIsMobile();
+
+  return isMobile ? <MobileLayout /> : <DesktopLayout />;
+}
+```
+
+#### Before vs After
+
+```javascript
+// BEFORE: Repetitive and unclear
+const breakpoint = useBreakpoint();
+const isMobile = ['xsmall', 'small'].includes(breakpoint);
+
+// AFTER: Clear intent
+const isMobile = useIsMobile();
+```
+
+#### API
+
+```typescript
+const isMobile = useIsMobile(): boolean
+```
+
+---
+
+### useIsTabletAndUp
+
+Checks if the current breakpoint is tablet or larger (medium and up). Useful for "NOT mobile" logic.
+
+#### Usage
+
+```typescript
+import { useIsTabletAndUp } from '@shared/hooks';
+
+function MyLayout() {
+  const isTabletAndUp = useIsTabletAndUp();
+
+  return (
+    <Box direction={isTabletAndUp ? 'row' : 'column'}>
+      <Sidebar />
+      <Content />
+    </Box>
+  );
+}
+```
+
+#### Before vs After
+
+```javascript
+// BEFORE: Negation logic is hard to parse
+const size = useBreakpoint();
+direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
+
+// AFTER: Intent is crystal clear
+const isTabletAndUp = useIsTabletAndUp();
+direction={isTabletAndUp ? 'row' : 'column'}
+```
+
+#### API
+
+```typescript
+const isTabletAndUp = useIsTabletAndUp(): boolean
+```
+
+---
+
+### useIsMobileOrTablet
+
+Checks if the current breakpoint is mobile or tablet-sized (xsmall, small, or medium). Useful for distinguishing mobile/tablet from full desktop.
+
+#### Usage
+
+```typescript
+import { useIsMobileOrTablet } from '@shared/hooks';
+
+function TextComponent({ children }) {
+  const isMobileOrTablet = useIsMobileOrTablet();
+
+  return (
+    <Paragraph size={isMobileOrTablet ? 'small' : 'medium'}>
+      {children}
+    </Paragraph>
+  );
+}
+```
+
+#### Real-World Example
+
+From `Decision.js`:
+
+```javascript
+// BEFORE
+const breakpoint = useContext(ResponsiveContext);
+const textSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
+  ? 'small'
+  : 'medium';
+
+// AFTER
+const isMobileOrTablet = useIsMobileOrTablet();
+const textSize = isMobileOrTablet ? 'small' : 'medium';
+```
+
+#### API
+
+```typescript
+const isMobileOrTablet = useIsMobileOrTablet(): boolean
+```
+
+---
+
+### useIsDesktop
+
+Checks if the current breakpoint is desktop-sized (large or xlarge).
+
+#### Usage
+
+```typescript
+import { useIsDesktop } from '@shared/hooks';
+
+function DesktopFeatures() {
+  const isDesktop = useIsDesktop();
+
+  return isDesktop ? <AdvancedFeatures /> : null;
+}
+```
+
+#### API
+
+```typescript
+const isDesktop = useIsDesktop(): boolean
+```
+
+---
+
+### useIsBreakpoint (Factory)
+
+Factory hook for custom breakpoint checks. Use this when the predefined semantic hooks don't cover your use case.
+
+#### Usage
+
+```typescript
+import { useIsBreakpoint } from '@shared/hooks';
+
+function MyComponent() {
+  // Check for a specific custom breakpoint set
+  const isSmallOrMedium = useIsBreakpoint(['small', 'medium']);
+  const isLargeOnly = useIsBreakpoint(['large']);
+
+  if (isSmallOrMedium) return <SmallLayout />;
+  if (isLargeOnly) return <LargeLayout />;
+}
+```
+
+#### API
+
+```typescript
+const matches = useIsBreakpoint(breakpoints: string[]): boolean
+```
+
+**Parameters:**
+
+- `breakpoints` (string[]): Array of breakpoint strings to check against
+
+**Returns:**
+
+- `matches` (boolean): True if current breakpoint is in the provided array
+
+#### Breakpoint Reference
+
+| Breakpoint | Device Type        | Use Case        |
+| ---------- | ------------------ | --------------- |
+| `xsmall`   | Extra small phone  | 320px - 375px   |
+| `small`    | Phone/small tablet | 376px - 599px   |
+| `medium`   | Tablet             | 600px - 1023px  |
+| `large`    | Desktop            | 1024px - 1439px |
+| `xlarge`   | Large desktop      | 1440px+         |
+
+---
 
 ### useInert
 
@@ -391,11 +631,15 @@ pnpm check-types
 shared/hooks/
 ├── src/
 │   ├── index.ts              # Main entry point, exports all hooks
+│   ├── useBreakpoint.ts      # Responsive breakpoint primitive hook
 │   ├── useInert.ts           # useInert hook implementation
 │   ├── useLocalStorage.ts    # useLocalStorage hook implementation
+│   ├── useResponsive.ts      # Semantic responsive predicate hooks
 │   ├── useSessionStorage.ts  # useSessionStorage hook implementation
 │   └── __tests__/
-│       └── setup.ts          # Test environment setup
+│       ├── setup.ts          # Test environment setup
+│       ├── useBreakpoint.test.tsx # Tests for useBreakpoint
+│       └── useResponsive.test.tsx # Tests for responsive predicate hooks
 ├── __tests__/
 │   ├── useInert.test.tsx          # Tests for useInert
 │   ├── useLocalStorage.test.ts   # Tests for useLocalStorage
@@ -412,7 +656,7 @@ When adding a new hook to this package:
 
 1. Create the hook file in `src/`
 2. Export it from `src/index.ts`
-3. Add comprehensive tests in `__tests__/`
+3. Add comprehensive tests in `src/__tests__/` (for `src/` hooks) or `__tests__/` (for package-level hooks)
 4. Update this documentation
 5. Run `pnpm build` to compile
 6. Run `pnpm test` to ensure all tests pass

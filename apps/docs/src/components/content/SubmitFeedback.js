@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { Box, Button, Grid, Heading, Layer, ResponsiveContext } from 'grommet';
+import { Box, Button, Grid, Heading, Layer } from 'grommet';
+import { useIsTabletAndUp } from '@shared/hooks';
 import { ChatConversation, Contact, Close } from '@hpe-design/icons-grommet';
 // TODO replace with DS icon package when available
 import { Github } from 'grommet-icons';
@@ -89,18 +90,14 @@ const Contribute = () => {
 };
 
 export const FeedbackOptions = ({ level }) => {
-  const size = useContext(ResponsiveContext);
+  const isTabletAndUp = useIsTabletAndUp();
   const contextValue = useMemo(() => ({ level }), [level]);
 
   return (
     <HeadingContext.Provider value={contextValue}>
       <Box flex={false} width="xxlarge">
         <Grid
-          columns={
-            !['xsmall', 'small'].includes(size)
-              ? { count: 'fit', size: 'xsmall' }
-              : 'auto'
-          }
+          columns={isTabletAndUp ? { count: 'fit', size: 'xsmall' } : 'auto'}
           gap="xlarge"
         >
           <JoinConversation />

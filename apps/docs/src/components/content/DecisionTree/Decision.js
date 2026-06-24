@@ -1,12 +1,10 @@
-import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Paragraph, ResponsiveContext } from 'grommet';
+import { Box, Paragraph } from 'grommet';
+import { useIsMobileOrTablet } from '@shared/hooks';
 
 export const Decision = ({ children, id, ...rest }) => {
-  const breakpoint = useContext(ResponsiveContext);
-  const textSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
-    ? 'small'
-    : 'medium';
+  const isMobileOrTablet = useIsMobileOrTablet();
+  const textSize = isMobileOrTablet ? 'small' : 'medium';
 
   return (
     <Box {...rest}>

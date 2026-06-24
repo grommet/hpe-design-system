@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   Anchor,
   Box,
@@ -12,9 +12,9 @@ import {
   MaskedInput,
   Text,
   TextInput,
-  ResponsiveContext,
 } from 'grommet';
 import { Checkmark } from '@hpe-design/icons-grommet';
+import { useIsTabletAndUp } from '@shared/hooks';
 import {
   emailMask,
   emailValidation,
@@ -30,7 +30,7 @@ export const SimpleSignUpExample = () => {
     password: '',
   });
   const [passwordRules, setPasswordRules] = React.useState(passwordRulesStrong);
-  const size = useContext(ResponsiveContext);
+  const isTabletAndUp = useIsTabletAndUp();
 
   const onChange = values => {
     setFormValues(values);
@@ -171,7 +171,7 @@ export const SimpleSignUpExample = () => {
             />
           </FormField>
           <Box
-            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
+            align={isTabletAndUp ? 'start' : undefined}
             margin={{ top: 'medium', bottom: 'xsmall' }}
           >
             <Button label="Sign Up" primary type="submit" />
