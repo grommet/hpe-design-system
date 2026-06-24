@@ -3,6 +3,7 @@ import {
   BestPracticeGroup,
   Example,
 } from '../../layouts';
+import { Playground } from '../../components/Playground';
 import {
   ButtonBadCancelPreview,
   ButtonBadGroupPreview,
@@ -37,6 +38,11 @@ import {
 >
   <ButtonExample />
 </Example>
+
+<Playground
+  component="Button"
+  exclude={['as', 'children', 'style', 'plain', 'href', 'target', 'rel', 'download', 'hoverIndicator', 'focusIndicator', 'a11yTitle', 'color', 'gap', 'margin', 'pad', 'onClick', 'onBlur', 'onFocus', 'tip']}
+/>
 
 ## Guidance
 

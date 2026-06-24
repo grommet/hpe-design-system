@@ -1,0 +1,19 @@
+{
+  "name": "@shared/playground-schemas",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./generated/*": "./generated/*.js",
+    "./schema": "./schema.js"
+  },
+  "scripts": {
+    "build": "node scripts/generate-schemas.mjs",
+    "build:scaffold": "node scripts/generate-schemas.mjs --scaffold",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "grommet": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "^3.2.4"
+  }
+}
