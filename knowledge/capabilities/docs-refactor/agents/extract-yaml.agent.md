@@ -1,7 +1,7 @@
 ---
 name: extract-yaml-agent
 description: "Use when: reverse-engineering a component's existing MDX documentation into a structured YAML file. Triggered at the start of the per-component refactor workflow. Extracts MDX content into the ComponentDefinition schema, validates the YAML inline, stubs a DEPRECATED file for unmappable content, and renames the original MDX to .mdx.bak. Part of the docs refactor workflow described in knowledge/capabilities/docs-refactor/plan.md and knowledge/capabilities/docs-refactor/docs/execution.skill.md."
-argument-hint: "Component name (e.g. checkbox, menu, select). Must match the MDX file name in apps/docs/src/pages/components/."
+argument-hint: 'Component name (e.g. checkbox, menu, select). Must match the MDX file name in apps/docs/src/pages/components/.'
 tools: [read, search, edit]
 ---
 
@@ -20,6 +20,7 @@ You are the first step in the per-component docs refactor pipeline. Read `knowle
    - `knowledge/core/data/types.ts` — the `ComponentDefinition` interface (authoritative schema)
    - `knowledge/core/data/COMPONENT_EXAMPLE.yaml` — structural reference showing the expected YAML shape
    - `apps/docs/src/examples/components/[component-name]/` — list the directory to identify all existing example files (these become `path:` references in the `examples` array)
+   - **The component's TypeScript definition** — the authoritative source for `props`. Resolve it from grommet at `node_modules/grommet/components/[Name]/index.d.ts` (the exported `[Name]Props` interface). See `knowledge/core/skills/derive-prop-types.skill.md`.
 
 4. **Extract and map content** — translate every piece of content from the MDX into the corresponding field in the `ComponentDefinition` schema:
    - `description` — single precise sentence from the component's intro prose
@@ -33,11 +34,11 @@ You are the first step in the per-component docs refactor pipeline. Read `knowle
    - `contentGuidelines` — writing rules for text placed inside the component
    - `dosAndDonts` — paired do/dont entries, each with a `do`, `dont`, and optional `reason`. If the source MDX has no do/don't content, infer representative pairs from your knowledge of the component.
    - `accessibility` — keyboard interactions, ARIA attributes, announcements, WCAG criteria. Also look for `<AccessibilitySection title="...">` in the MDX and capture the exact `title` value as `accessibility.wcagDataFile`. Components that share their WCAG data file with a related component (e.g., Search using `TextInput`) will have a title that differs from their own component name — preserve it exactly.
-   - `props` — name, type, required, description, defaultValue for each prop
+   - `props` — **derive strictly from the component's TypeScript definition** (the `[Name]Props` interface or equivalent type), following `knowledge/core/skills/derive-prop-types.skill.md`. Emit one entry per member of that type with `name` (exact key), `type` (resolved TypeScript type), `required` (`true` only when the member is non-optional), `description` (single sentence), and `defaultValue` (only when explicit). Every documented prop MUST exist in the type; never add a prop that is not in the definition, and never carry forward a prop from the MDX, examples, or prior knowledge that the type does not declare. If no TypeScript definition can be located, set `props: []` (the schema requires the field) and log the gap rather than inventing them.
    - `examples` — **do NOT copy raw code**; reference existing example files as relative paths:
      ```yaml
      examples:
-       - description: "Primary button used to submit a form"
+       - description: 'Primary button used to submit a form'
          path: apps/docs/src/examples/components/button/ButtonSubmittingFormExample.js
      ```
 
@@ -61,11 +62,12 @@ You are the first step in the per-component docs refactor pipeline. Read `knowle
 9. **Log inferred fields in the TODO file** — if any fields were inferred rather than extracted from the source MDX (`anatomy`, `usage.whenToUse`, `dosAndDonts`), create or append to `apps/docs/todos/TODO-[component-name].md` with a section titled `## Inferred fields — verify before merging`. List each inferred field and recommend verifying the content against the Figma file and grommet source before the PR is merged. If nothing was inferred, skip this step.
 
 10. **Stub the DEPRECATED file** — create `apps/docs/todos/DEPRECATED-[component-name].md` with a section for each piece of unmappable content. For each entry include:
-   - The original section name or content excerpt
-   - Why it didn't map to the schema
-   - Whether it may have value worth preserving and where it could potentially live
 
-   If nothing was unmappable, create the file with a brief note confirming the review was done and no content was dropped.
+- The original section name or content excerpt
+- Why it didn't map to the schema
+- Whether it may have value worth preserving and where it could potentially live
+
+If nothing was unmappable, create the file with a brief note confirming the review was done and no content was dropped.
 
 11. **Rename the original MDX to `.bak`** — rename `apps/docs/src/pages/components/[component-name].mdx` to `apps/docs/src/pages/components/[component-name].mdx.bak`. This protects Next.js page-level imports and frontmatter so `generate-mdx-agent` can merge them back later.
 
@@ -73,6 +75,7 @@ You are the first step in the per-component docs refactor pipeline. Read `knowle
 
 - **Never copy raw React/JSX code into the YAML.** Example files must always be `path:` references pointing to files in `apps/docs/src/examples/components/`.
 - **Never fabricate information** to fill schema gaps. If a required field has no corresponding content in the MDX, omit it so the gap is visible, and note it in the DEPRECATED file. Exception: the structural/visual fields `anatomy`, `dosAndDonts`, and `usage.whenToUse` may be inferred from your knowledge of the component when absent from the source — log each inferred field in the TODO file for human review.
+- **Props are derived from the TypeScript definition, not authored by hand.** A prop may appear in the `props` array only if it exists in the component's resolved `[Name]Props` interface (or equivalent type). Never add, rename, alias, or merge props, and never include a prop that the type does not declare — even if it appears in the source MDX or example code. When the definition and the MDX disagree, the definition wins; drop the unbacked prop and log it for review. Follow `knowledge/core/skills/derive-prop-types.skill.md`.
 - **Variants are not states.** Disabled, loading, hover, focus, error, and similar transient conditions belong in `behaviors`, never in `variants`.
 - **`whenToUse` items must be task-oriented** — they describe the user's goal (e.g., "Submitting a form"), not a design rationale (e.g., "When there are 5 or more options").
 - **`description` must be a single sentence.** No markdown formatting inside the value.
