@@ -119,7 +119,7 @@ export const Layout = ({
             <Navigation
               gridArea="nav"
               as="aside"
-              a11yTitle="Site navigation"
+              aria-label="Site navigation"
               background="background-front"
               height={isMobile ? undefined : '100vh'}
               fill={isMobile}
