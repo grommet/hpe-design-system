@@ -6,9 +6,9 @@ This guide is for maintainers running sync tooling and release-oriented package 
 
 | Command | When To Use | Mutates Remote Figma | Output |
 |---|---|---|---|
-| `pnpm sync-tokens-to-figma -- --env=<production|test> [--dry-run] [--confirm-production] [--bootstrap]` | Push local JSON tokens to Figma | Yes (unless `--dry-run`) | stage-status and run-summary events |
-| `pnpm sync-figma-to-tokens -- --env=<production|test> --output <dir>` | Pull Figma variables to local JSON for QA or updates | No | local JSON files + run-summary |
-| `pnpm sync-discover-figma-collection-keys -- --env=<production|test> [--pretty] [--output <path>]` | Discover canonical collection keys after bootstrap or during diagnostics | No | discovery JSON payload |
+| `pnpm sync-tokens-to-figma -- --env=<production\|test> [--dry-run] [--confirm-production] [--bootstrap]` | Push local JSON tokens to Figma | Yes (unless `--dry-run`) | stage-status and run-summary events |
+| `pnpm sync-figma-to-tokens -- --env=<production\|test> --output <dir>` | Pull Figma variables to local JSON for QA or updates | No | local JSON files + run-summary |
+| `pnpm sync-discover-figma-collection-keys -- --env=<production\|test> [--pretty] [--output <path>]` | Discover canonical collection keys after bootstrap or during diagnostics | No | discovery JSON payload |
 | `pnpm test` | Validate package unit/integration behavior | No | vitest results |
 | `pnpm test:contracts` | Validate schema conformance for sync payloads | No | vitest results |
 | `pnpm build` | Rebuild token outputs | No | dist artifacts |
