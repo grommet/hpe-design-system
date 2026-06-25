@@ -16,6 +16,10 @@ This directory contains the stable, machine-integration-facing contracts for Fig
   - Operational rollout and rollback runbook for environment-isolated sync.
   - Use this for pilot validation, rollback drills, and status checks.
 
+- `figma-test-env-setup-test-plan.md`
+  - Formal QA test plan (TP-FIGMA-ENV-SETUP-001) for setting up a new test Figma environment end-to-end.
+  - Use this when onboarding a new test environment for the first time or re-validating an existing one.
+
 - `schemas/`
   - JSON schemas for machine-readable sync payloads.
   - Use these for validation in tests and CI.
