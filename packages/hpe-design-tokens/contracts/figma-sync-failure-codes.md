@@ -1,6 +1,5 @@
-# Figma Sync Failure Code Catalog (Phase 0 Freeze)
+# Figma Sync Failure Code Catalog
 
-Status: frozen for Phase 1 implementation.
 Version: 1.0.0
 
 ## Global Codes

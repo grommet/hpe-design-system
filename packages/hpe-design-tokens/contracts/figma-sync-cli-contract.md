@@ -1,6 +1,5 @@
-# Figma Sync CLI Contract (Phase 0 Freeze)
+# Figma Sync CLI Contract
 
-Status: frozen for Phase 1 implementation.
 Version: 1.0.0
 Owner: design-tokens maintainers + DX/CI owner
 
