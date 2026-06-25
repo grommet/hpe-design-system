@@ -98,6 +98,6 @@ Schemas and contracts:
 - `contracts/figma-sync-cli-contract.md`
 - `contracts/figma-sync-failure-codes.md`
 
-## Deprecated Utility
+## Historical Note
 
-`sync-rebind-figma-aliases` is deprecated and retained only for historical diagnostics. Prefer bootstrap plus key discovery and canonical subscriptions in normal workflows.
+The legacy `sync-rebind-figma-aliases` utility has been removed. Use bootstrap plus key discovery and canonical subscriptions in normal workflows.
