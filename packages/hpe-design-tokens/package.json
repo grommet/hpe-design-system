@@ -48,6 +48,6 @@
     "style-dictionary-utils": "^3.0.0",
     "tsx": "^4.21.0",
     "typescript": "catalog:",
-    "vitest": "^3.0.9"
+    "vitest": "^3.2.6"
   }
 }
