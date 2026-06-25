@@ -134,7 +134,7 @@ export const Layout = ({
                     }
               }
             />
-            <Main overflow="visible" gridArea="main">
+            <Main responsive="container" overflow="visible" gridArea="main">
               <Page>
                 {layout !== 'plain' ? (
                   <DocsLayout
