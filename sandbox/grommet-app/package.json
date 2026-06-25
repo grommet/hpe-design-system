@@ -34,6 +34,6 @@
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
     "globals": "catalog:",
-    "vite": "^5.1.4"
+    "vite": "^6.4.3"
   }
 }
