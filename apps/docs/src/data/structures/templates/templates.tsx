@@ -357,6 +357,9 @@ export const templates = [
   },
   {
     name: 'Forms',
+    // 'Managing child objects' is hidden from consumers via redirect, search
+    // exclusion (searchable:false), and availability (available:false) on its
+    // entry below. The pages link must remain to satisfy structure validation.
     pages: ['Managing child objects'],
     available: true,
     cardOrder: 1,
@@ -396,7 +399,6 @@ export const templates = [
       'Where to present a form',
       'Full-page forms',
       'Avoid using multiple column layouts',
-      'Managing child objects',
     ],
     relatedContent: [
       'TextInput',
@@ -427,10 +429,14 @@ export const templates = [
     ],
   },
   {
+    // Hidden from consumers: URL redirected (see apps/docs/_redirects),
+    // excluded from search (searchable:false), and kept out of pages
+    // (available:false).
     name: 'Managing child objects',
     path: '/templates/forms/managing-child-objects',
     parentPage: 'Forms',
-    available: true,
+    available: false,
+    searchable: false,
     description: `How to show, hide, and edit details of child 
     objects related to a parent within a form context.`,
     preview: {
