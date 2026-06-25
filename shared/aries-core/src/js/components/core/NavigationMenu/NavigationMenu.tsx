@@ -115,7 +115,6 @@ export const NavigationMenu = ({
           gap="3xsmall"
         >
           <NavList
-            a11yTitle={menuTitle}
             items={items}
             activeItem={activeItem}
             onSelect={onSelect}

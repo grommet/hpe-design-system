@@ -34,10 +34,10 @@ export const AppIdentity = forwardRef(
           {brand && brands[brand].logo}
           {!logoOnly && (
             <Box direction="row" gap="3xsmall">
-              <Text weight="bold" size={textSize} color="text">
+              <Text weight="bold" size={textSize} color="text-strong">
                 {brands[brand].name}
               </Text>
-              <Text size={textSize} color="text">
+              <Text size={textSize} color="text-strong">
                 {title}
               </Text>
             </Box>

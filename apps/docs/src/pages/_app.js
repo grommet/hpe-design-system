@@ -200,7 +200,11 @@ function App({ Component, pageProps, router }) {
     slugToText(route[route.length - 2]);
 
   const viewContextValue = useMemo(() => {
-    return { contentHistory, pageUpdateReady, setPageUpdateReady };
+    return {
+      contentHistory,
+      pageUpdateReady,
+      setPageUpdateReady,
+    };
   }, [contentHistory, pageUpdateReady]);
 
   return (
