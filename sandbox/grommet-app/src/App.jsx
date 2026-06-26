@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
 import { useSessionStorage } from '@shared/hooks';
-import { themes } from './themes/theme';
+import { themes } from './themes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
@@ -50,7 +50,7 @@ const App = () => {
   }, [backgroundBack]);
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
-  const [activeTheme, setActiveTheme] = useState(Object.keys(themes)[0]);
+  const [activeTheme, setActiveTheme] = useSessionStorage('activeTheme', Object.keys(themes)[0]);
   const theme = useMemo(() => themes[activeTheme], [activeTheme]);
 
   const [workspace, setWorkspace] = useState('Acme Production');

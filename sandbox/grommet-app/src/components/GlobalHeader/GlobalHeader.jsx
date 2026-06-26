@@ -27,7 +27,7 @@ import {
   LinkNext,
 } from '@hpe-design/icons-grommet';
 import { Link } from 'react-router-dom';
-import { themes } from '../../themes/theme';
+import { themes } from '../../themes';
 
 export const GlobalHeader = ({
   darkMode,
