@@ -15,9 +15,9 @@ import { validateStructureData } from './structureValidation';
 
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
-const learn = Structure.from(learnArr.map(learn => ({
-  ...learn,
-  category: learn.type,
+const learn = Structure.from(learnArr.map(item => ({
+  ...item,
+  category: item.type,
 })));
 const tokens = Structure.from(
   tokensArr.map(token => ({
