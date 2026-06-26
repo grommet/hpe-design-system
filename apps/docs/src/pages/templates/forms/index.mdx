@@ -252,11 +252,9 @@ For demonstration purposes, the character limit is 40 characters and a threshold
 ### Exceptions and how to address them
 
 - A login/registration form, which typically shows two to three required fields do not need to be annotated in any way - the form is short and the necessity of completing the fields is standard practice.
-
   - For login/registration forms, apply `required={{ indicator: false }}` to the FormFields to remove the required indicator.
 
 - Forms with minimal fields are optimal, but occasionally, capturing extra information would be highly beneficial for the user. The following are some options for addressing these cases:
-
   - Create the form the optimal way; with only the minimum required fields so that the user can focus on completing their task. Separately, in a preferences or settings dashboard, for example, provide a form that allows the user to add helpful, optional information at another time. An example of a helpful but not required field could be asking for someone's official title or role. If it is not necessary to capture this information right away on a sign-in form, offer this "role" or "title" field in profile settings.
 
 <ExampleImagePreview
@@ -315,15 +313,3 @@ or simply prevent efficient progress; all of which can lead users to abandon for
     <ColumnFormDont />
   </Example>
 </BestPracticeGroup>
-
-## Managing child objects within a form
-
-Applications often have scenarios where an object has multiple child objects, such as:
-
-- Creating an account with multiple contacts, each with their own contact detail.
-- Creating a cluster to perform a workload, dependent on setting and specifying
-  parameters for each resource composing the cluster.
-- Configuring permissions for a role, for which each permission has its own set of parameters.
-
-See [managing child objects](/templates/forms/managing-child-objects) to see how a user
-can easily show and hide a child object's detail as needed.
