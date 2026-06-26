@@ -17,7 +17,8 @@ const pageDetails = structureIndexes.byName as { [key: string]: NavPage };
 const hasChildren = (page: NavPage): page is NavPage & { pages: string[] } =>
   Array.isArray(page.pages) && page.pages.length > 0;
 
-const excludePages = ['Card', 'Layer', 'Forms', 'Show More']; // Pages with children to exclude from top-level navigation
+// Pages with children to exclude from top-level navigation
+const excludePages = ['Card', 'Layer', 'Forms', 'Show More'];
 const excludeChildPages = ['All components'];
 const topLevelNavOrder = [
   'Home',
@@ -27,32 +28,6 @@ const topLevelNavOrder = [
   'Design tokens',
   'Learn',
 ];
-
-// Helper to build a single nav item
-const buildNavItem = (pageName: string): NavItemType | null => {
-  if (excludeChildPages.includes(pageName)) return null;
-
-  const details = pageDetails[pageName];
-  if (!details) return null;
-
-  const navItem: NavItemType = {
-    label: pageName,
-  };
-
-  if (hasChildren(details)) {
-    navItem.children = [
-      {
-        label: 'Overview',
-        url: nameToPath(pageName),
-      },
-      ...buildNavItems(details.pages!, pageName),
-    ];
-  } else {
-    navItem.url = nameToPath(pageName);
-  }
-
-  return navItem;
-};
 
 const sortNavItemsByCardOrder = (a: NavItemType, b: NavItemType) => {
   const aOrder = pageDetails[a.label]?.cardOrder;
@@ -69,13 +44,38 @@ const sortNavItemsByCardOrder = (a: NavItemType, b: NavItemType) => {
 };
 
 // Build navigation items for a parent, grouping by category if mapping exists
-const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
+function buildNavItems(pages: string[], parentName?: string): NavItemType[] {
   const parentMapping = parentName
     ? structureIndexes.byCategory[parentName]
     : undefined;
   const orderedCategories = categoryOrders[parentName || ''];
 
   const shouldGroupByCategory = !!parentMapping && !!orderedCategories;
+
+  const buildNavItem = (pageName: string): NavItemType | null => {
+    if (excludeChildPages.includes(pageName)) return null;
+
+    const details = pageDetails[pageName];
+    if (!details) return null;
+
+    const navItem: NavItemType = {
+      label: pageName,
+    };
+
+    if (hasChildren(details)) {
+      navItem.children = [
+        {
+          label: 'Overview',
+          url: nameToPath(pageName),
+        },
+        ...buildNavItems(details.pages, pageName),
+      ];
+    } else {
+      navItem.url = nameToPath(pageName);
+    }
+
+    return navItem;
+  };
 
   if (shouldGroupByCategory) {
     const sortedParentEntries = Object.entries(parentMapping).sort(
@@ -125,7 +125,7 @@ const buildNavItems = (pages: string[], parentName?: string): NavItemType[] => {
     .filter(Boolean) as NavItemType[];
 
   return items.sort(sortNavItemsByCardOrder);
-};
+}
 
 export const navItems: NavItemType[] = structurePages
   .filter(page => hasChildren(page) && !excludePages.includes(page.name))
