@@ -9,7 +9,7 @@ import {
   ResponsiveContext,
   Paragraph,
 } from 'grommet';
-import { AppIdentity } from '../../../components/content/AppIdentity';
+import { AppIdentity } from '@shared/aries-core';
 
 const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 export const LayeredLayoutExample = () => {

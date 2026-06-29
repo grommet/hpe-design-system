@@ -7,7 +7,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { AppIdentity } from '../../../components/content/AppIdentity';
+import { AppIdentity } from '@shared/aries-core';
 
 export const BasicLayoutExample = () => {
   const size = useContext(ResponsiveContext);

@@ -9,7 +9,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { AppIdentity } from '../../../components/content/AppIdentity';
+import { AppIdentity } from '@shared/aries-core';
 import { Card } from '../../templates/Card/Card';
 
 const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

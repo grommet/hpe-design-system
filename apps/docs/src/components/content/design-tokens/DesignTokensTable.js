@@ -89,8 +89,11 @@ const getTokenColumn = (property, header) => ({
 const descriptionColumn = {
   property: 'description',
   header: 'Description',
-  size: 'large',
-  render: datum => <Text>{datum.description || '--'}</Text>,
+  render: datum => (
+    <Box width={{ max: 'medium' }}>
+      <Text>{datum.description || '--'}</Text>
+    </Box>
+  ),
 };
 
 const formatTokenValue = value => {
@@ -153,8 +156,8 @@ export const DesignTokensTable = ({
     return [
       previewColumn,
       ...dynamicTokenColumns,
-      descriptionColumn,
       valueColumn,
+      descriptionColumn,
     ];
   }, [tokenTypeColumns]);
 

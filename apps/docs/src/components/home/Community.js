@@ -77,9 +77,8 @@ export const Community = ({ ...rest }) => {
         </Box>
         <Grid
           columns="medium"
-          rows={[['auto', 'full']]}
           gap={{ row: 'xlarge', column: 'xsmall' }}
-          fill
+          fill="horizontal"
         >
           <SlackOption />
           {/* <Roadmap />

@@ -10,6 +10,7 @@ import {
   SkipLink,
   SkipLinks,
   Stack,
+  Grid,
 } from 'grommet';
 import { AppHeader, DocsLayout } from '..';
 import { Meta, PageBackground } from '../../components';
@@ -19,6 +20,15 @@ import { getRelatedContent } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { ViewContext } from '../../pages/_app';
 import { UserFeedback } from './UserFeedback';
+import { Navigation } from '../navigation';
+import { NavProvider } from '../navigation/NavContext';
+
+const gridAreas = [
+  ['nav', 'header', 'context-pane'],
+  ['nav', 'main', 'context-pane'],
+];
+const gridColumns = ['auto', 'flex', 'auto'];
+const gridRows = ['auto', 'flex'];
 
 export const Layout = ({
   backgroundImage,
@@ -45,6 +55,7 @@ export const Layout = ({
   } = getPrimaryPageByName(titleProp, structureIndexes) || {};
   const layout = isLanding ? 'plain' : pageLayout;
   const breakpoint = useContext(ResponsiveContext);
+  const isMobile = ['xsmall', 'small'].includes(breakpoint);
 
   const match = siteContents.find(item =>
     item?.name === 'Index'
@@ -93,39 +104,63 @@ export const Layout = ({
         {backgroundImage && (
           <PageBackground backgroundImage={backgroundImage} />
         )}
-        <>
-          {/* Only render Header for non-home pages.
+        <NavProvider>
+          <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
+            {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
-          {title && title.toLowerCase() !== 'home' && (
-            <AppHeader />
-          )}
-          <Main overflow="visible">
-            <Page>
-              {layout !== 'plain' ? (
-                <DocsLayout
-                  title={title}
-                  topic={topic}
-                  render={render}
-                  headings={headings}
-                  relatedContent={relatedContent}
-                  showInPageNav={showInPageNav}
-                  pageUpdateReady={pageUpdateReady}
-                  contentHistory={contentHistory}
-                >
-                  {children}
-                </DocsLayout>
-              ) : (
-                <>
-                  <SkipLinkTarget id="main" label="Main content" />
-                  {children}
-                </>
-              )}
-            </Page>
-          </Main>
-          <UserFeedback />
-        </>
+            {title && title.toLowerCase() !== 'home' && (
+              <AppHeader gridArea="header" />
+            )}
+            {/* Desktop-only: position: 'sticky' keeps the sidebar pinned while
+                main content scrolls. On mobile, nav renders inside a
+                Layer (fixed-position portal) where sticky has no
+                scroll ancestor and serves no purpose. */}
+            <Navigation
+              gridArea="nav"
+              as="aside"
+              aria-label="Site navigation"
+              background="background-front"
+              height={isMobile ? undefined : '100vh'}
+              fill={isMobile}
+              overflow="auto"
+              style={
+                isMobile
+                  ? undefined
+                  : {
+                      position: 'sticky',
+                      top: 0,
+                      overscrollBehavior: 'contain',
+                    }
+              }
+            />
+            <Main responsive="container" overflow="visible" gridArea="main">
+              <Page>
+                {layout !== 'plain' ? (
+                  <DocsLayout
+                    title={title}
+                    topic={topic}
+                    render={render}
+                    headings={headings}
+                    relatedContent={relatedContent}
+                    showInPageNav={showInPageNav}
+                    pageUpdateReady={pageUpdateReady}
+                    contentHistory={contentHistory}
+                  >
+                    {children}
+                  </DocsLayout>
+                ) : (
+                  <>
+                    <SkipLinkTarget id="main" label="Main content" />
+                    {children}
+                  </>
+                )}
+              </Page>
+            </Main>
+          </Grid>
+        </NavProvider>
       </Stack>
+      <UserFeedback />
     </>
   );
 };

@@ -60,7 +60,6 @@ for the following scenarios:
   are persistent and require user action to acknowledge or dismiss.
 - **Immediate feedback** &ndash; When providing immediate feedback to a user's
   action, a variety of tools are likely more appropriate.
-
   - When a user is awaiting a response after clicking an action button, use the
     [busy button](/components/button#busy-button) which provides in-progress and success animations. If the
     response time exceeds expectations or the API call fails, then an inline
@@ -77,13 +76,13 @@ for the following scenarios:
 
 An inline notification consists of:
 
-| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
-| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Icon or status indicator** | Indicates the status of notification                         | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
-| **2** | **Title**                    | Short, descriptive label identifying the notification        |                  Optional                   | Titles should only be used for inline notifications presenting page level summaries.                                   |
-| **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                                     |
-| **4** | **Link**                     | Used to direct users to additional detail or related content |                  Optional                   | --                                                                                                                     |
-| **5** | **Close button**             | Dismisses the notification                                   |                  Optional                   | Critical notifications should not be dismissible.                                                                      |
+| Label | Region                       | Purpose                                                      |                         Required                         | Notes                                                                                                                  |
+| ----- | ---------------------------- | ------------------------------------------------------------ | :------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Icon or status indicator** | Indicates the status of notification                         | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Title**                    | Short, descriptive label identifying the notification        |                         Optional                         | Titles should only be used for inline notifications presenting page level summaries.                                   |
+| **3** | **Message**                  | Briefly describes the action, status, or additional context  | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                                     |
+| **4** | **Link**                     | Used to direct users to additional detail or related content |                         Optional                         | --                                                                                                                     |
+| **5** | **Close button**             | Dismisses the notification                                   |                         Optional                         | Critical notifications should not be dismissible.                                                                      |
 
 ## Placement
 
