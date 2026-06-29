@@ -60,7 +60,7 @@ props:
   - name: icon
     type: boolean | React.ReactNode
     required: false
-    description: Icon shown on the menu trigger.
+    description: Icon shown on the right side of the menu trigger button.
   - name: items
     type: >-
       { label: string, onClick?: () => void, icon?: React.ReactNode, gap?:
@@ -82,10 +82,6 @@ props:
     type: string | object
     required: false
     description: The amount of margin around the component.
-  - name: icon
-    type: React.ReactNode
-    required: false
-    description: Icon displayed on the menu trigger button.
   - name: messages
     type: '{ openMenu?: string, closeMenu?: string }'
     required: false
