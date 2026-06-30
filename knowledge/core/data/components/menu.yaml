@@ -20,6 +20,14 @@ props:
     description: >-
       How to align along the cross axis when contained in a Box or along the
       column axis when contained in a Grid.
+  - name: buttonProps
+    type: ButtonExtendedProps
+    required: false
+    description: >-
+      Grommet Button props forwarded to the menu trigger button, allowing the
+      trigger's appearance to be customized (e.g. kind, secondary, color).
+      Menu-controlled props such as icon, size, and the menu's accessibility
+      and open/close behavior take precedence and cannot be overridden.
   - name: children
     type: '((props: object) => React.ReactNode) | React.ReactNode'
     required: false
@@ -62,14 +70,14 @@ props:
     required: false
     description: Icon shown on the right side of the menu trigger button.
   - name: items
-    type: >-
-      { label: string, onClick?: () => void, icon?: React.ReactNode, gap?:
-      string }[]
+    type: ButtonExtendedProps[] | ButtonExtendedProps[][]
     required: true
     description: >-
-      Array of menu items. Each item may include a label, a click handler,
-      and an icon. Items can be grouped using sub-arrays separated by
-      dividers.
+      Array of menu items, or an array of arrays for grouped items. Each item
+      accepts Grommet ButtonExtendedProps (e.g. label, icon, onClick) plus the
+      Menu-specific close flag. When items is an array of arrays, dividers
+      automatically separate each group. Set close to false to keep the menu
+      open after clicking (defaults to true).
   - name: justifyContent
     type: "'start' | 'center' | 'end' | 'between' | 'around' | 'stretch'"
     required: false
