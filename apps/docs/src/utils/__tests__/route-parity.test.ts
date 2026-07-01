@@ -49,6 +49,12 @@ const HARDCODED_ROUTES: HardcodedRoute[] = [
     parentPage: 'Card',
     reason: 'Nested component variant under Card parent.',
   },
+  {
+    pageName: 'Managing child objects',
+    expectedPath: '/templates/forms/managing-child-objects',
+    parentPage: 'Forms',
+    reason: 'Nested template pattern under Forms parent.',
+  },
 ];
 
 describe('Route Parity (Phase 2 Acceptance Criteria)', () => {

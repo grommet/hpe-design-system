@@ -357,6 +357,10 @@ export const templates = [
   },
   {
     name: 'Forms',
+    // 'Managing child objects' is hidden from consumers via redirect, search
+    // exclusion (searchable:false), and availability (available:false) on its
+    // entry below. The pages link must remain to satisfy structure validation.
+    pages: ['Managing child objects'],
     available: true,
     cardOrder: 1,
     description: `Common form use cases from application configuration 
@@ -423,6 +427,33 @@ export const templates = [
       'interaction form',
       'data capture',
     ],
+  },
+  {
+    // Hidden from consumers: URL redirected (see apps/docs/_redirects),
+    // excluded from search (searchable:false), and kept out of pages
+    // (available:false).
+    name: 'Managing child objects',
+    path: '/templates/forms/managing-child-objects',
+    parentPage: 'Forms',
+    available: false,
+    searchable: false,
+    description: `How to show, hide, and edit details of child 
+    objects related to a parent within a form context.`,
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-child objects.svg',
+          dark: '/templateImages/template-preview-child objects-invert.svg',
+        },
+        alt: 'HPE Forms Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription: `HPE Design System guidance for how to show, hide, and
+    edit details of child objects related to a parent within a form context.`,
+    sections: [],
+    relatedContent: ['Forms'],
+    tags: [],
   },
   {
     name: 'Global header',
