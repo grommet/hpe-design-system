@@ -4,5 +4,5 @@ https://aries.hpe.design/* https://design-system.hpe.design/:splat 301!
 /components/layer/center-layer /components/layer 301!
 /components/layer/side-drawer-layer /components/layer 301!
 /components/layer/fullscreen-layer /components/layer 301!
-/templates/forms/managing-child-objects /templates/forms 307!
-/templates/forms/managing-child-objects/* /templates/forms 307!
+/templates/forms/managing-child-objects /templates/forms 301!
+/templates/forms/managing-child-objects/* /templates/forms 301!
