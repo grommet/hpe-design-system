@@ -47,6 +47,14 @@ const ROUTE_EXCLUSIONS = new Set(['404', '500', '_app', '_document', '_error']);
 // Do not add entries for missing content routes; create page files instead.
 const STRUCTURE_ROUTE_FILE_ALLOWLIST = new Set<string>(['/show-more']);
 
+// Page files that intentionally have no structure entry because they are
+// hidden from the site and redirected (see apps/docs/_redirects). The file is
+// retained so historical/deep links resolve, but it is excluded from the
+// navigable structure.
+const REDIRECT_ONLY_ROUTE_ALLOWLIST = new Set<string>([
+  '/templates/forms/managing-child-objects',
+]);
+
 const toRoutePath = (relativePath: string) => {
   const segments = relativePath.split(path.sep);
   const fileName = segments[segments.length - 1];
@@ -282,7 +290,9 @@ describe('Structure Data Validation', () => {
       );
 
       const missingStructureEntries = [...routesFromFiles].filter(
-        route => !routesFromStructure.has(route),
+        route =>
+          !routesFromStructure.has(route) &&
+          !REDIRECT_ONLY_ROUTE_ALLOWLIST.has(route),
       );
 
       expect(

@@ -73,14 +73,7 @@ vi.mock('../../data', () => {
     },
     {
       name: 'Forms',
-      pages: ['Managing child objects'],
       seoDescription: 'Forms',
-    },
-    {
-      name: 'Managing child objects',
-      path: '/templates/forms/managing-child-objects',
-      parentPage: 'Forms',
-      seoDescription: 'Managing child objects',
     },
     {
       name: 'External docs',
@@ -162,10 +155,6 @@ describe('nameToPath', () => {
         path: '/components/card/call-to-action-card',
       },
       { name: 'Navigational card', path: '/components/card/navigational-card' },
-      {
-        name: 'Managing child objects',
-        path: '/templates/forms/managing-child-objects',
-      },
     ];
 
     explicitPathRoutes.forEach(route => {
