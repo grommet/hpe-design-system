@@ -1,0 +1,176 @@
+id: select
+name: Select
+description: A dropdown input element that allows users to choose a single value from a predefined list of options.
+importPath: grommet
+props:
+  - name: id
+    type: string
+    required: false
+    description: Unique identifier for the Select input. Used to associate the input with a FormField label via htmlFor="${id}__input".
+  - name: name
+    type: string
+    required: false
+    description: Name attribute for the Select input, used when the component is within a form.
+  - name: options
+    type: "string[] | object[]"
+    required: true
+    description: Array of option values to display in the dropdown list.
+  - name: value
+    type: string | object
+    required: false
+    description: Currently selected value.
+  - name: onChange
+    type: "({ option, value, selected }: { option: string | object; value: string | object; selected: number[] }) => void"
+    required: false
+    description: Callback invoked when the user selects an option.
+  - name: placeholder
+    type: string
+    required: false
+    description: Placeholder text displayed when no value is selected.
+  - name: disabled
+    type: "boolean | string[] | object[]"
+    required: false
+    description: When true, the Select input is non-interactive. Can also be an array to disable specific options.
+  - name: onSearch
+    type: "(text: string) => void"
+    required: false
+    description: Callback invoked on search input change. When provided, a search input is rendered inside the dropdown.
+  - name: onClose
+    type: "() => void"
+    required: false
+    description: Callback invoked when the dropdown closes.
+  - name: searchPlaceholder
+    type: string
+    required: false
+    description: Placeholder text for the search input inside the dropdown.
+  - name: labelKey
+    type: string
+    required: false
+    description: When options is an array of objects, specifies the key to use as the display label.
+  - name: valueKey
+    type: string
+    required: false
+    description: When options is an array of objects, specifies the key to use as the selection value.
+usage:
+  whenToUse:
+    - Choosing a single value from a predefined list when screen space needs to be conserved.
+    - Collecting standardized, controlled input values to ensure data consistency.
+    - Presenting a moderate-to-large set of options that would be unwieldy as radio buttons or checkboxes.
+    - Enabling users to filter a long list by incorporating search functionality with the onSearch callback.
+  whenToAvoid:
+    - Avoid when there are fewer than five options — use RadioButtonGroup or CheckBoxGroup for faster, more visible selection.
+    - Avoid when values are well known and typeable (e.g., Year, Country by postal code) — use TextInput with suggestions or MaskedInput instead.
+    - Avoid for selecting multiple values from more than five options — use SelectMultiple.
+    - Avoid using Select for a State/Province field in an address form — consider collecting only ZIP/Postal Code and deriving the remaining fields automatically.
+variants:
+  - name: default
+    description: Standard single-selection dropdown with a trigger control and option list.
+    when: When users need to select a single value from a short-to-moderate list of predefined options.
+  - name: with-search
+    description: Adds a search input inside the dropdown to filter the option list by typed text.
+    when: When the option list is long enough that scrolling becomes cumbersome, such as a country or region list.
+anatomy:
+  - label: '1'
+    region: Control / Trigger button
+    purpose: Opens the option list when activated; displays the currently selected value or placeholder.
+    availability: required
+  - label: 1a
+    region: Selected value or placeholder
+    purpose: Shows the currently selected option or placeholder text when nothing is selected.
+    availability: required
+  - label: 1b
+    region: Chevron indicator
+    purpose: Visual cue indicating the control can be expanded to reveal options.
+    availability: required
+  - label: '2'
+    region: Drop container
+    purpose: Contains the list of options displayed when the dropdown is open.
+    availability: required
+  - label: '3'
+    region: Option item
+    purpose: Represents a single selectable value within the dropdown list.
+    availability: required
+  - label: '4'
+    region: Search input
+    purpose: Allows users to filter the option list by typing.
+    availability: optional
+    notes: Present only in the with-search variant; enabled by providing the onSearch prop.
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+    - open
+  applicationStates:
+    - disabled
+    - validation-error
+  dataStates:
+    - empty
+    - has-value
+contentGuidelines:
+  - Use concise, descriptive labels for each option; avoid generic values such as "Item 1" or "Option A".
+  - Write option labels in sentence case.
+  - Use a placeholder that describes the expected selection (e.g., "Select a region") rather than generic text like "Select...".
+  - Always pair Select with a FormField label to communicate the purpose of the input to all users.
+dosAndDonts:
+  - do: Enable Select with Search (onSearch) when presenting long lists such as countries or regions.
+    dont: Present an unfiltered long dropdown that requires excessive scrolling.
+    reason: Filtering reduces cognitive load and speeds up selection for lengthy option sets.
+  - do: Provide a meaningful placeholder that describes what the user should select.
+    dont: Leave the Select without a placeholder or label.
+    reason: Missing context leaves users unclear about what the input expects.
+examples:
+  - description: Generic playground Select input within a form field.
+    path: apps/docs/src/examples/components/select/SelectExample.js
+  - description: Select used to choose a department from a predefined list.
+    path: apps/docs/src/examples/components/select/SelectChoosingValueExample.js
+  - description: Select with search for filtering a long list of options.
+    path: apps/docs/src/examples/components/select/SelectSearchExample.js
+  - description: Select with validation error state.
+    path: apps/docs/src/examples/components/select/SelectValidationExample.js
+  - description: Select in a disabled state, conditionally enabled by a checkbox.
+    path: apps/docs/src/examples/components/select/SelectDisabledExample.js
+accessibility:
+  wcagDataFile: select
+  keyboard:
+    - key: Space / Enter
+      action: Opens the dropdown when the control is focused
+    - key: Escape
+      action: Closes the dropdown and returns focus to the trigger control
+    - key: Arrow Down / Arrow Up
+      action: Moves focus between options when the dropdown is open
+    - key: Enter
+      action: Selects the focused option and closes the dropdown
+    - key: Tab
+      action: Moves focus to the next focusable element; closes the dropdown if open
+  aria:
+    - attribute: aria-expanded
+      value: "true | false"
+      condition: Reflects whether the option list is open or closed
+    - attribute: aria-haspopup
+      value: listbox
+      condition: always
+    - attribute: aria-labelledby
+      value: FormField label element id
+      condition: When paired with FormField; associate via htmlFor="${id}__input" on FormField and id on Select
+  announcements:
+    - trigger: Option selected
+      message: "Selected {option}."
+  wcag:
+    - criterion: 1.3.1 Info and Relationships
+      status: pass
+    - criterion: 1.4.3 Contrast (Minimum)
+      status: pass
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 2.4.7 Focus Visible
+      status: pass
+    - criterion: 4.1.2 Name, Role, Value
+      status: pass
+relatedComponents:
+  - selectmultiple
+  - radiobuttongroup
+  - checkboxgroup
+  - textinput
+  - maskedinput
