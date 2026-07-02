@@ -1,6 +1,6 @@
 # Figma Sync Data Model Documentation
 
-This document describes the data model and operational flows for the Figma token sync system. For setup, environment variables, and command reference, see [README.md](README.md). For CLI flag semantics and safety contracts, see [contracts/figma-sync-cli-contract.md](contracts/figma-sync-cli-contract.md).
+This document describes the data model and operational flows for the Figma token sync system. For setup, environment variables, and command reference, see [README.md](../README.md). For CLI flag semantics and safety contracts, see [contracts/figma-sync-cli-contract.md](../contracts/figma-sync-cli-contract.md).
 
 ## Entity Relationship Diagram
 

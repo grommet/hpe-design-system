@@ -79,7 +79,7 @@ At this point, the duplicated working files still contain library references to 
 
 The working tokens files have now been duplicated and their requisite library dependencies have be re-linked so that variable collection references are properly mapped within the working files.
 
-Syncing, modifying, and testing with the `sync-tokens-to-figma` and `sync-figma-to-tokens` workflows can now be conducted.
+Syncing, modifying, and testing with the `sync-tokens-to-figma` and `sync-figma-to-tokens` operational workflows can now be conducted.
 
 ## Troubleshooting
 

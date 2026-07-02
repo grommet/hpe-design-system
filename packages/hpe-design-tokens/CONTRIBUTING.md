@@ -70,7 +70,7 @@ pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output toke
 When behavior changes, update docs in the same PR:
 
 - `README.md` for package entrypoints
-- `OPERATIONS.md` for runbooks and command usage
+- `docs/OPERATIONS.md` for runbooks and command usage
 - `contracts/figma-sync-cli-contract.md` for command/flag/output contracts
 - `contracts/figma-sync-failure-codes.md` for error code semantics
 

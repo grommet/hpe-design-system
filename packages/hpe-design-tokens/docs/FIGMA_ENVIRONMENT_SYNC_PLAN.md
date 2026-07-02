@@ -14,10 +14,10 @@ This plan is written for engineers and automation agents.
 
 ## Baseline Constraints
 
-- Current push uses a single environment key set: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts#L16).
-- Current pull uses a single environment key set: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts#L41).
-- Current alias resolution uses a two-pass published+local approach: for each stage that depends on another file, the script fetches published variables from the dependency file, remaps their `subscribed_id` fields to the subscriber file's per-collection hash (extracted from `getLocalVariables`), then merges with any already-imported remote vars and filters to in-scope IDs. See [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts).
-- Current reference verification is single-environment: [src/utils.ts](src/utils.ts#L64).
+- Current push uses a single environment key set: [src/scripts/sync_tokens_to_figma.ts](../src/scripts/sync_tokens_to_figma.ts#L16).
+- Current pull uses a single environment key set: [src/scripts/sync_figma_to_tokens.ts](../src/scripts/sync_figma_to_tokens.ts#L41).
+- Current alias resolution uses a two-pass published+local approach: for each stage that depends on another file, the script fetches published variables from the dependency file, remaps their `subscribed_id` fields to the subscriber file's per-collection hash (extracted from `getLocalVariables`), then merges with any already-imported remote vars and filters to in-scope IDs. See [src/scripts/sync_tokens_to_figma.ts](../src/scripts/sync_tokens_to_figma.ts).
+- Current reference verification is single-environment: [src/utils.ts](../src/utils.ts#L64).
 
 ## Target Architecture
 
@@ -243,11 +243,11 @@ Phase 0 execution status: completed
 
 Frozen artifacts:
 
-- CLI contract: [contracts/figma-sync-cli-contract.md](contracts/figma-sync-cli-contract.md)
-- Failure code catalog: [contracts/figma-sync-failure-codes.md](contracts/figma-sync-failure-codes.md)
-- Stage-status schema: [contracts/schemas/figma-sync.stage-status.schema.json](contracts/schemas/figma-sync.stage-status.schema.json)
-- Run-summary schema: [contracts/schemas/figma-sync.run-summary.schema.json](contracts/schemas/figma-sync.run-summary.schema.json)
-- Error schema: [contracts/schemas/figma-sync.error.schema.json](contracts/schemas/figma-sync.error.schema.json)
+- CLI contract: [contracts/figma-sync-cli-contract.md](../contracts/figma-sync-cli-contract.md)
+- Failure code catalog: [contracts/figma-sync-failure-codes.md](../contracts/figma-sync-failure-codes.md)
+- Stage-status schema: [contracts/schemas/figma-sync.stage-status.schema.json](../contracts/schemas/figma-sync.stage-status.schema.json)
+- Run-summary schema: [contracts/schemas/figma-sync.run-summary.schema.json](../contracts/schemas/figma-sync.run-summary.schema.json)
+- Error schema: [contracts/schemas/figma-sync.error.schema.json](../contracts/schemas/figma-sync.error.schema.json)
 
 ### Phase 1: Config and CLI
 
@@ -259,13 +259,13 @@ Phase 1 execution status: completed
 
 Implemented artifacts:
 
-- Environment resolver: [src/figma_sync_config.ts](src/figma_sync_config.ts)
-- Push script wiring: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
-- Pull script wiring: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts)
-- Env-scoped reference validation input: [src/utils.ts](src/utils.ts)
-- Resolver tests: [src/tests/figma_sync_config.test.ts](src/tests/figma_sync_config.test.ts)
-- Env template updates: [.env.example](.env.example)
-- Usage docs updates: [README.md](README.md)
+- Environment resolver: [src/figma_sync_config.ts](../src/figma_sync_config.ts)
+- Push script wiring: [src/scripts/sync_tokens_to_figma.ts](../src/scripts/sync_tokens_to_figma.ts)
+- Pull script wiring: [src/scripts/sync_figma_to_tokens.ts](../src/scripts/sync_figma_to_tokens.ts)
+- Env-scoped reference validation input: [src/utils.ts](../src/utils.ts)
+- Resolver tests: [src/tests/figma_sync_config.test.ts](../src/tests/figma_sync_config.test.ts)
+- Env template updates: [.env.example](../.env.example)
+- Usage docs updates: [README.md](../README.md)
 
 ### Phase 2: Stage Executor
 
@@ -277,10 +277,10 @@ Phase 2 execution status: completed
 
 Implemented artifacts:
 
-- Shared stage event utilities: [src/sync_events.ts](src/sync_events.ts)
-- Push script sequential stage executor: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
-- Pull script sequential stage executor: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts)
-- Stage utility tests: [src/tests/sync_events.test.ts](src/tests/sync_events.test.ts)
+- Shared stage event utilities: [src/sync_events.ts](../src/sync_events.ts)
+- Push script sequential stage executor: [src/scripts/sync_tokens_to_figma.ts](../src/scripts/sync_tokens_to_figma.ts)
+- Pull script sequential stage executor: [src/scripts/sync_figma_to_tokens.ts](../src/scripts/sync_figma_to_tokens.ts)
+- Stage utility tests: [src/tests/sync_events.test.ts](../src/tests/sync_events.test.ts)
 
 ### Phase 3: Alias Rebinding
 
@@ -292,11 +292,11 @@ Phase 3 execution status: completed
 
 Implemented artifacts:
 
-- Alias lookup + collision detection utility: [src/sync_events.ts](src/sync_events.ts)
-- Push stage alias cache refresh hooks + structured alias stage failures: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
-- Alias normalization + structured alias error callbacks in payload generation: [src/token_import.ts](src/token_import.ts)
-- Alias/cache utility tests: [src/tests/sync_events.test.ts](src/tests/sync_events.test.ts)
-- Alias rebinding hook tests: [src/tests/token_import_alias_resolution.test.ts](src/tests/token_import_alias_resolution.test.ts)
+- Alias lookup + collision detection utility: [src/sync_events.ts](../src/sync_events.ts)
+- Push stage alias cache refresh hooks + structured alias stage failures: [src/scripts/sync_tokens_to_figma.ts](../src/scripts/sync_tokens_to_figma.ts)
+- Alias normalization + structured alias error callbacks in payload generation: [src/token_import.ts](../src/token_import.ts)
+- Alias/cache utility tests: [src/tests/sync_events.test.ts](../src/tests/sync_events.test.ts)
+- Alias rebinding hook tests: [src/tests/token_import_alias_resolution.test.ts](../src/tests/token_import_alias_resolution.test.ts)
 
 ### Phase 4: Safety and Validation
 
@@ -308,11 +308,11 @@ Phase 4 execution status: completed
 
 Implemented artifacts:
 
-- Production mutation guardrail enforcement utility: [src/figma_sync_config.ts](src/figma_sync_config.ts)
-- Push preflight validation + guardrail enforcement + preflight event reporting: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
-- Pull preflight validation + guardrail status propagation + preflight event reporting: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts)
-- Environment-scoped reference validation report output: [src/utils.ts](src/utils.ts)
-- Guardrail validation tests: [src/tests/figma_sync_config.test.ts](src/tests/figma_sync_config.test.ts)
+- Production mutation guardrail enforcement utility: [src/figma_sync_config.ts](../src/figma_sync_config.ts)
+- Push preflight validation + guardrail enforcement + preflight event reporting: [src/scripts/sync_tokens_to_figma.ts](../src/scripts/sync_tokens_to_figma.ts)
+- Pull preflight validation + guardrail status propagation + preflight event reporting: [src/scripts/sync_figma_to_tokens.ts](../src/scripts/sync_figma_to_tokens.ts)
+- Environment-scoped reference validation report output: [src/utils.ts](../src/utils.ts)
+- Guardrail validation tests: [src/tests/figma_sync_config.test.ts](../src/tests/figma_sync_config.test.ts)
 
 ### Phase 5: Test and Rollout
 
@@ -324,18 +324,18 @@ Phase 5 execution status: completed
 
 Implemented artifacts:
 
-- Contract schema validation tests (stage-status + run-summary): [src/tests/sync_contract_schemas.test.ts](src/tests/sync_contract_schemas.test.ts)
-- Error normalization for schema-compliant run-summary payloads: [src/sync_events.ts](src/sync_events.ts)
-- Schema-compliant run-summary emission in push flow: [src/scripts/sync_tokens_to_figma.ts](src/scripts/sync_tokens_to_figma.ts)
-- Schema-compliant run-summary emission in pull flow: [src/scripts/sync_figma_to_tokens.ts](src/scripts/sync_figma_to_tokens.ts)
-- Pilot and rollback drill runbook: [contracts/figma-sync-rollout-runbook.md](contracts/figma-sync-rollout-runbook.md)
-- Contract test command: [package.json](package.json)
+- Contract schema validation tests (stage-status + run-summary): [src/tests/sync_contract_schemas.test.ts](../src/tests/sync_contract_schemas.test.ts)
+- Error normalization for schema-compliant run-summary payloads: [src/sync_events.ts](../src/sync_events.ts)
+- Schema-compliant run-summary emission in push flow: [src/scripts/sync_tokens_to_figma.ts](../src/scripts/sync_tokens_to_figma.ts)
+- Schema-compliant run-summary emission in pull flow: [src/scripts/sync_figma_to_tokens.ts](../src/scripts/sync_figma_to_tokens.ts)
+- Pilot and rollback drill runbook: [contracts/figma-sync-rollout-runbook.md](../contracts/figma-sync-rollout-runbook.md)
+- Contract test command: [package.json](../package.json)
 
 Operational rollout execution status (2026-06-23): completed in test environment
 
 - Test-environment collection keys were reconciled and preflight validation is now passing for normal sync runs.
 - Bi-directional sync is operating successfully for isolated test files (push and pull).
-- Historical blocked snapshots and remediation timeline remain documented in [contracts/figma-sync-rollout-runbook.md](contracts/figma-sync-rollout-runbook.md).
+- Historical blocked snapshots and remediation timeline remain documented in [contracts/figma-sync-rollout-runbook.md](../contracts/figma-sync-rollout-runbook.md).
 
 ## Test Plan
 
@@ -346,7 +346,7 @@ Operational rollout execution status (2026-06-23): completed in test environment
 - alias resolver happy path and failures
 - environment-scoped reference validation
 
-Likely file: [src/tests/token_import.test.ts](src/tests/token_import.test.ts).
+Likely file: [src/tests/token_import.test.ts](../src/tests/token_import.test.ts).
 
 ### Integration (Mocked Figma API)
 

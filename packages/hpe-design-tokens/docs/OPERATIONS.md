@@ -86,7 +86,7 @@ Policy: do not use bootstrap for routine production syncs.
   - Local: add `--confirm-production`.
   - CI: set `ALLOW_PRODUCTION_WRITES=true`.
 
-See `contracts/figma-sync-failure-codes.md` for full error semantics.
+See `../contracts/figma-sync-failure-codes.md` for full error semantics.
 
 ## Machine-Readable Outputs
 
@@ -98,7 +98,7 @@ Primary events emitted by sync scripts:
 
 Schemas and contracts:
 
-- `contracts/schemas/`
-- `contracts/figma-sync-cli-contract.md`
-- `contracts/figma-sync-failure-codes.md`
+- `../contracts/schemas/`
+- `../contracts/figma-sync-cli-contract.md`
+- `../contracts/figma-sync-failure-codes.md`
 

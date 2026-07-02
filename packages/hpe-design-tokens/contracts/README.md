@@ -33,4 +33,4 @@ This directory contains the stable, machine-integration-facing contracts for Fig
 For package-level setup and operational usage, see:
 
 - `../README.md`
-- `../FIGMA_ENVIRONMENT_SYNC_PLAN.md`
+- `../docs/FIGMA_ENVIRONMENT_SYNC_PLAN.md`

@@ -6,9 +6,9 @@ Design tokens for use with the HPE Design System.
 
 - Consumer usage: [HPE Design System design tokens documentation](https://design-system.hpe.design/design-tokens)
 - Contributor workflow: [CONTRIBUTING.md](CONTRIBUTING.md)
-- Maintainer operations and runbooks: [OPERATIONS.md](OPERATIONS.md)
-- Environment-isolated sync implementation context: [FIGMA_ENVIRONMENT_SYNC_PLAN.md](FIGMA_ENVIRONMENT_SYNC_PLAN.md)
-- Sync data model and flow details: [DOCUMENTATION.md](DOCUMENTATION.md)
+- Maintainer operations and runbooks: [docs/OPERATIONS.md](docs/OPERATIONS.md)
+- Environment-isolated sync implementation context: [docs/FIGMA_ENVIRONMENT_SYNC_PLAN.md](docs/FIGMA_ENVIRONMENT_SYNC_PLAN.md)
+- Sync data model and flow details: [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md)
 - Sync contracts: [contracts/README.md](contracts/README.md)
 
 ## Install
@@ -45,7 +45,7 @@ pnpm --filter hpe-design-tokens test:contracts
 pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test --dry-run
 ```
 
-See [OPERATIONS.md](OPERATIONS.md) for full sync runbooks, troubleshooting, and script coverage.
+See [docs/OPERATIONS.md](docs/OPERATIONS.md) for full sync runbooks, troubleshooting, and script coverage.
 
 ## License
 
