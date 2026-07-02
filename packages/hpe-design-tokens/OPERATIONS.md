@@ -47,6 +47,10 @@ pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output toke
 
 Use only when collection keys are not established yet.
 
+Prerequisites:
+- [ ] Fresh Figma files created
+- [ ] Figma file keys added to .env
+
 1. First push in bootstrap mode:
 
 ```bash
