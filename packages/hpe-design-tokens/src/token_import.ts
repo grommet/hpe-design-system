@@ -9,25 +9,59 @@ import {
   ApiGetLocalVariablesResponse,
   VariableChange,
   VariableCodeSyntax,
+  VariableScope,
 } from './figma_api.js';
 import { colorApproximatelyEqual, parseColor } from './color.js';
 import { areSetsEqual, excludedNameParts, isReference } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 
-const shadowToVariables = (name: any, values: any) => {
-  const floatValue = (property: any) => ({
+type FlattenedTokens = {
+  [tokenName: string]: Token;
+};
+
+type ShadowNumericValue = number | string;
+
+type ShadowStep = {
+  color: string;
+  offsetX: ShadowNumericValue;
+  offsetY: ShadowNumericValue;
+  blur: ShadowNumericValue;
+  spread: ShadowNumericValue;
+  inset?: boolean | string;
+};
+
+type ShadowToken = Token & {
+  $type: 'shadow';
+  $value: string | ShadowStep | ShadowStep[];
+};
+
+type BorderStep = {
+  width: ShadowNumericValue;
+  color: string;
+  style: string;
+};
+
+type BorderToken = Token & {
+  $type: 'border';
+  $value: BorderStep;
+};
+
+function shadowToVariables(name: string, values: ShadowStep): FlattenedTokens {
+  const floatValue = (
+    property: keyof Pick<ShadowStep, 'offsetX' | 'offsetY' | 'blur' | 'spread'>,
+  ): Token => ({
     $value: values[property],
     $type: 'number',
     $extensions: {
       'com.figma': {
         hiddenFromPublishing: false,
-        scopes: ['EFFECT_FLOAT'],
+        scopes: ['EFFECT_FLOAT' as VariableScope],
         codeSyntax: {},
       },
     },
   });
 
-  const res: { [key: string]: any } = {};
+  const res: FlattenedTokens = {};
   res[`${name}/offsetX`] = floatValue('offsetX');
   res[`${name}/offsetY`] = floatValue('offsetY');
   res[`${name}/blur`] = floatValue('blur');
@@ -38,7 +72,7 @@ const shadowToVariables = (name: any, values: any) => {
     $extensions: {
       'com.figma': {
         hiddenFromPublishing: false,
-        scopes: ['EFFECT_COLOR'],
+        scopes: ['EFFECT_COLOR' as VariableScope],
         codeSyntax: {},
       },
     },
@@ -58,64 +92,88 @@ const shadowToVariables = (name: any, values: any) => {
   }
 
   return res;
-};
+}
 
-const transformShadow = (name: string, token: any) => {
-  let tokens = {};
-  const value = token['$value'];
+function isShadowStep(value: unknown): value is ShadowStep {
+  if (!value || typeof value !== 'object') {
+    return false;
+  }
+
+  return (
+    'color' in value &&
+    'offsetX' in value &&
+    'offsetY' in value &&
+    'blur' in value &&
+    'spread' in value
+  );
+}
+
+function transformShadow(name: string, token: ShadowToken): FlattenedTokens {
+  const value = token.$value;
 
   // if shadow is referencing a shadow from the color collection,
   // we need to determine how many shadows exist and build up
   // the references for each shadow part
-  if (isReference(value)) {
+  if (typeof value === 'string' && isReference(value)) {
     // get that shadow from the global set to figure out how many shadows exist
-    const raw = fs.readFileSync('./tokens/semantic/color.light.json'); // using light mode to get reference
-    const parsed = JSON.parse(raw.toString());
-    const shadowRef = parsed.shadow[value.slice(1, -1).split('.')[1]].$value;
+    const raw = fs.readFileSync('./tokens/semantic/color.light.json');
+    const parsed = JSON.parse(raw.toString()) as {
+      shadow?: Record<string, { $value: ShadowStep | ShadowStep[] }>;
+    };
+    const shadowName = value.slice(1, -1).split('.')[1];
+    const shadowRef = parsed.shadow?.[shadowName]?.$value;
+
+    if (shadowRef === undefined) {
+      throw new Error(`Invalid shadow reference: ${value}`);
+    }
+
     const numShadows = Array.isArray(shadowRef) ? shadowRef.length : 1;
-
     const ref = value.slice(1, -1).split('.').join('/');
-    for (let i = 0; i < numShadows; i += 1) {
-      tokens = {
-        ...tokens,
-        ...shadowToVariables(`${name}/${i + 1}`, {
-          color: `{${ref}/${i + 1}/color}`,
-          offsetX: `{${ref}/${i + 1}/offsetX}`,
-          offsetY: `{${ref}/${i + 1}/offsetY}`,
-          blur: `{${ref}/${i + 1}/blur}`,
-          spread: `{${ref}/${i + 1}/spread}`,
-        }),
-      };
-    }
-  } else {
-    const shadowValues = !Array.isArray(value) ? [value] : value;
 
-    // loop through shadows and add the index to the name
-    for (const [index, stepValue] of shadowValues.entries()) {
-      tokens = {
-        ...tokens,
-        ...shadowToVariables(`${name}/${index + 1}`, stepValue),
-      };
-    }
+    return Array.from({ length: numShadows }, (_, index) => {
+      const shadowIndex = index + 1;
+
+      return shadowToVariables(`${name}/${shadowIndex}`, {
+        color: `{${ref}/${shadowIndex}/color}`,
+        offsetX: `{${ref}/${shadowIndex}/offsetX}`,
+        offsetY: `{${ref}/${shadowIndex}/offsetY}`,
+        blur: `{${ref}/${shadowIndex}/blur}`,
+        spread: `{${ref}/${shadowIndex}/spread}`,
+      });
+    }).reduce<FlattenedTokens>(
+      (tokens, shadowTokens) => ({ ...tokens, ...shadowTokens }),
+      {},
+    );
   }
 
-  return tokens;
-};
+  const shadowValues = Array.isArray(value) ? value : [value];
 
-const borderToVariables = (name: any, values: any) => {
-  const floatValue = (property: any) => ({
+  return shadowValues.reduce<FlattenedTokens>((tokens, stepValue, index) => {
+    if (!isShadowStep(stepValue)) {
+      throw new Error(`Invalid shadow token value for ${name}`);
+    }
+
+    return {
+      ...tokens,
+      ...shadowToVariables(`${name}/${index + 1}`, stepValue),
+    };
+  }, {});
+}
+
+function borderToVariables(name: string, values: BorderStep): FlattenedTokens {
+  const floatValue = (property: 'width'): Token => ({
     $type: 'number',
     $value: values[property],
     $extensions: {
       'com.figma': {
         hiddenFromPublishing: false,
-        scopes: ['EFFECT_FLOAT'],
+        scopes: ['EFFECT_FLOAT' as VariableScope],
         codeSyntax: {},
       },
     },
   });
 
-  const res: { [key: string]: any } = {};
+  const res: FlattenedTokens = {};
   res[`${name}/width`] = floatValue('width');
   res[`${name}/color`] = {
     $type: 'color',
@@ -123,7 +181,7 @@ const borderToVariables = (name: any, values: any) => {
     $extensions: {
       'com.figma': {
         hiddenFromPublishing: false,
-        scopes: ['EFFECT_COLOR'],
+        scopes: ['EFFECT_COLOR' as VariableScope],
         codeSyntax: {},
       },
     },
@@ -141,27 +199,96 @@ const borderToVariables = (name: any, values: any) => {
   };
 
   return res;
-};
+}
 
-const transformBorder = (name: string, token: any) => {
-  let tokens = {};
-  const value = token['$value'];
-  tokens = {
-    ...tokens,
-    ...borderToVariables(name, value),
-  };
+function transformBorder(name: string, token: BorderToken): FlattenedTokens {
+  return borderToVariables(name, token.$value);
+}
 
-  return tokens;
-};
 export type FlattenedTokensByFile = {
   [fileName: string]: {
     [tokenName: string]: Token;
   };
 };
 
+export type AliasResolutionError = {
+  code: 'ALIAS_NOT_FOUND' | 'ALIAS_COLLISION' | 'ALIAS_CROSS_TIER_INVALID';
+  message: string;
+  stage?: string;
+  tokenPath: string;
+  sourceFile: string;
+  environment?: string;
+  remediation: string;
+};
+
+type GeneratePostVariablesPayloadOptions = {
+  aliasLookup?: Record<string, string>;
+  stage?: string;
+  environment?: string;
+  onAliasResolutionError?: (error: AliasResolutionError) => void;
+  plannedVariableIds?: Set<string>;
+};
+
+function fillTraverseCollection(
+  tokens: FlattenedTokens,
+  key: string,
+  object: TokenOrTokenGroup,
+) {
+  const acc = tokens;
+
+  // if key is a meta field, move on
+  if (key.charAt(0) === '$') {
+    return;
+  }
+
+  if (object.$value !== undefined) {
+    if (object.$type === 'shadow') {
+      Object.assign(acc, transformShadow(key, object as ShadowToken));
+      return;
+    }
+
+    if (object.$type === 'border') {
+      Object.assign(acc, transformBorder(key, object as BorderToken));
+      return;
+    }
+
+    acc[key] = object;
+    return;
+  }
+
+  Object.entries<TokenOrTokenGroup>(object).forEach(([key2, object2]) => {
+    if (key2.charAt(0) === '$' || typeof object2 !== 'object') {
+      return;
+    }
+
+    fillTraverseCollection(acc, `${key}/${key2}`, object2);
+  });
+}
+
+function flattenTokensFile(tokensFile: TokensFile) {
+  const flattenedTokens: FlattenedTokens = {};
+
+  Object.entries(tokensFile).forEach(([tokenGroup, groupValues]) => {
+    fillTraverseCollection(flattenedTokens, tokenGroup, groupValues);
+  });
+
+  return flattenedTokens;
+}
+
+function collectionAndModeFromFileName(fileName: string) {
+  const fileNameParts = fileName.split('.');
+  if (fileNameParts.length < 3) {
+    throw new Error(
+      `Invalid tokens file name: ${fileName}. File names must be ` +
+        'in the format: {collectionName}.{modeName}.json',
+    );
+  }
+  const [collectionName, modeName] = fileNameParts;
+  return { collectionName, modeName };
+}
+
 export function readJsonFiles(files: string[]) {
   const tokensJsonByFile: FlattenedTokensByFile = {};
-
   const seenCollectionsAndModes = new Set<string>();
 
   files.forEach(file => {
@@ -180,76 +307,12 @@ export function readJsonFiles(files: string[]) {
     if (!fileContent) {
       throw new Error(`Invalid tokens file: ${file}. File is empty.`);
     }
-    const tokensFile: TokensFile = JSON.parse(fileContent);
 
+    const tokensFile: TokensFile = JSON.parse(fileContent);
     tokensJsonByFile[baseFileName] = flattenTokensFile(tokensFile);
   });
 
   return tokensJsonByFile;
-}
-
-function flattenTokensFile(tokensFile: TokensFile) {
-  const flattenedTokens: { [tokenName: string]: Token } = {};
-
-  Object.entries(tokensFile).forEach(([tokenGroup, groupValues]) => {
-    traverseCollection({
-      key: tokenGroup,
-      object: groupValues,
-      tokens: flattenedTokens,
-    });
-  });
-
-  return flattenedTokens;
-}
-
-function traverseCollection({
-  key,
-  object,
-  tokens,
-}: {
-  key: string;
-  object: TokenOrTokenGroup;
-  tokens: { [tokenName: string]: Token };
-}) {
-  // if key is a meta field, move on
-  if (key.charAt(0) === '$') {
-    return;
-  }
-
-  if (object.$value !== undefined) {
-    if (object.$type === 'shadow') {
-      const shadowTokens: { [key: string]: any } = transformShadow(key, object);
-      Object.keys(shadowTokens).forEach(shadowToken => {
-        tokens[shadowToken] = shadowTokens[shadowToken];
-      });
-    } else if (object.$type === 'border') {
-      const borderTokens: { [key: string]: any } = transformBorder(key, object);
-      Object.keys(borderTokens).forEach(borderToken => {
-        tokens[borderToken] = borderTokens[borderToken];
-      });
-    } else tokens[key] = object;
-  } else {
-    Object.entries<TokenOrTokenGroup>(object).forEach(([key2, object2]) => {
-      if (key2.charAt(0) !== '$' && typeof object2 === 'object') {
-        traverseCollection({
-          key: `${key}/${key2}`,
-          object: object2,
-          tokens,
-        });
-      }
-    });
-  }
-}
-
-function collectionAndModeFromFileName(fileName: string) {
-  const fileNameParts = fileName.split('.');
-  if (fileNameParts.length < 3) {
-    throw new Error(
-      `Invalid tokens file name: ${fileName}. File names must be in the format: {collectionName}.{modeName}.json`,
-    );
-  }
-  const [collectionName, modeName] = fileNameParts;
-  return { collectionName, modeName };
 }
 
 function variableResolvedTypeFromToken(token: Token) {
@@ -263,11 +326,13 @@ function variableResolvedTypeFromToken(token: Token) {
     case 'boolean':
       return 'BOOLEAN';
     case 'shadow':
-      return 'SHADOW'; // not directly supported by Figma, so we flatten to parts
+      // Not directly supported by Figma, so we flatten to parts.
+      return 'SHADOW';
     case 'fontFamily':
       return 'STRING';
     case 'border':
-      return 'BORDER'; // not directly supported by Figma, so we flatten to parts
+      // Not directly supported by Figma, so we flatten to parts.
+      return 'BORDER';
     // undefined since Figma Variables doesn't support yet
     case 'cubicBezier':
       return undefined;
@@ -285,9 +350,13 @@ function isAlias(value: string) {
 }
 
 /**
- * When pushing to Figma, we should strip off "DEFAULT" and "REST" to match simplified token outputs.
- * Also, format nested roles, prominence, or interaction to hyphenated ("-") approach
- * e.g. color/background/critical/weak/DEFAULT/REST --> color/background/critical-weak
+ * When pushing to Figma, strip off "DEFAULT" and "REST" to match
+ * simplified token outputs.
+ * Also format nested roles, prominence, or interaction to a
+ * hyphenated ("-") approach.
+ * Example:
+ * color/background/critical/weak/DEFAULT/REST becomes
+ * color/background/critical-weak
  * @param alias
  */
 const tokenAliasToFigmaAlias = (alias: string): string => {
@@ -313,48 +382,80 @@ const tokenAliasToFigmaAlias = (alias: string): string => {
   return adjustedName;
 };
 
+export const normalizeAliasReference = (value: string): string => {
+  return tokenAliasToFigmaAlias(
+    value.trim().replace(/\./g, '/').replace(/[{}]/g, ''),
+  );
+};
+
 function variableValueFromToken(
   token: Token,
+  tokenPath: string,
+  sourceFile: string,
   localVariablesByCollectionAndName: {
     [variableCollectionId: string]: { [variableName: string]: Variable };
   },
+  options: GeneratePostVariablesPayloadOptions = {},
 ): VariableValue {
   if (typeof token.$value === 'string' && isAlias(token.$value)) {
-    // Assume aliases are in the format {group.subgroup.token} with any number of optional groups/subgroups
-    // The Figma syntax for variable names is: group/subgroup/token
-    let value = token.$value
-      .trim()
-      .replace(/\./g, '/')
-      .replace(/[\{\}]/g, '');
+    const value = normalizeAliasReference(token.$value);
 
-    value = tokenAliasToFigmaAlias(value);
-    // When mapping aliases to existing local variables, we assume that variable names
-    // are unique *across all collections* in the Figma file
-    // TO DO how will this work with our density token concept is there are repeated
-    // variable names for spacing.medium on breakpoint/density?
-    for (const localVariablesByName of Object.values(
-      localVariablesByCollectionAndName,
-    )) {
-      if (localVariablesByName[value]) {
-        return {
-          type: 'VARIABLE_ALIAS',
-          id: localVariablesByName[value].id,
-        };
-      }
+    if (options.aliasLookup && options.aliasLookup[value]) {
+      return {
+        type: 'VARIABLE_ALIAS',
+        id: options.aliasLookup[value],
+      };
     }
 
-    // If we don't find a local variable matching the alias, we assume it's a variable
-    // that we're going to create elsewhere in the payload.
-    // If the file has an invalid alias, we rely on the Figma API to return a 400 error
+    // When mapping aliases to existing local variables, we assume
+    // variable names are unique across all collections in the file.
+    // TO DO how will this work with our density token concept if there
+    // are repeated
+    // variable names for spacing.medium on breakpoint/density?
+    const localAliasTarget = Object.values(
+      localVariablesByCollectionAndName,
+    ).find(localVariablesByName => localVariablesByName[value]);
+
+    if (localAliasTarget?.[value]) {
+      return {
+        type: 'VARIABLE_ALIAS',
+        id: localAliasTarget[value].id,
+      };
+    }
+
+    if (
+      options.aliasLookup &&
+      options.onAliasResolutionError &&
+      !options.plannedVariableIds?.has(value)
+    ) {
+      options.onAliasResolutionError({
+        code: 'ALIAS_NOT_FOUND',
+        message: `Alias target not found for "${value}"`,
+        stage: options.stage,
+        tokenPath,
+        sourceFile,
+        environment: options.environment,
+        remediation:
+          'Ensure dependent stage variables are synced and alias ' +
+          'cache was refreshed before retrying.',
+      });
+    }
+
+    // If we do not find a local variable matching the alias, assume it
+    // is a variable that will be created elsewhere in the payload.
+    // If the file has an invalid alias, rely on the Figma API to return
+    // a 400 error.
     return {
       type: 'VARIABLE_ALIAS',
       id: value,
     };
-  } else if (typeof token.$value === 'string' && token.$type === 'color') {
-    return parseColor(token.$value);
-  } else {
-    return token.$value;
   }
+
+  if (typeof token.$value === 'string' && token.$type === 'color') {
+    return parseColor(token.$value);
+  }
+
+  return token.$value;
 }
 
 function compareVariableValues(a: VariableValue, b: VariableValue) {
@@ -366,10 +467,16 @@ function compareVariableValues(a: VariableValue, b: VariableValue) {
       b.type === 'VARIABLE_ALIAS'
     ) {
       return a.id === b.id;
-    } else if ('r' in a && 'r' in b) {
+    }
+
+    if ('r' in a && 'r' in b) {
       return colorApproximatelyEqual(a, b);
     }
-  } else {
+
+    return false;
+  }
+
+  if (typeof a !== 'object' && typeof b !== 'object') {
     return a === b;
   }
 
@@ -393,8 +500,8 @@ function isCodeSyntaxEqual(a: VariableCodeSyntax, b: VariableCodeSyntax) {
  *
  * This function is being used to decide what properties to include in the
  * POST variables call to update variables in Figma. If a token does not have
- * a particular property, we do not include it in the differences object to avoid
- * touching that property in Figma.
+ * a particular property, we do not include it in the differences object
+ * to avoid touching that property in Figma.
  */
 function tokenAndVariableDifferences(token: Token, variable: Variable | null) {
   const differences: Partial<
@@ -448,12 +555,23 @@ function tokenAndVariableDifferences(token: Token, variable: Variable | null) {
 export function generatePostVariablesPayload(
   tokensByFile: FlattenedTokensByFile,
   localVariables: ApiGetLocalVariablesResponse,
+  options: GeneratePostVariablesPayloadOptions = {},
 ) {
   const localVariableCollectionsByName: { [name: string]: VariableCollection } =
     {};
   const localVariablesByCollectionAndName: {
     [variableCollectionId: string]: { [variableName: string]: Variable };
   } = {};
+
+  // Pre-scan all tokens to collect variable IDs planned for creation/update.
+  // This allows us to distinguish true missing aliases from same-payload refs.
+  const plannedVariableIds = new Set<string>();
+  Object.values(tokensByFile).forEach(tokens => {
+    Object.keys(tokens).forEach(tokenName => {
+      const adjustedName = tokenAliasToFigmaAlias(tokenName);
+      plannedVariableIds.add(adjustedName);
+    });
+  });
 
   Object.values(localVariables.meta.variableCollections).forEach(collection => {
     // Skip over remote collections because we can't modify them
@@ -491,6 +609,18 @@ export function generatePostVariablesPayload(
     Object.keys(localVariableCollectionsByName),
   );
 
+  // Merge user-provided plannedVariableIds with discovered ones.
+  if (options.plannedVariableIds) {
+    options.plannedVariableIds.forEach(id => {
+      plannedVariableIds.add(id);
+    });
+  }
+
+  const resolvedOptions = {
+    ...options,
+    plannedVariableIds,
+  };
+
   const postVariablesPayload: ApiPostVariablesPayload = {
     variableCollections: [],
     variableModes: [],
@@ -526,7 +656,8 @@ export function generatePostVariablesPayload(
         initialModeId: modeId, // Use the initial mode as the first mode
       });
 
-      // Rename the initial mode, since we're using it as our first mode in the collection
+      // Rename the initial mode since we are using it as the first
+      // mode in the collection.
       postVariablesPayload.variableModes!.push({
         action: 'UPDATE',
         id: modeId,
@@ -591,10 +722,14 @@ export function generatePostVariablesPayload(
         variable && variableMode ? variable.valuesByMode[modeId] : null;
       const newVariableValue = variableValueFromToken(
         token,
+        tokenName,
+        fileName,
         localVariablesByCollectionAndName,
+        resolvedOptions,
       );
 
-      // Only include the variable mode value in the payload if it's different from the existing value
+      // Only include the variable mode value in the payload if it is
+      // different from the existing value.
       if (
         resolvedType &&
         (existingVariableValue === null ||
