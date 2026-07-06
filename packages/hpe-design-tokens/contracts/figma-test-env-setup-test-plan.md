@@ -13,7 +13,8 @@ Before beginning, confirm all of the following are in place:
 
 - [ ] Node.js and pnpm installed
 - [ ] Repository dependencies installed: `pnpm install` from workspace root
-- [ ] Three empty Figma files created (primitive tier, semantic tier, component tier) with a Figma account that has edit access to all three
+- [ ] Three [duplicated Figma files](../docs/FIGMA_CREATE_TOKEN_FILES.md) created (primitive tier, semantic tier, component tier) with a Figma account that has edit access to all three
+  -- Note: Future enhancement would be to enhance the bootstrap script to enable setup to be applied to empty Figma files.
 - [ ] Figma Personal Access Token (PAT) for the test account is available — do **not** store in `.env`; export in shell or load from a secure store (Keychain, 1Password, etc.)
 - [ ] No existing `TEST_FIGMA_*_COLLECTION_KEY` values are set — these will be discovered during the test
 
