@@ -55,7 +55,14 @@ Before beginning, confirm all of the following are in place:
    - `TEST_FILE_KEY_SEMANTIC=<semantic file key>`
    - `TEST_FILE_KEY_COMPONENT=<component file key>`
 4. Confirm all three values are non-empty.
+   ```shell
+   source packages/hpe-design-tokens/.env
+   echo $TEST_FILE_KEY_PRIMITIVE $TEST_FILE_KEY_SEMANTIC $TEST_FILE_KEY_COMPONENT
+   ```
 5. Confirm `TEST_FIGMA_*_COLLECTION_KEY` values remain blank (these are discovered later).
+   ```shell
+   echo $TEST_FIGMA_COLOR_COLLECTION_KEY $TEST_FIGMA_DIMENSION_COLLECTION_KEY $TEST_FIGMA_PRIMITIVES_COLLECTION_KEY $TEST_FIGMA_GLOBAL_COLLECTION_KEY
+   ```
 
 **Expected result:** Three distinct file keys recorded. Collection key fields are empty.
 
@@ -72,10 +79,13 @@ Before beginning, confirm all of the following are in place:
 
 **Steps:**
 1. Export the PAT in the terminal session:
-   ```bash
+   ```shell
    export TEST_PERSONAL_ACCESS_TOKEN=<your-test-pat>
    ```
-2. Confirm the variable is present: `echo $TEST_PERSONAL_ACCESS_TOKEN`
+2. Confirm the variable is present: 
+   ```shell
+   echo $TEST_PERSONAL_ACCESS_TOKEN
+   ```
 
 **Expected result:** Variable echoes a non-empty value. Not written to `.env`.
 

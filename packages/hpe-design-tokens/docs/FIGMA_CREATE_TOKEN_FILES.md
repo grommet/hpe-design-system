@@ -75,6 +75,22 @@ At this point, the duplicated working files still contain library references to 
 6. Remove the primitives and semantic master files.
 7. Publish the component working file. Ensure the publishing scope is limited to the intended team -- not to pan-HPE design teams.
 
+## Primitives working file, again ☹️
+
+This is a step needed to resolve semantic colors consumed in the primitives' file cover -- a bit of a circular dependency.
+
+1. Open "Manage libraries" from the Assets menu.
+2. Add "Design Tokens - Semantic" master file.
+3. Add "Design Tokens - Semantic (your-working-file's-name)".
+4. Replace references to the master files with the working files.
+5. Select the master "Design Tokents - Semantic".
+  1. Select "Swap library".
+  2. From "Choose library", select "Design Tokens - Semantic (your-working-file's-name)".
+  3. From the "New variable collection," select the like-named equivalent for each "Used variable collection." In this case `color` is the only applicable collection.
+  4. Swap the libraries by clicking the "Swap library" button.
+6. Reopen "Manage libraries".
+7. Remove the semantic master file.
+  
 ## Conclusion
 
 The working tokens files have now been duplicated and their requisite library dependencies have be re-linked so that variable collection references are properly mapped within the working files.
@@ -88,3 +104,7 @@ Variable collections may only be swapped with collections consumed in the file. 
 As of this writing (2026-07-02), the master "Design Tokens - Component" file does not consume any variables from the semantic/dimension variable collection. To remedy, apply at least one semantic/dimension variable -- from the master file -- to an element within the file.
 
 Suggested remedy: Select the file's "Cover" layer, alter the cover's corner radius to consume a radius token from the **master** semantic file. Resume libray swap procedure. The `dimension` variable collection should now be available to swap.
+
+## Future enhancements
+
+This procedure includes steps which account for the current state of the master files. Some modifications / file cleanups to the master files (e.g., Use dimension token in component's file cover, color use in primitives' cover) can eliminate some of these steps.
