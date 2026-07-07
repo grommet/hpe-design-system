@@ -2,14 +2,23 @@
   "name": "@shared/hooks",
   "version": "0.0.0",
   "private": true,
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*.js"
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./*": {
+      "types": "./dist/esm/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js"
+    }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc -p tsconfig.build.esm.json && tsc -p tsconfig.build.cjs.json",
     "lint": "eslint . --max-warnings 0",
     "check-types": "tsc --noEmit",
     "test": "vitest"

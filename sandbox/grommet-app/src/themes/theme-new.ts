@@ -1,7 +1,5 @@
 import { hpe as hpeV8 } from 'grommet-theme-hpe';
-import * as themePreviewHooks from '@shared/hooks/useThemePreview';
-
-const { buildThemePreview } = themePreviewHooks;
+import { buildThemePreview } from '@shared/hooks/useThemePreview';
 
 const { theme: themePreview } = buildThemePreview();
 
