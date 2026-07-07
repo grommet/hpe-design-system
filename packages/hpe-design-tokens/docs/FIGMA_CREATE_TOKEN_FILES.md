@@ -53,26 +53,27 @@ After duplication, working files still reference master libraries. These referen
 
 ### Component working file
 
-1. Open "Manage libraries" from the Assets menu.
-2. Add "Design Tokens - Semantic (your-working-file's-name)".
-3. Pending further testing of the process, for good measure, also add:
-  - "Design Tokens - Primitives"
-  - "Design Tokens - Primitives (your-working-file's-name)"
-4. Replace references to the master files with the working files.
-  1. Select the master "Design Tokents - Primitives".
-  2. Select "Swap library".
-  3. From "Choose library", select "Design Tokens - Primitives (your-working-file's-name)".
-  4. From the "New variable collection," select the like-named equivalent for each "Used variable collection." In this case `primitives` is the only applicable collection.
-  5. Swap the libraries by clicking the "Swap library" button.
-  6. Reopen "Manage libraries".
-  7. Select the master "Design Tokents - Semantic".
-  8. Select "Swap library".
-  9. From "Choose library", select "Design Tokens - Semantic (your-working-file's-name)".
-  10. From the "New variable collection," select the like-named equivalent for each "Used variable collection." In this case `color`, `dimension`, and `global`. If all three collections are not present, see [#troubleshooting] before proceeding.
-  11. Swap the libraries by clicking the "Swap library" button.
-5. Reopen "Manage libraries".
-6. Remove the primitives and semantic master files.
-7. Publish the component working file. Ensure the publishing scope is limited to the intended team -- not to pan-HPE design teams.
+1. Open **Manage libraries** from the Assets menu.
+2. Add **Design Tokens - Semantic (your duplicated/new working file name)**.
+3. Pending further process validation, also add:
+   - **Design Tokens - Primitives**
+   - **Design Tokens - Primitives (your duplicated/new working file name)**
+4. Replace references to master libraries with working-file libraries.
+   1. Select the master **Design Tokens - Primitives**.
+   2. Select **Swap library**.
+   3. From **Choose library**, select **Design Tokens - Primitives (your duplicated/new working file name)**.
+   4. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection**. In this case, only `primitives` applies.
+   5. Click **Swap library**.
+5. Reopen **Manage libraries**.
+6. Select the master **Design Tokens - Semantic**.
+7. Select **Swap library**.
+8. From **Choose library**, select **Design Tokens - Semantic (your duplicated/new working file name)**.
+9. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection**. In this case: `color`, `dimension`, and `global`.
+   - If all three are not present, see [Troubleshooting](#troubleshooting) before continuing.
+10. Click **Swap library**.
+11. Reopen **Manage libraries**.
+12. Remove the master **Design Tokens - Primitives** and master **Design Tokens - Semantic** libraries.
+13. Publish the component working file. Set publishing scope to the intended team only; **do not** publish to **Everyone at HPE (organization)**.
 
 ## Primitives working file, again ☹️
 
