@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
-import { useSessionStorage } from '@shared/hooks';
+import { useSessionStorage, useThemePreview } from '@shared/hooks';
 import { themes } from './themes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
@@ -51,7 +51,11 @@ const App = () => {
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
   const [activeTheme, setActiveTheme] = useSessionStorage('activeTheme', Object.keys(themes)[0]);
-  const theme = useMemo(() => themes[activeTheme], [activeTheme]);
+  const { theme: qaTheme } = useThemePreview();
+  const theme = useMemo(
+    () => (activeTheme === 'qa' ? qaTheme : themes[activeTheme]),
+    [activeTheme, qaTheme],
+  );
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
