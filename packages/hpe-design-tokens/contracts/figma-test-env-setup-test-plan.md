@@ -317,13 +317,12 @@ Before beginning, confirm all of the following are in place:
 **Steps:**
 1. From `packages/hpe-design-tokens/`, run:
    ```bash
+   pnpm prettier tokens_qa --write
    diff -r tokens/ tokens_qa/
    ```
 2. Review any output.
 
 **Expected result:** No meaningful differences. Round-trip content is identical to source JSON.
-
-> Note: If minor whitespace or ordering differences appear due to Prettier or JSON serialization, confirm they are non-semantic before marking as pass.
 
 **Pass / Fail:** ___
 
