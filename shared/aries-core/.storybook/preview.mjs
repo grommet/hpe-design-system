@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grommet, Box } from 'grommet';
-import { useThemePreview } from '@shared/hooks/useThemePreview';
+import { useThemePreview } from '@shared/hooks';
 import { useIsDarkMode } from './darkModeHooks';
 
 export default {
