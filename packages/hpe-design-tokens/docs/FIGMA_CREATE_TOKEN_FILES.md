@@ -49,7 +49,7 @@ After duplication, working files still reference master libraries. These referen
    6. Click **Swap library** to confirm.
 4. Reopen "Manage libraries".
 5. Remove the primitives and semantic master files.
-6. Publish the semantic working file. Ensure the publishing scope is limited to the intended team -- not to pan-HPE design teams.
+6. Publish the semantic working file. Set publishing scope to the intended team only. **Do not** publish to everyone at HPE (organization).
 
 ### Component working file
 
