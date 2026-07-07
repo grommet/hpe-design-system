@@ -14,6 +14,7 @@
     "@shared/hooks": "workspace:*",
     "grommet": "catalog:",
     "grommet-icons": "catalog:grommet-stable",
+    "grommet-theme-hpe": "catalog:grommet-stable",
     "grommet-theme-hpe-v5": "npm:grommet-theme-hpe@5.8.0",
     "grommet-theme-hpe-v6": "npm:grommet-theme-hpe@6",
     "gsap": "^3.12.5",

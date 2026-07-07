@@ -30,6 +30,8 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "grommet-theme-hpe": "catalog:grommet-stable",
+    "hpe-design-tokens": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
   }

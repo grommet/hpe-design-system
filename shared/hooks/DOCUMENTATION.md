@@ -23,6 +23,62 @@ This package is part of the HPE Design System monorepo and is available as a wor
 - [useInert](#useInert)
 - [useLocalStorage](#useLocalStorage)
 - [useSessionStorage](#useSessionStorage)
+- [useThemePreview](#useThemePreview)
+
+### useThemePreview
+
+A React hook for generating an HPE Grommet theme from `hpe-design-tokens/grommet` using `buildTheme` from `grommet-theme-hpe`.
+
+This hook is intended for visual QA harnesses and preview apps where token changes should be reflected quickly and consistently.
+
+#### Features
+
+- **Canonical token assembly**: Uses exported token groups from `hpe-design-tokens/grommet`
+- **Default modern output**: Uses `{ 'v6-backwards-compatibility': false }` by default
+- **Optional deep token overrides**: Supports targeted nested overrides for preview scenarios
+- **Metadata included**: Returns the built theme, resolved tokens, and resolved build options
+
+#### Usage
+
+```typescript
+import { useThemePreview } from '@shared/hooks';
+
+const PreviewSurface = () => {
+  const { theme } = useThemePreview({
+    tokenOverrides: {
+      global: {
+        hpe: {
+          focusIndicator: {
+            outline: {
+              color: 'brand',
+            },
+          },
+        },
+      },
+    },
+  });
+
+  return <Grommet theme={theme}>...</Grommet>;
+};
+```
+
+#### API
+
+```typescript
+const result = useThemePreview(options?)
+```
+
+**Parameters:**
+
+- `options` (optional)
+- `options.tokenOverrides`: Deep partial override object merged into default token structure
+- `options.buildOptions`: Optional build options passed to `buildTheme`
+
+**Returns:**
+
+- `theme`: Built Grommet theme
+- `tokens`: Resolved token object used to build the theme
+- `options`: Resolved build options
 
 ### useInert
 

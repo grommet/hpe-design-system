@@ -1,18 +1,21 @@
 import React from 'react';
-import { hpe } from 'grommet-theme-hpe';
 import { Grommet, Box } from 'grommet';
+import * as sharedHooks from '@shared/hooks';
 import { useIsDarkMode } from './darkModeHooks';
+
+const { useThemePreview } = sharedHooks;
 
 export default {
   decorators: [
     (Story, context) => {
       const isDark = useIsDarkMode();
+      const { theme: hpeThemePreview } = useThemePreview();
 
       const mode = isDark ? 'dark' : 'light';
 
       return (
         <Grommet
-          theme={hpe}
+          theme={hpeThemePreview}
           themeMode={mode}
           background={
             context.parameters.background || context.globals.background?.value
