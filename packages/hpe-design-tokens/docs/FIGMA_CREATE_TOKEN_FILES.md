@@ -20,8 +20,7 @@ this Team's access should be limited to invited members only so that they are no
 
 ## File preparation
 
-Technically optional, the following file preparation steps are recommended for clear 
-identification and recognition of intent (i.e., non-production, testing/QA/staging/preview version).
+These steps are technically optional but strongly recommended so non-production files are clearly identifiable (testing/QA/staging/preview).
 
 For each file:
 1. Rename the file so that it contains the intent and version. For example, `Design Tokens - Primitives (Copy)` might become ``Design Tokens - Primitives (v3.0.0-alpha)`.
