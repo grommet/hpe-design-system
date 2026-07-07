@@ -48,7 +48,7 @@ After duplication, working files still reference master libraries. These referen
    5. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection**. In this case, only `primitives` applies.
    6. Click **Swap library** to confirm.
 4. Reopen "Manage libraries".
-5. Remove the primitives and semantic master files.
+5. Remove the master Design Tokens - Primitives and master Design Tokens - Semantic libraries.
 6. Publish the semantic working file. Set publishing scope to the intended team only. **Do not** publish to everyone at HPE (organization).
 
 ### Component working file
