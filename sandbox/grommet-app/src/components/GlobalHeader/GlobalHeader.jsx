@@ -147,7 +147,7 @@ export const GlobalHeader = ({
                     <Select
                       id="theme-select"
                       name="theme-select"
-                      options={Object.keys(themes).map(theme => theme)}
+                      options={[...Object.keys(themes).map(theme => theme), 'qa']}
                       onChange={({ option }) => setActiveTheme(option)}
                       value={activeTheme}
                     />

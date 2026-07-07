@@ -521,6 +521,9 @@ importers:
       grommet-theme-hpe-v6:
         specifier: npm:grommet-theme-hpe@6
         version: grommet-theme-hpe@6.5.1(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      grommet-theme-hpe-v8:
+        specifier: npm:grommet-theme-hpe@8
+        version: grommet-theme-hpe@8.1.4(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       gsap:
         specifier: ^3.12.5
         version: 3.15.0
