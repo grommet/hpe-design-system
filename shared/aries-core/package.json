@@ -12,6 +12,7 @@
     "lint-fix": "eslint src --fix",
     "test": "jest",
     "release-stable": "babel-node ./tools/release-stable",
+    "storybook:dev": "pnpm build-shared-hooks && storybook dev -p 6006",
     "storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && storybook dev -p 6006",
     "build-storybook": "pnpm build-design-tokens && pnpm build-shared-hooks && storybook build",
     "chromatic": "pnpm build-storybook && chromatic --exit-zero-on-changes"
