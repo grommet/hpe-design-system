@@ -8,6 +8,7 @@ type NavPage = {
   pages?: string[];
   parentPage?: string;
   cardOrder?: number;
+  available?: boolean;
 };
 
 const structurePages = structure as NavPage[];
@@ -57,19 +58,30 @@ function buildNavItems(pages: string[], parentName?: string): NavItemType[] {
 
     const details = pageDetails[pageName];
     if (!details) return null;
+    if (details.available === false) return null;
 
     const navItem: NavItemType = {
       label: pageName,
     };
 
     if (hasChildren(details)) {
-      navItem.children = [
-        {
-          label: 'Overview',
-          url: nameToPath(pageName),
-        },
-        ...buildNavItems(details.pages, pageName),
-      ];
+      const childItems = buildNavItems(details.pages, pageName);
+
+      // When every sub-page is filtered out (e.g. all children are
+      // `available: false`), there is nothing to expand into. Collapse the
+      // parent to a direct link to its own page rather than rendering a
+      // group whose only entry is a redundant "Overview".
+      if (childItems.length === 0) {
+        navItem.url = nameToPath(pageName);
+      } else {
+        navItem.children = [
+          {
+            label: 'Overview',
+            url: nameToPath(pageName),
+          },
+          ...childItems,
+        ];
+      }
     } else {
       navItem.url = nameToPath(pageName);
     }

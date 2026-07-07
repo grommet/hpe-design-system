@@ -18,6 +18,7 @@ type NavPage = {
   pages?: string[];
   href?: string;
   url?: string;
+  available?: boolean;
 };
 
 const realStructure = structure as NavPage[];
@@ -117,5 +118,62 @@ describe('Navigation Data Integration', () => {
         ).toBeUndefined();
       }
     });
+  });
+
+  it('should exclude available: false pages from the nav tree', async () => {
+    const { navItems } = await import('../navItems');
+
+    const collectLabels = (
+      items: { label: string; children?: unknown[] }[],
+    ): string[] =>
+      items.flatMap(item => [
+        item.label,
+        ...collectLabels(
+          (item.children as { label: string; children?: unknown[] }[]) || [],
+        ),
+      ]);
+
+    const navLabels = collectLabels(
+      navItems as { label: string; children?: unknown[] }[],
+    );
+
+    const unavailablePages = realStructure
+      .filter(page => page.available === false && !page.href && !page.url)
+      .map(page => page.name);
+
+    // Guard: ensure the fixture actually has at least one hidden page,
+    // otherwise this test would trivially pass.
+    expect(unavailablePages.length).toBeGreaterThan(0);
+
+    unavailablePages.forEach(pageName => {
+      expect(
+        navLabels,
+        `"${pageName}" is available: false and must not appear in the nav`,
+      ).not.toContain(pageName);
+    });
+  });
+
+  it('collapses a parent with no available sub-pages to a link', async () => {
+    const { navItems } = await import('../navItems');
+
+    type NavItem = { label: string; url?: string; children?: NavItem[] };
+
+    const findByLabel = (
+      items: NavItem[],
+      label: string,
+    ): NavItem | undefined =>
+      items.reduce<NavItem | undefined>((match, item) => {
+        if (match) return match;
+        if (item.label === label) return item;
+        return item.children ? findByLabel(item.children, label) : undefined;
+      }, undefined);
+
+    // Forms' only child ("Managing child objects") is available: false, so
+    // Forms should link directly to its own page with no expandable children.
+    const forms = findByLabel(navItems as NavItem[], 'Forms');
+
+    expect(forms).toBeDefined();
+    expect(forms?.url).toBe(nameToPath('Forms'));
+    expect(forms?.children).toBeUndefined();
   });
 });
