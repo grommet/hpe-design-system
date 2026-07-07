@@ -634,7 +634,7 @@ try {
  * Create CommonJS index.js
  * ----------------------------------- */
 const collections = [];
-fs.appendFileSync(`${CJS_DIR}index.cjs`, `/**\n * ${COPYRIGHT}\n */\n\n`);
+fs.writeFileSync(`${CJS_DIR}index.cjs`, `/**\n * ${COPYRIGHT}\n */\n\n`);
 fs.readdirSync(CJS_DIR)
   .filter(file => file !== 'index.cjs')
   .forEach(file => {
@@ -661,7 +661,7 @@ fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
  * Create ESM index.js
  * ----------------------------------- */
 const esmCollections = [];
-fs.appendFileSync(`${ESM_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
+fs.writeFileSync(`${ESM_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(ESM_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -683,7 +683,7 @@ fs.readdirSync(ESM_DIR)
  * Create Grommet index.js
  * ----------------------------------- */
 const grommetCollections = [];
-fs.appendFileSync(`${GROMMET_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
+fs.writeFileSync(`${GROMMET_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(GROMMET_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -705,7 +705,7 @@ fs.readdirSync(GROMMET_DIR)
  * Create Grommet CommonJS index.js
  * ----------------------------------- */
 const grommetCjsCollections = [];
-fs.appendFileSync(
+fs.writeFileSync(
   `${GROMMET_CJS_DIR}index.cjs`,
   `/**\n * ${COPYRIGHT}\n */\n\n`,
 );
@@ -735,7 +735,7 @@ fs.appendFileSync(`${GROMMET_CJS_DIR}index.cjs`, grommetCjsOutput);
  * Create docs index.js
  * ----------------------------------- */
 const docsCollections = [];
-fs.appendFileSync(`${DOCS_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
+fs.writeFileSync(`${DOCS_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(DOCS_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {

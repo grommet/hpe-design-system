@@ -5,6 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['@shared/hooks'],
+    // Keep local workspace packages out of pre-bundle cache so token/hook
+    // changes flow through during dev without requiring frequent restarts.
+    exclude: ['@shared/hooks', 'hpe-design-tokens'],
   },
 });

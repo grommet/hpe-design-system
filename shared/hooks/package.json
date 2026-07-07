@@ -19,6 +19,9 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.esm.json && tsc -p tsconfig.build.cjs.json",
+    "watch:esm": "tsc -w -p tsconfig.build.esm.json",
+    "watch:cjs": "tsc -w -p tsconfig.build.cjs.json",
+    "watch": "pnpm run watch:esm & pnpm run watch:cjs",
     "lint": "eslint . --max-warnings 0",
     "check-types": "tsc --noEmit",
     "test": "vitest"
