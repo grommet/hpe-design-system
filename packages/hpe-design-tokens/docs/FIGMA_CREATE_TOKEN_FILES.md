@@ -35,7 +35,7 @@ At this point, the duplicated working files still contain library references to 
 
 1. Open "Manage libraries" from the Assets menu.
 2. Remove the master "Design Tokens - Semantic" library.
-3. Publish the primitive working file. Ensure the publishing scope is limited to the intended team -- not to pan-HPE design teams.
+3. Publish the primitive working file. Set the publishing scope to the intended team only, and **do not** publish to “everyone at HPE (organization)” (pan-HPE).
 
 ### Semantic working file
 
