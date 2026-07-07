@@ -104,7 +104,3 @@ Variable collections may only be swapped with collections consumed in the file. 
 As of this writing (2026-07-02), the master "Design Tokens - Component" file does not consume any variables from the semantic/dimension variable collection. To remedy, apply at least one semantic/dimension variable -- from the master file -- to an element within the file.
 
 Suggested remedy: Select the file's "Cover" layer, alter the cover's corner radius to consume a radius token from the **master** semantic file. Resume libray swap procedure. The `dimension` variable collection should now be available to swap.
-
-## Future enhancements
-
-This procedure includes steps which account for the current state of the master files. Some modifications / file cleanups to the master files (e.g., Use dimension token in component's file cover, color use in primitives' cover) can eliminate some of these steps.
