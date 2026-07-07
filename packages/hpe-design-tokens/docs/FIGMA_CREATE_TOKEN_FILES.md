@@ -99,8 +99,12 @@ Syncing, modifying, and testing with the `sync-tokens-to-figma` and `sync-figma-
 
 ## Troubleshooting
 
-Variable collections may only be swapped with collections consumed in the file. If at least one variable from a collection is not used within the file, the collection will not be available for swap (there's nothing available to be swapped out!!!).
+Variable collections can be swapped only when they are actively consumed in the file. If a collection does not appear as swappable, it usually means no variable from that collection is currently in use.
 
-As of this writing (2026-07-02), the master "Design Tokens - Component" file does not consume any variables from the semantic/dimension variable collection. To remedy, apply at least one semantic/dimension variable -- from the master file -- to an element within the file.
+To fix this:
 
-Suggested remedy: Select the file's "Cover" layer, alter the cover's corner radius to consume a radius token from the **master** semantic file. Resume libray swap procedure. The `dimension` variable collection should now be available to swap.
+1. Apply at least one variable from the corresponding master library collection to any element in the file.
+2. For example, apply a token such as corner radius, color, spacing, or typography to the file's cover image.
+3. Reopen **Manage libraries** and retry **Swap library**.
+
+Once the collection is consumed in the file, it should appear as available for swapping.
