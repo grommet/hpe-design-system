@@ -28,7 +28,7 @@ For each file:
 
 ## Linking library dependencies
 
-At this point, the duplicated working files still contain library references to the master files. These references need to be replaced with references to the equivalent working file.
+After duplication, working files still reference master libraries. These references need to be replaced with references to the equivalent working file.
 
 ### Primitives working file
 
