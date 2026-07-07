@@ -41,12 +41,12 @@ After duplication, working files still reference master libraries. These referen
 1. Open "Manage libraries" from the Assets menu.
 2. Add **Design Tokens - Primitives (your duplicated/new working file name)**..
 3. Replace references to the master primitives file with the working primitives file.
-  1. Note: The master file must be present in order for reference replacement. If the master file is not currently present, add it now.
-  2. Select the master "Design Tokents - Primitives".
-  3. Select "Swap library".
-  4. From "Choose library", select "Design Tokens - Primitives (your-working-file's-name)".
-  5. From the "New variable collection," select the like-named equivalent for each "Used variable collection." In this case `primitives` is the only applicable collection.
-  6. Swap the libraries by clicking the "Swap library" button.
+   1. **Note:** The master primitive file must be present to perform a library swap. If it is not present, add it temporarily.
+   2. Select the master **Design Tokens - Primitives**.
+   3. Select **Swap library**.
+   4. From **Choose library**, select **Design Tokens - Primitives (your duplicated/new working file name)**.
+   5. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection**. In this case, only `primitives` applies.
+   6. Click **Swap library** to confirm.
 4. Reopen "Manage libraries".
 5. Remove the primitives and semantic master files.
 6. Publish the semantic working file. Ensure the publishing scope is limited to the intended team -- not to pan-HPE design teams.
