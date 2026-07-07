@@ -1,9 +1,7 @@
 import React from 'react';
 import { Grommet, Box } from 'grommet';
-import * as sharedHooks from '@shared/hooks';
+import { useThemePreview } from '@shared/hooks/useThemePreview';
 import { useIsDarkMode } from './darkModeHooks';
-
-const { useThemePreview } = sharedHooks;
 
 export default {
   decorators: [
