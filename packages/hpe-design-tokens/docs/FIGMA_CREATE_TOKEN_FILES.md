@@ -18,7 +18,7 @@ duplicated files will be created in your Figma "Drafts" directory.
 2. Move the duplicated files into a Figma Team and Project directory of your choice. Be careful to move only duplicated files, not the master files. As best practice, 
 this Team's access should be limited to invited members only so that they are not mistaken from the published master files.
 
-## File preparation
+## File preparation (recommended)
 
 These steps are technically optional but strongly recommended so non-production files are clearly identifiable (testing/QA/staging/preview).
 
