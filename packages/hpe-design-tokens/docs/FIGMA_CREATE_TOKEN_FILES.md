@@ -15,7 +15,7 @@ Master design token files are the currently published design tokens files within
 
 1. In Figma, duplicate the Primitive, Semantic, and Component tokens files. The 
 duplicated files will be created in your Figma "Drafts" directory.
-2. Move files to a Figma Team and Project directory of your choice. As best practice, 
+2. Move the duplicated files into a Figma Team and Project directory of your choice. Be careful to move only duplicated files, not the master files. As best practice, 
 this Team's access should be limited to invited members only so that they are not mistaken from the published master files.
 
 ## File preparation
