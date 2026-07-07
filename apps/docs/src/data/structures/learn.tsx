@@ -67,25 +67,25 @@ export const learn = [
     relatedContent: ['Data', 'Filtering'],
     tags: [],
   },
-  {
-    name: 'Tshirt sizing',
-    render: 'T-shirt sizing',
-    type: 'Explanations',
-    preview: {
-      image: {
-        src: {
-          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
-          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
-        },
-        alt: 'HPE T-shirt Sizing Preview',
-      },
-    },
-    description:
-      'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
-    seoDescription:
-      'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
-    href: '/foundation/tshirt-sizing',
-  },
+  // {
+  //   name: 'Tshirt sizing',
+  //   render: 'T-shirt sizing',
+  //   type: 'Explanations',
+  //   preview: {
+  //     image: {
+  //       src: {
+  //         light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
+  //         dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
+  //       },
+  //       alt: 'HPE T-shirt Sizing Preview',
+  //     },
+  //   },
+  //   description:
+  //     'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
+  //   seoDescription:
+  //     'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
+  //   href: '/foundation/tshirt-sizing',
+  // },
   {
     name: 'Grommet API docs',
     type: 'References',

@@ -75,35 +75,33 @@ describe('NavigationMenu', () => {
     it('should render items with href when url is provided', () => {
       renderNavigationMenu();
 
-      const homeButton = screen.getByRole('menuitem', { name: /home/i });
+      const homeButton = screen.getByRole('link', { name: /home/i });
       expect(homeButton).toHaveAttribute('href', '/home');
 
-      const servicesButton = screen.getByRole('menuitem', {
-        name: /services/i,
-      });
+      const servicesButton = screen.getByRole('link', { name: /services/i });
       expect(servicesButton).toHaveAttribute('href', '/services');
     });
 
     it('should highlight active item correctly', () => {
-      renderNavigationMenu({ activeItem: 'Home' });
+      renderNavigationMenu({ activeItem: '/home' });
 
-      const homeButton = screen.getByRole('menuitem', { name: /home/i });
+      const homeButton = screen.getByRole('link', { name: /home/i });
       expect(homeButton).toHaveAttribute('aria-current', 'page');
     });
 
     it('should expand parent menus of active item', async () => {
       // Set deeply nested item as active
-      renderNavigationMenu({ activeItem: 'Servers' });
+      renderNavigationMenu({ activeItem: '/products/hardware/servers' });
 
       // Parent menus should be expanded to show the active item
       expect(
-        screen.getByRole('menuitem', { name: /hardware/i }),
+        screen.getByRole('button', { name: /hardware/i }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('menuitem', { name: /servers/i }),
+        screen.getByRole('link', { name: /servers/i }),
       ).toBeInTheDocument();
 
-      const serversButton = screen.getByRole('menuitem', { name: /servers/i });
+      const serversButton = screen.getByRole('link', { name: /servers/i });
       expect(serversButton).toHaveAttribute('aria-current', 'page');
     });
   });
@@ -114,25 +112,23 @@ describe('NavigationMenu', () => {
         const user = userEvent.setup();
         renderNavigationMenu();
 
-        const productsButton = screen.getByRole('menuitem', {
-          name: /products/i,
-        });
+        const productsButton = screen.getByRole('button', { name: /products/i });
 
         // Initially, submenu should be collapsed
         expect(
-          screen.queryByRole('menuitem', { name: /hardware/i }),
+          screen.queryByRole('button', { name: /hardware/i }),
         ).not.toBeInTheDocument();
 
         // Click to expand
         await user.click(productsButton);
         expect(
-          screen.getByRole('menuitem', { name: /hardware/i }),
+          screen.getByRole('button', { name: /hardware/i }),
         ).toBeInTheDocument();
 
         // Click to collapse
         await user.click(productsButton);
         expect(
-          screen.queryByRole('menuitem', { name: /hardware/i }),
+          screen.queryByRole('button', { name: /hardware/i }),
         ).not.toBeInTheDocument();
       });
 
@@ -173,7 +169,7 @@ describe('NavigationMenu', () => {
 
         renderNavigationMenu({ onSelect });
 
-        const item = screen.getByRole('menuitem', { name: /home/i });
+        const item = screen.getByRole('link', { name: /home/i });
         await user.click(item);
 
         // Verify onSelect was called
@@ -194,7 +190,7 @@ describe('NavigationMenu', () => {
 
         renderNavigationMenu({ onSelect });
 
-        const item = screen.getByRole('menuitem', { name: /home/i });
+        const item = screen.getByRole('link', { name: /home/i });
         await user.click(item);
 
         // Verify onSelect was called
@@ -213,7 +209,7 @@ describe('NavigationMenu', () => {
 
         renderNavigationMenu({ onSelect });
 
-        const item = screen.getByRole('menuitem', { name: /home/i });
+        const item = screen.getByRole('link', { name: /home/i });
         await user.click(item);
 
         expect(onSelect).toHaveBeenCalledTimes(1);
@@ -245,16 +241,14 @@ describe('NavigationMenu', () => {
           onSelect,
         });
 
-        const parentItem = screen.getByRole('menuitem', {
-          name: /documentation/i,
-        });
+        const parentItem = screen.getByRole('link', { name: /documentation/i });
 
         // Verify it has href
         expect(parentItem).toHaveAttribute('href', '/docs');
 
         // Initially collapsed
         expect(
-          screen.queryByRole('menuitem', { name: /get started/i }),
+          screen.queryByRole('link', { name: /get started/i }),
         ).not.toBeInTheDocument();
 
         // Click parent
@@ -273,7 +267,7 @@ describe('NavigationMenu', () => {
 
         // Verify expansion
         expect(
-          screen.getByRole('menuitem', { name: /get started/i }),
+          screen.getByRole('link', { name: /get started/i }),
         ).toBeInTheDocument();
 
         // Verify active state
@@ -284,14 +278,12 @@ describe('NavigationMenu', () => {
               open={true}
               title="Navigation Menu"
               onSelect={onSelect}
-              activeItem="Documentation"
+              activeItem="/docs"
             />
           </Grommet>,
         );
 
-        const activeParent = screen.getByRole('menuitem', {
-          name: /documentation/i,
-        });
+        const activeParent = screen.getByRole('link', { name: /documentation/i });
         expect(activeParent).toHaveAttribute('aria-current', 'page');
       });
     });
@@ -302,21 +294,15 @@ describe('NavigationMenu', () => {
         renderNavigationMenu();
 
         // First, expand the "Products" menu
-        const productsButton = screen.getByRole('menuitem', {
-          name: /products/i,
-        });
+        const productsButton = screen.getByRole('button', { name: /products/i });
         await user.click(productsButton);
 
         // Wait for the submenu to appear and expand "Hardware"
-        const hardwareButton = screen.getByRole('menuitem', {
-          name: /hardware/i,
-        });
+        const hardwareButton = screen.getByRole('button', { name: /hardware/i });
         await user.click(hardwareButton);
 
         // Navigate to a deeply nested item (Servers)
-        const serversButton = screen.getByRole('menuitem', {
-          name: /servers/i,
-        });
+        const serversButton = screen.getByRole('link', { name: /servers/i });
 
         // Focus on the servers button using user interaction
         await user.click(serversButton);
@@ -334,21 +320,15 @@ describe('NavigationMenu', () => {
         renderNavigationMenu();
 
         // Expand Products menu
-        const productsButton = screen.getByRole('menuitem', {
-          name: /products/i,
-        });
+        const productsButton = screen.getByRole('button', { name: /products/i });
         await user.click(productsButton);
 
         // Expand Hardware submenu
-        const hardwareButton = screen.getByRole('menuitem', {
-          name: /hardware/i,
-        });
+        const hardwareButton = screen.getByRole('button', { name: /hardware/i });
         await user.click(hardwareButton);
 
         // Focus on a deeply nested item
-        const storageButton = screen.getByRole('menuitem', {
-          name: /storage/i,
-        });
+        const storageButton = screen.getByRole('link', { name: /storage/i });
         await user.click(storageButton);
         expect(storageButton).toHaveFocus();
 
@@ -366,14 +346,12 @@ describe('NavigationMenu', () => {
         renderNavigationMenu();
 
         // Expand Products menu
-        const productsButton = screen.getByRole('menuitem', {
-          name: /products/i,
-        });
+        const productsButton = screen.getByRole('button', { name: /products/i });
         await user.click(productsButton);
 
         // Verify submenu is open by checking if Hardware is visible
         expect(
-          screen.getByRole('menuitem', { name: /hardware/i }),
+          screen.getByRole('button', { name: /hardware/i }),
         ).toBeInTheDocument();
 
         // Press Escape on the Products button
@@ -381,7 +359,7 @@ describe('NavigationMenu', () => {
 
         // Verify submenu is collapsed - Hardware should no longer be visible
         expect(
-          screen.queryByRole('menuitem', { name: /hardware/i }),
+          screen.queryByRole('button', { name: /hardware/i }),
         ).not.toBeInTheDocument();
       });
 
@@ -390,15 +368,11 @@ describe('NavigationMenu', () => {
         renderNavigationMenu();
 
         // Expand Products menu
-        const productsButton = screen.getByRole('menuitem', {
-          name: /products/i,
-        });
+        const productsButton = screen.getByRole('button', { name: /products/i });
         await user.click(productsButton);
 
         // Focus on Software (second-level item without children)
-        const softwareButton = screen.getByRole('menuitem', {
-          name: /software/i,
-        });
+        const softwareButton = screen.getByRole('link', { name: /software/i });
         await user.click(softwareButton);
         expect(softwareButton).toHaveFocus();
 
@@ -414,9 +388,7 @@ describe('NavigationMenu', () => {
       const user = userEvent.setup();
       renderNavigationMenu();
 
-      const productsButton = screen.getByRole('menuitem', {
-        name: /products/i,
-      });
+      const productsButton = screen.getByRole('button', { name: /products/i });
 
       // Initially collapsed
       expect(productsButton).toHaveAttribute('aria-expanded', 'false');
@@ -442,7 +414,7 @@ describe('NavigationMenu', () => {
         </Grommet>,
       );
 
-      const item = screen.getByRole('menuitem', { name: /home/i });
+      const item = screen.getByRole('link', { name: /home/i });
       await user.click(item);
 
       expect(announce).toHaveBeenCalledWith(
@@ -480,7 +452,7 @@ describe('NavigationMenu', () => {
       renderNavigationMenu({ items: groupedItems });
 
       // Open the parent menu first
-      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+      await user.click(screen.getByRole('button', { name: /components/i }));
 
       const layoutHeader = screen.getByRole('heading', { name: /layout/i });
       expect(layoutHeader).toBeInTheDocument();
@@ -491,7 +463,7 @@ describe('NavigationMenu', () => {
       const user = userEvent.setup();
       renderNavigationMenu({ items: groupedItems });
 
-      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+      await user.click(screen.getByRole('button', { name: /components/i }));
 
       const layoutHeader = screen.getByRole('heading', { name: /layout/i });
       const layoutGroup = screen.getByRole('group', { name: /layout/i });
@@ -499,9 +471,7 @@ describe('NavigationMenu', () => {
       expect(layoutGroup).toBeInTheDocument();
       expect(layoutGroup).toHaveAttribute('aria-labelledby', layoutHeader.id);
 
-      const boxItem = within(layoutGroup).getByRole('menuitem', {
-        name: /box/i,
-      });
+      const boxItem = within(layoutGroup).getByRole('link', { name: /box/i });
       expect(boxItem).toBeInTheDocument();
     });
 
@@ -509,7 +479,7 @@ describe('NavigationMenu', () => {
       const user = userEvent.setup();
       renderNavigationMenu({ items: groupedItems });
 
-      await user.click(screen.getByRole('menuitem', { name: /components/i }));
+      await user.click(screen.getByRole('button', { name: /components/i }));
 
       const layoutHeader = screen.getByRole('heading', { name: /layout/i });
 
@@ -527,8 +497,8 @@ describe('NavigationMenu', () => {
       const onSelect = jest.fn();
       renderNavigationMenu({ items: groupedItems, onSelect });
 
-      await user.click(screen.getByRole('menuitem', { name: /components/i }));
-      const childItem = screen.getByRole('menuitem', { name: /box/i });
+      await user.click(screen.getByRole('button', { name: /components/i }));
+      const childItem = screen.getByRole('link', { name: /box/i });
       await user.click(childItem);
 
       expect(onSelect).toHaveBeenCalledWith(
@@ -552,12 +522,8 @@ describe('NavigationMenu', () => {
       renderNavigationMenu({ items: itemsWithoutIds });
 
       // Check that elements have been assigned IDs
-      const componentsButton = screen.getByRole('menuitem', {
-        name: /components/i,
-      });
-      const designTokensButton = screen.getByRole('menuitem', {
-        name: /design tokens/i,
-      });
+      const componentsButton = screen.getByRole('button', { name: /components/i });
+      const designTokensButton = screen.getByRole('button', { name: /design tokens/i });
 
       expect(componentsButton).toHaveAttribute('id');
       expect(designTokensButton).toHaveAttribute('id');
@@ -574,9 +540,7 @@ describe('NavigationMenu', () => {
 
       renderNavigationMenu({ items: itemsWithIds });
 
-      const componentsButton = screen.getByRole('menuitem', {
-        name: /components/i,
-      });
+      const componentsButton = screen.getByRole('button', { name: /components/i });
       expect(componentsButton).toHaveAttribute('id', 'custom-components-id');
     });
 
@@ -589,9 +553,7 @@ describe('NavigationMenu', () => {
 
       renderNavigationMenu({ items: itemsWithDuplicateLabels });
 
-      const overviewButtons = screen.getAllByRole('menuitem', {
-        name: /overview/i,
-      });
+      const overviewButtons = screen.getAllByRole('button', { name: /overview/i });
       expect(overviewButtons).toHaveLength(3);
 
       // All should have unique IDs
@@ -615,13 +577,11 @@ describe('NavigationMenu', () => {
       renderNavigationMenu({ items: nestedItems });
 
       // Expand the parent to access children
-      const componentsButton = screen.getByRole('menuitem', {
-        name: /components/i,
-      });
+      const componentsButton = screen.getByRole('button', { name: /components/i });
       await userEvent.click(componentsButton);
 
-      const boxButton = screen.getByRole('menuitem', { name: /box/i });
-      const cardButton = screen.getByRole('menuitem', { name: /card/i });
+      const boxButton = screen.getByRole('button', { name: /box/i });
+      const cardButton = screen.getByRole('button', { name: /card/i });
 
       // Child IDs should include parent context
       expect(boxButton.id).toBe('components-box');
@@ -650,12 +610,10 @@ describe('NavigationMenu', () => {
       renderNavigationMenu({ items: mixedItems });
 
       // Expand both parents
-      const componentsButton = screen.getByRole('menuitem', {
+      const componentsButton = screen.getByRole('button', {
         name: /^components$/i,
       });
-      const designTokensButton = screen.getByRole('menuitem', {
-        name: /design tokens/i,
-      });
+      const designTokensButton = screen.getByRole('button', { name: /design tokens/i });
 
       await userEvent.click(componentsButton);
       await userEvent.click(designTokensButton);
@@ -665,10 +623,8 @@ describe('NavigationMenu', () => {
       expect(designTokensButton.id).toBe('design-tokens');
 
       // Check nested items
-      const overviewButtons = screen.getAllByRole('menuitem', {
-        name: /overview/i,
-      });
-      const colorsButton = screen.getByRole('menuitem', { name: /colors/i });
+      const overviewButtons = screen.getAllByRole('button', { name: /overview/i });
+      const colorsButton = screen.getByRole('button', { name: /colors/i });
 
       const overviewIds = overviewButtons.map(btn => btn.id);
       expect(overviewIds).toContain('components-custom-overview');
@@ -693,32 +649,111 @@ describe('NavigationMenu', () => {
 
       // Render with original order
       const { unmount } = renderNavigationMenu({ items: originalItems });
-      const originalHomeId = screen.getByRole('menuitem', { name: /home/i }).id;
-      const originalComponentsId = screen.getByRole('menuitem', {
-        name: /components/i,
-      }).id;
-      const originalTokensId = screen.getByRole('menuitem', {
-        name: /design tokens/i,
-      }).id;
+      const originalHomeId = screen.getByRole('button', { name: /home/i }).id;
+      const originalComponentsId = screen.getByRole('button', { name: /components/i }).id;
+      const originalTokensId = screen.getByRole('button', { name: /design tokens/i }).id;
 
       unmount();
 
       // Render with reordered items
       renderNavigationMenu({ items: reorderedItems });
-      const reorderedHomeId = screen.getByRole('menuitem', {
-        name: /home/i,
-      }).id;
-      const reorderedComponentsId = screen.getByRole('menuitem', {
-        name: /components/i,
-      }).id;
-      const reorderedTokensId = screen.getByRole('menuitem', {
-        name: /design tokens/i,
-      }).id;
+      const reorderedHomeId = screen.getByRole('button', { name: /home/i }).id;
+      const reorderedComponentsId = screen.getByRole('button', { name: /components/i }).id;
+      const reorderedTokensId = screen.getByRole('button', { name: /design tokens/i }).id;
 
       // IDs should be the same regardless of position
       expect(reorderedHomeId).toBe(originalHomeId);
       expect(reorderedComponentsId).toBe(originalComponentsId);
       expect(reorderedTokensId).toBe(originalTokensId);
+    });
+  });
+
+  describe('Grouping', () => {
+    const groupedItems: NavItemType[] = [
+      {
+        label: 'Components',
+        children: [
+          {
+            label: 'Layout',
+            type: 'group',
+            children: [
+              { label: 'Box', url: '/box' },
+              { label: 'Grid', url: '/grid' },
+            ],
+          },
+          {
+            label: 'Controls',
+            type: 'group',
+            children: [
+              { label: 'Button', url: '/button' },
+            ],
+          },
+        ],
+      },
+    ];
+
+    it('should render group headers correctly', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      // Open the parent menu first
+      await user.click(screen.getByRole('button', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+      expect(layoutHeader).toBeInTheDocument();
+      expect(layoutHeader).toHaveAttribute('aria-level', '3');
+    });
+
+    it('should render group children within group container', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      await user.click(screen.getByRole('button', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+      const layoutGroup = screen.getByRole('group', { name: /layout/i });
+
+      expect(layoutGroup).toBeInTheDocument();
+      expect(layoutGroup).toHaveAttribute('aria-labelledby', layoutHeader.id);
+
+      const boxItem = within(layoutGroup).getByRole('link', { name: /box/i });
+      expect(boxItem).toBeInTheDocument();
+    });
+
+    it('should not allow interaction with group headers', async () => {
+      const user = userEvent.setup();
+      renderNavigationMenu({ items: groupedItems });
+
+      await user.click(screen.getByRole('button', { name: /components/i }));
+
+      const layoutHeader = screen.getByRole('heading', { name: /layout/i });
+
+      // Should not be a button
+      expect(layoutHeader.tagName).not.toBe('BUTTON');
+
+      // Ensure it doesn't have button role either
+      expect(
+        screen.queryByRole('button', { name: /layout/i }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should allow interaction with group children', async () => {
+      const user = userEvent.setup();
+      const onSelect = jest.fn();
+      renderNavigationMenu({ items: groupedItems, onSelect });
+
+      await user.click(screen.getByRole('button', { name: /components/i }));
+      const childItem = screen.getByRole('link', { name: /box/i });
+      await user.click(childItem);
+
+      expect(onSelect).toHaveBeenCalledWith(
+        expect.objectContaining({
+          item: expect.objectContaining({
+            label: 'Box',
+            url: '/box',
+          }),
+        }),
+      );
     });
   });
 });
