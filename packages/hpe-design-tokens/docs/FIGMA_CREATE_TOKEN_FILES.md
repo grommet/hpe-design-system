@@ -39,7 +39,7 @@ After duplication, working files still reference master libraries. These referen
 ### Semantic working file
 
 1. Open "Manage libraries" from the Assets menu.
-2. Add "Design Tokens - Primitives (your-working-file's-name)".
+2. Add **Design Tokens - Primitives (your duplicated/new working file name)**..
 3. Replace references to the master primitive file with the working file.
   1. Note: The master file must be present in order for reference replacement. If the master file is not currently present, add it now.
   2. Select the master "Design Tokents - Primitives".
