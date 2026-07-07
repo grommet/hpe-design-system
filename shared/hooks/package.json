@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "grommet-theme-hpe": "catalog:grommet-stable",
-    "hpe-design-tokens": "catalog:",
+    "hpe-design-tokens": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:"
   }

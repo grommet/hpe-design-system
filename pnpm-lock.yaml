@@ -808,8 +808,8 @@ importers:
         specifier: catalog:grommet-stable
         version: https://codeload.github.com/grommet/grommet-theme-hpe/legacy.tar.gz/refs/heads/stable(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       hpe-design-tokens:
-        specifier: 'catalog:'
-        version: 2.2.3
+        specifier: workspace:*
+        version: link:../../packages/hpe-design-tokens
       react:
         specifier: 'catalog:'
         version: 19.2.7
