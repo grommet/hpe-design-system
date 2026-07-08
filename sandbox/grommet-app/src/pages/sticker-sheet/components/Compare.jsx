@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grommet, Stack, ThemeContext } from 'grommet';
-import { themes } from '../../../themes/theme';
+import { themes } from '../../../themes';
 import { ModeContext } from './ModeContext';
 
 export const Compare = ({ children, ...rest }) => {

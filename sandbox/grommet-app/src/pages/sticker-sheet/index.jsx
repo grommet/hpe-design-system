@@ -12,7 +12,7 @@ import {
   Tabs,
 } from 'grommet';
 import { Left } from '@hpe-design/icons-grommet';
-import { themes } from '../../themes/theme';
+import { themes } from '../../themes';
 import { ModeContext, TabContent } from './components';
 import {
   Accordions,
