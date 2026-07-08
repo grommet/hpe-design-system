@@ -220,3 +220,102 @@ export const option4Theme = deepMerge(option2Theme, {
     extend: formFieldOption4Extend,
   },
 });
+
+// ─── Option 5 helpers ────────────────────────────────────────────────────────
+
+// Check (square div) extend: unchecked border = border-strong at rest, reverts
+// to border-default on hover. Checked / indeterminate / disabled are unchanged.
+const checkBorderStrongDefaultHover = props => {
+  const base =
+    typeof hpe.checkBox?.check?.extend === 'function'
+      ? hpe.checkBox.check.extend(props)
+      : hpe.checkBox?.check?.extend ?? '';
+  const { checked, indeterminate, disabled } = props;
+  const borderStrongColor = resolveColor('border-strong', props.theme);
+  const borderDefaultColor = resolveColor('border-default', props.theme);
+
+  if (!checked && !indeterminate && !disabled) {
+    return `${base}
+border-color: ${borderStrongColor};
+&:hover { background: transparent; border-color: ${borderDefaultColor}; }`;
+  }
+  if (indeterminate && !disabled) {
+    return `${base}\n&:hover { border-color: rgba(0, 0, 0, 0); }`;
+  }
+  return base;
+};
+
+// RadioButton extend: unchecked border = border-strong at rest, border-default
+// on hover. Checked radio border is left at its default appearance.
+const radiobuttonExtendOption5 = props => {
+  const borderStrongColor = resolveColor('border-strong', props.theme);
+  const borderDefaultColor = resolveColor('border-default', props.theme);
+  return `
+& input:not([disabled]):not(:checked) + div,
+& input:not([disabled]):not(:checked) + span {
+  border-color: ${borderStrongColor};
+}
+&:hover input:not([disabled]):not(:checked) + div,
+&:hover input:not([disabled]):not(:checked) + span {
+  border-color: ${borderDefaultColor};
+}`;
+};
+
+// Option 5: selection-control borders only — border-strong at rest, border-default
+// on hover. All other form inputs are unchanged.
+export const option5Theme = deepMerge(hpe, {
+  checkBox: {
+    check: { extend: checkBorderStrongDefaultHover },
+  },
+  radioButton: {
+    extend: radiobuttonExtendOption5,
+  },
+});
+
+// ─── Option 6 helpers ────────────────────────────────────────────────────────
+
+// FormField extend: ContentBox border = border-strong at rest, border-default on
+// hover for all non-selection-control fields (checkbox/radio FormField wrappers
+// are excluded to avoid double-bordering the control square/circle).
+const formFieldBorderStrongDefaultHover = props => {
+  const base =
+    typeof hpe.formField?.extend === 'function'
+      ? hpe.formField.extend(props)
+      : hpe.formField?.extend ?? '';
+  const { theme } = props;
+  const borderStrongColor = resolveColor('border-strong', theme);
+  const borderDefaultColor = resolveColor('border-default', theme);
+  return `${base}
+[class*="ContentBox"]:not(:has(input[type="checkbox"], input[type="radio"])) { border-color: ${borderStrongColor}; }
+&:hover:not(:focus-within) [class*="ContentBox"]:not(:has(input[type="checkbox"], input[type="radio"])) { border-color: ${borderDefaultColor}; }`;
+};
+
+// Option 6: all form inputs use border-strong at rest; hover lightens to
+// border-default. Builds on Option 5's selection-control changes.
+export const option6Theme = deepMerge(hpe, {
+  checkBox: {
+    check: { extend: checkBorderStrongDefaultHover },
+  },
+  radioButton: {
+    extend: radiobuttonExtendOption5,
+  },
+  formField: {
+    extend: formFieldBorderStrongDefaultHover,
+  },
+  fileInput: {
+    hover: { border: { color: 'border-default' } },
+  },
+});
+
+// ─── Option 7 helpers ────────────────────────────────────────────────────────
+
+// Option 7: override border-default to base.color.grey.600 (#7D8A92) — a darker
+// grey that meets 3:1 contrast — so every resting border is automatically
+// accessible. Hover continues to darken to border-strong, exactly as Option 2.
+export const option7Theme = deepMerge(option2Theme, {
+  global: {
+    colors: {
+      'border-default': { light: '#7D8A92', dark: '#7D8A92' },
+    },
+  },
+});
