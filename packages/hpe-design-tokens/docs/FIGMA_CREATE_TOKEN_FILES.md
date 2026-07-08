@@ -59,22 +59,24 @@ After duplication, working files still reference master libraries. These referen
 3. Pending further process validation, also add:
    - **Design Tokens - Primitives**
    - **Design Tokens - Primitives (your duplicated/new working file name)**
-4. Replace references to master libraries with working-file libraries.
-   1. Select the master **Design Tokens - Primitives**.
-   2. Select **Swap library**.
-   3. From **Choose library**, select **Design Tokens - Primitives (your duplicated/new working file name)**.
-   4. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection**. In this case, only `primitives` applies.
-   5. Click **Swap library**.
+4. Replace references to master libraries with working-file libraries:
+   1. **Swap Primitives**
+      1. Select the master **Design Tokens - Primitives**.
+      2. Select **Swap library**.
+      3. From **Choose library**, select **Design Tokens - Primitives (your duplicated/new working file name)**.
+      4. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection** (typically `primitives`).
+      5. Click **Swap library**.
+   2. **Swap Semantic**
+      1. Reopen **Manage libraries**.
+      2. Select the master **Design Tokens - Semantic**.
+      3. Select **Swap library**.
+      4. From **Choose library**, select **Design Tokens - Semantic (your duplicated/new working file name)**.
+      5. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection**.
+      6. If expected collections are missing, see [Troubleshooting](#troubleshooting).
+      7. Click **Swap library**.
 5. Reopen **Manage libraries**.
-6. Select the master **Design Tokens - Semantic**.
-7. Select **Swap library**.
-8. From **Choose library**, select **Design Tokens - Semantic (your duplicated/new working file name)**.
-9. In **New variable collection**, map each collection to its like-named equivalent in **Used variable collection**. In this case: `color`, `dimension`, and `global`.
-   - If all three are not present, see [Troubleshooting](#troubleshooting) before continuing.
-10. Click **Swap library**.
-11. Reopen **Manage libraries**.
-12. Remove the master **Design Tokens - Primitives** and master **Design Tokens - Semantic** libraries.
-13. Publish the component working file. Set publishing scope to the intended team only; **do not** publish to **Everyone at HPE (organization)**.
+6. Remove the master **Design Tokens - Primitives** and master **Design Tokens - Semantic** libraries.
+7. Publish the component working file. Set publishing scope to the intended team only; **do not** publish to **Everyone at HPE (organization)**.
 
 ## Primitives working file, again ☹️
 
