@@ -37,7 +37,7 @@ jobs:
         run: pnpm upgrade grommet && pnpm upgrade grommet-icons
 
       - name: Sync variables in Figma file to tokens
-        run: pnpm sync-figma-to-tokens -- --output tokens
+        run: pnpm sync-figma-to-tokens -- --env=production --output tokens
         working-directory: packages/hpe-design-tokens
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}

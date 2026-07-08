@@ -383,6 +383,12 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 20.19.43
+      ajv:
+        specifier: ^8.20.0
+        version: 8.20.0
+      ajv-formats:
+        specifier: ^3.0.1
+        version: 3.0.1(ajv@8.20.0)
       axios:
         specifier: ^1.15.0
         version: 1.18.1(debug@4.4.3)
