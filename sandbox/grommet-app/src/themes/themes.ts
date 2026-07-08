@@ -2,72 +2,10 @@ import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
 import { hpe as hpeV8 } from 'grommet-theme-hpe-v8';
 import { deepMerge } from 'grommet/utils';
+import { tokenColors } from './tokenColors';
 
 // need to extend hpe with new token namespace to "fill gaps" for sake of demo
-// when toggling between themes. These color namespaces were introduced in 
-// hpe-design-tokens v0 (grommet-theme-hpe-v6), but not available for grommet-theme-hpe-v5.
-// Backfilling these color namespaces allows for a more seamless theme toggle 
-// experience in the sandbox/grommet-app.
-const tokenColors = {
-  'background-floating': 'background-front',
-  'background-screenOverlay': 'background-layer-overlay',
-  'background-unknown': 'background-contrast',
-  'background-info': 'background-contrast',
-  'background-critical': 'validation-critical',
-  'background-warning': 'validation-warning',
-  'background-ok': 'validation-ok',
-  'background-primary-strong': 'brand',
-  'background-primary-strong-hover': 'brand',
-  'background-selected-strong-enabled': 'background-primary-strong',
-  'background-selected-strong-hover': 'background-primary-strong-hover',
-  'background-neutral-xstrong': {},
-  'border-disabled': 'text-disabled',
-  'border-selected': 'brand',
-  'border-critical': 'border',
-  'border-warning': 'border',
-  'border-ok': 'border',
-  'border-info': 'border',
-  'border-unknown': 'border',
-  'text-placeholder': 'placeholder',
-  'text-onPrimary': 'text-primary-button',
-  'text-critical': 'text',
-  'text-warning': 'text',
-  'text-ok': 'text',
-  'text-info': 'text',
-  'text-unknown': 'text',
-  'text-onSelectedPrimaryStrong': 'text-primary-button',
-  'text-onSelectedPrimary': 'text',
-  'text-heading': 'text-strong',
-  'text-onStrong': 'text-primary-button',
-  'text-onCritical': 'text',
-  'text-onCritical-strong': 'text-strong',
-  'text-onWarning': 'text',
-  'text-onWarning-strong': 'text-strong',
-  'text-onOk': 'text',
-  'text-onOk-strong': 'text-strong',
-  'text-onInfo': 'text',
-  'text-Info-strong': 'text-strong',
-  'text-onUnknown': 'text',
-  'text-onUnknown-strong': 'text-strong',
-  'text-primary': {},
-  'icon-primary': 'brand',
-  'icon-default': 'text',
-  'icon-critical': 'status-critical',
-  'icon-warning': 'status-warning',
-  'icon-ok': 'status-ok',
-  'icon-info': 'text',
-  'icon-unknown': 'status-unknown',
-  'icon-onPrimaryStrong': 'text-primary-button',
-  'icon-onSelectedPrimaryStrong': 'text-primary-button',
-  'icon-onSelectedPrimary': 'icon-default',
-  'foreground-primary': 'brand',
-  'foreground-critical': 'status-critical',
-  'foreground-warning': 'status-warning',
-  'foreground-unknown': 'status-unknown',
-  'graph-5': 'graph-0',
-  'graph-6': 'graph-1',
-};
-
+// when toggling between themes.
 const v5 = deepMerge(hpeV5, {
   global: {
     colors: {
@@ -77,7 +15,7 @@ const v5 = deepMerge(hpeV5, {
 });
 
 export const themes = {
-  'v0': v5,
-  'v1': hpeV6,
-  'v2': hpeV8,
+  v0: v5,
+  v1: hpeV6,
+  v2: hpeV8,
 };
