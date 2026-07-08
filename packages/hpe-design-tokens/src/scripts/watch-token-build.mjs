@@ -2,6 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 
+// Watches token source files and reruns the Style Dictionary build so token
+// outputs stay current during local development without manual rebuilds.
+
 const workspaceRoot = path.resolve(process.cwd(), '../..');
 const tokensDirectory = path.join(process.cwd(), 'tokens');
 
@@ -15,27 +18,31 @@ const buildTokens = () =>
     });
 
     child.on('error', reject);
-    child.on('exit', (code) => {
+    child.on('exit', code => {
       if (code === 0) resolve();
-      else reject(new Error(`build-style-dictionary failed with exit code ${code}`));
+      else
+        reject(
+          new Error(`build-style-dictionary failed with exit code ${code}`),
+        );
     });
   });
 
-const listTokenFiles = (directory) => {
-  const files = [];
-  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (entry.name === '.tmp') continue;
-    const fullPath = path.join(directory, entry.name);
-    if (entry.isDirectory()) files.push(...listTokenFiles(fullPath));
-    else if (entry.name.endsWith('.json')) files.push(fullPath);
-  }
-  return files;
-};
+const listTokenFiles = directory =>
+  fs
+    .readdirSync(directory, { withFileTypes: true })
+    .filter(({ name }) => name !== '.tmp')
+    .flatMap(entry => {
+      const fullPath = path.join(directory, entry.name);
+
+      if (entry.isDirectory()) return listTokenFiles(fullPath);
+      if (entry.name.endsWith('.json')) return [fullPath];
+      return [];
+    });
 
 const getSnapshot = () => {
   const files = listTokenFiles(tokensDirectory);
   const latestMtime = files.reduce((latest, filePath) => {
-    const mtimeMs = fs.statSync(filePath).mtimeMs;
+    const { mtimeMs } = fs.statSync(filePath);
     return Math.max(latest, mtimeMs);
   }, 0);
 
@@ -70,7 +77,9 @@ const runBuild = async () => {
   }
 };
 
-console.log(`[watch-token-build] Watching ${tokensDirectory} for token changes...`);
+console.log(
+  `[watch-token-build] Watching ${tokensDirectory} for token changes...`,
+);
 console.log(`[watch-token-build] Workspace root: ${workspaceRoot}`);
 await runBuild();
 
