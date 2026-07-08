@@ -1,5 +1,6 @@
 import { readdirSync } from 'fs';
 import { ApiGetLocalVariablesResponse } from './figma_api.js';
+import { ExpectedCollectionKeys } from './figma_sync_config.js';
 
 export function green(msg: string) {
   return `\x1b[32m${msg}\x1b[0m`;
@@ -24,8 +25,55 @@ export const getThemeAndMode = (file: string) => {
   return [theme, mode];
 };
 
-export const access = (path: string, object: { [key: string]: any }) => {
-  return path.split('.').reduce((o, i) => o[i], object);
+export const access = <T = Record<string, unknown>>(
+  path: string,
+  object: Record<string, unknown>,
+): T => {
+  const result = path.split('.').reduce(
+    (state, segment) => {
+      if (state.missingPath) {
+        return state;
+      }
+
+      const nextPath = state.currentPath
+        ? `${state.currentPath}.${segment}`
+        : segment;
+
+      if (
+        state.currentValue &&
+        typeof state.currentValue === 'object' &&
+        segment in state.currentValue
+      ) {
+        return {
+          currentValue: (state.currentValue as Record<string, unknown>)[
+            segment
+          ],
+          currentPath: nextPath,
+          missingPath: undefined as string | undefined,
+        };
+      }
+
+      return {
+        ...state,
+        currentPath: nextPath,
+        missingPath: nextPath,
+      };
+    },
+    {
+      currentValue: object as unknown,
+      currentPath: '',
+      missingPath: undefined as string | undefined,
+    },
+  );
+
+  if (result.missingPath) {
+    throw new Error(
+      `Unable to access path "${path}"; missing segment at ` +
+        `"${result.missingPath}".`,
+    );
+  }
+
+  return result.currentValue as T;
 };
 
 export const isReference = (value: string) => /{.*}/.test(value);
@@ -56,54 +104,90 @@ export const nonComponentTokens: string[] = [
 export const numberToPixel = (value: number): string => `${value}px`;
 
 export const excludedNameParts = ['DEFAULT', 'REST'];
+
+export type ReferenceValidationReport = {
+  status: 'passed' | 'failed';
+  checkedRemoteCollections: number;
+  invalidVariablesCount: number;
+  errorMessage?: string;
+};
+
 /**
- * Ensure variable references are to valid collections. Log errors for any variables referencing invalid Figma files.
+ * Ensure variable references are to valid collections.
+ * Log errors for any variables referencing invalid Figma files.
  */
 export const verifyReferences = (
   localTokens: ApiGetLocalVariablesResponse[],
-) => {
-  if (
-    !process.env.FIGMA_PRIMITIVES_COLLECTION_KEY ||
-    !process.env.FIGMA_GLOBAL_COLLECTION_KEY ||
-    !process.env.FIGMA_COLOR_COLLECTION_KEY ||
-    !process.env.FIGMA_DIMENSION_COLLECTION_KEY
-  ) {
-    throw new Error(
-      'FIGMA_PRIMITIVES_COLLECTION_KEY, FIGMA_GLOBAL_COLLECTION_KEY, FIGMA_COLOR_COLLECTION_KEY, and FIGMA_DIMENSION_COLLECTION_KEY environment variables are required',
-    );
+  expectedCollectionKeys?: ExpectedCollectionKeys,
+  options?: { bootstrap?: boolean },
+): ReferenceValidationReport => {
+  if (options?.bootstrap) {
+    return {
+      status: 'passed' as const,
+      checkedRemoteCollections: 0,
+      invalidVariablesCount: 0,
+    };
   }
-  const invalidVariables: string[] = [];
+
+  const resolvedExpectedCollectionKeys: ExpectedCollectionKeys =
+    expectedCollectionKeys || {
+      primitives: process.env.FIGMA_PRIMITIVES_COLLECTION_KEY || '',
+      global: process.env.FIGMA_GLOBAL_COLLECTION_KEY || '',
+      color: process.env.FIGMA_COLOR_COLLECTION_KEY || '',
+      dimension: process.env.FIGMA_DIMENSION_COLLECTION_KEY || '',
+    };
+
+  if (
+    !resolvedExpectedCollectionKeys.primitives ||
+    !resolvedExpectedCollectionKeys.global ||
+    !resolvedExpectedCollectionKeys.color ||
+    !resolvedExpectedCollectionKeys.dimension
+  ) {
+    return {
+      status: 'failed',
+      checkedRemoteCollections: 0,
+      invalidVariablesCount: 0,
+      errorMessage:
+        'FIGMA_PRIMITIVES_COLLECTION_KEY, FIGMA_GLOBAL_COLLECTION_KEY, ' +
+        'FIGMA_COLOR_COLLECTION_KEY, and FIGMA_DIMENSION_COLLECTION_KEY ' +
+        'environment variables are required',
+    };
+  }
+
+  const invalidVariables = new Set<string>();
+  let checkedRemoteCollections = 0;
   localTokens.forEach(tokens => {
     Object.keys(tokens.meta.variableCollections).forEach(key => {
       const collection = tokens.meta.variableCollections[key];
       if (collection.remote === true) {
+        checkedRemoteCollections += 1;
         if (
           collection.name === 'color' &&
-          collection.key !== process.env['FIGMA_COLOR_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.color
         ) {
           collection.variableIds?.forEach(id =>
-            invalidVariables.push(tokens.meta.variables[id].id),
+            invalidVariables.add(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'dimension' &&
-          collection.key !== process.env['FIGMA_DIMENSION_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.dimension
         ) {
           collection.variableIds?.forEach(id =>
-            invalidVariables.push(tokens.meta.variables[id].id),
+            invalidVariables.add(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'primitives' &&
-          collection.key !== process.env['FIGMA_PRIMITIVES_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.primitives
         ) {
           collection.variableIds?.forEach(id =>
-            invalidVariables.push(tokens.meta.variables[id].id),
+            invalidVariables.add(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'global' &&
-          collection.key !== process.env['FIGMA_GLOBAL_COLLECTION_KEY']
+          collection.key !== resolvedExpectedCollectionKeys.global
         ) {
           collection.variableIds?.forEach(id =>
-            invalidVariables.push(tokens.meta.variables[id].id),
+            invalidVariables.add(tokens.meta.variables[id].id),
           );
         }
       }
@@ -116,19 +200,32 @@ export const verifyReferences = (
         if (
           typeof modeValue === 'object' &&
           'id' in modeValue &&
-          invalidVariables.includes(modeValue.id)
+          invalidVariables.has(modeValue.id)
         ) {
           console.error(
-            `🛑 Invalid collection reference for value of: ${variable.name}. Resolve reference error in Figma.`,
+            `🛑 Invalid collection reference for value of: ${variable.name}.`,
+            'Resolve reference error in Figma.',
           );
         }
       });
     });
   });
-  if (invalidVariables.length)
-    throw new Error(
-      'Invalid references were found. Resolve reference errors in Figma.',
-    );
+
+  if (invalidVariables.size) {
+    return {
+      status: 'failed',
+      checkedRemoteCollections,
+      invalidVariablesCount: invalidVariables.size,
+      errorMessage:
+        'Invalid references were found. Resolve reference errors in Figma.',
+    };
+  }
+
+  return {
+    status: 'passed',
+    checkedRemoteCollections,
+    invalidVariablesCount: 0,
+  };
 };
 
 const TOKENS_DIR = 'tokens';
@@ -136,8 +233,8 @@ export const COPYRIGHT = 'Copyright Hewlett Packard Enterprise Development LP.';
 
 export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   const tokenDirs = readdirSync(tokensDir, { withFileTypes: true })
-    .filter((dir: any) => dir.isDirectory())
-    .map((dir: any) => dir.name);
+    .filter(dir => dir.isDirectory())
+    .map(dir => dir.name);
 
   const themes: { [key: string]: string[] } = {
     default: [],
@@ -160,17 +257,17 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   });
 
   themes.default.forEach(file => {
-    let [fileName] = file.split('/').slice(-1);
+    const [fileName] = file.split('/').slice(-1);
     const collection = fileName.split('.')[0];
-    const v1Exists = themes.v1.find(file => {
-      let [v1FileName] = file.split('/').slice(-1);
+    const v1Exists = themes.v1.find(v1File => {
+      const [v1FileName] = v1File.split('/').slice(-1);
       const v1Collection = v1FileName.split('.')[0];
       return v1Collection === collection;
     });
     if (!v1Exists) themes.v1.push(file);
 
-    const v0Exists = themes.v0.find(file => {
-      let [v0FileName] = file.split('/').slice(-1);
+    const v0Exists = themes.v0.find(v0File => {
+      const [v0FileName] = v0File.split('/').slice(-1);
       const v0Collection = v0FileName.split('.')[0];
       return v0Collection === collection;
     });
@@ -180,15 +277,19 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   return themes;
 };
 
-export const filterColorTokens = (tokens: { [key: string]: any }) => {
-  const result: { [key: string]: any } = {};
+export const filterColorTokens = (
+  tokens: Record<string, unknown>,
+): Record<string, unknown> => {
+  const result: Record<string, unknown> = {};
 
   Object.keys(tokens).forEach(key => {
-    if (typeof tokens[key] === 'object' && !Array.isArray(tokens[key])) {
-      if (tokens[key].$type === 'color') {
-        result[key] = tokens[key];
+    const value = tokens[key];
+    if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
+      const obj = value as Record<string, unknown>;
+      if (obj.$type === 'color') {
+        result[key] = value;
       } else {
-        const nestedResult = filterColorTokens(tokens[key]);
+        const nestedResult = filterColorTokens(obj);
         if (Object.keys(nestedResult).length > 0) {
           result[key] = nestedResult;
         }

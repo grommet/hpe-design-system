@@ -27,7 +27,7 @@ jobs:
         run: pnpm install
 
       - name: Sync tokens to Figma file
-        run: pnpm --filter hpe-design-tokens sync-tokens-to-figma
+        run: pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=production
         env:
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
           FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}

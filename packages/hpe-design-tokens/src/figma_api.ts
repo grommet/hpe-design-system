@@ -23,10 +23,9 @@ export interface VariableCollection {
   variableIds?: string[];
 }
 
-export interface VariableCollectionChange
-  extends Partial<
-    Pick<VariableCollection, 'id' | 'name' | 'hiddenFromPublishing'>
-  > {
+export interface VariableCollectionChange extends Partial<
+  Pick<VariableCollection, 'id' | 'name' | 'hiddenFromPublishing'>
+> {
   action: 'CREATE' | 'UPDATE' | 'DELETE';
   initialModeId?: string;
 }
@@ -68,29 +67,34 @@ export interface Variable {
   name: string;
   key: string;
   variableCollectionId: string;
-  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | 'SHADOW' | 'BORDER'; // SHADOW, BORDER is custom for w3c spec
+  // SHADOW and BORDER are custom types for the W3C design token spec
+  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | 'SHADOW' | 'BORDER';
   valuesByMode: { [modeId: string]: VariableValue };
   remote: boolean;
   description: string;
   hiddenFromPublishing: boolean;
   scopes: VariableScope[];
   codeSyntax: VariableCodeSyntax;
+  /**
+   * Present on published variables. Use this ID (not `id`) when creating
+   * cross-file aliases from subscriber files.
+   */
+  subscribed_id?: string;
 }
 
-export interface VariableChange
-  extends Partial<
-    Pick<
-      Variable,
-      | 'id'
-      | 'name'
-      | 'variableCollectionId'
-      | 'resolvedType'
-      | 'description'
-      | 'hiddenFromPublishing'
-      | 'scopes'
-      | 'codeSyntax'
-    >
-  > {
+export interface VariableChange extends Partial<
+  Pick<
+    Variable,
+    | 'id'
+    | 'name'
+    | 'variableCollectionId'
+    | 'resolvedType'
+    | 'description'
+    | 'hiddenFromPublishing'
+    | 'scopes'
+    | 'codeSyntax'
+  >
+> {
   action: 'CREATE' | 'UPDATE' | 'DELETE';
 }
 
@@ -109,6 +113,14 @@ export interface ApiGetLocalVariablesResponse {
   };
 }
 
+/**
+ * Published variables response. Structurally identical to
+ * ApiGetLocalVariablesResponse but every Variable in `meta.variables`
+ * has `subscribed_id` populated — use that field (not `id`) when
+ * building cross-file alias targets for subscriber files.
+ */
+export type ApiGetPublishedVariablesResponse = ApiGetLocalVariablesResponse;
+
 export interface ApiPostVariablesPayload {
   variableCollections?: VariableCollectionChange[];
   variableModes?: VariableModeChange[];
@@ -124,12 +136,14 @@ interface ApiPostVariablesResponse {
 
 export default class FigmaApi {
   private baseUrl = 'https://api.figma.com';
+
   private token: string;
 
   constructor(token: string) {
     this.token = token;
   }
 
+  // https://developers.figma.com/docs/rest-api/variables-endpoints/#get-local-variables-endpoint
   async getLocalVariables(fileKey: string) {
     const resp = await axios.request<ApiGetLocalVariablesResponse>({
       url: `${this.baseUrl}/v1/files/${fileKey}/variables/local`,
@@ -142,6 +156,20 @@ export default class FigmaApi {
     return resp.data;
   }
 
+  // https://developers.figma.com/docs/rest-api/variables-endpoints/#get-published-variables-endpoint
+  async getPublishedVariables(fileKey: string) {
+    const resp = await axios.request<ApiGetPublishedVariablesResponse>({
+      url: `${this.baseUrl}/v1/files/${fileKey}/variables/published`,
+      headers: {
+        Accept: '*/*',
+        'X-Figma-Token': this.token,
+      },
+    });
+
+    return resp.data;
+  }
+
+  // https://developers.figma.com/docs/rest-api/variables-endpoints/#post-variables-endpoint
   async postVariables(fileKey: string, payload: ApiPostVariablesPayload) {
     const resp = await axios.request<ApiPostVariablesResponse>({
       url: `${this.baseUrl}/v1/files/${fileKey}/variables`,
