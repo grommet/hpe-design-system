@@ -55,7 +55,7 @@ const DESCRIPTIONS = {
   'Option 5': [
     'Checkbox and radio control borders use border-strong at rest (3:1 contrast fix).',
     'On hover those borders lighten to border-default.',
-    'All other form inputs are unchanged.',
+    'Text inputs, selects, and other field inputs get a darker border (border-strong) on hover.',
   ],
   'Option 6': [
     'All form input borders (text, select, checkbox, radio) use border-strong at rest (3:1 contrast fix).',

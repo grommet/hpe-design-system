@@ -261,14 +261,21 @@ const radiobuttonExtendOption5 = props => {
 }`;
 };
 
-// Option 5: selection-control borders only — border-strong at rest, border-default
-// on hover. All other form inputs are unchanged.
+// Option 5: selection-control borders — border-strong at rest, border-default on
+// hover. Text/select/textarea inputs get a darker border (border-strong) on hover,
+// matching Option 2's field behaviour.
 export const option5Theme = deepMerge(hpe, {
   checkBox: {
     check: { extend: checkBorderStrongDefaultHover },
   },
   radioButton: {
     extend: radiobuttonExtendOption5,
+  },
+  formField: {
+    extend: formFieldWithHoverBorder,
+  },
+  fileInput: {
+    hover: { border: { color: 'border-strong' } },
   },
 });
 
