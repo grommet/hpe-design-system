@@ -33,7 +33,7 @@ This hook is intended for visual QA harnesses and preview apps where token chang
 
 #### Features
 
-- **Canonical token assembly**: Uses exported token groups from `hpe-design-tokens/grommet`
+- **Canonical token assembly**: Uses exported design token collections from `hpe-design-tokens/grommet`
 - **Default modern output**: Uses `{ 'v6-backwards-compatibility': false }` by default
 - **Optional deep token overrides**: Supports targeted nested overrides for preview scenarios
 - **Metadata included**: Returns the built theme, resolved tokens, and resolved build options

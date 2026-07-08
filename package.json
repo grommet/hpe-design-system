@@ -47,7 +47,6 @@
     "build": "pnpm -r build",
     "lint": "pnpm -r lint --cache",
     "validate:capability-manifests": "node scripts/validate-capability-manifests.mjs",
-    "verify:token-preview": "node scripts/verify-token-preview.mjs",
     "dev:tokens:grommet-app": "pnpm --filter hpe-design-tokens watch & pnpm --filter \"@shared/hooks\" watch & pnpm --filter grommet-app dev",
     "dev:tokens:storybook": "pnpm --filter hpe-design-tokens watch & pnpm --filter \"@shared/hooks\" watch & pnpm --filter \"@shared/aries-core\" storybook:dev",
     "telemetry:write": "node scripts/telemetry-write.mjs",
