@@ -677,6 +677,15 @@ importers:
       grommet-theme-hpe:
         specifier: 'catalog:'
         version: 8.1.4(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      grommet-theme-hpe-v5:
+        specifier: npm:grommet-theme-hpe@5.8.0
+        version: grommet-theme-hpe@5.8.0(grommet-icons@4.14.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      grommet-theme-hpe-v6:
+        specifier: npm:grommet-theme-hpe@6
+        version: grommet-theme-hpe@6.5.1(grommet-icons@4.14.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      grommet-theme-hpe-v8:
+        specifier: npm:grommet-theme-hpe@8
+        version: grommet-theme-hpe@8.1.4(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -16932,6 +16941,13 @@ snapshots:
     dependencies:
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
+      styled-components: 6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+
+  grommet-theme-hpe@5.8.0(grommet-icons@4.14.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
+    dependencies:
+      grommet: 2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      grommet-icons: 4.14.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      react: 19.2.7
       styled-components: 6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
 
   grommet-theme-hpe@5.8.0(grommet-icons@https://codeload.github.com/grommet/grommet-icons/legacy.tar.gz/refs/heads/stable(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(grommet@2.55.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)))(react@19.2.7)(styled-components@6.4.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
