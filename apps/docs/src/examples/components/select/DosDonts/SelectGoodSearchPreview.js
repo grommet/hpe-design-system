@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, FormField, Select } from 'grommet';
 
-const defaultOptions = [
+const allLocations = [
   'Africa',
   'Asia/Pacific',
   'Australia',
@@ -26,19 +26,19 @@ const defaultOptions = [
   'Western Europe',
 ];
 
-// Escaping regular expression special characters: [ \ ^ $ . | ? * + ( )
-const getEscapedText = text => text.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
+const getEscapedText = text =>
+  text.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
 
-// Create the regular expression with escaped special characters.
-const formatSearchExpression = text => new RegExp(getEscapedText(text), 'i');
+const formatSearchExpression = text =>
+  new RegExp(getEscapedText(text), 'i');
 
-export const SelectSearchExample = () => {
-  const [options, setOptions] = useState(defaultOptions);
+export const SelectGoodSearchPreview = () => {
+  const [locations, setLocations] = useState(allLocations);
   const [selected, setSelected] = useState('');
 
   const onSearch = text => {
     const exp = formatSearchExpression(text);
-    setOptions(defaultOptions.filter(option => exp.test(option)));
+    setLocations(allLocations.filter(l => exp.test(l)));
   };
 
   return (
@@ -46,20 +46,19 @@ export const SelectSearchExample = () => {
       {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
       {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
       <FormField
-        htmlFor="select-with-search__input"
-        name="select-with-search"
+        htmlFor="good-search-select__input"
+        name="good-search-select"
         label="Location"
-        help="Type to filter the location options"
       >
         <Select
-          id="select-with-search"
-          name="select-with-search"
+          id="good-search-select"
+          name="good-search-select"
           placeholder="Select location"
-          searchPlaceholder="Search"
-          options={options}
+          searchPlaceholder="Search locations"
+          options={locations}
           value={selected}
           onChange={({ option }) => setSelected(option)}
-          onClose={() => setOptions(defaultOptions)}
+          onClose={() => setLocations(allLocations)}
           onSearch={text => onSearch(text)}
         />
       </FormField>
