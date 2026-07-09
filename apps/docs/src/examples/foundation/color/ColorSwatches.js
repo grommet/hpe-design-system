@@ -47,6 +47,7 @@ ColorSwatch.propTypes = {
 const SwatchGroup = ({ children }) => (
   <Box
     background="background-front"
+    margin={{ bottom: 'medium' }}
     pad="medium"
     gap="medium"
     width={{ max: 'xlarge', min: 'xsmall' }}
@@ -139,6 +140,69 @@ export const BorderSwatch = () => {
     />
   );
 };
+
+// TODO: Replace placeholder tokens with real accent color tokens
+// once they are live.
+const accentPlaceholderTokens = [
+  {
+    id: 'hpe.color.background.accent.blue.weak',
+    token: 'hpe.color.background.accent.blue.weak',
+    value: '#DBEAFE',
+  },
+  {
+    id: 'hpe.color.background.accent.blue.strong',
+    token: 'hpe.color.background.accent.blue.strong',
+    value: '#2563EB',
+  },
+  {
+    id: 'hpe.color.background.accent.purple.weak',
+    token: 'hpe.color.background.accent.purple.weak',
+    value: '#EDE9FE',
+  },
+  {
+    id: 'hpe.color.background.accent.purple.strong',
+    token: 'hpe.color.background.accent.purple.strong',
+    value: '#7C3AED',
+  },
+  {
+    id: 'hpe.color.background.accent.cyan.weak',
+    token: 'hpe.color.background.accent.cyan.weak',
+    value: '#CFFAFE',
+  },
+  {
+    id: 'hpe.color.background.accent.cyan.strong',
+    token: 'hpe.color.background.accent.cyan.strong',
+    value: '#0E7490',
+  },
+  {
+    id: 'hpe.color.border.accent.blue.weak',
+    token: 'hpe.color.border.accent.blue.strong',
+    value: '#93C5FD',
+  },
+  {
+    id: 'hpe.color.border.accent.cyan.strong',
+    token: 'hpe.color.border.accent.cyan.strong',
+    value: '#06B6D4',
+  },
+  {
+    id: 'hpe.color.border.accent.purple.strong',
+    token: 'hpe.color.border.accent.purple.strong',
+    value: '#C4B5FD',
+  },
+];
+
+export const AccentSwatch = () => (
+  <TokenSwatchList
+    background={t =>
+      t.id.startsWith('hpe.color.border.') ? 'background-front' : t.value
+    }
+    border={t =>
+      t.id.startsWith('hpe.color.border.') ? t.value : undefined
+    }
+    borderSize="small"
+    tokens={accentPlaceholderTokens}
+  />
+);
 
 export const DecorativeSwatch = () => (
   <TokenSwatchList
