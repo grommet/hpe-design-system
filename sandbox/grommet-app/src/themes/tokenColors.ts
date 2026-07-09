@@ -14,7 +14,7 @@ export const tokenColors = {
   'background-primary-strong-hover': 'brand',
   'background-selected-strong-enabled': 'background-primary-strong',
   'background-selected-strong-hover': 'background-primary-strong-hover',
-  'background-neutral-xstrong': {},
+  'background-neutral-xstrong': 'background-front',
   'border-disabled': 'text-disabled',
   'border-selected': 'brand',
   'border-critical': 'border',
