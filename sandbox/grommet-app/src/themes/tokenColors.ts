@@ -43,7 +43,7 @@ export const tokenColors = {
   'text-onInfo-strong': 'text-strong',
   'text-onUnknown': 'text',
   'text-onUnknown-strong': 'text-strong',
-  'text-primary': {},
+  'text-primary': 'text',
   'icon-primary': 'brand',
   'icon-default': 'text',
   'icon-critical': 'status-critical',
