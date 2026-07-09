@@ -3,6 +3,8 @@ packages:
   - packages/**
   - sandbox/*
   - shared/*
+onlyBuiltDependencies:
+  - grommet-theme-hpe
 catalog:
   '@babel/preset-react': ^7.28.5
   '@hpe-design/icons-grommet': ^1.1.0
