@@ -37,3 +37,5 @@ catalogs:
     grommet-theme-hpe: ^6.0.0
   grommet-theme-hpe-v7:
     grommet-theme-hpe: ^7.0.0
+  grommet-theme-hpe-v8:
+    grommet-theme-hpe: ^8.1.4
