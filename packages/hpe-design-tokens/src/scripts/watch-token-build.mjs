@@ -7,6 +7,7 @@ import { spawn } from 'node:child_process';
 
 const workspaceRoot = path.resolve(process.cwd(), '../..');
 const tokensDirectory = path.join(process.cwd(), 'tokens');
+const WATCH_INTERVAL = 1500;
 
 const buildTokens = () =>
   new Promise((resolve, reject) => {
@@ -93,4 +94,4 @@ setInterval(async () => {
     console.log('[watch-token-build] Token changes detected. Rebuilding...');
     await runBuild();
   }
-}, 800);
+}, WATCH_INTERVAL);
