@@ -40,7 +40,7 @@ export const tokenColors = {
   'text-onOk': 'text',
   'text-onOk-strong': 'text-strong',
   'text-onInfo': 'text',
-  'text-Info-strong': 'text-strong',
+  'text-onInfo-strong': 'text-strong',
   'text-onUnknown': 'text',
   'text-onUnknown-strong': 'text-strong',
   'text-primary': {},
