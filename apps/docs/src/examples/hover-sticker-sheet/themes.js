@@ -326,3 +326,63 @@ export const option7Theme = deepMerge(option2Theme, {
     },
   },
 });
+
+// ─── Option 8 helpers ────────────────────────────────────────────────────────
+
+// Like Option 5: unchecked checkbox border = border-strong at rest.
+// On hover the border stays border-strong (no change) and the control
+// background fills with background-hover instead.
+const checkBorderStrongBgHover = props => {
+  const base =
+    typeof hpe.checkBox?.check?.extend === 'function'
+      ? hpe.checkBox.check.extend(props)
+      : hpe.checkBox?.check?.extend ?? '';
+  const { checked, indeterminate, disabled } = props;
+  const borderStrongColor = resolveColor('border-strong', props.theme);
+  const bgHoverColor = resolveColor('background-hover', props.theme);
+
+  if (!checked && !indeterminate && !disabled) {
+    return `${base}
+border-color: ${borderStrongColor};
+&:hover { background: ${bgHoverColor}; border-color: ${borderStrongColor}; }`;
+  }
+  if (indeterminate && !disabled) {
+    return `${base}\n&:hover { border-color: rgba(0, 0, 0, 0); }`;
+  }
+  return base;
+};
+
+// RadioButton extend: unchecked border = border-strong at rest and on hover.
+// On hover the circle fills with background-hover.
+const radiobuttonExtendOption8 = props => {
+  const borderStrongColor = resolveColor('border-strong', props.theme);
+  const bgHoverColor = resolveColor('background-hover', props.theme);
+  return `
+& input:not([disabled]):not(:checked) + div,
+& input:not([disabled]):not(:checked) + span {
+  border-color: ${borderStrongColor};
+}
+&:hover input:not([disabled]):not(:checked) + div,
+&:hover input:not([disabled]):not(:checked) + span {
+  background: ${bgHoverColor};
+  border-color: ${borderStrongColor};
+}`;
+};
+
+// Option 8: identical to Option 5 but hover feedback on selection controls is
+// a background fill (background-hover) rather than a border colour change.
+// Border stays border-strong at rest and on hover.
+export const option8Theme = deepMerge(hpe, {
+  checkBox: {
+    check: { extend: checkBorderStrongBgHover },
+  },
+  radioButton: {
+    extend: radiobuttonExtendOption8,
+  },
+  formField: {
+    extend: formFieldWithHoverBorder,
+  },
+  fileInput: {
+    hover: { border: { color: 'border-strong' } },
+  },
+});

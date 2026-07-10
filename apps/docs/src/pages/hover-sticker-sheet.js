@@ -12,7 +12,7 @@ import {
   TextInput,
   ToggleGroup,
 } from 'grommet';
-import { currentTheme, option1Theme, option2Theme, option3Theme, option4Theme, option5Theme, option6Theme, option7Theme } from '../examples/hover-sticker-sheet/themes';
+import { currentTheme, option1Theme, option2Theme, option3Theme, option4Theme, option5Theme, option6Theme, option7Theme, option8Theme } from '../examples/hover-sticker-sheet/themes';
 import { StickerSheet } from '../examples/hover-sticker-sheet/StickerSheet';
 import { ExampleForm } from '../examples/hover-sticker-sheet/ExampleForm';
 import { WizardExample } from '../examples/hover-sticker-sheet/WizardExample';
@@ -27,6 +27,7 @@ const THEMES = {
   'Option 5': option5Theme,
   'Option 6': option6Theme,
   'Option 7': option7Theme,
+  'Option 8': option8Theme,
 };
 
 const DESCRIPTIONS = {
@@ -65,6 +66,11 @@ const DESCRIPTIONS = {
     'border-default is redefined to base.color.grey.600 (#7D8A92) — meets 3:1 contrast.',
     'Hover continues to darken to border-strong, as in Option 2.',
     'All inputs benefit automatically without per-component overrides.',
+  ],
+  'Option 8': [
+    'Like Option 5: checkbox and radio control borders use border-strong at rest (3:1 contrast fix).',
+    'On hover the border stays border-strong (no change); the control background fills with background-hover instead.',
+    'Text inputs, selects, and other field inputs get a darker border (border-strong) on hover.',
   ],
 };
 
@@ -108,7 +114,7 @@ const HoverStickerSheet = () => {
           <Box gap="small">
             <Text weight="bold">Hover option:</Text>
             <ToggleGroup
-              options={['Current', 'Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6', 'Option 7']}
+              options={['Current', 'Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6', 'Option 7', 'Option 8']}
               value={option}
               onToggle={({ value }) => setOption(value)}
             />
