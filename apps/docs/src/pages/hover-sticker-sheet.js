@@ -12,7 +12,7 @@ import {
   TextInput,
   ToggleGroup,
 } from 'grommet';
-import { currentTheme, option1Theme, option2Theme, option3Theme, option4Theme, option5Theme, option6Theme, option7Theme, option8Theme } from '../examples/hover-sticker-sheet/themes';
+import { currentTheme, option1Theme, option2Theme, option3Theme, option4Theme, option5Theme, option6Theme, option7Theme, option8Theme, focus3pxTheme } from '../examples/hover-sticker-sheet/themes';
 import { StickerSheet } from '../examples/hover-sticker-sheet/StickerSheet';
 import { ExampleForm } from '../examples/hover-sticker-sheet/ExampleForm';
 import { WizardExample } from '../examples/hover-sticker-sheet/WizardExample';
@@ -28,6 +28,7 @@ const THEMES = {
   'Option 6': option6Theme,
   'Option 7': option7Theme,
   'Option 8': option8Theme,
+  'Focus 3px': focus3pxTheme,
 };
 
 const DESCRIPTIONS = {
@@ -72,6 +73,11 @@ const DESCRIPTIONS = {
     'On hover the border stays border-strong (no change); the control background fills with background-hover instead.',
     'Text inputs, selects, and other field inputs get a darker border (border-strong) on hover.',
   ],
+  'Focus 3px': [
+    'Hover states are identical to Current.',
+    'The outer ring of the focus indicator is increased to 3px (from the default 2px).',
+    'Tab through interactive elements to compare focus ring thickness.',
+  ],
 };
 
 const HoverStickerSheet = () => {
@@ -114,7 +120,7 @@ const HoverStickerSheet = () => {
           <Box gap="small">
             <Text weight="bold">Hover option:</Text>
             <ToggleGroup
-              options={['Current', 'Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6', 'Option 7', 'Option 8']}
+              options={['Current', 'Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6', 'Option 7', 'Option 8', 'Focus 3px']}
               value={option}
               onToggle={({ value }) => setOption(value)}
             />

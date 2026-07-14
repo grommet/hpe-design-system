@@ -386,3 +386,23 @@ export const option8Theme = deepMerge(hpe, {
     hover: { border: { color: 'border-strong' } },
   },
 });
+
+// ─── Focus 3px ───────────────────────────────────────────────────────────
+
+// Identical to the current HPE theme for hover states. The outer ring of the
+// focus indicator is increased from 2px to 3px. Both the regular (outline)
+// and inset variants are updated so behaviour is consistent across all inputs.
+export const focus3pxTheme = deepMerge(hpe, {
+  global: {
+    focus: {
+      outline: {
+        size: '3px',
+      },
+      inset: {
+        outline: {
+          size: '3px',
+        },
+      },
+    },
+  },
+});
