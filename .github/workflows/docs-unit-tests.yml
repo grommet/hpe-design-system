@@ -29,6 +29,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build design tokens
+        run: pnpm --filter hpe-design-tokens build
+
       - name: Build shared hooks
         run: pnpm --filter "@shared/hooks" build
 
@@ -66,6 +69,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build design tokens
+        run: pnpm --filter hpe-design-tokens build
 
       - name: Build shared hooks
         run: pnpm --filter "@shared/hooks" build
