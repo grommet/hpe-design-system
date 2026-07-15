@@ -92,6 +92,7 @@ Object.keys(themes).forEach(theme => {
       parsed = JSON.parse(raw.toString());
     } catch (error) {
       throw new Error(
+        // eslint-disable-next-line max-len
         `Failed to parse token file as JSON: ${file.toString()}\n${(error as Error).message}`,
       );
     }
