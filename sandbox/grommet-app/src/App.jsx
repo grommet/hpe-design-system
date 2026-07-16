@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
-import { themes } from './themes/theme';
+import { useSessionStorage, useThemePreview } from '@shared/hooks';
+import { themes } from './themes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
@@ -20,8 +21,11 @@ import './app.css';
 
 const appHeaderHeight = '60px';
 export const appHeight = `calc(100vh - ${appHeaderHeight})`;
+const MOCK_SESSION_ID = 'mock-session-id';
+const BADGE_ANIMATION_DURATION = 5500;
 
 const App = () => {
+  const [sessionId, setSessionId] = useSessionStorage('sessionId', null);
   const [authenticated, setAuthenticated] = useState(
     localStorage.getItem('design-tokens-demo') || false,
   );
@@ -46,8 +50,12 @@ const App = () => {
   }, [backgroundBack]);
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
-  const [activeTheme, setActiveTheme] = useState(Object.keys(themes)[0]);
-  const theme = useMemo(() => themes[activeTheme], [activeTheme]);
+  const [activeTheme, setActiveTheme] = useSessionStorage('activeTheme', Object.keys(themes)[0]);
+  const { theme: qaTheme } = useThemePreview();
+  const theme = useMemo(
+    () => (activeTheme === 'qa' ? qaTheme : themes[activeTheme]),
+    [activeTheme, qaTheme],
+  );
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
@@ -62,7 +70,14 @@ const App = () => {
     [showSupporting],
   );
 
-  const loading = useLoading(6000);
+  // Simulate loading state for badge animation before setting sessionId
+  const loading = useLoading(BADGE_ANIMATION_DURATION + 500);
+  useEffect(() => {
+    // Simulate setting sessionId after loading is complete
+    if (!loading) {
+      setSessionId(MOCK_SESSION_ID);
+    }
+  }, [loading, setSessionId]);
 
   return (
     <Grommet
@@ -78,14 +93,14 @@ const App = () => {
       style={{ display: 'relative' }}
     >
       {authenticated ? (
-        loading ? (
+        !sessionId ? (
           <Box
             background="background"
             align="center"
             justify="center"
             height="100vh"
             // wait for badge animation to complete
-            animation={{ type: 'fadeOut', delay: 5500, duration: 350 }}
+            animation={{ type: 'fadeOut', delay: BADGE_ANIMATION_DURATION, duration: 350 }}
           >
             <HPEGreenLakeBadge />
           </Box>

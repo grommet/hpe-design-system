@@ -31,6 +31,7 @@
     "test:contracts": "vitest run src/tests/sync_contract_schemas.test.ts",
     "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
     "build": "rm -rf ./dist && pnpm build-style-dictionary",
+    "watch": "node src/scripts/watch-token-build.mjs",
     "release-stable": "node src/scripts/release-stable.js  --branch=design-tokens-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
     "paddingY:update": "tsx src/scripts/update-paddingY.ts",

@@ -1,2 +1,3 @@
 [build.environment]
   YARN_FLAGS = "--update-checksums"
+  NPM_CONFIG_LEGACY_PEER_DEPS = "true"

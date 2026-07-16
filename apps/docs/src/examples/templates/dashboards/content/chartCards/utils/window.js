@@ -3,7 +3,11 @@ const mockAccountData = require('../../../../../../data/mockData/accounts.json')
 
 const account = mockAccountData.accounts.find(
   a => a.id === '407f1f7g6ty86cd56te3903y',
-);
+) || {
+  id: '407f1f7g6ty86cd56te3903y',
+  name: 'Sirius Cybernetics Corp.',
+  createdDate: '2015-02-08T13:09:54.584Z',
+};
 
 // Date examples should use to represent "today's date". Since mock data
 // is currently static, chose a fixed date which aligns with the data.

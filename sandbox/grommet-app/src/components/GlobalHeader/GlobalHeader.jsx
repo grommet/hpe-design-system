@@ -27,7 +27,7 @@ import {
   LinkNext,
 } from '@hpe-design/icons-grommet';
 import { Link } from 'react-router-dom';
-import { themes } from '../../themes/theme';
+import { themes } from '../../themes';
 
 export const GlobalHeader = ({
   darkMode,
@@ -38,14 +38,12 @@ export const GlobalHeader = ({
   setBackgroundBack,
   ...rest
 }) => {
-  const theme = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
-  const logoSrc =
-    activeTheme === 'v2'
-      ? `/hpe-grnlk-${!theme.dark ? 'pos' : 'rev'}-rgb.svg`
-      : `/hpe_greenlake_grn_${
-          activeTheme !== 'v1' && !theme.dark ? 'pos' : 'rev'
-        }_rgb.svg`;
+  const logoSrc = ['v0', 'v1'].includes(activeTheme)
+    ? `/hpe_greenlake_grn_${activeTheme !== 'v1' && !dark ? 'pos' : 'rev'}_rgb.svg`
+    : `/hpe-grnlk-${!dark ? 'pos' : 'rev'}-rgb.svg`;
+  const themeOptions = [...Object.keys(themes).map(theme => theme), 'qa'];
 
   return (
     <Page kind="full" {...rest}>
@@ -72,7 +70,7 @@ export const GlobalHeader = ({
             <Link to="/">
               <Box
                 height="32px"
-                width={activeTheme === 'v2' ? '125px' : '90px'}
+                width={['v0', 'v1'].includes(activeTheme) ? '90px' : '125px'}
                 align="start"
               >
                 <Image src={logoSrc} fit="contain" alt="HPE GreenLake badge" />
@@ -98,7 +96,7 @@ export const GlobalHeader = ({
                 <Box
                   background={{
                     color: 'background-floating',
-                    dark: theme.dark ? true : false,
+                    dark: dark ? true : false,
                   }}
                   pad="medium"
                   gap="medium"
@@ -147,7 +145,7 @@ export const GlobalHeader = ({
                     <Select
                       id="theme-select"
                       name="theme-select"
-                      options={Object.keys(themes).map(theme => theme)}
+                      options={themeOptions}
                       onChange={({ option }) => setActiveTheme(option)}
                       value={activeTheme}
                     />

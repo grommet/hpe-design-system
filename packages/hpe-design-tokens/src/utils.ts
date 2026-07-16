@@ -233,7 +233,8 @@ export const COPYRIGHT = 'Copyright Hewlett Packard Enterprise Development LP.';
 
 export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   const tokenDirs = readdirSync(tokensDir, { withFileTypes: true })
-    .filter(dir => dir.isDirectory())
+    .filter(dir => dir.isDirectory() &&
+     !dir.name.startsWith('.'))  // Exclude hidden directories
     .map(dir => dir.name);
 
   const themes: { [key: string]: string[] } = {
