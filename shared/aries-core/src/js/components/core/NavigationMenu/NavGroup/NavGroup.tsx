@@ -13,11 +13,11 @@ export const NavGroup = ({ item, render, defaultItemProps }: NavGroupProps) => {
 
   return (
     <Box>
-      <GroupHeading id={headerId} item={item} />
+      {item.label && <GroupHeading id={headerId} item={item} />}
       <Box
         role="group"
         aria-labelledby={headerId}
-        border={{ side: 'bottom', color: 'border-weak' }}
+        border={item.border === false ? undefined : { side: 'bottom', color: 'border-weak' }}
       >
         {item.children?.map(child => (
           <Box

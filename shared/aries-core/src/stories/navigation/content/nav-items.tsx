@@ -175,3 +175,124 @@ export const navItemsSubheadings: NavItemType[] = [
     ],
   },
 ];
+
+export const navItemsFlex: NavItemType[] = [
+  {
+    id: 'flex-solutions',
+    type: 'group',
+    children: [
+      {
+        label: 'Overview',
+        url: '/flex-solutions/overview',
+      },
+      {
+        label: 'Flex Orders',
+        url: '/flex-solutions/flex-orders',
+      },
+      {
+        label: 'Flex Devices',
+        url: '/flex-solutions/flex-devices',
+      },
+    ],
+  },
+  {
+    id: 'consumption',
+    type: 'group',
+    children: [
+      {
+        label: 'Consumption',
+        children: [
+          {
+            id: 'monitor',
+            type: 'group',
+            label: 'Monitor',
+            border: false,
+            children: [
+              {
+                label: 'Reports',
+                url: '/consumption/monitor/reports',
+              },
+              {
+                label: 'Budgets',
+                url: '/consumption/monitor/budgets',
+              },
+              {
+                label: 'Data exports',
+                url: '/consumption/monitor/data-exports',
+              },
+              {
+                label: 'Billing estimates',
+                url: '/consumption/monitor/billing-estimates',
+              },
+              {
+                label: 'Capacity',
+                url: '/consumption/monitor/capacity',
+              },
+            ],
+          },
+          {
+        id: 'optimize',
+        label: 'Optimize',
+        type: 'group',
+        border: false,
+        children: [
+          {
+            label: 'Recommendations',
+            url: '/consumption/optimize/recommendations',
+          },
+        ],
+          },
+          {
+        id: 'settings',
+        label: 'Settings',
+        type: 'group',
+        border: false,
+        children: [
+          {
+            label: 'Data sources',
+            url: '/consumption/settings/data-sources',
+          },
+          {
+            label: 'Data rules',
+            url: '/consumption/settings/data-rules',
+          },
+          {
+            label: 'Currency',
+            url: '/consumption/settings/currency',
+          },
+          {
+            label: 'User management',
+            url: '/consumption/settings/user-management',
+          },
+          {
+            label: 'Asset management',
+            url: '/consumption/settings/asset-management',
+          },
+        ],
+          },
+        ],
+      },
+      {
+        label: 'Sustainability',
+        children: [
+          {
+            label: 'Dashboard',
+            url: '/consumption/sustainability/overview',
+          },
+          {
+            label: 'Data configuration',
+            url: '/consumption/sustainability/data-configuration',
+          },
+          {
+            label: 'Forecasting',
+            url: '/consumption/sustainability/forecasting',
+          },
+        ],
+      },
+      {
+        label: 'Wellness',
+        url: '/consumption/wellness',
+      },
+    ],
+  }
+];
