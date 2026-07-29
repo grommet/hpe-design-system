@@ -474,7 +474,7 @@
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
