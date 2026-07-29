@@ -944,7 +944,7 @@
       "info": {
         "DEFAULT": {
           "REST": {
-            "$description": "",
+            "$description": "Use for foreground regions representing a known, non-urgent status, such as informational-severity alerts or values that are noted but require no action. Often used in meters, progress bars, or chart segments where the value does not indicate a problem. Keywords: status, informational, low severity",
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
