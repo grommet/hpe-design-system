@@ -451,22 +451,6 @@
     "border": {
       "accent": {
         "blue": {
-          "purple": {
-            "DEFAULT": {
-              "REST": {
-                "$description": "",
-                "$extensions": {
-                  "com.figma": {
-                    "codeSyntax": {},
-                    "hiddenFromPublishing": false,
-                    "scopes": ["ALL_SCOPES"]
-                  }
-                },
-                "$type": "color",
-                "$value": "{base.color.purple.450}"
-              }
-            }
-          },
           "strong": {
             "REST": {
               "$description": "",
@@ -495,6 +479,22 @@
               },
               "$type": "color",
               "$value": "{base.color.cyan.600}"
+            }
+          }
+        },
+        "purple": {
+          "strong": {
+            "REST": {
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.purple.450}"
             }
           }
         }
