@@ -370,6 +370,12 @@ const tokenAliasToFigmaAlias = (alias: string): string => {
     let section = parts.slice(0, 2).join('/');
     let name = parts.slice(2).join('-');
 
+    // Keep accent as a dedicated namespace in Figma names.
+    if (section === 'color/background' && parts[2] === 'accent') {
+      section = parts.slice(0, 3).join('/');
+      name = parts.slice(3).join('-');
+    }
+
     if (exceptionColors.includes(section)) {
       // If it's an exception color, the token hierarchy is one level
       // higher than others. Adjust the section and name accordingly.

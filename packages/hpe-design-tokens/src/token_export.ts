@@ -14,6 +14,73 @@ const interactions = ['hover', 'focus', 'active'];
 const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
 const exceptionColors = ['color/focus/support', 'color/transparent'];
 
+function colorNameToHierarchyParts(colorVariableName: string): string[] {
+  const parts = colorVariableName.split('/');
+
+  if (parts[0] !== 'color') {
+    return parts;
+  }
+
+  if (parts[1] === 'background' && parts[2] === 'accent') {
+    const section = parts.slice(0, 3);
+    const tail = parts.slice(3).join('-');
+    if (!tail) {
+      return section;
+    }
+
+    const tailParts = tail.split('-');
+    const interactionCandidate = tailParts[tailParts.length - 1];
+    const hasInteraction = interactions.includes(interactionCandidate);
+    const prominenceIndex = hasInteraction
+      ? tailParts.length - 2
+      : tailParts.length - 1;
+    const prominenceCandidate = tailParts[prominenceIndex];
+
+    if (!prominenceCandidate || !prominences.includes(prominenceCandidate)) {
+      return [...section, tail];
+    }
+
+    const colorNameParts = tailParts.slice(0, prominenceIndex);
+    const colorName = colorNameParts.join('-');
+    if (!colorName) {
+      return [...section, tail];
+    }
+
+    const normalized = [...section, colorName, prominenceCandidate];
+    if (hasInteraction) {
+      normalized.push(interactionCandidate);
+    }
+
+    return normalized;
+  }
+
+  return colorVariableName.replaceAll('-', '/').split('/');
+}
+
+function normalizeColorVariableNameFromFigma(
+  colorVariableName: string,
+): string {
+  const temp = colorNameToHierarchyParts(colorVariableName);
+  if (!exceptionColors.includes(temp.join('/'))) {
+    // last element of name should be interaction
+    // Added exception for color/focus so that REST gets
+    // added, issue to revisit this here:
+    // https://github.com/grommet/hpe-design-system/issues/5676
+    if (
+      !interactions.includes(temp[temp.length - 1]) ||
+      temp.join('/') === 'color/focus'
+    ) {
+      temp.push('REST');
+    }
+    // second to last element of name should be prominence
+    if (!prominences.includes(temp[temp.length - 2])) {
+      temp.splice(temp.length - 1, 0, 'DEFAULT');
+    }
+  }
+
+  return temp.join('/');
+}
+
 type ShadowsByMode = Record<string, Record<string, ExportShadowToken>>;
 
 function tokenTypeFromVariable(variable: Variable) {
@@ -47,24 +114,7 @@ function tokenValueFromVariable(
         aliasedVariable.resolvedType === 'COLOR' &&
         /^color/.test(aliasedName)
       ) {
-        const temp = aliasedName.replaceAll('-', '/').split('/');
-        if (!exceptionColors.includes(temp.join('/'))) {
-          // last element of name should be interaction
-          // Added exception for color/focus so that REST gets
-          // added, issue to revisit this here:
-          // https://github.com/grommet/hpe-design-system/issues/5676
-          if (
-            !interactions.includes(temp[temp.length - 1]) ||
-            temp.join('/') === 'color/focus'
-          ) {
-            temp.push('REST');
-          }
-          // second to last element of name should be prominence
-          if (!prominences.includes(temp[temp.length - 2])) {
-            temp.splice(temp.length - 1, 0, 'DEFAULT');
-          }
-        }
-        aliasedName = temp.join('/');
+        aliasedName = normalizeColorVariableNameFromFigma(aliasedName);
       }
       return `{${aliasedName.replace(/\//g, '.')}}`;
     }
@@ -270,24 +320,7 @@ export function tokenFilesFromLocalVariables(
         // to align to design token spec
         // e.g. color/background/critical --> color/background/critical/DEFAULT/REST
         if (isColor) {
-          const temp = variable.name.replaceAll('-', '/').split('/');
-          if (!exceptionColors.includes(temp.join('/'))) {
-            // last element of name should be interaction
-            // Added exception for color/focus so that REST gets
-            // added, issue to revisit this here:
-            // https://github.com/grommet/hpe-design-system/issues/5676
-            if (
-              !interactions.includes(temp[temp.length - 1]) ||
-              temp.join('/') === 'color/focus'
-            ) {
-              temp.push('REST');
-            }
-            // second to last element of name should be prominence
-            if (!prominences.includes(temp[temp.length - 2])) {
-              temp.splice(temp.length - 1, 0, 'DEFAULT');
-            }
-          }
-          adjustedName = temp.join('/');
+          adjustedName = normalizeColorVariableNameFromFigma(variable.name);
         }
 
         adjustedName.split('/').forEach(groupName => {
