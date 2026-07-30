@@ -40,7 +40,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           },
           "weak": {
@@ -54,7 +54,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           }
         },
@@ -70,7 +70,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           },
           "weak": {
@@ -84,7 +84,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           }
         },
@@ -100,7 +100,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           },
           "weak": {
@@ -114,7 +114,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           }
         }
@@ -462,7 +462,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           }
         },
@@ -478,7 +478,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           }
         },
@@ -494,7 +494,7 @@
                 }
               },
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{color.transparent}"
             }
           }
         }
