@@ -31,7 +31,7 @@
         "blue": {
           "strong": {
             "REST": {
-              "$description": "Use for strong blue accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for strong blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -45,7 +45,7 @@
           },
           "weak": {
             "REST": {
-              "$description": "Use for subtle blue accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for subtle blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -61,7 +61,7 @@
         "cyan": {
           "strong": {
             "REST": {
-              "$description": "Use for strong cyan accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for strong cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -75,7 +75,7 @@
           },
           "weak": {
             "REST": {
-              "$description": "Use for subtle cyan accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for subtle cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -91,7 +91,7 @@
         "purple": {
           "strong": {
             "REST": {
-              "$description": "Use for strong purple accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for strong purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -105,7 +105,7 @@
           },
           "weak": {
             "REST": {
-              "$description": "Use for subtle purple accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for subtle purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},

@@ -453,7 +453,7 @@
         "blue": {
           "strong": {
             "REST": {
-              "$description": "Use for strong blue accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for strong blue accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -469,7 +469,7 @@
         "cyan": {
           "strong": {
             "REST": {
-              "$description": "Use for strong cyan accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$description": "Use for strong cyan accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -485,7 +485,7 @@
         "purple": {
           "strong": {
             "REST": {
-              "$description": "",
+              "$description": "Use for strong purple accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
