@@ -31,12 +31,12 @@
         "blue": {
           "strong": {
             "REST": {
-              "$description": "",
+              "$description": "Use for strong blue accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
@@ -45,12 +45,12 @@
           },
           "weak": {
             "REST": {
-              "$description": "",
+              "$description": "Use for subtle blue accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
@@ -61,12 +61,12 @@
         "cyan": {
           "strong": {
             "REST": {
-              "$description": "",
+              "$description": "Use for strong cyan accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
@@ -75,12 +75,12 @@
           },
           "weak": {
             "REST": {
-              "$description": "",
+              "$description": "Use for subtle cyan accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
@@ -91,12 +91,12 @@
         "purple": {
           "strong": {
             "REST": {
-              "$description": "",
+              "$description": "Use for strong purple accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
@@ -105,12 +105,12 @@
           },
           "weak": {
             "REST": {
-              "$description": "",
+              "$description": "Use for subtle purple accent backgrounds. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
@@ -453,12 +453,12 @@
         "blue": {
           "strong": {
             "REST": {
-              "$description": "",
+              "$description": "Use for strong blue accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
@@ -469,7 +469,7 @@
         "cyan": {
           "strong": {
             "REST": {
-              "$description": "",
+              "$description": "Use for strong cyan accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
