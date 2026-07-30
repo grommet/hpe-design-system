@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
-import { Token, TokensFile } from './token_types.js';
+import { ExportShadowToken, Token, TokensFile } from './token_types.js';
 import { access, isReference } from './utils.js';
 
 /**
@@ -12,6 +13,8 @@ const interactions = ['hover', 'focus', 'active'];
  */
 const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
 const exceptionColors = ['color/focus/support', 'color/transparent'];
+
+type ShadowsByMode = Record<string, Record<string, ExportShadowToken>>;
 
 function tokenTypeFromVariable(variable: Variable) {
   if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
@@ -64,7 +67,9 @@ function tokenValueFromVariable(
         aliasedName = temp.join('/');
       }
       return `{${aliasedName.replace(/\//g, '.')}}`;
-    } else if ('r' in value) {
+    }
+
+    if ('r' in value) {
       return rgbToHex(value);
     }
 
@@ -81,7 +86,7 @@ export function tokenFilesFromLocalVariables(
   const localVariableCollections =
     localVariablesResponse.meta.variableCollections;
   const localVariables = localVariablesResponse.meta.variables;
-  const shadows: { [key: string]: any } = {};
+  const shadows: ShadowsByMode = {};
 
   Object.values(localVariables).forEach(variable => {
     // Skip remote variables because we only want to generate tokens for local variables
@@ -97,7 +102,7 @@ export function tokenFilesFromLocalVariables(
         tokenFiles[fileName] = {};
       }
 
-      let obj: any = tokenFiles[fileName];
+      let obj = tokenFiles[fileName] as Record<string, unknown>;
 
       // specific to "outline" but not something like "outlineOffset"
       if (/outline\//.test(variable.name)) {
@@ -106,8 +111,8 @@ export function tokenFilesFromLocalVariables(
         const property = parts[parts.length - 1];
 
         keyPath.forEach(groupName => {
-          obj[groupName] = obj[groupName] || {};
-          obj = obj[groupName];
+          obj[groupName] = (obj[groupName] as Record<string, unknown>) || {};
+          obj = obj[groupName] as Record<string, unknown>;
         });
         const token = {
           $type: 'border',
@@ -127,11 +132,14 @@ export function tokenFilesFromLocalVariables(
             },
           },
         };
-        const outline = access(keyPath.join('.'), tokenFiles[fileName]);
+        const outline = access<Record<string, unknown>>(
+          keyPath.join('.'),
+          tokenFiles[fileName] as Record<string, unknown>,
+        );
         if (Object.keys(outline).length === 0) {
           Object.assign(obj, token);
         } else {
-          const partialOutline = outline.$value;
+          const partialOutline = outline.$value as Record<string, unknown>;
           partialOutline[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
@@ -144,8 +152,8 @@ export function tokenFilesFromLocalVariables(
         const property = parts[parts.length - 1];
 
         keyPath.forEach(groupName => {
-          obj[groupName] = obj[groupName] || {};
-          obj = obj[groupName];
+          obj[groupName] = (obj[groupName] as Record<string, unknown>) || {};
+          obj = obj[groupName] as Record<string, unknown>;
         });
 
         let value = tokenValueFromVariable(
@@ -179,16 +187,21 @@ export function tokenFilesFromLocalVariables(
         };
 
         // if there isn't anything in the shadow yet, create the initial value array
-        const boxShadow = access(keyPath.join('.'), tokenFiles[fileName]);
+        const boxShadow = access<Record<string, unknown>>(
+          keyPath.join('.'),
+          tokenFiles[fileName] as Record<string, unknown>,
+        );
         if (Object.keys(boxShadow).length === 0) {
           Object.assign(obj, token);
           // if not a string reference
-        } else if (typeof boxShadow.$value === 'object') {
+        } else if (Array.isArray(boxShadow.$value)) {
           const index =
             parseInt(parts[parts.length - 3], 10) >= 0
               ? parseInt(parts[parts.length - 3], 10)
               : 0;
-          const partialShadow = boxShadow.$value[index];
+          const partialShadow =
+            (boxShadow.$value[index] as Record<string, unknown>) || {};
+          boxShadow.$value[index] = partialShadow;
           partialShadow[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
@@ -267,12 +280,11 @@ export function tokenFilesFromLocalVariables(
         }
 
         adjustedName.split('/').forEach(groupName => {
-          obj[groupName] = obj[groupName] || {};
-          obj = obj[groupName];
+          obj[groupName] = (obj[groupName] as Record<string, unknown>) || {};
+          obj = obj[groupName] as Record<string, unknown>;
         });
 
-        let token: Token;
-        token = {
+        const token: Token = {
           $type: tokenTypeFromVariable(variable),
           $value: tokenValueFromVariable(variable, mode.modeId, localVariables),
           $description: variable.description,
