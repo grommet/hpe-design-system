@@ -36,7 +36,7 @@
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
