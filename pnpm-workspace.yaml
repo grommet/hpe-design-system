@@ -34,6 +34,11 @@ catalogs:
   grommet-stable:
     grommet: https://github.com/grommet/grommet/tarball/stable
     grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable
+    # Pinned SHA is a workaround to deal with pnpm's caching. Currently, we do
+    # not increment the version of grommet-theme-hpe when we make changes to master, 
+    # so pnpm will not update the package in the cache. This is a temporary workaround 
+    # until we can find a better approach. /scripts/clean-stable-branch-cache.md 
+    # has commands to clean the cache if you need to update the package in your local environment.
     grommet-theme-hpe: https://github.com/grommet/grommet-theme-hpe/tarball/99174e3d9972591b05ea30f5ce603089d34b8272
   grommet-theme-hpe-v6:
     grommet-theme-hpe: ^6.0.0
