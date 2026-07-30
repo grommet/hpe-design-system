@@ -149,3 +149,36 @@ export type SemanticColorRoleVariant<
   T extends keyof SemanticColorRoleVariants,
   F extends keyof SemanticColorRoleVariants[T],
 > = SemanticColorRoleVariants[T][F] extends readonly (infer V)[] ? V : never;
+
+export type SemanticColorRoleMetadata = {
+  family: string | null;
+  variant: string;
+};
+
+// Target-aware role metadata shape for callers that want stronger typing.
+export type SemanticColorRoleMetadataByTarget<T extends SemanticColorTarget> = {
+  family: SemanticColorRoleFamily<T> | null;
+  variant: string;
+};
+
+export type SemanticColorTokenMetadata = {
+  type: 'color';
+  target: SemanticColorTarget | null;
+  role: SemanticColorRoleMetadata | null;
+  scale: SemanticColorScale | null;
+  state: SemanticColorState | null;
+};
+
+export type SemanticColorTokenMetadataByTarget<T extends SemanticColorTarget> =
+  {
+    type: 'color';
+    target: T;
+    role: SemanticColorRoleMetadataByTarget<T> | null;
+    scale: SemanticColorScale | null;
+    state: SemanticColorState | null;
+  };
+
+export type SemanticColorTokenMetadataMap = Record<
+  string,
+  SemanticColorTokenMetadata
+>;

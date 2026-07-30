@@ -2,12 +2,33 @@ import fs from 'fs';
 import { describe, expect, it } from 'vitest';
 
 import {
+  type SemanticColorTokenMetadataMap,
   SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET,
   SEMANTIC_COLOR_ROLE_VARIANTS,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   SEMANTIC_COLOR_TARGETS,
 } from '../semantic_color_vocab.js';
+
+const semanticColorMetadataExamples = {
+  'hpe.color.background.primary.strong': {
+    type: 'color',
+    target: 'background',
+    role: {
+      family: 'primary',
+      variant: 'strong',
+    },
+    scale: 'strong',
+    state: 'REST',
+  },
+  'hpe.color.transparent': {
+    type: 'color',
+    target: 'transparent',
+    role: null,
+    scale: null,
+    state: null,
+  },
+} satisfies SemanticColorTokenMetadataMap;
 
 describe('semantic_color_vocab', () => {
   it('matches current semantic color target inventory', () => {
@@ -71,5 +92,15 @@ describe('semantic_color_vocab', () => {
       '70',
       '80',
     ]);
+  });
+
+  it('supports the semantic color metadata type shape', () => {
+    expect(
+      semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
+        ?.family,
+    ).toBe('primary');
+    expect(semanticColorMetadataExamples['hpe.color.transparent'].role).toBe(
+      null,
+    );
   });
 });
