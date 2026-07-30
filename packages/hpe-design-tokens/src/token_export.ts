@@ -148,8 +148,12 @@ export function tokenFilesFromLocalVariables(
         }
       } else if (variable.name.includes('boxShadow')) {
         const parts = variable.name.split('/');
-        const keyPath = parts.slice(0, parts.indexOf('boxShadow') + 1);
+        const boxShadowIndex = parts.indexOf('boxShadow');
+        const keyPath = parts.slice(0, boxShadowIndex + 1);
         const property = parts[parts.length - 1];
+        const parsedStep = parseInt(parts[boxShadowIndex + 1], 10);
+        const stepIndex =
+          Number.isInteger(parsedStep) && parsedStep > 0 ? parsedStep - 1 : 0;
 
         keyPath.forEach(groupName => {
           obj[groupName] = (obj[groupName] as Record<string, unknown>) || {};
@@ -192,16 +196,23 @@ export function tokenFilesFromLocalVariables(
           tokenFiles[fileName] as Record<string, unknown>,
         );
         if (Object.keys(boxShadow).length === 0) {
-          Object.assign(obj, token);
+          if (typeof token.$value === 'string') {
+            Object.assign(obj, token);
+          } else {
+            const initialValues: Array<Record<string, unknown>> = [];
+            initialValues[stepIndex] = {
+              [property]: value,
+            };
+            Object.assign(obj, {
+              ...token,
+              $value: initialValues,
+            });
+          }
           // if not a string reference
         } else if (Array.isArray(boxShadow.$value)) {
-          const index =
-            parseInt(parts[parts.length - 3], 10) >= 0
-              ? parseInt(parts[parts.length - 3], 10)
-              : 0;
           const partialShadow =
-            (boxShadow.$value[index] as Record<string, unknown>) || {};
-          boxShadow.$value[index] = partialShadow;
+            (boxShadow.$value[stepIndex] as Record<string, unknown>) || {};
+          boxShadow.$value[stepIndex] = partialShadow;
           partialShadow[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
