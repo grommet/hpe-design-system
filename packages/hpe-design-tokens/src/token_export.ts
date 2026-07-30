@@ -248,7 +248,7 @@ export function tokenFilesFromLocalVariables(
         if (isColor) {
           const temp = variable.name.replaceAll('-', '/').split('/');
           if (!exceptionColors.includes(temp.join('/'))) {
-            // last element of name should be interaction
+            // last element of name should be interactive state
             // Added exception for color/focus so that REST gets
             // added, issue to revisit this here:
             // https://github.com/grommet/hpe-design-system/issues/5676
