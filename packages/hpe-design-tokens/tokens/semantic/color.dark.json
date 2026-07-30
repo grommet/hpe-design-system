@@ -485,12 +485,12 @@
         "purple": {
           "strong": {
             "REST": {
-              "$description": "",
+              "$description": "Use for strong purple accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
                   "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"]
+                  "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
                 }
               },
               "$type": "color",
