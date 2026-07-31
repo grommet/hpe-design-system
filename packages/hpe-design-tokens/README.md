@@ -54,6 +54,9 @@ Semantic color import/export behavior is protected by parity tests and golden fi
 - Parity scope:
   - Legacy-vs-new adapter equivalence tests (`semantic_color_name_adapter_parity.test.ts`).
   - Golden output verification for export token output and import payload output (`semantic_color_payload_golden.test.ts`).
+  - Boundary vectors for non-canonical accent naming in both directions:
+    - Export fixture coverage for incoming Figma names such as `color/background/accent/purple-custom`.
+    - Import fixture coverage for aliases such as `color/background/accent/purple/custom/REST` that must resolve to canonical variable IDs.
 - Golden fixtures:
   - `src/tests/fixtures/semantic-color-parity/export-output.golden.json`
   - `src/tests/fixtures/semantic-color-parity/import-output.golden.json`
