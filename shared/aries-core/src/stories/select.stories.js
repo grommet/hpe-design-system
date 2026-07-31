@@ -48,7 +48,7 @@ const fetchOptions = () =>
     setTimeout(() => resolve(allOptions), 1500);
   });
 
-// Only needed for ::before pseudo-element where Grommet token lookup does not apply.
+// Resolve marker color from theme, matching HPE theme's border-selected token
 const resolveMarkerColor = (theme, token, fallback) => {
   const raw = theme?.global?.colors?.[token];
   if (!raw) return fallback;
@@ -58,6 +58,19 @@ const resolveMarkerColor = (theme, token, fallback) => {
   return fallback;
 };
 
+// Extract marker design tokens from HPE theme for ::before pseudo-element
+const getMarkerTokens = theme => {
+  const marker = theme?.select?.default?.medium?.option?.marker;
+  return {
+    width: marker?.width,
+    borderTopLeftRadius: marker?.borderTopLeftRadius,
+    borderBottomLeftRadius: marker?.borderBottomLeftRadius,
+    top: marker?.top,
+    bottom: marker?.bottom,
+    left: marker?.left,
+  };
+};
+
 const StyledMarkerBox = styled(Box)`
   position: relative;
 
@@ -65,18 +78,18 @@ const StyledMarkerBox = styled(Box)`
     display: ${({ $selected }) => ($selected ? 'block' : 'none')};
     position: absolute;
     content: '';
-    width: 6px;
-    border-top-left-radius: 9999px;
-    border-bottom-left-radius: 9999px;
-    top: -1px;
-    bottom: -1px;
-    left: -1px;
+    width: ${({ $markerWidth }) => $markerWidth};
+    border-top-left-radius: ${({ $markerBorderTopLeftRadius }) => $markerBorderTopLeftRadius};
+    border-bottom-left-radius: ${({ $markerBorderBottomLeftRadius }) => $markerBorderBottomLeftRadius};
+    top: ${({ $markerTop }) => $markerTop};
+    bottom: ${({ $markerBottom }) => $markerBottom};
+    left: ${({ $markerLeft }) => $markerLeft};
     background: ${({ $markerColor }) => $markerColor};
     pointer-events: none;
   }
 `;
 
-const OptionRow = ({ option, pad, selected, active, markerColor }) => {
+const OptionRow = ({ option, pad, selected, active, markerColor, markerTokens }) => {
   const background =
     selected && active
       ? 'background-selected-primary-hover'
@@ -94,6 +107,12 @@ const OptionRow = ({ option, pad, selected, active, markerColor }) => {
       background={background}
       $selected={selected}
       $markerColor={markerColor}
+      $markerWidth={markerTokens?.width}
+      $markerBorderTopLeftRadius={markerTokens?.borderTopLeftRadius}
+      $markerBorderBottomLeftRadius={markerTokens?.borderBottomLeftRadius}
+      $markerTop={markerTokens?.top}
+      $markerBottom={markerTokens?.bottom}
+      $markerLeft={markerTokens?.left}
     >
       {/* Status icons intentionally omitted from options per design guidance */}
       <Text weight="medium">{option.label}</Text>
@@ -120,6 +139,7 @@ export const LoadingIconsGrouping = {
 
     const optionPad = theme?.button?.size?.medium?.option?.pad;
     const markerColor = resolveMarkerColor(theme, 'border-selected', '#006750');
+    const markerTokens = getMarkerTokens(theme);
 
     useEffect(() => {
       fetchOptions().then(data => {
@@ -192,6 +212,7 @@ export const LoadingIconsGrouping = {
           selected={state?.selected}
           active={state?.active}
           markerColor={markerColor}
+          markerTokens={markerTokens}
         />
       );
     };
