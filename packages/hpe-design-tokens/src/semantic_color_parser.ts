@@ -118,6 +118,9 @@ export function parseSemanticColorTokenMetadata(
     };
   }
 
+  // Special case for transparent, which does not have role, scale, or state.
+  // How might we redefine the semantic color token path structure to avoid
+  // this special case?
   if (targetSegment === 'transparent') {
     return {
       ok: true,
