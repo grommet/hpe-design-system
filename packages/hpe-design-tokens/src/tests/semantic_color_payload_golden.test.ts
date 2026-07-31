@@ -26,6 +26,13 @@ describe('semantic color payload golden parity', () => {
 
     const actual = tokenFilesFromLocalVariables(exportInput);
     expect(actual).toEqual(expected);
+
+    // Non-canonical incoming accent names should still normalize predictably.
+    const semanticDark = actual['semantic.dark.json'];
+    expect(semanticDark).toBeDefined();
+    expect(JSON.stringify(semanticDark)).toContain(
+      '"purple-custom":{"DEFAULT":{"REST"',
+    );
   });
 
   it('matches golden import payload output', () => {
@@ -56,6 +63,20 @@ describe('semantic color payload golden parity', () => {
           'type' in value.value &&
           value.value.type === 'VARIABLE_ALIAS' &&
           value.value.id === 'color/text/default',
+      ),
+    ).toBe(true);
+
+    // Non-canonical accent aliases should still resolve to canonical target
+    // IDs.
+    expect(
+      actual.variableModeValues?.some(
+        value =>
+          value.variableId === 'color/background/accent/purple-custom' &&
+          typeof value.value === 'object' &&
+          value.value !== null &&
+          'type' in value.value &&
+          value.value.type === 'VARIABLE_ALIAS' &&
+          value.value.id === 'color/background/accent/purple-strong',
       ),
     ).toBe(true);
   });

@@ -148,6 +148,19 @@
     },
     {
       "action": "CREATE",
+      "id": "color/background/accent/purple-custom",
+      "name": "color/background/accent/purple-custom",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Non-canonical accent alias",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
       "id": "spacing/medium",
       "name": "spacing/medium",
       "variableCollectionId": "semantic",
@@ -247,6 +260,14 @@
       "value": {
         "type": "VARIABLE_ALIAS",
         "id": "color/text/default"
+      }
+    },
+    {
+      "variableId": "color/background/accent/purple-custom",
+      "modeId": "dark",
+      "value": {
+        "type": "VARIABLE_ALIAS",
+        "id": "color/background/accent/purple-strong"
       }
     },
     {

@@ -50,6 +50,24 @@
                 }
               }
             }
+          },
+          "purple-custom": {
+            "DEFAULT": {
+              "REST": {
+                "$type": "color",
+                "$value": "#664d99",
+                "$description": "Accent purple custom non-canonical",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              }
+            }
           }
         },
         "critical": {

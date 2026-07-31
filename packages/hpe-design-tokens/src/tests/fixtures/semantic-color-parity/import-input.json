@@ -121,6 +121,18 @@
           }
         }
       },
+      "color/background/accent/purple/custom/REST": {
+        "$type": "color",
+        "$value": "{color.background.accent.purple.strong}",
+        "$description": "Non-canonical accent alias",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "spacing/medium": {
         "$type": "number",
         "$value": 16,

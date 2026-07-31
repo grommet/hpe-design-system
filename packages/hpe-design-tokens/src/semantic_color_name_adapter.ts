@@ -88,12 +88,9 @@ export function normalizeColorVariableNameFromFigma(
 
   const normalized = temp.join('/');
 
-  // Parse validation is intentionally non-blocking in this adapter layer,
-  // but keeps import/export normalization tied to the canonical parser.
-  const parsed = parseSemanticColorTokenMetadata(normalized);
-  if (parsed.ok && parsed.metadata.target === 'transparent') {
-    return 'color/transparent';
-  }
+  // Parse validation is intentionally non-blocking in this adapter layer.
+  // This keeps import/export normalization tied to canonical parser coverage.
+  parseSemanticColorTokenMetadata(normalized);
 
   return normalized;
 }
@@ -108,11 +105,8 @@ export function tokenAliasToFigmaAlias(alias: string): string {
     let section = parts.slice(0, 2).join('/');
     let name = parts.slice(2).join('-');
 
-    const parsed = parseSemanticColorTokenMetadata(parts.join('/'));
-    const isAccentBackground = parsed.ok
-      ? parsed.metadata.target === 'background' &&
-        parsed.metadata.role?.family === 'accent'
-      : section === 'color/background' && parts[2] === 'accent';
+    const isAccentBackground =
+      section === 'color/background' && parts[2] === 'accent';
 
     if (isAccentBackground) {
       section = parts.slice(0, 3).join('/');

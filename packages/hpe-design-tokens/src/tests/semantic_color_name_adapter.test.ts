@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -44,5 +45,24 @@ describe('semantic_color_name_adapter', () => {
     expect(tokenAliasToFigmaAlias('color/focus/support/DEFAULT/REST')).toBe(
       'color/focus-support',
     );
+  });
+
+  it('keeps non-canonical accent aliases stable at adapter boundary', () => {
+    expect(
+      tokenAliasToFigmaAlias('color/background/accent/purple/custom/REST'),
+    ).toBe('color/background/accent/purple-custom');
+    expect(
+      tokenAliasToFigmaAlias(
+        'color/background/accent/purple/DEFAULT/custom-state',
+      ),
+    ).toBe('color/background/accent/purple-custom-state');
+  });
+
+  it('normalizes non-canonical accent variable names without throwing', () => {
+    expect(
+      normalizeColorVariableNameFromFigma(
+        'color/background/accent/purple-custom',
+      ),
+    ).toBe('color/background/accent/purple-custom/DEFAULT/REST');
   });
 });
