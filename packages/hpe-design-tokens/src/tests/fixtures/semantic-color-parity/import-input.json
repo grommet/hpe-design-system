@@ -1,0 +1,74 @@
+{
+  "tokensByFile": {
+    "semantic.dark.json": {
+      "color/background/accent/purple/strong/REST": {
+        "$type": "color",
+        "$value": "#ff0000",
+        "$description": "Accent purple strong",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/accent/purple/strong/hover": {
+        "$type": "color",
+        "$value": "#00ff00",
+        "$description": "Accent purple strong hover",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/focus/support/DEFAULT/REST": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Focus support",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/transparent": {
+        "$type": "color",
+        "$value": "#000000",
+        "$description": "Transparent",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/accent/purple/default/REST": {
+        "$type": "color",
+        "$value": "{color.background.accent.purple.strong}",
+        "$description": "Alias to strong",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      }
+    }
+  },
+  "localVariables": {
+    "status": 200,
+    "error": false,
+    "meta": {
+      "variableCollections": {},
+      "variables": {}
+    }
+  }
+}

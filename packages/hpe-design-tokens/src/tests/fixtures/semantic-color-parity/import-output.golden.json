@@ -1,0 +1,131 @@
+{
+  "variableCollections": [
+    {
+      "action": "CREATE",
+      "id": "semantic",
+      "name": "semantic",
+      "initialModeId": "dark"
+    }
+  ],
+  "variableModes": [
+    {
+      "action": "UPDATE",
+      "id": "dark",
+      "name": "dark",
+      "variableCollectionId": "semantic"
+    }
+  ],
+  "variables": [
+    {
+      "action": "CREATE",
+      "id": "color/background/accent/purple-strong",
+      "name": "color/background/accent/purple-strong",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Accent purple strong",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/background/accent/purple-strong-hover",
+      "name": "color/background/accent/purple-strong-hover",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Accent purple strong hover",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/focus-support",
+      "name": "color/focus-support",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Focus support",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/transparent",
+      "name": "color/transparent",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Transparent",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/background/accent/purple-default",
+      "name": "color/background/accent/purple-default",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Alias to strong",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    }
+  ],
+  "variableModeValues": [
+    {
+      "variableId": "color/background/accent/purple-strong",
+      "modeId": "dark",
+      "value": {
+        "r": 1,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "variableId": "color/background/accent/purple-strong-hover",
+      "modeId": "dark",
+      "value": {
+        "r": 0,
+        "g": 1,
+        "b": 0
+      }
+    },
+    {
+      "variableId": "color/focus-support",
+      "modeId": "dark",
+      "value": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      }
+    },
+    {
+      "variableId": "color/transparent",
+      "modeId": "dark",
+      "value": {
+        "r": 0,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "variableId": "color/background/accent/purple-default",
+      "modeId": "dark",
+      "value": {
+        "type": "VARIABLE_ALIAS",
+        "id": "color/background/accent/purple-strong"
+      }
+    }
+  ]
+}

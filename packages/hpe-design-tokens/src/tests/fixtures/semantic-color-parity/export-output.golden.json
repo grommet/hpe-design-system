@@ -1,0 +1,72 @@
+{
+  "semantic.dark.json": {
+    "color": {
+      "background": {
+        "accent": {
+          "purple": {
+            "strong": {
+              "REST": {
+                "$type": "color",
+                "$value": "#ff0000",
+                "$description": "Accent purple strong",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "#00ff00",
+                "$description": "Accent purple strong hover",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "focus": {
+        "support": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Focus support",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "transparent": {
+        "$type": "color",
+        "$value": "#00000000",
+        "$description": "Transparent",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      }
+    }
+  }
+}

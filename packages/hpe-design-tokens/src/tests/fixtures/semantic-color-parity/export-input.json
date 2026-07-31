@@ -1,0 +1,78 @@
+{
+  "status": 200,
+  "error": false,
+  "meta": {
+    "variableCollections": {
+      "VariableCollectionId:9:1": {
+        "id": "VariableCollectionId:9:1",
+        "name": "semantic",
+        "modes": [{ "modeId": "9:0", "name": "dark" }],
+        "defaultModeId": "9:0",
+        "remote": false,
+        "hiddenFromPublishing": false
+      }
+    },
+    "variables": {
+      "VariableID:9:1": {
+        "id": "VariableID:9:1",
+        "name": "color/background/accent/purple-strong",
+        "key": "key_91",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 1, "g": 0, "b": 0, "a": 1 }
+        },
+        "remote": false,
+        "description": "Accent purple strong",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:2": {
+        "id": "VariableID:9:2",
+        "name": "color/background/accent/purple-strong-hover",
+        "key": "key_92",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0, "g": 1, "b": 0, "a": 1 }
+        },
+        "remote": false,
+        "description": "Accent purple strong hover",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:3": {
+        "id": "VariableID:9:3",
+        "name": "color/focus/support",
+        "key": "key_93",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 1, "g": 1, "b": 1, "a": 1 }
+        },
+        "remote": false,
+        "description": "Focus support",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:4": {
+        "id": "VariableID:9:4",
+        "name": "color/transparent",
+        "key": "key_94",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0, "g": 0, "b": 0, "a": 0 }
+        },
+        "remote": false,
+        "description": "Transparent",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      }
+    }
+  }
+}

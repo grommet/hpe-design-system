@@ -9,6 +9,8 @@ const semanticInteractions = SEMANTIC_COLOR_STATES.filter(
   state => state !== 'REST',
 );
 const semanticProminences = SEMANTIC_COLOR_SCALES;
+const semanticInteractionSet = new Set<string>(semanticInteractions);
+const semanticProminenceSet = new Set<string>(semanticProminences);
 
 // Colors that intentionally bypass DEFAULT/REST fill behavior.
 const exportExceptionColors = ['color/focus/support', 'color/transparent'];
@@ -37,7 +39,7 @@ export function colorNameToHierarchyParts(colorVariableName: string): string[] {
 
     const tailParts = tail.split('-');
     const interactionCandidate = tailParts[tailParts.length - 1];
-    const hasInteraction = semanticInteractions.includes(interactionCandidate);
+    const hasInteraction = semanticInteractionSet.has(interactionCandidate);
     const prominenceIndex = hasInteraction
       ? tailParts.length - 2
       : tailParts.length - 1;
@@ -45,7 +47,7 @@ export function colorNameToHierarchyParts(colorVariableName: string): string[] {
 
     if (
       !prominenceCandidate ||
-      !semanticProminences.includes(prominenceCandidate)
+      !semanticProminenceSet.has(prominenceCandidate)
     ) {
       return [...section, tail];
     }
@@ -73,13 +75,13 @@ export function normalizeColorVariableNameFromFigma(
   const temp = colorNameToHierarchyParts(colorVariableName);
   if (!exportExceptionColors.includes(temp.join('/'))) {
     if (
-      !semanticInteractions.includes(temp[temp.length - 1]) ||
+      !semanticInteractionSet.has(temp[temp.length - 1]) ||
       temp.join('/') === 'color/focus'
     ) {
       temp.push('REST');
     }
 
-    if (!semanticProminences.includes(temp[temp.length - 2])) {
+    if (!semanticProminenceSet.has(temp[temp.length - 2])) {
       temp.splice(temp.length - 1, 0, 'DEFAULT');
     }
   }
