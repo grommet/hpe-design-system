@@ -35,6 +35,7 @@
     "release-stable": "node src/scripts/release-stable.js  --branch=design-tokens-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
     "paddingY:update": "tsx src/scripts/update-paddingY.ts",
+    "test:parity:update": "tsx src/scripts/update-semantic-color-parity-fixtures.ts",
     "test:parity": "vitest --watch=false src/tests/semantic_color_name_adapter_parity.test.ts src/tests/semantic_color_payload_golden.test.ts",
     "test": "vitest --watch=false"
   },
