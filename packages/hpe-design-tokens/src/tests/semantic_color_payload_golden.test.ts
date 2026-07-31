@@ -28,10 +28,29 @@ describe('semantic color payload golden parity', () => {
     expect(actual).toEqual(expected);
 
     // Non-canonical incoming accent names should still normalize predictably.
-    const semanticDark = actual['semantic.dark.json'];
-    expect(semanticDark).toBeDefined();
-    expect(JSON.stringify(semanticDark)).toContain(
-      '"purple-custom":{"DEFAULT":{"REST"',
+    const semanticDark = actual['semantic.dark.json'] as
+      | {
+          color?: {
+            background?: {
+              accent?: Record<
+                string,
+                {
+                  DEFAULT?: {
+                    REST?: {
+                      $description?: string;
+                    };
+                  };
+                }
+              >;
+            };
+          };
+        }
+      | undefined;
+    const purpleCustom =
+      semanticDark?.color?.background?.accent?.['purple-custom']?.DEFAULT?.REST;
+    expect(purpleCustom).toBeDefined();
+    expect(purpleCustom?.$description).toBe(
+      'Accent purple custom non-canonical',
     );
   });
 
