@@ -41,6 +41,21 @@ export interface Token {
   };
 }
 
+export type FigmaTokenExtensions = {
+  'com.figma': {
+    hiddenFromPublishing: boolean;
+    scopes: VariableScope[];
+    codeSyntax: VariableCodeSyntax;
+  };
+};
+
+export type ExportShadowToken = {
+  $type: 'shadow';
+  $value: Array<Record<string, unknown>>;
+  $description: string;
+  $extensions: FigmaTokenExtensions;
+};
+
 export type TokenOrTokenGroup =
   | Token
   | ({
