@@ -72,6 +72,66 @@
         "hiddenFromPublishing": false,
         "scopes": ["ALL_SCOPES"],
         "codeSyntax": {}
+      },
+      "VariableID:9:5": {
+        "id": "VariableID:9:5",
+        "name": "color/background/accent/purple",
+        "key": "key_95",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0, "g": 0, "b": 1, "a": 1 }
+        },
+        "remote": false,
+        "description": "Accent purple without prominence",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:6": {
+        "id": "VariableID:9:6",
+        "name": "color/background/critical-weak-focus",
+        "key": "key_96",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0.2, "g": 0.2, "b": 0.2, "a": 1 }
+        },
+        "remote": false,
+        "description": "Critical weak focus",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:7": {
+        "id": "VariableID:9:7",
+        "name": "color/background/critical-default-active",
+        "key": "key_97",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0.1, "g": 0.1, "b": 0.1, "a": 1 }
+        },
+        "remote": false,
+        "description": "Critical default active",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:8": {
+        "id": "VariableID:9:8",
+        "name": "spacing/medium",
+        "key": "key_98",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "FLOAT",
+        "valuesByMode": {
+          "9:0": 16
+        },
+        "remote": false,
+        "description": "Spacing medium",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
       }
     }
   }

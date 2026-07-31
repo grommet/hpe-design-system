@@ -33,6 +33,56 @@
                   }
                 }
               }
+            },
+            "DEFAULT": {
+              "REST": {
+                "$type": "color",
+                "$value": "#0000ff",
+                "$description": "Accent purple without prominence",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "critical": {
+          "weak": {
+            "focus": {
+              "$type": "color",
+              "$value": "#333333",
+              "$description": "Critical weak focus",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          },
+          "default": {
+            "active": {
+              "$type": "color",
+              "$value": "#1a1a1a",
+              "$description": "Critical default active",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "codeSyntax": {}
+                }
+              }
             }
           }
         }
@@ -57,6 +107,22 @@
         "$type": "color",
         "$value": "#00000000",
         "$description": "Transparent",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      }
+    },
+    "spacing": {
+      "medium": {
+        "$type": "number",
+        "$value": 16,
+        "$description": "Spacing medium",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,

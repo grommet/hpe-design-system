@@ -43,5 +43,20 @@ describe('semantic color payload golden parity', () => {
     );
 
     expect(actual).toEqual(expected);
+
+    // Non-color token handling should remain untouched by semantic color logic.
+    expect(actual.variables?.some(v => v.name === 'spacing/medium')).toBe(true);
+
+    // Cross-target alias mapping should stay canonical in generated IDs.
+    expect(
+      actual.variableModeValues?.some(
+        value =>
+          typeof value.value === 'object' &&
+          value.value !== null &&
+          'type' in value.value &&
+          value.value.type === 'VARIABLE_ALIAS' &&
+          value.value.id === 'color/text/default',
+      ),
+    ).toBe(true);
   });
 });

@@ -80,6 +80,84 @@
         "ALL_SCOPES"
       ],
       "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/background/accent/purple-default-focus",
+      "name": "color/background/accent/purple-default-focus",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Accent purple default focus",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/background/critical-weak-focus",
+      "name": "color/background/critical-weak-focus",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Critical weak focus",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/background/critical-default-active",
+      "name": "color/background/critical-default-active",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Critical default active",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/text/default",
+      "name": "color/text/default",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Text default",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "color/background/default",
+      "name": "color/background/default",
+      "variableCollectionId": "semantic",
+      "resolvedType": "COLOR",
+      "description": "Cross-target alias",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
+    },
+    {
+      "action": "CREATE",
+      "id": "spacing/medium",
+      "name": "spacing/medium",
+      "variableCollectionId": "semantic",
+      "resolvedType": "FLOAT",
+      "description": "Spacing medium",
+      "hiddenFromPublishing": false,
+      "scopes": [
+        "ALL_SCOPES"
+      ],
+      "codeSyntax": {}
     }
   ],
   "variableModeValues": [
@@ -126,6 +204,55 @@
         "type": "VARIABLE_ALIAS",
         "id": "color/background/accent/purple-strong"
       }
+    },
+    {
+      "variableId": "color/background/accent/purple-default-focus",
+      "modeId": "dark",
+      "value": {
+        "r": 0,
+        "g": 0,
+        "b": 1
+      }
+    },
+    {
+      "variableId": "color/background/critical-weak-focus",
+      "modeId": "dark",
+      "value": {
+        "r": 0.2,
+        "g": 0.2,
+        "b": 0.2
+      }
+    },
+    {
+      "variableId": "color/background/critical-default-active",
+      "modeId": "dark",
+      "value": {
+        "r": 0.10196078431372549,
+        "g": 0.10196078431372549,
+        "b": 0.10196078431372549
+      }
+    },
+    {
+      "variableId": "color/text/default",
+      "modeId": "dark",
+      "value": {
+        "r": 0.9333333333333333,
+        "g": 0.9333333333333333,
+        "b": 0.9333333333333333
+      }
+    },
+    {
+      "variableId": "color/background/default",
+      "modeId": "dark",
+      "value": {
+        "type": "VARIABLE_ALIAS",
+        "id": "color/text/default"
+      }
+    },
+    {
+      "variableId": "spacing/medium",
+      "modeId": "dark",
+      "value": 16
     }
   ]
 }
