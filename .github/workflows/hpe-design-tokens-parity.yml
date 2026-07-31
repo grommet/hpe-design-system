@@ -1,0 +1,40 @@
+name: HPE Design Tokens Parity Gate
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  parity-and-regression:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run semantic parity gate
+        run: pnpm --filter hpe-design-tokens run test:parity
+
+      - name: Run token import/export regression tests
+        run: pnpm --filter hpe-design-tokens test -- src/tests/token_export.test.ts src/tests/token_import.test.ts src/tests/token_import_alias_resolution.test.ts src/tests/semantic_color_vocab.test.ts
+
+      - name: Annotate parity or regression failure
+        if: ${{ failure() }}
+        run: echo "::error title=HPE Design Tokens Parity Gate Failed::Run 'pnpm --filter hpe-design-tokens run test:parity' and the targeted token tests locally for details."
