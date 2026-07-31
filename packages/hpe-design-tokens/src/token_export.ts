@@ -9,9 +9,13 @@ import { access, isReference } from './utils.js';
  */
 const interactions = ['hover', 'focus', 'active'];
 /**
- * Supported color prominence modifiers
+ * Supported color prominence modifiers (a.k.a. "scale")
  */
 const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
+/**
+ * Colors not conforming to the standard semantic color token path structure,
+ * which need special handling.
+ */
 const exceptionColors = ['color/focus/support', 'color/transparent'];
 
 function colorNameToHierarchyParts(colorVariableName: string): string[] {
