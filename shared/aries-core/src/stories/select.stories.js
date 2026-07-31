@@ -198,6 +198,24 @@ export const LoadingIconsGrouping = {
 
     const selected = options.find(o => o.value === value) || null;
 
+    // Grommet only auto-focuses an option on keyboard-open; mouse-open can land
+    // focus on the listbox container, so we force focus to the first selectable option.
+    const focusFirstSelectableOption = (attempt = 0) => {
+      const listbox = document.querySelector('[role="listbox"]');
+      const firstSelectableOption = listbox?.querySelector(
+        '[role="option"]:not([aria-disabled="true"])',
+      );
+
+      if (firstSelectableOption) {
+        firstSelectableOption.focus();
+        return;
+      }
+
+      if (attempt < 10) {
+        requestAnimationFrame(() => focusFirstSelectableOption(attempt + 1));
+      }
+    };
+
     return (
       <Box fill align="center" justify="start" pad="large">
         <Select
@@ -222,6 +240,7 @@ export const LoadingIconsGrouping = {
           emptySearchMessage="No services found"
           valueLabel={selected ? renderValueLabel(selected) : undefined}
           onChange={({ value: nextValue }) => setValue(nextValue)}
+          onOpen={focusFirstSelectableOption}
         >
           {renderOption}
         </Select>
