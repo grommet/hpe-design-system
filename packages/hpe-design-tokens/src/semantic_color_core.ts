@@ -48,7 +48,6 @@ export type SemanticColorNormalizationSegment =
 // "warning", while a text color may have a role of "anchor" or "placeholder".
 export const SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET = {
   background: [
-    'DEFAULT', // Confirm why this is needed. It is not a role.
     'back',
     'contrast',
     'critical',
@@ -74,10 +73,8 @@ export const SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET = {
     'info',
     'ok',
     'selected',
-    'strong',
     'unknown',
     'warning',
-    'weak', // weak is a prominence, why is it here? Revisit.
   ],
   dataVis: [
     'categorical',
@@ -88,7 +85,7 @@ export const SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET = {
     'highlight',
   ],
   decorative: ['blue', 'brand', 'cyan', 'green', 'neutral', 'purple'],
-  focus: ['DEFAULT', 'support'],
+  focus: ['support'],
   foreground: ['critical', 'ok', 'primary', 'unknown', 'warning'],
   icon: [
     'critical',
@@ -101,10 +98,8 @@ export const SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET = {
     'onSelectedPrimaryStrong',
     'onStrong',
     'primary',
-    'strong', // strong is a prominence, why is it here? Revisit.
     'unknown',
     'warning',
-    'weak', // weak is a prominence, why is it here? Revisit.
   ],
   text: [
     'anchor',
@@ -125,10 +120,8 @@ export const SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET = {
     'onWarning',
     'placeholder',
     'primary',
-    'strong', // strong is a prominence, why is it here? Revisit.
     'unknown',
     'warning',
-    'weak', // weak is a prominence, why is it here? Revisit.
   ],
   transparent: [],
 } as const;

@@ -7,13 +7,16 @@ import {
   parseSemanticColorTokenMetadataMap,
   parseSemanticColorTokenMetadata,
   serializeSemanticColorMetadataModule,
+} from '../semantic_color_parser.js';
+
+import {
   type SemanticColorTokenMetadataMap,
   SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET,
   SEMANTIC_COLOR_ROLE_VARIANTS,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   SEMANTIC_COLOR_TARGETS,
-} from '../semantic_color_vocab.js';
+} from '../semantic_color_core.js';
 
 const semanticColorMetadataExamples = {
   'hpe.color.background.primary.strong': {
@@ -67,6 +70,7 @@ describe('semantic_color_vocab', () => {
       }
 
       const roleKeys = Object.keys(roleTree).filter(k => !k.startsWith('$'));
+      const nonRoleSegments = new Set(['DEFAULT', 'strong', 'weak']);
       const canonical =
         SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET[
           target as keyof typeof SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET
@@ -75,6 +79,10 @@ describe('semantic_color_vocab', () => {
       expect(new Set(roleKeys).size).toBe(roleKeys.length);
       roleKeys.forEach(role => {
         if (target === 'transparent') {
+          return;
+        }
+
+        if (nonRoleSegments.has(role)) {
           return;
         }
 
