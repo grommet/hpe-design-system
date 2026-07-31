@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 
 import { Cpu, StatusGood, StatusWarning } from '@hpe-design/icons-grommet';
 import { Box, Select, Spinner, Text } from 'grommet';
@@ -47,14 +48,58 @@ const fetchOptions = () =>
     setTimeout(() => resolve(allOptions), 1500);
   });
 
-// Render a single option row with a leading icon
-const OptionRow = ({ option }) => {
+// Only needed for ::before pseudo-element.
+const resolveMarkerColor = (theme, token, fallback) => {
+  const raw = theme?.global?.colors?.[token];
+  if (!raw) return fallback;
+  if (typeof raw === 'string') return raw;
+  if (raw && typeof raw === 'object')
+    return (theme?.dark ? raw.dark : raw.light) || raw.dark || raw.light || fallback;
+  return fallback;
+};
+
+const StyledMarkerBox = styled(Box)`
+  position: relative;
+
+  &::before {
+    display: ${({ $selected }) => ($selected ? 'block' : 'none')};
+    position: absolute;
+    content: '';
+    width: 6px;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    background: ${({ $markerColor }) => $markerColor};
+    pointer-events: none;
+  }
+`;
+
+const OptionRow = ({ option, pad, selected, active, markerColor }) => {
   const Icon = option.icon;
+  const background =
+    selected && active
+      ? 'background-selected-primary-hover'
+      : selected
+      ? 'background-selected-primary'
+      : active
+      ? 'background-selected-primary-weak'
+      : undefined;
+
   return (
-    <Box direction="row" align="center" gap="small">
+    <StyledMarkerBox
+      direction="row"
+      align="center"
+      gap="small"
+      pad={pad}
+      background={background}
+      $selected={selected}
+      $markerColor={markerColor}
+    >
       <Icon size="small" color="plain" />
       <Text>{option.label}</Text>
-    </Box>
+    </StyledMarkerBox>
   );
 };
 
@@ -70,9 +115,16 @@ export default meta;
 export const LoadingIconsGrouping = {
   name: 'Loading, icons & grouping',
   render: () => {
+    const theme = useContext(ThemeContext);
     const [value, setValue] = useState('');
     const [options, setOptions] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const optionPad = theme?.button?.size?.medium?.option?.pad;
+    const markerColor = resolveMarkerColor(theme, 'border-selected', '#006750');
+    const dropPad = theme?.select?.clear?.container?.pad
+      ? { horizontal: theme.select.clear.container.pad }
+      : undefined;
 
     useEffect(() => {
       fetchOptions().then(data => {
@@ -111,11 +163,15 @@ export const LoadingIconsGrouping = {
       );
     };
 
-    const renderOption = option => {
+    const renderOption = (option, _index, _opts, state) => {
       if (option.isGroupLabel) {
         return (
           <Box
-            pad={{ horizontal: 'small', top: 'xxsmall', bottom: 'xxsmall' }}
+            pad={{
+              horizontal: dropPad.horizontal || 'small',
+              top: 'xxsmall',
+              bottom: 'xxsmall',
+            }}
             border={{ side: 'bottom', color: 'border-weak' }}
           >
             <Text size="xsmall" weight="bold" color="text-weak">
@@ -125,7 +181,15 @@ export const LoadingIconsGrouping = {
         );
       }
 
-      return <OptionRow option={option} />;
+      return (
+        <OptionRow
+          option={option}
+          pad={optionPad}
+          selected={state?.selected}
+          active={state?.active}
+          markerColor={markerColor}
+        />
+      );
     };
 
     const selected = options.find(o => o.value === value) || null;
