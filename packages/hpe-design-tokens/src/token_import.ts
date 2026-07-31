@@ -12,7 +12,8 @@ import {
   VariableScope,
 } from './figma_api.js';
 import { colorApproximatelyEqual, parseColor } from './color.js';
-import { areSetsEqual, excludedNameParts, isReference } from './utils.js';
+import { tokenAliasToFigmaAlias } from './semantic_color_name_adapter.js';
+import { areSetsEqual, isReference } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 
 type FlattenedTokens = {
@@ -348,45 +349,6 @@ function variableResolvedTypeFromToken(token: Token) {
 function isAlias(value: string) {
   return value.toString().trim().charAt(0) === '{';
 }
-
-/**
- * When pushing to Figma, strip off "DEFAULT" and "REST" to match
- * simplified token outputs.
- * Also format nested roles, prominence, or interaction to a
- * hyphenated ("-") approach.
- * Example:
- * color/background/critical/weak/DEFAULT/REST becomes
- * color/background/critical-weak
- * @param alias
- */
-const tokenAliasToFigmaAlias = (alias: string): string => {
-  const exceptionColors = ['color/focus'];
-  const isColor = /^color/.test(alias);
-  let adjustedName = alias;
-
-  if (isColor) {
-    let parts = adjustedName.split('/');
-    parts = parts.filter(part => !excludedNameParts.includes(part));
-    let section = parts.slice(0, 2).join('/');
-    let name = parts.slice(2).join('-');
-
-    // Keep accent as a dedicated namespace in Figma names.
-    if (section === 'color/background' && parts[2] === 'accent') {
-      section = parts.slice(0, 3).join('/');
-      name = parts.slice(3).join('-');
-    }
-
-    if (exceptionColors.includes(section)) {
-      // If it's an exception color, the token hierarchy is one level
-      // higher than others. Adjust the section and name accordingly.
-      section = parts.slice(0, 1).join('/');
-      name = parts.slice(1).join('-');
-    }
-
-    adjustedName = `${section}${name ? `/${name}` : ''}`;
-  }
-  return adjustedName;
-};
 
 export const normalizeAliasReference = (value: string): string => {
   return tokenAliasToFigmaAlias(
