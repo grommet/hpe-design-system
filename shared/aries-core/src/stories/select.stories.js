@@ -48,7 +48,7 @@ const fetchOptions = () =>
     setTimeout(() => resolve(allOptions), 1500);
   });
 
-// Only needed for ::before pseudo-element.
+// Only needed for ::before pseudo-element where Grommet token lookup does not apply.
 const resolveMarkerColor = (theme, token, fallback) => {
   const raw = theme?.global?.colors?.[token];
   if (!raw) return fallback;
@@ -77,7 +77,6 @@ const StyledMarkerBox = styled(Box)`
 `;
 
 const OptionRow = ({ option, pad, selected, active, markerColor }) => {
-  const Icon = option.icon;
   const background =
     selected && active
       ? 'background-selected-primary-hover'
@@ -91,14 +90,13 @@ const OptionRow = ({ option, pad, selected, active, markerColor }) => {
     <StyledMarkerBox
       direction="row"
       align="center"
-      gap="small"
       pad={pad}
       background={background}
       $selected={selected}
       $markerColor={markerColor}
     >
-      <Icon size="small" color="plain" />
-      <Text>{option.label}</Text>
+      {/* Status icons intentionally omitted from options per design guidance */}
+      <Text weight="medium">{option.label}</Text>
     </StyledMarkerBox>
   );
 };
@@ -122,9 +120,6 @@ export const LoadingIconsGrouping = {
 
     const optionPad = theme?.button?.size?.medium?.option?.pad;
     const markerColor = resolveMarkerColor(theme, 'border-selected', '#006750');
-    const dropPad = theme?.select?.clear?.container?.pad
-      ? { horizontal: theme.select.clear.container.pad }
-      : undefined;
 
     useEffect(() => {
       fetchOptions().then(data => {
@@ -155,7 +150,7 @@ export const LoadingIconsGrouping = {
       if (!option) return <Text color="text-weak">Select a service</Text>;
       const Icon = option.icon;
       return (
-        <Box direction="row" align="center" gap="small" pad="xsmall">
+        <Box direction="row" align="center" gap="3xsmall" pad="xsmall">
           <Cpu size="small" />
           <Text>{option.label}</Text>
           <Icon size="small" color={option.iconColor} />
@@ -163,20 +158,29 @@ export const LoadingIconsGrouping = {
       );
     };
 
-    const renderOption = (option, _index, _opts, state) => {
+    const renderOption = (option, index, _opts, state) => {
       if (option.isGroupLabel) {
+        const isFirstGroup = index === 0;
         return (
-          <Box
-            pad={{
-              horizontal: dropPad.horizontal || 'small',
-              top: 'xxsmall',
-              bottom: 'xxsmall',
-            }}
-            border={{ side: 'bottom', color: 'border-weak' }}
-          >
-            <Text size="xsmall" weight="bold" color="text-weak">
-              {option.label}
-            </Text>
+          <Box>
+            {/* Divider above non-first groups, extended edge-to-edge */}
+            {!isFirstGroup && (
+              <Box
+                border={{ side: 'top', color: 'border-weak' }}
+                margin={{ top: 'xsmall', bottom: 'xxsmall' }}
+              />
+            )}
+            <Box
+              pad={{
+                horizontal: 'small',
+                top: 'xxsmall',
+                bottom: '5xsmall',
+              }}
+            >
+              <Text size="xsmall" weight="bold" color="text-strong">
+                {option.label}
+              </Text>
+            </Box>
           </Box>
         );
       }
@@ -206,9 +210,9 @@ export const LoadingIconsGrouping = {
           disabledKey="disabled"
           placeholder={
             loading ? (
-              <Box direction="row" align="center" gap="small" pad="xsmall">
+              <Box direction="row" align="center" gap="xsmall" pad="xsmall">
                 <Spinner size="xsmall" />
-                <Text color="text-weak">Loading…</Text>
+                <Text color="text-weak">Loading...</Text>
               </Box>
             ) : (
               'Select a service'
