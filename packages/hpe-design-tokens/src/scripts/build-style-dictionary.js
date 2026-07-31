@@ -7,6 +7,9 @@ import {
   numberToPixel,
   COPYRIGHT,
 } from '../utils.ts';
+import {
+  exportSemanticColorMetadataModuleFromTokenTree as exportSemanticColorMetadata,
+} from '../semantic_color_vocab.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -15,6 +18,7 @@ const GROMMET_CJS_DIR = 'dist/grommet/cjs/';
 const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
+const DOCS_METADATA_DIR = `${DOCS_DIR}metadata/`;
 const PREFIX = 'hpe';
 /**
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
@@ -270,7 +274,30 @@ fs.appendFileSync(
 const filterColor = (token, file) =>
   token.filePath === file && !token.path.includes(FIGMA_PREFIX);
 
+const writeSemanticColorMetadataArtifacts = files => {
+  fs.mkdirSync(DOCS_METADATA_DIR, { recursive: true });
+
+  files.forEach(file => {
+    const [theme, mode] = getThemeAndMode(file);
+    const parsedTokens = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const output = exportSemanticColorMetadata(parsedTokens, {
+      exportName: 'semanticColorMetadata',
+      includeErrors: true,
+      failOnErrors: true,
+    });
+
+    const fileSuffix = theme ? `${theme}-${mode}` : `${mode || 'default'}`;
+
+    fs.writeFileSync(
+      `${DOCS_METADATA_DIR}semanticColorMetadata.${fileSuffix}.js`,
+      `// ${COPYRIGHT}\n\n${output}`,
+    );
+  });
+};
+
 try {
+  writeSemanticColorMetadataArtifacts(colorModeFiles);
+
   colorModeFiles.forEach(async file => {
     const [theme, mode] = getThemeAndMode(file);
     extendedDictionary = await HPEStyleDictionary.extend({

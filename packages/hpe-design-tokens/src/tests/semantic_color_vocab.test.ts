@@ -2,6 +2,11 @@ import fs from 'fs';
 import { describe, expect, it } from 'vitest';
 
 import {
+  exportSemanticColorMetadataModuleFromTokenTree,
+  parseSemanticColorTokenMetadataFromTokenTree,
+  parseSemanticColorTokenMetadataMap,
+  parseSemanticColorTokenMetadata,
+  serializeSemanticColorMetadataModule,
   type SemanticColorTokenMetadataMap,
   SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET,
   SEMANTIC_COLOR_ROLE_VARIANTS,
@@ -102,5 +107,221 @@ describe('semantic_color_vocab', () => {
     expect(semanticColorMetadataExamples['hpe.color.transparent'].role).toBe(
       null,
     );
+  });
+
+  it('parses standard semantic color token paths', () => {
+    const result = parseSemanticColorTokenMetadata(
+      'hpe.color.background.primary.strong.hover',
+    );
+
+    expect(result).toEqual({
+      ok: true,
+      metadata: {
+        type: 'color',
+        target: 'background',
+        role: {
+          family: 'primary',
+          variant: 'primary',
+        },
+        scale: 'strong',
+        state: 'hover',
+      },
+    });
+  });
+
+  it('parses selected and accent role variants', () => {
+    const selected = parseSemanticColorTokenMetadata(
+      'color/background/selected/primary/DEFAULT/REST',
+    );
+    const accent = parseSemanticColorTokenMetadata(
+      'hpe.color.background.accent.purple.strong.REST',
+    );
+
+    expect(selected).toEqual({
+      ok: true,
+      metadata: {
+        type: 'color',
+        target: 'background',
+        role: {
+          family: 'selected',
+          variant: 'primary',
+        },
+        scale: 'default',
+        state: 'REST',
+      },
+    });
+
+    expect(accent).toEqual({
+      ok: true,
+      metadata: {
+        type: 'color',
+        target: 'background',
+        role: {
+          family: 'accent',
+          variant: 'purple',
+        },
+        scale: 'strong',
+        state: 'REST',
+      },
+    });
+  });
+
+  it('parses transparent token with null role and null slots', () => {
+    const result = parseSemanticColorTokenMetadata('hpe.color.transparent');
+
+    expect(result).toEqual({
+      ok: true,
+      metadata: {
+        type: 'color',
+        target: 'transparent',
+        role: null,
+        scale: null,
+        state: null,
+      },
+    });
+  });
+
+  it('returns structured errors for invalid target and role variant', () => {
+    const badTarget = parseSemanticColorTokenMetadata(
+      'hpe.color.surface.primary.strong.REST',
+    );
+    const badVariant = parseSemanticColorTokenMetadata(
+      'hpe.color.background.selected.secondary.DEFAULT.REST',
+    );
+
+    expect(badTarget).toMatchObject({
+      ok: false,
+      code: 'TARGET_NOT_CANONICAL',
+    });
+    expect(badVariant).toMatchObject({
+      ok: false,
+      code: 'ROLE_NOT_CANONICAL',
+    });
+  });
+
+  it('parses metadata maps and collects canonical errors', () => {
+    const result = parseSemanticColorTokenMetadataMap([
+      'hpe.color.transparent',
+      'hpe.color.background.primary.strong.REST',
+      'hpe.color.background.selected.secondary.DEFAULT.REST',
+      'hpe.spacing.medium',
+    ]);
+
+    expect(Object.keys(result.metadataMap).sort()).toEqual([
+      'hpe.color.background.primary.strong.REST',
+      'hpe.color.transparent',
+    ]);
+
+    expect(Object.keys(result.errors)).toEqual([
+      'hpe.color.background.selected.secondary.DEFAULT.REST',
+    ]);
+
+    expect(
+      result.errors['hpe.color.background.selected.secondary.DEFAULT.REST'],
+    ).toMatchObject({
+      ok: false,
+      code: 'ROLE_NOT_CANONICAL',
+    });
+  });
+
+  it('optionally reports non-color tokens in map parsing', () => {
+    const result = parseSemanticColorTokenMetadataMap(
+      {
+        'hpe.color.transparent': {},
+        'hpe.spacing.medium': {},
+      },
+      { skipNonColorTokens: false },
+    );
+
+    expect(Object.keys(result.metadataMap)).toEqual(['hpe.color.transparent']);
+    expect(result.errors['hpe.spacing.medium']).toMatchObject({
+      ok: false,
+      code: 'NOT_A_COLOR_TOKEN',
+    });
+  });
+
+  it('parses semantic color metadata directly from nested token tree', () => {
+    const source = JSON.parse(
+      fs.readFileSync('./tokens/semantic/color.dark.json', 'utf8'),
+    ) as Record<string, unknown>;
+
+    const result = parseSemanticColorTokenMetadataFromTokenTree(source);
+
+    expect(result.errors).toEqual({});
+    expect(result.metadataMap['color/background/default/REST']).toEqual({
+      type: 'color',
+      target: 'background',
+      role: null,
+      scale: 'default',
+      state: 'REST',
+    });
+    expect(result.metadataMap['color/transparent']).toEqual({
+      type: 'color',
+      target: 'transparent',
+      role: null,
+      scale: null,
+      state: null,
+    });
+  });
+
+  it('serializes parsed metadata as an ESM module', () => {
+    const parsed = parseSemanticColorTokenMetadataMap([
+      'color/background/default/REST',
+      'color/transparent',
+    ]);
+
+    const moduleCode = serializeSemanticColorMetadataModule(parsed, {
+      exportName: 'semanticColorMeta',
+      includeErrors: true,
+    });
+
+    expect(moduleCode).toContain('export const semanticColorMeta =');
+    expect(moduleCode).toContain('export const semanticColorMetaErrors =');
+    expect(moduleCode).toContain('export default semanticColorMeta;');
+  });
+
+  it('exports metadata directly from token tree', () => {
+    const tree = {
+      color: {
+        background: {
+          default: {
+            REST: {
+              $type: 'color',
+              $value: '#ffffff',
+            },
+          },
+        },
+      },
+    };
+
+    const moduleCode = exportSemanticColorMetadataModuleFromTokenTree(tree);
+
+    expect(moduleCode).toContain('export const semanticColorMetadata =');
+    expect(moduleCode).toContain('color/background/default/REST');
+  });
+
+  it('throws in strict export mode when parse errors are present', () => {
+    const tree = {
+      color: {
+        background: {
+          selected: {
+            secondary: {
+              DEFAULT: {
+                REST: {
+                  $type: 'color',
+                  $value: '#ffffff',
+                },
+              },
+            },
+          },
+        },
+      },
+    };
+
+    expect(() =>
+      exportSemanticColorMetadataModuleFromTokenTree(tree, {
+        failOnErrors: true,
+      }),
+    ).toThrow('Semantic color metadata export failed');
   });
 });
