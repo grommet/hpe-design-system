@@ -72,7 +72,7 @@ const SelectOptionRow = ({ label, selected, active, pad }) => {
       direction="row"
       align="center"
       pad={resolvedPad}
-      round="6px"
+      round="xsmall"
       background={background}
       $selected={selected}
       $markerColor={markerColor}
