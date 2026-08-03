@@ -199,15 +199,16 @@ export function parseSemanticColorTokenMetadata(
     };
   }
 
-  const variant =
-    roleParts.length > 1 ? roleParts.slice(1).join('-') : roleParts[0];
+  // Variant is only explicit for multi-slot roles such as
+  // selected/primary or accent/purple.
+  const variant = roleParts.length > 1 ? roleParts.slice(1).join('-') : null;
 
   const variantFamilies = SEMANTIC_COLOR_ROLE_VARIANTS[
     targetSegment as keyof typeof SEMANTIC_COLOR_ROLE_VARIANTS
   ] as Record<string, readonly string[]> | undefined;
   const variantList = variantFamilies?.[family];
 
-  if (variantList && !variantList.includes(variant)) {
+  if (variantList && (!variant || !variantList.includes(variant))) {
     return {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',

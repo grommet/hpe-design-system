@@ -51,6 +51,16 @@ See [docs/OPERATIONS.md](docs/OPERATIONS.md) for full sync runbooks, troubleshoo
 
 Semantic color import/export behavior is protected by parity tests and golden fixtures.
 
+Terminology note: in this monorepo, treat these parity artifacts as
+`snapshot` files (referred to here as `golden` fixtures). They are contract
+snapshots and should be updated only for intentional behavior changes, with
+review of the resulting diff.
+
+Semantic role metadata note:
+- `role: null` means the token path does not include a semantic role segment.
+- `role.variant: null` means a role family exists but has no variant dimension
+  (single-slot roles such as `disabled`).
+
 - Parity scope:
   - Legacy-vs-new adapter equivalence tests (`semantic_color_name_adapter_parity.test.ts`).
   - Golden output verification for export token output and import payload output (`semantic_color_payload_golden.test.ts`).

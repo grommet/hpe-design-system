@@ -24,7 +24,7 @@ const semanticColorMetadataExamples = {
     target: 'background',
     role: {
       family: 'primary',
-      variant: 'strong',
+      variant: null,
     },
     scale: 'strong',
     state: 'REST',
@@ -112,6 +112,10 @@ describe('semantic_color_vocab', () => {
       semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
         ?.family,
     ).toBe('primary');
+    expect(
+      semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
+        ?.variant,
+    ).toBeNull();
     expect(semanticColorMetadataExamples['hpe.color.transparent'].role).toBe(
       null,
     );
@@ -129,10 +133,30 @@ describe('semantic_color_vocab', () => {
         target: 'background',
         role: {
           family: 'primary',
-          variant: 'primary',
+          variant: null,
         },
         scale: 'strong',
         state: 'hover',
+      },
+    });
+  });
+
+  it('returns null variant for single-slot semantic roles', () => {
+    const result = parseSemanticColorTokenMetadata(
+      'hpe.color.background.disabled.DEFAULT.REST',
+    );
+
+    expect(result).toEqual({
+      ok: true,
+      metadata: {
+        type: 'color',
+        target: 'background',
+        role: {
+          family: 'disabled',
+          variant: null,
+        },
+        scale: 'default',
+        state: 'REST',
       },
     });
   });
