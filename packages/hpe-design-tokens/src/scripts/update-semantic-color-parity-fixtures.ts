@@ -9,6 +9,11 @@ import {
 } from '../token_import.js';
 import { tokenFilesFromLocalVariables } from '../token_export.js';
 
+// Regenerates semantic color parity golden fixtures from canonical
+// import/export test inputs to keep parity artifacts deterministic.
+// A "golden fixture" is a checked-in expected-output snapshot used as a
+// contract for regression and parity tests.
+
 type ImportFixtureInput = {
   tokensByFile: FlattenedTokensByFile;
   localVariables: ApiGetLocalVariablesResponse;
