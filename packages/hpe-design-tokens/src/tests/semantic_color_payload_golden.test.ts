@@ -1,8 +1,7 @@
-import fs from 'fs';
-
 import { describe, expect, it } from 'vitest';
 
 import { ApiGetLocalVariablesResponse } from '../figma_api.js';
+import { readJsoncFile } from '../jsonc.js';
 import { tokenFilesFromLocalVariables } from '../token_export.js';
 import {
   FlattenedTokensByFile,
@@ -11,16 +10,12 @@ import {
 
 const fixtureBase = './src/tests/fixtures/semantic-color-parity';
 
-function readJson<T>(path: string): T {
-  return JSON.parse(fs.readFileSync(path, 'utf8')) as T;
-}
-
 describe('semantic color payload golden parity', () => {
   it('matches golden export token output', () => {
-    const exportInput = readJson<ApiGetLocalVariablesResponse>(
-      `${fixtureBase}/export-input.json`,
+    const exportInput = readJsoncFile<ApiGetLocalVariablesResponse>(
+      `${fixtureBase}/export-input.jsonc`,
     );
-    const expected = readJson<Record<string, unknown>>(
+    const expected = readJsoncFile<Record<string, unknown>>(
       `${fixtureBase}/export-output.golden.json`,
     );
 
@@ -55,11 +50,11 @@ describe('semantic color payload golden parity', () => {
   });
 
   it('matches golden import payload output', () => {
-    const importInput = readJson<{
+    const importInput = readJsoncFile<{
       tokensByFile: FlattenedTokensByFile;
       localVariables: ApiGetLocalVariablesResponse;
-    }>(`${fixtureBase}/import-input.json`);
-    const expected = readJson<Record<string, unknown>>(
+    }>(`${fixtureBase}/import-input.jsonc`);
+    const expected = readJsoncFile<Record<string, unknown>>(
       `${fixtureBase}/import-output.golden.json`,
     );
 

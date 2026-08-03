@@ -1,3 +1,5 @@
+// Parity fixture input representing semantic token files plus a minimal
+// local-variables envelope used to verify import payload generation.
 {
   "tokensByFile": {
     "semantic.dark.json": {

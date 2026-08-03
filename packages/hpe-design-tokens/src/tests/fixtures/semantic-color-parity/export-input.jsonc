@@ -1,3 +1,5 @@
+// Parity fixture input representing a Figma local variables payload used to
+// verify export normalization into semantic token files.
 {
   "status": 200,
   "error": false,

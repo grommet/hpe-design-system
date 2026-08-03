@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { writeFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -8,6 +8,7 @@ import {
   generatePostVariablesPayload,
 } from '../token_import.js';
 import { tokenFilesFromLocalVariables } from '../token_export.js';
+import { readJsoncFile } from '../jsonc.js';
 
 // Regenerates semantic color parity golden fixtures from canonical
 // import/export test inputs to keep parity artifacts deterministic.
@@ -18,10 +19,6 @@ type ImportFixtureInput = {
   tokensByFile: FlattenedTokensByFile;
   localVariables: ApiGetLocalVariablesResponse;
 };
-
-function readJsonFile<T>(filePath: string): T {
-  return JSON.parse(readFileSync(filePath, 'utf8')) as T;
-}
 
 function writeJsonFile(filePath: string, value: unknown) {
   writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
@@ -34,14 +31,15 @@ const fixtureDir = path.resolve(
   '../tests/fixtures/semantic-color-parity',
 );
 
-const exportInputPath = path.join(fixtureDir, 'export-input.json');
-const importInputPath = path.join(fixtureDir, 'import-input.json');
+const exportInputPath = path.join(fixtureDir, 'export-input.jsonc');
+const importInputPath = path.join(fixtureDir, 'import-input.jsonc');
 
 const exportGoldenPath = path.join(fixtureDir, 'export-output.golden.json');
 const importGoldenPath = path.join(fixtureDir, 'import-output.golden.json');
 
-const exportInput = readJsonFile<ApiGetLocalVariablesResponse>(exportInputPath);
-const importInput = readJsonFile<ImportFixtureInput>(importInputPath);
+const exportInput =
+  readJsoncFile<ApiGetLocalVariablesResponse>(exportInputPath);
+const importInput = readJsoncFile<ImportFixtureInput>(importInputPath);
 
 const exportOutput = tokenFilesFromLocalVariables(exportInput);
 const importOutput = generatePostVariablesPayload(
