@@ -12,11 +12,11 @@ import {
   exportSemanticColorMetadataModuleFromTokenTree as exportSemanticColorMetadata,
   parseSemanticColorTokenMetadata,
   parseSemanticColorTokenMetadataFromTokenTree,
-} from '../semantic_color_vocab.ts';
+} from '../semantic_color.ts';
 import {
   normalizeColorVariableNameFromFigma,
   tokenAliasToFigmaAlias,
-} from '../semantic_color_name_adapter.js';
+} from '../semantic_color_figma_adapter.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';

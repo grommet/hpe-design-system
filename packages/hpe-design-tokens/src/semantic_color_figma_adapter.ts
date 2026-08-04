@@ -2,7 +2,7 @@ import {
   colorNameToHierarchyPartsCore,
   normalizeColorVariableNameFromFigmaCore,
   tokenAliasToFigmaAliasCore,
-} from './semantic_color_normalization_core.js';
+} from './semantic_color_normalization.js';
 
 export function colorNameToHierarchyParts(colorVariableName: string): string[] {
   return colorNameToHierarchyPartsCore(colorVariableName);

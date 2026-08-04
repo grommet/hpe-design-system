@@ -4,9 +4,9 @@ import { describe, expect, it } from 'vitest';
 import {
   normalizeColorVariableNameFromFigma,
   tokenAliasToFigmaAlias,
-} from '../semantic_color_name_adapter.js';
+} from '../semantic_color_figma_adapter.js';
 
-describe('semantic_color_name_adapter', () => {
+describe('semantic_color_figma_adapter', () => {
   it('normalizes accent background names with prominence and REST state', () => {
     expect(
       normalizeColorVariableNameFromFigma(

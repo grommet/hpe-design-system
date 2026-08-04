@@ -6,14 +6,14 @@ import {
   normalizeColorVariableNameFromFigmaCore,
   normalizeRoleSegments,
   tokenAliasToFigmaAliasCore,
-} from '../semantic_color_normalization_core.js';
+} from '../semantic_color_normalization.js';
 import {
   normalizeColorVariableNameFromFigma,
   tokenAliasToFigmaAlias,
-} from '../semantic_color_name_adapter.js';
+} from '../semantic_color_figma_adapter.js';
 import { parseSemanticColorTokenMetadata } from '../semantic_color_parser.js';
 
-describe('semantic_color_normalization_core', () => {
+describe('semantic_color_normalization', () => {
   it('canonicalizes incoming token path segments', () => {
     expect(
       canonicalTokenPathSegments(' {hpe.color.background.primary.strong} '),

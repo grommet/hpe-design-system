@@ -12,7 +12,7 @@ import {
   VariableScope,
 } from './figma_api.js';
 import { colorApproximatelyEqual, parseColor } from './color.js';
-import { tokenAliasToFigmaAlias } from './semantic_color_name_adapter.js';
+import { tokenAliasToFigmaAlias } from './semantic_color_figma_adapter.js';
 import { areSetsEqual, isReference } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 

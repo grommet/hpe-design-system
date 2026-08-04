@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
-import { normalizeColorVariableNameFromFigma } from './semantic_color_name_adapter.js';
+import { normalizeColorVariableNameFromFigma } from './semantic_color_figma_adapter.js';
 import { ExportShadowToken, Token, TokensFile } from './token_types.js';
 import { access, isReference } from './utils.js';
 

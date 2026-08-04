@@ -16,7 +16,7 @@ import {
   canonicalTokenPathSegments,
   normalizationSegmentSet,
   normalizeRoleSegments,
-} from './semantic_color_normalization_core.js';
+} from './semantic_color_normalization.js';
 
 export type SemanticColorTokenParseErrorCode =
   | 'NOT_A_COLOR_TOKEN'
@@ -39,8 +39,7 @@ export type SemanticColorTokenParseResult =
     };
 
 export type SemanticColorTokenParseSource =
-  | 'canonical-token'
-  | 'figma-variable';
+  'canonical-token' | 'figma-variable';
 
 export type SemanticColorTokenExceptionCode = 'NO_ROLE_EXCEPTION';
 
@@ -200,8 +199,7 @@ export function parseSemanticColorTokenMetadata(
     return {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',
-      message:
-        `Missing semantic color role intent for target ${targetSegment}.`,
+      message: `Missing semantic color role intent for target ${targetSegment}.`,
       input: rawInput,
     };
   }

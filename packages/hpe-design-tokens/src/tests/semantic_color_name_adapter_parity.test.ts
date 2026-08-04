@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   normalizeColorVariableNameFromFigma,
   tokenAliasToFigmaAlias,
-} from '../semantic_color_name_adapter.js';
+} from '../semantic_color_figma_adapter.js';
 
 function legacyColorNameToHierarchyParts(colorVariableName: string): string[] {
   const interactions = ['hover', 'focus', 'active'];
@@ -102,7 +102,7 @@ function legacyTokenAliasToFigmaAlias(alias: string): string {
   return adjustedName;
 }
 
-describe('semantic_color_name_adapter parity', () => {
+describe('semantic_color_figma_adapter parity', () => {
   it('matches legacy Figma -> token path normalization outputs', () => {
     const figmaNames = [
       'color/background/critical-weak',
