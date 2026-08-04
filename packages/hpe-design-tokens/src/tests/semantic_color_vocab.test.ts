@@ -23,8 +23,9 @@ const semanticColorMetadataExamples = {
     type: 'color',
     target: 'background',
     role: {
-      family: 'primary',
-      variant: null,
+      family: null,
+      intent: 'primary',
+      variant: 'primary',
     },
     scale: 'strong',
     state: 'REST',
@@ -111,11 +112,15 @@ describe('semantic_color_vocab', () => {
     expect(
       semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
         ?.family,
+    ).toBeNull();
+    expect(
+      semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
+        ?.intent,
     ).toBe('primary');
     expect(
       semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
         ?.variant,
-    ).toBeNull();
+    ).toBe('primary');
     expect(semanticColorMetadataExamples['hpe.color.transparent'].role).toBe(
       null,
     );
@@ -132,8 +137,9 @@ describe('semantic_color_vocab', () => {
         type: 'color',
         target: 'background',
         role: {
-          family: 'primary',
-          variant: null,
+          family: null,
+          intent: 'primary',
+          variant: 'primary',
         },
         scale: 'strong',
         state: 'hover',
@@ -152,8 +158,9 @@ describe('semantic_color_vocab', () => {
         type: 'color',
         target: 'background',
         role: {
-          family: 'disabled',
-          variant: null,
+          family: null,
+          intent: 'disabled',
+          variant: 'disabled',
         },
         scale: 'default',
         state: 'REST',
@@ -176,6 +183,7 @@ describe('semantic_color_vocab', () => {
         target: 'background',
         role: {
           family: 'selected',
+          intent: 'primary',
           variant: 'primary',
         },
         scale: 'default',
@@ -190,6 +198,7 @@ describe('semantic_color_vocab', () => {
         target: 'background',
         role: {
           family: 'accent',
+          intent: 'purple',
           variant: 'purple',
         },
         scale: 'strong',
@@ -231,6 +240,105 @@ describe('semantic_color_vocab', () => {
     });
   });
 
+  it('parses compact Figma-style semantic color names', () => {
+    const back = parseSemanticColorTokenMetadata('color/background/back');
+    const contrastHover = parseSemanticColorTokenMetadata(
+      'color/background/contrast-hover',
+    );
+    const primaryStrong = parseSemanticColorTokenMetadata(
+      'color/background/primary-strong',
+    );
+    const primaryStrongHover = parseSemanticColorTokenMetadata(
+      'color/background/primary-strong-hover',
+    );
+    const accentWeak = parseSemanticColorTokenMetadata(
+      'color/background/accent/purple-weak',
+    );
+    const accentWeakActive = parseSemanticColorTokenMetadata(
+      'color/background/accent/purple-weak-active',
+    );
+    const categorical40 = parseSemanticColorTokenMetadata(
+      'color/dataVis/categorical-40',
+    );
+
+    expect(back).toMatchObject({
+      ok: true,
+      metadata: {
+        role: {
+          family: null,
+          intent: 'back',
+        },
+      },
+    });
+
+    expect(contrastHover).toMatchObject({
+      ok: true,
+      metadata: {
+        role: {
+          family: null,
+          intent: 'contrast',
+        },
+        state: 'hover',
+      },
+    });
+
+    expect(primaryStrong).toMatchObject({
+      ok: true,
+      metadata: {
+        role: {
+          family: null,
+          intent: 'primary',
+        },
+        scale: 'strong',
+      },
+    });
+
+    expect(primaryStrongHover).toMatchObject({
+      ok: true,
+      metadata: {
+        role: {
+          family: null,
+          intent: 'primary',
+        },
+        scale: 'strong',
+        state: 'hover',
+      },
+    });
+
+    expect(accentWeak).toMatchObject({
+      ok: true,
+      metadata: {
+        role: {
+          family: 'accent',
+          intent: 'purple',
+        },
+        scale: 'weak',
+      },
+    });
+
+    expect(accentWeakActive).toMatchObject({
+      ok: true,
+      metadata: {
+        role: {
+          family: 'accent',
+          intent: 'purple',
+        },
+        scale: 'weak',
+        state: 'active',
+      },
+    });
+
+    expect(categorical40).toMatchObject({
+      ok: true,
+      metadata: {
+        role: {
+          family: 'categorical',
+          intent: '40',
+        },
+      },
+    });
+  });
+
   it('parses metadata maps and collects canonical errors', () => {
     const result = parseSemanticColorTokenMetadataMap([
       'hpe.color.transparent',
@@ -254,6 +362,7 @@ describe('semantic_color_vocab', () => {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',
     });
+    expect(Object.keys(result.exceptions)).toEqual(['hpe.color.transparent']);
   });
 
   it('optionally reports non-color tokens in map parsing', () => {
@@ -270,6 +379,9 @@ describe('semantic_color_vocab', () => {
       ok: false,
       code: 'NOT_A_COLOR_TOKEN',
     });
+    expect(result.exceptions['hpe.color.transparent']).toMatchObject({
+      code: 'NO_ROLE_EXCEPTION',
+    });
   });
 
   it('parses semantic color metadata directly from nested token tree', () => {
@@ -283,8 +395,12 @@ describe('semantic_color_vocab', () => {
     expect(result.metadataMap['color/background/default/REST']).toEqual({
       type: 'color',
       target: 'background',
-      role: null,
-      scale: 'default',
+      role: {
+        family: null,
+        intent: 'default',
+        variant: 'default',
+      },
+      scale: null,
       state: 'REST',
     });
     expect(result.metadataMap['color/transparent']).toEqual({
@@ -293,6 +409,9 @@ describe('semantic_color_vocab', () => {
       role: null,
       scale: null,
       state: null,
+    });
+    expect(result.exceptions['color/transparent']).toMatchObject({
+      code: 'NO_ROLE_EXCEPTION',
     });
   });
 
@@ -305,10 +424,12 @@ describe('semantic_color_vocab', () => {
     const moduleCode = serializeSemanticColorMetadataModule(parsed, {
       exportName: 'semanticColorMeta',
       includeErrors: true,
+      includeExceptions: true,
     });
 
     expect(moduleCode).toContain('export const semanticColorMeta =');
     expect(moduleCode).toContain('export const semanticColorMetaErrors =');
+    expect(moduleCode).toContain('export const semanticColorMetaExceptions =');
     expect(moduleCode).toContain('export default semanticColorMeta;');
   });
 

@@ -155,14 +155,18 @@ export type SemanticColorRoleVariant<
 > = SemanticColorRoleVariants[T][F] extends readonly (infer V)[] ? V : never;
 
 export type SemanticColorRoleMetadata = {
-  family: string;
-  variant: string | null;
+  family: string | null;
+  intent: string;
+  // Deprecated compatibility alias. Prefer role.intent.
+  variant: string;
 };
 
 // Target-aware role metadata shape for callers that want stronger typing.
 export type SemanticColorRoleMetadataByTarget<T extends SemanticColorTarget> = {
   family: SemanticColorRoleFamily<T> | null;
-  variant: string | null;
+  intent: string;
+  // Deprecated compatibility alias. Prefer role.intent.
+  variant: string;
 };
 
 export type SemanticColorTokenMetadata = {

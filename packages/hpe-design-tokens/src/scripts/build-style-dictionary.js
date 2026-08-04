@@ -8,8 +8,15 @@ import {
   COPYRIGHT,
 } from '../utils.ts';
 import {
+  collectSemanticColorTokenLeafPathsFromTokenTree,
   exportSemanticColorMetadataModuleFromTokenTree as exportSemanticColorMetadata,
+  parseSemanticColorTokenMetadata,
+  parseSemanticColorTokenMetadataFromTokenTree,
 } from '../semantic_color_vocab.ts';
+import {
+  normalizeColorVariableNameFromFigma,
+  tokenAliasToFigmaAlias,
+} from '../semantic_color_name_adapter.js';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -280,9 +287,61 @@ const writeSemanticColorMetadataArtifacts = files => {
   files.forEach(file => {
     const [theme, mode] = getThemeAndMode(file);
     const parsedTokens = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const canonicalParseResult = parseSemanticColorTokenMetadataFromTokenTree(
+      parsedTokens,
+      {
+        source: 'canonical-token',
+      },
+    );
+
+    const canonicalTokenLeafPaths = collectSemanticColorTokenLeafPathsFromTokenTree(
+      parsedTokens,
+    ).filter(path => path.startsWith('color/'));
+
+    const figmaUnparseable = [];
+    const figmaNoRoleExceptions = [];
+
+    canonicalTokenLeafPaths.forEach(tokenPath => {
+      const figmaName = tokenAliasToFigmaAlias(tokenPath);
+      const normalizedName = normalizeColorVariableNameFromFigma(figmaName);
+      const parsed = parseSemanticColorTokenMetadata(normalizedName);
+
+      if (!parsed.ok) {
+        figmaUnparseable.push({
+          figmaName,
+          normalizedName,
+          code: parsed.code,
+          message: parsed.message,
+          input: parsed.input,
+        });
+        return;
+      }
+
+      if (parsed.metadata.role === null) {
+        figmaNoRoleExceptions.push({
+          figmaName,
+          normalizedName,
+          reason:
+            'Token has no semantic role and requires explicit downstream handling.',
+        });
+      }
+    });
+
+    const report = {
+      canonical: {
+        unparseable: canonicalParseResult.errors,
+        noRoleExceptions: canonicalParseResult.exceptions,
+      },
+      figmaVariables: {
+        unparseable: figmaUnparseable,
+        noRoleExceptions: figmaNoRoleExceptions,
+      },
+    };
+
     const output = exportSemanticColorMetadata(parsedTokens, {
       exportName: 'semanticColorMetadata',
       includeErrors: true,
+      includeExceptions: true,
       failOnErrors: true,
     });
 
@@ -291,6 +350,11 @@ const writeSemanticColorMetadataArtifacts = files => {
     fs.writeFileSync(
       `${DOCS_METADATA_DIR}semanticColorMetadata.${fileSuffix}.js`,
       `// ${COPYRIGHT}\n\n${output}`,
+    );
+
+    fs.writeFileSync(
+      `${DOCS_METADATA_DIR}semanticColorMetadata.report.${fileSuffix}.json`,
+      `${JSON.stringify(report, null, 2)}\n`,
     );
   });
 };

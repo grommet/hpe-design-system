@@ -34,19 +34,35 @@ export type SemanticColorTokenParseResult =
       input: string;
     };
 
+export type SemanticColorTokenParseSource =
+  | 'canonical-token'
+  | 'figma-variable';
+
+export type SemanticColorTokenExceptionCode = 'NO_ROLE_EXCEPTION';
+
+export type SemanticColorTokenException = {
+  code: SemanticColorTokenExceptionCode;
+  message: string;
+  input: string;
+  source?: SemanticColorTokenParseSource;
+};
+
 export type SemanticColorTokenMetadataMapParseOptions = {
   skipNonColorTokens?: boolean;
+  source?: SemanticColorTokenParseSource;
 };
 
 export type SemanticColorTokenMetadataMapParseResult = {
   metadataMap: SemanticColorTokenMetadataMap;
   errors: Record<string, Exclude<SemanticColorTokenParseResult, { ok: true }>>;
+  exceptions: Record<string, SemanticColorTokenException>;
 };
 
 export type SemanticColorMetadataExportOptions =
   SemanticColorTokenMetadataMapParseOptions & {
     exportName?: string;
     includeErrors?: boolean;
+    includeExceptions?: boolean;
     failOnErrors?: boolean;
     prettySpaces?: number;
   };
@@ -82,6 +98,86 @@ function isCanonicalState(value: string): value is SemanticColorState {
 
 function isCanonicalScale(value: string): value is SemanticColorScale {
   return SEMANTIC_COLOR_SCALES.includes(value as SemanticColorScale);
+}
+
+function expandCompactRoleSegment(
+  target: SemanticColorTarget,
+  segment: string,
+  knownFamily?: string,
+) {
+  const partTokens = segment.split('-').filter(Boolean);
+  if (partTokens.length <= 1) {
+    return [segment];
+  }
+
+  if (!knownFamily) {
+    const variantFamilies =
+      SEMANTIC_COLOR_ROLE_VARIANTS[
+        target as keyof typeof SEMANTIC_COLOR_ROLE_VARIANTS
+      ] as Record<string, readonly string[]> | undefined;
+    const compactFamily = partTokens[0];
+    const compactIntent = partTokens.slice(1).join('-');
+    const compactIntentOptions = variantFamilies?.[compactFamily];
+
+    if (compactIntentOptions?.includes(compactIntent)) {
+      return [compactFamily, compactIntent];
+    }
+  }
+
+  const interactionCandidate = partTokens[partTokens.length - 1];
+  const hasInteraction = isCanonicalState(
+    interactionCandidate as SemanticColorState,
+  );
+  const scaleIndex = hasInteraction
+    ? partTokens.length - 2
+    : partTokens.length - 1;
+  const scaleCandidate = partTokens[scaleIndex];
+  const normalizedScale = scaleCandidate?.toLowerCase();
+  const hasScale =
+    !!normalizedScale &&
+    (isCanonicalScale(normalizedScale as SemanticColorScale) ||
+      scaleCandidate === 'DEFAULT');
+
+  if (!hasScale && !hasInteraction) {
+    return [segment];
+  }
+
+  let intentEndIndex = scaleIndex;
+  if (hasInteraction && !hasScale) {
+    intentEndIndex = partTokens.length - 1;
+  }
+  const intentParts = partTokens.slice(0, intentEndIndex);
+  if (intentParts.length === 0) {
+    return [segment];
+  }
+
+  const expanded = [intentParts.join('-')];
+  if (hasScale) {
+    expanded.push(scaleCandidate);
+  }
+  if (hasInteraction) {
+    expanded.push(interactionCandidate);
+  }
+
+  return expanded;
+}
+
+function normalizeRoleSegments(
+  target: SemanticColorTarget,
+  segments: string[],
+) {
+  if (segments.length === 1) {
+    return expandCompactRoleSegment(target, segments[0]);
+  }
+
+  if (segments.length === 2 && segments[1].includes('-')) {
+    return [
+      segments[0],
+      ...expandCompactRoleSegment(target, segments[1], segments[0]),
+    ];
+  }
+
+  return segments;
 }
 
 export function parseSemanticColorTokenMetadata(
@@ -134,24 +230,15 @@ export function parseSemanticColorTokenMetadata(
     };
   }
 
-  const rest = [...segments.slice(2)];
+  const rest = normalizeRoleSegments(targetSegment, [...segments.slice(2)]);
+  const canonicalFamilies: readonly string[] =
+    SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET[targetSegment];
   const stateCandidate = rest[rest.length - 1];
   let state: SemanticColorState | null = null;
 
   if (stateCandidate && isCanonicalState(stateCandidate)) {
     state = stateCandidate;
     rest.pop();
-  } else if (
-    stateCandidate &&
-    stateCandidate !== 'DEFAULT' &&
-    rest.length > 1
-  ) {
-    return {
-      ok: false,
-      code: 'STATE_NOT_CANONICAL',
-      message: `Unknown semantic color state: ${stateCandidate}`,
-      input: rawInput,
-    };
   }
 
   const scaleCandidate = rest[rest.length - 1];
@@ -159,10 +246,12 @@ export function parseSemanticColorTokenMetadata(
 
   if (scaleCandidate) {
     const normalizedScale = scaleCandidate.toLowerCase();
-    if (isCanonicalScale(normalizedScale)) {
+    const shouldPreserveAsRole =
+      rest.length === 1 && canonicalFamilies.includes(scaleCandidate);
+    if (isCanonicalScale(normalizedScale) && !shouldPreserveAsRole) {
       scale = normalizedScale;
       rest.pop();
-    } else if (scaleCandidate === 'DEFAULT') {
+    } else if (scaleCandidate === 'DEFAULT' && !shouldPreserveAsRole) {
       scale = 'default';
       rest.pop();
     }
@@ -187,34 +276,53 @@ export function parseSemanticColorTokenMetadata(
   }
 
   const family = roleParts[0];
-  const canonicalFamilies: readonly string[] =
-    SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET[targetSegment];
-
-  if (!canonicalFamilies.includes(family)) {
-    return {
-      ok: false,
-      code: 'ROLE_NOT_CANONICAL',
-      message: `Unknown semantic color role family: ${roleParts[0]}`,
-      input: rawInput,
-    };
-  }
-
-  // Variant is only explicit for multi-slot roles such as
-  // selected/primary or accent/purple.
-  const variant = roleParts.length > 1 ? roleParts.slice(1).join('-') : null;
 
   const variantFamilies = SEMANTIC_COLOR_ROLE_VARIANTS[
     targetSegment as keyof typeof SEMANTIC_COLOR_ROLE_VARIANTS
   ] as Record<string, readonly string[]> | undefined;
-  const variantList = variantFamilies?.[family];
 
-  if (variantList && (!variant || !variantList.includes(variant))) {
+  const familyIsCanonical = canonicalFamilies.includes(family);
+  const shouldTreatFirstAsFamily = familyIsCanonical && roleParts.length > 1;
+
+  let roleFamily: string | null = null;
+  let roleIntent = '';
+
+  if (shouldTreatFirstAsFamily) {
+    roleFamily = family;
+    roleIntent = roleParts.slice(1).join('-');
+  } else {
+    roleIntent = roleParts.join('-');
+  }
+
+  if (!roleIntent) {
     return {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',
-      message: `Unknown variant ${variant} for role family ${family}.`,
+      message:
+        `Missing semantic color role intent for target ${targetSegment}.`,
       input: rawInput,
     };
+  }
+
+  if (!shouldTreatFirstAsFamily && !canonicalFamilies.includes(roleIntent)) {
+    return {
+      ok: false,
+      code: 'ROLE_NOT_CANONICAL',
+      message: `Unknown semantic color role intent: ${roleIntent}`,
+      input: rawInput,
+    };
+  }
+
+  if (roleFamily) {
+    const variantList = variantFamilies?.[roleFamily];
+    if (variantList && !variantList.includes(roleIntent)) {
+      return {
+        ok: false,
+        code: 'ROLE_NOT_CANONICAL',
+        message: `Unknown intent ${roleIntent} for role family ${roleFamily}.`,
+        input: rawInput,
+      };
+    }
   }
 
   return {
@@ -223,8 +331,9 @@ export function parseSemanticColorTokenMetadata(
       type: 'color',
       target: targetSegment,
       role: {
-        family,
-        variant,
+        family: roleFamily,
+        intent: roleIntent,
+        variant: roleIntent,
       },
       scale,
       state,
@@ -238,7 +347,8 @@ export function parseSemanticColorTokenMetadataMap(
 ): SemanticColorTokenMetadataMapParseResult {
   const metadataMap: SemanticColorTokenMetadataMap = {};
   const errors: SemanticColorTokenMetadataMapParseResult['errors'] = {};
-  const { skipNonColorTokens = true } = options;
+  const exceptions: SemanticColorTokenMetadataMapParseResult['exceptions'] = {};
+  const { skipNonColorTokens = true, source } = options;
 
   const tokenNames = Array.isArray(input) ? input : Object.keys(input);
 
@@ -247,6 +357,18 @@ export function parseSemanticColorTokenMetadataMap(
 
     if (result.ok) {
       metadataMap[tokenName] = result.metadata;
+
+      if (result.metadata.role === null) {
+        exceptions[tokenName] = {
+          code: 'NO_ROLE_EXCEPTION',
+          message:
+            'Token requires special handling because it has no semantic role:' +
+            ` ${tokenName}`,
+          input: tokenName,
+          source,
+        };
+      }
+
       return;
     }
 
@@ -260,6 +382,7 @@ export function parseSemanticColorTokenMetadataMap(
   return {
     metadataMap,
     errors,
+    exceptions,
   };
 }
 
@@ -290,11 +413,17 @@ function collectTokenLeafPaths(
   });
 }
 
+export function collectSemanticColorTokenLeafPathsFromTokenTree(
+  tokenTree: TokenTree,
+) {
+  return collectTokenLeafPaths(tokenTree);
+}
+
 export function parseSemanticColorTokenMetadataFromTokenTree(
   tokenTree: TokenTree,
   options: SemanticColorTokenMetadataMapParseOptions = {},
 ): SemanticColorTokenMetadataMapParseResult {
-  const tokenNames = collectTokenLeafPaths(tokenTree);
+  const tokenNames = collectSemanticColorTokenLeafPathsFromTokenTree(tokenTree);
   return parseSemanticColorTokenMetadataMap(tokenNames, options);
 }
 
@@ -315,6 +444,7 @@ export function serializeSemanticColorMetadataModule(
   const {
     exportName = 'semanticColorMetadata',
     includeErrors = false,
+    includeExceptions = false,
     failOnErrors = false,
     prettySpaces = 2,
   } = options;
@@ -330,6 +460,15 @@ export function serializeSemanticColorMetadataModule(
   if (includeErrors) {
     const errorsJson = JSON.stringify(result.errors, null, prettySpaces);
     lines.push(`export const ${exportName}Errors = ${errorsJson};`);
+  }
+
+  if (includeExceptions) {
+    const exceptionsJson = JSON.stringify(
+      result.exceptions,
+      null,
+      prettySpaces,
+    );
+    lines.push(`export const ${exportName}Exceptions = ${exceptionsJson};`);
   }
 
   lines.push(`export default ${exportName};`);
