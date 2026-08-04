@@ -2,6 +2,9 @@
 
 This document describes the data model and operational flows for the Figma token sync system. For setup, environment variables, and command reference, see [README.md](../README.md). For CLI flag semantics and safety contracts, see [contracts/figma-sync-cli-contract.md](../contracts/figma-sync-cli-contract.md).
 
+Related deep-dive docs:
+- [token_export Control Flow](./FIGMA_TOKEN_EXPORT_CONTROL_FLOW.md)
+
 ## Entity Relationship Diagram
 
 The diagram below models the core entities the sync system reads and writes. The three Figma files (`primitive`, `semantic`, `component`) each own local variable collections. The `semantic` and `component` files also subscribe to upstream libraries, creating remote variable references whose validity is enforced by preflight.
