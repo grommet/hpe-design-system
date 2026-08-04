@@ -39,7 +39,7 @@ const semanticColorMetadataExamples = {
   },
 } satisfies SemanticColorTokenMetadataMap;
 
-describe('semantic_color_vocab', () => {
+describe('semantic_color_parser', () => {
   it('matches current semantic color target inventory', () => {
     const source = JSON.parse(
       fs.readFileSync('./tokens/semantic/color.dark.json', 'utf8'),

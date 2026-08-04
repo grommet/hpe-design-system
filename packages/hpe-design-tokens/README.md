@@ -57,12 +57,13 @@ snapshots and should be updated only for intentional behavior changes, with
 review of the resulting diff.
 
 Semantic role metadata note:
+
 - `role: null` means the token path does not include a semantic role segment.
 - `role.variant: null` means a role family exists but has no variant dimension
   (single-slot roles such as `disabled`).
 
 - Parity scope:
-  - Legacy-vs-new adapter equivalence tests (`semantic_color_name_adapter_parity.test.ts`).
+  - Legacy-vs-new adapter equivalence tests (`semantic_color_figma_adapter_parity.test.ts`).
   - Golden output verification for export token output and import payload output (`semantic_color_payload_golden.test.ts`).
   - Boundary vectors for non-canonical accent naming in both directions:
     - Export fixture coverage for incoming Figma names such as `color/background/accent/purple-custom`.
@@ -90,7 +91,7 @@ Always run:
 
 ```bash
 pnpm --filter hpe-design-tokens run test:parity
-pnpm --filter hpe-design-tokens test -- src/tests/token_export.test.ts src/tests/token_import.test.ts src/tests/token_import_alias_resolution.test.ts src/tests/semantic_color_vocab.test.ts
+pnpm --filter hpe-design-tokens test -- src/tests/token_export.test.ts src/tests/token_import.test.ts src/tests/token_import_alias_resolution.test.ts src/tests/semantic_color_parser.test.ts
 ```
 
 Run this only when you intentionally changed semantic color import/export behavior and expect golden fixture output updates:
