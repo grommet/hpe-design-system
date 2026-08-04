@@ -283,6 +283,7 @@ const filterColor = (token, file) =>
 
 const writeSemanticColorMetadataArtifacts = files => {
   fs.mkdirSync(DOCS_METADATA_DIR, { recursive: true });
+  const parseFailures = [];
 
   files.forEach(file => {
     const [theme, mode] = getThemeAndMode(file);
@@ -342,21 +343,40 @@ const writeSemanticColorMetadataArtifacts = files => {
       exportName: 'semanticColorMetadata',
       includeErrors: true,
       includeExceptions: true,
-      failOnErrors: true,
+      failOnErrors: false,
     });
 
     const fileSuffix = theme ? `${theme}-${mode}` : `${mode || 'default'}`;
+    const reportPath = `${DOCS_METADATA_DIR}semanticColorMetadata.report.${fileSuffix}.json`;
 
     fs.writeFileSync(
       `${DOCS_METADATA_DIR}semanticColorMetadata.${fileSuffix}.js`,
       `// ${COPYRIGHT}\n\n${output}`,
     );
 
-    fs.writeFileSync(
-      `${DOCS_METADATA_DIR}semanticColorMetadata.report.${fileSuffix}.json`,
-      `${JSON.stringify(report, null, 2)}\n`,
-    );
+    fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+
+    if (canonicalParseResult.errors.length > 0) {
+      parseFailures.push({
+        fileSuffix,
+        reportPath,
+        errorCount: canonicalParseResult.errors.length,
+      });
+    }
   });
+
+  if (parseFailures.length > 0) {
+    const details = parseFailures
+      .map(
+        ({ fileSuffix, reportPath, errorCount }) =>
+          `${fileSuffix}: ${errorCount} error(s) in ${reportPath}`,
+      )
+      .join('\n- ');
+
+    throw new Error(
+      `Semantic color metadata parse errors found. Reports were generated:\n- ${details}`,
+    );
+  }
 };
 
 try {
