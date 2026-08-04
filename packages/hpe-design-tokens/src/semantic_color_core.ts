@@ -157,16 +157,12 @@ export type SemanticColorRoleVariant<
 export type SemanticColorRoleMetadata = {
   family: string | null;
   intent: string;
-  // Deprecated compatibility alias. Prefer role.intent.
-  variant: string;
 };
 
 // Target-aware role metadata shape for callers that want stronger typing.
 export type SemanticColorRoleMetadataByTarget<T extends SemanticColorTarget> = {
   family: SemanticColorRoleFamily<T> | null;
   intent: string;
-  // Deprecated compatibility alias. Prefer role.intent.
-  variant: string;
 };
 
 export type SemanticColorTokenMetadata = {

@@ -25,7 +25,6 @@ const semanticColorMetadataExamples = {
     role: {
       family: null,
       intent: 'primary',
-      variant: 'primary',
     },
     scale: 'strong',
     state: 'REST',
@@ -117,10 +116,6 @@ describe('semantic_color_parser', () => {
       semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
         ?.intent,
     ).toBe('primary');
-    expect(
-      semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
-        ?.variant,
-    ).toBe('primary');
     expect(semanticColorMetadataExamples['hpe.color.transparent'].role).toBe(
       null,
     );
@@ -139,7 +134,6 @@ describe('semantic_color_parser', () => {
         role: {
           family: null,
           intent: 'primary',
-          variant: 'primary',
         },
         scale: 'strong',
         state: 'hover',
@@ -147,7 +141,7 @@ describe('semantic_color_parser', () => {
     });
   });
 
-  it('parses single-slot semantic role with intent and deprecated variant alias', () => {
+  it('parses single-slot semantic role with intent', () => {
     const result = parseSemanticColorTokenMetadata(
       'hpe.color.background.disabled.DEFAULT.REST',
     );
@@ -160,7 +154,6 @@ describe('semantic_color_parser', () => {
         role: {
           family: null,
           intent: 'disabled',
-          variant: 'disabled',
         },
         scale: 'default',
         state: 'REST',
@@ -184,7 +177,6 @@ describe('semantic_color_parser', () => {
         role: {
           family: 'selected',
           intent: 'primary',
-          variant: 'primary',
         },
         scale: 'default',
         state: 'REST',
@@ -199,7 +191,6 @@ describe('semantic_color_parser', () => {
         role: {
           family: 'accent',
           intent: 'purple',
-          variant: 'purple',
         },
         scale: 'strong',
         state: 'REST',
@@ -398,7 +389,6 @@ describe('semantic_color_parser', () => {
       role: {
         family: null,
         intent: 'default',
-        variant: 'default',
       },
       scale: null,
       state: 'REST',

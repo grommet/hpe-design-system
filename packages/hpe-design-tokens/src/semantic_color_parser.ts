@@ -232,7 +232,6 @@ export function parseSemanticColorTokenMetadata(
       role: {
         family: roleFamily,
         intent: roleIntent,
-        variant: roleIntent,
       },
       scale,
       state,
