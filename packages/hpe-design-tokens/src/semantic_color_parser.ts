@@ -199,6 +199,7 @@ export function parseSemanticColorTokenMetadata(
     return {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',
+      // eslint-disable-next-line max-len
       message: `Missing semantic color role intent for target ${targetSegment}.`,
       input: rawInput,
     };
