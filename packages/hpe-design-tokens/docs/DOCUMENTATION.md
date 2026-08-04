@@ -3,7 +3,8 @@
 This document describes the data model and operational flows for the Figma token sync system. For setup, environment variables, and command reference, see [README.md](../README.md). For CLI flag semantics and safety contracts, see [contracts/figma-sync-cli-contract.md](../contracts/figma-sync-cli-contract.md).
 
 Related deep-dive docs:
-- [token_export Control Flow](./FIGMA_TOKEN_EXPORT_CONTROL_FLOW.md)
+
+- [Figma Token Export Architecture](./FIGMA_TOKEN_EXPORT_ARCHITECTURE.md)
 
 ## Entity Relationship Diagram
 
