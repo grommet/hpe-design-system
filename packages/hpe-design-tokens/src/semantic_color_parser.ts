@@ -22,9 +22,7 @@ export type SemanticColorTokenParseErrorCode =
   | 'NOT_A_COLOR_TOKEN'
   | 'TARGET_NOT_FOUND'
   | 'TARGET_NOT_CANONICAL'
-  | 'ROLE_NOT_CANONICAL'
-  | 'STATE_NOT_CANONICAL'
-  | 'SCALE_NOT_CANONICAL';
+  | 'ROLE_NOT_CANONICAL';
 
 export type SemanticColorTokenParseResult =
   | {

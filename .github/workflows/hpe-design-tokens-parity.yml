@@ -33,7 +33,7 @@ jobs:
         run: pnpm --filter hpe-design-tokens run test:parity
 
       - name: Run token import/export regression tests
-        run: pnpm --filter hpe-design-tokens test -- src/tests/token_export.test.ts src/tests/token_import.test.ts src/tests/token_import_alias_resolution.test.ts src/tests/semantic_color_vocab.test.ts
+        run: pnpm --filter hpe-design-tokens test -- src/tests/token_export.test.ts src/tests/token_import.test.ts src/tests/token_import_alias_resolution.test.ts src/tests/semantic_color_normalization.test.ts src/tests/semantic_color_parser.test.ts
 
       - name: Annotate parity or regression failure
         if: ${{ failure() }}

@@ -59,8 +59,11 @@ review of the resulting diff.
 Semantic role metadata note:
 
 - `role: null` means the token path does not include a semantic role segment.
-- `role.variant: null` means a role family exists but has no variant dimension
-  (single-slot roles such as `disabled`).
+- `role.family` identifies the role family grouping (e.g. `accent`); it is `null`
+  for single-slot roles such as `disabled`.
+- `role.intent` is the canonical role name within its target (e.g. `primary`,
+  `disabled`, `purple`).
+- `role.variant` is a deprecated alias for `role.intent` and mirrors its value.
 
 - Parity scope:
   - Legacy-vs-new adapter equivalence tests (`semantic_color_figma_adapter_parity.test.ts`).

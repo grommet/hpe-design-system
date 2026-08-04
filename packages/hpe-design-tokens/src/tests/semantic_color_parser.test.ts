@@ -147,7 +147,7 @@ describe('semantic_color_parser', () => {
     });
   });
 
-  it('returns null variant for single-slot semantic roles', () => {
+  it('parses single-slot semantic role with intent and deprecated variant alias', () => {
     const result = parseSemanticColorTokenMetadata(
       'hpe.color.background.disabled.DEFAULT.REST',
     );
