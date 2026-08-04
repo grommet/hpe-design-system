@@ -136,8 +136,8 @@ export type SemanticColorRoleFamily<
   T extends SemanticColorTarget = SemanticColorTarget,
 > = SemanticColorRoleFamilyByTarget[T];
 
-// Known role variants where a family expands into an extra slot.
-export const SEMANTIC_COLOR_ROLE_VARIANTS = {
+// Known role intents where a family expands into an extra slot.
+export const SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY = {
   background: {
     selected: ['primary'],
     accent: ['blue', 'cyan', 'purple'],
@@ -147,12 +147,15 @@ export const SEMANTIC_COLOR_ROLE_VARIANTS = {
   },
 } as const;
 
-export type SemanticColorRoleVariants = typeof SEMANTIC_COLOR_ROLE_VARIANTS;
+export type SemanticColorRoleIntentsByFamily =
+  typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY;
 
-export type SemanticColorRoleVariant<
-  T extends keyof SemanticColorRoleVariants,
-  F extends keyof SemanticColorRoleVariants[T],
-> = SemanticColorRoleVariants[T][F] extends readonly (infer V)[] ? V : never;
+export type SemanticColorRoleIntentByFamily<
+  T extends keyof SemanticColorRoleIntentsByFamily,
+  F extends keyof SemanticColorRoleIntentsByFamily[T],
+> = SemanticColorRoleIntentsByFamily[T][F] extends readonly (infer V)[]
+  ? V
+  : never;
 
 export type SemanticColorRoleMetadata = {
   family: string | null;

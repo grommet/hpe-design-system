@@ -1,6 +1,6 @@
 import {
   SEMANTIC_COLOR_NORMALIZATION_SEGMENTS,
-  SEMANTIC_COLOR_ROLE_VARIANTS,
+  SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   type SemanticColorScale,
@@ -67,12 +67,12 @@ export function expandCompactRoleSegment(
   }
 
   if (!knownFamily) {
-    const variantFamilies = SEMANTIC_COLOR_ROLE_VARIANTS[
-      target as keyof typeof SEMANTIC_COLOR_ROLE_VARIANTS
+    const intentFamilies = SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY[
+      target as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY
     ] as Record<string, readonly string[]> | undefined;
     const compactFamily = partTokens[0];
     const compactIntent = partTokens.slice(1).join('-');
-    const compactIntentOptions = variantFamilies?.[compactFamily];
+    const compactIntentOptions = intentFamilies?.[compactFamily];
 
     if (compactIntentOptions?.includes(compactIntent)) {
       return [compactFamily, compactIntent];

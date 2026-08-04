@@ -12,7 +12,7 @@ import {
 import {
   type SemanticColorTokenMetadataMap,
   SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET,
-  SEMANTIC_COLOR_ROLE_VARIANTS,
+  SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   SEMANTIC_COLOR_TARGETS,
@@ -91,11 +91,11 @@ describe('semantic_color_parser', () => {
     });
   });
 
-  it('keeps known multi-slot role variants explicit', () => {
-    expect(SEMANTIC_COLOR_ROLE_VARIANTS.background.selected).toEqual([
+  it('keeps known multi-slot role intents explicit', () => {
+    expect(SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY.background.selected).toEqual([
       'primary',
     ]);
-    expect(SEMANTIC_COLOR_ROLE_VARIANTS.dataVis.categorical).toEqual([
+    expect(SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY.dataVis.categorical).toEqual([
       '10',
       '20',
       '30',

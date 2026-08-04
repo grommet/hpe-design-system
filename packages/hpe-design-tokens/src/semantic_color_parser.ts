@@ -2,7 +2,7 @@
 // helpers to serialize that metadata for build artifacts.
 import {
   SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET,
-  SEMANTIC_COLOR_ROLE_VARIANTS,
+  SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   SEMANTIC_COLOR_TARGETS,
@@ -176,8 +176,8 @@ export function parseSemanticColorTokenMetadata(
 
   const family = roleParts[0];
 
-  const variantFamilies = SEMANTIC_COLOR_ROLE_VARIANTS[
-    targetSegment as keyof typeof SEMANTIC_COLOR_ROLE_VARIANTS
+  const intentFamilies = SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY[
+    targetSegment as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY
   ] as Record<string, readonly string[]> | undefined;
 
   const familyIsCanonical = canonicalFamilies.includes(family);
@@ -213,8 +213,8 @@ export function parseSemanticColorTokenMetadata(
   }
 
   if (roleFamily) {
-    const variantList = variantFamilies?.[roleFamily];
-    if (variantList && !variantList.includes(roleIntent)) {
+    const allowedIntents = intentFamilies?.[roleFamily];
+    if (allowedIntents && !allowedIntents.includes(roleIntent)) {
       return {
         ok: false,
         code: 'ROLE_NOT_CANONICAL',
