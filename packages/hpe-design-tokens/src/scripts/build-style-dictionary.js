@@ -356,11 +356,13 @@ const writeSemanticColorMetadataArtifacts = files => {
 
     fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
 
-    if (canonicalParseResult.errors.length > 0) {
+    const canonicalErrorCount = Object.keys(canonicalParseResult.errors).length;
+
+    if (canonicalErrorCount > 0) {
       parseFailures.push({
         fileSuffix,
         reportPath,
-        errorCount: canonicalParseResult.errors.length,
+        errorCount: canonicalErrorCount,
       });
     }
   });
