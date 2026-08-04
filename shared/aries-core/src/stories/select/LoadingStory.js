@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Select, Spinner, Text } from 'grommet';
 import { fetchOptions } from './shared';
+import LoadingStorySource from './LoadingStory.js?raw';
 
 const LoadingExample = () => {
   const [value, setValue] = useState('');
@@ -44,6 +45,16 @@ const Loading = {
   render: () => <LoadingExample />,
   parameters: {
     chromatic: { disable: true },
+    docs: {
+      source: {
+        code: LoadingStorySource,
+        language: 'jsx',
+        type: 'code',
+      },
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
   },
 };
 

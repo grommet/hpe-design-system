@@ -3,6 +3,7 @@ import { Cpu } from '@hpe-design/icons-grommet';
 import { Box, Select, Text } from 'grommet';
 import { SelectOptionRow } from '../../js/components/core/SelectOption';
 import { allOptions } from './shared';
+import CustomOptionsStorySource from './CustomOptionsStory.js?raw';
 
 const CustomOptionsExample = () => {
   const [value, setValue] = useState('');
@@ -52,6 +53,16 @@ const CustomOptions = {
   render: () => <CustomOptionsExample />,
   parameters: {
     chromatic: { disable: true },
+    docs: {
+      source: {
+        code: CustomOptionsStorySource,
+        language: 'jsx',
+        type: 'code',
+      },
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
   },
 };
 

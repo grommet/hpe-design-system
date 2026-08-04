@@ -6,6 +6,7 @@ import {
 } from '../../js/components/core/SelectOption';
 import { Box, Select } from 'grommet';
 import { allOptions, buildGroupedOptions } from './shared';
+import GroupedOptionsStorySource from './GroupedOptionsStory.js?raw';
 
 const GroupedOptionsExample = () => {
   const [value, setValue] = useState('');
@@ -54,6 +55,16 @@ const GroupedOptions = {
   render: () => <GroupedOptionsExample />,
   parameters: {
     chromatic: { disable: true },
+    docs: {
+      source: {
+        code: GroupedOptionsStorySource,
+        language: 'jsx',
+        type: 'code',
+      },
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
   },
 };
 
