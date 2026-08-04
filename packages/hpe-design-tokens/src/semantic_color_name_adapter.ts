@@ -3,7 +3,6 @@ import {
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
 } from './semantic_color_core.js';
-import { parseSemanticColorTokenMetadata } from './semantic_color_parser.js';
 
 const semanticInteractions = SEMANTIC_COLOR_STATES.filter(
   state => state !== 'REST',
@@ -87,10 +86,6 @@ export function normalizeColorVariableNameFromFigma(
   }
 
   const normalized = temp.join('/');
-
-  // Parse validation is intentionally non-blocking in this adapter layer.
-  // This keeps import/export normalization tied to canonical parser coverage.
-  parseSemanticColorTokenMetadata(normalized);
 
   return normalized;
 }
