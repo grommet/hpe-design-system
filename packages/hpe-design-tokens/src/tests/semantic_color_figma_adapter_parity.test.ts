@@ -5,6 +5,13 @@ import {
   tokenAliasToFigmaAlias,
 } from '../semantic_color_figma_adapter.js';
 
+// Legacy implementations of the Figma -> token path normalization and token
+// path -> Figma alias normalization functions. These are used to verify that
+// the new implementations in semantic_color_figma_adapter.ts produce the same
+// outputs as the legacy implementations.
+
+// Legacy implementation of the Figma -> token path normalization and token
+// path.
 function legacyColorNameToHierarchyParts(colorVariableName: string): string[] {
   const interactions = ['hover', 'focus', 'active'];
   const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
@@ -74,6 +81,8 @@ function legacyNormalizeColorVariableNameFromFigma(
   return temp.join('/');
 }
 
+// Legacy implementation of the token path -> Figma alias normalization
+// function.
 function legacyTokenAliasToFigmaAlias(alias: string): string {
   const exceptionColors = ['color/focus'];
   const excludedNameParts = ['DEFAULT', 'REST'];

@@ -139,21 +139,31 @@ export function colorNameToHierarchyPartsCore(
   colorVariableName: string,
 ): string[] {
   const parts = colorVariableName.split('/');
+  const [tokenType, target, role, ...tailParts] = parts;
 
-  if (parts[0] !== 'color') {
+  if (tokenType !== 'color') {
     return parts;
   }
 
-  if (parts[1] === 'background' && parts[2] === 'accent') {
-    const section = parts.slice(0, 3);
-    const tail = parts.slice(3).join('-');
+  const roleIntentsByFamily = SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY[
+    target as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY
+  ] as Record<string, readonly string[]> | undefined;
+
+  if (roleIntentsByFamily?.[role]) {
+    const section = [tokenType, target, role];
+    const tail = tailParts.join('-');
     if (!tail) {
       return section;
     }
 
-    const expanded = expandCompactRoleSegment('background', tail, 'accent');
+    const expanded = expandCompactRoleSegment(
+      target as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
+      tail,
+      role,
+    );
 
-    if (expanded.length === 1 && expanded[0] === tail) {
+    const [expandedTail, ...remainingExpandedParts] = expanded;
+    if (remainingExpandedParts.length === 0 && expandedTail === tail) {
       return [...section, tail];
     }
 
