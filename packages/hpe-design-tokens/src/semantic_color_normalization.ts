@@ -1,5 +1,6 @@
 import {
   SEMANTIC_COLOR_NORMALIZATION_SEGMENTS,
+  SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET,
   SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
@@ -202,26 +203,37 @@ export function tokenAliasToFigmaAliasCore(alias: string): string {
   let adjustedName = alias;
 
   if (isColor) {
-    let parts = adjustedName.split('/');
-    parts = parts.filter(part => !normalizationSegmentSet.has(part));
-    let section = parts.slice(0, 2).join('/');
-    let name = parts.slice(2).join('-');
+    const parts = adjustedName
+      .split('/')
+      .filter(part => !normalizationSegmentSet.has(part));
+    const [tokenType, target, role, ...tailParts] = parts;
 
-    const isAccentBackground =
-      section === 'color/background' && parts[2] === 'accent';
-
-    if (isAccentBackground) {
-      section = parts.slice(0, 3).join('/');
-      name = parts.slice(3).join('-');
+    if (tokenType !== 'color') {
+      return adjustedName;
     }
+
+    const nestedRoleNames = SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET[
+      target as keyof typeof SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET
+    ] as readonly string[] | undefined;
+    const isNestedRoleName = nestedRoleNames?.includes(role) ?? false;
+    const sectionParts = isNestedRoleName
+      ? [tokenType, target, role]
+      : [tokenType, target];
+    const nameParts = isNestedRoleName ? tailParts : [role, ...tailParts];
+    const section = sectionParts.join('/');
+    const name = nameParts.join('-');
 
     if (
       (SEMANTIC_COLOR_IMPORT_EXCEPTION_SECTIONS as readonly string[]).includes(
         section,
       )
     ) {
-      section = parts.slice(0, 1).join('/');
-      name = parts.slice(1).join('-');
+      const exceptionName = [target, role, ...tailParts]
+        .filter(Boolean)
+        .join('-');
+      adjustedName = [tokenType, exceptionName].filter(Boolean).join('/');
+
+      return adjustedName;
     }
 
     adjustedName = `${section}${name ? `/${name}` : ''}`;

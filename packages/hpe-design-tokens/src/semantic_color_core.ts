@@ -157,6 +157,11 @@ export type SemanticColorRoleIntentByFamily<
   ? V
   : never;
 
+// Role names that remain as explicit path segments in Figma aliases.
+export const SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET = {
+  background: ['accent'],
+} as const;
+
 export type SemanticColorRoleMetadata = {
   family: string | null;
   intent: string;
