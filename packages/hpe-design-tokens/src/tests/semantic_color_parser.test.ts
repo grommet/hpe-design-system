@@ -356,6 +356,28 @@ describe('semantic_color_parser', () => {
     expect(Object.keys(result.exceptions)).toEqual(['hpe.color.transparent']);
   });
 
+  it('soft-reports non-canonical role payloads as exceptions', () => {
+    const result = parseSemanticColorTokenMetadataMap(
+      ['hpe.color.background.selected.secondary.DEFAULT.REST'],
+      { softExceptionOnNonCanonicalRole: true },
+    );
+
+    expect(result.errors).toEqual({});
+    expect(result.metadataMap).toMatchObject({
+      'hpe.color.background.selected.secondary.DEFAULT.REST': {
+        role: {
+          family: 'selected',
+          intent: 'secondary',
+        },
+      },
+    });
+    expect(
+      result.exceptions['hpe.color.background.selected.secondary.DEFAULT.REST'],
+    ).toMatchObject({
+      code: 'NON_CANONICAL_ROLE_EXCEPTION',
+    });
+  });
+
   it('optionally reports non-color tokens in map parsing', () => {
     const result = parseSemanticColorTokenMetadataMap(
       {
@@ -466,5 +488,31 @@ describe('semantic_color_parser', () => {
         failOnErrors: true,
       }),
     ).toThrow('Semantic color metadata export failed');
+  });
+
+  it('supports strict export mode with soft role exceptions', () => {
+    const tree = {
+      color: {
+        background: {
+          selected: {
+            secondary: {
+              DEFAULT: {
+                REST: {
+                  $type: 'color',
+                  $value: '#ffffff',
+                },
+              },
+            },
+          },
+        },
+      },
+    };
+
+    expect(() =>
+      exportSemanticColorMetadataModuleFromTokenTree(tree, {
+        failOnErrors: true,
+        softExceptionOnNonCanonicalRole: true,
+      }),
+    ).not.toThrow();
   });
 });

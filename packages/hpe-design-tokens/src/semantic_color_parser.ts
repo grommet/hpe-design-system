@@ -39,7 +39,13 @@ export type SemanticColorTokenParseResult =
 export type SemanticColorTokenParseSource =
   'canonical-token' | 'figma-variable';
 
-export type SemanticColorTokenExceptionCode = 'NO_ROLE_EXCEPTION';
+export type SemanticColorTokenExceptionCode =
+  | 'NO_ROLE_EXCEPTION'
+  | 'NON_CANONICAL_ROLE_EXCEPTION';
+
+export type SemanticColorTokenParseOptions = {
+  allowNonCanonicalRoleIntent?: boolean;
+};
 
 export type SemanticColorTokenException = {
   code: SemanticColorTokenExceptionCode;
@@ -51,6 +57,7 @@ export type SemanticColorTokenException = {
 export type SemanticColorTokenMetadataMapParseOptions = {
   skipNonColorTokens?: boolean;
   source?: SemanticColorTokenParseSource;
+  softExceptionOnNonCanonicalRole?: boolean;
 };
 
 export type SemanticColorTokenMetadataMapParseResult = {
@@ -84,7 +91,9 @@ function isCanonicalScale(value: string): value is SemanticColorScale {
 
 export function parseSemanticColorTokenMetadata(
   input: string | string[],
+  options: SemanticColorTokenParseOptions = {},
 ): SemanticColorTokenParseResult {
+  const { allowNonCanonicalRoleIntent = false } = options;
   const rawInput = Array.isArray(input) ? input.join('/') : input;
   const segments = canonicalTokenPathSegments(input);
 
@@ -204,6 +213,22 @@ export function parseSemanticColorTokenMetadata(
   }
 
   if (!shouldTreatFirstAsFamily && !canonicalFamilies.includes(roleIntent)) {
+    if (allowNonCanonicalRoleIntent) {
+      return {
+        ok: true,
+        metadata: {
+          type: 'color',
+          target: targetSegment,
+          role: {
+            family: roleFamily,
+            intent: roleIntent,
+          },
+          scale,
+          state,
+        },
+      };
+    }
+
     return {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',
@@ -215,6 +240,22 @@ export function parseSemanticColorTokenMetadata(
   if (roleFamily) {
     const allowedIntents = intentFamilies?.[roleFamily];
     if (allowedIntents && !allowedIntents.includes(roleIntent)) {
+      if (allowNonCanonicalRoleIntent) {
+        return {
+          ok: true,
+          metadata: {
+            type: 'color',
+            target: targetSegment,
+            role: {
+              family: roleFamily,
+              intent: roleIntent,
+            },
+            scale,
+            state,
+          },
+        };
+      }
+
       return {
         ok: false,
         code: 'ROLE_NOT_CANONICAL',
@@ -246,7 +287,11 @@ export function parseSemanticColorTokenMetadataMap(
   const metadataMap: SemanticColorTokenMetadataMap = {};
   const errors: SemanticColorTokenMetadataMapParseResult['errors'] = {};
   const exceptions: SemanticColorTokenMetadataMapParseResult['exceptions'] = {};
-  const { skipNonColorTokens = true, source } = options;
+  const {
+    skipNonColorTokens = true,
+    source,
+    softExceptionOnNonCanonicalRole = false,
+  } = options;
 
   const tokenNames = Array.isArray(input) ? input : Object.keys(input);
 
@@ -272,6 +317,28 @@ export function parseSemanticColorTokenMetadataMap(
 
     if (skipNonColorTokens && result.code === 'NOT_A_COLOR_TOKEN') {
       return;
+    }
+
+    if (
+      softExceptionOnNonCanonicalRole &&
+      result.code === 'ROLE_NOT_CANONICAL'
+    ) {
+      const softParsed = parseSemanticColorTokenMetadata(tokenName, {
+        allowNonCanonicalRoleIntent: true,
+      });
+
+      if (softParsed.ok) {
+        metadataMap[tokenName] = softParsed.metadata;
+        exceptions[tokenName] = {
+          code: 'NON_CANONICAL_ROLE_EXCEPTION',
+          message:
+            'Token role is non-canonical and requires explicit downstream handling:' +
+            ` ${tokenName}`,
+          input: tokenName,
+          source,
+        };
+        return;
+      }
     }
 
     errors[tokenName] = result;

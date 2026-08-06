@@ -292,6 +292,7 @@ const writeSemanticColorMetadataArtifacts = files => {
       parsedTokens,
       {
         source: 'canonical-token',
+        softExceptionOnNonCanonicalRole: true,
       },
     );
 
@@ -344,6 +345,7 @@ const writeSemanticColorMetadataArtifacts = files => {
       includeErrors: true,
       includeExceptions: true,
       failOnErrors: false,
+      softExceptionOnNonCanonicalRole: true,
     });
 
     const fileSuffix = theme ? `${theme}-${mode}` : `${mode || 'default'}`;
