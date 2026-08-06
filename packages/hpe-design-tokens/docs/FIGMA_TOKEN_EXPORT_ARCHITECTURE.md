@@ -290,7 +290,7 @@ build.
 | --------------------------- | ------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------ |
 | `token_export.ts`           | invalid variable value format throw               | sync script runtime failure                     | inspect offending variable shape and source collection data        |
 | `token_import.ts`           | alias resolution errors (`ALIAS_NOT_FOUND`, etc.) | payload generation callback and stage reporting | verify alias target exists in lookup or planned payload set        |
-| `semantic_color_parser.ts`  | parse errors and no-role exceptions               | metadata export and report JSON                 | normalize token path segments or explicitly handle exceptions      |
+| `semantic_color_parser.ts`  | parse errors and semantic exceptions              | metadata export and report JSON                 | normalize token path segments or explicitly handle exceptions      |
 | `build-style-dictionary.js` | semantic metadata export failure (`failOnErrors`) | build failure                                   | fix invalid semantic color token names before rebuild              |
 | style dictionary platforms  | filtered reference warnings in CSS outputs        | build logs warnings                             | validate intended filter/reference behavior and token dependencies |
 
@@ -299,3 +299,19 @@ build.
 1. Stage/run status events from sync scripts.
 2. Semantic metadata error/exception exports in docs metadata artifacts.
 3. Semantic report JSON files under `dist/docs/metadata`.
+
+### Exception taxonomy in metadata reports
+
+The report now uses a generalized `exceptions` bucket instead of a
+`noRoleExceptions` bucket:
+
+1. `canonical.exceptions` for parser exceptions generated from canonical token
+    trees.
+2. `figmaVariables.exceptions` for Figma-normalized path exceptions.
+
+Current exception codes:
+
+1. `NO_ROLE_EXCEPTION`: token has no semantic role and requires explicit
+    downstream handling.
+2. `NON_CANONICAL_ROLE_EXCEPTION`: token role payload is non-canonical but
+    accepted in soft-exception mode for reporting and remediation.
