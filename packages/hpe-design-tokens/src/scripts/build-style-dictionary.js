@@ -301,7 +301,7 @@ const writeSemanticColorMetadataArtifacts = files => {
     ).filter(path => path.startsWith('color/'));
 
     const figmaUnparseable = [];
-    const figmaNoRoleExceptions = [];
+    const figmaExceptions = [];
 
     canonicalTokenLeafPaths.forEach(tokenPath => {
       const figmaName = tokenAliasToFigmaAlias(tokenPath);
@@ -309,6 +309,23 @@ const writeSemanticColorMetadataArtifacts = files => {
       const parsed = parseSemanticColorTokenMetadata(normalizedName);
 
       if (!parsed.ok) {
+        if (parsed.code === 'ROLE_NOT_CANONICAL') {
+          const softParsed = parseSemanticColorTokenMetadata(normalizedName, {
+            allowNonCanonicalRoleIntent: true,
+          });
+
+          if (softParsed.ok) {
+            figmaExceptions.push({
+              code: 'NON_CANONICAL_ROLE_EXCEPTION',
+              figmaName,
+              normalizedName,
+              reason:
+                'Token role is non-canonical and requires explicit downstream handling.',
+            });
+            return;
+          }
+        }
+
         figmaUnparseable.push({
           figmaName,
           normalizedName,
@@ -320,7 +337,8 @@ const writeSemanticColorMetadataArtifacts = files => {
       }
 
       if (parsed.metadata.role === null) {
-        figmaNoRoleExceptions.push({
+        figmaExceptions.push({
+          code: 'NO_ROLE_EXCEPTION',
           figmaName,
           normalizedName,
           reason:
@@ -332,11 +350,11 @@ const writeSemanticColorMetadataArtifacts = files => {
     const report = {
       canonical: {
         unparseable: canonicalParseResult.errors,
-        noRoleExceptions: canonicalParseResult.exceptions,
+        exceptions: canonicalParseResult.exceptions,
       },
       figmaVariables: {
         unparseable: figmaUnparseable,
-        noRoleExceptions: figmaNoRoleExceptions,
+        exceptions: figmaExceptions,
       },
     };
 
