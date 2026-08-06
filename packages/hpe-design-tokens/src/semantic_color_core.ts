@@ -36,8 +36,8 @@ export type SemanticColorState = (typeof SEMANTIC_COLOR_STATES)[number];
 
 // Structural placeholders used in token path normalization.
 export const SEMANTIC_COLOR_NORMALIZATION_SEGMENTS = [
-  'DEFAULT',
-  'REST',
+  'DEFAULT', // scale
+  'REST', // state
 ] as const;
 
 export type SemanticColorNormalizationSegment =

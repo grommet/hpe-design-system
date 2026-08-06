@@ -40,8 +40,7 @@ export type SemanticColorTokenParseSource =
   'canonical-token' | 'figma-variable';
 
 export type SemanticColorTokenExceptionCode =
-  | 'NO_ROLE_EXCEPTION'
-  | 'NON_CANONICAL_ROLE_EXCEPTION';
+  'NO_ROLE_EXCEPTION' | 'NON_CANONICAL_ROLE_EXCEPTION';
 
 export type SemanticColorTokenParseOptions = {
   allowNonCanonicalRoleIntent?: boolean;
@@ -332,7 +331,8 @@ export function parseSemanticColorTokenMetadataMap(
         exceptions[tokenName] = {
           code: 'NON_CANONICAL_ROLE_EXCEPTION',
           message:
-            'Token role is non-canonical and requires explicit downstream handling:' +
+            'Token role is non-canonical and requires explicit downstream' +
+            'handling:' +
             ` ${tokenName}`,
           input: tokenName,
           source,
