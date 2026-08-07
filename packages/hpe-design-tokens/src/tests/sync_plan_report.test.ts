@@ -1,8 +1,32 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildStagePlanReport } from '../sync_plan_report.js';
+import {
+  buildStagePlanReport,
+  parsePlanStageFilterValue,
+} from '../sync_plan_report.js';
 
 describe('sync_plan_report', () => {
+  it('parses optional plan stage filter values', () => {
+    expect(parsePlanStageFilterValue(undefined)).toBeNull();
+    expect(parsePlanStageFilterValue('semantic')).toEqual(['semantic']);
+    expect(parsePlanStageFilterValue('semantic,component')).toEqual([
+      'semantic',
+      'component',
+    ]);
+    expect(parsePlanStageFilterValue('semantic, semantic')).toEqual([
+      'semantic',
+    ]);
+  });
+
+  it('rejects invalid plan stage filter values', () => {
+    expect(() => parsePlanStageFilterValue('')).toThrow(
+      'Invalid --plan-stage value',
+    );
+    expect(() => parsePlanStageFilterValue('foo')).toThrow(
+      'Invalid --plan-stage value',
+    );
+  });
+
   it('builds readable plan entries from payload and local variables', () => {
     const localVariables = {
       status: 200,

@@ -5,7 +5,7 @@ Owner: design-tokens maintainers + DX/CI owner
 
 ## Commands
 
-- Push: `pnpm sync-tokens-to-figma -- --env=<production|test> [--dry-run] [--confirm-production] [--config <path>] [--verbose-plan] [--write-plan <path>]`
+- Push: `pnpm sync-tokens-to-figma -- --env=<production|test> [--dry-run] [--confirm-production] [--config <path>] [--verbose-plan] [--write-plan <path>] [--plan-stage <stage[,stage...]>]`
 - Pull: `pnpm sync-figma-to-tokens -- --env=<production|test> --output <dir> [--config <path>]`
 - Discover: `pnpm sync-discover-figma-collection-keys -- --env=<production|test> [--pretty] [--output <path>] [--config <path>]`
 
@@ -15,6 +15,7 @@ Owner: design-tokens maintainers + DX/CI owner
 - `--dry-run`: plan-only mode. No POST calls to mutate variables.
 - `--verbose-plan`: print per-stage planned variable changes as formatted JSON.
 - `--write-plan <path>`: write a JSON report containing the planned per-stage variable diff.
+- `--plan-stage <stage[,stage...]>`: optional plan-output filter; limits `--verbose-plan` and `--write-plan` output to selected stages (`primitive`, `semantic`, `component`).
 - `--confirm-production`: required locally for mutating production.
 - `--config`: optional config file path.
 - `--output`: output directory for pull, or output file path for discovery reports.

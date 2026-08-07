@@ -33,7 +33,11 @@ import {
   normalizeAliasReference,
   readJsonFiles,
 } from '../token_import.js';
-import { StagePlanReport, buildStagePlanReport } from '../sync_plan_report.js';
+import {
+  StagePlanReport,
+  buildStagePlanReport,
+  parsePlanStageFilterValue,
+} from '../sync_plan_report.js';
 
 // This script pushes design tokens from JSON files to Figma design files
 
@@ -227,6 +231,9 @@ async function main() {
   const dryRun = argv.includes('--dry-run');
   const verbosePlan = argv.includes('--verbose-plan');
   const writePlanPath = getCliArgValue(argv, '--write-plan');
+  const planStagesFilter = parsePlanStageFilterValue(
+    getCliArgValue(argv, '--plan-stage'),
+  );
   const stagePlanReports: StagePlanReport[] = [];
   let config;
   const fallbackStageResults = FILE_TIERS.map(stage => ({
@@ -479,8 +486,10 @@ async function main() {
       const stagePlanReport = stageHasMutations
         ? buildStagePlanReport(stage, postVariablesPayload, localVariables)
         : null;
+      const includePlanForStage =
+        !planStagesFilter || planStagesFilter.includes(stage);
 
-      if (stagePlanReport) {
+      if (stagePlanReport && includePlanForStage) {
         stagePlanReports.push(stagePlanReport);
       }
 
@@ -497,7 +506,7 @@ async function main() {
           ),
         );
 
-        if (verbosePlan && stagePlanReport) {
+        if (verbosePlan && stagePlanReport && includePlanForStage) {
           console.log(
             JSON.stringify(stagePlanReport, null, 2),
           );

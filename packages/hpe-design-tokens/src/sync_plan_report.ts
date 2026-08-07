@@ -5,7 +5,12 @@ import {
   VariableMode,
   Variable,
 } from './figma_api.js';
-import { FileTier, StageCounts, countsFromPostPayload } from './sync_events.js';
+import {
+  FILE_TIERS,
+  FileTier,
+  StageCounts,
+  countsFromPostPayload,
+} from './sync_events.js';
 
 type CollectionSnapshot = Pick<
   VariableCollection,
@@ -104,6 +109,39 @@ function omitUndefined<T extends Record<string, unknown>>(value: T) {
   return Object.fromEntries(
     Object.entries(value).filter(([, entry]) => entry !== undefined),
   );
+}
+
+export function parsePlanStageFilterValue(
+  value: string | undefined,
+): FileTier[] | null {
+  if (value === undefined) {
+    return null;
+  }
+
+  const stages = value
+    .split(',')
+    .map(stage => stage.trim())
+    .filter(Boolean);
+
+  if (stages.length === 0) {
+    throw new Error(
+      `Invalid --plan-stage value "${value}".` +
+        ` Allowed values: ${FILE_TIERS.join(', ')}.`,
+    );
+  }
+
+  const invalidStages = stages.filter(
+    stage => !FILE_TIERS.includes(stage as FileTier),
+  );
+
+  if (invalidStages.length > 0) {
+    throw new Error(
+      `Invalid --plan-stage value "${invalidStages.join(', ')}".` +
+        ` Allowed values: ${FILE_TIERS.join(', ')}.`,
+    );
+  }
+
+  return Array.from(new Set(stages)) as FileTier[];
 }
 
 export function buildStagePlanReport(
