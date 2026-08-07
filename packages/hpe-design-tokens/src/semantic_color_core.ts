@@ -43,10 +43,10 @@ export const SEMANTIC_COLOR_NORMALIZATION_SEGMENTS = [
 export type SemanticColorNormalizationSegment =
   (typeof SEMANTIC_COLOR_NORMALIZATION_SEGMENTS)[number];
 
-// Role => Semantic intent of the color, which is target-specific.
+// Role => Semantic name of the color, which is target-specific.
 // For example, a background color may have a role of "critical" or
 // "warning", while a text color may have a role of "anchor" or "placeholder".
-export const SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET = {
+export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
   background: [
     'back',
     'contrast',
@@ -126,18 +126,19 @@ export const SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET = {
   transparent: [],
 } as const;
 
-export type SemanticColorRoleFamilyByTarget = {
+export type SemanticColorRoleByTarget = {
   [
     T in SemanticColorTarget
-  ]: (typeof SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET)[T][number];
+  ]: (typeof SEMANTIC_COLOR_ROLES_BY_TARGET)[T][number];
 };
 
-export type SemanticColorRoleFamily<
+export type SemanticColorRole<
   T extends SemanticColorTarget = SemanticColorTarget,
-> = SemanticColorRoleFamilyByTarget[T];
+> = SemanticColorRoleByTarget[T];
 
-// Known role intents where a family expands into an extra slot.
-export const SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY = {
+// Validation map: target -> family -> allowed sub-role names.
+// Example: background.accent allows blue/cyan/purple.
+export const SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY = {
   background: {
     selected: ['primary'],
     accent: ['blue', 'cyan', 'purple'],
@@ -147,18 +148,21 @@ export const SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY = {
   },
 } as const;
 
-export type SemanticColorRoleIntentsByFamily =
-  typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY;
+export type SemanticColorSubrolesByTargetFamily =
+  typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY;
 
-export type SemanticColorRoleIntentByFamily<
-  T extends keyof SemanticColorRoleIntentsByFamily,
-  F extends keyof SemanticColorRoleIntentsByFamily[T],
-> = SemanticColorRoleIntentsByFamily[T][F] extends readonly (infer V)[]
+export type SemanticColorSubroleByTargetFamily<
+  T extends keyof SemanticColorSubrolesByTargetFamily,
+  F extends keyof SemanticColorSubrolesByTargetFamily[T],
+> = SemanticColorSubrolesByTargetFamily[T][F] extends readonly (infer V)[]
   ? V
   : never;
 
-// Role names that remain as explicit path segments in Figma aliases.
-export const SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET = {
+// Serialization map (Figma alias shape):
+// target -> families that keep their own path segment in Figma names.
+// This is expected to be a subset of the family keys in
+// SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[target].
+export const SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET = {
   background: ['accent'],
 } as const;
 
@@ -169,7 +173,7 @@ export type SemanticColorRoleMetadata = {
 
 // Target-aware role metadata shape for callers that want stronger typing.
 export type SemanticColorRoleMetadataByTarget<T extends SemanticColorTarget> = {
-  family: SemanticColorRoleFamily<T> | null;
+  family: SemanticColorRole<T> | null;
   name: string;
 };
 

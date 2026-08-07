@@ -10,9 +10,9 @@ import {
 } from '../semantic_color_parser.js';
 
 import {
+  SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
   type SemanticColorTokenMetadataMap,
-  SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET,
-  SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
+  SEMANTIC_COLOR_ROLES_BY_TARGET,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   SEMANTIC_COLOR_TARGETS,
@@ -72,8 +72,8 @@ describe('semantic_color_parser', () => {
       const roleKeys = Object.keys(roleTree).filter(k => !k.startsWith('$'));
       const nonRoleSegments = new Set(['DEFAULT', 'strong', 'weak']);
       const canonical =
-        SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET[
-          target as keyof typeof SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET
+        SEMANTIC_COLOR_ROLES_BY_TARGET[
+          target as keyof typeof SEMANTIC_COLOR_ROLES_BY_TARGET
         ];
 
       expect(new Set(roleKeys).size).toBe(roleKeys.length);
@@ -92,10 +92,15 @@ describe('semantic_color_parser', () => {
   });
 
   it('keeps known multi-slot role names explicit', () => {
-    expect(SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY.background.selected).toEqual([
+    expect(
+      SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY.background.selected,
+    ).toEqual([
       'primary',
     ]);
-    expect(SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY.dataVis.categorical).toEqual([
+    expect(
+      SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY.dataVis
+        .categorical,
+    ).toEqual([
       '10',
       '20',
       '30',

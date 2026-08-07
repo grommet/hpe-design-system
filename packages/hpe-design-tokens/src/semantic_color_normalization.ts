@@ -1,7 +1,7 @@
 import {
+  SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
+  SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET,
   SEMANTIC_COLOR_NORMALIZATION_SEGMENTS,
-  SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET,
-  SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   type SemanticColorScale,
@@ -68,15 +68,16 @@ export function expandCompactRoleSegment(
   }
 
   if (!knownFamily) {
-    const intentFamilies = SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY[
-      target as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY
-    ] as Record<string, readonly string[]> | undefined;
+    const roleNamesByFamily =
+      SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
+        target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+      ] as Record<string, readonly string[]> | undefined;
     const compactFamily = partTokens[0];
-    const compactIntent = partTokens.slice(1).join('-');
-    const compactIntentOptions = intentFamilies?.[compactFamily];
+    const compactRoleName = partTokens.slice(1).join('-');
+    const compactRoleNameOptions = roleNamesByFamily?.[compactFamily];
 
-    if (compactIntentOptions?.includes(compactIntent)) {
-      return [compactFamily, compactIntent];
+    if (compactRoleNameOptions?.includes(compactRoleName)) {
+      return [compactFamily, compactRoleName];
     }
   }
 
@@ -98,16 +99,16 @@ export function expandCompactRoleSegment(
     return [segment];
   }
 
-  let intentEndIndex = scaleIndex;
+  let roleNameEndIndex = scaleIndex;
   if (hasInteraction && !hasScale) {
-    intentEndIndex = partTokens.length - 1;
+    roleNameEndIndex = partTokens.length - 1;
   }
-  const intentParts = partTokens.slice(0, intentEndIndex);
-  if (intentParts.length === 0) {
+  const roleNameParts = partTokens.slice(0, roleNameEndIndex);
+  if (roleNameParts.length === 0) {
     return [segment];
   }
 
-  const expanded = [intentParts.join('-')];
+  const expanded = [roleNameParts.join('-')];
   if (hasScale) {
     expanded.push(scaleCandidate);
   }
@@ -146,11 +147,12 @@ export function colorNameToHierarchyPartsCore(
     return parts;
   }
 
-  const roleIntentsByFamily = SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY[
-    target as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY
-  ] as Record<string, readonly string[]> | undefined;
+  const roleNamesByFamily =
+    SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
+      target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+    ] as Record<string, readonly string[]> | undefined;
 
-  if (roleIntentsByFamily?.[role]) {
+  if (roleNamesByFamily?.[role]) {
     const section = [tokenType, target, role];
     const tail = tailParts.join('-');
     if (!tail) {
@@ -158,7 +160,7 @@ export function colorNameToHierarchyPartsCore(
     }
 
     const expanded = expandCompactRoleSegment(
-      target as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
+      target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
       tail,
       role,
     );
@@ -212,8 +214,8 @@ export function tokenAliasToFigmaAliasCore(alias: string): string {
       return adjustedName;
     }
 
-    const nestedRoleNames = SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET[
-      target as keyof typeof SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET
+    const nestedRoleNames = SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET[
+      target as keyof typeof SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET
     ] as readonly string[] | undefined;
     const isNestedRoleName = nestedRoleNames?.includes(role) ?? false;
     const sectionParts = isNestedRoleName

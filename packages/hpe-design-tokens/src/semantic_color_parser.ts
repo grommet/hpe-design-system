@@ -1,8 +1,8 @@
 // Parses semantic color token paths into canonical metadata and exports
 // helpers to serialize that metadata for build artifacts.
 import {
-  SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET,
-  SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY,
+  SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
+  SEMANTIC_COLOR_ROLES_BY_TARGET,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
   SEMANTIC_COLOR_TARGETS,
@@ -142,7 +142,7 @@ export function parseSemanticColorTokenMetadata(
 
   const rest = normalizeRoleSegments(targetSegment, [...segments.slice(2)]);
   const canonicalFamilies: readonly string[] =
-    SEMANTIC_COLOR_ROLE_FAMILIES_BY_TARGET[targetSegment];
+    SEMANTIC_COLOR_ROLES_BY_TARGET[targetSegment];
   const stateCandidate = rest[rest.length - 1];
   let state: SemanticColorState | null = null;
 
@@ -184,9 +184,10 @@ export function parseSemanticColorTokenMetadata(
 
   const family = roleParts[0];
 
-  const intentFamilies = SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY[
-    targetSegment as keyof typeof SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY
-  ] as Record<string, readonly string[]> | undefined;
+  const roleNamesByFamily =
+    SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
+      targetSegment as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+    ] as Record<string, readonly string[]> | undefined;
 
   const familyIsCanonical = canonicalFamilies.includes(family);
   const shouldTreatFirstAsFamily = familyIsCanonical && roleParts.length > 1;
@@ -237,8 +238,8 @@ export function parseSemanticColorTokenMetadata(
   }
 
   if (roleFamily) {
-    const allowedIntents = intentFamilies?.[roleFamily];
-    if (allowedIntents && !allowedIntents.includes(roleName)) {
+    const allowedRoleNames = roleNamesByFamily?.[roleFamily];
+    if (allowedRoleNames && !allowedRoleNames.includes(roleName)) {
       if (allowNonCanonicalRoleName) {
         return {
           ok: true,
