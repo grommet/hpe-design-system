@@ -62,6 +62,14 @@ describe('semantic_color_normalization', () => {
   it('keeps adapter and parser aligned through shared normalization paths', () => {
     const fixtures = [
       {
+        figmaName: 'color/background/selected-primary-strong-hover',
+        canonicalAlias: 'color/background/selected/primary/strong/hover',
+      },
+      {
+        figmaName: 'color/dataVis/categorical-40-weak',
+        canonicalAlias: 'color/dataVis/categorical/40/weak/REST',
+      },
+      {
         figmaName: 'color/background/accent/purple-strong-hover',
         canonicalAlias: 'color/background/accent/purple/strong/hover',
       },
