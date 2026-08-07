@@ -1,18 +1,9 @@
 /* eslint-disable max-len */
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
+import { normalizeColorVariableNameFromFigma } from './semantic_color_figma_adapter.js';
 import { ExportShadowToken, Token, TokensFile } from './token_types.js';
 import { access, isReference } from './utils.js';
-
-/**
- * Supported color interaction states
- */
-const interactions = ['hover', 'focus', 'active'];
-/**
- * Supported color prominence modifiers
- */
-const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
-const exceptionColors = ['color/focus/support', 'color/transparent'];
 
 type ShadowsByMode = Record<string, Record<string, ExportShadowToken>>;
 
@@ -47,24 +38,7 @@ function tokenValueFromVariable(
         aliasedVariable.resolvedType === 'COLOR' &&
         /^color/.test(aliasedName)
       ) {
-        const temp = aliasedName.replaceAll('-', '/').split('/');
-        if (!exceptionColors.includes(temp.join('/'))) {
-          // last element of name should be interaction
-          // Added exception for color/focus so that REST gets
-          // added, issue to revisit this here:
-          // https://github.com/grommet/hpe-design-system/issues/5676
-          if (
-            !interactions.includes(temp[temp.length - 1]) ||
-            temp.join('/') === 'color/focus'
-          ) {
-            temp.push('REST');
-          }
-          // second to last element of name should be prominence
-          if (!prominences.includes(temp[temp.length - 2])) {
-            temp.splice(temp.length - 1, 0, 'DEFAULT');
-          }
-        }
-        aliasedName = temp.join('/');
+        aliasedName = normalizeColorVariableNameFromFigma(aliasedName);
       }
       return `{${aliasedName.replace(/\//g, '.')}}`;
     }
@@ -270,24 +244,7 @@ export function tokenFilesFromLocalVariables(
         // to align to design token spec
         // e.g. color/background/critical --> color/background/critical/DEFAULT/REST
         if (isColor) {
-          const temp = variable.name.replaceAll('-', '/').split('/');
-          if (!exceptionColors.includes(temp.join('/'))) {
-            // last element of name should be interactive state
-            // Added exception for color/focus so that REST gets
-            // added, issue to revisit this here:
-            // https://github.com/grommet/hpe-design-system/issues/5676
-            if (
-              !interactions.includes(temp[temp.length - 1]) ||
-              temp.join('/') === 'color/focus'
-            ) {
-              temp.push('REST');
-            }
-            // second to last element of name should be prominence
-            if (!prominences.includes(temp[temp.length - 2])) {
-              temp.splice(temp.length - 1, 0, 'DEFAULT');
-            }
-          }
-          adjustedName = temp.join('/');
+          adjustedName = normalizeColorVariableNameFromFigma(variable.name);
         }
 
         adjustedName.split('/').forEach(groupName => {
