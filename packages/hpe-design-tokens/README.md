@@ -61,7 +61,7 @@ Semantic role metadata note:
 - `role: null` means the token path does not include a semantic role segment.
 - `role.family` identifies the role family grouping (e.g. `accent`); it is `null`
   for single-slot roles such as `disabled`.
-- `role.intent` is the canonical role name within its target (e.g. `primary`,
+- `role.name` is the canonical role name within its target (e.g. `primary`,
   `disabled`, `purple`).
 
 - Parity scope:

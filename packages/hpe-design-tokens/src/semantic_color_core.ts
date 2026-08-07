@@ -164,13 +164,13 @@ export const SEMANTIC_COLOR_FIGMA_NESTED_ROLE_NAMES_BY_TARGET = {
 
 export type SemanticColorRoleMetadata = {
   family: string | null;
-  intent: string;
+  name: string;
 };
 
 // Target-aware role metadata shape for callers that want stronger typing.
 export type SemanticColorRoleMetadataByTarget<T extends SemanticColorTarget> = {
   family: SemanticColorRoleFamily<T> | null;
-  intent: string;
+  name: string;
 };
 
 export type SemanticColorTokenMetadata = {

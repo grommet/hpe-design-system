@@ -43,7 +43,7 @@ export type SemanticColorTokenExceptionCode =
   'NO_ROLE_EXCEPTION' | 'NON_CANONICAL_ROLE_EXCEPTION';
 
 export type SemanticColorTokenParseOptions = {
-  allowNonCanonicalRoleIntent?: boolean;
+  allowNonCanonicalRoleName?: boolean;
 };
 
 export type SemanticColorTokenException = {
@@ -92,7 +92,7 @@ export function parseSemanticColorTokenMetadata(
   input: string | string[],
   options: SemanticColorTokenParseOptions = {},
 ): SemanticColorTokenParseResult {
-  const { allowNonCanonicalRoleIntent = false } = options;
+  const allowNonCanonicalRoleName = options.allowNonCanonicalRoleName ?? false;
   const rawInput = Array.isArray(input) ? input.join('/') : input;
   const segments = canonicalTokenPathSegments(input);
 
@@ -192,27 +192,27 @@ export function parseSemanticColorTokenMetadata(
   const shouldTreatFirstAsFamily = familyIsCanonical && roleParts.length > 1;
 
   let roleFamily: string | null = null;
-  let roleIntent = '';
+  let roleName = '';
 
   if (shouldTreatFirstAsFamily) {
     roleFamily = family;
-    roleIntent = roleParts.slice(1).join('-');
+    roleName = roleParts.slice(1).join('-');
   } else {
-    roleIntent = roleParts.join('-');
+    roleName = roleParts.join('-');
   }
 
-  if (!roleIntent) {
+  if (!roleName) {
     return {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',
       // eslint-disable-next-line max-len
-      message: `Missing semantic color role intent for target ${targetSegment}.`,
+      message: `Missing semantic color role name for target ${targetSegment}.`,
       input: rawInput,
     };
   }
 
-  if (!shouldTreatFirstAsFamily && !canonicalFamilies.includes(roleIntent)) {
-    if (allowNonCanonicalRoleIntent) {
+  if (!shouldTreatFirstAsFamily && !canonicalFamilies.includes(roleName)) {
+    if (allowNonCanonicalRoleName) {
       return {
         ok: true,
         metadata: {
@@ -220,7 +220,7 @@ export function parseSemanticColorTokenMetadata(
           target: targetSegment,
           role: {
             family: roleFamily,
-            intent: roleIntent,
+            name: roleName,
           },
           scale,
           state,
@@ -231,15 +231,15 @@ export function parseSemanticColorTokenMetadata(
     return {
       ok: false,
       code: 'ROLE_NOT_CANONICAL',
-      message: `Unknown semantic color role intent: ${roleIntent}`,
+      message: `Unknown semantic color role name: ${roleName}`,
       input: rawInput,
     };
   }
 
   if (roleFamily) {
     const allowedIntents = intentFamilies?.[roleFamily];
-    if (allowedIntents && !allowedIntents.includes(roleIntent)) {
-      if (allowNonCanonicalRoleIntent) {
+    if (allowedIntents && !allowedIntents.includes(roleName)) {
+      if (allowNonCanonicalRoleName) {
         return {
           ok: true,
           metadata: {
@@ -247,7 +247,7 @@ export function parseSemanticColorTokenMetadata(
             target: targetSegment,
             role: {
               family: roleFamily,
-              intent: roleIntent,
+              name: roleName,
             },
             scale,
             state,
@@ -258,7 +258,7 @@ export function parseSemanticColorTokenMetadata(
       return {
         ok: false,
         code: 'ROLE_NOT_CANONICAL',
-        message: `Unknown intent ${roleIntent} for role family ${roleFamily}.`,
+        message: `Unknown name ${roleName} for role family ${roleFamily}.`,
         input: rawInput,
       };
     }
@@ -271,7 +271,7 @@ export function parseSemanticColorTokenMetadata(
       target: targetSegment,
       role: {
         family: roleFamily,
-        intent: roleIntent,
+        name: roleName,
       },
       scale,
       state,
@@ -323,7 +323,7 @@ export function parseSemanticColorTokenMetadataMap(
       result.code === 'ROLE_NOT_CANONICAL'
     ) {
       const softParsed = parseSemanticColorTokenMetadata(tokenName, {
-        allowNonCanonicalRoleIntent: true,
+        allowNonCanonicalRoleName: true,
       });
 
       if (softParsed.ok) {

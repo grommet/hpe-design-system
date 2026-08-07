@@ -24,7 +24,7 @@ const semanticColorMetadataExamples = {
     target: 'background',
     role: {
       family: null,
-      intent: 'primary',
+      name: 'primary',
     },
     scale: 'strong',
     state: 'REST',
@@ -91,7 +91,7 @@ describe('semantic_color_parser', () => {
     });
   });
 
-  it('keeps known multi-slot role intents explicit', () => {
+  it('keeps known multi-slot role names explicit', () => {
     expect(SEMANTIC_COLOR_ROLE_INTENTS_BY_FAMILY.background.selected).toEqual([
       'primary',
     ]);
@@ -114,7 +114,7 @@ describe('semantic_color_parser', () => {
     ).toBeNull();
     expect(
       semanticColorMetadataExamples['hpe.color.background.primary.strong'].role
-        ?.intent,
+        ?.name,
     ).toBe('primary');
     expect(semanticColorMetadataExamples['hpe.color.transparent'].role).toBe(
       null,
@@ -133,7 +133,7 @@ describe('semantic_color_parser', () => {
         target: 'background',
         role: {
           family: null,
-          intent: 'primary',
+          name: 'primary',
         },
         scale: 'strong',
         state: 'hover',
@@ -141,7 +141,7 @@ describe('semantic_color_parser', () => {
     });
   });
 
-  it('parses single-slot semantic role with intent', () => {
+  it('parses single-slot semantic role with name', () => {
     const result = parseSemanticColorTokenMetadata(
       'hpe.color.background.disabled.DEFAULT.REST',
     );
@@ -153,7 +153,7 @@ describe('semantic_color_parser', () => {
         target: 'background',
         role: {
           family: null,
-          intent: 'disabled',
+          name: 'disabled',
         },
         scale: 'default',
         state: 'REST',
@@ -176,7 +176,7 @@ describe('semantic_color_parser', () => {
         target: 'background',
         role: {
           family: 'selected',
-          intent: 'primary',
+          name: 'primary',
         },
         scale: 'default',
         state: 'REST',
@@ -190,7 +190,7 @@ describe('semantic_color_parser', () => {
         target: 'background',
         role: {
           family: 'accent',
-          intent: 'purple',
+          name: 'purple',
         },
         scale: 'strong',
         state: 'REST',
@@ -257,7 +257,7 @@ describe('semantic_color_parser', () => {
       metadata: {
         role: {
           family: null,
-          intent: 'back',
+          name: 'back',
         },
       },
     });
@@ -267,7 +267,7 @@ describe('semantic_color_parser', () => {
       metadata: {
         role: {
           family: null,
-          intent: 'contrast',
+          name: 'contrast',
         },
         state: 'hover',
       },
@@ -278,7 +278,7 @@ describe('semantic_color_parser', () => {
       metadata: {
         role: {
           family: null,
-          intent: 'primary',
+          name: 'primary',
         },
         scale: 'strong',
       },
@@ -289,7 +289,7 @@ describe('semantic_color_parser', () => {
       metadata: {
         role: {
           family: null,
-          intent: 'primary',
+          name: 'primary',
         },
         scale: 'strong',
         state: 'hover',
@@ -301,7 +301,7 @@ describe('semantic_color_parser', () => {
       metadata: {
         role: {
           family: 'accent',
-          intent: 'purple',
+          name: 'purple',
         },
         scale: 'weak',
       },
@@ -312,7 +312,7 @@ describe('semantic_color_parser', () => {
       metadata: {
         role: {
           family: 'accent',
-          intent: 'purple',
+          name: 'purple',
         },
         scale: 'weak',
         state: 'active',
@@ -324,7 +324,7 @@ describe('semantic_color_parser', () => {
       metadata: {
         role: {
           family: 'categorical',
-          intent: '40',
+          name: '40',
         },
       },
     });
@@ -367,7 +367,7 @@ describe('semantic_color_parser', () => {
       'hpe.color.background.selected.secondary.DEFAULT.REST': {
         role: {
           family: 'selected',
-          intent: 'secondary',
+          name: 'secondary',
         },
       },
     });
@@ -410,7 +410,7 @@ describe('semantic_color_parser', () => {
       target: 'background',
       role: {
         family: null,
-        intent: 'default',
+        name: 'default',
       },
       scale: null,
       state: 'REST',

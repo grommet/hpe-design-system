@@ -311,7 +311,7 @@ const writeSemanticColorMetadataArtifacts = files => {
       if (!parsed.ok) {
         if (parsed.code === 'ROLE_NOT_CANONICAL') {
           const softParsed = parseSemanticColorTokenMetadata(normalizedName, {
-            allowNonCanonicalRoleIntent: true,
+            allowNonCanonicalRoleName: true,
           });
 
           if (softParsed.ok) {
