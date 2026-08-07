@@ -298,7 +298,7 @@ const writeSemanticColorMetadataArtifacts = files => {
 
     const canonicalTokenLeafPaths = collectSemanticColorTokenLeafPathsFromTokenTree(
       parsedTokens,
-    ).filter(path => path.startsWith('color/'));
+    );
 
     const figmaUnparseable = [];
     const figmaExceptions = [];

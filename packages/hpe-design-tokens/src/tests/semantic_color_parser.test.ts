@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   exportSemanticColorMetadataModuleFromTokenTree,
+  collectSemanticColorTokenLeafPathsFromTokenTree,
   parseSemanticColorTokenMetadataFromTokenTree,
   parseSemanticColorTokenMetadataMap,
   parseSemanticColorTokenMetadata,
@@ -216,6 +217,33 @@ describe('semantic_color_parser', () => {
         state: null,
       },
     });
+  });
+
+  it('collects only semantic color leaf paths from mixed token trees', () => {
+    const tokenTree = {
+      color: {
+        background: {
+          primary: {
+            strong: {
+              REST: {
+                $type: 'color',
+                $value: '#ffffff',
+              },
+            },
+          },
+        },
+      },
+      spacing: {
+        medium: {
+          $type: 'dimension',
+          $value: '16px',
+        },
+      },
+    };
+
+    expect(collectSemanticColorTokenLeafPathsFromTokenTree(tokenTree)).toEqual([
+      'color/background/primary/strong/REST',
+    ]);
   });
 
   it('returns structured errors for invalid target and role variant', () => {

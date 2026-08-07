@@ -184,10 +184,9 @@ export function parseSemanticColorTokenMetadata(
 
   const family = roleParts[0];
 
-  const roleNamesByFamily =
-    SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
-      targetSegment as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
-    ] as Record<string, readonly string[]> | undefined;
+  const roleNamesByFamily = SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
+    targetSegment as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+  ] as Record<string, readonly string[]> | undefined;
 
   const familyIsCanonical = canonicalFamilies.includes(family);
   const shouldTreatFirstAsFamily = familyIsCanonical && roleParts.length > 1;
@@ -382,7 +381,9 @@ function collectTokenLeafPaths(
 export function collectSemanticColorTokenLeafPathsFromTokenTree(
   tokenTree: TokenTree,
 ) {
-  return collectTokenLeafPaths(tokenTree);
+  return collectTokenLeafPaths(tokenTree).filter(path =>
+    path.startsWith('color/'),
+  );
 }
 
 export function parseSemanticColorTokenMetadataFromTokenTree(
