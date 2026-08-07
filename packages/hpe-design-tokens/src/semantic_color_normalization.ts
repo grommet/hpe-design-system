@@ -69,11 +69,14 @@ export function expandCompactRoleSegment(
     return [segment];
   }
 
+  const firstPart = partTokens[0];
+  const lastPart = partTokens[partTokens.length - 1];
+
   if (!knownFamily) {
     const roleNamesByFamily = SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
       target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
     ] as Record<string, readonly string[]> | undefined;
-    const compactFamily = partTokens[0];
+    const compactFamily = firstPart;
     const compactRoleName = partTokens.slice(1).join('-');
     const compactRoleNameOptions = roleNamesByFamily?.[compactFamily];
 
@@ -82,7 +85,7 @@ export function expandCompactRoleSegment(
     }
   }
 
-  const interactionCandidate = partTokens[partTokens.length - 1];
+  const interactionCandidate = lastPart;
   const hasInteraction = isCanonicalState(
     interactionCandidate as SemanticColorState,
   );
