@@ -3,7 +3,7 @@ import { CustomOptions } from './select/CustomOptionsStory';
 import { GroupedOptions } from './select/GroupedOptionsStory';
 
 const meta = {
-  title: 'Patterns/Select',
+  title: 'Forms/Input customization',
   parameters: {
     controls: { disable: true },
   },

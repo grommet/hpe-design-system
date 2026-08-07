@@ -41,7 +41,7 @@ const LoadingExample = () => {
 };
 
 const Loading = {
-  name: 'Loading',
+  name: 'Loading options',
   render: () => <LoadingExample />,
   parameters: {
     chromatic: { disable: true },

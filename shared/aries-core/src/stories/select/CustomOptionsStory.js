@@ -49,7 +49,7 @@ const CustomOptionsExample = () => {
 };
 
 const CustomOptions = {
-  name: 'Custom options',
+  name: 'Custom selected value',
   render: () => <CustomOptionsExample />,
   parameters: {
     chromatic: { disable: true },
