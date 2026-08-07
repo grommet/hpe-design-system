@@ -5,6 +5,7 @@ This document describes the data model and operational flows for the Figma token
 Related deep-dive docs:
 
 - [Figma Token Export Architecture](./FIGMA_TOKEN_EXPORT_ARCHITECTURE.md)
+- [Semantic Color Path Contract](./SEMANTIC_COLOR_PATH_CONTRACT.md)
 
 ## Entity Relationship Diagram
 

@@ -138,6 +138,7 @@ export type SemanticColorRole<
 
 // Validation map: target -> family -> allowed sub-role names.
 // Example: background.accent allows blue/cyan/purple.
+// Full path-shape reference: docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
 export const SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY = {
   background: {
     selected: ['primary'],
@@ -162,6 +163,7 @@ export type SemanticColorSubroleByTargetFamily<
 // target -> families that keep their own path segment in Figma names.
 // This is expected to be a subset of the family keys in
 // SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[target].
+// Full path-shape reference: docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
 export const SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET = {
   background: ['accent'],
 } as const;

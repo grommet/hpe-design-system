@@ -9,6 +9,7 @@ Design tokens for use with the HPE Design System.
 - Maintainer operations and runbooks: [docs/OPERATIONS.md](docs/OPERATIONS.md)
 - Environment-isolated sync implementation context: [docs/FIGMA_ENVIRONMENT_SYNC_PLAN.md](docs/FIGMA_ENVIRONMENT_SYNC_PLAN.md)
 - Sync data model and flow details: [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md)
+- Semantic color path structures and normalization contract: [docs/SEMANTIC_COLOR_PATH_CONTRACT.md](docs/SEMANTIC_COLOR_PATH_CONTRACT.md)
 - Sync contracts: [contracts/README.md](contracts/README.md)
 
 ## Install

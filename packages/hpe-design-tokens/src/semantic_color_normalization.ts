@@ -39,6 +39,8 @@ function isCanonicalScale(value: string): value is SemanticColorScale {
 }
 
 export function canonicalTokenPathSegments(input: string | string[]) {
+  // Input cleaning contract is documented in
+  // docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
   const raw = Array.isArray(input) ? input.join('/') : input;
   const cleaned = raw
     .trim()
@@ -68,10 +70,9 @@ export function expandCompactRoleSegment(
   }
 
   if (!knownFamily) {
-    const roleNamesByFamily =
-      SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
-        target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
-      ] as Record<string, readonly string[]> | undefined;
+    const roleNamesByFamily = SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
+      target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+    ] as Record<string, readonly string[]> | undefined;
     const compactFamily = partTokens[0];
     const compactRoleName = partTokens.slice(1).join('-');
     const compactRoleNameOptions = roleNamesByFamily?.[compactFamily];
@@ -147,10 +148,9 @@ export function colorNameToHierarchyPartsCore(
     return parts;
   }
 
-  const roleNamesByFamily =
-    SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
-      target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
-    ] as Record<string, readonly string[]> | undefined;
+  const roleNamesByFamily = SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
+    target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+  ] as Record<string, readonly string[]> | undefined;
 
   if (roleNamesByFamily?.[role]) {
     const section = [tokenType, target, role];
@@ -179,6 +179,8 @@ export function colorNameToHierarchyPartsCore(
 export function normalizeColorVariableNameFromFigmaCore(
   colorVariableName: string,
 ): string {
+  // Figma -> canonical path normalization contract:
+  // docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
   const temp = colorNameToHierarchyPartsCore(colorVariableName);
   if (
     !(SEMANTIC_COLOR_EXPORT_EXCEPTION_ALIASES as readonly string[]).includes(
@@ -201,6 +203,8 @@ export function normalizeColorVariableNameFromFigmaCore(
 }
 
 export function tokenAliasToFigmaAliasCore(alias: string): string {
+  // Canonical alias -> Figma alias contract:
+  // docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
   const isColor = /^color/.test(alias);
   let adjustedName = alias;
 
