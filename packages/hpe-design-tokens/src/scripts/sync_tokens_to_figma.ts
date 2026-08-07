@@ -33,6 +33,7 @@ import {
   normalizeAliasReference,
   readJsonFiles,
 } from '../token_import.js';
+import { StagePlanReport, buildStagePlanReport } from '../sync_plan_report.js';
 
 // This script pushes design tokens from JSON files to Figma design files
 
@@ -191,6 +192,31 @@ function getSummaryEnvironment(argv: string[]): SyncEnvironment {
   return getCliArgValue(argv, '--env') === 'test' ? 'test' : 'production';
 }
 
+function writePlanReportFile(
+  outputPath: string,
+  report: {
+    schemaVersion: string;
+    eventType: 'planned-stage-diff';
+    runId: string;
+    environment: SyncEnvironment;
+    dryRun: boolean;
+    startedAt: string;
+    finishedAt: string;
+    stages: StagePlanReport[];
+  },
+) {
+  const absoluteOutputPath = path.isAbsolute(outputPath)
+    ? outputPath
+    : path.resolve(process.cwd(), outputPath);
+
+  fs.mkdirSync(path.dirname(absoluteOutputPath), { recursive: true });
+  fs.writeFileSync(
+    absoluteOutputPath,
+    `${JSON.stringify(report, null, 2)}\n`,
+  );
+  console.log(`Wrote planned stage diff report: ${absoluteOutputPath}`);
+}
+
 async function main() {
   const argv = process.argv.slice(2);
   const runId = makeRunId();
@@ -199,6 +225,9 @@ async function main() {
   const runErrors: SyncError[] = [];
   const summaryEnvironment = getSummaryEnvironment(argv);
   const dryRun = argv.includes('--dry-run');
+  const verbosePlan = argv.includes('--verbose-plan');
+  const writePlanPath = getCliArgValue(argv, '--write-plan');
+  const stagePlanReports: StagePlanReport[] = [];
   let config;
   const fallbackStageResults = FILE_TIERS.map(stage => ({
     stage,
@@ -447,6 +476,13 @@ async function main() {
 
       const counts = countsFromPostPayload(postVariablesPayload);
       const stageHasMutations = hasMutations(counts);
+      const stagePlanReport = stageHasMutations
+        ? buildStagePlanReport(stage, postVariablesPayload, localVariables)
+        : null;
+
+      if (stagePlanReport) {
+        stagePlanReports.push(stagePlanReport);
+      }
 
       if (!stageHasMutations) {
         console.log(
@@ -460,6 +496,12 @@ async function main() {
             `✅ Dry run: "${stage}" has planned updates, no mutations applied`,
           ),
         );
+
+        if (verbosePlan && stagePlanReport) {
+          console.log(
+            JSON.stringify(stagePlanReport, null, 2),
+          );
+        }
       } else {
         const apiResp = await api.postVariables(
           fileKeys[stage],
@@ -537,6 +579,19 @@ async function main() {
         stageResults.push({ stage: remainingStage, status: 'skipped', counts });
       });
 
+      if (writePlanPath) {
+        writePlanReportFile(writePlanPath, {
+          schemaVersion: SCHEMA_VERSION,
+          eventType: 'planned-stage-diff',
+          runId,
+          environment: config.env,
+          dryRun: config.dryRun,
+          startedAt: runStartedAt,
+          finishedAt: new Date().toISOString(),
+          stages: stagePlanReports,
+        });
+      }
+
       emitRunSummary({
         runId,
         environment: config.env,
@@ -555,6 +610,19 @@ async function main() {
       throw error;
     }
   }, Promise.resolve());
+
+  if (writePlanPath) {
+    writePlanReportFile(writePlanPath, {
+      schemaVersion: SCHEMA_VERSION,
+      eventType: 'planned-stage-diff',
+      runId,
+      environment: config.env,
+      dryRun: config.dryRun,
+      startedAt: runStartedAt,
+      finishedAt: new Date().toISOString(),
+      stages: stagePlanReports,
+    });
+  }
 
   emitRunSummary({
     runId,

@@ -5,7 +5,7 @@ Owner: design-tokens maintainers + DX/CI owner
 
 ## Commands
 
-- Push: `pnpm sync-tokens-to-figma -- --env=<production|test> [--dry-run] [--confirm-production] [--config <path>]`
+- Push: `pnpm sync-tokens-to-figma -- --env=<production|test> [--dry-run] [--confirm-production] [--config <path>] [--verbose-plan] [--write-plan <path>]`
 - Pull: `pnpm sync-figma-to-tokens -- --env=<production|test> --output <dir> [--config <path>]`
 - Discover: `pnpm sync-discover-figma-collection-keys -- --env=<production|test> [--pretty] [--output <path>] [--config <path>]`
 
@@ -13,6 +13,8 @@ Owner: design-tokens maintainers + DX/CI owner
 
 - `--env`: target environment. Optional locally (defaults to `production`).
 - `--dry-run`: plan-only mode. No POST calls to mutate variables.
+- `--verbose-plan`: print per-stage planned variable changes as formatted JSON.
+- `--write-plan <path>`: write a JSON report containing the planned per-stage variable diff.
 - `--confirm-production`: required locally for mutating production.
 - `--config`: optional config file path.
 - `--output`: output directory for pull, or output file path for discovery reports.
@@ -50,3 +52,4 @@ Missing required values after precedence resolution must fail immediately.
 - Emit final run-summary event.
 - Include `schemaVersion` in every machine-readable payload.
 - Keep human logs, but machine-readable payloads are source of truth for automation.
+- `--verbose-plan` and `--write-plan` are optional diagnostic outputs and do not change the machine-readable event schema.

@@ -6,7 +6,7 @@ This guide is for maintainers running sync tooling and release-oriented package 
 
 | Command | When To Use | Mutates Remote Figma | Output |
 |---|---|---|---|
-| `pnpm sync-tokens-to-figma -- --env=<production\|test> [--dry-run] [--confirm-production] [--bootstrap]` | Push local JSON tokens to Figma | Yes (unless `--dry-run`) | stage-status and run-summary events |
+| `pnpm sync-tokens-to-figma -- --env=<production\|test> [--dry-run] [--confirm-production] [--bootstrap] [--verbose-plan] [--write-plan <path>]` | Push local JSON tokens to Figma | Yes (unless `--dry-run`) | stage-status and run-summary events, optional stage diff report |
 | `pnpm sync-figma-to-tokens -- --env=<production\|test> --output <dir>` | Pull Figma variables to local JSON for QA or updates | No | local JSON files + run-summary |
 | `pnpm sync-discover-figma-collection-keys -- --env=<production\|test> [--pretty] [--output <path>]` | Discover canonical collection keys after bootstrap or during diagnostics | No | discovery JSON payload |
 | `pnpm test` | Validate package unit/integration behavior | No | vitest results |
@@ -29,6 +29,18 @@ pnpm --filter hpe-design-tokens test:contracts
 
 ```bash
 pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test --dry-run
+```
+
+To inspect the actual planned variable updates during dry-run:
+
+```bash
+pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test --dry-run --verbose-plan
+```
+
+To save the planned stage diff as JSON for review:
+
+```bash
+pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test --dry-run --write-plan contracts/generated/semantic-dry-run-plan.test.json
 ```
 
 3. Apply sync in test when dry-run output is expected:
@@ -95,6 +107,11 @@ Primary events emitted by sync scripts:
 - `preflight-validation`
 - `stage-status`
 - `run-summary`
+
+Optional human-readable / file outputs for push dry-runs:
+
+- `--verbose-plan`: print per-stage planned variable changes as formatted JSON.
+- `--write-plan <path>`: write a `planned-stage-diff` JSON report with the per-stage payload details.
 
 Schemas and contracts:
 
