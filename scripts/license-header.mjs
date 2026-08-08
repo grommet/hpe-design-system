@@ -9,14 +9,17 @@
  * uniformly across the monorepo.
  *
  * Usage:
- *   node scripts/license-header.mjs            Insert/correct headers (fix mode).
- *   node scripts/license-header.mjs --check    Report non-compliant files and exit
+ *   node scripts/license-header.mjs            Insert/correct headers
+ *                                              (fix mode).
+ *   node scripts/license-header.mjs --check    Report non-compliant files
+ *                                              and exit
  *                                              non-zero. Used for CI gating.
  *   node scripts/license-header.mjs --staged   Fix only files staged for commit
  *                                              (progressive migration) and
  *                                              re-stage anything it corrects.
- *   node scripts/license-header.mjs [paths...] Limit to the given files/dirs.
- *                                              Usable with --check or --staged.
+ *   node tools/license-header.js [paths...] Limit to the given files/dirs.
+ *                                           usable with --check (ignored when
+ *                                           --staged is set).
  */
 
 import fs from 'node:fs';
@@ -66,11 +69,11 @@ function isIncluded(filePath) {
 
 // This is meant for progressive migration: only touch
 // files that are staged for commit and live under a managed
-// root and are eligible for a header licence text.
+// root and are eligible for a header license text.
 function collectStagedFiles() {
   const output = execFileSync(
     'git',
-    ['diff', '--cached', '--name-only', '--diff-filter=ACM'],
+    ['diff', '--cached', '--name-only', '--diff-filter=ACMR'],
     { encoding: 'utf8', cwd: ROOT },
   );
   return output
