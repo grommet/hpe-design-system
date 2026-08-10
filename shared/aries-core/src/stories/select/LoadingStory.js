@@ -24,7 +24,7 @@ const LoadingExample = () => {
         value={value}
         placeholder={
           loading ? (
-            <Box direction="row" align="center" gap="xsmall" pad="xsmall">
+            <Box direction="row" align="center" gap="xxsmall">
               <Spinner size="xsmall" />
               <Text color="text-weak">Loading...</Text>
             </Box>

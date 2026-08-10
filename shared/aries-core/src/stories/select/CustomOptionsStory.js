@@ -1,33 +1,60 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Cpu } from '@hpe-design/icons-grommet';
-import { Box, Select, Text } from 'grommet';
-import { SelectOptionRow } from '../../js/components/core/SelectOption';
+import { Box, Select, Text, ThemeContext } from 'grommet';
+import { hpe as hpeTheme } from 'grommet-theme-hpe';
 import { allOptions } from './shared';
 import CustomOptionsStorySource from './CustomOptionsStory.js?raw';
+
+const HPE_OPTION_PAD = hpeTheme?.button?.size?.medium?.option?.pad;
 
 const CustomOptionsExample = () => {
   const [value, setValue] = useState('');
   const selected = allOptions.find(o => o.value === value) || null;
+  const theme = useContext(ThemeContext);
+  const optionPad = theme?.button?.size?.medium?.option?.pad || HPE_OPTION_PAD;
 
-  const renderValueLabel = option => {
-    if (!option) return <Text color="text-weak">Select a service</Text>;
-    const Icon = option.icon;
+  const renderOptionLabel = option => {
     return (
-      <Box direction="row" align="center" gap="3xsmall" pad="xsmall">
+      <Box direction="row" align="center" gap="small">
         <Cpu size="small" />
         <Text>{option.label}</Text>
-        <Icon size="small" color={option.iconColor} />
       </Box>
     );
   };
 
-  const renderOption = (option, _index, _opts, state) => (
-    <SelectOptionRow
-      label={option.label}
-      selected={state?.selected}
-      active={state?.active}
-    />
-  );
+  const renderValueLabel = option => {
+    if (!option)
+      return (
+        <Box
+          responsive={false}
+          direction="row"
+          align="center"
+          gap="small"
+          pad={optionPad}
+        >
+          <Cpu size="small" color="text-weak" />
+          <Text color="text-weak">Select a service</Text>
+        </Box>
+      );
+
+    const Icon = option.icon;
+
+    return (
+      <Box
+        responsive={false}
+        direction="row"
+        align="center"
+        gap="small"
+        pad={optionPad}
+      >
+        <Box direction="row" align="center" gap="xsmall">
+          <Cpu size="small" />
+          <Text>{option.label}</Text>
+          <Icon size="small" color={option.iconColor} />
+        </Box>
+      </Box>
+    );
+  };
 
   return (
     <Box fill align="center" justify="start" pad="large">
@@ -36,14 +63,11 @@ const CustomOptionsExample = () => {
         name="select-custom-options"
         options={allOptions}
         value={value}
-        labelKey="label"
+        labelKey={renderOptionLabel}
         valueKey={{ key: 'value', reduce: true }}
-        placeholder="Select a service"
-        valueLabel={selected ? renderValueLabel(selected) : undefined}
+        valueLabel={renderValueLabel(selected)}
         onChange={({ value: nextValue }) => setValue(nextValue)}
-      >
-        {renderOption}
-      </Select>
+      />
     </Box>
   );
 };

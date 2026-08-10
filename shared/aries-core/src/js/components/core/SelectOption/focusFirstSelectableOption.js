@@ -7,7 +7,8 @@ const focusFirstSelectableOption = ({
   attempt = 0,
   maxAttempts = 10,
 } = {}) => {
-  const searchRoot = root || (typeof document !== 'undefined' ? document : undefined);
+  const searchRoot =
+    root || (typeof document !== 'undefined' ? document : undefined);
   if (!searchRoot) return;
 
   const listbox = searchRoot.querySelector(listboxSelector);
