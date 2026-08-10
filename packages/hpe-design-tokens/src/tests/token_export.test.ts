@@ -616,4 +616,94 @@ describe('tokenFilesFromLocalVariables', () => {
       },
     });
   });
+
+  it('maps accent background variable names to nested token hierarchy', () => {
+    const localVariablesResponse: ApiGetLocalVariablesResponse = {
+      status: 200,
+      error: false,
+      meta: {
+        variableCollections: {
+          'VariableCollectionId:4:1': {
+            id: 'VariableCollectionId:4:1',
+            name: 'semantic',
+            modes: [{ modeId: '4:0', name: 'dark' }],
+            defaultModeId: '4:0',
+            remote: false,
+            hiddenFromPublishing: false,
+          },
+        },
+        variables: {
+          'VariableID:4:1': {
+            id: 'VariableID:4:1',
+            name: 'color/background/accent/purple-strong',
+            key: 'variable_key_41',
+            variableCollectionId: 'VariableCollectionId:4:1',
+            resolvedType: 'COLOR',
+            valuesByMode: {
+              '4:0': { r: 1, g: 0, b: 0, a: 1 },
+            },
+            remote: false,
+            description: 'Accent purple strong',
+            hiddenFromPublishing: false,
+            scopes: ['ALL_SCOPES'],
+            codeSyntax: {},
+          },
+          'VariableID:4:2': {
+            id: 'VariableID:4:2',
+            name: 'color/background/accent/purple-strong-hover',
+            key: 'variable_key_42',
+            variableCollectionId: 'VariableCollectionId:4:1',
+            resolvedType: 'COLOR',
+            valuesByMode: {
+              '4:0': { r: 0, g: 1, b: 0, a: 1 },
+            },
+            remote: false,
+            description: 'Accent purple strong hover',
+            hiddenFromPublishing: false,
+            scopes: ['ALL_SCOPES'],
+            codeSyntax: {},
+          },
+        },
+      },
+    };
+
+    const tokenFiles = tokenFilesFromLocalVariables(localVariablesResponse);
+
+    expect(tokenFiles['semantic.dark.json']).toEqual({
+      color: {
+        background: {
+          accent: {
+            purple: {
+              strong: {
+                REST: {
+                  $type: 'color',
+                  $value: '#ff0000',
+                  $description: 'Accent purple strong',
+                  $extensions: {
+                    'com.figma': {
+                      hiddenFromPublishing: false,
+                      scopes: ['ALL_SCOPES'],
+                      codeSyntax: {},
+                    },
+                  },
+                },
+                hover: {
+                  $type: 'color',
+                  $value: '#00ff00',
+                  $description: 'Accent purple strong hover',
+                  $extensions: {
+                    'com.figma': {
+                      hiddenFromPublishing: false,
+                      scopes: ['ALL_SCOPES'],
+                      codeSyntax: {},
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+  });
 });

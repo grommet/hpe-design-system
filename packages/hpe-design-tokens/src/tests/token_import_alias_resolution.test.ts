@@ -108,4 +108,32 @@ describe('generatePostVariablesPayload alias resolution', () => {
 
     expect(aliasErrors).toHaveLength(0);
   });
+
+  it('normalizes accent alias references to accent subgroup variable ids', () => {
+    const payload = generatePostVariablesPayload(
+      {
+        'semantic.default.json': {
+          'color/background/accent/purple/strong/REST': {
+            $type: 'color',
+            $value: '{color.background.accent.purple.strong}',
+          },
+        },
+      },
+      emptyLocalVariables as any,
+      {
+        aliasLookup: {
+          'color/background/accent/purple-strong': 'VariableID:test:accent:1',
+        },
+      },
+    );
+
+    expect(payload.variableModeValues?.[0]).toEqual({
+      variableId: 'color/background/accent/purple-strong',
+      modeId: 'default',
+      value: {
+        type: 'VARIABLE_ALIAS',
+        id: 'VariableID:test:accent:1',
+      },
+    });
+  });
 });
