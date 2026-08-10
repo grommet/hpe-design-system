@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - packages/hpe-design-tokens/**
 
 jobs:
   parity-and-regression:

@@ -151,7 +151,12 @@ export const SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY = {
   dataVis: {
     categorical: ['10', '20', '30', '40', '50', '60', '70', '80'],
   },
-} as const;
+} as const satisfies {
+  // family keys must be valid roles for their target
+  [T in SemanticColorTarget]?: {
+    [F in SemanticColorRole<T>]?: readonly string[];
+  };
+};
 
 export type SemanticColorSubrolesByTargetFamily =
   typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY;
@@ -165,13 +170,16 @@ export type SemanticColorSubroleByTargetFamily<
 
 // Serialization map (Figma alias shape):
 // target -> families that keep their own path segment in Figma names.
-// This is expected to be a subset of the family keys in
-// SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[target].
 // Full path-shape reference: docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
 export const SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET = {
   background: ['accent'],
   border: ['accent'],
-} as const;
+} as const satisfies {
+  // entries must be a subset of the family keys in the subroles map
+  [T in keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY]?: ReadonlyArray<
+    keyof (typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY)[T]
+  >;
+};
 
 export type SemanticColorRoleMetadata = {
   family: string | null;

@@ -112,50 +112,42 @@ function legacyTokenAliasToFigmaAlias(alias: string): string {
 }
 
 describe('semantic_color_figma_adapter parity', () => {
-  it('matches legacy Figma -> token path normalization outputs', () => {
-    const figmaNames = [
-      'color/background/critical-weak',
-      'color/background/critical-weak-hover',
-      'color/background/critical-weak-focus',
-      'color/background/critical-default-active',
-      'color/background/accent/purple-strong',
-      'color/background/accent/purple-strong-hover',
-      'color/background/accent/purple-default-focus',
-      'color/background/accent/purple',
-      'color/focus/support',
-      'color/transparent',
-      'color/text/default',
-      'color/brand/radish',
-      'spacing/medium',
-    ];
-
-    figmaNames.forEach(name => {
-      expect(normalizeColorVariableNameFromFigma(name)).toBe(
-        legacyNormalizeColorVariableNameFromFigma(name),
-      );
-    });
+  it.each([
+    'color/background/critical-weak',
+    'color/background/critical-weak-hover',
+    'color/background/critical-weak-focus',
+    'color/background/critical-default-active',
+    'color/background/accent/purple-strong',
+    'color/background/accent/purple-strong-hover',
+    'color/background/accent/purple-default-focus',
+    'color/background/accent/purple',
+    'color/focus/support',
+    'color/transparent',
+    'color/text/default',
+    'color/brand/radish',
+    'spacing/medium',
+  ])('matches legacy Figma -> token path normalization: %s', name => {
+    expect(normalizeColorVariableNameFromFigma(name)).toBe(
+      legacyNormalizeColorVariableNameFromFigma(name),
+    );
   });
 
-  it('matches legacy token path -> Figma alias normalization outputs', () => {
-    const tokenAliases = [
-      'color/background/critical/weak/DEFAULT/REST',
-      'color/background/critical/weak/focus',
-      'color/background/critical/default/active',
-      'color/background/selected/primary/DEFAULT/REST',
-      'color/background/accent/purple/strong/REST',
-      'color/background/accent/purple/strong/hover',
-      'color/background/accent/purple/default/focus',
-      'color/background/default/REST',
-      'color/text/default/REST',
-      'color/focus/support/DEFAULT/REST',
-      'color/transparent',
-      'spacing/medium',
-    ];
-
-    tokenAliases.forEach(alias => {
-      expect(tokenAliasToFigmaAlias(alias)).toBe(
-        legacyTokenAliasToFigmaAlias(alias),
-      );
-    });
+  it.each([
+    'color/background/critical/weak/DEFAULT/REST',
+    'color/background/critical/weak/focus',
+    'color/background/critical/default/active',
+    'color/background/selected/primary/DEFAULT/REST',
+    'color/background/accent/purple/strong/REST',
+    'color/background/accent/purple/strong/hover',
+    'color/background/accent/purple/default/focus',
+    'color/background/default/REST',
+    'color/text/default/REST',
+    'color/focus/support/DEFAULT/REST',
+    'color/transparent',
+    'spacing/medium',
+  ])('matches legacy token path -> Figma alias normalization: %s', alias => {
+    expect(tokenAliasToFigmaAlias(alias)).toBe(
+      legacyTokenAliasToFigmaAlias(alias),
+    );
   });
 });
