@@ -330,10 +330,8 @@ export function parseSemanticColorTokenMetadataMap(
         metadataMap[tokenName] = softParsed.metadata;
         exceptions[tokenName] = {
           code: 'NON_CANONICAL_ROLE_EXCEPTION',
-          message:
-            'Token role is non-canonical and requires explicit downstream' +
-            'handling:' +
-            ` ${tokenName}`,
+          // eslint-disable-next-line max-len
+          message: `Token role is non-canonical and requires explicit downstream handling: ${tokenName}`,
           input: tokenName,
           source,
         };
