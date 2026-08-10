@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import * as fs from 'fs';
 import path from 'path';
+import { execFileSync } from 'child_process';
 
 import FigmaApi from '../figma_api.js';
 import {
@@ -355,6 +356,18 @@ async function main() {
     startedAt: runStartedAt,
     finishedAt: new Date().toISOString(),
   });
+
+  try {
+    const npxCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+    execFileSync(
+      npxCommand,
+      ['prettier', '--write', `${outputDir}/**/*.json`],
+      { stdio: 'inherit' },
+    );
+    console.log(green('✅ JSON files have been formatted with Prettier'));
+  } catch (error) {
+    console.error(`Failed to format JSON files: ${error}`);
+  }
 
   console.log(
     green(`✅ Tokens files have been written to the ${outputDir} directory`),
