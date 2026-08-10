@@ -27,6 +27,98 @@
           "$value": "{base.color.white.opacity6}"
         }
       },
+      "accent": {
+        "blue": {
+          "strong": {
+            "REST": {
+              "$description": "Use for strong blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.blue.200}"
+            }
+          },
+          "weak": {
+            "REST": {
+              "$description": "Use for subtle blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.blue.1000}"
+            }
+          }
+        },
+        "cyan": {
+          "strong": {
+            "REST": {
+              "$description": "Use for strong cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.cyan.400}"
+            }
+          },
+          "weak": {
+            "REST": {
+              "$description": "Use for subtle cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.cyan.1000}"
+            }
+          }
+        },
+        "purple": {
+          "strong": {
+            "REST": {
+              "$description": "Use for strong purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.purple.200}"
+            }
+          },
+          "weak": {
+            "REST": {
+              "$description": "Use for subtle purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.purple.1000}"
+            }
+          }
+        }
+      },
       "back": {
         "DEFAULT": {
           "REST": {
@@ -263,7 +355,7 @@
               }
             },
             "$type": "color",
-            "$value": "{base.color.black.opacity12}"
+            "$value": "{base.color.black.opacity48}"
           }
         }
       },
@@ -357,6 +449,56 @@
       }
     },
     "border": {
+      "accent": {
+        "blue": {
+          "strong": {
+            "REST": {
+              "$description": "Use for strong blue accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.blue.200}"
+            }
+          }
+        },
+        "cyan": {
+          "strong": {
+            "REST": {
+              "$description": "Use for strong cyan accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.cyan.400}"
+            }
+          }
+        },
+        "purple": {
+          "strong": {
+            "REST": {
+              "$description": "Use for strong purple accent borders. The hue carries no fixed meaning. Keywords: accent, brand, decorative",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["STROKE_COLOR", "EFFECT_COLOR"]
+                }
+              },
+              "$type": "color",
+              "$value": "{base.color.purple.200}"
+            }
+          }
+        }
+      },
       "critical": {
         "DEFAULT": {
           "REST": {
@@ -796,6 +938,22 @@
             },
             "$type": "color",
             "$value": "{base.color.red.500}"
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Use for foreground regions representing a known, non-urgent status, such as informational-severity alerts or values that are noted but require no action. Often used in meters, progress bars, or chart segments where the value does not indicate a problem. Keywords: status, informational, low severity",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR", "EFFECT_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.blue.200}"
           }
         }
       },
