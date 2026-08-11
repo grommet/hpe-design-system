@@ -358,15 +358,15 @@ async function main() {
   });
 
   try {
-    const npxCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
-    execFileSync(
-      npxCommand,
-      ['prettier', '--write', `${outputDir}/**/*.json`],
-      { stdio: 'inherit' },
-    );
+    const prettierCommand =
+      process.platform === 'win32' ? 'prettier.cmd' : 'prettier';
+    execFileSync(prettierCommand, ['--write', `${outputDir}/**/*.json`], {
+      stdio: 'inherit',
+    });
     console.log(green('✅ JSON files have been formatted with Prettier'));
   } catch (error) {
-    console.error(`Failed to format JSON files: ${error}`);
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`Failed to format JSON files with Prettier: ${message}`);
   }
 
   console.log(
