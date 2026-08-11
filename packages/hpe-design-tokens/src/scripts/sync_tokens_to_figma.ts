@@ -228,16 +228,42 @@ async function main() {
   const dryRun = argv.includes('--dry-run');
   const verbosePlan = argv.includes('--verbose-plan');
   const writePlanPath = getCliArgValue(argv, '--write-plan');
-  const planStagesFilter = parsePlanStageFilterValue(
-    getCliArgValue(argv, '--plan-stage'),
-  );
-  const stagePlanReports: StagePlanReport[] = [];
-  let config;
   const fallbackStageResults = FILE_TIERS.map(stage => ({
     stage,
     status: 'skipped' as const,
     counts: emptyCounts(),
   }));
+
+  let planStagesFilter: ReturnType<typeof parsePlanStageFilterValue>;
+  try {
+    planStagesFilter = parsePlanStageFilterValue(
+      getCliArgValue(argv, '--plan-stage'),
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    runErrors.push({
+      code: 'INVALID_CLI_ARGS',
+      message,
+      environment: summaryEnvironment,
+      remediation: 'Provide a valid --plan-stage value and retry.',
+    });
+    emitRunSummary({
+      runId,
+      environment: summaryEnvironment,
+      dryRun,
+      productionGuardrailPassed: false,
+      mutationsApplied: false,
+      unresolvedAliasCount: 0,
+      stages: fallbackStageResults,
+      errors: withRequiredErrorFields(runErrors, summaryEnvironment),
+      startedAt: runStartedAt,
+      finishedAt: new Date().toISOString(),
+    });
+    throw error;
+  }
+
+  const stagePlanReports: StagePlanReport[] = [];
+  let config;
 
   try {
     config = resolveFigmaSyncConfig();
