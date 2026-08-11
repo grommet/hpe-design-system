@@ -168,7 +168,7 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
           </FormField>
         </Box>
         <ButtonGroup>
-          <Button label="Create devices" primary type="submit" />
+          <Button label="Create device" primary type="submit" />
           <Button label="Cancel" onClick={onClose} />
         </ButtonGroup>
       </Box>
