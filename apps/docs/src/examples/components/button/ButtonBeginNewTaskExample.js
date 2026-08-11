@@ -18,7 +18,7 @@ import {
   Page,
   PageContent,
 } from 'grommet';
-import { LayerHeader } from '@shared/aries-core';
+import { ButtonGroup, LayerHeader } from '@shared/aries-core';
 import devices from '../../../data/mockData/devices.json';
 import {
   ConfirmationContext,
@@ -167,10 +167,10 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
             />
           </FormField>
         </Box>
-        <Box direction="row" gap="xsmall" flex={false}>
-          <Button label="Create device" primary type="submit" />
+        <ButtonGroup>
+          <Button label="Create devices" primary type="submit" />
           <Button label="Cancel" onClick={onClose} />
-        </Box>
+        </ButtonGroup>
       </Box>
     </Form>
   );

@@ -12,7 +12,7 @@ import {
   TextArea,
   TextInput,
 } from 'grommet';
-import { LayerHeader } from '@shared/aries-core';
+import { ButtonGroup, LayerHeader } from '@shared/aries-core';
 import { ContentPane } from '../../../layouts/content/ContentPane';
 import {
   ConfirmationContext,
@@ -164,10 +164,10 @@ const EditDeviceForm = ({ device, setDevice, onClose, ...rest }) => {
             />
           </FormField>
         </>
-        <Box direction="row" gap="xsmall" flex={false}>
+        <ButtonGroup>
           <Button label="Save changes" primary type="submit" />
           <Button label="Cancel" onClick={onClose} />
-        </Box>
+        </ButtonGroup>
       </Box>
     </Form>
   );
