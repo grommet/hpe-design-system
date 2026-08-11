@@ -1,0 +1,17 @@
+[
+  {
+    "name": "web-server-01",
+    "status": "Active",
+    "type": "Server"
+  },
+  {
+    "name": "db-node-02",
+    "status": "Active",
+    "type": "Database"
+  },
+  {
+    "name": "proxy-edge-03",
+    "status": "Inactive",
+    "type": "Proxy"
+  }
+]

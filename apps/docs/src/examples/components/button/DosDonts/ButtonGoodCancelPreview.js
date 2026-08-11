@@ -7,7 +7,7 @@ export const ButtonGoodCancelPreview = () => (
     <Header
       direction="column"
       align="start"
-      gap="3xsmall"
+      gap="5xsmall"
       pad={{ horizontal: '5xsmall' }}
     >
       <Heading level={2} margin="none">
@@ -19,8 +19,8 @@ export const ButtonGoodCancelPreview = () => (
       </Paragraph>
     </Header>
     <ButtonGroup alignSelf="end">
-      <Button label="Cancel" onClick={() => {}} />
-      <Button primary label="Delete role assignment" onClick={() => {}} />
+      <Button label="Cancel" />
+      <Button primary label="Delete role assignment" />
     </ButtonGroup>
   </Box>
 );

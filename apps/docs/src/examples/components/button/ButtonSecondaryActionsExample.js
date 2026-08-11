@@ -1,6 +1,16 @@
-import React from 'react';
-import { Box, Button, NameValueList, NameValuePair, Text } from 'grommet';
+import React, { useContext } from 'react';
+import {
+  Box,
+  Button,
+  Heading,
+  NameValueList,
+  NameValuePair,
+  ResponsiveContext,
+  Paragraph,
+  Text,
+} from 'grommet';
 import { ButtonGroup } from '@shared/aries-core';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const stats = [
   { label: 'Capacity', value: '48 TiB' },
@@ -8,34 +18,40 @@ const stats = [
   { label: 'Status', value: 'Online' },
 ];
 
-export const ButtonSecondaryActionsExample = () => (
-  <Box background="background-front" gap="large" pad="medium" round="small">
-    <Box gap="small">
-      <>
-        <Text size="xlarge" weight="bold">
-          Storage Array SAA-01
-        </Text>
-        <Text size="small">Region: US West · Tier: Premium</Text>
-      </>
-      <NameValueList
-        layout="grid"
-        pairProps={{ direction: 'column' }}
-        nameProps={{ width: { min: '5xsmall', max: 'max-content' } }}
-        valueProps={{ width: { min: '5xsmall', max: 'max-content' } }}
-      >
-        {stats.map(({ label, value }) => (
-          <NameValuePair key={label} name={<Text size="small">{label}</Text>}>
-            <Text color="text-strong" weight="bold">
-              {value}
-            </Text>
-          </NameValuePair>
-        ))}
-      </NameValueList>
-    </Box>
-    <ButtonGroup>
-      <Button label="Edit resource" onClick={() => {}} primary />
-      <Button label="Download" onClick={() => {}} secondary />
-      <Button label="Clone" onClick={() => {}} secondary />
-    </ButtonGroup>
-  </Box>
-);
+export const ButtonSecondaryActionsExample = () => {
+  const size = useContext(ResponsiveContext);
+  const mobileLayout = ['xsmall', 'small'].includes(size);
+
+  return (
+    <ContentPane>
+      {/* using content-driven container 
+        https://design-system.hpe.design/templates/content-layouts?q=content#content-driven-layouts */}
+      <Box gap="medium" width="medium">
+        <Box gap="5xsmall">
+          <Heading level={2} margin="none">
+            Storage Array SAA-01
+          </Heading>
+          <Paragraph margin="none" color="text-weak">
+            Region: US West · Tier: Premium
+          </Paragraph>
+        </Box>
+        <NameValueList
+          valueProps={{ width: '4xsmall' }}
+          pairProps={{ direction: 'column' }}
+          layout="grid"
+        >
+          {stats.map(({ label, value }) => (
+            <NameValuePair key={label} name={<Text>{label}</Text>}>
+              <Text weight="bold">{value}</Text>
+            </NameValuePair>
+          ))}
+        </NameValueList>
+        <ButtonGroup direction={mobileLayout ? 'column' : 'row'}>
+          <Button label="Edit resource" primary />
+          <Button label="Download" secondary />
+          <Button label="Clone" secondary />
+        </ButtonGroup>
+      </Box>
+    </ContentPane>
+  );
+};

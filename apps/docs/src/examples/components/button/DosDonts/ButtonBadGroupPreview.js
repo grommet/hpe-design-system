@@ -15,9 +15,9 @@ export const ButtonBadGroupPreview = () => (
       <Text>Subtitle</Text>
     </Header>
     <Box direction="row" gap="xsmall">
-      <Button primary label="Primary..." onClick={() => {}} />
-      <Button secondary label="Seconda..." onClick={() => {}} />
-      <Button default label="Default..." onClick={() => {}} />
+      <Button primary label="Primary..." />
+      <Button secondary label="Seconda..." />
+      <Button default label="Default..." />
     </Box>
   </Box>
 );
