@@ -10,7 +10,7 @@
     "url": "https://github.com/grommet/hpe-design-system/issues"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.6",
+    "@babel/eslint-parser": "^8.0.1",
     "@babel/preset-react": "catalog:",
     "@eslint/compat": "^2.0.3",
     "@eslint/eslintrc": "^3.3.5",

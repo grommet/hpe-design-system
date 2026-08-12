@@ -6,12 +6,12 @@ packages:
 
 catalog:
   '@babel/preset-react': ^7.28.5
-  '@eslint/js': ^9.39.1
+  '@eslint/js': ^10.0.1
   '@hpe-design/icons-grommet': ^1.1.0
   '@types/node': ^20.4.5
   '@types/react': ^19.1.10
   '@types/react-dom': ^19.1.7
-  eslint: ^9.39.1
+  eslint: ^10.8.1
   eslint-config-prettier: ^10.1.8
   eslint-plugin-prettier: ^5.5.5
   eslint-plugin-react: ^7.37.5
