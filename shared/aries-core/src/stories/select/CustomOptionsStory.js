@@ -15,7 +15,7 @@ const CustomOptionsExample = () => {
 
   const renderOptionLabel = option => {
     return (
-      <Box direction="row" align="center" gap="small">
+      <Box responsive={false} direction="row" align="center" gap="small">
         <Cpu size="small" />
         <Text>{option.label}</Text>
       </Box>
