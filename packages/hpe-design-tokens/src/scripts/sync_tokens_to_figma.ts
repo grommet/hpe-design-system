@@ -228,6 +228,12 @@ async function main() {
   const dryRun = argv.includes('--dry-run');
   const verbosePlan = argv.includes('--verbose-plan');
   const writePlanPath = getCliArgValue(argv, '--write-plan');
+  if (writePlanPath && !dryRun) {
+    console.log(
+      // eslint-disable-next-line max-len
+      'Info: --write-plan is enabled for a mutating run. The written planned-stage-diff is a plan artifact; check run-summary.mutationsApplied to confirm applied writes.',
+    );
+  }
   const fallbackStageResults = FILE_TIERS.map(stage => ({
     stage,
     status: 'skipped' as const,

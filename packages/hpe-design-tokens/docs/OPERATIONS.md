@@ -116,11 +116,12 @@ Primary events emitted by sync scripts:
 - `stage-status`
 - `run-summary`
 
-Optional human-readable / file outputs for push dry-runs:
+Optional human-readable / file outputs for push planning diagnostics:
 
-- `--verbose-plan`: print per-stage planned variable changes as formatted JSON.
-- `--write-plan <path>`: write a `planned-stage-diff` JSON report with the per-stage payload details.
-- `--plan-stage <stage[,stage...]>`: filter plan output to one or more stages (`primitive`, `semantic`, `component`).
+- `--verbose-plan`: print per-stage planned variable changes as formatted JSON (typically used with `--dry-run`).
+- `--write-plan <path>`: write a `planned-stage-diff` JSON report with the per-stage payload details (available in both `--dry-run` and mutating runs).
+- `--plan-stage <stage[,stage...]>`: filter plan output to one or more stages (`primitive`, `semantic`, `component`) for both `--verbose-plan` and `--write-plan`.
+- `planned-stage-diff` is a plan artifact. Use the final `run-summary` event (`mutationsApplied`) to determine whether writes actually occurred.
 
 Schemas and contracts:
 
