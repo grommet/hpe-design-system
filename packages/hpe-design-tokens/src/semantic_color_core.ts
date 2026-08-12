@@ -67,6 +67,7 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
     'accent',
   ],
   border: [
+    'accent',
     'critical',
     'default',
     'disabled',
@@ -86,7 +87,7 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
   ],
   decorative: ['blue', 'brand', 'cyan', 'green', 'neutral', 'purple'],
   focus: ['support'],
-  foreground: ['critical', 'ok', 'primary', 'unknown', 'warning'],
+  foreground: ['critical', 'info', 'ok', 'primary', 'unknown', 'warning'],
   icon: [
     'critical',
     'default',
@@ -144,6 +145,9 @@ export const SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY = {
     selected: ['primary'],
     accent: ['blue', 'cyan', 'purple'],
   },
+  border: {
+    accent: ['blue', 'cyan', 'purple'],
+  },
   dataVis: {
     categorical: ['10', '20', '30', '40', '50', '60', '70', '80'],
   },
@@ -169,6 +173,7 @@ export type SemanticColorSubroleByTargetFamily<
 // Full path-shape reference: docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
 export const SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET = {
   background: ['accent'],
+  border: ['accent'],
 } as const satisfies {
   // entries must be a subset of the family keys in the subroles map
   [T in keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY]?: ReadonlyArray<
