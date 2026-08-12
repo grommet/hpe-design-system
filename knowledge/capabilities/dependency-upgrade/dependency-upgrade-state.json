@@ -580,7 +580,61 @@
       "packages": [
         "@shared/aries-core"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "18.2.0",
+        "riskTier": 1,
+        "migrationGuide": "https://www.chromatic.com/docs/cli/",
+        "breakingChanges": [
+          {
+            "description": "Node.js >=22 is required by Chromatic CLI v18.",
+            "applies": true,
+            "requiredChange": "No code changes required because current runtime is Node 24."
+          }
+        ],
+        "peerDependencies": [
+          {
+            "package": "@chromatic-com/vitest",
+            "requiredRange": "^0.*.* || ^1.0.0",
+            "current": "not-installed",
+            "action": "not-required-for-current-script"
+          }
+        ],
+        "filesToChange": [
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump chromatic from ^13.3.5 to ^18.2.0 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core build-storybook",
+          "pnpm --filter @shared/aries-core exec chromatic --version"
+        ],
+        "risks": [
+          "CLI behavior changes could impact the chromatic script invocation and flags."
+        ]
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedChecks": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core build-storybook",
+          "pnpm --filter @shared/aries-core exec chromatic --version"
+        ],
+        "notes": [
+          "Storybook build completed successfully with existing asset-size warnings.",
+          "Chromatic CLI resolves and reports 18.2.0."
+        ]
+      }
     },
     {
       "package": "concurrently",
@@ -644,7 +698,76 @@
         "hpe-design-tokens",
         "@shared/aries-core"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "8.0.1",
+        "riskTier": 1,
+        "migrationGuide": "https://www.npmjs.com/package/del",
+        "breakingChanges": [
+          {
+            "description": "del v8 uses named exports (deleteAsync/deleteSync) instead of default export usage patterns from older versions.",
+            "applies": true,
+            "requiredChange": "Update release scripts to import {deleteAsync} from 'del' and replace del(...) calls."
+          }
+        ],
+        "compatibility": [
+          "del@8 requires Node >=18; current runtime Node 24 is compatible."
+        ],
+        "filesToChange": [
+          {
+            "file": "packages/hpe-design-tokens/package.json",
+            "change": "Bump del from ^6.1.1 to ^8.0.1 in devDependencies."
+          },
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump del from ^6.1.1 to ^8.0.1 in devDependencies."
+          },
+          {
+            "file": "packages/hpe-design-tokens/src/scripts/release-stable.js",
+            "change": "Migrate default del import/calls to deleteAsync named export API."
+          },
+          {
+            "file": "shared/aries-core/tools/release-stable.js",
+            "change": "Migrate default del import/calls to deleteAsync named export API."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "Release-stable scripts are CI-only, so API migration must be captured in code review despite not running release push paths locally."
+        ]
+      },
+      "modifiedFiles": [
+        "packages/hpe-design-tokens/src/scripts/release-stable.js",
+        "shared/aries-core/tools/release-stable.js",
+        "packages/hpe-design-tokens/package.json",
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "Updated CI-only release scripts to del v8 deleteAsync API in both affected packages.",
+          "aries-core tests continue to show existing jsdom navigation not-implemented console noise; suite passes unchanged.",
+          "hpe-design-tokens build emits existing Style Dictionary filtered-reference warnings; build succeeded."
+        ]
+      }
     },
     {
       "package": "dotenv",
@@ -906,7 +1029,56 @@
       "packages": [
         "@shared/aries-core"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "16.1.1",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/react-syntax-highlighter/react-syntax-highlighter/releases",
+        "breakingChanges": [
+          {
+            "description": "Major bump may alter language/theme module exports or render defaults.",
+            "applies": true,
+            "requiredChange": "No immediate code changes planned; validate component tests and aries-core build output."
+          }
+        ],
+        "compatibility": [
+          "Package peer requires React >=0.14 and Node >=16.20.2; workspace uses React 19 and Node 24."
+        ],
+        "filesToChange": [
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump react-syntax-highlighter from ^15.6.1 to ^16.1.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "Potential formatting/highlighting regressions in code block rendering components."
+        ]
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "aries-core tests include existing jsdom navigation not-implemented console noise; suite passes unchanged.",
+          "aries-core webpack build completed with existing bundle-size warnings only."
+        ]
+      }
     },
     {
       "package": "start-server-and-test",
@@ -917,7 +1089,53 @@
       "packages": [
         "docs"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "3.0.12",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/bahmutov/start-server-and-test",
+        "breakingChanges": [
+          {
+            "description": "Node runtime requirement is ^22 || >=24.",
+            "applies": true,
+            "requiredChange": "No code changes required; current runtime is Node 24."
+          }
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/docs/package.json",
+            "change": "Bump start-server-and-test from ^2.0.3 to ^3.0.12 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs exec start-server-and-test --help",
+          "pnpm --filter docs build"
+        ],
+        "risks": [
+          "CLI behavior differences could affect quoting/arg parsing in docs test scripts."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedChecks": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs exec start-server-and-test \"node -e \\\"require('http').createServer((req,res)=>res.end('ok')).listen(3456)\\\"\" 3456 \"node -e \\\"console.log('test-ok')\\\"\"",
+          "pnpm --filter docs build"
+        ],
+        "notes": [
+          "start-server-and-test CLI does not accept --help without positional args; validated via minimal real start/test cycle instead.",
+          "docs build completed successfully; existing token build warnings remained unchanged."
+        ]
+      }
     },
     {
       "package": "storybook",

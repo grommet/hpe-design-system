@@ -1,4 +1,4 @@
-import del from 'del';
+import {deleteAsync} from 'del';
 import fs from 'fs-extra';
 import git from 'simple-git';
 import path from 'path';
@@ -17,11 +17,11 @@ const [BRANCH] = process.argv
 const files = ['package.json', 'README.md', 'COPYRIGHT.md', 'LICENSE'];
 
 if (process.env.CI) {
-  del(localFolder).then(() => {
+  deleteAsync(localFolder).then(() => {
     git()
       .clone(repoURL, localFolder)
       .then(() => git(localFolder).checkout(BRANCH))
-      .then(() => del([`${localFolder}/**/*`]))
+      .then(() => deleteAsync([`${localFolder}/**/*`]))
       .then(() => fs.copy(localDist, `${localFolder}/${BUILD_DIR}`))
       .then(() =>
         files.forEach(file =>
