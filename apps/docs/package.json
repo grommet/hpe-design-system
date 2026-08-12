@@ -49,8 +49,8 @@
     "@applitools/eyes-testcafe": "^6.4.1",
     "@testing-library/testcafe": "^5.0.1",
     "@types/react": "catalog:",
-    "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/ui": "^3.2.4",
+    "@vitejs/plugin-react": "^6.0.5",
+    "@vitest/ui": "^4.1.10",
     "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
@@ -60,7 +60,7 @@
     "start-server-and-test": "^3.0.12",
     "testcafe": "^3.5.0",
     "testcafe-react-selectors": "^5.0.3",
-    "vite": "^5.4.21",
-    "vitest": "^3.2.4"
+    "vite": "^8.2.1",
+    "vitest": "^4.1.10"
   }
 }

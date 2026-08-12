@@ -514,7 +514,55 @@
       "packages": [
         "design-tokens-manager"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "8.67.0",
+        "riskTier": 4,
+        "migrationGuide": "https://typescript-eslint.io/users/dependency-versions/",
+        "breakingChanges": [
+          {
+            "description": "Major parser updates may tighten AST parsing and rule behavior under flat config.",
+            "applies": true,
+            "requiredChange": "No config changes planned unless lint/build validation reveals incompatibilities."
+          }
+        ],
+        "compatibility": [
+          "@typescript-eslint/parser@8.67.0 supports eslint ^8.57 || ^9 || ^10 and TS <6.1; workspace uses eslint 9 and TS 5.9."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/design-tokens-manager/package.json",
+            "change": "Bump @typescript-eslint/parser from ^7.2.0 to ^8.67.0 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager lint",
+          "pnpm --filter design-tokens-manager build"
+        ],
+        "risks": [
+          "Lint diagnostics may change due to parser/rule ecosystem updates."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/design-tokens-manager/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedLint": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager lint",
+          "pnpm --filter design-tokens-manager build"
+        ],
+        "notes": [
+          "Peer warning for eslint from parser 7 is resolved by parser 8 upgrade."
+        ]
+      }
     },
     {
       "package": "@vitejs/plugin-react",
@@ -527,7 +575,67 @@
         "grommet-app",
         "tailwind-app"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "6.0.5",
+        "riskTier": 2,
+        "migrationGuide": "https://github.com/vitejs/vite-plugin-react/releases",
+        "breakingChanges": [
+          {
+            "description": "Plugin major bump aligns to newer Vite internals and may change transform/runtime defaults.",
+            "applies": true,
+            "requiredChange": "Upgrade Vite in these packages to a compatible major before verification."
+          }
+        ],
+        "compatibility": [
+          "@vitejs/plugin-react@6 requires Vite ^8 and Node >=20.19 or >=22.12."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/design-tokens-manager/package.json",
+            "change": "Bump @vitejs/plugin-react to ^6.0.5 in devDependencies."
+          },
+          {
+            "file": "sandbox/grommet-app/package.json",
+            "change": "Bump @vitejs/plugin-react to ^6.0.5 in devDependencies."
+          },
+          {
+            "file": "sandbox/tailwind-app/package.json",
+            "change": "Bump @vitejs/plugin-react to ^6.0.5 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager build",
+          "pnpm --filter grommet-app build",
+          "pnpm --filter tailwind-app build"
+        ],
+        "risks": [
+          "React transform behavior or HMR-related plugin changes could surface at build/test time."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/design-tokens-manager/package.json",
+        "sandbox/grommet-app/package.json",
+        "sandbox/tailwind-app/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager build",
+          "pnpm --filter grommet-app build",
+          "pnpm --filter tailwind-app build"
+        ],
+        "notes": [
+          "All three Vite app builds passed on Vite 8 and plugin-react 6.",
+          "Only non-blocking chunk-size warnings were emitted for design-tokens-manager and grommet-app builds."
+        ]
+      }
     },
     {
       "package": "@vitejs/plugin-react",
@@ -539,7 +647,63 @@
         "docs",
         "@hpe-design/icons-grommet"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "6.0.5",
+        "riskTier": 2,
+        "migrationGuide": "https://github.com/vitejs/vite-plugin-react/releases",
+        "breakingChanges": [
+          {
+            "description": "Plugin major bump requires Vite 8 and may alter plugin behavior for React transforms.",
+            "applies": true,
+            "requiredChange": "Upgrade Vite where needed before verification."
+          }
+        ],
+        "compatibility": [
+          "@vitejs/plugin-react@6 peers with Vite ^8."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/docs/package.json",
+            "change": "Bump @vitejs/plugin-react to ^6.0.5 in devDependencies."
+          },
+          {
+            "file": "packages/icons-grommet/package.json",
+            "change": "Bump @vitejs/plugin-react to ^6.0.5 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs test:unit",
+          "pnpm --filter @hpe-design/icons-grommet build",
+          "pnpm --filter @hpe-design/icons-grommet build-storybook"
+        ],
+        "risks": [
+          "Potential transform or test-runner integration changes for docs and icon package stories."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "packages/icons-grommet/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs test:unit",
+          "pnpm --filter @hpe-design/icons-grommet build",
+          "pnpm --filter @hpe-design/icons-grommet build-storybook"
+        ],
+        "notes": [
+          "docs unit tests passed (66/66) with a non-blocking Vitest deprecation warning about transformWithEsbuild.",
+          "icons-grommet package and Storybook builds both succeeded on plugin-react 6 with existing non-blocking Vite configLoader future warning."
+        ]
+      }
     },
     {
       "package": "@vitest/ui",
@@ -550,14 +714,53 @@
       "packages": [
         "docs"
       ],
-      "status": "pending",
-      "deferred": {
-        "reason": "@vitest/ui@4.1.10 requires vitest@4.1.10, and vitest@4 requires vite >=6 while docs currently pins vite ^5.4.21.",
-        "blockedBy": [
-          "vite major upgrade in docs",
-          "vitest major upgrade in docs"
+      "status": "complete",
+      "plan": {
+        "target": "4.1.10",
+        "riskTier": 1,
+        "migrationGuide": "https://vitest.dev/guide/migration",
+        "breakingChanges": [
+          {
+            "description": "UI package tracks Vitest major and must stay version-aligned with vitest core.",
+            "applies": true,
+            "requiredChange": "Upgrade vitest to 4.1.10 in docs in the same pass."
+          }
         ],
-        "note": "Revisit after vite and vitest major upgrades are executed for docs."
+        "compatibility": [
+          "docs now uses Vite 8, satisfying vitest 4 peer requirements."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/docs/package.json",
+            "change": "Bump @vitest/ui from ^3.2.4 to ^4.1.10 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs test:unit"
+        ],
+        "risks": [
+          "Potential UI/reporting option changes if docs invokes Vitest UI mode locally."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [
+        "apps/docs/vitest.config.mts"
+      ],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs test:unit"
+        ],
+        "notes": [
+          "docs unit tests pass on @vitest/ui 4 after ensuring custom .js JSX transform runs as a pre plugin in vitest config."
+        ]
       }
     },
     {
@@ -569,7 +772,56 @@
       "packages": [
         "@shared/aries-core"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "10.1.1",
+        "riskTier": 4,
+        "migrationGuide": "https://github.com/babel/babel-loader/releases",
+        "breakingChanges": [
+          {
+            "description": "Loader major bump may alter Babel loader option defaults and webpack integration behavior.",
+            "applies": true,
+            "requiredChange": "No config changes planned unless webpack build/test reveals regressions."
+          }
+        ],
+        "compatibility": [
+          "babel-loader@10.1.1 supports webpack >=5.61 and @babel/core ^7 or ^8 beta; aries-core uses webpack 5 and Babel 7."
+        ],
+        "filesToChange": [
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump babel-loader from ^8.2.5 to ^10.1.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "Potential webpack transform behavior differences could affect test/build transpilation outputs."
+        ]
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "aries-core tests pass with existing jsdom navigation console noise.",
+          "aries-core webpack build passes with existing bundle-size warnings only."
+        ]
+      }
     },
     {
       "package": "chromatic",
@@ -1308,7 +1560,59 @@
       "packages": [
         "hpe-design-tokens"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "5.5.1",
+        "riskTier": 2,
+        "migrationGuide": "https://styledictionary.com/releases/",
+        "breakingChanges": [
+          {
+            "description": "Style Dictionary v5 includes runtime and API changes that may affect token build scripts and custom formats/transforms.",
+            "applies": true,
+            "requiredChange": "No script edits planned unless token build fails; verify hpe-design-tokens test and build outputs."
+          }
+        ],
+        "compatibility": [
+          "style-dictionary@5 requires Node >=22, satisfied by local runtime Node 23.",
+          "style-dictionary-utils@6 peers with style-dictionary ^5 and should be upgraded in same pass."
+        ],
+        "filesToChange": [
+          {
+            "file": "packages/hpe-design-tokens/package.json",
+            "change": "Bump style-dictionary from ^4.2.0 to ^5.5.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build"
+        ],
+        "risks": [
+          "Potential token build output differences or transform errors from style dictionary major changes."
+        ]
+      },
+      "modifiedFiles": [
+        "packages/hpe-design-tokens/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [
+        "packages/hpe-design-tokens/src/tests/build.test.ts"
+      ],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build"
+        ],
+        "notes": [
+          "hpe-design-tokens test/build pass on style-dictionary 5 after updating docs-format snapshot expectation for new key placement.",
+          "Existing filtered-reference warnings from style-dictionary outputs remain non-blocking and unchanged in posture."
+        ]
+      }
     },
     {
       "package": "style-dictionary-utils",
@@ -1319,7 +1623,58 @@
       "packages": [
         "hpe-design-tokens"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "6.0.1",
+        "riskTier": 2,
+        "migrationGuide": "https://github.com/amzn/style-dictionary-utils/releases",
+        "breakingChanges": [
+          {
+            "description": "Major utilities upgrade may alter helper behavior used by style-dictionary build scripts.",
+            "applies": true,
+            "requiredChange": "Upgrade alongside style-dictionary v5 and verify test/build outputs."
+          }
+        ],
+        "compatibility": [
+          "style-dictionary-utils@6 peers with style-dictionary ^5 and Node versions compatible with workspace runtime."
+        ],
+        "filesToChange": [
+          {
+            "file": "packages/hpe-design-tokens/package.json",
+            "change": "Bump style-dictionary-utils from ^3.0.0 to ^6.0.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build"
+        ],
+        "risks": [
+          "Potential transform helper behavior changes in token generation pipeline."
+        ]
+      },
+      "modifiedFiles": [
+        "packages/hpe-design-tokens/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [
+        "packages/hpe-design-tokens/src/tests/build.test.ts"
+      ],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build"
+        ],
+        "notes": [
+          "style-dictionary-utils 6 is validated together with style-dictionary 5 through hpe-design-tokens test/build.",
+          "One docs snapshot expectation was updated to reflect style-dictionary v5 output key ordering."
+        ]
+      }
     },
     {
       "package": "tailwindcss",
@@ -1420,7 +1775,82 @@
         "native-web",
         "tailwind-app"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "8.2.1",
+        "riskTier": 2,
+        "migrationGuide": "https://vite.dev/guide/migration.html",
+        "breakingChanges": [
+          {
+            "description": "Vite major bump may affect plugin compatibility and build-time defaults.",
+            "applies": true,
+            "requiredChange": "Coordinate @vitejs/plugin-react upgrade to v6 where applicable."
+          }
+        ],
+        "compatibility": [
+          "Vite 8 requires newer peer ranges in ecosystem plugins; plugin-react is upgraded in tandem."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/design-tokens-manager/package.json",
+            "change": "Bump vite to ^8.2.1 in devDependencies."
+          },
+          {
+            "file": "apps/docs/package.json",
+            "change": "Bump vite to ^8.2.1 in devDependencies."
+          },
+          {
+            "file": "sandbox/grommet-app/package.json",
+            "change": "Bump vite to ^8.2.1 in devDependencies."
+          },
+          {
+            "file": "sandbox/native-web/package.json",
+            "change": "Bump vite to ^8.2.1 in devDependencies."
+          },
+          {
+            "file": "sandbox/tailwind-app/package.json",
+            "change": "Bump vite to ^8.2.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager build",
+          "pnpm --filter docs test:unit",
+          "pnpm --filter grommet-app build",
+          "pnpm --filter native-web build",
+          "pnpm --filter tailwind-app build"
+        ],
+        "risks": [
+          "Potential build differences and plugin behavior changes across sandbox and app packages."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/design-tokens-manager/package.json",
+        "apps/docs/package.json",
+        "sandbox/grommet-app/package.json",
+        "sandbox/native-web/package.json",
+        "sandbox/tailwind-app/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager build",
+          "pnpm --filter docs test:unit",
+          "pnpm --filter grommet-app build",
+          "pnpm --filter native-web build",
+          "pnpm --filter tailwind-app build"
+        ],
+        "notes": [
+          "All targeted builds/tests passed after Vite 8 migration across Vite-5 packages.",
+          "Build outputs include existing non-blocking chunk-size warnings in larger apps."
+        ]
+      }
     },
     {
       "package": "vite",
@@ -1432,7 +1862,63 @@
         "@hpe-design/icons-grommet",
         "@hpe-design/icons-svg"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "8.2.1",
+        "riskTier": 2,
+        "migrationGuide": "https://vite.dev/guide/migration.html",
+        "breakingChanges": [
+          {
+            "description": "Vite major upgrades may alter plugin hooks/config defaults and build output behavior.",
+            "applies": true,
+            "requiredChange": "No config edits planned unless package builds fail after the version bump."
+          }
+        ],
+        "compatibility": [
+          "Current icons-svg plugins already upgraded and support Vite 8.",
+          "Node 23 satisfies Vite 8 engine requirements."
+        ],
+        "filesToChange": [
+          {
+            "file": "packages/icons-grommet/package.json",
+            "change": "Bump vite from ^7.3.6 to ^8.2.1 in devDependencies."
+          },
+          {
+            "file": "packages/icons-svg/package.json",
+            "change": "Bump vite from ^7.3.6 to ^8.2.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @hpe-design/icons-grommet build",
+          "pnpm --filter @hpe-design/icons-svg build"
+        ],
+        "risks": [
+          "Plugin integration in icons builds may require config updates if Vite 8 changed defaults."
+        ]
+      },
+      "modifiedFiles": [
+        "packages/icons-grommet/package.json",
+        "packages/icons-svg/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @hpe-design/icons-grommet build",
+          "pnpm --filter @hpe-design/icons-svg build",
+          "pnpm --filter @hpe-design/icons-grommet build-storybook"
+        ],
+        "notes": [
+          "icons-grommet package build passed on Vite 8 with a non-blocking configLoader future warning for __dirname usage in vite.config.ts.",
+          "icons-svg build passed on Vite 8 including vite-plugin-static-copy and dts generation.",
+          "icons-grommet Storybook build succeeded despite peer range warnings from Storybook 8 ecosystem packages declaring Vite <=6."
+        ]
+      }
     },
     {
       "package": "vite-plugin-dts",
@@ -1443,7 +1929,52 @@
       "packages": [
         "@hpe-design/icons-svg"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "5.0.3",
+        "riskTier": 2,
+        "migrationGuide": "https://github.com/qmhc/vite-plugin-dts/releases",
+        "breakingChanges": [
+          {
+            "description": "Major plugin updates can alter declaration emission behavior and option defaults.",
+            "applies": true,
+            "requiredChange": "No config edits planned unless declaration generation errors occur during build."
+          }
+        ],
+        "compatibility": [
+          "vite-plugin-dts@5.0.3 supports Vite >=3 and is compatible with current Vite 7 in icons-svg."
+        ],
+        "filesToChange": [
+          {
+            "file": "packages/icons-svg/package.json",
+            "change": "Bump vite-plugin-dts from ^4.5.4 to ^5.0.3 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @hpe-design/icons-svg build"
+        ],
+        "risks": [
+          "Declaration generation output shape may change and could affect downstream consumers."
+        ]
+      },
+      "modifiedFiles": [
+        "packages/icons-svg/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @hpe-design/icons-svg build"
+        ],
+        "notes": [
+          "icons-svg build succeeded and declaration generation completed under unplugin:dts integration."
+        ]
+      }
     },
     {
       "package": "vite-plugin-static-copy",
@@ -1454,7 +1985,52 @@
       "packages": [
         "@hpe-design/icons-svg"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "4.1.1",
+        "riskTier": 2,
+        "migrationGuide": "https://github.com/sapphi-red/vite-plugin-static-copy/releases",
+        "breakingChanges": [
+          {
+            "description": "Major plugin updates may change static copy option defaults or hook timing.",
+            "applies": true,
+            "requiredChange": "No config edits planned unless build reveals plugin option incompatibility."
+          }
+        ],
+        "compatibility": [
+          "vite-plugin-static-copy@4.1.1 peers with Vite ^6 || ^7 || ^8 and requires Node >=22; current icons-svg uses Vite 7 and runtime Node 23."
+        ],
+        "filesToChange": [
+          {
+            "file": "packages/icons-svg/package.json",
+            "change": "Bump vite-plugin-static-copy from ^2.3.2 to ^4.1.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @hpe-design/icons-svg build"
+        ],
+        "risks": [
+          "If plugin option schema changed, icons-svg build may require vite.config.ts adjustments."
+        ]
+      },
+      "modifiedFiles": [
+        "packages/icons-svg/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @hpe-design/icons-svg build"
+        ],
+        "notes": [
+          "icons-svg build succeeded and static copy step reported 452 copied items."
+        ]
+      }
     },
     {
       "package": "vitest",
@@ -1468,7 +2044,77 @@
         "hpe-design-tokens",
         "@shared/hooks"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "4.1.10",
+        "riskTier": 2,
+        "migrationGuide": "https://vitest.dev/guide/migration",
+        "breakingChanges": [
+          {
+            "description": "Vitest major upgrade includes runtime/config updates and tighter Vite/Node compatibility.",
+            "applies": true,
+            "requiredChange": "Upgrade all direct vitest consumers together and run package-local test commands."
+          }
+        ],
+        "compatibility": [
+          "Runtime Node 23 satisfies vitest 4 engine range.",
+          "docs now targets Vite 8, satisfying vitest 4 peer requirement."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/docs/package.json",
+            "change": "Bump vitest from ^3.2.4 to ^4.1.10."
+          },
+          {
+            "file": "packages/codemods/package.json",
+            "change": "Bump vitest from ^3.2.4 to ^4.1.10."
+          },
+          {
+            "file": "packages/hpe-design-tokens/package.json",
+            "change": "Bump vitest from ^3.0.9 to ^4.1.10."
+          },
+          {
+            "file": "shared/hooks/package.json",
+            "change": "Bump vitest from ^3.2.4 to ^4.1.10."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs test:unit",
+          "pnpm --filter hpe-design-system-codemods test",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter @shared/hooks test -- --run"
+        ],
+        "risks": [
+          "Potential test config/runtime behavior differences across ESM/CJS test environments."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "packages/codemods/package.json",
+        "packages/hpe-design-tokens/package.json",
+        "shared/hooks/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [
+        "apps/docs/vitest.config.mts"
+      ],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs test:unit",
+          "pnpm --filter hpe-design-system-codemods test",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter @shared/hooks test -- --run"
+        ],
+        "notes": [
+          "docs, codemods, hpe-design-tokens, and shared/hooks test suites all pass on Vitest 4.",
+          "docs required a Vitest config adjustment (pre-enforced JSX transform for legacy .js JSX files) to avoid Vite 8 OXC parse failures."
+        ]
+      }
     },
     {
       "package": "webpack-cli",
@@ -1479,7 +2125,56 @@
       "packages": [
         "@shared/aries-core"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "7.2.2",
+        "riskTier": 4,
+        "migrationGuide": "https://github.com/webpack/webpack-cli/releases",
+        "breakingChanges": [
+          {
+            "description": "CLI major upgrade may alter command behavior/options used by webpack scripts.",
+            "applies": true,
+            "requiredChange": "No script changes planned unless aries-core build/test surfaces CLI incompatibilities."
+          }
+        ],
+        "compatibility": [
+          "webpack-cli@7.2.2 requires Node >=20.9 and webpack ^5.101; aries-core uses Node 23 and webpack 5."
+        ],
+        "filesToChange": [
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump webpack-cli from ^5.0.1 to ^7.2.2 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "Potential changes in webpack CLI defaults or parsing could impact build invocation."
+        ]
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "aries-core tests pass with existing jsdom navigation console noise.",
+          "aries-core build passes; webpack emitted existing bundle-size warnings and a module type warning for webpack.config.js."
+        ]
+      }
     },
     {
       "package": "webpack-dev-server",
@@ -1490,7 +2185,56 @@
       "packages": [
         "@shared/aries-core"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "6.0.0",
+        "riskTier": 4,
+        "migrationGuide": "https://github.com/webpack/webpack-dev-server/releases",
+        "breakingChanges": [
+          {
+            "description": "Dev server major bump may alter CLI options and runtime defaults used in local Storybook/webpack workflows.",
+            "applies": true,
+            "requiredChange": "No config changes planned unless aries-core build/test reveals incompatibilities."
+          }
+        ],
+        "compatibility": [
+          "webpack-dev-server@6.0.0 requires Node >=22.15 and webpack ^5.101; local Node 23 and webpack 5 satisfy constraints."
+        ],
+        "filesToChange": [
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump webpack-dev-server from ^5.2.3 to ^6.0.0 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "Potential dev-server option/API changes could require webpack config updates for dev-time flows."
+        ]
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "aries-core tests pass with existing jsdom navigation console noise.",
+          "aries-core build passes; webpack emitted existing bundle-size warnings and a module type warning for webpack.config.js."
+        ]
+      }
     }
   ]
 }

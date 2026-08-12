@@ -40,7 +40,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vueless/storybook-dark-mode": "^10.0.7",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^10.1.1",
     "chromatic": "^18.2.0",
     "del": "^8.0.1",
     "dotenv": "^17.4.2",
@@ -56,8 +56,8 @@
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
     "webpack": "^5.105.4",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-cli": "^7.2.2",
+    "webpack-dev-server": "^6.0.0"
   },
   "dependencies": {
     "@hpe-design/icons-grommet": "catalog:",

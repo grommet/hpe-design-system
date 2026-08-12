@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
@@ -14,6 +14,7 @@ export default defineConfig({
     // that JSX syntax is handled before the SSR parse step.
     {
       name: 'treat-js-files-as-jsx',
+      enforce: 'pre',
       async transform(code, id) {
         if (!id.includes('node_modules') && id.endsWith('.js')) {
           return transformWithEsbuild(code, id, {
@@ -22,6 +23,7 @@ export default defineConfig({
             jsxImportSource: 'react',
           });
         }
+        return undefined;
       },
     },
     react({
@@ -35,7 +37,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@shared/aries-core': path.resolve(
-        __dirname,
+        dirname,
         '../../shared/aries-core/src/js',
       ),
     },

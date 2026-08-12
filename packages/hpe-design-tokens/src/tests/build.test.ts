@@ -577,6 +577,7 @@ module.exports = {
 
 export default {
   "hpe.fontStack.primary": {
+    "key": "{fontStack.primary}",
     "$type": "fontFamily",
     "$value": "'Metric', Arial, sans-serif",
     "$description": "The main font stack for an application.",
@@ -603,7 +604,8 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "key": "{fontStack.primary}"
     },
     "name": "hpe.fontStack.primary",
     "attributes": {
@@ -613,10 +615,10 @@ export default {
     "path": [
       "fontStack",
       "primary"
-    ],
-    "key": "{fontStack.primary}"
+    ]
   },
   "hpe.base.color.white.100": {
+    "key": "{base.color.white.100}",
     "$value": "#ffffff",
     "$type": "color",
     "$description": "White color",
@@ -625,7 +627,8 @@ export default {
     "original": {
       "$value": "#ffffff",
       "$type": "color",
-      "$description": "White color"
+      "$description": "White color",
+      "key": "{base.color.white.100}"
     },
     "name": "hpe.base.color.white.100",
     "attributes": {
@@ -639,10 +642,10 @@ export default {
       "color",
       "white",
       "100"
-    ],
-    "key": "{base.color.white.100}"
+    ]
   },
   "hpe.static.container.small": {
+    "key": "{static.container.small}",
     "$value": 192,
     "$type": "number",
     "$description": "Small container width",
@@ -651,7 +654,8 @@ export default {
     "original": {
       "$value": 192,
       "$type": "number",
-      "$description": "Small container width"
+      "$description": "Small container width",
+      "key": "{static.container.small}"
     },
     "name": "hpe.static.container.small",
     "attributes": {
@@ -663,8 +667,7 @@ export default {
       "static",
       "container",
       "small"
-    ],
-    "key": "{static.container.small}"
+    ]
   }
 }
 `;
