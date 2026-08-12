@@ -43,22 +43,30 @@ const fetchOptions = () =>
     setTimeout(() => resolve(allOptions), 1500);
   });
 
-const buildGroupedOptions = options =>
-  options.reduce((acc, option, index) => {
-    const isFirstInGroup =
-      index === 0 || options[index - 1].group !== option.group;
+const buildGroupedOptions = options => {
+  const groups = new Map();
 
-    if (isFirstInGroup) {
-      acc.push({
-        label: option.group,
-        value: `__group__${option.group}`,
+  options.forEach(option => {
+    const groupOptions = groups.get(option.group) || [];
+    groupOptions.push(option);
+    groups.set(option.group, groupOptions);
+  });
+
+  const result = [];
+
+  groups.forEach((groupOptions, group) => {
+    result.push(
+      {
+        label: group,
+        value: `__group__${group}`,
         isGroupLabel: true,
         disabled: true,
-      });
-    }
+      },
+      ...groupOptions,
+    );
+  });
 
-    acc.push(option);
-    return acc;
-  }, []);
+  return result;
+};
 
 export { allOptions, buildGroupedOptions, fetchOptions };

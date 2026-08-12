@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Select, Text, ThemeContext } from 'grommet';
+import { focusFirstSelectableOption } from '../../js/components/core/SelectOption/focusFirstSelectableOption';
 import { allOptions, buildGroupedOptions } from './shared';
 import GroupedOptionsStorySource from './GroupedOptionsStory.js?raw';
 
@@ -40,6 +41,7 @@ const GroupedOptionsExample = () => {
           valueKey={{ key: 'value', reduce: true }}
           disabledKey="disabled"
           placeholder="Select a service"
+          onOpen={focusFirstSelectableOption}
           onChange={({ value: nextValue }) => setValue(nextValue)}
         />
       </ThemeContext.Extend>
