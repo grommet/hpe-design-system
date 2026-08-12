@@ -1,0 +1,876 @@
+{
+  "scannedAt": "2026-08-12T22:30:06.992Z",
+  "patch": [
+    {
+      "package": "@types/react",
+      "current": "19.2.17",
+      "latest": "19.2.18",
+      "source": "catalog",
+      "riskTier": 3,
+      "packages": [
+        "design-tokens-manager",
+        "docs",
+        "@hpe-design/icons-grommet",
+        "grommet-app",
+        "tailwind-app",
+        "@shared/aries-core",
+        "@shared/hooks"
+      ]
+    },
+    {
+      "package": "@types/react-dom",
+      "current": "19.2.3",
+      "latest": "19.2.4",
+      "source": "catalog",
+      "riskTier": 3,
+      "packages": [
+        "design-tokens-manager",
+        "@hpe-design/icons-grommet",
+        "grommet-app",
+        "tailwind-app",
+        "@shared/aries-core",
+        "@shared/hooks"
+      ]
+    },
+    {
+      "package": "eslint-plugin-react-refresh",
+      "current": "0.5.3",
+      "latest": "0.5.4",
+      "source": "catalog",
+      "riskTier": 4,
+      "packages": [
+        "design-tokens-manager",
+        "@hpe-design/icons-grommet",
+        "grommet-app",
+        "tailwind-app",
+        "@shared/aries-core"
+      ]
+    },
+    {
+      "package": "tsx",
+      "current": "4.23.1",
+      "latest": "4.23.12",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "aries",
+        "hpe-design-tokens"
+      ]
+    }
+  ],
+  "minor": [
+    {
+      "package": "axe-core",
+      "current": "4.12.1",
+      "latest": "4.13.0",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "docs"
+      ]
+    },
+    {
+      "package": "globals",
+      "current": "17.8.0",
+      "latest": "17.11.0",
+      "source": "catalog",
+      "riskTier": 1,
+      "packages": [
+        "aries",
+        "design-tokens-manager",
+        "@hpe-design/icons-grommet",
+        "grommet-app",
+        "tailwind-app",
+        "@shared/aries-core",
+        "@shared/hooks"
+      ]
+    },
+    {
+      "package": "styled-components",
+      "current": "6.4.4",
+      "latest": "6.5.2",
+      "source": "catalog",
+      "riskTier": 3,
+      "packages": [
+        "@hpe-design/icons-grommet"
+      ]
+    },
+    {
+      "package": "typescript-eslint",
+      "current": "8.65.0",
+      "latest": "8.67.0",
+      "source": "catalog",
+      "riskTier": 4,
+      "packages": [
+        "aries",
+        "design-tokens-manager",
+        "@hpe-design/icons-grommet",
+        "@shared/aries-core",
+        "@shared/hooks"
+      ]
+    }
+  ],
+  "major": [
+    {
+      "package": "@applitools/eyes-testcafe",
+      "current": "1.17.4",
+      "latest": "6.4.1",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "docs"
+      ],
+      "status": "complete",
+      "plan": {
+        "target": "6.4.1",
+        "riskTier": 1,
+        "migrationGuide": "https://applitools.com/docs/eyes/sdks/testcafe/changelog",
+        "breakingChanges": [
+          {
+            "description": "No explicit 1.x to 6.x migration doc was found; 6.x changelog does not document mandatory API renames for current usage.",
+            "applies": true,
+            "requiredChange": "Upgrade dependency version and verify all Applitools tests in docs still pass."
+          }
+        ],
+        "nonApplicable": [
+          "figmaOptions and Figma baseline features are not used in docs applitools tests.",
+          "accessibilityReportOptions forwarding changes are not used by current test files."
+        ],
+        "peerDependencies": [
+          {
+            "package": "testcafe",
+            "requiredRange": ">=1.7.1",
+            "current": "^3.5.0",
+            "action": "already-satisfied"
+          }
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/docs/package.json",
+            "change": "Bump @applitools/eyes-testcafe from 1.17.4 to ^6.4.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs test:applitools",
+          "pnpm --recursive run build --if-present",
+          "pnpm --recursive run test --if-present"
+        ],
+        "risks": [
+          "Upstream does not provide a concise migration matrix from 1.x to 6.x, so runtime validation is required.",
+          "Applitools account or baseline environment differences can fail visual tests even when code is valid."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "failed-unrelated",
+        "fullBuildReason": "packages/icons-svg build script uses vite build --if-present, which Vite reports as unknown option --ifPresent.",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm --recursive run build --if-present",
+          "pnpm --filter docs build",
+          "pnpm --filter docs test:unit"
+        ]
+      }
+    },
+    {
+      "package": "@babel/cli",
+      "current": "7.29.7",
+      "latest": "8.0.4",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@babel/core",
+      "current": "7.29.7",
+      "latest": "8.0.1",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@babel/eslint-parser",
+      "current": "7.29.7",
+      "latest": "8.0.1",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "aries"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@babel/node",
+      "current": "7.29.7",
+      "latest": "8.0.1",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@babel/preset-env",
+      "current": "7.29.7",
+      "latest": "8.0.2",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "hpe-design-tokens",
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@babel/preset-react",
+      "current": "7.29.7",
+      "latest": "8.0.1",
+      "source": "catalog",
+      "riskTier": 4,
+      "packages": [
+        "aries",
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@babel/preset-typescript",
+      "current": "7.29.7",
+      "latest": "8.0.1",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "hpe-design-tokens",
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@changesets/cli",
+      "current": "2.31.1",
+      "latest": "3.0.0",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "aries"
+      ],
+      "status": "complete",
+      "plan": {
+        "target": "3.0.0",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/changesets/changesets/blob/main/packages/cli/CHANGELOG.md",
+        "breakingChanges": [
+          {
+            "description": "Node runtime support moved to ^22.11 || ^24 || >=26.",
+            "applies": true,
+            "requiredChange": "No repo code change required because CI already uses Node 24."
+          },
+          {
+            "description": "changeset tag command renamed to changeset git-tag.",
+            "applies": false,
+            "requiredChange": "No scripts or docs in this repo call changeset tag."
+          },
+          {
+            "description": "prettier option removed in .changeset/config.json, replaced by format.",
+            "applies": false,
+            "requiredChange": "Current config does not use prettier option."
+          }
+        ],
+        "peerDependencies": [],
+        "filesToChange": [
+          {
+            "file": "package.json",
+            "change": "Bump @changesets/cli from ^2.27.9 to ^3.0.0 in dependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm exec changeset --version"
+        ],
+        "risks": [
+          "changeset version now exits with code 1 when no unreleased changesets exist; CI scripts relying on zero exit in that case may need adjustment."
+        ]
+      },
+      "modifiedFiles": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedChecks": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm exec changeset --version"
+        ]
+      }
+    },
+    {
+      "package": "@eslint/js",
+      "current": "9.39.5",
+      "latest": "10.0.1",
+      "source": "catalog",
+      "riskTier": 4,
+      "packages": [
+        "aries",
+        "design-tokens-manager",
+        "@hpe-design/icons-grommet",
+        "grommet-app",
+        "tailwind-app",
+        "@shared/aries-core",
+        "@shared/hooks"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@next/mdx",
+      "current": "14.2.35",
+      "latest": "16.3.0",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "docs"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@storybook/react",
+      "current": "8.6.18",
+      "latest": "10.5.7",
+      "source": "direct",
+      "riskTier": 3,
+      "packages": [
+        "@hpe-design/icons-grommet"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@storybook/react-vite",
+      "current": "8.6.18",
+      "latest": "10.5.7",
+      "source": "direct",
+      "riskTier": 3,
+      "packages": [
+        "@hpe-design/icons-grommet"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@testing-library/jest-dom",
+      "current": "6.9.1",
+      "latest": "7.0.1",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "complete",
+      "plan": {
+        "target": "7.0.1",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/testing-library/jest-dom/releases/tag/v7.0.0",
+        "breakingChanges": [
+          {
+            "description": "Minimum supported Node.js version is 22.",
+            "applies": true,
+            "requiredChange": "No code changes required; current CI/runtime uses Node 24."
+          },
+          {
+            "description": "@testing-library/dom is now a required peer dependency (>=10 <11).",
+            "applies": true,
+            "requiredChange": "Already satisfied transitively at @testing-library/dom@10.4.1 in @shared/aries-core graph."
+          }
+        ],
+        "peerDependencies": [
+          {
+            "package": "@testing-library/dom",
+            "requiredRange": ">=10 <11",
+            "current": "10.4.1",
+            "action": "already-satisfied"
+          }
+        ],
+        "filesToChange": [
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump @testing-library/jest-dom from ^6.8.0 to ^7.0.1 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "If any tests rely on deprecated matcher behaviors, they may need assertion updates."
+        ]
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "Jest output includes jsdom 'Not implemented: navigation (except hash changes)' console.error noise, but suite passes unchanged."
+        ]
+      }
+    },
+    {
+      "package": "@types/node",
+      "current": "20.19.43",
+      "latest": "26.2.0",
+      "source": "catalog",
+      "riskTier": 1,
+      "packages": [
+        "hpe-design-tokens",
+        "@shared/aries-core"
+      ],
+      "status": "complete",
+      "plan": {
+        "target": "26.2.0",
+        "riskTier": 1,
+        "migrationGuide": "https://www.npmjs.com/package/@types/node",
+        "breakingChanges": [
+          {
+            "description": "Type definitions move from Node 20 to Node 26 API surface, which can introduce compile-time type errors where deprecated or changed APIs are referenced.",
+            "applies": true,
+            "requiredChange": "Update catalog pin and run targeted package build/tests to catch type-level regressions."
+          }
+        ],
+        "compatibility": [
+          "Published dist-tags map TypeScript 5.9 to 26.2.0.",
+          "Workspace catalog TypeScript is ^5.9.3, so selected @types/node version is aligned."
+        ],
+        "filesToChange": [
+          {
+            "file": "pnpm-workspace.yaml",
+            "change": "Bump catalog @types/node from ^20.4.5 to ^26.2.0."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "Potential TypeScript type breakages in Node APIs used by scripts and tooling code."
+        ]
+      },
+      "modifiedFiles": [
+        "pnpm-workspace.yaml",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "hpe-design-tokens build emitted existing Style Dictionary filtered-reference warnings; build completed successfully.",
+          "aries-core tests continue to emit jsdom navigation not-implemented console noise; suite passes unchanged."
+        ]
+      }
+    },
+    {
+      "package": "@typescript-eslint/parser",
+      "current": "7.18.0",
+      "latest": "8.67.0",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "design-tokens-manager"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@vitejs/plugin-react",
+      "current": "4.7.0",
+      "latest": "6.0.5",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "design-tokens-manager",
+        "grommet-app",
+        "tailwind-app"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@vitejs/plugin-react",
+      "current": "5.2.0",
+      "latest": "6.0.5",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "docs",
+        "@hpe-design/icons-grommet"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "@vitest/ui",
+      "current": "3.2.7",
+      "latest": "4.1.10",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "docs"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "babel-loader",
+      "current": "8.4.1",
+      "latest": "10.1.1",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "chromatic",
+      "current": "13.3.5",
+      "latest": "18.2.0",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "concurrently",
+      "current": "9.2.4",
+      "latest": "10.0.4",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "aries"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "del",
+      "current": "6.1.1",
+      "latest": "8.0.1",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "hpe-design-tokens",
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "dotenv",
+      "current": "16.6.1",
+      "latest": "17.4.2",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "hpe-design-tokens"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "dotenv",
+      "current": "8.6.0",
+      "latest": "17.4.2",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "eslint",
+      "current": "9.39.5",
+      "latest": "10.8.1",
+      "source": "catalog",
+      "riskTier": 4,
+      "packages": [
+        "aries",
+        "design-tokens-manager",
+        "docs",
+        "@hpe-design/icons-grommet",
+        "grommet-app",
+        "tailwind-app",
+        "@shared/aries-core",
+        "@shared/hooks"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "husky",
+      "current": "8.0.3",
+      "latest": "9.1.7",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "aries"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "jest",
+      "current": "27.5.1",
+      "latest": "30.4.2",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "aries"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "jsdom",
+      "current": "26.1.0",
+      "latest": "30.0.1",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "docs",
+        "@shared/hooks"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "next",
+      "current": "15.5.9",
+      "latest": "16.3.0",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "docs"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "react-ga",
+      "current": "2.7.0",
+      "latest": "3.3.1",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "docs"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "react-router-dom",
+      "current": "6.30.4",
+      "latest": "7.18.2",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "design-tokens-manager"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "react-syntax-highlighter",
+      "current": "15.6.6",
+      "latest": "16.1.1",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "start-server-and-test",
+      "current": "2.1.5",
+      "latest": "3.0.12",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "docs"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "storybook",
+      "current": "8.6.18",
+      "latest": "10.5.7",
+      "source": "direct",
+      "riskTier": 3,
+      "packages": [
+        "@hpe-design/icons-grommet"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "style-dictionary",
+      "current": "4.4.0",
+      "latest": "5.5.1",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "hpe-design-tokens"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "style-dictionary-utils",
+      "current": "3.3.2",
+      "latest": "6.0.1",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "hpe-design-tokens"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "tailwindcss",
+      "current": "3.4.19",
+      "latest": "4.3.3",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": [
+        "tailwind-app"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "typescript",
+      "current": "5.9.3",
+      "latest": "7.0.2",
+      "source": "catalog",
+      "riskTier": 4,
+      "packages": [
+        "aries",
+        "design-tokens-manager",
+        "hpe-design-tokens",
+        "@hpe-design/icons-grommet",
+        "@hpe-design/icons-svg",
+        "@shared/aries-core",
+        "@shared/hooks"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "vite",
+      "current": "5.4.21",
+      "latest": "8.2.1",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "design-tokens-manager",
+        "docs",
+        "grommet-app",
+        "native-web",
+        "tailwind-app"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "vite",
+      "current": "7.3.6",
+      "latest": "8.2.1",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "@hpe-design/icons-grommet",
+        "@hpe-design/icons-svg"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "vite-plugin-dts",
+      "current": "4.5.4",
+      "latest": "5.0.3",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "@hpe-design/icons-svg"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "vite-plugin-static-copy",
+      "current": "2.3.2",
+      "latest": "4.1.1",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "@hpe-design/icons-svg"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "vitest",
+      "current": "3.2.7",
+      "latest": "4.1.10",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": [
+        "docs",
+        "hpe-design-system-codemods",
+        "hpe-design-tokens",
+        "@shared/hooks"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "webpack-cli",
+      "current": "5.1.4",
+      "latest": "7.2.2",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    },
+    {
+      "package": "webpack-dev-server",
+      "current": "5.2.6",
+      "latest": "6.0.0",
+      "source": "direct",
+      "riskTier": 4,
+      "packages": [
+        "@shared/aries-core"
+      ],
+      "status": "pending"
+    }
+  ]
+}

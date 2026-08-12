@@ -8,7 +8,7 @@ onlyBuiltDependencies:
 catalog:
   '@babel/preset-react': ^7.28.5
   '@hpe-design/icons-grommet': ^1.1.0
-  '@types/node': ^20.4.5
+  '@types/node': ^26.2.0
   '@types/react': ^19.1.10
   '@types/react-dom': ^19.1.7
   eslint: ^9.39.1

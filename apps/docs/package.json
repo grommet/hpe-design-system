@@ -46,7 +46,7 @@
     "validate:structure": "vitest run src/data/__tests__/structure.validation.test.ts --testNamePattern=\"Build-time Validation\""
   },
   "devDependencies": {
-    "@applitools/eyes-testcafe": "1.17.4",
+    "@applitools/eyes-testcafe": "^6.4.1",
     "@testing-library/testcafe": "^5.0.1",
     "@types/react": "catalog:",
     "@vitejs/plugin-react": "^5.1.4",
