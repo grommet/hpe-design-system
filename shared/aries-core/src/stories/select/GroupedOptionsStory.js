@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Select, Text, ThemeContext } from 'grommet';
+import { hpe as hpeTheme } from 'grommet-theme-hpe';
 import { focusFirstSelectableOption } from '../../js/components/core/SelectOption/focusFirstSelectableOption';
 import { allOptions, buildGroupedOptions } from './shared';
 import GroupedOptionsStorySource from './GroupedOptionsStory.js?raw';
+
+const HPE_OPTION_PAD = hpeTheme?.button?.size?.medium?.option?.pad;
 
 const transparentDisabledOptionTheme = {
   button: {
     disabled: {
       option: {
         background: 'transparent',
+        pad: 'none',
       },
     },
   },
@@ -16,14 +20,31 @@ const transparentDisabledOptionTheme = {
 
 const GroupedOptionsExample = () => {
   const [value, setValue] = useState('');
+  const theme = useContext(ThemeContext);
+  const optionPad = theme?.button?.size?.medium?.option?.pad || HPE_OPTION_PAD;
   const groupedOptions = buildGroupedOptions(allOptions);
 
   const renderOptionLabel = option => {
     if (option.isGroupLabel)
       return (
-        <Text size="xsmall" weight="bold" color="text-strong">
-          {option.label}
-        </Text>
+        <Box
+          role="presentation"
+          pad={{
+            top: 'xxsmall',
+            bottom: '5xsmall',
+            left: optionPad?.left || optionPad?.horizontal,
+          }}
+        >
+          <Text
+            size="xsmall"
+            weight="bold"
+            color="text-strong"
+            role="heading"
+            aria-level={3}
+          >
+            {option.label}
+          </Text>
+        </Box>
       );
 
     return option.label;
