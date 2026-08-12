@@ -17,7 +17,7 @@
     "@eslint/js": "catalog:",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
-    "concurrently": "^9.2.1",
+    "concurrently": "^10.0.4",
     "eslint": "catalog:",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "catalog:",
