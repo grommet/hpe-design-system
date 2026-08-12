@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 echo "..Running design token checks"
 pnpm --filter hpe-design-tokens run test
 pnpm --filter hpe-design-tokens run paddingY:verify
