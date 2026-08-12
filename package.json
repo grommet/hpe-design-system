@@ -30,7 +30,7 @@
     "eslint-plugin-react-hooks": "catalog:",
     "globals": "catalog:",
     "husky": "^8.0.0",
-    "jest": "^27.5.1",
+    "jest": "^30.4.2",
     "prettier": "catalog:",
     "tsx": "^4.23.12",
     "typescript": "catalog:",
