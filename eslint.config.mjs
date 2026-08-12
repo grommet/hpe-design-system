@@ -1,11 +1,7 @@
 import { defineConfig } from 'eslint/config';
 import babelParser from '@babel/eslint-parser';
-import react from 'eslint-plugin-react';
-import jsx from 'eslint-plugin-jsx';
-import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
-import prettier from 'eslint-plugin-prettier';
-import { fixupPluginRules } from '@eslint/compat';
+import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
 import globals from 'globals';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
@@ -54,19 +50,17 @@ export default defineConfig([
       },
     },
 
-    extends: compat.extends(
-      'airbnb',
-      'plugin:jsx-a11y/recommended',
-      'plugin:grommet/recommended',
-      'prettier',
+    extends: fixupConfigRules(
+      compat.extends(
+        'airbnb',
+        'plugin:jsx-a11y/recommended',
+        'plugin:grommet/recommended',
+        'prettier',
+      ),
     ),
 
     plugins: {
-      react,
-      jsx,
-      'jsx-a11y': jsxA11Y,
       'react-hooks': fixupPluginRules(reactHooks),
-      prettier,
     },
 
     rules: {
