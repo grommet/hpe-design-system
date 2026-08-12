@@ -141,6 +141,9 @@ function main() {
     roots.forEach(root => collectFiles(root, files));
   }
 
+  // readdirSync order is OS/filesystem-dependent; sort for stable output.
+  files.sort();
+
   const nonCompliant = [];
   files.forEach(file => {
     const content = fs.readFileSync(file, 'utf8');
