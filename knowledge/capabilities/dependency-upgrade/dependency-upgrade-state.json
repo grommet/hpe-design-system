@@ -550,7 +550,15 @@
       "packages": [
         "docs"
       ],
-      "status": "pending"
+      "status": "pending",
+      "deferred": {
+        "reason": "@vitest/ui@4.1.10 requires vitest@4.1.10, and vitest@4 requires vite >=6 while docs currently pins vite ^5.4.21.",
+        "blockedBy": [
+          "vite major upgrade in docs",
+          "vitest major upgrade in docs"
+        ],
+        "note": "Revisit after vite and vitest major upgrades are executed for docs."
+      }
     },
     {
       "package": "babel-loader",
@@ -583,7 +591,48 @@
       "packages": [
         "aries"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "10.0.4",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/open-cli-tools/concurrently/releases",
+        "breakingChanges": [
+          {
+            "description": "Node.js >=22 is required.",
+            "applies": true,
+            "requiredChange": "No code changes required; environment already runs Node 24."
+          }
+        ],
+        "filesToChange": [
+          {
+            "file": "package.json",
+            "change": "Bump concurrently from ^9.2.1 to ^10.0.4 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm exec concurrently --version",
+          "pnpm exec concurrently --raw \"echo one\" \"echo two\""
+        ],
+        "risks": [
+          "CLI flag behavior changes could affect root dev:* scripts using concurrently."
+        ]
+      },
+      "modifiedFiles": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedChecks": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm exec concurrently --version",
+          "pnpm exec concurrently --raw \"echo one\" \"echo two\""
+        ]
+      }
     },
     {
       "package": "del",
@@ -606,7 +655,55 @@
       "packages": [
         "hpe-design-tokens"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "17.4.2",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md",
+        "breakingChanges": [
+          {
+            "description": "Major version bump can alter parsing/runtime defaults for environment loading.",
+            "applies": true,
+            "requiredChange": "No code change expected because usage is import 'dotenv/config'; validate token scripts via tests/build."
+          }
+        ],
+        "compatibility": [
+          "dotenv@17 supports Node >=12; current runtime Node 24 is compatible."
+        ],
+        "filesToChange": [
+          {
+            "file": "packages/hpe-design-tokens/package.json",
+            "change": "Bump dotenv from ^16.3.1 to ^17.4.2 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build"
+        ],
+        "risks": [
+          "Unexpected env parsing changes could affect token sync scripts."
+        ]
+      },
+      "modifiedFiles": [
+        "packages/hpe-design-tokens/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter hpe-design-tokens test",
+          "pnpm --filter hpe-design-tokens build"
+        ],
+        "notes": [
+          "hpe-design-tokens build emits existing Style Dictionary filtered-reference warnings; build succeeded."
+        ]
+      }
     },
     {
       "package": "dotenv",
@@ -617,7 +714,56 @@
       "packages": [
         "@shared/aries-core"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "17.4.2",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md",
+        "breakingChanges": [
+          {
+            "description": "Jump from 8.x to 17.x can introduce behavior changes in environment loading/parsing.",
+            "applies": true,
+            "requiredChange": "No code change expected for dotenv.config() usage in tooling script; validate with workspace test/build."
+          }
+        ],
+        "compatibility": [
+          "dotenv@17 supports Node >=12; current runtime Node 24 is compatible."
+        ],
+        "filesToChange": [
+          {
+            "file": "shared/aries-core/package.json",
+            "change": "Bump dotenv from ^8.2.0 to ^17.4.2 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "risks": [
+          "If release tooling depends on old dotenv edge behavior, env parsing may differ."
+        ]
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "aries-core tests include existing jsdom navigation not-implemented console noise; suite passes unchanged.",
+          "aries-core webpack build completed with existing bundle-size warnings only."
+        ]
+      }
     },
     {
       "package": "eslint",
@@ -646,7 +792,54 @@
       "packages": [
         "aries"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "9.1.7",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/typicode/husky/releases",
+        "breakingChanges": [
+          {
+            "description": "Major-line changes around bootstrap conventions can affect hook initialization behavior.",
+            "applies": true,
+            "requiredChange": "Keep existing .husky setup and verify prepare script still installs hooks."
+          }
+        ],
+        "compatibility": [
+          "husky@9 requires Node >=18, satisfied by current Node 24 runtime."
+        ],
+        "filesToChange": [
+          {
+            "file": "package.json",
+            "change": "Bump husky from ^8.0.0 to ^9.1.7 in devDependencies and migrate prepare script from 'husky install' to 'husky'."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm run prepare",
+          "pnpm exec husky --version"
+        ],
+        "risks": [
+          "If upstream CLI behavior changed, prepare script may need adjustment."
+        ]
+      },
+      "modifiedFiles": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedChecks": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm run prepare",
+          "pnpm exec husky"
+        ],
+        "notes": [
+          "prepare script migrated from 'husky install' to 'husky' to remove v9 deprecation warning."
+        ]
+      }
     },
     {
       "package": "jest",

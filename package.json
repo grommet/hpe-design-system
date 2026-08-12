@@ -17,7 +17,7 @@
     "@eslint/js": "catalog:",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
-    "concurrently": "^9.2.1",
+    "concurrently": "^10.0.4",
     "eslint": "catalog:",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "catalog:",
@@ -29,7 +29,7 @@
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "globals": "catalog:",
-    "husky": "^8.0.0",
+    "husky": "^9.1.7",
     "jest": "^27.5.1",
     "prettier": "catalog:",
     "tsx": "^4.21.0",
@@ -45,7 +45,7 @@
     "styled-components": "catalog:"
   },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint --cache",
     "validate:capability-manifests": "node scripts/validate-capability-manifests.mjs",
