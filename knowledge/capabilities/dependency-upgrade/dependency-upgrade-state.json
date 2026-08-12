@@ -973,7 +973,60 @@
       "packages": [
         "aries"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "30.4.2",
+        "riskTier": 1,
+        "migrationGuide": "https://jestjs.io/docs/upgrading-to-jest30",
+        "breakingChanges": [
+          {
+            "description": "Jest major updates can affect default environment packaging, transform behavior, and config validation.",
+            "applies": true,
+            "requiredChange": "Upgrade root jest and run aries-core tests that consume root jest binary; apply companion env package if required by failures."
+          }
+        ],
+        "compatibility": [
+          "jest@30.4.2 supports Node ^18.14 || ^20 || ^22 || >=24."
+        ],
+        "filesToChange": [
+          {
+            "file": "package.json",
+            "change": "Bump jest from ^27.5.1 to ^30.4.2 in devDependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test"
+        ],
+        "risks": [
+          "Existing Babel/JSDOM test setup may require additional dependency/config changes under Jest 30."
+        ]
+      },
+      "modifiedFiles": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [
+        "package.json"
+      ],
+      "verification": {
+        "iteration": 2,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "targetedTests": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter @shared/aries-core test",
+          "pnpm --filter @shared/aries-core build"
+        ],
+        "notes": [
+          "Initial Jest 30 test run failed because jest-environment-jsdom is no longer bundled.",
+          "Added jest-environment-jsdom@^30.4.1 (30.4.2 was not published) to restore jsdom test environment.",
+          "aries-core tests pass unchanged with existing jsdom navigation console noise."
+        ]
+      }
     },
     {
       "package": "jsdom",
@@ -985,7 +1038,14 @@
         "docs",
         "@shared/hooks"
       ],
-      "status": "pending"
+      "status": "pending",
+      "deferred": {
+        "reason": "jsdom@30.0.1 requires Node ^22.22.2 || ^24.15.0 || >=26.0.0, while current local runtime is Node 23.11.0.",
+        "blockedBy": [
+          "local runtime below required Node range for reliable verification"
+        ],
+        "note": "CI workflows already run on Node 24.15.0; resume this upgrade in a Node 24.15+ local environment to execute verification commands confidently."
+      }
     },
     {
       "package": "next",
@@ -1007,7 +1067,53 @@
       "packages": [
         "docs"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "3.3.1",
+        "riskTier": 1,
+        "migrationGuide": "https://github.com/react-ga/react-ga",
+        "breakingChanges": [
+          {
+            "description": "Major bump may include analytics API/runtime behavior changes.",
+            "applies": true,
+            "requiredChange": "Current usage (initialize/pageview) remains supported; verify docs build and import usage."
+          }
+        ],
+        "compatibility": [
+          "react-ga@3.3.1 peer dependency range ends at React 18; repo currently already accepts this peer mismatch for docs on React 19."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/docs/package.json",
+            "change": "Bump react-ga from ^2.7.0 to ^3.3.1 in dependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs build"
+        ],
+        "risks": [
+          "Analytics behavior changes are runtime-only and may require manual GA validation outside local build checks."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter docs build"
+        ],
+        "notes": [
+          "react-ga remains a known React peer mismatch on React 19 (existing repo posture); install and docs build succeed.",
+          "Analytics runtime semantics require manual QA in deployed docs environment."
+        ]
+      }
     },
     {
       "package": "react-router-dom",
@@ -1018,7 +1124,52 @@
       "packages": [
         "design-tokens-manager"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "7.18.2",
+        "riskTier": 1,
+        "migrationGuide": "https://reactrouter.com/en/main/upgrading/v6",
+        "breakingChanges": [
+          {
+            "description": "Router internals and data APIs changed significantly across major versions.",
+            "applies": true,
+            "requiredChange": "Current app uses BrowserRouter + Routes + Route + Link APIs that remain available; verify TypeScript build for any typing/runtime shifts."
+          }
+        ],
+        "compatibility": [
+          "react-router-dom@7.18.2 requires React >=18 and Node >=20, satisfied by this workspace."
+        ],
+        "filesToChange": [
+          {
+            "file": "apps/design-tokens-manager/package.json",
+            "change": "Bump react-router-dom from ^6.28.0 to ^7.18.2 in dependencies."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager build"
+        ],
+        "risks": [
+          "Any hidden reliance on v6-only behavior in navigation/history semantics may surface at runtime."
+        ]
+      },
+      "modifiedFiles": [
+        "apps/design-tokens-manager/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter design-tokens-manager build"
+        ],
+        "notes": [
+          "Build succeeded; Vite reported existing large chunk warnings only."
+        ]
+      }
     },
     {
       "package": "react-syntax-highlighter",
@@ -1179,7 +1330,65 @@
       "packages": [
         "tailwind-app"
       ],
-      "status": "pending"
+      "status": "complete",
+      "plan": {
+        "target": "4.3.3",
+        "riskTier": 1,
+        "migrationGuide": "https://tailwindcss.com/docs/upgrade-guide",
+        "breakingChanges": [
+          {
+            "description": "Tailwind v4 moves PostCSS integration to @tailwindcss/postcss and changes recommended CSS entry syntax.",
+            "applies": true,
+            "requiredChange": "Upgrade tailwindcss, add @tailwindcss/postcss, update postcss config plugin key, and switch CSS directives to @import 'tailwindcss'."
+          }
+        ],
+        "filesToChange": [
+          {
+            "file": "sandbox/tailwind-app/package.json",
+            "change": "Bump tailwindcss from ^3.4.3 to ^4.3.3 and add @tailwindcss/postcss@^4.3.3."
+          },
+          {
+            "file": "sandbox/tailwind-app/postcss.config.js",
+            "change": "Replace tailwindcss plugin with @tailwindcss/postcss."
+          },
+          {
+            "file": "sandbox/tailwind-app/src/index.css",
+            "change": "Replace @tailwind base/components/utilities directives with @import 'tailwindcss'."
+          },
+          {
+            "file": "sandbox/tailwind-app/tailwind.config.js",
+            "change": "Remove deprecated mode: 'jit' option."
+          }
+        ],
+        "suggestedVerification": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter tailwind-app build"
+        ],
+        "risks": [
+          "Utility class generation and theme extension behavior may differ under Tailwind v4."
+        ]
+      },
+      "modifiedFiles": [
+        "sandbox/tailwind-app/package.json",
+        "sandbox/tailwind-app/postcss.config.js",
+        "sandbox/tailwind-app/src/index.css",
+        "sandbox/tailwind-app/tailwind.config.js",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verification": {
+        "iteration": 1,
+        "fullBuild": "not-run",
+        "targetedBuild": "passed",
+        "commands": [
+          "pnpm install --no-frozen-lockfile",
+          "pnpm --filter tailwind-app build"
+        ],
+        "notes": [
+          "Applied minimal Tailwind v4 migration: @tailwindcss/postcss plugin and @import 'tailwindcss' CSS entry.",
+          "tailwind-app production build succeeds on v4."
+        ]
+      }
     },
     {
       "package": "typescript",
