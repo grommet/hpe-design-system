@@ -9,7 +9,7 @@ spec:
   summary: Automates major version dependency upgrades for the HPE Design System monorepo with research, apply, verify, and rollback steps.
   entrypoint:
     agent: dependency-upgrade-orchestrator
-    args: "[package-name]"
+    args: '[package-name]'
   dependencies:
     data:
       - path: pnpm-workspace.yaml
@@ -40,6 +40,6 @@ spec:
       - docs/RISK_TIERS.md
   stages:
     - id: scanned
-      when: "exists(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json)"
+      when: 'exists(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json)'
     - id: upgrade-in-progress
-      when: "exists(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json) && file_contains(dependency-upgrade-state.json, 'in-progress')"
+      when: "exists(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json) && match_entry(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json, /\"status\":\\s*\"in-progress\"/)"
