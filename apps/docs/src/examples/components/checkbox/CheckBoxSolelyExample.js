@@ -62,7 +62,6 @@ export const CheckBoxSolelyExample = () => {
             label="Create account"
             primary
             type="submit"
-            disabled={!checked}
           />
         </Box>
       </Form>
