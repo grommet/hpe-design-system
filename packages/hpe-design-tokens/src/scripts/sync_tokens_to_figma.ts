@@ -33,6 +33,11 @@ import {
   normalizeAliasReference,
   readJsonFiles,
 } from '../token_import.js';
+import {
+  StagePlanReport,
+  buildStagePlanReport,
+  parsePlanStageFilterValue,
+} from '../sync_plan_report.js';
 
 // This script pushes design tokens from JSON files to Figma design files
 
@@ -191,6 +196,28 @@ function getSummaryEnvironment(argv: string[]): SyncEnvironment {
   return getCliArgValue(argv, '--env') === 'test' ? 'test' : 'production';
 }
 
+function writePlanReportFile(
+  outputPath: string,
+  report: {
+    schemaVersion: string;
+    eventType: 'planned-stage-diff';
+    runId: string;
+    environment: SyncEnvironment;
+    dryRun: boolean;
+    startedAt: string;
+    finishedAt: string;
+    stages: StagePlanReport[];
+  },
+) {
+  const absoluteOutputPath = path.isAbsolute(outputPath)
+    ? outputPath
+    : path.resolve(process.cwd(), outputPath);
+
+  fs.mkdirSync(path.dirname(absoluteOutputPath), { recursive: true });
+  fs.writeFileSync(absoluteOutputPath, `${JSON.stringify(report, null, 2)}\n`);
+  console.log(`Wrote planned stage diff report: ${absoluteOutputPath}`);
+}
+
 async function main() {
   const argv = process.argv.slice(2);
   const runId = makeRunId();
@@ -199,12 +226,50 @@ async function main() {
   const runErrors: SyncError[] = [];
   const summaryEnvironment = getSummaryEnvironment(argv);
   const dryRun = argv.includes('--dry-run');
-  let config;
+  const verbosePlan = argv.includes('--verbose-plan');
+  const writePlanPath = getCliArgValue(argv, '--write-plan');
+  if (writePlanPath && !dryRun) {
+    console.log(
+      // eslint-disable-next-line max-len
+      'Info: --write-plan is enabled for a mutating run. The written planned-stage-diff is a plan artifact; check run-summary.mutationsApplied to confirm applied writes.',
+    );
+  }
   const fallbackStageResults = FILE_TIERS.map(stage => ({
     stage,
     status: 'skipped' as const,
     counts: emptyCounts(),
   }));
+
+  let planStagesFilter: ReturnType<typeof parsePlanStageFilterValue>;
+  try {
+    planStagesFilter = parsePlanStageFilterValue(
+      getCliArgValue(argv, '--plan-stage'),
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    runErrors.push({
+      code: 'INVALID_CLI_ARGS',
+      message,
+      environment: summaryEnvironment,
+      remediation: 'Provide a valid --plan-stage value and retry.',
+    });
+    emitRunSummary({
+      runId,
+      environment: summaryEnvironment,
+      dryRun,
+      productionGuardrailPassed: false,
+      mutationsApplied: false,
+      unresolvedAliasCount: 0,
+      stages: fallbackStageResults,
+      errors: withRequiredErrorFields(runErrors, summaryEnvironment),
+      startedAt: runStartedAt,
+      finishedAt: new Date().toISOString(),
+    });
+    throw error;
+  }
+
+  const stagePlanReports: StagePlanReport[] = [];
+  let config;
 
   try {
     config = resolveFigmaSyncConfig();
@@ -447,6 +512,15 @@ async function main() {
 
       const counts = countsFromPostPayload(postVariablesPayload);
       const stageHasMutations = hasMutations(counts);
+      const stagePlanReport = stageHasMutations
+        ? buildStagePlanReport(stage, postVariablesPayload, localVariables)
+        : null;
+      const includePlanForStage =
+        !planStagesFilter || planStagesFilter.includes(stage);
+
+      if (stagePlanReport && includePlanForStage) {
+        stagePlanReports.push(stagePlanReport);
+      }
 
       if (!stageHasMutations) {
         console.log(
@@ -460,6 +534,10 @@ async function main() {
             `✅ Dry run: "${stage}" has planned updates, no mutations applied`,
           ),
         );
+
+        if (verbosePlan && stagePlanReport && includePlanForStage) {
+          console.log(JSON.stringify(stagePlanReport, null, 2));
+        }
       } else {
         const apiResp = await api.postVariables(
           fileKeys[stage],
@@ -537,6 +615,19 @@ async function main() {
         stageResults.push({ stage: remainingStage, status: 'skipped', counts });
       });
 
+      if (writePlanPath) {
+        writePlanReportFile(writePlanPath, {
+          schemaVersion: SCHEMA_VERSION,
+          eventType: 'planned-stage-diff',
+          runId,
+          environment: config.env,
+          dryRun: config.dryRun,
+          startedAt: runStartedAt,
+          finishedAt: new Date().toISOString(),
+          stages: stagePlanReports,
+        });
+      }
+
       emitRunSummary({
         runId,
         environment: config.env,
@@ -555,6 +646,19 @@ async function main() {
       throw error;
     }
   }, Promise.resolve());
+
+  if (writePlanPath) {
+    writePlanReportFile(writePlanPath, {
+      schemaVersion: SCHEMA_VERSION,
+      eventType: 'planned-stage-diff',
+      runId,
+      environment: config.env,
+      dryRun: config.dryRun,
+      startedAt: runStartedAt,
+      finishedAt: new Date().toISOString(),
+      stages: stagePlanReports,
+    });
+  }
 
   emitRunSummary({
     runId,
