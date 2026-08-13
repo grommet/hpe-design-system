@@ -4,23 +4,26 @@ Review completed during extract-yaml-agent run (Stage 0 → 1) and updated by cr
 
 ## Content mapping table
 
-| Original section | Original content (excerpt) | Status | New location (if restructured) |
-|---|---|---|---|
-| `## Guidance` (intro prose) | "CheckBox can be used to present an individual option or group of options…" | Restructured | `usage.whenToUse` in YAML; expanded as use case descriptions in `## Use Cases` |
-| `### Usage` — state list | "Unchecked / Checked / Indeterminate" bulleted state descriptions | Restructured | `behaviors.applicationStates` in YAML; `## Behaviors and States → Application States` in MDX |
-| `### Usage` — RadioButtonGroup counter-indication | "CheckBox should not be used if a user should only be allowed to select one option…" | Restructured | `usage.whenToAvoid` in YAML; `## Dos and Don'ts` pair (partially covered) |
-| `### CheckBox outside of FormField` — 4-item numbered list | Standalone use cases for opt-in, UI control, table selection | Restructured | Merged into `## Use Cases` subheadings (Showing or hiding content, Opting in, Selecting items) |
-| `### Toggle` — 3 bullet points | Toggle usage guidance, reverse prop note | Restructured | `## Variants → Toggle` description in new MDX |
-| Variants intro paragraph | "CheckBox can be used individually, within a group, or as a toggle…" | Dropped | Introductory framing not needed in the new template; covered by use cases |
-| `### Validation` (Variants subsection) | Validation variant with example | Restructured | Moved to `## Behaviors and States → Application States` (validation error state) |
-| `### Disabled` (Variants subsection) | Disabled variant with example | Restructured | Moved to `## Behaviors and States → Application States` (disabled state) |
-| Playground `<Example>` metadata links (see previous entries) | `docs`, `figma`, `designer`, `grommetSource` URL props | Preserved | Carried forward verbatim into the new MDX playground `<Example>` block |
+| Original section | Original content (excerpt) | Status | New location (if restructured) | Metadata |
+|---|---|---|---|---|
+| `## Guidance` (intro prose) | "CheckBox can be used to present an individual option or group of options…" | Restructured | `usage.whenToUse` in YAML; expanded as use case descriptions in `## Use Cases` | Status: Confirmed<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes: |
+| `### Usage` — state list | "Unchecked / Checked / Indeterminate" bulleted state descriptions | Restructured | `behaviors.applicationStates` in YAML; `## Behaviors and States → Application States` in MDX | Status: Confirmed<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes: |
+| `### Usage` — RadioButtonGroup counter-indication | "CheckBox should not be used if a user should only be allowed to select one option…" | Restructured | `usage.whenToAvoid` in YAML; `## Dos and Don'ts` pair (partially covered) | Status: Not confirmed<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:This detail is confirmed in the YAML but does not translate to the guidance. ACTION ITEM: Make sure we have that represented.|
+| `### CheckBox outside of FormField` — 4-item numbered list | Standalone use cases for opt-in, UI control, table selection | Restructured | Merged into `## Use Cases` subheadings (Showing or hiding content, Opting in, Selecting items) | Status: Confirmed<br />Name:Julia ML<br />Date:13 Aug <br />Notes: |
+| `### Toggle` — 3 bullet points | Toggle usage guidance, reverse prop note | Restructured | `## Variants → Toggle` description in new MDX | Status: Confirmed<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes: |
+| Variants intro paragraph | "CheckBox can be used individually, within a group, or as a toggle…" | Dropped | Introductory framing not needed in the new template; covered by use cases | Status: Confirmed/agreed<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes: |
+| `### Validation` (Variants subsection) | Validation variant with example | Restructured | Moved to `## Behaviors and States → Application States` (validation error state) | Status: Confimerd<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes: |
+| `### Disabled` (Variants subsection) | Disabled variant with example | Restructured | Moved to `## Behaviors and States → Application States` (disabled state) | Status: Confirmed<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes: |
+| Playground `<Example>` metadata links (see previous entries) | `docs`, `figma`, `designer`, `grommetSource` URL props | Preserved | Carried forward verbatim into the new MDX playground `<Example>` block | Status: Confirmed<br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes: |
 
 ## Notes
 
 - The original MDX had no `## Dos and Don'ts` section and no anatomy section. Both were inferred and generated from scratch.
+ > Status:Confirmed/agreed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:
 - The `## Guidance` section has been fully decomposed: its use-case content became `## Use Cases`, its counter-indications became `## Dos and Don'ts`, and its state descriptions became `## Behaviors and States`.
+ > Status:Confirmed/agreed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:
 - No content appears to have been accidentally dropped. All substantive guidance from the original has been mapped to a section in the new MDX or to the YAML.
+ > Status:Not confirmed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:The rule "Do not use CheckBox when only one option may be selected from a list — use RadioButtonGroup instead." does not appear in the mdx file.
 
 ### 1. Example component metadata links
 
@@ -37,6 +40,8 @@ grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/
 
 **Recommendation:** These URLs should be preserved in the generated MDX template's `<Example>` props or in a separate `links` field if the schema is extended. Review whether the template handles them automatically from a known convention.
 
+ > Status: <br />Name:<br />Date:<br />Notes:
+
 ### 2. Per-variant Example `code` URL and `height` props
 
 **Original content:**
@@ -51,3 +56,5 @@ grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/
 **Why it didn't map:** The `examples` array in `ComponentDefinition` maps to a `path:` reference only; it doesn't carry variant-level `height` or `docs` URL overrides.
 
 **Recommendation:** The `generate-mdx-agent` should reinstate these props when constructing `<Example>` blocks in the generated MDX. Confirm the template handles `height` for the toggle, validation, and disabled variants.
+
+> Status: <br />Name:<br />Date:<br />Notes:
