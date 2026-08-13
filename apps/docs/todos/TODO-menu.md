@@ -5,9 +5,13 @@
 None identified. All use case and variant examples are implemented:
 `MenuExample`, `MenuHeaderExample`, `MenuBatchActionsExample`, `MenuRecordActionsExample`, `MenuDefaultExample`, `MenuIconExample`, `MenuToolbarExample`, `MenuDisabledExample`.
 
+> Status:No action required <br />Name:Julia ML <br />Date: 13 Aug 2026 <br />Notes: AI forgot to mention `MenuKindExample` and `MenuDividerExample`
+
 ## Missing do/don't previews
 
 None identified. All four `<BestPracticeGroup>` pairs have rendered example components: `MenuSelectValueExample`, `MenuGroupingExample`, `MenuDangerousExample`, `MenuItemCountExample`.
+
+> Status:No action required <br />Name:Julia ML <br />Date: 13 Aug 2026 <br />Notes:
 
 ## Missing props documentation
 
@@ -24,6 +28,8 @@ The `props` array in `knowledge/core/data/components/menu.yaml` was inferred rat
 - `alignSelf`, `gridArea`, `margin` — standard Box layout props available on the trigger
 
 **Reference:** [Grommet Menu source](https://github.com/grommet/grommet/blob/master/src/js/components/Menu/Menu.js) and [live Grommet docs](https://v2.grommet.io/menu?theme=hpe#props).
+
+> Status:Needs follow on <br />Name:Julia ML <br />Date: 13 Aug 2026 <br />Notes: See extensive notes below.
 
 ### Undocumented Button prop passthrough (`MenuExtendedProps`)
 
@@ -65,12 +71,24 @@ button only or also the control-mirror / per-item buttons.
 
 None identified. Interactive states (rest, hover, focus, active) and application state (disabled) are all captured in `knowledge/core/data/components/menu.yaml` and documented in the new MDX.
 
+> Status:No action required <br />Name:Julia ML <br />Date: 13 Aug 2026 <br />Notes:
+
 ## Missing visual assets
 
 None identified. `MenuAnatomy.js` exists at `apps/docs/src/examples/components/menu/MenuAnatomy.js` and is imported and rendered in the Anatomy section.
+
+> Status:No action required <br />Name:Julia ML <br />Date: 13 Aug 2026 <br />Notes:
 
 ## Other gaps
 
 1. **Props verification (action required before merge):** Cross-check the full `props` array in `knowledge/core/data/components/menu.yaml` against the Grommet source and live docs. Add any missing props listed above; remove any that are incorrect.
 
+> Status:Open <br />Name: <br />Date: <br />Notes:
+
 2. **SEO description not updated:** The `seoDescription` field in `apps/docs/src/data/structures/components.tsx` for Menu was not updated as part of this refactor. Consider deriving a better SEO description from the finalized `description` value in the YAML.
+
+> Status:Open <br />Name: <br />Date: <br />Notes:
+
+3. **Review deprected file:** The deprecated file should e reviewed to make sure important information was not missed or misinterpreted by AI.
+
+> Status:In progress <br />Name: Julia and Sulaymon <br />Date: 13 Aug 2026 <br />Notes:

@@ -28,21 +28,21 @@ Comparison of `apps/docs/src/pages/components/menu.mdx.bak` (original) against `
 
 - **All substantive content was preserved or intentionally restructured.** No HPE-specific guidance, WCAG criteria, anatomy labels, or do/don't content was lost.
 
-    Status:Confirmed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:
+    > Status:Confirmed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:
 
 - The "Common groupings" section (Configuring / Executing / Transferring) is fully present in the new MDX under `Behaviors and states → General behaviors → Organizing menu items → Common groupings in HPE applications`.
 
-    Status:Confirmed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:
+    > Status:Confirmed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:
     
 - The `generate-mdx-agent` correctly reconstructed `<BestPracticeGroup>` / `<Example bestPractice>` / `<Box height>` wrappers for all four do/don't pairs.
 
-    Status: <br />Name:<br />Date:<br />Notes:
+   > Status: <br />Name:<br />Date:<br />Notes:
     
 - `<AccessibilitySection title="menu" />` is preserved; the YAML `accessibility.wcagDataFile: menu` correctly points to it.
 
-    Status: <br />Name:<br />Date:<br />Notes:
+    > Status: <br />Name:<br />Date:<br />Notes:
     
 - **Remaining schema gap:** `ComponentDefinition` has no `seoDescription` field. The `seoDescription` in `apps/docs/src/data/structures/components.tsx` (`"Menu contains a list of actions. See some best UX practices ."`) was not updated. See `TODO-menu.md → Other gaps` for follow-up action.
 
-    Status: To be followed on in TODO<br />Name:<br />Date:<br />Notes:
+    > Status: To be followed on in TODO<br />Name:<br />Date:<br />Notes:
     
