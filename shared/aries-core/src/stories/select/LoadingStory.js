@@ -2,8 +2,9 @@ import React from 'react';
 import { LoadingExample } from './LoadingExample';
 import LoadingExampleSource from './LoadingExample.js?raw';
 import SharedSource from './shared.js?raw';
+import SelectLoadingPlaceholderSource from '../../js/components/core/Select/components/SelectLoadingPlaceholder.js?raw';
 
-const LoadingDocsSource = `${LoadingExampleSource}\n\n// shared.js\n${SharedSource}`;
+const LoadingDocsSource = `${LoadingExampleSource}\n\n// SelectLoadingPlaceholder.js\n${SelectLoadingPlaceholderSource}\n\n// shared.js\n${SharedSource}`;
 
 const Loading = {
   name: 'Loading options',

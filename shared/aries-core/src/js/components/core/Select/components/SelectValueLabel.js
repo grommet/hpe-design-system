@@ -1,9 +1,7 @@
 import React from 'react';
 import { Box, Text, ThemeContext } from 'grommet';
-import { hpe as hpeTheme } from 'grommet-theme-hpe';
 import { Cpu } from '@hpe-design/icons-grommet';
-
-const HPE_OPTION_PAD = hpeTheme?.button?.size?.medium?.option?.pad;
+import { resolveOptionPad } from '../utils';
 
 const SelectValueLabel = ({
   option,
@@ -16,9 +14,7 @@ const SelectValueLabel = ({
   ...rest
 }) => {
   const theme = React.useContext(ThemeContext);
-  const pad = optionPad ||
-    theme?.button?.size?.medium?.option?.pad ||
-    HPE_OPTION_PAD || { horizontal: 'small', vertical: 'xsmall' };
+  const pad = resolveOptionPad(theme, optionPad);
 
   let content;
 

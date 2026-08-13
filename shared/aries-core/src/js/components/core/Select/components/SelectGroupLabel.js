@@ -1,14 +1,10 @@
 import React from 'react';
 import { Box, Text, ThemeContext } from 'grommet';
-import { hpe as hpeTheme } from 'grommet-theme-hpe';
+import { resolveOptionPad } from '../utils';
 
-const HPE_OPTION_PAD = hpeTheme?.button?.size?.medium?.option?.pad;
-
-const SelectGroupLabel = ({ label, optionPad }) => {
+const SelectGroupLabel = ({ label }) => {
   const theme = React.useContext(ThemeContext);
-  const pad = optionPad ||
-    theme?.button?.size?.medium?.option?.pad ||
-    HPE_OPTION_PAD || { horizontal: 'small', vertical: 'xsmall' };
+  const pad = resolveOptionPad(theme);
 
   return (
     <Box

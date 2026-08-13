@@ -15,10 +15,6 @@ const CustomOptionsExample = () => {
     <SelectOptionLabel icon={Cpu} label={option.label} />
   );
 
-  const renderValueLabel = option => (
-    <SelectValueLabel option={option} placeholder="Select a service" />
-  );
-
   return (
     <Box fill align="center" justify="start" pad="large">
       <Select
@@ -28,7 +24,9 @@ const CustomOptionsExample = () => {
         value={value}
         labelKey={renderOptionLabel}
         valueKey={{ key: 'value', reduce: true }}
-        valueLabel={renderValueLabel(selected)}
+        valueLabel={
+          <SelectValueLabel option={selected} placeholder="Select a service" />
+        }
         onChange={({ value: nextValue }) => setValue(nextValue)}
       />
     </Box>
