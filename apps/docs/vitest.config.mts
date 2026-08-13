@@ -1,12 +1,12 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { defineConfig } from 'vitest/config';
-import { transformWithEsbuild } from 'vite';
+import { transformWithOxc } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
@@ -18,17 +18,16 @@ export default defineConfig({
       name: 'treat-js-files-as-jsx',
       async transform(code, id) {
         if (!id.includes('node_modules') && id.endsWith('.js')) {
-          return transformWithEsbuild(code, id, {
-            loader: 'jsx',
-            jsx: 'automatic',
-            jsxImportSource: 'react',
+          return transformWithOxc(code, id, {
+            lang: 'jsx',
+            jsx: { runtime: 'automatic', importSource: 'react' },
           });
         }
+        return undefined;
       },
     },
-    react({
-      include: [/\.[jt]sx?$/],
-    }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    react({ include: [/\.[jt]sx?$/] }) as any,
   ],
   test: {
     globals: true,
@@ -37,7 +36,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@shared/aries-core': path.resolve(
-        __dirname,
+        dirname,
         '../../shared/aries-core/src/js',
       ),
     },
