@@ -6,4 +6,4 @@ export * from './Tile';
 export * from './Tiles';
 export * from './ScreenReaderOnly/index.ts';
 export * from './Selector';
-export * from './SelectOption';
+export * from './Select';
