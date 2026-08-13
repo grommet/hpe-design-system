@@ -1,14 +1,13 @@
 import React from 'react';
 import { Box, Text, ThemeContext } from 'grommet';
-import { Cpu } from '@hpe-design/icons-grommet';
 import { resolveOptionPad } from '../utils';
 
 const SelectValueLabel = ({
   option,
   placeholder = 'Select a service',
-  placeholderIcon: PlaceholderIcon = Cpu,
+  placeholderIcon: PlaceholderIcon = null,
   placeholderIconColor = 'text-weak',
-  selectedIcon: SelectedIcon = Cpu,
+  selectedIcon: SelectedIcon = null,
   selectedIconColor,
   optionPad,
   ...rest
@@ -28,7 +27,7 @@ const SelectValueLabel = ({
       </>
     );
   } else {
-    const Icon = option.icon;
+    const TrailingIcon = option.icon;
 
     content = (
       <>
@@ -38,7 +37,9 @@ const SelectValueLabel = ({
           ) : null}
           <Text>{option.label}</Text>
         </Box>
-        {Icon ? <Icon size="small" color={option.iconColor} /> : null}
+        {TrailingIcon ? (
+          <TrailingIcon size="small" color={option.iconColor} />
+        ) : null}
       </>
     );
   }
@@ -49,8 +50,8 @@ const SelectValueLabel = ({
       direction="row"
       align="center"
       justify={option ? 'between' : undefined}
-      gap={option ? undefined : 'small'}
-      fill={option ? 'horizontal' : undefined}
+      gap={option ? undefined : 'xsmall'}
+      style={option ? { width: '100%' } : undefined}
       pad={pad}
       {...rest}
     >

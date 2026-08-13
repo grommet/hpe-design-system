@@ -8,7 +8,7 @@ import {
 import { allOptions } from './shared';
 
 const CustomOptionsExample = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState();
   const selected = allOptions.find(o => o.value === value) || null;
 
   const renderOptionLabel = option => (
@@ -17,18 +17,23 @@ const CustomOptionsExample = () => {
 
   return (
     <Box fill align="center" justify="start" pad="large">
-      <Select
-        id="select-custom-options"
-        name="select-custom-options"
-        options={allOptions}
-        value={value}
-        labelKey={renderOptionLabel}
-        valueKey={{ key: 'value', reduce: true }}
-        valueLabel={
-          <SelectValueLabel option={selected} placeholder="Select a service" />
-        }
-        onChange={({ value: nextValue }) => setValue(nextValue)}
-      />
+      <Box width="small">
+        <Select
+          id="select-custom-options"
+          name="select-custom-options"
+          options={allOptions}
+          value={value}
+          placeholder="Select a service"
+          labelKey={renderOptionLabel}
+          valueKey={{ key: 'value', reduce: true }}
+          valueLabel={
+            selected
+              ? () => <SelectValueLabel option={selected} selectedIcon={Cpu} />
+              : undefined
+          }
+          onChange={({ value: nextValue }) => setValue(nextValue)}
+        />
+      </Box>
     </Box>
   );
 };
