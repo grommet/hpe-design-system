@@ -28,7 +28,7 @@ const SelectValueLabel = ({ option, optionPad }) => {
       gap="small"
       pad={optionPad}
     >
-      <Box direction="row" align="center" gap="xsmall">
+      <Box responsive={false} direction="row" align="center" gap="xsmall">
         <Cpu size="small" />
         <Text>{option.label}</Text>
         <Icon size="small" color={option.iconColor} />
