@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Select, Spinner, Text } from 'grommet';
+import { Box, Select } from 'grommet';
+import { SelectLoadingPlaceholder } from '../../js/components/core/Select';
 import { fetchOptions } from './shared';
 
 const LoadingExample = () => {
@@ -21,16 +22,7 @@ const LoadingExample = () => {
         name="select-loading"
         options={loading ? [] : options}
         value={value}
-        placeholder={
-          loading ? (
-            <Box direction="row" align="center" gap="xxsmall">
-              <Spinner size="xsmall" />
-              <Text color="text-weak">Loading...</Text>
-            </Box>
-          ) : (
-            'Select name'
-          )
-        }
+        placeholder={loading ? <SelectLoadingPlaceholder /> : 'Select name'}
         disabled={loading}
         emptySearchMessage="No services found"
         onChange={({ option }) => setValue(option)}
