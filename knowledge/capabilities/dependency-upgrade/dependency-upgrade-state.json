@@ -1,0 +1,44 @@
+{
+  "scannedAt": "2026-08-13T00:00:00.000Z",
+  "patch": [],
+  "minor": [],
+  "major": [
+    {
+      "package": "vite",
+      "current": "^5.4.21",
+      "latest": "^8.2.1",
+      "target": "^7.3.6",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": ["apps/docs", "apps/design-tokens-manager"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "apps/docs/package.json",
+          "apps/design-tokens-manager/package.json"
+        ],
+        "breakingChangesApplied": [],
+        "pluginUpdates": [
+          {
+            "package": "@vitejs/plugin-react",
+            "affectedWorkspace": "apps/design-tokens-manager",
+            "from": "^4.2.1",
+            "to": "^5.1.4",
+            "reason": "v4.x peer dep only allows vite ^4.2.0||^5.0.0; v5.x adds ^6.0.0||^7.0.0 support"
+          }
+        ]
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "apps/design-tokens-manager/package.json"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-08-13T09:25:17.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "build:design-tokens-manager": "pass",
+        "test:unit:docs": "pass — 66/66 tests"
+      }
+    }
+  ]
+}
