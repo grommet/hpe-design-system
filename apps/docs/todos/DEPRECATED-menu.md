@@ -6,21 +6,21 @@ Comparison of `apps/docs/src/pages/components/menu.mdx.bak` (original) against `
 
 ## Content mapping table
 
-| Original section | Original content (excerpt) | Status | New location (if restructured) |
-|---|---|---|---|
-| Top-level `<Example>` | `designer`, `docs`, `figma`, `grommetSource`, `code` props on the hero example | **Preserved** | Identical props present on the hero `<Example componentName="Menu">` in new MDX |
-| `## Use Cases → Presenting application-level navigation and tasks` | Use-case prose + `<MenuHeaderExample />` | **Restructured** | `## Use cases → Organizing application-level navigation and user tasks` — prose expanded, example re-wrapped with `code` prop |
-| `## Use Cases → Grouping batch actions for data sets` | Prose + multi-file `code` array + `<MenuBatchActionsExample />` | **Restructured** | `## Use cases → Presenting batch actions for a data collection` — simplified to single `code` URL; prose rewritten |
-| `## Use Cases → Grouping item-specific actions` | Prose + multi-file `code` array + `<MenuRecordActionsExample />` | **Restructured** | `## Use cases → Providing item-specific actions for individual records` — simplified to single `code` URL; prose rewritten |
-| `## Types` (Default, Icon only, Toolbar) | Plain component renders with no `<Example>` wrappers | **Restructured** | `## Variants` — all three variants now wrapped in `<Example code="...">` components |
-| `## Organizing menu items` (top-level section) | Ordering/grouping guidance + Common groupings (Configuring/Executing/Transferring) | **Restructured** | Moved to `## Behaviors and states → General behaviors → Organizing menu items` — content preserved verbatim |
-| `## Dos and Do nots` | Four `<BestPracticeGroup>` pairs | **Preserved** | `## Dos and don'ts` — same four pairs, message text expanded for clarity |
-| `## Content guidelines` | Two bullet guidelines | **Preserved** | `## Content guidelines` — reworded slightly for style |
-| `## Accessibility` (prose) | Guidance on icon+text usage; `<AccessibilitySection>` | **Restructured** | Icon+text guidance moved into `## Variants → Icon only` description; new MDX adds explicit Keyboard and ARIA tables; `<AccessibilitySection>` preserved |
-| `github` prop on batch/record `<Example>` | `github="https://github.com/grommet/..."` | **Removed** | Not present in new MDX; GitHub links were replaced by the `code` raw-URL prop |
-| `<MenuAnatomy />` | Anatomy diagram component | **Preserved** | Same component import and placement in `## Anatomy` |
-| Multi-file `code` arrays | `code={[url1, url2, mockDataUrl]}` on two examples | **Removed** | Simplified to single primary example file URL; mock data files no longer linked directly |
-| `.bak` JSX comments | `{/* Box allows menu to be presented with drop open... */}` | **Removed** | Implementation detail only; no content loss |
+| Original section | Original content (excerpt) | Status | New location (if restructured) | Metadata |
+|---|---|---|---|---|
+| Top-level `<Example>` | `designer`, `docs`, `figma`, `grommetSource`, `code` props on the hero example | **Preserved** | Identical props present on the hero `<Example componentName="Menu">` in new MDX | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Use Cases → Presenting application-level navigation and tasks` | Use-case prose + `<MenuHeaderExample />` | **Restructured** | `## Use cases → Organizing application-level navigation and user tasks` — prose expanded, example re-wrapped with `code` prop | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Use Cases → Grouping batch actions for data sets` | Prose + multi-file `code` array + `<MenuBatchActionsExample />` | **Restructured** | `## Use cases → Presenting batch actions for a data collection` — simplified to single `code` URL; prose rewritten | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Use Cases → Grouping item-specific actions` | Prose + multi-file `code` array + `<MenuRecordActionsExample />` | **Restructured** | `## Use cases → Providing item-specific actions for individual records` — simplified to single `code` URL; prose rewritten | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Types` (Default, Icon only, Toolbar) | Plain component renders with no `<Example>` wrappers | **Restructured** | `## Variants` — all three variants now wrapped in `<Example code="...">` components | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Organizing menu items` (top-level section) | Ordering/grouping guidance + Common groupings (Configuring/Executing/Transferring) | **Restructured** | Moved to `## Behaviors and states → General behaviors → Organizing menu items` — content preserved verbatim | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Dos and Do nots` | Four `<BestPracticeGroup>` pairs | **Preserved** | `## Dos and don'ts` — same four pairs, message text expanded for clarity | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Content guidelines` | Two bullet guidelines | **Preserved** | `## Content guidelines` — reworded slightly for style | Status:<br />Name:<br />Date:<br />Notes: |
+| `## Accessibility` (prose) | Guidance on icon+text usage; `<AccessibilitySection>` | **Restructured** | Icon+text guidance moved into `## Variants → Icon only` description; new MDX adds explicit Keyboard and ARIA tables; `<AccessibilitySection>` preserved | Status:<br />Name:<br />Date:<br />Notes: |
+| `github` prop on batch/record `<Example>` | `github="https://github.com/grommet/..."` | **Removed** | Not present in new MDX; GitHub links were replaced by the `code` raw-URL prop | Status:<br />Name:<br />Date:<br />Notes: |
+| `<MenuAnatomy />` | Anatomy diagram component | **Preserved** | Same component import and placement in `## Anatomy` | Status:<br />Name:<br />Date:<br />Notes: |
+| Multi-file `code` arrays | `code={[url1, url2, mockDataUrl]}` on two examples | **Removed** | Simplified to single primary example file URL; mock data files no longer linked directly | Status:<br />Name:<br />Date:<br />Notes: |
+| `.bak` JSX comments | `{/* Box allows menu to be presented with drop open... */}` | **Removed** | Implementation detail only; no content loss | Status:<br />Name:<br />Date:<br />Notes: |
 
 ---
 
