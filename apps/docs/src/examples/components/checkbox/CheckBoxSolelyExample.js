@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-
 import React, { useState } from 'react';
 import { CheckBox } from 'grommet';
 
