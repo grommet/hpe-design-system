@@ -949,7 +949,12 @@
               "com.figma": {
                 "codeSyntax": {},
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR", "EFFECT_COLOR"]
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR",
+                  "EFFECT_COLOR"
+                ]
               }
             },
             "$type": "color",
