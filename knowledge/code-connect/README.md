@@ -40,9 +40,39 @@ import { Button } from 'grommet';
 | Prop names differ between design and code             | Figma properties mapped to real React props |
 | Wrong libraries imported (inline styles, wrong icons) | Correct HPE imports shown automatically     |
 
-This directly supports the HPE Design System goal of a consistent, efficient design-to-code workflow — less handoff friction, fewer implementation mismatches.
+This directly supports the HPE Design System goal of a consistent, efficient design-to-code workflow: less handoff friction, fewer implementation mismatches, and clearer ownership of the design-to-code contract.
 
-The added benefit is direct integration with Figma's MCP server. This gives AI agents like GitHub Copilot both design context and production awareness when generating code — meaning AI output stays aligned with the HPE Design System rather than producing generic React.
+What changes in day-to-day workflow:
+
+- Designers continue working in Figma as usual, but the component shown in Dev Mode now includes DS-approved code examples instead of generic CSS snippets.
+- Developers inspecting that same component can copy a realistic Grommet starting point, including expected imports and mapped prop names.
+- Design and engineering review the same component behavior vocabulary (for example, variant names and prop intent), reducing translation gaps during implementation.
+
+How this is consumed with Figma only:
+
+- In Dev Mode, a consumer selects a component and sees connected JSX examples authored in this repository.
+- The examples reflect mapped design properties, so the output is tied to the component state being inspected.
+- This improves handoff quality even when no MCP tooling is involved.
+
+How this is consumed with Figma MCP + IDE agents:
+
+- MCP tools can read the same design context and Code Connect metadata when generating code in the IDE.
+- Agents get both visual/design inputs and production-aware mapping intent (component, props, imports), which reduces generic or off-system output.
+- Teams can keep design-to-code behavior aligned across manual Dev Mode usage and AI-assisted implementation workflows.
+
+### Quick Workflow View
+
+```mermaid
+flowchart LR
+  A[Designer updates component in Figma] --> B[Figma Dev Mode shows connected JSX]
+  B --> C[Developer copies and adapts Grommet starter code]
+  B --> D[MCP tools read design context and Code Connect metadata]
+  D --> E[IDE agent generates system-aligned implementation draft]
+  C --> F[Engineering review and merge]
+  E --> F
+```
+
+This creates two complementary paths: direct Dev Mode handoff for human implementation, and MCP-assisted generation for faster first drafts using the same mapping source of truth.
 
 ---
 
@@ -82,6 +112,20 @@ FIGMA_ACCESS_TOKEN=figd_your_token_here
 > `.env` is gitignored — never commit your token.
 
 ### Install & Publish
+
+Publishing Code Connect pushes each `figma.connect(...)` mapping in this package to Figma and attaches that mapping to the referenced component node metadata.
+
+After a successful publish:
+
+- Figma Dev Mode shows repository-authored JSX examples from each mapping's `example` function.
+- Figma property values (variants, booleans, text) are translated through the mapping functions (`figma.enum`, `figma.boolean`, `figma.string`) into real Grommet props.
+- Designers and developers get a shared design-to-code contract directly in Dev Mode instead of manually translating visual specs.
+
+What publish does not do:
+
+- It does not generate production source files in this repository.
+- It does not modify Figma visual design content; it updates Code Connect metadata used by Dev Mode.
+- It does not replace engineering review; it publishes mapping intent.
 
 ```bash
 # Install dependencies
