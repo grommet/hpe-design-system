@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { SimpleSelector } from 'apps/docs/src/examples/templates/selector/SelectorSimple';
 import { QuickFilter as QuickFilterExample } from 'apps/docs/src/examples/templates/selector/QuickFilter';

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useEffect, useMemo, useState } from 'react';
 import { type BoxProps, Nav } from 'grommet';
 import { NavItemType } from './NavItem';

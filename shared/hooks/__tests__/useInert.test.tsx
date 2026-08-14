@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useLayoutEffect } from 'react';
 import { cleanup, render, screen, renderHook } from '@testing-library/react';
 import { afterAll, afterEach, beforeAll, describe, it, expect } from 'vitest';

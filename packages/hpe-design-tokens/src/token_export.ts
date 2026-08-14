@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable max-len */
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';

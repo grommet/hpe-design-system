@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { ActionEmptyState } from 'apps/docs/src/examples/templates/empty-state/ActionEmptyState';
 import { CardEmptyState } from 'apps/docs/src/examples/templates/empty-state/CardEmptyState';

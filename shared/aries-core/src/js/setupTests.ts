@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import '@testing-library/jest-dom';
 
 // Mock for matchMedia which is used by Grommet

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { BannerContentLayoutExample } from 'apps/docs/src/examples/templates/global-banner-notifications/BannerContentLayoutExample';
 import { BannerNotificationCritical } from 'apps/docs/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCritical';

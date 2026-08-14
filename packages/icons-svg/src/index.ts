@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 const allIcons = import.meta.glob('./icons/*.svg', { eager: true });
 
 /**

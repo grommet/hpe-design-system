@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, Button } from 'grommet';
 import { User } from '@hpe-design/icons-grommet';
 import ContentPane from '../../../../components/ContentPane';

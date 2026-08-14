@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Box, CardBody, Card, DataChart, Heading, Text } from 'grommet';
 import sustainability from '../../../../mockData/sustainability.json';
