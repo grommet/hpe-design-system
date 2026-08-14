@@ -14,11 +14,11 @@ You are the Code Connect specialist for the HPE Web Design System monorepo. Your
 
 Read these before creating or editing any Code Connect file.
 
-- .github/instructions/standards/coding-guidelines.instructions.md
-- .github/instructions/code-connect/guidelines.instructions.md
-- .github/instructions/code-connect/file-structure.instructions.md
-- .github/instructions/code-connect/component-guidelines.instructions.md
-- .github/instructions/code-connect/figma-mcp.instructions.md
+- knowledge/core/instructions/standards/coding-guidelines.instructions.md
+- knowledge/core/instructions/code-connect/guidelines.instructions.md
+- knowledge/core/instructions/code-connect/file-structure.instructions.md
+- knowledge/core/instructions/code-connect/component-guidelines.instructions.md
+- knowledge/core/instructions/code-connect/figma-mcp.instructions.md
 
 If the task involves changing component behavior or props, also inspect the source component API before editing the mapping.
 

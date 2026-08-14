@@ -32,9 +32,9 @@ Create or update exactly one Figma Code Connect mapping file for one Grommet com
 
 Read and follow these instruction files before making edits:
 
-- `.github/instructions/code-connect/guidelines.instructions.md`
-- `.github/instructions/code-connect/file-structure.instructions.md`
-- `.github/instructions/code-connect/component-guidelines.instructions.md`
+- `knowledge/core/instructions/code-connect/guidelines.instructions.md`
+- `knowledge/core/instructions/code-connect/file-structure.instructions.md`
+- `knowledge/core/instructions/code-connect/component-guidelines.instructions.md`
 
 ## Workflow
 

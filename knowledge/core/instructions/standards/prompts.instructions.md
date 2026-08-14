@@ -1,6 +1,6 @@
 ---
-description: "Guidelines for creating high-quality prompt files for GitHub Copilot"
-applyTo: "**/*.prompt.md"
+description: 'Guidelines for creating high-quality prompt files for GitHub Copilot'
+applyTo: '**/*.prompt.md'
 ---
 
 # Copilot Prompt Files Guidelines
@@ -36,7 +36,7 @@ Every prompt file should include YAML frontmatter with the following fields:
 
 ## File Naming and Placement
 
-- Use kebab-case filenames ending with `.prompt.md` and store them under `.github/prompts/` unless your workspace standard specifies another directory.
+- Use kebab-case filenames ending with `.prompt.md` and store them under `knowledge/core/prompts/` unless your workspace standard specifies another directory.
 - Provide a short filename that communicates the action (for example, `generate-readme.prompt.md` rather than `prompt1.prompt.md`).
 
 ## Body Structure

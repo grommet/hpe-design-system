@@ -1,6 +1,6 @@
 ---
-description: "Guidelines for creating high-quality Agent Skills for GitHub Copilot"
-applyTo: "**/skills/**/SKILL.md"
+description: 'Guidelines for creating high-quality Agent Skills for GitHub Copilot'
+applyTo: '**/skills/**/SKILL.md'
 ---
 
 # Agent Skills File Guidelines
@@ -22,12 +22,12 @@ Key characteristics:
 
 Skills are stored in specific locations:
 
-| Location                         | Scope                | Recommendation                     |
-| -------------------------------- | -------------------- | ---------------------------------- |
-| `.github/skills/<skill-name>/`   | Project/repository   | Recommended for project skills     |
-| `.claude/skills/<skill-name>/`   | Project/repository   | Legacy, for backward compatibility |
-| `~/.github/skills/<skill-name>/` | Personal (user-wide) | Recommended for personal skills    |
-| `~/.claude/skills/<skill-name>/` | Personal (user-wide) | Legacy, for backward compatibility |
+| Location                              | Scope                | Recommendation                     |
+| ------------------------------------- | -------------------- | ---------------------------------- |
+| `knowledge/core/skills/<skill-name>/` | Project/repository   | Recommended for project skills     |
+| `.claude/skills/<skill-name>/`        | Project/repository   | Legacy, for backward compatibility |
+| `~/.github/skills/<skill-name>/`      | Personal (user-wide) | Recommended for personal skills    |
+| `~/.claude/skills/<skill-name>/`      | Personal (user-wide) | Legacy, for backward compatibility |
 
 Each skill **must** have its own subdirectory containing at minimum a `SKILL.md` file.
 
@@ -38,7 +38,7 @@ Each skill **must** have its own subdirectory containing at minimum a `SKILL.md`
 ```yaml
 ---
 name: webapp-testing
-description: "Toolkit for testing local web applications using Playwright. Use when asked to verify frontend functionality, debug UI behavior, capture browser screenshots, check for visual regressions, or view browser console logs. Supports Chrome, Firefox, and WebKit browsers."
+description: 'Toolkit for testing local web applications using Playwright. Use when asked to verify frontend functionality, debug UI behavior, capture browser screenshots, check for visual regressions, or view browser console logs. Supports Chrome, Firefox, and WebKit browsers.'
 license: Complete terms in LICENSE.txt
 ---
 ```
@@ -62,13 +62,13 @@ license: Complete terms in LICENSE.txt
 **Good description:**
 
 ```yaml
-description: "Toolkit for testing local web applications using Playwright. Use when asked to verify frontend functionality, debug UI behavior, capture browser screenshots, check for visual regressions, or view browser console logs. Supports Chrome, Firefox, and WebKit browsers."
+description: 'Toolkit for testing local web applications using Playwright. Use when asked to verify frontend functionality, debug UI behavior, capture browser screenshots, check for visual regressions, or view browser console logs. Supports Chrome, Firefox, and WebKit browsers.'
 ```
 
 **Poor description:**
 
 ```yaml
-description: "Web testing helpers"
+description: 'Web testing helpers'
 ```
 
 The poor description fails because:
@@ -172,7 +172,7 @@ Skills can include additional files that Copilot accesses on-demand:
 ### Directory Structure Example
 
 ```
-.github/skills/my-skill/
+knowledge/core/skills/my-skill/
 ├── SKILL.md              # Required: Main instructions
 ├── LICENSE.txt           # Recommended: License terms (Apache 2.0 typical)
 ├── scripts/              # Optional: Executable automation

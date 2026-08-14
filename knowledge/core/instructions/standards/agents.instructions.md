@@ -1,6 +1,6 @@
 ---
-description: "Guidelines for creating custom agent files for GitHub Copilot"
-applyTo: "**/*.agent.md"
+description: 'Guidelines for creating custom agent files for GitHub Copilot'
+applyTo: '**/*.agent.md'
 ---
 
 # Custom Agent File Guidelines
@@ -12,7 +12,7 @@ Instructions for creating effective and maintainable custom agent files that pro
 - Target audience: Developers creating custom agents for GitHub Copilot
 - File format: Markdown with YAML frontmatter
 - File naming convention: lowercase with hyphens (e.g., `test-specialist.agent.md`)
-- Location: `.github/agents/` directory (repository-level) or `agents/` directory (organization/enterprise-level)
+- Location: `knowledge/core/agents/` directory (repository-level) or `agents/` directory (organization/enterprise-level)
 - Purpose: Define specialized agents with tailored expertise, tools, and instructions for specific tasks
 - Official documentation: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents
 
@@ -22,11 +22,11 @@ Every agent file must include YAML frontmatter with the following fields:
 
 ```yaml
 ---
-description: "Brief description of the agent purpose and capabilities"
-name: "Agent Display Name"
-tools: ["read", "edit", "search"]
-model: "Claude Sonnet 4.5"
-target: "vscode"
+description: 'Brief description of the agent purpose and capabilities'
+name: 'Agent Display Name'
+tools: ['read', 'edit', 'search']
+model: 'Claude Sonnet 4.5'
+target: 'vscode'
 ---
 ```
 
@@ -114,17 +114,17 @@ Define handoffs in the agent file's YAML frontmatter using the `handoffs` field:
 
 ```yaml
 ---
-description: "Brief description of the agent"
-name: "Agent Name"
-tools: ["search", "read"]
+description: 'Brief description of the agent'
+name: 'Agent Name'
+tools: ['search', 'read']
 handoffs:
   - label: Start Implementation
     agent: implementation
-    prompt: "Now implement the plan outlined above."
+    prompt: 'Now implement the plan outlined above.'
     send: false
   - label: Code Review
     agent: code-review
-    prompt: "Please review the implementation for quality and security issues."
+    prompt: 'Please review the implementation for quality and security issues.'
     send: false
 ---
 ```
@@ -272,19 +272,19 @@ This workflow allows a developer to:
 
 ```yaml
 # Omit tools property entirely, or use:
-tools: ["*"]
+tools: ['*']
 ```
 
 **Enable specific tools**:
 
 ```yaml
-tools: ["read", "edit", "search", "execute"]
+tools: ['read', 'edit', 'search', 'execute']
 ```
 
 **Enable MCP server tools**:
 
 ```yaml
-tools: ["read", "edit", "github/*", "playwright/navigate"]
+tools: ['read', 'edit', 'github/*', 'playwright/navigate']
 ```
 
 **Disable all tools**:
@@ -312,8 +312,8 @@ All aliases are case-insensitive:
 **GitHub MCP Server**:
 
 ```yaml
-tools: ['github/*']  # All GitHub tools
-tools: ['github/get_file_contents', 'github/search_repositories']  # Specific tools
+tools: ['github/*'] # All GitHub tools
+tools: ['github/get_file_contents', 'github/search_repositories'] # Specific tools
 ```
 
 - All read-only tools available by default
@@ -322,8 +322,8 @@ tools: ['github/get_file_contents', 'github/search_repositories']  # Specific to
 **Playwright MCP Server**:
 
 ```yaml
-tools: ['playwright/*']  # All Playwright tools
-tools: ['playwright/navigate', 'playwright/screenshot']  # Specific tools
+tools: ['playwright/*'] # All Playwright tools
+tools: ['playwright/navigate', 'playwright/screenshot'] # Specific tools
 ```
 
 - Configured to access localhost only
@@ -351,7 +351,7 @@ The recommended approach is **prompt-based orchestration**:
 1. Enable agent invocation by including `agent` in the orchestrator's tools list:
 
 ```yaml
-tools: ["read", "edit", "search", "agent"]
+tools: ['read', 'edit', 'search', 'agent']
 ```
 
 2. For each step, invoke a sub-agent by providing:
@@ -412,7 +412,7 @@ Structure each step invocation with:
 ```text
 Step 1: Transform raw input data
 Agent: data-processor
-Spec: .github/agents/data-processor.agent.md
+Spec: knowledge/core/agents/data-processor.agent.md
 Context: projectName=${projectName}, basePath=${basePath}
 Input: ${basePath}/raw/
 Output: ${basePath}/processed/
@@ -420,7 +420,7 @@ Expected: write ${basePath}/processed/summary.md
 
 Step 2: Analyze processed data (depends on Step 1 output)
 Agent: data-analyst
-Spec: .github/agents/data-analyst.agent.md
+Spec: knowledge/core/agents/data-analyst.agent.md
 Context: projectName=${projectName}, basePath=${basePath}
 Input: ${basePath}/processed/
 Output: ${basePath}/analysis/
@@ -443,7 +443,7 @@ Expected: write ${basePath}/analysis/report.md
 
 ```yaml
 # If your sub-agents need to edit files, execute commands, or search code
-tools: ["read", "edit", "search", "execute", "agent"]
+tools: ['read', 'edit', 'search', 'execute', 'agent']
 ```
 
 The orchestrator's tool permissions act as a ceiling for all invoked sub-agents. Plan your tool list carefully to ensure all sub-agents have the tools they need.
@@ -544,7 +544,7 @@ Automatically extract variables from the user's natural language input:
 
 ```javascript
 // Example: Extract certification name from user input
-const userInput = "Process My Certification";
+const userInput = 'Process My Certification';
 
 // Extract key information
 const certificationName = extractCertificationName(userInput);
@@ -607,7 +607,7 @@ When invoking a sub-agent, pass all context through substituted variables in the
 Example (prompt template):
 
 ```text
-This phase must be performed as the agent "documentation-writer" defined in ".github/agents/documentation-writer.agent.md".
+This phase must be performed as the agent "documentation-writer" defined in "knowledge/core/agents/documentation-writer.agent.md".
 
 IMPORTANT:
 - Read and apply the entire .agent.md spec.
@@ -639,19 +639,19 @@ Example of a simple orchestrator that validates code through multiple specialize
 ```text
 Step 1: Security Review
 Agent: security-reviewer
-Spec: .github/agents/security-reviewer.agent.md
+Spec: knowledge/core/agents/security-reviewer.agent.md
 Context: repositoryName=${repositoryName}, prNumber=${prNumber}, basePath=projects/${repositoryName}/pr-${prNumber}
 Output: projects/${repositoryName}/pr-${prNumber}/security-review.md
 
 Step 2: Test Coverage
 Agent: test-coverage
-Spec: .github/agents/test-coverage.agent.md
+Spec: knowledge/core/agents/test-coverage.agent.md
 Context: repositoryName=${repositoryName}, prNumber=${prNumber}, basePath=projects/${repositoryName}/pr-${prNumber}
 Output: projects/${repositoryName}/pr-${prNumber}/coverage-report.md
 
 Step 3: Aggregate
 Agent: review-aggregator
-Spec: .github/agents/review-aggregator.agent.md
+Spec: knowledge/core/agents/review-aggregator.agent.md
 Context: repositoryName=${repositoryName}, prNumber=${prNumber}, basePath=projects/${repositoryName}/pr-${prNumber}
 Output: projects/${repositoryName}/pr-${prNumber}/final-review.md
 ```
@@ -699,7 +699,7 @@ This example shows a more complete orchestration with **pre-flight checks**, **c
 **Sub-agent invocation prompt (example):**
 
 ```text
-This phase must be performed as the agent "security-reviewer" defined in ".github/agents/security-reviewer.agent.md".
+This phase must be performed as the agent "security-reviewer" defined in "knowledge/core/agents/security-reviewer.agent.md".
 
 IMPORTANT:
 - Read and apply the entire .agent.md spec.
@@ -805,14 +805,14 @@ MCP servers extend agent capabilities with additional tools. Only supported for 
 ```yaml
 ---
 name: my-custom-agent
-description: "Agent with MCP integration"
-tools: ["read", "edit", "custom-mcp/tool-1"]
+description: 'Agent with MCP integration'
+tools: ['read', 'edit', 'custom-mcp/tool-1']
 mcp-servers:
   custom-mcp:
-    type: "local"
-    command: "some-command"
-    args: ["--arg1", "--arg2"]
-    tools: ["*"]
+    type: 'local'
+    command: 'some-command'
+    args: ['--arg1', '--arg2']
+    tools: ['*']
     env:
       ENV_VAR_NAME: ${{ secrets.API_KEY }}
 ---
@@ -850,7 +850,7 @@ env:
 
 ### Repository-Level Agents
 
-- Location: `.github/agents/`
+- Location: `knowledge/core/agents/`
 - Scope: Available only in the specific repository
 - Access: Uses repository-configured MCP servers
 
@@ -930,7 +930,7 @@ Each level can override settings from previous levels.
 ### File Structure
 
 - [ ] Filename follows lowercase-with-hyphens convention
-- [ ] File placed in correct directory (`.github/agents/` or `agents/`)
+- [ ] File placed in correct directory (`knowledge/core/agents/` or `agents/`)
 - [ ] Filename uses only allowed characters
 - [ ] File extension is `.agent.md`
 
