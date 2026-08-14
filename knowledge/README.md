@@ -6,16 +6,17 @@ This directory is the AI-first knowledge system for the HPE Design System.
 
 - `core/`: reusable knowledge primitives shared across capabilities
 - `capabilities/`: task-focused bundles with one orchestrator entrypoint each
+- `code-connect/`: Figma Code Connect package and component mapping source files
 - `schemas/`: machine validation contracts, including capability manifest schema
 - `archive/`: deprecated or historical knowledge artifacts
 
 ## Core
 
-- `agents/`: 
+- `agents/`:
 - `data/`: structured data defining HPE Design System components and patterns
 - `instructions/`:
 - `prompts/`:
-- `skills/`: 
+- `skills/`:
 
 ## Capability Index
 

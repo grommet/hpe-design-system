@@ -21,7 +21,7 @@ Before creating or updating a Code Connect file:
    dotenv -e .env -- figma connect create "<figma-component-url>"
    ```
 4. **Variant Inventory:** After generating, review the scaffolded props against the Figma component panel to confirm all properties are mapped correctly.
-5. **Repo Reference:** Locate the closest existing Code Connect file in `packages/code-connect/src/` before creating a new one, including files in existing subfolders such as `packages/code-connect/src/inputs/`.
+5. **Repo Reference:** Locate the closest existing Code Connect file in `knowledge/code-connect/src/` before creating a new one, including files in existing subfolders such as `knowledge/code-connect/src/inputs/`.
 
 ## Required Imports
 
@@ -162,13 +162,13 @@ figma.connect(
 
 ## Publishing
 
-Prefer the following command from the repo root to publish all Code Connect files to Figma. This uses `dotenv-cli` in `packages/code-connect` to automatically load `FIGMA_ACCESS_TOKEN` from the local `.env` file:
+Prefer the following command from the repo root to publish all Code Connect files to Figma. This uses `dotenv-cli` in `knowledge/code-connect` to automatically load `FIGMA_ACCESS_TOKEN` from the local `.env` file:
 
 ```bash
 pnpm --filter @hpe-design/code-connect figma:sync
 ```
 
-Equivalent from `packages/code-connect/`:
+Equivalent from `knowledge/code-connect/`:
 
 ```bash
 pnpm run figma:sync

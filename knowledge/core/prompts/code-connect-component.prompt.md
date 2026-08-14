@@ -15,7 +15,7 @@ Create or update exactly one Figma Code Connect mapping file for one Grommet com
 ## Scope & Preconditions
 
 - Target stack is fixed: React + Grommet + `@figma/code-connect` CLI.
-- Work only in `packages/code-connect/src/`.
+- Work only in `knowledge/code-connect/src/`.
 - If required inputs are missing, request them before editing.
 - If the Figma URL does not include `node-id`, stop and request a node-specific URL.
 
@@ -38,7 +38,7 @@ Read and follow these instruction files before making edits:
 
 ## Workflow
 
-1. Resolve the target file path as `packages/code-connect/src/${input:fileName}`.
+1. Resolve the target file path as `knowledge/code-connect/src/${input:fileName}`.
 2. Check existing Code Connect files for naming and mapping patterns.
 3. Use Figma tools to inspect the exact node and confirm all mappable properties.
 4. Map only supported props for the specified Grommet component.
@@ -49,7 +49,7 @@ Read and follow these instruction files before making edits:
    - `props` mapping block
    - `example` render function
 6. Ensure `example` passes mapped props directly.
-7. Run sync from `packages/code-connect`:
+7. Run sync from `knowledge/code-connect`:
 
 ```bash
 pnpm run figma:sync

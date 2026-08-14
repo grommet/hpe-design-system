@@ -1,7 +1,7 @@
 ---
 name: Code Connect Figma MCP
 description: 'Extract component definitions from Figma and implement or update Code Connect mappings for the HPE Design System.'
-applyTo: 'packages/code-connect/src/*.figma.jsx'
+applyTo: 'knowledge/code-connect/src/*.figma.jsx'
 ---
 
 # Instructions: Code Connect Figma MCP
@@ -16,9 +16,9 @@ When creating or updating a Code Connect file from Figma, follow this process:
 2. Run the Code Connect-specific Figma context tool first to fetch the component property inventory for the exact node.
 3. Run the design-context tool to confirm the intended component usage and variant behavior.
 4. If the response is too large or truncated, use metadata to identify the required node and then re-fetch only that node.
-5. Review an existing mapping in `packages/code-connect/src/` before creating a new file so naming and structure stay consistent.
-6. Add or update a single `.figma.jsx` file for the component under `packages/code-connect/src/`.
-7. Prefer `pnpm --filter @hpe-design/code-connect figma:sync` from the repo root, or run `pnpm run figma:sync` from `packages/code-connect`, and confirm it exits with code `0` before marking the work complete.
+5. Review an existing mapping in `knowledge/code-connect/src/` before creating a new file so naming and structure stay consistent.
+6. Add or update a single `.figma.jsx` file for the component under `knowledge/code-connect/src/`.
+7. Prefer `pnpm --filter @hpe-design/code-connect figma:sync` from the repo root, or run `pnpm run figma:sync` from `knowledge/code-connect`, and confirm it exits with code `0` before marking the work complete.
 
 ## Implementation Rules
 
@@ -36,5 +36,5 @@ When creating or updating a Code Connect file from Figma, follow this process:
 
 - [guidelines.instructions.md](guidelines.instructions.md): High-level workflow and required sync behavior for Code Connect mappings.
 - [component-guidelines.instructions.md](component-guidelines.instructions.md): Property mapping helpers, `figma.connect` structure, and example render requirements.
-- [file-structure.instructions.md](file-structure.instructions.md): File naming and placement rules for `packages/code-connect/src/`.
+- [file-structure.instructions.md](file-structure.instructions.md): File naming and placement rules for `knowledge/code-connect/src/`.
 - [coding-guidelines.instructions.md](../standards/coding-guidelines.instructions.md): React and Grommet authoring conventions used inside Code Connect examples.

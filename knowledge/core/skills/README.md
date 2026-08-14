@@ -4,7 +4,7 @@ This directory contains repository-scoped GitHub Copilot skills for the HPE Desi
 
 ## Code Connect Skills
 
-Use these when working in `packages/code-connect/` or when mapping Figma components to Grommet code.
+Use these when working in `knowledge/code-connect/` or when mapping Figma components to Grommet code.
 
 | Skill                              | Use it when                                                                                   | Main output                          |
 | ---------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------ |
@@ -22,6 +22,6 @@ Use these when working in `packages/code-connect/` or when mapping Figma compone
 
 ## Notes
 
-- Code Connect mappings in this repo live under `packages/code-connect/src/`.
+- Code Connect mappings in this repo live under `knowledge/code-connect/src/`.
 - The preferred root sync command is `pnpm --filter @hpe-design/code-connect figma:sync`.
 - Each skill folder may include a `references/` directory for on-demand workflow details and checklists.

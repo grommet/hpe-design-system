@@ -1,6 +1,6 @@
 ---
 name: code-connect-authoring
-description: 'Authoring workflow for HPE Design System Code Connect mappings. Use when asked to create or update a `.figma.jsx` file, translate Figma properties into `figma.connect(...)`, choose between `props`, `variant`, or static composition patterns, or mirror a Grommet component API in `packages/code-connect/src/`.'
+description: 'Authoring workflow for HPE Design System Code Connect mappings. Use when asked to create or update a `.figma.jsx` file, translate Figma properties into `figma.connect(...)`, choose between `props`, `variant`, or static composition patterns, or mirror a Grommet component API in `knowledge/code-connect/src/`.'
 ---
 
 # Code Connect Authoring
@@ -38,6 +38,6 @@ Use this skill when writing or updating a Code Connect mapping file for this rep
 - See the shared [skills index](../README.md) for the other Code Connect workflows.
 - [../../instructions/code-connect/component-guidelines.instructions.md](../../instructions/code-connect/component-guidelines.instructions.md)
 - [../../instructions/code-connect/figma-mcp.instructions.md](../../instructions/code-connect/figma-mcp.instructions.md)
-- [../../../packages/code-connect/src/Button.figma.jsx](../../../packages/code-connect/src/Button.figma.jsx)
-- [../../../packages/code-connect/src/Menu.figma.jsx](../../../packages/code-connect/src/Menu.figma.jsx)
-- [../../../packages/code-connect/src/Card.figma.jsx](../../../packages/code-connect/src/Card.figma.jsx)
+- [../../../code-connect/src/Button.figma.jsx](../../../code-connect/src/Button.figma.jsx)
+- [../../../code-connect/src/Menu.figma.jsx](../../../code-connect/src/Menu.figma.jsx)
+- [../../../code-connect/src/Card.figma.jsx](../../../code-connect/src/Card.figma.jsx)

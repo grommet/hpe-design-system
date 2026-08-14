@@ -73,7 +73,7 @@ The added benefit is direct integration with Figma's MCP server. This gives AI a
 2. Create a token with these scopes:
    - `file_content:read` (under Files)
    - `file_code_connect:write` (under Development)
-3. Copy the token into `packages/code-connect/.env`:
+3. Copy the token into `knowledge/code-connect/.env`:
 
 ```
 FIGMA_ACCESS_TOKEN=figd_your_token_here
@@ -91,7 +91,7 @@ pnpm install
 pnpm --filter @hpe-design/code-connect figma:sync
 ```
 
-Equivalent from `packages/code-connect/`:
+Equivalent from `knowledge/code-connect/`:
 
 ```bash
 pnpm run figma:sync
@@ -104,7 +104,7 @@ pnpm run figma:sync
 ### Step 1 — Scaffold from Figma
 
 ```bash
-cd packages/code-connect
+cd knowledge/code-connect
 dotenv -e .env -- figma connect create "<figma-component-url>"
 ```
 
@@ -297,7 +297,7 @@ example: ({ label, badge }) => <Button label={label} badge={badge} />
 ## File Structure
 
 ```
-packages/code-connect/
+knowledge/code-connect/
 ├── src/
 │   ├── controls/
 │   │   ├── Button.figma.jsx # Button — Kind, Size, State, Icon, Badge, Tip
@@ -417,7 +417,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'packages/code-connect/src/**'
+      - 'knowledge/code-connect/src/**'
 jobs:
   publish:
     runs-on: ubuntu-latest

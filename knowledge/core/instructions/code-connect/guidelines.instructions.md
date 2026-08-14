@@ -15,7 +15,7 @@ When wiring HPE Design System (Grommet) components to Figma using Code Connect, 
 1. **One file per component:** Each Grommet component that has a Figma counterpart gets its own `.figma.jsx` Code Connect file.
 2. **Exact node URLs:** Always use the exact Figma component node URL — not a page or frame URL.
 3. **Map relevant properties:** Map every relevant Figma component property in the `props` block. If the component is represented as a static composition in this repo, an `example`-only mapping is acceptable.
-4. **Sync after every change:** Prefer `pnpm --filter @hpe-design/code-connect figma:sync` from the repo root, or run `pnpm run figma:sync` from `packages/code-connect`.
+4. **Sync after every change:** Prefer `pnpm --filter @hpe-design/code-connect figma:sync` from the repo root, or run `pnpm run figma:sync` from `knowledge/code-connect`.
 
 ## Finding the Correct Node ID
 
@@ -41,7 +41,7 @@ dotenv -e .env -- figma connect create "https://www.figma.com/design/HDckqS2MWhI
 
 This generates a starter file in the current directory with every Figma property already mapped. Then:
 
-1. Move the file to the appropriate location under `packages/code-connect/src/`
+1. Move the file to the appropriate location under `knowledge/code-connect/src/`
 2. Rename it to match the repo convention if needed: `<ComponentName>.figma.jsx`
 3. Review and adjust the Grommet prop names, imports, and `example` output to match the actual API
 4. Run the sync command to publish

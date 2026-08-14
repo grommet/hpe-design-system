@@ -5,8 +5,8 @@ Use this reference when `figma:sync` fails or a mapping does not publish correct
 ## Command and Environment
 
 - Preferred root command: `pnpm --filter @hpe-design/code-connect figma:sync`
-- Package-local equivalent: `pnpm run figma:sync` from `packages/code-connect`
-- Token file location: `packages/code-connect/.env`
+- Package-local equivalent: `pnpm run figma:sync` from `knowledge/code-connect`
+- Token file location: `knowledge/code-connect/.env`
 
 ## Frequent Failure Sources
 
@@ -55,5 +55,5 @@ Symptoms:
 
 Check:
 
-- `.env` exists in `packages/code-connect/`
+- `.env` exists in `knowledge/code-connect/`
 - token scopes match the package README

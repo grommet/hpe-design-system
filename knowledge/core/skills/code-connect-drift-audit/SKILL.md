@@ -37,4 +37,4 @@ Use this skill to review an existing Code Connect mapping for behavioral drift b
 - See the shared [skills index](../README.md) for the other Code Connect workflows.
 - [../../instructions/code-connect/guidelines.instructions.md](../../instructions/code-connect/guidelines.instructions.md)
 - [../../instructions/code-connect/component-guidelines.instructions.md](../../instructions/code-connect/component-guidelines.instructions.md)
-- [../../../packages/code-connect/src](../../../packages/code-connect/src)
+- [../../../code-connect/src](../../../code-connect/src)
