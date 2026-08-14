@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useRouter } from 'next/router';
 import { Card, useAnalytics } from 'grommet';
 import PropTypes from 'prop-types';

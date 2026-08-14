@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable no-use-before-define */
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { createContext, useContext, useState, useMemo, useEffect } from 'react';
 import { ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
