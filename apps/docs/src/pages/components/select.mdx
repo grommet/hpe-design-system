@@ -1,7 +1,17 @@
-import { AccessibilitySection, Example } from '../../layouts';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
+import {
+  SelectBadPlaceholderPreview,
+  SelectBadSearchPreview,
+  SelectChoosingValueExample,
   SelectDisabledExample,
   SelectExample,
+  SelectGoodPlaceholderPreview,
+  SelectGoodSearchPreview,
   SelectSearchExample,
   SelectValidationExample,
 } from '../../examples';
@@ -17,78 +27,191 @@ import {
   <SelectExample />
 </Example>
 
-## Guidance
+## Use cases
 
-Select is a flexible input element able to serve a wide variety of use cases. Though flexible, asking "is Select the best tool in this circumstance?" is a healthy exercise. Variants of Select, such as [Select with Search](#select-with-search), or alternatives like [RadioButtonGroup](/components/radiobuttongroup), [MaskedInput](/components/maskedinput), or [TextInput with suggestions](/components/textinput#textinput-with-suggestions) may be more appropriate for crafting an elegant user experience.
+### Choosing a single value from a predefined list
 
-### When to use Select
-
-Because Select is flexible and familiar, the following questions are helpful to consider alternatives and/or confirm that Select is the most appropriate element:
-
-- Is there a need to conserve screen space? Select may be appropriate.
-- Ensuring collection of standardized values? Select may be appropriate.
-- Are there less than five options? Consider a [CheckBoxGroup](/components/checkboxgroup) or [RadioButtonGroup](/components/radiobuttongroup) as they may be more efficient for users. Select can hide information and requires extra clicks/taps for users to access that information.
-- Are there a large number of options? Lengthy scrolling can be problematic for users. Consider [Select with Search](#select-with-search) or [TextInput with suggestions](/components/textinput#textinput-with-suggestions).
-- Is the select for a State/Province in the context of collecting an address? Consider only asking for ZIP/Postal Code and automatically determining City, State, Country, etc. without user input.
-- Are the values in list well known and understood, such as Year? Consider [TextInput with suggestions](/components/textinput#textinput-with-suggestions) or [MaskedInput](/components/maskedinput).
-
-### Selecting multiple options
-
-If multiple selections are permitted and there are more than 5 options, use [SelectMultiple](/components/selectmultiple). Otherwise, consider using [CheckBoxGroup](/components/checkboxgroup).
-
-## Variants
-
-The Select input is flexible and may be extended to allow for multi-select, search, and create options.
-
-### Select with search
-
-Allow users to quickly find their desired option by incorporating Search within the Select component.
-
-Select with search is especially useful when presenting lengthy options lists such as when selecting from countries or regions. [TextInput with suggestions](/components/textinput#textinput-with-suggestions) and [MaskedInput](/components/maskedinput) are also worth considering in circumstances where values are well known.
+Use Select inside a Form when the user must choose one option from a fixed set of values and screen space must be conserved. Options stay hidden until the user opens the dropdown — reducing visual footprint compared to inline radio buttons.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectSearchExample.js"
   docs="https://v2.grommet.io/select?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectChoosingValueExample.js"
+  height={{ min: 'small' }}
+>
+  <SelectChoosingValueExample />
+</Example>
+
+### Filtering a long list of options
+
+Use Select with the `onSearch` prop when presenting a lengthy options list such as countries or regions. Type-ahead filtering narrows the list without requiring the user to scroll.
+
+<Example
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectSearchExample.js"
   height={{ min: 'small' }}
 >
   <SelectSearchExample />
 </Example>
 
-### Validation
+## Anatomy
 
-Validation styling calls visual attention to the Select input with an error and should be accompanied by text instructing the user how to resolve. A "required" input error is the most common with Select since the available options are typically pre-defined.
+{/* TODO: Add anatomy diagram image */}
+
+| Label  | Region                            | Purpose                                                                                     |                         Required                         | Notes                                                                                              |
+| :----: | --------------------------------- | ------------------------------------------------------------------------------------------- | :------------------------------------------------------: | -------------------------------------------------------------------------------------------------- |
+| **1**  | **Control / Trigger button**      | Opens the option list when activated; displays the currently selected value or placeholder. | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                 |
+| **1a** | **Selected value or placeholder** | Shows the currently selected option or placeholder text when nothing is selected.           | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                 |
+| **1b** | **Chevron indicator**             | Visual cue indicating the control can be expanded to reveal options.                        | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                 |
+| **2**  | **Drop container**                | Contains the list of options displayed when the dropdown is open.                           | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                 |
+| **3**  | **Option item**                   | Represents a single selectable value within the dropdown list.                              | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                                 |
+| **4**  | **Search input**                  | Allows users to filter the option list by typing.                                           |                         Optional                         | Present only in the with-search variant; enabled by providing the `onSearch` prop.                 |
+
+## Variants
+
+### Default
+
+A standard single-selection dropdown with a trigger control and option list. Use when users need to choose one value from a short-to-moderate list of predefined options.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectValidationExample.js"
   docs="https://v2.grommet.io/select?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectExample.js"
   height={{ min: 'small' }}
 >
-  <SelectValidationExample />
+  <SelectExample />
 </Example>
 
-### Disabled
+### With search
 
-Indicates that the Select input exists but cannot be interacted with until a precondition is met.
+Adds a search input inside the dropdown to filter the option list by typed text. Use when the option list is long enough that scrolling becomes cumbersome, such as a country or region list.
 
 <Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectDisabledExample.js"
   docs="https://v2.grommet.io/select?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectSearchExample.js"
+  height={{ min: 'small' }}
+>
+  <SelectSearchExample />
+</Example>
+
+## Dos and Don'ts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use Select with Search (onSearch) for long lists such as countries or regions.',
+    }}
+  >
+    <SelectGoodSearchPreview />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        "Don't present a long unfiltered dropdown that requires excessive scrolling.",
+    }}
+  >
+    <SelectBadSearchPreview />
+  </Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        "Provide a meaningful placeholder that describes what to select, e.g. 'Select a region'.",
+    }}
+  >
+    <SelectGoodPlaceholderPreview />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message: "Don't leave Select without a placeholder or label.",
+    }}
+  >
+    <SelectBadPlaceholderPreview />
+  </Example>
+</BestPracticeGroup>
+
+## Behaviors and states
+
+### Interactive states
+
+- **Rest** — the Select control is visible but no user interaction is occurring.
+- **Hover** — the cursor moves over the control; a visual hover style is applied.
+- **Focus** — the control receives keyboard focus; a focus ring is applied.
+- **Active** — the user is actively pressing the control.
+- **Open** — the dropdown is expanded and the option list is visible.
+
+### Application states
+
+#### Disabled
+
+Disable Select when interaction is not yet permitted. Apply the `disabled` prop to both the `Select` and its enclosing `FormField`.
+
+<Example
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectDisabledExample.js"
   height={{ min: 'small' }}
 >
   <SelectDisabledExample />
 </Example>
 
+#### Validation
+
+Validation styling highlights the Select input with an error message. Always accompany validation errors with text that tells users how to resolve the issue. Apply validation through the `FormField` `error` prop. A required-field error is the most common pattern since available options are predefined.
+
+<Example
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/select/SelectValidationExample.js"
+  height={{ min: 'small' }}
+>
+  <SelectValidationExample />
+</Example>
+
+### Data states
+
+- **Empty** — no value is selected; placeholder text is displayed in the control.
+- **Has value** — a value is selected and displayed in the control.
+
+## Content guidelines
+
+- Use concise, descriptive labels for each option; avoid generic values such as "Item 1" or "Option A".
+- Write option labels in sentence case.
+- Use a placeholder that describes the expected selection (e.g., "Select a region") rather than generic text like "Select...".
+- Always pair Select with a FormField label to communicate the purpose of the input to all users.
+
 ## Accessibility
 
-Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
+Prefer using Select within a `FormField`. This gives users clear indication of the input's purpose and ensures labels accompany inputs for assistive technologies.
 
-To properly associate FormField `label` with Grommet's Select component, ensure the Select has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
+Always give the Select an `id` and set `htmlFor` on `FormField` to `${id}__input` so the label associates correctly.
 
 ```
 <FormField label="Select option" htmlFor="select__input">
   <Select id="select" options={['Option 1', 'Option 2']} />
 </FormField>
 ```
+
+### Keyboard interactions
+
+| Key                   | Action                                                         |
+| --------------------- | -------------------------------------------------------------- |
+| Space / Enter         | Opens the dropdown when the control is focused                 |
+| Escape                | Closes the dropdown and returns focus to the trigger control   |
+| Arrow Down / Arrow Up | Moves focus between options when the dropdown is open          |
+| Enter                 | Selects the focused option and closes the dropdown             |
+| Tab                   | Moves focus to the next focusable element; closes the dropdown |
+
+### ARIA attributes
+
+| Attribute         | Value                       | Condition                                                                  |
+| ----------------- | --------------------------- | -------------------------------------------------------------------------- |
+| `aria-expanded`   | `true` / `false`            | Reflects whether the option list is open or closed                         |
+| `aria-haspopup`   | `listbox`                   | Always present                                                             |
+| `aria-labelledby` | FormField label element id  | When paired with FormField via `htmlFor="${id}__input"` on FormField       |
 
 ### WCAG compliance
 

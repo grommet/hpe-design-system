@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import { Form, FormField, Select } from 'grommet';
 
-const options = ['One', 'Two', 'Three', 'Four', 'Five'];
+const options = [
+  'Administration',
+  'Engineering',
+  'Finance',
+  'Human Resources',
+  'Legal',
+  'Marketing',
+  'Operations',
+  'Sales',
+];
 
-export const SelectExample = () => {
+export const SelectChoosingValueExample = () => {
   const [selected, setSelected] = useState('');
 
   return (
@@ -11,14 +20,14 @@ export const SelectExample = () => {
       {/* https://github.com/grommet/eslint-plugin-grommet/issues/46 */}
       {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
       <FormField
-        htmlFor="select-example__input"
-        name="select-example"
-        label="Option"
+        htmlFor="select-department__input"
+        name="select-department"
+        label="Department"
       >
         <Select
-          id="select-example"
-          name="select-example"
-          placeholder="Select option"
+          id="select-department"
+          name="select-department"
+          placeholder="Select department"
           options={options}
           value={selected}
           onChange={({ option }) => setSelected(option)}
