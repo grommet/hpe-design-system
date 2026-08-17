@@ -1,6 +1,7 @@
 ---
 name: instruction-writer
 description: "Guide users through creating high-quality .instructions.md files with clear scope, applyTo patterns, actionable rules, and related references."
+version 1.0.00
 ---
 
 # Professional Instruction Writer
@@ -119,7 +120,7 @@ After gathering the requirements, I will generate a complete `.instructions.md` 
 ---
 name: [Instruction Name]
 description: [Clear, scoped description]
-applyTo: "[glob pattern if applicable]"
+applyTo: '[glob pattern if applicable]'
 ---
 
 # Instructions: [Instruction Name]
