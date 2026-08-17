@@ -18,6 +18,7 @@ import {
   CheckBoxShowingHidingContentExample,
   CheckBoxSimpleExample,
   CheckBoxSolelyExample,
+  CheckBoxStatesExample,
   CheckBoxToggleExample,
   CheckBoxValidationExample,
 } from '../../examples';
@@ -174,6 +175,16 @@ System's interactive state styles.
 
 ### Application states
 
+**Unchecked**, **checked**, and **indeterminate** represent the core selection states of a checkbox. Use the unchecked state for a neutral choice that has not yet been confirmed, the checked state for a positive decision that should be preserved in the form, and the indeterminate state only for a parent selector that represents a partial selection across child items (not supported on the toggle variant). 
+
+<Example
+  docs="https://v2.grommet.io/checkbox?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/checkbox/CheckBoxStatesExample.js"
+  height={{ min: 'xsmall' }}
+>
+  <CheckBoxStatesExample />
+</Example>
+
 **Disabled** — prevents interaction when a choice is unavailable. Always communicate why a checkbox is disabled when the reason is not obvious from context.
 
 <Example
@@ -183,8 +194,6 @@ System's interactive state styles.
 >
   <CheckBoxDisabledExample />
 </Example>
-
-**Indeterminate** — indicates that only a subset of child items in a list are selected. Only valid on standard checkboxes acting as a parent selector; not supported on the toggle variant.
 
 **Validation error** — appears via the enclosing `FormField` when the checkbox fails form validation.
 

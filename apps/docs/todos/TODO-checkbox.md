@@ -26,9 +26,9 @@ The following props are present in the Grommet CheckBox source or referenced in 
 ## Missing behaviors or states
 
 - **Unchecked state** — the original MDX explicitly listed Unchecked, Checked, and Indeterminate as the three states. The new MDX covers checked and indeterminate but does not explicitly document the rest/unchecked state as a behavior item.
-> Status:Open <br />Name: <br />Date:  <br />Notes:
+> Status:Completed <br />Name:Julia ML <br />Date:17 Aug 2026  <br />Notes:
 - **Checked state** — only covered implicitly through examples; no explicit prose description for the checked application state.
-> Status:Open <br />Name: <br />Date:  <br />Notes:
+> Status:Completed <br />Name:Julia ML <br />Date:17 aUG 2026  <br />Notes:
 
 ## Missing visual assets
 
