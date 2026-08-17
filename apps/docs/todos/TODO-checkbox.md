@@ -38,7 +38,7 @@ The following props are present in the Grommet CheckBox source or referenced in 
 ## Other gaps
 
 - The original MDX noted that `CheckBoxSolelyExample` demonstrates usage **outside** of a FormField. The new MDX uses it as the "Opting in to an agreement" use case example but does not explicitly call out the difference in context (with vs. without FormField wrapper). Consider adding a note or a second panel to the example.
-> Status:Open <br />Name:Sulaymon <br />Date:  <br />Notes:
+> Status:No action required <br />Name:Julia ML <br />Date:17 Aug 2026  <br />Notes: this is represented in the examples but also dos and donts and accessibility.
 
 - The indeterminate state example (`CheckBoxSelectingItemsListExample`) introduces the `indeterminate` prop but this prop is not documented in the YAML `props` array.
 > Status:Open <br />Name:Sulaymon <br />Date:  <br />Notes:
@@ -61,4 +61,4 @@ The source MDX had no explicit do/don't section with the standard paired format.
 - That the `FormField label duplication` rule aligns with the current HPE Design System pattern.
 - That the `toggle vs checkbox` distinction is still accurate for the current design spec.
 
-> Status:Open <br />Name:Julia ML <br />Date:13 Aug 2026  <br />Notes:
+> Status:Completed <br />Name:Julia ML <br />Date:17 Aug 2026  <br />Notes:I checked and they all make sense.
