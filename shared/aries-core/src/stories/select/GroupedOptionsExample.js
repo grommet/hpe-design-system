@@ -12,6 +12,8 @@ const GroupedOptionsExample = () => {
   const groupedOptions = buildGroupedOptions(allOptions);
 
   const renderOptionLabel = option => {
+    // Known limitation: still announced as a disabled option, not a group
+    // header, by screen readers (see SelectGroupLabel.js).
     if (option.isGroupLabel) return <SelectGroupLabel label={option.label} />;
 
     return option.label;
