@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable max-len */
 import { Code, Book, Table } from '@hpe-design/icons-grommet';
 // TODO replace with DS icon package when available

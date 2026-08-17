@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
