@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Text, ThemeContext } from 'grommet';
 import { resolveOptionPad } from '../utils';
 
-const SelectGroupLabel = ({ label }) => {
+const SelectGroupLabel = ({ label, ...rest }) => {
   const theme = React.useContext(ThemeContext);
   const pad = resolveOptionPad(theme);
 
@@ -14,7 +14,10 @@ const SelectGroupLabel = ({ label }) => {
         bottom: '5xsmall',
         left: pad?.left || pad?.horizontal,
       }}
+      {...rest}
     >
+      {/* Known limitation: nested inside Select's role="option" row, so AT
+          still announces this as a disabled option, not a heading/group. */}
       <Text
         size="xsmall"
         weight="bold"
