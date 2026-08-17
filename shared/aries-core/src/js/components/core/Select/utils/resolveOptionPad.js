@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { hpe as hpeTheme } from 'grommet-theme-hpe';
 
 const HPE_OPTION_PAD = hpeTheme?.button?.size?.medium?.option?.pad;

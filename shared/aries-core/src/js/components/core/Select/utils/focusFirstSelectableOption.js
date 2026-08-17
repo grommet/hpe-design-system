@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // Grommet auto-focuses an option on keyboard-open, but mouse-open can leave
 // focus on the listbox container, so we force focus to the first selectable option.
 const focusFirstSelectableOption = ({

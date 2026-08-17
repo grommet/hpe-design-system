@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Cpu, StatusGood, StatusWarning } from '@hpe-design/icons-grommet';
 
 const allOptions = [
