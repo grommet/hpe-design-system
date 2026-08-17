@@ -1,6 +1,7 @@
 ---
 name: code-connect-intake
 description: 'Intake workflow for HPE Design System Code Connect work. Use when asked to start a new Code Connect mapping, confirm a Figma node URL, identify the target Grommet component, choose the correct `.figma.jsx` file location, or gather the minimum inputs before editing `knowledge/code-connect/src/`.'
+version 1.0.00
 ---
 
 # Code Connect Intake

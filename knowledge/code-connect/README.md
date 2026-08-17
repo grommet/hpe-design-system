@@ -76,16 +76,39 @@ This creates two complementary paths: direct Dev Mode handoff for human implemen
 
 ---
 
-## Components Connected (6)
+## Components Available in the Repository
 
-| Component | Figma Node  | Variants / Key Props                                                 |
-| --------- | ----------- | -------------------------------------------------------------------- |
-| `Button`  | `2133-694`  | `Kind`, `Size`, `State`, `Icon`, `is Busy`, `show Badge`, `show Tip` |
-| `Tag`     | `3039-2385` | `show Name`, `Value`, `Size`, `is Clickable`, `is Removable`         |
-| `Menu`    | `2475-3768` | `is Icon Only`, `Aligned`, `is Open`                                 |
-| `Tab`     | `59-2098`   | `show Icon`                                                          |
-| `Tabs`    | `59-2087`   | `has Overflow`                                                       |
-| `Card`    | `3062-2494` | `CardHeader`, `CardBody`, `CardFooter` static composition            |
+### `controls`
+
+- [Anchor](src/controls/Anchor.figma.jsx)
+- [Button](src/controls/Button.figma.jsx)
+- [Menu](src/controls/Menu.figma.jsx)
+- [Tab](src/controls/Tab.figma.jsx)
+- [Tabs](src/controls/Tabs.figma.jsx)
+- [Tag](src/controls/Tag.figma.jsx)
+
+### `inputs`
+
+- [CheckBox](src/inputs/CheckBox.figma.jsx)
+- [CheckBoxGroup](src/inputs/CheckBoxGroup.figma.jsx)
+- [DateInput](src/inputs/DateInput.figma.jsx)
+- [NumberInput](src/inputs/NumberInput.figma.jsx)
+- [RadioButton](src/inputs/RadioButton.figma.jsx)
+- [RadioButtonGroup](src/inputs/RadioButtonGroup.figma.jsx)
+- [Select](src/inputs/Select.figma.jsx)
+- [SelectMultiple](src/inputs/SelectMultiple.figma.jsx)
+- [TextInput](src/inputs/TextInput.figma.jsx)
+
+### `layouts`
+
+- [Card](src/layouts/Card.figma.jsx)
+
+### `visualisations`
+
+- [Avatar](src/visualisations/Avatar.figma.jsx)
+- [Skeleton](src/visualisations/Skeleton.figma.jsx)
+- [Spinner](src/visualisations/Spinner.figma.jsx)
+- [Tip](src/visualisations/Tip.figma.jsx)
 
 ---
 
@@ -475,43 +498,69 @@ jobs:
 
 ### Coverage Tracker
 
-| Component          | Status         |
-| ------------------ | -------------- |
-| `Button`           | ✅ Connected   |
-| `Tag`              | ✅ Connected   |
-| `Menu`             | ✅ Connected   |
-| `Tab`              | ✅ Connected   |
-| `Tabs`             | ✅ Connected   |
-| `Card`             | ✅ Connected   |
-| `TextInput`        | 🔲 Not started |
-| `CheckBox`         | 🔲 Not started |
-| `RadioButtonGroup` | 🔲 Not started |
-| `Select`           | 🔲 Not started |
-| `SelectMultiple`   | 🔲 Not started |
-| `Avatar`           | 🔲 Not started |
-| `Spinner`          | 🔲 Not started |
-| `Anchor`           | 🔲 Not started |
-| `Tip`              | 🔲 Not started |
-| `Skeleton`         | 🔲 Not started |
-| `Notification`     | 🔲 Not started |
-| `DataTable`        | 🔲 Not started |
-| `Pagination`       | 🔲 Not started |
-| `PageHeader`       | 🔲 Not started |
-| `Header`           | 🔲 Not started |
-| `Footer`           | 🔲 Not started |
-| `Accordion`        | 🔲 Not started |
-| `DropButton`       | 🔲 Not started |
-| `Search`           | 🔲 Not started |
-| `ToggleGroup`      | 🔲 Not started |
-| `NameValueList`    | 🔲 Not started |
-| `Data`             | 🔲 Not started |
-| `Chart`            | 🔲 Not started |
-| `Meter`            | 🔲 Not started |
-| `Diagram`          | 🔲 Not started |
-| `Calendar`         | 🔲 Not started |
-| `Layer`            | 🔲 Not started |
-| `Drop`             | 🔲 Not started |
-| `Carousel`         | 🔲 Not started |
+#### `controls`
+
+| Component | Status       |
+| --------- | ------------ |
+| `Button`  | ✅ Connected |
+| `Tag`     | ✅ Connected |
+| `Menu`    | ✅ Connected |
+| `Tab`     | ✅ Connected |
+| `Tabs`    | ✅ Connected |
+| `Anchor`  | ✅ Connected |
+
+#### `inputs`
+
+| Component          | Status       |
+| ------------------ | ------------ |
+| `TextInput`        | ✅ Connected |
+| `CheckBox`         | ✅ Connected |
+| `CheckBoxGroup`    | ✅ Connected |
+| `RadioButton`      | ✅ Connected |
+| `RadioButtonGroup` | ✅ Connected |
+| `Select`           | ✅ Connected |
+| `SelectMultiple`   | ✅ Connected |
+| `DateInput`        | ✅ Connected |
+| `NumberInput`      | ✅ Connected |
+
+#### `layouts`
+
+| Component | Status       |
+| --------- | ------------ |
+| `Card`    | ✅ Connected |
+
+#### `visualisations`
+
+| Component  | Status       |
+| ---------- | ------------ |
+| `Avatar`   | ✅ Connected |
+| `Spinner`  | ✅ Connected |
+| `Skeleton` | ✅ Connected |
+| `Tip`      | ✅ Connected |
+
+#### Backlog / Not started
+
+| Component       | Status         |
+| --------------- | -------------- |
+| `Notification`  | 🔲 Not started |
+| `DataTable`     | 🔲 Not started |
+| `Pagination`    | 🔲 Not started |
+| `PageHeader`    | 🔲 Not started |
+| `Header`        | 🔲 Not started |
+| `Footer`        | 🔲 Not started |
+| `Accordion`     | 🔲 Not started |
+| `DropButton`    | 🔲 Not started |
+| `Search`        | 🔲 Not started |
+| `ToggleGroup`   | 🔲 Not started |
+| `NameValueList` | 🔲 Not started |
+| `Data`          | 🔲 Not started |
+| `Chart`         | 🔲 Not started |
+| `Meter`         | 🔲 Not started |
+| `Diagram`       | 🔲 Not started |
+| `Calendar`      | 🔲 Not started |
+| `Layer`         | 🔲 Not started |
+| `Drop`          | 🔲 Not started |
+| `Carousel`      | 🔲 Not started |
 
 ---
 

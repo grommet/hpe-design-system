@@ -1,6 +1,7 @@
 ---
 name: code-connect-sync-troubleshooter
 description: 'Troubleshooting workflow for HPE Design System Code Connect publish and validation failures. Use when `pnpm --filter @hpe-design/code-connect figma:sync` fails, when a mapping validates locally but does not publish as expected, or when token setup, node type, parser restrictions, or mapping shape might be blocking sync.'
+version 1.0.00
 ---
 
 # Code Connect Sync Troubleshooter
