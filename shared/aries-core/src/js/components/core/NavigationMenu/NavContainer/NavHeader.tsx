@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, Button, Heading } from 'grommet';
 import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
 import { useEffect, useState } from 'react';

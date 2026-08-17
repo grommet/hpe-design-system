@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
@@ -7,6 +9,16 @@ import {
   numberToPixel,
   COPYRIGHT,
 } from '../utils.ts';
+import {
+  collectSemanticColorTokenLeafPathsFromTokenTree,
+  exportSemanticColorMetadataModuleFromTokenTree as exportSemanticColorMetadata,
+  parseSemanticColorTokenMetadata,
+  parseSemanticColorTokenMetadataFromTokenTree,
+} from '../semantic_color.ts';
+import {
+  normalizeColorVariableNameFromFigma,
+  tokenAliasToFigmaAlias,
+} from '../semantic_color_figma_adapter.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -15,6 +27,7 @@ const GROMMET_CJS_DIR = 'dist/grommet/cjs/';
 const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
+const DOCS_METADATA_DIR = `${DOCS_DIR}metadata/`;
 const PREFIX = 'hpe';
 /**
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
@@ -270,7 +283,129 @@ fs.appendFileSync(
 const filterColor = (token, file) =>
   token.filePath === file && !token.path.includes(FIGMA_PREFIX);
 
+const writeSemanticColorMetadataArtifacts = files => {
+  fs.mkdirSync(DOCS_METADATA_DIR, { recursive: true });
+  const parseFailures = [];
+
+  files.forEach(file => {
+    const [theme, mode] = getThemeAndMode(file);
+    const parsedTokens = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const canonicalParseResult = parseSemanticColorTokenMetadataFromTokenTree(
+      parsedTokens,
+      {
+        source: 'canonical-token',
+        softExceptionOnNonCanonicalRole: true,
+      },
+    );
+
+    const canonicalTokenLeafPaths = collectSemanticColorTokenLeafPathsFromTokenTree(
+      parsedTokens,
+    );
+
+    const figmaUnparseable = [];
+    const figmaExceptions = [];
+
+    canonicalTokenLeafPaths.forEach(tokenPath => {
+      const figmaName = tokenAliasToFigmaAlias(tokenPath);
+      const normalizedName = normalizeColorVariableNameFromFigma(figmaName);
+      const parsed = parseSemanticColorTokenMetadata(normalizedName);
+
+      if (!parsed.ok) {
+        if (parsed.code === 'ROLE_NOT_CANONICAL') {
+          const softParsed = parseSemanticColorTokenMetadata(normalizedName, {
+            allowNonCanonicalRoleName: true,
+          });
+
+          if (softParsed.ok) {
+            figmaExceptions.push({
+              code: 'NON_CANONICAL_ROLE_EXCEPTION',
+              figmaName,
+              normalizedName,
+              reason:
+                'Token role is non-canonical and requires explicit downstream handling.',
+            });
+            return;
+          }
+        }
+
+        figmaUnparseable.push({
+          figmaName,
+          normalizedName,
+          code: parsed.code,
+          message: parsed.message,
+          input: parsed.input,
+        });
+        return;
+      }
+
+      if (parsed.metadata.role === null) {
+        figmaExceptions.push({
+          code: 'NO_ROLE_EXCEPTION',
+          figmaName,
+          normalizedName,
+          reason:
+            'Token has no semantic role and requires explicit downstream handling.',
+        });
+      }
+    });
+
+    const report = {
+      canonical: {
+        unparseable: canonicalParseResult.errors,
+        exceptions: canonicalParseResult.exceptions,
+      },
+      figmaVariables: {
+        unparseable: figmaUnparseable,
+        exceptions: figmaExceptions,
+      },
+    };
+
+    const output = exportSemanticColorMetadata(parsedTokens, {
+      exportName: 'semanticColorMetadata',
+      includeErrors: true,
+      includeExceptions: true,
+      failOnErrors: false,
+      softExceptionOnNonCanonicalRole: true,
+    });
+
+    const fileSuffix = theme ? `${theme}-${mode}` : `${mode || 'default'}`;
+    const reportPath = `${DOCS_METADATA_DIR}semanticColorMetadata.report.${fileSuffix}.json`;
+
+    fs.writeFileSync(
+      `${DOCS_METADATA_DIR}semanticColorMetadata.${fileSuffix}.js`,
+      `// ${COPYRIGHT}\n\n${output}`,
+    );
+
+    fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+
+    const canonicalErrorCount = Object.keys(canonicalParseResult.errors).length;
+
+    if (canonicalErrorCount > 0) {
+      parseFailures.push({
+        fileSuffix,
+        reportPath,
+        errorCount: canonicalErrorCount,
+      });
+    }
+  });
+
+  if (parseFailures.length > 0) {
+    const details = parseFailures
+      .map(
+        ({ fileSuffix, reportPath, errorCount }) =>
+          `${fileSuffix}: ${errorCount} error(s) in ${reportPath}`,
+      )
+      .join('\n- ');
+
+    throw new Error(
+      `Semantic color metadata parse errors found. Reports were generated:\n- ${details}`,
+    );
+  }
+};
+
 try {
+  writeSemanticColorMetadataArtifacts(colorModeFiles);
+
   colorModeFiles.forEach(async file => {
     const [theme, mode] = getThemeAndMode(file);
     extendedDictionary = await HPEStyleDictionary.extend({

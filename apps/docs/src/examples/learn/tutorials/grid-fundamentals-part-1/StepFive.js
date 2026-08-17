@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Grommet, Heading, ThemeContext, Grid } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';

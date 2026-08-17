@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable react/prop-types */
 import { Box, Text, Heading, Grid, Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';

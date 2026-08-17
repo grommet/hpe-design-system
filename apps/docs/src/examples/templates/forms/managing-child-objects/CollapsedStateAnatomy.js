@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
 import { Box, Diagram, Grid, ResponsiveContext, Stack } from 'grommet';
 import { connection } from '../../../../utils';

@@ -1,0 +1,45 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: dependency-upgrade
+  version: 1.0.0
+  status: active
+  owner: design-system
+spec:
+  summary: Automates major version dependency upgrades for the HPE Design System monorepo with research, apply, verify, and rollback steps.
+  entrypoint:
+    agent: dependency-upgrade-orchestrator
+    args: '[package-name]'
+  dependencies:
+    data:
+      - path: pnpm-workspace.yaml
+      - path: knowledge/capabilities/dependency-upgrade/docs/RISK_TIERS.md
+    skills:
+      - path: knowledge/core/skills/fetch-migration-guide.skill.md
+      - path: knowledge/core/skills/build-verify-and-repair.skill.md
+    external:
+      - path: .github/workflows/update-dependencies.yml
+      - path: .github/workflows/update-grommet-dependencies.yml
+      - path: apps/docs/package.json
+      - path: apps/design-tokens-manager/package.json
+      - path: packages/hpe-design-tokens/package.json
+      - path: packages/codemods/package.json
+      - path: packages/icons-grommet/package.json
+      - path: packages/icons-svg/package.json
+      - path: shared/aries-core/package.json
+      - path: shared/hooks/package.json
+  assets:
+    agents:
+      - dependency-upgrade-orchestrator.agent.md
+      - agents/scan-outdated.agent.md
+      - agents/major-upgrade-planner.agent.md
+      - agents/major-upgrade-executor.agent.md
+      - agents/verify-upgrade.agent.md
+      - agents/rollback-upgrade.agent.md
+    docs:
+      - docs/RISK_TIERS.md
+  stages:
+    - id: scanned
+      when: 'exists(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json)'
+    - id: upgrade-in-progress
+      when: "exists(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json) && match_entry(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json, /\"status\":\\s*\"in-progress\"/)"

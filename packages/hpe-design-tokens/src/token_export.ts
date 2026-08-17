@@ -1,17 +1,13 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+/* eslint-disable max-len */
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
-import { Token, TokensFile } from './token_types.js';
+import { normalizeColorVariableNameFromFigma } from './semantic_color_figma_adapter.js';
+import { ExportShadowToken, Token, TokensFile } from './token_types.js';
 import { access, isReference } from './utils.js';
 
-/**
- * Supported color interaction states
- */
-const interactions = ['hover', 'focus', 'active'];
-/**
- * Supported color prominence modifiers
- */
-const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
-const exceptionColors = ['color/focus/support', 'color/transparent'];
+type ShadowsByMode = Record<string, Record<string, ExportShadowToken>>;
 
 function tokenTypeFromVariable(variable: Variable) {
   if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
@@ -44,27 +40,12 @@ function tokenValueFromVariable(
         aliasedVariable.resolvedType === 'COLOR' &&
         /^color/.test(aliasedName)
       ) {
-        const temp = aliasedName.replaceAll('-', '/').split('/');
-        if (!exceptionColors.includes(temp.join('/'))) {
-          // last element of name should be interaction
-          // Added exception for color/focus so that REST gets
-          // added, issue to revisit this here:
-          // https://github.com/grommet/hpe-design-system/issues/5676
-          if (
-            !interactions.includes(temp[temp.length - 1]) ||
-            temp.join('/') === 'color/focus'
-          ) {
-            temp.push('REST');
-          }
-          // second to last element of name should be prominence
-          if (!prominences.includes(temp[temp.length - 2])) {
-            temp.splice(temp.length - 1, 0, 'DEFAULT');
-          }
-        }
-        aliasedName = temp.join('/');
+        aliasedName = normalizeColorVariableNameFromFigma(aliasedName);
       }
       return `{${aliasedName.replace(/\//g, '.')}}`;
-    } else if ('r' in value) {
+    }
+
+    if ('r' in value) {
       return rgbToHex(value);
     }
 
@@ -81,7 +62,7 @@ export function tokenFilesFromLocalVariables(
   const localVariableCollections =
     localVariablesResponse.meta.variableCollections;
   const localVariables = localVariablesResponse.meta.variables;
-  const shadows: { [key: string]: any } = {};
+  const shadows: ShadowsByMode = {};
 
   Object.values(localVariables).forEach(variable => {
     // Skip remote variables because we only want to generate tokens for local variables
@@ -97,7 +78,7 @@ export function tokenFilesFromLocalVariables(
         tokenFiles[fileName] = {};
       }
 
-      let obj: any = tokenFiles[fileName];
+      let obj = tokenFiles[fileName] as Record<string, unknown>;
 
       // specific to "outline" but not something like "outlineOffset"
       if (/outline\//.test(variable.name)) {
@@ -106,8 +87,8 @@ export function tokenFilesFromLocalVariables(
         const property = parts[parts.length - 1];
 
         keyPath.forEach(groupName => {
-          obj[groupName] = obj[groupName] || {};
-          obj = obj[groupName];
+          obj[groupName] = (obj[groupName] as Record<string, unknown>) || {};
+          obj = obj[groupName] as Record<string, unknown>;
         });
         const token = {
           $type: 'border',
@@ -127,11 +108,14 @@ export function tokenFilesFromLocalVariables(
             },
           },
         };
-        const outline = access(keyPath.join('.'), tokenFiles[fileName]);
+        const outline = access<Record<string, unknown>>(
+          keyPath.join('.'),
+          tokenFiles[fileName] as Record<string, unknown>,
+        );
         if (Object.keys(outline).length === 0) {
           Object.assign(obj, token);
         } else {
-          const partialOutline = outline.$value;
+          const partialOutline = outline.$value as Record<string, unknown>;
           partialOutline[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
@@ -140,12 +124,16 @@ export function tokenFilesFromLocalVariables(
         }
       } else if (variable.name.includes('boxShadow')) {
         const parts = variable.name.split('/');
-        const keyPath = parts.slice(0, parts.indexOf('boxShadow') + 1);
+        const boxShadowIndex = parts.indexOf('boxShadow');
+        const keyPath = parts.slice(0, boxShadowIndex + 1);
         const property = parts[parts.length - 1];
+        const parsedStep = parseInt(parts[boxShadowIndex + 1], 10);
+        const stepIndex =
+          Number.isInteger(parsedStep) && parsedStep > 0 ? parsedStep - 1 : 0;
 
         keyPath.forEach(groupName => {
-          obj[groupName] = obj[groupName] || {};
-          obj = obj[groupName];
+          obj[groupName] = (obj[groupName] as Record<string, unknown>) || {};
+          obj = obj[groupName] as Record<string, unknown>;
         });
 
         let value = tokenValueFromVariable(
@@ -179,16 +167,28 @@ export function tokenFilesFromLocalVariables(
         };
 
         // if there isn't anything in the shadow yet, create the initial value array
-        const boxShadow = access(keyPath.join('.'), tokenFiles[fileName]);
+        const boxShadow = access<Record<string, unknown>>(
+          keyPath.join('.'),
+          tokenFiles[fileName] as Record<string, unknown>,
+        );
         if (Object.keys(boxShadow).length === 0) {
-          Object.assign(obj, token);
+          if (typeof token.$value === 'string') {
+            Object.assign(obj, token);
+          } else {
+            const initialValues: Array<Record<string, unknown>> = [];
+            initialValues[stepIndex] = {
+              [property]: value,
+            };
+            Object.assign(obj, {
+              ...token,
+              $value: initialValues,
+            });
+          }
           // if not a string reference
-        } else if (typeof boxShadow.$value === 'object') {
-          const index =
-            parseInt(parts[parts.length - 3], 10) >= 0
-              ? parseInt(parts[parts.length - 3], 10)
-              : 0;
-          const partialShadow = boxShadow.$value[index];
+        } else if (Array.isArray(boxShadow.$value)) {
+          const partialShadow =
+            (boxShadow.$value[stepIndex] as Record<string, unknown>) || {};
+          boxShadow.$value[stepIndex] = partialShadow;
           partialShadow[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
@@ -246,33 +246,15 @@ export function tokenFilesFromLocalVariables(
         // to align to design token spec
         // e.g. color/background/critical --> color/background/critical/DEFAULT/REST
         if (isColor) {
-          const temp = variable.name.replaceAll('-', '/').split('/');
-          if (!exceptionColors.includes(temp.join('/'))) {
-            // last element of name should be interaction
-            // Added exception for color/focus so that REST gets
-            // added, issue to revisit this here:
-            // https://github.com/grommet/hpe-design-system/issues/5676
-            if (
-              !interactions.includes(temp[temp.length - 1]) ||
-              temp.join('/') === 'color/focus'
-            ) {
-              temp.push('REST');
-            }
-            // second to last element of name should be prominence
-            if (!prominences.includes(temp[temp.length - 2])) {
-              temp.splice(temp.length - 1, 0, 'DEFAULT');
-            }
-          }
-          adjustedName = temp.join('/');
+          adjustedName = normalizeColorVariableNameFromFigma(variable.name);
         }
 
         adjustedName.split('/').forEach(groupName => {
-          obj[groupName] = obj[groupName] || {};
-          obj = obj[groupName];
+          obj[groupName] = (obj[groupName] as Record<string, unknown>) || {};
+          obj = obj[groupName] as Record<string, unknown>;
         });
 
-        let token: Token;
-        token = {
+        const token: Token = {
           $type: tokenTypeFromVariable(variable),
           $value: tokenValueFromVariable(variable, mode.modeId, localVariables),
           $description: variable.description,

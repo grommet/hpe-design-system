@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Transform, TransformedToken } from 'style-dictionary/types';
 import { excludedNameParts } from '../utils.js';
 

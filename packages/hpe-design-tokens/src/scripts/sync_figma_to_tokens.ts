@@ -1,6 +1,9 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import 'dotenv/config';
 import * as fs from 'fs';
 import path from 'path';
+import { execFileSync } from 'child_process';
 
 import FigmaApi from '../figma_api.js';
 import {
@@ -355,6 +358,18 @@ async function main() {
     startedAt: runStartedAt,
     finishedAt: new Date().toISOString(),
   });
+
+  try {
+    const prettierCommand =
+      process.platform === 'win32' ? 'prettier.cmd' : 'prettier';
+    execFileSync(prettierCommand, ['--write', `${outputDir}/**/*.json`], {
+      stdio: 'inherit',
+    });
+    console.log(green('✅ JSON files have been formatted with Prettier'));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`Failed to format JSON files with Prettier: ${message}`);
+  }
 
   console.log(
     green(`✅ Tokens files have been written to the ${outputDir} directory`),

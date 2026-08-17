@@ -9,6 +9,14 @@ This directory is the AI-first knowledge system for the HPE Design System.
 - `schemas/`: machine validation contracts, including capability manifest schema
 - `archive/`: deprecated or historical knowledge artifacts
 
+## Core
+
+- `agents/`: 
+- `data/`: structured data defining HPE Design System components and patterns
+- `instructions/`:
+- `prompts/`:
+- `skills/`: 
+
 ## Capability Index
 
 - `docs-refactor` (status: active)

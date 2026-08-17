@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { FilteringCards } from 'apps/docs/src/examples/templates/filtering/FilteringCards/FilteringCards';
 import { FilteringTable } from 'apps/docs/src/examples/templates/filtering/FilteringTable/FilteringTable';

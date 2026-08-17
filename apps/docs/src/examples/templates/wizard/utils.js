@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // Wizard width is not a t-shirt size but instead dependent
 // on the max number of columns it will contain * the width
 // of those columns (medium) + gap between columns + small amount

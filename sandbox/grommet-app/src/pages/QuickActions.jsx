@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Anchor, Box, Button, Heading, Skeleton } from 'grommet';
 import PropTypes from 'prop-types';
 import {

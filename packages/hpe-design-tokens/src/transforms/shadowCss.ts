@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Transform } from 'style-dictionary/types';
 
 // supporting our own transform because style-dictionary doesn't support inset

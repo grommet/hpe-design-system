@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useAnalytics, Layer } from 'grommet';
 import { useRouter } from 'next/router';
 import { NavigationMenu } from '@shared/aries-core';

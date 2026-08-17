@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Header, Main, Page, PageContent } from 'grommet';
 import { AppContainer } from './components';
 import { ContentArea } from './anatomy/components';

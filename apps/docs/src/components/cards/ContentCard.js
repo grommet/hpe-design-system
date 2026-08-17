@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, CardBody, Image, Text } from 'grommet';

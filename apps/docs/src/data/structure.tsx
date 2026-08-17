@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable max-len */
 import { Cube, Grow } from '@hpe-design/icons-grommet';
 import { IconCircle, IconDiamond, IconSquare } from '../components/icons';

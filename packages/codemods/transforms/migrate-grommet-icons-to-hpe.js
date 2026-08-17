@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Codemod for migrating from grommet-icons to @hpe-design/icons-grommet
  * Usage: npx hpe-design-system-codemods migrate-grommet-icons-to-hpe <path>

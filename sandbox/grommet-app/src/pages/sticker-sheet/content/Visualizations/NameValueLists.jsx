@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { NameValueList, NameValuePair } from 'grommet';
 import { Compare } from '../../components';
 import ContentPane from '../../../../components/ContentPane';
