@@ -39,7 +39,7 @@ The orchestrator detects the current pipeline stage, confirms before making any 
 - [ ] card/call-to-action-card
 - [ ] card/index
 - [ ] card/navigational-card
-- [ ] checkbox
+- [x] checkbox
 - [ ] checkboxgroup
 - [ ] data
 - [ ] datafilter
