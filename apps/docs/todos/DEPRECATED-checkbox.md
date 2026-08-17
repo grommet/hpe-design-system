@@ -23,7 +23,7 @@ Review completed during extract-yaml-agent run (Stage 0 → 1) and updated by cr
 - The `## Guidance` section has been fully decomposed: its use-case content became `## Use Cases`, its counter-indications became `## Dos and Don'ts`, and its state descriptions became `## Behaviors and States`.
  > Status:Confirmed/agreed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:
 - No content appears to have been accidentally dropped. All substantive guidance from the original has been mapped to a section in the new MDX or to the YAML.
- > Status:Not confirmed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:The rule "Do not use CheckBox when only one option may be selected from a list — use RadioButtonGroup instead." does not appear in the mdx file.
+ > Status:Not confirmed <br />Name:Julia ML<br />Date:13 Aug 2026<br />Notes:The rule "Do not use CheckBox when only one option may be selected from a list — use RadioButtonGroup instead." does not appear in the mdx file. However, this content feels more like a CheckboxGroup guidance, so I removed it from checkbox yaml.
 
 ### 1. Example component metadata links
 
