@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
 import { List, Menu, ResponsiveContext } from 'grommet';
 import { More } from '@hpe-design/icons-grommet';

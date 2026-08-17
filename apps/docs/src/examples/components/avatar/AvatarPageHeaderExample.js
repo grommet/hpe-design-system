@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { Avatar, Box, Button, PageHeader } from 'grommet';
