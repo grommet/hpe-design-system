@@ -30,6 +30,8 @@ catalog:
   styled-components: ^6.5.3
   typescript: ^5.9.3
   typescript-eslint: ^8.67.0
+  vite: ^8.2.1
+  '@vitejs/plugin-react': ^6.0.5
 catalogs:
   grommet-stable:
     grommet: https://github.com/grommet/grommet/tarball/stable

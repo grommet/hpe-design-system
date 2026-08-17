@@ -49,7 +49,7 @@
     "@applitools/eyes-testcafe": "1.17.4",
     "@testing-library/testcafe": "^5.0.1",
     "@types/react": "catalog:",
-    "@vitejs/plugin-react": "^5.1.4",
+    "@vitejs/plugin-react": "catalog:",
     "@vitest/ui": "^3.2.4",
     "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
@@ -60,7 +60,7 @@
     "start-server-and-test": "^2.0.3",
     "testcafe": "^3.5.0",
     "testcafe-react-selectors": "^5.0.3",
-    "vite": "^5.4.21",
+    "vite": "catalog:",
     "vitest": "^3.2.4"
   }
 }

@@ -47,14 +47,10 @@
   },
   "devDependencies": {
     "@eslint/js": "catalog:",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/react": "^8.6.14",
-    "@storybook/react-vite": "^8.6.14",
-    "@storybook/test": "^8.6.14",
+    "@storybook/react-vite": "^10.5.8",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "^5.0.0",
+    "@vitejs/plugin-react": "catalog:",
     "eslint": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
@@ -62,10 +58,11 @@
     "grommet-theme-hpe": "catalog:grommet-theme-hpe-v7",
     "minimatch": "^10.0.3",
     "react": "catalog:",
-    "storybook": "^8.6.14",
+    "storybook": "^10.5.8",
     "styled-components": "catalog:",
+    "terser": "^5.50.0",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
-    "vite": "^7.2.2"
+    "vite": "catalog:"
   }
 }
