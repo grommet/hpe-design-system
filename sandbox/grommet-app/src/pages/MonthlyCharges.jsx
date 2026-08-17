@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, DataChart, Text, Notification, Skeleton } from 'grommet';
 import { DashboardCard, Legend } from '../components';
 import expenses from '../mockData/expenses.json';

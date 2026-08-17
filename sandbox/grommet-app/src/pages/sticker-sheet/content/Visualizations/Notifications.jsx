@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, Notification } from 'grommet';
 import { Compare } from '../../components';
 import ContentPane from '../../../../components/ContentPane';

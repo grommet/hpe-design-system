@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, List, Text, Notification } from 'grommet';
 import { StatusCritical, StatusWarning } from '@hpe-design/icons-grommet';
 import { DashboardCard } from '../components';

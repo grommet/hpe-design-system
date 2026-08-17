@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { readFileSync } from 'fs';
 import { access, getThemeFiles, isReference } from '../utils.js';
 

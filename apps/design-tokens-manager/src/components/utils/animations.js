@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 const skeletonAnimation = [];
 
 for (let index = 0; index < 20; index += 1) {

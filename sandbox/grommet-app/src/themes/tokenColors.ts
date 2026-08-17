@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // These color namespaces were introduced in hpe-design-tokens v0
 // but not available for grommet-theme-hpe-v5.
 // Backfilling these color namespaces allows for a more seamless theme toggle

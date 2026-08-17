@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { ListIconIdentifierExample } from 'apps/docs/src/examples/templates/list-views/ListIconIdentifierExample';
 import { ListImageIdentifierExample } from 'apps/docs/src/examples/templates/list-views/ListImageIdentifierExample';

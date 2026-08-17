@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
 import { hpe as hpeV8 } from 'grommet-theme-hpe-v8';

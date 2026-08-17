@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { readdirSync } from 'fs';
 import { ApiGetLocalVariablesResponse } from './figma_api.js';
 import { ExpectedCollectionKeys } from './figma_sync_config.js';

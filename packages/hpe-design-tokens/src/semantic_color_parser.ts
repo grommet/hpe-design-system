@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // Parses semantic color token paths into canonical metadata and exports
 // helpers to serialize that metadata for build artifacts.
 import {

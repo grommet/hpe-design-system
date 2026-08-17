@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { DashboardExample } from 'apps/docs/src/examples/templates/dashboards/DashboardExample';
 import { ThreeColumnDashboard } from 'apps/docs/src/examples/templates/dashboards';

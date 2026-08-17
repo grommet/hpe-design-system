@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 declare module 'grommet-theme-hpe/dist/es6/themes/hpe.js' {
   export function buildTheme(
     tokens: unknown,

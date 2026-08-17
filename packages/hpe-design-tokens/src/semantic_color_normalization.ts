@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import {
   SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
   SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET,
