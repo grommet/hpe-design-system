@@ -14,7 +14,6 @@ export const CheckBoxGoodToggleUsagePreview = () => {
           setEnabled(event.target.checked)
         }
         toggle
-        reverse
       />
       {enabled && (
         <Text size="small" color="status-ok">
