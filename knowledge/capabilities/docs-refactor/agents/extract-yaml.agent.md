@@ -59,15 +59,22 @@ You are the first step in the per-component docs refactor pipeline. Read `knowle
 
 8. **Sync description to `components.js`** — open `apps/docs/src/data/structures/components.js` and find the entry for `[component-name]`. Update its `description` field to match the `description` value finalized in the YAML (single sentence, no markdown). If no entry exists for the component, add a note to the TODO file flagging it for manual addition.
 
-9. **Log inferred fields in the TODO file** — if any fields were inferred rather than extracted from the source MDX (`anatomy`, `usage.whenToUse`, `dosAndDonts`), create or append to `apps/docs/todos/TODO-[component-name].md` with a section titled `## Inferred fields — verify before merging`. List each inferred field and recommend verifying the content against the Figma file and grommet source before the PR is merged. If nothing was inferred, skip this step.
+9. **Log inferred fields in the TODO file** — if any fields were inferred rather than extracted from the source MDX (`anatomy`, `usage.whenToUse`, `dosAndDonts`), append a `## Inferred fields — verify before merging` section to `apps/docs/todos/TODO-[component-name].md` using the same `Item | Status | Name | Date | Notes` table format as `create-todos-agent`'s TODO sections — one row per inferred field (Status `Open`, Date today, Name and Notes blank), recommending verification against Figma and the grommet source before merge. If nothing was inferred, skip this step.
 
-10. **Stub the DEPRECATED file** — create `apps/docs/todos/DEPRECATED-[component-name].md` with a section for each piece of unmappable content. For each entry include:
+10. **Stub the DEPRECATED file** — create `apps/docs/todos/DEPRECATED-[component-name].md` using the exact template `create-todos-agent` produces (step 7 of that agent), so the stub and the final file stay consistent:
 
-- The original section name or content excerpt
-- Why it didn't map to the schema
-- Whether it may have value worth preserving and where it could potentially live
+```markdown
+# Deprecated content: [ComponentName]
 
-If nothing was unmappable, create the file with a brief note confirming the review was done and no content was dropped.
+> **Status values:** For an **AI claim** (content the AI reports was removed), use `Not confirmed` (initial — needs verification) or `Confirmed` (verified removed). For an **AI decision** (content the AI chose to restructure), use `Not agreed` (initial — reject or change the AI's decision) or `Agreed` (accept the AI's decision).
+
+## Content mapping table
+
+| Original section | Original content (excerpt) | Type | Status | New location (if restructured) | Name | Date | Notes |
+| ---------------- | -------------------------- | ---- | ------ | ------------------------------ | ---- | ---- | ----- |
+```
+
+Add one row per unmappable item: **Type** = `AI claim` or `AI decision`, initial **Status** = `Not confirmed` / `Not agreed`, **Date** = today, **Name** and **Notes** blank (note where content could live in `New location` or `Notes`). If nothing was unmappable, write a brief note confirming no content was dropped instead.
 
 11. **Rename the original MDX to `.bak`** — rename `apps/docs/src/pages/components/[component-name].mdx` to `apps/docs/src/pages/components/[component-name].mdx.bak`. This protects Next.js page-level imports and frontmatter so `generate-mdx-agent` can merge them back later.
 
