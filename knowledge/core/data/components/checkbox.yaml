@@ -56,7 +56,6 @@ usage:
     - Serving as a UI control that shows or hides page content when no form submission is needed.
     - Allowing an item to be selected within a list, table row, or dropdown.
   whenToAvoid:
-    - Do not use CheckBox when only one option may be selected from a list — use RadioButtonGroup instead.
     - Do not use CheckBox as a primary action trigger — use Button instead.
 variants:
   - name: default
