@@ -20,9 +20,16 @@ const LoadingExample = () => {
       <Select
         id="select-loading"
         name="select-loading"
+        aria-label={loading ? 'Loading services' : 'Select name'}
         options={loading ? [] : options}
         value={value}
-        placeholder={loading ? <SelectLoadingPlaceholder /> : 'Select name'}
+        placeholder={
+          loading ? (
+            <SelectLoadingPlaceholder text="Loading services..." />
+          ) : (
+            'Select name'
+          )
+        }
         disabled={loading}
         emptySearchMessage="No services found"
         onChange={({ option }) => setValue(option)}

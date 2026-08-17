@@ -40,7 +40,7 @@ const allOptions = [
 
 const fetchOptions = () =>
   new Promise(resolve => {
-    setTimeout(() => resolve(allOptions), 1500);
+    setTimeout(() => resolve(allOptions), 15000);
   });
 
 const buildGroupedOptions = options => {

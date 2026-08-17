@@ -12,8 +12,8 @@ const transparentDisabledOptionTheme = {
   },
 };
 
-const SelectOptionThemeScope = ({ children }) => (
-  <ThemeContext.Extend value={transparentDisabledOptionTheme}>
+const SelectOptionThemeScope = ({ children, ...rest }) => (
+  <ThemeContext.Extend value={transparentDisabledOptionTheme} {...rest}>
     {children}
   </ThemeContext.Extend>
 );
