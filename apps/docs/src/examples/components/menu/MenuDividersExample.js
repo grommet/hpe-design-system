@@ -4,7 +4,6 @@ import { Menu } from 'grommet';
 export const MenuDividersExample = () => (
   <Menu
     label="Servers"
-    alignSelf="start"
     items={[
       [
         { label: 'Edit' },
