@@ -61,5 +61,10 @@
     "start:grommet-app": "pnpm --filter grommet-app dev",
     "storybook:icons-grommet": "pnpm --filter \"@hpe-design/icons-grommet\" storybook",
     "storybook:core": "pnpm --filter \"@shared/aries-core\" storybook"
+  },
+  "pnpm": {
+    "overrides": {
+      "js-yaml": "3.15.1"
+    }
   }
 }
