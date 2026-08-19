@@ -49,14 +49,14 @@ catalogs:
       specifier: ^17.11.0
       version: 17.11.0
     grommet:
-      specifier: ^2.56.0
-      version: 2.56.0
+      specifier: ^2.56.1
+      version: 2.56.1
     grommet-icons:
       specifier: ^4.14.0
       version: 4.14.0
     grommet-theme-hpe:
-      specifier: ^8.1.4
-      version: 8.1.4
+      specifier: ^8.1.5
+      version: 8.1.5
     hpe-design-tokens:
       specifier: ^2.2.3
       version: 2.2.3
@@ -90,7 +90,7 @@ catalogs:
       version: 4.14.0
     grommet-theme-hpe:
       specifier: https://github.com/grommet/grommet-theme-hpe/tarball/stable
-      version: 8.1.4
+      version: 8.1.5
   grommet-theme-hpe-v7:
     grommet-theme-hpe:
       specifier: ^7.0.0
@@ -108,10 +108,10 @@ importers:
         version: 1.2.0(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet:
         specifier: 'catalog:'
-        version: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe:
         specifier: 'catalog:'
-        version: 8.1.4(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 8.1.5(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       styled-components:
         specifier: 'catalog:'
         version: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -202,13 +202,13 @@ importers:
         version: 1.2.0(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet:
         specifier: 'catalog:'
-        version: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons:
         specifier: 'catalog:'
         version: 4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe:
         specifier: ^6.0.0
-        version: 6.5.1(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 6.5.1(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens:
         specifier: workspace:*
         version: link:../../packages/hpe-design-tokens
@@ -287,7 +287,7 @@ importers:
         version: link:../../shared/hooks
       grommet:
         specifier: 'catalog:'
-        version: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons:
         specifier: catalog:grommet-stable
         version: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
@@ -351,7 +351,7 @@ importers:
         version: 9.39.5(jiti@1.21.7)
       grommet-theme-hpe:
         specifier: 'catalog:'
-        version: 8.1.4(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 8.1.5(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       jsdom:
         specifier: ^26.1.0
         version: 26.1.0
@@ -463,7 +463,7 @@ importers:
         version: 17.11.0
       grommet-theme-hpe:
         specifier: catalog:grommet-theme-hpe-v7
-        version: 7.0.2(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 7.0.2(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       minimatch:
         specifier: ^10.0.3
         version: 10.2.6
@@ -514,22 +514,22 @@ importers:
         version: link:../../shared/hooks
       grommet:
         specifier: 'catalog:'
-        version: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons:
         specifier: catalog:grommet-stable
         version: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe:
         specifier: catalog:grommet-stable
-        version: https://github.com/grommet/grommet-theme-hpe/tarball/stable(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: https://github.com/grommet/grommet-theme-hpe/tarball/stable(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe-v5:
         specifier: npm:grommet-theme-hpe@5.8.0
-        version: grommet-theme-hpe@5.8.0(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: grommet-theme-hpe@5.8.0(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe-v6:
         specifier: npm:grommet-theme-hpe@6
-        version: grommet-theme-hpe@6.5.1(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: grommet-theme-hpe@6.5.1(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe-v8:
         specifier: npm:grommet-theme-hpe@8
-        version: grommet-theme-hpe@8.1.4(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: grommet-theme-hpe@8.1.4(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       gsap:
         specifier: ^3.12.5
         version: 3.15.0
@@ -670,22 +670,22 @@ importers:
         version: link:../hooks
       grommet:
         specifier: 'catalog:'
-        version: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons:
         specifier: 'catalog:'
         version: 4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe:
         specifier: 'catalog:'
-        version: 8.1.4(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 8.1.5(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe-v5:
         specifier: npm:grommet-theme-hpe@5.8.0
-        version: grommet-theme-hpe@5.8.0(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: grommet-theme-hpe@5.8.0(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe-v6:
         specifier: npm:grommet-theme-hpe@6
-        version: grommet-theme-hpe@6.5.1(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: grommet-theme-hpe@6.5.1(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-theme-hpe-v8:
         specifier: npm:grommet-theme-hpe@8
-        version: grommet-theme-hpe@8.1.4(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: grommet-theme-hpe@8.1.4(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -824,7 +824,7 @@ importers:
     dependencies:
       grommet-theme-hpe:
         specifier: catalog:grommet-stable
-        version: https://github.com/grommet/grommet-theme-hpe/tarball/stable(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: https://github.com/grommet/grommet-theme-hpe/tarball/stable(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens:
         specifier: workspace:*
         version: link:../../packages/hpe-design-tokens
@@ -6400,7 +6400,7 @@ packages:
       styled-components: '>= 5.x'
 
   grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable:
-    resolution: {tarball: https://github.com/grommet/grommet-icons/tarball/stable}
+    resolution: {integrity: sha512-Jbcz+Maa5IgX9hUZZaDAu6V3NjHUD0eehcA/Y6osOeA7b/fN5tfWMQy6/yw7p8F80UPPYTusYXUkr+L/UFNIEw==, tarball: https://github.com/grommet/grommet-icons/tarball/stable}
     version: 4.14.0
     peerDependencies:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -6439,16 +6439,23 @@ packages:
       react: ^16.13.1 || ^17.0.1 || ^18.0.0 || ^19.0.0
       styled-components: ^6.0.0
 
-  grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable:
-    resolution: {tarball: https://github.com/grommet/grommet-theme-hpe/tarball/stable}
-    version: 8.1.4
+  grommet-theme-hpe@8.1.5:
+    resolution: {integrity: sha512-HXgXcjRwHjqyt9e+zjSvrX4XeL2yZxhdjIw/vMgzqT2JdvzQGAX5eD+0dXpX2Vi0mw8hviJCQqFPUpwnknuK/Q==}
     peerDependencies:
       grommet: ^2.50.0
       react: ^16.13.1 || ^17.0.1 || ^18.0.0 || ^19.0.0
       styled-components: ^6.0.0
 
-  grommet@2.56.0:
-    resolution: {integrity: sha512-wI8tWruxFsJo+dLsWd9rY1MQfWl+Gdj6lbwIfdBM7pha2VttpRQ0NBUf6E03zyEeJvIuxbWyQDE+mNFLwNUxDQ==}
+  grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable:
+    resolution: {integrity: sha512-hJt1faDPMXQ62Evt2OId2ymxp0QDs42J1U1WayNoLxg0QK5jFlzrS+/Conugq0jTdzuV6m97ofcNh8oEAjHh1Q==, tarball: https://github.com/grommet/grommet-theme-hpe/tarball/stable}
+    version: 8.1.5
+    peerDependencies:
+      grommet: ^2.50.0
+      react: ^16.13.1 || ^17.0.1 || ^18.0.0 || ^19.0.0
+      styled-components: ^6.0.0
+
+  grommet@2.56.1:
+    resolution: {integrity: sha512-NIO7pf87qfklsqyvVr+w+S4t2hyWu5cb1ToBXJmACAfOk8kw8GHIFe2Xr5MuO+En1kW76oapROUqqWc3sObBGA==}
     engines: {node: '>= 16'}
     peerDependencies:
       react: ^16.6.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -16592,61 +16599,69 @@ snapshots:
       react-dom: 19.2.8(react@19.2.8)
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet-theme-hpe@5.8.0(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@5.8.0(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
-      grommet: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons: 4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet-theme-hpe@5.8.0(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@5.8.0(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
-      grommet: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet-theme-hpe@6.5.1(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@6.5.1(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
-      grommet: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons: 4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens: 1.4.1
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet-theme-hpe@6.5.1(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@6.5.1(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
-      grommet: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens: 1.4.1
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet-theme-hpe@7.0.2(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@7.0.2(grommet-icons@4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
-      grommet: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet-icons: 4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens: 1.4.1
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet-theme-hpe@8.1.4(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@8.1.4(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
       '@hpe-design/icons-grommet': 1.2.0(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
-      grommet: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens: 2.2.3
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable(grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@8.1.5(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
       '@hpe-design/icons-grommet': 1.2.0(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
-      grommet: 2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens: 2.2.3
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
-  grommet@2.56.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable(grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+    dependencies:
+      '@hpe-design/icons-grommet': 1.2.0(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+      hpe-design-tokens: 2.2.3
+      react: 19.2.8
+      styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+
+  grommet@2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
       '@emotion/is-prop-valid': 1.4.0
       grommet-icons: 4.14.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
