@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { VariableCodeSyntax, VariableScope } from './figma_api.js';
 
 /**
@@ -40,6 +42,21 @@ export interface Token {
     };
   };
 }
+
+export type FigmaTokenExtensions = {
+  'com.figma': {
+    hiddenFromPublishing: boolean;
+    scopes: VariableScope[];
+    codeSyntax: VariableCodeSyntax;
+  };
+};
+
+export type ExportShadowToken = {
+  $type: 'shadow';
+  $value: Array<Record<string, unknown>>;
+  $description: string;
+  $extensions: FigmaTokenExtensions;
+};
 
 export type TokenOrTokenGroup =
   | Token

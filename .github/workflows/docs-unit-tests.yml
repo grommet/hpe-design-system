@@ -18,16 +18,19 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.30.3
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20.19.x'
+          node-version: '24.15.0'
           cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build design tokens
+        run: pnpm --filter hpe-design-tokens build
 
       - name: Build shared hooks
         run: pnpm --filter "@shared/hooks" build
@@ -56,16 +59,19 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.30.3
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20.19.x'
+          node-version: '24.15.0'
           cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build design tokens
+        run: pnpm --filter hpe-design-tokens build
 
       - name: Build shared hooks
         run: pnpm --filter "@shared/hooks" build

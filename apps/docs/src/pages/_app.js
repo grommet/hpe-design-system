@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
 import React, { useEffect, createContext, useState, useMemo } from 'react';
@@ -200,7 +202,11 @@ function App({ Component, pageProps, router }) {
     slugToText(route[route.length - 2]);
 
   const viewContextValue = useMemo(() => {
-    return { contentHistory, pageUpdateReady, setPageUpdateReady };
+    return {
+      contentHistory,
+      pageUpdateReady,
+      setPageUpdateReady,
+    };
   }, [contentHistory, pageUpdateReady]);
 
   return (

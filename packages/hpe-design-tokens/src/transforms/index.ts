@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export { javascriptCss } from './javascriptCss.js';
 export { javascriptW3c } from './javascriptW3c.js';
 export { colorNameJs } from './colorNameJs.js';

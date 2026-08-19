@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
@@ -34,16 +36,8 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <script
-            id="hpe-global-header"
-            type="text/javascript"
-            async=""
-            src="https://storage.googleapis.com/hpe-global-header-assets/hpe-global-header.js"
-          />
-        </Head>
+        <Head />
         <body>
-          <div id="header" className="header" />
           <Main />
           <div id="footer" className="footer" />
           <script src="https://h50007.www5.hpe.com/hfws-static/js/framework/jquery/v-3-6-0/jquery.js" />

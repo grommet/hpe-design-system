@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
 import {
   Box,
@@ -77,9 +79,8 @@ export const Community = ({ ...rest }) => {
         </Box>
         <Grid
           columns="medium"
-          rows={[['auto', 'full']]}
           gap={{ row: 'xlarge', column: 'xsmall' }}
-          fill
+          fill="horizontal"
         >
           <SlackOption />
           {/* <Roadmap />

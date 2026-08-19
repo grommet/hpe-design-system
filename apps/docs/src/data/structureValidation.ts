@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { z, type ZodIssue } from 'zod';
 import type { CategoryMappings } from './buildCategoryMapping';
 import {
@@ -27,19 +29,28 @@ const CategoryMappingSchema = z.record(
 );
 
 export const ALLOWED_CATEGORIES = new Set([
-  'All',
+  // Foundation
   'Assets',
+  'Color',
+  'Getting started',
+  'HPE Brand',
+  'Layout',
+  'Philosophy',
+  // Components
+  'All',
   'Controls',
   'Data',
   'Inputs',
-  'Layout',
   'Layouts',
-  'Philosophy',
   'Visualizations',
-  'Single Column',
-  '2 Column',
-  '3 Column',
-  'Multi-column',
+  // Design tokens
+  'Getting started',
+  'Building with tokens',
+  // Learn
+  'Tutorials',
+  'How-to guides',
+  'Explanations',
+  'References',
 ]);
 
 const duplicateValues = (values: string[]) => {

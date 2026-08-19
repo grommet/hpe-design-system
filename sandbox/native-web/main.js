@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import 'hpe-design-tokens/dist/css/primitives.css';
 import 'hpe-design-tokens/dist/css/color.light.css';
 import 'hpe-design-tokens/dist/css/color.dark.css';

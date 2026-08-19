@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
 import {
   Anchor,
@@ -7,7 +9,7 @@ import {
   Paragraph,
   ResponsiveContext,
 } from 'grommet';
-import { AppIdentity } from '../../../components/content/AppIdentity';
+import { AppIdentity } from '@shared/aries-core';
 
 export const BasicLayoutExample = () => {
   const size = useContext(ResponsiveContext);

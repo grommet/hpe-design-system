@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading, Image, PageContent, ResponsiveContext } from 'grommet';
@@ -9,29 +11,22 @@ const CreativeToolkitLayout = ({ level }) => {
 
   return (
     <Box
-      direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
+      direction={
+        !['xsmall', 'small', 'medium'].includes(size) ? 'row' : 'column'
+      }
       gap="large"
       margin={{ bottom: 'large' }}
       justify="center"
       align="center"
     >
       {toolkitItems.map(({ name, href, image }) => (
-        <ContentPreviewCard
-          key={name}          
-          href={href}
-          pad="medium"
-          round="xxlarge">
-          <Box
-            align="center"
-            gap="medium"
-            height="small"
-            width={!['xsmall', 'small'].includes(size) ? 'medium' : 'large'}
-          >
+        <ContentPreviewCard key={name} href={href} pad="medium" round="xxlarge">
+          <Box alignSelf="center" gap="medium" height="small" width="medium">
             <Box
               width="xxsmall"
               height="xsmall"
               align="center"
-              justify="center"
+              alignSelf="center"
             >
               {image && (
                 <Image

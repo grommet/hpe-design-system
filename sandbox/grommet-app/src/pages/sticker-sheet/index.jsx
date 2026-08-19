@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -12,7 +14,7 @@ import {
   Tabs,
 } from 'grommet';
 import { Left } from '@hpe-design/icons-grommet';
-import { themes } from '../../themes/theme';
+import { themes } from '../../themes';
 import { ModeContext, TabContent } from './components';
 import {
   Accordions,

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Box, Button, Diagram, Grid, Header, Heading, Stack } from 'grommet';
 import { ButtonGroup } from '@shared/aries-core';

@@ -1,4 +1,8 @@
-import { Box } from 'grommet';
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import { useContext } from 'react';
+import { Box, ThemeType } from 'grommet';
+import { ThemeContext } from 'styled-components';
 import { NavHeader } from './NavHeader';
 
 interface NavContainerProps {
@@ -20,12 +24,14 @@ export const NavContainer = ({
   title,
   ...rest
 }: NavContainerProps) => {
+  // ThemeType only includes base grommet edgeSize keys; HPE extends it with
+  // additional sizes (e.g. '3xsmall'). The intersection adds them explicitly.
+  const theme = useContext(ThemeContext) as ThemeType & {
+    global: { edgeSize: Record<string, string> };
+  };
   return (
     <Box
-      pad={{ 
-        horizontal: 'xsmall', 
-        bottom: '3xsmall',
-      }}
+      pad={{ horizontal: '3xsmall' }}
       width={open ? 'small' : undefined}
       {...rest}
     >
@@ -37,7 +43,16 @@ export const NavContainer = ({
           setOpen={setOpen}
         />
       )}
-      {children}
+      {/* Items scroll independently of the sticky header above. pad.top
+          ensures the first item's focus ring isn't clipped by the overflow
+          boundary when scrollTop is at its floor (0). */}
+      <Box
+        pad={{ top: '3xsmall', horizontal: 'xsmall', bottom: '3xsmall' }}
+        style={{ scrollPaddingTop: theme.global.edgeSize['3xsmall'] }}
+        overflow="auto"
+      >
+        {children}
+      </Box>
     </Box>
   );
 };

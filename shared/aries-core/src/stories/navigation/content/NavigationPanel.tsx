@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useContext, useEffect, useState } from 'react';
 import { Box, Button, Layer, ResponsiveContext } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
@@ -82,7 +84,7 @@ export const NavigationPanel = ({
             <NavigationMenu
               {...navigationMenuProps}
               gap="medium"
-              width={undefined} // full width when in mobile
+              fill="horizontal" // full width when in mobile
               header={
                 <LayerHeader
                   onClose={() => setOpenLayer(false)}

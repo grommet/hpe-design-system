@@ -1,7 +1,9 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
-import { useDesignTokens } from '../../../components/content/designTokenUtils';
+import { useDesignTokens } from '../../../components';
 
 const Space = ({ token }) => {
   return (

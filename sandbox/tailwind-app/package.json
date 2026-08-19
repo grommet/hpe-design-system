@@ -21,7 +21,7 @@
     "@eslint/js": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "catalog:",
     "autoprefixer": "^10.4.19",
     "eslint": "catalog:",
     "eslint-plugin-react": "catalog:",
@@ -30,6 +30,6 @@
     "globals": "catalog:",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0"
+    "vite": "catalog:"
   }
 }

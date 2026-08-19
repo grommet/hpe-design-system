@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // scale-to-theme.js
 // Utility functions to convert scale definitions and t-shirt sizes to theme objects
 // Scale definition example:

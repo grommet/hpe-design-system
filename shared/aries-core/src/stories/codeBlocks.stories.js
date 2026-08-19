@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { CodeBlockExample } from 'apps/docs/src/examples/templates/code-blocks/CodeBlocks';
 import CodeBlockExampleSource from 'apps/docs/src/examples/templates/code-blocks/CodeBlocks.js?raw';

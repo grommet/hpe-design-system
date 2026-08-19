@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Page, PageContent, PageHeader } from 'grommet';
 import { useSessionStorage } from '@shared/hooks';
 import { AppShell, NavigationPanel, navItemsSubheadings } from './content';

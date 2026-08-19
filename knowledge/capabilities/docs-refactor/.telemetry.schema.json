@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hpe.com/design-system/knowledge/telemetry.schema.json",
+  "title": "Telemetry Event Schema",
+  "description": "Structured event schema for docs-refactor workflow telemetry logging.",
+  "type": "object",
+  "required": ["ts", "component", "eventType"],
+  "additionalProperties": false,
+  "properties": {
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when event occurred."
+    },
+    "component": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Component name (kebab-case)."
+    },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "stage-transition",
+        "agent-start",
+        "agent-complete",
+        "agent-error",
+        "workflow-complete",
+        "workflow-error"
+      ],
+      "description": "Type of telemetry event."
+    },
+    "stage": {
+      "type": "string",
+      "description": "Current pipeline stage (e.g., extracted, generated, todos-created)."
+    },
+    "agent": {
+      "type": "string",
+      "description": "Agent name (for agent-* events)."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["success", "failure", "skipped"],
+      "description": "Outcome of the operation."
+    },
+    "durationMs": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Duration in milliseconds."
+    },
+    "error": {
+      "type": "string",
+      "description": "Error message (for error events)."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional context-specific data.",
+      "additionalProperties": true,
+      "properties": {
+        "workflowMetrics": {
+          "type": "object",
+          "description": "Rollup metrics for a workflow terminal event.",
+          "additionalProperties": false,
+          "required": [
+            "workflowElapsedMs",
+            "delegatedDurationMs",
+            "orchestratorActiveMs",
+            "orchestrationOverheadMs"
+          ],
+          "properties": {
+            "workflowElapsedMs": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Wall-clock duration between first and terminal event in a run."
+            },
+            "delegatedDurationMs": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Sum of durationMs from agent-complete events for the run."
+            },
+            "orchestratorActiveMs": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Estimated orchestrator management time for the run."
+            },
+            "orchestrationOverheadMs": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "workflowElapsedMs minus delegatedDurationMs, clamped at 0."
+            }
+          }
+        }
+      }
+    }
+  }
+}

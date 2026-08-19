@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useEffect, useState } from 'react';
 import {
   Toolbar,
@@ -289,7 +291,7 @@ const Docs = () => {
                             background="background-contrast"
                             pad="xsmall"
                             round="xsmall"
-                            style={{ fontFamily: 'Menlo' }}
+                            style={{ fontFamily: 'Consolas, Menlo, monospace' }}
                           >
                             <Text size="xsmall">{datum.token}</Text>
                           </Box>

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { User, Home, Template } from '@hpe-design/icons-grommet';
 
 export const sectionConfig = {

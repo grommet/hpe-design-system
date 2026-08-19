@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable max-len */
 // TODO replace with DS icon package when available
 import { Grommet } from 'grommet-icons';
@@ -67,25 +69,25 @@ export const learn = [
     relatedContent: ['Data', 'Filtering'],
     tags: [],
   },
-  {
-    name: 'Tshirt sizing',
-    render: 'T-shirt sizing',
-    type: 'Explanations',
-    preview: {
-      image: {
-        src: {
-          light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
-          dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
-        },
-        alt: 'HPE T-shirt Sizing Preview',
-      },
-    },
-    description:
-      'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
-    seoDescription:
-      'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
-    href: '/foundation/tshirt-sizing',
-  },
+  // {
+  //   name: 'Tshirt sizing',
+  //   render: 'T-shirt sizing',
+  //   type: 'Explanations',
+  //   preview: {
+  //     image: {
+  //       src: {
+  //         light: '/foundationImages/foundation-preview-tshirt-sizing.svg',
+  //         dark: '/foundationImages/foundation-preview-tshirt-sizing-invert.svg',
+  //       },
+  //       alt: 'HPE T-shirt Sizing Preview',
+  //     },
+  //   },
+  //   description:
+  //     'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
+  //   seoDescription:
+  //     'Understand the motivations behind behind t-shirt sizing and how it drives consistent experiences.',
+  //   href: '/foundation/tshirt-sizing',
+  // },
   {
     name: 'Grommet API docs',
     type: 'References',

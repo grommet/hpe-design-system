@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hpe.design/schemas/figma-sync.run-summary.schema.json",
+  "title": "Figma Sync Run Summary Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "eventType",
+    "runId",
+    "environment",
+    "dryRun",
+    "productionGuardrailPassed",
+    "mutationsApplied",
+    "unresolvedAliasCount",
+    "stages",
+    "errors",
+    "startedAt",
+    "finishedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "eventType": {
+      "const": "run-summary"
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment": {
+      "type": "string",
+      "enum": ["production", "test"]
+    },
+    "dryRun": { "type": "boolean" },
+    "productionGuardrailPassed": { "type": "boolean" },
+    "mutationsApplied": { "type": "boolean" },
+    "unresolvedAliasCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "stages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/stageSummary" },
+      "minItems": 1
+    },
+    "errors": {
+      "type": "array",
+      "items": { "$ref": "figma-sync.error.schema.json" }
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finishedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "stageSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "status", "counts"],
+      "properties": {
+        "stage": {
+          "type": "string",
+          "enum": ["primitive", "semantic", "component"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["planned", "running", "succeeded", "failed", "skipped"]
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["variableCollections", "variables", "variableModeValues"],
+          "properties": {
+            "variableCollections": { "$ref": "#/$defs/mutationCounts" },
+            "variables": { "$ref": "#/$defs/mutationCounts" },
+            "variableModeValues": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["update"],
+              "properties": {
+                "update": { "type": "integer", "minimum": 0 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "mutationCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["create", "update", "delete"],
+      "properties": {
+        "create": { "type": "integer", "minimum": 0 },
+        "update": { "type": "integer", "minimum": 0 },
+        "delete": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

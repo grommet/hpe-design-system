@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hpe.design/schemas/figma-sync.stage-status.schema.json",
+  "title": "Figma Sync Stage Status Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "eventType",
+    "runId",
+    "environment",
+    "stage",
+    "status",
+    "dryRun",
+    "mutationsApplied",
+    "counts",
+    "unresolvedAliasCount",
+    "startedAt",
+    "finishedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "eventType": {
+      "const": "stage-status"
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment": {
+      "type": "string",
+      "enum": ["production", "test"]
+    },
+    "stage": {
+      "type": "string",
+      "enum": ["primitive", "semantic", "component"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "running", "succeeded", "failed", "skipped"]
+    },
+    "dryRun": {
+      "type": "boolean"
+    },
+    "mutationsApplied": {
+      "type": "boolean"
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variableCollections", "variables", "variableModeValues"],
+      "properties": {
+        "variableCollections": { "$ref": "#/$defs/mutationCounts" },
+        "variables": { "$ref": "#/$defs/mutationCounts" },
+        "variableModeValues": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["update"],
+          "properties": {
+            "update": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "unresolvedAliasCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finishedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "mutationCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["create", "update", "delete"],
+      "properties": {
+        "create": { "type": "integer", "minimum": 0 },
+        "update": { "type": "integer", "minimum": 0 },
+        "delete": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

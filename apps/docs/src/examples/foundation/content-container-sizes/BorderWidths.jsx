@@ -1,6 +1,8 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Box, FormField, Select } from 'grommet';
-import { useDesignTokens } from '../../../components/content/designTokenUtils';
+import { useDesignTokens } from '../../../components';
 
 export const BorderWidths = () => {
   const [width, setWidth] = React.useState('default');

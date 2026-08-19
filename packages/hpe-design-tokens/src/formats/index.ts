@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export { commonJs } from './commonJs.js';
 export { commonJsGrommetRefs } from './commonJsGrommetRefs.js';
 export { cssColorModes } from './cssColorModes.js';
