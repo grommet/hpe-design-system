@@ -1,6 +1,6 @@
 import figma from '@figma/code-connect';
 import { DateInput } from 'grommet';
-import { Calendar } from 'grommet-icons';
+import { Calendar } from '@hpe-design/icons-grommet';
 
 /**
  * Figma Code Connect mapping for the HPE Design System Date Input - V2

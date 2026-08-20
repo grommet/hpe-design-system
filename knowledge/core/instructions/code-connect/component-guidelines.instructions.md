@@ -27,7 +27,7 @@ Before creating or updating a Code Connect file:
 
 1. **`figma` import:** Always import `figma` as a default import from `@figma/code-connect`.
 2. **Component imports:** Import the target Grommet component and any supporting Grommet components used in the example from `grommet`.
-3. **Icons:** When the example needs an icon, match the package already used by the nearest comparable mapping. Existing mappings in this repo use both `@hpe-design/icons-grommet` and `grommet-icons`.
+3. **Icons:** When the example needs an icon, always use `@hpe-design/icons-grommet` for consistency with the HPE Design System. Do not import icons from `grommet-icons`.
 
 ```jsx
 import figma from '@figma/code-connect';
@@ -47,14 +47,10 @@ figma.connect(
   ComponentName,
   'https://www.figma.com/design/<fileKey>/...?node-id=<nodeId>',
   {
-    props: {
-      /* property mappings */
-    },
-    example: (
-      {
-        /* destructured props */
-      },
-    ) => <ComponentName /* mapped props */ />,
+    props: {/* property mappings */},
+    example: ({/* destructured props */}) => (
+      <ComponentName /* mapped props */ />
+    ),
   },
 );
 ```
