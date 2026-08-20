@@ -367,19 +367,33 @@ example: ({ label, badge }) => <Button label={label} badge={badge} />
 knowledge/code-connect/
 ├── src/
 │   ├── controls/
-│   │   ├── Button.figma.jsx # Button — Kind, Size, State, Icon, Badge, Tip
-│   │   ├── Menu.figma.jsx   # Menu — icon-only vs labeled variants, grouped items
-│   │   ├── Tab.figma.jsx    # Tab — show Icon variant
-│   │   ├── Tabs.figma.jsx   # Tabs — has Overflow, static representative tabs
-│   │   └── Tag.figma.jsx    # Tag — show Name variant, removable, clickable
-│   └── inputs/
-│      ├── CheckBox.figma.jsx
-│      ├── DateInput.figma.jsx
-│      └── NumberInput.figma.jsx
-│   └── layouts/
-│      └── Card.figma.jsx   # Card — CardHeader, CardBody, CardFooter composition
+│   │   ├── Anchor.figma.jsx
+│   │   ├── Button.figma.jsx
+│   │   ├── Menu.figma.jsx
+│   │   ├── Tab.figma.jsx
+│   │   ├── Tabs.figma.jsx
+│   │   └── Tag.figma.jsx
+│   ├── inputs/
+│   │   ├── CheckBox.figma.jsx
+│   │   ├── CheckBoxGroup.figma.jsx
+│   │   ├── DateInput.figma.jsx
+│   │   ├── NumberInput.figma.jsx
+│   │   ├── RadioButton.figma.jsx
+│   │   ├── RadioButtonGroup.figma.jsx
+│   │   ├── Select.figma.jsx
+│   │   ├── SelectMultiple.figma.jsx
+│   │   └── TextInput.figma.jsx
+│   ├── layouts/
+│   │   └── Card.figma.jsx
+│   └── visualisations/
+│       ├── Avatar.figma.jsx
+│       ├── Skeleton.figma.jsx
+│       ├── Spinner.figma.jsx
+│       └── Tip.figma.jsx
 ├── .env                   # FIGMA_ACCESS_TOKEN (gitignored)
-└── package.json           # figma:sync script
+├── package.json           # figma:sync script
+├── README.md
+└── src/
 ```
 
 ---
