@@ -6601,7 +6601,7 @@ packages:
       styled-components: '>= 5.x'
 
   grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable:
-    resolution: {integrity: sha512-Jbcz+Maa5IgX9hUZZaDAu6V3NjHUD0eehcA/Y6osOeA7b/fN5tfWMQy6/yw7p8F80UPPYTusYXUkr+L/UFNIEw==, tarball: https://github.com/grommet/grommet-icons/tarball/stable}
+    resolution: {tarball: https://github.com/grommet/grommet-icons/tarball/stable}
     version: 4.14.0
     peerDependencies:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -6648,7 +6648,7 @@ packages:
       styled-components: ^6.0.0
 
   grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable:
-    resolution: {integrity: sha512-hJt1faDPMXQ62Evt2OId2ymxp0QDs42J1U1WayNoLxg0QK5jFlzrS+/Conugq0jTdzuV6m97ofcNh8oEAjHh1Q==, tarball: https://github.com/grommet/grommet-theme-hpe/tarball/stable}
+    resolution: {tarball: https://github.com/grommet/grommet-theme-hpe/tarball/stable}
     version: 8.1.5
     peerDependencies:
       grommet: ^2.50.0
