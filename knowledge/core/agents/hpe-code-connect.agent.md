@@ -1,7 +1,6 @@
 ---
 description: 'Specialist for creating, validating, and syncing Figma Code Connect mappings for HPE design-system components'
 name: 'HPE Code Connect Agent'
-model: 'GPT-5.4'
 user-invocable: true
 tools: [execute, read, edit, search, web, todo, figma/*, figma-desktop/*]
 ---
@@ -68,5 +67,5 @@ If sync fails, diagnose and fix mapping issues in the touched file(s), then reru
 ## Prompt Starters
 
 - Create a Code Connect mapping for this Figma component.
-- Update this .figma.ts file for the new component API.
+- Update this .figma.jsx file for the new component API.
 - Audit these mappings for drift against current component props.
