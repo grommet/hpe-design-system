@@ -13,11 +13,11 @@ figma.connect(CheckBoxGroup, FIGMA_URL, {
       disabled: true,
     }),
     options: figma.enum('# Options', {
-      2: ['Option 1', 'Option 2'],
-      3: ['Option 1', 'Option 2', 'Option 3'],
-      4: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-      5: ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'],
-      6: [
+      '2': ['Option 1', 'Option 2'],
+      '3': ['Option 1', 'Option 2', 'Option 3'],
+      '4': ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+      '5': ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'],
+      '6': [
         'Option 1',
         'Option 2',
         'Option 3',
@@ -25,7 +25,7 @@ figma.connect(CheckBoxGroup, FIGMA_URL, {
         'Option 5',
         'Option 6',
       ],
-      7: [
+      '7': [
         'Option 1',
         'Option 2',
         'Option 3',
@@ -34,7 +34,7 @@ figma.connect(CheckBoxGroup, FIGMA_URL, {
         'Option 6',
         'Option 7',
       ],
-      8: [
+      '8': [
         'Option 1',
         'Option 2',
         'Option 3',
@@ -44,7 +44,7 @@ figma.connect(CheckBoxGroup, FIGMA_URL, {
         'Option 7',
         'Option 8',
       ],
-      9: [
+      '9': [
         'Option 1',
         'Option 2',
         'Option 3',
@@ -55,7 +55,7 @@ figma.connect(CheckBoxGroup, FIGMA_URL, {
         'Option 8',
         'Option 9',
       ],
-      10: [
+      '10': [
         'Option 1',
         'Option 2',
         'Option 3',
@@ -67,7 +67,7 @@ figma.connect(CheckBoxGroup, FIGMA_URL, {
         'Option 9',
         'Option 10',
       ],
-      11: [
+      '11': [
         'Option 1',
         'Option 2',
         'Option 3',
@@ -80,7 +80,7 @@ figma.connect(CheckBoxGroup, FIGMA_URL, {
         'Option 10',
         'Option 11',
       ],
-      12: [
+      '12': [
         'Option 1',
         'Option 2',
         'Option 3',
