@@ -1,7 +1,7 @@
 ---
 name: code-connect-drift-audit
 description: 'Audit workflow for HPE Design System Code Connect drift. Use when asked to review an existing `.figma.jsx` mapping, compare mapping props against the current component API, detect stale imports or patterns, check whether Figma properties are still represented correctly, or find gaps before sync.'
-version 1.0.00
+version: 1.0.0
 ---
 
 # Code Connect Drift Audit
