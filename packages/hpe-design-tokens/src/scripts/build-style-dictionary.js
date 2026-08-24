@@ -422,9 +422,8 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.js`,
+              destination: `color.${theme ? `${theme}-${mode}` : `${mode || ''}`
+                }.js`,
               format: 'javascript/esm',
               filter: token => filterColor(token, file),
             },
@@ -437,9 +436,8 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.cjs`,
+              destination: `color.${theme ? `${theme}-${mode}` : `${mode || ''}`
+                }.cjs`,
               format: 'javascript/commonJs',
               filter: token => filterColor(token, file),
             },
@@ -478,9 +476,8 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.css`,
+              destination: `color.${theme ? `${theme}-${mode}` : `${mode || ''}`
+                }.css`,
               format: 'css/variables-themed',
               options: {
                 outputReferences: true,
@@ -504,9 +501,8 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.js`,
+              destination: `color.${theme ? `${theme}-${mode}` : `${mode || ''}`
+                }.js`,
               filter: token => filterColor(token, file),
               format: 'jsonFlat',
             },
@@ -534,8 +530,8 @@ const dimensionFiles = fs
 
 try {
   dimensionFiles.forEach(async file => {
-    const res = getThemeAndMode(file);
-    const mode = res[1];
+    const [theme, mode] = getThemeAndMode(file);
+    const modeSuffix = theme ? `${theme}-${mode}` : mode;
     extendedDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
@@ -551,9 +547,7 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `dimension.${
-                mode !== 'default' ? `${mode}.` : ''
-              }js`,
+              destination: `dimension.${modeSuffix}.js`,
               format: 'javascript/esm',
               filter: token =>
                 token.filePath === file && !token.path.includes(FIGMA_PREFIX),
@@ -567,9 +561,7 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `dimension.${
-                mode !== 'default' ? `${mode}.` : ''
-              }cjs`,
+              destination: `dimension.${modeSuffix}.cjs`,
               format: 'javascript/commonJs',
               filter: token =>
                 token.filePath === file && !token.path.includes(FIGMA_PREFIX),
@@ -611,9 +603,7 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `dimension.${
-                mode !== 'default' ? `${mode}.` : ''
-              }css`,
+              destination: `dimension.${modeSuffix}.css`,
               format: 'css/variables-breakpoints',
               options: {
                 outputReferences: true,
@@ -636,9 +626,7 @@ try {
           options: defaultOptions,
           files: [
             {
-              destination: `dimension.${
-                mode !== 'default' ? `${mode}.` : ''
-              }js`,
+              destination: `dimension.${modeSuffix}.js`,
               filter: token =>
                 token.filePath === file && !token.path.includes(FIGMA_PREFIX),
               format: 'jsonFlat',
@@ -768,6 +756,22 @@ try {
 /** -----------------------------------
  * Create CommonJS index.js
  * ----------------------------------- */
+const toCamelCase = str =>
+  str.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+
+const toIdentifier = filename => {
+  const parts = filename.split('.');
+  const collectionName = parts[0];
+  const mode = parts[1];
+  if (collectionName === 'dimension' && mode) {
+    const camel = toCamelCase(mode);
+    return collectionName + camel.charAt(0).toUpperCase() + camel.slice(1);
+  }
+  let m = mode;
+  if (m === 'default' || !m) [m] = parts;
+  return toCamelCase(m);
+};
+
 const collections = [];
 fs.writeFileSync(`${CJS_DIR}index.cjs`, `/**\n * ${COPYRIGHT}\n */\n\n`);
 fs.readdirSync(CJS_DIR)
@@ -775,15 +779,12 @@ fs.readdirSync(CJS_DIR)
   .forEach(file => {
     if (file.toLowerCase().endsWith('.cjs')) {
       const filename = file.replace('.cjs', '');
-      const parts = filename.split('.');
-      let mode = parts[1];
-      // special case for base.js and components
-      if (mode === 'default' || !mode) [mode] = parts;
+      const identifier = toIdentifier(filename);
       fs.appendFileSync(
         `${CJS_DIR}index.cjs`,
-        `const ${mode} = require('./${file}');\n`,
+        `const ${identifier} = require('./${file}');\n`,
       );
-      collections.push(mode);
+      collections.push(identifier);
     }
   });
 
@@ -802,15 +803,12 @@ fs.readdirSync(ESM_DIR)
   .forEach(file => {
     if (file.toLowerCase().endsWith('.js')) {
       const filename = file.replace('.js', '');
-      const parts = filename.split('.');
-      let mode = parts[1];
-      // special case for base.js and components
-      if (mode === 'default' || !mode) [mode] = parts;
+      const identifier = toIdentifier(filename);
       fs.appendFileSync(
         `${ESM_DIR}index.js`,
-        `export { default as ${mode} } from './${filename}.js';\n`,
+        `export { default as ${identifier} } from './${filename}.js';\n`,
       );
-      esmCollections.push(mode);
+      esmCollections.push(identifier);
     }
   });
 
@@ -824,15 +822,12 @@ fs.readdirSync(GROMMET_DIR)
   .forEach(file => {
     if (file.toLowerCase().endsWith('.js')) {
       const filename = file.replace('.js', '');
-      const parts = filename.split('.');
-      let mode = parts[1];
-      // special case for base.js and components
-      if (mode === 'default' || !mode) [mode] = parts;
+      const identifier = toIdentifier(filename);
       fs.appendFileSync(
         `${GROMMET_DIR}index.js`,
-        `export { default as ${mode} } from './${filename}.js';\n`,
+        `export { default as ${identifier} } from './${filename}.js';\n`,
       );
-      grommetCollections.push(mode);
+      grommetCollections.push(identifier);
     }
   });
 
@@ -849,15 +844,12 @@ fs.readdirSync(GROMMET_CJS_DIR)
   .forEach(file => {
     if (file.toLowerCase().endsWith('.cjs')) {
       const filename = file.replace('.cjs', '');
-      const parts = filename.split('.');
-      let mode = parts[1];
-      // special case for base.js and components
-      if (mode === 'default' || !mode) [mode] = parts;
+      const identifier = toIdentifier(filename);
       fs.appendFileSync(
         `${GROMMET_CJS_DIR}index.cjs`,
-        `const ${mode} = require('./${file}');\n`,
+        `const ${identifier} = require('./${file}');\n`,
       );
-      grommetCjsCollections.push(mode);
+      grommetCjsCollections.push(identifier);
     }
   });
 
@@ -876,15 +868,12 @@ fs.readdirSync(DOCS_DIR)
   .forEach(file => {
     if (file.toLowerCase().endsWith('.js')) {
       const filename = file.replace('.js', '');
-      const parts = filename.split('.');
-      let mode = parts[1];
-      // special case for base.js and components
-      if (mode === 'default' || !mode) [mode] = parts;
+      const identifier = toIdentifier(filename);
       fs.appendFileSync(
         `${DOCS_DIR}index.js`,
-        `export { default as ${mode} } from './${filename}.js';\n`,
+        `export { default as ${identifier} } from './${filename}.js';\n`,
       );
-      docsCollections.push(mode);
+      docsCollections.push(identifier);
     }
   });
 
