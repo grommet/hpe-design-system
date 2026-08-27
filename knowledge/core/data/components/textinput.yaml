@@ -1,0 +1,394 @@
+id: textinput
+name: TextInput
+description: >-
+  Allows the user to input shorter forms of data and content. Common use cases
+  include username fields, password fields, and search fields.
+links:
+  designer: >-
+    https://designer.grommet.io/textinput?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit
+  docs: https://v2.grommet.io/textinput?theme=hpe#props
+  figma: >-
+    https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3026-1767&t=ZqPsisuevR3KPp96-1
+  grommetSource: >-
+    https://github.com/grommet/grommet/blob/master/src/js/components/TextInput/TextInput.js
+props:
+  - name: type
+    type: string
+    required: false
+    description: >-
+      HTML input type attribute. Use "password" to mask credential input. Other
+      common values include "email", "text", "search", "tel", and "url".
+  - name: placeholder
+    type: string
+    required: false
+    description: >-
+      Hint text displayed inside the input when it has no value. Does not
+      satisfy accessibility label requirements on its own; always pair with a
+      FormField label or aria-labelledby.
+  - name: value
+    type: string
+    required: false
+    description: Controlled value of the input.
+  - name: onChange
+    type: (event: React.ChangeEvent<HTMLInputElement>) => void
+    required: false
+    description: Callback fired when the input value changes.
+  - name: onSelect
+    type: (event: { suggestion: string }) => void
+    required: false
+    description: Callback fired when the user selects a suggestion from the drop.
+  - name: suggestions
+    type: "string[] | { label: React.ReactNode, value?: string }[]"
+    required: false
+    description: >-
+      Array of autocomplete suggestions to display below the input. May be
+      static or dynamically filtered based on the current input value.
+  - name: disabled
+    type: boolean
+    required: false
+    description: >-
+      Prevents interaction with the input. A disabled input does not receive tab
+      focus and is not submitted with form data.
+  - name: readOnly
+    type: boolean
+    required: false
+    description: >-
+      Makes the input non-editable. Unlike disabled, a read-only input still
+      receives tab focus and its value is submitted with form data.
+  - name: readOnlyCopy
+    type: boolean
+    required: false
+    description: >-
+      Applies readOnly behavior and adds a copy button inside the input,
+      allowing users to copy the value to the clipboard.
+  - name: icon
+    type: React.ReactNode
+    required: false
+    description: >-
+      Icon rendered inside the input field. Useful for reinforcing context
+      (e.g., a Search icon). When used as the sole accessible label, assign an
+      id to the icon and reference it via aria-labelledby on the input.
+  - name: reverse
+    type: boolean
+    required: false
+    description: >-
+      When true, positions the icon on the right side of the input instead of
+      the default left.
+  - name: id
+    type: string
+    required: false
+    description: >-
+      HTML id attribute. Should match the htmlFor on the associated FormField
+      label for proper accessibility pairing.
+  - name: name
+    type: string
+    required: false
+    description: >-
+      HTML name attribute. Used to identify the field in form submission data
+      and to pair it with the enclosing FormField.
+usage:
+  whenToUse:
+    - Use for short, free-form text entry such as usernames, email addresses,
+      and search queries.
+    - Use type="password" to mask credentials (passwords, PINs).
+    - Use suggestions to surface prior values or available options for a field.
+    - Add an icon to reinforce the purpose of the input (e.g., a Search icon
+      for search fields).
+    - Use readOnly when the value must be visible but not editable.
+    - Use readOnlyCopy when users may need to copy the displayed value.
+  whenToAvoid:
+    - Do not use TextInput for longer, multi-line text entry — use TextArea.
+    - Do not use TextInput when input must conform to a specific pattern such as
+      a phone number or date — use MaskedInput instead.
+    - Do not use placeholder text as a substitute for a visible label or
+      aria-labelledby. Placeholder alone fails accessibility requirements.
+    - Avoid using the defaultSuggestion prop; it can trigger unexpected context
+      changes for screen reader users and fails WCAG 3.2.1.
+variants:
+  - name: default
+    description: >-
+      Standard text input inside a FormField with a visible label. The most
+      common usage pattern.
+    when: >-
+      Any time a user needs to enter short free-form text — names, email
+      addresses, identifiers — within a form.
+    example: |
+      <Form>
+        <FormField name="username" label="Label" htmlFor="username">
+          <TextInput
+            id="username"
+            name="username"
+            placeholder="Placeholder text"
+            type="email"
+          />
+        </FormField>
+      </Form>
+  - name: password
+    description: >-
+      Masks the typed value so credentials remain private. Achieved by applying
+      type="password" to the TextInput.
+    when: >-
+      Password fields, PIN entry, or any credential field where the value must
+      not be visible on screen.
+    example: |
+      <Form>
+        <FormField name="password" label="Password" htmlFor="password">
+          <TextInput
+            id="password"
+            name="password"
+            placeholder="Placeholder text"
+            type="password"
+            value={password}
+            onChange={event => setPassword(event.target.value)}
+          />
+        </FormField>
+      </Form>
+  - name: with-suggestions
+    description: >-
+      Presents an autocomplete drop with a list of options below the input.
+      Suggestions may be static or dynamically filtered as the user types.
+    when: >-
+      When prior values, known options, or filtered matches can guide the user —
+      e.g., a recurring-value field or a search field with known result types.
+    example: |
+      <Form>
+        <FormField label="Favorite fruit" name="fruit" htmlFor="fruit-input">
+          <TextInput
+            id="fruit-input"
+            name="fruit"
+            placeholder="Placeholder text"
+            suggestions={['Apples', 'Oranges', 'Bananas']}
+          />
+        </FormField>
+      </Form>
+  - name: labeled-by-icon
+    description: >-
+      Omits a visible text label and instead uses an icon with a matching id as
+      the accessible name via aria-labelledby. Meets accessibility requirements
+      without a visible label.
+    when: >-
+      Space-constrained contexts where a visible text label is not appropriate,
+      such as a standalone search field in a header or toolbar.
+    example: |
+      <TextInput
+        placeholder="Search"
+        icon={<Search id="search-icon" />}
+        aria-labelledby="search-icon"
+        reverse
+      />
+  - name: validation
+    description: >-
+      Displays an error state when the field fails FormField validation
+      requirements. The error message is surfaced by the enclosing FormField.
+    when: >-
+      Any TextInput that has required or format constraints and must communicate
+      a validation failure to the user.
+    example: |
+      <Form>
+        <FormField
+          name="required-field"
+          label="Label"
+          htmlFor="required-field"
+          error="Type something to resolve this error."
+          required
+        >
+          <TextInput
+            id="required-field"
+            name="required-field"
+            placeholder="Placeholder text"
+            value={value}
+            onChange={event => setValue(event.target.value)}
+          />
+        </FormField>
+      </Form>
+  - name: disabled
+    description: >-
+      Prevents user interaction. A disabled TextInput does not receive tab focus
+      and is not submitted with form data.
+    when: >-
+      When a field's value is not applicable or available given the current
+      application state, and the user should not be able to interact with it.
+    example: |
+      <Form>
+        <FormField name="disabled-field" label="Label" htmlFor="disabled-input" disabled>
+          <TextInput
+            id="disabled-input"
+            name="disabled-field"
+            placeholder="Placeholder text"
+            disabled
+          />
+        </FormField>
+      </Form>
+  - name: readonly
+    description: >-
+      Displays an existing value that the user should not edit. Unlike disabled,
+      the field still receives tab focus and its value is submitted with form
+      data.
+    when: >-
+      When a value is pre-populated and should be visible but not changed by the
+      user in the current context, such as a confirmation screen or a locked
+      profile field.
+    example: |
+      <Form>
+        <FormField name="readonly-email" label="Email" htmlFor="readonly-input">
+          <TextInput
+            id="readonly-input"
+            name="readonly-email"
+            value="testemail@abc.com"
+            readOnly
+          />
+        </FormField>
+      </Form>
+  - name: readonly-copy
+    description: >-
+      Combines readOnly with a copy-to-clipboard button rendered inside the
+      input. Useful when users frequently need to copy the displayed value.
+    when: >-
+      Displaying values users are expected to copy and paste, such as API keys,
+      generated tokens, or account identifiers.
+    example: |
+      <Form>
+        <FormField name="api-key" label="API Key" htmlFor="api-key-input">
+          <TextInput
+            id="api-key-input"
+            name="api-key"
+            value="abc123-example-token"
+            readOnlyCopy
+          />
+        </FormField>
+      </Form>
+examples:
+  - description: Basic text input in a FormField
+    codeFile: >-
+      apps/docs/src/examples/components/textinput/TextInputExample.js
+  - description: Password input masking credentials
+    codeFile: >-
+      apps/docs/src/examples/components/textinput/TextInputPasswordExample.js
+  - description: Static and filtered autocomplete suggestions
+    codeFile: >-
+      apps/docs/src/examples/components/textinput/TextInputSuggestionsExample.js
+  - description: Icon-labeled input without a visible text label
+    codeFile: >-
+      apps/docs/src/examples/components/textinput/TextInputLabeledByExample.js
+  - description: Validation state triggered by FormField error
+    codeFile: >-
+      apps/docs/src/examples/components/textinput/TextInputValidationExample.js
+  - description: Disabled input
+    codeFile: >-
+      apps/docs/src/examples/components/textinput/TextInputDisabledExample.js
+  - description: Read-only input and read-only with copy button
+    codeFile: >-
+      apps/docs/src/examples/components/textinput/TextInputReadOnlyExample.js
+anatomy:
+  - label: '1'
+    region: Input field
+    purpose: The interactive area where the user types text.
+    availability: required
+  - label: 1a
+    region: Placeholder text
+    purpose: Hints at the expected value or format when the input is empty.
+    availability: optional
+    notes: >-
+      Does not satisfy accessibility requirements on its own. Must be
+      accompanied by a label or aria-labelledby.
+  - label: 1b
+    region: Icon
+    purpose: >-
+      Provides a visual cue about the input's purpose (e.g., search) or serves
+      as the accessible label in icon-labeled variants.
+    availability: optional
+  - label: 1c
+    region: Copy button
+    purpose: Copies the read-only value to the clipboard.
+    availability: optional
+    notes: Only rendered when readOnlyCopy is true.
+  - label: '2'
+    region: Label
+    purpose: Identifies the purpose of the input to all users including screen reader users.
+    availability: required
+    notes: >-
+      Rendered by the enclosing FormField. If TextInput is used outside a
+      FormField, supply an aria-labelledby attribute.
+  - label: '3'
+    region: Suggestions drop
+    purpose: >-
+      Displays autocomplete options below the input when the suggestions prop is
+      provided.
+    availability: optional
+  - label: '4'
+    region: Validation message
+    purpose: Communicates a field error to the user.
+    availability: optional
+    notes: Rendered by the enclosing FormField's error prop.
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+  applicationStates:
+    - disabled
+    - readonly
+    - error
+  dataStates:
+    - empty
+    - has-value
+accessibility:
+  keyboard:
+    - key: Tab
+      action: Moves focus into or out of the input field
+    - key: Arrow Down/Up
+      action: Moves focus through suggestions when the suggestions drop is open
+    - key: Enter
+      action: Selects the highlighted suggestion
+    - key: Escape
+      action: Closes the suggestions drop without selecting
+  aria:
+    - attribute: aria-labelledby
+      value: id of the labeling element
+      condition: >-
+        When TextInput is used outside a FormField and relies on an icon or
+        other visual element as its label
+    - attribute: aria-invalid
+      value: 'true'
+      condition: When the FormField is in an error/validation state
+    - attribute: aria-disabled
+      value: 'true'
+      condition: When the disabled prop is true
+  announcements:
+    - trigger: Suggestion selected
+      message: Selected {suggestion}.
+  notes:
+    - >-
+      Always place TextInput inside a FormField to ensure the label is correctly
+      paired with the input for screen reader users.
+    - >-
+      Placeholder text alone does not meet accessibility label requirements.
+      Use it only as a supplement to a visible label or aria-labelledby.
+    - >-
+      Avoid using the defaultSuggestion prop. It can produce unexpected context
+      changes for screen reader users and fails WCAG 3.2.1 (On Focus).
+    - >-
+      When suggestions are used, order them so the most relevant or likely
+      options appear at the top rather than relying on defaultSuggestion.
+  wcag:
+    - criterion: 1.3.1 Info and Relationships
+      status: pass
+    - criterion: 1.4.3 Contrast (Minimum)
+      status: pass
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 2.4.7 Focus Visible
+      status: pass
+    - criterion: 3.2.1 On Focus
+      status: conditional
+      notes: >-
+        Do not use defaultSuggestion; it can cause unexpected context changes on
+        focus, failing this criterion.
+    - criterion: 4.1.2 Name, Role, Value
+      status: pass
+relatedComponents:
+  - maskedinput
+  - textarea
+  - select
+  - formfield
