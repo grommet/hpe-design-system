@@ -7,7 +7,7 @@ for component-level React and Figma details.
 
 ## Day 1: Set Up The Workspace
 
-- [ ] Install Node.js 20 or later and pnpm.
+- [ ] Install the Node.js version used by CI (currently 24.15.0) and pnpm.
 - [ ] Run `pnpm install` from the repository root. This installs all pnpm
       workspace dependencies.
 - [ ] Read the [repository overview](../../README.md), this
