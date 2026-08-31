@@ -7,8 +7,16 @@ This directory is the AI-first knowledge system for the HPE Design System.
 - `core/`: reusable knowledge primitives shared across capabilities
 - `capabilities/`: task-focused bundles with one orchestrator entrypoint each
 - `code-connect/`: Figma Code Connect package and component mapping source files
+- `onboarding/`: orientation and working guides for AI workflow contributors
 - `schemas/`: machine validation contracts, including capability manifest schema
 - `archive/`: deprecated or historical knowledge artifacts
+
+## Contributor Onboarding
+
+New AI workflow contributors should begin with the
+[HPE Design System AI Workflow Onboarding](onboarding/README.md), then follow the
+[first-week checklist](onboarding/first-week.md) and the
+[design-to-code playbook](onboarding/design-to-code-playbook.md).
 
 ## Core
 
