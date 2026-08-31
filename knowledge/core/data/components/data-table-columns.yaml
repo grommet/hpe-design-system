@@ -1,0 +1,115 @@
+id: data-table-columns
+name: DataTableColumns
+description: Provides a drop panel inside a Data context that lets users show, hide,
+  and reorder DataTable columns. The configurator is opened by a 'Columns' button
+  and persists the column state in the Data context's view.
+importPath: grommet
+framework: react
+props:
+- name: drop
+  type: object
+  required: false
+  description: Props forwarded to the Drop overlay that contains the column configurator
+    panel.
+- name: messages
+  type: object
+  required: false
+  description: Overrides for the button label and ARIA strings within the columns
+    panel.
+usage:
+  whenToUse:
+  - Use inside a Data context Toolbar when the DataTable has many columns and users
+    benefit from choosing which to display.
+  - Place DataTableColumns in the trailing end of the Toolbar alongside DataFilters
+    and DataSort.
+  - Let users save their column configuration by persisting the Data view state.
+  whenToAvoid:
+  - Do not use DataTableColumns outside a Data context — column state is managed by
+    the context.
+  - Do not use when the table has four or fewer columns — all columns are likely relevant
+    and column hiding adds unnecessary complexity.
+  - Do not build a custom column-picker when the Data context is in use.
+variants:
+- name: basic
+  description: A 'Columns' button that opens a drop with checkboxes to toggle column
+    visibility.
+  when: The DataTable has five or more columns and users may want to hide less relevant
+    ones.
+  example: "<Data data={devices} view={view} onView={setView}>\n  <Toolbar justify=\"\
+    between\">\n    <DataSearch />\n    <Box direction=\"row\" gap=\"small\">\n  \
+    \    <DataFilters layer />\n      <DataTableColumns />\n    </Box>\n  </Toolbar>\n\
+    \  <DataTable columns={columns} />\n</Data>"
+anatomy:
+- label: columns button
+  region: root
+  purpose: Button that opens the column configurator drop panel
+  availability: always
+- label: column list
+  region: inside drop
+  purpose: Checkbox list where each item corresponds to a DataTable column
+  availability: conditional
+  notes: Visible when the columns button is activated
+- label: drag handle
+  region: per column list item
+  purpose: Optional drag target to reorder columns by dragging
+  availability: conditional
+  notes: Present when reordering is supported by the implementation
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - open
+  applicationStates:
+  - drop-open
+  - drop-closed
+  dataStates:
+  - all-visible
+  - some-hidden
+  realEstate:
+  - Button sized to its label
+  - Drop panel appears below the button
+examples:
+- description: Column toggle in a data management toolbar
+  code: "<Data data={inventory} view={view} onView={setView}>\n  <Toolbar justify=\"\
+    between\">\n    <DataSearch />\n    <Box direction=\"row\" gap=\"small\" align=\"\
+    center\">\n      <DataSort />\n      <DataFilters layer />\n      <DataTableColumns\
+    \ />\n    </Box>\n  </Toolbar>\n  <DataSummary />\n  <DataTable columns={inventoryColumns}\
+    \ />\n  <Pagination />\n</Data>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the Columns button
+  - key: Enter / Space
+    action: Opens the columns configurator drop
+  - key: Tab
+    action: Navigates between column checkboxes inside the drop
+  - key: Space
+    action: Toggles the focused column's visibility
+  - key: Escape
+    action: Closes the drop
+  aria:
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: Applied to the Columns button to indicate drop state
+  - attribute: aria-checked
+    value: '''true'' | ''false'''
+    condition: Applied to each column checkbox
+  announcements:
+  - trigger: Column hidden
+    message: '{column name} hidden'
+  - trigger: Column shown
+    message: '{column name} visible'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-table
+- data-filters
+- data-sort
+- toolbar

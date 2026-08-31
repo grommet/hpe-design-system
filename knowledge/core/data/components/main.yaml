@@ -1,0 +1,108 @@
+id: main
+name: Main
+description: Semantic main content area. Used to wrap the primary content of the application.
+importPath: grommet
+framework: react
+props:
+- name: background
+  type: string
+  required: false
+  description: Background color token (use 'background-back' for main areas)
+- name: pad
+  type: string | object
+  required: false
+  description: Padding inside the main area
+- name: fill
+  type: boolean | 'horizontal' | 'vertical'
+  required: false
+  description: Whether to fill available space
+- name: overflow
+  type: '''auto'' | ''hidden'' | ''scroll'' | { horizontal: string, vertical: string
+    }'
+  required: false
+  description: Controls scrolling behaviour. Use overflow='auto' in app-shell patterns
+    so the main area scrolls independently of the fixed header and sidebar.
+- name: id
+  type: string
+  required: false
+  description: 'DOM id for the element. Required when pairing with SkipLinks: set
+    id=''main-content'' on Main so the SkipLink with the matching id can focus and
+    scroll to it.'
+usage:
+  whenToUse:
+  - Use Main for the primary content area of an app layout.
+  - Use background='background-back' for proper visual hierarchy.
+  - Place inside Grid when building app shell layouts.
+  - Use round prop on top corners for polished app shell look.
+  whenToAvoid:
+  - Do not use Box as='main' — use Main component.
+  - Do not use more than one Main per page.
+  - Do not nest Main inside Main.
+examples:
+- description: Main in App Shell
+  code: "<Main\n  gridArea=\"main\"\n  background=\"background-back\"\n  round={{\
+    \ corner: 'top-left', size: 'small' }}\n  pad=\"medium\"\n>\n  <Page>\n    <PageContent>\n\
+    \      {/* Page content here */}\n    </PageContent>\n  </Page>\n</Main>"
+- description: App Shell with SkipLinks (accessibility best practice)
+  code: "// Place SkipLinks as the very first child of the root Grommet/Box\n<SkipLinks>\n\
+    \  <SkipLink id=\"main-content\" label=\"Skip to main content\" />\n</SkipLinks>\n\
+    <Header>...</Header>\n<Main id=\"main-content\" gridArea=\"main\" background=\"\
+    background-back\" overflow=\"auto\">\n  {/* page content */}\n</Main>"
+variants:
+- name: default
+  description: Standalone main content wrapper with no visual decoration.
+  when: Simple page layouts where Main wraps all page content and is not part of an
+    app shell grid.
+  example: <Main background="background-back" pad="medium">{/* page content */}</Main>
+- name: app-shell
+  description: Main used as a named grid area in an app shell layout. Typically styled
+    with a rounded top-left corner to complement a fixed sidebar.
+  when: Application shell patterns with a fixed Header and sidebar Nav where the main
+    area scrolls independently.
+  example: '<Main gridArea="main" background="background-back" round={{ corner: ''top-left'',
+    size: ''small'' }} fill>{/* content */}</Main>'
+anatomy:
+- label: main landmark
+  region: root
+  purpose: HTML <main> semantic landmark containing the page's primary content; used
+    by assistive technology for skip-navigation
+  availability: always
+behaviors:
+  realEstate:
+  - fill
+  - responsive
+accessibility:
+  aria:
+  - attribute: role
+    value: main
+    condition: Implicit — Main renders as the HTML <main> element, which carries the
+      landmark role 'main' automatically.
+  - attribute: aria-label
+    value: descriptive label
+    condition: Only needed when multiple main landmarks exist on the page to differentiate
+      them for screen reader users (rare).
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+    note: Main renders as the HTML <main> element, which intrinsically carries the
+      ARIA landmark role 'main'. No explicit role or aria-* attribute is required
+      unless there are multiple main landmarks on the same page.
+  - criterion: 2.4.3 Focus Order
+    status: conditional
+    note: When SkipLinks targets Main via the id prop, ensure the element (or its
+      first interactive child) can receive programmatic focus. Add tabIndex={-1} on
+      Main if focus is not captured after skip-link activation.
+  - criterion: 2.4.1 Bypass Blocks
+    status: conditional
+    note: The <main> landmark alone is not sufficient — keyboard users must also have
+      a mechanism to skip past the Header and Nav. Add a SkipLinks + SkipLink pair
+      before the Header, pointing at the Main element's id prop. Without this pairing,
+      keyboard users must Tab through every navigation item on every page load.
+relatedComponents:
+- page
+- page-content
+- header
+- footer
+- grid

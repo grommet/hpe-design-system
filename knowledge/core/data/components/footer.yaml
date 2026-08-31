@@ -1,0 +1,67 @@
+id: footer
+name: Footer
+description: Application or page footer component for secondary navigation, copyright,
+  and utility links.
+importPath: grommet
+framework: react
+props:
+- name: background
+  type: string
+  required: false
+  description: Background color token
+- name: pad
+  type: string | object
+  required: false
+  description: Padding inside the footer
+- name: direction
+  type: '''row'' | ''column'''
+  required: false
+  description: Layout direction
+usage:
+  whenToUse:
+  - Use for page or app footers.
+  - Include copyright, legal links, and version info.
+  - Use semantic pad tokens for spacing.
+  whenToAvoid:
+  - Do not use Box for footers — use Footer.
+  - Do not include primary navigation in the footer.
+examples:
+- description: Page Footer
+  code: "<Footer pad=\"medium\" background=\"background-front\">\n  <Text size=\"\
+    small\" color=\"text-weak\">© 2024 HPE</Text>\n  <Box direction=\"row\" gap=\"\
+    medium\">\n    <Anchor label=\"Terms\" href=\"/terms\" size=\"small\" />\n   \
+    \ <Anchor label=\"Privacy\" href=\"/privacy\" size=\"small\" />\n  </Box>\n</Footer>"
+anatomy:
+- label: '1'
+  region: Legal zone
+  purpose: Copyright notice and company name, typically left-aligned.
+  availability: optional
+- label: '2'
+  region: Links zone
+  purpose: Secondary navigation links — Terms of Service, Privacy Policy, Accessibility
+    Statement.
+  availability: optional
+  notes: Wrap in a Nav component for the correct landmark semantics.
+- label: '3'
+  region: Utility zone
+  purpose: Version number, build info, or status page link.
+  availability: optional
+behaviors:
+  realEstate:
+  - responsive
+accessibility:
+  aria:
+  - attribute: role
+    value: contentinfo
+    condition: Implicit — Footer renders as the HTML <footer> element which carries
+      the landmark role 'contentinfo' when it is a top-level sectioning element.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.4.5 Multiple Ways
+    status: conditional
+relatedComponents:
+- anchor
+- nav
+- text
+- header

@@ -1,0 +1,140 @@
+id: box
+name: Box
+description: The fundamental layout component. Box is used to structure content with
+  flexbox properties and semantic tokens.
+importPath: grommet
+framework: react
+props:
+- name: direction
+  type: '''row'' | ''column'' | ''row-responsive'' | ''column-reverse'' | ''row-reverse'''
+  required: false
+  description: Flex direction for layout
+  defaultValue: '''column'''
+- name: align
+  type: '''start'' | ''center'' | ''end'' | ''baseline'' | ''stretch'''
+  required: false
+  description: Align items on cross axis
+- name: justify
+  type: '''start'' | ''center'' | ''end'' | ''between'' | ''around'' | ''evenly''
+    | ''stretch'''
+  required: false
+  description: Justify content on main axis
+- name: gap
+  type: '''xxsmall'' | ''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Space between child elements
+- name: pad
+  type: '''none'' | ''xxsmall'' | ''xsmall'' | ''small'' | ''medium'' | ''large''
+    | ''xlarge'''
+  required: false
+  description: Padding inside the Box
+- name: background
+  type: string
+  required: false
+  description: Background color token
+- name: fill
+  type: boolean | 'horizontal' | 'vertical'
+  required: false
+  description: Whether to expand to fill available space
+- name: overflow
+  type: '''auto'' | ''hidden'' | ''scroll'' | ''visible'' | { vertical?: string, horizontal?:
+    string }'
+  required: false
+  description: CSS overflow behavior. Use 'auto' to create a scrollable region.
+- name: wrap
+  type: boolean | 'reverse'
+  required: false
+  description: Whether flex children wrap onto new lines when they exceed the container
+    width
+- name: round
+  type: 'boolean | ''xsmall'' | ''small'' | ''medium'' | ''large'' | ''full'' | {
+    size?: string, corner?: string }'
+  required: false
+  description: Border radius. Use token size values rather than raw px values.
+- name: border
+  type: 'boolean | ''top'' | ''bottom'' | ''left'' | ''right'' | { side?: string,
+    size?: string, color?: string }'
+  required: false
+  description: Border applied to one or more sides. Use semantic color tokens for
+    the color value.
+- name: as
+  type: string | React.ComponentType
+  required: false
+  description: Override the rendered HTML element for semantic markup — e.g. 'section',
+    'article', 'aside'.
+  defaultValue: '''div'''
+usage:
+  whenToUse:
+  - Use Box as the primary layout component instead of div.
+  - Use semantic tokens for gap, pad, margin, and background.
+  - Use direction="row" or "column" for flexbox layouts.
+  - Combine align and justify for precise positioning.
+  whenToAvoid:
+  - Do not use HTML div, span, or other elements for layout.
+  - Do not hardcode pixel values or hex colors.
+  - Avoid nested Boxes without purpose.
+examples:
+- description: Horizontal Layout with Gap
+  code: "<Box direction=\"row\" gap=\"medium\" align=\"center\">\n  <Text>Item 1</Text>\n\
+    \  <Text>Item 2</Text>\n</Box>"
+- description: Centered Container
+  code: "<Box fill align=\"center\" justify=\"center\" pad=\"large\">\n  <Text>Centered\
+    \ Content</Text>\n</Box>"
+- description: Card-like Container
+  code: "<Box background=\"background-front\" pad=\"medium\" round=\"small\" gap=\"\
+    small\">\n  <Heading level={4}>Title</Heading>\n  <Text>Content goes here</Text>\n\
+    </Box>"
+variants:
+- name: layout-column
+  description: Default vertical stack. Children arranged in a column with optional
+    gap.
+  when: Any vertical flow of content — form fields, stacked sections, card lists.
+  example: <Box gap="medium"><Text>Item 1</Text><Text>Item 2</Text></Box>
+- name: layout-row
+  description: Horizontal row of children aligned on the cross axis.
+  when: Toolbars, button groups, label+value pairs, icon+text combinations.
+  example: <Box direction="row" gap="small" align="center"><Text>Label</Text><Button
+    label="Action" /></Box>
+- name: card-surface
+  description: Box styled as a card surface with background, elevation, and border
+    radius.
+  when: Lightweight content grouping without the full CardHeader/CardBody/CardFooter
+    structure. Use Card when sub-regions are needed.
+  example: <Box background="background-front" round="small" elevation="small" pad="medium"
+    gap="small"><Text>Content</Text></Box>
+- name: scroll-container
+  description: Box with overflow='auto' creating a scrollable region of a fixed height.
+  when: Lists, panels, or data blocks that should scroll independently of the page.
+  example: <Box height="medium" overflow="auto"><DataTable columns={cols} data={rows}
+    /></Box>
+anatomy:
+- label: container
+  region: root
+  purpose: Flexible block or inline container applying padding, gap, direction, background,
+    border, and overflow to its children
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  realEstate:
+  - responsive
+  - overflow
+  - fill
+  - truncation
+accessibility:
+  aria:
+  - attribute: renders as <div>
+    value: generic container
+    condition: Default — use the as prop ('section', 'article', 'aside', 'header',
+      'footer', 'nav') to add semantic meaning when Box represents a distinct document
+      region.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- grid
+- card
+- page-content
+- page

@@ -1,0 +1,107 @@
+id: login-form
+name: Login Form
+description: Standard authentication form with email and password fields.
+problem: User needs to authenticate to access the application.
+solution: Use a Card with CardHeader, CardBody, and CardFooter. Use Form with FormField
+  components for input fields and validation. Use a primary Button for submission.
+relatedComponents:
+- card
+- text-input
+- button
+templateCodeFile: design-system/examples/login-form/template.tsx
+
+graph:
+  rootId: card-root
+  nodes:
+    - id: card-root
+      componentId: card
+      role: login card
+      props:
+        background: "background-front"
+        width: "medium"
+      children: [card-header, card-body]
+      binding: static
+
+    - id: card-header
+      componentId: card
+      role: card header
+      props:
+        pad: "medium"
+      children: [heading-login]
+      binding: static
+      notes: CardHeader sub-region of Card; maps to componentId card with role disambiguation.
+
+    - id: heading-login
+      componentId: heading
+      role: login heading
+      props:
+        level: 3
+        margin: "none"
+        content: "Login"
+      children: []
+      binding: static
+
+    - id: card-body
+      componentId: card
+      role: card body
+      props:
+        pad: "medium"
+      children: [form-login]
+      binding: static
+      notes: CardBody sub-region of Card.
+
+    - id: form-login
+      componentId: form
+      role: authentication form
+      props: {}
+      children: [field-email, field-password, btn-submit]
+      binding: state
+      notes: onSubmit handler is consumer-provided; form state is local.
+
+    - id: field-email
+      componentId: form-field
+      role: email field
+      props:
+        label: "Email"
+        name: "email"
+        required: true
+      children: [input-email]
+      binding: static
+
+    - id: input-email
+      componentId: text-input
+      role: email input
+      props:
+        type: "email"
+        placeholder: "user@example.com"
+      children: []
+      binding: static
+
+    - id: field-password
+      componentId: form-field
+      role: password field
+      props:
+        label: "Password"
+        name: "password"
+        required: true
+      children: [input-password]
+      binding: static
+
+    - id: input-password
+      componentId: text-input
+      role: password input
+      props:
+        type: "password"
+      children: []
+      binding: static
+
+    - id: btn-submit
+      componentId: button
+      role: submit button
+      props:
+        type: "submit"
+        label: "Log In"
+        primary: true
+        fill: "horizontal"
+      children: []
+      binding: static

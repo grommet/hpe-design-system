@@ -1,0 +1,176 @@
+id: empty-state
+name: EmptyState
+description: Communicates that a list, table, or container currently has no content,
+  guiding users toward creating or finding items.
+importPath: grommet
+framework: react
+props:
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Illustrative icon or image displayed above the heading to reinforce
+    the empty context visually
+- name: heading
+  type: React.ReactNode | string
+  required: false
+  description: Primary heading explaining what is empty or missing
+- name: description
+  type: React.ReactNode | string
+  required: false
+  description: Supporting body text that explains the context or guides the user toward
+    a resolution
+- name: action
+  type: React.ReactNode
+  required: false
+  description: Primary action element (typically a Button) to help the user create
+    or find content
+- name: secondaryAction
+  type: React.ReactNode
+  required: false
+  description: An optional secondary action, such as a learn-more link, shown below
+    the primary action
+- name: background
+  type: string | object
+  required: false
+  description: Background color or image for the empty state container
+usage:
+  whenToUse:
+  - Use when a list, table, card grid, or dashboard has zero items to show.
+  - Use when search or filter criteria produce no results to tell users what happened
+    and what to do.
+  - Include a primary action (e.g., Add item, Clear filters) to guide users forward.
+  - Match the icon and copy to the specific empty context so users understand exactly
+    what is missing.
+  whenToAvoid:
+  - Do not display an empty state during loading — use Skeleton or Spinner instead.
+  - Do not use an empty state for error conditions — use a Notification or error page
+    instead.
+  - Do not use generic copy like 'Nothing here' without explaining why and what to
+    do.
+  - Do not omit the primary action when there is a clear path to populating the content.
+variants:
+- name: no-items
+  description: Default empty state shown when a collection has never had any items.
+  when: User arrives at a list or table for the first time and no data exists yet.
+  example: "<EmptyState\n  icon={<Server size=\"xlarge\" color=\"text-weak\" />}\n\
+    \  heading=\"No servers yet\"\n  description=\"Add your first server to start\
+    \ monitoring your infrastructure.\"\n  action={\n    <Button label=\"Add server\"\
+    \ primary onClick={handleAddServer} />\n  }\n/>"
+- name: no-results
+  description: Empty state shown when a search or filter yields no matching items.
+  when: User has applied search terms or filters that result in an empty result set.
+  example: "<EmptyState\n  icon={<Search size=\"xlarge\" color=\"text-weak\" />}\n\
+    \  heading=\"No results found\"\n  description={`No servers match '${query}'.\
+    \ Try a different search term or adjust your filters.`}\n  action={\n    <Button\
+    \ label=\"Clear filters\" onClick={clearFilters} />\n  }\n/>"
+- name: no-access
+  description: Empty state shown when the user lacks permission to see the content.
+  when: Content exists but the current user's role does not permit viewing it.
+  example: "<EmptyState\n  icon={<Lock size=\"xlarge\" color=\"text-weak\" />}\n \
+    \ heading=\"Access restricted\"\n  description=\"You don't have permission to\
+    \ view this resource. Contact your administrator.\"\n  secondaryAction={\n   \
+    \ <Anchor href=\"/support\" label=\"Contact support\" />\n  }\n/>"
+- name: connection-error
+  description: Empty state shown when content cannot be loaded due to a connectivity
+    issue.
+  when: An API call fails and content cannot be displayed.
+  example: "<EmptyState\n  icon={<Disconnect size=\"xlarge\" color=\"status-critical\"\
+    \ />}\n  heading=\"Unable to load data\"\n  description=\"Check your network connection\
+    \ and try again.\"\n  action={\n    <Button label=\"Retry\" primary onClick={handleRetry}\
+    \ />\n  }\n/>"
+anatomy:
+- label: container
+  region: root
+  purpose: Centered Box that holds all empty state elements
+  availability: always
+- label: icon / illustration
+  region: top
+  purpose: Visual reinforcement of the empty context, helping users quickly understand
+    what is missing
+  availability: conditional
+- label: heading
+  region: body
+  purpose: Primary message summarizing the empty state in one short phrase
+  availability: conditional
+  notes: Strongly recommended
+- label: description
+  region: body
+  purpose: Explanatory text providing context and guiding the user toward resolution
+  availability: conditional
+- label: primary action
+  region: footer
+  purpose: Main call-to-action button that helps the user populate the empty content
+  availability: conditional
+- label: secondary action
+  region: footer
+  purpose: Supplementary action or link (e.g., documentation, support)
+  availability: conditional
+behaviors:
+  interactiveStates: []
+  applicationStates:
+  - empty-default
+  - no-search-results
+  - no-permission
+  - error
+  dataStates: []
+  realEstate:
+  - Centered within its parent container
+  - Scales to available space
+examples:
+- description: Empty server list
+  code: "<Box fill align=\"center\" justify=\"center\" pad=\"xlarge\">\n  <EmptyState\n\
+    \    icon={<Server size=\"xlarge\" color=\"text-weak\" />}\n    heading=\"No servers\"\
+    \n    description=\"You haven't added any servers yet. Add a server to start monitoring.\"\
+    \n    action={<Button label=\"Add server\" primary onClick={() => navigate('/servers/new')}\
+    \ />}\n  />\n</Box>"
+- description: No search results
+  code: "<Box align=\"center\" pad=\"xlarge\">\n  <EmptyState\n    icon={<Search size=\"\
+    xlarge\" color=\"text-weak\" />}\n    heading=\"No results\"\n    description={`No\
+    \ items match '${searchQuery}'. Try clearing your search or adjusting filters.`}\n\
+    \    action={<Button label=\"Clear search\" onClick={() => setSearchQuery('')}\
+    \ />}\n  />\n</Box>"
+- description: Empty state inside a DataTable
+  code: "// Conditionally render empty state when data is empty\n{servers.length ===\
+    \ 0 ? (\n  <EmptyState\n    icon={<Database size=\"xlarge\" color=\"text-weak\"\
+    \ />}\n    heading=\"No assets found\"\n    description=\"Import assets or connect\
+    \ a data source to populate this table.\"\n    action={<Button label=\"Import\
+    \ assets\" primary onClick={handleImport} />}\n  />\n) : (\n  <DataTable data={servers}\
+    \ columns={columns} />\n)}"
+- description: Permission-restricted content
+  code: "<Box fill align=\"center\" justify=\"center\" pad=\"xlarge\">\n  <EmptyState\n\
+    \    icon={<Secure size=\"xlarge\" color=\"text-weak\" />}\n    heading=\"Restricted\"\
+    \n    description=\"This section is only available to administrators.\"\n    secondaryAction={\n\
+    \      <Anchor href=\"mailto:admin@example.com\" label=\"Request access\" />\n\
+    \    }\n  />\n</Box>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to any interactive elements (buttons, anchors) within the
+      empty state
+  - key: Enter / Space
+    action: Activates the focused action button or link
+  aria:
+  - attribute: aria-label
+    value: descriptive context
+    condition: applied to the container when heading alone is insufficient to describe
+      the empty state
+  announcements: []
+  wcag:
+  - criterion: 1.1.1 Non-text Content
+    status: pass
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+relatedComponents:
+- spinner
+- skeleton
+- notification
+- box
+- button
+- heading
+- text

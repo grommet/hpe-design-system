@@ -1,0 +1,174 @@
+id: data-table-with-filtering
+name: Data Table with Filtering
+aliases:
+  - users table
+  - audit log table
+  - role assignment
+  - permission gate
+description:
+  Interactive data table with built-in filtering, sorting, and pagination
+  using Grommet Data components.
+problem:
+  Need to display large data collections with user controls for filtering,
+  sorting, and viewing subsets of data.
+solution:
+  Use Grommet's Data component as a wrapper to manage data state. Add DataFilters,
+  DataSearch, and DataSort for user controls. Display data with DataTable or alternative
+  views (List, Grid). Use Pagination for large datasets.
+relatedComponents:
+  - grid
+  - box
+  - text
+  - heading
+  - button
+relatedPatterns:
+  - status-indicator
+usage:
+  whenToUse:
+    - Use Data component to wrap your data collection and controls.
+    - Provide DataSearch for quick text-based filtering.
+    - Use DataFilters (with layer prop) for structured per-field filtering in a slide-out panel.
+    - Use sortable and pin props on DataTable — column-header sorting replaces a separate DataSort control.
+    - Add DataSummary between the Toolbar and DataTable to show live result counts and active filter chips.
+    - Use the Status Indicator pattern for outcome or health columns so every status includes a semantic icon and visible label.
+    - Wrap the entire Data block in a Box with background='background-front', round='medium', overflow='hidden', and pad='medium' to create a card container.
+    - Place Pagination inside a top-bordered Box at the bottom of the card. Include summary and stepOptions for user control.
+    - Use Pagination step={10} as the default page size.
+    - Use Pagination for datasets with more than 25-50 items.
+  whenToAvoid:
+    - Do not load all data at once for very large datasets - use pagination or infinite
+      scroll.
+    - Do not hide filter/sort controls - make them easily discoverable.
+    - Avoid complex filter UIs - keep common filters visible.
+    - Do not forget to show 'no results' state when filters return empty.
+examples:
+  - description: Basic Data Table with Search
+    codeFile: design-system/examples/data-table-with-filtering/basic-data-table-with-search.tsx
+  - description: Table with Custom Filters
+    codeFile: design-system/examples/data-table-with-filtering/table-with-custom-filters.tsx
+  - description: Multiple View Options
+    codeFile: design-system/examples/data-table-with-filtering/multiple-view-options.tsx
+templateCodeFile: design-system/examples/data-table-with-filtering/template.tsx
+
+graph:
+  rootId: card-container
+  nodes:
+    - id: card-container
+      componentId: box
+      role: card container
+      props:
+        background: background-front
+        round: medium
+        overflow: hidden
+        pad: medium
+      children: [data-wrapper]
+      binding: static
+      notes: >
+        Wraps the entire Data block in a card surface. background-front contrasts
+        with the page's background-back. overflow=hidden clips the DataTable's
+        sticky header cleanly to the card boundary.
+
+    - id: data-wrapper
+      componentId: data
+      role: data state manager
+      props: {}
+      children: [toolbar, data-summary, data-table, pagination-container]
+      binding: state
+      notes: >
+        Data component manages filter, sort, search, and pagination state for all
+        descendant Data* components. The data prop receives the consumer's array.
+        All child DataSearch, DataFilters, DataSummary, DataTable, and Pagination
+        are automatically connected via React context — no prop threading required.
+
+    - id: toolbar
+      componentId: box
+      role: toolbar
+      props: {}
+      children: [data-search, data-filters]
+      binding: static
+      notes: >
+        Rendered as Grommet Toolbar (which renders as Box). Contains search and
+        filter controls. Do not add a separate DataSort here — column sorting is
+        handled by the sortable prop on DataTable.
+
+    - id: data-search
+      componentId: data-search
+      role: search input
+      props:
+        placeholder: Search...
+      children: []
+      binding: static
+      notes: Automatically connected to Data context.
+
+    - id: data-filters
+      componentId: data-filters
+      role: filter panel
+      props:
+        layer: true
+      children: [slot-filter-controls]
+      binding: static
+      notes: >
+        Use layer prop so filters open in a slide-out panel, keeping the toolbar
+        uncluttered. Provide explicit DataFilter children for each filterable field.
+
+    - id: slot-filter-controls
+      componentId: box
+      role: filter controls slot
+      props: {}
+      children: []
+      binding: slot
+      notes: Consumer-provided DataFilter elements, one per filterable property.
+
+    - id: data-summary
+      componentId: data-summary
+      role: result summary
+      props: {}
+      children: []
+      binding: state
+      notes: >
+        Renders a live count of visible vs total items and active filter chips.
+        Place between Toolbar and DataTable. Requires no props.
+
+    - id: data-table
+      componentId: data-table
+      role: data table
+      props:
+        columns: ["name", "email", "role", "status"]
+        sortable: true
+        pin: true
+      children: []
+      binding: state
+      notes: >
+        sortable enables per-column header click sorting — no separate DataSort
+        component is needed. pin keeps column headers visible when scrolling.
+        columns prop is an array of column definition objects ({property, header,
+        primary, render, etc.}). The string array in graph.props.columns lists
+        property names only — full column definitions remain authoritative in
+        templateCode.
+
+    - id: pagination-container
+      componentId: box
+      role: pagination footer
+      props:
+        pad: "{ top: 'xsmall' }"
+        border: "{ side: 'top' }"
+      children: [pagination]
+      binding: static
+      notes: >
+        A thin top border visually separates the pagination row from the table
+        body. The xsmall top padding gives the controls breathing room.
+
+    - id: pagination
+      componentId: pagination
+      role: pagination controls
+      props:
+        step: 10
+        summary: true
+        stepOptions: [10, 20]
+      children: []
+      binding: state
+      notes: >
+        Automatically wired to Data context — no onChange handler needed.
+        summary shows the current range (e.g. "1–10 of 42"). stepOptions lets
+        users choose their preferred page size. Default step of 10 is a
+        comfortable starting point for most data tables.

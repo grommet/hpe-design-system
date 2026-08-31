@@ -1,0 +1,354 @@
+id: navigation-menu
+name: Navigation Menu
+description: Collapsible sidebar navigation with hierarchical items, group headings,
+  active state tracking, keyboard navigation, and mobile Layer fallback. Composed
+  entirely from Grommet primitives (Nav, List, Button, Collapsible, Layer).
+problem: Need a sidebar navigation that supports multi-level hierarchies, collapsible
+  parent items, non-interactive group headings, active state highlighting, keyboard
+  accessibility, and a mobile-friendly drawer variant.
+solution: >
+  Compose NavContainer (Box shell with header and collapse toggle), NavList
+  (Nav with role="menubar" that recursively renders items), and NavItem (Button with
+  render props, two-layer ItemContainer, ActiveMarker vertical bar, and ItemLabel).
+  Use Collapsible for expand/collapse animations. Auto-expand ancestor items when a
+  descendant matches activeItem via useMemo parentsToExpand. Announce item selection
+  via AnnounceContext. Active state uses two visual layers: an outer Box with
+  background-active (persistent route fill) and an inner Box with background-hover
+  (hover overlay, applies even when active). The ActiveMarker - a 4px vertical bar
+  at background-primary-strong - sits inside the inner row as the primary active cue.
+  See examples/NavigationMenu/ for the full production reference implementation.
+relatedComponents:
+- nav
+- list
+- button
+- box
+- text
+referenceImplementation: examples/NavigationMenu/
+usage:
+  whenToUse:
+  - Use Nav as the semantic root element; set role="menubar" on the root list and
+    role="menu" on each recursive nested list.
+  - Use role="menuitem" on each NavItem Button.
+  - Use plain Buttons for all interactive nav items to ensure keyboard accessibility.
+  - Use Collapsible to animate the expand/collapse of child item lists.
+  - Auto-expand ancestor items whose descendants match activeItem (parentsToExpand
+    via useMemo + useEffect).
+  - >-
+    Use a two-layer ItemContainer for active state - outer Box with
+    background-active (persistent fill while item is the active route); inner
+    Box with background-hover overlaid on hover (applies even when the item is
+    active).
+  - Place an ActiveMarker (4px vertical bar, fill vertical, pad-left 4px,
+    round, background-primary-strong / background-primary-strong-hover) inside the
+    inner row as the primary active cue.
+  - Clone the icon element with React.cloneElement to pass the same color prop as
+    the label (text-strong on hover/focus/active, text otherwise).
+  - Use text-strong color on hover, focus, or active items.
+  - Call AnnounceContext announce("Selected X.", "assertive", 2000) on item selection.
+  - Apply background='background-front' to the nav sidebar container.
+  - Use a Layer on xsmall breakpoints to present the nav as a mobile drawer.
+  - Use type='group' on non-interactive items to render section headings that visually
+    separate navigation areas.
+  - Apply aria-current='page' on the active leaf item for screen reader support.
+  - Apply aria-haspopup and aria-expanded on expandable parent items.
+  - Apply aria-labelledby={parentItemId} on each nested NavList.
+  - Call event.preventDefault() in onSelect when using a client-side router.
+  - Use assignUniqueIds to auto-generate stable hierarchical IDs from item labels
+    when the consumer does not provide id fields.
+  whenToAvoid:
+  - Do not use div or ul elements — use Nav and List from Grommet.
+  - Do not use background-active alone without the ActiveMarker bar — the outer
+    background-active fill and the inner ActiveMarker bar are both required; neither
+    substitutes for the other.
+  - Do not hardcode colors for hover states — use the background-hover token.
+  - Do not omit role="menubar" / role="menu" / role="menuitem" — without these, the
+    nav tree is not semantically recognizable to assistive technologies.
+  - Do not nest navigation deeper than 2 levels.
+  - Do not use anchor tags for items handled by a client-side router — use Button
+    and handle navigation in onSelect.
+  - Do not forget to close the mobile Layer after selection on leaf items.
+  - Do not skip AnnounceContext — screen readers need the assertive announcement
+    on item selection.
+navItemType:
+  description: Shape of each navigation item passed to NavigationMenu.
+  definition: 'type NavItemType = { id?: string; label: string; url?: string; icon?:
+    React.ReactNode; children?: NavItemType[]; type?: ''group'' | ''item''; };'
+props:
+  items: NavItemType[] — required. The array of navigation items to render.
+  open: 'boolean — whether the navigation sidebar is expanded (default: true).'
+  title: string — title displayed in the navigation header.
+  activeItem: string — label of the currently active item. Drives active styling and
+    auto-expansion of parent items.
+  onSelect: ({ item, event }) => void — called when a user selects an item. Use event.preventDefault()
+    to handle client-side routing.
+  header: React.ReactNode — optional custom header content replacing the default title
+    and collapse toggle.
+examples:
+- description: Basic flat navigation
+  codeFile: design-system/examples/navigation-menu/basic-flat-navigation.tsx
+- description: Hierarchical navigation with expandable parent items. Parent items
+    auto-expand when a child matches activeItem.
+  codeFile: design-system/examples/navigation-menu/hierarchical-navigation-with-expandable-parent-items-parent-items-auto-expand-when-a-child-matches-activeitem.tsx
+- description: 'Grouped navigation using type: ''group'' for non-interactive section
+    headings'
+  codeFile: design-system/examples/navigation-menu/grouped-navigation-using-type-group-for-non-interactive-section-headings.tsx
+- description: 'Mobile-responsive: render NavigationMenu inside a Layer on the xsmall
+    breakpoint'
+  codeFile: design-system/examples/navigation-menu/mobile-responsive-render-navigationmenu-inside-a-layer-on-the-xsmall-breakpoint.tsx
+- description: Client-side routing with React Router — call event.preventDefault()
+    in onSelect to avoid full page reloads
+  codeFile: design-system/examples/navigation-menu/client-side-routing-with-react-router-call-event-preventdefault-in-onselect-to-avoid-full-page-reloads.tsx
+anatomy:
+  - label: nav container
+    region: outer wrapper (NavContainer)
+    purpose: Box element with background-front containing the entire navigation sidebar.
+    availability: always
+  - label: nav header
+    region: top of nav container
+    purpose: Fixed header slot with title and collapse toggle button.
+    availability: always
+  - label: active marker
+    region: left of active nav item inner container
+    purpose: 'Vertical bar (Box fill="vertical", pad={{ left: "xsmall" }}, background-primary-strong) indicating active state.'
+    availability: only when item is active
+    notes: Use semantic token "xsmall" for pad.left, never hardcoded pixels.
+
+templateCodeFile: design-system/examples/navigation-menu/template.tsx
+
+graph:
+  rootId: box-root
+  nodes:
+    # ── Shell ────────────────────────────────────────────────────────────────────
+    - id: box-root
+      componentId: box
+      role: nav sidebar container (NavContainer)
+      props:
+        background: "background-front"
+        overflow: "auto"
+        pad: {horizontal: "xsmall", bottom: "3xsmall"}
+        width: "small"
+      children: [slot-nav-header, nav-root]
+      binding: context
+      notes: >
+        Maps to NavContainer. width transitions small→auto on close (open=false).
+        Manages open state internally; setOpen callback propagates to parent.
+
+    - id: slot-nav-header
+      componentId: box
+      role: nav header slot
+      props: {}
+      children: []
+      binding: slot
+      notes: >
+        NavHeader by default: title Text + collapse toggle Button (Sidebar icon).
+        Override entirely with the header prop for custom branding or logo blocks.
+        Keep sticky so it remains visible when the nav list scrolls.
+
+    - id: nav-root
+      componentId: nav
+      role: navigation list root (NavList)
+      props:
+        role: "menubar"
+        gap: "3xsmall"
+      children: [item-group, item-parent, item-leaf]
+      binding: state
+      notes: >
+        Maps to NavList — uses Grommet List (role="menubar") not a raw map.
+        Only rendered when open=true.
+        Manages expanded state + parentsToExpand (useMemo + useEffect to
+        auto-expand ancestors of activeItem).
+        On item selection calls AnnounceContext: announce("Selected X.", "assertive", 2000).
+        Recursive NavList instances (child menus) use role="menu" + aria-labelledby={parentId}.
+        Full production impl with assignUniqueIds and AnnounceContext in examples/NavigationMenu/.
+
+    # ── Item form 1: Group (non-interactive section heading) ─────────────────────
+    - id: item-group
+      componentId: box
+      role: group item
+      props: {}
+      children: [text-group-heading, slot-group-children]
+      binding: slot
+      notes: >
+        Rendered when navItem.type === 'group'. Non-interactive — renders a bold
+        section heading that visually separates navigation areas. Not a Button.
+
+    - id: text-group-heading
+      componentId: text
+      role: group section heading
+      props:
+        weight: "bold"
+        marginVertical: "xsmall"
+        marginHorizontal: "small"
+      children: []
+      binding: static
+
+    - id: slot-group-children
+      componentId: box
+      role: group child items slot
+      props: {}
+      children: []
+      binding: slot
+      notes: Recursive — consumer's child NavItemType[] items rendered here (leaf or parent form).
+
+    # ── Item form 2: Parent / expandable item ─────────────────────────────────────
+    - id: item-parent
+      componentId: box
+      role: expandable parent item
+      props: {}
+      children: [btn-expand, collapsible-children]
+      binding: slot
+      notes: >
+        Rendered when navItem.children is present and type !== 'group'.
+        aria-haspopup and aria-expanded are driven by isExpanded state.
+
+    - id: btn-expand
+      componentId: button
+      role: expand/collapse toggle
+      props:
+        plain: true
+        fill: "horizontal"
+      children: [box-btn-inner]
+      binding: state
+      notes: >
+        aria-haspopup=true, aria-expanded driven by isExpanded state.
+        aria-current='page' when activeItem matches this item's label.
+        onClick toggles isExpanded and optionally calls onSelect if item.url present.
+
+    - id: box-btn-inner
+      componentId: box
+      role: button label layout
+      props:
+        direction: "row"
+        justify: "between"
+        align: "center"
+        padVertical: "3xsmall"
+        padHorizontal: "small"
+      children: [box-icon-label, slot-chevron]
+      binding: static
+
+    - id: box-icon-label
+      componentId: box
+      role: icon and label row
+      props:
+        direction: "row"
+        gap: "xsmall"
+        align: "center"
+      children: [slot-item-icon, text-item-label]
+      binding: static
+
+    - id: slot-item-icon
+      componentId: box
+      role: nav item icon slot
+      props: {}
+      children: []
+      binding: slot
+      notes: Consumer-provided icon from @hpe-design/icons-grommet. Use aria-hidden on the icon.
+
+    - id: text-item-label
+      componentId: text
+      role: nav item label
+      props: {}
+      children: []
+      binding: slot
+      notes: Displays navItem.label string.
+
+    - id: slot-chevron
+      componentId: box
+      role: chevron icon slot
+      props: {}
+      children: []
+      binding: state
+      notes: >
+        Renders Up (aria-hidden) when isExpanded, Down (aria-hidden) when collapsed.
+        Use Up and Down from @hpe-design/icons-grommet.
+
+    - id: collapsible-children
+      componentId: collapsible
+      role: child items collapsible
+      props: {}
+      children: [box-indent]
+      binding: state
+      notes: open prop driven by isExpanded state. Provides expand/collapse animation.
+
+    - id: box-indent
+      componentId: box
+      role: child items indent
+      props:
+        padLeft: "medium"
+      children: [slot-child-items]
+      binding: static
+
+    - id: slot-child-items
+      componentId: box
+      role: child nav items slot
+      props: {}
+      children: []
+      binding: slot
+      notes: Recursive — renders child NavItemType[] items (leaf form only at level 2).
+
+    # ── Item form 3: Leaf item ─────────────────────────────────────────────────────
+    - id: item-leaf
+      componentId: button
+      role: leaf nav item
+      props:
+        plain: true
+        fill: "horizontal"
+      children: [box-leaf-outer]
+      binding: slot
+      notes: >
+        aria-current='page' when activeItem === navItem.label.
+        onClick calls onSelect({item, event}). Use event.preventDefault() for
+        client-side routing. Never use anchor tags for router-handled items.
+
+    - id: box-leaf-outer
+      componentId: box
+      role: leaf item outer container (ItemContainer outer layer)
+      props:
+        direction: "row"
+        round: "small"
+      children: [box-leaf-inner]
+      binding: state
+      notes: >
+        Outer layer of the two-layer ItemContainer. Carries background-active when
+        the item is the active route (persistent fill). No background when inactive.
+        round="small" matches the inner layer so the fill is fully contained.
+
+    - id: box-leaf-inner
+      componentId: box
+      role: leaf item inner layout (ItemContainer inner layer)
+      props:
+        direction: "row"
+        align: "center"
+        gap: "3xsmall"
+        padVertical: "3xsmall"
+        padLeft: "3xsmall"
+        padRight: "xxsmall"
+        round: "small"
+        responsive: false
+        flex: true
+      children: [box-active-marker, slot-leaf-icon, text-leaf-label]
+      binding: state
+      notes: >
+        Inner layer of the two-layer ItemContainer. Carries background-hover on
+        hover — this overlay applies even when the outer layer is showing
+        background-active (active+hovered items show both layers simultaneously).
+        Text color: text-strong on hover, focus, or active; "text" otherwise.
+        Pass color to icon via React.cloneElement(icon, { color }) so SVG icons
+        shift color in sync with the label.
+
+    - id: box-active-marker
+      componentId: box
+      role: active state marker (ActiveMarker)
+      props:
+        fill: "vertical"
+        round: true
+        padLeft: "4px"
+      children: []
+      binding: state
+      notes: >
+        Vertical bar rendered via fill="vertical" + pad={{ left: "4px" }} + round.
+        background="background-primary-strong" when active,
+        background="background-primary-strong-hover" when active+hover,
+        no background prop when inactive (bar is invisible but preserves layout).
+        Works in tandem with box-leaf-outer (background-active) — both are required
+        for correct active state; neither substitutes for the other.

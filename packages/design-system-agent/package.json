@@ -1,0 +1,20 @@
+{
+  "name": "@hpe-design-system/agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "hpe-design-system-agent": "bin/cli.js"
+  },
+  "scripts": {
+    "generate": "tsx src/cli.ts",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "yaml": "^2.8.3"
+  }
+}

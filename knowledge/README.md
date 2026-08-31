@@ -35,7 +35,7 @@ This directory is the AI-first knowledge system for the HPE Design System.
 - `package-release` (status: planned)
   - Entry point: `@package-release-orchestrator <package-name>`
   - Manifest: `knowledge/capabilities/package-release/manifest.yaml`
-- `alignment-audit` (status: planned)
+- `alignment-audit` (status: active)
   - Entry point: `@alignment-audit-orchestrator <scope>`
   - Manifest: `knowledge/capabilities/alignment-audit/manifest.yaml`
 

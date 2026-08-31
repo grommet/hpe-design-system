@@ -1,0 +1,134 @@
+id: skeleton
+name: Skeleton
+description: Displays a placeholder preview of content to reduce layout shift and
+  perceived load time while data is being fetched.
+importPath: grommet
+framework: react
+props:
+- name: width
+  type: string | object
+  required: false
+  description: Width of the skeleton placeholder. Accepts any Grommet size token or
+    CSS string.
+  defaultValue: '''100%'''
+- name: height
+  type: string | object
+  required: false
+  description: Height of the skeleton placeholder. Accepts any Grommet size token
+    or CSS string.
+- name: round
+  type: boolean | string
+  required: false
+  description: Applies border radius to shape the skeleton. Use true for a fully rounded
+    (pill) shape.
+  defaultValue: 'false'
+- name: as
+  type: string | React.ComponentType
+  required: false
+  description: Render the skeleton as a specific HTML element or component, preserving
+    layout context.
+usage:
+  whenToUse:
+  - Use while waiting for content to load to maintain page structure and reduce cumulative
+    layout shift.
+  - Use to represent text lines, images, cards, or avatar areas that have predictable
+    shapes.
+  - 'Use on components that support skeleton rendering natively: Text, Heading, Paragraph,
+    Button, Box, Card, PageHeader, Header, Footer.'
+  - Prefer Skeleton over Spinner when the shape of content is known ahead of time.
+  whenToAvoid:
+  - Do not use for ongoing activity or processing — use Spinner instead.
+  - Do not use when content will be available in under 300ms, as flashing a skeleton
+    introduces unnecessary visual noise.
+  - Do not use when content availability is unknown or indefinite.
+  - Do not use Skeleton for loading states that require user-perceivable progress
+    feedback.
+variants:
+- name: text-lines
+  description: Multiple rectangular lines simulating a paragraph of text.
+  when: Representing body copy, descriptions, or other multi-line text while it loads.
+  example: "<Box gap=\"xsmall\">\n  <Text><Skeleton width=\"100%\" /></Text>\n  <Text><Skeleton\
+    \ width=\"80%\" /></Text>\n  <Text><Skeleton width=\"90%\" /></Text>\n</Box>"
+- name: circular
+  description: Fully rounded skeleton for avatars, icons, or circular image placeholders.
+  when: Representing a user avatar, profile image, or status icon.
+  example: <Skeleton width="48px" height="48px" round="full" />
+- name: rounded-card
+  description: Rectangular skeleton with slightly rounded corners for card or image
+    placeholders.
+  when: Representing a card thumbnail, hero image, or panel before content loads.
+  example: <Skeleton width="320px" height="180px" round="small" />
+- name: rectangular
+  description: Plain rectangular placeholder with sharp corners.
+  when: Representing table cells, buttons, or other hard-edged components.
+  example: <Skeleton width="120px" height="36px" />
+- name: native-component-loading
+  description: Supported natively by Grommet components when their skeleton prop is
+    true.
+  when: Using Text, Heading, Button, Card, Box, PageHeader, Header, or Footer and
+    data is pending.
+  example: "<Card>\n  <CardHeader>\n    <Heading skeleton />\n  </CardHeader>\n  <CardBody>\n\
+    \    <Text skeleton />\n    <Text skeleton width=\"70%\" />\n  </CardBody>\n</Card>"
+anatomy:
+- label: placeholder shape
+  region: root
+  purpose: Mimics the size and shape of the target content to preserve page layout
+  availability: always
+- label: shimmer animation
+  region: root (visual overlay)
+  purpose: Subtle left-to-right shimmer effect that signals loading activity
+  availability: always
+behaviors:
+  interactiveStates: []
+  applicationStates:
+  - loading
+  - loaded (removed from DOM)
+  dataStates: []
+  realEstate:
+  - Inherits container dimensions
+  - Respects width and height props
+examples:
+- description: Skeleton for a text paragraph
+  code: "<Box gap=\"xsmall\" width=\"medium\">\n  <Text><Skeleton /></Text>\n  <Text><Skeleton\
+    \ width=\"90%\" /></Text>\n  <Text><Skeleton width=\"75%\" /></Text>\n</Box>"
+- description: Skeleton for an avatar and name inline
+  code: "<Box direction=\"row\" gap=\"small\" align=\"center\">\n  <Skeleton width=\"\
+    40px\" height=\"40px\" round=\"full\" />\n  <Box gap=\"xsmall\">\n    <Text><Skeleton\
+    \ width=\"120px\" /></Text>\n    <Text size=\"small\"><Skeleton width=\"80px\"\
+    \ /></Text>\n  </Box>\n</Box>"
+- description: Skeleton loading card
+  code: "<Card width=\"medium\">\n  <Skeleton width=\"100%\" height=\"160px\" />\n\
+    \  <CardBody pad=\"medium\" gap=\"xsmall\">\n    <Heading level={3} margin=\"\
+    none\"><Skeleton /></Heading>\n    <Text><Skeleton /></Text>\n    <Text><Skeleton\
+    \ width=\"60%\" /></Text>\n  </CardBody>\n</Card>"
+- description: Conditional skeleton vs loaded content
+  code: "const [loading, setLoading] = useState(true);\n\nreturn (\n  <Box gap=\"\
+    small\">\n    <Heading level={2}>\n      {loading ? <Skeleton width=\"200px\"\
+    \ /> : serverName}\n    </Heading>\n    <Text>\n      {loading ? <Skeleton />\
+    \ : serverDescription}\n    </Text>\n  </Box>\n);"
+accessibility:
+  keyboard: []
+  aria:
+  - attribute: aria-hidden
+    value: '''true'''
+    condition: Skeleton elements should be hidden from assistive technologies as they
+      carry no semantic meaning
+  announcements:
+  - trigger: Content replaces skeleton
+    message: Content is announced naturally as the real components render and become
+      visible to screen readers
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.1 Use of Color
+    status: pass
+  - criterion: 2.2.2 Pause, Stop, Hide
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- spinner
+- card
+- text
+- heading
+- box
