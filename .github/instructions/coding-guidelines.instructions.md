@@ -59,6 +59,43 @@ When writing or reviewing React components, follow these core principles and bes
 <Box background="#f5f5f5" style={{ padding: '16px' }} />
 ```
 
+## Theming
+
+1. **Dark/light mode:** Manage `themeMode` state at the root `<Grommet>` component only (typically the app's entry file). Never manage it inside a nested `App` component or pass it down through undocumented context — the prop cannot be threaded back up to `<Grommet>`.
+2. **No custom ThemeContext:** Never create a new `ThemeContext`. The `Grommet` component already provides a theme context used throughout the application; use the `themeMode` prop instead.
+
+```jsx
+// Good — themeMode state lives at the Grommet root
+function Root() {
+  const [themeMode, setThemeMode] = useState('light');
+  return (
+    <Grommet theme={hpe} themeMode={themeMode} full>
+      <App themeMode={themeMode} setThemeMode={setThemeMode} />
+    </Grommet>
+  );
+}
+```
+
+## Styling Escape Hatch
+
+When Grommet component props alone cannot achieve the required styling, `styled-components` is the approved method for adding custom CSS. Use either the `styled()` wrapper or Grommet's theme-level `extend` key:
+
+```jsx
+// Option 1: styled() wrapper — only add what Grommet props cannot express
+import styled from 'styled-components';
+import { Box } from 'grommet';
+
+const SnapScrollBox = styled(Box)`
+  scroll-snap-type: x mandatory;
+`;
+
+// Option 2: Grommet theme extend (applied globally via theme config)
+// box: { extend: 'scroll-snap-type: x mandatory;' }
+```
+
+- Treat any use of `styled()` as a signal to discuss with the design system team — recurring needs may warrant a new design token or Grommet prop.
+- Do not add arbitrary global CSS or className-based overrides outside of `styled-components`.
+
 ## Accessibility
 
 1. **Labels:** Provide `a11yTitle` or `aria-label` on interactive and icon-only elements so screen readers can identify them.
@@ -84,3 +121,6 @@ When writing or reviewing React components, follow these core principles and bes
 ## Related References
 
 - [code-connect-guidelines.instructions.md](code-connect-guidelines.instructions.md): Required when authoring Figma Code Connect files for HPE Design System components.
+- [grommet-layouts.instructions.md](grommet-layouts.instructions.md): Page and app layout structure.
+- [grommet-responsive.instructions.md](grommet-responsive.instructions.md): Responsive design patterns.
+- [grommet-data.instructions.md](grommet-data.instructions.md): Presenting and manipulating data collections.

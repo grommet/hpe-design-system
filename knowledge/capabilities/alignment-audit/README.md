@@ -8,15 +8,18 @@ Audit a consumer app, design-system usage, or component implementation against t
 
 ## Workflow
 
-This capability follows the evaluate-plan-remediate continuous improvement loop:
+This capability follows the evaluate-plan-remediate continuous improvement loop, orchestrated across four sub-agents:
 
-1. Evaluate the target scope for quality, token compliance, layout integrity, and DS usage.
-2. Produce a remediation plan that separates blocking fixes from dataset or guideline improvements.
-3. Execute the approved changes and verify the result with repo checks.
+1. `evaluator` — audits the target scope for quality, token compliance, layout integrity, and DS usage; writes `<scope>/EVALUATION.md`.
+2. `remediation-planner` — reads the latest evaluation and produces a sequenced implementation plan (read-only).
+3. `remediation-executor` — applies Track A (app-local) fixes from the plan.
+4. `design-system-maintainer` — applies Track B (design-system data/generator) fixes from the plan.
 
 ## Entry Point
 
 - `@alignment-audit-orchestrator <scope>`
+
+The orchestrator detects the current stage, gates on user approval before planning and before executing, then delegates to the sub-agents above in order.
 
 ## Typical Scope
 

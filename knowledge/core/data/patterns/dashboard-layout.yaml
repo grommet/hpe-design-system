@@ -44,10 +44,10 @@ usage:
   - Do not use different card styles for metrics in the same dashboard.
 examples:
 - description: Responsive Metric Cards Grid
-  codeFile: design-system/examples/dashboard-layout/responsive-metric-cards-grid.tsx
+  codeFile: knowledge/core/data/examples/dashboard-layout/responsive-metric-cards-grid.tsx
 - description: Activity Feed Card
-  codeFile: design-system/examples/dashboard-layout/activity-feed-card.tsx
-templateCodeFile: design-system/examples/dashboard-layout/template.tsx
+  codeFile: knowledge/core/data/examples/dashboard-layout/activity-feed-card.tsx
+templateCodeFile: knowledge/core/data/examples/dashboard-layout/template.tsx
 
 graph:
   rootId: page-root

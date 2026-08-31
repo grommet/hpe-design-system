@@ -33,8 +33,8 @@ usage:
     - Do not hardcode icon colors or duplicate the status mapping in each table column.
 examples:
   - description: Semantic status indicator for an audit-log table cell
-    codeFile: design-system/examples/status-indicator/template.tsx
-templateCodeFile: design-system/examples/status-indicator/template.tsx
+    codeFile: knowledge/core/data/examples/status-indicator/template.tsx
+templateCodeFile: knowledge/core/data/examples/status-indicator/template.tsx
 graph:
   rootId: status-indicator
   nodes:

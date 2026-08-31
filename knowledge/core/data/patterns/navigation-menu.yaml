@@ -85,19 +85,19 @@ props:
     and collapse toggle.
 examples:
 - description: Basic flat navigation
-  codeFile: design-system/examples/navigation-menu/basic-flat-navigation.tsx
+  codeFile: knowledge/core/data/examples/navigation-menu/basic-flat-navigation.tsx
 - description: Hierarchical navigation with expandable parent items. Parent items
     auto-expand when a child matches activeItem.
-  codeFile: design-system/examples/navigation-menu/hierarchical-navigation-with-expandable-parent-items-parent-items-auto-expand-when-a-child-matches-activeitem.tsx
+  codeFile: knowledge/core/data/examples/navigation-menu/hierarchical-navigation-with-expandable-parent-items-parent-items-auto-expand-when-a-child-matches-activeitem.tsx
 - description: 'Grouped navigation using type: ''group'' for non-interactive section
     headings'
-  codeFile: design-system/examples/navigation-menu/grouped-navigation-using-type-group-for-non-interactive-section-headings.tsx
+  codeFile: knowledge/core/data/examples/navigation-menu/grouped-navigation-using-type-group-for-non-interactive-section-headings.tsx
 - description: 'Mobile-responsive: render NavigationMenu inside a Layer on the xsmall
     breakpoint'
-  codeFile: design-system/examples/navigation-menu/mobile-responsive-render-navigationmenu-inside-a-layer-on-the-xsmall-breakpoint.tsx
+  codeFile: knowledge/core/data/examples/navigation-menu/mobile-responsive-render-navigationmenu-inside-a-layer-on-the-xsmall-breakpoint.tsx
 - description: Client-side routing with React Router — call event.preventDefault()
     in onSelect to avoid full page reloads
-  codeFile: design-system/examples/navigation-menu/client-side-routing-with-react-router-call-event-preventdefault-in-onselect-to-avoid-full-page-reloads.tsx
+  codeFile: knowledge/core/data/examples/navigation-menu/client-side-routing-with-react-router-call-event-preventdefault-in-onselect-to-avoid-full-page-reloads.tsx
 anatomy:
   - label: nav container
     region: outer wrapper (NavContainer)
@@ -113,7 +113,7 @@ anatomy:
     availability: only when item is active
     notes: Use semantic token "xsmall" for pad.left, never hardcoded pixels.
 
-templateCodeFile: design-system/examples/navigation-menu/template.tsx
+templateCodeFile: knowledge/core/data/examples/navigation-menu/template.tsx
 
 graph:
   rootId: box-root

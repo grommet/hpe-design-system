@@ -8,7 +8,7 @@ relatedComponents:
 - card
 - text-input
 - button
-templateCodeFile: design-system/examples/login-form/template.tsx
+templateCodeFile: knowledge/core/data/examples/login-form/template.tsx
 
 graph:
   rootId: card-root

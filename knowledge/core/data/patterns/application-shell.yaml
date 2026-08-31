@@ -41,12 +41,12 @@ usage:
   - Do not forget focus management when opening/closing Layers and context panes.
 examples:
 - description: Complete Application Shell with Navigation
-  codeFile: design-system/examples/application-shell/complete-application-shell-with-navigation.tsx
+  codeFile: knowledge/core/data/examples/application-shell/complete-application-shell-with-navigation.tsx
 - description: Mobile-Responsive Navigation with Layer
-  codeFile: design-system/examples/application-shell/mobile-responsive-navigation-with-layer.tsx
+  codeFile: knowledge/core/data/examples/application-shell/mobile-responsive-navigation-with-layer.tsx
 - description: Context Pane with Help/Settings
-  codeFile: design-system/examples/application-shell/context-pane-with-help-settings.tsx
-templateCodeFile: design-system/examples/application-shell/template.tsx
+  codeFile: knowledge/core/data/examples/application-shell/context-pane-with-help-settings.tsx
+templateCodeFile: knowledge/core/data/examples/application-shell/template.tsx
 
 # Adjacency list — agent-traversable counterpart to templateCode.
 # Coexists with templateCode; never replaces it.

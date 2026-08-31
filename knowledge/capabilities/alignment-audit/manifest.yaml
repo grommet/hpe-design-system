@@ -17,17 +17,22 @@ spec:
       - path: knowledge/core/data/types.ts
     skills:
       - path: .github/instructions/coding-guidelines.instructions.md
-      - path: .github/instructions/grommet.instructions.md
       - path: .github/instructions/grommet-layouts.instructions.md
       - path: .github/instructions/grommet-responsive.instructions.md
       - path: .github/instructions/grommet-data.instructions.md
+    external:
+      - path: packages/design-system-agent
   assets:
     agents:
       - alignment-audit-orchestrator.agent.md
+      - agents/evaluator.agent.md
+      - agents/remediation-planner.agent.md
+      - agents/remediation-executor.agent.md
+      - agents/design-system-maintainer.agent.md
   stages:
     - id: evaluated
-      when: 'exists(knowledge/core/data/components) || exists(knowledge/core/data/patterns)'
+      when: 'exists([scope]/EVALUATION.md)'
     - id: planned
-      when: 'exists(knowledge/capabilities/alignment-audit/README.md)'
+      when: 'exists([scope]/EVALUATION.md) && match_entry([scope]/EVALUATION.md, /### Track A/)'
     - id: executed
-      when: 'exists(knowledge/capabilities/alignment-audit/alignment-audit-orchestrator.agent.md) && exists(knowledge/capabilities/alignment-audit/manifest.yaml)'
+      when: 'exists([scope]/EVALUATION.md) && last_build_success()'

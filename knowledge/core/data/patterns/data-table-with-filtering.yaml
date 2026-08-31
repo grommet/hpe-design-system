@@ -43,12 +43,12 @@ usage:
     - Do not forget to show 'no results' state when filters return empty.
 examples:
   - description: Basic Data Table with Search
-    codeFile: design-system/examples/data-table-with-filtering/basic-data-table-with-search.tsx
+    codeFile: knowledge/core/data/examples/data-table-with-filtering/basic-data-table-with-search.tsx
   - description: Table with Custom Filters
-    codeFile: design-system/examples/data-table-with-filtering/table-with-custom-filters.tsx
+    codeFile: knowledge/core/data/examples/data-table-with-filtering/table-with-custom-filters.tsx
   - description: Multiple View Options
-    codeFile: design-system/examples/data-table-with-filtering/multiple-view-options.tsx
-templateCodeFile: design-system/examples/data-table-with-filtering/template.tsx
+    codeFile: knowledge/core/data/examples/data-table-with-filtering/multiple-view-options.tsx
+templateCodeFile: knowledge/core/data/examples/data-table-with-filtering/template.tsx
 
 graph:
   rootId: card-container

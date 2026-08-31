@@ -40,10 +40,10 @@ usage:
   - Avoid resetting form on validation errors.
 examples:
 - description: Simple Contact Form
-  codeFile: design-system/examples/form-with-validation/simple-contact-form.tsx
+  codeFile: knowledge/core/data/examples/form-with-validation/simple-contact-form.tsx
 - description: Form with Custom Validation
-  codeFile: design-system/examples/form-with-validation/form-with-custom-validation.tsx
-templateCodeFile: design-system/examples/form-with-validation/template.tsx
+  codeFile: knowledge/core/data/examples/form-with-validation/form-with-custom-validation.tsx
+templateCodeFile: knowledge/core/data/examples/form-with-validation/template.tsx
 
 graph:
   rootId: form-root
