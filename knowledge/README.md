@@ -26,6 +26,11 @@ New AI workflow contributors should begin with the
 - `prompts/`:
 - `skills/`:
 
+The [design-system-agent](../packages/design-system-agent/) package reads
+`core/data` (and relevant `.github/instructions`) to answer natural-language
+implementation queries. Run it with
+`pnpm --filter @hpe-design-system/agent generate -- "<query>"`.
+
 ## Capability Index
 
 - `docs-refactor` (status: active)
