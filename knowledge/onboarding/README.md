@@ -72,7 +72,7 @@ experimentation:
   [docs-refactor](../capabilities/docs-refactor/manifest.yaml) demonstrates how
   a capability brings together structured data, skills, agents, stages, and
   verification.
-- **Evaluation work:** [the design-to-code evaluation plan](../../docs/DESIGN_TO_CODE_EVAL.md)
+- **Evaluation work:** [the design-to-code evaluation plan](design-to-code-evaluation-plan.md)
   starts with simple artifacts and uses the Grommet sandbox to assess generated
   React code.
 - **Planned or evolving work:** most capability bundles listed in
@@ -86,7 +86,7 @@ experimentation:
 - [Design tokens README](../../packages/hpe-design-tokens/README.md)
 - [Code Connect README](../code-connect/README.md)
 - [Knowledge skills index](../core/skills/README.md)
-- [Design-to-code evaluation plan](../../docs/DESIGN_TO_CODE_EVAL.md)
+- [Design-to-code evaluation plan](design-to-code-evaluation-plan.md)
 - [Grommet sandbox](../../sandbox/grommet-app/)
 
 ## Working Expectations
