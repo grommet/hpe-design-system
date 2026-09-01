@@ -41,7 +41,7 @@ const staleReferenceChecks = [
     patterns: [/packages\/code-connect/, /get_context_for_code_connect/],
   },
   {
-    path: '.github/prompts/code-connect/code-connect-component.prompt.md',
+    path: '.github/prompts/code-connect-component.prompt.md',
     patterns: [
       /packages\/code-connect/,
       /\.github\/instructions\/code-connect/,
@@ -52,7 +52,7 @@ const staleReferenceChecks = [
 
 const thinPromptChecks = [
   {
-    path: '.github/prompts/code-connect/code-connect-component.prompt.md',
+    path: '.github/prompts/code-connect-component.prompt.md',
     requiredReference: 'knowledge/core/prompts/code-connect-component.prompt.md',
     forbiddenHeadings: ['## Workflow', '## Authoring Rules', '## Example Function Constraints'],
   },
