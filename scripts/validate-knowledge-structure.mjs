@@ -109,9 +109,10 @@ thinPromptChecks.forEach((check) => {
   const source = readIfExists(check.path);
   if (source === null) return;
 
-  if (!source.includes(check.requiredReference)) {
+  const authoritativeInstruction = `Read and follow \`${check.requiredReference}\``;
+  if (!source.includes(authoritativeInstruction)) {
     violations.push(
-      `${check.path}: Copilot entrypoint must reference ${check.requiredReference}`,
+      `${check.path}: Copilot entrypoint must instruct agents to read and follow ${check.requiredReference}`,
     );
   }
 
