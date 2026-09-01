@@ -56,6 +56,27 @@ const thinPromptChecks = [
     requiredReference: 'knowledge/core/prompts/code-connect-component.prompt.md',
     forbiddenHeadings: ['## Workflow', '## Authoring Rules', '## Example Function Constraints'],
   },
+  {
+    path: '.github/instructions/code-connect/code-connect-guidelines.instructions.md',
+    requiredReference: 'knowledge/core/instructions/code-connect/guidelines.instructions.md',
+    forbiddenHeadings: ['## Overview', '## Finding the Correct Node ID'],
+  },
+  {
+    path: '.github/instructions/code-connect/code-connect-file-structure.instructions.md',
+    requiredReference: 'knowledge/core/instructions/code-connect/file-structure.instructions.md',
+    forbiddenHeadings: ['## File Naming', '## File Location', '## Syncing to Figma'],
+  },
+  {
+    path: '.github/instructions/code-connect/code-connect-component-guidelines.instructions.md',
+    requiredReference:
+      'knowledge/core/instructions/code-connect/component-guidelines.instructions.md',
+    forbiddenHeadings: ['## Planning Inputs', '## Required Imports', '## Property Mapping'],
+  },
+  {
+    path: '.github/instructions/code-connect/code-connect-figma-mcp.instructions.md',
+    requiredReference: 'knowledge/core/instructions/code-connect/figma-mcp.instructions.md',
+    forbiddenHeadings: ['## Implementation Rules'],
+  },
 ];
 
 const violations = [];
