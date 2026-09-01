@@ -1,7 +1,7 @@
 ---
 name: Code Connect Figma MCP
 description: 'Extract component definitions from Figma and implement or update Code Connect mappings for the HPE Design System.'
-applyTo: 'packages/code-connect/src/*.figma.jsx'
+applyTo: 'knowledge/code-connect/src/**/*.figma.jsx'
 ---
 
 # Instructions: Code Connect Figma MCP
@@ -13,12 +13,12 @@ These rules define how to translate Figma inputs into Code Connect mappings for 
 When creating or updating a Code Connect file from Figma, follow this process:
 
 1. Use the exact Figma component node URL, including the `node-id` query parameter.
-2. Run `get_context_for_code_connect` first to fetch the component property inventory for the exact node.
+2. Use the available Code Connect-specific Figma context tool first to fetch the component property inventory for the exact node.
 3. Run `get_design_context` to confirm the intended component usage and variant behavior.
 4. If the response is too large or truncated, run `get_metadata` to identify the required node and then re-fetch only that node.
-5. Review an existing mapping in `packages/code-connect/src/` before creating a new file so naming and structure stay consistent.
-6. Add or update a single `.figma.jsx` file for the component under `packages/code-connect/src/`.
-7. Run `pnpm run figma:sync` from `packages/code-connect` and confirm it exits with code `0` before marking the work complete.
+5. Review an existing mapping in `knowledge/code-connect/src/` before creating a new file so naming and structure stay consistent.
+6. Add or update a single `.figma.jsx` file for the component under `knowledge/code-connect/src/`.
+7. Run `pnpm --filter @hpe-design/code-connect figma:sync` from the repository root and confirm it exits with code `0` before marking the work complete.
 
 ## Implementation Rules
 
@@ -29,11 +29,11 @@ When creating or updating a Code Connect file from Figma, follow this process:
 - Keep example JSX parser-friendly for Code Connect. Prefer mapped props over inline conditional expressions when the parser cannot resolve them.
 - Place each component mapping in its own file named `<ComponentName>.figma.jsx`.
 - Do not use page-level or frame-level Figma URLs. Always connect to the exact component node.
-- Do not leave changes unsynced. A mapping is not complete until `pnpm run figma:sync` succeeds.
+- Do not leave changes unsynced. A mapping is not complete until the Code Connect sync command succeeds.
 
 ## Related References
 
 - [code-connect-guidelines.instructions.md](code-connect-guidelines.instructions.md): High-level workflow and required sync behavior for Code Connect mappings.
 - [code-connect-component-guidelines.instructions.md](code-connect-component-guidelines.instructions.md): Property mapping helpers, `figma.connect` structure, and example render requirements.
-- [code-connect-file-structure.instructions.md](code-connect-file-structure.instructions.md): File naming and placement rules for `packages/code-connect/src/`.
+- [code-connect-file-structure.instructions.md](code-connect-file-structure.instructions.md): File naming and placement rules for `knowledge/code-connect/src/`.
 - [coding-guidelines.instructions.md](../coding-guidelines.instructions.md): React and Grommet authoring conventions used inside Code Connect examples.

@@ -18,19 +18,28 @@ Choose the correct file name, location, and sync process when creating or updati
 
 ## File Location
 
-1. **Directory:** Place all Code Connect files under `packages/code-connect/src/`.
-2. **One file per component:** Each Grommet component gets its own `.figma.jsx` file. Do not combine multiple `figma.connect` calls for unrelated components in a single file.
+1. **Directory:** Place all Code Connect files under `knowledge/code-connect/src/`.
+2. **Existing subfolders:** Reuse an existing subfolder when it matches the component family, such as `knowledge/code-connect/src/inputs/` for input components.
+3. **One file per component:** Each Grommet component gets its own `.figma.jsx` file. Multiple `figma.connect` calls are acceptable in the same file when they describe variants of that same component.
 
 ```text
-packages/code-connect/src/
+knowledge/code-connect/src/
   Button.figma.jsx
-  TextInput.figma.jsx
-  CheckBox.figma.jsx
+  Card.figma.jsx
+  inputs/
+    CheckBox.figma.jsx
+    DateInput.figma.jsx
 ```
 
 ## Syncing to Figma
 
-After creating or updating a Code Connect file, run the sync command from the `packages/code-connect` directory:
+After creating or updating a Code Connect file, prefer the root-scoped sync command:
+
+```bash
+pnpm --filter @hpe-design/code-connect figma:sync
+```
+
+Equivalent from `knowledge/code-connect/`:
 
 ```bash
 pnpm run figma:sync
@@ -38,7 +47,7 @@ pnpm run figma:sync
 
 ### First-time Setup
 
-Before syncing for the first time, create a `.env` file in `packages/code-connect/` with your Figma Personal Access Token:
+Before syncing for the first time, create a `.env` file in `knowledge/code-connect/` with your Figma Personal Access Token:
 
 ```
 FIGMA_ACCESS_TOKEN="your_token_here"
@@ -56,9 +65,9 @@ The `.env` file is covered by the root `.gitignore` and must never be committed.
 
 ## What to Avoid
 
-1. **No misplaced files:** Do not place `.figma.jsx` files outside of `packages/code-connect/src/`.
+1. **No misplaced files:** Do not place `.figma.jsx` files outside of `knowledge/code-connect/src/`.
 2. **No mixed files:** Do not place multiple unrelated `figma.connect` calls in one file.
-3. **No unsync'd changes:** Do not merge Code Connect file changes without running `pnpm run figma:sync` and confirming success.
+3. **No unsynced changes:** Do not merge Code Connect file changes without running the Code Connect sync command and confirming success.
 
 ---
 

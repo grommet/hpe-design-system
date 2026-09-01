@@ -15,7 +15,7 @@ Create or update exactly one Figma Code Connect mapping file for one Grommet com
 ## Scope & Preconditions
 
 - Target stack is fixed: React + Grommet + `@figma/code-connect` CLI.
-- Work only in `packages/code-connect/src/`.
+- Work only in `knowledge/code-connect/src/`.
 - If required inputs are missing, request them before editing.
 - If the Figma URL does not include `node-id`, stop and request a node-specific URL.
 
@@ -32,13 +32,13 @@ Create or update exactly one Figma Code Connect mapping file for one Grommet com
 
 Read and follow these instruction files before making edits:
 
-- `.github/instructions/code-connect/code-connect-guidelines.instructions.md`
-- `.github/instructions/code-connect/code-connect-file-structure.instructions.md`
-- `.github/instructions/code-connect/code-connect-component-guidelines.instructions.md`
+- `knowledge/core/instructions/code-connect/guidelines.instructions.md`
+- `knowledge/core/instructions/code-connect/file-structure.instructions.md`
+- `knowledge/core/instructions/code-connect/component-guidelines.instructions.md`
 
 ## Workflow
 
-1. Resolve the target file path as `packages/code-connect/src/${input:fileName}`.
+1. Resolve the target file path as `knowledge/code-connect/src/${input:fileName}`.
 2. Check existing Code Connect files for naming and mapping patterns.
 3. Use Figma tools to inspect the exact node and confirm all mappable properties.
 4. Map only supported props for the specified Grommet component.
@@ -49,10 +49,10 @@ Read and follow these instruction files before making edits:
    - `props` mapping block
    - `example` render function
 6. Ensure `example` passes mapped props directly.
-7. Run sync from `packages/code-connect`:
+7. Run sync from the repository root:
 
 ```bash
-pnpm run figma:sync
+pnpm --filter @hpe-design/code-connect figma:sync
 ```
 
 8. If parser validation fails, fix mapping shape and rerun until successful.
@@ -108,7 +108,7 @@ Before finishing:
 1. Confirm file location and naming match Code Connect conventions.
 2. Confirm `figma.connect` has component reference, exact node URL, `props`, and `example`.
 3. Confirm no parser-unsafe JSX prop expressions are used.
-4. Confirm `pnpm run figma:sync` succeeds and includes the target component in publish output.
+4. Confirm `pnpm --filter @hpe-design/code-connect figma:sync` succeeds and includes the target component in publish output.
 
 ## Avoid
 

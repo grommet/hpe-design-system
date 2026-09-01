@@ -14,8 +14,8 @@ When wiring HPE Design System (Grommet) components to Figma using Code Connect, 
 
 1. **One file per component:** Each Grommet component that has a Figma counterpart gets its own `.figma.jsx` Code Connect file.
 2. **Exact node URLs:** Always use the exact Figma component node URL — not a page or frame URL.
-3. **Map all properties:** Every Figma component property (variants, booleans, strings) must be mapped in the `props` block.
-4. **Sync after every change:** Run `pnpm run figma:sync` from `packages/code-connect` after creating or updating any Code Connect file.
+3. **Map relevant properties:** Every Figma component property that affects the published code example must be mapped in the `props` block, or intentionally omitted with a clear rationale.
+4. **Sync after every change:** Prefer `pnpm --filter @hpe-design/code-connect figma:sync` from the repository root, or run `pnpm run figma:sync` from `knowledge/code-connect/`, after creating or updating any Code Connect file.
 
 ## Finding the Correct Node ID
 
@@ -41,9 +41,9 @@ dotenv -e .env -- figma connect create "https://www.figma.com/design/HDckqS2MWhI
 
 This generates a file in the current directory with every Figma property already mapped. Then:
 
-1. Move the file to `packages/code-connect/src/`
+1. Move the file to the appropriate location under `knowledge/code-connect/src/`
 2. Review and adjust the Grommet prop names in the `example` function to match the actual API
-3. Run `pnpm run figma:sync` to publish
+3. Run `pnpm --filter @hpe-design/code-connect figma:sync` to publish
 
 This is the **recommended starting point** for any new component — it ensures no Figma properties are missed.
 
@@ -62,7 +62,7 @@ This will print the node type and the exact property names to use in your `props
 
 1. **No page-level URLs:** Do not use a Figma page or frame URL — `node-id` must point to the exact component node.
 2. **No hardcoded example values:** Do not pass hardcoded values in the `example` function for props that should be driven by Figma.
-3. **No unsync'd changes:** Do not consider a Code Connect file complete until `pnpm run figma:sync` exits with code `0`.
+3. **No unsynced changes:** Do not consider a Code Connect file complete until the Code Connect sync command exits with code `0`.
 
 ---
 
