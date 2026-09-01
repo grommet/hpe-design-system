@@ -91,8 +91,10 @@ requiredPaths.forEach((relativePath) => {
 
 staleReferenceChecks.forEach((check) => {
   const source = readIfExists(check.path);
-  if (source === null) return;
-
+  if (source === null) {
+    violations.push(`${check.path}: expected Copilot entrypoint file is missing`);
+    return;
+  }
   check.patterns.forEach((pattern) => {
     const match = source.match(pattern);
     if (match) {
