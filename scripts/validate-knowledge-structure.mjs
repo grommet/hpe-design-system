@@ -20,6 +20,7 @@ const requiredPaths = [
   'knowledge/core/instructions/code-connect/guidelines.instructions.md',
   'knowledge/core/instructions/code-connect/file-structure.instructions.md',
   'knowledge/core/instructions/code-connect/component-guidelines.instructions.md',
+  'knowledge/core/instructions/code-connect/figma-mcp.instructions.md',
   'knowledge/core/prompts/code-connect-component.prompt.md',
 ];
 
