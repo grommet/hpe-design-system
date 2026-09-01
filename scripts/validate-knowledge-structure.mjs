@@ -50,6 +50,14 @@ const staleReferenceChecks = [
   },
 ];
 
+const thinPromptChecks = [
+  {
+    path: '.github/prompts/code-connect/code-connect-component.prompt.md',
+    requiredReference: 'knowledge/core/prompts/code-connect-component.prompt.md',
+    forbiddenHeadings: ['## Workflow', '## Authoring Rules', '## Example Function Constraints'],
+  },
+];
+
 const violations = [];
 
 requiredPaths.forEach((relativePath) => {
@@ -68,6 +76,25 @@ staleReferenceChecks.forEach((check) => {
     if (match) {
       violations.push(
         `${check.path}: stale reference "${match[0]}" should point to knowledge/code-connect or knowledge/core`,
+      );
+    }
+  });
+});
+
+thinPromptChecks.forEach((check) => {
+  const source = readIfExists(check.path);
+  if (source === null) return;
+
+  if (!source.includes(check.requiredReference)) {
+    violations.push(
+      `${check.path}: Copilot entrypoint must reference ${check.requiredReference}`,
+    );
+  }
+
+  check.forbiddenHeadings.forEach((heading) => {
+    if (source.includes(heading)) {
+      violations.push(
+        `${check.path}: duplicate workflow heading "${heading}" belongs in ${check.requiredReference}`,
       );
     }
   });
