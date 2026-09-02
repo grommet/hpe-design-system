@@ -1075,7 +1075,8 @@ export const components = [
     name: 'Wizard',
     available: true,
     category: 'Layouts',
-    description: 'Wizards are an effective way to handle multi-step forms.',
+    description:
+      'A full-page task flow that guides users through ordered steps with validation, progress, and completion handling.',
     preview: {
       image: {
         src: {
@@ -1086,23 +1087,21 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: 'Wizards are an effective way to handle multi-step forms.',
+    seoDescription:
+      'A full-page task flow that guides users through ordered steps with validation, progress, and completion handling.',
     sections: [
-      'Header and Footer behavior',
-      'Providing guidance for a form step',
-      'Indicating progress',
-      'Validation',
-      'Summarizing what was accomplished or configured',
-      'Cancellation',
-      'Single Column vs Two Column Wizards',
-      'Two-column Wizard',
-      'Alignment',
-      'Previous step button',
-      'Cancel button',
-      'Title',
-      'Next step button',
+      'Completing complex linear setup flows',
+      'Running compact flows without visible progress',
+      'Completing grouped setup tasks',
+      'Visible progress',
+      'Compact',
+      'Interactive states',
+      'Application states',
+      'Layout behavior',
+      'Content guidelines',
+      'Accessibility',
     ],
-    relatedContent: ['Forms'],
+    relatedContent: ['Forms', 'Layer', 'Button'],
     tags: [
       'multi-step form',
       'mutliple steps',

@@ -1,123 +1,151 @@
+import { Checkmark } from '@hpe-design/icons-grommet';
 import { Example } from '../../layouts';
 import {
-  TwoColumnWizardExample,
-  WizardValidationExample,
-  WizardAnatomy,
+	WizardCompletingComplexLinearFlowsExample,
+	WizardCompletingGroupedSetupTasksExample,
+	WizardExample,
+	WizardRunningCompactFlowsWithoutVisibleProgressExample,
 } from '../../examples';
 
 <Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/WizardValidationExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/WizardContext.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/WizardHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/StepHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/StepContent.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/StepFooter.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/CancellationLayer.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/Error.js',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/wizard/components"
-  showResponsiveControls={['laptop', 'mobile']}
-  screenContainer
-  width="100%"
-  background="background-floating"
+	componentName="Wizard"
+	docs="https://v2.grommet.io/wizard?theme=hpe#props"
+	grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Wizard/Wizard.js"
+	height="xlarge"
+	width="100%"
+	background="background-floating"
+	overflow="hidden"
+	pad="medium"
+	screenContainer
+	showResponsiveControls={['laptop', 'mobile']}
 >
-  <WizardValidationExample />
+	<WizardExample />
 </Example>
 
-## When to use
+## Use cases
 
-Use a wizard when your form involves multiple steps. This makes the experience more manageable for the user and helps to eliminate error by validating inputs as the user progresses.
+### Completing linear flows
+
+Use Wizard for predictable, multi-step flows that need clear orientation from
+start to finish. Place it in a full-page layer and set
+`showProgress="horizontal"` so Stepper shows. Move through one step at a time; Wizard marks each
+step complete after a successful transition.
+
+<Example
+	height="xlarge"
+	width="100%"
+	background="background-floating"
+	overflow="hidden"
+	pad="medium"
+	screenContainer
+	showResponsiveControls={['laptop', 'mobile']}
+>
+  <WizardCompletingComplexLinearFlowsExample />
+</Example>
+
+### Running compact flows without visible progress
+
+Use Wizard without visible progress for short flows, flows that show progress
+elsewhere, or constrained layouts. For example, create a role by adding its
+name and description, choosing its permissions, and reviewing the result. Set
+`showProgress={false}` and keep the step title, description, and action labels
+explicit.
+
+<Example
+	height="xlarge"
+	width="100%"
+	background="background-floating"
+	overflow="hidden"
+	pad="medium"
+	screenContainer
+	showResponsiveControls={['laptop', 'mobile']}
+>
+  <WizardRunningCompactFlowsWithoutVisibleProgressExample />
+</Example>
+
+### Completing grouped setup tasks
+
+Use Wizard with nested steps when a setup flow has clear phases that contain
+related tasks. For example, claim infrastructure and services for Acme
+Workspace, then review the claim before activating it. Set
+`showProgress="vertical"` so `Stepper` shows phases, nested tasks, and each
+task's completion state. Complete one task at a time while the vertical progress
+indicator shows the current task within the larger claim.
+
+<Example
+  height="xlarge"
+  width="100%"
+  background="background-floating"
+  overflow="hidden"
+  pad="medium"
+  screenContainer
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <WizardCompletingGroupedSetupTasksExample />
+</Example>
 
 ## Anatomy
 
-<Example plain>
-  <WizardAnatomy />
-</Example>
-
-1. **Wizard header**: This region identifies the task flow and provides the wizard's controls. The wizard header spands the full width of the viewport.
-   - **a. Wizard title** (required): A short, descriptive title identifying the wizard.
-   - **b. Previous step button** (required): A button allowing the user to return to the previous wizard step. This button is positioned similarly to a browser's back button and is aligned to the left side of the wizard's header. It should appear on all steps except the first.
-   - **c. Cancel button** (required): A button allowing the user to leave the wizard. When clicked, a confirmation modal will appear. This button is aligned to the right side of the header.
-1. **Step identifier:** This region provides the user with information regarding the current step.
-   - **a. Step title** (required): A short, descriptive title uniquely identifying the step.
-   - **b. Step summary** (optional): A summary of where the user is within the wizard, formatted as "Step X of Y".
-   - **c. Step description** (optional): Any additional context or information about the current step.
-1. **Step inputs**: Form inputs for the current step.
-1. **Step footer**: The footer contains a primary action button to advance to the next step or finish the wizard. The footer should remain a consistent width across all steps of a wizard so that the next button is placed consistently for the user. Its width should match the width of the widest step.
-   - **a. Next/finish button** (required): A primary action button that allows the user to advance to the next step or finish the wizard. This button should be aligned to the far-right side of the footer.
-1. **Cancel wizard modal** (required), displayed when "Cancel" button is clicked: A center modal that provides double confirmation before the wizard is exited and cancelled.
-
-## Guidance
-
-A wizard should always appear as a fullscreen modal.
-
-### Header and footer behavior
-
-The Wizard header should always be sticky so that user has persistent access to previous step and cancel actions. The footer, when there is sufficient height on desktop, should be placed directly below the inputs. On mobile, or when there is not sufficient height to show all inputs, the footer should be sticky on the bottom of the window.
-
-### Providing guidance for a form step
-
-It is helpful to provide concise and clear descriptions for each step of the form. Keep each step simple and in chunks easy enough to fit on a single page. This helps the user have confidence in how to fill out the form correctly.
-
-### Indicating progress
-
-It is important to give the user an indication of where they are within the form. This should be done by indicating the total number of steps and the user's current position (i.e. "Step 1 of 3").
-
-### Validation
-
-Validation should occur within each step of the wizard. If there are any errors with the inputs in the current step, the user should not be able to advance and errors should be displayed. Error display should follow conventions established by [Form](/templates/forms).
-
-### Summarizing what was accomplished or configured
-
-The final step of a wizard should summarize what has been accomplished or configured. This summary is displayed to the user prior to form submisson. In order to complete the wizard, the user will click a submit button provided on this screen. Examples of submit button labels include "Finish Setup", "Finish Configuration", etc.
-
-### Cancellation
-
-It is important to provide the user with an option to "Cancel" or exit the wizard. Place this button on the upper right hand corner of the wizard. When clicked, the "Cancel" button should:
-
-- Open a layer that allows the user to confirm they want to cancel.
-- Provide two buttons with a clear binary choice (Example: yes or no) and a secondary term that reaffirms the action (Example: stay or exit)
-- The Primary Button should be used to confirm cancellation (Example: "Yes, exit") and a Secondary Button should give the option to return back to completing the wizard (Example: "No, stay").
-
-### Single column vs. two column wizards
-
-If guidance can be provided in a short description, use a single column wizard. When additional guidance is required for the form or content of the wizard, you might consider a two-column format.
-
-**If using a single column format:**
-
-- Center the "Next" or submit button directly under the form inputs.
-
-**If using a two column format:**
-
-- Wrap guidance in a containing box with different background color than the page, so that it is visually separate from form inputs.
-- Center the "Next" or submit button underneath both the form inputs and the guidance.
-- On desktop, place the guidance to the right of form inputs.
-- On mobile, place the guidance above form inputs.
+| Label | Region | Purpose | Required | Notes |
+| :---: | ------ | ------- | :------: | ----- |
+| **1** | **Wizard container** | Defines the task flow region and owns step state, shared form value, and navigation events. | <span><Checkmark a11yTitle="true" size="small" /></span> | Use `aria-label` when the visible title does not fully describe the region. |
+| **2** | **Header** | Displays the wizard title and close action. | <span><Checkmark a11yTitle="true" size="small" /></span> | The default header receives the `title` value. |
+| **3** | **Progress** | Shows the current position and step status through `Stepper`. | Optional | Controlled by `showProgress`. |
+| **4** | **Step header** | Announces the current step number, title, and description after navigation. | <span><Checkmark a11yTitle="true" size="small" /></span> | Keep titles short and task-oriented. |
+| **5** | **Step content** | Contains form fields, review content, or task content for the current step. | <span><Checkmark a11yTitle="true" size="small" /></span> | Each step can define `render`, or `Wizard` can use a shared `renderStep`. |
+| **6** | **Footer** | Provides cancel, previous, skip, next, and complete actions based on the current step. | <span><Checkmark a11yTitle="true" size="small" /></span> | Use `messages` to customize action labels. |
 
 ## Variants
 
-Common wizard variants.
+### Visible progress
 
-### Two-column wizard
+Show progress in longer flows where people need to understand their position and
+the remaining steps. Set `showProgress` to `horizontal` or `vertical` so
+Wizard displays Stepper progress.
 
-When additional guidance is necessary, use a two-column wizard. Click "See Fullscreen" for a more realistic experience.
+### Compact
 
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/TwoColumnWizardExample.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/WizardContext.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/WizardHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/StepContent.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/StepFooter.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/CancellationLayer.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/Error.js',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/wizard/components"
-  screenContainer
-  showResponsiveControls={['laptop', 'mobile']}
-  width="100%"
-  background="background-floating"
->
-  <TwoColumnWizardExample />
-</Example>
+Use compact Wizard for short flows where the step title or surrounding context
+already provides orientation. Set `showProgress={false}` to hide the progress
+indicator while preserving validation and completion behavior.
+
+## Behaviors and states
+
+### Responsiveness
+
+- The default layout hides progress on small breakpoints.
+- Horizontal progress changes to vertical progress when steps include nested sub-steps.
+
+### Header and footer
+
+The default Wizard layout keeps the task title and navigation actions
+available while step content scrolls.
+
+### Cancellation
+
+Use `onCancel` when leaving a Wizard could discard work. Open a [double
+confirmation](/templates/double-confirmation) before discarding or preserving
+the current form value.
+
+## Content guidelines
+
+### Writing steps and actions
+
+- Use short step titles that describe the task.
+- Use action labels that describe the result of continuing or completing the flow.
+- Include step descriptions only when they clarify what information is needed.
+- Keep validation messages specific to the field or step that blocked progress.
+
+## Accessibility
+
+| Key | Action |
+| --- | ------ |
+| Tab | Moves focus through the wizard header, current step content, and footer actions. |
+| Enter | Submits the current step form and triggers validation before navigation. |
+| Escape | Closes the wizard only when the surrounding modal or application provides that behavior. |
+
+| Attribute | Value | Condition |
+| --------- | ----- | --------- |
+| `aria-label` | Descriptive string | Provide when the wizard title does not fully describe the region. |
+| `aria-live` | `polite` | Applied by `WizardStepHeader` so screen readers receive step changes. |
+| `aria-label` | Wizard progress | Applied to `WizardProgress` when progress is visible. |
