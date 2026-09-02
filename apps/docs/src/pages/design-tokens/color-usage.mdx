@@ -15,9 +15,11 @@ import { ColorPreview } from '../../components';
 
 By combining terms from our color categories, as described in [How to read design tokens](/design-tokens/how-to-read-design-tokens), we form semantic color names.
 
+{/* TODO: Replace this hardcoded value with color.background.tone.1 when it is available. */}
+
 | Example                                                         | Token                             |
 | --------------------------------------------------------------- | --------------------------------- |
-| <ColorPreview datum={{value: 'background-back'}} />             | color.background.back             |
+| <ColorPreview datum={{value: '#f7f7f7'}} /> | color.background.tone.1 |
 | <ColorPreview datum={{value: 'background-selected-primary'}} /> | color.background.selected.primary |
 | <ColorPreview datum={{value: 'text-primary'}} />                | color.text.primary                |
 | <ColorPreview datum={{value: 'icon-strong'}} />                 | color.icon.strong                 |
@@ -89,3 +91,13 @@ Background color variants may have a range of shades.
 | <Text size="xlarge" color="text-strong">Aa</Text>  | strong   |
 | <Text size="xlarge" color="text-default">Aa</Text> | default  |
 | <Text size="xlarge" color="text-weak">Aa</Text>    | weak     |
+
+#### Role
+
+What a token is structurally for. A role narrows a property to a particular job.
+
+{/* TODO: Replace this hardcoded value with the surface role token when it is available. */}
+
+| Example | Roles | Usage |
+| ------- | ----- | ----- |
+| <ColorPreview datum={{value: '#ffffff'}} /> | surface | The structural planes a page is built from: the page, containers, and floating layers. |
