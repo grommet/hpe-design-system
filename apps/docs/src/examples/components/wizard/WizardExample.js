@@ -4,8 +4,9 @@ import React from 'react';
 import {
   Box,
   FormField,
+  NameValueList,
+  NameValuePair,
   Select,
-  Text,
   TextInput,
   Wizard,
 } from 'grommet';
@@ -62,10 +63,18 @@ const steps = [
     title: 'Review project',
     description: 'Confirm the project details before creating it.',
     render: (_step, { formValue }) => (
-      <Box gap="small" width="medium">
-        <Text>Project: {formValue.projectName || '--'}</Text>
-        <Text>Region: {formValue.region || '--'}</Text>
-        <Text>Owner: {formValue.owner || '--'}</Text>
+      <Box width="medium">
+        <NameValueList>
+          <NameValuePair name="Project name">
+            {formValue.projectName || '--'}
+          </NameValuePair>
+          <NameValuePair name="Region">
+            {formValue.region || '--'}
+          </NameValuePair>
+          <NameValuePair name="Owner">
+            {formValue.owner || '--'}
+          </NameValuePair>
+        </NameValueList>
       </Box>
     ),
   },
