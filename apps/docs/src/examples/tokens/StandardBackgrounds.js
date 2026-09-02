@@ -13,45 +13,39 @@ export const StandardBackgrounds = () => {
       gap="xsmall"
       width={{ max: 'medium' }}
     >
+      {/* TODO: Replace these placeholder values with surface tokens
+      when available. */}
       <Box
         pad="xsmall"
         round="medium"
-        background="background-back"
+        background="#ffffff"
         width="xlarge"
       >
-        <Text>color.background.back</Text>
+        <Text>color.background.surface.base</Text>
       </Box>
       <Box
         pad="xsmall"
         round="medium"
-        background="background-default"
+        background="#f5f5f5"
         width="xlarge"
       >
-        <Text>color.background.default</Text>
+        <Text>color.background.surface.tone.1</Text>
       </Box>
       <Box
         pad="xsmall"
         round="medium"
-        background="background-front"
+        background="#ffffff"
         width="xlarge"
       >
-        <Text>color.background.front</Text>
+        <Text>color.background.surface.tone.2</Text>
       </Box>
       <Box
         pad="xsmall"
         round="medium"
-        background="background-contrast"
+        background="#ffffff"
         width="xlarge"
       >
-        <Text>color.background.contrast</Text>
-      </Box>
-      <Box
-        pad="xsmall"
-        round="medium"
-        background="background-floating"
-        width="xlarge"
-      >
-        <Text>color.background.floating</Text>
+        <Text>color.background.surface.floating</Text>
       </Box>
     </ContentPane>
   );
