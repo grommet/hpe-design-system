@@ -103,24 +103,52 @@ export const BackgroundSwatch = () => {
     useColorTokens(),
     'hpe.color.background.',
   );
-  // Choosing to highlight most frequently used backgrounds and use
-  // cross-link to all background colors reference table for full list.
-  const sampleBackgroundTokens = pickTokens(backgroundTokens, [
-    'hpe.color.background.default',
-    'hpe.color.background.back',
-    'hpe.color.background.front',
-    'hpe.color.background.screenOverlay',
-  ]);
+  const getBackgroundValue = id =>
+    backgroundTokens.find(token => token.id === id).value;
 
-  const border = token =>
-    ['hpe.color.background.default', 'hpe.color.background.front'].includes(
-      token.id,
-    )
-      ? 'border-weak'
-      : undefined;
-
-  return <TokenSwatchList border={border} tokens={sampleBackgroundTokens} />;
+  return (
+    <SwatchGroup>
+      {/* TODO: Replace this placeholder with color.background.surface.base
+      when it is available. */}
+      <ColorSwatch
+        background="#ffffff"
+        border="border-weak"
+        text="background.surface.base"
+      />
+      <ColorSwatch
+        background={getBackgroundValue('hpe.color.background.hover')}
+        text="background.hover"
+      />
+      <ColorSwatch
+        background={getBackgroundValue('hpe.color.background.info')}
+        text="background.info"
+      />
+      <ColorSwatch
+        background={getBackgroundValue('hpe.color.background.primary.strong')}
+        text="background.primary.strong"
+      />
+    </SwatchGroup>
+  );
 };
+
+export const SurfaceSwatch = () => (
+  <SwatchGroup>
+    {/* TODO: Replace these placeholder values with
+    color.background.surface tokens when available. */}
+    <ColorSwatch background="#f5f5f5" text="background.surface.base" />
+    <ColorSwatch
+      background="#ffffff"
+      border="border-weak"
+      text="background.surface.tone.1"
+    />
+    <ColorSwatch
+      background="#ffffff"
+      border="border-weak"
+      text="background.surface.floating"
+    />
+    <ColorSwatch background="#dddddd" text="background.surface.tone.2" />
+  </SwatchGroup>
+);
 
 export const BorderSwatch = () => {
   const borderTokens = filterByPrefix(useColorTokens(), 'hpe.color.border.');
