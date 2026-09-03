@@ -34,6 +34,8 @@ for component-level React and Figma details.
       to see how the [knowledge-agent](../../packages/knowledge-agent/)
       package turns `knowledge/core/data/components` and `knowledge/core/data/patterns`
       into agent-ready context, then run `pnpm --filter @hpe-design/knowledge-agent test`.
+      Read that package's README for its core/adapter architecture and future
+      distribution plans (MCP, cross-repo use).
 - [ ] Inspect a component or pattern in the docs application and identify the
       Grommet primitive, HPE theme/token usage, and HPE icon choice it teaches.
 - [ ] Review the [icon package README](../../packages/icons-grommet/README.md)

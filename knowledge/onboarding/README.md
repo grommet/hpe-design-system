@@ -84,7 +84,11 @@ experimentation:
 - **Planned or evolving work:** most capability bundles listed in
   [the knowledge index](../README.md) are marked planned. Treat their manifests
   as design inputs, not proven automation, until their status and validation
-  evidence say otherwise.
+  evidence say otherwise. The
+  [knowledge-agent](../../packages/knowledge-agent/) package is architected as
+  a surface-agnostic core with a CLI adapter; multi-surface distribution (an
+  MCP server, cross-repo use) is a documented future consideration, not yet
+  built — see that package's README for the current thinking.
 
 ## Primary References
 
