@@ -52,7 +52,7 @@ implementation choice.
 
 Start with the minimum component or layout needed to exercise the design
 decision. Keep the first evaluation artifact simple, as specified by
-[the evaluation plan](../../docs/DESIGN_TO_CODE_EVAL.md). Generated code should
+[the evaluation plan](design-to-code-evaluation-plan.md). Generated code should
 import Grommet components directly, apply the HPE theme through the existing
 application setup, and use existing HPE icons where applicable.
 
@@ -66,7 +66,7 @@ component behavior, and token or icon substitutions.
 
 ### 6. Record The Evaluation
 
-Capture the work in [docs/DESIGN_TO_CODE_EVAL.md](../../docs/DESIGN_TO_CODE_EVAL.md)
+Capture the work in [the design-to-code evaluation plan](design-to-code-evaluation-plan.md)
 or a linked result record with:
 
 1. The design artifact and source context used.

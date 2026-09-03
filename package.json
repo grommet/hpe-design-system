@@ -52,6 +52,7 @@
     "license-check": "node ./scripts/license-header.mjs --check",
     "license-staged": "node ./scripts/license-header.mjs --staged",
     "validate:capability-manifests": "node scripts/validate-capability-manifests.mjs",
+    "validate:knowledge-structure": "node scripts/validate-knowledge-structure.mjs",
     "dev:tokens:grommet-app": "concurrently --kill-others --success=first --names tokens,hooks,app \"pnpm --filter hpe-design-tokens watch\" \"pnpm --filter @shared/hooks watch\" \"pnpm --filter grommet-app dev\"",
     "dev:tokens:storybook": "concurrently --kill-others --success=first --names tokens,hooks,storybook \"pnpm --filter hpe-design-tokens watch\" \"pnpm --filter @shared/hooks watch\" \"pnpm --filter @shared/aries-core storybook:dev\"",
     "telemetry:write": "node scripts/telemetry-write.mjs",

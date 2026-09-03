@@ -36,8 +36,6 @@ spec:
       - agents/major-upgrade-executor.agent.md
       - agents/verify-upgrade.agent.md
       - agents/rollback-upgrade.agent.md
-    docs:
-      - docs/RISK_TIERS.md
   stages:
     - id: scanned
       when: 'exists(knowledge/capabilities/dependency-upgrade/dependency-upgrade-state.json)'

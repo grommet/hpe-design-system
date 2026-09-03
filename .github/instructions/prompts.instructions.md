@@ -1,6 +1,6 @@
 ---
-description: "Guidelines for creating high-quality prompt files for GitHub Copilot"
-applyTo: "**/*.prompt.md"
+description: 'Guidelines for creating high-quality prompt files for GitHub Copilot'
+applyTo: '**/*.prompt.md'
 ---
 
 # Copilot Prompt Files Guidelines
@@ -32,6 +32,7 @@ Every prompt file should include YAML frontmatter with the following fields:
 
 - Use consistent quoting (single quotes recommended) and keep one field per line for readability and version control clarity
 - If `tools` are specified and the current agent is `ask` or `edit`, the default agent becomes `agent`
+- If the required tools are incompatible with the specified agent mode, explicitly set `agent: agent` in the frontmatter and document the reason in a comment above the frontmatter
 - Preserve any additional metadata (`language`, `tags`, `visibility`, etc.) required by your organization
 
 ## File Naming and Placement
@@ -42,8 +43,8 @@ Every prompt file should include YAML frontmatter with the following fields:
 ## Body Structure
 
 - Start with an `#` level heading that matches the prompt intent so it surfaces well in Quick Pick search.
-- Organize content with predictable sections. Recommended baseline: `Mission` or `Primary Directive`, `Scope & Preconditions`, `Inputs`, `Workflow` (step-by-step), `Output Expectations`, and `Quality Assurance`.
-- Adjust section names to fit the domain, but retain the logical flow: why → context → inputs → actions → outputs → validation.
+- Use the following section names unless domain terminology makes them unclear: `Mission` or `Primary Directive`, `Scope & Preconditions`, `Inputs`, `Workflow` (step-by-step), `Output Expectations`, and `Quality Assurance`.
+- If you rename a section, preserve its position in this order: (1) Mission, (2) Scope & Preconditions, (3) Inputs, (4) Workflow, (5) Output Expectations, (6) Quality Assurance.
 - Reference related prompts or instruction files using relative links to aid discoverability.
 
 ## Input and Context Handling
@@ -54,7 +55,7 @@ Every prompt file should include YAML frontmatter with the following fields:
 
 ## Tool and Permission Guidance
 
-- Limit `tools` to the smallest set that enables the task. List them in the preferred execution order when the sequence matters.
+- Limit `tools` to the smallest set that enables the task. List tools in the required execution order if one tool must run before another (e.g., a read tool before a write tool); if order is irrelevant, list alphabetically.
 - If the prompt inherits tools from a chat mode, mention that relationship and state any critical tool behaviours or side effects.
 - Warn about destructive operations (file creation, edits, terminal commands) and include guard rails or confirmation steps in the workflow.
 

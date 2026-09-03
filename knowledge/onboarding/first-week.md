@@ -15,7 +15,7 @@ for component-level React and Figma details.
 - [ ] Run `pnpm validate:capability-manifests` and record any existing failures
       before starting an unrelated change.
 - [ ] Open the [Grommet sandbox](../../sandbox/grommet-app/) and the
-      [design-to-code evaluation plan](../../docs/DESIGN_TO_CODE_EVAL.md) to see the
+      [design-to-code evaluation plan](design-to-code-evaluation-plan.md) to see the
       initial environment used for generated-code assessment.
 
 ## Days 2-3: Trace The System
