@@ -6,6 +6,16 @@ applyTo: '**/*.{js,jsx,ts,tsx}'
 
 # Instructions: Coding Guidelines
 
+## Before Implementing
+
+Before implementing or modifying a component, run the knowledge-agent to check current component and pattern coverage for the task:
+
+```bash
+pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"
+```
+
+Incorporate the components and patterns it returns into your implementation rather than reconstructing component usage from memory or first principles.
+
 ## Rules and Guidelines
 
 When writing or reviewing React components, follow these core principles and best practices:

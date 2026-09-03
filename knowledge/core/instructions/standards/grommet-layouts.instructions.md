@@ -8,6 +8,16 @@ applyTo: '**/*.{js,jsx,ts,tsx}'
 
 When building application and page layouts that align with the HPE Design System using `grommet`, follow these guidelines to ensure consistency and usability across all HPE applications.
 
+## Before Implementing
+
+Before implementing or modifying a layout, run the knowledge-agent to check current pattern and component coverage for the task:
+
+```bash
+pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"
+```
+
+Incorporate the components and patterns it returns into your implementation rather than reconstructing layout structure from memory or first principles.
+
 ## Rules and Guidelines
 
 - **Follow page layout structure**: Use Grommet's specialized page layout components `Page`, `PageContent`, and `PageHeader` to create consistent page structures.
