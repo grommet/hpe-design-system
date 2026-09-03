@@ -78,7 +78,7 @@ experimentation:
   [alignment-audit](../capabilities/alignment-audit/manifest.yaml) demonstrates
   an evaluate → plan → execute loop that audits a consumer app or scope against
   the knowledge base and repo guidance, delegating to dedicated sub-agents.
-- **Evaluation work:** [the design-to-code evaluation plan](../../docs/DESIGN_TO_CODE_EVAL.md)
+- **Evaluation work:** [the design-to-code evaluation plan](design-to-code-evaluation-plan.md)
   starts with simple artifacts and uses the Grommet sandbox to assess generated
   React code.
 - **Planned or evolving work:** most capability bundles listed in
@@ -92,7 +92,7 @@ experimentation:
 - [Design tokens README](../../packages/hpe-design-tokens/README.md)
 - [Code Connect README](../code-connect/README.md)
 - [Knowledge skills index](../core/skills/README.md)
-- [Design-to-code evaluation plan](../../docs/DESIGN_TO_CODE_EVAL.md)
+- [Design-to-code evaluation plan](design-to-code-evaluation-plan.md)
 - [Grommet sandbox](../../sandbox/grommet-app/)
 
 ## Working Expectations
