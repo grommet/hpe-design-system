@@ -4,9 +4,17 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { buildSearchEntities, querySearchEntities } from './vector-search.js';
 import { loadComponents, loadPatterns } from './data-loader.js';
-import { DesignSystemSchema, FrameworkTarget, PatternGraph, PatternNode } from './types.js';
+import {
+  DesignSystemSchema,
+  FrameworkTarget,
+  PatternGraph,
+  PatternNode,
+} from './types.js';
 
-const REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../../..');
+const REPO_ROOT = path.resolve(
+  path.dirname(new URL(import.meta.url).pathname),
+  '../../..',
+);
 const INSTRUCTIONS_DIR = path.join(REPO_ROOT, '.github', 'instructions');
 
 interface InstructionFile {
@@ -37,9 +45,9 @@ function loadInstructionFiles(): InstructionFile[] {
 
   const files = fs
     .readdirSync(INSTRUCTIONS_DIR)
-    .filter((file) => file.endsWith('.instructions.md'));
+    .filter(file => file.endsWith('.instructions.md'));
 
-  return files.map((filename) => {
+  return files.map(filename => {
     const filepath = path.join(INSTRUCTIONS_DIR, filename);
     const content = fs.readFileSync(filepath, 'utf-8');
     const keywordMap: Record<string, string[]> = {
@@ -109,18 +117,23 @@ function loadInstructionFiles(): InstructionFile[] {
   });
 }
 
-function findRelevantInstructions(query: string, instructions: InstructionFile[]): InstructionFile[] {
+function findRelevantInstructions(
+  query: string,
+  instructions: InstructionFile[],
+): InstructionFile[] {
   const normalizedQuery = normalizeSearchText(query);
 
-  return instructions.filter((instruction) =>
-    instruction.keywords.some((keyword) =>
+  return instructions.filter(instruction =>
+    instruction.keywords.some(keyword =>
       normalizedQuery.includes(normalizeSearchText(keyword)),
     ),
   );
 }
 
 function describePatternGraph(graph: PatternGraph): string {
-  const nodeMap = new Map<string, PatternNode>(graph.nodes.map((node) => [node.id, node]));
+  const nodeMap = new Map<string, PatternNode>(
+    graph.nodes.map(node => [node.id, node]),
+  );
 
   const nodeLabel = (node: PatternNode): string =>
     node.role ? `${node.role} (${node.componentId})` : node.componentId;
@@ -137,7 +150,9 @@ function describePatternGraph(graph: PatternGraph): string {
 
     if (node.children.length > 0) {
       const childList = node.children
-        .map((childId) => nodeMap.get(childId) ? nodeLabel(nodeMap.get(childId)!) : childId)
+        .map(childId =>
+          nodeMap.get(childId) ? nodeLabel(nodeMap.get(childId)!) : childId,
+        )
         .join(', ');
 
       let sentence = `The ${nodeLabel(node)} contains: ${childList}.`;
@@ -186,7 +201,7 @@ export function generateSystemPrompt(
 
   const vectorResults = querySearchEntities(buildSearchEntities(ds), userQuery);
 
-  const relevantComponents = ds.components.filter((component) => {
+  const relevantComponents = ds.components.filter(component => {
     return (
       query.includes(normalizeSearchText(component.name)) ||
       query.includes(normalizeSearchText(component.id)) ||
@@ -194,8 +209,8 @@ export function generateSystemPrompt(
     );
   });
 
-  const relevantPatterns = ds.patterns.filter((pattern) => {
-    const aliasMatch = (pattern.aliases ?? []).some((alias) =>
+  const relevantPatterns = ds.patterns.filter(pattern => {
+    const aliasMatch = (pattern.aliases ?? []).some(alias =>
       query.includes(normalizeSearchText(alias)),
     );
     return (
@@ -207,50 +222,66 @@ export function generateSystemPrompt(
 
   vectorResults.forEach(({ entity }) => {
     if (entity.type === 'component') {
-      const component = ds.components.find((candidate) => candidate.id === entity.id);
-      if (component && !relevantComponents.includes(component)) relevantComponents.push(component);
+      const component = ds.components.find(
+        candidate => candidate.id === entity.id,
+      );
+      if (component && !relevantComponents.includes(component))
+        relevantComponents.push(component);
     }
 
     if (entity.type === 'pattern') {
-      const pattern = ds.patterns.find((candidate) => candidate.id === entity.id);
-      if (pattern && !relevantPatterns.includes(pattern)) relevantPatterns.push(pattern);
+      const pattern = ds.patterns.find(candidate => candidate.id === entity.id);
+      if (pattern && !relevantPatterns.includes(pattern))
+        relevantPatterns.push(pattern);
     }
   });
 
-  relevantPatterns.forEach((pattern) => {
-    pattern.relatedComponents?.forEach((componentId) => {
-      const component = ds.components.find((candidate) => candidate.id === componentId);
-      if (component && !relevantComponents.includes(component)) relevantComponents.push(component);
+  relevantPatterns.forEach(pattern => {
+    pattern.relatedComponents?.forEach(componentId => {
+      const component = ds.components.find(
+        candidate => candidate.id === componentId,
+      );
+      if (component && !relevantComponents.includes(component))
+        relevantComponents.push(component);
     });
-    (pattern.relatedPatterns ?? []).forEach((patternId) => {
-      const related = ds.patterns.find((candidate) => candidate.id === patternId);
-      if (related && !relevantPatterns.includes(related)) relevantPatterns.push(related);
+    (pattern.relatedPatterns ?? []).forEach(patternId => {
+      const related = ds.patterns.find(candidate => candidate.id === patternId);
+      if (related && !relevantPatterns.includes(related))
+        relevantPatterns.push(related);
     });
   });
 
   const baseComponents = [...relevantComponents];
-  baseComponents.forEach((component) => {
-    component.relatedComponents?.forEach((componentId) => {
-      const related = ds.components.find((candidate) => candidate.id === componentId);
-      if (related && !relevantComponents.includes(related)) relevantComponents.push(related);
+  baseComponents.forEach(component => {
+    component.relatedComponents?.forEach(componentId => {
+      const related = ds.components.find(
+        candidate => candidate.id === componentId,
+      );
+      if (related && !relevantComponents.includes(related))
+        relevantComponents.push(related);
     });
   });
 
-  const relevantInstructions = findRelevantInstructions(query, instructionFiles);
+  const relevantInstructions = findRelevantInstructions(
+    query,
+    instructionFiles,
+  );
 
-  let prompt = 'You are an expert UI developer using the HPE Design System.\n\n';
+  let prompt =
+    'You are an expert UI developer using the HPE Design System.\n\n';
   prompt += `Here are the relevant design system definitions based on the user's query: "${userQuery}"\n\n`;
 
   if (relevantComponents.length === 0 && relevantPatterns.length === 0) {
     prompt += '### No Direct Matches Found\n\n';
     prompt += `No components or patterns directly matched the query "${userQuery}".\n`;
-    prompt += 'Consider breaking the request into smaller component names and design-system patterns.\n\n';
+    prompt +=
+      'Consider breaking the request into smaller component names and design-system patterns.\n\n';
   }
 
   if (relevantInstructions.length > 0) {
     prompt += '### Implementation Guidelines\n\n';
     prompt += 'The following repository guidance is relevant to the query:\n\n';
-    relevantInstructions.forEach((instruction) => {
+    relevantInstructions.forEach(instruction => {
       prompt += `#### From ${instruction.name.replace('.instructions.md', '')}:\n\n`;
       prompt += `${instruction.content}\n\n---\n\n`;
     });
@@ -258,10 +289,12 @@ export function generateSystemPrompt(
 
   if (relevantComponents.length > 0) {
     prompt += '### Available Components\n\n';
-    relevantComponents.forEach((component) => {
+    relevantComponents.forEach(component => {
       prompt += `#### ${component.name}\n`;
       prompt += `- Description: ${component.description}\n`;
-      const resolvedImportPath = component.implementations?.[targetFramework]?.importPath ?? component.importPath;
+      const resolvedImportPath =
+        component.implementations?.[targetFramework]?.importPath ??
+        component.importPath;
       prompt += `- Import: ${resolvedImportPath}\n`;
       if (component.usage.whenToUse?.length) {
         prompt += `- When to use: ${component.usage.whenToUse.join(' | ')}\n`;
@@ -270,7 +303,7 @@ export function generateSystemPrompt(
         prompt += `- When to avoid: ${component.usage.whenToAvoid.join(' | ')}\n`;
       }
       if (component.variants?.length) {
-        prompt += `- Variants: ${component.variants.map((variant) => `${variant.name} — ${variant.description} (${variant.when})`).join(' | ')}\n`;
+        prompt += `- Variants: ${component.variants.map(variant => `${variant.name} — ${variant.description} (${variant.when})`).join(' | ')}\n`;
       }
       prompt += '\n';
     });
@@ -278,7 +311,7 @@ export function generateSystemPrompt(
 
   if (relevantPatterns.length > 0) {
     prompt += '### Recommended Patterns\n\n';
-    relevantPatterns.forEach((pattern) => {
+    relevantPatterns.forEach(pattern => {
       prompt += `#### ${pattern.name}\n`;
       prompt += `- Problem: ${pattern.problem}\n`;
       prompt += `- Solution: ${pattern.solution}\n`;
@@ -286,7 +319,7 @@ export function generateSystemPrompt(
         prompt += `- Composition: ${describePatternGraph(pattern.graph)}\n`;
       }
       if (pattern.usage?.whenToUse?.length) {
-        prompt += `- When to use:\n${pattern.usage.whenToUse.map((item) => `  - ${item}`).join('\n')}\n`;
+        prompt += `- When to use:\n${pattern.usage.whenToUse.map(item => `  - ${item}`).join('\n')}\n`;
       }
       if (pattern.templateCode) {
         prompt += `- Template:\n\n\`\`\`tsx\n${pattern.templateCode}\n\`\`\`\n`;
@@ -298,51 +331,3 @@ export function generateSystemPrompt(
 }
 
 export { loadDesignSystem };
-
-function printUsage(): void {
-  console.log(`
-HPE Design System Context Generator
-
-Usage:
-  pnpm --filter @hpe-design/knowledge-agent generate -- "Build a login form"
-  pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --framework react
-
-Arguments:
-  query                The user query describing what to build (required)
-
-Options:
-  --framework <target> Target framework: react, vue, angular, web-components, agnostic (default: react)
-  --help               Show this help message
-`);
-}
-
-function parseArgs(args: string[]): { query: string | null; framework: FrameworkTarget; help: boolean } {
-  let query: string | null = null;
-  let framework: FrameworkTarget = 'react';
-  let help = false;
-
-  for (let i = 0; i < args.length; i += 1) {
-    const arg = args[i];
-    if (arg === '--help' || arg === '-h') help = true;
-    else if (arg === '--framework' || arg === '-f') {
-      const next = args[i + 1];
-      if (next) framework = next as FrameworkTarget;
-      i += 1;
-    } else if (!arg.startsWith('-')) {
-      query = arg;
-    }
-  }
-
-  return { query, framework, help };
-}
-
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const { query, framework, help } = parseArgs(process.argv.slice(2));
-
-  if (help || !query) {
-    printUsage();
-    process.exit(help ? 0 : 1);
-  }
-
-  console.log(generateSystemPrompt(query, framework));
-}

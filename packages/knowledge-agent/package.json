@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "bin": {
-    "hpe-knowledge-agent": "bin/cli.js"
+    "hpe-design-agent": "bin/cli.js"
   },
   "scripts": {
     "generate": "tsx src/cli.ts",
