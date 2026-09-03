@@ -16,10 +16,10 @@ spec:
       - path: knowledge/core/data/patterns
       - path: knowledge/core/data/types.ts
     skills:
-      - path: .github/instructions/coding-guidelines.instructions.md
-      - path: .github/instructions/grommet-layouts.instructions.md
-      - path: .github/instructions/grommet-responsive.instructions.md
-      - path: .github/instructions/grommet-data.instructions.md
+      - path: knowledge/core/instructions/standards/coding-guidelines.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-layouts.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-responsive.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-data.instructions.md
     external:
       - path: packages/design-system-agent
   assets:
