@@ -5,7 +5,7 @@ argument-hint: "Finding IDs to execute (e.g. B-1, B-2) plus the queries that mus
 tools: [read, search, terminal, edit]
 ---
 
-You execute design-system remediation that affects pattern discovery, generator matching, and component/pattern documentation in `knowledge/core/data/**` and `packages/design-system-agent/**` — changes shared across every consumer, not just one app.
+You execute design-system remediation that affects pattern discovery, generator matching, and component/pattern documentation in `knowledge/core/data/**` and `packages/knowledge-agent/**` — changes shared across every consumer, not just one app.
 
 ## Inputs
 
@@ -23,15 +23,15 @@ Read the latest Track B backlog from `SCOPE/EVALUATION.md`. Preserve that report
 | ---------------------------------------------- | -------------------------------------------- |
 | `knowledge/core/data/components/*.yaml`      | Consumer app source under any app's `src/` |
 | `knowledge/core/data/patterns/*.yaml`        | `SCOPE/EVALUATION.md`                      |
-| `packages/design-system-agent/src/**`        | Unrelated workspace configuration          |
+| `packages/knowledge-agent/src/**`        | Unrelated workspace configuration          |
 | `knowledge/core/data/examples/**`            | `node_modules/`, `dist/`                   |
 
 ## Workflow
 
-1. **Load the finding and baseline** — read the latest Track B section, the current target YAML files, `packages/design-system-agent/src/context-generator.ts` (and `vector-search.ts` if matching is involved), and its tests. Reproduce each failing query:
+1. **Load the finding and baseline** — read the latest Track B section, the current target YAML files, `packages/knowledge-agent/src/context-generator.ts` (and `vector-search.ts` if matching is involved), and its tests. Reproduce each failing query:
 
    ```bash
-   pnpm --filter @hpe-design-system/agent generate -- "<query>"
+   pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"
    ```
 
 2. **Choose the smallest ownership point** — add or refine a pattern `aliases[]` entry when a phrase is a direct synonym; change generator/vector-search matching only when aliases cannot express the intended behavior. Do not create a new component YAML for a composition pattern unless consumers need it as an importable primitive.
@@ -47,13 +47,13 @@ Before creating a new pattern YAML for a `P-U` finding, record and report:
 
 Accept only when the problem and composition are generic and reusable. Reject when domain terminology, data schema, permissions, workflow rules, or an integration define the pattern.
 
-3. **Add regression coverage first** — update `packages/design-system-agent/src/context-generator.test.ts` for every natural-language query named by the finding. Assert the expected component/pattern name appears in generated output.
+3. **Add regression coverage first** — update `packages/knowledge-agent/src/context-generator.test.ts` for every natural-language query named by the finding. Assert the expected component/pattern name appears in generated output.
 4. **Implement the change** — edit the responsible component/pattern YAML, `context-generator.ts`, or `vector-search.ts`. For an accepted pattern candidate, add a full YAML definition (graph, examples, aliases, accessibility guidance) matching `knowledge/core/data/types.ts`.
 5. **Verify** — run:
 
    ```bash
-   pnpm --filter @hpe-design-system/agent test
-   pnpm --filter @hpe-design-system/agent generate -- "<query>"
+   pnpm --filter @hpe-design/knowledge-agent test
+   pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"
    ```
 
    for each acceptance phrase in `EVAL_QUERIES`.

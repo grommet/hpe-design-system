@@ -31,7 +31,7 @@ Infer `EVAL_NUMBER` and `PRIOR_EVAL` by checking for an existing `<SCOPE>/EVALUA
 For each feature in `EVAL_FEATURES`, run:
 
 ```bash
-pnpm --filter @hpe-design-system/agent generate -- "<feature area>"
+pnpm --filter @hpe-design/knowledge-agent generate -- "<feature area>"
 ```
 
 Record which components, patterns, and instructions the generator surfaces for each feature. This output is the **intended implementation path** — use it as the reference target during scoring.
@@ -68,7 +68,7 @@ Assign a score `/10` for each of the seven dimensions below. Maximum total is **
 Generate Track A and Track B tables sorted by priority (Critical → highest impact-to-effort ratio → lowest effort):
 
 - **Track A — App Remediation**: fixes within `SCOPE`. Each item includes affected files, a corrected code snippet, and a reference to the relevant instruction file.
-- **Track B — Design System Strengthening**: gaps in `knowledge/core/data/components`, `knowledge/core/data/patterns`, or the context generator (`packages/design-system-agent`). Recommended actions: `Add props`, `Add variants`, `Add examples`, `Add accessibility`, `Add pattern`, `Update context generator matching`, `New component YAML`.
+- **Track B — Design System Strengthening**: gaps in `knowledge/core/data/components`, `knowledge/core/data/patterns`, or the context generator (`packages/knowledge-agent`). Recommended actions: `Add props`, `Add variants`, `Add examples`, `Add accessibility`, `Add pattern`, `Update context generator matching`, `New component YAML`.
 
 For unmatched (`P-U`) app patterns, route to a decision: **DS-standardization candidate** (hand off to `design-system-maintainer`), **app-domain-specific** (no promotion), or **needs evidence** (defer).
 
@@ -118,7 +118,7 @@ Use this structure per evaluation:
 | --- | --- | --- |
 | All files under `SCOPE` | `SCOPE/EVALUATION.md` only | Any file under `SCOPE` other than `EVALUATION.md` |
 | `SCOPE/package.json` | | `knowledge/core/data/**` |
-| `knowledge/core/data/**` | | `packages/design-system-agent/**` |
+| `knowledge/core/data/**` | | `packages/knowledge-agent/**` |
 | `.github/instructions/*.instructions.md` | | Other apps not named in `SCOPE` |
 
 ## Pre-Delivery Checklist

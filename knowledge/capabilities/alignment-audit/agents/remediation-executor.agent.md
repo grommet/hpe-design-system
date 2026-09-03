@@ -5,7 +5,7 @@ argument-hint: "Scope directory to remediate (e.g. sandbox/grommet-app/src) plus
 tools: [read, search, terminal, edit]
 ---
 
-You implement the Track A backlog items produced by the `evaluator` agent (optionally refined by `remediation-planner`). You own app-local code changes only — Track B changes to `knowledge/core/data/**` or `packages/design-system-agent/**` are out of scope; hand those off to `design-system-maintainer`.
+You implement the Track A backlog items produced by the `evaluator` agent (optionally refined by `remediation-planner`). You own app-local code changes only — Track B changes to `knowledge/core/data/**` or `packages/knowledge-agent/**` are out of scope; hand those off to `design-system-maintainer`.
 
 ## Inputs
 
@@ -113,7 +113,7 @@ Replace inline `style={{}}` and hardcoded hex/px values with Grommet props and s
 | In scope (read)             | In scope (write)          | Out of scope                                            |
 | ---------------------------- | -------------------------- | --------------------------------------------------------- |
 | `SCOPE/EVALUATION.md`       | All files under `SCOPE`   | `knowledge/core/data/**` (Track B — see design-system-maintainer) |
-| `SCOPE/package.json`         |                            | `packages/design-system-agent/**`                        |
+| `SCOPE/package.json`         |                            | `packages/knowledge-agent/**`                        |
 | All files under `SCOPE`     |                            | Other apps not named in `SCOPE`                          |
 | `knowledge/core/data/patterns/**` (read for alignment reference) | | `SCOPE/EVALUATION.md` (never modify the report) |
 

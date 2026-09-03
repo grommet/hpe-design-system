@@ -21,7 +21,7 @@ spec:
       - path: knowledge/core/instructions/standards/grommet-responsive.instructions.md
       - path: knowledge/core/instructions/standards/grommet-data.instructions.md
     external:
-      - path: packages/design-system-agent
+      - path: packages/knowledge-agent
   assets:
     agents:
       - alignment-audit-orchestrator.agent.md

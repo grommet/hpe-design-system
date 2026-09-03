@@ -34,7 +34,7 @@ For each **Track B** item, determine:
 
 - **YAML file** — `knowledge/core/data/components/<id>.yaml` or `knowledge/core/data/patterns/<id>.yaml`.
 - **Schema sections** — which of `props`, `variants`, `examples`, `accessibility.wcag`, `anatomy`, `graph`.
-- **Verification query** — a context generator query (`pnpm --filter @hpe-design-system/agent generate -- "<query>"`) to confirm the enrichment appears in output.
+- **Verification query** — a context generator query (`pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"`) to confirm the enrichment appears in output.
 - **Pattern route** — for `P-*` findings: app alignment, maintainer handoff, app-domain-specific, or needs evidence.
 
 ### 3. Produce the plan
@@ -68,13 +68,13 @@ immediately, while Track B changes are shared data read by every consumer.]
 - YAML file: knowledge/core/data/components/<id>.yaml
 - Sections to update: [props / variants / examples / accessibility.wcag]
 - Change description: [1–2 sentences]
-- Verification query: `pnpm --filter @hpe-design-system/agent generate -- "<query>"`
+- Verification query: `pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"`
 
 ### Final Verification Sequence
 1. `tsc --noEmit` (from the app directory, if Track A executed)
-2. `pnpm --filter @hpe-design-system/agent test` (if Track B executed)
+2. `pnpm --filter @hpe-design/knowledge-agent test` (if Track B executed)
 3. `pnpm validate:capability-manifests` (if any capability manifest changed)
-4. `pnpm --filter @hpe-design-system/agent generate -- "<primary feature>"` — confirm relevant components/patterns surface
+4. `pnpm --filter @hpe-design/knowledge-agent generate -- "<primary feature>"` — confirm relevant components/patterns surface
 
 ### Risks & Blockers
 [Grommet API mismatches, new dependencies, shared Track B components, ordering constraints]

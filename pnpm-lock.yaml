@@ -403,19 +403,6 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/debug@4.1.13)(@types/node@26.2.0)(@vitest/ui@3.2.7)(jiti@1.21.7)(jsdom@26.1.0)(lightningcss@1.33.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)
 
-  packages/design-system-agent:
-    dependencies:
-      yaml:
-        specifier: ^2.8.3
-        version: 2.9.0
-    devDependencies:
-      tsx:
-        specifier: ^4.21.0
-        version: 4.23.12
-      vitest:
-        specifier: ^3.2.4
-        version: 3.2.7(@types/debug@4.1.13)(@types/node@26.2.0)(@vitest/ui@3.2.7)(jiti@1.21.7)(jsdom@26.1.0)(lightningcss@1.33.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)
-
   packages/hpe-design-tokens:
     devDependencies:
       '@babel/preset-env':
@@ -538,6 +525,19 @@ importers:
       vite-plugin-static-copy:
         specifier: ^4.1.1
         version: 4.1.1(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@1.21.7)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
+
+  packages/knowledge-agent:
+    dependencies:
+      yaml:
+        specifier: ^2.8.3
+        version: 2.9.0
+    devDependencies:
+      tsx:
+        specifier: ^4.21.0
+        version: 4.23.12
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/debug@4.1.13)(@types/node@26.2.0)(@vitest/ui@3.2.7)(jiti@1.21.7)(jsdom@26.1.0)(lightningcss@1.33.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)
 
   sandbox/grommet-app:
     dependencies:

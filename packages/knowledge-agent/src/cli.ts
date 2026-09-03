@@ -12,8 +12,8 @@ if (!queryArg) {
 HPE Design System Context Generator
 
 Usage:
-  hpe-design-system-agent "Build a login form"
-  hpe-design-system-agent "Create a dashboard" --framework react
+  hpe-knowledge-agent "Build a login form"
+  hpe-knowledge-agent "Create a dashboard" --framework react
 `);
   process.exit(1);
 }

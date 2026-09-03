@@ -3,7 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import { generateSystemPrompt } from './context-generator';
 
-describe('design-system-agent context generator', () => {
+describe('knowledge-agent context generator', () => {
   it('surfaces a login form pattern for authentication queries', () => {
     const prompt = generateSystemPrompt('Build a login form');
 

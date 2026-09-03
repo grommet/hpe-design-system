@@ -1,10 +1,10 @@
 {
-  "name": "@hpe-design-system/agent",
+  "name": "@hpe-design/knowledge-agent",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "bin": {
-    "hpe-design-system-agent": "bin/cli.js"
+    "hpe-knowledge-agent": "bin/cli.js"
   },
   "scripts": {
     "generate": "tsx src/cli.ts",

@@ -304,8 +304,8 @@ function printUsage(): void {
 HPE Design System Context Generator
 
 Usage:
-  pnpm --filter @hpe-design-system/agent generate -- "Build a login form"
-  pnpm --filter @hpe-design-system/agent generate -- "Create a dashboard" --framework react
+  pnpm --filter @hpe-design/knowledge-agent generate -- "Build a login form"
+  pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --framework react
 
 Arguments:
   query                The user query describing what to build (required)

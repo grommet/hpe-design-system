@@ -11,22 +11,22 @@ Read `knowledge/capabilities/alignment-audit/README.md` before doing anything el
 
 ## Agent Roster
 
-| Agent | Role |
-| --- | --- |
-| `evaluator` | Audits `SCOPE`, scores alignment, writes `SCOPE/EVALUATION.md` |
-| `remediation-planner` | Reads the latest evaluation, produces a sequenced plan (read-only) |
-| `remediation-executor` | Applies Track A (app-local) fixes from the plan |
+| Agent                      | Role                                                               |
+| -------------------------- | ------------------------------------------------------------------ |
+| `evaluator`                | Audits `SCOPE`, scores alignment, writes `SCOPE/EVALUATION.md`     |
+| `remediation-planner`      | Reads the latest evaluation, produces a sequenced plan (read-only) |
+| `remediation-executor`     | Applies Track A (app-local) fixes from the plan                    |
 | `design-system-maintainer` | Applies Track B (design-system data/generator) fixes from the plan |
 
 ## Stages
 
-| Stage | Condition | Next agent |
-| --- | --- | --- |
-| 0 — Not evaluated | No `SCOPE/EVALUATION.md` exists | `evaluator` |
-| 1 — Evaluated | `SCOPE/EVALUATION.md` exists, no plan has been presented this session | `remediation-planner` |
-| 2 — Planned | Plan presented, awaiting approval | `remediation-executor` and/or `design-system-maintainer` |
-| 3 — Executing | Plan approved | Delegate Track A to `remediation-executor`, Track B to `design-system-maintainer` |
-| 4 — Complete | All approved items applied and verified | Report only |
+| Stage             | Condition                                                             | Next agent                                                                        |
+| ----------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 0 — Not evaluated | No `SCOPE/EVALUATION.md` exists                                       | `evaluator`                                                                       |
+| 1 — Evaluated     | `SCOPE/EVALUATION.md` exists, no plan has been presented this session | `remediation-planner`                                                             |
+| 2 — Planned       | Plan presented, awaiting approval                                     | `remediation-executor` and/or `design-system-maintainer`                          |
+| 3 — Executing     | Plan approved                                                         | Delegate Track A to `remediation-executor`, Track B to `design-system-maintainer` |
+| 4 — Complete      | All approved items applied and verified                               | Report only                                                                       |
 
 ## Approach
 
@@ -61,9 +61,9 @@ Present the plan's Track A and Track B step counts and ask:
 
 - For approved Track A items: invoke `@remediation-executor <SCOPE> <finding-ids>`.
 - For approved Track B items: invoke `@design-system-maintainer <finding-ids> <queries>`.
-- Track A and Track B may run in parallel since they touch disjoint file sets (app source vs. `knowledge/core/data` and `packages/design-system-agent`).
+- Track A and Track B may run in parallel since they touch disjoint file sets (app source vs. `knowledge/core/data` and `packages/knowledge-agent`).
 
-After each invocation, re-check the expected outputs (e.g. `tsc --noEmit` passes, `pnpm --filter @hpe-design-system/agent test` passes) before reporting completion. If an agent does not produce its expected outcome, report the specific failure and stop — do not auto-retry.
+After each invocation, re-check the expected outputs (e.g. `tsc --noEmit` passes, `pnpm --filter @hpe-design/knowledge-agent test` passes) before reporting completion. If an agent does not produce its expected outcome, report the specific failure and stop — do not auto-retry.
 
 ### Phase 6 — Conclude
 
@@ -87,4 +87,3 @@ Report:
 @alignment-audit-orchestrator sandbox/grommet-app/src
 @alignment-audit-orchestrator apps/react-reference/src
 ```
-

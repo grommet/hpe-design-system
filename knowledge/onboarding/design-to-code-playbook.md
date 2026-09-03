@@ -32,7 +32,7 @@ Find the closest documented Grommet primitive and HPE theme behavior. Use
 `@hpe-design/icons-grommet` for approved icons. For a component represented in
 Figma, inspect its Code Connect mapping before prompting an agent: it supplies
 the approved import and the translation between Figma properties and React props.
-Run `pnpm --filter @hpe-design-system/agent generate -- "<feature description>"`
+Run `pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"`
 to confirm what `knowledge/core/data/components` and `knowledge/core/data/patterns`
 currently surface for the request before assembling agent context.
 

@@ -30,10 +30,10 @@ for component-level React and Figma details.
       [docs-refactor manifest](../capabilities/docs-refactor/manifest.yaml) as an
       example of a capability composed from data, skills, agents, stages, and
       verification.
-- [ ] Run `pnpm --filter @hpe-design-system/agent generate -- "build a login form"`
-      to see how the [design-system-agent](../../packages/design-system-agent/)
+- [ ] Run `pnpm --filter @hpe-design/knowledge-agent generate -- "build a login form"`
+      to see how the [knowledge-agent](../../packages/knowledge-agent/)
       package turns `knowledge/core/data/components` and `knowledge/core/data/patterns`
-      into agent-ready context, then run `pnpm --filter @hpe-design-system/agent test`.
+      into agent-ready context, then run `pnpm --filter @hpe-design/knowledge-agent test`.
 - [ ] Inspect a component or pattern in the docs application and identify the
       Grommet primitive, HPE theme/token usage, and HPE icon choice it teaches.
 - [ ] Review the [icon package README](../../packages/icons-grommet/README.md)

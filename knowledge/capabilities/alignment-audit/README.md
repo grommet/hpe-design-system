@@ -37,7 +37,7 @@ The orchestrator detects the current stage, gates on user approval before planni
 Use the orchestrator to drive a full cycle and validate the final result with the project checks most relevant to the target:
 
 - `pnpm validate:capability-manifests`
-- `pnpm --filter @hpe-design-system/agent test`
+- `pnpm --filter @hpe-design/knowledge-agent test`
 - `pnpm lint`
 - `pnpm build`
 - or a scoped consumer app `tsc --noEmit` check if reviewing a specific product app
