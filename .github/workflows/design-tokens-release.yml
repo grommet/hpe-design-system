@@ -139,15 +139,29 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: https://registry.npmjs.org
 
-      - name: Check release tag does not already exist
+      - name: Check release state
         env:
           GH_TOKEN: ${{ github.token }}
-        run: test -z "$(gh api repos/${{ github.repository }}/git/ref/tags/${{ env.RELEASE_TAG }} --jq .ref 2>/dev/null || true)"
+          APPROVED_SHA: ${{ needs.candidate.outputs.approved_sha }}
+        run: |
+          release=$(gh release view "${{ env.RELEASE_TAG }}" --json isDraft,targetCommitish 2>/dev/null || true)
+          if [ -z "$release" ]; then
+            tag_sha=$(gh api "repos/${{ github.repository }}/git/ref/tags/${{ env.RELEASE_TAG }}" --jq '.object.sha' 2>/dev/null || true)
+            test -z "$tag_sha"
+            exit 0
+          fi
+          echo "$release" | jq -e '.isDraft == true' >/dev/null
+          target=$(echo "$release" | jq -r '.targetCommitish')
+          test "$target" = "$APPROVED_SHA"
 
       - name: Create draft GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          if gh release view "${{ env.RELEASE_TAG }}" >/dev/null 2>&1; then
+            echo "Reusing existing draft release ${RELEASE_TAG}"
+            exit 0
+          fi
           awk -v version="${{ inputs.version }}" '
             $0 == "## " version { found=1; next }
             found && /^## / { exit }
@@ -160,9 +174,15 @@ jobs:
             --draft
 
       - name: Publish NPM package
+        id: npm-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish release-artifact/*.tgz --access public --provenance --tag latest
+        run: |
+          if npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version >/dev/null 2>&1; then
+            echo "NPM version already exists; reusing it after verification"
+            exit 0
+          fi
+          npm publish release-artifact/*.tgz --access public --provenance --tag latest
 
       - name: Verify NPM registry version
         run: |

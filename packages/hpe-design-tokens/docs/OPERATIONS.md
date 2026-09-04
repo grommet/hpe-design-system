@@ -133,8 +133,10 @@ publication run.
 
 - Candidate failure: fix the version, changelog, build, or test issue and rerun preflight.
 - Existing tag: stop and compare the tag target with the approved commit; do not force-move it.
-- NPM publication failure after draft creation: inspect the draft release and rerun only after
-  confirming the version is not registered or that the workflow can safely resume.
+- NPM publication failure after draft creation: inspect the draft release and rerun the same
+  immutable ref and version. The workflow reuses a matching draft and rejects a published or
+  conflicting release. If the NPM version already exists, it verifies that registry artifact
+  before completing the release.
 - Registry verification failure: wait for propagation, then verify the exact version and tarball
   before publishing the GitHub release.
 - Figma or stable-branch failure: record and recover that side effect separately; it must not
