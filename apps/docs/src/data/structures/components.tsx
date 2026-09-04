@@ -1465,6 +1465,23 @@ export const components = [
     ],
   },
   {
+    name: 'Stepper',
+    available: true,
+    category: 'Controls',
+    description: 'Stepper documentation is coming soon.',
+    seoDescription: 'Stepper documentation is coming soon.',
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-stepper.svg',
+          dark: '/componentImages/component-preview-stepper-invert.svg',
+        },
+        alt: 'HPE Design System Stepper',
+        fit: 'contain',
+      },
+    },
+  },
+  {
     name: 'Pagination',
     accessibility: 'Passed WCAG 2.2 AA',
     available: true,
