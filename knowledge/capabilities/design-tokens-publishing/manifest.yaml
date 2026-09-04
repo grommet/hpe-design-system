@@ -2,14 +2,40 @@ apiVersion: knowledge.hpe.com/v1
 kind: CapabilityManifest
 metadata:
   name: design-tokens-publishing
-  version: 1.0.0
-  status: planned
+  version: 1.1.0
+  status: active
   owner: design-system
 spec:
-  summary: Coordinate token updates from source changes through package generation and release checks.
+  summary: Prepare, verify, and coordinate approval-gated releases of the hpe-design-tokens package.
   entrypoint:
     agent: design-tokens-publishing-orchestrator
-    args: "<token-scope>"
+    args: "<release-request>"
+  dependencies:
+    external:
+      - path: packages/hpe-design-tokens/package.json
+      - path: packages/hpe-design-tokens/CHANGELOG.md
+      - path: packages/hpe-design-tokens/docs/OPERATIONS.md
+      - path: .changeset/
+      - path: .github/workflows/hpe-design-tokens-parity.yml
+      - path: .github/workflows/update-design-tokens-stable.yml
   assets:
     agents:
       - design-tokens-publishing-orchestrator.agent.md
+  stages:
+    - id: intake
+      when: "release request received and package scope is hpe-design-tokens"
+    - id: preflight
+      when: "package metadata, changesets, build, tests, and artifact checks pass"
+    - id: approval-required
+      when: "version and changelog evidence is ready for maintainer review"
+    - id: publication-ready
+      when: "approved immutable artifact and release evidence exist"
+    - id: post-release
+      when: "GitHub, NPM, registry, stable mirror, and announcement evidence are recorded"
+  x-extensions:
+    approvalGates:
+      - version-and-changelog
+      - github-release-publication
+      - npm-publication
+      - production-figma-sync
+      - slack-announcement

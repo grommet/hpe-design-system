@@ -3,6 +3,12 @@
   "description": "Design tokens for use with the HPE Design System.",
   "version": "2.2.3",
   "license": "Apache-2.0",
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
   "type": "module",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -31,6 +37,8 @@
     "test:contracts": "vitest run src/tests/sync_contract_schemas.test.ts",
     "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
     "build": "rm -rf ./dist && pnpm build-style-dictionary",
+    "release:preflight": "pnpm build && pnpm test && pnpm test:contracts && pnpm test:parity",
+    "release:pack": "pnpm pack --pack-destination ./release-artifacts",
     "watch": "node src/scripts/watch-token-build.mjs",
     "release-stable": "node src/scripts/release-stable.js  --branch=design-tokens-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
