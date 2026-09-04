@@ -7,7 +7,7 @@ import { Element } from '@hpe-design/icons-grommet';
 export const MenuHeaderExample = () => {
   const items = [
     { label: 'Change username' },
-    { label: 'Reset Password' },
+    { label: 'Reset password' },
     { label: 'Logout' },
   ];
 
