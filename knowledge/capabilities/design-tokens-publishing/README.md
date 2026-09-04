@@ -33,6 +33,18 @@ publication and NPM publication require explicit maintainer approval.
 The orchestrator must stop when evidence is missing or an approval gate has not been granted.
 It must distinguish a proposal, a draft release, a published release, and a verified release.
 
+## Protected Publication Workflow
+
+Run `.github/workflows/design-tokens-release.yml` manually with an approved ref and exact
+version. Set `publish` to `false` for a candidate-only run. Set it to `true` only when the
+`design-tokens-release` GitHub environment is configured with a required maintainer reviewer.
+
+The environment must provide an `NPM_TOKEN` secret with the minimum scope required to publish
+`hpe-design-tokens`. The workflow publishes the exact candidate tarball with the `latest` tag
+and provenance, creates a draft GitHub release first, verifies the NPM registry, and publishes
+the GitHub release last. Configure trusted NPM publishing with GitHub OIDC as a future migration
+when the package and organization settings support it.
+
 ## Evidence
 
 Every completed stage should report the evidence available at that point:

@@ -1,0 +1,152 @@
+name: Release hpe-design-tokens
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Approved commit or branch to release'
+        required: true
+        default: 'master'
+        type: string
+      version:
+        description: 'Exact package version to release, for example 2.3.0'
+        required: true
+        type: string
+      publish:
+        description: 'Publish the GitHub release and NPM package after protected approval'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hpe-design-tokens-release-${{ inputs.version }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '24.15.0'
+  PNPM_VERSION: '10.30.3'
+  PACKAGE_NAME: hpe-design-tokens
+  RELEASE_TAG: hpe-design-tokens@${{ inputs.version }}
+
+jobs:
+  candidate:
+    name: Build release candidate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out approved ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Changesets status
+        run: pnpm exec changeset status
+
+      - name: Run release preflight
+        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:preflight
+
+      - name: Validate approved version and package boundary
+        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:validate --version=${{ inputs.version }}
+
+      - name: Create immutable package artifact
+        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:pack
+
+      - name: Upload immutable package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-design-tokens-${{ inputs.version }}
+          path: packages/hpe-design-tokens/release-artifacts/*.tgz
+          if-no-files-found: error
+
+  publish:
+    name: Publish approved release
+    needs: candidate
+    if: ${{ inputs.publish == true }}
+    runs-on: ubuntu-latest
+    environment:
+      name: design-tokens-release
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Check out approved ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      - name: Download immutable package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hpe-design-tokens-${{ inputs.version }}
+          path: release-artifact
+
+      - name: Validate artifact version
+        env:
+          EXPECTED_VERSION: ${{ inputs.version }}
+        run: |
+          artifact=$(find release-artifact -name '*.tgz' -print -quit)
+          test -n "$artifact"
+          actual_version=$(tar -xOf "$artifact" package/package.json | node -e "let data=''; process.stdin.on('data', chunk => data += chunk); process.stdin.on('end', () => process.stdout.write(JSON.parse(data).version))")
+          test "$actual_version" = "$EXPECTED_VERSION"
+
+      - name: Configure NPM authentication
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org
+
+      - name: Check release tag does not already exist
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: test -z "$(gh api repos/${{ github.repository }}/git/ref/tags/${{ env.RELEASE_TAG }} --jq .ref 2>/dev/null || true)"
+
+      - name: Create draft GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          awk -v version="${{ inputs.version }}" '
+            $0 == "## " version { found=1; next }
+            found && /^## / { exit }
+            found { print }
+          ' packages/hpe-design-tokens/CHANGELOG.md > release-notes.md
+          gh release create "${{ env.RELEASE_TAG }}" \
+            --target "${{ inputs.ref }}" \
+            --title "${{ env.RELEASE_TAG }}" \
+            --notes-file release-notes.md \
+            --draft
+
+      - name: Publish NPM package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish release-artifact/*.tgz --access public --provenance --tag latest
+
+      - name: Verify NPM registry version
+        run: |
+          for attempt in 1 2 3 4 5; do
+            npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version --json && exit 0
+            sleep 10
+          done
+          exit 1
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release edit "${{ env.RELEASE_TAG }}" --draft=false

@@ -18,6 +18,7 @@ spec:
       - path: .changeset/
       - path: .github/workflows/hpe-design-tokens-parity.yml
       - path: .github/workflows/update-design-tokens-stable.yml
+      - path: .github/workflows/design-tokens-release.yml
   assets:
     agents:
       - design-tokens-publishing-orchestrator.agent.md
