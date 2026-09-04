@@ -33,6 +33,10 @@ publication and NPM publication require explicit maintainer approval.
 The orchestrator must stop when evidence is missing or an approval gate has not been granted.
 It must distinguish a proposal, a draft release, a published release, and a verified release.
 
+Changeset status is a pre-version-PR check. After the release PR runs `changeset version`, the
+consumed Changesets are expected to be absent; candidate validation must instead verify the
+generated package version and changelog heading.
+
 ## Protected Publication Workflow
 
 Run `.github/workflows/design-tokens-release.yml` manually with an approved ref and exact

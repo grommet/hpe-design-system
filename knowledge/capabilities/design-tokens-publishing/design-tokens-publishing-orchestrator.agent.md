@@ -44,14 +44,15 @@ Classify the request as one of:
 
 ### 2. Preflight
 
-Run only the checks required for the requested stage. For a candidate release, prefer:
+Run only the checks required for the requested stage. Changeset status belongs before the
+version/changelog PR is merged. For a post-version candidate release, prefer:
 
 ```text
-pnpm exec changeset status
 pnpm --filter hpe-design-tokens test
 pnpm --filter hpe-design-tokens test:contracts
 pnpm --filter hpe-design-tokens run test:parity
 pnpm --filter hpe-design-tokens build
+pnpm --filter hpe-design-tokens release:validate --version=<X.Y.Z>
 ```
 
 Also inspect package exports and generated `dist` contents. Use `pnpm pack` in a temporary
