@@ -1,0 +1,132 @@
+{
+  "canonical": {
+    "unparseable": {},
+    "exceptions": {
+      "color/background/DEFAULT/active": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/background/DEFAULT/active",
+        "input": "color/background/DEFAULT/active",
+        "source": "canonical-token"
+      },
+      "color/background/DEFAULT/hover": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/background/DEFAULT/hover",
+        "input": "color/background/DEFAULT/hover",
+        "source": "canonical-token"
+      },
+      "color/border/strong/REST": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/border/strong/REST",
+        "input": "color/border/strong/REST",
+        "source": "canonical-token"
+      },
+      "color/border/weak/REST": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/border/weak/REST",
+        "input": "color/border/weak/REST",
+        "source": "canonical-token"
+      },
+      "color/focus/DEFAULT/REST": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/focus/DEFAULT/REST",
+        "input": "color/focus/DEFAULT/REST",
+        "source": "canonical-token"
+      },
+      "color/icon/strong/REST": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/icon/strong/REST",
+        "input": "color/icon/strong/REST",
+        "source": "canonical-token"
+      },
+      "color/icon/weak/REST": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/icon/weak/REST",
+        "input": "color/icon/weak/REST",
+        "source": "canonical-token"
+      },
+      "color/text/strong/REST": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/text/strong/REST",
+        "input": "color/text/strong/REST",
+        "source": "canonical-token"
+      },
+      "color/text/weak/REST": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/text/weak/REST",
+        "input": "color/text/weak/REST",
+        "source": "canonical-token"
+      },
+      "color/transparent": {
+        "code": "NO_ROLE_EXCEPTION",
+        "message": "Token requires special handling because it has no semantic role: color/transparent",
+        "input": "color/transparent",
+        "source": "canonical-token"
+      }
+    }
+  },
+  "figmaVariables": {
+    "unparseable": [],
+    "exceptions": [
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/background/active",
+        "normalizedName": "color/background/DEFAULT/active",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/background/hover",
+        "normalizedName": "color/background/DEFAULT/hover",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/border/strong",
+        "normalizedName": "color/border/strong/REST",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/border/weak",
+        "normalizedName": "color/border/weak/REST",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/focus",
+        "normalizedName": "color/focus/DEFAULT/REST",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/icon/strong",
+        "normalizedName": "color/icon/strong/REST",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/icon/weak",
+        "normalizedName": "color/icon/weak/REST",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/text/strong",
+        "normalizedName": "color/text/strong/REST",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/text/weak",
+        "normalizedName": "color/text/weak/REST",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      },
+      {
+        "code": "NO_ROLE_EXCEPTION",
+        "figmaName": "color/transparent",
+        "normalizedName": "color/transparent",
+        "reason": "Token has no semantic role and requires explicit downstream handling."
+      }
+    ]
+  }
+}

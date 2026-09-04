@@ -9,6 +9,12 @@ export default {
       "background": {
         "active": "var(--hpe-color-background-active)",
         "hover": "var(--hpe-color-background-hover)",
+        "accent-blue-strong": "var(--hpe-color-background-accent-blue-strong)",
+        "accent-blue-weak": "var(--hpe-color-background-accent-blue-weak)",
+        "accent-cyan-strong": "var(--hpe-color-background-accent-cyan-strong)",
+        "accent-cyan-weak": "var(--hpe-color-background-accent-cyan-weak)",
+        "accent-purple-strong": "var(--hpe-color-background-accent-purple-strong)",
+        "accent-purple-weak": "var(--hpe-color-background-accent-purple-weak)",
         "back": "var(--hpe-color-background-back)",
         "contrast": "var(--hpe-color-background-contrast)",
         "contrast-hover": "var(--hpe-color-background-contrast-hover)",
@@ -33,6 +39,9 @@ export default {
         "warning": "var(--hpe-color-background-warning)"
       },
       "border": {
+        "accent-blue-strong": "var(--hpe-color-border-accent-blue-strong)",
+        "accent-cyan-strong": "var(--hpe-color-border-accent-cyan-strong)",
+        "accent-purple-strong": "var(--hpe-color-border-accent-purple-strong)",
         "critical": "var(--hpe-color-border-critical)",
         "default": "var(--hpe-color-border-default)",
         "disabled": "var(--hpe-color-border-disabled)",
@@ -66,6 +75,7 @@ export default {
       "focus": "var(--hpe-color-focus)",
       "foreground": {
         "critical": "var(--hpe-color-foreground-critical)",
+        "info": "var(--hpe-color-foreground-info)",
         "ok": "var(--hpe-color-foreground-ok)",
         "primary": "var(--hpe-color-foreground-primary)",
         "unknown": "var(--hpe-color-foreground-unknown)",

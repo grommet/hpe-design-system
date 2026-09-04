@@ -9,6 +9,12 @@ module.exports = {
       "background": {
         "active": "rgba(0, 0, 0, 0.04)",
         "hover": "rgba(0, 0, 0, 0.04)",
+        "accent-blue-strong": "#0069e8",
+        "accent-blue-weak": "#e3f1ff",
+        "accent-cyan-strong": "#00838f",
+        "accent-cyan-weak": "#c7f9ff",
+        "accent-purple-strong": "#6751ff",
+        "accent-purple-weak": "#ece7ff",
         "back": "#f7f7f7",
         "contrast": "rgba(0, 0, 0, 0.04)",
         "contrast-hover": "rgba(0, 0, 0, 0.08)",
@@ -33,6 +39,9 @@ module.exports = {
         "warning": "#fff3dd"
       },
       "border": {
+        "accent-blue-strong": "#0069e8",
+        "accent-cyan-strong": "#00838f",
+        "accent-purple-strong": "#6751ff",
         "critical": "#cc1f1a",
         "default": "#b1b9be",
         "disabled": "rgba(0, 0, 0, 0.12)",
@@ -66,6 +75,7 @@ module.exports = {
       "focus": "#292d3a",
       "foreground": {
         "critical": "#ec3331",
+        "info": "#0055da",
         "ok": "#009a71",
         "primary": "#006750",
         "unknown": "#7d8a92",

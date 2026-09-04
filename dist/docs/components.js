@@ -25028,7 +25028,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#b1b9be",
+    "$value": "#3e4550",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -25044,7 +25044,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.border.default.REST}"
+      "$value": "{color.border.strong.REST}"
     },
     "name": "hpe.checkbox.default.control.rest.borderColor",
     "attributes": {
@@ -31737,7 +31737,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#b1b9be",
+    "$value": "#3e4550",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -31753,7 +31753,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.border.default.REST}"
+      "$value": "{color.border.strong.REST}"
     },
     "name": "hpe.formField.default.input.container.hover.borderColor",
     "attributes": {
@@ -38400,7 +38400,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "rgba(0, 0, 0, 0.04)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -38416,7 +38416,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.background.DEFAULT.hover}"
     },
     "name": "hpe.radioButton.default.control.hover.background",
     "attributes": {
@@ -38544,7 +38544,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "#b1b9be",
+    "$value": "#3e4550",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -38560,7 +38560,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.border.default.REST}"
+      "$value": "{color.border.strong.REST}"
     },
     "name": "hpe.radioButton.default.control.rest.borderColor",
     "attributes": {

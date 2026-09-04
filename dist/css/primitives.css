@@ -17,19 +17,24 @@
   --hpe-base-color-blue-200: #65aef9;
   --hpe-base-color-blue-300: #3994f7;
   --hpe-base-color-blue-500: #0070f8;
+  --hpe-base-color-blue-550: #0069e8;
   --hpe-base-color-blue-700: #0055da;
   --hpe-base-color-blue-900: #003cae;
+  --hpe-base-color-blue-1000: #1c3053;
   --hpe-base-color-blue-1100: #2b3547;
   --hpe-base-color-coral-100: #fc988b;
   --hpe-base-color-coral-200: #e5786a;
   --hpe-base-color-coral-300: #d25f4b;
   --hpe-base-color-coral-400: #c64f3a;
   --hpe-base-color-coral-500: #b4422a;
+  --hpe-base-color-cyan-50: #c7f9ff;
   --hpe-base-color-cyan-100: #99f0f9;
   --hpe-base-color-cyan-200: #62e5f6;
   --hpe-base-color-cyan-300: #00dbe4;
   --hpe-base-color-cyan-400: #00a4b3;
   --hpe-base-color-cyan-500: #04909d;
+  --hpe-base-color-cyan-600: #00838f;
+  --hpe-base-color-cyan-1000: #163a3e;
   --hpe-base-color-fuschia-100: #fc9ddc;
   --hpe-base-color-fuschia-200: #db72b8;
   --hpe-base-color-fuschia-300: #cc54a4;
@@ -73,11 +78,14 @@
   --hpe-base-color-plum-600: #873492;
   --hpe-base-color-plum-700: #6c2b7c;
   --hpe-base-color-plum-900: #5e1f68;
+  --hpe-base-color-purple-50: #ece7ff;
   --hpe-base-color-purple-100: #b7a2fc; /** Purple 3 */
   --hpe-base-color-purple-200: #9b84fc; /** Purple 2 */
   --hpe-base-color-purple-400: #7764fc; /** Purple */
+  --hpe-base-color-purple-450: #6751ff;
   --hpe-base-color-purple-700: #5d45d6; /** Purple 4 */
   --hpe-base-color-purple-900: #3c3aa1; /** Purple 5 */
+  --hpe-base-color-purple-1000: #32275c;
   --hpe-base-color-red-50: #ffecec;
   --hpe-base-color-red-400: #ff7b7b;
   --hpe-base-color-red-500: #fc6161;

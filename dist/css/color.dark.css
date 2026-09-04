@@ -17,19 +17,24 @@
   --hpe-base-color-blue-200: #65aef9;
   --hpe-base-color-blue-300: #3994f7;
   --hpe-base-color-blue-500: #0070f8;
+  --hpe-base-color-blue-550: #0069e8;
   --hpe-base-color-blue-700: #0055da;
   --hpe-base-color-blue-900: #003cae;
+  --hpe-base-color-blue-1000: #1c3053;
   --hpe-base-color-blue-1100: #2b3547;
   --hpe-base-color-coral-100: #fc988b;
   --hpe-base-color-coral-200: #e5786a;
   --hpe-base-color-coral-300: #d25f4b;
   --hpe-base-color-coral-400: #c64f3a;
   --hpe-base-color-coral-500: #b4422a;
+  --hpe-base-color-cyan-50: #c7f9ff;
   --hpe-base-color-cyan-100: #99f0f9;
   --hpe-base-color-cyan-200: #62e5f6;
   --hpe-base-color-cyan-300: #00dbe4;
   --hpe-base-color-cyan-400: #00a4b3;
   --hpe-base-color-cyan-500: #04909d;
+  --hpe-base-color-cyan-600: #00838f;
+  --hpe-base-color-cyan-1000: #163a3e;
   --hpe-base-color-fuschia-100: #fc9ddc;
   --hpe-base-color-fuschia-200: #db72b8;
   --hpe-base-color-fuschia-300: #cc54a4;
@@ -73,11 +78,14 @@
   --hpe-base-color-plum-600: #873492;
   --hpe-base-color-plum-700: #6c2b7c;
   --hpe-base-color-plum-900: #5e1f68;
+  --hpe-base-color-purple-50: #ece7ff;
   --hpe-base-color-purple-100: #b7a2fc; /** Purple 3 */
   --hpe-base-color-purple-200: #9b84fc; /** Purple 2 */
   --hpe-base-color-purple-400: #7764fc; /** Purple */
+  --hpe-base-color-purple-450: #6751ff;
   --hpe-base-color-purple-700: #5d45d6; /** Purple 4 */
   --hpe-base-color-purple-900: #3c3aa1; /** Purple 5 */
+  --hpe-base-color-purple-1000: #32275c;
   --hpe-base-color-red-50: #ffecec;
   --hpe-base-color-red-400: #ff7b7b;
   --hpe-base-color-red-500: #fc6161;
@@ -165,6 +173,12 @@
   --hpe-deprecated-base-color-brand: var(--hpe-deprecated-base-color-green-600);
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /** Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
+  --hpe-color-background-accent-blue-strong: var(--hpe-base-color-blue-200); /** Use for strong blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-blue-weak: var(--hpe-base-color-blue-1000); /** Use for subtle blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-cyan-strong: var(--hpe-base-color-cyan-400); /** Use for strong cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-cyan-weak: var(--hpe-base-color-cyan-1000); /** Use for subtle cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-purple-strong: var(--hpe-base-color-purple-200); /** Use for strong purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-purple-weak: var(--hpe-base-color-purple-1000); /** Use for subtle purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
   --hpe-color-background-back: var(--hpe-base-color-grey-1300); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-contrast-hover: var(--hpe-base-color-white-opacity10); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
@@ -180,11 +194,14 @@
   --hpe-color-background-primary-strong: var(--hpe-base-color-green-550); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-500); /** Hover variant of background-primary. */
   --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-450);
-  --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
+  --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity48); /** The background color for the overlay that sits behind modal layers. */
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-1000); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-900); /** Hover variant of background-selected-weak. */
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /** Use for backgrounds communicating an unknown status. Keywords: status */
   --hpe-color-background-warning: var(--hpe-base-color-orange-1000); /** Use for backgrounds communicating warning or caution. Keywords: status */
+  --hpe-color-border-accent-blue-strong: var(--hpe-base-color-blue-200); /** Use for strong blue accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-border-accent-cyan-strong: var(--hpe-base-color-cyan-400); /** Use for strong cyan accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-border-accent-purple-strong: var(--hpe-base-color-purple-200); /** Use for strong purple accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /** Default border color. */
   --hpe-color-border-disabled: var(--hpe-base-color-white-opacity12); /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /** Emphasized variant of border color. */
@@ -207,6 +224,7 @@
   --hpe-color-focus: var(--hpe-base-color-white-100); /** The primary outer ring of the focus indicator, used to define the overall area of the focused element. */
   --hpe-color-focus-support: var(--hpe-base-color-grey-1000); /** The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds. */
   --hpe-color-foreground-critical: var(--hpe-base-color-red-500); /** Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-foreground-info: var(--hpe-base-color-blue-200); /** Use for foreground regions representing a known, non-urgent status, such as informational-severity alerts or values that are noted but require no action. Often used in meters, progress bars, or chart segments where the value does not indicate a problem. Keywords: status, informational, low severity */
   --hpe-color-foreground-ok: var(--hpe-base-color-green-550); /** Use for foreground regions communicating success, completion, or a normal/ok status. Often used to color values in a meter or progress bar. Keywords: status */
   --hpe-color-foreground-primary: var(--hpe-base-color-green-550);
   --hpe-color-foreground-unknown: var(--hpe-base-color-grey-600); /** Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status */
@@ -282,7 +300,6 @@
   --hpe-menu-default-item-hover-borderColor: var(--hpe-color-transparent);
   --hpe-menu-default-item-rest-background: var(--hpe-color-transparent);
   --hpe-menu-default-item-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-hover-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
@@ -380,7 +397,7 @@
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
-  --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-default);
+  --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
@@ -412,7 +429,7 @@
   --hpe-formField-default-info-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-input-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-error-rest-background: var(--hpe-color-background-critical);
-  --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-default);
+  --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-contrast);
   --hpe-formField-default-input-container-readOnly-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-formField-default-input-container-rest-borderColor: var(--hpe-color-border-default);
@@ -444,8 +461,9 @@
   --hpe-menu-default-item-hover-background: var(--hpe-color-background-hover);
   --hpe-radioButton-default-control-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-radioButton-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
+  --hpe-radioButton-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
-  --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-default);
+  --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-strong);
   --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-radioButton-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-rest-textColor: var(--hpe-color-text-default);
@@ -623,19 +641,24 @@
   --hpe-base-color-blue-200: #65aef9;
   --hpe-base-color-blue-300: #3994f7;
   --hpe-base-color-blue-500: #0070f8;
+  --hpe-base-color-blue-550: #0069e8;
   --hpe-base-color-blue-700: #0055da;
   --hpe-base-color-blue-900: #003cae;
+  --hpe-base-color-blue-1000: #1c3053;
   --hpe-base-color-blue-1100: #2b3547;
   --hpe-base-color-coral-100: #fc988b;
   --hpe-base-color-coral-200: #e5786a;
   --hpe-base-color-coral-300: #d25f4b;
   --hpe-base-color-coral-400: #c64f3a;
   --hpe-base-color-coral-500: #b4422a;
+  --hpe-base-color-cyan-50: #c7f9ff;
   --hpe-base-color-cyan-100: #99f0f9;
   --hpe-base-color-cyan-200: #62e5f6;
   --hpe-base-color-cyan-300: #00dbe4;
   --hpe-base-color-cyan-400: #00a4b3;
   --hpe-base-color-cyan-500: #04909d;
+  --hpe-base-color-cyan-600: #00838f;
+  --hpe-base-color-cyan-1000: #163a3e;
   --hpe-base-color-fuschia-100: #fc9ddc;
   --hpe-base-color-fuschia-200: #db72b8;
   --hpe-base-color-fuschia-300: #cc54a4;
@@ -679,11 +702,14 @@
   --hpe-base-color-plum-600: #873492;
   --hpe-base-color-plum-700: #6c2b7c;
   --hpe-base-color-plum-900: #5e1f68;
+  --hpe-base-color-purple-50: #ece7ff;
   --hpe-base-color-purple-100: #b7a2fc; /** Purple 3 */
   --hpe-base-color-purple-200: #9b84fc; /** Purple 2 */
   --hpe-base-color-purple-400: #7764fc; /** Purple */
+  --hpe-base-color-purple-450: #6751ff;
   --hpe-base-color-purple-700: #5d45d6; /** Purple 4 */
   --hpe-base-color-purple-900: #3c3aa1; /** Purple 5 */
+  --hpe-base-color-purple-1000: #32275c;
   --hpe-base-color-red-50: #ffecec;
   --hpe-base-color-red-400: #ff7b7b;
   --hpe-base-color-red-500: #fc6161;
@@ -771,6 +797,12 @@
   --hpe-deprecated-base-color-brand: var(--hpe-deprecated-base-color-green-600);
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /** Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
+  --hpe-color-background-accent-blue-strong: var(--hpe-base-color-blue-200); /** Use for strong blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-blue-weak: var(--hpe-base-color-blue-1000); /** Use for subtle blue accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-cyan-strong: var(--hpe-base-color-cyan-400); /** Use for strong cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-cyan-weak: var(--hpe-base-color-cyan-1000); /** Use for subtle cyan accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-purple-strong: var(--hpe-base-color-purple-200); /** Use for strong purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-background-accent-purple-weak: var(--hpe-base-color-purple-1000); /** Use for subtle purple accent backgrounds. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
   --hpe-color-background-back: var(--hpe-base-color-grey-1300); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-contrast-hover: var(--hpe-base-color-white-opacity10); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
@@ -786,11 +818,14 @@
   --hpe-color-background-primary-strong: var(--hpe-base-color-green-550); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-500); /** Hover variant of background-primary. */
   --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-450);
-  --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
+  --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity48); /** The background color for the overlay that sits behind modal layers. */
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-1000); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-900); /** Hover variant of background-selected-weak. */
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /** Use for backgrounds communicating an unknown status. Keywords: status */
   --hpe-color-background-warning: var(--hpe-base-color-orange-1000); /** Use for backgrounds communicating warning or caution. Keywords: status */
+  --hpe-color-border-accent-blue-strong: var(--hpe-base-color-blue-200); /** Use for strong blue accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-border-accent-cyan-strong: var(--hpe-base-color-cyan-400); /** Use for strong cyan accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
+  --hpe-color-border-accent-purple-strong: var(--hpe-base-color-purple-200); /** Use for strong purple accent borders. Should be used sparingly. The hue carries no fixed meaning. Keywords: accent, brand, decorative */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /** Default border color. */
   --hpe-color-border-disabled: var(--hpe-base-color-white-opacity12); /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /** Emphasized variant of border color. */
@@ -813,6 +848,7 @@
   --hpe-color-focus: var(--hpe-base-color-white-100); /** The primary outer ring of the focus indicator, used to define the overall area of the focused element. */
   --hpe-color-focus-support: var(--hpe-base-color-grey-1000); /** The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds. */
   --hpe-color-foreground-critical: var(--hpe-base-color-red-500); /** Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-foreground-info: var(--hpe-base-color-blue-200); /** Use for foreground regions representing a known, non-urgent status, such as informational-severity alerts or values that are noted but require no action. Often used in meters, progress bars, or chart segments where the value does not indicate a problem. Keywords: status, informational, low severity */
   --hpe-color-foreground-ok: var(--hpe-base-color-green-550); /** Use for foreground regions communicating success, completion, or a normal/ok status. Often used to color values in a meter or progress bar. Keywords: status */
   --hpe-color-foreground-primary: var(--hpe-base-color-green-550);
   --hpe-color-foreground-unknown: var(--hpe-base-color-grey-600); /** Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status */
@@ -888,7 +924,6 @@
   --hpe-menu-default-item-hover-borderColor: var(--hpe-color-transparent);
   --hpe-menu-default-item-rest-background: var(--hpe-color-transparent);
   --hpe-menu-default-item-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-hover-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
@@ -986,7 +1021,7 @@
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
-  --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-default);
+  --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
@@ -1018,7 +1053,7 @@
   --hpe-formField-default-info-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-input-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-error-rest-background: var(--hpe-color-background-critical);
-  --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-default);
+  --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-contrast);
   --hpe-formField-default-input-container-readOnly-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-formField-default-input-container-rest-borderColor: var(--hpe-color-border-default);
@@ -1050,8 +1085,9 @@
   --hpe-menu-default-item-hover-background: var(--hpe-color-background-hover);
   --hpe-radioButton-default-control-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-radioButton-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
+  --hpe-radioButton-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
-  --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-default);
+  --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-strong);
   --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-radioButton-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-rest-textColor: var(--hpe-color-text-default);

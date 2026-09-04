@@ -9,6 +9,12 @@ export default {
       "background": {
         "active": "rgba(255, 255, 255, 0.06)",
         "hover": "rgba(255, 255, 255, 0.06)",
+        "accent-blue-strong": "#65aef9",
+        "accent-blue-weak": "#1c3053",
+        "accent-cyan-strong": "#00a4b3",
+        "accent-cyan-weak": "#163a3e",
+        "accent-purple-strong": "#9b84fc",
+        "accent-purple-weak": "#32275c",
         "back": "#1d1f27",
         "contrast": "rgba(255, 255, 255, 0.06)",
         "contrast-hover": "rgba(255, 255, 255, 0.1)",
@@ -24,7 +30,7 @@ export default {
         "primary-strong": "#05cc93",
         "primary-strong-hover": "#00e0af",
         "primary-xstrong": "#66ebcf",
-        "screenOverlay": "rgba(0, 0, 0, 0.12)",
+        "screenOverlay": "rgba(0, 0, 0, 0.48)",
         "selected-primary": "#093d32",
         "selected-primary-hover": "#074738",
         "selected-primary-strong": "#05cc93",
@@ -33,6 +39,9 @@ export default {
         "warning": "#3c361e"
       },
       "border": {
+        "accent-blue-strong": "#65aef9",
+        "accent-cyan-strong": "#00a4b3",
+        "accent-purple-strong": "#9b84fc",
         "critical": "#fc6161",
         "default": "rgba(255, 255, 255, 0.36)",
         "disabled": "rgba(255, 255, 255, 0.12)",
@@ -66,6 +75,7 @@ export default {
       "focus": "#ffffff",
       "foreground": {
         "critical": "#fc6161",
+        "info": "#65aef9",
         "ok": "#05cc93",
         "primary": "#05cc93",
         "unknown": "#7d8a92",
