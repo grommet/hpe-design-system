@@ -35,12 +35,18 @@ jobs:
   candidate:
     name: Build release candidate
     runs-on: ubuntu-latest
+    outputs:
+      approved_sha: ${{ steps.approved-ref.outputs.sha }}
     steps:
       - name: Check out approved ref
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
           fetch-depth: 0
+
+      - name: Resolve approved ref
+        id: approved-ref
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -75,9 +81,32 @@ jobs:
           path: packages/hpe-design-tokens/release-artifacts/*.tgz
           if-no-files-found: error
 
+  stable-sync-gate:
+    name: Verify stable sync
+    needs: candidate
+    if: ${{ inputs.publish == true }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - name: Check stable workflow result for approved commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APPROVED_SHA: ${{ needs.candidate.outputs.approved_sha }}
+        run: |
+          runs=$(gh run list \
+            --workflow update-design-tokens-stable.yml \
+            --commit "$APPROVED_SHA" \
+            --status success \
+            --limit 1 \
+            --json databaseId,headSha,conclusion)
+          test "$(echo "$runs" | jq 'length')" -gt 0
+          echo "$runs" | jq --arg sha "$APPROVED_SHA" 'map(select(.headSha == $sha)) | length > 0' | grep -q true
+
   publish:
     name: Publish approved release
-    needs: candidate
+    needs: [candidate, stable-sync-gate]
     if: ${{ inputs.publish == true }}
     runs-on: ubuntu-latest
     environment:
@@ -89,7 +118,7 @@ jobs:
       - name: Check out approved ref
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref }}
+          ref: ${{ needs.candidate.outputs.approved_sha }}
           fetch-depth: 0
 
       - name: Download immutable package artifact
@@ -128,7 +157,7 @@ jobs:
             found { print }
           ' packages/hpe-design-tokens/CHANGELOG.md > release-notes.md
           gh release create "${{ env.RELEASE_TAG }}" \
-            --target "${{ inputs.ref }}" \
+            --target "${{ needs.candidate.outputs.approved_sha }}" \
             --title "${{ env.RELEASE_TAG }}" \
             --notes-file release-notes.md \
             --draft

@@ -103,7 +103,8 @@ Run `Release hpe-design-tokens` manually with:
 - `ref`: the approved commit or branch.
 - `version`: the exact version from `package.json`.
 - `publish=false`: candidate-only validation.
-- `publish=true`: protected publication after the `design-tokens-release` environment approval.
+- `publish=true`: protected publication after the `design-tokens-release` environment approval
+  and a successful `Update design-tokens-stable` run for the exact approved commit.
 
 The workflow creates one immutable artifact, creates a draft GitHub release, publishes that
 artifact to NPM with provenance, verifies the registry version and a clean consumer install,
