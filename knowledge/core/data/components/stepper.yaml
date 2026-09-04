@@ -1,0 +1,84 @@
+id: stepper
+name: Stepper
+description: Stepper guides users through a sequence of related stages in a workflow.
+importPath: grommet
+props:
+  - name: steps
+    type: "{ id: string; title: string; description?: string; status?: 'pending' | 'completed' | 'error' | 'disabled'; disabledReason?: string; errorMessage?: string; 'aria-label'?: string; children?: Omit<StepType, 'children'>[] }[]"
+    required: true
+    description: Defines the ordered stages displayed by the Stepper.
+  - name: currentStep
+    type: string
+    required: true
+    description: Identifies the step currently active in the workflow.
+  - name: direction
+    type: "'horizontal' | 'vertical'"
+    required: false
+    description: Sets whether the steps are arranged horizontally or vertically.
+    defaultValue: horizontal
+  - name: clickableSteps
+    type: boolean
+    required: false
+    description: Determines whether users can select steps to navigate through the workflow.
+    defaultValue: true
+  - name: showDescription
+    type: boolean
+    required: false
+    description: Determines whether step descriptions are displayed.
+    defaultValue: true
+  - name: onStepClick
+    type: '(stepId: string) => void'
+    required: false
+    description: Handles selection of a step when clickable steps are enabled.
+  - name: id
+    type: string
+    required: false
+    description: Sets the HTML id attribute for the Stepper list.
+  - name: 'aria-label'
+    type: string
+    required: false
+    description: Provides an accessible name for the Stepper list.
+  - name: children
+    type: React.ReactNode
+    required: false
+    description: Provides optional content associated with the Stepper.
+usage:
+  whenToUse:
+    - Guide users through a workflow with multiple ordered stages.
+    - Show progress while users complete a sequence of related tasks.
+    - Let users review or navigate between completed stages of a workflow.
+  whenToAvoid: []
+examples: []
+anatomy:
+  - label: Stepper list
+    region: Container
+    purpose: Groups the ordered stages into a navigable workflow sequence.
+    availability: required
+  - label: Step indicator
+    region: Indicator
+    purpose: Communicates the status of each stage in the workflow.
+    availability: required
+    notes: States include pending, current, completed, error, and disabled.
+  - label: Step label
+    region: Content
+    purpose: Names the stage so users can understand the workflow sequence.
+    availability: required
+  - label: Step description
+    region: Content
+    purpose: Provides additional context about a stage.
+    availability: optional
+  - label: Connector
+    region: Layout
+    purpose: Shows the relationship and progression between adjacent stages.
+    availability: required
+  - label: Substeps
+    region: Content
+    purpose: Groups related stages under a parent stage.
+    availability: optional
+dosAndDonts:
+  - do: Use concise labels that clearly describe each workflow stage.
+    dont: Use vague labels that require users to guess what each stage contains.
+    reason: Clear labels help users understand progress and choose a completed stage.
+  - do: Keep stages in the order users complete or review them.
+    dont: Reorder stages based on visual preference rather than workflow sequence.
+    reason: The Stepper communicates ordered progress.
