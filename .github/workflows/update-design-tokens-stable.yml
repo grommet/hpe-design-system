@@ -5,6 +5,7 @@ on:
       - master
     paths:
       - packages/hpe-design-tokens/**
+  workflow_dispatch: {}
 
 jobs:
   update-design-tokens-stable:
