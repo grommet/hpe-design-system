@@ -20,6 +20,7 @@ spec:
       - path: .github/workflows/update-design-tokens-stable.yml
       - path: .github/workflows/design-tokens-release.yml
       - path: .github/workflows/design-tokens-release-pr.yml
+      - path: .github/workflows/design-tokens-changeset-check.yml
   assets:
     agents:
       - design-tokens-publishing-orchestrator.agent.md

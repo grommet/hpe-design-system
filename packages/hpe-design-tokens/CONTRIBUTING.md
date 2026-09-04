@@ -80,7 +80,9 @@ Add a Changeset for every user-visible package change. Use `patch` for non-break
 corrections and accessibility fixes, `minor` for additive tokens or capabilities, and `major`
 for removed or renamed tokens, incompatible aliases, or other breaking output changes. Include
 the affected token families, consumer impact, and migration guidance. The release workflow turns
-approved Changesets into a version and changelog PR for maintainer review.
+approved Changesets into a version and changelog PR for maintainer review. Pull requests that
+change token sources, build code, or contracts are checked automatically and must include a
+Changeset naming `hpe-design-tokens`.
 
 ## Pull Request Checklist
 
