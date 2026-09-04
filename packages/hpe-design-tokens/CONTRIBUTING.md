@@ -74,6 +74,14 @@ When behavior changes, update docs in the same PR:
 - `contracts/figma-sync-cli-contract.md` for command/flag/output contracts
 - `contracts/figma-sync-failure-codes.md` for error code semantics
 
+## Release Changesets
+
+Add a Changeset for every user-visible package change. Use `patch` for non-breaking token value
+corrections and accessibility fixes, `minor` for additive tokens or capabilities, and `major`
+for removed or renamed tokens, incompatible aliases, or other breaking output changes. Include
+the affected token families, consumer impact, and migration guidance. The release workflow turns
+approved Changesets into a version and changelog PR for maintainer review.
+
 ## Pull Request Checklist
 
 - Tests pass locally for impacted areas

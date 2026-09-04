@@ -9,7 +9,7 @@ spec:
   summary: Prepare, verify, and coordinate approval-gated releases of the hpe-design-tokens package.
   entrypoint:
     agent: design-tokens-publishing-orchestrator
-    args: "<release-request>"
+    args: '<release-request>'
   dependencies:
     external:
       - path: packages/hpe-design-tokens/package.json
@@ -19,20 +19,21 @@ spec:
       - path: .github/workflows/hpe-design-tokens-parity.yml
       - path: .github/workflows/update-design-tokens-stable.yml
       - path: .github/workflows/design-tokens-release.yml
+      - path: .github/workflows/design-tokens-release-pr.yml
   assets:
     agents:
       - design-tokens-publishing-orchestrator.agent.md
   stages:
     - id: intake
-      when: "release request received and package scope is hpe-design-tokens"
+      when: 'release request received and package scope is hpe-design-tokens'
     - id: preflight
-      when: "package metadata, changesets, build, tests, and artifact checks pass"
+      when: 'package metadata, changesets, build, tests, and artifact checks pass'
     - id: approval-required
-      when: "version and changelog evidence is ready for maintainer review"
+      when: 'version and changelog evidence is ready for maintainer review'
     - id: publication-ready
-      when: "approved immutable artifact and release evidence exist"
+      when: 'approved immutable artifact and release evidence exist'
     - id: post-release
-      when: "GitHub, NPM, registry, stable mirror, and announcement evidence are recorded"
+      when: 'GitHub, NPM, registry, stable mirror, and announcement evidence are recorded'
   x-extensions:
     approvalGates:
       - version-and-changelog
