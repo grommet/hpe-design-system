@@ -1,0 +1,181 @@
+id: wizard
+name: Wizard
+description: A full-page task flow that guides users through ordered steps with validation, progress, and completion handling.
+importPath: grommet
+props:
+  - name: steps
+    type: WizardStep<TValue>[]
+    required: true
+    description: Ordered step definitions that provide each step's id, title, content renderer, validation, and optional branching behavior.
+  - name: currentStep
+    type: string
+    required: false
+    description: Controlled id of the current step.
+  - name: defaultStep
+    type: string
+    required: false
+    description: Initial step id for an uncontrolled wizard.
+  - name: showProgress
+    type: "'horizontal' | 'vertical' | false"
+    required: false
+    description: Controls whether Wizard displays Stepper-backed progress horizontally, vertically, or not at all.
+    defaultValue: false
+  - name: onStepChange
+    type: '(event: StepChangeEvent) => void'
+    required: false
+    description: Callback fired during navigation, validation, blocked, completed, and cancelled phases.
+  - name: onComplete
+    type: '(event: { value: TValue; completedSteps: string[] }) => void'
+    required: false
+    description: Callback fired after the final step validates and the wizard completes.
+  - name: onCancel
+    type: "(event: { value: TValue; reason: 'user' }) => void"
+    required: false
+    description: Callback fired when the user cancels the wizard.
+  - name: renderStep
+    type: '(step: WizardStep<TValue>, api: WizardContextValue<TValue>) => React.ReactNode'
+    required: false
+    description: Shared renderer used for steps that do not define their own render function.
+  - name: title
+    type: string
+    required: false
+    description: Heading displayed in the default wizard header.
+  - name: footer
+    type: React.ReactNode
+    required: false
+    description: Custom footer content that replaces the default navigation buttons.
+  - name: scrollToTop
+    type: boolean
+    required: false
+    description: Controls whether Wizard moves focus and scrolls to the step header after step changes.
+    defaultValue: true
+  - name: value
+    type: TValue
+    required: false
+    description: Controlled form value shared across steps.
+  - name: defaultValue
+    type: TValue
+    required: false
+    description: Initial uncontrolled form value shared across steps.
+  - name: onChange
+    type: '(event: { value: TValue }) => void'
+    required: false
+    description: Callback fired when the shared form value changes.
+  - name: id
+    type: string
+    required: false
+    description: DOM id applied to the wizard container and used to connect internal step forms.
+  - name: aria-label
+    type: string
+    required: false
+    description: Accessible label for the wizard region.
+  - name: messages
+    type: WizardMessages
+    required: false
+    description: Custom labels for wizard controls, counters, progress, and validation messaging.
+  - name: children
+    type: React.ReactNode
+    required: false
+    description: Custom wizard layout that replaces the default header, progress, content, and footer composition.
+usage:
+  whenToUse:
+    - Use Wizard when a complex setup flow follows a predictable step-by-step path and needs visible progress from start to finish.
+    - Use Wizard without visible progress when the flow is short, progress is communicated elsewhere, or layout constraints make a step list redundant.
+    - Use Wizard with nested steps when a setup flow has clear phases that contain related tasks and needs visible hierarchy.
+  whenToAvoid:
+    - Do not use Wizard for a single form or a short task that can be completed in one view. Instead, use Form.
+    - Do not use Wizard for non-linear exploration where users need to compare sections freely. Instead, use Tabs or page navigation.
+variants:
+  - name: visible progress
+    description: Stepper-backed progress is displayed with the current, pending, completed, error, and disabled step states.
+    when: Use visible progress for longer setup flows where users need orientation and clear completion feedback.
+  - name: compact
+    description: Progress is hidden while the step title, step description, and footer actions remain visible.
+    when: Use the compact variant for short flows where visible progress adds visual weight without improving orientation.
+examples: []
+anatomy:
+  - label: '1'
+    region: Wizard container
+    purpose: Defines the full task flow region and owns step state, shared form value, and navigation events.
+    availability: required
+  - label: '2'
+    region: Header
+    purpose: Displays the wizard title and close action.
+    availability: required
+  - label: '3'
+    region: Progress
+    purpose: Shows the user's current position and step status through Stepper when progress is enabled.
+    availability: optional
+  - label: '4'
+    region: Step header
+    purpose: Announces the current step number, title, and description after navigation.
+    availability: required
+  - label: '5'
+    region: Step content
+    purpose: Contains the form fields, review content, or task content for the current step.
+    availability: required
+  - label: '6'
+    region: Footer
+    purpose: Provides cancel, previous, skip, next, and complete actions based on the current step.
+    availability: required
+behaviors:
+  interactiveStates:
+    - Users move forward with Next, move backward with Previous, skip skippable steps, or close the flow with Cancel.
+    - Wizard blocks forward navigation when the current step or form validation fails.
+    - Wizard marks completed steps after successful forward transitions.
+    - Use onCancel to open a double confirmation before discarding or preserving the current form value.
+  applicationStates:
+    - Steps can be pending, completed, error, or disabled.
+    - Wizard can be controlled with currentStep and value or uncontrolled with defaultStep and defaultValue.
+    - Wizard emits requested, validating, validated, navigated, blocked, completed, and cancelled phases through onStepChange.
+    - Wizard calls onComplete with the shared form value and completed step ids after the final step validates.
+  realEstate:
+    - The default Wizard layout keeps the task title and navigation actions available while step content scrolls.
+    - Horizontal progress is hidden on small breakpoints in the default layout.
+    - Horizontal progress falls back to vertical progress when steps include nested sub-steps.
+contentGuidelines:
+  - Use short step titles that describe the user task.
+  - Use action labels that describe the result of continuing or completing the flow.
+  - Include step descriptions only when they clarify what information is needed.
+  - Keep validation messages specific to the field or step that blocked progress.
+accessibility:
+  keyboard:
+    - key: Tab
+      action: Moves focus through the wizard header, current step content, and footer actions.
+    - key: Enter
+      action: Submits the current step form and triggers validation before navigation.
+    - key: Escape
+      action: Closes the wizard only when the surrounding modal or application provides that behavior.
+  aria:
+    - attribute: aria-label
+      value: descriptive string
+      condition: Provide when the wizard title does not fully describe the region.
+    - attribute: aria-live
+      value: polite
+      condition: Applied by WizardStepHeader so screen readers receive step changes.
+    - attribute: aria-label
+      value: wizard progress
+      condition: Applied to WizardProgress when progress is visible.
+  announcements:
+    - trigger: Step transition
+      message: Step X of Y, followed by the step title and description.
+    - trigger: Validation failure
+      message: The validation message for the field or step that blocked navigation.
+  wcag:
+    - criterion: 1.3.1 Info and Relationships
+      status: conditional
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 2.4.3 Focus Order
+      status: conditional
+    - criterion: 2.4.6 Headings and Labels
+      status: conditional
+    - criterion: 3.3.1 Error Identification
+      status: conditional
+    - criterion: 4.1.3 Status Messages
+      status: pass
+relatedComponents:
+  - form
+  - stepper
+  - layer
+  - button
