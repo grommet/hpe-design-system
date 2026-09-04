@@ -6,6 +6,9 @@
 - `usage.whenToUse` was inferred from the Stepper workflow API; verify the scenarios against the intended HPE use cases.
 - `anatomy` was inferred from the Grommet Stepper implementation; verify the regions, requiredness, and substep behavior against the Figma design and Grommet source.
 - `dosAndDonts` was inferred because no legacy documentation exists; verify the guidance against HPE content standards before publishing.
+- `behaviors` was inferred from the Stepper runtime, indicator state mapping, keyboard handlers, and horizontal/vertical layout styles; verify the state taxonomy and interaction guidance against HPE requirements.
+- `contentGuidelines` was inferred from the Stepper data model and supplied workflow scenarios; verify the writing guidance against HPE content standards.
+- `accessibility` was inferred from the Stepper DOM structure, focus behavior, keyboard handlers, and ARIA attributes in the installed Grommet source; verify keyboard expectations and screen-reader behavior with accessibility review.
 
 ## Props scope — verify before merging
 
