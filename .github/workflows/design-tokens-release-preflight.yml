@@ -42,10 +42,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check pending changesets
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: pnpm exec changeset status
-
       - name: Run package release preflight
         run: pnpm --filter hpe-design-tokens release:preflight
 

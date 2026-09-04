@@ -80,14 +80,15 @@ release notes.
 
 ### 2. Run candidate preflight
 
-After the version PR is merged, run `HPE Design Tokens Release Preflight` manually with the
-approved commit or branch. The workflow checks Changesets, builds the package, runs package
-tests, validates generated exports and package metadata, and uploads one candidate tarball.
+Before merging the version PR, review its Changesets-derived version and changelog. After the
+version PR is merged, run `HPE Design Tokens Release Preflight` manually with the approved
+commit or branch. The workflow builds the package, runs package tests, validates generated
+exports and package metadata, and uploads one candidate tarball. At this point the Changesets
+have already been consumed by the version PR.
 
 The equivalent local checks are:
 
 ```bash
-pnpm exec changeset status
 pnpm --filter hpe-design-tokens release:preflight
 pnpm --filter hpe-design-tokens release:validate --version=<X.Y.Z>
 pnpm --filter hpe-design-tokens release:pack
