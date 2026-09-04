@@ -79,9 +79,11 @@ creation, GitHub release publication, NPM authentication, provenance, and packag
 
 ### 5. Post-release verification
 
-Verify or request evidence for the GitHub tag/release, NPM registry version and tarball, stable
-mirror SHA, and Figma synchronization result. Generate a Slack-ready announcement draft, but
-stop before posting it unless a future approved Slack integration is explicitly enabled.
+Verify or request evidence for the GitHub tag/release, NPM registry version and tarball, and a
+clean-consumer install. Record the stable mirror SHA and Figma synchronization result separately
+from package publication. The protected workflow uploads release notes and a Slack-ready
+announcement draft; stop before posting it unless a future approved Slack integration is
+explicitly enabled.
 
 ## Failure and Recovery
 

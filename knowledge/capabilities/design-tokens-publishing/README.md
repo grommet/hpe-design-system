@@ -41,9 +41,10 @@ version. Set `publish` to `false` for a candidate-only run. Set it to `true` onl
 
 The environment must provide an `NPM_TOKEN` secret with the minimum scope required to publish
 `hpe-design-tokens`. The workflow publishes the exact candidate tarball with the `latest` tag
-and provenance, creates a draft GitHub release first, verifies the NPM registry, and publishes
-the GitHub release last. Configure trusted NPM publishing with GitHub OIDC as a future migration
-when the package and organization settings support it.
+and provenance, creates a draft GitHub release first, verifies the NPM registry and a clean
+consumer install, and publishes the GitHub release last. It then uploads release notes and a
+Slack-ready announcement draft as workflow evidence. Configure trusted NPM publishing with
+GitHub OIDC as a future migration when the package and organization settings support it.
 
 ## Evidence
 

@@ -146,7 +146,45 @@ jobs:
           done
           exit 1
 
+      - name: Verify published tarball in a clean consumer
+        run: |
+          registry_tarball=$(npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" dist.tarball)
+          test -n "$registry_tarball"
+          mkdir -p registry-consumer
+          curl --fail --location "$registry_tarball" --output registry-consumer/package.tgz
+          tar -tzf registry-consumer/package.tgz | grep -q '^package/dist/esm/index.js$'
+          tar -tzf registry-consumer/package.tgz | grep -q '^package/package.json$'
+          printf '{"private":true}\n' > registry-consumer/package.json
+          (cd registry-consumer && npm install --ignore-scripts ./package.tgz && node --input-type=module -e "import('hpe-design-tokens').then(module => { if (!module) process.exit(1); })")
+
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release edit "${{ env.RELEASE_TAG }}" --draft=false
+
+      - name: Create Slack announcement draft
+        run: |
+          awk -v version="${{ inputs.version }}" '
+            $0 == "## " version { found=1; next }
+            found && /^## / { exit }
+            found { print }
+          ' packages/hpe-design-tokens/CHANGELOG.md > release-highlights.md
+          {
+            echo "# hpe-design-tokens ${{ inputs.version }} release"
+            echo
+            echo "hpe-design-tokens@${{ inputs.version }} is now available on NPM."
+            echo
+            echo "Release: https://github.com/${{ github.repository }}/releases/tag/${{ env.RELEASE_TAG }}"
+            echo "NPM: https://www.npmjs.com/package/${{ env.PACKAGE_NAME }}/v/${{ inputs.version }}"
+            echo
+            echo "Highlights:"
+            cat release-highlights.md
+          } > hpe-design-tokens-slack-announcement.md
+
+      - name: Upload release evidence and announcement draft
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-design-tokens-${{ inputs.version }}-release-evidence
+          path: |
+            release-notes.md
+            hpe-design-tokens-slack-announcement.md
