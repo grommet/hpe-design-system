@@ -1,0 +1,184 @@
+id: toggle-group
+name: ToggleGroup
+description: Presents a set of mutually exclusive or multi-select toggle buttons for
+  switching between related views or modes.
+importPath: grommet
+framework: react
+props:
+- name: options
+  type: 'string[] | { label?: string, icon?: React.ReactNode, value: string }[]'
+  required: true
+  description: Array of toggle options. Each option requires either a label, an icon,
+    or both.
+- name: value
+  type: string | string[]
+  required: false
+  description: Controlled selection value. Provide a string for single-select; a string
+    array for multi-select.
+- name: onChange
+  type: '(event: { value: string | string[] }) => void'
+  required: false
+  description: Callback fired when the selection changes
+- name: multiple
+  type: boolean
+  required: false
+  description: Allows more than one option to be active at a time
+  defaultValue: 'false'
+- name: defaultValue
+  type: string | string[]
+  required: false
+  description: Uncontrolled initial selection value
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables all toggle buttons
+  defaultValue: 'false'
+- name: a11yTitle
+  type: string
+  required: false
+  description: Accessible label for the ToggleGroup container
+- name: id
+  type: string
+  required: false
+  description: DOM id for the component container
+usage:
+  whenToUse:
+  - Use for switching between 2–5 related views, modes, or display formats (e.g.,
+    list vs. grid vs. chart).
+  - Use when only one option should be active at a time and users need to see all
+    options simultaneously.
+  - Use multi-select mode when users can combine multiple view options.
+  - Each option must have either a visible label or an icon, or both.
+  whenToAvoid:
+  - Do not use ToggleGroup as a replacement for a form field (CheckBoxGroup or RadioButtonGroup)
+    for data entry.
+  - Do not use for navigation between pages — use Nav or Tabs instead.
+  - Do not use more than 5 options — consider a Select or Menu for longer lists.
+  - Do not use if options are not closely related — consider separate buttons or a
+    menu.
+variants:
+- name: icon-only
+  description: Toggle buttons that display only icons without text labels.
+  when: Very compact toolbars where space is limited and icons are sufficiently descriptive.
+  example: "<ToggleGroup\n  options={[\n    { icon: <List />, value: 'list' },\n \
+    \   { icon: <Grid size=\"medium\" />, value: 'grid' },\n    { icon: <Aggregate\
+    \ />, value: 'chart' },\n  ]}\n  value={viewMode}\n  onChange={({ value }) =>\
+    \ setViewMode(value)}\n/>"
+- name: label-only
+  description: Toggle buttons with text labels and no icons.
+  when: When the options are best described by short text labels and no appropriate
+    icons exist.
+  example: "<ToggleGroup\n  options={['Day', 'Week', 'Month']}\n  value={period}\n\
+    \  onChange={({ value }) => setPeriod(value)}\n/>"
+- name: icon-and-label
+  description: Toggle buttons that combine an icon with a text label.
+  when: When both an icon and a label aid comprehension, especially at medium or large
+    sizes.
+  example: "<ToggleGroup\n  options={[\n    { label: 'List', icon: <List />, value:\
+    \ 'list' },\n    { label: 'Grid', icon: <Grid size=\"medium\" />, value: 'grid'\
+    \ },\n    { label: 'Map', icon: <Map />, value: 'map' },\n  ]}\n  value={viewMode}\n\
+    \  onChange={({ value }) => setViewMode(value)}\n/>"
+- name: multi-select
+  description: Multiple toggle buttons can be active simultaneously.
+  when: Combining filters or display options where several can apply at once.
+  example: "<ToggleGroup\n  multiple\n  options={[\n    { label: 'Running', value:\
+    \ 'running' },\n    { label: 'Stopped', value: 'stopped' },\n    { label: 'Error',\
+    \ value: 'error' },\n  ]}\n  value={activeFilters}\n  onChange={({ value }) =>\
+    \ setActiveFilters(value)}\n/>"
+anatomy:
+- label: group container
+  region: root
+  purpose: Wraps all toggle buttons and communicates the group role to assistive technologies
+  availability: always
+- label: toggle button
+  region: option
+  purpose: Individual selectable button element representing one option
+  availability: always
+- label: icon
+  region: toggle button (leading or centered)
+  purpose: Visual symbol representing the option
+  availability: conditional
+  notes: At minimum, either icon or label must be present
+- label: label
+  region: toggle button (body)
+  purpose: Text describing the option
+  availability: conditional
+  notes: At minimum, either icon or label must be present
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active (selected)
+  - disabled
+  applicationStates: []
+  dataStates: []
+  realEstate:
+  - Buttons share equal width within the group
+  - Group width determined by longest option
+examples:
+- description: View mode switcher (list / grid)
+  code: "const [view, setView] = useState('list');\n\n<Box direction=\"row\" justify=\"\
+    end\">\n  <ToggleGroup\n    options={[\n      { icon: <List />, value: 'list',\
+    \ a11yTitle: 'List view' },\n      { icon: <Apps />, value: 'grid', a11yTitle:\
+    \ 'Grid view' },\n    ]}\n    value={view}\n    onChange={({ value }) => setView(value)}\n\
+    \  />\n</Box>"
+- description: Time range selector
+  code: "const [range, setRange] = useState('7d');\n\n<ToggleGroup\n  options={[\n\
+    \    { label: '24h', value: '24h' },\n    { label: '7d', value: '7d' },\n    {\
+    \ label: '30d', value: '30d' },\n    { label: '90d', value: '90d' },\n  ]}\n \
+    \ value={range}\n  onChange={({ value }) => setRange(value)}\n/>"
+- description: Multi-select status filter
+  code: "const [statuses, setStatuses] = useState(['running']);\n\n<ToggleGroup\n\
+    \  multiple\n  options={[\n    { label: 'Running', value: 'running' },\n    {\
+    \ label: 'Stopped', value: 'stopped' },\n    { label: 'Warning', value: 'warning'\
+    \ },\n    { label: 'Error', value: 'error' },\n  ]}\n  value={statuses}\n  onChange={({\
+    \ value }) => setStatuses(value)}\n/>"
+- description: Chart type switcher
+  code: "<ToggleGroup\n  options={[\n    { icon: <BarChart />, label: 'Bar', value:\
+    \ 'bar' },\n    { icon: <LineChart />, label: 'Line', value: 'line' },\n    {\
+    \ icon: <PieChart />, label: 'Pie', value: 'pie' },\n  ]}\n  value={chartType}\n\
+    \  onChange={({ value }) => setChartType(value)}\n/>"
+accessibility:
+  keyboard:
+  - key: Tab
+    action: Moves focus into the ToggleGroup
+  - key: Left Arrow / Right Arrow
+    action: Moves focus between toggle buttons within the group
+  - key: Space / Enter
+    action: Activates (selects or deselects) the focused toggle button
+  aria:
+  - attribute: role
+    value: '''group'''
+    condition: applied to the ToggleGroup container
+  - attribute: aria-label
+    value: a11yTitle value
+    condition: provides an accessible name for the group
+  - attribute: aria-pressed
+    value: '''true'' | ''false'''
+    condition: applied to each toggle button based on its selection state
+  - attribute: aria-label
+    value: option label or a11yTitle
+    condition: required on icon-only buttons where no visible text is present
+  announcements:
+  - trigger: Toggle selected
+    message: '{option label}, pressed'
+  - trigger: Toggle deselected
+    message: '{option label}, not pressed'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- button
+- check-box-group
+- radio-button-group
+- menu
+- tabs

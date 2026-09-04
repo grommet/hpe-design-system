@@ -1,0 +1,101 @@
+id: data
+name: Data
+description: Container component that provides a data context for child data components.
+  Manages data state including filtering, sorting, and pagination.
+importPath: grommet
+framework: react
+props:
+- name: data
+  type: object[]
+  required: true
+  description: Array of data objects to manage
+- name: view
+  type: '{ search?: string, sort?: { property: string, direction: ''asc'' | ''desc''
+    }, properties?: Record<string, any> }'
+  required: false
+  description: Current view state including search, sort, and filter values
+- name: onView
+  type: '(view: object) => void'
+  required: false
+  description: Callback when view state changes
+- name: properties
+  type: 'Record<string, { label?: string, options?: any[] }>'
+  required: false
+  description: Configuration for data properties including labels and filter options
+- name: total
+  type: number
+  required: false
+  description: Total number of items for server-side pagination
+- name: defaultView
+  type: '{ search?: string, sort?: { property: string, direction: ''asc'' | ''desc''
+    }, properties?: Record<string, any> }'
+  required: false
+  description: Initial view state for search, sort, and filter values when the Data
+    component first renders
+usage:
+  whenToUse:
+  - Use Data as a wrapper for DataTable, DataFilters, DataSearch, and Pagination.
+  - Pass the full data array to the data prop.
+  - Use the properties prop to configure labels and filter options.
+  - Pair with Toolbar for organizing data controls.
+  whenToAvoid:
+  - Do not use DataTable, DataFilters, etc. outside a Data context.
+  - Do not manually manage filter/sort state — let Data handle it.
+  - Avoid deeply nested Data contexts.
+examples:
+- description: Basic Data Context
+  code: "<Data data={items}>\n  <DataTable columns={columns} />\n</Data>"
+- description: Data with Search and Filters
+  code: "<Data data={items} properties={{ status: { label: 'Status', options: ['active',\
+    \ 'inactive'] } }}>\n  <Toolbar>\n    <DataSearch />\n    <DataFilters />\n  </Toolbar>\n\
+    \  <DataTable columns={columns} />\n  <Pagination />\n</Data>"
+variants:
+- name: client-side
+  description: Full dataset passed to the data prop. Grommet handles all filtering,
+    sorting, and pagination in the browser.
+  when: Datasets small enough to load entirely upfront (typically < 1 000 rows). Zero
+    backend calls needed for filter/sort/page interactions.
+  example: <Data data={allItems}><DataTable columns={cols} /><Pagination /></Data>
+- name: server-side
+  description: Current page subset passed to data, with onView callback to fetch new
+    data and total for page count calculation.
+  when: Large datasets where loading all rows upfront is impractical. Use onView to
+    trigger API calls when search, sort, or page changes.
+  example: <Data data={pageItems} total={totalCount} onView={(view) => fetchData(view)}><DataTable
+    columns={cols} /><Pagination /></Data>
+anatomy:
+- label: data context provider
+  region: root (invisible)
+  purpose: Context wrapper that distributes the data set, view state, and callbacks
+    to all Data-family child components
+  availability: always
+- label: children
+  region: root
+  purpose: Rendered child components (Toolbar, DataSummary, DataTable, Pagination,
+    etc.) that consume the Data context
+  availability: always
+behaviors:
+  applicationStates:
+  - loading
+  - error
+  dataStates:
+  - empty
+  - filtered
+  - sorted
+  - paginated
+accessibility:
+  aria:
+  - attribute: no DOM element rendered
+    value: React context provider only
+    condition: Data renders no DOM. Accessibility is fully provided by its child components
+      — DataTable, List, Pagination, etc.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+relatedComponents:
+- data-table
+- data-search
+- data-filters
+- data-sort
+- pagination
+- list

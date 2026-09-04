@@ -1,0 +1,126 @@
+id: meter
+name: Meter
+description: Visual component for displaying measurement or progress values.
+importPath: grommet
+framework: react
+props:
+- name: type
+  type: '''bar'' | ''circle'' | ''pie'' | ''semicircle'''
+  required: false
+  description: Visual type of meter
+  defaultValue: '''bar'''
+- name: values
+  type: '{ value: number, color?: string, label?: string }[]'
+  required: true
+  description: Array of values to display (0-100)
+- name: size
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'' | ''full'''
+  required: false
+  description: Size of the meter
+- name: thickness
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Thickness of the bar/circle
+- name: max
+  type: number
+  required: false
+  description: Maximum total value for all values entries combined. Used to calculate
+    proportional fill.
+  defaultValue: '100'
+- name: background
+  type: string
+  required: false
+  description: Color token for the unfilled portion of the meter track (e.g., 'background-contrast')
+usage:
+  whenToUse:
+  - Use for progress indicators and metrics.
+  - Use semantic color tokens in values array.
+  - Use type="bar" for horizontal progress.
+  - Use type="circle" for radial progress.
+  whenToAvoid:
+  - Do not use for non-numeric data.
+  - Avoid hardcoded hex colors.
+  - Do not use values outside 0-100 range.
+examples:
+- description: Progress Bar
+  code: "<Meter\n  type=\"bar\"\n  values={[{ value: 75, color: 'status-ok' }]}\n\
+    \  size=\"small\"\n/>"
+- description: Multiple Values
+  code: "<Meter\n  type=\"bar\"\n  values={[\n    { value: 30, color: 'status-ok',\
+    \ label: 'Complete' },\n    { value: 20, color: 'status-warning', label: 'In Progress'\
+    \ }\n  ]}\n/>"
+variants:
+- name: bar
+  description: Horizontal bar showing one or more stacked value segments.
+  when: Progress tracking, storage usage, or any linear metric. Most space-efficient
+    variant.
+  example: '<Meter type="bar" values={[{ value: 70, color: ''status-ok'' }]} size="small"
+    />'
+- name: circle
+  description: Full circular (donut) chart showing one or more value arcs.
+  when: Dashboard KPIs where a circular shape communicates completeness (e.g., 75%
+    utilisation).
+  example: '<Meter type="circle" values={[{ value: 75, color: ''brand'' }]} size="small"
+    />'
+- name: pie
+  description: Filled pie chart divided into proportional segments.
+  when: Showing proportional composition of multiple categories (e.g., status breakdown
+    across a fleet).
+  example: '<Meter type="pie" values={[{ value: 40, color: ''status-ok'' }, { value:
+    30, color: ''status-warning'' }, { value: 30, color: ''status-critical'' }]} />'
+- name: semicircle
+  description: Half-circle gauge, useful when vertical space is constrained.
+  when: Gauge-style displays such as CPU load or signal strength where a full circle
+    would be too tall.
+  example: '<Meter type="semicircle" values={[{ value: 60, color: ''status-warning''
+    }]} />'
+anatomy:
+- label: meter track
+  region: root
+  purpose: Full-width bar representing the complete value range from 0 to max
+  availability: always
+- label: value fill
+  region: inside track
+  purpose: Colored segment of the track proportional to the current value
+  availability: always
+- label: value label
+  region: external (caller-rendered)
+  purpose: Numeric or text representation of the current value rendered adjacent to
+    the meter by the caller
+  availability: conditional
+  notes: Not part of Meter itself; caller must render a Text component alongside
+- label: legend
+  region: below track
+  purpose: Optional description of what the meter measures, supplied via the label
+    prop
+  availability: conditional
+  notes: Present when the label prop is provided
+behaviors:
+  dataStates:
+  - updating
+accessibility:
+  aria:
+  - attribute: role
+    value: img
+    condition: Meter renders an SVG with role='img'. Always pair Meter with an adjacent
+      Text label or a visually-hidden description so the numeric value is available
+      to screen readers.
+  - attribute: aria-label
+    value: descriptive label
+    condition: Provide a meaningful label on a wrapping Box or via the values[].label
+      entries. Color alone does not convey meaning.
+  announcements:
+  - trigger: value change
+    message: Meter values are SVG-based and do not auto-announce updates. Use a visually-hidden
+      live region if real-time changes must be communicated to screen readers.
+  wcag:
+  - criterion: 1.4.1 Use of Color
+    status: conditional
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- text
+- card
+- box

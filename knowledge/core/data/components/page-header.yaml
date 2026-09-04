@@ -1,0 +1,96 @@
+id: page-header
+name: PageHeader
+description: Page title area with support for subtitle, parent breadcrumb, and action
+  buttons.
+importPath: grommet
+framework: react
+props:
+- name: title
+  type: string | React.ReactNode
+  required: true
+  description: The page title
+- name: subtitle
+  type: string | React.ReactNode
+  required: false
+  description: Descriptive text below the title
+- name: parent
+  type: React.ReactNode
+  required: false
+  description: Breadcrumb or back link above the title
+- name: actions
+  type: React.ReactNode
+  required: false
+  description: Action buttons displayed alongside the title
+- name: responsive
+  type: boolean
+  required: false
+  description: Whether to stack actions below title on small screens
+  defaultValue: 'true'
+usage:
+  whenToUse:
+  - Use as the first child of PageContent.
+  - Use parent prop for breadcrumb navigation.
+  - Use actions prop for page-level actions (Create, Export, etc.).
+  - Provide descriptive subtitle text.
+  whenToAvoid:
+  - Do not build custom page headers with Box and Heading.
+  - Do not place multiple PageHeaders on one page.
+  - Do not put navigation controls in actions — use parent prop.
+examples:
+- description: Full Page Header
+  code: "<PageHeader\n  title=\"Users\"\n  subtitle=\"Manage user accounts and permissions\"\
+    \n  parent={<Anchor label=\"Administration\" href=\"/admin\" />}\n  actions={<Button\
+    \ label=\"Add User\" primary />}\n/>"
+- description: Simple Page Header
+  code: <PageHeader title="Dashboard" />
+anatomy:
+- label: '1'
+  region: Parent / breadcrumb
+  purpose: Provides upward navigation context via the parent prop — typically an Anchor
+    pointing to the parent page.
+  availability: optional
+- label: '2'
+  region: Title
+  purpose: The primary heading for the page. Renders as h1 and forms the top of the
+    document heading hierarchy.
+  availability: required
+  notes: Only one PageHeader (and thus one h1) should exist per page.
+- label: '3'
+  region: Subtitle
+  purpose: Descriptive text below the title providing additional context about the
+    page.
+  availability: optional
+- label: '4'
+  region: Actions zone
+  purpose: Page-level action buttons (Create, Export, etc.) displayed to the right
+    of the title on wide screens.
+  availability: optional
+  notes: Stacks below the title on small screens when responsive=true (the default).
+behaviors:
+  interactiveStates:
+  - rest
+  realEstate:
+  - responsive
+accessibility:
+  keyboard:
+  - key: Tab
+    action: Moves focus through the parent link and action buttons within the page
+      header
+  aria:
+  - attribute: heading level
+    value: '1'
+    condition: PageHeader renders the title as an h1 by default. Ensure this is the
+      only h1 on the page to maintain a correct heading hierarchy.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.4.6 Headings and Labels
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: conditional
+relatedComponents:
+- page-content
+- page
+- heading
+- anchor
+- button

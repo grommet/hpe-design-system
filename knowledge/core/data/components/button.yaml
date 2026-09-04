@@ -1,0 +1,161 @@
+id: button
+name: Button
+description: Trigger an action or event, such as submitting a form or opening a dialog.
+importPath: grommet
+framework: react
+props:
+  - name: primary
+    type: boolean
+    required: false
+    description: Whether the button should be styled as the primary action
+    defaultValue: 'false'
+  - name: secondary
+    type: boolean
+    required: false
+    description: Whether the button should be styled as a secondary action
+    defaultValue: 'false'
+  - name: label
+    type: string | React.ReactNode
+    required: false
+    description: Label text or content for the button
+  - name: icon
+    type: React.ReactNode
+    required: false
+    description: Icon element to display in the button
+  - name: disabled
+    type: boolean
+    required: false
+    description: Whether the button is disabled
+  - name: onClick
+    type: () => void
+    required: false
+    description: Click handler function
+  - name: type
+    type: '''button'' | ''submit'' | ''reset'''
+    required: false
+    description: HTML button type
+    defaultValue: '''button'''
+  - name: kind
+    type: '''default'' | ''toolbar'''
+    required: false
+    description: Visual treatment context — 'toolbar' reduces padding and blends with toolbar backgrounds
+  - name: size
+    type: '''small'' | ''medium'' | ''large'''
+    required: false
+    description: Controls label font size and padding scale
+    defaultValue: '''medium'''
+  - name: busy
+    type: boolean
+    required: false
+    description: Indicates an async operation is in progress. Renders a loading spinner and sets aria-busy.
+    defaultValue: 'false'
+  - name: active
+    type: boolean
+    required: false
+    description: Marks the button as the currently active/selected option in a toggle pattern
+    defaultValue: 'false'
+usage:
+  whenToUse:
+    - Use primary prop for the main action on the page.
+    - Use concise labels (1-3 words).
+    - Use semantic token props like pad="small" or gap="medium".
+  whenToAvoid:
+    - Do not use more than one primary button per section.
+    - Do not use buttons for navigation links (use Anchor component).
+    - Do not hardcode colors or dimensions.
+variants:
+  - name: default
+    description: No emphasis modifier applied. Renders with the lowest visual weight — a text-like appearance.
+    when: Tertiary or de-emphasized actions where no variant prop is needed; use inside toolbars, inline beside content, or when multiple equal-priority actions exist.
+    example: <Button label="Cancel" onClick={onCancel} />
+  - name: primary
+    description: Solid filled background. Highest visual weight on the page.
+    when: The single most important call-to-action in a view — e.g. 'Save', 'Submit', 'Create'. Only one primary button should exist per section.
+    example: <Button primary label="Save Changes" onClick={handleSubmit} />
+  - name: secondary
+    description: Outlined border with no fill. Medium visual weight.
+    when: Pairing alongside a primary button as the complementary or cancel action — e.g. 'Save' (primary) + 'Cancel' (secondary).
+    example: <Button secondary label="Cancel" onClick={onCancel} />
+  - name: icon-only
+    description: Icon prop provided with no label. Compact square touch target.
+    when: Space-constrained contexts such as toolbars, table row actions, or cards where the icon meaning is unambiguous. Always provide an aria-label.
+    example: <Button icon={<Edit />} a11yTitle="Edit item" onClick={onEdit} />
+examples:
+  - description: Primary Action
+    code: <Button primary label="Save Changes" onClick={handleSubmit} />
+  - description: With Icon
+    code: <Button icon={<Add />} label="Add Item" onClick={handleAdd} />
+  - description: Disabled State
+    code: <Button label="Submit" disabled />
+  - description: Toolbar Button
+    code: <Button kind="toolbar" icon={<Filter />} label="Filter" onClick={onFilter} />
+  - description: Busy / Loading State
+    code: <Button primary label="Saving..." busy onClick={handleSubmit} />
+anatomy:
+  - label: button surface
+    region: root
+    purpose: Interactive hit target rendered as a button or anchor element; receives the primary, secondary, default, or toolbar visual treatment
+    availability: always
+  - label: label
+    region: inside surface
+    purpose: Text string communicating the button action to the user
+    availability: conditional
+    notes: Present when the label prop is provided; omitted for icon-only buttons
+  - label: icon
+    region: leading or trailing (inside surface)
+    purpose: Icon reinforcing or replacing the text label; position controlled by the reverse prop
+    availability: conditional
+    notes: Present when the icon prop is provided
+  - label: badge
+    region: top-right overlay
+    purpose: Small numeric or status indicator overlaid on the button surface
+    availability: conditional
+    notes: Present when the badge prop is provided
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+  applicationStates:
+    - disabled
+    - busy
+    - success
+  realEstate:
+    - responsive
+accessibility:
+  keyboard:
+    - key: Enter / Space
+      action: Triggers the button's onClick handler
+    - key: Tab / Shift+Tab
+      action: Moves focus to the next / previous focusable element
+  aria:
+    - attribute: aria-label
+      value: descriptive string
+      condition: icon-only buttons with no visible label — set via a11yTitle prop
+    - attribute: aria-disabled
+      value: 'true'
+      condition: when disabled prop is true
+    - attribute: aria-busy
+      value: 'true'
+      condition: when busy prop is true and an async operation is in progress
+  wcag:
+    - criterion: 1.4.3 Contrast (Minimum)
+      status: pass
+    - criterion: 1.4.6 Contrast (Enhanced)
+      status: fail
+    - criterion: 2.1.1 Keyboard
+      status: pass
+    - criterion: 2.4.7 Focus Visible
+      status: pass
+    - criterion: 2.5.3 Label in Name
+      status: conditional
+    - criterion: 2.5.5 Target Size (Enhanced)
+      status: fail
+    - criterion: 2.5.8 Target Size (Minimum)
+      status: pass
+    - criterion: 4.1.2 Name, Role, Value
+      status: conditional
+relatedComponents:
+  - anchor
+  - menu

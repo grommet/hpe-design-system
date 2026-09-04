@@ -1,0 +1,259 @@
+id: masked-input
+name: MaskedInput
+description: A text input that enforces a defined syntax pattern via a configurable
+  mask, auto-inserting separator characters and restricting per-segment character
+  sets as the user types. Always use inside a FormField.
+importPath: grommet
+framework: react
+props:
+- name: id
+  type: string
+  required: false
+  description: DOM id for the input element. Must match the htmlFor attribute of the
+    wrapping FormField.
+- name: name
+  type: string
+  required: false
+  description: HTML name for form submission. Must match the name attribute of the
+    wrapping FormField.
+- name: value
+  type: string
+  required: false
+  description: Controlled current value of the input.
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLInputElement>) => void'
+  required: false
+  description: Callback fired on each keystroke, providing the updated (possibly auto-formatted)
+    value via event.target.value.
+- name: mask
+  type: 'Array<{ fixed?: string } | { options?: string[]; regexp?: RegExp; length?:
+    number | [number, number]; placeholder?: string }>'
+  required: false
+  description: Array of mask segment definitions. Each entry is either a fixed separator
+    string or a variable user-input segment described by regexp, options, length,
+    or placeholder.
+- name: disabled
+  type: boolean
+  required: false
+  description: Prevents user interaction with the input.
+  defaultValue: 'false'
+- name: placeholder
+  type: string
+  required: false
+  description: Hint text shown when the input is empty.
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Icon rendered inside the input field.
+- name: reverse
+  type: boolean
+  required: false
+  description: When true, positions the icon on the trailing (right) side of the input.
+  defaultValue: 'false'
+- name: suggestions
+  type: 'string[] | Array<{ value: any; label?: string }>'
+  required: false
+  description: Autocomplete suggestions displayed in a drop below the input.
+- name: onSuggestionsOpen
+  type: () => void
+  required: false
+  description: Callback fired when the suggestions drop opens.
+- name: onSuggestionsClose
+  type: () => void
+  required: false
+  description: Callback fired when the suggestions drop closes.
+- name: onSelect
+  type: '({ suggestion: any }) => void'
+  required: false
+  description: Callback fired when the user selects a suggestion from the drop.
+usage:
+  whenToUse:
+  - 'Use when user input must conform to a strict syntax: IP addresses, phone numbers,
+    storage sizes, times.'
+  - Use to reduce errors by auto-inserting separator characters and constraining character
+    sets per segment.
+  - Always wrap in a FormField to provide an accessible label and validation feedback.
+  - Use instead of multiple plain TextInputs when a structured value has separable
+    but related parts.
+  whenToAvoid:
+  - Do not use for free-form text entry — use TextInput instead.
+  - Do not recreate a DateInput pattern with MaskedInput — use the dedicated DateInput
+    component.
+  - Do not use without a FormField wrapper; a visible label is required for accessibility.
+  - Do not use when the input format is unknown or highly variable per user.
+variants:
+- name: ip-address
+  description: Restricts input to a valid IPv4 address with four 0–255 octet segments
+    separated by dots.
+  when: Collecting a network device IP address, gateway, or DNS server.
+  example: "<FormField label=\"IP address\" name=\"ipAddr\" htmlFor=\"ipAddr\">\n\
+    \  <MaskedInput\n    id=\"ipAddr\"\n    name=\"ipAddr\"\n    mask={[\n      {\
+    \ regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n      { fixed: '.' },\n     \
+    \ { regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n      { fixed: '.' },\n   \
+    \   { regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n      { fixed: '.' },\n \
+    \     { regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n    ]}\n    value={ip}\n\
+    \    onChange={e => setIp(e.target.value)}\n  />\n</FormField>"
+- name: ip-range
+  description: Two IPv4 address segments joined by a separator to define an address
+    range or CIDR block.
+  when: Specifying an IP subnet, access-control range, or DHCP pool bounds.
+  example: // Use two MaskedInput fields within adjacent FormFields with matching
+    labels
+- name: size-with-units
+  description: A numeric value followed by selectable unit abbreviations (KB, MB,
+    GB, TB).
+  when: Configuring storage quotas, bandwidth limits, cache sizes, or threshold values.
+  example: "<FormField label=\"Disk quota\" name=\"quota\" htmlFor=\"quota\">\n  <MaskedInput\n\
+    \    id=\"quota\"\n    name=\"quota\"\n    mask={[\n      { regexp: /^[\\d]*$/,\
+    \ placeholder: '0' },\n      { fixed: ' ' },\n      { options: ['MB', 'GB', 'TB'],\
+    \ regexp: /^(MB|GB|TB)$/ },\n    ]}\n    value={quota}\n    onChange={e => setQuota(e.target.value)}\n\
+    \  />\n</FormField>"
+- name: email
+  description: Validates basic email address format via the browser's built-in email
+    type.
+  when: Collecting an email address with lightweight format enforcement.
+  example: "<FormField label=\"Email\" name=\"email\" htmlFor=\"email\">\n  <MaskedInput\n\
+    \    id=\"email\"\n    name=\"email\"\n    type=\"email\"\n    value={email}\n\
+    \    onChange={e => setEmail(e.target.value)}\n  />\n</FormField>"
+- name: time
+  description: Restricts input to an HH:MM with optional AM/PM selector.
+  when: Collecting a time of day for scheduling or alerting.
+  example: "<FormField label=\"Start time\" name=\"startTime\" htmlFor=\"startTime\"\
+    >\n  <MaskedInput\n    id=\"startTime\"\n    name=\"startTime\"\n    mask={[\n\
+    \      { regexp: /^(1[0-2]|0?[1-9])$/, placeholder: 'HH' },\n      { fixed: ':'\
+    \ },\n      { regexp: /^[0-5][0-9]$/, placeholder: 'MM' },\n      { fixed: ' '\
+    \ },\n      { options: ['AM', 'PM'] },\n    ]}\n    value={time}\n    onChange={e\
+    \ => setTime(e.target.value)}\n  />\n</FormField>"
+- name: with-validation
+  description: MaskedInput inside a FormField that shows an error when the value is
+    incomplete or violates business rules.
+  when: The masked field is required or must pass secondary validation beyond format.
+  example: "<FormField\n  label=\"IP address\"\n  name=\"ip\"\n  htmlFor=\"ip\"\n\
+    \  error={ipError}\n>\n  <MaskedInput\n    id=\"ip\"\n    name=\"ip\"\n    mask={ipMask}\n\
+    \    value={ip}\n    onChange={handleIpChange}\n  />\n</FormField>"
+- name: disabled
+  description: MaskedInput that cannot be interacted with, showing a read-only masked
+    value.
+  when: The field value is derived from another selection and cannot be edited directly.
+  example: "<FormField label=\"Assigned IP\" name=\"assigned\" htmlFor=\"assigned\"\
+    >\n  <MaskedInput\n    id=\"assigned\"\n    name=\"assigned\"\n    value={assignedIp}\n\
+    \    disabled\n  />\n</FormField>"
+anatomy:
+- label: text input field
+  region: root
+  purpose: Receives keyboard input and displays the masked value with auto-inserted
+    separators
+  availability: always
+- label: fixed separators
+  region: inline inside input
+  purpose: Non-editable characters automatically inserted by the mask definition (e.g.,
+    '.', ':', ' ')
+  availability: conditional
+  notes: Present only when the mask array contains fixed segment entries
+- label: per-segment placeholder
+  region: inside input
+  purpose: Inline hint text per variable segment guiding what characters to type (e.g.,
+    'xxx')
+  availability: conditional
+  notes: Shown when a mask segment defines a placeholder string
+- label: options selector
+  region: trailing segment
+  purpose: Inline dropdown for segments defined with an options array (e.g., unit
+    selectors KB/MB/GB)
+  availability: conditional
+  notes: Rendered as an inline select when a mask segment provides options
+- label: suggestions drop
+  region: portal
+  purpose: Drop list of matching suggestions displayed below the input
+  availability: conditional
+  notes: Shown when the suggestions prop is provided and the input is focused
+- label: icon
+  region: leading or trailing (inside input)
+  purpose: Optional icon reinforcing the input type (e.g., a network icon for IP fields)
+  availability: conditional
+  notes: Position controlled by the reverse prop
+behaviors:
+  interactiveStates:
+  - rest
+  - focus
+  - filled
+  - error
+  - disabled
+  applicationStates:
+  - suggestions-open
+  - suggestions-closed
+  dataStates:
+  - empty
+  - partial
+  - complete
+  - invalid
+  realEstate:
+  - Stretches to fill FormField width
+examples:
+- description: IPv4 address field
+  code: "<FormField label=\"Gateway IP\" name=\"gateway\" htmlFor=\"gateway\">\n \
+    \ <MaskedInput\n    id=\"gateway\"\n    name=\"gateway\"\n    mask={[\n      {\
+    \ regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n      { fixed: '.' },\n     \
+    \ { regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n      { fixed: '.' },\n   \
+    \   { regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n      { fixed: '.' },\n \
+    \     { regexp: /^[\\d]{1,3}$/, placeholder: 'xxx' },\n    ]}\n    value={gateway}\n\
+    \    onChange={e => setGateway(e.target.value)}\n  />\n</FormField>"
+- description: Storage size with unit selector
+  code: "<FormField label=\"Maximum cache size\" name=\"cacheSize\" htmlFor=\"cacheSize\"\
+    >\n  <MaskedInput\n    id=\"cacheSize\"\n    name=\"cacheSize\"\n    mask={[\n\
+    \      { regexp: /^[\\d]*$/, placeholder: '0' },\n      { fixed: ' ' },\n    \
+    \  { options: ['MB', 'GB', 'TB'], regexp: /^(MB|GB|TB)$/ },\n    ]}\n    value={cacheSize}\n\
+    \    onChange={e => setCacheSize(e.target.value)}\n  />\n</FormField>"
+- description: Time-of-day input
+  code: "<FormField label=\"Alert time\" name=\"alertTime\" htmlFor=\"alertTime\"\
+    >\n  <MaskedInput\n    id=\"alertTime\"\n    name=\"alertTime\"\n    mask={[\n\
+    \      { regexp: /^(1[0-2]|0?[1-9])$/, placeholder: 'HH' },\n      { fixed: ':'\
+    \ },\n      { regexp: /^[0-5][0-9]$/, placeholder: 'MM' },\n      { fixed: ' '\
+    \ },\n      { options: ['AM', 'PM'] },\n    ]}\n    value={alertTime}\n    onChange={e\
+    \ => setAlertTime(e.target.value)}\n  />\n</FormField>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus into and out of the input
+  - key: Arrow Down
+    action: Opens suggestions drop when suggestions are present
+  - key: Arrow Up / Down
+    action: Navigates items in the suggestions list
+  - key: Enter
+    action: Selects the highlighted suggestion
+  - key: Escape
+    action: Closes the suggestions drop
+  aria:
+  - attribute: aria-labelledby (via FormField)
+    value: FormField label id
+    condition: Label association provided by the FormField htmlFor/id pairing
+  - attribute: aria-autocomplete
+    value: '''list'''
+    condition: Applied when the suggestions prop is provided
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: Reflects the open state of the suggestions drop
+  announcements:
+  - trigger: Suggestion list opens
+    message: '{N} suggestions available'
+  - trigger: Suggestion selected
+    message: '{value} selected'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: pass
+  - criterion: 3.3.2 Labels or Instructions
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- form
+- form-field
+- text-input
+- date-input
+- select

@@ -1,0 +1,211 @@
+id: date-input
+name: DateInput
+description: Enables users to enter a single date or a date range via a masked text
+  input with an optional calendar drop overlay.
+importPath: grommet
+framework: react
+props:
+- name: format
+  type: string
+  required: false
+  description: Display and input format string. Use locale-appropriate formats (e.g.,
+    'mm/dd/yyyy' for US, 'dd/mm/yyyy' for EU).
+  defaultValue: '''mm/dd/yyyy'''
+- name: value
+  type: string | string[]
+  required: false
+  description: ISO 8601 date string (YYYY-MM-DD) for single date, or a two-element
+    array for a date range
+- name: onChange
+  type: '(event: { value: string | string[] }) => void'
+  required: false
+  description: Callback fired when the date value changes, called with the new ISO
+    date string or range array
+- name: name
+  type: string
+  required: false
+  description: HTML name attribute for the underlying input element
+- name: id
+  type: string
+  required: false
+  description: DOM id for the input element
+- name: buttonProps
+  type: object
+  required: false
+  description: Props forwarded to the calendar icon button that opens the date picker
+    drop
+- name: calendarProps
+  type: object
+  required: false
+  description: Props forwarded to the Calendar component rendered inside the drop
+    overlay
+- name: dropProps
+  type: object
+  required: false
+  description: Props forwarded to the Drop overlay that contains the calendar
+- name: inline
+  type: boolean
+  required: false
+  description: Renders the calendar inline without a drop overlay
+  defaultValue: 'false'
+- name: readOnly
+  type: boolean
+  required: false
+  description: Renders the input as a read-only display; use with readOnlyCopy for
+    a copyable value
+  defaultValue: 'false'
+usage:
+  whenToUse:
+  - Use when users need to input a specific date or date range as part of a form.
+  - Use for scheduling, filtering by date, or setting date-based configuration values.
+  - Always use a locale-appropriate format string to match user expectations.
+  - Wrap in FormField to provide a visible label and validation feedback.
+  whenToAvoid:
+  - Do not use when only approximate dates are needed — use a Select with month/year
+    options.
+  - Do not use when the date range is better expressed as preset options (Today, Last
+    7 days) — use ToggleGroup or Select.
+  - Do not use without a format prop — the mask is derived from the format and users
+    need to know the expected pattern.
+  - Do not use when time selection is also required without pairing with a TimeInput.
+variants:
+- name: single-date
+  description: Input for selecting one date via typed entry or calendar drop.
+  when: Setting a single date such as a due date, start date, or expiry date.
+  example: "<FormField label=\"Start date\" name=\"startDate\">\n  <DateInput\n  \
+    \  name=\"startDate\"\n    format=\"mm/dd/yyyy\"\n    value={startDate}\n    onChange={({\
+    \ value }) => setStartDate(value)}\n  />\n</FormField>"
+- name: date-range
+  description: Input for selecting a start and end date pair.
+  when: Filtering data by a date range, scheduling a multi-day event, or setting a
+    validity window.
+  example: "<FormField label=\"Date range\" name=\"dateRange\">\n  <DateInput\n  \
+    \  name=\"dateRange\"\n    format=\"mm/dd/yyyy-mm/dd/yyyy\"\n    value={dateRange}\n\
+    \    onChange={({ value }) => setDateRange(value)}\n  />\n</FormField>"
+- name: with-validation
+  description: DateInput in a FormField that displays an error when the date is invalid
+    or required.
+  when: Date entry is required or must meet constraints (e.g., must be in the future).
+  example: "<FormField\n  label=\"Expiry date\"\n  name=\"expiry\"\n  error={error}\n\
+    >\n  <DateInput\n    name=\"expiry\"\n    format=\"mm/dd/yyyy\"\n    value={expiry}\n\
+    \    onChange={({ value }) => { setExpiry(value); validateDate(value); }}\n  />\n\
+    </FormField>"
+- name: read-only
+  description: Displays the date as a formatted read-only value, optionally copyable.
+  when: Showing a date that the current user cannot change, such as a system-generated
+    timestamp.
+  example: "<FormField label=\"Last updated\" name=\"lastUpdated\">\n  <DateInput\n\
+    \    name=\"lastUpdated\"\n    format=\"mm/dd/yyyy\"\n    value={lastUpdatedDate}\n\
+    \    readOnly\n  />\n</FormField>"
+anatomy:
+- label: masked text input
+  region: root
+  purpose: Primary input field with format-driven mask guiding the user's typed entry
+  availability: always
+- label: calendar icon button
+  region: trailing (inside input)
+  purpose: Button that opens the calendar drop overlay for visual date selection
+  availability: always
+- label: calendar drop overlay
+  region: portal
+  purpose: Calendar component displayed in a drop below the input for picking dates
+    visually
+  availability: conditional
+  notes: Shown when the calendar icon is activated or the input is focused with inline=false
+- label: format hint
+  region: masked input placeholder
+  purpose: Shows the expected date format (e.g., mm/dd/yyyy) as placeholder text
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  - focus
+  - filled
+  - error
+  - disabled
+  - read-only
+  applicationStates:
+  - calendar-open
+  - calendar-closed
+  dataStates:
+  - empty
+  - partial-date
+  - complete-date
+  - invalid-date
+  realEstate:
+  - Stretches to fill FormField width
+  - Calendar drop positions below the input
+examples:
+- description: Single date in a form
+  code: "<Form onSubmit={handleSubmit}>\n  <FormField label=\"Maintenance date\" name=\"\
+    maintenance\">\n    <DateInput\n      name=\"maintenance\"\n      format=\"mm/dd/yyyy\"\
+    \n      value={maintenanceDate}\n      onChange={({ value }) => setMaintenanceDate(value)}\n\
+    \    />\n  </FormField>\n  <Button type=\"submit\" label=\"Schedule\" primary\
+    \ />\n</Form>"
+- description: Date range filter
+  code: "<Box direction=\"row\" gap=\"medium\" align=\"end\">\n  <FormField label=\"\
+    Date range\" name=\"range\">\n    <DateInput\n      name=\"range\"\n      format=\"\
+    mm/dd/yyyy-mm/dd/yyyy\"\n      value={range}\n      onChange={({ value }) => setRange(value)}\n\
+    \    />\n  </FormField>\n  <Button label=\"Apply\" onClick={applyFilter} />\n\
+    </Box>"
+- description: Date with validation
+  code: "const validate = value => {\n  const date = new Date(value);\n  if (!value)\
+    \ return 'Date is required';\n  if (date < new Date()) return 'Date must be in\
+    \ the future';\n  return undefined;\n};\n\n<FormField\n  label=\"Contract end\
+    \ date\"\n  name=\"contractEnd\"\n  validate={{ validator: validate }}\n>\n  <DateInput\n\
+    \    name=\"contractEnd\"\n    format=\"mm/dd/yyyy\"\n    value={contractEnd}\n\
+    \    onChange={({ value }) => setContractEnd(value)}\n  />\n</FormField>"
+- description: Read-only date display
+  code: "<FormField label=\"Created on\">\n  <DateInput\n    format=\"mm/dd/yyyy\"\
+    \n    value={createdAt}\n    readOnly\n  />\n</FormField>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the date input and the calendar icon button
+  - key: Enter / Space
+    action: Opens the calendar drop when the icon button is focused
+  - key: Arrow keys
+    action: Navigates dates within the calendar when the calendar is open
+  - key: Escape
+    action: Closes the calendar drop
+  - key: Enter
+    action: Selects the focused date in the calendar
+  aria:
+  - attribute: aria-label
+    value: '''Open calendar'''
+    condition: applied to the calendar icon button
+  - attribute: aria-haspopup
+    value: '''dialog'''
+    condition: applied to the calendar icon button indicating a calendar overlay will
+      open
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: applied to the icon button to indicate calendar open state
+  announcements:
+  - trigger: Calendar opens
+    message: Calendar, dialog opened
+  - trigger: Date selected
+    message: '{formatted date} selected'
+  - trigger: Calendar closes
+    message: Calendar closed
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: pass
+  - criterion: 3.3.2 Labels or Instructions
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- form
+- form-field
+- text-input
+- select
+- button

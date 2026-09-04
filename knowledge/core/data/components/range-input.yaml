@@ -1,0 +1,186 @@
+id: range-input
+name: RangeInput
+description: A slider control with a draggable handle for selecting a numeric value
+  within a defined min–max range. Always render the current value as visible text
+  alongside the slider.
+importPath: grommet
+framework: react
+props:
+- name: id
+  type: string
+  required: false
+  description: DOM id for the range input element. Must match the htmlFor of the wrapping
+    FormField.
+- name: name
+  type: string
+  required: false
+  description: HTML name attribute for form submission.
+- name: value
+  type: number | string
+  required: false
+  description: Controlled current value of the slider.
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLInputElement>) => void'
+  required: false
+  description: Callback fired as the handle moves. Read the updated value from event.target.value
+    (string); parse to number as needed.
+- name: min
+  type: number
+  required: false
+  description: Minimum selectable value.
+  defaultValue: '0'
+- name: max
+  type: number
+  required: false
+  description: Maximum selectable value.
+  defaultValue: '100'
+- name: step
+  type: number
+  required: false
+  description: Increment size between selectable values. The slider snaps to multiples
+    of step.
+  defaultValue: '1'
+- name: disabled
+  type: boolean
+  required: false
+  description: Prevents interaction with the slider.
+  defaultValue: 'false'
+- name: color
+  type: string
+  required: false
+  description: Color of the filled track segment to the left of the handle. Use HPE
+    semantic color tokens.
+usage:
+  whenToUse:
+  - Use when users need to select a numeric value from a continuous or stepped range.
+  - Use for settings such as confidence thresholds, timeout durations, volume, or
+    percentages.
+  - Always render a visible text value adjacent to the slider so users know the selected
+    amount.
+  - Wrap in a FormField to pair with a label and enable form validation.
+  whenToAvoid:
+  - Do not use when precise numeric entry is required — use TextInput or MaskedInput
+    instead.
+  - Do not use for binary choices — use CheckBox or a toggle.
+  - Do not use for selecting among discrete named options — use Select or RadioButtonGroup.
+  - Do not omit the current value display; the slider track position alone does not
+    communicate the selected number to users.
+variants:
+- name: basic
+  description: A continuous slider with a developer-rendered value label.
+  when: Collecting any single numeric value within a bounded range.
+  example: "<Box gap=\"small\">\n  <FormField label=\"Confidence threshold\" name=\"\
+    threshold\" htmlFor=\"threshold\">\n    <RangeInput\n      id=\"threshold\"\n\
+    \      name=\"threshold\"\n      min={0}\n      max={100}\n      step={1}\n  \
+    \    value={threshold}\n      onChange={e => setThreshold(Number(e.target.value))}\n\
+    \    />\n  </FormField>\n  <Text size=\"small\">Value: {threshold}%</Text>\n</Box>"
+- name: stepped
+  description: A slider that snaps to defined increments rather than continuous values.
+  when: Only specific values are valid (e.g., 0, 25, 50, 75, 100) or the range is
+    large.
+  example: "<RangeInput\n  min={0}\n  max={100}\n  step={25}\n  value={val}\n  onChange={e\
+    \ => setVal(Number(e.target.value))}\n/>"
+- name: disabled
+  description: A non-interactive slider showing a read-only value.
+  when: Displaying a system-determined value that the user cannot change.
+  example: "<FormField label=\"Current utilisation\" name=\"util\">\n  <RangeInput\
+    \ value={utilisation} min={0} max={100} disabled />\n</FormField>"
+anatomy:
+- label: track
+  region: root
+  purpose: Horizontal bar representing the full selectable range from min to max
+  availability: always
+- label: fill
+  region: track — left of handle
+  purpose: Colored segment of the track indicating the selected portion of the range
+  availability: always
+- label: handle / thumb
+  region: track — at current value
+  purpose: Draggable circular control point the user moves along the track to change
+    the value
+  availability: always
+- label: value display
+  region: external (developer-rendered)
+  purpose: Text showing the currently selected numeric value; not part of RangeInput
+    itself
+  availability: conditional
+  notes: Must be rendered by the caller adjacent to the slider; omitting it hides
+    the selected value
+behaviors:
+  interactiveStates:
+  - rest
+  - focus
+  - active-drag
+  - disabled
+  applicationStates:
+  - at-minimum
+  - at-maximum
+  - mid-range
+  dataStates:
+  - unset
+  - set
+  realEstate:
+  - Stretches to fill FormField or container width
+  - Height is fixed by the theme
+examples:
+- description: AI confidence threshold slider
+  code: "const [threshold, setThreshold] = React.useState(50);\n\n<Box gap=\"small\"\
+    >\n  <FormField\n    label=\"Confidence threshold\"\n    name=\"confidence\"\n\
+    \    htmlFor=\"confidence\"\n  >\n    <RangeInput\n      id=\"confidence\"\n \
+    \     name=\"confidence\"\n      min={0}\n      max={100}\n      step={1}\n  \
+    \    value={threshold}\n      onChange={e => setThreshold(Number(e.target.value))}\n\
+    \    />\n  </FormField>\n  <Box direction=\"row\" justify=\"between\">\n    <Text\
+    \ size=\"small\">0%</Text>\n    <Text size=\"small\" weight=\"bold\">{threshold}%</Text>\n\
+    \    <Text size=\"small\">100%</Text>\n  </Box>\n</Box>"
+- description: Session timeout slider with step increments
+  code: "const [timeout, setTimeout] = React.useState(30);\n\n<Box gap=\"small\">\n\
+    \  <FormField label=\"Session timeout\" name=\"timeout\" htmlFor=\"timeout\">\n\
+    \    <RangeInput\n      id=\"timeout\"\n      name=\"timeout\"\n      min={5}\n\
+    \      max={120}\n      step={5}\n      value={timeout}\n      onChange={e =>\
+    \ setTimeout(Number(e.target.value))}\n    />\n  </FormField>\n  <Text size=\"\
+    small\">{timeout} minutes</Text>\n</Box>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the slider
+  - key: Arrow Left / Down
+    action: Decreases the value by one step
+  - key: Arrow Right / Up
+    action: Increases the value by one step
+  - key: Home
+    action: Jumps to the minimum value
+  - key: End
+    action: Jumps to the maximum value
+  aria:
+  - attribute: role
+    value: '''slider'''
+    condition: Applied to the underlying input element
+  - attribute: aria-valuemin
+    value: min prop value
+    condition: Derived from the min prop
+  - attribute: aria-valuemax
+    value: max prop value
+    condition: Derived from the max prop
+  - attribute: aria-valuenow
+    value: current value
+    condition: Reflects the live current value of the slider
+  announcements:
+  - trigger: Value changes
+    message: '{value}'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- form
+- form-field
+- text-input
+- meter
+- check-box

@@ -1,0 +1,94 @@
+id: data-summary
+name: DataSummary
+description: 'Displays a human-readable summary of data state within a Data context:
+  how many results are visible out of the total, and — when rows are selected — how
+  many items are currently selected.'
+importPath: grommet
+framework: react
+props:
+- name: messages
+  type: object
+  required: false
+  description: Overrides for the default summary string templates. Use to localise
+    or customise the displayed text.
+usage:
+  whenToUse:
+  - Use inside a Data context directly above or below a DataTable or List to keep
+    users oriented.
+  - Always include DataSummary when DataSearch or DataFilters are present so users
+    can see how many results match.
+  - Place DataSummary between the toolbar controls and the DataTable for the clearest
+    visual hierarchy.
+  whenToAvoid:
+  - Do not use DataSummary outside a Data context — it has no standalone state of
+    its own.
+  - Do not use when the data set is always shown in full with no search or filter
+    controls.
+variants:
+- name: basic
+  description: Shows the count of visible items and the total (e.g., 'Showing 12 of
+    48 items').
+  when: Search or filter criteria are applied to a data set.
+  example: "<Data data={items} view={view} onView={setView}>\n  <Toolbar>\n    <DataSearch\
+    \ />\n  </Toolbar>\n  <DataSummary />\n  <DataTable columns={columns} />\n</Data>"
+- name: with-selection
+  description: Extends the basic summary with a selected-count segment (e.g., 'Showing
+    12 of 48 items — 3 selected').
+  when: DataTable has onSelect enabled and one or more rows are selected.
+  example: "<Data data={items} view={view} onView={setView}>\n  <DataSummary />\n\
+    \  <DataTable\n    columns={columns}\n    select={selectedIds}\n    onSelect={setSelectedIds}\n\
+    \  />\n</Data>"
+anatomy:
+- label: summary text
+  region: root
+  purpose: Human-readable sentence describing how many items are visible relative
+    to the full set
+  availability: always
+- label: selection count segment
+  region: appended to summary text
+  purpose: Appends the number of currently selected rows to the summary
+  availability: conditional
+  notes: Shown only when DataTable onSelect is in use and at least one row is selected
+behaviors:
+  interactiveStates:
+  - rest
+  applicationStates:
+  - unfiltered
+  - filtered
+  - empty-results
+  dataStates:
+  - all-visible
+  - filtered
+  - with-selection
+  realEstate:
+  - Renders inline text; takes only the height of a single text line
+examples:
+- description: DataSummary with search and filter in a full Data layout
+  code: "<Data data={devices} view={view} onView={setView}>\n  <Toolbar justify=\"\
+    between\">\n    <DataSearch />\n    <DataFilters layer />\n  </Toolbar>\n  <DataSummary\
+    \ />\n  <DataTable\n    columns={columns}\n    select={selected}\n    onSelect={setSelected}\n\
+    \  />\n  <Pagination />\n</Data>"
+accessibility:
+  keyboard: []
+  aria:
+  - attribute: aria-live
+    value: '''polite'''
+    condition: Grommet applies a live region so screen readers announce summary changes
+      when filters are applied
+  announcements:
+  - trigger: Filter applied
+    message: Showing {N} of {total} items
+  - trigger: Row selected
+    message: Showing {N} of {total} items — {S} selected
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 4.1.3 Status Messages
+    status: pass
+relatedComponents:
+- data
+- data-table
+- data-search
+- data-filters
+- list
+- pagination

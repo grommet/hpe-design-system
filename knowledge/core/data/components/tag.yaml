@@ -1,0 +1,181 @@
+id: tag
+name: Tag
+description: Annotates or categorizes items using concise labels. Supports static,
+  removable, and interactive (filter) modes.
+importPath: grommet
+framework: react
+props:
+- name: name
+  type: string
+  required: false
+  description: The category label displayed before the value (e.g., 'Region'). Omit
+    for value-only tags.
+- name: value
+  type: string
+  required: true
+  description: The primary text content of the tag (e.g., 'us-west-2')
+- name: onRemove
+  type: () => void
+  required: false
+  description: Callback fired when the user clicks the remove (×) button. Renders
+    the remove button when provided.
+- name: onClick
+  type: () => void
+  required: false
+  description: Callback fired when the tag itself is clicked, making it interactive
+    (e.g., for filtering).
+- name: a11yTitle
+  type: string
+  required: false
+  description: Accessible label for the tag, overriding the default accessible name
+    derived from name + value
+- name: background
+  type: string
+  required: false
+  description: Background color token or hex value for the tag container
+- name: border
+  type: boolean | string | object
+  required: false
+  description: Border configuration for the tag container
+- name: size
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Controls the size of the tag text and padding
+  defaultValue: '''medium'''
+usage:
+  whenToUse:
+  - Use to display metadata labels or categories associated with an item.
+  - Use removable tags to let users manage applied labels or attributes (e.g., editing
+    tags on a resource).
+  - Use interactive (clickable) tags as filter chips to let users narrow down a dataset.
+  - Use highlight tags to draw attention to a specific attribute without user interaction.
+  whenToAvoid:
+  - Do not use tags as primary navigation — use Anchor or Nav instead.
+  - Do not use tags to convey status or severity — use a status badge or Notification
+    instead.
+  - Do not use tags for long text; keep labels concise (1–3 words).
+  - Do not mix removable and non-removable tags in the same row without clear visual
+    differentiation.
+variants:
+- name: static-metadata
+  description: Read-only tag displaying a name-value pair for metadata annotation.
+  when: Showing resource attributes such as environment, region, or team without interactivity.
+  example: "<Box direction=\"row\" gap=\"xsmall\" wrap>\n  <Tag name=\"Region\" value=\"\
+    us-west-2\" />\n  <Tag name=\"Team\" value=\"Platform\" />\n  <Tag name=\"Env\"\
+    \ value=\"Production\" />\n</Box>"
+- name: removable
+  description: Tag with a remove button (×) for managing applied labels or attributes.
+  when: The user can remove a tag to unassign a label, category, or filter criterion.
+  example: "<Box direction=\"row\" gap=\"xsmall\" wrap>\n  {tags.map(tag => (\n  \
+    \  <Tag\n      key={tag}\n      value={tag}\n      onRemove={() => removeTag(tag)}\n\
+    \    />\n  ))}\n</Box>"
+- name: interactive-filter
+  description: Clickable tag that acts as a toggle filter chip.
+  when: Users can click tags to add or remove filter criteria from a dataset.
+  example: "<Box direction=\"row\" gap=\"xsmall\" wrap>\n  {filterOptions.map(opt\
+    \ => (\n    <Tag\n      key={opt.value}\n      value={opt.label}\n      background={activeFilters.includes(opt.value)\
+    \ ? 'brand' : 'background-contrast'}\n      onClick={() => toggleFilter(opt.value)}\n\
+    \      a11yTitle={`Filter by ${opt.label}`}\n    />\n  ))}\n</Box>"
+- name: highlight
+  description: Visually emphasized tag to draw attention to a key attribute.
+  when: One attribute is especially important and warrants a distinct visual treatment.
+  example: "<Tag\n  name=\"Priority\"\n  value=\"Critical\"\n  background=\"status-critical\"\
+    \n/>"
+anatomy:
+- label: tag container
+  region: root
+  purpose: Rounded pill-shaped container that groups the name, value, and optional
+    remove button
+  availability: always
+- label: name
+  region: leading
+  purpose: Optional category label shown before the value, separated by a colon
+  availability: conditional
+  notes: Omit for value-only tags
+- label: value
+  region: body
+  purpose: Primary text content of the tag
+  availability: always
+- label: remove button
+  region: trailing
+  purpose: Icon button (×) that dismisses the tag when clicked
+  availability: conditional
+  notes: Only rendered when onRemove is provided
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active (filter toggled)
+  applicationStates:
+  - removable
+  - static
+  - interactive
+  dataStates: []
+  realEstate:
+  - Inline, wraps naturally in flex containers
+examples:
+- description: Metadata tags on a resource card
+  code: "<Card>\n  <CardBody pad=\"medium\">\n    <Heading level={4} margin={{ top:\
+    \ 'none', bottom: 'xsmall' }}>web-server-01</Heading>\n    <Box direction=\"row\"\
+    \ gap=\"xsmall\" wrap>\n      <Tag name=\"Region\" value=\"eu-west-1\" />\n  \
+    \    <Tag name=\"OS\" value=\"RHEL 9\" />\n      <Tag name=\"Cluster\" value=\"\
+    prod-cluster-a\" />\n    </Box>\n  </CardBody>\n</Card>"
+- description: Removable tag list
+  code: "const [appliedTags, setAppliedTags] = useState(['critical', 'storage', 'us-east']);\n\
+    \n<Box direction=\"row\" gap=\"xsmall\" wrap>\n  {appliedTags.map(tag => (\n \
+    \   <Tag\n      key={tag}\n      value={tag}\n      onRemove={() =>\n        setAppliedTags(prev\
+    \ => prev.filter(t => t !== tag))\n      }\n    />\n  ))}\n</Box>"
+- description: Filter chips
+  code: "const [active, setActive] = useState([]);\nconst toggle = val =>\n  setActive(prev\
+    \ =>\n    prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]\n\
+    \  );\n\n<Box direction=\"row\" gap=\"xsmall\" wrap>\n  {['Development', 'Staging',\
+    \ 'Production'].map(env => (\n    <Tag\n      key={env}\n      value={env}\n \
+    \     background={active.includes(env) ? 'brand' : undefined}\n      onClick={()\
+    \ => toggle(env)}\n      a11yTitle={`Filter ${env}`}\n    />\n  ))}\n</Box>"
+- description: Name-value tag pair
+  code: "<Box direction=\"row\" gap=\"xsmall\" align=\"center\">\n  <Text weight=\"\
+    bold\">Labels:</Text>\n  <Tag name=\"team\" value=\"platform-ops\" />\n  <Tag\
+    \ name=\"billing\" value=\"cost-center-42\" />\n</Box>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the tag or its remove button
+  - key: Enter / Space
+    action: Activates an interactive tag (onClick) or triggers remove (onRemove)
+  - key: Delete / Backspace
+    action: May be used to remove a focused tag in some implementations
+  aria:
+  - attribute: role
+    value: '''button'''
+    condition: applied when tag is interactive (onClick or onRemove provided)
+  - attribute: aria-label
+    value: 'a11yTitle or ''{name}: {value}'''
+    condition: always present on the interactive tag element
+  - attribute: aria-pressed
+    value: '''true'' | ''false'''
+    condition: applied to filter-style toggle tags
+  announcements:
+  - trigger: Tag removed
+    message: '{value} tag removed'
+  - trigger: Filter tag toggled on
+    message: '{value} filter applied'
+  - trigger: Filter tag toggled off
+    message: '{value} filter removed'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- button
+- check-box-group
+- text
+- data-filter
+- card

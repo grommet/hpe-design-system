@@ -1,0 +1,203 @@
+id: notification
+name: Notification
+description: Informs users of timely, relevant system and task status updates to build
+  confidence and trust.
+importPath: grommet
+framework: react
+props:
+- name: title
+  type: string
+  required: false
+  description: Bold heading text for the notification
+- name: message
+  type: string | React.ReactNode
+  required: false
+  description: Supporting body text or content providing detail about the notification
+- name: status
+  type: '''normal'' | ''info'' | ''warning'' | ''critical'' | ''unknown'''
+  required: false
+  description: Sets the color accent and icon indicating the severity of the notification
+  defaultValue: '''normal'''
+- name: toast
+  type: 'boolean | { autoClose?: boolean, position?: string }'
+  required: false
+  description: Renders the notification as a floating toast overlay. Set autoClose
+    to dismiss after a timeout.
+  defaultValue: 'false'
+- name: onClose
+  type: () => void
+  required: false
+  description: Callback fired when the user dismisses the notification. Renders a
+    close button when provided.
+- name: actions
+  type: '{ label: string, onClick: () => void, href?: string }[]'
+  required: false
+  description: Array of action buttons or links rendered inside the notification
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Custom icon to override the default status icon
+- name: global
+  type: boolean
+  required: false
+  description: Renders the notification as a full-width banner pinned to the top of
+    the page
+  defaultValue: 'false'
+- name: time
+  type: number
+  required: false
+  description: Milliseconds after which a toast notification auto-closes. Only used
+    when toast.autoClose is true.
+- name: width
+  type: string
+  required: false
+  description: Width of the notification container. Accepts any Grommet size token.
+usage:
+  whenToUse:
+  - Use toast notifications for low-priority, non-action-oriented updates that don't
+    require immediate attention.
+  - Use inline notifications near the content they relate to when context matters.
+  - Use global banner notifications for system-wide conditions that affect all users.
+  - 'Match status to severity: info for tips, warning for potential issues, critical
+    for failures.'
+  whenToAvoid:
+  - Do not use notifications for errors that should be displayed inline in a form
+    — use FormField error instead.
+  - Do not stack multiple toast notifications simultaneously; queue them.
+  - Do not use critical status for informational messages — reserve it for urgent
+    failures.
+  - Avoid placing interactive content inside a notification that auto-closes.
+variants:
+- name: toast
+  description: Floating overlay notification that appears transiently and may auto-dismiss.
+  when: Low-priority status updates that do not require user action, such as a successful
+    save or background sync completion.
+  example: "<Notification\n  toast\n  title=\"Changes saved\"\n  message=\"Your configuration\
+    \ has been saved successfully.\"\n  status=\"normal\"\n  onClose={() => setVisible(false)}\n\
+    />"
+- name: inline
+  description: Embedded notification rendered in the page flow near related content.
+  when: Contextual warnings or errors tied to a specific section of the UI, such as
+    a form section or data panel.
+  example: "<Notification\n  title=\"Validation failed\"\n  message=\"One or more\
+    \ fields contain errors. Please review and correct them.\"\n  status=\"critical\"\
+    \n  actions={[{ label: 'Review errors', onClick: scrollToErrors }]}\n/>"
+- name: global-banner
+  description: Full-width banner pinned to the top of the viewport for system-wide
+    alerts.
+  when: System-generated alerts that affect all users, such as maintenance windows,
+    outages, or security advisories.
+  example: "<Notification\n  global\n  title=\"Scheduled maintenance\"\n  message=\"\
+    The system will be unavailable from 2:00–4:00 AM UTC.\"\n  status=\"warning\"\n\
+    />"
+- name: with-actions
+  description: Notification with one or more call-to-action links or buttons embedded
+    in the message.
+  when: When the notification requires the user to take a specific next step, such
+    as reviewing a log or acknowledging an alert.
+  example: "<Notification\n  title=\"Certificate expiring soon\"\n  message=\"Your\
+    \ SSL certificate expires in 7 days.\"\n  status=\"warning\"\n  actions={[\n \
+    \   { label: 'Renew certificate', onClick: handleRenew },\n    { label: 'Remind\
+    \ me later', onClick: handleSnooze },\n  ]}\n/>"
+anatomy:
+- label: status icon
+  region: leading
+  purpose: Provides a color-coded visual indicator of severity (normal, info, warning,
+    critical)
+  availability: always
+- label: title
+  region: body
+  purpose: Bold heading that briefly names the condition or event
+  availability: conditional
+  notes: Optional but strongly recommended for clarity
+- label: message
+  region: body
+  purpose: Supporting text that explains the notification in more detail
+  availability: conditional
+- label: action area
+  region: body / trailing
+  purpose: One or more links or buttons the user can take in response to the notification
+  availability: conditional
+- label: close button
+  region: trailing
+  purpose: Allows the user to dismiss the notification
+  availability: conditional
+  notes: Present when onClose prop is provided
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  applicationStates:
+  - dismissing
+  - visible
+  - auto-closing
+  dataStates:
+  - normal
+  - info
+  - warning
+  - critical
+  - unknown
+  animation:
+  - slide-in
+  - fade-out
+examples:
+- description: Toast notification
+  code: "<Notification\n  toast\n  title=\"Server restarted\"\n  message=\"The server\
+    \ was successfully restarted.\"\n  status=\"normal\"\n  onClose={() => setOpen(false)}\n\
+    />"
+- description: Critical inline notification
+  code: "<Notification\n  title=\"Connection lost\"\n  message=\"Unable to reach the\
+    \ API endpoint. Check your network connection.\"\n  status=\"critical\"\n  actions={[{\
+    \ label: 'Retry', onClick: handleRetry }]}\n/>"
+- description: Warning with action
+  code: "<Notification\n  title=\"Storage at 90%\"\n  message=\"Your storage volume\
+    \ is nearly full. Add capacity to avoid service interruptions.\"\n  status=\"\
+    warning\"\n  actions={[{ label: 'Manage storage', onClick: openStorage }]}\n \
+    \ onClose={() => setWarningVisible(false)}\n/>"
+- description: Global banner
+  code: "<Notification\n  global\n  title=\"Scheduled maintenance tonight\"\n  message=\"\
+    Services will be unavailable from 2–4 AM UTC.\"\n  status=\"info\"\n  onClose={()\
+    \ => setBannerDismissed(true)}\n/>"
+accessibility:
+  keyboard:
+  - key: Tab
+    action: Moves focus to the close button or action links within the notification
+  - key: Enter / Space
+    action: Activates the focused close button or action link
+  - key: Escape
+    action: Dismisses a toast or overlay notification when focused
+  aria:
+  - attribute: role
+    value: status
+    condition: applied to non-critical notifications so screen readers announce them
+      politely
+  - attribute: role
+    value: alert
+    condition: applied to critical notifications so screen readers announce them immediately
+  - attribute: aria-label
+    value: descriptive string
+    condition: close button — set via a11yTitle on the Button
+  announcements:
+  - trigger: Notification appears
+    message: 'Notification: {title}. {message}'
+  - trigger: Toast auto-closes
+    message: Notification dismissed.
+  wcag:
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.3.3 Sensory Characteristics
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+  - criterion: 4.1.3 Status Messages
+    status: pass
+relatedComponents:
+- button
+- layer
+- text
+- anchor

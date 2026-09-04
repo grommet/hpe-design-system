@@ -1,0 +1,171 @@
+id: form-field
+name: FormField
+description: Wrapper for form inputs that provides labels, help text, and validation
+  messages.
+importPath: grommet
+framework: react
+props:
+- name: label
+  type: string | React.ReactNode
+  required: false
+  description: Field label
+- name: name
+  type: string
+  required: true
+  description: Field name for form handling
+- name: required
+  type: boolean
+  required: false
+  description: Whether field is required
+- name: validate
+  type: ValidationRule | ValidationRule[]
+  required: false
+  description: Validation rules (regexp, function, or object)
+- name: help
+  type: string | React.ReactNode
+  required: false
+  description: Help text below the input
+- name: error
+  type: string | React.ReactNode
+  required: false
+  description: Error message to display
+- name: htmlFor
+  type: string
+  required: false
+  description: Links the FormField label to the child input via its id attribute.
+    Always provide a matching id prop on the child input element.
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables all child inputs within the FormField
+usage:
+  whenToUse:
+  - Always use FormField with input components.
+  - Provide clear, visible labels.
+  - Use validate prop for built-in validation.
+  - Use help text for additional guidance.
+  whenToAvoid:
+  - Do not use inputs without FormField wrapper.
+  - Do not use placeholder as label replacement.
+  - Avoid custom validation when built-in works.
+examples:
+- description: Email Field with Validation
+  code: "<FormField \n  label=\"Email\" \n  name=\"email\" \n  required\n  validate={{\n\
+    \    regexp: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/,\n    message: 'Enter a valid email'\n\
+    \  }}\n>\n  <TextInput name=\"email\" type=\"email\" />\n</FormField>"
+- description: Field with hint text
+  code: "<FormField\n  label=\"Username\"\n  name=\"username\"\n  help=\"3–20 characters;\
+    \ letters, numbers, and underscores only.\"\n  required\n>\n  <TextInput name=\"\
+    username\" />\n</FormField>"
+- description: Field in error state (controlled)
+  code: "// Pass the error prop directly to show a server-side or async error\n<FormField\n\
+    \  label=\"Email\"\n  name=\"email\"\n  error={serverError ? 'This email is already\
+    \ registered.' : undefined}\n>\n  <TextInput name=\"email\" type=\"email\" />\n\
+    </FormField>"
+- description: Disabled field
+  code: "<FormField label=\"Organisation\" name=\"org\" disabled>\n  <TextInput name=\"\
+    org\" value=\"HPE\" />\n</FormField>"
+variants:
+- name: rest
+  description: 'Default state: visible label, empty or pre-filled input, no help or
+    error text.'
+  when: The starting state for all form fields before user interaction.
+  example: <FormField label="Name" name="name"><TextInput name="name" /></FormField>
+- name: with-help
+  description: Adds a hint below the input to guide correct entry. Help text is announced
+    by screen readers via aria-describedby.
+  when: Fields where the expected format or constraints are not obvious from the label
+    alone.
+  example: <FormField label="Password" name="password" help="Minimum 8 characters,
+    at least one number."><TextInput name="password" type="password" /></FormField>
+- name: error
+  description: Displays an error message below the input and applies aria-invalid
+    to the child input. Replaces help text when active.
+  when: Inline (validate prop) or server-side validation fails. Pass the error string
+    via the error prop for controlled error display.
+  example: <FormField label="Email" name="email" error="This email is already registered."><TextInput
+    name="email" type="email" /></FormField>
+- name: disabled
+  description: Visually dims the label and input; prevents user interaction. Applied
+    by passing disabled prop to FormField, which propagates to child inputs.
+  when: Fields that are read-only in the current context (e.g., system-assigned values,
+    locked permissions).
+  example: <FormField label="Organisation" name="org" disabled><TextInput name="org"
+    value="HPE" /></FormField>
+- name: required
+  description: Appends a required indicator (*) to the label and sets aria-required
+    on the child input. Use the required prop, not a custom asterisk.
+  when: Any field that must be filled before the form can be submitted successfully.
+  example: <FormField label="Email" name="email" required><TextInput name="email"
+    type="email" /></FormField>
+anatomy:
+- label: '1'
+  region: Label
+  purpose: Identifies the field and becomes the input's accessible name via htmlFor/id
+    binding.
+  availability: required
+  notes: A required indicator (*) is appended automatically when the required prop
+    is true.
+- label: '2'
+  region: Input zone
+  purpose: Contains the child input component — TextInput, Select, CheckBox, TextArea,
+    etc.
+  availability: required
+- label: '3'
+  region: Help text
+  purpose: Provides contextual guidance below the input to assist correct entry.
+  availability: optional
+  notes: Announced by screen readers via aria-describedby.
+- label: '4'
+  region: Error message
+  purpose: Communicates validation failure below the input in the error color.
+  availability: optional
+  notes: Replaces help text when an error is active. Triggers aria-invalid on the
+    child input.
+behaviors:
+  interactiveStates:
+  - rest
+  - focus
+  applicationStates:
+  - disabled
+  - error
+  - required
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus through the child input within the field
+  aria:
+  - attribute: label association
+    value: htmlFor on FormField must match id on child input
+    condition: Always — required for screen readers to announce the visible label
+      when the input receives focus
+  - attribute: aria-required
+    value: 'true'
+    condition: When required prop is true; automatically applied to the child input
+      by FormField
+  - attribute: aria-invalid
+    value: 'true'
+    condition: When the field has a validation error; automatically applied to the
+      child input by FormField
+  - attribute: aria-describedby
+    value: id of help or error text element
+    condition: When help or error text is present; automatically wired by FormField
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.4.6 Headings and Labels
+    status: conditional
+  - criterion: 3.3.1 Error Identification
+    status: conditional
+  - criterion: 3.3.2 Labels or Instructions
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- form
+- text-input
+- text-area
+- select
+- check-box

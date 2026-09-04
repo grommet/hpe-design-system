@@ -1,0 +1,111 @@
+id: data-filter
+name: DataFilter
+description: Individual filter control for a specific data property. Renders appropriate
+  filter input based on data type.
+importPath: grommet
+framework: react
+props:
+- name: property
+  type: string
+  required: true
+  description: The data property name to filter on
+- name: children
+  type: React.ReactNode
+  required: false
+  description: Custom filter control (e.g., CheckBoxGroup, RangeInput)
+- name: options
+  type: 'string[] | { label: string, value: string }[]'
+  required: false
+  description: Explicit list of filter options to offer. When provided, DataFilter
+    renders a Select or CheckBoxGroup with these options instead of auto-deriving
+    them from the data. Use when the data set is large or when you want to offer values
+    not present in the current data.
+- name: multiple
+  type: boolean
+  required: false
+  description: Allows the user to select more than one filter value simultaneously.
+    Results include rows matching any of the selected values (OR logic).
+- name: badge
+  type: boolean
+  required: false
+  description: When true, a numeric badge is shown on the parent DataFilters button
+    indicating how many active filter values are selected for this property. Helps
+    users understand the current filter state at a glance.
+usage:
+  whenToUse:
+  - Use inside DataFilters component.
+  - Let it auto-generate filter UI when possible.
+  - Use children prop for custom filter controls.
+  whenToAvoid:
+  - Do not use outside DataFilters or Data context.
+  - Do not manage filter state manually.
+examples:
+- description: Auto-generated Filter
+  code: <DataFilter property="status" />
+- description: Custom Filter Control
+  code: "<DataFilter property=\"category\">\n  <CheckBoxGroup options={['A', 'B',\
+    \ 'C']} />\n</DataFilter>"
+variants:
+- name: auto-generated
+  description: DataFilter renders appropriate filter UI automatically based on the
+    data type of the property (CheckBox for booleans, Select for string options configured
+    in Data.properties).
+  when: The default for most use cases. Configure filter options in the parent Data
+    component's properties prop rather than customising the filter control.
+  example: <DataFilter property="status" />
+- name: custom
+  description: User provides a custom filter control as children, replacing the auto-generated
+    UI.
+  when: Specialised filter controls — date range pickers, numeric range sliders, or
+    multi-select with search — that cannot be expressed through the auto-generated
+    options.
+  example: <DataFilter property="category"><CheckBoxGroup options={['A', 'B', 'C']}
+    /></DataFilter>
+anatomy:
+- label: filter control
+  region: root
+  purpose: A single form control (Select, CheckBoxGroup, RangeInput, etc.) bound to
+    one data property for filtering
+  availability: always
+- label: filter label
+  region: above control
+  purpose: Text label identifying which data property the control filters
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  - open
+  applicationStates:
+  - active
+  - inactive
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus into and out of the filter control
+  - key: Space / Enter
+    action: Opens a Select dropdown or toggles a CheckBox option
+  - key: Arrow Down / Arrow Up
+    action: Navigates options inside an open Select dropdown
+  - key: Escape
+    action: Closes an open Select dropdown without applying a value
+  aria:
+  - attribute: label association
+    value: property label from Data.properties config
+    condition: The filter label displayed above the control is derived from the Data
+      component's properties configuration. Always provide a label in properties to
+      ensure screen readers can announce the filter purpose.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+    note: When using the children prop with a custom control (e.g. a plain CheckBoxGroup
+      or RangeInput), ensure the control has an accessible label. The auto-generated
+      filter label above the control is not automatically associated via htmlFor/aria-labelledby
+      with a custom child. Pass a label prop directly on the child control or use
+      aria-labelledby pointing to the filter label element.
+relatedComponents:
+- data-filters
+- data
+- check-box
+- select

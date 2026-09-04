@@ -1,0 +1,187 @@
+id: accordion
+name: Accordion
+description: Displays vertically stacked collapsible panels that allow users to show
+  or hide content sections independently.
+importPath: grommet
+framework: react
+props:
+- name: activeIndex
+  type: number | number[]
+  required: false
+  description: Index or array of indices of the currently expanded panel(s). Use with
+    onActive for controlled mode.
+- name: onActive
+  type: '(activeIndexes: number[]) => void'
+  required: false
+  description: Callback fired when panels are expanded or collapsed, called with the
+    updated active index array
+- name: animate
+  type: boolean
+  required: false
+  description: Animates the expand/collapse transition of panels
+  defaultValue: 'true'
+- name: multiple
+  type: boolean
+  required: false
+  description: Allows more than one panel to be open simultaneously
+  defaultValue: 'false'
+- name: messages
+  type: '{ tabContents: string }'
+  required: false
+  description: Accessibility message overrides for the accordion
+- name: children
+  type: AccordionPanel | AccordionPanel[]
+  required: true
+  description: One or more AccordionPanel children. Each panel has a header and collapsible
+    body.
+usage:
+  whenToUse:
+  - Use when a page has multiple content sections that users may not all need to view
+    simultaneously.
+  - Use to progressively disclose detailed content, keeping the page scannable.
+  - Keep only one panel open at a time by default to reduce cognitive load.
+  - Use for FAQs, settings groups, or detailed configuration sections.
+  whenToAvoid:
+  - Do not use when all content sections are equally important and should be visible
+    by default — use Tabs or a plain layout instead.
+  - Do not use for sequential steps where order matters — use a stepper or wizard
+    pattern.
+  - Do not nest accordions inside other accordions.
+  - Do not use accordion panels as a substitute for page navigation.
+variants:
+- name: single-open
+  description: Only one panel can be open at a time (default); opening a new panel
+    closes the previous one.
+  when: Most use cases to prevent overwhelming the user with multiple open sections.
+  example: "<Accordion>\n  <AccordionPanel label=\"General settings\">\n    <Box pad={{\
+    \ horizontal: 'medium', bottom: 'medium' }}>\n      <GeneralSettings />\n    </Box>\n\
+    \  </AccordionPanel>\n  <AccordionPanel label=\"Security settings\">\n    <Box\
+    \ pad={{ horizontal: 'medium', bottom: 'medium' }}>\n      <SecuritySettings />\n\
+    \    </Box>\n  </AccordionPanel>\n</Accordion>"
+- name: multiple-open
+  description: Multiple panels can be open simultaneously.
+  when: When users need to compare content across multiple sections at the same time.
+  example: "<Accordion multiple>\n  <AccordionPanel label=\"CPU metrics\"><CpuChart\
+    \ /></AccordionPanel>\n  <AccordionPanel label=\"Memory metrics\"><MemoryChart\
+    \ /></AccordionPanel>\n  <AccordionPanel label=\"Disk metrics\"><DiskChart /></AccordionPanel>\n\
+    </Accordion>"
+- name: controlled
+  description: Active panel state is managed externally via activeIndex and onActive.
+  when: Accordion state must be driven by application logic, URL hash, or programmatic
+    expansion.
+  example: "<Accordion\n  activeIndex={activePanel}\n  onActive={newActive => setActivePanel(newActive[0])}\n\
+    >\n  <AccordionPanel label=\"Overview\"><OverviewContent /></AccordionPanel>\n\
+    \  <AccordionPanel label=\"Details\"><DetailsContent /></AccordionPanel>\n</Accordion>"
+- name: no-animation
+  description: Expand/collapse happens instantly without transition animation.
+  when: Users prefer reduced motion or the application must respect prefers-reduced-motion.
+  example: "<Accordion animate={false}>\n  <AccordionPanel label=\"Section A\"><ContentA\
+    \ /></AccordionPanel>\n  <AccordionPanel label=\"Section B\"><ContentB /></AccordionPanel>\n\
+    </Accordion>"
+anatomy:
+- label: accordion container
+  region: root
+  purpose: Wraps all panels and manages shared open/close state
+  availability: always
+- label: panel header
+  region: AccordionPanel header
+  purpose: Clickable/focusable row containing the panel label and chevron icon; entire
+    area is the interactive target
+  availability: always
+- label: panel label
+  region: AccordionPanel header
+  purpose: Text that names the collapsible section
+  availability: always
+- label: chevron icon
+  region: AccordionPanel header (trailing)
+  purpose: Rotates to indicate collapsed (pointing down) vs expanded (pointing up)
+    state
+  availability: always
+- label: panel body
+  region: AccordionPanel collapsible area
+  purpose: Container for the section content, shown when the panel is expanded
+  availability: conditional
+  notes: Hidden when panel is collapsed
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - expanded
+  - collapsed
+  applicationStates:
+  - panel-open
+  - panel-closed
+  dataStates: []
+  animation:
+  - expand (height 0 → content height)
+  - collapse (content height → 0)
+examples:
+- description: FAQ accordion
+  code: "const faqs = [\n  { q: 'How do I reset my password?', a: 'Visit the login\
+    \ page and click Forgot password.' },\n  { q: 'How do I add a new server?', a:\
+    \ 'Navigate to Servers and click Add server.' },\n  { q: 'Where can I view audit\
+    \ logs?', a: 'Open Settings > Audit logs.' },\n];\n\n<Accordion>\n  {faqs.map(({\
+    \ q, a }) => (\n    <AccordionPanel key={q} label={q}>\n      <Box pad={{ horizontal:\
+    \ 'medium', bottom: 'medium' }}>\n        <Text>{a}</Text>\n      </Box>\n   \
+    \ </AccordionPanel>\n  ))}\n</Accordion>"
+- description: Settings grouped by category
+  code: "<Accordion>\n  <AccordionPanel label=\"General\">\n    <Box pad={{ horizontal:\
+    \ 'medium', bottom: 'medium' }}>\n      <GeneralSettings />\n    </Box>\n  </AccordionPanel>\n\
+    \  <AccordionPanel label=\"Notifications\">\n    <Box pad={{ horizontal: 'medium',\
+    \ bottom: 'medium' }}>\n      <NotificationSettings />\n    </Box>\n  </AccordionPanel>\n\
+    \  <AccordionPanel label=\"Advanced\">\n    <Box pad={{ horizontal: 'medium',\
+    \ bottom: 'medium' }}>\n      <AdvancedSettings />\n    </Box>\n  </AccordionPanel>\n\
+    </Accordion>"
+- description: Controlled accordion with URL-driven open state
+  code: "const sectionIndex = sections.findIndex(s => s.id === activeSectionId);\n\
+    \n<Accordion\n  activeIndex={sectionIndex >= 0 ? sectionIndex : 0}\n  onActive={([i])\
+    \ => navigate(`/docs/${sections[i].id}`)}\n>\n  {sections.map(s => (\n    <AccordionPanel\
+    \ key={s.id} label={s.title}>\n      <Box pad={{ horizontal: 'medium', bottom:\
+    \ 'medium' }}>\n        <s.Content />\n      </Box>\n    </AccordionPanel>\n \
+    \ ))}\n</Accordion>"
+- description: Multiple panels open
+  code: "<Accordion multiple>\n  <AccordionPanel label=\"System metrics\">\n    <Box\
+    \ pad=\"medium\"><SystemMetrics /></Box>\n  </AccordionPanel>\n  <AccordionPanel\
+    \ label=\"Network metrics\">\n    <Box pad=\"medium\"><NetworkMetrics /></Box>\n\
+    \  </AccordionPanel>\n  <AccordionPanel label=\"Storage metrics\">\n    <Box pad=\"\
+    medium\"><StorageMetrics /></Box>\n  </AccordionPanel>\n</Accordion>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus between panel headers and any interactive elements inside
+      open panels
+  - key: Enter / Space
+    action: Expands or collapses the focused panel header
+  aria:
+  - attribute: role
+    value: '''button'''
+    condition: applied to each panel header to communicate it is interactive
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: applied to each panel header indicating expanded/collapsed state
+  - attribute: aria-controls
+    value: panel body element id
+    condition: links each header button to its controlled panel body
+  announcements:
+  - trigger: Panel expands
+    message: '{panel label} expanded'
+  - trigger: Panel collapses
+    message: '{panel label} collapsed'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- tabs
+- layer
+- box
+- text
+- button

@@ -1,0 +1,138 @@
+id: button-group
+name: ButtonGroup
+description: Groups related action buttons in a horizontal row with consistent spacing,
+  used for primary action sets.
+importPath: grommet
+framework: react
+props:
+- name: children
+  type: Button | Button[]
+  required: true
+  description: Two or more Button components to be grouped together
+usage:
+  whenToUse:
+  - Use to group 2–4 closely related actions that apply to the same object or context.
+  - Use on form footers or dialog footers to present primary and secondary actions
+    side by side.
+  - Use at the end of a wizard step or confirmation dialog to group Confirm and Cancel
+    actions.
+  - Ensure there is one clearly primary action; other buttons should be secondary
+    or default.
+  whenToAvoid:
+  - Do not use for more than 4 buttons — use a Menu or ActionMenu for overflow actions.
+  - Do not use for unrelated actions — only group buttons that share a common context.
+  - Do not mix Button kinds arbitrarily; follow the primary/secondary/default hierarchy.
+  - Do not use a ButtonGroup for toggle-style selections — use ToggleGroup instead.
+variants:
+- name: primary-secondary
+  description: A primary action button paired with a secondary cancel or alternative
+    action.
+  when: Form submissions, confirmations, and modal dialogs.
+  example: "<ButtonGroup>\n  <Button label=\"Save changes\" primary onClick={handleSave}\
+    \ />\n  <Button label=\"Cancel\" onClick={handleCancel} />\n</ButtonGroup>"
+- name: multiple-actions
+  description: Three related actions with clear hierarchy.
+  when: Operation dialogs with distinct action paths (e.g., Save, Save & close, Cancel).
+  example: "<ButtonGroup>\n  <Button label=\"Apply\" primary onClick={handleApply}\
+    \ />\n  <Button label=\"Apply & close\" onClick={handleApplyClose} />\n  <Button\
+    \ label=\"Cancel\" onClick={handleCancel} />\n</ButtonGroup>"
+- name: destructive
+  description: A destructive (critical color) primary button paired with a cancel
+    action.
+  when: Confirming irreversible actions such as deletion or data wipe.
+  example: "<ButtonGroup>\n  <Button\n    label=\"Delete server\"\n    color=\"status-critical\"\
+    \n    primary\n    onClick={handleDelete}\n  />\n  <Button label=\"Cancel\" onClick={handleCancel}\
+    \ />\n</ButtonGroup>"
+- name: icon-actions
+  description: Icon-only buttons grouped for compact toolbars.
+  when: Dense UI toolbars or table row action cells with limited horizontal space.
+  example: "<ButtonGroup>\n  <Button icon={<Edit />} a11yTitle=\"Edit\" onClick={handleEdit}\
+    \ />\n  <Button icon={<Copy />} a11yTitle=\"Duplicate\" onClick={handleDuplicate}\
+    \ />\n  <Button icon={<Trash />} a11yTitle=\"Delete\" onClick={handleDelete} />\n\
+    </ButtonGroup>"
+anatomy:
+- label: group container
+  region: root
+  purpose: Horizontal flex container that spaces child buttons consistently
+  availability: always
+- label: primary button
+  region: leading (by convention)
+  purpose: The main action users are expected to take
+  availability: conditional
+  notes: At least one primary button is recommended in most button groups
+- label: secondary/default button(s)
+  region: trailing
+  purpose: Alternative or cancel actions
+  availability: conditional
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  - disabled
+  applicationStates:
+  - loading (individual button)
+  dataStates: []
+  realEstate:
+  - Buttons are inline-flex by default
+  - Wraps to next line on narrow containers
+examples:
+- description: Form footer button group
+  code: "<Box direction=\"row\" justify=\"end\" pad={{ top: 'medium' }} border={{\
+    \ side: 'top' }}>\n  <ButtonGroup>\n    <Button label=\"Save\" primary type=\"\
+    submit\" />\n    <Button label=\"Cancel\" onClick={onCancel} />\n  </ButtonGroup>\n\
+    </Box>"
+- description: Dialog confirmation actions
+  code: "<Layer>\n  <Box pad=\"medium\" gap=\"medium\" width=\"medium\">\n    <Heading\
+    \ level={3} margin=\"none\">Delete server?</Heading>\n    <Text>This action cannot\
+    \ be undone.</Text>\n    <Box direction=\"row\" justify=\"end\">\n      <ButtonGroup>\n\
+    \        <Button\n          label=\"Delete\"\n          primary\n          color=\"\
+    status-critical\"\n          onClick={handleDelete}\n        />\n        <Button\
+    \ label=\"Cancel\" onClick={onClose} />\n      </ButtonGroup>\n    </Box>\n  </Box>\n\
+    </Layer>"
+- description: Table row actions
+  code: "<DataTable\n  columns={[\n    {\n      property: 'actions',\n      header:\
+    \ 'Actions',\n      render: datum => (\n        <ButtonGroup>\n          <Button\
+    \ icon={<Edit />} a11yTitle={`Edit ${datum.name}`} onClick={() => editServer(datum)}\
+    \ plain />\n          <Button icon={<Trash />} a11yTitle={`Delete ${datum.name}`}\
+    \ onClick={() => deleteServer(datum)} plain />\n        </ButtonGroup>\n     \
+    \ ),\n    },\n  ]}\n  data={servers}\n/>"
+- description: Wizard step navigation
+  code: "<Box direction=\"row\" justify=\"between\" pad={{ top: 'medium' }}>\n  <Button\
+    \ label=\"Back\" onClick={onBack} disabled={step === 0} />\n  <ButtonGroup>\n\
+    \    <Button label=\"Next\" primary onClick={onNext} disabled={!isStepValid} />\n\
+    \    <Button label=\"Cancel\" onClick={onCancel} />\n  </ButtonGroup>\n</Box>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus between individual buttons in the group
+  - key: Enter / Space
+    action: Activates the focused button
+  aria:
+  - attribute: role
+    value: '''group'''
+    condition: recommended on the container element to group related actions for screen
+      readers
+  - attribute: aria-label
+    value: descriptive group name
+    condition: applied to the container when context requires differentiating from
+      other button groups
+  announcements: []
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- button
+- menu
+- toggle-group
+- layer
+- form
