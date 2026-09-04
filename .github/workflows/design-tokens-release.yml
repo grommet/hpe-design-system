@@ -234,3 +234,23 @@ jobs:
           path: |
             release-notes.md
             hpe-design-tokens-slack-announcement.md
+
+      - name: Write release evidence summary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_url=$(gh release view "${{ env.RELEASE_TAG }}" --json url --jq '.url')
+          npm_version=$(npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version)
+          {
+            echo "## hpe-design-tokens release evidence"
+            echo
+            echo "| Evidence | Value |"
+            echo "| --- | --- |"
+            echo "| Package | \\`${{ env.PACKAGE_NAME }}\\` |"
+            echo "| Version | \\`${npm_version}\\` |"
+            echo "| Approved commit | \\`${{ needs.candidate.outputs.approved_sha }}\\` |"
+            echo "| Stable sync | Passed for approved commit |"
+            echo "| GitHub release | ${release_url} |"
+            echo "| NPM package | https://www.npmjs.com/package/${{ env.PACKAGE_NAME }}/v/${{ inputs.version }} |"
+            echo "| Announcement | Uploaded as workflow artifact for manual review |"
+          } >> "$GITHUB_STEP_SUMMARY"

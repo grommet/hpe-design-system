@@ -61,6 +61,9 @@ Every completed stage should report the evidence available at that point:
 - GitHub tag/release URL and NPM registry version/tarball URL.
 - Slack announcement draft and editorial status.
 
+The protected publication workflow also writes these values to the GitHub Actions job summary
+so a maintainer can review the release evidence without reconstructing it from individual logs.
+
 ## Related Operations
 
 - Package commands and Figma safety rules: [docs/OPERATIONS.md](../../../packages/hpe-design-tokens/docs/OPERATIONS.md)
