@@ -42,6 +42,8 @@ jobs:
       - name: Sync tokens to Figma file
         run: pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=production
         env:
+          # required to bypass the CI production-mutation guardrail for this intentional stable sync
+          ALLOW_PRODUCTION_WRITES: 'true'
           FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
           FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
           FILE_KEY_COMPONENT: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_COMPONENT }}
