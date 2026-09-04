@@ -1468,8 +1468,10 @@ export const components = [
     name: 'Stepper',
     available: true,
     category: 'Controls',
-    description: 'Stepper documentation is coming soon.',
-    seoDescription: 'Stepper documentation is coming soon.',
+    description:
+      'Stepper communicates progress through ordered workflow stages, including current, completed, pending, error, and nested steps.',
+    seoDescription:
+      'Stepper communicates progress through ordered workflow stages, including current, completed, pending, error, and nested steps.',
     preview: {
       image: {
         src: {

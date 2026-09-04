@@ -15,6 +15,8 @@
 - The YAML includes the explicit public `StepperProps` members only.
 - The installed type extends `Omit<React.HTMLAttributes<HTMLOListElement>, 'children'>`; inherited HTML, ARIA, and DOM event members are intentionally excluded from this first definition and should be reviewed before treating the prop list as complete.
 
-## Missing examples
+## Example references
 
-- `examples` is intentionally empty because no Stepper example files currently exist. Add path-based references after examples are authored.
+- The generated playground, use-case examples, and label-clarity previews are
+  linked through `examples[].codeFile` in `stepper.yaml`.
+- Add future Stepper examples to the YAML when they are created.

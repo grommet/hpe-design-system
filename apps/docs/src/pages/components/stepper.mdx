@@ -4,19 +4,23 @@ import {
   StepperBadLabelClarityPreview,
   StepperCompletingGuidedSetupWorkflowExample,
   StepperGoodLabelClarityPreview,
+  StepperPlaygroundExample,
   StepperRecoveringFromValidationErrorsAtSpecificStepExample,
-  StepperRevealingNestedSubStepsInComplexWorkflowsExample,
+  WizardCompletingGroupedSetupTasksExample,
 } from '../../examples';
 
 <Example componentName="Stepper">
-  <div>{/* TODO: Add playground example */}</div>
+  <StepperPlaygroundExample />
 </Example>
 
 ## Use cases
 
 ### Completing a guided setup workflow
 
-Use Stepper in a multi-step setup flow when users need clear progress through a fixed sequence. Place a horizontal Stepper at the top of a wizard, modal, or page section with stages such as Details, Configuration, Values, and Review. Pair it with Back and Next buttons so the parent flow controls routing and validation while the Stepper keeps the current stage and remaining path visible. As each section is completed, the corresponding indicator changes to a completed state and the user can understand where they are in the process.
+Use Stepper for a multi-step setup flow with a fixed sequence. Place it
+at the top of a wizard, modal, or page section. Pair it with Back and Next
+buttons, or enable clickable steps when users need to revisit completed stages.
+Completed sections update their indicators so users can track their progress.
 
 <Example height={{ min: 'medium' }}>
   <StepperCompletingGuidedSetupWorkflowExample />
@@ -24,7 +28,12 @@ Use Stepper in a multi-step setup flow when users need clear progress through a 
 
 ### Recovering from validation errors at a specific step
 
-Use Stepper when a high-stakes workflow can fail validation at an individual stage and users need to locate the correction quickly. Place it above the form content inside a wizard or beside the workflow content when the process is completed automatically but requires follow-up fixes. When a required value is invalid, the affected step shows an error state and message while completed steps remain available for context. Users return to the failing stage, correct the issue, and continue without losing work from the other stages.
+Use Stepper when a workflow can fail validation at an individual stage.
+Place it above the form content in a wizard, or beside workflow content when
+the process completes automatically but requires follow-up fixes. Show an
+error state and message on the affected step while preserving completed steps
+for context. Let users return to the failing stage, correct the issue, and
+continue without losing completed work.
 
 <Example height={{ min: 'medium' }}>
   <StepperRecoveringFromValidationErrorsAtSpecificStepExample />
@@ -32,10 +41,15 @@ Use Stepper when a high-stakes workflow can fail validation at an individual sta
 
 ### Revealing nested sub-steps in complex workflows
 
-Use Stepper when a high-level phase contains child actions that should become visible as users enter that phase. Place a vertical Stepper inside a wizard for an advanced setup journey with parent phases such as Plan, Configure, and Verify, then reveal child steps such as Select policy and Assign devices under Configure. Keep parent phases visible while child steps provide detailed orientation so users can understand both the overall journey and their current subtask. This avoids flattening every action into one overwhelming list while preserving a clear progress model.
+Use Stepper when a high-level phase contains child actions that become
+visible as users enter that phase. Place a vertical Stepper inside a wizard
+with parent phases such as Plan, Configure, and Verify. Reveal child steps
+such as Select policy and Assign devices under Configure while keeping the
+parent phases visible. This structure preserves the overall workflow position
+and the current subtask without flattening every action into one list.
 
 <Example height={{ min: 'medium' }}>
-  <StepperRevealingNestedSubStepsInComplexWorkflowsExample />
+  <WizardCompletingGroupedSetupTasksExample />
 </Example>
 
 ## Anatomy
@@ -77,26 +91,26 @@ Use Stepper when a high-level phase contains child actions that should become vi
 
 ### Interactive states
 
-- Rest: display the current step and available stages without interaction feedback.
-- Focus: expose the focused step clearly, especially when `clickableSteps` is enabled.
-- Keyboard activation: activate the focused step with Enter or Space when step navigation is enabled.
-- Clickable step navigation: allow users to select eligible steps when `clickableSteps` is true.
+- Rest: Display the current step and available stages without interaction feedback.
+- Focus: Expose the focused step clearly, especially when `clickableSteps` is enabled.
+- Keyboard activation: Activate the focused step with Enter or Space when step navigation is enabled.
+- Clickable step navigation: Allow users to select eligible steps when `clickableSteps` is true.
 
 ### Application states
 
-- Pending: show a step that has not started.
-- Current: identify the active step in the workflow.
-- Completed: show a stage that has been finished.
-- Error: identify a step that requires correction.
-- Current error: identify the active step when its validation has failed.
-- Disabled: prevent interaction and expose the disabled reason when provided.
-- Read-only: render the sequence without step navigation when `clickableSteps` is false.
+- Pending: Show a step that has not started.
+- Current: Identify the active step in the workflow.
+- Completed: Show a stage that has been finished.
+- Error: Identify a step that requires correction.
+- Current error: Identify the active step when its validation has failed.
+- Disabled: Prevent interaction and expose the disabled reason when provided.
+- Read-only: Render the sequence without step navigation when `clickableSteps` is false.
 
 ### Data states
 
-- Populated ordered steps: render the supplied steps in their defined order.
-- Nested sub-steps: reveal child stages beneath a parent phase when the workflow provides them.
-- Validation error: represent the failed stage through `status: 'error'` and an actionable `errorMessage`.
+- Populated ordered steps: Render the supplied steps in their defined order.
+- Nested sub-steps: Reveal child stages beneath a parent phase when the workflow provides them.
+- Validation error: Represent the failed stage through `status: 'error'` and an actionable `errorMessage`.
 
 ### Real-estate behavior
 

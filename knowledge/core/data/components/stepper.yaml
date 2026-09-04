@@ -1,6 +1,6 @@
 id: stepper
 name: Stepper
-description: Stepper guides users through a sequence of related stages in a workflow.
+description: Stepper communicates progress through ordered workflow stages, including current, completed, pending, error, and nested steps.
 importPath: grommet
 props:
   - name: steps
@@ -48,7 +48,25 @@ usage:
     - Recover from validation errors at a specific step without losing completed work.
     - Reveal nested sub-steps in a complex workflow while preserving the parent phase context.
   whenToAvoid: []
-examples: []
+examples:
+  - description: Interactive Stepper playground
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/StepperPlaygroundExample.js
+  - description: Completing a guided setup workflow
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/StepperCompletingGuidedSetupWorkflowExample.js
+  - description: Recovering from validation errors at a specific step
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/StepperRecoveringFromValidationErrorsAtSpecificStepExample.js
+  - description: Revealing nested sub-steps in complex workflows
+    code: ''
+    codeFile: apps/docs/src/examples/components/wizard/WizardCompletingGroupedSetupTasksExample.js
+  - description: Good example of clear Stepper labels
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/DosDonts/StepperGoodLabelClarityPreview.js
+  - description: Bad example of unclear Stepper labels
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/DosDonts/StepperBadLabelClarityPreview.js
 anatomy:
   - label: Stepper list
     region: Container
