@@ -111,6 +111,23 @@ artifact to NPM with provenance, verifies the registry version and a clean consu
 then publishes the GitHub release. It uploads release notes and a Slack announcement draft as
 workflow evidence. A maintainer must post the Slack announcement manually.
 
+#### One-Time Repository Configuration
+
+Before the first publication, a repository administrator must confirm:
+
+- [ ] The `design-tokens-release` GitHub environment exists.
+- [ ] The environment requires approval from at least one authorized maintainer.
+- [ ] The environment contains an `NPM_TOKEN` secret scoped to publish `hpe-design-tokens`.
+- [ ] Actions are allowed to create contents and releases for this repository.
+- [ ] The package is public on NPM and `latest` is the intended distribution tag.
+- [ ] NPM provenance is enabled for the package and organization policy permits it.
+- [ ] `Update design-tokens-stable` has completed successfully for the approved commit.
+
+Run the release workflow once with `publish=false` and inspect the candidate tarball and
+workflow evidence. Only after that smoke run passes should a maintainer run it with
+`publish=true`. Prefer an immutable commit SHA for `ref`; do not use a moving branch for a
+publication run.
+
 ### 4. Handle partial failures
 
 - Candidate failure: fix the version, changelog, build, or test issue and rerun preflight.
