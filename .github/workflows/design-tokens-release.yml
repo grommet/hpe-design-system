@@ -1,0 +1,256 @@
+name: Release hpe-design-tokens
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Approved commit or branch to release'
+        required: true
+        default: 'master'
+        type: string
+      version:
+        description: 'Exact package version to release, for example 2.3.0'
+        required: true
+        type: string
+      publish:
+        description: 'Publish the GitHub release and NPM package after protected approval'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hpe-design-tokens-release-${{ inputs.version }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '24.15.0'
+  PNPM_VERSION: '10.30.3'
+  PACKAGE_NAME: hpe-design-tokens
+  RELEASE_TAG: hpe-design-tokens@${{ inputs.version }}
+
+jobs:
+  candidate:
+    name: Build release candidate
+    runs-on: ubuntu-latest
+    outputs:
+      approved_sha: ${{ steps.approved-ref.outputs.sha }}
+    steps:
+      - name: Check out approved ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      - name: Resolve approved ref
+        id: approved-ref
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run release preflight
+        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:preflight
+
+      - name: Validate approved version and package boundary
+        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:validate --version=${{ inputs.version }}
+
+      - name: Create immutable package artifact
+        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:pack
+
+      - name: Upload immutable package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-design-tokens-${{ inputs.version }}
+          path: packages/hpe-design-tokens/release-artifacts/*.tgz
+          if-no-files-found: error
+
+  stable-sync-gate:
+    name: Verify stable sync
+    needs: candidate
+    if: ${{ inputs.publish == true }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - name: Check stable workflow result for approved commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APPROVED_SHA: ${{ needs.candidate.outputs.approved_sha }}
+        run: |
+          runs=$(gh run list \
+            --workflow update-design-tokens-stable.yml \
+            --commit "$APPROVED_SHA" \
+            --status success \
+            --limit 1 \
+            --json databaseId,headSha,conclusion)
+          test "$(echo "$runs" | jq 'length')" -gt 0
+          echo "$runs" | jq --arg sha "$APPROVED_SHA" 'map(select(.headSha == $sha)) | length > 0' | grep -q true
+
+  publish:
+    name: Publish approved release
+    needs: [candidate, stable-sync-gate]
+    if: ${{ inputs.publish == true }}
+    runs-on: ubuntu-latest
+    environment:
+      name: design-tokens-release
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Check out approved ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.candidate.outputs.approved_sha }}
+          fetch-depth: 0
+
+      - name: Download immutable package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hpe-design-tokens-${{ inputs.version }}
+          path: release-artifact
+
+      - name: Validate artifact version
+        env:
+          EXPECTED_VERSION: ${{ inputs.version }}
+        run: |
+          artifact=$(find release-artifact -name '*.tgz' -print -quit)
+          test -n "$artifact"
+          actual_version=$(tar -xOf "$artifact" package/package.json | node -e "let data=''; process.stdin.on('data', chunk => data += chunk); process.stdin.on('end', () => process.stdout.write(JSON.parse(data).version))")
+          test "$actual_version" = "$EXPECTED_VERSION"
+
+      - name: Configure NPM authentication
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org
+
+      - name: Check release state
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APPROVED_SHA: ${{ needs.candidate.outputs.approved_sha }}
+        run: |
+          release=$(gh release view "${{ env.RELEASE_TAG }}" --json isDraft,targetCommitish 2>/dev/null || true)
+          if [ -z "$release" ]; then
+            tag_sha=$(gh api "repos/${{ github.repository }}/git/ref/tags/${{ env.RELEASE_TAG }}" --jq '.object.sha' 2>/dev/null || true)
+            test -z "$tag_sha"
+            exit 0
+          fi
+          echo "$release" | jq -e '.isDraft == true' >/dev/null
+          target=$(echo "$release" | jq -r '.targetCommitish')
+          test "$target" = "$APPROVED_SHA"
+
+      - name: Create draft GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ env.RELEASE_TAG }}" >/dev/null 2>&1; then
+            echo "Reusing existing draft release ${RELEASE_TAG}"
+            exit 0
+          fi
+          awk -v version="${{ inputs.version }}" '
+            $0 == "## " version { found=1; next }
+            found && /^## / { exit }
+            found { print }
+          ' packages/hpe-design-tokens/CHANGELOG.md > release-notes.md
+          gh release create "${{ env.RELEASE_TAG }}" \
+            --target "${{ needs.candidate.outputs.approved_sha }}" \
+            --title "${{ env.RELEASE_TAG }}" \
+            --notes-file release-notes.md \
+            --draft
+
+      - name: Publish NPM package
+        id: npm-publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version >/dev/null 2>&1; then
+            echo "NPM version already exists; reusing it after verification"
+            exit 0
+          fi
+          npm publish release-artifact/*.tgz --access public --provenance --tag latest
+
+      - name: Verify NPM registry version
+        run: |
+          for attempt in 1 2 3 4 5; do
+            npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version --json && exit 0
+            sleep 10
+          done
+          exit 1
+
+      - name: Verify published tarball in a clean consumer
+        run: |
+          registry_tarball=$(npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" dist.tarball)
+          test -n "$registry_tarball"
+          mkdir -p registry-consumer
+          curl --fail --location "$registry_tarball" --output registry-consumer/package.tgz
+          tar -tzf registry-consumer/package.tgz | grep -q '^package/dist/esm/index.js$'
+          tar -tzf registry-consumer/package.tgz | grep -q '^package/package.json$'
+          printf '{"private":true}\n' > registry-consumer/package.json
+          (cd registry-consumer && npm install --ignore-scripts ./package.tgz && node --input-type=module -e "import('hpe-design-tokens').then(module => { if (!module) process.exit(1); })")
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release edit "${{ env.RELEASE_TAG }}" --draft=false
+
+      - name: Create Slack announcement draft
+        run: |
+          awk -v version="${{ inputs.version }}" '
+            $0 == "## " version { found=1; next }
+            found && /^## / { exit }
+            found { print }
+          ' packages/hpe-design-tokens/CHANGELOG.md > release-highlights.md
+          {
+            echo "# hpe-design-tokens ${{ inputs.version }} release"
+            echo
+            echo "hpe-design-tokens@${{ inputs.version }} is now available on NPM."
+            echo
+            echo "Release: https://github.com/${{ github.repository }}/releases/tag/${{ env.RELEASE_TAG }}"
+            echo "NPM: https://www.npmjs.com/package/${{ env.PACKAGE_NAME }}/v/${{ inputs.version }}"
+            echo
+            echo "Highlights:"
+            cat release-highlights.md
+          } > hpe-design-tokens-slack-announcement.md
+
+      - name: Upload release evidence and announcement draft
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-design-tokens-${{ inputs.version }}-release-evidence
+          path: |
+            release-notes.md
+            hpe-design-tokens-slack-announcement.md
+
+      - name: Write release evidence summary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_url=$(gh release view "${{ env.RELEASE_TAG }}" --json url --jq '.url')
+          npm_version=$(npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version)
+          {
+            echo "## hpe-design-tokens release evidence"
+            echo
+            echo "| Evidence | Value |"
+            echo "| --- | --- |"
+            echo "| Package | \\`${{ env.PACKAGE_NAME }}\\` |"
+            echo "| Version | \\`${npm_version}\\` |"
+            echo "| Approved commit | \\`${{ needs.candidate.outputs.approved_sha }}\\` |"
+            echo "| Stable sync | Passed for approved commit |"
+            echo "| GitHub release | ${release_url} |"
+            echo "| NPM package | https://www.npmjs.com/package/${{ env.PACKAGE_NAME }}/v/${{ inputs.version }} |"
+            echo "| Announcement | Uploaded as workflow artifact for manual review |"
+          } >> "$GITHUB_STEP_SUMMARY"

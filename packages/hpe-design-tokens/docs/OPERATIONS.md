@@ -62,6 +62,86 @@ pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test
 pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output tokens_qa
 ```
 
+## Release Runbook
+
+The release process uses Changesets for version and changelog preparation. GitHub and NPM
+publication remain protected operations and must not be performed from a local clone.
+
+### 1. Prepare the release PR
+
+For every user-visible token package change, add a Changeset using the policy in
+`../../.changeset/README.md`. After the change reaches `master`, the
+`Prepare design tokens release PR` workflow creates or updates a PR that runs
+`pnpm exec changeset version`.
+
+Review the generated package version and `CHANGELOG.md` before merging that PR. The review must
+confirm token impact, semantic-version classification, migration guidance, and the generated
+release notes.
+
+### 2. Run candidate preflight
+
+Before merging the version PR, review its Changesets-derived version and changelog. After the
+version PR is merged, run `HPE Design Tokens Release Preflight` manually with the approved
+commit or branch. The workflow builds the package, runs package tests, validates generated
+exports and package metadata, and uploads one candidate tarball. At this point the Changesets
+have already been consumed by the version PR.
+
+The equivalent local checks are:
+
+```bash
+pnpm --filter hpe-design-tokens release:preflight
+pnpm --filter hpe-design-tokens release:validate --version=<X.Y.Z>
+pnpm --filter hpe-design-tokens release:pack
+```
+
+Do not continue if the candidate version, changelog heading, generated exports, or tarball
+contents do not match the approved release.
+
+### 3. Publish through protected GitHub Actions
+
+Run `Release hpe-design-tokens` manually with:
+
+- `ref`: the approved commit or branch.
+- `version`: the exact version from `package.json`.
+- `publish=false`: candidate-only validation.
+- `publish=true`: protected publication after the `design-tokens-release` environment approval
+  and a successful `Update design-tokens-stable` run for the exact approved commit.
+
+The workflow creates one immutable artifact, creates a draft GitHub release, publishes that
+artifact to NPM with provenance, verifies the registry version and a clean consumer install,
+then publishes the GitHub release. It uploads release notes and a Slack announcement draft as
+workflow evidence. A maintainer must post the Slack announcement manually.
+
+#### One-Time Repository Configuration
+
+Before the first publication, a repository administrator must confirm:
+
+- [ ] The `design-tokens-release` GitHub environment exists.
+- [ ] The environment requires approval from at least one authorized maintainer.
+- [ ] The environment contains an `NPM_TOKEN` secret scoped to publish `hpe-design-tokens`.
+- [ ] Actions are allowed to create contents and releases for this repository.
+- [ ] The package is public on NPM and `latest` is the intended distribution tag.
+- [ ] NPM provenance is enabled for the package and organization policy permits it.
+- [ ] `Update design-tokens-stable` has completed successfully for the approved commit.
+
+Run the release workflow once with `publish=false` and inspect the candidate tarball and
+workflow evidence. Only after that smoke run passes should a maintainer run it with
+`publish=true`. Prefer an immutable commit SHA for `ref`; do not use a moving branch for a
+publication run.
+
+### 4. Handle partial failures
+
+- Candidate failure: fix the version, changelog, build, or test issue and rerun preflight.
+- Existing tag: stop and compare the tag target with the approved commit; do not force-move it.
+- NPM publication failure after draft creation: inspect the draft release and rerun the same
+  immutable ref and version. The workflow reuses a matching draft and rejects a published or
+  conflicting release. If the NPM version already exists, it verifies that registry artifact
+  before completing the release.
+- Registry verification failure: wait for propagation, then verify the exact version and tarball
+  before publishing the GitHub release.
+- Figma or stable-branch failure: record and recover that side effect separately; it must not
+  be silently treated as evidence that NPM publication completed.
+
 ## Bootstrap Runbook (Fresh Figma Files)
 
 Use only when collection keys are not established yet.
