@@ -1,0 +1,75 @@
+id: timeinput
+name: TimeInput
+description: A field which allows the user to enter a time.
+importPath: grommet
+props:
+  - name: defaultValue
+    type: string
+    required: false
+    description: Initial time value used when the component is uncontrolled.
+  - name: disabled
+    type: boolean
+    required: false
+    description: Prevents the user from entering a time.
+  - name: format
+    type: "'12' | '24'"
+    required: false
+    description: Time format used by the input.
+  - name: id
+    type: string
+    required: false
+    description: HTML id attribute for the input.
+  - name: messages
+    type: "{ activePeriodValue?: string; activeSection?: string; activeSectionValue?: string; chooseTime?: string; currentValue?: string; inputLabel?: string; invalidTime?: string; openDrop?: string; sectionHours?: string; sectionMeridiem?: string; sectionMinutes?: string; sectionSeconds?: string }"
+    required: false
+    description: Custom messages used by the time input.
+  - name: minuteStep
+    type: number
+    required: false
+    description: Increment used when selecting minutes.
+  - name: name
+    type: string
+    required: false
+    description: HTML name attribute for the input.
+  - name: onChange
+    type: "(event: { value?: string }) => void"
+    required: false
+    description: Callback invoked when the time value changes.
+  - name: readOnly
+    type: boolean
+    required: false
+    description: Prevents the user from editing the time while keeping the value available.
+  - name: showSeconds
+    type: boolean
+    required: false
+    description: Controls whether seconds are included in the time input.
+  - name: value
+    type: string
+    required: false
+    description: Current time value used when the component is controlled.
+usage:
+  whenToUse:
+    - Collecting a time value as part of a form.
+    - Letting users enter a time with a 12-hour or 24-hour format.
+  whenToAvoid: []
+examples: []
+anatomy:
+  - label: Time input field
+    region: Input
+    purpose: Displays and accepts the time value.
+    availability: required
+  - label: Time sections
+    region: Input
+    purpose: Represents the editable sections of the time value, such as hours, minutes, and optionally seconds.
+    availability: required
+  - label: Meridiem section
+    region: Input
+    purpose: Represents the ante meridiem or post meridiem value when a 12-hour format is used.
+    availability: optional
+dosAndDonts:
+  - do: Use a format that matches the time convention expected by the user.
+    dont: Mix 12-hour and 24-hour conventions within the same time-entry workflow.
+    reason: Consistent time formatting helps users enter the intended value.
+  - do: Use TimeInput when the user needs to provide a time value.
+    dont: Use TimeInput when the user needs to provide a date or a date-and-time value.
+    reason: The component API represents a time value only.

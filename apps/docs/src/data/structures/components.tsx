@@ -415,7 +415,6 @@ export const components = [
   },
   {
     name: 'TimeInput',
-    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description: 'A field which allows the user to enter a time.',
     seoDescription:
