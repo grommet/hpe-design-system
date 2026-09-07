@@ -22,7 +22,7 @@ catalogs:
       specifier: ^19.2.18
       version: 19.2.18
     '@types/react-dom':
-      specifier: ^19.2.5
+      specifier: ^19.2.7
       version: 19.2.7
     '@vitejs/plugin-react':
       specifier: ^6.1.1
@@ -43,10 +43,10 @@ catalogs:
       specifier: ^7.1.1
       version: 7.1.1
     eslint-plugin-react-refresh:
-      specifier: ^0.5.5
+      specifier: ^0.5.6
       version: 0.5.6
     globals:
-      specifier: ^17.11.0
+      specifier: ^17.12.0
       version: 17.12.0
     grommet:
       specifier: ^2.56.1
@@ -79,7 +79,7 @@ catalogs:
       specifier: ^5.9.3
       version: 5.9.3
     typescript-eslint:
-      specifier: ^8.68.0
+      specifier: ^8.69.0
       version: 8.69.0
     vite:
       specifier: ^8.2.2
