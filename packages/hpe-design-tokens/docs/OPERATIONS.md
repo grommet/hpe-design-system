@@ -78,6 +78,45 @@ Review the generated package version and `CHANGELOG.md` before merging that PR. 
 confirm token impact, semantic-version classification, migration guidance, and the generated
 release notes.
 
+#### Release PR aggregation
+
+The `Prepare design tokens release PR` workflow is triggered by a push to `master` that changes
+one of its configured paths. A merged pull request is therefore an indirect trigger: GitHub
+starts the workflow from the resulting push to `master`, rather than from the pull request event
+itself.
+
+The workflow maintains one aggregate release PR for pending Changesets. It does not create a new
+release PR for every token pull request:
+
+1. A token pull request is merged with a Changeset.
+2. The workflow creates or updates the aggregate release PR.
+3. Additional token pull requests can be merged with Changesets.
+4. Each resulting push reruns the workflow and adds those pending Changesets to the same release
+   PR, updating its version and `CHANGELOG.md`.
+5. When the aggregate release PR is merged, `changeset version` consumes the Changesets and the
+   release cycle is complete for that group of changes.
+6. The next token pull request with a Changeset starts the next release cycle.
+
+The workflow can still run when matching files change without a pending Changeset. The
+Changesets action should then leave the release PR unchanged or report that there is nothing to
+version. The pull-request Changeset check remains the control that requires a Changeset for
+token source, build, and contract changes.
+
+```mermaid
+flowchart TD
+   A[Token PR A merged to master<br/>with Changeset] --> C[Release PR workflow runs]
+   B[Token PR B merged to master<br/>with Changeset] --> D[Release PR workflow runs]
+   C --> E{Aggregate release PR exists?}
+   D --> E
+   E -- No --> F[Create release PR<br/>with version and changelog]
+   E -- Yes --> G[Update existing release PR<br/>with pending Changesets]
+   F --> H[Maintainer reviews aggregate release PR]
+   G --> H
+   H --> I[Release PR merged]
+   I --> J[Changesets consumed<br/>release cycle complete]
+   J --> K[Next Changeset starts next cycle]
+```
+
 ### 2. Run candidate preflight
 
 Before merging the version PR, review its Changesets-derived version and changelog. After the
