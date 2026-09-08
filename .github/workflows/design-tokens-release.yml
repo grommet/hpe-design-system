@@ -60,9 +60,17 @@ jobs:
       - name: Create immutable package artifact
         run: pnpm --filter ${{ env.PACKAGE_NAME }} release:pack
 
+      - name: Record checked-out commit metadata
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+        run: |
+          node -e "const fs=require('fs'); const packageJson=require('./packages/hpe-design-tokens/package.json'); fs.writeFileSync('./packages/hpe-design-tokens/release-artifacts/release-metadata.json', JSON.stringify({package: packageJson.name, version: packageJson.version, commit_sha: require('child_process').execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim(), requested_version: process.env.REQUESTED_VERSION}, null, 2) + '\\n')"
+
       - name: Upload immutable package artifact
         uses: actions/upload-artifact@v4
         with:
           name: hpe-design-tokens-${{ inputs.version }}
-          path: packages/hpe-design-tokens/release-artifacts/*.tgz
+          path: |
+            packages/hpe-design-tokens/release-artifacts/*.tgz
+            packages/hpe-design-tokens/release-artifacts/release-metadata.json
           if-no-files-found: error

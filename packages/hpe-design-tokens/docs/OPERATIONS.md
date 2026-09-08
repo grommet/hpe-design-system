@@ -146,7 +146,9 @@ Run `Release hpe-design-tokens` manually with:
 
 - `ref`: the approved commit or branch.
 - `version`: the exact version from `package.json`.
-- Record the candidate workflow run ID and resolved commit SHA.
+- Record the candidate workflow run ID and the checked-out commit SHA from the candidate
+  `release-metadata.json` artifact. Do not use the workflow run's `head_sha` when the workflow is
+  dispatched on `master` with a separate commit supplied through `ref`.
 
 Have a second maintainer review the candidate artifact, version, changelog, test results, and
 stable-sync result. Then manually dispatch `Publish hpe-design-tokens` from the default branch

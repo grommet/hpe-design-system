@@ -54,14 +54,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           CANDIDATE_RUN_ID: ${{ inputs.candidate_run_id }}
-          EXPECTED_SHA: ${{ inputs.commit_sha }}
         run: |
           run=$(gh api "repos/${{ github.repository }}/actions/runs/$CANDIDATE_RUN_ID")
           test "$(echo "$run" | jq -r '.path')" = ".github/workflows/$CANDIDATE_WORKFLOW"
           test "$(echo "$run" | jq -r '.event')" = "workflow_dispatch"
           test "$(echo "$run" | jq -r '.status')" = "completed"
           test "$(echo "$run" | jq -r '.conclusion')" = "success"
-          test "$(echo "$run" | jq -r '.head_sha')" = "$EXPECTED_SHA"
           test "$(echo "$run" | jq -r '.head_branch')" = "${{ github.event.repository.default_branch }}"
 
       - name: Verify stable sync for candidate commit
@@ -89,11 +87,18 @@ jobs:
       - name: Validate candidate artifact
         env:
           EXPECTED_VERSION: ${{ inputs.version }}
+          EXPECTED_SHA: ${{ inputs.commit_sha }}
         run: |
           artifact=$(find release-artifact -name '*.tgz' -print -quit)
           test -n "$artifact"
           actual_version=$(tar -xOf "$artifact" package/package.json | node -e "let data=''; process.stdin.on('data', chunk => data += chunk); process.stdin.on('end', () => process.stdout.write(JSON.parse(data).version))")
           test "$actual_version" = "$EXPECTED_VERSION"
+          metadata=$(find release-artifact -name release-metadata.json -print -quit)
+          test -f "$metadata"
+          test "$(jq -r '.package' "$metadata")" = "${{ env.PACKAGE_NAME }}"
+          test "$(jq -r '.version' "$metadata")" = "$EXPECTED_VERSION"
+          test "$(jq -r '.requested_version' "$metadata")" = "$EXPECTED_VERSION"
+          test "$(jq -r '.commit_sha' "$metadata")" = "$EXPECTED_SHA"
 
       - name: Configure NPM authentication
         uses: actions/setup-node@v6

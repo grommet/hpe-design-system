@@ -108,8 +108,10 @@ Expected results:
 - No NPM package is published.
 - No GitHub tag or release is created.
 
-Record the successful workflow run ID and the resolved commit SHA. The publisher workflow needs
-both values, along with the exact package version.
+Record the successful workflow run ID and the checked-out commit SHA from the candidate
+`release-metadata.json` artifact. The publisher workflow needs both values, along with the exact
+package version. The workflow run's GitHub `head_sha` may reflect the dispatch ref (`master`);
+the artifact metadata is the authoritative identity of the code actually packaged.
 
 You can also dispatch the candidate workflow with GitHub CLI:
 
