@@ -100,6 +100,20 @@ jobs:
           test "$(jq -r '.requested_version' "$metadata")" = "$EXPECTED_VERSION"
           test "$(jq -r '.commit_sha' "$metadata")" = "$EXPECTED_SHA"
 
+      - name: Extract candidate changelog section
+        env:
+          EXPECTED_VERSION: ${{ inputs.version }}
+        run: |
+          artifact=$(find release-artifact -name '*.tgz' -print -quit)
+          tar -xOf "$artifact" package/CHANGELOG.md > candidate-CHANGELOG.md
+          test -s candidate-CHANGELOG.md
+          awk -v version="$EXPECTED_VERSION" '
+            $0 == "## " version { found=1; next }
+            found && /^## / { exit }
+            found { print }
+          ' candidate-CHANGELOG.md > release-notes.md
+          test -s release-notes.md
+
       - name: Configure NPM authentication
         uses: actions/setup-node@v6
         with:
@@ -125,11 +139,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if ! gh release view "${{ env.RELEASE_TAG }}" >/dev/null 2>&1; then
-            awk -v version="${{ inputs.version }}" '
-              $0 == "## " version { found=1; next }
-              found && /^## / { exit }
-              found { print }
-            ' packages/hpe-design-tokens/CHANGELOG.md > release-notes.md
             gh release create "${{ env.RELEASE_TAG }}" \
               --target "${{ inputs.commit_sha }}" \
               --title "${{ env.RELEASE_TAG }}" \
@@ -166,11 +175,7 @@ jobs:
 
       - name: Create Slack announcement draft
         run: |
-          awk -v version="${{ inputs.version }}" '
-            $0 == "## " version { found=1; next }
-            found && /^## / { exit }
-            found { print }
-          ' packages/hpe-design-tokens/CHANGELOG.md > release-highlights.md
+          cp release-notes.md release-highlights.md
           {
             echo "# hpe-design-tokens ${{ inputs.version }} release"
             echo

@@ -176,6 +176,8 @@ After the candidate workflow succeeds:
 Expected results:
 
 - The exact candidate tarball is published with the `latest` tag and provenance.
+- GitHub release notes and Slack highlights come from the changelog section inside the immutable
+  candidate tarball, and publication fails when that section is missing or empty.
 - The NPM registry exposes the requested version.
 - The published tarball installs in a clean consumer and can be imported.
 - The GitHub release targets the candidate SHA and contains the correct changelog section.
