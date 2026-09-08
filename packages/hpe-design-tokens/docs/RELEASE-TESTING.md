@@ -179,6 +179,7 @@ Expected results:
 - GitHub release notes and Slack highlights come from the changelog section inside the immutable
   candidate tarball, and publication fails when that section is missing or empty.
 - The NPM registry exposes the requested version.
+- The SHA-256 checksum of the registry tarball matches the approved candidate tarball.
 - The published tarball installs in a clean consumer and can be imported.
 - The GitHub release targets the candidate SHA and contains the correct changelog section.
 - Release evidence includes the candidate run, commit SHA, stable-sync result, and release URLs.

@@ -160,7 +160,8 @@ with:
 
 The publisher verifies the candidate run and immutable artifact before reading `NPM_TOKEN`, then
 publishes the artifact to NPM with provenance, verifies the registry version and a clean consumer
-install, and publishes the GitHub release. Release notes and Slack highlights are extracted from
+install, compares the registry tarball checksum with the approved candidate tarball, and
+publishes the GitHub release. Release notes and Slack highlights are extracted from
 the changelog inside the immutable candidate tarball; publication stops if the requested version
 section is missing or empty. It uploads release notes and a Slack announcement draft as workflow
 evidence. A maintainer must post the Slack announcement manually.

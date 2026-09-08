@@ -164,6 +164,11 @@ jobs:
           test -n "$registry_tarball"
           mkdir -p registry-consumer
           curl --fail --location "$registry_tarball" --output registry-consumer/package.tgz
+          candidate_tarball=$(find release-artifact -name '*.tgz' -print -quit)
+          test -n "$candidate_tarball"
+          candidate_sha=$(sha256sum "$candidate_tarball" | cut -d ' ' -f1)
+          registry_sha=$(sha256sum registry-consumer/package.tgz | cut -d ' ' -f1)
+          test "$registry_sha" = "$candidate_sha"
           tar -tzf registry-consumer/package.tgz | grep -q '^package/dist/esm/index.js$'
           printf '{"private":true}\n' > registry-consumer/package.json
           (cd registry-consumer && npm install --ignore-scripts ./package.tgz && node --input-type=module -e "import('hpe-design-tokens').then(module => { if (!module) process.exit(1); })")
