@@ -72,11 +72,13 @@ Present a concise report containing:
 Never turn a user acknowledgement into approval for a different gate. Ask separately for
 version/changelog approval, GitHub publication approval, and NPM publication approval.
 
-### 4. Handoff to protected CI
+### 4. Handoff to the publication workflow
 
 Once the required approvals exist, report the exact workflow inputs and evidence required by
-the protected GitHub Actions release workflow. The workflow, not this orchestrator, owns tag
-creation, GitHub release publication, NPM authentication, provenance, and package publication.
+the default-branch `Publish hpe-design-tokens` workflow. The workflow validates the successful
+candidate run, exact commit SHA, artifact, and stable-sync result before reading NPM credentials.
+The workflow, not this orchestrator, owns tag creation, GitHub release publication, NPM
+authentication, provenance, and package publication.
 
 ### 5. Post-release verification
 

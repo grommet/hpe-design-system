@@ -97,46 +97,50 @@ pnpm --filter hpe-design-tokens release:pack
 Do not continue if the candidate version, changelog heading, generated exports, or tarball
 contents do not match the approved release.
 
-### 3. Publish through protected GitHub Actions
+### 3. Publish through the two-stage GitHub Actions handoff
 
 Run `Release hpe-design-tokens` manually with:
 
 - `ref`: the approved commit or branch.
 - `version`: the exact version from `package.json`.
-- `publish=false`: candidate-only validation.
-- `publish=true`: protected publication after the `design-tokens-release` environment approval
-  and a successful `Update design-tokens-stable` run for the exact approved commit.
+- Record the candidate workflow run ID and resolved commit SHA.
 
-The workflow creates one immutable artifact, creates a draft GitHub release, publishes that
-artifact to NPM with provenance, verifies the registry version and a clean consumer install,
-then publishes the GitHub release. It uploads release notes and a Slack announcement draft as
-workflow evidence. A maintainer must post the Slack announcement manually.
+Have a second maintainer review the candidate artifact, version, changelog, test results, and
+stable-sync result. Then manually dispatch `Publish hpe-design-tokens` from the default branch
+with:
+
+- `candidate_run_id`: the successful candidate workflow run ID.
+- `version`: the exact candidate version.
+- `commit_sha`: the exact candidate commit SHA.
+
+The publisher verifies the candidate run and immutable artifact before reading `NPM_TOKEN`, then
+publishes the artifact to NPM with provenance, verifies the registry version and a clean consumer
+install, and publishes the GitHub release. It uploads release notes and a Slack announcement
+draft as workflow evidence. A maintainer must post the Slack announcement manually.
 
 #### One-Time Repository Configuration
 
 Before the first publication, a repository administrator must confirm:
 
-- [ ] The `design-tokens-release` GitHub environment exists.
-- [ ] The environment requires approval from at least one authorized maintainer.
-- [ ] The environment contains an `NPM_TOKEN` secret scoped to publish `hpe-design-tokens`.
+- [ ] The repository contains the candidate and publish workflows on the default branch.
+- [ ] The repository contains an `NPM_TOKEN` secret scoped to publish `hpe-design-tokens`.
 - [ ] Actions are allowed to create contents and releases for this repository.
 - [ ] The package is public on NPM and `latest` is the intended distribution tag.
 - [ ] NPM provenance is enabled for the package and organization policy permits it.
 - [ ] `Update design-tokens-stable` has completed successfully for the approved commit.
 
-Run the release workflow once with `publish=false` and inspect the candidate tarball and
-workflow evidence. Only after that smoke run passes should a maintainer run it with
-`publish=true`. Prefer an immutable commit SHA for `ref`; do not use a moving branch for a
-publication run.
+Run the candidate workflow once and inspect the candidate tarball and workflow evidence. Only
+after that smoke run passes should a maintainer dispatch the publish workflow. Prefer an
+immutable commit SHA for the candidate `ref`; the publisher always requires that exact SHA.
 
 ### 4. Handle partial failures
 
 - Candidate failure: fix the version, changelog, build, or test issue and rerun preflight.
 - Existing tag: stop and compare the tag target with the approved commit; do not force-move it.
-- NPM publication failure after draft creation: inspect the draft release and rerun the same
-  immutable ref and version. The workflow reuses a matching draft and rejects a published or
-  conflicting release. If the NPM version already exists, it verifies that registry artifact
-  before completing the release.
+- NPM publication failure after draft creation: inspect the draft release and rerun the publish
+  workflow with the same candidate run ID, immutable commit SHA, and version. The workflow
+  reuses a matching draft and rejects a published or conflicting release. If the NPM version
+  already exists, it verifies that registry artifact before completing the release.
 - Registry verification failure: wait for propagation, then verify the exact version and tarball
   before publishing the GitHub release.
 - Figma or stable-branch failure: record and recover that side effect separately; it must not

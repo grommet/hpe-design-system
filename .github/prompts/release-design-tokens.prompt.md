@@ -34,10 +34,11 @@ inspect pending changesets and report that a version proposal is required.
    `knowledge/capabilities/design-tokens-publishing/design-tokens-publishing-orchestrator.agent.md`.
 2. Detect the current release stage and report blockers before editing files.
 3. Run only the preflight checks required for the requested stage.
-4. Present separate approval requests for version/changelog review, GitHub release publication,
-   and NPM publication. Do not combine them.
-5. For approved publication, provide the protected GitHub Actions workflow with the exact
-   version, commit SHA, artifact, and evidence inputs. Do not execute credential-bearing steps.
+4. Present separate approval requests for version/changelog review and publication. Do not
+   combine them.
+5. For approved publication, provide the default-branch `Publish hpe-design-tokens` workflow
+   with the candidate run ID, exact version, commit SHA, artifact, and evidence inputs. Do not
+   execute credential-bearing steps.
 6. After publication evidence exists, verify registry and release state and draft, but do not
    post, the Slack announcement.
 

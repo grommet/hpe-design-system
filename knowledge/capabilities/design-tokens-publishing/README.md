@@ -18,9 +18,9 @@ The capability covers release intake, version and changelog review, package pref
 artifact verification, GitHub release coordination, NPM registry verification, and a
 Slack-ready announcement draft.
 
-It does not receive or manage NPM, GitHub, or Figma secrets. Publication must run through a
-protected GitHub Actions environment. In the initial implementation, GitHub release
-publication and NPM publication require explicit maintainer approval.
+It does not receive or manage NPM, GitHub, or Figma secrets. Candidate creation and publication
+are separate workflow runs. Publication requires a maintainer to review the candidate evidence
+and manually dispatch the publisher from the default branch.
 
 ## Release Stages
 
@@ -37,18 +37,20 @@ Changeset status is a pre-version-PR check. After the release PR runs `changeset
 consumed Changesets are expected to be absent; candidate validation must instead verify the
 generated package version and changelog heading.
 
-## Protected Publication Workflow
+## Two-Stage Publication Workflow
 
 Run `.github/workflows/design-tokens-release.yml` manually with an approved ref and exact
-version. Set `publish` to `false` for a candidate-only run. Set it to `true` only when the
-`design-tokens-release` GitHub environment is configured with a required maintainer reviewer.
+version to create a candidate. Record its workflow run ID and resolved commit SHA. After a
+second maintainer reviews the candidate artifact and stable-sync result, manually dispatch
+`.github/workflows/design-tokens-publish.yml` from the default branch.
 
-The environment must provide an `NPM_TOKEN` secret with the minimum scope required to publish
-`hpe-design-tokens`. The workflow publishes the exact candidate tarball with the `latest` tag
-and provenance, creates a draft GitHub release first, verifies the NPM registry and a clean
-consumer install, and publishes the GitHub release last. It then uploads release notes and a
-Slack-ready announcement draft as workflow evidence. Configure trusted NPM publishing with
-GitHub OIDC as a future migration when the package and organization settings support it.
+The publisher requires the candidate run ID, exact version, and exact commit SHA. It verifies
+the candidate run and artifact before reading the repository-level `NPM_TOKEN` secret. It then
+publishes the exact tarball with the `latest` tag and provenance, creates or reuses a draft
+GitHub release, verifies the NPM registry and a clean consumer install, and publishes the
+GitHub release last. It uploads release notes and a Slack-ready announcement draft as workflow
+evidence. Configure trusted NPM publishing with GitHub OIDC as a future migration when the
+package and organization settings support it.
 
 ## Evidence
 
