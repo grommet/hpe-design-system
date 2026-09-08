@@ -52,7 +52,7 @@ pnpm --filter hpe-design-tokens test
 pnpm --filter hpe-design-tokens test:contracts
 pnpm --filter hpe-design-tokens run test:parity
 pnpm --filter hpe-design-tokens build
-pnpm --filter hpe-design-tokens release:validate --version=<X.Y.Z>
+pnpm --filter hpe-design-tokens release:validate -- --version=<X.Y.Z>
 ```
 
 Also inspect package exports and generated `dist` contents. Use `pnpm pack` in a temporary

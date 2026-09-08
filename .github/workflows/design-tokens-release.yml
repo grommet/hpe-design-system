@@ -55,7 +55,7 @@ jobs:
         run: pnpm --filter ${{ env.PACKAGE_NAME }} release:preflight
 
       - name: Validate approved version and package boundary
-        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:validate --version=${{ inputs.version }}
+        run: pnpm --filter ${{ env.PACKAGE_NAME }} release:validate -- --version=${{ inputs.version }}
 
       - name: Create immutable package artifact
         run: pnpm --filter ${{ env.PACKAGE_NAME }} release:pack

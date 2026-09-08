@@ -129,7 +129,7 @@ The equivalent local checks are:
 
 ```bash
 pnpm --filter hpe-design-tokens release:preflight
-pnpm --filter hpe-design-tokens release:validate --version=<X.Y.Z>
+pnpm --filter hpe-design-tokens release:validate -- --version=<X.Y.Z>
 pnpm --filter hpe-design-tokens release:pack
 ```
 
