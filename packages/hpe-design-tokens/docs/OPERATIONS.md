@@ -97,6 +97,10 @@ pnpm --filter hpe-design-tokens release:pack
 Do not continue if the candidate version, changelog heading, generated exports, or tarball
 contents do not match the approved release.
 
+For the detailed reviewer procedure, including local checks, Changeset enforcement tests,
+candidate smoke tests, publisher negative paths, and rerun testing, see
+[Release Testing](./RELEASE-TESTING.md).
+
 ### 3. Publish through the two-stage GitHub Actions handoff
 
 Run `Release hpe-design-tokens` manually with:
