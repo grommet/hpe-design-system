@@ -91,7 +91,7 @@ jobs:
         run: |
           artifact=$(find release-artifact -name '*.tgz' -print -quit)
           test -n "$artifact"
-          actual_version=$(tar -xOf "$artifact" package/package.json | node -e "let data=''; process.stdin.on('data', chunk => data += chunk); process.stdin.on('end', () => process.stdout.write(JSON.parse(data).version))")
+          actual_version=$(tar -xOf "$artifact" package/package.json | jq -r '.version')
           test "$actual_version" = "$EXPECTED_VERSION"
           metadata=$(find release-artifact -name release-metadata.json -print -quit)
           test -f "$metadata"
