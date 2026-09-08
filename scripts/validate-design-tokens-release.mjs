@@ -45,7 +45,11 @@ if (expectedVersion && packageJson.version !== expectedVersion) {
   );
 }
 
-if (!changelog.includes(`## ${packageJson.version}`)) {
+const hasExactChangelogHeading = changelog
+  .split(/\r?\n/)
+  .some(line => line === `## ${packageJson.version}`);
+
+if (!hasExactChangelogHeading) {
   failures.push(
     `CHANGELOG.md does not contain a heading for ${packageJson.version}`,
   );
