@@ -25,7 +25,7 @@ function parseArgs(args: string[]): {
   framework: FrameworkTarget;
   help: boolean;
 } {
-  let query: string | null = null;
+  const positional: string[] = [];
   let framework: FrameworkTarget = 'react';
   let help = false;
 
@@ -37,11 +37,15 @@ function parseArgs(args: string[]): {
       if (next) framework = next as FrameworkTarget;
       i += 1;
     } else if (!arg.startsWith('-')) {
-      query = arg;
+      positional.push(arg);
     }
   }
 
-  return { query, framework, help };
+  return {
+    query: positional.length ? positional.join(' ') : null,
+    framework,
+    help,
+  };
 }
 
 const { query, framework, help } = parseArgs(process.argv.slice(2));

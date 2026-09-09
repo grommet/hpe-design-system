@@ -4,16 +4,16 @@ The examples directory serves as a **reference implementation library** for the 
 
 ## Role in the Project
 
-The examples are **tightly integrated with pattern definitions** in `design-system/patterns/`. Each pattern YAML file references example code files from this directory.
+The examples are **tightly integrated with pattern definitions** in `knowledge/core/data/patterns/`. Each pattern YAML file references example code files from this directory.
 
-For example, in `design-system/patterns/application-shell.yaml`:
+For example, in `knowledge/core/data/patterns/application-shell.yaml`:
 
 ```yaml
 examples:
 - description: Complete Application Shell with Navigation
-  codeFile: design-system/examples/application-shell/complete-application-shell-with-navigation.tsx
+  codeFile: knowledge/core/data/examples/application-shell/complete-application-shell-with-navigation.tsx
 - description: Mobile-Responsive Navigation with Layer
-  codeFile: design-system/examples/application-shell/mobile-responsive-navigation-with-layer.tsx
+  codeFile: knowledge/core/data/examples/application-shell/mobile-responsive-navigation-with-layer.tsx
 ```
 
 ## Data Flow
@@ -45,7 +45,7 @@ examples:
 
 When adding a new pattern to the design system:
 
-1. Create a directory in `design-system/examples/` matching the pattern name
+1. Create a directory in `knowledge/core/data/examples/` matching the pattern name
 2. Add one or more `.tsx` example files demonstrating the pattern
 3. Include a `template.tsx` as the canonical/simplest implementation
 4. Reference the example files in the pattern's YAML definition

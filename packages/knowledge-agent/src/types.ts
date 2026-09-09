@@ -28,7 +28,8 @@ export interface AnatomyPart {
   label: string;
   region: string;
   purpose: string;
-  availability: 'required' | 'optional';
+  // Free-form in source YAML (e.g. "always", "conditional", "required", "always (when open)")
+  availability: string;
   notes?: string;
 }
 
@@ -76,11 +77,7 @@ export interface ComponentVariant {
 }
 
 export type FrameworkTarget =
-  | 'react'
-  | 'vue'
-  | 'angular'
-  | 'web-components'
-  | 'agnostic';
+  'react' | 'vue' | 'angular' | 'web-components' | 'agnostic';
 
 export interface ComponentImplementation {
   importPath: string;
@@ -115,11 +112,7 @@ export interface ComponentDefinition {
 }
 
 export type PatternPropValue =
-  | string
-  | number
-  | boolean
-  | string[]
-  | Record<string, unknown>;
+  string | number | boolean | string[] | Record<string, unknown>;
 
 export type PatternNodeBinding = 'static' | 'context' | 'state' | 'slot';
 

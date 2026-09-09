@@ -2,12 +2,29 @@
 // SPDX-License-Identifier: Apache-2.0
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import yaml from 'yaml';
 import { ComponentDefinition, PatternDefinition } from './types.js';
 
-const ROOT_DIR = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..', '..');
-const COMPONENTS_DIR = path.join(ROOT_DIR, 'knowledge', 'core', 'data', 'components');
-const PATTERNS_DIR = path.join(ROOT_DIR, 'knowledge', 'core', 'data', 'patterns');
+const ROOT_DIR = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '../..',
+  '..',
+);
+const COMPONENTS_DIR = path.join(
+  ROOT_DIR,
+  'knowledge',
+  'core',
+  'data',
+  'components',
+);
+const PATTERNS_DIR = path.join(
+  ROOT_DIR,
+  'knowledge',
+  'core',
+  'data',
+  'patterns',
+);
 
 function resolveFile(relPath: string): string {
   const abs = path.join(ROOT_DIR, relPath);
@@ -24,7 +41,7 @@ function resolvePatternFiles(pattern: PatternDefinition): PatternDefinition {
     resolved.templateCode = resolveFile(resolved.templateCodeFile);
   }
   if (resolved.examples) {
-    resolved.examples = resolved.examples.map((ex) => {
+    resolved.examples = resolved.examples.map(ex => {
       if (ex.codeFile && !ex.code) {
         return { ...ex, code: resolveFile(ex.codeFile) };
       }
@@ -42,10 +59,15 @@ function loadYamlOrJsonFiles<T>(dir: string, label: string): T[] {
 
   const files = fs
     .readdirSync(dir)
-    .filter((file) => file.endsWith('.json') || file.endsWith('.yaml') || file.endsWith('.yml'))
+    .filter(
+      file =>
+        file.endsWith('.json') ||
+        file.endsWith('.yaml') ||
+        file.endsWith('.yml'),
+    )
     .sort();
 
-  return files.map((file) => {
+  return files.map(file => {
     const filePath = path.join(dir, file);
     const content = fs.readFileSync(filePath, 'utf-8');
 

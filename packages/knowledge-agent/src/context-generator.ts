@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { buildSearchEntities, querySearchEntities } from './vector-search.js';
 import { loadComponents, loadPatterns } from './data-loader.js';
 import {
@@ -12,7 +13,7 @@ import {
 } from './types.js';
 
 const REPO_ROOT = path.resolve(
-  path.dirname(new URL(import.meta.url).pathname),
+  path.dirname(fileURLToPath(import.meta.url)),
   '../../..',
 );
 const INSTRUCTIONS_DIR = path.join(REPO_ROOT, '.github', 'instructions');
