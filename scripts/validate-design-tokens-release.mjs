@@ -20,8 +20,10 @@ const expectedVersion = process.argv
   ?.split('=')[1];
 const requiredFiles = [
   'dist/esm/index.js',
+  'dist/esm/index.d.ts',
   'dist/cjs/index.cjs',
   'dist/grommet/index.js',
+  'dist/grommet/index.d.ts',
   'dist/grommet/cjs/index.cjs',
   'dist/docs/index.js',
 ];
