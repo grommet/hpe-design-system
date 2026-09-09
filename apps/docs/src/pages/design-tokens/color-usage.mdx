@@ -51,6 +51,9 @@ Stylistic variant of a token.
 | <ColorPreview datum={{value: 'background-info'}} />            | info     | Informational content.                                                        |
 | <ColorPreview datum={{value: 'background-ok'}} />              | ok       | Success or everything is operating as expected.                               |
 | <ColorPreview datum={{value: 'text-onStrong'}} />              | onStrong | For content (text and icons) that sit on strong backgrounds.                  |
+| <ColorPreview datum={{value: '#6B5CF6'}} />                    | accent   | Carries no semantic meaning. Use for differentiation or emphasis.       |
+
+{/* TODO: Replace placeholder hex '#6B5CF6' with the real accent color token once it is live. */}
 
 ### State
 
@@ -77,10 +80,12 @@ Background color variants may have a range of shades.
   margin={{ bottom: 'medium' }}
 />
 
-| Example                                                        | Emphasis |
-| -------------------------------------------------------------- | -------- |
-| <ColorPreview datum={{value: 'background-primary-xstrong'}} /> | xstrong  |
-| <ColorPreview datum={{value: 'background-primary-strong'}} />  | strong   |
+{/* TODO: Replace placeholder hex colors ('#1C1C2E', '#6B5CF6', '#EDE9FE') with real accent-scale tokens once they are live. */}
+| Example                                             | Emphasis |
+| --------------------------------------------------- | -------- |
+| <ColorPreview datum={{value: '#1C1C2E'}} />          | xstrong  |
+| <ColorPreview datum={{value: '#6B5CF6'}} />          | strong   |
+| <ColorPreview datum={{value: '#EDE9FE'}} />          | weak     |
 
 #### Text emphasis
 
