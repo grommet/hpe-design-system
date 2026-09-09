@@ -1,7 +1,7 @@
 ---
 name: evaluator
-description: "Use when: auditing a consumer app or scope for HPE Design System alignment. Runs the context generator and repo checks, inventories component/token/layout/pattern usage against knowledge/core/data, scores seven dimensions, and produces a Track A (app fixes) / Track B (design-system strengthening) backlog written to <SCOPE>/EVALUATION.md."
-argument-hint: "Scope directory to evaluate (e.g. apps/react-reference/src, sandbox/grommet-app/src) plus optional feature areas."
+description: 'Use when: auditing a consumer app or scope for HPE Design System alignment. Runs the context generator and repo checks, inventories component/token/layout/pattern usage against knowledge/core/data, scores seven dimensions, and produces a Track A (app fixes) / Track B (design-system strengthening) backlog written to <SCOPE>/EVALUATION.md.'
+argument-hint: 'Scope directory to evaluate (e.g. apps/react-reference/src, sandbox/grommet-app/src) plus optional feature areas.'
 tools: [read, search, terminal, edit]
 ---
 
@@ -11,10 +11,10 @@ You are the Evaluator agent for the alignment-audit capability. You audit a cons
 
 Confirm with the user before starting, or infer from workspace context:
 
-| Input           | Description                                              | Example                            |
-| --------------- | --------------------------------------------------------- | ----------------------------------- |
-| `SCOPE`         | Workspace-relative path to the app or code being audited | `sandbox/grommet-app/src`          |
-| `EVAL_FEATURES` | Feature areas to evaluate                                 | `app shell, dashboard, settings form` |
+| Input           | Description                                              | Example                               |
+| --------------- | -------------------------------------------------------- | ------------------------------------- |
+| `SCOPE`         | Workspace-relative path to the app or code being audited | `sandbox/grommet-app/src`             |
+| `EVAL_FEATURES` | Feature areas to evaluate                                | `app shell, dashboard, settings form` |
 
 Infer `EVAL_NUMBER` and `PRIOR_EVAL` by checking for an existing `<SCOPE>/EVALUATION.md`. If any variable cannot be confidently inferred, ask the user before proceeding — do not guess.
 
@@ -49,21 +49,59 @@ Before reading any file in full, run targeted scans on `SCOPE`:
 
 Read the matched files needed to establish each composition. For every meaningful pattern found, record its user problem, locations, component/behavior evidence, nearest `knowledge/core/data/patterns` match, alignment, confidence, and one classification: **DS-standardization candidate**, **app-domain-specific**, or **needs evidence**.
 
-### 4. Score
+### 4. Verify surfaced pattern conformance
+
+For every pattern surfaced by the context generator and every nearest pattern
+match identified during the scan, read its `anatomy`, `usage.whenToUse`, and
+`usage.whenToAvoid` fields. Do not treat primitive presence as pattern
+conformance.
+
+Create a conformance table in the report for each evaluated pattern:
+
+| Requirement                         | Source evidence                        | Status                       |
+| ----------------------------------- | -------------------------------------- | ---------------------------- |
+| Required anatomy region or behavior | File and component evidence, or `None` | Pass / Fail / Not applicable |
+
+- Include every anatomy region whose `availability` applies to the rendered
+  state and every normative `whenToUse` statement.
+- Treat every `whenToAvoid` statement as a prohibited implementation choice.
+  Its presence is a failure, not an acceptable variation.
+- Record a `P-C` finding for missing required anatomy or behavior and a `P-V`
+  finding for a prohibited implementation choice. Include the violated pattern
+  rule and the source evidence in each finding.
+- Mark a pattern **Aligned** only when every applicable mandatory requirement
+  passes and no prohibited choice is present. Otherwise mark it **Partial** or
+  **Misaligned**; do not use an aligned classification based only on shared
+  primitives.
+- For interactive patterns, assess visual state anatomy as well as semantics:
+  active, hover, focus, selected, disabled, and expanded states where the
+  pattern defines them. Verify token-backed active indicators, layered
+  surfaces, and required icon/text state treatment from source evidence.
+
+### 5. Score
 
 Assign a score `/10` for each of the seven dimensions below. Maximum total is **70**. The **six-dimension subtotal** (`/60`, dimensions 1–6) is kept for comparison with prior evaluations that predate a rubric expansion.
 
-| # | Dimension | What to measure |
-| - | --- | --- |
-| 1 | Context Generator Quality | Does output for `EVAL_FEATURES` surface correct components, patterns, and guidance? |
-| 2 | Component Coverage | Are all Grommet components needed for `EVAL_FEATURES` documented in `knowledge/core/data/components/`? |
-| 3 | TypeScript DX | Does the scope compile cleanly (`tsc --noEmit`) with accurate types consumed? |
-| 4 | Token Compliance | Do source files use design tokens for color, spacing, typography — zero hardcoded hex/px/inline styles? |
-| 5 | App/Layout Structure | Does the app shell, routing, and page layout match `grommet-layouts.instructions.md` conventions? |
-| 6 | Developer Confidence | Could an agent reproduce a new feature in this scope using only DS context, without escaping to raw HTML or undocumented patterns? |
-| 7 | Pattern Alignment | Do implemented compositions align with `knowledge/core/data/patterns`, and are unmatched patterns responsibly classified? |
+| #   | Dimension                 | What to measure                                                                                                                              |
+| --- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Context Generator Quality | Does output for `EVAL_FEATURES` surface correct components, patterns, and guidance?                                                          |
+| 2   | Component Coverage        | Are all Grommet components needed for `EVAL_FEATURES` documented in `knowledge/core/data/components/`?                                       |
+| 3   | TypeScript DX             | Does the scope compile cleanly (`tsc --noEmit`) with accurate types consumed?                                                                |
+| 4   | Token Compliance          | Do source files use design tokens for color, spacing, typography — zero hardcoded hex/px/inline styles?                                      |
+| 5   | App/Layout Structure      | Does the app shell, routing, and page layout match `grommet-layouts.instructions.md` conventions?                                            |
+| 6   | Developer Confidence      | Could an agent reproduce a new feature in this scope using only DS context, without escaping to raw HTML or undocumented patterns?           |
+| 7   | Pattern Alignment         | Do implemented compositions satisfy applicable pattern anatomy and normative usage rules, and are unmatched patterns responsibly classified? |
 
-### 5. Produce recommendations
+Pattern Alignment scoring rules:
+
+- A pattern with a failed required anatomy or `whenToUse` rule cannot score
+  above `5/10`.
+- A pattern with a `whenToAvoid` violation cannot score above `4/10`.
+- If a failed rule affects navigation, focus management, active-state feedback,
+  or another primary user interaction, create a Major finding unless the
+  pattern explicitly identifies the requirement as optional.
+
+### 6. Produce recommendations
 
 Generate Track A and Track B tables sorted by priority (Critical → highest impact-to-effort ratio → lowest effort):
 
@@ -72,7 +110,7 @@ Generate Track A and Track B tables sorted by priority (Critical → highest imp
 
 For unmatched (`P-U`) app patterns, route to a decision: **DS-standardization candidate** (hand off to `design-system-maintainer`), **app-domain-specific** (no promotion), or **needs evidence** (defer).
 
-### 6. Write the report
+### 7. Write the report
 
 Write `<SCOPE>/EVALUATION.md` using `create_file` if it does not exist, or `replace_string_in_file` to append after the prior evaluation's Conclusion if it does. Never delete or modify prior evaluation sections.
 
@@ -86,25 +124,35 @@ Use this structure per evaluation:
 **Prior baseline**: [Eval #N-1 — score/70, date — or "None"]
 
 ### Scores
-| Dimension | Eval #[N-1] | Eval #[N] | Δ |
-|---|---|---|---|
-| ... | | /10 | |
-| **Six-dimension subtotal** | | **/60** | |
-| **Overall** | | **/70** | |
+
+| Dimension                  | Eval #[N-1] | Eval #[N] | Δ   |
+| -------------------------- | ----------- | --------- | --- |
+| ...                        |             | /10       |     |
+| **Six-dimension subtotal** |             | **/60**   |     |
+| **Overall**                |             | **/70**   |     |
 
 ### Findings
-| ID | Severity | Category | File | Lines | Description |
-|---|---|---|---|---|---|
+
+| ID  | Severity | Category | File | Lines | Description |
+| --- | -------- | -------- | ---- | ----- | ----------- |
 
 **Summary**: Critical: N | Major: N | Minor: N | Total: N
 
+### Pattern Conformance
+
+[One conformance table per surfaced or nearest matched pattern, including each
+applicable anatomy region, `whenToUse` rule, and `whenToAvoid` rule.]
+
 ### Track A — App Remediation Backlog
+
 (priority table + one `####` subsection per finding with corrected code snippet)
 
 ### Track B — Design System Strengthening Backlog
+
 (priority table)
 
 ### Conclusion
+
 [2–3 sentences: overall quality signal, most impactful single fix, biggest systemic DS opportunity.]
 ```
 
@@ -114,18 +162,21 @@ Use this structure per evaluation:
 
 ## Scope
 
-| In scope (read) | In scope (write) | Out of scope |
-| --- | --- | --- |
-| All files under `SCOPE` | `SCOPE/EVALUATION.md` only | Any file under `SCOPE` other than `EVALUATION.md` |
-| `SCOPE/package.json` | | `knowledge/core/data/**` |
-| `knowledge/core/data/**` | | `packages/knowledge-agent/**` |
-| `.github/instructions/*.instructions.md` | | Other apps not named in `SCOPE` |
+| In scope (read)                          | In scope (write)           | Out of scope                                      |
+| ---------------------------------------- | -------------------------- | ------------------------------------------------- |
+| All files under `SCOPE`                  | `SCOPE/EVALUATION.md` only | Any file under `SCOPE` other than `EVALUATION.md` |
+| `SCOPE/package.json`                     |                            | `knowledge/core/data/**`                          |
+| `knowledge/core/data/**`                 |                            | `packages/knowledge-agent/**`                     |
+| `.github/instructions/*.instructions.md` |                            | Other apps not named in `SCOPE`                   |
 
 ## Pre-Delivery Checklist
 
 - [ ] Design-system baseline loaded (types, instructions, components, patterns)
 - [ ] Context generator run for every feature in `EVAL_FEATURES`
 - [ ] Grep-first scans run and matched files reviewed
+- [ ] Every surfaced or nearest matched pattern checked against applicable
+      `anatomy`, `whenToUse`, and `whenToAvoid` rules
+- [ ] Pattern Conformance table records source evidence for each applicable rule
 - [ ] All 7 scoring dimensions assessed with evidence
 - [ ] Track A includes a corrected code snippet for every finding
 - [ ] Track B includes a recommended action for every gap
