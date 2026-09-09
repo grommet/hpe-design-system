@@ -6,3 +6,19 @@ find the full documentation for it [in our repository](https://github.com/change
 
 We have a quick list of common questions to get you started engaging with this project in
 [our documentation](https://github.com/changesets/changesets/blob/main/docs/common-questions.md)
+
+## hpe-design-tokens release policy
+
+Add one changeset for every user-visible token package change. Use the package name
+`hpe-design-tokens` and classify the change using the semantic-version guidance below:
+
+- `patch`: token value corrections, accessibility improvements, or non-breaking output fixes.
+- `minor`: new tokens, new supported themes, or additive package capabilities.
+- `major`: removed or renamed tokens, incompatible aliases, or breaking output changes.
+
+Describe the affected token families, expected consumer impact, and any migration guidance in
+the changeset summary. Do not infer a release version from commit text alone.
+
+After changesets reach `master`, the `Prepare design tokens release PR` workflow creates or
+updates a reviewable PR that generates `CHANGELOG.md` and updates the package version. A
+maintainer must review and merge that PR before running the protected publication workflow.

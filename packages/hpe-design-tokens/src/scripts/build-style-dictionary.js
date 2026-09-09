@@ -28,6 +28,7 @@ const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
 const DOCS_METADATA_DIR = `${DOCS_DIR}metadata/`;
+const TYPES_DIR = 'src/types/';
 const PREFIX = 'hpe';
 /**
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
@@ -887,5 +888,11 @@ fs.readdirSync(DOCS_DIR)
       docsCollections.push(mode);
     }
   });
+
+fs.copyFileSync(`${TYPES_DIR}esm/index.d.ts`, `${ESM_DIR}index.d.ts`);
+fs.copyFileSync(
+  `${TYPES_DIR}grommet/index.d.ts`,
+  `${GROMMET_DIR}index.d.ts`,
+);
 
 console.log('✅ Style system outputs have been generated.');

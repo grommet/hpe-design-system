@@ -62,6 +62,138 @@ pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test
 pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output tokens_qa
 ```
 
+## Release Runbook
+
+The release process uses Changesets for version and changelog preparation. GitHub and NPM
+publication remain protected operations and must not be performed from a local clone.
+
+### 1. Prepare the release PR
+
+For every user-visible token package change, add a Changeset using the policy in
+`../../.changeset/README.md`. After the change reaches `master`, the
+`Prepare design tokens release PR` workflow creates or updates a PR that runs
+`pnpm exec changeset version`.
+
+Review the generated package version and `CHANGELOG.md` before merging that PR. The review must
+confirm token impact, semantic-version classification, migration guidance, and the generated
+release notes.
+
+#### Release PR aggregation
+
+The `Prepare design tokens release PR` workflow is triggered by a push to `master` that changes
+one of its configured paths. A merged pull request is therefore an indirect trigger: GitHub
+starts the workflow from the resulting push to `master`, rather than from the pull request event
+itself.
+
+The workflow maintains one aggregate release PR for pending Changesets. It does not create a new
+release PR for every token pull request:
+
+1. A token pull request is merged with a Changeset.
+2. The workflow creates or updates the aggregate release PR.
+3. Additional token pull requests can be merged with Changesets.
+4. Each resulting push reruns the workflow and adds those pending Changesets to the same release
+   PR, updating its version and `CHANGELOG.md`.
+5. When the aggregate release PR is merged, `changeset version` consumes the Changesets and the
+   release cycle is complete for that group of changes.
+6. The next token pull request with a Changeset starts the next release cycle.
+
+The workflow can still run when matching files change without a pending Changeset. The
+Changesets action should then leave the release PR unchanged or report that there is nothing to
+version. The pull-request Changeset check remains the control that requires a Changeset for
+token source, build, and contract changes.
+
+```mermaid
+flowchart TD
+   A[Token PR A merged to master<br/>with Changeset] --> C[Release PR workflow runs]
+   B[Token PR B merged to master<br/>with Changeset] --> D[Release PR workflow runs]
+   C --> E{Aggregate release PR exists?}
+   D --> E
+   E -- No --> F[Create release PR<br/>with version and changelog]
+   E -- Yes --> G[Update existing release PR<br/>with pending Changesets]
+   F --> H[Maintainer reviews aggregate release PR]
+   G --> H
+   H --> I[Release PR merged]
+   I --> J[Changesets consumed<br/>release cycle complete]
+   J --> K[Next Changeset starts next cycle]
+```
+
+### 2. Run candidate preflight
+
+Before merging the version PR, review its Changesets-derived version and changelog. After the
+version PR is merged, run `HPE Design Tokens Release Preflight` manually with the approved
+commit or branch. The workflow builds the package, runs package tests, validates generated
+exports and package metadata, and uploads one candidate tarball. At this point the Changesets
+have already been consumed by the version PR.
+
+The equivalent local checks are:
+
+```bash
+pnpm --filter hpe-design-tokens release:preflight
+pnpm --filter hpe-design-tokens release:validate -- --version=<X.Y.Z>
+pnpm --filter hpe-design-tokens release:pack
+```
+
+Do not continue if the candidate version, changelog heading, generated exports, or tarball
+contents do not match the approved release.
+
+For the detailed reviewer procedure, including local checks, Changeset enforcement tests,
+candidate smoke tests, publisher negative paths, and rerun testing, see
+[Release Testing](./RELEASE-TESTING.md).
+
+### 3. Publish through the two-stage GitHub Actions handoff
+
+Run `Release hpe-design-tokens` manually with:
+
+- `ref`: the approved commit or branch.
+- `version`: the exact version from `package.json`.
+- Record the candidate workflow run ID and the checked-out commit SHA from the candidate
+  `release-metadata.json` artifact. Do not use the workflow run's `head_sha` when the workflow is
+  dispatched on `master` with a separate commit supplied through `ref`.
+
+Have a second maintainer review the candidate artifact, version, changelog, test results, and
+stable-sync result. Then manually dispatch `Publish hpe-design-tokens` from the default branch
+with:
+
+- `candidate_run_id`: the successful candidate workflow run ID.
+- `version`: the exact candidate version.
+- `commit_sha`: the exact candidate commit SHA.
+
+The publisher verifies the candidate run and immutable artifact before reading `NPM_TOKEN`, then
+publishes the artifact to NPM with provenance, verifies the registry version and a clean consumer
+install, compares the registry tarball checksum with the approved candidate tarball, and
+publishes the GitHub release. Release notes and Slack highlights are extracted from
+the changelog inside the immutable candidate tarball; publication stops if the requested version
+section is missing or empty. It uploads release notes and a Slack announcement draft as workflow
+evidence. A maintainer must post the Slack announcement manually.
+
+#### One-Time Repository Configuration
+
+Before the first publication, a repository administrator must confirm:
+
+- [ ] The repository contains the candidate and publish workflows on the default branch.
+- [ ] The repository contains an `NPM_TOKEN` secret scoped to publish `hpe-design-tokens`.
+- [ ] Actions are allowed to create contents and releases for this repository.
+- [ ] The package is public on NPM and `latest` is the intended distribution tag.
+- [ ] NPM provenance is enabled for the package and organization policy permits it.
+- [ ] `Update design-tokens-stable` has completed successfully for the approved commit.
+
+Run the candidate workflow once and inspect the candidate tarball and workflow evidence. Only
+after that smoke run passes should a maintainer dispatch the publish workflow. Prefer an
+immutable commit SHA for the candidate `ref`; the publisher always requires that exact SHA.
+
+### 4. Handle partial failures
+
+- Candidate failure: fix the version, changelog, build, or test issue and rerun preflight.
+- Existing tag: stop and compare the tag target with the approved commit; do not force-move it.
+- NPM publication failure after draft creation: inspect the draft release and rerun the publish
+  workflow with the same candidate run ID, immutable commit SHA, and version. The workflow
+  reuses a matching draft and rejects a published or conflicting release. If the NPM version
+  already exists, it verifies that registry artifact before completing the release.
+- Registry verification failure: wait for propagation, then verify the exact version and tarball
+  before publishing the GitHub release.
+- Figma or stable-branch failure: record and recover that side effect separately; it must not
+  be silently treated as evidence that NPM publication completed.
+
 ## Bootstrap Runbook (Fresh Figma Files)
 
 Use only when collection keys are not established yet.
