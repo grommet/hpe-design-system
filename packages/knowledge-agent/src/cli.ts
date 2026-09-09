@@ -32,11 +32,31 @@ function parseArgs(args: string[]): {
   for (let i = 0; i < args.length; i += 1) {
     const arg = args[i];
     if (arg === '--help' || arg === '-h') help = true;
-    else if (arg === '--framework' || arg === '-f') {
+else if (arg === '--framework' || arg === '-f') {
       const next = args[i + 1];
-      if (next) framework = next as FrameworkTarget;
+      const allowed: FrameworkTarget[] = [
+        'react',
+        'vue',
+        'angular',
+        'web-components',
+        'agnostic',
+      ];
+
+      if (!next || next.startsWith('-')) {
+        console.error('Missing value for --framework');
+        printUsage();
+        process.exit(1);
+      }
+
+      if (!allowed.includes(next as FrameworkTarget)) {
+        console.error(`Unknown framework target: ${next}`);
+        printUsage();
+        process.exit(1);
+      }
+
+      framework = next as FrameworkTarget;
       i += 1;
-    } else if (!arg.startsWith('-')) {
+    }
       positional.push(arg);
     }
   }
