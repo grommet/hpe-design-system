@@ -21,8 +21,8 @@ hpe-design-agent "Build a login form"
 ## Architecture
 
 - `src/data-loader.ts` reads `knowledge/core/data/components/*.yaml` and `knowledge/core/data/patterns/*.yaml`.
-- `src/context-generator.ts` combines that data with matching `.github/instructions/*.instructions.md` files and `src/vector-search.ts` similarity matching to produce a natural-language response. This module is intentionally surface-agnostic — it has no CLI, process, or console dependencies — so it can be imported by any future adapter (CLI, MCP server, HTTP API) without pulling in argument-parsing or output-formatting concerns.
-- `src/cli.ts` is the CLI adapter: it owns argument parsing (`--framework`, `--help`) and output formatting, and is the only module that calls `console.log`/`process.exit`. It is the single entry point used by both the `pnpm run generate` script and the `hpe-design-agent` bin.
+- `src/context-generator.ts` combines that data with matching `.github/instructions/*.instructions.md` files and `src/vector-search.ts` similarity matching to produce a natural-language response. This module is intentionally surface-agnostic — it has no CLI or `process.exit` dependencies — so it can be imported by any future adapter (CLI, MCP server, HTTP API) without pulling in argument-parsing or output-formatting concerns.
+- `src/cli.ts` is the CLI adapter: it owns argument parsing (`--framework`, `--help`) and output formatting. It is the single TypeScript entry point used by both the `pnpm run generate` script and the `hpe-design-agent` bin.
 - All paths are resolved **relative to this package's own location inside the `hpe-design-system` monorepo** — there is currently no build step; YAML is read live at request time.
 
 ## Future Consideration: Multi-Surface Distribution
