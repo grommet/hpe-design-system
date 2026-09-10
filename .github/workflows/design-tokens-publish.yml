@@ -158,7 +158,7 @@ jobs:
               echo "No release tarball found in release-artifact" >&2
               exit 1
             fi
-            npm publish "$candidate_tarball" --access public --provenance --tag latest
+            npm publish "./$candidate_tarball" --access public --provenance --tag latest
           fi
 
       - name: Verify NPM registry and clean consumer
