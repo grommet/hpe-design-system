@@ -20,7 +20,7 @@ spec:
       # Use the service account with Cloud Storage permissions
       serviceAccountName: pocketbase-service-account@hpe-design-system-adoption.iam.gserviceaccount.com
       containers:
-      - image: gcr.io/hpe-design-system-adoption/pocketbase-app:latest
+      - image: gcr.io/hpe-design-system-adoption/pocketbase-app@sha256:47d7a464f15dcf11494c3763c830ef3e375145662e8d09f384c3c794352112b2
         env:
         - name: GCS_BUCKET_NAME
           value: "ds-pocketbase"

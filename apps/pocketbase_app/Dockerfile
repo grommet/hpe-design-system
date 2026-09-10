@@ -4,7 +4,7 @@ FROM alpine:3.19 AS final
 # Add comprehensive metadata labels
 LABEL org.opencontainers.image.title="PocketBase App"
 LABEL org.opencontainers.image.description="PocketBase application with startup script"
-LABEL org.opencontainers.image.version="0.29.1"
+LABEL org.opencontainers.image.version="0.40.3"
 LABEL org.opencontainers.image.vendor="HPE Design System"
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL maintainer="HPE Design System Team"
@@ -18,7 +18,7 @@ EXPOSE 8080
 # Download PocketBase from GitHub
 # You can override the PocketBase version at build time with:
 #   docker build --build-arg PB_VERSION=0.30.0 .
-ARG PB_VERSION=0.29.1
+ARG PB_VERSION=0.40.3
 ENV PB_VERSION=${PB_VERSION}
 
 # Install dependencies and download PocketBase with integrity verification
