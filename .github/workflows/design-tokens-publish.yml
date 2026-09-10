@@ -125,14 +125,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           APPROVED_SHA: ${{ inputs.commit_sha }}
         run: |
-          release=$(gh release view "${{ env.RELEASE_TAG }}" --json isDraft,targetCommitish 2>/dev/null || true)
-          if [ -z "$release" ]; then
-            tag_sha=$(gh api "repos/${{ github.repository }}/git/ref/tags/${{ env.RELEASE_TAG }}" --jq '.object.sha' 2>/dev/null || true)
-            test -z "$tag_sha"
-            exit 0
+          release_file=$(mktemp)
+          if gh release view "${{ env.RELEASE_TAG }}" --json isDraft,targetCommitish >"$release_file" 2>/dev/null; then
+            jq -e '.isDraft == true' "$release_file" >/dev/null
+            test "$(jq -r '.targetCommitish' "$release_file")" = "$APPROVED_SHA"
+          elif tag_sha=$(gh api "repos/${{ github.repository }}/git/ref/tags/${{ env.RELEASE_TAG }}" --jq '.object.sha' 2>/dev/null); then
+            echo "Release tag exists without a matching release: $tag_sha" >&2
+            exit 1
+          else
+            echo "No existing release or tag found for ${{ env.RELEASE_TAG }}."
           fi
-          echo "$release" | jq -e '.isDraft == true' >/dev/null
-          test "$(echo "$release" | jq -r '.targetCommitish')" = "$APPROVED_SHA"
 
       - name: Create or reuse draft GitHub release
         env:
