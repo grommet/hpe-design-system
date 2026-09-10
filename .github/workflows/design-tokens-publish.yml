@@ -153,7 +153,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           if ! npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version >/dev/null 2>&1; then
-            npm publish release-artifact/*.tgz --access public --provenance --tag latest
+            candidate_tarball="$(find release-artifact -maxdepth 1 -type f -name '*.tgz' -print -quit)"
+            if [[ -z "$candidate_tarball" || ! -f "$candidate_tarball" ]]; then
+              echo "No release tarball found in release-artifact" >&2
+              exit 1
+            fi
+            npm publish "$candidate_tarball" --access public --provenance --tag latest
           fi
 
       - name: Verify NPM registry and clean consumer
