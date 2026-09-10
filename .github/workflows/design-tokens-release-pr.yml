@@ -20,6 +20,8 @@ concurrency:
 jobs:
   release-pr:
     runs-on: ubuntu-latest
+    env:
+      HUSKY: '0'
     steps:
       - name: Check out master
         uses: actions/checkout@v4
