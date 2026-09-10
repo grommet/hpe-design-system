@@ -1,0 +1,156 @@
+{
+  "semantic.dark.json": {
+    "color": {
+      "background": {
+        "accent": {
+          "purple": {
+            "strong": {
+              "REST": {
+                "$type": "color",
+                "$value": "#ff0000",
+                "$description": "Accent purple strong",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "#00ff00",
+                "$description": "Accent purple strong hover",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              }
+            },
+            "DEFAULT": {
+              "REST": {
+                "$type": "color",
+                "$value": "#0000ff",
+                "$description": "Accent purple without prominence",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              }
+            }
+          },
+          "purple-custom": {
+            "DEFAULT": {
+              "REST": {
+                "$type": "color",
+                "$value": "#664d99",
+                "$description": "Accent purple custom non-canonical",
+                "$extensions": {
+                  "com.figma": {
+                    "hiddenFromPublishing": false,
+                    "scopes": [
+                      "ALL_SCOPES"
+                    ],
+                    "codeSyntax": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "critical": {
+          "weak": {
+            "focus": {
+              "$type": "color",
+              "$value": "#333333",
+              "$description": "Critical weak focus",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          },
+          "default": {
+            "active": {
+              "$type": "color",
+              "$value": "#1a1a1a",
+              "$description": "Critical default active",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "focus": {
+        "support": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Focus support",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "transparent": {
+        "$type": "color",
+        "$value": "#00000000",
+        "$description": "Transparent",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      }
+    },
+    "spacing": {
+      "medium": {
+        "$type": "number",
+        "$value": 16,
+        "$description": "Spacing medium",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      }
+    }
+  }
+}

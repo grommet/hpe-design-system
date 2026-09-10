@@ -1,0 +1,100 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { Box, Grid, Diagram, Stack, ThemeContext } from 'grommet';
+import { Annotation } from '../../../layouts';
+
+const color = 'border';
+const anchor = 'vertical';
+const thickness = 'hair';
+const type = 'direct';
+
+const connections = [
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '1',
+    toTarget: 'name',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '3',
+    toTarget: 'nameVisual',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '2',
+    toTarget: 'value',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '4',
+    toTarget: 'valueVisual',
+  },
+];
+
+const AnatomyGrid = ({ ...rest }) => (
+  <Grid
+    columns={['5xsmall', ['xsmall', 'medium']]}
+    gap={{ column: 'xsmall', row: 'medium' }}
+    justify="center"
+    {...rest}
+  />
+);
+
+const AnatomyBox = ({ background, id }) => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Box
+      id={id}
+      fill="horizontal"
+      background={background}
+      height={theme.global.edgeSize.medium}
+      round="xxsmall"
+    />
+  );
+};
+
+export const NameValueListAnatomy = () => (
+  <Stack margin={{ bottom: 'medium' }}>
+    <Box direction="row-responsive" gap="medium">
+      <AnatomyGrid>
+        {/* Empty Box occupies first cell of grid. Alternatively 
+        could use gridAreas, but felt heavy for this need. */}
+        <Box />
+        <Annotation id={1} target="1" />
+        <AnatomyBox id="nameVisual" background="decorative-blue" />
+        <AnatomyBox id="name" background="decorative-blue" />
+        <Annotation id={3} target="3" />
+      </AnatomyGrid>
+      <AnatomyGrid>
+        {/* Empty Box occupies first cell of grid. Alternatively 
+        could use gridAreas, but felt heavy for this need. */}
+        <Box />
+        <Annotation id={2} target="2" />
+        <AnatomyBox id="valueVisual" background="decorative-purple" />
+        <AnatomyBox id="value" background="decorative-purple" />
+        <Annotation id={4} target="3" />
+      </AnatomyGrid>
+    </Box>
+    <Diagram connections={connections} />
+  </Stack>
+);
+
+AnatomyBox.propTypes = {
+  background: PropTypes.string,
+  id: PropTypes.string,
+};

@@ -1,0 +1,26 @@
+T-shirt sizes (design tokens) define component dimensions through the `size`
+property. Common options include `small`, `medium`, and `large`, with extended 
+ranges like `xxsmall` or `3xlarge` available for certain components. All 
+components share a common dimension lineage based on 
+[element design tokens](/design-tokens/element), ensuring standardized sizing 
+for core UI building blocks and consistent alignment across layouts.
+
+Examples supporting t-shirt sizes include:
+
+- Typography - [Heading](/foundation/typography#heading), [Paragraph](/foundation/typography#paragraph), [Text](/foundation/typography#text)
+- Controls - [Anchor](/components/anchor), [Button](/components/button), [Pagination](/components/pagination)
+- Visualizations - [Avatar](/components/avatar), [Spinner](/components/spinner), [Tag](/components/tag)
+
+## Default sizes
+
+Components exposing a `size` property default to `medium` when unspecified.
+
+In the button example below, “Default” and size=”medium” produce the equivalent rendering:
+
+```jsx
+<Button label="Default" primary />
+<Button label="Medium" primary size="medium" />
+```
+
+Omit the `size` property when `medium` is appropriate. Omission reduces verbosity 
+without altering appearance.

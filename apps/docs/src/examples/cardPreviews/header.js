@@ -1,0 +1,31 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Box, Header, Button, Text } from 'grommet';
+import { Menu, Element } from '@hpe-design/icons-grommet';
+import { useInert } from '@shared/hooks';
+
+export const HeaderPreview = () => {
+  const ref = useInert();
+
+  return (
+    <Header
+      ref={ref}
+      border={{ color: 'background-contrast', side: 'bottom' }}
+      pad={{ horizontal: '3xsmall' }}
+      background="background-front"
+      fill="horizontal"
+    >
+      <Box direction="row" gap="xsmall">
+        <Element color="brand" height="medium" />
+        <Box align="center" gap="3xsmall" direction="row">
+          <Text color="text-strong" weight="bold">
+            HPE
+          </Text>
+          <Text color="text-strong">Text</Text>
+        </Box>
+      </Box>
+      <Button a11yTitle="Menu" icon={<Menu />} />
+    </Header>
+  );
+};

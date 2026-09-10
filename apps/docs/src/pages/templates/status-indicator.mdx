@@ -1,0 +1,52 @@
+import { StatusBox } from '../../examples';
+
+import { Box } from 'grommet';
+
+## What makes up a status indicator?
+
+To effectively capture the user’s attention, status indicators are composed of four elements:
+
+- Colors
+- Icons
+- Shapes
+- Content
+
+To meet [WCAG 2.1 compliance](https://www.w3.org/WAI/WCAG21/quickref/#status-messages), at least three out of four elements must always be present.
+
+### Colors
+
+The colors used for Status are found within the [HPE Design System Color guidance](https://design-system.hpe.design/foundation/color#status-colors). Additionally, always pair color with other elements as it is not widely accessible by everyone.
+
+These are some typical situations in which each color could be used:
+
+- A critical status used to alert a device failure
+- A warning status used to notify the user of an expiring license
+- A normal status used to communicate that an update has successfully completed
+- An unknown status used to indicate that a page cannot be found
+
+### Icons and shapes
+
+Icons and shapes are used to represent the notification’s level of severity to users. Here is a set of icons and shapes created for Statuses found within the [HPE Design System Icons](https://design-system.hpe.design/foundation/icons) page:
+
+<StatusBox />
+
+\*\*\* Remember that WCAG 2.1 guidelines states that at least three out of four elements must be present, therefore, this set will not pass accessibility requirements if it is not paired with another element such as well-written and relevant content.
+
+### Content
+
+**Do this:**
+
+- When constructing content be sure to use words, phrases, and concepts familiar to the user, rather than internal jargon.
+- Content should be natural and logical as if it were being used within a real-world setting.
+
+**Don't do this:**
+
+- Do not include overbearing or irrelevant information, especially important to note for low attention notifications. Try and keep status messages short and terse as to not overload the user with information.
+- Do not include run-on sentences.
+- Don't overuse the word "please". While "please" is allowed, starting every action phrase with the word "please" is not appropriate. In general, we should be limiting the use of "please."
+
+For more detailed guidelines and examples, be sure to check out the [HPE Design System Voice and Tone](https://design-system.hpe.design/foundation/voice-and-tone#case-study) page.
+
+### Have more questions?
+
+Please be sure to send them over to the `#hpe-design-system` channel on [Slack](https://slack-invite.grommet.io/)!

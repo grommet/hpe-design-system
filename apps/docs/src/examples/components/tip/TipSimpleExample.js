@@ -1,0 +1,16 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Box, Button, Tip, Text } from 'grommet';
+
+export const TipSimpleExample = () => (
+  <Tip
+    content={
+      <Box width={{ max: 'xsmall' }} round="xsmall">
+        <Text>This is a Tip</Text>
+      </Box>
+    }
+  >
+    <Button a11yTitle="simple button" label="Hover to see Tip" secondary />
+  </Tip>
+);

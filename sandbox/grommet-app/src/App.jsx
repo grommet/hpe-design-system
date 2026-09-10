@@ -1,7 +1,10 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
-import { themes } from './themes/theme';
+import { useSessionStorage, useThemePreview } from '@shared/hooks';
+import { themes } from './themes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
@@ -10,14 +13,21 @@ import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
 import { FloatingActionButton } from './components';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
-import { BackgroundContext, WorkspaceContext } from './contexts';
+import {
+  BackgroundContext,
+  SupportingContext,
+  WorkspaceContext,
+} from './contexts';
 import { useLoading } from './utils/skeleton';
 import './app.css';
 
 const appHeaderHeight = '60px';
 export const appHeight = `calc(100vh - ${appHeaderHeight})`;
+const MOCK_SESSION_ID = 'mock-session-id';
+const BADGE_ANIMATION_DURATION = 5500;
 
 const App = () => {
+  const [sessionId, setSessionId] = useSessionStorage('sessionId', null);
   const [authenticated, setAuthenticated] = useState(
     localStorage.getItem('design-tokens-demo') || false,
   );
@@ -42,13 +52,34 @@ const App = () => {
   }, [backgroundBack]);
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
-  const [activeTheme, setActiveTheme] = useState(Object.keys(themes)[0]);
-  const theme = useMemo(() => themes[activeTheme], [activeTheme]);
+  const [activeTheme, setActiveTheme] = useSessionStorage('activeTheme', Object.keys(themes)[0]);
+  const { theme: qaTheme } = useThemePreview();
+  const theme = useMemo(
+    () => (activeTheme === 'qa' ? qaTheme : themes[activeTheme]),
+    [activeTheme, qaTheme],
+  );
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
-  const loading = useLoading(6000);
+  const [showSupporting, setShowSupporting] = useState(false);
+  const supportingContextValue = useMemo(
+    () => ({ showSupporting, setShowSupporting }),
+    [showSupporting],
+  );
+  const overflowProps = useMemo(
+    () => (showSupporting ? { height: '100vh', overflow: 'auto' } : {}),
+    [showSupporting],
+  );
+
+  // Simulate loading state for badge animation before setting sessionId
+  const loading = useLoading(BADGE_ANIMATION_DURATION + 500);
+  useEffect(() => {
+    // Simulate setting sessionId after loading is complete
+    if (!loading) {
+      setSessionId(MOCK_SESSION_ID);
+    }
+  }, [loading, setSessionId]);
 
   return (
     <Grommet
@@ -64,41 +95,60 @@ const App = () => {
       style={{ display: 'relative' }}
     >
       {authenticated ? (
-        loading ? (
+        !sessionId ? (
           <Box
             background="background"
             align="center"
             justify="center"
             height="100vh"
             // wait for badge animation to complete
-            animation={{ type: 'fadeOut', delay: 5500, duration: 350 }}
+            animation={{ type: 'fadeOut', delay: BADGE_ANIMATION_DURATION, duration: 350 }}
           >
             <HPEGreenLakeBadge />
           </Box>
         ) : (
           <BackgroundContext.Provider value={contextValue}>
             <WorkspaceContext.Provider value={workspaceContextValue}>
-              <BrowserRouter>
-                <GlobalHeader
-                  darkMode={darkMode}
-                  setDarkMode={setDarkMode}
-                  setActiveTheme={setActiveTheme}
-                  activeTheme={activeTheme}
-                  backgroundBack={backgroundBack}
-                  setBackgroundBack={setBackgroundBack}
-                  workspace={workspace}
-                  setWorkspace={setWorkspace}
-                  style={{ position: 'relative', zIndex: 1 }}
-                />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/sustainability" element={<Sustainability />} />
-                  <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  <Route path="/layouts" element={<Layouts />}>
-                    {layoutRoutes}
-                  </Route>
-                </Routes>
-              </BrowserRouter>
+              <SupportingContext.Provider value={supportingContextValue}>
+                <BrowserRouter>
+                  <Box direction="row">
+                    <Box flex {...overflowProps}>
+                      <Box flex={false}>
+                        <GlobalHeader
+                          darkMode={darkMode}
+                          setDarkMode={setDarkMode}
+                          setActiveTheme={setActiveTheme}
+                          activeTheme={activeTheme}
+                          backgroundBack={backgroundBack}
+                          setBackgroundBack={setBackgroundBack}
+                          workspace={workspace}
+                          setWorkspace={setWorkspace}
+                          style={{ position: 'relative', zIndex: 1 }}
+                        />
+                        <Routes>
+                          <Route path="/" element={<Home />} />
+                          <Route
+                            path="/sustainability"
+                            element={<Sustainability />}
+                          />
+                          <Route
+                            path="/sticker-sheet"
+                            element={<StickerSheet />}
+                          />
+                          <Route path="/layouts" element={<Layouts />}>
+                            {layoutRoutes}
+                          </Route>
+                        </Routes>
+                      </Box>
+                    </Box>
+                    <Box height="100vh" overflow="auto">
+                      <Box flex={false}>
+                        {showSupporting ? showSupporting : undefined}
+                      </Box>
+                    </Box>
+                  </Box>
+                </BrowserRouter>
+              </SupportingContext.Provider>
               {window.location.pathname === '/next' ? (
                 <FloatingActionButton label="Ask HPE" />
               ) : undefined}

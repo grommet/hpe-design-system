@@ -1,4 +1,5 @@
-/* eslint-disable react/jsx-key */
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -12,8 +13,8 @@ import {
   Tab,
   Tabs,
 } from 'grommet';
-import { Previous } from 'grommet-icons';
-import { themes } from '../../themes/theme';
+import { Left } from '@hpe-design/icons-grommet';
+import { themes } from '../../themes';
 import { ModeContext, TabContent } from './components';
 import {
   Accordions,
@@ -89,7 +90,7 @@ const StickerSheet = () => {
 
   return (
     <Grommet
-      theme={themes.v1}
+      theme={themes.v2}
       background="background-back"
       themeMode={theme.dark ? 'dark' : 'light'}
     >
@@ -100,9 +101,7 @@ const StickerSheet = () => {
               title="Sticker sheet"
               subtitle={`To be used for visual regression comparisons from 
             current theme to the next.`}
-              parent={
-                <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
-              }
+              parent={<Anchor as={Link} to="/" label="Home" icon={<Left />} />}
               // hide actions from demo deploy
               // actions={
               //   <Box direction="row" gap="xsmall">

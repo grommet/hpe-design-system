@@ -1,0 +1,48 @@
+name: Prepare design tokens release PR
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - packages/hpe-design-tokens/**
+      - .changeset/**
+      - .github/workflows/design-tokens-release-pr.yml
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: design-tokens-release-pr
+  cancel-in-progress: false
+
+jobs:
+  release-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out master
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create or update release PR
+        uses: changesets/action@v1
+        with:
+          version: pnpm exec changeset version
+          title: 'chore: prepare hpe-design-tokens release'
+          commit: 'chore: prepare hpe-design-tokens release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

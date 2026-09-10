@@ -1,0 +1,149 @@
+import { Button } from 'grommet';
+import { Example } from '../../layouts';
+
+import {
+  IconComponentExample,
+  IconInformationalExample,
+  IconResourceActionsExample,
+  IconUIActionsExample,
+  IconControlsExample,
+  IconHeightExample,
+  IconPlainExample,
+  IconSizeExample,
+  IconStatusExample,
+  IconTextExample,
+} from '../../examples';
+
+{/* TODO replace with DS icon package when available */}
+import { Figma } from 'grommet-icons';
+
+Icons can appear as stand-alone decorative elements or be embedded within components such as Button or Tabs to enhance usability and recognition. They provide quick visual cues that help users interpret actions and content at a glance.
+
+Icons should support recognition, not create ambiguity. Familiar, universal symbols (e.g., search, delete, close) can stand alone, while less common icons should be paired with a label to ensure clarity. Thoughtful, consistent use prevents overuse or misuse, avoiding the confusion caused by unclear or inconsistent symbolism.
+
+Icons in the HPE icon library are semantically named to indicate each icon’s intended usage. Every icon includes metadata to improve discovery and provide additional context about its purpose.
+
+
+- Use icons only when their meaning is clear and supports the context.
+- Pair abstract icons with text labels to aid comprehension.
+- If an icon always requires a label to be understood, use text alone.
+- Avoid using the same symbol to represent different meanings across products.
+- Keep icons visually consistent with the library’s size, and color standards.
+- Use decorative icons sparingly — they should support, not compete with, content.
+
+
+
+<Button
+  icon={<Figma color="plain" />}
+  label="Open icon set in Figma"
+  target="_blank"
+  secondary
+  href="https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons-V2-%E2%80%93-Production?node-id=0-1"
+  rel="noreferrer noopener"
+  alignSelf="start"
+/>
+
+## Developing with @hpe-design/icons-grommet
+
+Explore the [HPE Icons Storybook](https://hpe-design-icons-grommet.netlify.app/) for interactive examples and implementation details.
+
+
+
+For guidance on installing and migrating to use the @hpe-design/icons-grommet icons in your application, refer to the migration documentation.
+
+<Button
+  alignSelf="start"
+  label="Icons migration guide"
+  href="https://github.com/grommet/hpe-design-system/wiki/Migrating-from-grommet%E2%80%90icons-to-@hpe%E2%80%90design%5Cicons%E2%80%90grommet"
+  target="_blank"
+  rel="noreferrer noopener"
+  secondary
+/>
+
+## Icon sizes
+
+The default icon size is medium. Icons can be scaled using predefined size options to align with the [typography scale](/foundation/typography), ensuring consistent vertical rhythm and proper inline alignment with text.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/foundation/icons/IconSizeExample.js">
+  <IconSizeExample />
+</Example>
+
+## Icon color
+
+Standalone icon components use the default color token `icon-default`.\
+Decorative icons may also use `icon-strong` `icon-weak` `icon-disabled` or `icon-primary` to convey emphasis or state.
+
+Non-semantic icons, such as brand or third-party SVGs, should display their native colors. To preserve their original styling, apply the prop `color="plain"`.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/foundation/icons/IconPlainExample.js">
+  <IconPlainExample />
+</Example>
+
+## Status icons
+
+Status icons are reserved for drawing attention to information about system health.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/foundation/icons/IconStatusExample.js">
+  <IconStatusExample />
+</Example>
+
+## Aligning with text
+
+When icons appear inline with text, set the `height` to match the text's size prop to ensure visual alignment.
+
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/foundation/icons/IconHeightExample.js">
+  <IconHeightExample />
+</Example>
+
+## Icons within components
+
+Icons are available for use inside other components such as [Search fields](/components/search), [Menus](https://design-system.hpe.design/components/menu?#with-custom-icon) and [Buttons](https://design-system.hpe.design/components/button?#button-with-icon). When placed within a component, an icon will inherit styling, color, and scale properties from its parent component to maintain theme alignment.
+
+<Example
+  docs="https://icons.grommet.io/?theme=hpe"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/foundation/icons/IconComponentExample.js"
+  figma="https://www.figma.com/design/Hio1n5z95fdxSxuS86dLqJ/HPE-Icons---V2?node-id=66-13&t=S5gUdNzCkbPmEoZF-1"
+>
+  <IconComponentExample />
+</Example>
+
+
+## Core icons
+
+The following common icons should be used as described in order to provide a consistent and clear experience for the user.
+
+### Resource actions
+
+These icons represent actions that create, update, or delete saved resources.
+
+<IconResourceActionsExample />
+
+### UI actions
+
+These icons represent actions that move the user to a new view or context within the interface.
+
+<IconUIActionsExample />
+
+### UI controls
+
+These icons represent actions that adjust or toggle the state of an individual component.
+
+<IconControlsExample />
+
+### Info and help
+
+These icons support users by offering extra context, guidance, or help content.
+
+<IconInformationalExample />
+
+## Accessibility
+
+### Screen reader
+Each icon includes an `aria-label` to support screen readers.\
+Use the `a11yTitle` prop to override or customize the default label when needed.\
+Icons used for decorative purposes only should have `aria-hidden` to prevent labels with no meaning from being read by screen readers.
+
+### Color contrast
+Ensure icon colors maintain sufficient contrast against their background in accordance with [WCAG guidelines](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html).
+

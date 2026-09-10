@@ -1,0 +1,47 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Box, Button, Paragraph, Text } from 'grommet';
+import { Add } from '@hpe-design/icons-grommet';
+
+export const SpecialtyBackgrounds = () => {
+  return (
+    <Box align="center" gap="xlarge">
+      <Box
+        background={{ color: 'background-primary-strong' }}
+        pad="medium"
+        round="xlarge"
+        gap="medium"
+      >
+        <Text color="text-onPrimaryStrong" size="large" weight={500}>
+          color.background.primary.strong
+        </Text>
+        <Box gap="xsmall">
+          <Box direction="row" gap="xsmall">
+            <Text color="text-onPrimaryStrong" weight={500}>
+              Aa
+            </Text>
+            <Text color="text-onPrimaryStrong">color.text.onPrimaryStrong</Text>
+          </Box>
+          <Box direction="row" gap="xsmall">
+            <Add color="icon-onPrimaryStrong" height="medium" />
+            <Text color="text-onPrimaryStrong">color.icon.onPrimaryStrong</Text>
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        background="background-contrast"
+        pad="medium"
+        round="xlarge"
+        align="center"
+        gap="medium"
+      >
+        <Paragraph size="large" margin="none">
+          Button using color.background.primary.strong and
+          color.text.onPrimaryStrong.
+        </Paragraph>
+        <Button primary label="Primary" />
+      </Box>
+    </Box>
+  );
+};

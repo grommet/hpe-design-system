@@ -1,5 +1,7 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, ToggleGroup } from 'grommet';
-import { List, MapLocation, Table } from 'grommet-icons';
+import { List, Map, Table } from '@hpe-design/icons-grommet';
 import ContentPane from '../../../../components/ContentPane';
 import { Compare } from '../../components/Compare';
 
@@ -22,7 +24,7 @@ export const ToggleGroups = () => {
                 tip: 'Table',
               },
               {
-                icon: <MapLocation a11yTitle="Map view" />,
+                icon: <Map a11yTitle="Map view" />,
                 value: 'map',
                 tip: 'Map',
               },

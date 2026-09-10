@@ -1,0 +1,43 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import { AccordionExample } from '../../examples';
+
+<Example
+  componentName="Accordion"
+  docs="https://v2.grommet.io/accordion#props"
+  designer="https://designer.grommet.io/accordion?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/accordion/AccordionExample.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2209-1760&t=xxvcTYIZfxpoGLlK-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Accordion/Accordion.js"
+>
+  <AccordionExample />
+</Example>
+
+## Guidance
+
+When seeking to provide maximum content in limited, vertical space, an accordion is a good choice.
+
+An accordion is a group of vertically stacked collapsible buttons with title headers. The titles give the user a high-level idea of what content will be disclosed when an accordion panel opens.
+
+Accordions help organize information, which helps the user consume the information they need at a faster pace.
+
+### About accordion
+
+Accordion has two states:
+
+- Collapsed
+- Expanded
+
+**The chevron icon** is used to identify the expand or collapse action while the entire header can be clicked to expand or collapse content.
+
+**The default behavior** is for all of the panels to be closed, with the user only having visual to the heading.
+
+**The accordion labels** should be kept short and to the point of the information following in each panel. Lengthy panel content will want to be avoided.
+
+## Accessibility
+
+Buttons are used for the accordion panels which makes them accessible by screen readers and keyboard. Having a very descriptive heading label helps so the user gets to the content section they are interested in faster. Users are able to click anywhere within the panel heading for the state to change to expanded.
+
+To help with readability, accordions should only have one panel open at a time.
+### WCAG compliance
+
+<AccessibilitySection title='accordion' />

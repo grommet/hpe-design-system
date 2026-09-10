@@ -1,6 +1,7 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { cloneElement } from 'react';
 import { Box, Heading, HeadingProps, Paragraph } from 'grommet';
-import { DriveCage } from 'grommet-icons';
 
 export const EmptyState = ({
   actions,

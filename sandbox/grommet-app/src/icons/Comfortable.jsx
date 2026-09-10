@@ -1,4 +1,6 @@
-import { Blank } from 'grommet-icons';
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import { Blank } from '@hpe-design/icons-grommet';
 
 export const Comfortable = ({ ...rest }) => (
   <Blank {...rest}>

@@ -1,8 +1,9 @@
-import React from "react";
-import { Box, Text } from "grommet";
-import { DashboardCard, Metric, metricSizes } from "../../../../components";
-import { StatusGoodSmall } from "grommet-icons";
-
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Box, Text } from 'grommet';
+import { DashboardCard, Metric, metricSizes } from '../../../../components';
+import { StatusGood } from '@hpe-design/icons-grommet';
 
 export const SystemSummary = ({ size, ...rest }) => {
   return (
@@ -23,8 +24,14 @@ export const SystemSummary = ({ size, ...rest }) => {
           label="Call home"
           value={
             <Box direction="row" align="center" gap="xsmall">
-              <StatusGoodSmall color="status-ok" />
-              <Text size={metricSizes[size].value} color="text-strong" weight={500}>On</Text>
+              <StatusGood color="status-ok" />
+              <Text
+                size={metricSizes[size].value}
+                color="text-strong"
+                weight={500}
+              >
+                On
+              </Text>
             </Box>
           }
           reverse

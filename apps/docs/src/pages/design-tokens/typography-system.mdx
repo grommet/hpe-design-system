@@ -1,0 +1,31 @@
+import { useContext } from 'react';
+import { Markdown, Text, ThemeContext } from 'grommet';
+import { prism } from 'grommet-theme-hpe';
+import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
+import { DesignTokensTable } from '../../components';
+
+There are two categories of typography design tokens: heading and text. Each are offered in a range of t-shirt sizes. At each t-shirt size, there is a defined font-size, font-weight, and line-height.
+
+The values of each typography value were chosen to ensure readability as well as alignment with the broader [spacing system](/design-tokens/layout-and-spacing#foundational-scale).
+
+Always use all parts of a typography t-shirt size together; do not mix and match tokens of different t-shirt sizes on a single text element.
+
+## Heading
+
+Heading design tokens should be used on HTML heading elements (h1-h6). Heading tokens are offered in 6 sizes: "xlarge"-"xxsmall".
+
+Generally, an h1 should be styled with the "xlarge" token, an h2 with "large", and so on.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.heading" toolbar />
+</ContentPane>
+
+
+
+## Text
+
+Text design tokens should be used for body text. Text tokens are offered in 10 sizes: "xsmall"-"6xl".
+
+<ContentPane>
+  <DesignTokensTable active="semantic.text" toolbar />
+</ContentPane>

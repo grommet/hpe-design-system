@@ -1,7 +1,9 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
 import { Box, Text, ThemeContext } from 'grommet';
-import { Checkmark } from 'grommet-icons';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import { SelectorGroupContext } from './SelectorGroupContext';
 
 const SelectorIndicator = ({ selected, indicator, ...rest }) => {

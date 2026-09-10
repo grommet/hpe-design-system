@@ -1,0 +1,13 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+export const javascriptW3c: string[] = [
+  'attribute/cti',
+  'name/dot',
+  'js/color-name',
+  'size/rem',
+  'color/css', // support alpha
+  'cubicBezier/css', // TO DO revisit if we want to apply this or not
+  'shadow/css/shorthand',
+  'linearGradient/css',
+  'numberToDimension',
+];

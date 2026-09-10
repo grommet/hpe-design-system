@@ -1,0 +1,21 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import {
+  colorNameToHierarchyPartsCore,
+  normalizeColorVariableNameFromFigmaCore,
+  tokenAliasToFigmaAliasCore,
+} from './semantic_color_normalization.js';
+
+export function colorNameToHierarchyParts(colorVariableName: string): string[] {
+  return colorNameToHierarchyPartsCore(colorVariableName);
+}
+
+export function normalizeColorVariableNameFromFigma(
+  colorVariableName: string,
+): string {
+  return normalizeColorVariableNameFromFigmaCore(colorVariableName);
+}
+
+export function tokenAliasToFigmaAlias(alias: string): string {
+  return tokenAliasToFigmaAliasCore(alias);
+}

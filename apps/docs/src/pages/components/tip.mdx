@@ -1,0 +1,91 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import { ExampleImagePreview } from '../../components';
+import {
+  TipExitExample,
+  TipIconExample,
+  TipSimpleExample,
+  TipSizeExample,
+} from '../../examples';
+
+<Example
+  componentName="Tip"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tip/TipSimpleExample.js"
+  docs="https://v2.grommet.io/tip?theme=hpe#props"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2009-588&t=ZqPsisuevR3KPp96-1"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tip/Tip.js"
+>
+  <TipSimpleExample />
+</Example>
+
+## Guidance
+
+Tips can be added to Button by Grommet [tip props](https://v2.grommet.io/button#tip).
+Tips will display information upon hover and focus.
+Tips provide messages that give the user more information about an element.
+
+### Usage
+
+1. Don't use Tips for information that is vital to task completion.
+2. Provide a brief and helpful content inside the Tip.
+3. Support both mouse and keyboard hover.
+4. Use Tip consistently throughout your site.
+5. Tip should never contain interactive components.
+
+Make sure to test the Tip positioning to ensure that the content does not block other information pertinent to the user's goal.
+
+### Truncation with Tip
+
+To display the full text when truncation occurs, hover over the truncated text and a Tip will be shown with the full text.
+
+Upon hovering, Tip presents additional information about a specific element in a small container. The Tip will remain visible as long as the user is hovering over the element.
+
+## Variants
+
+There are a few different ways that you can use a Tip.
+
+### Truncated table cell content
+
+Tips are useful to supplement truncated content within a table. In the example
+below, many of the service names are lengthy. Truncation may be applied cell content
+is constrained by column widths and supplemented with a tip upon hover to reveal the
+entirety of the cell's content.
+
+<ExampleImagePreview
+  label="See truncation example in DataTable"
+  href="/components/datatable#selecting-multiple-records-and-batch-actions"
+  src="/table-manage-orders-example.png"
+  alt="Image depicting an example HPE Design System table implementation."
+/>
+
+### Tip with icons
+
+An icon without a label should be provided a Tip to remove any ambiguity around an icon's meaning.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tip/TipIconExample.js">
+  <TipIconExample />
+</Example>
+
+### Tip with exit
+
+A Tip can be used to reiterate traditional symbols.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tip/TipExitExample.js">
+  <TipExitExample />
+</Example>
+
+### Tip content length
+
+Tip may be used for content varying in length. The size of the Tip will scale according to the content provided.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/tip/TipSizeExample.js">
+  <TipSizeExample />
+</Example>
+
+## Accessibility
+
+Tips should support both mouse hover and keyboard focus.
+Do not use Tips for information that is vital for the user to complete the task.
+
+### WCAG compliance
+
+<AccessibilitySection title="tip" />

@@ -1,7 +1,9 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext, Heading } from 'grommet';
 import { DashboardCard } from '../components';
-import { AppsRounded, UserAdd } from 'grommet-icons';
+import { Apps, UserAdd } from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 
@@ -43,11 +45,7 @@ export const GetStarted = ({ kind, heading }) => {
           icon={
             !skeleton ? (
               <Box {...kindStyles.container}>
-                <AppsRounded
-                  size="xxlarge"
-                  color="brand"
-                  {...kindStyles.icon}
-                />
+                <Apps size="xxlarge" color="brand" {...kindStyles.icon} />
               </Box>
             ) : undefined
           }

@@ -1,0 +1,15 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: alignment-audit
+  version: 1.0.0
+  status: planned
+  owner: design-system
+spec:
+  summary: Audit component and documentation alignment against standards, schemas, and repository policy.
+  entrypoint:
+    agent: alignment-audit-orchestrator
+    args: "<scope>"
+  assets:
+    agents:
+      - alignment-audit-orchestrator.agent.md

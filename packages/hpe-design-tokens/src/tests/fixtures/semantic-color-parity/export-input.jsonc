@@ -1,0 +1,155 @@
+// Parity fixture input representing a Figma local variables payload used to
+// verify export normalization into semantic token files.
+{
+  "status": 200,
+  "error": false,
+  "meta": {
+    "variableCollections": {
+      "VariableCollectionId:9:1": {
+        "id": "VariableCollectionId:9:1",
+        "name": "semantic",
+        "modes": [{ "modeId": "9:0", "name": "dark" }],
+        "defaultModeId": "9:0",
+        "remote": false,
+        "hiddenFromPublishing": false
+      }
+    },
+    "variables": {
+      "VariableID:9:1": {
+        "id": "VariableID:9:1",
+        "name": "color/background/accent/purple-strong",
+        "key": "key_91",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 1, "g": 0, "b": 0, "a": 1 }
+        },
+        "remote": false,
+        "description": "Accent purple strong",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:2": {
+        "id": "VariableID:9:2",
+        "name": "color/background/accent/purple-strong-hover",
+        "key": "key_92",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0, "g": 1, "b": 0, "a": 1 }
+        },
+        "remote": false,
+        "description": "Accent purple strong hover",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:3": {
+        "id": "VariableID:9:3",
+        "name": "color/focus/support",
+        "key": "key_93",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 1, "g": 1, "b": 1, "a": 1 }
+        },
+        "remote": false,
+        "description": "Focus support",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:4": {
+        "id": "VariableID:9:4",
+        "name": "color/transparent",
+        "key": "key_94",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0, "g": 0, "b": 0, "a": 0 }
+        },
+        "remote": false,
+        "description": "Transparent",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:5": {
+        "id": "VariableID:9:5",
+        "name": "color/background/accent/purple",
+        "key": "key_95",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0, "g": 0, "b": 1, "a": 1 }
+        },
+        "remote": false,
+        "description": "Accent purple without prominence",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:6": {
+        "id": "VariableID:9:6",
+        "name": "color/background/critical-weak-focus",
+        "key": "key_96",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0.2, "g": 0.2, "b": 0.2, "a": 1 }
+        },
+        "remote": false,
+        "description": "Critical weak focus",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:7": {
+        "id": "VariableID:9:7",
+        "name": "color/background/critical-default-active",
+        "key": "key_97",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0.1, "g": 0.1, "b": 0.1, "a": 1 }
+        },
+        "remote": false,
+        "description": "Critical default active",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:8": {
+        "id": "VariableID:9:8",
+        "name": "spacing/medium",
+        "key": "key_98",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "FLOAT",
+        "valuesByMode": {
+          "9:0": 16
+        },
+        "remote": false,
+        "description": "Spacing medium",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      },
+      "VariableID:9:9": {
+        "id": "VariableID:9:9",
+        "name": "color/background/accent/purple-custom",
+        "key": "key_99",
+        "variableCollectionId": "VariableCollectionId:9:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "9:0": { "r": 0.4, "g": 0.3, "b": 0.6, "a": 1 }
+        },
+        "remote": false,
+        "description": "Accent purple custom non-canonical",
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      }
+    }
+  }
+}

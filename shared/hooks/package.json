@@ -1,0 +1,48 @@
+{
+  "name": "@shared/hooks",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/esm/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js"
+    },
+    "./*": {
+      "types": "./dist/esm/*.d.ts",
+      "import": "./dist/esm/*.js"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.esm.json",
+    "watch:esm": "tsc -w -p tsconfig.build.esm.json",
+    "watch": "pnpm run watch:esm",
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "globals": "catalog:",
+    "jsdom": "^26.1.0",
+    "minimatch": "^10.0.3",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "grommet-theme-hpe": "catalog:grommet-stable",
+    "hpe-design-tokens": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
+}

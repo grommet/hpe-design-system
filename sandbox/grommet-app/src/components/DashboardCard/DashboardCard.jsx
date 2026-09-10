@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -10,7 +12,7 @@ import {
   Skeleton,
   Text,
 } from 'grommet';
-import { LinkNext, ShareRounded } from 'grommet-icons';
+import { LinkNext, Share } from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { SkeletonContext } from '../SkeletonContext';
 import { WorkspaceContext } from '../../contexts';
@@ -82,7 +84,7 @@ export const DashboardCard = ({
             {skeleton ? (
               <Skeleton pad="small" />
             ) : external ? (
-              <ShareRounded
+              <Share
                 a11yTitle={`Go to ${title}`}
                 color="icon-primary"
                 data-icon={

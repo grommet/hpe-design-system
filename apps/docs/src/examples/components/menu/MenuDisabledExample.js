@@ -1,0 +1,16 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Menu } from 'grommet';
+
+export const MenuDisabledExample = () => {
+  const items = [
+    { label: 'Reset password' },
+    { label: 'Change username' },
+    { label: 'Logout' },
+  ];
+
+  return (
+    <Menu label="Account Information" items={items} width="medium" disabled />
+  );
+};

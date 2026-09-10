@@ -1,0 +1,61 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import {
+  Box,
+  Heading,
+  NameValueList,
+  NameValuePair,
+  PageHeader,
+  Tab,
+  Tabs,
+  Text,
+} from 'grommet';
+import { StatusGood } from '@hpe-design/icons-grommet';
+import { ContentPane } from '../../../../layouts';
+import { emptyServerData } from '../data';
+
+export const NameValueListDetailPage = () => {
+  const [index, setIndex] = React.useState();
+  const onActive = nextIndex => setIndex(nextIndex);
+  return (
+    <Box gap="medium">
+      <PageHeader title="Demo_Cluster_5" />
+      <Tabs activeIndex={index} onActive={onActive} justify="start">
+        <Tab title="Overview">
+          <Box pad={{ vertical: 'xsmall' }}>
+            <ContentPane gap="medium">
+              <Heading margin="none" level={2}>
+                Details
+              </Heading>
+              <NameValueList>
+                {Object.entries(emptyServerData).map(([name, value]) => (
+                  <NameValuePair key={name} name={name}>
+                    {name === 'Health' ? (
+                      <Box align="center" gap="3xsmall" direction="row">
+                        <StatusGood size="small" color="status-ok" />
+                        {value}
+                      </Box>
+                    ) : (
+                      value || <Text a11yTitle="No value">--</Text>
+                    )}
+                  </NameValuePair>
+                ))}
+              </NameValueList>
+            </ContentPane>
+          </Box>
+        </Tab>
+        <Tab title="Policies">
+          <Box margin="xsmall">
+            <ContentPane>Policies information</ContentPane>
+          </Box>
+        </Tab>
+        <Tab title="Services">
+          <Box margin="xsmall">
+            <ContentPane>Services information</ContentPane>
+          </Box>
+        </Tab>
+      </Tabs>
+    </Box>
+  );
+};

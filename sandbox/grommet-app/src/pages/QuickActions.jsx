@@ -1,13 +1,15 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Anchor, Box, Button, Heading, Skeleton } from 'grommet';
 import PropTypes from 'prop-types';
 import {
   ChapterAdd,
   Cloud,
   Edit,
-  MapLocation,
+  Map,
   Stakeholder,
   UserAdd,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useLoading } from '../utils/skeleton';
@@ -55,11 +57,7 @@ export const QuickActions = ({ edit = true, icons }) => {
         {skeleton ? (
           <Skeleton height={theme.text.medium.size} />
         ) : (
-          <Anchor
-            icon={icons && <MapLocation />}
-            label="Create location"
-            href="#"
-          />
+          <Anchor icon={icons && <Map />} label="Create location" href="#" />
         )}
       </Box>
     </Box>

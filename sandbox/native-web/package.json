@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.1.4"
+    "vite": "catalog:"
   },
   "dependencies": {
-    "design-tokens": "*"
+    "hpe-design-tokens": "workspace:*",
+    "prop-types": "catalog:"
   }
 }

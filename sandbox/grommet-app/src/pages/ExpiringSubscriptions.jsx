@@ -1,5 +1,7 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, List, Text, Notification } from 'grommet';
-import { StatusCriticalSmall, StatusWarningSmall } from 'grommet-icons';
+import { StatusCritical, StatusWarning } from '@hpe-design/icons-grommet';
 import { DashboardCard } from '../components';
 import services from '../mockData/services.json';
 import { useContext } from 'react';
@@ -35,15 +37,9 @@ export const ExpiringSubscriptions = () => {
               <Box direction="row" gap="xsmall">
                 {!skeleton ? (
                   expired ? (
-                    <StatusCriticalSmall
-                      color="status-critical"
-                      height="medium"
-                    />
+                    <StatusCritical color="status-critical" height="medium" />
                   ) : (
-                    <StatusWarningSmall
-                      color="status-warning"
-                      height="medium"
-                    />
+                    <StatusWarning color="status-warning" height="medium" />
                   )
                 ) : undefined}
                 <Box flex={false}>

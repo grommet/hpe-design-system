@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -18,7 +20,7 @@ import {
   Menu,
   ToggleGroup,
 } from 'grommet';
-import { More, List, Table, MapLocation } from 'grommet-icons';
+import { More, List, Table, Map } from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { useLoading } from '../../utils/skeleton';
 import { Comfortable, Compact, Spacious } from '../../icons';
@@ -1442,7 +1444,7 @@ export const Devices = () => {
                     value: 'list',
                   },
                   {
-                    icon: <MapLocation a11yTitle="Map view" />,
+                    icon: <Map a11yTitle="Map view" />,
                     value: 'map',
                   },
                 ]}

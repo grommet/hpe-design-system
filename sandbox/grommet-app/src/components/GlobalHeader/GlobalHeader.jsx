@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -22,12 +24,12 @@ import {
   User,
   Notification,
   Catalog,
-  HelpOption,
+  Help,
   Menu,
   LinkNext,
-} from 'grommet-icons';
+} from '@hpe-design/icons-grommet';
 import { Link } from 'react-router-dom';
-import { themes } from '../../themes/theme';
+import { themes } from '../../themes';
 
 export const GlobalHeader = ({
   darkMode,
@@ -38,8 +40,13 @@ export const GlobalHeader = ({
   setBackgroundBack,
   ...rest
 }) => {
-  const theme = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
+  const logoSrc = ['v0', 'v1'].includes(activeTheme)
+    ? `/hpe_greenlake_grn_${activeTheme !== 'v1' && !dark ? 'pos' : 'rev'}_rgb.svg`
+    : `/hpe-grnlk-${!dark ? 'pos' : 'rev'}-rgb.svg`;
+  const themeOptions = [...Object.keys(themes).map(theme => theme), 'qa'];
+
   return (
     <Page kind="full" {...rest}>
       <PageContent pad="none">
@@ -48,11 +55,13 @@ export const GlobalHeader = ({
           justify="between"
           align="center"
           background={
-            activeTheme === 'v1'
+            activeTheme === 'v2'
+              ? 'transparent'
+              : activeTheme === 'v1'
               ? 'background-primary-xstrong'
               : 'background-front'
           }
-          elevation={activeTheme === 'v1' ? 'none' : 'small'}
+          elevation={activeTheme !== 'v0' ? 'none' : 'small'}
           pad={{ horizontal: 'xsmall', vertical: 'small' }}
         >
           <Box direction="row" gap="medium" flex>
@@ -61,14 +70,12 @@ export const GlobalHeader = ({
               <Box border={{ side: 'left', color: 'border-weak' }} />
             </Box>
             <Link to="/">
-              <Box height="32px" width="90px" align="start">
-                <Image
-                  src={`/hpe_greenlake_grn_${
-                    activeTheme === 'v0' && !theme.dark ? 'pos' : 'rev'
-                  }_rgb.svg`}
-                  fit="contain"
-                  alt="HPE GreenLake badge"
-                />
+              <Box
+                height="32px"
+                width={['v0', 'v1'].includes(activeTheme) ? '90px' : '125px'}
+                align="start"
+              >
+                <Image src={logoSrc} fit="contain" alt="HPE GreenLake badge" />
               </Box>
             </Link>
             {!['xsmall', 'small'].includes(breakpoint) ? (
@@ -82,7 +89,7 @@ export const GlobalHeader = ({
             ) : undefined}
           </Box>
           <Box direction="row" gap="xsmall">
-            <Button icon={<HelpOption />} />
+            <Button icon={<Help />} />
             <Button icon={<Catalog />} />
             <Button icon={<Notification />} />
             <DropButton
@@ -91,7 +98,7 @@ export const GlobalHeader = ({
                 <Box
                   background={{
                     color: 'background-floating',
-                    dark: theme.dark ? true : false,
+                    dark: dark ? true : false,
                   }}
                   pad="medium"
                   gap="medium"
@@ -140,7 +147,7 @@ export const GlobalHeader = ({
                     <Select
                       id="theme-select"
                       name="theme-select"
-                      options={Object.keys(themes).map(theme => theme)}
+                      options={themeOptions}
                       onChange={({ option }) => setActiveTheme(option)}
                       value={activeTheme}
                     />

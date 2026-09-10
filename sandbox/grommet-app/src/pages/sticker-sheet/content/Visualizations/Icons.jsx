@@ -1,6 +1,8 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import ContentPane from '../../../../components/ContentPane';
 import { Box } from 'grommet';
-import { User } from 'grommet-icons';
+import { User } from '@hpe-design/icons-grommet';
 import { Compare } from '../../components';
 
 export const Icons = () => {

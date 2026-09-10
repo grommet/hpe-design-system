@@ -1,0 +1,25 @@
+name: Codemod test
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: packages/codemods
+      - name: Run tests
+        run: pnpm --filter hpe-design-system-codemods test

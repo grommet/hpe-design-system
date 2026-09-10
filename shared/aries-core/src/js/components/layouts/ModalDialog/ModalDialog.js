@@ -1,0 +1,81 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import PropTypes from 'prop-types';
+import { Box, Footer, Layer } from 'grommet';
+import { LayerHeader } from '../Layer';
+
+export const ModalDialog = ({
+  children,
+  title,
+  subtitle,
+  onClose,
+  boxProps,
+  ...layerProps
+}) => (
+  <Layer position="center" {...layerProps}>
+    <ModalContainer
+      {...boxProps}>
+      <LayerHeader title={title} subtitle={subtitle} onClose={onClose} />
+      {children}
+    </ModalContainer>
+  </Layer>
+);
+
+ModalDialog.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]),
+  title: PropTypes.string,
+  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  onClose: PropTypes.func,
+  boxProps: PropTypes.object,
+};
+
+export const ModalContainer = ({
+  children,
+  ...boxProps
+}) => {
+  return (
+    <Box
+      background="background-floating"
+      flex="grow"
+      gap="medium"
+      pad="medium"
+      round="medium"
+      width={{ min: 'medium' }}
+      {...boxProps}
+    >
+      {children}
+    </Box>
+  );
+};
+
+ModalContainer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]),
+};
+
+export const ModalBody = ({ children, ...boxProps }) => (
+  <Box {...boxProps}>{children}</Box>
+);
+
+ModalBody.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]),
+};
+
+export const ModalFooter = ({ children, ...boxProps }) => (
+  <Footer justify="end" gap="xsmall" {...boxProps}>{children}</Footer>
+);
+
+ModalFooter.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]),
+};

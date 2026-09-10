@@ -3,17 +3,18 @@
 
 # testing
 /coverage
-*/src/tests/build
+**/src/tests/build
 
 #lock files
 *package-lock.json
 
 # production
 *dist
-*/out
+/apps/docs/out
 *.next
 *storybook-static
-*/src/data/search
+/apps/docs/src/data/search
+knowledge/capabilities/docs-refactor/.telemetry.log
 
 # yalc
 .yalc/
@@ -28,10 +29,19 @@ yarn-error.log*
 .env
 .env.*
 !.env.example
+!**/.env.example
 .tmp
 report*
 .DS_Store
+.eslintcache
 .native-web
 .tailwind-app
-
+.vscode
 *storybook.log
+
+# generated diagnostics artifacts (kept out of committed contract assets)
+packages/hpe-design-tokens/contracts/generated/
+
+# round-trip pull snapshots (generated during validation; not source of truth)
+packages/hpe-design-tokens/tokens_fresh_baseline/
+packages/hpe-design-tokens/tokens_new*/

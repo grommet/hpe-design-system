@@ -1,0 +1,16 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Anchor } from 'grommet';
+import { NewWindow } from '@hpe-design/icons-grommet';
+
+export const AnchorIconExample = () => (
+  <Anchor
+    label="Submit a support request"
+    icon={<NewWindow />}
+    target="_blank"
+    rel="noopener norefferer"
+    href="#"
+    reverse
+  />
+);

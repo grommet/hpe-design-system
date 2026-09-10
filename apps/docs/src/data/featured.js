@@ -1,0 +1,16 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import { Theme, Code } from '@hpe-design/icons-grommet';
+
+export const featured = [
+  {
+    name: 'Design',
+    description: 'Access Figma UI kits and brand principles.',
+    icon: <Theme size="xlarge" color="text-strong" aria-hidden="true" />,
+  },
+  {
+    name: 'Develop',
+    description: 'Find components, theming, and implementation guides.',
+    icon: <Code size="xlarge" color="text-strong" aria-hidden="true" />,
+  },
+];

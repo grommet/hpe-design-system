@@ -1,0 +1,160 @@
+// Parity fixture input representing semantic token files plus a minimal
+// local-variables envelope used to verify import payload generation.
+{
+  "tokensByFile": {
+    "semantic.dark.json": {
+      "color/background/accent/purple/strong/REST": {
+        "$type": "color",
+        "$value": "#ff0000",
+        "$description": "Accent purple strong",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/accent/purple/strong/hover": {
+        "$type": "color",
+        "$value": "#00ff00",
+        "$description": "Accent purple strong hover",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/focus/support/DEFAULT/REST": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Focus support",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/transparent": {
+        "$type": "color",
+        "$value": "#000000",
+        "$description": "Transparent",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/accent/purple/default/REST": {
+        "$type": "color",
+        "$value": "{color.background.accent.purple.strong}",
+        "$description": "Alias to strong",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/accent/purple/default/focus": {
+        "$type": "color",
+        "$value": "#0000ff",
+        "$description": "Accent purple default focus",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/critical/weak/focus": {
+        "$type": "color",
+        "$value": "#333333",
+        "$description": "Critical weak focus",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/critical/default/active": {
+        "$type": "color",
+        "$value": "#1a1a1a",
+        "$description": "Critical default active",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/text/default/REST": {
+        "$type": "color",
+        "$value": "#eeeeee",
+        "$description": "Text default",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/default/REST": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Cross-target alias",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "color/background/accent/purple/custom/REST": {
+        "$type": "color",
+        "$value": "{color.background.accent.purple.strong}",
+        "$description": "Non-canonical accent alias",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "spacing/medium": {
+        "$type": "number",
+        "$value": 16,
+        "$description": "Spacing medium",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      }
+    }
+  },
+  "localVariables": {
+    "status": 200,
+    "error": false,
+    "meta": {
+      "variableCollections": {},
+      "variables": {}
+    }
+  }
+}

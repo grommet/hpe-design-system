@@ -1,0 +1,27 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Box, NameValueList, NameValuePair } from 'grommet';
+import { defaultData } from '../data';
+
+export const NameValueListDefaultExample = () => (
+  <Box pad="xsmall">
+    <NameValueList nameProps={{ width: '3xsmall' }}>
+      {Object.entries(defaultData).map(([name, value]) => {
+        let date;
+        if (name === 'Created on') {
+          const event = new Date(value);
+          date = event.toLocaleString('en-US', {
+            dateStyle: 'short',
+            timeStyle: 'short',
+          });
+        }
+        return (
+          <NameValuePair key={name} name={name}>
+            {name === 'Created on' ? <> {date}</> : value}
+          </NameValuePair>
+        );
+      })}
+    </NameValueList>
+  </Box>
+);

@@ -1,6 +1,8 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Nav, Sidebar, Text } from 'grommet';
-import { Sidebar as SidebarIcon } from 'grommet-icons';
+import { Sidebar as SidebarIcon } from '@hpe-design/icons-grommet';
 import { CollapsibleMenu } from '../CollapsibleMenu';
 
 const SidebarHeader = ({ expanded, setExpanded, title }) => {

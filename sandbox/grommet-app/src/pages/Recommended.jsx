@@ -1,7 +1,9 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, Heading } from 'grommet';
 import PropTypes from 'prop-types';
 import { DashboardCard } from '../components';
-import { Tree, History, Robot } from 'grommet-icons';
+import { TreeNode, History, Robot } from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { SkeletonContext } from '../components';
 
@@ -31,7 +33,7 @@ export const Recommended = ({ inline }) => {
         />
         <DashboardCard
           title="Data Fabric"
-          icon={<Tree size="xlarge" />}
+          icon={<TreeNode size="xlarge" />}
           subtitle="Accelerate configuring, monitoring, and managing storage fabrics."
           level={3}
           inline={inline}

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { createContext, useContext, useState } from 'react';
 import {
   Grid,
@@ -13,7 +15,7 @@ import {
   Skeleton,
   ToggleGroup,
 } from 'grommet';
-import { Hide, FormView } from 'grommet-icons';
+import { Hide, View } from '@hpe-design/icons-grommet';
 import { Card, Legend, Metric } from '../../components';
 import mockData from '../../mockData/sustainability.json';
 import {
@@ -287,7 +289,7 @@ export const SustainabilityInsights = () => {
                 <ToggleGroup
                   options={[
                     {
-                      icon: <FormView />,
+                      icon: <View />,
                       tip: 'View charts',
                       value: true,
                     },

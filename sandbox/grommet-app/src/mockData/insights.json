@@ -1,0 +1,44 @@
+{
+  "insights": [
+    {
+      "title": "Access Point Latency Impact (24)",
+      "description": "IOPS latency is elevated across multiple access points at the Denver, CO site.",
+      "tags": {
+        "scope": "Access points",
+        "service": "Networking",
+        "usage": "QoS",
+        "severity": "High"
+      }
+    },
+    {
+      "title": "vGPU & Storage Bottleneck (3)",
+      "description": "The RAG pipeline in the “Talon-2” project at the Houston, TX site is experiencing degraded performance due to vGPU contention and vector store latency, impacting retrieval speed and overall model responsiveness.",
+      "tags": {
+        "scope": "GPU",
+        "service": "Storage",
+        "type": "Data bucket",
+        "usage": "Degraded"
+      }
+    },
+    {
+      "title": "SLA Risk & Cost Forecast Alert – Public Cloud Overrun (3)",
+      "description": "Public cloud usage from the Boston, MA site is exceeding billing forecasts, triggering SLA risk due to potential resource throttling and budget overages.",
+      "tags": {
+        "provider": "AWS",
+        "resource": "Compute",
+        "type": "Data cost",
+        "severity": "High"
+      }
+    },
+    {
+      "title": "Reduce IT energy consumption across data center and cloud environments. (3)",
+      "description": "Evaluate server, cooling, and power usage in the data center. Recommend steps to downscale idle infrastructure, adjust cooling zones, and shift workloads to more energy-efficient nodes.",
+      "tags": {
+        "location": "Cloud",
+        "scope": "Workloads",
+        "resource": "Data center",
+        "type": "Energy"
+      }
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export const sentenceCase = (str: string | number) => {
   let adjustedStr = str;
   if (typeof adjustedStr === 'number') adjustedStr = adjustedStr.toString();

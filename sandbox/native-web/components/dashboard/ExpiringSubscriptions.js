@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { DashboardCard } from '../common/DashboardCard';
 import { Notification } from '../common/Notification';
 import mockData from '../../mockData/mockData.json';

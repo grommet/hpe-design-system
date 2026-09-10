@@ -1,0 +1,23 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Box, Button, TextInput } from 'grommet';
+import { Filter, Search, Descend, Columns } from '@hpe-design/icons-grommet';
+import { useInert } from '@shared/hooks';
+
+export const DataHowToAddAdditionalControls = () => {
+  const ref = useInert();
+
+  return (
+    <Box ref={ref} direction="row" align="center" gap="xsmall">
+      <TextInput icon={<Search />} placeholder="Search" />
+      <Button a11yTitle="Sort" icon={<Descend />} kind="toolbar" />
+      <Button a11yTitle="Filter" icon={<Filter />} kind="toolbar" />
+      <Button
+        a11yTitle="Manage columns"
+        icon={<Columns />}
+        kind="toolbar"
+      />
+    </Box>
+  );
+};

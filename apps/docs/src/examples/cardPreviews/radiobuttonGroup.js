@@ -1,0 +1,22 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { RadioButtonGroup } from 'grommet';
+import { useInert } from '@shared/hooks';
+
+export const RadioButtonGroupPreview = () => {
+  const ref = useInert();
+
+  return (
+    <RadioButtonGroup
+      ref={ref}
+      name="radio"
+      aria-label="preview"
+      options={[
+        { label: 'Choice 1', value: 'c1', tabIndex: -1 },
+        { label: 'Choice 2', value: 'c2', tabIndex: -1 },
+        { label: 'Choice 3', value: 'c3', tabIndex: -1 },
+      ]}
+    />
+  );
+};

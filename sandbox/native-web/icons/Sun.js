@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable max-len */
 export const Sun = ({ color = '#000', size = 'medium' }) => `<svg
 viewBox="0 0 24 24"

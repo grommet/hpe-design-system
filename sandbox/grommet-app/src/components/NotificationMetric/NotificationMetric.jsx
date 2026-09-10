@@ -1,11 +1,13 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import {
   StatusCritical,
   StatusWarning,
   StatusGood,
-  CircleInformation,
-} from 'grommet-icons';
+  Info,
+} from '@hpe-design/icons-grommet';
 import { useContext } from 'react';
 import { SkeletonContext } from '../SkeletonContext';
 
@@ -27,7 +29,7 @@ const statuses = {
   },
   info: {
     background: 'background-info',
-    icon: <CircleInformation color="icon-info" height="medium" />,
+    icon: <Info color="icon-info" height="medium" />,
     label: 'Information',
   },
 };

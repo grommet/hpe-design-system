@@ -1,0 +1,15 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: pattern-creation
+  version: 1.0.0
+  status: planned
+  owner: design-system
+spec:
+  summary: Define and publish a reusable UI pattern with guidance, structure, and validation checks.
+  entrypoint:
+    agent: pattern-creation-orchestrator
+    args: "<pattern-name>"
+  assets:
+    agents:
+      - pattern-creation-orchestrator.agent.md

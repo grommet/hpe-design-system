@@ -1,0 +1,161 @@
+name: Update Non-Grommet Dependencies
+
+on:
+  schedule:
+    # Run weekly on Mondays at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Collect outdated packages and apply patch/minor updates
+        id: update
+        run: |
+          # Packages managed by the grommet-specific workflow — skip these
+          SKIP_PACKAGES="grommet grommet-icons grommet-theme-hpe hpe-design-tokens"
+
+          UPDATES_NEEDED=false
+          CHANGELOG_PATCH=""
+          CHANGELOG_MINOR=""
+
+          # Collect outdated package info via pnpm (JSON format)
+          # pnpm outdated exits non-zero when there are outdated packages — tolerate that
+          OUTDATED_JSON=$(pnpm outdated --recursive --format json 2>/dev/null || true)
+
+          if [ -z "$OUTDATED_JSON" ] || [ "$OUTDATED_JSON" = "{}" ] || [ "$OUTDATED_JSON" = "[]" ]; then
+            echo "No outdated packages found."
+            echo "updates-needed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # For each catalog key in pnpm-workspace.yaml, check if a safe patch/minor update is available
+          # Read catalog keys (lines matching "  <name>: ^X.Y.Z" under the catalog: block)
+          while IFS= read -r line; do
+            # Parse "  pkg-name: ^MAJOR.MINOR.PATCH" entries
+            if [[ "$line" =~ ^[[:space:]]+\'?([a-zA-Z0-9@/_-]+)\'?:[[:space:]]*\^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+              PKG="${BASH_REMATCH[1]}"
+              CUR_MAJOR="${BASH_REMATCH[2]}"
+              CUR_MINOR="${BASH_REMATCH[3]}"
+              CUR_PATCH="${BASH_REMATCH[4]}"
+              CURRENT="${CUR_MAJOR}.${CUR_MINOR}.${CUR_PATCH}"
+
+              # Skip grommet-family packages
+              if echo "$SKIP_PACKAGES" | grep -qw "$PKG"; then
+                continue
+              fi
+
+              # Also skip catalog:grommet-stable entries (tarball URLs, not semver)
+              if [[ "$line" =~ tarball ]]; then
+                continue
+              fi
+
+              # Get latest published version from npm
+              LATEST=$(pnpm view "$PKG" version 2>/dev/null || echo "")
+              if [ -z "$LATEST" ]; then
+                continue
+              fi
+
+              # Parse latest semver
+              LATEST_MAJOR=$(echo "$LATEST" | cut -d. -f1)
+              LATEST_MINOR=$(echo "$LATEST" | cut -d. -f2)
+              LATEST_PATCH=$(echo "$LATEST" | cut -d. -f3 | cut -d- -f1)
+
+              # Only apply patch or minor updates (same major)
+              if [ "$LATEST_MAJOR" != "$CUR_MAJOR" ]; then
+                continue
+              fi
+
+              if [ "$LATEST" = "$CURRENT" ]; then
+                continue
+              fi
+
+              # Apply the update to pnpm-workspace.yaml
+              yq e ".catalog[\"${PKG}\"] = \"^${LATEST}\"" -i pnpm-workspace.yaml
+              UPDATES_NEEDED=true
+
+              if [ "$LATEST_MINOR" != "$CUR_MINOR" ]; then
+                CHANGELOG_MINOR="${CHANGELOG_MINOR}- \`${PKG}\`: ${CURRENT} → ${LATEST}\n"
+              else
+                CHANGELOG_PATCH="${CHANGELOG_PATCH}- \`${PKG}\`: ${CURRENT} → ${LATEST}\n"
+              fi
+            fi
+          done < pnpm-workspace.yaml
+
+          echo "updates-needed=${UPDATES_NEEDED}" >> $GITHUB_OUTPUT
+
+          # Build PR body sections
+          BODY=""
+          if [ -n "$CHANGELOG_MINOR" ]; then
+            BODY="${BODY}### Minor updates\n${CHANGELOG_MINOR}\n"
+          fi
+          if [ -n "$CHANGELOG_PATCH" ]; then
+            BODY="${BODY}### Patch updates\n${CHANGELOG_PATCH}\n"
+          fi
+
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update lockfile
+        if: steps.update.outputs.updates-needed == 'true'
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
+
+      - name: Verify builds pass
+        if: steps.update.outputs.updates-needed == 'true'
+        run: pnpm --recursive run build --if-present
+        continue-on-error: true
+        id: build
+
+      - name: Create pull request
+        if: steps.update.outputs.updates-needed == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/deps-patch-minor-updates
+          title: 'chore: patch and minor dependency updates'
+          commit-message: |
+            chore: update catalog patch/minor dependencies
+
+            Auto-generated non-grommet dependency updates.
+            Grommet-family packages are managed by the separate daily workflow.
+          body: |
+            ## Catalog patch and minor dependency updates
+
+            These updates were applied to the `catalog:` section of `pnpm-workspace.yaml`.
+            Grommet-family packages (`grommet`, `grommet-icons`, `grommet-theme-hpe`, `hpe-design-tokens`) are excluded — they are managed by the separate daily workflow.
+
+            ${{ steps.update.outputs.changelog }}
+
+            **Build status:** ${{ steps.build.outcome == 'success' && 'Passed' || 'Failed — review before merging' }}
+
+            ---
+            > Major version updates require manual review. Use the `dependency-upgrade` agent in `knowledge/capabilities/dependency-upgrade/` to handle those.
+
+            🤖 Auto-generated by the weekly dependency update workflow.
+          labels: dependencies,automated-pr
+          draft: false

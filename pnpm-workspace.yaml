@@ -1,0 +1,46 @@
+packages:
+  - apps/*
+  - knowledge/code-connect
+  - packages/**
+  - sandbox/*
+  - shared/*
+onlyBuiltDependencies:
+  - grommet-theme-hpe
+catalog:
+  '@babel/preset-react': ^7.28.5
+  '@hpe-design/icons-grommet': ^1.2.0
+  '@types/node': ^20.4.5
+  '@types/react': ^19.2.18
+  '@types/react-dom': ^19.2.7
+  eslint: ^9.39.1
+  '@eslint/js': ^9.39.1
+  eslint-config-prettier: ^10.1.8
+  eslint-plugin-prettier: ^5.5.6
+  eslint-plugin-react-hooks: ^7.1.1
+  eslint-plugin-react-refresh: ^0.5.6
+  eslint-plugin-react: ^7.37.5
+  globals: ^17.12.0
+  grommet: ^2.56.1
+  grommet-icons: ^4.14.0
+  grommet-theme-hpe: ^8.1.5
+  hpe-design-tokens: ^2.2.3
+  prettier: ^3.9.6
+  prop-types: ^15.8.1
+  react: ^19.2.8
+  react-dom: ^19.2.8
+  styled-components: ^6.5.3
+  typescript: ^5.9.3
+  typescript-eslint: ^8.69.0
+  vite: ^8.2.2
+  '@vitejs/plugin-react': ^6.1.1
+catalogs:
+  grommet-stable:
+    grommet: https://github.com/grommet/grommet/tarball/stable
+    grommet-icons: https://github.com/grommet/grommet-icons/tarball/stable
+    grommet-theme-hpe: https://github.com/grommet/grommet-theme-hpe/tarball/c7ad860e12881d94d12043adeb57abc9f29d346d
+  grommet-theme-hpe-v6:
+    grommet-theme-hpe: ^6.0.0
+  grommet-theme-hpe-v7:
+    grommet-theme-hpe: ^7.0.0
+  grommet-theme-hpe-v8:
+    grommet-theme-hpe: ^8.1.4

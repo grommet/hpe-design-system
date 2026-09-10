@@ -1,0 +1,266 @@
+import { AccessibilitySection, Example } from '../../layouts';
+import {
+  FluidGrid1,
+  FluidGrid2,
+  GapExample,
+  GridExample,
+  MinMaxColumns1,
+  MinMaxColumns2,
+  MixedColumns1,
+  MixedColumns2,
+  UniformColumns,
+} from '../../examples';
+
+<Example
+  componentName="Grid"
+  docs="https://v2.grommet.io/grid?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/layouts/GridExample.js"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Grid/Grid.js"
+  width="100%"
+  showResponsiveControls={['laptop', 'mobile']}
+  template
+>
+  <GridExample />
+</Example>
+
+## Getting to know Grid
+
+Grid is a powerful tool. It provides tremendous flexibility and control enabling designers and
+developers at HPE to create optimal user experiences at any screen size or resolution.
+
+With all of Grid's power, there is a bit of a learning curve. The following introduces its key
+concepts and will accelerate your command of the tool.
+
+### Background
+
+Based on [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout),
+Grommet's Grid simplifies and presents the API in a manner consistent with other components
+in the Grommet library.
+
+Grid is composed of columns and rows and its properties allow for:
+
+- [Fixed](#mixed-width-columns) column widths and row heights, when use cases desire precise dimensions for grid cells.
+- [Flexible](#flexible-columns) column widths and row heights, allowing grid cell contents to gracefully respond
+  across a variety of browser widths.
+- [Fluid grids](#fluid-grids) allowing columns and rows to grow and adapt to the content provided.
+- Precise placement of elements within the grid via areas.
+
+## Grid properties and key concepts
+
+Grid's primary properties include: [columns](#columns), [rows](#rows), and areas. The
+following examples will demonstrate how these properties may be applied to affect
+[content layouts](/templates/content-layouts).
+
+### Columns
+
+Columns may be specified as [uniform widths](#uniform-columns), [mixed widths](#mixed-width-columns),
+or as [min-max ranges](#flexible-columns) which allow the contents to flex gracefully.
+
+#### Uniform columns
+
+Uniform columns are ideal for presenting a collection of like items such as a grid of images,
+a catalog of services, or a [dashboard of cards](/templates/dashboards#three-column-dashboard).
+
+Specifying the column width as single string will repeat multiple columns of that size, as long as
+there is room for more. For example, `columns="medium"` will fit as many "medium" columns into the
+grid as the overall width allows. Within a wide screen, this might allow 3 or 4 columns; within a narrow
+screen, maybe only 1 or 2.
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/UniformColumns.js"
+  width={{ min: 'medium' }}
+>
+  <UniformColumns />
+</Example>
+
+#### Mixed-width columns
+
+Mixed-width columns allow for control over layouts desiring columns of various widths.
+This helps appropriately present different content types and establish content hierarchy
+with wider columns for primary content and narrower for secondary content such as an
+[activity feed](/templates/dashboards#two-column-dashboard).
+
+Mixed-width columns are specified in an array. The number of items in the array dictate the number of columns
+in the grid.
+
+For example, columns specified as `columns={[ 'small', 'xsmall', 'xsmall' ]}` would create a three
+column grid with corresponding widths:
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/MixedColumns1.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <MixedColumns1 />
+</Example>
+
+<br />
+<br />
+
+And, `columns={[ '2/3', '1/3' ]}` would result in two columns with widths proportional
+to the total width of the grid:
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/MixedColumns2.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <MixedColumns2 />
+</Example>
+
+#### Flexible columns
+
+Grid really shines when applying flexible columns. Flexible columns allow content to elegantly scale
+for dynamic designs.
+
+With flexible columns, columns are defined as a min-max range. The column is
+allowed to flex as large as the max and as small as the min, depending on its content and the space
+available to the grid as a whole. This allows content to be consistently displayed in an organized
+and cohesive fashion across a variety of screen widths.
+
+The min-max range is specified using a two-item array, instead of a single string.
+The first item is the min and second max.
+
+```
+// 3 columns. First and second columns are defined as min-max
+// ranges. The third, as a fixed width.
+
+columns={[
+  ['xxsmall', 'xsmall'], // column 1 is able to flex
+  ['xsmall', 'small'],   // column 2 is able to flex
+  'xsmall',              // column 3 is always 'xsmall'
+]};
+```
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/MinMaxColumns1.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <MinMaxColumns1 />
+</Example>
+
+<br />
+<br />
+
+Using 'auto' and/or 'flex' as min-max values provides even more flexibility.
+
+'auto' and 'flex' share many characteristics. Both allow the column's width to be defined by its contents;
+they say, "make my column as wide as my content needs." If there is excess width in the grid, the column
+will stretch and occupy the excess space.
+
+'auto' and 'flex' differ slightly in behavior when multiple columns are defined using their values:
+
+- If multiple columns use 'auto', they share the excess width evenly.
+- If multiple columns use 'flex', they share the excess width evenly.
+- If 'auto' and 'flex' are both used, 'flex' will "win" the competition for the excess space. Columns
+  defined with 'auto' will fit the dimensions of their contents; columns defined with 'flex', will fit
+  the dimensions of their contents **and** occupy the excess width in the grid.
+
+See `auto` and `flex` in action in the example below by adjusting your browser width, or applied in a [dashboard template](/templates/dashboards#two-column-dashboard).
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/MinMaxColumns2.js"
+  width={{ min: 'medium' }}
+  height="auto"
+  showResponsiveControls={['fullscreen']}
+  overflow="auto"
+>
+  <MinMaxColumns2 />
+</Example>
+
+### Rows
+
+Rows generally share the same properties as [columns](#columns). Accordingly, they won't be repeated here.
+
+That said, there a two primary items to call attention to:
+
+1. Just like columns, rows are specified in an array. Each item in the array represent an additional row.
+1. The vast majority of time rows will be specified using a fixed height, or as `auto` to let the row's height be defined by its
+   contents.
+
+### Gap
+
+Use `gap` to define the spacing applied between columns and rows.
+
+- As best practice, use [t-shirt sizing](/foundation/tshirt-sizing?q=gap#t-shirt-sizing-for-spacing-and-other-styles)
+  to define gaps. T-shirt sizing keeps layouts consistent and easy to maintain.
+- Gap may be applied to columns and rows, independently or simultaneously.
+
+```
+// both column gaps and rows gaps will be medium
+gap="medium"
+
+// column and row gaps applied independently
+gap={{
+  column: 'medium',
+  row: 'xsmall'
+}}
+
+```
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/GapExample.js"
+  width={{ min: 'medium' }}
+  height="auto"
+>
+  <GapExample />
+</Example>
+
+## Implementing Grid
+
+Grid is not limited to the following implementations. Approaches may be mixed and matched
+as desired, but are presented with the intent to focus on the key concepts for each.
+
+### Fluid grids
+
+Fluid grids allow the grid to grow and adapt to the grid's container width and the content provided.
+
+As more content is added, it fills the Grid left to right, top to bottom. Columns are added or removed as
+the screen's width is adjusted.
+
+- Great for presenting dynamic content where the number of items in the grid are unknown. Examples might
+  be:
+  - Applying filters to a catalog of services
+  - Presenting a dashboard where the user may customize the
+    included widgets
+  - Presenting image results returned from a search query
+- Make responsive layouts easy to implement.
+- Often implemented with [uniform columns](#uniform-columns).
+
+The following example demonstrates a fluid grid consisting of 'small' columns. Adjust your browser's width
+and notice how the grid adjusts by adding/removing columns and rows.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/FluidGrid1.js"
+  width="100%"
+  height="auto"
+>
+  <FluidGrid1 />
+</Example>
+
+<br />
+<br />
+
+The contents within a grid's cells do not have to fill the cell. Grid's `align` and `justify` props may be applied
+to vertically and horizontally align the content within the cell as desired. Alternatively, an individual cell's
+content may be vertically aligned using its `alignSelf` prop.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/grid/FluidGrid2.js"
+  width="100%"
+  height="auto"
+>
+  <FluidGrid2 />
+</Example>
+
+## Accessibility
+
+### WCAG compliance
+
+<AccessibilitySection title="grid" />

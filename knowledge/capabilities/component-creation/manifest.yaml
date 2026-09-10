@@ -1,0 +1,15 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: component-creation
+  version: 1.0.0
+  status: planned
+  owner: design-system
+spec:
+  summary: Plan and implement a new component from proposal to initial documentation and examples.
+  entrypoint:
+    agent: component-creation-orchestrator
+    args: "<component-name>"
+  assets:
+    agents:
+      - component-creation-orchestrator.agent.md

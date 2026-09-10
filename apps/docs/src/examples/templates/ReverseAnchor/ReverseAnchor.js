@@ -1,0 +1,21 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import { Anchor } from 'grommet';
+import PropTypes from 'prop-types';
+import { Left } from '@hpe-design/icons-grommet';
+
+export const ReverseAnchor = ({ label, href, onClick, ...rest }) => (
+  <Anchor
+    icon={<Left />}
+    label={label}
+    href={href || '#'} // placeholder href to ensure it appears in tab flow
+    onClick={onClick}
+    {...rest}
+  />
+);
+
+ReverseAnchor.propTypes = {
+  label: PropTypes.string,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+};

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useState, useEffect } from 'react';
 import {
   Box,
@@ -11,7 +13,7 @@ import {
   DataTable,
   Pagination,
 } from 'grommet';
-import { Actions, Share } from 'grommet-icons';
+import { Actions, Share } from '@hpe-design/icons-grommet';
 import opsRamp from '../../../../mockData/opsRamp.json';
 
 import { QuickFilters } from './QuickFilters';

@@ -1,0 +1,19 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Notification } from 'grommet';
+
+export const BannerNotificationDoExample = () => (
+    <Notification
+      message="Your subscription will be ending in 7 days (03/03/2022)."
+      onClose={() => {}}
+      global
+      status="warning"
+      actions={[
+        {
+          href: '#',
+          label: 'Renew',
+        },
+      ]}
+    />
+);
