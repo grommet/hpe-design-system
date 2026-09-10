@@ -43,7 +43,8 @@ jobs:
       - name: Create or update release PR
         uses: changesets/action@v1
         with:
-          version: pnpm exec changeset version
+          version: >-
+            pnpm exec changeset version --ignore aries --ignore design-tokens-manager --ignore docs --ignore @hpe-design/code-connect --ignore hpe-design-system-codemods --ignore @hpe-design/icons-svg --ignore @shared/hooks --ignore @shared/aries-core --ignore grommet-app --ignore native-web --ignore tailwind-app --ignore @hpe-design/icons-grommet
           title: 'chore: prepare hpe-design-tokens release'
           commit: 'chore: prepare hpe-design-tokens release'
         env:
