@@ -114,7 +114,7 @@ jobs:
           ' candidate-CHANGELOG.md > release-notes.md
           test -s release-notes.md
 
-      - name: Configure NPM authentication
+      - name: Configure npm registry for trusted publishing
         uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -148,9 +148,12 @@ jobs:
               --draft
           fi
 
+      - name: Verify npm trusted publishing client
+        run: |
+          npm_major=$(npm --version | cut -d. -f1)
+          test "$npm_major" -ge 11
+
       - name: Publish NPM package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           if ! npm view "${{ env.PACKAGE_NAME }}@${{ inputs.version }}" version >/dev/null 2>&1; then
             candidate_tarball="$(find release-artifact -maxdepth 1 -type f -name '*.tgz' -print -quit)"

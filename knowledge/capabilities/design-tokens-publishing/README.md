@@ -2,6 +2,11 @@
 
 Status: active
 
+### One-time npm trusted publishing configuration
+
+- Configure npm trusted publishing for package `hpe-design-tokens` with repository `grommet/hpe-design-system`, workflow `.github/workflows/design-tokens-publish.yml`, and default branch `master`; configure any required npm environment.
+- After migration, no NPM token is required. A stage-only token is incompatible with this direct `npm publish` workflow.
+
 ## Purpose
 
 Prepare and verify an `hpe-design-tokens` release, coordinate the protected GitHub and NPM
@@ -45,7 +50,7 @@ second maintainer reviews the candidate artifact and stable-sync result, manuall
 `.github/workflows/design-tokens-publish.yml` from the default branch.
 
 The publisher requires the candidate run ID, exact version, and exact commit SHA. It verifies
-the candidate run and artifact before reading the repository-level `NPM_TOKEN` secret. It then
+the candidate run and artifact before using npm trusted publishing via GitHub OIDC. It then
 publishes the exact tarball with the `latest` tag and provenance, creates or reuses a draft
 GitHub release, verifies the NPM registry and a clean consumer install, and publishes the
 GitHub release last. It uploads release notes and a Slack-ready announcement draft as workflow

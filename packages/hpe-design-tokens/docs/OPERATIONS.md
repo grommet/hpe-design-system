@@ -158,7 +158,7 @@ with:
 - `version`: the exact candidate version.
 - `commit_sha`: the exact candidate commit SHA.
 
-The publisher verifies the candidate run and immutable artifact before reading `NPM_TOKEN`, then
+The publisher verifies the candidate run and immutable artifact before using npm trusted publishing via GitHub OIDC, then
 publishes the artifact to NPM with provenance, verifies the registry version and a clean consumer
 install, compares the registry tarball checksum with the approved candidate tarball, and
 publishes the GitHub release. Release notes and Slack highlights are extracted from
@@ -171,7 +171,7 @@ evidence. A maintainer must post the Slack announcement manually.
 Before the first publication, a repository administrator must confirm:
 
 - [ ] The repository contains the candidate and publish workflows on the default branch.
-- [ ] The repository contains an `NPM_TOKEN` secret scoped to publish `hpe-design-tokens`.
+- [ ] Configure npm trusted publishing via GitHub OIDC for package `hpe-design-tokens`, repository `grommet/hpe-design-system`, workflow `.github/workflows/design-tokens-publish.yml`, and default branch `master`; configure any required npm environment. No NPM token is required after migration, and a stage-only token is incompatible with this direct `npm publish` workflow.
 - [ ] Actions are allowed to create contents and releases for this repository.
 - [ ] The package is public on NPM and `latest` is the intended distribution tag.
 - [ ] NPM provenance is enabled for the package and organization policy permits it.
