@@ -47,14 +47,26 @@ rm -rf packages/hpe-design-tokens/release-artifacts
 
 ## 2. Changeset Enforcement
 
-The Changeset check should require a Changeset only when token source, package build, or
-contract files change. Documentation and release-automation-only changes should not require one.
+The Changeset check requires a Changeset when token values, contracts, or published package
+metadata change. For package implementation changes or root dependency-graph changes to
+`package.json`, `pnpm-lock.yaml`, or `pnpm-workspace.yaml`, it builds the pull request merge base
+and candidate revisions with their respective dependency graphs and requires a Changeset only
+when their published `dist` artifacts differ. Documentation, tests, and release-automation-only
+changes should not require one. The Changesets-generated package version and changelog update is
+also exempt for the GitHub Actions-created release PR because it consumes the pending Changeset.
 
 The validator should pass for this release-automation PR when no token source, build, or contract
 files are changed:
 
 ```bash
 pnpm validate:design-tokens-changeset --base=origin/master --head=HEAD
+```
+
+To validate the Changesets-generated release update locally, add the trusted release PR author:
+
+```bash
+GITHUB_PR_AUTHOR=github-actions[bot] \
+  pnpm validate:design-tokens-changeset --base=origin/master --head=HEAD
 ```
 
 To test the failure path safely, use a temporary worktree:
