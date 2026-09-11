@@ -187,10 +187,14 @@ const formatBuildFailure = (revision, error) => {
 };
 
 const buildPublishedArtifacts = (worktreePath, revision) => {
-  execFileSync('git', ['worktree', 'add', '--detach', worktreePath, revision], {
-    cwd: repoRoot,
-    stdio: 'pipe',
-  });
+  execFileSync(
+    'git',
+    ['worktree', 'add', '--detach', '--force', worktreePath, revision],
+    {
+      cwd: repoRoot,
+      stdio: 'pipe',
+    },
+  );
   try {
     execFileSync('pnpm', ['install', '--frozen-lockfile', '--ignore-scripts'], {
       cwd: worktreePath,
