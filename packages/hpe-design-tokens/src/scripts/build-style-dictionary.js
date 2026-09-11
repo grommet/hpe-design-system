@@ -409,7 +409,8 @@ const writeSemanticColorMetadataArtifacts = files => {
 try {
   writeSemanticColorMetadataArtifacts(colorModeFiles);
 
-  await Promise.all(colorModeFiles.map(async file => {
+  await colorModeFiles.reduce(async (previousBuild, file) => {
+    await previousBuild;
     const [theme, mode] = getThemeAndMode(file);
     const colorDictionary = await HPEStyleDictionary.extend({
       source: [
@@ -518,7 +519,7 @@ try {
       },
     });
     await colorDictionary.buildAllPlatforms();
-  }));
+  }, Promise.resolve());
 } catch (e) {
   console.error('🛑 Error building color tokens:', e);
   throw e;
@@ -537,7 +538,8 @@ const dimensionFiles = fs
   .filter(file => file);
 
 try {
-  await Promise.all(dimensionFiles.map(async file => {
+  await dimensionFiles.reduce(async (previousBuild, file) => {
+    await previousBuild;
     const res = getThemeAndMode(file);
     const mode = res[1];
     const dimensionDictionary = await HPEStyleDictionary.extend({
@@ -653,7 +655,7 @@ try {
     });
 
     await dimensionDictionary.buildAllPlatforms();
-  }));
+  }, Promise.resolve());
 } catch (e) {
   console.error('🛑 Error building dimension tokens:', e);
   throw e;
