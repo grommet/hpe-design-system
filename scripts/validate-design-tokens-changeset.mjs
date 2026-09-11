@@ -21,6 +21,7 @@ const getArgument = name =>
     ?.split('=')[1];
 const base = getArgument('base') ?? process.env.GITHUB_BASE_SHA;
 const head = getArgument('head') ?? process.env.GITHUB_SHA ?? 'HEAD';
+const pullRequestAuthor = process.env.GITHUB_PR_AUTHOR;
 
 if (!base) {
   console.error(
@@ -91,6 +92,10 @@ const getDeletedTokenChangesets = () =>
     .map(([, file]) => file);
 
 const isChangesetsVersionUpdate = () => {
+  if (pullRequestAuthor !== 'github-actions[bot]') {
+    return false;
+  }
+
   if (
     !changedFiles.includes(tokenPackageJsonPath) ||
     !changedFiles.includes(tokenChangelogPath)
