@@ -38,6 +38,10 @@ const changedFiles = execFileSync(
   .trim()
   .split('\n')
   .filter(Boolean);
+const mergeBase = execFileSync('git', ['merge-base', base, head], {
+  encoding: 'utf8',
+})
+  .trim();
 
 const tokenValuesOrContractsChanged = changedFiles.some(file =>
   new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file),
@@ -69,7 +73,11 @@ const compareDirectories = (leftDirectory, rightDirectory) => {
       const leftEntry = leftEntries.find(entry => entry.name === name);
       const rightEntry = rightEntries.find(entry => entry.name === name);
 
-      if (!leftEntry || !rightEntry || leftEntry.isDirectory() !== rightEntry.isDirectory()) {
+      if (
+        !leftEntry ||
+        !rightEntry ||
+        leftEntry.isDirectory() !== rightEntry.isDirectory()
+      ) {
         differences.push(childRelativePath);
       } else if (leftEntry.isDirectory()) {
         compareDirectory(childRelativePath);
@@ -87,6 +95,20 @@ const compareDirectories = (leftDirectory, rightDirectory) => {
   return differences.sort();
 };
 
+const formatBuildFailure = (revision, error) => {
+  const output = [error.stdout, error.stderr]
+    .filter(Boolean)
+    .map(value => value.toString().trim())
+    .filter(Boolean)
+    .join('\n');
+  const exitCode = error.status ?? 'unknown';
+
+  return [
+    `Unable to build hpe-design-tokens at ${revision} (exit code ${exitCode}).`,
+    output || error.message,
+  ].join('\n');
+};
+
 const buildPublishedArtifacts = (worktreePath, revision) => {
   execFileSync('git', ['worktree', 'add', '--detach', worktreePath, revision], {
     cwd: repoRoot,
@@ -102,16 +124,21 @@ const buildPublishedArtifacts = (worktreePath, revision) => {
     path.join(worktreePath, tokenPackagePath, 'node_modules'),
     { recursive: true },
   );
-  execFileSync('pnpm', ['--filter', 'hpe-design-tokens', 'build'], {
-    cwd: worktreePath,
-    stdio: 'pipe',
-  });
+  try {
+    execFileSync('pnpm', ['--filter', 'hpe-design-tokens', 'build'], {
+      cwd: worktreePath,
+      stdio: 'pipe',
+    });
+  } catch (error) {
+    throw new Error(formatBuildFailure(revision, error));
+  }
 };
 
 const generatedArtifactsDiffer = () => {
   if (!fs.existsSync(path.join(repoRoot, 'node_modules'))) {
     throw new Error(
-      'Install dependencies before checking whether implementation changes alter published artifacts.',
+      'Install dependencies before checking whether implementation changes '
+        + 'alter published artifacts.',
     );
   }
 
@@ -122,7 +149,7 @@ const generatedArtifactsDiffer = () => {
   const headWorktreePath = path.join(temporaryRoot, 'head');
 
   try {
-    buildPublishedArtifacts(baseWorktreePath, base);
+    buildPublishedArtifacts(baseWorktreePath, mergeBase);
     buildPublishedArtifacts(headWorktreePath, head);
     return compareDirectories(
       path.join(baseWorktreePath, tokenPackagePath, 'dist'),
@@ -143,7 +170,8 @@ const generatedArtifactsDiffer = () => {
 
 if (!tokenValuesOrContractsChanged && implementationFiles.length === 0) {
   console.log(
-    'No token values, contracts, or output-changing implementation changes require a Changeset.',
+    'No token values, contracts, or output-changing implementation changes '
+      + 'require a Changeset.',
   );
   process.exit(0);
 }
@@ -160,7 +188,8 @@ if (!tokenValuesOrContractsChanged) {
 
   if (changedArtifacts.length === 0) {
     console.log(
-      'Implementation changes do not alter published hpe-design-tokens artifacts; no Changeset required.',
+      'Implementation changes do not alter published hpe-design-tokens '
+        + 'artifacts; no Changeset required.',
     );
     process.exit(0);
   }
@@ -180,12 +209,15 @@ const tokenChangeset = changedChangesets.find(file =>
 
 if (!tokenChangeset) {
   console.error(
-    'Published hpe-design-tokens changes require a Changeset naming hpe-design-tokens.',
+    'Published hpe-design-tokens changes require a Changeset naming '
+      + 'hpe-design-tokens.',
   );
   if (tokenValuesOrContractsChanged) {
     console.error('Changed token values or contracts:');
     changedFiles
-      .filter(file => new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file))
+      .filter(file =>
+        new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file),
+      )
       .forEach(file => console.error(`  - ${file}`));
   } else {
     console.error('Changed published artifacts:');

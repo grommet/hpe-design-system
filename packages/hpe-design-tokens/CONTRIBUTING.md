@@ -82,8 +82,8 @@ for removed or renamed tokens, incompatible aliases, or other breaking output ch
 the affected token families, consumer impact, and migration guidance. The release workflow turns
 approved Changesets into a version and changelog PR for maintainer review. Pull requests that
 change token values or contracts must include a Changeset naming `hpe-design-tokens`. For
-implementation changes, the check builds the base and pull request revisions and requires a
-Changeset only when the published `dist` artifacts differ.
+implementation changes, the check builds the pull request merge base and head revisions and
+requires a Changeset only when the published `dist` artifacts differ.
 
 ## Pull Request Checklist
 

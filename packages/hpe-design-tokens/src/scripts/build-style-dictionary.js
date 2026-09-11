@@ -140,6 +140,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building primitive tokens:', e);
+  process.exitCode = 1;
 }
 
 const filterGlobal = token =>
@@ -244,6 +245,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building global tokens:', e);
+  process.exitCode = 1;
 }
 
 /** -----------------------------------
@@ -519,6 +521,7 @@ try {
   });
 } catch (e) {
   console.error('🛑 Error building color tokens:', e);
+  process.exitCode = 1;
 }
 
 /** -----------------------------------
@@ -653,6 +656,7 @@ try {
   });
 } catch (e) {
   console.error('🛑 Error building dimension tokens:', e);
+  process.exitCode = 1;
 }
 
 const filterComponent = token =>
@@ -764,6 +768,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building component tokens:', e);
+  process.exitCode = 1;
 }
 
 /** -----------------------------------
