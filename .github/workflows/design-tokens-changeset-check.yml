@@ -35,6 +35,9 @@ jobs:
         with:
           version: 10.30.3
 
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Validate token Changeset
         env:
           GITHUB_BASE_SHA: ${{ github.event.pull_request.base.sha }}

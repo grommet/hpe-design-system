@@ -2,7 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import process from 'node:process';
+import { fileURLToPath } from 'node:url';
+
+const repoRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..',
+);
+const tokenPackagePath = 'packages/hpe-design-tokens';
+const tokenPackageRoot = path.join(repoRoot, tokenPackagePath);
 
 const getArgument = name =>
   process.argv
@@ -29,15 +39,131 @@ const changedFiles = execFileSync(
   .split('\n')
   .filter(Boolean);
 
-const tokenSourceChanged = changedFiles.some(file =>
-  /^packages\/hpe-design-tokens\/(tokens|src|contracts)\//.test(file),
+const tokenValuesOrContractsChanged = changedFiles.some(file =>
+  new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file),
+);
+const implementationFiles = changedFiles.filter(
+  file =>
+    file.startsWith(`${tokenPackagePath}/src/`) &&
+    !file.startsWith(`${tokenPackagePath}/src/tests/`),
 );
 
-if (!tokenSourceChanged) {
+const compareDirectories = (leftDirectory, rightDirectory) => {
+  const differences = [];
+  const compareDirectory = relativePath => {
+    const leftPath = path.join(leftDirectory, relativePath);
+    const rightPath = path.join(rightDirectory, relativePath);
+    const leftEntries = fs.existsSync(leftPath)
+      ? fs.readdirSync(leftPath, { withFileTypes: true })
+      : [];
+    const rightEntries = fs.existsSync(rightPath)
+      ? fs.readdirSync(rightPath, { withFileTypes: true })
+      : [];
+    const names = new Set([
+      ...leftEntries.map(entry => entry.name),
+      ...rightEntries.map(entry => entry.name),
+    ]);
+
+    names.forEach(name => {
+      const childRelativePath = path.join(relativePath, name);
+      const leftEntry = leftEntries.find(entry => entry.name === name);
+      const rightEntry = rightEntries.find(entry => entry.name === name);
+
+      if (!leftEntry || !rightEntry || leftEntry.isDirectory() !== rightEntry.isDirectory()) {
+        differences.push(childRelativePath);
+      } else if (leftEntry.isDirectory()) {
+        compareDirectory(childRelativePath);
+      } else if (
+        !fs.readFileSync(path.join(leftDirectory, childRelativePath)).equals(
+          fs.readFileSync(path.join(rightDirectory, childRelativePath)),
+        )
+      ) {
+        differences.push(childRelativePath);
+      }
+    });
+  };
+
+  compareDirectory('');
+  return differences.sort();
+};
+
+const buildPublishedArtifacts = (worktreePath, revision) => {
+  execFileSync('git', ['worktree', 'add', '--detach', worktreePath, revision], {
+    cwd: repoRoot,
+    stdio: 'pipe',
+  });
+  fs.symlinkSync(
+    path.join(repoRoot, 'node_modules'),
+    path.join(worktreePath, 'node_modules'),
+    'dir',
+  );
+  fs.cpSync(
+    path.join(tokenPackageRoot, 'node_modules'),
+    path.join(worktreePath, tokenPackagePath, 'node_modules'),
+    { recursive: true },
+  );
+  execFileSync('pnpm', ['--filter', 'hpe-design-tokens', 'build'], {
+    cwd: worktreePath,
+    stdio: 'pipe',
+  });
+};
+
+const generatedArtifactsDiffer = () => {
+  if (!fs.existsSync(path.join(repoRoot, 'node_modules'))) {
+    throw new Error(
+      'Install dependencies before checking whether implementation changes alter published artifacts.',
+    );
+  }
+
+  const temporaryRoot = fs.mkdtempSync(
+    path.join(os.tmpdir(), 'hpe-design-tokens-changeset-'),
+  );
+  const baseWorktreePath = path.join(temporaryRoot, 'base');
+  const headWorktreePath = path.join(temporaryRoot, 'head');
+
+  try {
+    buildPublishedArtifacts(baseWorktreePath, base);
+    buildPublishedArtifacts(headWorktreePath, head);
+    return compareDirectories(
+      path.join(baseWorktreePath, tokenPackagePath, 'dist'),
+      path.join(headWorktreePath, tokenPackagePath, 'dist'),
+    );
+  } finally {
+    [baseWorktreePath, headWorktreePath].forEach(worktreePath => {
+      if (fs.existsSync(worktreePath)) {
+        execFileSync('git', ['worktree', 'remove', '--force', worktreePath], {
+          cwd: repoRoot,
+          stdio: 'pipe',
+        });
+      }
+    });
+    fs.rmSync(temporaryRoot, { recursive: true, force: true });
+  }
+};
+
+if (!tokenValuesOrContractsChanged && implementationFiles.length === 0) {
   console.log(
-    'No hpe-design-tokens source, build, or contract changes require a Changeset.',
+    'No token values, contracts, or output-changing implementation changes require a Changeset.',
   );
   process.exit(0);
+}
+
+let changedArtifacts = [];
+if (!tokenValuesOrContractsChanged) {
+  try {
+    changedArtifacts = generatedArtifactsDiffer();
+  } catch (error) {
+    console.error('Unable to compare generated hpe-design-tokens artifacts.');
+    console.error(error instanceof Error ? error.message : error);
+    process.exit(1);
+  }
+
+  if (changedArtifacts.length === 0) {
+    console.log(
+      'Implementation changes do not alter published hpe-design-tokens artifacts; no Changeset required.',
+    );
+    process.exit(0);
+  }
 }
 
 const changedChangesets = changedFiles.filter(
@@ -54,14 +180,17 @@ const tokenChangeset = changedChangesets.find(file =>
 
 if (!tokenChangeset) {
   console.error(
-    'hpe-design-tokens source changes require a Changeset naming hpe-design-tokens.',
+    'Published hpe-design-tokens changes require a Changeset naming hpe-design-tokens.',
   );
-  console.error('Changed source files:');
-  changedFiles
-    .filter(file =>
-      /^packages\/hpe-design-tokens\/(tokens|src|contracts)\//.test(file),
-    )
-    .forEach(file => console.error(`  - ${file}`));
+  if (tokenValuesOrContractsChanged) {
+    console.error('Changed token values or contracts:');
+    changedFiles
+      .filter(file => new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file))
+      .forEach(file => console.error(`  - ${file}`));
+  } else {
+    console.error('Changed published artifacts:');
+    changedArtifacts.forEach(file => console.error(`  - dist/${file}`));
+  }
   process.exit(1);
 }
 
