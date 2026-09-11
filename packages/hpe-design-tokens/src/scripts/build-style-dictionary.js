@@ -409,9 +409,9 @@ const writeSemanticColorMetadataArtifacts = files => {
 try {
   writeSemanticColorMetadataArtifacts(colorModeFiles);
 
-  colorModeFiles.forEach(async file => {
+  await Promise.all(colorModeFiles.map(async file => {
     const [theme, mode] = getThemeAndMode(file);
-    extendedDictionary = await HPEStyleDictionary.extend({
+    const colorDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
         file,
@@ -517,11 +517,11 @@ try {
         },
       },
     });
-    await extendedDictionary.buildAllPlatforms();
-  });
+    await colorDictionary.buildAllPlatforms();
+  }));
 } catch (e) {
   console.error('🛑 Error building color tokens:', e);
-  process.exitCode = 1;
+  throw e;
 }
 
 /** -----------------------------------
@@ -537,10 +537,10 @@ const dimensionFiles = fs
   .filter(file => file);
 
 try {
-  dimensionFiles.forEach(async file => {
+  await Promise.all(dimensionFiles.map(async file => {
     const res = getThemeAndMode(file);
     const mode = res[1];
-    extendedDictionary = await HPEStyleDictionary.extend({
+    const dimensionDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
         `${TOKENS_DIR}/semantic/color.light.json`,
@@ -652,11 +652,11 @@ try {
       },
     });
 
-    await extendedDictionary.buildAllPlatforms();
-  });
+    await dimensionDictionary.buildAllPlatforms();
+  }));
 } catch (e) {
   console.error('🛑 Error building dimension tokens:', e);
-  process.exitCode = 1;
+  throw e;
 }
 
 const filterComponent = token =>
@@ -900,4 +900,6 @@ fs.copyFileSync(
   `${GROMMET_DIR}index.d.ts`,
 );
 
-console.log('✅ Style system outputs have been generated.');
+if (!process.exitCode) {
+  console.log('✅ Style system outputs have been generated.');
+}
