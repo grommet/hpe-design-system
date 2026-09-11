@@ -22,7 +22,7 @@ catalogs:
       specifier: ^19.2.18
       version: 19.2.18
     '@types/react-dom':
-      specifier: ^19.2.5
+      specifier: ^19.2.7
       version: 19.2.7
     '@vitejs/plugin-react':
       specifier: ^6.1.1
@@ -43,10 +43,10 @@ catalogs:
       specifier: ^7.1.1
       version: 7.1.1
     eslint-plugin-react-refresh:
-      specifier: ^0.5.5
+      specifier: ^0.5.6
       version: 0.5.6
     globals:
-      specifier: ^17.11.0
+      specifier: ^17.12.0
       version: 17.12.0
     grommet:
       specifier: ^2.56.1
@@ -58,8 +58,8 @@ catalogs:
       specifier: ^8.1.5
       version: 8.1.5
     hpe-design-tokens:
-      specifier: ^2.2.3
-      version: 2.2.3
+      specifier: ^2.3.0
+      version: 2.3.0
     prettier:
       specifier: ^3.9.6
       version: 3.9.6
@@ -79,7 +79,7 @@ catalogs:
       specifier: ^5.9.3
       version: 5.9.3
     typescript-eslint:
-      specifier: ^8.68.0
+      specifier: ^8.69.0
       version: 8.69.0
     vite:
       specifier: ^8.2.2
@@ -296,7 +296,7 @@ importers:
         version: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       hpe-design-tokens:
         specifier: 'catalog:'
-        version: 2.2.3
+        version: 2.3.0
       next:
         specifier: 15.5.9
         version: 15.5.9(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -6429,6 +6429,9 @@ packages:
 
   hpe-design-tokens@2.2.3:
     resolution: {integrity: sha512-a2wQ9kPl5+8cufKMTnFtPa7tYm2p20ZVSXZPryxDT0qkHs0kqKTokzYkDObSuea+ohzC1Gjj7HabmKSlG/xLcg==}
+
+  hpe-design-tokens@2.3.0:
+    resolution: {integrity: sha512-VjIzeZTl8chjjgInm5QNCRbeQw7YRoD/zuaLD9+lBjBsLE5IhYc+VStbVfma5ylcRg2z6rSUWuctSUW6foU/mg==}
 
   html-encoding-sniffer@2.0.1:
     resolution: {integrity: sha512-D5JbOMBIR/TVZkubHT+OyT2705QvogUW4IBn6nHd756OwieSF9aDYFj4dv6HHEVGYbHaLETa3WggZYWWMyy3ZQ==}
@@ -16540,7 +16543,7 @@ snapshots:
     dependencies:
       '@hpe-design/icons-grommet': 1.2.0(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       grommet: 2.56.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(styled-components@6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
-      hpe-design-tokens: 2.2.3
+      hpe-design-tokens: 2.3.0
       react: 19.2.8
       styled-components: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
 
@@ -16677,6 +16680,8 @@ snapshots:
   hpe-design-tokens@1.4.1: {}
 
   hpe-design-tokens@2.2.3: {}
+
+  hpe-design-tokens@2.3.0: {}
 
   html-encoding-sniffer@2.0.1:
     dependencies:
