@@ -13,7 +13,7 @@ import {
 } from '../semantic_color_parser.js';
 
 import {
-  SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
+  SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY,
   type SemanticColorTokenMetadataMap,
   SEMANTIC_COLOR_ROLES_BY_TARGET,
   SEMANTIC_COLOR_SCALES,
@@ -96,12 +96,12 @@ describe('semantic_color_parser', () => {
 
   it('keeps known multi-slot role names explicit', () => {
     expect(
-      SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY.background.selected,
+      SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY.background.selected,
     ).toEqual([
       'primary',
     ]);
     expect(
-      SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY.dataVis
+      SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY.dataVis
         .categorical,
     ).toEqual([
       '10',
