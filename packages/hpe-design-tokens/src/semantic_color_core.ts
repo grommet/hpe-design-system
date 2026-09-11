@@ -15,7 +15,7 @@ export const SEMANTIC_COLOR_TARGETS = [
 
 export type SemanticColorTarget = (typeof SEMANTIC_COLOR_TARGETS)[number];
 
-// Scale => Emphasis level. Prominence vocabulary used by semantic color tokens.
+// Scale => Emphasis level, sometimes called prominence for colour.
 export const SEMANTIC_COLOR_SCALES = [
   'xweak',
   'weak',
@@ -45,9 +45,12 @@ export const SEMANTIC_COLOR_NORMALIZATION_SEGMENTS = [
 export type SemanticColorNormalizationSegment =
   (typeof SEMANTIC_COLOR_NORMALIZATION_SEGMENTS)[number];
 
-// Role => Semantic name of the color, which is target-specific.
-// For example, a background color may have a role of "critical" or
-// "warning", while a text color may have a role of "anchor" or "placeholder".
+// Valid first role segment per target. An entry is either a complete role name
+// on its own (for example "critical", "warning", "placeholder"), or a family
+// that opens a namespace of role names (for example "accent", "selected").
+// A segment is treated as a family only when another segment follows it.
+// Role names per family: SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY.
+// Full path-shape reference: docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
 export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
   background: [
     'back',
@@ -65,7 +68,6 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
     'selected',
     'unknown',
     'warning',
-    // Planned namespace: color/background/accent/<colorName>-<prominence>
     'accent',
   ],
   border: [
@@ -81,8 +83,7 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
   ],
   dataVis: [
     'categorical',
-    // eslint-disable-next-line max-len
-    // planned namespaces: color/dataVis/<visualizationType>/<colorName>-<prominence>
+    // planned namespaces: color/dataVis/<visualizationType>/<colorName>-<scale>
     'sequential',
     'diverging',
     'highlight',
@@ -139,10 +140,10 @@ export type SemanticColorRole<
   T extends SemanticColorTarget = SemanticColorTarget,
 > = SemanticColorRoleByTarget[T];
 
-// Validation map: target -> family -> allowed sub-role names.
+// Validation map: target -> family -> allowed role names.
 // Example: background.accent allows blue/cyan/purple.
 // Full path-shape reference: docs/SEMANTIC_COLOR_PATH_CONTRACT.md.
-export const SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY = {
+export const SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY = {
   background: {
     selected: ['primary'],
     accent: ['blue', 'cyan', 'purple'],
@@ -160,13 +161,13 @@ export const SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY = {
   };
 };
 
-export type SemanticColorSubrolesByTargetFamily =
-  typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY;
+export type SemanticColorRoleNamesByTargetFamily =
+  typeof SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY;
 
-export type SemanticColorSubroleByTargetFamily<
-  T extends keyof SemanticColorSubrolesByTargetFamily,
-  F extends keyof SemanticColorSubrolesByTargetFamily[T],
-> = SemanticColorSubrolesByTargetFamily[T][F] extends readonly (infer V)[]
+export type SemanticColorRoleNameByTargetFamily<
+  T extends keyof SemanticColorRoleNamesByTargetFamily,
+  F extends keyof SemanticColorRoleNamesByTargetFamily[T],
+> = SemanticColorRoleNamesByTargetFamily[T][F] extends readonly (infer V)[]
   ? V
   : never;
 
@@ -177,9 +178,11 @@ export const SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET = {
   background: ['accent'],
   border: ['accent'],
 } as const satisfies {
-  // entries must be a subset of the family keys in the subroles map
-  [T in keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY]?: ReadonlyArray<
-    keyof (typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY)[T]
+  // entries must be a subset of the family keys in the role names map
+  [
+    T in keyof typeof SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY
+  ]?: ReadonlyArray<
+    keyof (typeof SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY)[T]
   >;
 };
 
