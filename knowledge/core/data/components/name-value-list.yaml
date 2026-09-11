@@ -1,0 +1,166 @@
+id: name-value-list
+name: NameValueList
+description: Displays a collection of name-value pairs for presenting structured metadata,
+  configuration details, or summary information.
+importPath: grommet
+framework: react
+props:
+- name: layout
+  type: '''column'' | ''grid'''
+  required: false
+  description: Controls whether pairs are displayed in a single-column list (column)
+    or a multi-column grid (grid)
+  defaultValue: '''column'''
+- name: nameProps
+  type: object
+  required: false
+  description: Box props applied to all name cells in the list (e.g., width, align)
+- name: valueProps
+  type: object
+  required: false
+  description: Box props applied to all value cells in the list (e.g., width, align)
+- name: pairProps
+  type: '{ direction?: ''row'' | ''column'' }'
+  required: false
+  description: Props applied to the container for each name-value pair. Use direction
+    to control horizontal vs stacked layout.
+- name: children
+  type: NameValuePair | NameValuePair[]
+  required: true
+  description: One or more NameValuePair components, each defining a single name and
+    value
+usage:
+  whenToUse:
+  - Use to present structured metadata about an entity such as a server, user, or
+    asset.
+  - Use on detail pages, summary cards, and side panels for attribute display.
+  - Use the grid layout when there are many attributes and screen space permits two
+    or more columns.
+  - Use supporting icons in either the name or the value area, but not both in the
+    same list.
+  whenToAvoid:
+  - Do not use for tabular data with multiple rows of the same entity type — use DataTable
+    instead.
+  - Do not use for editable fields — use a Form with FormField components.
+  - Do not mix icons in both the name and value columns within the same NameValueList.
+  - Do not use for more than 8–10 pairs without grouping or pagination.
+variants:
+- name: horizontal-list
+  description: Each pair is displayed as a row with the name on the left and value
+    on the right (default).
+  when: Displaying a short list of metadata properties on a detail view.
+  example: "<NameValueList>\n  <NameValuePair name=\"Status\">\n    <Text color=\"\
+    status-ok\">Online</Text>\n  </NameValuePair>\n  <NameValuePair name=\"Region\"\
+    >US West</NameValuePair>\n  <NameValuePair name=\"OS\">Ubuntu 22.04 LTS</NameValuePair>\n\
+    </NameValueList>"
+- name: grid-layout
+  description: Pairs flow into a multi-column grid, maximizing use of wide screen
+    real estate.
+  when: Many attributes to display and there is available horizontal space.
+  example: "<NameValueList layout=\"grid\">\n  <NameValuePair name=\"CPU cores\">16</NameValuePair>\n\
+    \  <NameValuePair name=\"RAM\">64 GB</NameValuePair>\n  <NameValuePair name=\"\
+    Storage\">2 TB SSD</NameValuePair>\n  <NameValuePair name=\"Network\">10 Gbps</NameValuePair>\n\
+    \  <NameValuePair name=\"Location\">Data Center A</NameValuePair>\n  <NameValuePair\
+    \ name=\"Rack\">R-12</NameValuePair>\n</NameValueList>"
+- name: with-name-icons
+  description: Name column includes a small icon beside the attribute label.
+  when: Visual categorization of properties helps users scan the list faster.
+  example: "<NameValueList>\n  <NameValuePair\n    name={\n      <Box direction=\"\
+    row\" gap=\"xsmall\" align=\"center\">\n        <Server size=\"small\" />\n  \
+    \      <Text>Host</Text>\n      </Box>\n    }\n  >\n    db-primary.internal\n\
+    \  </NameValuePair>\n  <NameValuePair\n    name={\n      <Box direction=\"row\"\
+    \ gap=\"xsmall\" align=\"center\">\n        <Network size=\"small\" />\n     \
+    \   <Text>IP address</Text>\n      </Box>\n    }\n  >\n    10.0.1.42\n  </NameValuePair>\n\
+    </NameValueList>"
+- name: with-value-actions
+  description: Value column includes an interactive element such as an Anchor link
+    or a copy button.
+  when: The value itself is actionable, such as a link to a resource or a copyable
+    identifier.
+  example: "<NameValueList>\n  <NameValuePair name=\"Documentation\">\n    <Anchor\
+    \ href=\"https://docs.example.com\" label=\"View docs\" />\n  </NameValuePair>\n\
+    \  <NameValuePair name=\"Serial number\">\n    <Box direction=\"row\" gap=\"xsmall\"\
+    \ align=\"center\">\n      <Text>SN-2024-001</Text>\n      <Button icon={<Copy\
+    \ size=\"small\" />} a11yTitle=\"Copy serial number\" plain />\n    </Box>\n \
+    \ </NameValuePair>\n</NameValueList>"
+anatomy:
+- label: list container
+  region: root
+  purpose: Wraps all NameValuePair children and manages layout (column or grid)
+  availability: always
+- label: name cell
+  region: NameValuePair
+  purpose: Displays the attribute label, optionally with a leading icon
+  availability: always
+- label: value cell
+  region: NameValuePair
+  purpose: Displays the attribute value; may contain text, status indicators, links,
+    or other components
+  availability: always
+- label: supporting icon
+  region: name cell or value cell
+  purpose: Optional icon to visually categorize the attribute or action on the value
+  availability: conditional
+  notes: Use in name OR value column but not both
+behaviors:
+  interactiveStates: []
+  applicationStates: []
+  dataStates:
+  - populated
+  - empty value (show dash or placeholder)
+  realEstate:
+  - Stretches to fill container width
+  - Grid layout wraps based on available space
+examples:
+- description: Server detail card
+  code: "<Card pad=\"medium\">\n  <CardHeader>\n    <Heading level={3} margin=\"none\"\
+    >Server details</Heading>\n  </CardHeader>\n  <CardBody>\n    <NameValueList>\n\
+    \      <NameValuePair name=\"Name\">app-server-01</NameValuePair>\n      <NameValuePair\
+    \ name=\"Status\">\n        <Text color=\"status-ok\">Running</Text>\n      </NameValuePair>\n\
+    \      <NameValuePair name=\"IP address\">10.0.0.23</NameValuePair>\n      <NameValuePair\
+    \ name=\"Region\">us-west-2</NameValuePair>\n      <NameValuePair name=\"OS\"\
+    >Ubuntu 22.04 LTS</NameValuePair>\n    </NameValueList>\n  </CardBody>\n</Card>"
+- description: Grid layout for many attributes
+  code: "<NameValueList layout=\"grid\">\n  <NameValuePair name=\"CPU\">16 cores</NameValuePair>\n\
+    \  <NameValuePair name=\"RAM\">128 GB</NameValuePair>\n  <NameValuePair name=\"\
+    Primary disk\">1 TB NVMe</NameValuePair>\n  <NameValuePair name=\"Secondary disk\"\
+    >4 TB HDD</NameValuePair>\n  <NameValuePair name=\"Network\">25 Gbps</NameValuePair>\n\
+    \  <NameValuePair name=\"Power supply\">Redundant</NameValuePair>\n</NameValueList>"
+- description: With Anchor values
+  code: "<NameValueList>\n  <NameValuePair name=\"Documentation\">\n    <Anchor href=\"\
+    https://docs.hpe.com\" label=\"HPE Docs\" />\n  </NameValuePair>\n  <NameValuePair\
+    \ name=\"Support ticket\">\n    <Anchor href=\"/tickets/12345\" label=\"#12345\"\
+    \ />\n  </NameValuePair>\n  <NameValuePair name=\"Owner\">\n    <Anchor href=\"\
+    /users/jsmith\" label=\"Jane Smith\" />\n  </NameValuePair>\n</NameValueList>"
+- description: Read-only summary in a side panel
+  code: "<Box width=\"medium\" pad=\"medium\">\n  <Heading level={4} margin={{ top:\
+    \ 'none', bottom: 'small' }}>Instance summary</Heading>\n  <NameValueList>\n \
+    \   <NameValuePair name=\"Instance ID\">{instance.id}</NameValuePair>\n    <NameValuePair\
+    \ name=\"Type\">{instance.type}</NameValuePair>\n    <NameValuePair name=\"State\"\
+    >\n      <Box direction=\"row\" gap=\"xsmall\" align=\"center\">\n        <StatusGoodSmall\
+    \ color={instance.state === 'running' ? 'status-ok' : 'status-unknown'} />\n \
+    \       <Text>{instance.state}</Text>\n      </Box>\n    </NameValuePair>\n  \
+    \  <NameValuePair name=\"Launch time\">\n      {new Date(instance.launchTime).toLocaleString()}\n\
+    \    </NameValuePair>\n  </NameValueList>\n</Box>"
+accessibility:
+  keyboard: []
+  aria:
+  - attribute: role
+    value: '''list'' / ''listitem'''
+    condition: NameValueList renders as a semantic list structure
+  announcements: []
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.3.3 Sensory Characteristics
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- card
+- data-table
+- list
+- text
+- anchor

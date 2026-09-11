@@ -1,0 +1,105 @@
+id: data-filters
+name: DataFilters
+description: Container for DataFilter components. Provides a button or inline filter
+  controls for filtering data within a Data context.
+importPath: grommet
+framework: react
+props:
+- name: layer
+  type: boolean
+  required: false
+  description: Whether to show filters in a Layer overlay
+- name: drop
+  type: boolean
+  required: false
+  description: Whether to show filters in a Drop
+- name: children
+  type: React.ReactNode
+  required: false
+  description: DataFilter components for individual property filters
+usage:
+  whenToUse:
+  - Use inside a Data component context.
+  - Use layer prop for complex multi-filter UIs.
+  - Place in a Toolbar alongside DataSearch and DataSort.
+  - Provide DataFilter children for specific property filters.
+  whenToAvoid:
+  - Do not use outside a Data component.
+  - Avoid too many visible filters — use layer for 4+ filters.
+examples:
+- description: Inline Filters
+  code: "<DataFilters>\n  <DataFilter property=\"status\" />\n  <DataFilter property=\"\
+    role\" />\n</DataFilters>"
+- description: Filters in Layer
+  code: <DataFilters layer />
+variants:
+- name: layer
+  description: All filter controls open in a Layer overlay when the filter button
+    is clicked.
+  when: Four or more filter properties, or complex filter controls that need ample
+    space. Keeps the Toolbar compact.
+  example: <DataFilters layer />
+- name: drop
+  description: Filter controls open in a Drop (popover) anchored to the filter button.
+  when: Two to three filters where a popover is less intrusive than a full Layer overlay.
+  example: <DataFilters drop />
+- name: inline
+  description: Filter controls are always visible inline, with no trigger button.
+  when: One or two simple filters where persistent visibility is preferable to hiding
+    them behind a button.
+  example: <DataFilters><DataFilter property="status" /></DataFilters>
+anatomy:
+- label: filters trigger button
+  region: root
+  purpose: Button showing the count of active filters; opens the filter panel on activation
+  availability: always
+- label: filter panel
+  region: portal or inline
+  purpose: Container holding all individual DataFilter controls, opened by the trigger
+    button
+  availability: conditional
+  notes: Shown when the trigger is activated or when the inline variant is used
+- label: active filter chips
+  region: below toolbar
+  purpose: Tag chips showing each active filter criterion; each chip has a remove
+    button
+  availability: conditional
+  notes: Rendered when one or more filters are active
+- label: clear all button
+  region: inside filter panel or chip row
+  purpose: Button that removes all active filters simultaneously
+  availability: conditional
+  notes: Present when at least one filter is active
+behaviors:
+  interactiveStates:
+  - rest
+  - open
+  applicationStates:
+  - has-active-filters
+accessibility:
+  keyboard:
+  - key: Enter / Space
+    action: Opens the filter panel (layer or drop variant)
+  - key: Escape
+    action: Closes the filter panel without applying changes
+  aria:
+  - attribute: aria-expanded
+    value: true | false
+    condition: Applied to the filter trigger button reflecting the open/closed state
+      of the layer or drop.
+  - attribute: aria-label
+    value: '''Filters (N active)'' when filters are applied'
+    condition: When one or more filters are active, the button label includes the
+      active filter count for screen reader users.
+  wcag:
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data-filter
+- data
+- data-search
+- data-sort

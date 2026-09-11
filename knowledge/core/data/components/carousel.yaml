@@ -1,0 +1,192 @@
+id: carousel
+name: Carousel
+description: A sequential content viewer that displays one slide at a time from a
+  set of children. Supports previous/next navigation controls, dot selectors, and
+  optional auto-play.
+importPath: grommet
+framework: react
+props:
+- name: activeChild
+  type: number
+  required: false
+  description: Controlled index of the currently visible slide (zero-based). Use with
+    onChild for a controlled carousel.
+- name: initialChild
+  type: number
+  required: false
+  description: Index of the slide to show on initial render in uncontrolled mode.
+  defaultValue: '0'
+- name: onChild
+  type: '(index: number) => void'
+  required: false
+  description: Callback fired when the active slide changes, providing the new slide
+    index.
+- name: controls
+  type: boolean | 'arrows' | 'selectors'
+  required: false
+  description: Which navigation controls to render. 'arrows' shows previous/next buttons;
+    'selectors' shows dot indicators; true shows both; false hides all controls.
+  defaultValue: 'true'
+- name: play
+  type: number
+  required: false
+  description: Auto-play interval in milliseconds. When set, the carousel advances
+    automatically. Set to 0 or omit to disable auto-play.
+- name: fill
+  type: boolean
+  required: false
+  description: When true, the carousel stretches to fill its container in both directions.
+  defaultValue: 'false'
+- name: id
+  type: string
+  required: false
+  description: DOM id for the root element.
+usage:
+  whenToUse:
+  - Use to present a sequential set of related content items (feature highlights,
+    onboarding steps, image galleries).
+  - Use controls='selectors' when the number of slides is small (3–5) and users benefit
+    from a position overview.
+  - Keep slide content concise — carousels work best when each slide communicates
+    a single idea.
+  - Provide an accessible label for the carousel region so screen readers can identify
+    the landmark.
+  whenToAvoid:
+  - Do not use auto-play for content that users need time to read; set a generous
+    interval (6 s+) or omit auto-play.
+  - Do not use a carousel for primary navigation or critical information — content
+    in non-active slides is easily missed.
+  - Do not use more than 7–8 slides; long carousels frustrate users who must step
+    through many items.
+  - Do not use when all items can be shown at once on the page — use a list or grid
+    instead.
+variants:
+- name: with-arrows
+  description: Carousel with previous/next arrow buttons for manual navigation.
+  when: Users step through a small number of slides at their own pace.
+  example: "<Carousel controls=\"arrows\">\n  <Box background=\"brand\" height=\"\
+    medium\" align=\"center\" justify=\"center\">\n    <Heading level=\"2\">Step 1</Heading>\n\
+    \  </Box>\n  <Box background=\"accent-1\" height=\"medium\" align=\"center\" justify=\"\
+    center\">\n    <Heading level=\"2\">Step 2</Heading>\n  </Box>\n  <Box background=\"\
+    accent-2\" height=\"medium\" align=\"center\" justify=\"center\">\n    <Heading\
+    \ level=\"2\">Step 3</Heading>\n  </Box>\n</Carousel>"
+- name: with-selectors
+  description: Carousel with dot indicator controls for direct slide navigation.
+  when: Fewer than 6 slides and users benefit from a visual position indicator.
+  example: "<Carousel controls=\"selectors\">\n  <FeatureSlide title=\"AI Insights\"\
+    \ />\n  <FeatureSlide title=\"Predictive Analytics\" />\n  <FeatureSlide title=\"\
+    Real-time Monitoring\" />\n</Carousel>"
+- name: auto-play
+  description: Carousel that advances slides automatically at a fixed interval.
+  when: Rotating marketing or announcement content that users are not required to
+    interact with.
+  example: "<Carousel controls play={6000}>\n  <AnnouncementSlide key=\"a\" />\n \
+    \ <AnnouncementSlide key=\"b\" />\n  <AnnouncementSlide key=\"c\" />\n</Carousel>"
+- name: controlled
+  description: Carousel with externally managed active slide index.
+  when: A stepper, wizard progress bar, or another component drives the active slide.
+  example: "const [active, setActive] = React.useState(0);\n<Carousel activeChild={active}\
+    \ onChild={setActive}>\n  <WizardStep1 />\n  <WizardStep2 />\n  <WizardStep3 />\n\
+    </Carousel>"
+anatomy:
+- label: slide viewport
+  region: root
+  purpose: Clips and displays only the currently active child slide
+  availability: always
+- label: slide
+  region: child
+  purpose: Individual content pane; only the active slide is visible at a time
+  availability: always
+- label: previous button
+  region: overlay — leading edge
+  purpose: Arrow button navigating to the prior slide
+  availability: conditional
+  notes: Shown when controls='arrows' or controls=true
+- label: next button
+  region: overlay — trailing edge
+  purpose: Arrow button navigating to the next slide
+  availability: conditional
+  notes: Shown when controls='arrows' or controls=true
+- label: selector dots
+  region: below slide viewport
+  purpose: Dot indicators showing position within the sequence; each dot navigates
+    directly to its slide
+  availability: conditional
+  notes: Shown when controls='selectors' or controls=true
+behaviors:
+  interactiveStates:
+  - rest
+  - hover-arrow
+  - focus-arrow
+  - focus-dot
+  applicationStates:
+  - at-first-slide
+  - at-last-slide
+  - mid-sequence
+  - auto-playing
+  dataStates:
+  - default
+  realEstate:
+  - Height determined by the tallest child slide unless fill is set
+  - Width fills the container by default
+examples:
+- description: Onboarding feature highlights carousel
+  code: "const features = [\n  { title: 'AI-powered insights', body: 'Surface anomalies\
+    \ before they escalate.' },\n  { title: 'Real-time dashboards', body: 'Monitor\
+    \ KPIs across your entire fleet.' },\n  { title: 'One-click remediation', body:\
+    \ 'Act on recommendations instantly.' },\n];\n\n<Carousel controls>\n  {features.map(f\
+    \ => (\n    <Box\n      key={f.title}\n      pad=\"large\"\n      background=\"\
+    background-contrast\"\n      align=\"center\"\n      gap=\"small\"\n    >\n  \
+    \    <Heading level=\"3\" margin=\"none\">{f.title}</Heading>\n      <Text>{f.body}</Text>\n\
+    \    </Box>\n  ))}\n</Carousel>"
+- description: Controlled carousel driven by a step indicator
+  code: "const [step, setStep] = React.useState(0);\nconst steps = ['Configure', 'Review',\
+    \ 'Deploy'];\n\n<Box gap=\"medium\">\n  <Box direction=\"row\" gap=\"small\" justify=\"\
+    center\">\n    {steps.map((s, i) => (\n      <Button\n        key={s}\n      \
+    \  label={s}\n        onClick={() => setStep(i)}\n        active={step === i}\n\
+    \      />\n    ))}\n  </Box>\n  <Carousel controls={false} activeChild={step}\
+    \ onChild={setStep}>\n    <ConfigurePanel />\n    <ReviewPanel />\n    <DeployPanel\
+    \ />\n  </Carousel>\n</Box>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to previous/next buttons and selector dots
+  - key: Enter / Space
+    action: Activates a focused arrow button or selector dot
+  - key: Arrow Left / Right
+    action: Navigates between selector dots when a dot is focused
+  aria:
+  - attribute: aria-label
+    value: descriptive carousel name
+    condition: Add to the root Carousel element or a wrapping Box with role='region'
+      to identify the landmark
+  - attribute: aria-label
+    value: '''Previous slide'' | ''Next slide'''
+    condition: Applied to the arrow buttons
+  - attribute: aria-label
+    value: '''Slide {N} of {total}'''
+    condition: Applied to each selector dot
+  - attribute: aria-current
+    value: '''true'''
+    condition: Applied to the selector dot representing the active slide
+  announcements:
+  - trigger: Slide changes
+    message: 'Slide {N} of {total}: {slide content label}'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.2.2 Pause, Stop, Hide
+    status: pass
+    notes: Auto-play must be pauseable; ensure play prop is used responsibly
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- box
+- heading
+- text
+- button
+- tabs

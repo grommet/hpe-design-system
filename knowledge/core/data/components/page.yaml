@@ -1,0 +1,94 @@
+id: page
+name: Page
+description: Top-level page container that provides consistent responsive margins
+  and background.
+importPath: grommet
+framework: react
+props:
+- name: kind
+  type: '''wide'' | ''narrow'' | ''full'''
+  required: false
+  description: Page width variant
+  defaultValue: '''wide'''
+- name: background
+  type: string
+  required: false
+  description: Background color token (use 'background-back' for page backgrounds)
+- name: pad
+  type: string | object
+  required: false
+  description: Padding inside the page
+usage:
+  whenToUse:
+  - Use Page as the outermost container for page content.
+  - Use background='background-back' for proper visual hierarchy.
+  - Pair with PageContent and PageHeader for structure.
+  - Choose kind based on content density.
+  whenToAvoid:
+  - Do not use Box for top-level page structure — use Page.
+  - Do not set custom max-widths — use kind prop.
+  - Do not nest Page inside Page.
+examples:
+- description: Standard Page
+  code: "<Page background=\"background-back\">\n  <PageContent>\n    <PageHeader title=\"\
+    Dashboard\" />\n    {/* Page content */}\n  </PageContent>\n</Page>"
+- description: Narrow Page
+  code: "<Page kind=\"narrow\" background=\"background-back\">\n  <PageContent>\n\
+    \    <PageHeader title=\"Settings\" />\n    {/* Narrow content */}\n  </PageContent>\n\
+    </Page>"
+variants:
+- name: wide
+  description: Default content width with generous side margins. The standard for
+    most application pages.
+  when: Dashboards, list views, detail views, and any content that benefits from a
+    comfortable line length at desktop widths.
+  example: <Page background="background-back"><PageContent>{/* content */}</PageContent></Page>
+- name: narrow
+  description: Narrower max-width optimised for focused reading and single-column
+    form completion.
+  when: Settings pages, profile forms, sign-in flows, and any content where a single-column
+    reading layout reduces cognitive load.
+  example: <Page kind="narrow" background="background-back"><PageContent>{/* content
+    */}</PageContent></Page>
+- name: full
+  description: Edge-to-edge layout with no side margins. Content fills the full viewport
+    width.
+  when: Data-dense views — large DataTables, map views, dashboard grids — where every
+    pixel of horizontal space is needed.
+  example: <Page kind="full"><PageContent>{/* full-width content */}</PageContent></Page>
+anatomy:
+- label: page container
+  region: root
+  purpose: Outer scroll container establishing page height, overflow, and maximum
+    width constraints
+  availability: always
+- label: page header slot
+  region: top child
+  purpose: Position reserved for a PageHeader component at the top of the page
+  availability: conditional
+  notes: Populated when a PageHeader is a direct child
+- label: page content slot
+  region: remaining height
+  purpose: Scrollable area below the page header holding PageContent and other children
+  availability: always
+behaviors:
+  realEstate:
+  - responsive
+accessibility:
+  aria:
+  - attribute: no intrinsic ARIA role
+    value: generic container
+    condition: Page renders as a styled <div>. Place semantic landmarks inside it
+      — use Main for role=main, Header for role=banner.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+    note: Page renders as a div with no intrinsic ARIA landmark role. Always nest
+      Main (role=main), Header (role=banner), and Nav (role=navigation) inside it
+      so assistive technology can identify page regions.
+  - criterion: 1.4.4 Resize Text
+    status: pass
+relatedComponents:
+- page-content
+- page-header
+- main

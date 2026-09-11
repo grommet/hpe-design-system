@@ -1,0 +1,164 @@
+id: toolbar
+name: Toolbar
+description: A horizontal container that groups related data-manipulation controls
+  — search inputs, filter toggles, sort selectors, and action buttons — above a DataTable,
+  List, or other data display. Built as a Box extension with row layout defaults.
+importPath: grommet
+framework: react
+props:
+- name: gap
+  type: string | object
+  required: false
+  description: Space between child controls. Inherits Box gap semantics. Use 'small'
+    or 'medium' for standard toolbar spacing.
+  defaultValue: '''small'''
+- name: align
+  type: string
+  required: false
+  description: Cross-axis alignment of child controls. Defaults to 'center' to vertically
+    centre buttons and inputs.
+  defaultValue: '''center'''
+- name: justify
+  type: string
+  required: false
+  description: Main-axis distribution of child controls. Use 'between' to push action
+    groups to opposite ends.
+  defaultValue: undefined
+- name: pad
+  type: string | object
+  required: false
+  description: Internal padding. Inherits Box pad semantics.
+- name: fill
+  type: '''horizontal'' | boolean'
+  required: false
+  description: When 'horizontal', the toolbar stretches to fill its container width.
+  defaultValue: '''horizontal'''
+usage:
+  whenToUse:
+  - Use directly above a DataTable, List, or other data component to group its controls.
+  - Group related controls together — keep search/filter on one side and action buttons
+    on the other.
+  - Use DataSearch and DataFilters inside Toolbar when working within a Data context.
+  - 'Keep the toolbar focused: avoid placing more than 4–5 distinct controls in a
+    single toolbar.'
+  whenToAvoid:
+  - Do not use Toolbar as a page-level navigation element — use Nav or Header instead.
+  - Do not mix unrelated controls in the same toolbar; split into separate toolbars
+    if needed.
+  - Do not nest toolbars inside toolbars.
+  - Do not use Toolbar for primary page actions — those belong in a PageHeader actions
+    slot.
+variants:
+- name: search-only
+  description: Toolbar containing a single search field aligned to the start.
+  when: Only search filtering is needed above a data table or list.
+  example: "<Toolbar>\n  <TextInput\n    type=\"search\"\n    placeholder=\"Search\
+    \ devices\"\n    icon={<Search />}\n    aria-label=\"Search devices\"\n    value={query}\n\
+    \    onChange={e => setQuery(e.target.value)}\n  />\n</Toolbar>"
+- name: search-and-filters
+  description: Toolbar with a search field and one or more filter controls, used within
+    a Data context.
+  when: Users need to search and filter a data set simultaneously.
+  example: "<Data data={items} onView={setView} view={view}>\n  <Toolbar>\n    <DataSearch\
+    \ />\n    <DataFilters layer />\n  </Toolbar>\n  <DataTable columns={columns}\
+    \ />\n</Data>"
+- name: search-and-actions
+  description: Toolbar with search on the left and action buttons on the right.
+  when: Users need to both search and perform bulk actions on selected rows.
+  example: "<Toolbar justify=\"between\">\n  <TextInput\n    type=\"search\"\n   \
+    \ placeholder=\"Search\"\n    icon={<Search />}\n    aria-label=\"Search\"\n \
+    \   value={query}\n    onChange={e => setQuery(e.target.value)}\n  />\n  <Box\
+    \ direction=\"row\" gap=\"small\">\n    <Button label=\"Export\" onClick={handleExport}\
+    \ />\n    <Button label=\"Add\" primary onClick={handleAdd} />\n  </Box>\n</Toolbar>"
+- name: toggle-views
+  description: Toolbar that lets users toggle between table and card view modes using
+    a ToggleGroup.
+  when: Multiple views of the same data are available (e.g., table vs. grid).
+  example: "<Toolbar justify=\"between\">\n  <DataSearch />\n  <ToggleGroup\n    options={[\n\
+    \      { icon: <Table />, label: 'Table' },\n      { icon: <Grid />, label: 'Grid'\
+    \ },\n    ]}\n    value={viewMode}\n    onToggle={({ value }) => setViewMode(value)}\n\
+    \  />\n</Toolbar>"
+anatomy:
+- label: toolbar container
+  region: root
+  purpose: Horizontal Box holding all tool controls with row layout, centre alignment,
+    and small gap
+  availability: always
+- label: search control
+  region: child — typically leading
+  purpose: TextInput (type='search') or DataSearch component for filtering the associated
+    data
+  availability: conditional
+  notes: Most toolbars include a search control
+- label: filter controls
+  region: child — after search
+  purpose: DataFilters, Select, or ToggleGroup for faceted filtering of the data set
+  availability: conditional
+  notes: Present when multiple filter dimensions are available
+- label: action buttons
+  region: child — typically trailing
+  purpose: Buttons for bulk actions on selected data rows (export, delete, add)
+  availability: conditional
+  notes: Present when row actions are supported
+- label: view toggle
+  region: child — typically trailing
+  purpose: ToggleGroup or DataView allowing users to switch between display modes
+  availability: conditional
+  notes: Present when multiple view modes are offered
+behaviors:
+  interactiveStates:
+  - rest
+  applicationStates:
+  - filters-active
+  - selection-active
+  dataStates:
+  - default
+  realEstate:
+  - Stretches to fill container width (fill='horizontal')
+  - Child controls share horizontal space; overflow wraps to next row at narrow widths
+examples:
+- description: Full-featured toolbar within a Data context
+  code: "<Data data={devices} onView={setView} view={view}>\n  <Toolbar fill=\"horizontal\"\
+    \ justify=\"between\">\n    <Box direction=\"row\" gap=\"small\" align=\"center\"\
+    >\n      <DataSearch />\n      <DataFilters layer />\n    </Box>\n    <Box direction=\"\
+    row\" gap=\"small\">\n      <Button label=\"Export\" onClick={handleExport} />\n\
+    \      <Button label=\"Add device\" primary onClick={handleAdd} />\n    </Box>\n\
+    \  </Toolbar>\n  <DataSummary />\n  <DataTable columns={columns} />\n  <Pagination\
+    \ />\n</Data>"
+- description: Simple search toolbar above a List
+  code: "<Box gap=\"small\">\n  <Toolbar>\n    <TextInput\n      type=\"search\"\n\
+    \      placeholder=\"Filter alerts\"\n      icon={<Search />}\n      aria-label=\"\
+    Filter alerts\"\n      value={filter}\n      onChange={e => setFilter(e.target.value)}\n\
+    \    />\n  </Toolbar>\n  <List data={filteredAlerts} />\n</Box>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus through each interactive control in the toolbar
+  aria:
+  - attribute: role
+    value: '''toolbar'''
+    condition: Apply role='toolbar' to the root element when the toolbar contains
+      a logically grouped set of controls
+  - attribute: aria-label
+    value: descriptive toolbar name
+    condition: Required when role='toolbar' is set and there is no visible heading
+      labelling the toolbar
+  announcements: []
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-search
+- data-filters
+- data-sort
+- toggle-group
+- button
+- text-input
+- data-table

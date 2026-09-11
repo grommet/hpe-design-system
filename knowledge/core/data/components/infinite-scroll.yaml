@@ -1,0 +1,158 @@
+id: infinite-scroll
+name: InfiniteScroll
+description: 'Wraps a List or DataTable''s children to add automatic progressive loading:
+  as the user scrolls near the end of rendered items, onMore is called to fetch the
+  next batch — eliminating explicit pagination controls.'
+importPath: grommet
+framework: react
+props:
+- name: items
+  type: any[]
+  required: false
+  description: The full array of data items. InfiniteScroll uses this to determine
+    whether more items exist and which items to render.
+- name: onMore
+  type: () => void
+  required: false
+  description: Callback fired when the scroll position approaches the end of rendered
+    items. Use to fetch and append the next batch of data.
+- name: step
+  type: number
+  required: false
+  description: Number of items to render per batch. When the user scrolls close to
+    the end of the current batch, the next step is rendered.
+  defaultValue: '50'
+- name: renderMarker
+  type: '(marker: React.ReactNode) => React.ReactNode'
+  required: false
+  description: Custom renderer wrapping the load-more sentinel element. Use to display
+    a loading spinner or 'Loading more…' message.
+- name: replace
+  type: boolean
+  required: false
+  description: When true, off-screen items are replaced with placeholder elements
+    of equal height to preserve scroll position and reduce DOM size.
+  defaultValue: 'false'
+- name: show
+  type: number
+  required: false
+  description: Index of the item to scroll into view on mount. Useful for restoring
+    scroll position.
+usage:
+  whenToUse:
+  - Use when a data set is too large to paginate with discrete pages and continuous
+    scrolling improves the browsing experience.
+  - Use inside List to progressively load list items as users scroll.
+  - Provide a renderMarker function to show a loading indicator so users know more
+    items are fetching.
+  - Use the step prop to balance DOM size against the number of network requests.
+  whenToAvoid:
+  - Do not use when users need to navigate to a specific page or item by number —
+    use Pagination instead.
+  - Do not use when the full data set is small enough to render at once.
+  - Do not omit the onMore callback when more items exist — the component will show
+    all items at once without it.
+  - Do not use replace=true without measuring the performance trade-off; placeholder
+    heights must match actual item heights.
+variants:
+- name: basic
+  description: InfiniteScroll wrapping a List with a simple loading indicator.
+  when: A progressively loaded list is needed with minimal configuration.
+  example: "<List\n  data={items}\n  onMore={fetchMoreItems}\n/>"
+- name: with-custom-marker
+  description: InfiniteScroll with a custom loading indicator rendered at the bottom
+    of the list.
+  when: Users need visual feedback while the next batch is loading.
+  example: "<List\n  data={items}\n  onMore={fetchMoreItems}\n  step={20}\n  renderMarker={marker\
+    \ => (\n    <Box align=\"center\" pad=\"medium\">\n      <Spinner />\n      <Text\
+    \ size=\"small\">Loading more…</Text>\n    </Box>\n  )}\n/>"
+- name: with-replace
+  description: Off-screen items replaced with height-preserving placeholders to reduce
+    DOM node count.
+  when: The full items array is very large (thousands of items) and DOM performance
+    is a concern.
+  example: <List data={largeDataset} onMore={fetchMore} replace />
+- name: restore-position
+  description: Scrolls to a specific item index on mount to restore a previous scroll
+    position.
+  when: Users navigate away and return to the list, and the prior position should
+    be restored.
+  example: <List data={items} onMore={fetchMore} show={lastViewedIndex} />
+anatomy:
+- label: rendered item list
+  region: root
+  purpose: The currently visible batch of items passed as children to InfiniteScroll
+  availability: always
+- label: load sentinel
+  region: appended after last rendered item
+  purpose: Invisible element observed by an IntersectionObserver; triggers onMore
+    when scrolled into the viewport
+  availability: always
+- label: loading marker
+  region: at sentinel position
+  purpose: Optional visual indicator (spinner, text) rendered via renderMarker while
+    the next batch is fetching
+  availability: conditional
+  notes: Shown when renderMarker is provided and onMore has been triggered
+- label: placeholder items
+  region: off-screen positions
+  purpose: Height-preserving placeholder nodes replacing off-screen items when replace=true
+  availability: conditional
+  notes: Only rendered when replace=true
+behaviors:
+  interactiveStates:
+  - rest
+  applicationStates:
+  - loading-initial
+  - loading-more
+  - all-loaded
+  dataStates:
+  - partial
+  - complete
+  realEstate:
+  - Occupies the same space as its child list
+  - Scroll container must be the window or an overflow:auto/scroll ancestor
+examples:
+- description: Infinite scroll on a device list with loading indicator
+  code: "const [devices, setDevices] = React.useState([]);\nconst [page, setPage]\
+    \ = React.useState(1);\nconst [hasMore, setHasMore] = React.useState(true);\n\n\
+    const loadMore = async () => {\n  const next = await fetchDevices({ page: page\
+    \ + 1 });\n  setDevices(prev => [...prev, ...next.items]);\n  setPage(p => p +\
+    \ 1);\n  setHasMore(next.hasMore);\n};\n\n<List\n  data={devices}\n  onMore={hasMore\
+    \ ? loadMore : undefined}\n  step={25}\n  renderMarker={marker => (\n    <Box\
+    \ align=\"center\" pad=\"small\">\n      <Spinner size=\"small\" />\n    </Box>\n\
+    \  )}\n  itemProps={{}}\n/>"
+- description: Infinite scroll inside a DataTable
+  code: "// DataTable passes InfiniteScroll props directly\n<DataTable\n  columns={columns}\n\
+    \  data={rows}\n  onMore={hasMore ? fetchNextPage : undefined}\n  step={50}\n\
+    />"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Navigates through list items in the normal tab order
+  aria:
+  - attribute: aria-live
+    value: '''polite'''
+    condition: Wrap the list in a live region so screen readers announce newly loaded
+      items
+  - attribute: aria-busy
+    value: '''true'' | ''false'''
+    condition: Set aria-busy='true' on the list container while onMore is in flight
+      to signal loading state to assistive technology
+  announcements:
+  - trigger: More items loaded
+    message: '{N} more items loaded'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 4.1.3 Status Messages
+    status: pass
+    notes: Loading state should be communicated via aria-busy or a live region
+relatedComponents:
+- list
+- data-table
+- pagination
+- spinner
+- box

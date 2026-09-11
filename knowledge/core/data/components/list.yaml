@@ -1,0 +1,147 @@
+id: list
+name: List
+description: Component for displaying an ordered or unordered list of items with selection
+  and action support.
+importPath: grommet
+framework: react
+props:
+- name: data
+  type: object[] | string[]
+  required: true
+  description: Array of items to display
+- name: primaryKey
+  type: string
+  required: false
+  description: Property name to use as unique key
+- name: children
+  type: '(item: any, index: number) => React.ReactNode'
+  required: false
+  description: Custom render function for each item
+- name: onClickItem
+  type: '(event: { item: any, index: number }) => void'
+  required: false
+  description: Click handler for list items
+- name: pad
+  type: string | object
+  required: false
+  description: Padding for list items
+- name: action
+  type: '(item: any, index: number) => React.ReactNode'
+  required: false
+  description: Render function for actions on each item
+- name: show
+  type: 'number | { index: number }'
+  required: false
+  description: Index of the item to scroll into view on initial render
+- name: border
+  type: 'boolean | ''horizontal'' | ''vertical'' | ''top'' | ''bottom'' | { side:
+    string, size: string }'
+  required: false
+  description: Whether to show a border between list items
+  defaultValue: '''horizontal'''
+usage:
+  whenToUse:
+  - Use inside Data component for filtering and sorting.
+  - Provide children render function for custom item layouts.
+  - Use as an alternative view to DataTable for card-like lists.
+  - Use onClickItem for item navigation or selection.
+  whenToAvoid:
+  - Do not use HTML ul/li elements — use List.
+  - Do not build custom list components.
+  - Avoid deeply nested content in list items.
+examples:
+- description: Simple List
+  code: "<List\n  data={items}\n  primaryKey=\"id\"\n  children={(item) => (\n   \
+    \ <Box direction=\"row\" gap=\"medium\" align=\"center\">\n      <Text weight=\"\
+    bold\">{item.name}</Text>\n      <Text color=\"text-weak\">{item.description}</Text>\n\
+    \    </Box>\n  )}\n/>"
+- description: Clickable List in Data Context
+  code: "<Data data={items}>\n  <DataSearch />\n  <List\n    primaryKey=\"id\"\n \
+    \   onClickItem={({ item }) => navigate(`/items/${item.id}`)}\n    children={(item)\
+    \ => <Text>{item.name}</Text>}\n  />\n</Data>"
+variants:
+- name: default
+  description: Static list with custom item rendering via children render prop.
+  when: Displaying structured data in a card-like or row format where DataTable columns
+    are too rigid.
+  example: <List data={items} primaryKey="id" children={(item) => <Text>{item.name}</Text>}
+    />
+- name: clickable
+  description: List items are interactive — clicking navigates or selects.
+  when: List is used as a navigation or selection element. onClickItem is required;
+    items receive role='button' semantics.
+  example: <List data={items} onClickItem={({ item }) => navigate(item.href)} children={(item)
+    => <Text>{item.name}</Text>} />
+- name: in-data-context
+  description: List is a child of a Data component, inheriting search, filter, and
+    sort state automatically.
+  when: Any time the list data needs to be searchable, filterable, or sortable. Prefer
+    this pattern over manual state management.
+  example: <Data data={items}><DataSearch /><List primaryKey="id" children={(item)
+    => <Text>{item.name}</Text>} /><Pagination /></Data>
+- name: with-actions
+  description: Each list item renders an action control (Button, Menu) via the action
+    prop.
+  when: Per-item operations such as edit, delete, or download are needed alongside
+    the item content.
+  example: <List data={items} action={(item) => <Button label="Edit" onClick={() =>
+    edit(item)} />} children={(item) => <Text>{item.name}</Text>} />
+anatomy:
+- label: list container
+  region: root
+  purpose: Wrapper element containing all list item rows and handling keyboard navigation
+  availability: always
+- label: list item
+  region: child row
+  purpose: Individual row rendering one data entry; supports a custom render function
+    via children
+  availability: always
+- label: item border
+  region: between items
+  purpose: Horizontal divider line separating adjacent list items
+  availability: conditional
+  notes: Shown by default; hidden when border=false
+- label: item action
+  region: trailing (per item)
+  purpose: Action button or control rendered at the right edge of each item
+  availability: conditional
+  notes: Present when action prop or onClickItem provides per-item controls
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  dataStates:
+  - empty
+  - filtered
+  - loading
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus through clickable list items
+  - key: Enter / Space
+    action: Activates the focused item (when onClickItem is set)
+  aria:
+  - attribute: role
+    value: listitem
+    condition: Each item renders as an <li> within an <ol> or <ul>. When onClickItem
+      is provided, items also receive button semantics.
+  - attribute: aria-label
+    value: descriptive label for each item
+    condition: Provide accessible text on the clickable item or ensure the children
+      render prop produces sufficient visible label text.
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- data
+- data-table
+- pagination
+- card

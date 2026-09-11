@@ -1,0 +1,148 @@
+id: check-box
+name: CheckBox
+description: Checkbox input for boolean selections or toggling options.
+importPath: grommet
+framework: react
+props:
+- name: checked
+  type: boolean
+  required: false
+  description: Whether the checkbox is checked
+- name: label
+  type: string | React.ReactNode
+  required: false
+  description: Label displayed next to the checkbox
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLInputElement>) => void'
+  required: false
+  description: Change handler
+- name: toggle
+  type: boolean
+  required: false
+  description: Render as a toggle switch
+- name: disabled
+  type: boolean
+  required: false
+  description: Whether the checkbox is disabled
+- name: name
+  type: string
+  required: false
+  description: Name for form integration
+- name: indeterminate
+  type: boolean
+  required: false
+  description: Renders the checkbox in a partially-checked (dash) state; used in select-all
+    patterns where some but not all children are selected
+usage:
+  whenToUse:
+  - Use for independent boolean options — the user can check or uncheck without affecting
+    other fields.
+  - Use toggle prop for on/off feature settings (notifications, dark mode, auto-save,
+    etc.).
+  - Use indeterminate for select-all controls in tables or lists where partial selection
+    is possible.
+  - Always provide a visible label — the label text becomes the accessible name.
+  - Use name prop when integrating with Grommet Form for controlled submission.
+  whenToAvoid:
+  - Do not use for mutually exclusive options — use RadioButtonGroup instead.
+  - Do not render without a visible label.
+  - Do not use for navigation or triggering actions — use Button or Anchor.
+  - Avoid placing CheckBox inside a clickable parent that also triggers an action
+    (double-activation risk).
+examples:
+- description: Basic Checkbox
+  code: "<CheckBox\n  label=\"Accept terms and conditions\"\n  checked={accepted}\n\
+    \  onChange={(event) => setAccepted(event.target.checked)}\n/>"
+- description: Toggle Switch
+  code: "<CheckBox\n  toggle\n  label=\"Enable notifications\"\n  checked={notifications}\n\
+    \  onChange={(event) => setNotifications(event.target.checked)}\n/>"
+- description: In Form
+  code: "<FormField name=\"terms\">\n  <CheckBox name=\"terms\" label=\"I agree to\
+    \ the terms\" />\n</FormField>"
+- description: Indeterminate (Select-All)
+  code: "<CheckBox\n  indeterminate={someSelected && !allSelected}\n  checked={allSelected}\n\
+    \  onChange={handleSelectAll}\n  label=\"Select all\"\n/>"
+variants:
+- name: checkbox
+  description: Standard square checkbox with a checkmark when selected.
+  when: Independent boolean options — agree to terms, show optional field, filter
+    by category.
+  example: <CheckBox label="Remember me" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}
+    />
+- name: toggle
+  description: Rendered as a sliding toggle switch (role=switch). Provides an on/off
+    affordance.
+  when: Immediate-effect settings where a switch metaphor communicates the binary
+    state more clearly than a checkbox — e.g. dark mode, notifications, auto-save.
+  example: <CheckBox toggle label="Dark mode" checked={darkMode} onChange={(e) =>
+    setDarkMode(e.target.checked)} />
+- name: indeterminate
+  description: Checkbox displaying a dash mark to indicate partial selection within
+    a group.
+  when: Select-all controls in tables or lists where some but not all items are selected.
+  example: <CheckBox indeterminate={someSelected} checked={allSelected} onChange={handleSelectAll}
+    label="Select all" />
+anatomy:
+- label: checkbox control
+  region: root
+  purpose: Square (or round when toggle=true) interactive toggle indicator showing
+    checked, unchecked, or indeterminate state
+  availability: always
+- label: label
+  region: adjacent to control
+  purpose: Text label associated with the checkbox via htmlFor pairing
+  availability: conditional
+  notes: Present when the label prop is provided
+- label: description
+  region: below label
+  purpose: Secondary hint text providing additional context for the checkbox purpose
+  availability: conditional
+  notes: Present when the description prop is provided
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - disabled
+  - error
+  - indeterminate
+accessibility:
+  keyboard:
+  - key: Space
+    action: Toggles the checked state
+  - key: Tab / Shift+Tab
+    action: Moves focus to the next or previous focusable element
+  aria:
+  - attribute: role
+    value: checkbox
+    condition: Default; implicit on the native input[type=checkbox] element
+  - attribute: role
+    value: switch
+    condition: Applied automatically by Grommet when toggle prop is true
+  - attribute: aria-checked
+    value: true | false | mixed
+    condition: Reflects the checked state; 'mixed' when indeterminate prop is true
+  - attribute: aria-disabled
+    value: 'true'
+    condition: When disabled prop is true
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.4.11 Non-text Contrast
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.2 Labels or Instructions
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: conditional
+relatedComponents:
+- form-field
+- form
+- select

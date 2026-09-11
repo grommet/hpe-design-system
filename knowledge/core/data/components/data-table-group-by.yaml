@@ -1,0 +1,109 @@
+id: data-table-group-by
+name: DataTableGroupBy
+description: Provides a control inside a Data context that groups DataTable rows by
+  a selected column property, inserting collapsible group-header rows and an optional
+  aggregate summary. Combines with the DataTable groupBy prop.
+importPath: grommet
+framework: react
+props:
+- name: options
+  type: 'string[] | Array<{ label: string; property: string }>'
+  required: false
+  description: The set of column properties that the user may group by. Shown as a
+    dropdown inside the control.
+- name: messages
+  type: object
+  required: false
+  description: Overrides for button labels, placeholder text, and ARIA strings.
+usage:
+  whenToUse:
+  - Use inside a Data context Toolbar when rows can be meaningfully clustered by a
+    shared property (status, region, type).
+  - Pair with DataTable groupBy to render collapsible group headers inside the table.
+  - Place DataTableGroupBy alongside DataFilters and DataSort in the trailing toolbar
+    area.
+  whenToAvoid:
+  - Do not use DataTableGroupBy outside a Data context.
+  - Do not offer grouping on high-cardinality columns (e.g., unique IDs, timestamps)
+    — the groups would each contain one row.
+  - Do not use when the data set has fewer than 10 rows; grouping adds navigation
+    overhead without benefit.
+variants:
+- name: basic
+  description: A 'Group by' select control that collapses rows by the chosen property.
+  when: Users need to reorganise a table by a categorical column such as status or
+    department.
+  example: "<Data data={devices} view={view} onView={setView}>\n  <Toolbar justify=\"\
+    between\">\n    <DataSearch />\n    <Box direction=\"row\" gap=\"small\">\n  \
+    \    <DataTableGroupBy\n        options={[\n          { label: 'Status', property:\
+    \ 'status' },\n          { label: 'Region', property: 'region' },\n        ]}\n\
+    \      />\n      <DataFilters layer />\n    </Box>\n  </Toolbar>\n  <DataTable\n\
+    \    columns={columns}\n    groupBy={view?.groupBy}\n  />\n</Data>"
+anatomy:
+- label: group-by selector
+  region: root
+  purpose: Select control listing available grouping properties; displays the active
+    group or a placeholder
+  availability: always
+- label: group header row
+  region: inside DataTable (when active)
+  purpose: Collapsible row spanning all columns, showing the group value and an expand/collapse
+    toggle
+  availability: conditional
+  notes: Rendered by DataTable when groupBy is active
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - open
+  applicationStates:
+  - no-grouping
+  - grouped
+  dataStates:
+  - default
+  realEstate:
+  - Selector sized to label width
+  - Group header rows span full table width inside DataTable
+examples:
+- description: Group devices by status with expand/collapse
+  code: "<Data data={devices} view={view} onView={setView}>\n  <Toolbar justify=\"\
+    between\">\n    <DataSearch />\n    <DataTableGroupBy\n      options={[\n    \
+    \    { label: 'Status', property: 'status' },\n        { label: 'Site', property:\
+    \ 'site' },\n        { label: 'Model', property: 'model' },\n      ]}\n    />\n\
+    \  </Toolbar>\n  <DataSummary />\n  <DataTable\n    columns={columns}\n    groupBy={view?.groupBy}\n\
+    \    sort={view?.sort}\n  />\n</Data>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the group-by selector
+  - key: Enter / Space
+    action: Opens the grouping options list
+  - key: Arrow Up / Down
+    action: Navigates options in the list
+  - key: Enter
+    action: Selects the focused grouping option
+  - key: Escape
+    action: Closes the options list without applying a change
+  aria:
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: Applied to the group-by select to reflect open state
+  announcements:
+  - trigger: Grouping applied
+    message: Grouped by {property}
+  - trigger: Grouping cleared
+    message: Grouping removed
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-table
+- data-filters
+- data-sort
+- toolbar

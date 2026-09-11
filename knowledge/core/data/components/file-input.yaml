@@ -1,0 +1,198 @@
+id: file-input
+name: FileInput
+description: Allows users to attach one or more files via a drag-and-drop zone or
+  a 'Browse files' button. File transfer is deferred until form submission — no upload
+  occurs on selection.
+importPath: grommet
+framework: react
+props:
+- name: id
+  type: string
+  required: false
+  description: DOM id for the underlying file input. Must match the htmlFor attribute
+    of the enclosing FormField.
+- name: name
+  type: string
+  required: false
+  description: HTML name attribute for form submission. Must match the name attribute
+    of the enclosing FormField.
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLInputElement>) => void'
+  required: false
+  description: Callback fired when files are added or removed. Access the FileList
+    via event.target.files.
+- name: multiple
+  type: 'boolean | { aggregateThreshold?: number; max?: number }'
+  required: false
+  description: Allows selecting more than one file. Pass an object to cap the maximum
+    number of files or to configure when individual names collapse into a count.
+  defaultValue: 'false'
+- name: accept
+  type: string
+  required: false
+  description: MIME types or file extensions accepted by the browser's file picker
+    (e.g., '.pdf,.docx', 'image/*').
+- name: disabled
+  type: boolean
+  required: false
+  description: Prevents file selection and visually disables the drop zone.
+  defaultValue: 'false'
+- name: renderFile
+  type: '(file: File, index: number) => React.ReactNode'
+  required: false
+  description: Custom renderer for each file in the attached file list. Use to display
+    full filenames, sizes, or preview thumbnails.
+- name: maxSize
+  type: number
+  required: false
+  description: Maximum allowed file size in bytes. When a file exceeds this limit
+    an error message is displayed.
+- name: messages
+  type: object
+  required: false
+  description: 'Overrides for drop zone UI text strings: browse, dropPrompt, dropPromptMultiple,
+    files, remove, removeAll, maxFile.'
+usage:
+  whenToUse:
+  - Use when a form requires one or more file attachments such as certificates, reports,
+    or images.
+  - Use the multiple prop when users need to attach several files at once.
+  - Always wrap FileInput in a FormField to provide an accessible label and validation
+    feedback.
+  - Use renderFile when full filenames are needed — the default display truncates
+    long names.
+  whenToAvoid:
+  - Do not use to trigger immediate server-side upload on selection — the file is
+    submitted with the form.
+  - Do not use without a FormField wrapper; a visible label is required for accessibility.
+  - Do not omit file size or type constraints without communicating expectations in
+    help text.
+variants:
+- name: single-file
+  description: Drop zone that accepts exactly one file.
+  when: The form requires a single attachment such as a signed certificate or profile
+    photo.
+  example: "<FormField label=\"Certificate\" name=\"cert\" htmlFor=\"cert\">\n  <FileInput\n\
+    \    id=\"cert\"\n    name=\"cert\"\n    accept=\".pem,.crt\"\n    onChange={handleChange}\n\
+    \  />\n</FormField>"
+- name: multiple-files
+  description: Drop zone that accepts several files at once.
+  when: Users need to upload a batch of supporting documents, images, or log files.
+  example: "<FormField label=\"Attachments\" name=\"files\" htmlFor=\"files\">\n \
+    \ <FileInput\n    id=\"files\"\n    name=\"files\"\n    multiple\n    onChange={handleChange}\n\
+    \  />\n</FormField>"
+- name: with-validation
+  description: FileInput in a FormField that shows an error when a required field
+    is empty or constraints are violated.
+  when: The file attachment is mandatory or has format or size restrictions.
+  example: "<FormField\n  label=\"Upload report\"\n  name=\"report\"\n  htmlFor=\"\
+    report\"\n  required\n  error={fileError}\n>\n  <FileInput\n    id=\"report\"\n\
+    \    name=\"report\"\n    accept=\".pdf\"\n    maxSize={5242880}\n    onChange={validateAndSet}\n\
+    \  />\n</FormField>"
+- name: confirm-remove
+  description: Pattern that prompts the user to confirm before clearing an attached
+    file, preventing accidental data loss.
+  when: Removing the file would discard significant work or is difficult to undo.
+  example: "// Intercept removal intent and show a confirmation Layer before clearing\
+    \ state\nconst [confirmOpen, setConfirmOpen] = React.useState(false);\n<FileInput\n\
+    \  name=\"doc\"\n  onChange={e => {\n    if (!e.target.files.length) { setConfirmOpen(true);\
+    \ return; }\n    setFile(e.target.files[0]);\n  }}\n/>"
+anatomy:
+- label: drop zone
+  region: root
+  purpose: Dotted-border area that accepts dragged files and contains the browse button
+  availability: always
+- label: browse button
+  region: inside drop zone
+  purpose: Button that opens the OS file picker; keyboard-activatable via Space or
+    Enter
+  availability: always
+- label: file list item
+  region: below drop zone
+  purpose: Displays the name of each attached file
+  availability: conditional
+  notes: Rendered for each file once one or more files have been selected
+- label: remove button
+  region: per file list item
+  purpose: Trash icon button that removes the associated file from the selection
+  availability: conditional
+  notes: Keyboard accessible; one per file item
+- label: aggregate count
+  region: inside drop zone
+  purpose: Collapses many filenames into a single 'N files selected' summary
+  availability: conditional
+  notes: Shown when multiple.aggregateThreshold is exceeded
+behaviors:
+  interactiveStates:
+  - rest
+  - drag-over
+  - focus
+  - disabled
+  applicationStates:
+  - empty
+  - file-selected
+  - multiple-selected
+  - error
+  dataStates:
+  - no-files
+  - has-file
+  - has-multiple-files
+  - exceeds-max-size
+  realEstate:
+  - Stretches to fill FormField width
+  - File list grows downward as files are added
+examples:
+- description: Firmware file upload in a provisioning form
+  code: "<Form onSubmit={handleSubmit}>\n  <FormField\n    label=\"Firmware file\"\
+    \n    name=\"firmware\"\n    htmlFor=\"firmware\"\n    required\n  >\n    <FileInput\n\
+    \      id=\"firmware\"\n      name=\"firmware\"\n      accept=\".bin,.img\"\n\
+    \      onChange={e => setFirmware(e.target.files[0])}\n    />\n  </FormField>\n\
+    \  <Box direction=\"row\" gap=\"small\" margin={{ top: 'medium' }}>\n    <Button\
+    \ type=\"submit\" label=\"Upload\" primary />\n    <Button type=\"reset\" label=\"\
+    Cancel\" />\n  </Box>\n</Form>"
+- description: Multiple log files with custom file display
+  code: "<FormField label=\"Log files\" name=\"logs\" htmlFor=\"logs\">\n  <FileInput\n\
+    \    id=\"logs\"\n    name=\"logs\"\n    multiple\n    renderFile={file => (\n\
+    \      <Box pad={{ vertical: 'xsmall' }}>\n        <Text size=\"small\">{file.name}</Text>\n\
+    \        <Text size=\"xsmall\" color=\"text-weak\">\n          {(file.size / 1024).toFixed(1)}\
+    \ KB\n        </Text>\n      </Box>\n    )}\n    onChange={e => setLogs(Array.from(e.target.files))}\n\
+    \  />\n</FormField>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the browse button and each remove button
+  - key: Space / Enter
+    action: Opens the OS file picker when the browse button is focused
+  - key: Delete / Backspace
+    action: Removes the focused file item from the selection
+  aria:
+  - attribute: aria-label
+    value: browse files
+    condition: Applied to the browse button for screen reader identification
+  - attribute: aria-label
+    value: Remove {filename}
+    condition: Applied to each per-file remove button to uniquely identify it
+  announcements:
+  - trigger: File added
+    message: '{filename} added'
+  - trigger: File removed
+    message: '{filename} removed'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: pass
+  - criterion: 3.3.2 Labels or Instructions
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- form
+- form-field
+- button
+- text-input
+- notification

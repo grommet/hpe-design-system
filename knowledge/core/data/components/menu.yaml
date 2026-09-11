@@ -1,0 +1,149 @@
+id: menu
+name: Menu
+description: Button that opens a dropdown menu with a list of actions or navigation
+  items.
+importPath: grommet
+framework: react
+props:
+- name: items
+  type: '{ label: string, onClick?: () => void, icon?: React.ReactNode, gap?: string
+    }[]'
+  required: true
+  description: Array of menu items
+- name: label
+  type: string | React.ReactNode
+  required: false
+  description: Label for the menu button
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Icon for the menu button
+- name: dropAlign
+  type: '{ top?: string, bottom?: string, left?: string, right?: string }'
+  required: false
+  description: Alignment of the dropdown relative to the button
+- name: size
+  type: '''small'' | ''medium'' | ''large'''
+  required: false
+  description: Size of the menu button
+usage:
+  whenToUse:
+  - Use for contextual actions or overflow menus.
+  - Use descriptive labels for menu items.
+  - Use icon prop for icon-only menu buttons (with a11y label).
+  - Use in Header for user/account menus.
+  whenToAvoid:
+  - Do not use Menu for primary navigation — use Nav with Anchors.
+  - Do not nest menus within menus.
+  - Avoid too many items — consider grouping or sub-navigation.
+variants:
+- name: label-only
+  description: Text label as the trigger button with an implicit chevron indicator.
+  when: When space allows a descriptive label and the menu purpose benefits from a
+    visible name — e.g. user account menus, 'Actions' overflow menus in page headers.
+  example: <Menu label="Actions" items={[...]} />
+- name: icon-and-label
+  description: Icon and text label combined on the trigger button.
+  when: When a visual icon reinforces the label meaning and extra recognition aids
+    the user — e.g. a gear icon alongside 'Settings'.
+  example: <Menu icon={<Configure />} label="Settings" items={[...]} />
+- name: icon-only
+  description: Icon-only trigger with no visible label text. Compact footprint.
+  when: Space-constrained contexts such as table row actions, toolbars, or card overflow
+    where an ellipsis or 'more' icon communicates intent. Always provide an aria-label.
+  example: '<Menu icon={<More />} a11yTitle="More actions" items={[...]} dropAlign={{
+    top: ''bottom'', right: ''right'' }} />'
+examples:
+- description: Actions Menu
+  code: "<Menu\n  label=\"Actions\"\n  items={[\n    { label: 'Edit', onClick: ()\
+    \ => handleEdit() },\n    { label: 'Duplicate', onClick: () => handleDuplicate()\
+    \ },\n    { label: 'Delete', onClick: () => handleDelete() },\n  ]}\n/>"
+- description: Icon Menu
+  code: "<Menu\n  icon={<More />}\n  items={[\n    { label: 'Settings', icon: <Configure\
+    \ /> },\n    { label: 'Help', icon: <Help /> },\n    { label: 'Logout', icon:\
+    \ <Logout /> },\n  ]}\n  dropAlign={{ top: 'bottom', right: 'right' }}\n/>"
+anatomy:
+- label: '1'
+  region: Menu button
+  purpose: Opens the menu when clicked.
+  availability: required
+  notes: Can include a label, icon, or both.
+- label: 1a
+  region: Button label
+  purpose: Describes the menu's function or the category of actions.
+  availability: optional
+- label: 1b
+  region: Button icon
+  purpose: Provides a visual cue that the menu can be opened or closed.
+  availability: optional
+  notes: Typically an arrow or chevron to indicate expand/collapse. For icon-only
+    menus, the icon represents the menu's purpose or the type of actions (e.g., settings
+    gear, overflow dots).
+- label: '2'
+  region: Drop container
+  purpose: Holds and displays the list of menu items when the menu is expanded.
+  availability: required
+- label: '3'
+  region: Menu item
+  purpose: Represents an individual action within the menu.
+  availability: required
+  notes: Items should be organized logically.
+- label: 3a
+  region: Item label
+  purpose: Communicates the specific action to the user.
+  availability: required
+- label: 3b
+  region: Item icon
+  purpose: Provides a quick visual reference for the action.
+  availability: optional
+- label: '4'
+  region: Divider
+  purpose: Separates groups of related actions.
+  availability: optional
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - disabled
+  realEstate:
+  - overflow
+  - truncation
+accessibility:
+  keyboard:
+  - key: Enter / Space
+    action: Opens or closes the menu
+  - key: Escape
+    action: Closes the menu and returns focus to the trigger button
+  - key: Arrow Down/Up
+    action: Moves focus between menu items when open
+  aria:
+  - attribute: aria-haspopup
+    value: 'true'
+    condition: always
+  - attribute: aria-expanded
+    value: true | false
+    condition: reflects open/closed state
+  - attribute: aria-label
+    value: descriptive string
+    condition: icon-only buttons without a visible label
+  announcements:
+  - trigger: Item selected
+    message: Selected {item.label}.
+  wcag:
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 2.5.3 Label in Name
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- button
+- anchor
+- nav

@@ -1,0 +1,163 @@
+id: avatar
+name: Avatar
+description: Visually identifies a user, account, or entity using an image, icon,
+  or initials. Circular for people; rounded square for logos or systems.
+importPath: grommet
+framework: react
+props:
+- name: src
+  type: string
+  required: false
+  description: URL of the image to display. When omitted, children (icon or initials)
+    are shown over the background color.
+- name: a11yTitle
+  type: string
+  required: true
+  description: Screen-reader label describing the avatar. Required on every Avatar.
+    Use the person's or entity's full name.
+- name: size
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'' | string'
+  required: false
+  description: 'Controls avatar dimensions. HPE Design System canonical sizes: small
+    (24 px), medium (48 px), large (96 px).'
+  defaultValue: '''medium'''
+- name: background
+  type: string | object
+  required: false
+  description: Fill color used when no src image is provided. Use HPE semantic color
+    tokens such as 'decorative-green' or 'background-contrast'.
+- name: round
+  type: boolean | 'full' | 'small' | 'medium' | 'large' | 'xlarge' | string
+  required: false
+  description: Corner rounding. Use 'full' (default) for circular person avatars;
+    use 'medium' for logos and system entity avatars.
+  defaultValue: '''full'''
+- name: border
+  type: string | object
+  required: false
+  description: Optional border around the avatar container. Omit unless emphasising
+    a selection or active state.
+- name: onClick
+  type: () => void
+  required: false
+  description: Click handler. When provided the avatar becomes interactive; ensure
+    a surrounding accessible element carries the correct role.
+usage:
+  whenToUse:
+  - Use to represent a logged-in user in the global header or navigation.
+  - Use inside DataTable rows (size='small') to identify people at a glance.
+  - Use in PageHeader (size='large') to display the subject of a detail page.
+  - Always pair the avatar with nearby identifying text — do not rely on the image
+    alone to convey identity.
+  whenToAvoid:
+  - Do not display Avatar without an a11yTitle — screen readers require the label.
+  - Do not use for decorative illustration — use Box with an image or the Image component
+    instead.
+  - Do not hardcode background colors with hex values; use HPE token strings such
+    as 'decorative-green'.
+variants:
+- name: image
+  description: Avatar displays a photograph or logo via the src prop.
+  when: A profile picture or brand logo URL is available.
+  example: <Avatar src={user.photoUrl} a11yTitle={user.name} size="medium" />
+- name: initials
+  description: Avatar shows the user's initials as Text children rendered over a background
+    color.
+  when: No image is available. Derive initials from the user's given and family name.
+  example: "<Avatar\n  a11yTitle=\"Jane Doe\"\n  size=\"medium\"\n  background=\"\
+    decorative-green\"\n>\n  <Text color=\"text-strong\" size=\"medium\" weight=\"\
+    bold\">JD</Text>\n</Avatar>"
+- name: icon
+  description: Avatar contains a Grommet icon as its child, used for non-human entities.
+  when: Representing a system, service, or bot that has no photograph.
+  example: "<Avatar\n  a11yTitle=\"Analytics service\"\n  size=\"medium\"\n  background=\"\
+    background-contrast\"\n  round=\"medium\"\n>\n  <BarChart color=\"text-strong\"\
+    \ size=\"medium\" />\n</Avatar>"
+- name: logo
+  description: Rounded-square avatar (round='medium') holding a product or brand logo.
+  when: Displaying a company logo or product icon rather than a person's face.
+  example: <Avatar src={brandLogo} a11yTitle="Acme Corp" size="medium" round="medium"
+    />
+anatomy:
+- label: avatar container
+  region: root
+  purpose: Circular or rounded-square Box that clips and sizes the avatar content
+  availability: always
+- label: image
+  region: root
+  purpose: Photograph or logo displayed via the src prop
+  availability: conditional
+  notes: Shown only when src is provided
+- label: background fill
+  region: root
+  purpose: Solid color fill visible when no src image is provided
+  availability: conditional
+  notes: Required for initials and icon variants to ensure sufficient contrast
+- label: initials or icon child
+  region: root (children)
+  purpose: Text initials or icon node rendered inside the avatar when no image is
+    set
+  availability: conditional
+  notes: Caller-supplied children rendered centred inside the container
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - image-loaded
+  - image-error
+  - no-image
+  dataStates:
+  - with-image
+  - with-initials
+  - with-icon
+  realEstate:
+  - Fixed square dimensions driven by the size prop
+  - Does not stretch to fill its container
+examples:
+- description: User avatar in a page header
+  code: "<PageHeader\n  title={user.name}\n  subtitle={user.role}\n  parent={<Anchor\
+    \ label=\"Team\" href=\"/team\" />}\n  actions={\n    <Avatar src={user.photoUrl}\
+    \ a11yTitle={user.name} size=\"large\" />\n  }\n/>"
+- description: Initials avatar for a user without a photo
+  code: "<Box direction=\"row\" gap=\"small\" align=\"center\">\n  <Avatar\n    a11yTitle=\"\
+    Maria Gomez\"\n    size=\"medium\"\n    background=\"decorative-green\"\n  >\n\
+    \    <Text color=\"text-strong\" weight=\"bold\">MG</Text>\n  </Avatar>\n  <Text>Maria\
+    \ Gomez</Text>\n</Box>"
+- description: Small avatar in a DataTable people column
+  code: "<DataTable\n  columns={[\n    {\n      header: '',\n      property: 'avatar',\n\
+    \      render: datum => (\n        <Avatar src={datum.photoUrl} a11yTitle={datum.name}\
+    \ size=\"small\" />\n      ),\n      size: 'xxsmall',\n    },\n    { header: 'Name',\
+    \ property: 'name' },\n    { header: 'Role', property: 'role' },\n  ]}\n  data={users}\n\
+    />"
+accessibility:
+  keyboard:
+  - key: Tab
+    action: Moves focus to the avatar when it is interactive (onClick is set)
+  - key: Enter / Space
+    action: Activates the avatar's onClick handler
+  aria:
+  - attribute: aria-label
+    value: person or entity name
+    condition: Provided by the a11yTitle prop; required on every Avatar instance
+  announcements:
+  - trigger: Image load error
+    message: Avatar falls back to background color; a11yTitle is still announced by
+      screen readers
+  wcag:
+  - criterion: 1.1.1 Non-text Content
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- text
+- page-header
+- data-table
+- menu
+- header

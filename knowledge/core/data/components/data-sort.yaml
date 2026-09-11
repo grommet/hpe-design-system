@@ -1,0 +1,93 @@
+id: data-sort
+name: DataSort
+description: Sort control for data collections within a Data context.
+importPath: grommet
+framework: react
+props:
+- name: drop
+  type: boolean
+  required: false
+  description: Whether to show sort options in a drop
+- name: options
+  type: 'string[] | { property: string, label?: string }[]'
+  required: false
+  description: List of sortable properties to display in the sort controls. Defaults
+    to all properties configured on the parent Data component.
+- name: direction
+  type: '''asc'' | ''desc'''
+  required: false
+  description: Default sort direction when no view state is set
+- name: property
+  type: string
+  required: false
+  description: The data property key to sort by. When set, the sort control targets
+    that specific column rather than showing a property selector.
+usage:
+  whenToUse:
+  - Use inside a Data component context.
+  - Place in Toolbar alongside DataSearch and DataFilters.
+  - Use drop prop for compact sort UI.
+  whenToAvoid:
+  - Do not use outside a Data component.
+  - Do not duplicate sort behavior with DataTable sortable prop.
+examples:
+- description: Sort Control
+  code: "<Toolbar>\n  <DataSearch />\n  <DataSort />\n  <DataFilters />\n</Toolbar>"
+- description: Sort by specific property
+  code: <DataSort property='name' />
+variants:
+- name: drop
+  description: A compact button that opens a drop with sortable property options and
+    direction selector.
+  when: Toolbar usage alongside DataSearch and DataFilters where horizontal space
+    is limited.
+  example: <DataSort drop />
+- name: inline
+  description: Sort controls always visible with a property selector and direction
+    toggle.
+  when: When sort is a primary interaction and hiding it behind a button would reduce
+    discoverability.
+  example: <DataSort />
+- name: single-property
+  description: Sort pre-targeted at one property via the property prop. No property
+    selector shown.
+  when: When only one column needs sorting.
+  example: <DataSort property='name' />
+- name: multi-column
+  description: Sort with an explicit options array listing multiple sortable properties.
+  when: When you want to restrict which columns appear in the sort selector.
+  example: <DataSort options={[{property:'name'}]} />
+anatomy:
+- label: sort selector
+  region: root
+  purpose: Select control listing available sort properties and the current sort direction
+  availability: always
+- label: direction indicator
+  region: inside selector
+  purpose: Visual cue (arrow or label) indicating ascending or descending sort order
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  - open
+accessibility:
+  keyboard:
+  - key: Enter / Space
+    action: Opens the sort drop (drop variant)
+  - key: Escape
+    action: Closes the drop without changing the sort
+  aria:
+  - attribute: aria-expanded
+    value: true | false
+    condition: Applied to the sort trigger button in the drop variant, reflecting
+      the open/closed state.
+  wcag:
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-table
+- data-filters
+- data-search

@@ -1,0 +1,112 @@
+id: data-search
+name: DataSearch
+description: Search input for text-based filtering within a Data context.
+importPath: grommet
+framework: react
+props:
+- name: placeholder
+  type: string
+  required: false
+  description: Placeholder text for the search input
+- name: name
+  type: string
+  required: false
+  description: The Data context property key to search against. Defaults to searching
+    all string properties. Set explicitly when you want to restrict search to a single
+    field (e.g., name="name" to search only the name column).
+- name: debounce
+  type: number
+  required: false
+  description: Milliseconds to debounce keystroke input before triggering a Data context
+    filter update. Defaults to 0 (immediate). Increase to 300–500ms for remote/async
+    data sources to reduce unnecessary fetches.
+- name: icon
+  type: React.ReactNode | false
+  required: false
+  description: Replaces the default magnifying-glass icon. Pass false to remove the
+    icon entirely. Use a custom icon when brand guidelines require a non-standard
+    search indicator.
+- name: drop
+  type: boolean
+  required: false
+  description: When true, renders search suggestions in a drop-down overlay. Requires
+    the Data context to supply a suggestions list via its properties config.
+usage:
+  whenToUse:
+  - Use inside a Data component context.
+  - Place in Toolbar for consistent layout.
+  - Provide helpful placeholder text.
+  whenToAvoid:
+  - Do not use outside a Data component.
+  - Do not build custom search filtering — use DataSearch.
+examples:
+- description: Basic Search
+  code: "<Data data={items}>\n  <Toolbar>\n    <DataSearch placeholder=\"Search items...\"\
+    \ />\n  </Toolbar>\n  <DataTable columns={columns} />\n</Data>"
+- description: Debounced search against a single field
+  code: "<Data data={users}>\n  <Toolbar>\n    {/* debounce=300 reduces filter calls\
+    \ while typing; name=\"name\" restricts search to the name column */}\n    <DataSearch\
+    \ name=\"name\" placeholder=\"Search by name...\" debounce={300} />\n  </Toolbar>\n\
+    \  <DataTable columns={columns} />\n</Data>"
+variants:
+- name: basic
+  description: Searches all string properties in the Data context immediately as
+    the user types. Suitable for small in-memory datasets.
+  when: Default for local data arrays of fewer than ~500 items where instant filtering
+    is appropriate.
+  example: "<Data data={items}><Toolbar><DataSearch placeholder=\"Search...\" /></Toolbar><DataTable
+    columns={columns} /></Data>"
+- name: with-debounce
+  description: Delays the Data context filter update by the specified milliseconds,
+    reducing filter calls while the user is typing. Required for remote or async data
+    sources.
+  when: Any time DataSearch triggers an API call or expensive computation. Set debounce
+    to 300-500 ms.
+  example: "<Data data={users}><Toolbar><DataSearch name=\"name\" debounce={300}
+    placeholder=\"Search by name...\" /></Toolbar><DataTable columns={columns} /></Data>"
+anatomy:
+- label: search input
+  region: root
+  purpose: TextInput (type=search) connected to the Data context's search state; filters
+    all Data-family descendants
+  availability: always
+- label: search icon
+  region: leading (inside input)
+  purpose: Decorative magnifying-glass icon identifying the field as a search control
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  dataStates:
+  - empty
+  - has-value
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus into and out of the search input
+  - key: Escape
+    action: Clears the search input and resets the data view
+  aria:
+  - attribute: role
+    value: search
+    condition: DataSearch wraps the input in a <form role='search'> element, creating
+      a search landmark.
+  - attribute: aria-label
+    value: Search
+    condition: Applied to the search input by default. Override placeholder to provide
+      context-specific label text.
+  wcag:
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- data
+- data-filters
+- data-sort
+- data-table

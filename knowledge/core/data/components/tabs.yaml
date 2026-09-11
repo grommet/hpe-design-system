@@ -1,0 +1,198 @@
+id: tabs
+name: Tabs
+description: Organizes content into distinct panels accessible via a row of selectable
+  tabs, keeping only one panel visible at a time.
+importPath: grommet
+framework: react
+props:
+- name: activeIndex
+  type: number
+  required: false
+  description: Index of the currently active tab. Use with onActive for controlled
+    mode.
+  defaultValue: '0'
+- name: onActive
+  type: '(index: number) => void'
+  required: false
+  description: Callback fired when the user selects a different tab, called with the
+    new tab index
+- name: justify
+  type: '''start'' | ''center'' | ''end'''
+  required: false
+  description: Horizontal alignment of the tab strip
+  defaultValue: '''center'''
+- name: messages
+  type: '{ tabContents: string }'
+  required: false
+  description: Accessibility message for the tab panel region
+- name: id
+  type: string
+  required: false
+  description: DOM id prefix for the tabs component; used to generate unique ids for
+    tab and panel elements
+- name: children
+  type: Tab[]
+  required: true
+  description: One or more Tab child components that define the tab labels and their
+    associated content panels
+usage:
+  whenToUse:
+  - Use to split content into logical, related sections that users can navigate between
+    without leaving the page.
+  - Use when a user needs to compare sections of content or switch between different
+    views of the same data.
+  - Limit to 5 tabs maximum; use short labels (1–2 words) for scannability.
+  - Left-align the tab strip with justify='start' to follow HPE design conventions.
+  whenToAvoid:
+  - Do not combine Tabs with other primary navigation structures (Sidebar, breadcrumbs)
+    on the same page.
+  - Do not use when content must be viewed sequentially — use a Wizard or stepper
+    pattern instead.
+  - Do not use more than 5 tabs; if more sections are needed, use a sidebar navigation
+    or accordion.
+  - Do not use Tabs for top-level application navigation — use a nav/header component
+    instead.
+variants:
+- name: basic
+  description: Standard tab strip with left-aligned labels and a corresponding content
+    panel.
+  when: Most use cases where related content sections need to be organized on a single
+    page.
+  example: "<Tabs justify=\"start\">\n  <Tab title=\"Overview\">\n    <Box pad=\"\
+    medium\"><Text>Overview content</Text></Box>\n  </Tab>\n  <Tab title=\"Metrics\"\
+    >\n    <Box pad=\"medium\"><Text>Metrics content</Text></Box>\n  </Tab>\n  <Tab\
+    \ title=\"Logs\">\n    <Box pad=\"medium\"><Text>Logs content</Text></Box>\n \
+    \ </Tab>\n</Tabs>"
+- name: controlled
+  description: Tab selection state is managed externally via activeIndex and onActive.
+  when: Tab selection must be driven by external logic, URL routing, or programmatic
+    navigation.
+  example: "<Tabs\n  justify=\"start\"\n  activeIndex={activeTab}\n  onActive={setActiveTab}\n\
+    >\n  <Tab title=\"Details\"><DetailsPanel /></Tab>\n  <Tab title=\"History\"><HistoryPanel\
+    \ /></Tab>\n</Tabs>"
+- name: with-icons
+  description: Tabs that include icons alongside their text labels.
+  when: Additional visual context would aid recognition, especially in dense or compact
+    UIs.
+  example: "<Tabs justify=\"start\">\n  <Tab\n    title={\n      <Box direction=\"\
+    row\" gap=\"xsmall\" align=\"center\">\n        <Server size=\"small\" />\n  \
+    \      <Text>Servers</Text>\n      </Box>\n    }\n  >\n    <Box pad=\"medium\"\
+    ><ServerList /></Box>\n  </Tab>\n</Tabs>"
+- name: responsive-scrollable
+  description: When the number of tabs exceeds available width, previous/next navigation
+    arrows appear.
+  when: Tabs are rendered on smaller screens or in narrow containers where the full
+    tab strip does not fit.
+  example: "// Handled automatically by Grommet; no additional configuration required.\n\
+    <Tabs justify=\"start\">\n  {sections.map(s => (\n    <Tab key={s.id} title={s.label}><s.Content\
+    \ /></Tab>\n  ))}\n</Tabs>"
+anatomy:
+- label: tab strip
+  region: header
+  purpose: Row of selectable tab buttons that control which panel is visible
+  availability: always
+- label: active tab indicator
+  region: header
+  purpose: Visual underline or highlight that identifies the currently selected tab
+  availability: always
+- label: tab label
+  region: tab strip
+  purpose: Text (and optional icon) that names the content section
+  availability: always
+- label: scroll navigation arrows
+  region: header ends
+  purpose: Previous/next controls that appear when the tab strip overflows its container
+  availability: conditional
+  notes: Only rendered when tab count exceeds available width
+- label: content panel
+  region: body
+  purpose: Container for the content associated with the active tab
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active (selected)
+  applicationStates:
+  - panel-visible
+  - panel-hidden
+  dataStates: []
+  realEstate:
+  - Tab strip spans full container width
+  - Content panel expands to fit its content
+examples:
+- description: Basic three-tab layout
+  code: "<Tabs justify=\"start\">\n  <Tab title=\"Summary\">\n    <Box pad={{ top:\
+    \ 'medium' }}>\n      <Text>Summary content goes here.</Text>\n    </Box>\n  </Tab>\n\
+    \  <Tab title=\"Configuration\">\n    <Box pad={{ top: 'medium' }}>\n      <Text>Configuration\
+    \ content goes here.</Text>\n    </Box>\n  </Tab>\n  <Tab title=\"Activity\">\n\
+    \    <Box pad={{ top: 'medium' }}>\n      <Text>Activity log goes here.</Text>\n\
+    \    </Box>\n  </Tab>\n</Tabs>"
+- description: Controlled tabs driven by router
+  code: "const tabIndex = ['overview', 'metrics', 'alerts'].indexOf(currentRoute);\n\
+    \n<Tabs\n  justify=\"start\"\n  activeIndex={tabIndex === -1 ? 0 : tabIndex}\n\
+    \  onActive={index => navigate(['overview', 'metrics', 'alerts'][index])}\n>\n\
+    \  <Tab title=\"Overview\"><OverviewPage /></Tab>\n  <Tab title=\"Metrics\"><MetricsPage\
+    \ /></Tab>\n  <Tab title=\"Alerts\"><AlertsPage /></Tab>\n</Tabs>"
+- description: Server detail page with tabs
+  code: "<Page>\n  <PageContent>\n    <PageHeader title={serverName} />\n    <Tabs\
+    \ justify=\"start\">\n      <Tab title=\"Details\"><ServerDetails server={server}\
+    \ /></Tab>\n      <Tab title=\"Storage\"><StoragePanel server={server} /></Tab>\n\
+    \      <Tab title=\"Network\"><NetworkPanel server={server} /></Tab>\n      <Tab\
+    \ title=\"Logs\"><LogsPanel server={server} /></Tab>\n    </Tabs>\n  </PageContent>\n\
+    </Page>"
+- description: Tabs on a settings page
+  code: "<Tabs justify=\"start\">\n  <Tab title=\"General\">\n    <GeneralSettings\
+    \ />\n  </Tab>\n  <Tab title=\"Security\">\n    <SecuritySettings />\n  </Tab>\n\
+    \  <Tab title=\"Notifications\">\n    <NotificationSettings />\n  </Tab>\n</Tabs>"
+accessibility:
+  keyboard:
+  - key: Tab
+    action: Moves focus into and out of the tab strip
+  - key: Left Arrow / Right Arrow
+    action: Moves focus between tab buttons within the tab strip
+  - key: Enter / Space
+    action: Activates the focused tab and shows its associated panel
+  - key: Home
+    action: Moves focus to the first tab
+  - key: End
+    action: Moves focus to the last tab
+  aria:
+  - attribute: role
+    value: '''tablist'''
+    condition: applied to the tab strip container
+  - attribute: role
+    value: '''tab'''
+    condition: applied to each individual tab button
+  - attribute: role
+    value: '''tabpanel'''
+    condition: applied to each content panel
+  - attribute: aria-selected
+    value: '''true'' | ''false'''
+    condition: applied to each tab button based on active state
+  - attribute: aria-controls
+    value: panel element id
+    condition: links each tab button to its corresponding panel
+  announcements:
+  - trigger: Tab selected
+    message: '{tab label}, tab, {n} of {total}'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.3 Focus Order
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- page
+- page-content
+- page-header
+- nav
+- box

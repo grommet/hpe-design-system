@@ -1,0 +1,218 @@
+id: action-menu
+name: ActionMenu
+description: Provides a structured dropdown of actions for an item, typically triggered
+  from a row-level or card-level ellipsis (kebab) button.
+importPath: grommet
+framework: react
+props:
+- name: items
+  type: '{ label: string, onClick?: () => void, href?: string, icon?: React.ReactNode,
+    disabled?: boolean, color?: string }[]'
+  required: true
+  description: Array of action items rendered inside the menu. Each item requires
+    a label and at least one of onClick or href.
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Custom icon for the trigger button. Defaults to a vertical ellipsis
+    (more options) icon.
+  defaultValue: <MoreVertical />
+- name: label
+  type: string
+  required: false
+  description: Optional visible label for the trigger button. Omit for icon-only triggers.
+- name: a11yTitle
+  type: string
+  required: false
+  description: Accessible label for the trigger button describing what item or context
+    the menu applies to
+  defaultValue: '''More options'''
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables the trigger button
+  defaultValue: 'false'
+- name: dropProps
+  type: object
+  required: false
+  description: Props forwarded to the Drop component that positions the menu overlay
+- name: plain
+  type: boolean
+  required: false
+  description: Renders the trigger as a plain (unstyled) button
+  defaultValue: 'true'
+usage:
+  whenToUse:
+  - Use in table rows, card footers, or list items to consolidate multiple actions
+    for that item into one trigger.
+  - Use when there are 3 or more actions that cannot all be displayed inline.
+  - Use contextual a11yTitle values to describe the target item (e.g., 'More options
+    for web-server-01').
+  - Order items by frequency of use, with destructive actions at the bottom.
+  whenToAvoid:
+  - Do not use for page-level or global actions — use a Header button or main action
+    bar instead.
+  - Do not use when only 1–2 actions exist — use inline Button elements instead.
+  - Do not use if all actions are equally important and should always be visible.
+  - Do not place primary actions (the main expected action) inside an ActionMenu —
+    surface them directly.
+variants:
+- name: row-actions
+  description: Vertical ellipsis (⋮) button in a table row that reveals a list of
+    row-specific actions.
+  when: DataTable rows with multiple operations (edit, duplicate, archive, delete).
+  example: "<ActionMenu\n  a11yTitle={`More options for ${datum.name}`}\n  items={[\n\
+    \    { label: 'View details', onClick: () => viewDetails(datum) },\n    { label:\
+    \ 'Edit', onClick: () => editItem(datum) },\n    { label: 'Duplicate', onClick:\
+    \ () => duplicateItem(datum) },\n    { label: 'Delete', color: 'status-critical',\
+    \ onClick: () => deleteItem(datum) },\n  ]}\n/>"
+- name: card-actions
+  description: Action menu on a resource card header or footer.
+  when: Cards displaying assets, services, or resources that support multiple operations.
+  example: "<Card>\n  <CardHeader justify=\"between\">\n    <Heading level={4} margin=\"\
+    none\">{server.name}</Heading>\n    <ActionMenu\n      a11yTitle={`Actions for\
+    \ ${server.name}`}\n      items={[\n        { label: 'Connect', onClick: handleConnect\
+    \ },\n        { label: 'Reboot', onClick: handleReboot },\n        { label: 'Decommission',\
+    \ color: 'status-critical', onClick: handleDecommission },\n      ]}\n    />\n\
+    \  </CardHeader>\n</Card>"
+- name: with-icons
+  description: Menu items include icons alongside their text labels.
+  when: Icons provide additional visual context that helps users scan and recognize
+    actions faster.
+  example: "<ActionMenu\n  a11yTitle=\"Server actions\"\n  items={[\n    { label:\
+    \ 'Start', icon: <Play />, onClick: handleStart },\n    { label: 'Stop', icon:\
+    \ <Stop />, onClick: handleStop },\n    { label: 'Delete', icon: <Trash />, color:\
+    \ 'status-critical', onClick: handleDelete },\n  ]}\n/>"
+- name: labeled-trigger
+  description: Trigger button shows both an icon and a text label.
+  when: The trigger needs to be more prominent, such as in a page header or above
+    a data table.
+  example: "<ActionMenu\n  label=\"Actions\"\n  icon={<ChevronDown />}\n  items={[\n\
+    \    { label: 'Export CSV', onClick: exportCsv },\n    { label: 'Export PDF',\
+    \ onClick: exportPdf },\n    { label: 'Schedule report', onClick: scheduleReport\
+    \ },\n  ]}\n/>"
+anatomy:
+- label: trigger button
+  region: root
+  purpose: Icon or labeled button that opens the action menu drop on activation
+  availability: always
+- label: trigger icon
+  region: trigger button
+  purpose: Typically a vertical ellipsis icon; may be replaced with a custom icon
+    or label+chevron
+  availability: always
+- label: menu drop overlay
+  region: portal
+  purpose: Floating container that displays the list of actions
+  availability: conditional
+  notes: Only visible when menu is open
+- label: action item
+  region: menu drop overlay
+  purpose: Individually selectable action; may include an icon and color coding
+  availability: always (when open)
+- label: destructive action
+  region: menu drop overlay (bottom)
+  purpose: Visually differentiated (critical color) action for irreversible operations;
+    placed last
+  availability: conditional
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - menu-open
+  - menu-closed
+  - item-hover
+  - item-focus
+  applicationStates: []
+  dataStates: []
+  realEstate:
+  - Trigger is compact (icon-only by default)
+  - Menu drop aligns to trigger edge
+examples:
+- description: Table row action menu
+  code: "<DataTable\n  columns={[\n    { property: 'name', header: 'Server' },\n \
+    \   { property: 'status', header: 'Status' },\n    {\n      property: 'actions',\n\
+    \      header: '',\n      align: 'end',\n      render: datum => (\n        <ActionMenu\n\
+    \          a11yTitle={`Options for ${datum.name}`}\n          items={[\n     \
+    \       { label: 'View', onClick: () => navigate(`/servers/${datum.id}`) },\n\
+    \            { label: 'Edit tags', onClick: () => openTagEditor(datum) },\n  \
+    \          { label: 'Restart', onClick: () => restartServer(datum) },\n      \
+    \      { label: 'Delete', color: 'status-critical', onClick: () => deleteServer(datum)\
+    \ },\n          ]}\n        />\n      ),\n    },\n  ]}\n  data={servers}\n/>"
+- description: Card header action menu
+  code: "<Card width=\"medium\">\n  <CardHeader pad={{ horizontal: 'medium', vertical:\
+    \ 'small' }} justify=\"between\">\n    <Text weight=\"bold\">{resource.name}</Text>\n\
+    \    <ActionMenu\n      a11yTitle={`Actions for ${resource.name}`}\n      items={[\n\
+    \        { label: 'Manage', onClick: handleManage },\n        { label: 'Clone',\
+    \ onClick: handleClone },\n        { label: 'Remove', color: 'status-critical',\
+    \ onClick: handleRemove },\n      ]}\n    />\n  </CardHeader>\n  <CardBody pad=\"\
+    medium\">\n    <NameValueList>\n      <NameValuePair name=\"Type\">{resource.type}</NameValuePair>\n\
+    \      <NameValuePair name=\"Region\">{resource.region}</NameValuePair>\n    </NameValueList>\n\
+    \  </CardBody>\n</Card>"
+- description: Labeled action menu above a table
+  code: "<Box direction=\"row\" justify=\"between\" align=\"center\" pad={{ bottom:\
+    \ 'small' }}>\n  <Heading level={3} margin=\"none\">Servers</Heading>\n  <ActionMenu\n\
+    \    label=\"Bulk actions\"\n    icon={<ChevronDown />}\n    a11yTitle=\"Bulk\
+    \ actions for selected servers\"\n    items={[\n      { label: 'Start selected',\
+    \ onClick: handleBulkStart },\n      { label: 'Stop selected', onClick: handleBulkStop\
+    \ },\n      { label: 'Export list', onClick: handleExport },\n    ]}\n  />\n</Box>"
+- description: With icon-annotated items
+  code: "<ActionMenu\n  a11yTitle={`Manage ${cluster.name}`}\n  items={[\n    { label:\
+    \ 'Scale up', icon: <Add />, onClick: handleScaleUp },\n    { label: 'Scale down',\
+    \ icon: <Subtract />, onClick: handleScaleDown },\n    { label: 'View logs', icon:\
+    \ <DocumentText />, onClick: handleViewLogs },\n    { label: 'Terminate cluster',\
+    \ icon: <Trash />, color: 'status-critical', onClick: handleTerminate },\n  ]}\n\
+    />"
+accessibility:
+  keyboard:
+  - key: Enter / Space
+    action: Opens the action menu when the trigger button is focused
+  - key: Arrow Down / Arrow Up
+    action: Navigates between menu items
+  - key: Enter
+    action: Activates the focused menu item
+  - key: Escape
+    action: Closes the menu and returns focus to the trigger
+  - key: Tab
+    action: Closes the menu and moves focus to the next focusable element
+  aria:
+  - attribute: aria-haspopup
+    value: '''menu'''
+    condition: applied to the trigger button to indicate a menu will open
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: applied to the trigger button reflecting the current menu state
+  - attribute: aria-label
+    value: a11yTitle value
+    condition: applied to the trigger button as its accessible name
+  - attribute: role
+    value: '''menu'''
+    condition: applied to the menu overlay container
+  - attribute: role
+    value: '''menuitem'''
+    condition: applied to each action item
+  announcements:
+  - trigger: Menu opens
+    message: Menu expanded, {n} items
+  - trigger: Menu closes
+    message: Menu collapsed
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.3 Focus Order
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- menu
+- button
+- drop-button
+- data-table
+- card

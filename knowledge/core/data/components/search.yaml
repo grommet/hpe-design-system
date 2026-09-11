@@ -1,0 +1,210 @@
+id: search
+name: Search
+description: A TextInput configured as a search field (type='search') with a leading
+  search icon, optional suggestion drop, and live-filtering semantics. Not a standalone
+  component — built using TextInput from grommet with HPE Design System conventions.
+importPath: grommet
+framework: react
+props:
+- name: type
+  type: '''search'''
+  required: true
+  description: Must be set to 'search' to render the browser's native search input
+    semantics and enable the clear (×) button on supported browsers.
+  defaultValue: '''search'''
+- name: placeholder
+  type: string
+  required: false
+  description: Hint text shown when the field is empty. Describe what is being searched
+    (e.g., 'Search clusters').
+- name: value
+  type: string
+  required: false
+  description: Controlled search query string.
+- name: onChange
+  type: '(event: React.ChangeEvent<HTMLInputElement>) => void'
+  required: false
+  description: Callback fired on each keystroke. Trigger live filtering from this
+    handler.
+- name: onSuggestionSelect
+  type: '({ suggestion: string | object }) => void'
+  required: false
+  description: Callback fired when the user selects a suggestion from the drop list.
+- name: suggestions
+  type: 'string[] | Array<{ value: any; label?: string }>'
+  required: false
+  description: Up to 5 matching suggestions displayed in a drop below the field. Keep
+    the list short and sorted by relevance.
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Icon rendered inside the field. Use the Grommet Search icon. The icon
+    is decorative and non-interactive.
+- name: reverse
+  type: boolean
+  required: false
+  description: When true, moves the icon to the trailing (right) side of the field.
+  defaultValue: 'false'
+- name: id
+  type: string
+  required: false
+  description: DOM id for the input element.
+- name: name
+  type: string
+  required: false
+  description: HTML name attribute.
+- name: aria-label
+  type: string
+  required: false
+  description: Accessible label when no visible text label is rendered adjacent to
+    the field. Required whenever a FormField label is absent.
+usage:
+  whenToUse:
+  - Use to let users search or filter a data set, list, or global navigation.
+  - Prefer live filtering — update results as the user types rather than waiting for
+    submission.
+  - Limit suggestion drops to 5 or fewer items, sorted by relevance.
+  - Provide an aria-label when no visible label wraps the field.
+  whenToAvoid:
+  - Do not make the search icon interactive — it is decorative; the input itself triggers
+    filtering.
+  - Do not use for structured form inputs that require a specific format — use TextInput
+    or MaskedInput.
+  - Do not show more than 5 suggestions; truncate with 'View all results' if the match
+    set is large.
+  - Do not use without type='search' — the correct semantics and browser behaviours
+    depend on it.
+variants:
+- name: basic
+  description: Simple search field with a leading icon and live filtering.
+  when: Filtering a list, table, or page in real time as the user types.
+  example: "<TextInput\n  type=\"search\"\n  placeholder=\"Search devices\"\n  icon={<Search\
+    \ />}\n  aria-label=\"Search devices\"\n  value={query}\n  onChange={e => setQuery(e.target.value)}\n\
+    />"
+- name: with-suggestions
+  description: Search field that shows a drop list of up to 5 matching suggestions.
+  when: Predictive search is available and suggestions can meaningfully accelerate
+    the user's task.
+  example: "<TextInput\n  type=\"search\"\n  placeholder=\"Search clusters\"\n  icon={<Search\
+    \ />}\n  aria-label=\"Search clusters\"\n  value={query}\n  onChange={e => {\n\
+    \    setQuery(e.target.value);\n    setSuggestions(getClusters(e.target.value).slice(0,\
+    \ 5));\n  }}\n  suggestions={suggestions}\n  onSuggestionSelect={({ suggestion\
+    \ }) => {\n    setQuery(suggestion);\n    setSuggestions([]);\n  }}\n/>"
+- name: simple
+  description: Borderless search field that blends with its surrounding context such
+    as a header or toolbar.
+  when: A visually quiet search input is needed inside a header, card, or similar
+    surface.
+  example: "<TextInput\n  type=\"search\"\n  plain\n  placeholder=\"Search\"\n  icon={<Search\
+    \ />}\n  aria-label=\"Search\"\n  value={query}\n  onChange={e => setQuery(e.target.value)}\n\
+    />"
+- name: icon-position-trailing
+  description: Search field with the icon on the trailing (right) side.
+  when: Design context requires the icon on the right, such as inline search within
+    a compact toolbar.
+  example: "<TextInput\n  type=\"search\"\n  placeholder=\"Find\"\n  icon={<Search\
+    \ />}\n  reverse\n  aria-label=\"Find\"\n  value={query}\n  onChange={e => setQuery(e.target.value)}\n\
+    />"
+anatomy:
+- label: search icon
+  region: leading (default) or trailing
+  purpose: Decorative magnifying-glass icon signalling the field's purpose; not interactive
+  availability: always
+- label: text input
+  region: root
+  purpose: Receives the user's search query
+  availability: always
+- label: native clear button
+  region: trailing (browser-rendered)
+  purpose: Clears the query when the field contains text (rendered by the browser
+    for type='search')
+  availability: conditional
+  notes: Availability and appearance vary by browser
+- label: suggestions drop
+  region: portal
+  purpose: Drop list of up to 5 matching suggestions displayed below the field
+  availability: conditional
+  notes: Present only when the suggestions prop is supplied and has entries
+behaviors:
+  interactiveStates:
+  - rest
+  - focus
+  - filled
+  - disabled
+  applicationStates:
+  - suggestions-open
+  - suggestions-closed
+  dataStates:
+  - empty
+  - has-query
+  - results-loading
+  - no-results
+  realEstate:
+  - Stretches to fill its container by default
+  - Suggestions drop appears below the field, matching its width
+examples:
+- description: Live device filter with suggestions
+  code: "const [query, setQuery] = React.useState('');\nconst [suggestions, setSuggestions]\
+    \ = React.useState([]);\n\nconst handleSearch = e => {\n  const val = e.target.value;\n\
+    \  setQuery(val);\n  setSuggestions(\n    val ? devices.filter(d => d.name.toLowerCase().includes(val.toLowerCase())).slice(0,\
+    \ 5).map(d => d.name) : []\n  );\n};\n\n<TextInput\n  type=\"search\"\n  placeholder=\"\
+    Search devices\"\n  icon={<Search />}\n  aria-label=\"Search devices\"\n  value={query}\n\
+    \  onChange={handleSearch}\n  suggestions={suggestions}\n  onSuggestionSelect={({\
+    \ suggestion }) => {\n    setQuery(suggestion);\n    setSuggestions([]);\n  }}\n\
+    />"
+- description: Borderless search in a global header
+  code: "<Header\n  background=\"brand\"\n  pad={{ horizontal: 'medium', vertical:\
+    \ 'small' }}\n>\n  <Heading level=\"3\" margin=\"none\" color=\"text-strong\"\
+    >\n    MyApp\n  </Heading>\n  <Box width=\"medium\">\n    <TextInput\n      type=\"\
+    search\"\n      plain\n      placeholder=\"Search\"\n      icon={<Search />}\n\
+    \      aria-label=\"Global search\"\n      value={globalQuery}\n      onChange={e\
+    \ => setGlobalQuery(e.target.value)}\n    />\n  </Box>\n</Header>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the search field
+  - key: Arrow Down
+    action: Opens the suggestions drop when suggestions are present
+  - key: Arrow Up / Down
+    action: Navigates items in the suggestions list
+  - key: Enter
+    action: Selects the highlighted suggestion or submits the search
+  - key: Escape
+    action: Closes the suggestions drop
+  aria:
+  - attribute: aria-label
+    value: descriptive search label
+    condition: Required when no visible text label is rendered alongside the field
+  - attribute: role
+    value: '''combobox'''
+    condition: Applied when suggestions are present
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: Reflects whether the suggestions drop is open
+  - attribute: aria-autocomplete
+    value: '''list'''
+    condition: Applied when suggestions are provided
+  announcements:
+  - trigger: Suggestion list opens
+    message: '{N} suggestions available'
+  - trigger: Suggestion selected
+    message: '{value} selected'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.2 Labels or Instructions
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- text-input
+- data-search
+- data-filter
+- data-filters
+- select

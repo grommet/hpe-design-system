@@ -2,6 +2,11 @@
   "name": "aries",
   "private": true,
   "packageManager": "pnpm@10.30.3",
+  "pnpm": {
+    "overrides": {
+      "brace-expansion": "1.1.18"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/grommet/hpe-design-system.git"

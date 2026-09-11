@@ -1,0 +1,213 @@
+id: drop-button
+name: DropButton
+description: A button that opens a contextual drop overlay when activated, combining
+  a trigger button with an inline popup for menus, pickers, or form elements.
+importPath: grommet
+framework: react
+props:
+- name: dropContent
+  type: React.ReactNode
+  required: true
+  description: Content rendered inside the drop overlay when the button is activated
+- name: label
+  type: string | React.ReactNode
+  required: false
+  description: Text or node label displayed on the button trigger
+- name: icon
+  type: React.ReactNode
+  required: false
+  description: Icon displayed on the button trigger, before or instead of the label
+- name: dropProps
+  type: object
+  required: false
+  description: Props forwarded to the Drop component that wraps dropContent (alignment,
+    positioning, elevation, stretch, etc.)
+- name: open
+  type: boolean
+  required: false
+  description: Controlled open state of the drop overlay
+- name: onOpen
+  type: () => void
+  required: false
+  description: Callback fired when the drop opens
+- name: onClose
+  type: () => void
+  required: false
+  description: Callback fired when the drop closes
+- name: primary
+  type: boolean
+  required: false
+  description: Applies the primary button style to the trigger
+  defaultValue: 'false'
+- name: secondary
+  type: boolean
+  required: false
+  description: Applies the secondary button style to the trigger
+  defaultValue: 'false'
+- name: disabled
+  type: boolean
+  required: false
+  description: Disables the button and prevents the drop from opening
+  defaultValue: 'false'
+- name: a11yTitle
+  type: string
+  required: false
+  description: Accessible label for the button trigger
+usage:
+  whenToUse:
+  - Use when a button needs to reveal a small, contextual overlay such as a custom
+    menu, date picker, or mini-form.
+  - Use when Menu does not provide enough layout control over the drop content.
+  - Use when the drop content needs to contain non-menu interactive elements.
+  - Prefer DropButton over a custom Drop + Button pairing for consistent behavior.
+  whenToAvoid:
+  - Do not use for simple option lists — use Menu instead.
+  - Do not use for full dialogs or complex forms — use Layer (modal) instead.
+  - Do not use when the overlay content is always visible — use a Box with inline
+    content.
+  - Do not use when the drop content contains deeply nested navigation — prefer a
+    dedicated panel or page.
+variants:
+- name: custom-menu
+  description: Drop contains a custom-styled list of actions beyond what Menu provides.
+  when: Actions require custom rendering, grouping, or rich content not supported
+    by Menu.
+  example: "<DropButton\n  label=\"Actions\"\n  dropContent={\n    <Box pad=\"small\"\
+    >\n      <Button label=\"View details\" plain onClick={handleView} />\n      <Button\
+    \ label=\"Edit\" plain onClick={handleEdit} />\n      <Button label=\"Archive\"\
+    \ plain color=\"status-warning\" onClick={handleArchive} />\n      <Button label=\"\
+    Delete\" plain color=\"status-critical\" onClick={handleDelete} />\n    </Box>\n\
+    \  }\n/>"
+- name: filter-panel
+  description: Drop contains filtering controls like CheckBoxGroup, DateInput, or
+    Select.
+  when: Exposing inline filters for a list or table without navigating away from the
+    view.
+  example: "<DropButton\n  label=\"Filter\"\n  icon={<Filter />}\n  dropContent={\n\
+    \    <Box pad=\"medium\" gap=\"small\" width=\"medium\">\n      <FormField label=\"\
+    Status\">\n        <CheckBoxGroup\n          options={statusOptions}\n       \
+    \   value={selectedStatuses}\n          onChange={({ value }) => setSelectedStatuses(value)}\n\
+    \        />\n      </FormField>\n      <Button label=\"Apply\" primary onClick={applyFilters}\
+    \ />\n    </Box>\n  }\n  dropProps={{ align: { top: 'bottom', left: 'left' } }}\n\
+    />"
+- name: icon-only
+  description: Button with only an icon that opens a contextual drop.
+  when: Compact toolbars or table row actions where a text label is not needed.
+  example: "<DropButton\n  icon={<MoreVertical />}\n  a11yTitle=\"More options\"\n\
+    \  dropContent={\n    <Box pad=\"small\">\n      <Button label=\"Rename\" plain\
+    \ onClick={handleRename} />\n      <Button label=\"Move to folder\" plain onClick={handleMove}\
+    \ />\n    </Box>\n  }\n/>"
+- name: controlled
+  description: Drop open state is managed externally via open, onOpen, and onClose.
+  when: Application logic needs to programmatically open or close the drop.
+  example: "<DropButton\n  label=\"Settings\"\n  open={dropOpen}\n  onOpen={() =>\
+    \ setDropOpen(true)}\n  onClose={() => setDropOpen(false)}\n  dropContent=<SettingsPanel\
+    \ onClose={() => setDropOpen(false)} />\n/>"
+anatomy:
+- label: trigger button
+  region: root
+  purpose: The visible button element that activates and deactivates the drop overlay
+  availability: always
+- label: button label / icon
+  region: trigger button
+  purpose: Visual content of the trigger button (text, icon, or both)
+  availability: conditional
+  notes: At least one of label or icon should be provided
+- label: drop overlay
+  region: portal
+  purpose: Floating container positioned adjacent to the trigger that holds the drop
+    content
+  availability: conditional
+  notes: Only visible when the drop is open
+- label: drop content
+  region: drop overlay
+  purpose: Arbitrary React content (menus, forms, pickers) rendered inside the overlay
+  availability: always (when drop is open)
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  - drop-open
+  - drop-closed
+  - disabled
+  applicationStates:
+  - open
+  - closed
+  dataStates: []
+  realEstate:
+  - Drop positions below (or above) the trigger, left-aligned by default
+examples:
+- description: Actions drop button
+  code: "<DropButton\n  label=\"Actions\"\n  dropContent={\n    <Box pad=\"small\"\
+    \ gap=\"xsmall\">\n      <Button label=\"Start\" plain onClick={() => dispatch('start')}\
+    \ />\n      <Button label=\"Stop\" plain onClick={() => dispatch('stop')} />\n\
+    \      <Button label=\"Restart\" plain onClick={() => dispatch('restart')} />\n\
+    \    </Box>\n  }\n  dropProps={{ align: { top: 'bottom', right: 'right' } }}\n\
+    />"
+- description: Date range filter in a drop
+  code: "<DropButton\n  label={dateLabel || 'Select dates'}\n  icon={<Calendar />}\n\
+    \  dropContent={\n    <Box pad=\"medium\" gap=\"small\">\n      <DateInput\n \
+    \       format=\"mm/dd/yyyy-mm/dd/yyyy\"\n        value={range}\n        onChange={({\
+    \ value }) => setRange(value)}\n        inline\n      />\n      <Box direction=\"\
+    row\" justify=\"end\" gap=\"small\">\n        <Button label=\"Clear\" onClick={()\
+    \ => setRange([])} />\n        <Button label=\"Apply\" primary onClick={handleApply}\
+    \ />\n      </Box>\n    </Box>\n  }\n/>"
+- description: More options (kebab menu)
+  code: "<DropButton\n  icon={<MoreVertical />}\n  a11yTitle={`More options for ${server.name}`}\n\
+    \  plain\n  dropContent={\n    <Box pad=\"small\" width=\"small\">\n      {[\n\
+    \        { label: 'View details', action: viewDetails },\n        { label: 'Edit\
+    \ tags', action: editTags },\n        { label: 'Transfer', action: transfer },\n\
+    \        { label: 'Decommission', action: decommission, color: 'status-critical'\
+    \ },\n      ].map(({ label, action, color }) => (\n        <Button\n         \
+    \ key={label}\n          label={label}\n          plain\n          color={color}\n\
+    \          onClick={action}\n        />\n      ))}\n    </Box>\n  }\n  dropProps={{\
+    \ align: { top: 'bottom', right: 'right' } }}\n/>"
+- description: Controlled drop with external state
+  code: "const [open, setOpen] = useState(false);\n\n<DropButton\n  label=\"Configure\"\
+    \n  open={open}\n  onOpen={() => setOpen(true)}\n  onClose={() => setOpen(false)}\n\
+    \  dropContent={\n    <ConfigPanel onSave={() => { save(); setOpen(false); }}\
+    \ />\n  }\n/>"
+accessibility:
+  keyboard:
+  - key: Enter / Space
+    action: Opens or closes the drop overlay
+  - key: Tab / Shift+Tab
+    action: Moves focus to the trigger button and into the drop content when open
+  - key: Escape
+    action: Closes the drop overlay and returns focus to the trigger button
+  aria:
+  - attribute: aria-haspopup
+    value: '''true'''
+    condition: applied to the trigger button to signal that activating it opens a
+      popup
+  - attribute: aria-expanded
+    value: '''true'' | ''false'''
+    condition: applied to the trigger button to communicate the current open/closed
+      state
+  - attribute: aria-controls
+    value: drop overlay id
+    condition: links the trigger to its controlled drop
+  announcements:
+  - trigger: Drop opens
+    message: Expanded
+  - trigger: Drop closes
+    message: Collapsed
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- button
+- menu
+- layer
+- select
+- date-input

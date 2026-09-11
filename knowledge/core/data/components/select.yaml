@@ -1,0 +1,199 @@
+id: select
+name: Select
+description: Dropdown select component for choosing from a list of options.
+importPath: grommet
+framework: react
+props:
+- name: options
+  type: string[] | object[]
+  required: true
+  description: Array of options to choose from
+- name: value
+  type: string | string[] | object | object[]
+  required: false
+  description: Selected value(s)
+- name: onChange
+  type: ({ value, option }) => void
+  required: false
+  description: Callback when selection changes
+- name: placeholder
+  type: string
+  required: false
+  description: Placeholder text when no value is selected
+- name: multiple
+  type: boolean
+  required: false
+  description: Allow multiple selections
+- name: searchPlaceholder
+  type: string
+  required: false
+  description: Placeholder for search within options
+- name: clear
+  type: 'boolean | { label?: string }'
+  required: false
+  description: Whether to show a clear selection option
+- name: labelKey
+  type: 'string | ((option: object) => string)'
+  required: false
+  description: Key or function used to derive the display label from object options
+- name: valueKey
+  type: 'string | { key: string, reduce?: boolean } | ((option: object) => string
+    | number)'
+  required: false
+  description: 'Key or function used to derive the underlying value from object options;
+    use reduce: true to store the primitive value instead of the whole object'
+- name: size
+  type: '''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Controls the size of the select trigger button
+- name: disabled
+  type: boolean | string[] | number[]
+  required: false
+  description: Disables the entire select, or an array of option values/indices to
+    disable individually
+usage:
+  whenToUse:
+  - Use inside FormField for form contexts.
+  - Provide a placeholder to indicate the unselected state.
+  - Use clear prop to allow the user to deselect a value.
+  - Use searchPlaceholder and onSearch for long option lists (> 10 items).
+  - Use labelKey and valueKey when options are objects rather than plain strings.
+  - Use multiple prop for multi-select patterns where zero, one, or many values are
+    valid.
+  whenToAvoid:
+  - Do not use for fewer than 3 options — use RadioButtonGroup or CheckBox instead.
+  - Do not hardcode option strings — derive options from data.
+  - Avoid deeply nested object options without explicit labelKey/valueKey.
+  - Do not use Select as a navigation control — use Nav with Anchor instead.
+examples:
+- description: Basic Select
+  code: "<FormField label=\"Role\" name=\"role\">\n  <Select\n    name=\"role\"\n\
+    \    options={['Admin', 'Editor', 'Viewer']}\n    placeholder=\"Select a role\"\
+    \n  />\n</FormField>"
+- description: Multi-Select with Clear
+  code: "<Select\n  multiple\n  options={['React', 'Vue', 'Angular', 'Svelte']}\n\
+    \  value={selectedFrameworks}\n  onChange={({ value }) => setSelectedFrameworks(value)}\n\
+    \  placeholder=\"Select frameworks\"\n  clear\n/>"
+- description: Object Options with labelKey / valueKey
+  code: "<Select\n  options={users}\n  labelKey=\"name\"\n  valueKey={{ key: 'id',\
+    \ reduce: true }}\n  value={selectedUserId}\n  onChange={({ value }) => setSelectedUserId(value)}\n\
+    \  placeholder=\"Select a user\"\n/>"
+- description: Searchable Select
+  code: "<Select\n  options={filteredCountries}\n  value={country}\n  onChange={({\
+    \ value }) => setCountry(value)}\n  onSearch={(text) => setFilteredCountries(countries.filter((c)\
+    \ => c.toLowerCase().includes(text.toLowerCase())))}\n  searchPlaceholder=\"Search\
+    \ countries...\"\n  placeholder=\"Select a country\"\n/>"
+variants:
+- name: single
+  description: Default mode — the user picks exactly one option from the drop.
+  when: Single-value form fields — role, country, status. Always wrap in FormField.
+  example: <Select options={roles} placeholder="Select a role" />
+- name: multi-select
+  description: Multiple options can be selected simultaneously; selections appear
+    as a comma-separated summary or chip count.
+  when: Tag assignment, multi-category filters, or preference fields where zero, one,
+    or many values are valid.
+  example: <Select multiple options={tags} value={selectedTags} onChange={({ value
+    }) => setSelectedTags(value)} placeholder="Select tags" />
+- name: searchable
+  description: Includes a search input at the top of the drop that filters options
+    as the user types.
+  when: Long option lists (> 10 items) where scrolling would be cumbersome. Use onSearch
+    with server-side filtering for large datasets.
+  example: <Select options={filteredOptions} onSearch={(text) => setFilteredOptions(filter(text))}
+    searchPlaceholder="Search..." />
+anatomy:
+- label: select trigger
+  region: root
+  purpose: Button showing the selected value or placeholder that opens the options
+    drop on activation
+  availability: always
+- label: options drop
+  region: portal
+  purpose: Overlay listing all selectable option items, positioned below the trigger
+  availability: conditional
+  notes: Visible when the trigger is activated; closes on selection or Escape
+- label: search input
+  region: top of options drop
+  purpose: Text input that filters the options list as the user types
+  availability: conditional
+  notes: Present when the onSearch prop is provided
+- label: option item
+  region: inside options drop
+  purpose: Individual selectable row in the options list; highlighted on hover/focus
+  availability: always
+- label: clear button
+  region: trailing (inside trigger)
+  purpose: Button that clears the current selection
+  availability: conditional
+  notes: Present when clear/clearable is enabled
+behaviors:
+  interactiveStates:
+  - rest
+  - hover
+  - focus
+  - active
+  applicationStates:
+  - disabled
+  - error
+  dataStates:
+  - empty
+  - has-value
+  - loading
+  realEstate:
+  - responsive
+  - overflow
+accessibility:
+  keyboard:
+  - key: Enter / Space
+    action: Opens the options drop when the trigger button has focus
+  - key: Arrow Down / Up
+    action: Moves focus between options in the open drop
+  - key: Enter
+    action: Selects the focused option and closes the drop (single); toggles selection
+      (multi)
+  - key: Escape
+    action: Closes the drop without changing the selection
+  - key: Tab
+    action: Closes the drop and moves focus to the next focusable element
+  aria:
+  - attribute: aria-haspopup
+    value: listbox
+    condition: Always; applied to the trigger button
+  - attribute: aria-expanded
+    value: true | false
+    condition: Reflects whether the options drop is open
+  - attribute: role
+    value: listbox
+    condition: Applied to the options container in the drop
+  - attribute: aria-selected
+    value: true | false
+    condition: Applied to each option item reflecting its selected state
+  - attribute: aria-multiselectable
+    value: 'true'
+    condition: Applied to the listbox when multiple prop is true
+  - attribute: aria-invalid
+    value: 'true'
+    condition: Set by FormField when the field has a validation error
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: conditional
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 1.4.11 Non-text Contrast
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 3.3.1 Error Identification
+    status: conditional
+  - criterion: 3.3.2 Labels or Instructions
+    status: conditional
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- form-field
+- form
+- check-box
+- text-input

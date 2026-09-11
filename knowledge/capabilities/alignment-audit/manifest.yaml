@@ -3,13 +3,36 @@ kind: CapabilityManifest
 metadata:
   name: alignment-audit
   version: 1.0.0
-  status: planned
+  status: active
   owner: design-system
 spec:
-  summary: Audit component and documentation alignment against standards, schemas, and repository policy.
+  summary: Audit consumer apps, components, docs, and design-system usage against repo guidance, schema expectations, and the canonical knowledge data.
   entrypoint:
     agent: alignment-audit-orchestrator
     args: "<scope>"
+  dependencies:
+    data:
+      - path: knowledge/core/data/components
+      - path: knowledge/core/data/patterns
+      - path: knowledge/core/data/types.ts
+    skills:
+      - path: knowledge/core/instructions/standards/coding-guidelines.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-layouts.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-responsive.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-data.instructions.md
+    external:
+      - path: packages/knowledge-agent
   assets:
     agents:
       - alignment-audit-orchestrator.agent.md
+      - agents/evaluator.agent.md
+      - agents/remediation-planner.agent.md
+      - agents/remediation-executor.agent.md
+      - agents/design-system-maintainer.agent.md
+  stages:
+    - id: evaluated
+      when: 'exists([scope]/EVALUATION.md)'
+    - id: planned
+      when: 'exists([scope]/EVALUATION.md) && match_entry([scope]/EVALUATION.md, /### Track A/)'
+    - id: executed
+      when: 'exists([scope]/EVALUATION.md) && last_build_success()'

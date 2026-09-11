@@ -1,0 +1,131 @@
+id: header
+name: Header
+description: Application header component for top navigation bar with branding, navigation,
+  and utility controls.
+importPath: grommet
+framework: react
+props:
+- name: background
+  type: string
+  required: false
+  description: Background color token
+- name: pad
+  type: string | object
+  required: false
+  description: Padding inside the header
+- name: height
+  type: string | object
+  required: false
+  description: Height of the header
+usage:
+  whenToUse:
+  - Use for the top-level application header.
+  - Place branding on the left and utility controls on the right.
+  - Use within Grid for app shell layouts.
+  - Apply semantic pad and height tokens.
+  whenToAvoid:
+  - Do not use Box for app headers — use Header.
+  - Do not nest multiple Header components.
+  - Do not hardcode header heights.
+examples:
+- description: App Header (brand + utility controls)
+  code: "<Header\n  pad={{ horizontal: 'medium', vertical: 'small' }}\n  background=\"\
+    background-front\"\n>\n  <Button plain>\n    <Text><Text weight=\"bold\">HPE</Text>\
+    \ App Name</Text>\n  </Button>\n  <Box direction=\"row\" gap=\"small\">\n    <Button\
+    \ icon={<Notification />} tip=\"Notifications\" />\n    <Button icon={<User />}\
+    \ tip=\"Account\" />\n  </Box>\n</Header>"
+- description: Header with inline search
+  code: "<Header\n  pad={{ horizontal: 'medium', vertical: 'small' }}\n  background=\"\
+    background-front\"\n  border=\"bottom\"\n>\n  <Button plain label={<Text weight=\"\
+    bold\">HPE App</Text>} />\n  <Box flex direction=\"row\" justify=\"center\">\n\
+    \    <TextInput\n      icon={<Search />}\n      placeholder=\"Search...\"\n  \
+    \    style={{ maxWidth: '320px' }}\n    />\n  </Box>\n  <Box direction=\"row\"\
+    \ gap=\"xsmall\">\n    <Button icon={<User />} tip=\"Account\" />\n  </Box>\n\
+    </Header>"
+- description: Responsive header with hamburger menu on small screens
+  code: "import { useContext } from 'react';\nimport { ResponsiveContext } from 'grommet';\n\
+    \nfunction AppHeader() {\n  const size = useContext(ResponsiveContext);\n  const\
+    \ isSmall = size === 'small' || size === 'xsmall';\n  return (\n    <Header pad={{\
+    \ horizontal: 'medium', vertical: 'small' }} background=\"background-front\" border=\"\
+    bottom\">\n      <Button plain label={<Text weight=\"bold\">HPE App</Text>} />\n\
+    \      {isSmall ? (\n        <Menu icon={<Menu />} items={navItems} dropAlign={{\
+    \ top: 'bottom', right: 'right' }} />\n      ) : (\n        <Nav direction=\"\
+    row\" gap=\"small\">\n          {navItems.map(item => <Anchor key={item.id} label={item.label}\
+    \ onClick={() => setPage(item.id)} />)}\n        </Nav>\n      )}\n      <Button\
+    \ icon={<User />} tip=\"Account\" />\n    </Header>\n  );\n}"
+variants:
+- name: brand-utility
+  description: Standard two-zone header with brand/logo on the left and utility controls
+    (notifications, user menu) on the right. Most common app header pattern.
+  when: Default for all apps. Use as the starting point and add nav or search zones
+    as needed.
+  example: '<Header pad={{ horizontal: ''medium'', vertical: ''small'' }} background="background-front"><Button
+    plain label="HPE App" /><Box direction="row" gap="small"><Button icon={<Notification
+    />} /><Button icon={<User />} /></Box></Header>'
+- name: with-search
+  description: 'Three-zone header: brand on the left, full-width search input in the
+    centre, utility controls on the right.'
+  when: Apps where global search is a primary interaction (e.g. asset management,
+    documentation portals).
+  example: <Header ...><Button plain label="HPE App" /><Box flex><TextInput icon={<Search
+    />} placeholder="Search..." /></Box><Button icon={<User />} /></Header>
+- name: responsive-hamburger
+  description: On small/xsmall breakpoints the inline Nav collapses into a single
+    Menu (hamburger) icon to prevent header overflow.
+  when: Any app that includes inline navigation items in the header and must support
+    mobile viewports.
+  example: 'const isSmall = useContext(ResponsiveContext) === ''small'';
+
+    {isSmall ? <Menu icon={<Menu />} items={navItems} /> : <Nav direction="row">{...}</Nav>}'
+anatomy:
+- label: '1'
+  region: Brand zone
+  purpose: Logo, wordmark, or application name. Typically an Anchor or Button that
+    navigates to the home page.
+  availability: required
+- label: '2'
+  region: Nav zone
+  purpose: Optional horizontal navigation links rendered as a Nav component with Anchor
+    children.
+  availability: optional
+  notes: On small screens, collapse to a hamburger Menu to prevent overflow.
+- label: '3'
+  region: Utility zone
+  purpose: Right-aligned utility controls — notifications icon, search, user account
+    Menu.
+  availability: optional
+behaviors:
+  interactiveStates:
+  - rest
+  applicationStates:
+  - sticky
+  realEstate:
+  - responsive
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus through brand link, nav items, and utility controls in DOM
+      order
+  aria:
+  - attribute: role
+    value: banner
+    condition: Implicit — Header renders as the HTML <header> element which carries
+      the landmark role 'banner' automatically when it is a direct child of <body>.
+  - attribute: aria-label
+    value: descriptive label
+    condition: Only needed when multiple header landmarks exist on the page (e.g.
+      an article header inside the main content).
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 2.4.1 Bypass Blocks
+    status: conditional
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- nav
+- menu
+- button
+- footer

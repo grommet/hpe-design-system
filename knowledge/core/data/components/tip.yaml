@@ -1,0 +1,143 @@
+id: tip
+name: Tip
+description: Provides supplementary, non-critical information on hover or keyboard
+  focus through a compact tooltip overlay.
+importPath: grommet
+framework: react
+props:
+- name: content
+  type: string | React.ReactNode
+  required: true
+  description: The tooltip content displayed when the trigger element is hovered or
+    focused
+- name: dropProps
+  type: object
+  required: false
+  description: Props forwarded to the underlying Drop component to control alignment,
+    positioning, and other overlay behaviors
+- name: plain
+  type: boolean
+  required: false
+  description: When true, renders the trigger without extra wrapper styling, preserving
+    the exact appearance of the child element
+  defaultValue: 'false'
+- name: children
+  type: React.ReactNode
+  required: true
+  description: The element that triggers the tooltip on hover or focus
+usage:
+  whenToUse:
+  - Use to provide supplementary context or clarification for UI elements that benefit
+    from additional explanation.
+  - Use to show the full text of truncated content in dense tables or lists.
+  - Use on icon-only buttons to reveal their accessible label on hover or focus.
+  - Ensure the tooltip is accessible via both mouse hover and keyboard focus.
+  whenToAvoid:
+  - Do not use for information that is vital to completing a task — place that content
+    in the main UI.
+  - Do not place interactive elements (buttons, links, inputs) inside the tooltip
+    content.
+  - Do not use Tip for long-form help text — use a Layer or inline guidance instead.
+  - Do not rely on tooltip content for error messages — use FormField error instead.
+variants:
+- name: icon-label
+  description: Tooltip on an icon-only button that reveals its text label.
+  when: Toolbar buttons or actions that use icons without visible text labels.
+  example: "<Tip content=\"Edit server\">\n  <Button icon={<Edit />} a11yTitle=\"\
+    Edit server\" />\n</Tip>"
+- name: truncated-cell
+  description: Tooltip that reveals the full content of a truncated table cell.
+  when: DataTable columns with fixed widths where cell content is clipped.
+  example: "<Tip content={fullText}>\n  <Text truncate>{fullText}</Text>\n</Tip>"
+- name: content-length-guidance
+  description: Tooltip containing a short phrase or sentence of explanatory text.
+  when: Clarifying what a field, value, or status indicator means without disrupting
+    layout.
+  example: "<Tip content=\"Status is updated every 60 seconds.\">\n  <Box direction=\"\
+    row\" gap=\"xsmall\" align=\"center\">\n    <CircleInformation />\n    <Text>Last\
+    \ sync</Text>\n  </Box>\n</Tip>"
+- name: with-exit-hint
+  description: Tooltip that includes a cue for dismissing it (e.g., Esc key note).
+  when: Accessibility-conscious contexts where keyboard users should know the tooltip
+    is dismissible.
+  example: "<Tip\n  content={\n    <Box pad=\"xsmall\" gap=\"xsmall\">\n      <Text>This\
+    \ action is irreversible.</Text>\n      <Text size=\"xsmall\" color=\"text-weak\"\
+    >Press Esc to close</Text>\n    </Box>\n  }\n>\n  <Button label=\"Delete all\"\
+    \ />\n</Tip>"
+anatomy:
+- label: trigger element
+  region: root (children)
+  purpose: The wrapped child element that activates the tooltip on hover or focus
+  availability: always
+- label: tooltip overlay
+  region: portal / drop
+  purpose: The floating container that appears adjacent to the trigger with tooltip
+    content
+  availability: conditional
+  notes: Only visible on hover or focus
+- label: tooltip content
+  region: tooltip overlay
+  purpose: Text or node rendered inside the tooltip overlay
+  availability: always
+behaviors:
+  interactiveStates:
+  - rest
+  - hover (tooltip visible)
+  - focus (tooltip visible)
+  applicationStates:
+  - tooltip-open
+  - tooltip-closed
+  dataStates: []
+  realEstate:
+  - Tooltip positions adjacent to trigger, respecting viewport edges via Drop alignment
+examples:
+- description: Icon button with tooltip label
+  code: "<Tip content=\"Copy to clipboard\">\n  <Button icon={<Copy />} a11yTitle=\"\
+    Copy to clipboard\" onClick={handleCopy} />\n</Tip>"
+- description: Truncated text in a table cell
+  code: "<DataTable\n  columns={[\n    {\n      property: 'description',\n      header:\
+    \ 'Description',\n      render: datum => (\n        <Tip content={datum.description}>\n\
+    \          <Text truncate style={{ maxWidth: '200px' }}>\n            {datum.description}\n\
+    \          </Text>\n        </Tip>\n      ),\n    },\n  ]}\n  data={servers}\n\
+    />"
+- description: Info icon with explanatory tooltip
+  code: "<Box direction=\"row\" gap=\"xsmall\" align=\"center\">\n  <Text weight=\"\
+    bold\">Compliance score</Text>\n  <Tip content=\"Score is calculated from the\
+    \ last 30-day audit.\">\n    <CircleInformation size=\"small\" />\n  </Tip>\n\
+    </Box>"
+- description: Tooltip with custom positioning
+  code: "<Tip\n  content=\"Remove from watchlist\"\n  dropProps={{ align: { bottom:\
+    \ 'top' } }}\n>\n  <Button icon={<Trash />} a11yTitle=\"Remove from watchlist\"\
+    \ />\n</Tip>"
+accessibility:
+  keyboard:
+  - key: Tab / Shift+Tab
+    action: Moves focus to the trigger element, which opens the tooltip
+  - key: Escape
+    action: Dismisses the tooltip when it is open
+  aria:
+  - attribute: role
+    value: '''tooltip'''
+    condition: applied to the tooltip content container
+  - attribute: aria-describedby
+    value: tooltip element id
+    condition: applied to the trigger element linking it to the tooltip
+  announcements:
+  - trigger: Tooltip opens on focus
+    message: Tooltip content is read as part of the element's accessible description
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.3 Contrast (Minimum)
+    status: pass
+  - criterion: 2.1.1 Keyboard
+    status: pass
+  - criterion: 2.4.7 Focus Visible
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+relatedComponents:
+- button
+- text
+- data-table
+- layer

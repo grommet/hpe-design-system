@@ -1,0 +1,142 @@
+id: spinner
+name: Spinner
+description: Provides a visual cue that a process is in progress when the expected
+  wait time is greater than 300ms.
+importPath: grommet
+framework: react
+props:
+- name: message
+  type: 'string | { start: string, end: string }'
+  required: false
+  description: Screen reader announcement text. A plain string is announced when the
+    spinner is rendered. An object with `start` and `end` keys announces the start
+    message on mount and the end message on unmount.
+  defaultValue: undefined
+- name: size
+  type: '''xsmall'' | ''small'' | ''medium'' | ''large'' | ''xlarge'''
+  required: false
+  description: Controls the visual size of the spinner
+  defaultValue: '''medium'''
+- name: color
+  type: string
+  required: false
+  description: Icon color of the spinner. Accepts any Grommet color token or hex string.
+- name: a11yTitle
+  type: string
+  required: false
+  description: Accessibility label for the spinner element when no message prop is
+    provided
+  defaultValue: '''Loading...'''
+- name: id
+  type: string
+  required: false
+  description: DOM id attribute for the spinner container
+usage:
+  whenToUse:
+  - Use when a process takes longer than 300ms to complete and the system cannot provide
+    a progress percentage.
+  - Use within lists or tables to indicate that an individual item is being processed.
+  - Use with a loading announcement to keep screen reader users informed of progress
+    start and end.
+  - Use when the page or section content is being fetched asynchronously before initial
+    render.
+  whenToAvoid:
+  - Do not use multiple spinners simultaneously on the same page — use a single spinner
+    to represent the overall loading state.
+  - Do not use for ongoing background activity that users don't need to be aware of.
+  - Do not use when a Skeleton provides a better experience by showing the content
+    shape while loading.
+  - Do not use if you can display a determinate ProgressBar with a completion percentage.
+variants:
+- name: basic
+  description: Simple centered spinner displayed in isolation or as an overlay.
+  when: Full-page or section loading where content is not yet available.
+  example: <Spinner />
+- name: within-list
+  description: Inline spinner displayed inside a list or table cell to indicate row-level
+    processing.
+  when: An asynchronous operation is triggered on a specific list item (e.g., deleting,
+    syncing).
+  example: "<Box direction=\"row\" gap=\"small\" align=\"center\">\n  <Spinner size=\"\
+    small\" />\n  <Text>Deleting item...</Text>\n</Box>"
+- name: with-announcement
+  description: Spinner with a start/end message object for screen reader announcements.
+  when: Critical asynchronous processes where screen reader users must be informed
+    when loading begins and ends.
+  example: "<Spinner\n  message={{ start: 'Loading dashboard data.', end: 'Dashboard\
+    \ data loaded.' }}\n/>"
+- name: loading-content
+  description: Spinner displayed centered within a container while its content is
+    being fetched.
+  when: A card, panel, or section is awaiting data before it can render meaningful
+    content.
+  example: "<Box fill align=\"center\" justify=\"center\" pad=\"large\">\n  <Spinner\n\
+    \    message={{ start: 'Loading server details.', end: 'Server details loaded.'\
+    \ }}\n  />\n</Box>"
+anatomy:
+- label: spinner icon
+  region: root
+  purpose: Rotating visual element that signals active processing
+  availability: always
+- label: aria-live region
+  region: root (screen reader only)
+  purpose: Politely announces the start and end messages to assistive technologies
+  availability: conditional
+  notes: Only rendered when the message prop is provided
+behaviors:
+  interactiveStates: []
+  applicationStates:
+  - spinning
+  - hidden
+  dataStates: []
+  realEstate:
+  - compact within inline contexts
+  - centered for full-area loading
+examples:
+- description: Basic spinner
+  code: <Spinner />
+- description: Spinner with screen reader announcement
+  code: "<Spinner\n  message={{\n    start: 'Uploading file, please wait.',\n    end:\
+    \ 'File upload complete.',\n  }}\n/>"
+- description: Small inline spinner inside a button area
+  code: "<Box direction=\"row\" align=\"center\" gap=\"small\">\n  <Spinner size=\"\
+    small\" />\n  <Text size=\"small\">Saving changes...</Text>\n</Box>"
+- description: Loading state for a data panel
+  code: "const [loading, setLoading] = useState(true);\n\nreturn (\n  <Box fill align=\"\
+    center\" justify=\"center\" pad=\"xlarge\">\n    {loading ? (\n      <Spinner\n\
+    \        message={{\n          start: 'Loading server metrics.',\n          end:\
+    \ 'Server metrics loaded.',\n        }}\n      />\n    ) : (\n      <MetricsPanel\
+    \ data={data} />\n    )}\n  </Box>\n);"
+accessibility:
+  keyboard: []
+  aria:
+  - attribute: aria-live
+    value: '''polite'''
+    condition: applied to the announcement region when message prop is provided
+  - attribute: aria-label
+    value: a11yTitle value or 'Loading...'
+    condition: always present on the spinner element
+  - attribute: role
+    value: '''status'''
+    condition: applied to the live region container
+  announcements:
+  - trigger: Spinner mounts with message.start
+    message: '{message.start}'
+  - trigger: Spinner unmounts with message.end
+    message: '{message.end}'
+  wcag:
+  - criterion: 1.3.1 Info and Relationships
+    status: pass
+  - criterion: 1.4.1 Use of Color
+    status: pass
+  - criterion: 2.2.2 Pause, Stop, Hide
+    status: pass
+  - criterion: 4.1.2 Name, Role, Value
+    status: pass
+  - criterion: 4.1.3 Status Messages
+    status: pass
+relatedComponents:
+- skeleton
+- meter
+- box
+- text
