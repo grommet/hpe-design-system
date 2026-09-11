@@ -51,7 +51,8 @@ The Changeset check requires a Changeset when token values, contracts, or publis
 metadata change. For package implementation changes, it builds the pull request merge base and
 candidate revisions with their respective dependency graphs and requires a Changeset only when
 their published `dist` artifacts differ. Documentation, tests, and release-automation-only
-changes should not require one.
+changes should not require one. The Changesets-generated package version and changelog update is
+also exempt because it consumes the pending Changeset.
 
 The validator should pass for this release-automation PR when no token source, build, or contract
 files are changed:

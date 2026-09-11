@@ -12,6 +12,8 @@ const repoRoot = path.resolve(
   '..',
 );
 const tokenPackagePath = 'packages/hpe-design-tokens';
+const tokenPackageJsonPath = `${tokenPackagePath}/package.json`;
+const tokenChangelogPath = `${tokenPackagePath}/CHANGELOG.md`;
 
 const getArgument = name =>
   process.argv
@@ -54,6 +56,45 @@ const implementationFiles = changedFiles.filter(
 const dependencyGraphChanged = changedFiles.some(file =>
   ['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml'].includes(file),
 );
+
+const readJsonAtRevision = (revision, file) =>
+  JSON.parse(
+    execFileSync('git', ['show', `${revision}:${file}`], {
+      cwd: repoRoot,
+      encoding: 'utf8',
+    }),
+  );
+
+const isChangesetsVersionUpdate = () => {
+  if (
+    !changedFiles.includes(tokenPackageJsonPath) ||
+    !changedFiles.includes(tokenChangelogPath)
+  ) {
+    return false;
+  }
+
+  const allowedFiles = new Set([
+    tokenPackageJsonPath,
+    tokenChangelogPath,
+  ]);
+  const onlyReleaseFilesChanged = changedFiles.every(
+    file => allowedFiles.has(file) || file.startsWith('.changeset/'),
+  );
+  if (!onlyReleaseFilesChanged) {
+    return false;
+  }
+
+  const basePackageJson = readJsonAtRevision(mergeBase, tokenPackageJsonPath);
+  const headPackageJson = readJsonAtRevision(head, tokenPackageJsonPath);
+  const { version: baseVersion, ...basePackageMetadata } = basePackageJson;
+  const { version: headVersion, ...headPackageMetadata } = headPackageJson;
+
+  return (
+    baseVersion !== headVersion &&
+    JSON.stringify(basePackageMetadata) === JSON.stringify(headPackageMetadata)
+  );
+};
+const changesetsVersionUpdate = isChangesetsVersionUpdate();
 
 const compareDirectories = (leftDirectory, rightDirectory) => {
   const differences = [];
@@ -166,6 +207,14 @@ if (
   console.log(
     'No token values, contracts, package metadata, or output-changing '
       + 'implementation or dependency changes require a Changeset.',
+  );
+  process.exit(0);
+}
+
+if (changesetsVersionUpdate) {
+  console.log(
+    'Changesets-generated hpe-design-tokens version and changelog update; '
+      + 'no additional Changeset required.',
   );
   process.exit(0);
 }
