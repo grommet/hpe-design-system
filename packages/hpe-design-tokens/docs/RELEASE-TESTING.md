@@ -47,10 +47,11 @@ rm -rf packages/hpe-design-tokens/release-artifacts
 
 ## 2. Changeset Enforcement
 
-The Changeset check requires a Changeset when token values or contracts change. For package
-implementation changes, it builds the pull request merge base and candidate revisions and
-requires a Changeset only when their published `dist` artifacts differ. Documentation, tests,
-and release-automation-only changes should not require one.
+The Changeset check requires a Changeset when token values, contracts, or published package
+metadata change. For package implementation changes, it builds the pull request merge base and
+candidate revisions with their respective dependency graphs and requires a Changeset only when
+their published `dist` artifacts differ. Documentation, tests, and release-automation-only
+changes should not require one.
 
 The validator should pass for this release-automation PR when no token source, build, or contract
 files are changed:

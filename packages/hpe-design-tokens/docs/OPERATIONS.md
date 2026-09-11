@@ -100,9 +100,10 @@ release PR for every token pull request:
 The workflow can still run when matching files change without a pending Changeset. The
 Changesets action should then leave the release PR unchanged or report that there is nothing to
 version. The pull-request Changeset check remains the control that requires a Changeset for
-token values and contract changes. For implementation changes, it compares the published `dist`
-artifacts generated from the pull request merge base and head revisions, requiring a Changeset
-only when those artifacts differ.
+token values, contracts, and published package metadata. For implementation changes, it compares
+the published `dist` artifacts generated from the pull request merge base and head revisions,
+each installed with its own dependency graph, requiring a Changeset only when those artifacts
+differ.
 
 ```mermaid
 flowchart TD
