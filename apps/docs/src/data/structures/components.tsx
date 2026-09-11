@@ -22,6 +22,7 @@ import {
   SearchPreview,
   SkeletonPreview,
   TabsPreview,
+  TimeInputPreview,
   TextAreaPreview,
   TextInputPreview,
   ToggleGroupPreview,
@@ -411,6 +412,19 @@ export const components = [
       'Attach Document',
       'Document Input',
     ],
+  },
+  {
+    name: 'TimeInput',
+    category: 'Inputs',
+    description: 'A field which allows the user to enter a time.',
+    seoDescription:
+      'TimeInput allows users to enter a time in a consistent, accessible format.',
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    sections: [],
+    preview: {
+      component: () => <TimeInputPreview />,
+    },
+    tags: ['time input', 'time picker', 'TimeInput'],
   },
   {
     name: 'TextArea',
