@@ -65,6 +65,31 @@ const readJsonAtRevision = (revision, file) =>
     }),
   );
 
+const changesetNamesTokenPackage = contents =>
+  /(?:^|\n)\s*["']?hpe-design-tokens["']?\s*:/.test(contents);
+
+const getDeletedTokenChangesets = () =>
+  execFileSync('git', ['diff', '--name-status', `${mergeBase}...${head}`], {
+    cwd: repoRoot,
+    encoding: 'utf8',
+  })
+    .trim()
+    .split('\n')
+    .filter(Boolean)
+    .map(line => line.split('\t'))
+    .filter(([status, file]) =>
+      status === 'D' && /^\.changeset\/[^/]+\.md$/.test(file),
+    )
+    .filter(([, file]) =>
+      changesetNamesTokenPackage(
+        execFileSync('git', ['show', `${mergeBase}:${file}`], {
+          cwd: repoRoot,
+          encoding: 'utf8',
+        }),
+      ),
+    )
+    .map(([, file]) => file);
+
 const isChangesetsVersionUpdate = () => {
   if (
     !changedFiles.includes(tokenPackageJsonPath) ||
@@ -73,12 +98,14 @@ const isChangesetsVersionUpdate = () => {
     return false;
   }
 
+  const deletedTokenChangesets = getDeletedTokenChangesets();
   const allowedFiles = new Set([
     tokenPackageJsonPath,
     tokenChangelogPath,
+    ...deletedTokenChangesets,
   ]);
-  const onlyReleaseFilesChanged = changedFiles.every(
-    file => allowedFiles.has(file) || file.startsWith('.changeset/'),
+  const onlyReleaseFilesChanged = changedFiles.every(file =>
+    allowedFiles.has(file),
   );
   if (!onlyReleaseFilesChanged) {
     return false;
@@ -90,6 +117,7 @@ const isChangesetsVersionUpdate = () => {
   const { version: headVersion, ...headPackageMetadata } = headPackageJson;
 
   return (
+    deletedTokenChangesets.length > 0 &&
     baseVersion !== headVersion &&
     JSON.stringify(basePackageMetadata) === JSON.stringify(headPackageMetadata)
   );
