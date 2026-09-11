@@ -15,7 +15,7 @@ export const SEMANTIC_COLOR_TARGETS = [
 
 export type SemanticColorTarget = (typeof SEMANTIC_COLOR_TARGETS)[number];
 
-// Scale => Emphasis level used by semantic color tokens.
+// Scale => Emphasis level, sometimes called prominence for colour.
 export const SEMANTIC_COLOR_SCALES = [
   'xweak',
   'weak',
