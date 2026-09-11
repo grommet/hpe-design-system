@@ -8,6 +8,7 @@ export const MenuIconExample = () => {
   return (
     <Box direction="row" align="start" gap="small">
       <Menu
+        a11yTitle="Open actions menu"
         icon={<More />}
         items={[
           { label: 'Edit' },
@@ -16,6 +17,7 @@ export const MenuIconExample = () => {
         ]}
       />
       <Menu
+        a11yTitle="Open settings menu"
         icon={<Settings />}
         items={[
           { label: 'Edit preferences' },
