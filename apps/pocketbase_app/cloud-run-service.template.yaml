@@ -1,0 +1,69 @@
+# Cloud Run Service Template for PocketBase
+# This template uses environment variable substitution to make the configuration portable.
+# Variables that will be substituted:
+# - ${PROJECT_ID}: Google Cloud Project ID
+# - ${SERVICE_ACCOUNT_NAME}: Service account name for Cloud Storage access
+# - ${SERVICE_NAME}: Name of the Cloud Run service
+# - ${BUCKET_NAME}: Cloud Storage bucket name for data persistence
+#
+# To generate the final configuration:
+# envsubst < cloud-run-service.template.yaml > cloud-run-service.generated.yaml
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: pocketbase-app
+  annotations:
+    run.googleapis.com/ingress: all
+    run.googleapis.com/execution-environment: gen2
+spec:
+  template:
+    metadata:
+      annotations:
+        # Allow higher memory and CPU allocation
+        run.googleapis.com/memory: "2Gi"
+        run.googleapis.com/cpu: "1000m"
+        # Set longer timeout for Cloud Storage mounting
+        run.googleapis.com/timeout: "900s"
+        # Limit to 1 instance for SQLite compatibility
+        autoscaling.knative.dev/maxScale: "1"
+    spec:
+      # Use the service account with Cloud Storage permissions
+      serviceAccountName: ${SERVICE_ACCOUNT_NAME}@${PROJECT_ID}.iam.gserviceaccount.com
+      containers:
+      - image: gcr.io/${PROJECT_ID}/${SERVICE_NAME}:latest
+        env:
+        - name: GCS_BUCKET_NAME
+          value: "${BUCKET_NAME}"
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        # Use Cloud Storage volume mounting
+        volumeMounts:
+        - name: gcs-data
+          mountPath: /app/pb_data
+        startupProbe:
+          httpGet:
+            path: /api/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 20
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 8080
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+      # Cloud Storage volume configuration
+      volumes:
+      - name: gcs-data
+        csi:
+          driver: gcsfuse.run.googleapis.com
+          volumeAttributes:
+            bucketName: ${BUCKET_NAME}
