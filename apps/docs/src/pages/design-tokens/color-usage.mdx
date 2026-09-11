@@ -24,13 +24,13 @@ By combining terms from our color categories, as described in [How to read desig
 
 ## Color categories
 
-Commonly used categories in color naming are [property](#property), [variant](#variant), [state](#state) and [scale](#scale).
+Commonly used categories in color naming are [target](#target), [role](#role), [state](#state) and [scale](#scale).
 
-### Property
+### Target
 
 The anatomical part of an element to be styled.
 
-| Example                                                                       | Property   | Usage                                        |
+| Example                                                                       | Target     | Usage                                        |
 | ----------------------------------------------------------------------------- | ---------- | -------------------------------------------- |
 | <ColorPreview datum={{value: 'background-back'}} />                           | background | Backgrounds, pages, fills and surfaces.      |
 | <ColorPreview datum={{value: 'background-front'}} border="border-selected" /> | border     | Borders around elements, dividers and rules. |
@@ -38,11 +38,12 @@ The anatomical part of an element to be styled.
 | <Trigger size="xlarge" />                                                     | icon       | Iconography.                                 |
 | <Box width="3xsmall" ><Meter value={30}  thickness='small' round /></Box>      | foreground | Foreground graphics.                         |
 
-### Variant
+### Role
 
-Stylistic variant of a token.
+The semantic meaning of a color. Most roles are a single name. Some have two
+parts, a family followed by a name.
 
-| Example                                                        | Variant  | Usage                                                                         |
+| Example                                                        | Role     | Usage                                                                         |
 | -------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------- |
 | <ColorPreview datum={{value: 'background-primary-strong'}} />  | primary  | Primary emphasis color for high visual prominence.                            |
 | <ColorPreview datum={{value: 'background-neutral-xstrong'}} /> | neutral  | Generic color that does not need any particular emphasis with regards to hue. |
@@ -51,15 +52,16 @@ Stylistic variant of a token.
 | <ColorPreview datum={{value: 'background-info'}} />            | info     | Informational content.                                                        |
 | <ColorPreview datum={{value: 'background-ok'}} />              | ok       | Success or everything is operating as expected.                               |
 | <ColorPreview datum={{value: 'text-onStrong'}} />              | onStrong | For content (text and icons) that sit on strong backgrounds.                  |
+| <ColorPreview datum={{value: 'background-selected-primary'}} /> | selected.primary | Styling for selected items.                                          |
 
 ### State
 
-Color for specific states.
+Color for interactive states. The state slot holds `hover`, `focus` or
+`active`. When no state is present, the token describes the resting appearance.
 
 | Example                                                                      | State    | Usage                                      | Token example                           |
 | ---------------------------------------------------------------------------- | -------- | ------------------------------------------ | --------------------------------------- |
 | <ColorPreview datum={{value: 'background-hover'}} />                 | hover    | For hover states of a particular color.    | color.background.hover          |
-| <ColorPreview datum={{value: 'background-selected-primary-strong'}} /> | selected | For selected states of a particular color. | color.background.selected.primary.strong |
 
 ### Scale
 
