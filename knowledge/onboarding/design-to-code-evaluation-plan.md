@@ -12,7 +12,7 @@
 
 ## Relevant Files
 
-- `docs/DESIGN_TO_CODE_EVAL.md` — This file, used to capture findings.
+- `knowledge/onboarding/design-to-code-evaluation-plan.md` — This file, used to capture findings.
 - `sandbox/grommet-app/src/` — Location for compiling and testing the generated code.
 
 ## Verification
@@ -29,4 +29,4 @@
 
 - **Complexity Scope:** Simple (e.g., Button or Badge).
 - **Workflows Tested:** Copilot/VS Code.
-- **Documentation Location:** New Markdown file in the repository.
+- **Documentation Location:** `knowledge/onboarding/`, alongside the design-to-code playbook and AI workflow contributor onboarding.
