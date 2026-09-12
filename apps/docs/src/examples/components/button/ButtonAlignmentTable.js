@@ -40,7 +40,7 @@ const data = [
     useCases: [
       {
         label: 'Wizards',
-        href: '/templates/wizard',
+        href: '/components/wizard',
       },
       {
         label: 'Confirmation modals',
