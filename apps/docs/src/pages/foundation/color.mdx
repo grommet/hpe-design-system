@@ -6,6 +6,7 @@ import {
   BackgroundSwatch,
   BorderSwatch,
   DataVisSwatch,
+  SurfaceSwatch,
   DecorativeSwatch,
   ForegroundSwatch,
   IconSwatch,
@@ -42,11 +43,20 @@ Color expresses brand, guides interaction, and supports accessibility. It shapes
 
 
 ### Backgrounds
-Background colors establish depth, hierarchy, and cognitive grouping. Products typically begin with `color.background.back` as the base, then layer surfaces using `color.background.front` and `color.background.floating` to convey elevation. Use contrast background tokens to separate dense regions, preferring contrast backgrounds over borders in tight layouts to reduce visual noise.
-
-For more direction on how to use background colors, see [background colors guidance](/foundation/background-colors-guidance).
+Background colors fill a region. They can establish structure, generate hierarchy, carry meaning, or bring attention to something, and every background token is doing one of those jobs. The role segment in the token name says which: `color.background.surface.base` is a structural plane, `color.background.critical` carries meaning, `color.background.selected.primary` marks a state.
 
 <BackgroundSwatch />
+
+- Some backgrounds have particular text and icon pairings, see [color pairing](/foundation/color-pairing).
+- Use a semantic background only where it genuinely carries that meaning. Where you want emphasis without asserting a state, reach for an [accent](#decorative).
+
+#### Surfaces
+
+Surfaces are the structural layers a page is built from: the page itself, the containers on it, and floating elements above it. There are four surface tokens. Two are roots, `background.surface.base` and `background.surface.floating`. Two are tones, applied to containers that need grouping, separating or emphasising.
+
+For what surfaces are and the model behind them, see Understanding surfaces. For choosing between them and applying them in a design, see Designing with surfaces.
+
+<SurfaceSwatch />
 
 #### Overlay
 
