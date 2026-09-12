@@ -1,0 +1,149 @@
+id: stepper
+name: Stepper
+description: Stepper communicates progress through ordered workflow stages, including current, completed, pending, error, and nested steps.
+importPath: grommet
+props:
+  - name: steps
+    type: "{ id: string; title: string; description?: string; status?: 'pending' | 'completed' | 'error' | 'disabled'; disabledReason?: string; errorMessage?: string; 'aria-label'?: string; children?: Omit<StepType, 'children'>[] }[]"
+    required: true
+    description: Defines the ordered stages displayed by the Stepper.
+  - name: currentStep
+    type: string
+    required: true
+    description: Identifies the step currently active in the workflow.
+  - name: direction
+    type: "'horizontal' | 'vertical'"
+    required: false
+    description: Sets whether the steps are arranged horizontally or vertically.
+    defaultValue: horizontal
+  - name: clickableSteps
+    type: boolean
+    required: false
+    description: Determines whether users can select steps to navigate through the workflow.
+    defaultValue: true
+  - name: showDescription
+    type: boolean
+    required: false
+    description: Determines whether step descriptions are displayed.
+    defaultValue: true
+  - name: onStepClick
+    type: '(stepId: string) => void'
+    required: false
+    description: Handles selection of a step when clickable steps are enabled.
+  - name: id
+    type: string
+    required: false
+    description: Sets the HTML id attribute for the Stepper list.
+  - name: 'aria-label'
+    type: string
+    required: false
+    description: Provides an accessible name for the Stepper list.
+  - name: children
+    type: React.ReactNode
+    required: false
+    description: Provides optional content associated with the Stepper.
+usage:
+  whenToUse:
+    - Complete a guided setup workflow with clear progress through a fixed sequence of stages.
+    - Recover from validation errors at a specific step without losing completed work.
+    - Reveal nested sub-steps in a complex workflow while preserving the parent phase context.
+  whenToAvoid: []
+examples:
+  - description: Interactive Stepper playground
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/StepperPlaygroundExample.js
+  - description: Completing a guided setup workflow
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/StepperCompletingGuidedSetupWorkflowExample.js
+  - description: Recovering from validation errors at a specific step
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/StepperRecoveringFromValidationErrorsAtSpecificStepExample.js
+  - description: Revealing nested sub-steps in complex workflows
+    code: ''
+    codeFile: apps/docs/src/examples/components/wizard/WizardCompletingGroupedSetupTasksExample.js
+  - description: Good example of clear Stepper labels
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/DosDonts/StepperGoodLabelClarityPreview.js
+  - description: Bad example of unclear Stepper labels
+    code: ''
+    codeFile: apps/docs/src/examples/components/stepper/DosDonts/StepperBadLabelClarityPreview.js
+anatomy:
+  - label: Stepper list
+    region: Container
+    purpose: Groups the ordered stages into a navigable workflow sequence.
+    availability: required
+  - label: Step indicator
+    region: Indicator
+    purpose: Communicates the status of each stage in the workflow.
+    availability: required
+    notes: States include pending, current, completed, error, and disabled.
+  - label: Step label
+    region: Content
+    purpose: Names the stage so users can understand the workflow sequence.
+    availability: required
+  - label: Step description
+    region: Content
+    purpose: Provides additional context about a stage.
+    availability: optional
+  - label: Connector
+    region: Layout
+    purpose: Shows the relationship and progression between adjacent stages.
+    availability: required
+  - label: Substeps
+    region: Content
+    purpose: Groups related stages under a parent stage.
+    availability: optional
+dosAndDonts:
+  - do: Use concise labels that clearly describe each workflow stage.
+    dont: Use vague labels that require users to guess what each stage contains.
+    reason: Clear labels help users understand progress and choose a completed stage.
+behaviors:
+  interactiveStates:
+    - rest
+    - focus
+    - keyboard activation with Enter or Space
+    - clickable step navigation when clickableSteps is true
+  applicationStates:
+    - pending
+    - current
+    - completed
+    - error
+    - current error
+    - disabled
+    - read-only when clickableSteps is false
+  dataStates:
+    - populated ordered steps
+    - nested sub-steps
+    - validation error represented in step status and errorMessage
+  realEstate:
+    - horizontal layout with labels that can truncate
+    - vertical layout for workflows with descriptions or nested sub-steps
+contentGuidelines:
+  - Use concise stage labels that identify the task or phase, such as Details, Configuration, Values, and Review.
+  - Keep labels consistent in grammatical form and level of detail across the workflow.
+  - Use descriptions only when a stage needs context that its label cannot provide.
+  - Write error messages that identify the correction required at the affected step.
+  - Keep labels understandable when horizontal layouts truncate text.
+accessibility:
+  keyboard:
+    - key: Enter
+      action: Activates the focused step when clickable steps are enabled.
+    - key: Space
+      action: Activates the focused step when clickable steps are enabled.
+    - key: Arrow Left / Arrow Right
+      action: Moves focus between steps in a horizontal Stepper.
+    - key: Arrow Up / Arrow Down
+      action: Moves focus between steps in a vertical Stepper.
+  aria:
+    - attribute: aria-current
+      value: step
+      condition: The step is current or contains the current sub-step.
+    - attribute: aria-disabled
+      value: true
+      condition: The step status is disabled.
+    - attribute: aria-label
+      value: descriptive step label
+      condition: A custom accessible name is needed for the Stepper or an individual step.
+    - attribute: aria-describedby
+      value: error or disabled-reason id
+      condition: The step has an error message or disabled reason.

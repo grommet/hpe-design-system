@@ -1,0 +1,146 @@
+import { BestPracticeGroup, Example } from '../../layouts';
+import { Checkmark } from '@hpe-design/icons-grommet';
+import {
+  StepperBadLabelClarityPreview,
+  StepperCompletingGuidedSetupWorkflowExample,
+  StepperGoodLabelClarityPreview,
+  StepperPlaygroundExample,
+  StepperRecoveringFromValidationErrorsAtSpecificStepExample,
+  WizardCompletingGroupedSetupTasksExample,
+} from '../../examples';
+
+<Example componentName="Stepper">
+  <StepperPlaygroundExample />
+</Example>
+
+## Use cases
+
+### Completing a guided setup workflow
+
+Use Stepper for a multi-step setup flow with a fixed sequence. Place it
+at the top of a wizard, modal, or page section. Pair it with Back and Next
+buttons, or enable clickable steps when users need to revisit completed stages.
+Completed sections update their indicators so users can track their progress.
+
+<Example height={{ min: 'medium' }}>
+  <StepperCompletingGuidedSetupWorkflowExample />
+</Example>
+
+### Recovering from validation errors at a specific step
+
+Use Stepper when a workflow can fail validation at an individual stage.
+Place it above the form content in a wizard, or beside workflow content when
+the process completes automatically but requires follow-up fixes. Show an
+error state and message on the affected step while preserving completed steps
+for context. Let users return to the failing stage, correct the issue, and
+continue without losing completed work.
+
+<Example height={{ min: 'medium' }}>
+  <StepperRecoveringFromValidationErrorsAtSpecificStepExample />
+</Example>
+
+### Revealing nested sub-steps in complex workflows
+
+Use Stepper when a high-level phase contains child actions that become
+visible as users enter that phase. Place a vertical Stepper inside a wizard
+with parent phases such as Plan, Configure, and Verify. Reveal child steps
+such as Select policy and Assign devices under Configure while keeping the
+parent phases visible. This structure preserves the overall workflow position
+and the current subtask without flattening every action into one list.
+
+<Example height={{ min: 'medium' }}>
+  <WizardCompletingGroupedSetupTasksExample />
+</Example>
+
+## Anatomy
+
+{/* TODO: Add anatomy diagram image */}
+
+|      Label       | Region    | Purpose                                                         |                         Required                         | Notes                                                            |
+| :--------------: | --------- | --------------------------------------------------------------- | :------------------------------------------------------: | ---------------------------------------------------------------- |
+|   Stepper list   | Container | Groups the ordered stages into a navigable workflow sequence.   | <span><Checkmark a11yTitle="true" size="small" /></span> |                                                                  |
+|  Step indicator  | Indicator | Communicates the status of each stage in the workflow.          | <span><Checkmark a11yTitle="true" size="small" /></span> | States include pending, current, completed, error, and disabled. |
+|    Step label    | Content   | Names the stage so users can understand the workflow sequence.  | <span><Checkmark a11yTitle="true" size="small" /></span> |                                                                  |
+| Step description | Content   | Provides additional context about a stage.                      |                         Optional                         |                                                                  |
+|    Connector     | Layout    | Shows the relationship and progression between adjacent stages. | <span><Checkmark a11yTitle="true" size="small" /></span> |                                                                  |
+|     Substeps     | Content   | Groups related stages under a parent stage.                     |                         Optional                         |                                                                  |
+
+## Dos and Don'ts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message: 'Use concise labels that clearly describe each workflow stage.',
+    }}
+  >
+    <StepperGoodLabelClarityPreview />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        'Do not use vague labels that require users to guess what each stage contains.',
+    }}
+  >
+    <StepperBadLabelClarityPreview />
+  </Example>
+</BestPracticeGroup>
+
+## Behaviors and States
+
+### Interactive states
+
+- Rest: Display the current step and available stages without interaction feedback.
+- Focus: Expose the focused step clearly, especially when `clickableSteps` is enabled.
+- Keyboard activation: Activate the focused step with Enter or Space when step navigation is enabled.
+- Clickable step navigation: Allow users to select eligible steps when `clickableSteps` is true.
+
+### Application states
+
+- Pending: Show a step that has not started.
+- Current: Identify the active step in the workflow.
+- Completed: Show a stage that has been finished.
+- Error: Identify a step that requires correction.
+- Current error: Identify the active step when its validation has failed.
+- Disabled: Prevent interaction and expose the disabled reason when provided.
+- Read-only: Render the sequence without step navigation when `clickableSteps` is false.
+
+### Data states
+
+- Populated ordered steps: Render the supplied steps in their defined order.
+- Nested sub-steps: Reveal child stages beneath a parent phase when the workflow provides them.
+- Validation error: Represent the failed stage through `status: 'error'` and an actionable `errorMessage`.
+
+### Real-estate behavior
+
+- Use horizontal layout for short, fixed sequences and keep labels concise because labels can truncate.
+- Use vertical layout when descriptions, nested steps, or longer labels need additional room.
+
+## Content Guidelines
+
+- Use concise stage labels that identify the task or phase, such as Details, Configuration, Values, and Review.
+- Keep labels consistent in grammatical form and level of detail across the workflow.
+- Include a description only when the label cannot provide enough context.
+- Write error messages that identify the correction required at the affected step.
+- Keep labels understandable when horizontal layouts truncate text.
+
+## Accessibility
+
+### Keyboard interactions
+
+| Key                      | Action                                                       |
+| ------------------------ | ------------------------------------------------------------ |
+| Enter                    | Activates the focused step when clickable steps are enabled. |
+| Space                    | Activates the focused step when clickable steps are enabled. |
+| Arrow Left / Arrow Right | Moves focus between steps in a horizontal Stepper.           |
+| Arrow Up / Arrow Down    | Moves focus between steps in a vertical Stepper.             |
+
+### ARIA attributes
+
+| Attribute          | Value                       | Condition                                                                 |
+| ------------------ | --------------------------- | ------------------------------------------------------------------------- |
+| `aria-current`     | `step`                      | The step is current or contains the current sub-step.                     |
+| `aria-disabled`    | `true`                      | The step status is disabled.                                              |
+| `aria-label`       | Descriptive step label      | A custom accessible name is needed for the Stepper or an individual step. |
+| `aria-describedby` | Error or disabled-reason id | The step has an error message or disabled reason.                         |
