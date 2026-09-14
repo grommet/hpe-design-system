@@ -53,7 +53,7 @@ const WCAGAccessibilityCardView = ({
   return (
     <Box
       pad={{ vertical: 'xsmall', horizontal: 'medium' }}
-      background="background-front"
+      background="background-surface-tone-1"
       round="medium"
       justify="between"
       direction="row"
