@@ -39,6 +39,8 @@ For each **Track B** item, determine:
 
 Track A and Track B are independent and may both address the same underlying issue. Preserve separate finding IDs and ownership boundaries in the plan, and allow Track A to proceed when its paired Track B item is deferred, ambiguous, or rejected as app-domain-specific.
 
+Preserve the evaluator's severity and rationale; do not infer severity from the Track B action type. When a Track B item is a `P-U` candidate, preserve its disposition (`DS-standardization candidate`, `app-domain-specific`, or `needs evidence`) and the evidence supporting that decision.
+
 ### 3. Produce the plan
 
 Output as structured markdown. Do not apply any changes.
@@ -73,9 +75,13 @@ immediately, while Track B changes are shared data read by every consumer.]
 
 **Step B-N — [Component/Pattern Name]**
 
+- Finding ID: [ID]
+- Severity: Critical / Major / Minor
 - YAML file: knowledge/core/data/components/<id>.yaml
 - Sections to update: [props / variants / examples / accessibility.wcag]
 - Change description: [1–2 sentences]
+- Impact and rationale: [current consumer impact, breadth of reuse, confidence, and why this severity applies]
+- Pattern disposition: [DS-standardization candidate / app-domain-specific / needs evidence / Not applicable]
 - Verification query: `pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"`
 
 ### Final Verification Sequence
