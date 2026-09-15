@@ -45,7 +45,7 @@ Before creating a new pattern YAML for a `P-U` finding, record and report:
 - source locations or other reuse evidence;
 - decision: **accept**, **reject as app-domain-specific**, or **defer for more evidence**.
 
-Accept only when the problem and composition are generic and reusable. Reject when domain terminology, data schema, permissions, workflow rules, or an integration define the pattern.
+Accept only when the problem and composition are generic and reusable. Reject when domain terminology, data schema, permissions, workflow rules, or an integration define the pattern. If the pattern is not clearly reusable across consumers, do not create a new design-system YAML; keep it in the app-specific lane or mark it as needing more evidence.
 
 3. **Add regression coverage first** — update `packages/knowledge-agent/src/context-generator.test.ts` for every natural-language query named by the finding. Assert the expected component/pattern name appears in generated output.
 4. **Implement the change** — edit the responsible component/pattern YAML, `context-generator.ts`, or `vector-search.ts`. For an accepted pattern candidate, add a full YAML definition (graph, examples, aliases, accessibility guidance) matching `knowledge/core/data/types.ts`.
