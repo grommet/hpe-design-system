@@ -9,6 +9,7 @@ export const NavigationalCardPreview = () => {
   const { title, description, icon, action } = activities[0];
   return (
     <Card
+      background="background-surface-tone-1"
       title={title}
       description={description}
       icon={icon}

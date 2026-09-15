@@ -196,7 +196,7 @@ export const Example = ({
     <ExampleContainer
       as="section"
       {...containerProps}
-      background={!plain ? 'background-surface-tone-1' : undefined}
+      background={!plain ? background || 'background-surface-base' : undefined}
       // using "border" treatement to create separation from page background
       // a rare case when border is used to define page sections
       border={
@@ -231,7 +231,7 @@ export const Example = ({
           value={{
             ...(scaledTheme || theme),
             /* prevent theme from overriding the desired background color */
-            background: 'background-surface-tone-2',
+            background: 'background-surface-base',
           }}
         >
           <ResponsiveContext.Provider value={viewPort}>

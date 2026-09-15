@@ -16,6 +16,7 @@ export const EventPromotionCard = () => {
 
   return (
     <Card
+      background="background-surface-tone-1"
       title={title}
       level={2}
       pretitle={pretitle}

@@ -25,7 +25,7 @@ export const ExampleControls = ({
 
   const boxProps = !horizontalLayout
     ? {
-        background: 'background-surface-tone-2',
+        background: 'background-surface-tone-1',
         border: [
           {
             side: 'vertical',
