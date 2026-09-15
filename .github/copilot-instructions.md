@@ -1,37 +1,53 @@
 # HPE Design System — Copilot Instructions
 
-## Monorepo Overview
+## Monorepo context
 
-pnpm workspace with six workspace/content roots (`apps/*`, `packages/**`, `sandbox/*`, `shared/*`, `knowledge/**`, `scripts/**`). Key packages:
+This repo is a pnpm monorepo with app, package, shared, sandbox, knowledge, and script workspaces. The durable engineering rules already live in `knowledge/core/instructions/standards/` and should be treated as the source of truth.
 
-| Path                         | Package                      | Purpose                                       |
-| ---------------------------- | ---------------------------- | --------------------------------------------- |
-| `apps/docs`                  | `docs`                       | Next.js 15 documentation site (static export) |
-| `apps/design-tokens-manager` | `design-tokens-manager`      | Vite app for browsing/managing design tokens  |
-| `packages/hpe-design-tokens` | `hpe-design-tokens`          | Design tokens built with Style Dictionary v4  |
-| `packages/icons-grommet`     | `@hpe-design/icons-grommet`  | HPE icons for Grommet (Vite build)            |
-| `packages/icons-svg`         | `@hpe-design/icons-svg`      | HPE icons in raw SVG format (Vite build)      |
-| `packages/codemods`          | `hpe-design-system-codemods` | JSCodeshift transforms for migrations         |
-| `shared/aries-core`          | `@shared/aries-core`         | Shared React components + Storybook           |
-| `shared/hooks`               | `@shared/hooks`              | Shared React hooks (TypeScript, Vitest)       |
-| `sandbox/grommet-app`        | —                            | Prototype app for testing components/tokens   |
-| `sandbox/native-web`         | —                            | Prototype sandbox app (native-web)            |
-| `sandbox/tailwind-app`       | —                            | Prototype sandbox app (Tailwind)              |
-| `knowledge/`                 | —                            | AI-first knowledge system: agents, prompts, skills, capability manifests (see `knowledge/README.md`) |
-| `scripts/`                   | —                            | Node validation/tooling scripts used by CI (license headers, changeset checks, knowledge structure) |
+Key areas include:
 
-Shared dependency versions are managed through `pnpm-workspace.yaml` `catalog:` entries — use `catalog:` references in `package.json` instead of pinned versions for shared deps like `grommet`, `react`, `styled-components`.
+- `apps/docs`: Next.js documentation site with static export
+- `apps/design-tokens-manager`: Vite design token manager
+- `packages/hpe-design-tokens`: Style Dictionary token package
+- `packages/icons-grommet` and `packages/icons-svg`: HPE icon packages
+- `packages/codemods`: migration codemods
+- `shared/aries-core`: shared components and Storybook
+- `shared/hooks`: shared TypeScript hooks and Vitest tests
+- `sandbox/`: prototype applications for component and token testing
+- `knowledge/`: agents, prompts, skills, and capability manifests
+- `scripts/`: repository validation and release tooling
 
-**Toolchain**: `packageManager` is pinned to `pnpm@10.30.3` (root `package.json`); CI runs Node `24.15.0`. Match these versions locally.
+Shared dependency versions are managed through `catalog:` entries in `pnpm-workspace.yaml`. Reuse those catalog references instead of pinning shared dependency versions in package manifests.
 
-## Essential Commands
+For the main coding standards, use:
+
+- `knowledge/core/instructions/standards/coding-guidelines.instructions.md`
+- the other files in `knowledge/core/instructions/standards/` for broader agent and repository instruction patterns
+
+This file intentionally stays short and repo-specific. Do not duplicate the same rules in more than one place.
+
+## Toolchain and repo contract
+
+- Check the repo’s actual package manager and runtime contract before suggesting install/build/test commands. Do not assume npm or a generic Node runtime; align with the repo’s current toolchain contract.
+- Use the workspace scripts already defined in the repo root `package.json` instead of ad hoc commands.
+- Before opening a PR, run the smallest relevant validation for the touched area and the required repo-level checks that apply.
+
+## Working rules
+
+- Prefer the smallest relevant validation for the change.
+- Reuse the repo’s existing scripts and patterns before inventing new commands.
+- Keep changes surgical and avoid unrelated cleanup.
+- For shared packages, tokens, docs, or `knowledge/**` changes, include the relevant package-level and repo-level gates.
+
+## Essential commands
 
 ```bash
 pnpm install                          # install all workspace deps (run from anywhere)
 pnpm start:docs                       # dev server for docs site (Next.js)
 pnpm start:design-tokens-manager      # dev server for design tokens manager
 pnpm start:grommet-app                # dev server for grommet sandbox app
-pnpm --filter hpe-design-tokens build # rebuild tokens (required after token file changes)
+pnpm --filter hpe-design-tokens build # build token package (required after token file changes)
+pnpm --filter "@shared/hooks" build    # build hooks package
 pnpm storybook:icons-grommet          # icons Storybook
 pnpm storybook:core                   # component Storybook (builds tokens + hooks first)
 pnpm --filter docs test:ci            # run TestCafe e2e tests (headless)
@@ -43,37 +59,28 @@ pnpm validate:capability-manifests    # validate knowledge/capabilities/*/manife
 pnpm validate:design-tokens-changeset # verify a changeset exists for token-value/contract changes
 ```
 
-**`pnpm install` gotcha**: the `grommet` stable tarball SHA can go stale, causing an integrity check failure. Fix: `rm pnpm-lock.yaml && pnpm install`.
+`pnpm install` can fail when the `grommet` tarball SHA is stale, causing an integrity check failure. Fix: `rm pnpm-lock.yaml && pnpm install`.
 
-**Pre-commit hooks** run ESLint, Prettier, and TestCafe e2e tests via Husky. TestCafe launches real browser windows — **keep browser windows in focus** or tests will stall/timeout (>2.5 min = browser is minimized).
+**Pre-commit hooks** (`.husky/pre-commit`) apply staged SPDX license headers, run `hpe-design-tokens` tests/`paddingY:verify`/build, and run `lint-fix` for `docs` and `@shared/aries-core`. These do not launch TestCafe.
 
-## License Headers
+## CI validation checklist
 
-Every authored source file under `apps/`, `packages/`, `shared/`, `sandbox/`, and `scripts/` (`.js`/`.jsx`/`.ts`/`.tsx`/`.mjs`/`.cjs`/`.mts`/`.cts`) must start with:
-
-```js
-// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
-// SPDX-License-Identifier: Apache-2.0
-```
-
-Run `pnpm license` to insert/fix headers, or `pnpm license-check` to verify without modifying files — this is what CI runs (`.github/workflows/license.yml`).
-
-## CI Validation Checklist
-
-Run the local equivalent of these before opening a PR:
+Before opening a PR, run the checks relevant to the changed area:
 
 - **Lint**: `pnpm lint`
 - **License headers**: `pnpm license-check`
+- **Package builds**: `pnpm --filter hpe-design-tokens build` and `pnpm --filter "@shared/hooks" build` when token or hooks package output changes
+- **Unit tests**: package-level `test` scripts (e.g. `pnpm --filter "@shared/hooks" test`, `pnpm --filter hpe-design-tokens test`)
 - **Knowledge structure** (if `knowledge/**` changed): `pnpm validate:knowledge-structure` and `pnpm validate:capability-manifests`
 - **Design tokens changeset** (if token values/contracts changed): `pnpm validate:design-tokens-changeset`
-- **Unit tests**: package-level `test` scripts (e.g. `pnpm --filter "@shared/hooks" test`, `pnpm --filter hpe-design-tokens test`)
+- **Docs structure/unit tests** (if `apps/docs/**` changed): `pnpm --filter docs validate:structure` and `pnpm --filter docs test:unit`
 - **Docs e2e**: `pnpm --filter docs test:ci` (TestCafe, headless)
 - **Visual regression**: Chromatic runs in CI against `shared/aries-core` Storybook builds (`.github/workflows/chromatic.yml`) — no local equivalent; check the Chromatic build link on the PR.
 
 ## Generated Output — Do Not Hand-Edit
 
 - `packages/*/dist/` (built package output, including `packages/hpe-design-tokens/dist/`) is generated — edit the source (`src/`, `tokens/`) and rebuild instead.
-- Versioned token folders (`.v0`, `.v1`, etc.) under `packages/hpe-design-tokens/tokens/` exist for migration compatibility — do not retroactively edit older versions.
+- Versioned token folders (`.v0`, `.v1`, etc.) under `packages/hpe-design-tokens/tokens/semantic|component|primitive/` exist for migration compatibility — do not retroactively edit older versions.
 
 ## Adding a Component Page to Docs
 
@@ -93,7 +100,7 @@ Tokens follow W3C Design Token Community Group format (`$type`, `$value`, `$desc
 - `semantic/` — contextual references (`color.light.json`, `color.dark.json`, `dimension.default.json`)
 - `component/` — component-specific tokens
 
-Versioned variants exist (`.v0`, `.v1`, current) for migration compatibility. The build is run via Style Dictionary: `pnpm --filter hpe-design-tokens build`. Token outputs land in `packages/hpe-design-tokens/dist/` as ESM, CJS, CSS vars, and a Grommet-compatible format.
+The build is run via Style Dictionary: `pnpm --filter hpe-design-tokens build`. Token outputs land in `packages/hpe-design-tokens/dist/` as ESM, CJS, CSS vars, and a Grommet-compatible format.
 
 Figma ↔ tokens sync is bidirectional via:
 
@@ -102,10 +109,12 @@ pnpm --filter hpe-design-tokens sync-figma-to-tokens   # Figma → JSON files
 pnpm --filter hpe-design-tokens sync-tokens-to-figma   # JSON files → Figma
 ```
 
-## UI Framework Conventions
+## UI Framework Conventions (`apps/docs`, `shared/aries-core`, `sandbox/`)
+
+These conventions apply to app/component workspaces that render UI (`apps/docs`, `shared/aries-core`, `sandbox/**`). They do not apply to `packages/codemods`, `knowledge/code-connect`, token/build scripts, or other non-UI packages.
 
 - **Must use Grommet components** (`Box`, `Button`, `Text`, etc. from `grommet`) — not custom HTML elements.
-- **Icons**: Use `@hpe-design/icons-grommet`, not `grommet-icons`. Run `npx hpe-design-system-codemods migrate-grommet-icons-to-hpe <path>` to migrate.
+- **Icons**: Use `@hpe-design/icons-grommet` for new codes, not `grommet-icons`. Run `npx hpe-design-system-codemods migrate-grommet-icons-to-hpe <path>` to migrate.
 - **Theming**: Extend `hpe` theme from `grommet-theme-hpe` via `deepMerge(hpe, {...})`. See `apps/docs/src/themes/aries.js`.
 - **Dark mode**: Implemented via `ThemeMode` component (`apps/docs/src/layouts/main/ThemeMode.js`); token files have separate `.light.json`/`.dark.json` variants.
 - Docs site uses `output: 'export'` (static HTML) in `apps/docs/next.config.mjs` — no server-side rendering at runtime.
@@ -149,7 +158,7 @@ remove-unused-icons
 - Docs layout components (`Example`, `ContentSection`, etc.): `apps/docs/src/layouts/content/`
 - Page shell (header, theme toggle): `apps/docs/src/layouts/main/`
 - Style Dictionary build config: `packages/hpe-design-tokens/src/scripts/build-style-dictionary.js`
-- Custom SD formats/transforms: `packages/hpe-design-tokens/src/formats/` and `packages/hpe-design-tokens/src/transforms/`
+- Custom Styled Dictionary formats/transforms: `packages/hpe-design-tokens/src/formats/` and `packages/hpe-design-tokens/src/transforms/`
 
 ## `knowledge/` vs `.github/` — Avoid Divergence
 
