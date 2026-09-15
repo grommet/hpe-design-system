@@ -11,7 +11,7 @@ const parentGrid = {
 };
 
 export const NestedGrid = () => (
-  <ContentArea title="Parent Grid" {...demoStyle}>
+  <ContentArea title="Parent Grid" {...demoStyle} >
     <Grid columns={parentGrid.columns} gap={parentGrid.gap}>
       <ContentArea background="decorative-blue" {...demoStyle} />
       <Box gap="xsmall">
