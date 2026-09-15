@@ -10,6 +10,7 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   
+  // ===== CUSTOM EDIT START (Issue #6260 surface token bridge) =====
   // SURFACE TOKEN BRIDGE
   // Issue #6260: Landmark surface tokens - docs site styling.
   // These surface tokens are temporary placeholders for the new landmark
@@ -54,7 +55,8 @@ export const aries = deepMerge(hpe, {
       },
     },
   },
-  
+  // ===== CUSTOM EDIT END (Issue #6260 surface token bridge) =====
+
   buttonGroup: {
     // any Box props
     gap: 'xsmall',
