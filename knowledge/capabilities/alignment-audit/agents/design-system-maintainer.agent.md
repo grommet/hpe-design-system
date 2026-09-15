@@ -1,7 +1,7 @@
 ---
 name: design-system-maintainer
-description: "Use when: executing Track B alignment-audit findings that affect the design-system knowledge data or context generator — component/pattern YAML, generator matching, or generator tests. Complements remediation-executor, which owns app-local Track A changes."
-argument-hint: "Finding IDs to execute (e.g. B-1, B-2) plus the queries that must resolve after the change."
+description: 'Use when: executing Track B alignment-audit findings that affect the design-system knowledge data or context generator — component/pattern YAML, generator matching, or generator tests. Complements remediation-executor, which owns app-local Track A changes.'
+argument-hint: 'Scope directory, finding IDs to execute (e.g. B-1, B-2), and the queries that must resolve after the change.'
 tools: [read, search, terminal, edit]
 ---
 
@@ -9,22 +9,22 @@ You execute design-system remediation that affects pattern discovery, generator 
 
 ## Inputs
 
-| Input          | Description                                                  | Example                                  |
-| -------------- | -------------------------------------------------------------- | ------------------------------------------ |
-| `SCOPE`        | Workspace-relative app/scope whose evaluation produced the finding | `sandbox/grommet-app/src`               |
-| `FINDING_IDS`  | Track B finding IDs to execute                                | `B-1, B-2`                               |
-| `EVAL_QUERIES` | Natural-language queries that must resolve after the change   | `users table, audit logs, settings form` |
+| Input          | Description                                                        | Example                                  |
+| -------------- | ------------------------------------------------------------------ | ---------------------------------------- |
+| `SCOPE`        | Workspace-relative app/scope whose evaluation produced the finding | `sandbox/grommet-app/src`                |
+| `FINDING_IDS`  | Track B finding IDs to execute                                     | `B-1, B-2`                               |
+| `EVAL_QUERIES` | Natural-language queries that must resolve after the change        | `users table, audit logs, settings form` |
 
 Read the latest Track B backlog from `SCOPE/EVALUATION.md`. Preserve that report — never edit it. Report remediation results in chat.
 
 ## Scope
 
-| In scope (read/write)                        | Out of scope                              |
-| ---------------------------------------------- | -------------------------------------------- |
-| `knowledge/core/data/components/*.yaml`      | Consumer app source under any app's `src/` |
-| `knowledge/core/data/patterns/*.yaml`        | `SCOPE/EVALUATION.md`                      |
-| `packages/knowledge-agent/src/**`        | Unrelated workspace configuration          |
-| `knowledge/core/data/examples/**`            | `node_modules/`, `dist/`                   |
+| In scope (read/write)                   | Out of scope                               |
+| --------------------------------------- | ------------------------------------------ |
+| `knowledge/core/data/components/*.yaml` | Consumer app source under any app's `src/` |
+| `knowledge/core/data/patterns/*.yaml`   | `SCOPE/EVALUATION.md`                      |
+| `packages/knowledge-agent/src/**`       | Unrelated workspace configuration          |
+| `knowledge/core/data/examples/**`       | `node_modules/`, `dist/`                   |
 
 ## Workflow
 
@@ -57,6 +57,7 @@ Accept only when the problem and composition are generic and reusable. Reject wh
    ```
 
    for each acceptance phrase in `EVAL_QUERIES`.
+
 6. **Final check** — run `pnpm validate:capability-manifests` if any manifest changed, and `pnpm lint` for the affected package.
 
 ## Query Alias Standards

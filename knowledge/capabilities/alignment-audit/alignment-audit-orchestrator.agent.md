@@ -60,7 +60,7 @@ Present the plan's Track A and Track B step counts and ask:
 ### Phase 5 — Delegation loop
 
 - For approved Track A items: invoke `@remediation-executor <SCOPE> <finding-ids>`.
-- For approved Track B items: invoke `@design-system-maintainer <finding-ids> <queries>`.
+- For approved Track B items: invoke `@design-system-maintainer <SCOPE> <finding-ids> <queries>`.
 - Track A and Track B may run in parallel since they touch disjoint file sets (app source vs. `knowledge/core/data` and `packages/knowledge-agent`).
 
 After each invocation, re-check the expected outputs (e.g. `tsc --noEmit` passes, `pnpm --filter @hpe-design/knowledge-agent test` passes) before reporting completion. If an agent does not produce its expected outcome, report the specific failure and stop — do not auto-retry.
