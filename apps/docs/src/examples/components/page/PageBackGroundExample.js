@@ -20,7 +20,10 @@ import {
 import { demoStyle } from './demoStyle';
 
 export const PageBackGroundExample = () => (
-  <Page flex="grow" {...demoStyle}>
+  <Page
+    background="background-surface-base" 
+    flex="grow" 
+    {...demoStyle}>
     <PageContent
       background={{
         fill: 'horizontal',
@@ -50,19 +53,19 @@ export const PageBackGroundExample = () => (
       <Empathize />
     </PageContent>
     <PageContent
-      background={{ fill: 'horizontal', color: 'background-back' }}
+      background={{ fill: 'horizontal', color: 'background-surface-tone-1' }}
       {...demoStyle}
     >
       <Define />
     </PageContent>
     <PageContent
-      background={{ fill: 'horizontal', color: 'background-front' }}
+      background={{ fill: 'horizontal', color: 'background-surface-tone-2' }}
       {...demoStyle}
     >
       <Ideate />
     </PageContent>
     <PageContent
-      background={{ fill: 'horizontal', color: 'background-back' }}
+      background={{ fill: 'horizontal', color: 'background-surface-tone-1' }}
       {...demoStyle}
     >
       <Prototype />
@@ -119,7 +122,7 @@ const Hero = () => (
       <Box gridArea="introduction">
         <Paragraph size="xlarge" margin={{ bottom: 'medium' }}>
           Minds coming together from diverse backgrounds, cultures, and
-          perspectives paired with the Design Thinking process are primed for
+          perspectives pairedwith the Design Thinking process are primed for
           delivering amazing outcomes.
         </Paragraph>
         <Paragraph
