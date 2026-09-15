@@ -105,6 +105,8 @@ Pattern Alignment scoring rules:
 
 Generate Track A and Track B tables sorted by priority (Critical → highest impact-to-effort ratio → lowest effort):
 
+Track A and Track B are independent remediation lanes, not mutually exclusive classifications. A single underlying issue may produce both an app-local Track A finding and a shared design-system Track B finding; give each remediation its own finding ID, ownership boundary, and verification path. If Track B is deferred, ambiguous, or rejected as app-domain-specific, Track A may proceed independently.
+
 - **Track A — App Remediation**: fixes within `SCOPE`. Each item includes affected files, a corrected code snippet, and a reference to the relevant instruction file.
 - **Track B — Design System Strengthening**: gaps in `knowledge/core/data/components`, `knowledge/core/data/patterns`, or the context generator (`packages/knowledge-agent`). Recommended actions: `Add props`, `Add variants`, `Add examples`, `Add accessibility`, `Add pattern`, `Update context generator matching`, `New component YAML`.
 

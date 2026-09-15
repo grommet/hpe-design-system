@@ -1,7 +1,7 @@
 ---
 name: remediation-planner
-description: "Use when: converting an alignment-audit evaluation into a sequenced implementation plan. Reads the latest Track A and Track B backlogs from <SCOPE>/EVALUATION.md and produces a structured plan for human review. Read-only — applies no changes."
-argument-hint: "Scope directory whose EVALUATION.md should be planned from (e.g. sandbox/grommet-app/src)."
+description: 'Use when: converting an alignment-audit evaluation into a sequenced implementation plan. Reads the latest Track A and Track B backlogs from <SCOPE>/EVALUATION.md and produces a structured plan for human review. Read-only — applies no changes.'
+argument-hint: 'Scope directory whose EVALUATION.md should be planned from (e.g. sandbox/grommet-app/src).'
 tools: [read, search, terminal]
 ---
 
@@ -9,9 +9,9 @@ You produce a concrete, sequenced implementation plan from the latest alignment-
 
 ## Inputs
 
-| Input   | Description                                              | Example                   |
-| ------- | --------------------------------------------------------- | -------------------------- |
-| `SCOPE` | Workspace-relative path whose `EVALUATION.md` to read    | `sandbox/grommet-app/src` |
+| Input   | Description                                           | Example                   |
+| ------- | ----------------------------------------------------- | ------------------------- |
+| `SCOPE` | Workspace-relative path whose `EVALUATION.md` to read | `sandbox/grommet-app/src` |
 
 ## Workflow
 
@@ -37,24 +37,30 @@ For each **Track B** item, determine:
 - **Verification query** — a context generator query (`pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"`) to confirm the enrichment appears in output.
 - **Pattern route** — for `P-*` findings: app alignment, maintainer handoff, app-domain-specific, or needs evidence.
 
+Track A and Track B are independent and may both address the same underlying issue. Preserve separate finding IDs and ownership boundaries in the plan, and allow Track A to proceed when its paired Track B item is deferred, ambiguous, or rejected as app-domain-specific.
+
 ### 3. Produce the plan
 
 Output as structured markdown. Do not apply any changes.
 
 ```markdown
 ### Summary
-| Track | Items | Estimated effort |
-|---|---|---|
-| Track A — App fixes | N | Low/Med/High |
-| Track B — DS strengthening | N | Low/Med/High |
+
+| Track                      | Items | Estimated effort |
+| -------------------------- | ----- | ---------------- |
+| Track A — App fixes        | N     | Low/Med/High     |
+| Track B — DS strengthening | N     | Low/Med/High     |
 
 ### Recommended Execution Order
+
 [State whether Track A or Track B should run first and why. Track A first is
 usually preferred — app changes are self-contained and can be type-checked
 immediately, while Track B changes are shared data read by every consumer.]
 
 ### Track A Steps
+
 **Step A-N — [Finding ID]: [Short Title]**
+
 - Severity: Critical / Major / Minor
 - Files: [list]
 - API note: [version-specific note, or "None"]
@@ -64,19 +70,23 @@ immediately, while Track B changes are shared data read by every consumer.]
 - Verification: `tsc --noEmit` (from the app directory)
 
 ### Track B Steps
+
 **Step B-N — [Component/Pattern Name]**
+
 - YAML file: knowledge/core/data/components/<id>.yaml
 - Sections to update: [props / variants / examples / accessibility.wcag]
 - Change description: [1–2 sentences]
 - Verification query: `pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"`
 
 ### Final Verification Sequence
+
 1. `tsc --noEmit` (from the app directory, if Track A executed)
 2. `pnpm --filter @hpe-design/knowledge-agent test` (if Track B executed)
 3. `pnpm validate:capability-manifests` (if any capability manifest changed)
 4. `pnpm --filter @hpe-design/knowledge-agent generate -- "<primary feature>"` — confirm relevant components/patterns surface
 
 ### Risks & Blockers
+
 [Grommet API mismatches, new dependencies, shared Track B components, ordering constraints]
 ```
 
