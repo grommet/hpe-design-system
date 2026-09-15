@@ -7,7 +7,7 @@ export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => (
   <LinkCard
     align="start"
     fill="horizontal"
-    background="background-front"
+    background="background-surface-tone-2"
     pad="xlarge"
     round="medium"
     ref={ref}
