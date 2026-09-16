@@ -88,7 +88,7 @@ Component documentation follows a strict three-part pattern:
 
 1. **Register in structure**: Add an entry to `apps/docs/src/data/structures/components.tsx` with `name`, `category`, `description`, `seoDescription`, `sections[]`, `preview`, and `relatedContent[]`.
 
-2. **Create examples**: Add a directory `apps/docs/src/examples/components/<ComponentName>/` with individual example files and an `index.js` barrel export. Each example is a named React export (e.g., `export const ButtonExample = () => <Button ... />`).
+2. **Create examples**: Add a directory `apps/docs/src/examples/components/<componentname>/` with individual example files and an `index.js` barrel export. Each example is a named React export (e.g., `export const ButtonExample = () => <Button ... />`).
 
 3. **Write the MDX page**: Create `apps/docs/src/pages/components/<componentname>.mdx`. Import from `../../layouts` (`Example`, `BestPracticeGroup`, `AccessibilitySection`) and `../../examples`. Wrap each example in `<Example componentName="..." code="..." docs="..." figma="...">`.
 
