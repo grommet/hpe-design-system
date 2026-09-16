@@ -150,7 +150,7 @@ remove-unused-icons
 
 - Changesets (`@changesets/cli`) manages versioning for publishable packages (`hpe-design-tokens`, `@hpe-design/icons-grommet`, `@hpe-design/icons-svg`, `hpe-design-system-codemods`).
 - The `design-tokens-stable` branch tracks stable token releases.
-- `pnpm-workspace.yaml` catalogs (`grommet-stable`, `grommet-theme-hpe-v6`, `grommet-theme-hpe-v7`) allow consuming specific Grommet versions per package.
+- `pnpm-workspace.yaml` catalogs (`grommet-stable`, `grommet-theme-hpe-v6`, `grommet-theme-hpe-v7`, and `grommet-theme-hpe-v8`) allow consuming specific Grommet versions per package.
 
 ## Key File Locations
 
