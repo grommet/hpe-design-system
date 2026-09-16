@@ -158,7 +158,7 @@ remove-unused-icons
 - Docs layout components (`Example`, `ContentSection`, etc.): `apps/docs/src/layouts/content/`
 - Page shell (header, theme toggle): `apps/docs/src/layouts/main/`
 - Style Dictionary build config: `packages/hpe-design-tokens/src/scripts/build-style-dictionary.js`
-- Custom Styled Dictionary formats/transforms: `packages/hpe-design-tokens/src/formats/` and `packages/hpe-design-tokens/src/transforms/`
+- Custom Style Dictionary formats/transforms: `packages/hpe-design-tokens/src/formats/` and `packages/hpe-design-tokens/src/transforms/`
 
 ## `knowledge/` vs `.github/` — Avoid Divergence
 
