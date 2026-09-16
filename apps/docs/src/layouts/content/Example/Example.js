@@ -231,7 +231,7 @@ export const Example = ({
           value={{
             ...(scaledTheme || theme),
             /* prevent theme from overriding the desired background color */
-            background: 'background-surface-base',
+            background: 'background-surface-tone-1',
           }}
         >
           <ResponsiveContext.Provider value={viewPort}>

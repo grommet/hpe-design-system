@@ -8,6 +8,7 @@ export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => (
     align="start"
     fill="horizontal"
     background="background-surface-tone-2"
+    // renders on homepages in creative toolkit segment
     pad="xlarge"
     round="medium"
     ref={ref}
