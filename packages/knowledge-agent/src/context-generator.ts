@@ -272,6 +272,10 @@ export function generateSystemPrompt(
     'You are an expert UI developer using the HPE Design System.\n\n';
   prompt += `Here are the relevant design system definitions based on the user's query: "${userQuery}"\n\n`;
 
+  if (targetFramework !== 'react') {
+    prompt += `Requested framework: ${targetFramework}. This response is conceptual guidance derived from the current React/Grommet design-system source of truth and is not yet fully validated for this target. Framework-specific imports, template code, and implementation details may require adaptation before use.\n\n`;
+  }
+
   if (relevantComponents.length === 0 && relevantPatterns.length === 0) {
     prompt += '### No Direct Matches Found\n\n';
     prompt += `No components or patterns directly matched the query "${userQuery}".\n`;
@@ -293,10 +297,16 @@ export function generateSystemPrompt(
     relevantComponents.forEach(component => {
       prompt += `#### ${component.name}\n`;
       prompt += `- Description: ${component.description}\n`;
-      const resolvedImportPath =
-        component.implementations?.[targetFramework]?.importPath ??
-        component.importPath;
-      prompt += `- Import: ${resolvedImportPath}\n`;
+
+      if (targetFramework === 'react') {
+        const resolvedImportPath =
+          component.implementations?.[targetFramework]?.importPath ??
+          component.importPath;
+        prompt += `- Import: ${resolvedImportPath}\n`;
+      } else {
+        prompt += `- Import guidance: framework-specific imports are not yet validated for ${targetFramework}; use the component semantics as conceptual guidance only.\n`;
+      }
+
       if (component.usage.whenToUse?.length) {
         prompt += `- When to use: ${component.usage.whenToUse.join(' | ')}\n`;
       }
@@ -322,8 +332,10 @@ export function generateSystemPrompt(
       if (pattern.usage?.whenToUse?.length) {
         prompt += `- When to use:\n${pattern.usage.whenToUse.map(item => `  - ${item}`).join('\n')}\n`;
       }
-      if (pattern.templateCode) {
+      if (targetFramework === 'react' && pattern.templateCode) {
         prompt += `- Template:\n\n\`\`\`tsx\n${pattern.templateCode}\n\`\`\`\n`;
+      } else if (targetFramework !== 'react' && pattern.templateCode) {
+        prompt += `- Template guidance: a framework-specific implementation template is not yet validated for ${targetFramework}; treat the pattern structure as conceptual guidance only.\n`;
       }
     });
   }

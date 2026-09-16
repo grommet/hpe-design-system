@@ -17,4 +17,13 @@ describe('knowledge-agent context generator', () => {
     expect(prompt).toContain('Implementation Guidelines');
     expect(prompt).toMatch(/layout|navigation|app shell/i);
   });
+
+  it('marks non-react targets as conceptual-only guidance', () => {
+    const prompt = generateSystemPrompt('Build a login form', 'vue');
+
+    expect(prompt).toContain('conceptual guidance');
+    expect(prompt).toContain('not yet fully validated for this target');
+    expect(prompt).not.toContain('Import: grommet');
+    expect(prompt).not.toContain('```tsx');
+  });
 });
