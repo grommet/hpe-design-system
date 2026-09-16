@@ -80,7 +80,7 @@ Before opening a PR, run the checks relevant to the changed area:
 ## Generated Output — Do Not Hand-Edit
 
 - `packages/*/dist/` (built package output, including `packages/hpe-design-tokens/dist/`) is generated — edit the source (`src/`, `tokens/`) and rebuild instead.
-- Versioned token folders (`.v0`, `.v1`, etc.) under `packages/hpe-design-tokens/tokens/semantic|component|primitive/` exist for migration compatibility — do not retroactively edit older versions.
+- Versioned token files (with `.v0`, `.v1`, etc. suffixes) under `packages/hpe-design-tokens/tokens/semantic|component|primitive/` exist for migration compatibility — do not retroactively edit older versions.
 
 ## Adding a Component Page to Docs
 
