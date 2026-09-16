@@ -5,7 +5,7 @@ import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSearchEntities, querySearchEntities } from './vector-search.js';
 import { loadComponents, loadPatterns } from './data-loader.js';
-import {
+import type {
   DesignSystemSchema,
   FrameworkTarget,
   PatternGraph,

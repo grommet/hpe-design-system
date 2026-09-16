@@ -15,7 +15,8 @@ Arguments:
   query                The user query describing what to build (required)
 
 Options:
-  --framework <target> Target framework: react, vue, angular, web-components, agnostic (default: react)
+  --framework <target> Target framework: react, vue, angular,
+  web-components, agnostic (default: react)
   --help                Show this help message
 `);
 }
@@ -31,8 +32,10 @@ function parseArgs(args: string[]): {
 
   for (let i = 0; i < args.length; i += 1) {
     const arg = args[i];
-    if (arg === '--help' || arg === '-h') help = true;
-else if (arg === '--framework' || arg === '-f') {
+
+    if (arg === '--help' || arg === '-h') {
+      help = true;
+    } else if (arg === '--framework' || arg === '-f') {
       const next = args[i + 1];
       const allowed: FrameworkTarget[] = [
         'react',
@@ -56,7 +59,7 @@ else if (arg === '--framework' || arg === '-f') {
 
       framework = next as FrameworkTarget;
       i += 1;
-    }
+    } else {
       positional.push(arg);
     }
   }
@@ -70,9 +73,14 @@ else if (arg === '--framework' || arg === '-f') {
 
 const { query, framework, help } = parseArgs(process.argv.slice(2));
 
-if (help || !query) {
+if (help) {
   printUsage();
-  process.exit(help ? 0 : 1);
+  process.exit(0);
+}
+
+if (!query) {
+  printUsage();
+  process.exit(1);
 }
 
 console.log(generateSystemPrompt(query, framework));

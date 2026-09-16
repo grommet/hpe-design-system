@@ -4,7 +4,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'yaml';
-import { ComponentDefinition, PatternDefinition } from './types.js';
+import type { ComponentDefinition, PatternDefinition } from './types.js';
 
 const ROOT_DIR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
