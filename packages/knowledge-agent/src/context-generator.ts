@@ -16,7 +16,10 @@ const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '../../..',
 );
-const INSTRUCTIONS_DIR = path.join(REPO_ROOT, '.github', 'instructions');
+const INSTRUCTION_DIRECTORIES = [
+  path.join(REPO_ROOT, 'knowledge', 'core', 'instructions', 'standards'),
+  path.join(REPO_ROOT, '.github', 'instructions'),
+];
 
 interface InstructionFile {
   name: string;
@@ -42,14 +45,27 @@ function loadDesignSystem(): DesignSystemSchema {
 }
 
 function loadInstructionFiles(): InstructionFile[] {
-  if (!fs.existsSync(INSTRUCTIONS_DIR)) return [];
+  const seen = new Set<string>();
 
-  const files = fs
-    .readdirSync(INSTRUCTIONS_DIR)
-    .filter(file => file.endsWith('.instructions.md'));
+  const files = INSTRUCTION_DIRECTORIES.flatMap(directory => {
+    if (!fs.existsSync(directory)) return [];
 
-  return files.map(filename => {
-    const filepath = path.join(INSTRUCTIONS_DIR, filename);
+    return fs
+      .readdirSync(directory)
+      .filter(file => file.endsWith('.instructions.md'))
+      .filter(file => {
+        if (seen.has(file)) return false;
+        seen.add(file);
+        return true;
+      })
+      .map(file => ({
+        directory,
+        file,
+      }));
+  });
+
+  return files.map(({ directory, file }) => {
+    const filepath = path.join(directory, file);
     const content = fs.readFileSync(filepath, 'utf-8');
     const keywordMap: Record<string, string[]> = {
       'coding-guidelines.instructions.md': [
@@ -110,9 +126,9 @@ function loadInstructionFiles(): InstructionFile[] {
     };
 
     return {
-      name: filename,
+      name: file,
       path: filepath,
-      keywords: keywordMap[filename] || [],
+      keywords: keywordMap[file] || [],
       content,
     };
   });
@@ -190,6 +206,7 @@ export function generateSystemPrompt(
   const query = normalizeSearchText(userQuery);
   const instructionFiles = loadInstructionFiles();
 
+  /* eslint-disable max-len */
   if (!query) {
     return [
       'You are an expert UI developer using the HPE Design System.',
@@ -199,6 +216,7 @@ export function generateSystemPrompt(
       'Consider breaking the request into smaller component names before building.',
     ].join('\n\n');
   }
+  /* eslint-enable max-len */
 
   const vectorResults = querySearchEntities(buildSearchEntities(ds), userQuery);
 
@@ -268,6 +286,7 @@ export function generateSystemPrompt(
     instructionFiles,
   );
 
+  /* eslint-disable max-len */
   let prompt =
     'You are an expert UI developer using the HPE Design System.\n\n';
   prompt += `Here are the relevant design system definitions based on the user's query: "${userQuery}"\n\n`;
@@ -339,6 +358,7 @@ export function generateSystemPrompt(
       }
     });
   }
+  /* eslint-enable max-len */
 
   return prompt;
 }
