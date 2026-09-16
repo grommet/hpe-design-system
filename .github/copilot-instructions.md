@@ -105,8 +105,8 @@ The build is run via Style Dictionary: `pnpm --filter hpe-design-tokens build`. 
 Figma ↔ tokens sync is bidirectional via:
 
 ```bash
-pnpm --filter hpe-design-tokens sync-figma-to-tokens   # Figma → JSON files
-pnpm --filter hpe-design-tokens sync-tokens-to-figma   # JSON files → Figma
+pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test   # Figma → JSON files
+pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test --dry-run   # JSON files → Figma
 ```
 
 ## UI Framework Conventions (`apps/docs`, `shared/aries-core`, `sandbox/`)
