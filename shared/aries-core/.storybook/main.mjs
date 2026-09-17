@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { join, dirname, resolve } from 'path';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';

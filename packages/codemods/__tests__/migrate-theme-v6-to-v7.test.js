@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { describe, it, expect } from "vitest";
 import jscodeshift from "jscodeshift";
 import migrateTshirtSizes from "../transforms/migrate-theme-v6-to-v7";

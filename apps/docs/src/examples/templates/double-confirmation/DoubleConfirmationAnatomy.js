@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Button, Diagram, Grid, Stack } from 'grommet';
 import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';
 import { Annotation } from '../../../layouts';

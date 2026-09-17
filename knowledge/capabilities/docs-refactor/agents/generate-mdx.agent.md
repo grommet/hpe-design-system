@@ -93,7 +93,7 @@ You are the second step in the per-component docs refactor pipeline, running aft
 - **Never add a bare JSX comment as the only child** of an `<Example bestPractice>` block — this crashes `cloneElement` at runtime. Always wrap it in `<div>`.
 - **Gerund phrases only** for use case `###` subheadings. Never use noun phrases or questions.
 - **Do not invent sections** not present in `knowledge/capabilities/docs-refactor/docs/COMPONENT_TEMPLATE.md`.
-- **Follow `knowledge/core/skills/writing-style.skill.md` strictly:** imperative tone, sentence case headings, short sentences, favor lists over paragraphs, assert non-negotiables with "Always" or "Never".
+- **Follow `knowledge/core/skills/writing-style.skill.md` strictly:** imperative tone, sentence case headings, short sentences, favor lists over paragraphs, assert non-negotiables with "Always" or "Never", and apply inline code formatting only to literal identifiers (props, ARIA attributes and values, design token identifiers, and literal code/API identifiers), not prose terms.
 
 ## Output Format
 

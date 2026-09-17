@@ -2,6 +2,16 @@
 
 Design tokens for use with the HPE Design System.
 
+## Documentation Index
+
+- Consumer usage: [HPE Design System design tokens documentation](https://design-system.hpe.design/design-tokens)
+- Contributor workflow: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Maintainer operations and runbooks: [docs/OPERATIONS.md](docs/OPERATIONS.md)
+- Environment-isolated sync implementation context: [docs/FIGMA_ENVIRONMENT_SYNC_PLAN.md](docs/FIGMA_ENVIRONMENT_SYNC_PLAN.md)
+- Sync data model and flow details: [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md)
+- Semantic color path structures and normalization contract: [docs/SEMANTIC_COLOR_PATH_CONTRACT.md](docs/SEMANTIC_COLOR_PATH_CONTRACT.md)
+- Sync contracts: [contracts/README.md](contracts/README.md)
+
 ## Install
 
 With pnpm:
@@ -26,112 +36,74 @@ npm i hpe-design-tokens
 
 For usage instructions, see [HPE Design System design tokens documentation](https://design-system.hpe.design/design-tokens).
 
-## Figma Sync Setup
+## Quick Start (Maintainers)
 
-This package supports two sync directions:
-
-- Figma to tokens JSON: `pnpm sync-figma-to-tokens -- --output tokens`
-- tokens JSON to Figma: `pnpm sync-tokens-to-figma`
-
-Both scripts read environment variables from a local `.env` file.
-
-### Required Environment Variables
-
-The following are required for `sync-figma-to-tokens` and `sync-tokens-to-figma`:
-
-- `PERSONAL_ACCESS_TOKEN`: Figma personal access token used in the `X-Figma-Token` request header.
-- `FILE_KEY_PRIMITIVE`: Figma file key for the primitives token file.
-- `FILE_KEY_SEMANTIC`: Figma file key for the semantic token file.
-- `FILE_KEY_COMPONENT`: Figma file key for the component token file.
-- `FIGMA_COLOR_COLLECTION_KEY`: Expected remote collection key for `color`.
-- `FIGMA_DIMENSION_COLLECTION_KEY`: Expected remote collection key for `dimension`.
-- `FIGMA_PRIMITIVES_COLLECTION_KEY`: Expected remote collection key for `primitives`.
-- `FIGMA_GLOBAL_COLLECTION_KEY`: Expected remote collection key for `global`.
-
-Collection keys are used by reference validation in `verifyReferences` to detect invalid cross-file references.
-
-### How To Source Values
-
-1. `PERSONAL_ACCESS_TOKEN`
-  - Create in Figma account settings under Personal access tokens.
-2. `FILE_KEY_*`
-  - Open each Figma file URL and copy the segment after `/file/` or `/design/` (the file key).
-3. `FIGMA_*_COLLECTION_KEY`
-  - Fetch local variables for each file and read `meta.variableCollections[*].key` for the collections named `color`, `dimension`, `primitives`, and `global`.
-
-Example command to distinguish collection instances across files:
+From repository root:
 
 ```bash
-cd packages/hpe-design-tokens
-set -a
-source .env
-set +a
-
-{
-	printf "ROLE\tNAME\tKEY\tID\tREMOTE\tVARIABLE_COUNT\tMODES\n"
-
-	for pair in "primitive:$FILE_KEY_PRIMITIVE" "semantic:$FILE_KEY_SEMANTIC" "component:$FILE_KEY_COMPONENT"; do
-		role="${pair%%:*}"
-		file_key="${pair#*:}"
-		curl -sS \
-			-H "X-Figma-Token: $PERSONAL_ACCESS_TOKEN" \
-			"https://api.figma.com/v1/files/$file_key/variables/local" \
-		| jq -r --arg role "$role" '
-				.meta.variableCollections
-				| to_entries[]
-				| .value
-				| select(.name=="color" or .name=="dimension" or .name=="primitives" or .name=="global")
-				| [
-						$role,
-						.name,
-						.key,
-						.id,
-						(.remote|tostring),
-						((.variableIds|length)|tostring),
-						(.modes|map(.name)|join("|"))
-					]
-				| @tsv
-			'
-	done
-} | column -t -s $'\t' | awk 'NR==1{print "\033[1;36m"$0"\033[0m"; next}1'
+pnpm --filter hpe-design-tokens test
+pnpm --filter hpe-design-tokens test:contracts
+pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test --dry-run
 ```
 
-Columns in output:
+See [docs/OPERATIONS.md](docs/OPERATIONS.md) for full sync runbooks, troubleshooting, and script coverage.
 
-- role
-- name
-- key
-- id
-- remote
-- variable_count
-- modes
+## Semantic Color Parity Contract
 
-### Local Test Run
+Semantic color import/export behavior is protected by parity tests and golden fixtures.
+
+Terminology note: in this monorepo, treat these parity artifacts as
+`snapshot` files (referred to here as `golden` fixtures). They are contract
+snapshots and should be updated only for intentional behavior changes, with
+review of the resulting diff.
+
+Semantic role metadata note:
+
+- `role: null` means the token path does not include a semantic role segment.
+- `role.family` identifies the role family grouping (e.g. `accent`); it is `null`
+  for single-slot roles such as `disabled`.
+- `role.name` is the canonical role name within its target (e.g. `primary`,
+  `disabled`, `purple`).
+
+- Parity scope:
+  - Legacy-vs-new adapter equivalence tests (`semantic_color_figma_adapter_parity.test.ts`).
+  - Golden output verification for export token output and import payload output (`semantic_color_payload_golden.test.ts`).
+  - Boundary vectors for non-canonical accent naming in both directions:
+    - Export fixture coverage for incoming Figma names such as `color/background/accent/purple-custom`.
+    - Import fixture coverage for aliases such as `color/background/accent/purple/custom/REST` that must resolve to canonical variable IDs.
+- Golden fixtures:
+  - `src/tests/fixtures/semantic-color-parity/export-output.golden.json`
+  - `src/tests/fixtures/semantic-color-parity/import-output.golden.json`
+
+### When Golden Fixtures Should Change
+
+Update golden fixtures only when semantic color normalization or payload behavior intentionally changes.
+
+Examples:
+
+- Introducing a deliberate naming contract change in import/export.
+- Adjusting canonical mapping behavior for accent, focus, transparent, or interaction/scale handling.
+
+Do not update fixtures to bypass a failing test without understanding the behavior delta.
+
+### Required Workflow Before PR
+
+From repository root:
+
+Always run:
 
 ```bash
-cd packages/hpe-design-tokens
-
-## `--output tokens` is the checked in source directory
-## running the script with this option will likely create a large diff
-pnpm sync-figma-to-tokens -- --output tokens
-
-## OR
-## For QAing test runs, it may be useful to omit `--output tokens`
-## The script default will output to `tokens_new`.
-pnpm sync-figma-to-tokens
+pnpm --filter hpe-design-tokens run test:parity
+pnpm --filter hpe-design-tokens test -- src/tests/token_export.test.ts src/tests/token_import.test.ts src/tests/token_import_alias_resolution.test.ts src/tests/semantic_color_parser.test.ts
 ```
 
-### GitHub Actions Branch Targeting For Tests
+Run this only when you intentionally changed semantic color import/export behavior and expect golden fixture output updates:
 
-If you want manual workflow tests to target `your-branch-name`, update `.github/workflows/sync-figma-to-tokens.yml`:
+```bash
+pnpm --filter hpe-design-tokens run test:parity:update
+```
 
-1. Add `your-branch-name` under `workflow_dispatch.inputs.branch.options`.
-2. Set checkout ref to selected input branch:
-	- `ref: ${{ github.event.inputs.branch || github.ref_name }}`
-3. Set PR base fallback for manual testing:
-	- `base: ${{ github.event.inputs.branch || 'your-branch-name' }}`
-
-This keeps manual runs explicit and predictable when validating Figma sync behavior.
+If fixture files change, include them in the same commit as the code change that caused the intentional behavior delta.
 
 ## License
 

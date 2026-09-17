@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { readdir, readFile, mkdir, writeFile, access } from 'fs/promises';
 import { resolve, sep } from 'path';
 

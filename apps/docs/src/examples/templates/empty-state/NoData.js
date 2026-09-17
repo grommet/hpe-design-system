@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
 import { EmptyState } from '@shared/aries-core';
 import { Anchor, Box, Button, Grid, ResponsiveContext } from 'grommet';

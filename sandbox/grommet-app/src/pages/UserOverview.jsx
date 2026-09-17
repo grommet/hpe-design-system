@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, Meter, Text, Notification } from 'grommet';
 import { DashboardCard } from '../components';
 import { Legend } from '../components';

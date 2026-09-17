@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
 import { Box, Text, Grid } from 'grommet';
 import PropTypes from 'prop-types';
@@ -18,6 +20,14 @@ const useColorTokens = () => {
 
 const filterByPrefix = (tokens, prefix) =>
   tokens.filter(t => t.id.startsWith(prefix));
+
+const filterByPath = (tokens, path) =>
+  tokens.filter(token =>
+    path.every(
+      (segment, index) =>
+        segment === '*' || token.id.split('.')[index] === segment,
+    ),
+  );
 
 const pickTokens = (tokens, ids) => tokens.filter(t => ids.includes(t.id));
 
@@ -47,6 +57,7 @@ ColorSwatch.propTypes = {
 const SwatchGroup = ({ children }) => (
   <Box
     background="background-front"
+    margin={{ bottom: 'medium' }}
     pad="medium"
     gap="medium"
     width={{ max: 'xlarge', min: 'xsmall' }}
@@ -139,6 +150,19 @@ export const BorderSwatch = () => {
     />
   );
 };
+
+export const AccentSwatch = () => (
+  <TokenSwatchList
+    background={t =>
+      t.id.startsWith('hpe.color.border.') ? 'background-front' : t.value
+    }
+    border={t =>
+      t.id.startsWith('hpe.color.border.') ? t.value : undefined
+    }
+    borderSize="small"
+    tokens={filterByPath(useColorTokens(), ['hpe', 'color', '*', 'accent'])}
+  />
+);
 
 export const DecorativeSwatch = () => (
   <TokenSwatchList

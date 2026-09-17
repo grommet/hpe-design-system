@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable no-undef */
 import { Selector } from 'testcafe';
 import { baseUrl, getLocation, tabToHref } from '../utils';

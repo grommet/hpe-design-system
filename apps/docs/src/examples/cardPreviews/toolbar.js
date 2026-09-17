@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Toolbar, TextInput, DropButton } from 'grommet';
 import { Search, Filter } from '@hpe-design/icons-grommet';

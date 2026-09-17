@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box, BoxProps, Button, Header, Heading } from 'grommet';
 import { Genie } from './Genie';
 import { Help } from './Help';

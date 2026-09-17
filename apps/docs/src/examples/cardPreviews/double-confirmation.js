@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Button } from 'grommet';
 import { useInert } from '@shared/hooks';
 import { LayerHeader, ModalContainer, ModalFooter } from '@shared/aries-core';

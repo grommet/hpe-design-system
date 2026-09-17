@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 const globalState = {};
 
 export const createGlobalState = (key, thisCallback, initialValue) => {

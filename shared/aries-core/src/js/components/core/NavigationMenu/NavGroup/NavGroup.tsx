@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Box } from 'grommet';
 import { NavItemWithLevel } from '../NavList';
 import { GroupHeading } from './GroupHeading';

@@ -1,0 +1,64 @@
+id: status-indicator
+name: Status Indicator
+aliases:
+  - audit logs
+  - audit log
+  - event status
+  - status badge
+  - status label
+  - success warning error
+  - health status
+  - conflict detection
+  - conflict indicator
+description: Inline semantic status display that pairs an HPE status icon with a visible text label.
+problem: Need to communicate an item's success, warning, failure, or neutral informational state clearly in tables, lists, and detail views without relying on color alone.
+solution: Compose a horizontal Box with an HPE status icon and a visible Text label. Map domain values to the semantic ok, warning, error, and info states, using the corresponding semantic token for the icon color.
+relatedComponents:
+  - box
+  - text
+  - data-table
+  - name-value-list
+usage:
+  whenToUse:
+    - Use for compact, read-only health, outcome, or lifecycle status in tables, lists, and detail views.
+    - Always render both the semantic icon and a visible text label so the status is understandable without color perception.
+    - Map application-specific values such as success, warning, failed, and inactive to ok, warning, error, and info before rendering.
+    - Use status-ok, status-warning, status-critical, and text-weak only on their corresponding semantic icons.
+    - Override the default label when the domain term is more precise, such as Active or Inactive for account lifecycle status.
+    - Keep labels short and consistently cased, such as Success, Warning, and Failed.
+  whenToAvoid:
+    - Do not use color-only dots, backgrounds, or icons without a visible text label.
+    - Do not use a status indicator as an interactive control; use Button, CheckBox, or a form input when users must change the state.
+    - Do not use Tag for operational status; reserve Tag for metadata and categories.
+    - Do not hardcode icon colors or duplicate the status mapping in each table column.
+examples:
+  - description: Semantic status indicator for an audit-log table cell
+    codeFile: knowledge/core/data/examples/status-indicator/template.tsx
+templateCodeFile: knowledge/core/data/examples/status-indicator/template.tsx
+graph:
+  rootId: status-indicator
+  nodes:
+    - id: status-indicator
+      componentId: box
+      role: status indicator
+      props:
+        direction: row
+        align: center
+        gap: 3xsmall
+      children: [status-icon, status-label]
+      binding: state
+      notes: Map the domain status to one of ok, warning, error, or info before rendering this row.
+    - id: status-icon
+      componentId: box
+      role: semantic status icon
+      props: {}
+      children: []
+      binding: state
+      notes: Use StatusGood with status-ok, StatusWarning with status-warning, StatusCritical with status-critical, or StatusInfo with text-weak.
+    - id: status-label
+      componentId: text
+      role: visible status label
+      props: {}
+      children: []
+      binding: state
+      notes: Render the matching label adjacent to the icon; use a domain-specific label when needed.

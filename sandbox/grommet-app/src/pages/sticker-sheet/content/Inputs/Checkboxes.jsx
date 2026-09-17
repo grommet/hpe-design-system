@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { CheckBox, FormField } from 'grommet';
 import ContentPane from '../../../../components/ContentPane';
 import { Compare, StyleInProgress } from '../../components';

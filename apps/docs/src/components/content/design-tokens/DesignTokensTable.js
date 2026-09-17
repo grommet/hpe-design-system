@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -89,8 +91,11 @@ const getTokenColumn = (property, header) => ({
 const descriptionColumn = {
   property: 'description',
   header: 'Description',
-  size: 'large',
-  render: datum => <Text>{datum.description || '--'}</Text>,
+  render: datum => (
+    <Box width={{ max: 'medium' }}>
+      <Text>{datum.description || '--'}</Text>
+    </Box>
+  ),
 };
 
 const formatTokenValue = value => {
@@ -153,8 +158,8 @@ export const DesignTokensTable = ({
     return [
       previewColumn,
       ...dynamicTokenColumns,
-      descriptionColumn,
       valueColumn,
+      descriptionColumn,
     ];
   }, [tokenTypeColumns]);
 

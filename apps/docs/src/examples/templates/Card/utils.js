@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // avoid duplication of padding between Card header, body, and footer
 export const adjustPad = (direction, context, theme) => {
   const pad = theme?.card?.body?.pad;

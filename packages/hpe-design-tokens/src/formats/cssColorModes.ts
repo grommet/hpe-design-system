@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { FormatFn, FormatFnArguments } from 'style-dictionary/types';
 import { formattedVariables, fileHeader } from 'style-dictionary/utils';
 

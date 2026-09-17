@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export * from './ColorAccessibility';
 export * from './ColorPalettes';
 export * from './GraphExample';

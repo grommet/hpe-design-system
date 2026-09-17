@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Link, Outlet, Route } from 'react-router-dom';
 import { List, Page, PageContent, PageHeader } from 'grommet';

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Box, Button, List, NameValueList, NameValuePair, Text } from 'grommet';
 import { Edit, Trash } from '@hpe-design/icons-grommet';

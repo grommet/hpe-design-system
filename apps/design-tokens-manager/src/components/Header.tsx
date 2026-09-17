@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Link } from 'react-router-dom';
 import { Header as GrommetHeader, Button, Box, Text } from 'grommet';
 import { Element, Moon, Sun } from '@hpe-design/icons-grommet';

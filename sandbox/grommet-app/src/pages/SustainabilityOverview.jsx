@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Link } from 'react-router-dom';
 import { DataChart, Grid, Notification, Skeleton } from 'grommet';
 import { DashboardCard } from '../components';

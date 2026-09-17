@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { fileHeader, minifyDictionary } from 'style-dictionary/utils';
 import { FormatFn, FormatFnArguments } from 'style-dictionary/types';
 import { getGrommetValue } from './utils/getGrommetValue.js';

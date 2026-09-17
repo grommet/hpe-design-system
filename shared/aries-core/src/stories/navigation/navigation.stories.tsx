@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { NavigationMenuExample } from './NavigationMenuExample';
 import { NavigationMenuSubheadings } from './NavigationMenuSubheadings';
 // ts-expect-error is intentional: TypeScript can't resolve webpack's ?raw query syntax.

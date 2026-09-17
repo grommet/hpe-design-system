@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 
@@ -20,9 +22,10 @@ const nextConfig = {
     styledComponents: true,
   },
   eslint: {
-    // Next.js built in ESLint conflicts with our custom rules at the monorepo level.
-    // "This is not recommended unless you already have ESLint configured to run in 
-    // a separate part of your workflow (for example, in CI or a pre-commit hook)."
+    // Next.js built in ESLint conflicts with our custom rules at the monorepo
+    // level. "This is not recommended unless you already have ESLint
+    // configured to run in a separate part of your workflow (for example, in
+    // CI or a pre-commit hook)."
     // https://nextjs.org/docs/15/app/api-reference/config/next-config-js/eslint
     ignoreDuringBuilds: true,
   },

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 import { Anchor, List, Grid, Text, Box, Button, Skeleton } from 'grommet';
 import { Link } from 'react-router-dom';

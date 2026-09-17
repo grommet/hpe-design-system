@@ -43,7 +43,8 @@ You run after `generate-mdx-agent` has produced `[component-name].mdx`. Read `kn
 
    **Specificity:**
    - Is advice objective, concise, and where appropriate quantitative? — flag subjective or qualitative explanations that could be sharpened
-   - Are component prop names and design token names wrapped in code formatting (backticks)?
+   - Are literal identifiers wrapped in inline code formatting? — flag missing formatting for component prop names, ARIA attributes and values, design token identifiers, and literal code or API identifiers
+   - Is inline code formatting overused for prose? — flag plain-language UI terms, section labels, anatomy region names, and emphasis-only wording that should be normal text
 
    **Scope:**
    - Are `whenToAvoid` items (counter-indications) absent from `## Use cases`? — flag any "when not to use" guidance that leaked into use case descriptions

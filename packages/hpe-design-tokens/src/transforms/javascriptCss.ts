@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Custom style-dictionary transform group to convert token object into nested
  * object with css variable as value.

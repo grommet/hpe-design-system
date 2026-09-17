@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Anchor, Grid, Box, Text, ResponsiveContext } from 'grommet';
 import { Metric, metricSizes } from '../../../../components';

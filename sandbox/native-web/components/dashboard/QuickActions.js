@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export const QuickActions = ({ actions }) => `<div class="gap-medium">
 <div class="row align-center justify-between">
   <h2>Quick actions</h2>

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useEffect, useCallback, useMemo } from 'react';
 import { initialize, useEventListener } from '..';
 

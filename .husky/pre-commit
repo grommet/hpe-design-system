@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo "..Applying SPDX license headers to staged files"
+pnpm license-staged
+
 echo "..Running design token checks"
 pnpm --filter hpe-design-tokens run test
 pnpm --filter hpe-design-tokens run paddingY:verify

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export const navItems = {
   Dashboard: { key: 'dashboard', label: 'Dashboard' },
   Systems: { key: 'systems', label: 'Systems' },

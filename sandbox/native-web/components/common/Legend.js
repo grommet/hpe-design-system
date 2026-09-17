@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export const Legend = ({ label, background, value }) => `
 <div class="row gap-xsmall align-center justify-between">
 <div class="row gap-xsmall align-center">

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import js from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
