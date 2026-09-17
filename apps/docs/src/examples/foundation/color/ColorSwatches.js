@@ -147,47 +147,47 @@ const accentPlaceholderTokens = [
   {
     id: 'hpe.color.background.accent.blue.weak',
     token: 'hpe.color.background.accent.blue.weak',
-    value: '#DBEAFE',
+    value: 'background-accent-blue-weak',
   },
   {
     id: 'hpe.color.background.accent.blue.strong',
     token: 'hpe.color.background.accent.blue.strong',
-    value: '#2563EB',
+    value: 'background-accent-blue-strong',
   },
   {
     id: 'hpe.color.background.accent.purple.weak',
     token: 'hpe.color.background.accent.purple.weak',
-    value: '#EDE9FE',
+    value: 'background-accent-purple-weak',
   },
   {
     id: 'hpe.color.background.accent.purple.strong',
     token: 'hpe.color.background.accent.purple.strong',
-    value: '#7C3AED',
+    value: 'background-accent-purple-strong',
   },
   {
     id: 'hpe.color.background.accent.cyan.weak',
     token: 'hpe.color.background.accent.cyan.weak',
-    value: '#CFFAFE',
+    value: 'background-accent-cyan-weak',
   },
   {
     id: 'hpe.color.background.accent.cyan.strong',
     token: 'hpe.color.background.accent.cyan.strong',
-    value: '#0E7490',
+    value: 'background-accent-cyan-strong',
   },
   {
-    id: 'hpe.color.border.accent.blue.weak',
+    id: 'hpe.color.border.accent.blue.strong',
     token: 'hpe.color.border.accent.blue.strong',
-    value: '#93C5FD',
+    value: 'border-accent-blue-strong',
   },
   {
     id: 'hpe.color.border.accent.cyan.strong',
     token: 'hpe.color.border.accent.cyan.strong',
-    value: '#06B6D4',
+    value: 'border-accent-cyan-strong',
   },
   {
     id: 'hpe.color.border.accent.purple.strong',
     token: 'hpe.color.border.accent.purple.strong',
-    value: '#C4B5FD',
+    value: 'border-accent-purple-strong',
   },
 ];
 
