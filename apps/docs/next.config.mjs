@@ -29,7 +29,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   output: 'export',
-  transpilePackages: ['@shared/aries-core', '@shared/hooks'],
+  transpilePackages: ['@shared/aries-core', '@shared/hooks', 'grommet-theme-hpe'],
 };
 
 export default withMDX(nextConfig);
