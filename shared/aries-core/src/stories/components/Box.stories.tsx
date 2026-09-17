@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import type { StoryObj } from '@storybook/react-webpack5';
 import { Box, Text, BoxTypes } from 'grommet';

@@ -12,7 +12,13 @@ When writing documentation, consider these best practices:
 - **Favor specific advice** that’s objective, concise and often quantitative over subjective, qualitative, and laborious explanations.
 - **Favor examples and images**. When writing the guidelines, consider: “Would a picture work better here? If so, is it worth it?”
 - **Write in an impersonal style**. Avoid “I,” “we,” or “you.” Focus on the action, not the actor.
-- Use code styling from Markdown when referencing a prop of a token name.
+- Use inline code formatting only for literal identifiers, including:
+	- Component prop names, such as `label`, `reverse`, and `indeterminate`.
+	- ARIA attributes and values, such as `aria-labelledby`, `aria-checked`, `true`, and `mixed`.
+	- Design token identifiers.
+	- Literal code and API identifiers, such as component names, JSX tags, or symbol names when referenced as code.
+- Do not use inline code formatting for plain prose terms, section labels, anatomy region names, or emphasis-only styling.
+- If uncertain, default to prose unless the term is a literal API or code identifier.
 - When talking about design tokens, always make sure to refer to them as design tokens and not only tokens.
 
 ## Voice and tone

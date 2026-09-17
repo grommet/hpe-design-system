@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { CreateCluster } from 'apps/docs/src/examples/templates/forms/managing-child-objects/CreateCluster';
 import { CreateRole } from 'apps/docs/src/examples/templates/forms/managing-child-objects/CreateRole';

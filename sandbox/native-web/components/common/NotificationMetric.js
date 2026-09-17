@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
 import { StatusCritical } from '../../icons/StatusCritical';
 import { StatusOk } from '../../icons/StatusOk';

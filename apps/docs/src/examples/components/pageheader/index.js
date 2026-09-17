@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 export * from './ChildPageHeaderExample';
 export * from './PageHeaderContentRegions';
 export * from './PageHeaderActions';

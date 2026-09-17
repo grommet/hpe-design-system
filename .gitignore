@@ -38,3 +38,10 @@ report*
 .tailwind-app
 .vscode
 *storybook.log
+
+# generated diagnostics artifacts (kept out of committed contract assets)
+packages/hpe-design-tokens/contracts/generated/
+
+# round-trip pull snapshots (generated during validation; not source of truth)
+packages/hpe-design-tokens/tokens_fresh_baseline/
+packages/hpe-design-tokens/tokens_new*/

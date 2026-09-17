@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useMemo, useState } from 'react';
 import { Box, Button, Text, Page, PageContent, Main } from 'grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';

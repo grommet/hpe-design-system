@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading, Paragraph } from 'grommet';

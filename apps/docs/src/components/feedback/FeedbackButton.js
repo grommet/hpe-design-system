@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';

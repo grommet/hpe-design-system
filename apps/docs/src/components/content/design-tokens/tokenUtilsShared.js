@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // eslint-disable-next-line import/no-unresolved
 import * as tokens from 'hpe-design-tokens/docs';
 

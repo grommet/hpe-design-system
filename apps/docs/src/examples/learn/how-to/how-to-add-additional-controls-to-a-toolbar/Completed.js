@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable grommet/datatable-aria-describedby */
 import { useEffect, useState } from 'react';
 import {

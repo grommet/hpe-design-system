@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { dimension } from 'hpe-design-tokens/grommet';

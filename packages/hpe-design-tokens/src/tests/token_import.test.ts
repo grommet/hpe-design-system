@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { vi, describe, it, expect } from 'vitest';
 import { ApiGetLocalVariablesResponse } from '../figma_api.js';
 import {
@@ -864,5 +866,49 @@ describe('generatePostVariablesPayload', () => {
     expect(() => {
       generatePostVariablesPayload(tokensByFile, localVariablesResponse);
     }).toThrow('Duplicate variable collection in file: collection');
+  });
+
+  it('maps accent background token hierarchy to accent subgroup variable names', () => {
+    const localVariablesResponse = {
+      status: 200,
+      error: false,
+      meta: {
+        variableCollections: {},
+        variables: {},
+      },
+    };
+
+    const tokensByFile: FlattenedTokensByFile = {
+      'semantic.default.json': {
+        'color/background/accent/purple/strong/REST': {
+          $type: 'color',
+          $value: '#ff0000',
+        },
+        'color/background/accent/purple/strong/hover': {
+          $type: 'color',
+          $value: '#00ff00',
+        },
+        'color/background/accent/blue/weak/REST': {
+          $type: 'color',
+          $value: '#0000ff',
+        },
+      },
+    };
+
+    const result = generatePostVariablesPayload(
+      tokensByFile,
+      localVariablesResponse,
+    );
+
+    const createdNames = (result.variables || [])
+      .filter(v => v.action === 'CREATE' && v.name)
+      .map(v => v.name);
+
+    expect(createdNames).toContain('color/background/accent/purple-strong');
+    expect(createdNames).toContain(
+      'color/background/accent/purple-strong-hover',
+    );
+    expect(createdNames).toContain('color/background/accent/blue-weak');
+    expect(createdNames).not.toContain('color/background/accent-purple-strong');
   });
 });

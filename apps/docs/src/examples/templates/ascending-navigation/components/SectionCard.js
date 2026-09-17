@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable react/prop-types */
 import { Card, Box, Heading, Paragraph } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';

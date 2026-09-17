@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React, { useState } from 'react';
 import { Tab, Tabs } from 'grommet';
 import { Currency, Home, User } from '@hpe-design/icons-grommet';

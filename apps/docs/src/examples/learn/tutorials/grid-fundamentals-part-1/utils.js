@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // Calculate the mid point between two t-shirt sizes from the theme
 export const midSize = (size1, size2, theme) => {
   const a = parseInt(theme.global.size[size1], 10);

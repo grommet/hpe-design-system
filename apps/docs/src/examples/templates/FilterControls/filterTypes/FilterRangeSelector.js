@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, FormField, RangeSelector, Stack, Text } from 'grommet';

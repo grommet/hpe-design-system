@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
@@ -7,6 +9,16 @@ import {
   numberToPixel,
   COPYRIGHT,
 } from '../utils.ts';
+import {
+  collectSemanticColorTokenLeafPathsFromTokenTree,
+  exportSemanticColorMetadataModuleFromTokenTree as exportSemanticColorMetadata,
+  parseSemanticColorTokenMetadata,
+  parseSemanticColorTokenMetadataFromTokenTree,
+} from '../semantic_color.ts';
+import {
+  normalizeColorVariableNameFromFigma,
+  tokenAliasToFigmaAlias,
+} from '../semantic_color_figma_adapter.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -15,6 +27,8 @@ const GROMMET_CJS_DIR = 'dist/grommet/cjs/';
 const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
+const DOCS_METADATA_DIR = `${DOCS_DIR}metadata/`;
+const TYPES_DIR = 'src/types/';
 const PREFIX = 'hpe';
 /**
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
@@ -126,6 +140,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building primitive tokens:', e);
+  process.exitCode = 1;
 }
 
 const filterGlobal = token =>
@@ -230,6 +245,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building global tokens:', e);
+  process.exitCode = 1;
 }
 
 /** -----------------------------------
@@ -270,10 +286,133 @@ fs.appendFileSync(
 const filterColor = (token, file) =>
   token.filePath === file && !token.path.includes(FIGMA_PREFIX);
 
-try {
-  colorModeFiles.forEach(async file => {
+const writeSemanticColorMetadataArtifacts = files => {
+  fs.mkdirSync(DOCS_METADATA_DIR, { recursive: true });
+  const parseFailures = [];
+
+  files.forEach(file => {
     const [theme, mode] = getThemeAndMode(file);
-    extendedDictionary = await HPEStyleDictionary.extend({
+    const parsedTokens = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const canonicalParseResult = parseSemanticColorTokenMetadataFromTokenTree(
+      parsedTokens,
+      {
+        source: 'canonical-token',
+        softExceptionOnNonCanonicalRole: true,
+      },
+    );
+
+    const canonicalTokenLeafPaths = collectSemanticColorTokenLeafPathsFromTokenTree(
+      parsedTokens,
+    );
+
+    const figmaUnparseable = [];
+    const figmaExceptions = [];
+
+    canonicalTokenLeafPaths.forEach(tokenPath => {
+      const figmaName = tokenAliasToFigmaAlias(tokenPath);
+      const normalizedName = normalizeColorVariableNameFromFigma(figmaName);
+      const parsed = parseSemanticColorTokenMetadata(normalizedName);
+
+      if (!parsed.ok) {
+        if (parsed.code === 'ROLE_NOT_CANONICAL') {
+          const softParsed = parseSemanticColorTokenMetadata(normalizedName, {
+            allowNonCanonicalRoleName: true,
+          });
+
+          if (softParsed.ok) {
+            figmaExceptions.push({
+              code: 'NON_CANONICAL_ROLE_EXCEPTION',
+              figmaName,
+              normalizedName,
+              reason:
+                'Token role is non-canonical and requires explicit downstream handling.',
+            });
+            return;
+          }
+        }
+
+        figmaUnparseable.push({
+          figmaName,
+          normalizedName,
+          code: parsed.code,
+          message: parsed.message,
+          input: parsed.input,
+        });
+        return;
+      }
+
+      if (parsed.metadata.role === null) {
+        figmaExceptions.push({
+          code: 'NO_ROLE_EXCEPTION',
+          figmaName,
+          normalizedName,
+          reason:
+            'Token has no semantic role and requires explicit downstream handling.',
+        });
+      }
+    });
+
+    const report = {
+      canonical: {
+        unparseable: canonicalParseResult.errors,
+        exceptions: canonicalParseResult.exceptions,
+      },
+      figmaVariables: {
+        unparseable: figmaUnparseable,
+        exceptions: figmaExceptions,
+      },
+    };
+
+    const output = exportSemanticColorMetadata(parsedTokens, {
+      exportName: 'semanticColorMetadata',
+      includeErrors: true,
+      includeExceptions: true,
+      failOnErrors: false,
+      softExceptionOnNonCanonicalRole: true,
+    });
+
+    const fileSuffix = theme ? `${theme}-${mode}` : `${mode || 'default'}`;
+    const reportPath = `${DOCS_METADATA_DIR}semanticColorMetadata.report.${fileSuffix}.json`;
+
+    fs.writeFileSync(
+      `${DOCS_METADATA_DIR}semanticColorMetadata.${fileSuffix}.js`,
+      `// ${COPYRIGHT}\n\n${output}`,
+    );
+
+    fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+
+    const canonicalErrorCount = Object.keys(canonicalParseResult.errors).length;
+
+    if (canonicalErrorCount > 0) {
+      parseFailures.push({
+        fileSuffix,
+        reportPath,
+        errorCount: canonicalErrorCount,
+      });
+    }
+  });
+
+  if (parseFailures.length > 0) {
+    const details = parseFailures
+      .map(
+        ({ fileSuffix, reportPath, errorCount }) =>
+          `${fileSuffix}: ${errorCount} error(s) in ${reportPath}`,
+      )
+      .join('\n- ');
+
+    throw new Error(
+      `Semantic color metadata parse errors found. Reports were generated:\n- ${details}`,
+    );
+  }
+};
+
+try {
+  writeSemanticColorMetadataArtifacts(colorModeFiles);
+
+  await colorModeFiles.reduce(async (previousBuild, file) => {
+    await previousBuild;
+    const [theme, mode] = getThemeAndMode(file);
+    const colorDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
         file,
@@ -379,10 +518,11 @@ try {
         },
       },
     });
-    await extendedDictionary.buildAllPlatforms();
-  });
+    await colorDictionary.buildAllPlatforms();
+  }, Promise.resolve());
 } catch (e) {
   console.error('🛑 Error building color tokens:', e);
+  throw e;
 }
 
 /** -----------------------------------
@@ -398,10 +538,11 @@ const dimensionFiles = fs
   .filter(file => file);
 
 try {
-  dimensionFiles.forEach(async file => {
+  await dimensionFiles.reduce(async (previousBuild, file) => {
+    await previousBuild;
     const res = getThemeAndMode(file);
     const mode = res[1];
-    extendedDictionary = await HPEStyleDictionary.extend({
+    const dimensionDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
         `${TOKENS_DIR}/semantic/color.light.json`,
@@ -513,10 +654,11 @@ try {
       },
     });
 
-    await extendedDictionary.buildAllPlatforms();
-  });
+    await dimensionDictionary.buildAllPlatforms();
+  }, Promise.resolve());
 } catch (e) {
   console.error('🛑 Error building dimension tokens:', e);
+  throw e;
 }
 
 const filterComponent = token =>
@@ -628,13 +770,14 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building component tokens:', e);
+  process.exitCode = 1;
 }
 
 /** -----------------------------------
  * Create CommonJS index.js
  * ----------------------------------- */
 const collections = [];
-fs.appendFileSync(`${CJS_DIR}index.cjs`, `/**\n * ${COPYRIGHT}\n */\n\n`);
+fs.writeFileSync(`${CJS_DIR}index.cjs`, `/**\n * ${COPYRIGHT}\n */\n\n`);
 fs.readdirSync(CJS_DIR)
   .filter(file => file !== 'index.cjs')
   .forEach(file => {
@@ -661,7 +804,7 @@ fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
  * Create ESM index.js
  * ----------------------------------- */
 const esmCollections = [];
-fs.appendFileSync(`${ESM_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
+fs.writeFileSync(`${ESM_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(ESM_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -683,7 +826,7 @@ fs.readdirSync(ESM_DIR)
  * Create Grommet index.js
  * ----------------------------------- */
 const grommetCollections = [];
-fs.appendFileSync(`${GROMMET_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
+fs.writeFileSync(`${GROMMET_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(GROMMET_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -705,7 +848,7 @@ fs.readdirSync(GROMMET_DIR)
  * Create Grommet CommonJS index.js
  * ----------------------------------- */
 const grommetCjsCollections = [];
-fs.appendFileSync(
+fs.writeFileSync(
   `${GROMMET_CJS_DIR}index.cjs`,
   `/**\n * ${COPYRIGHT}\n */\n\n`,
 );
@@ -735,7 +878,7 @@ fs.appendFileSync(`${GROMMET_CJS_DIR}index.cjs`, grommetCjsOutput);
  * Create docs index.js
  * ----------------------------------- */
 const docsCollections = [];
-fs.appendFileSync(`${DOCS_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
+fs.writeFileSync(`${DOCS_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(DOCS_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -753,4 +896,12 @@ fs.readdirSync(DOCS_DIR)
     }
   });
 
-console.log('✅ Style system outputs have been generated.');
+fs.copyFileSync(`${TYPES_DIR}esm/index.d.ts`, `${ESM_DIR}index.d.ts`);
+fs.copyFileSync(
+  `${TYPES_DIR}grommet/index.d.ts`,
+  `${GROMMET_DIR}index.d.ts`,
+);
+
+if (!process.exitCode) {
+  console.log('✅ Style system outputs have been generated.');
+}

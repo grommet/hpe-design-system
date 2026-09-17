@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /**
  * Codemod for migrating t-shirt size props from v6 to v7
  * Usage: node node_modules/grommet-theme-hpe/codemod <transform> <path>

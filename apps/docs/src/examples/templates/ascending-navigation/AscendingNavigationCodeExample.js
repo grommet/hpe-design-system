@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Anchor, Button, PageHeader } from 'grommet';
 import { Left } from '@hpe-design/icons-grommet';

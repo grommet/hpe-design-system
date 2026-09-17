@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { ColumnSettingsExample } from 'apps/docs/src/examples/templates/table-customization/components/ColumnSettingsExample';
 import { TableCustomizationExample } from 'apps/docs/src/examples/templates/table-customization/components/TableCustomizationExample';

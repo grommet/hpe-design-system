@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -35,6 +37,7 @@ export const DocsLayout = ({
       )}
       <Box
         fill="horizontal"
+        style={{ overflowWrap: 'break-word' }}
       >
         <SkipLinkTarget id="main" label="Main content" />
         <ContentSection pad={{ top: 'none' }}>

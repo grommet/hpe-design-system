@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { ChangePasswordExample } from 'apps/docs/src/examples/templates/forms/ChangePasswordExample';
 import { CharacterCounterExample } from 'apps/docs/src/examples/templates/forms/CharacterCounterExample';

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Grid } from 'grommet';
 import { ContentArea } from '../../templates/page-layouts/anatomy/components';
 import { contentAreaProps as props } from './utils';

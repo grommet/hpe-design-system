@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { TextEmphasis } from '@shared/aries-core';
 import { Box, Meter, Stack } from 'grommet';
 

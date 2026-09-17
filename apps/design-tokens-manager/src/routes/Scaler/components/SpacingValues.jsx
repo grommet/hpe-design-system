@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { NameValuePair, NameValueList } from 'grommet';
 
 export const SpacingValues = ({ values, ...rest }) => {

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import del from 'del';
 import fs from 'fs-extra';
 import git from 'simple-git';
@@ -43,7 +45,11 @@ if (process.env.CI) {
       .then(() => git(localFolder).add(['--all', '.']))
       .then(() => git(localFolder).commit(`${BRANCH} updated`))
       .then(() => git(localFolder).push('origin', BRANCH))
-      .catch(err => console.error('failed: ', err));
+      .catch(err => {
+        console.error('failed: ', err);
+        // surface the failure so CI doesn't report success on a failed release
+        process.exitCode = 1;
+      });
   });
 } else {
   console.warn(

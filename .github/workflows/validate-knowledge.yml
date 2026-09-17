@@ -1,0 +1,50 @@
+name: Knowledge Validation
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-knowledge-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-knowledge-structure:
+    name: Validate knowledge structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+      - name: Validate knowledge structure
+        run: node scripts/validate-knowledge-structure.mjs
+      - name: Annotate validation failure
+        if: ${{ failure() }}
+        run: echo "::error title=Knowledge Structure Validation Failed::Run 'pnpm validate:knowledge-structure' locally for details."
+
+  validate-capability-manifests:
+    name: Validate capability manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Validate capability manifests
+        run: node scripts/validate-capability-manifests.mjs
+      - name: Annotate validation failure
+        if: ${{ failure() }}
+        run: echo "::error title=Capability Manifest Validation Failed::Run 'pnpm validate:capability-manifests' locally for details."

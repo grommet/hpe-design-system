@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable react/prop-types */
 import { Grid } from 'grommet';
 import { SectionCard } from './SectionCard';

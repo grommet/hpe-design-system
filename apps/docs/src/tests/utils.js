@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 /* eslint-disable no-await-in-loop */
 import { ClientFunction, Selector } from 'testcafe';
 import { ReactSelector } from 'testcafe-react-selectors';

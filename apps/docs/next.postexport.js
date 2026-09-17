@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 // Copies Netlify's _redirects file to NextJS's build directory ./out
 const fs = require('fs');
 
