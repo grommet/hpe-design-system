@@ -21,6 +21,14 @@ const useColorTokens = () => {
 const filterByPrefix = (tokens, prefix) =>
   tokens.filter(t => t.id.startsWith(prefix));
 
+const filterByPath = (tokens, path) =>
+  tokens.filter(token =>
+    path.every(
+      (segment, index) =>
+        segment === '*' || token.id.split('.')[index] === segment,
+    ),
+  );
+
 const pickTokens = (tokens, ids) => tokens.filter(t => ids.includes(t.id));
 
 const getLabel = token => token.token.split('hpe.color.')[1] || token.token;
@@ -143,56 +151,6 @@ export const BorderSwatch = () => {
   );
 };
 
-// TODO: Replace placeholder tokens with real accent color tokens
-// once they are live.
-const accentPlaceholderTokens = [
-  {
-    id: 'hpe.color.background.accent.blue.weak',
-    token: 'hpe.color.background.accent.blue.weak',
-    value: 'background-accent-blue-weak',
-  },
-  {
-    id: 'hpe.color.background.accent.blue.strong',
-    token: 'hpe.color.background.accent.blue.strong',
-    value: 'background-accent-blue-strong',
-  },
-  {
-    id: 'hpe.color.background.accent.purple.weak',
-    token: 'hpe.color.background.accent.purple.weak',
-    value: 'background-accent-purple-weak',
-  },
-  {
-    id: 'hpe.color.background.accent.purple.strong',
-    token: 'hpe.color.background.accent.purple.strong',
-    value: 'background-accent-purple-strong',
-  },
-  {
-    id: 'hpe.color.background.accent.cyan.weak',
-    token: 'hpe.color.background.accent.cyan.weak',
-    value: 'background-accent-cyan-weak',
-  },
-  {
-    id: 'hpe.color.background.accent.cyan.strong',
-    token: 'hpe.color.background.accent.cyan.strong',
-    value: 'background-accent-cyan-strong',
-  },
-  {
-    id: 'hpe.color.border.accent.blue.strong',
-    token: 'hpe.color.border.accent.blue.strong',
-    value: 'border-accent-blue-strong',
-  },
-  {
-    id: 'hpe.color.border.accent.cyan.strong',
-    token: 'hpe.color.border.accent.cyan.strong',
-    value: 'border-accent-cyan-strong',
-  },
-  {
-    id: 'hpe.color.border.accent.purple.strong',
-    token: 'hpe.color.border.accent.purple.strong',
-    value: 'border-accent-purple-strong',
-  },
-];
-
 export const AccentSwatch = () => (
   <TokenSwatchList
     background={t =>
@@ -202,7 +160,7 @@ export const AccentSwatch = () => (
       t.id.startsWith('hpe.color.border.') ? t.value : undefined
     }
     borderSize="small"
-    tokens={accentPlaceholderTokens}
+    tokens={filterByPath(useColorTokens(), ['hpe', 'color', '*', 'accent'])}
   />
 );
 
