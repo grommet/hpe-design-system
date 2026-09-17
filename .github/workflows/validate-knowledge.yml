@@ -48,3 +48,24 @@ jobs:
       - name: Annotate validation failure
         if: ${{ failure() }}
         run: echo "::error title=Capability Manifest Validation Failed::Run 'pnpm validate:capability-manifests' locally for details."
+
+  test-knowledge-agent:
+    name: Test knowledge agent
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run knowledge agent tests
+        run: pnpm --filter @hpe-design/knowledge-agent test
+      - name: Annotate test failure
+        if: ${{ failure() }}
+        run: echo "::error title=Knowledge Agent Tests Failed::Run 'pnpm --filter @hpe-design/knowledge-agent test' locally for details."

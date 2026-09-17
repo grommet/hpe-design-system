@@ -3,8 +3,10 @@
 import { describe, expect, it } from 'vitest';
 import { generateSystemPrompt } from './context-generator';
 
+const ansiPattern = new RegExp(`${String.fromCharCode(27)}\\[[0-9;]*m`, 'g');
+
 function stripAnsi(value: string): string {
-  return value.replace(/\u001B\[[0-9;]*m/g, '');
+  return value.replace(ansiPattern, '');
 }
 
 describe('knowledge-agent context generator', () => {
