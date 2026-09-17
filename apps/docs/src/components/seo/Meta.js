@@ -28,7 +28,6 @@ export const Meta = ({
   const trustarcFont = 'https://consent.trustarc.com/get';
   const trustarcFrame = 'https://consent-pref.trustarc.com/';
 
-   
   const csp = `default-src 'self' 'unsafe-eval';
   style-src 'self' *.hpe.com/hfws-static/6/css/
     *.hpe.com/hfws-static/6/min/css/ 'unsafe-inline';
@@ -50,7 +49,6 @@ export const Meta = ({
   font-src *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/ ${trustarcFont};
   frame-src ${trustarcFrame};
   object-src 'none';`;
-   
 
   /*
    * IMPORTANT: `<meta>` tags need to be contained as **direct** children of
