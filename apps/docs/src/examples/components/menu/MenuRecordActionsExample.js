@@ -73,6 +73,7 @@ export const MenuRecordActionsExample = () => {
                 </Box>
               </Box>
               <Menu
+                a11yTitle={`Open actions for ${datum.name}`}
                 icon={<More />}
                 open={index === 0}
                 items={[

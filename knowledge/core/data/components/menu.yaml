@@ -1,0 +1,349 @@
+id: menu
+name: Menu
+description: >-
+  Menu presents a set of related actions as a dropdown list triggered by a
+  button, enabling users to access contextual operations without cluttering
+  the interface.
+importPath: grommet
+props:
+  - name: a11yTitle
+    type: string
+    required: false
+    description: >-
+      Accessible title for the menu trigger button. Use for icon-only menus
+      that have no visible label to ensure screen reader users understand
+      the button's purpose. When provided, an aria-label is added
+      to the trigger button.
+  - name: alignSelf
+    type: "'start' | 'center' | 'end' | 'stretch' | 'baseline'"
+    required: false
+    description: >-
+      How to align along the cross axis when contained in a Box or along the
+      column axis when contained in a Grid.
+  - name: buttonProps
+    type: ButtonExtendedProps
+    required: false
+    description: >-
+      Grommet Button props forwarded to the menu trigger button, allowing the
+      trigger's appearance to be customized (e.g. kind, secondary, color).
+      Menu-controlled props such as icon, size, and the menu's accessibility
+      and open/close behavior take precedence and cannot be overridden.
+  - name: children
+    type: '((props: object) => React.ReactNode) | React.ReactNode'
+    required: false
+    description: >-
+      Custom trigger content. Can be a render function or a React node.
+      When using a function, it receives menu state props and should return
+      the visual representation.
+  - name: disabled
+    type: boolean
+    required: false
+    description: Disables the menu trigger button when true.
+    defaultValue: false
+  - name: dropAlign
+    type: >-
+      { top?: 'top' | 'bottom', bottom?: 'top' | 'bottom', left?: 'left' |
+      'right', right?: 'left' | 'right' }
+    required: false
+    description: Alignment of the dropdown relative to the trigger button.
+  - name: dropBackground
+    type: >-
+      string | { color?: string, opacity?: 'weak' | 'medium' | 'strong' |
+      boolean | number }
+    required: false
+    description: Background color or background config for the open dropdown.
+  - name: dropProps
+    type: object
+    required: false
+    description: Additional Drop props applied to the dropdown container.
+  - name: dropTarget
+    type: object
+    required: false
+    description: >-
+      React ref object used as the alignment target for the dropdown.
+  - name: gridArea
+    type: string
+    required: false
+    description: The name of the area to place this inside a parent Grid.
+  - name: icon
+    type: boolean | React.ReactNode
+    required: false
+    description: Icon shown on the right side of the menu trigger button.
+  - name: items
+    type: ButtonExtendedProps[] | ButtonExtendedProps[][]
+    required: true
+    description: >-
+      Array of menu items, or an array of arrays for grouped items. Each item
+      accepts Grommet ButtonExtendedProps (e.g. label, icon, onClick) plus the
+      Menu-specific close flag. When items is an array of arrays, dividers
+      automatically separate each group. Set close to false to keep the menu
+      open after clicking (defaults to true).
+  - name: justifyContent
+    type: "'start' | 'center' | 'end' | 'between' | 'around' | 'stretch'"
+    required: false
+    description: How to align trigger contents along the row axis.
+  - name: label
+    type: string | React.ReactNode
+    required: false
+    description: Label displayed on the menu trigger button.
+  - name: margin
+    type: string | object
+    required: false
+    description: The amount of margin around the component.
+  - name: messages
+    type: '{ openMenu?: string, closeMenu?: string }'
+    required: false
+    description: >-
+      Custom screen reader announcements for opening and closing the menu.
+      Defaults to "Open Menu" and "Close Menu".
+  - name: open
+    type: boolean
+    required: false
+    description: Whether the menu is open.
+  - name: size
+    type: "'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'"
+    required: false
+    description: Size of the menu trigger button.
+
+usage:
+  whenToUse:
+    - >-
+      Organizing application-level navigation or related user tasks into a
+      single accessible location within the application header.
+    - >-
+      Presenting batch actions for a selected set of data records in a
+      toolbar, alongside other controls such as filters and search.
+    - >-
+      Providing item-specific actions for an individual record within a list
+      or table row, especially when space is limited and actions are
+      recognized by icon.
+  whenToAvoid:
+    - >-
+      Do not use Menu to allow a user to select a value from a list; use
+      Select instead.
+    - >-
+      Do not use Menu for primary navigation; use Nav with Anchor components
+      instead.
+    - Do not nest menus within menus.
+
+variants:
+  - name: default
+    description: >-
+      Standard dropdown menu with a visible text label and an implicit
+      chevron indicator to communicate expand/collapse behavior.
+    when: >-
+      When space allows a descriptive label and the menu's purpose benefits
+      from a visible name, such as an "Actions" overflow menu in a page
+      header or user account menu.
+  - name: icon-only
+    description: >-
+      Compact menu with an icon-only trigger and no visible label. The icon
+      communicates the menu's purpose (e.g., ellipsis for overflow, gear
+      for settings).
+    when: >-
+      Space-constrained contexts such as table row actions, toolbars, or
+      card overflow menus where a recognized icon clearly communicates
+      intent. Always provide an accessible label via a11yTitle.
+  - name: toolbar
+    description: >-
+      Menu styled to integrate visually with a toolbar, using kind="toolbar"
+      to maintain visual alignment with adjacent controls.
+    when: >-
+      When presenting batch actions for a data collection within a toolbar
+      alongside filters, search, and other control elements.
+  - name: primary
+    description: >-
+      Menu trigger button styled as a primary button using kind="primary",
+      giving it the highest visual prominence on the page.
+    when: >-
+      When the menu is the primary call-to-action on a page and needs to
+      stand out from surrounding controls.
+  - name: secondary
+    description: >-
+      Menu trigger button styled as a secondary button using kind="secondary",
+      providing a prominent but subordinate alternative to a primary action.
+    when: >-
+      When the menu must be clearly differentiated from surrounding controls
+      but should not compete with a primary action.
+  - name: with-dividers
+    description: >-
+      Menu that groups related actions with dividers between them. Pass an
+      array of arrays to the items prop — each inner array is a group, and
+      a divider is automatically rendered between groups.
+    when: >-
+      When the menu contains multiple logical groupings of actions and
+      dividers help users scan and understand the available options.
+
+examples:
+  - description: Default menu with a text label and a list of actions.
+    path: apps/docs/src/examples/components/menu/MenuExample.js
+  - description: >-
+      Menu placed within an application header to organize navigation and
+      user tasks.
+    path: apps/docs/src/examples/components/menu/MenuHeaderExample.js
+  - description: >-
+      Toolbar-style menu presenting batch actions for a selected data set,
+      with actions grouped by category.
+    path: apps/docs/src/examples/components/menu/MenuBatchActionsExample.js
+  - description: >-
+      Icon-only menu providing item-specific actions for individual records
+      in a list.
+    path: apps/docs/src/examples/components/menu/MenuRecordActionsExample.js
+  - description: Default menu type showing a clear dropdown list of actions.
+    path: apps/docs/src/examples/components/menu/MenuDefaultExample.js
+  - description: Icon-only menu using a compact trigger for space-constrained layouts.
+    path: apps/docs/src/examples/components/menu/MenuIconExample.js
+  - description: Toolbar-style menu integrated visually alongside other toolbar controls.
+    path: apps/docs/src/examples/components/menu/MenuToolbarExample.js
+  - description: Menu showing correct use of dividers to group related actions.
+    path: apps/docs/src/examples/components/menu/MenuGroupingExample.js
+  - description: >-
+      Menu demonstrating proper handling of a dangerous destructive action
+      separated into its own group at the end.
+    path: apps/docs/src/examples/components/menu/MenuDangerousExample.js
+  - description: >-
+      Comparison of Menu versus Select to illustrate the correct component
+      choice when the user needs to select a value.
+    path: apps/docs/src/examples/components/menu/MenuSelectValueExample.js
+  - description: Menu with a disabled trigger button.
+    path: apps/docs/src/examples/components/menu/MenuDisabledExample.js
+  - description: >-
+      Menu illustrating recommended item-count limits for scannability and
+      cognitive ease.
+    path: apps/docs/src/examples/components/menu/MenuItemCountExample.js
+  - description: >-
+      Menu trigger styled as primary and secondary buttons to demonstrate
+      visual hierarchy options using kind="primary" and kind="secondary".
+    path: apps/docs/src/examples/components/menu/MenuKindExample.js
+  - description: >-
+      Menu using grouped items (array of arrays) to automatically render
+      dividers between related action groups.
+    path: apps/docs/src/examples/components/menu/MenuDividersExample.js
+
+anatomy:
+  - label: '1'
+    region: Menu button
+    purpose: Opens the menu when clicked.
+    availability: required
+    notes: Can include a label, icon, or both.
+  - label: 1a
+    region: Button label
+    purpose: Describes the menu's function or the category of actions.
+    availability: optional
+  - label: 1b
+    region: Button icon
+    purpose: Provides a visual cue that the menu can be opened or closed.
+    availability: optional
+    notes: >-
+      Typically an arrow or chevron to indicate expand/collapse. For
+      icon-only menus, the icon represents the menu's purpose or the type
+      of actions (e.g., settings gear, overflow dots).
+  - label: '2'
+    region: Drop container
+    purpose: Holds and displays the list of menu items when the menu is expanded.
+    availability: required
+  - label: '3'
+    region: Menu item
+    purpose: Represents an individual action within the menu.
+    availability: required
+    notes: Items should be organized logically (see Organizing menu items).
+  - label: 3a
+    region: Item label
+    purpose: Communicates the specific action to the user.
+    availability: required
+  - label: 3b
+    region: Item icon
+    purpose: Provides a quick visual reference for the action.
+    availability: optional
+  - label: '4'
+    region: Divider
+    purpose: Separates groups of related actions.
+    availability: optional
+
+behaviors:
+  interactiveStates:
+    - rest
+    - hover
+    - focus
+    - active
+  applicationStates:
+    - disabled
+
+contentGuidelines:
+  - >-
+    Give the menu a clear, descriptive title that conveys its purpose rather
+    than a generic label such as "Menu" (e.g., use "Account information" for
+    a menu containing actions like "Change username" or "Reset password").
+  - >-
+    Keep menu item labels short and action-oriented using simple, concise
+    wording (e.g., "Settings" or "Logout") so users immediately understand
+    the action that will be performed.
+
+dosAndDonts:
+  - do: Use Menu to display a list of actions the user can perform.
+    dont: >-
+      Do not use Menu to allow a user to select a value; use Select
+      instead.
+    reason: >-
+      Menu is designed for triggering actions, not choosing between values.
+      Select is the appropriate component for value selection.
+  - do: Use dividers to separate and communicate groupings of related actions.
+    dont: Do not use dividers as separators between every individual item.
+    reason: >-
+      Dividers communicate logical groupings. Overusing them reduces their
+      effectiveness and makes the menu harder to scan.
+  - do: >-
+      Separate dangerous or destructive actions into their own group at the
+      end of the menu and require double confirmation before executing.
+    dont: >-
+      Do not mix dangerous actions with other actions, and do not execute
+      destructive actions without a confirmation step.
+    reason: >-
+      Placing destructive actions last in a distinct location and requiring
+      confirmation prevents accidental data loss.
+  - do: >-
+      Keep the number of menu items to a minimum so users can easily
+      understand the full scope of available actions.
+    dont: Avoid adding too many options under one menu.
+    reason: >-
+      A concise menu improves scannability and reduces cognitive load. If
+      there are too many items, consider grouping or sub-navigation.
+
+accessibility:
+  wcagDataFile: menu
+  keyboard:
+    - key: Enter / Space
+      action: Opens or closes the menu.
+    - key: Escape
+      action: Closes the menu and returns focus to the trigger button.
+    - key: Arrow Down / Arrow Up
+      action: Moves focus between menu items when the menu is open.
+  aria:
+    - attribute: aria-haspopup
+      value: 'true'
+      condition: always
+    - attribute: aria-expanded
+      value: 'true | false'
+      condition: >-
+        Reflects whether the menu drop container is currently open or
+        closed.
+    - attribute: aria-label
+      value: descriptive string
+      condition: >-
+        When the trigger button uses an icon only with no visible label
+        text.
+  announcements:
+    - trigger: Menu opened
+      message: >-
+        "Open Menu" by default, or the custom string provided via the
+        a11yTitle or messages.openMenu prop.
+    - trigger: Menu closed
+      message: >-
+        "Close Menu" by default, or the custom string provided via the
+        a11yTitle or messages.closeMenu prop.
+
+relatedComponents:
+  - header
+  - select
+  - button
+  - nav
