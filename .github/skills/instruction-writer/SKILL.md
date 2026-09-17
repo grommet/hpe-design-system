@@ -1,6 +1,7 @@
 ---
 name: instruction-writer
 description: "Guide users through creating high-quality .instructions.md files with clear scope, applyTo patterns, actionable rules, and related references."
+version: 1.0.0
 ---
 
 # Professional Instruction Writer
