@@ -17,9 +17,9 @@ catalog:
   eslint-plugin-react-refresh: ^0.5.2
   eslint-plugin-react: ^7.37.5
   globals: ^17.4.0
-  grommet: ^2.55.0
+  grommet: ^2.57.0
   grommet-icons: ^4.14.0
-  grommet-theme-hpe: ^8.1.4
+  grommet-theme-hpe: ^8.2.0
   hpe-design-tokens: ^2.2.3
   prettier: ^3.8.1
   prop-types: ^15.8.1

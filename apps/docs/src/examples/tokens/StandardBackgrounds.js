@@ -48,11 +48,10 @@ export const StandardBackgrounds = () => {
         </Box>
       </ContentPane>
       <ContentPane background="background-contrast" gap="xsmall">
-        {/* placeholder colors — replace with tokens when available */}
         <Box
           pad="xsmall"
           round="medium"
-          background="#dbeafe"
+          background="background-accent-blue-weak"
           width="xlarge"
         >
           <Text>color.background.accent.blue.weak</Text>
@@ -60,7 +59,7 @@ export const StandardBackgrounds = () => {
         <Box
           pad="xsmall"
           round="medium"
-          background="#ede9fe"
+          background="background-accent-purple-weak"
           width="xlarge"
         >
           <Text>color.background.accent.purple.weak</Text>
@@ -68,7 +67,7 @@ export const StandardBackgrounds = () => {
         <Box
           pad="xsmall"
           round="medium"
-          background="#cffafe"
+          background="background-accent-cyan-weak"
           width="xlarge"
         >
           <Text>color.background.accent.cyan.weak</Text>
