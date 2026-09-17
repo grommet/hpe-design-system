@@ -3,6 +3,29 @@
 import { generateSystemPrompt } from './context-generator.js';
 import type { FrameworkTarget } from './types.js';
 
+const color = {
+  bold: '\u001B[1m',
+  cyan: '\u001B[36m',
+  red: '\u001B[31m',
+  reset: '\u001B[0m',
+};
+
+const allowedFrameworks: FrameworkTarget[] = [
+  'react',
+  'vue',
+  'angular',
+  'web-components',
+  'agnostic',
+];
+
+function highlight(value: string): string {
+  return `${color.cyan}${value}${color.reset}`;
+}
+
+function printParseError(message: string): void {
+  console.error(`${color.red}${color.bold}Error:${color.reset} ${message}`);
+}
+
 function printUsage(): void {
   console.log(`
 HPE Design System Context Generator
@@ -37,28 +60,33 @@ function parseArgs(args: string[]): {
       help = true;
     } else if (arg === '--framework' || arg === '-f') {
       const next = args[i + 1];
-      const allowed: FrameworkTarget[] = [
-        'react',
-        'vue',
-        'angular',
-        'web-components',
-        'agnostic',
-      ];
 
       if (!next || next.startsWith('-')) {
-        console.error('Missing value for --framework');
+        printParseError(`Missing value for ${highlight(arg)}`);
         printUsage();
         process.exit(1);
       }
 
-      if (!allowed.includes(next as FrameworkTarget)) {
-        console.error(`Unknown framework target: ${next}`);
+      if (!allowedFrameworks.includes(next as FrameworkTarget)) {
+        const expectedFrameworks = allowedFrameworks.map(highlight).join(', ');
+
+        printParseError(
+          `Unknown framework target: ${highlight(
+            next,
+          )}. Expected one of: ${expectedFrameworks}`,
+        );
         printUsage();
         process.exit(1);
       }
 
       framework = next as FrameworkTarget;
       i += 1;
+    } else if (arg === '--') {
+      // Ignore argument separators passed through by package managers.
+    } else if (arg.startsWith('-')) {
+      printParseError(`Unknown option: ${highlight(arg)}`);
+      printUsage();
+      process.exit(1);
     } else {
       positional.push(arg);
     }

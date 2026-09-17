@@ -3,6 +3,10 @@
 import { describe, expect, it } from 'vitest';
 import { generateSystemPrompt } from './context-generator';
 
+function stripAnsi(value: string): string {
+  return value.replace(/\u001B\[[0-9;]*m/g, '');
+}
+
 describe('knowledge-agent context generator', () => {
   it('surfaces a login form pattern for authentication queries', () => {
     const prompt = generateSystemPrompt('Build a login form');
@@ -20,9 +24,12 @@ describe('knowledge-agent context generator', () => {
 
   it('marks non-react targets as conceptual-only guidance', () => {
     const prompt = generateSystemPrompt('Build a login form', 'vue');
+    const plainPrompt = stripAnsi(prompt);
 
-    expect(prompt).toContain('conceptual guidance');
-    expect(prompt).toContain('not yet fully validated for this target');
+    expect(prompt).toContain('\u001B[');
+    expect(plainPrompt).toContain('Requested framework: vue');
+    expect(plainPrompt).toContain('conceptual guidance');
+    expect(plainPrompt).toContain('not yet fully validated for this target');
     expect(prompt).not.toContain('Import: grommet');
     expect(prompt).not.toContain('```tsx');
   });

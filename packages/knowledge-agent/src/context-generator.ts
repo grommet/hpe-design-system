@@ -21,6 +21,21 @@ const INSTRUCTION_DIRECTORIES = [
   path.join(REPO_ROOT, '.github', 'instructions'),
 ];
 
+const font = {
+  bold: '\u001B[1m',
+  cyan: '\u001B[36m',
+  reset: '\u001B[0m',
+  yellow: '\u001B[33m',
+};
+
+function highlight(value: string): string {
+  return `${font.cyan}${value}${font.reset}`;
+}
+
+function warning(value: string): string {
+  return `${font.yellow}${font.bold}${value}${font.reset}`;
+}
+
 interface InstructionFile {
   name: string;
   path: string;
@@ -42,6 +57,21 @@ function loadDesignSystem(): DesignSystemSchema {
     components: loadComponents(),
     patterns: loadPatterns(),
   };
+}
+
+function formatTargetValidationNotice(
+  targetFramework: FrameworkTarget,
+): string {
+  return [
+    `${font.bold}Requested framework:${font.reset} ${highlight(
+      targetFramework,
+    )}.`,
+    `This response is ${highlight('conceptual guidance')} derived from the`,
+    'current React/Grommet design-system source of truth and is',
+    `${warning('not yet fully validated for this target')}.`,
+    'Framework-specific imports, template code, and implementation details',
+    'may require adaptation before use.',
+  ].join(' ');
 }
 
 function loadInstructionFiles(): InstructionFile[] {
@@ -292,7 +322,7 @@ export function generateSystemPrompt(
   prompt += `Here are the relevant design system definitions based on the user's query: "${userQuery}"\n\n`;
 
   if (targetFramework !== 'react') {
-    prompt += `Requested framework: ${targetFramework}. This response is conceptual guidance derived from the current React/Grommet design-system source of truth and is not yet fully validated for this target. Framework-specific imports, template code, and implementation details may require adaptation before use.\n\n`;
+    prompt += `${formatTargetValidationNotice(targetFramework)}\n\n`;
   }
 
   if (relevantComponents.length === 0 && relevantPatterns.length === 0) {
