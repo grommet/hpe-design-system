@@ -15,10 +15,9 @@ export const AvatarAccessibilityExample = () => {
           size="large"
           a11yTitle="Avatar containing initial letters
           J and S when clicked an alert will pop up"
-          // TODO: Consider a different background here
-          background="decorative-green"
+          background="background-accent-blue-strong"
         >
-          <Text size="large" color="text-strong">JS</Text>
+          <Text size="large" color="text-onStrong">JS</Text>
         </Avatar>
       </Button>
     </Box>
