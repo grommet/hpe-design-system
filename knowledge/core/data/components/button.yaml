@@ -31,19 +31,19 @@ props:
     required: false
     description: Click handler function
   - name: type
-    type: '''button'' | ''submit'' | ''reset'''
+    type: "'button' | 'submit' | 'reset'"
     required: false
     description: HTML button type
-    defaultValue: '''button'''
+    defaultValue: "'button'"
   - name: kind
-    type: '''default'' | ''toolbar'''
+    type: "'default' | 'toolbar'"
     required: false
     description: Visual treatment context — 'toolbar' reduces padding and blends with toolbar backgrounds
   - name: size
-    type: '''small'' | ''medium'' | ''large'''
+    type: "'small' | 'medium' | 'large'"
     required: false
     description: Controls label font size and padding scale
-    defaultValue: '''medium'''
+    defaultValue: "'medium'"
   - name: busy
     type: boolean
     required: false

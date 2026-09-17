@@ -2,12 +2,13 @@ id: login-form
 name: Login Form
 description: Standard authentication form with email and password fields.
 problem: User needs to authenticate to access the application.
-solution: Use a Card with CardHeader, CardBody, and CardFooter. Use Form with FormField
+solution:
+  Use a Card with CardHeader, CardBody, and CardFooter. Use Form with FormField
   components for input fields and validation. Use a primary Button for submission.
 relatedComponents:
-- card
-- text-input
-- button
+  - card
+  - text-input
+  - button
 templateCodeFile: knowledge/core/data/examples/login-form/template.tsx
 
 graph:
@@ -17,8 +18,8 @@ graph:
       componentId: card
       role: login card
       props:
-        background: "background-front"
-        width: "medium"
+        background: 'background-front'
+        width: 'medium'
       children: [card-header, card-body]
       binding: static
 
@@ -26,7 +27,7 @@ graph:
       componentId: card
       role: card header
       props:
-        pad: "medium"
+        pad: 'medium'
       children: [heading-login]
       binding: static
       notes: CardHeader sub-region of Card; maps to componentId card with role disambiguation.
@@ -36,8 +37,8 @@ graph:
       role: login heading
       props:
         level: 3
-        margin: "none"
-        content: "Login"
+        margin: 'none'
+        content: 'Login'
       children: []
       binding: static
 
@@ -45,7 +46,7 @@ graph:
       componentId: card
       role: card body
       props:
-        pad: "medium"
+        pad: 'medium'
       children: [form-login]
       binding: static
       notes: CardBody sub-region of Card.
@@ -62,8 +63,8 @@ graph:
       componentId: form-field
       role: email field
       props:
-        label: "Email"
-        name: "email"
+        label: 'Email'
+        name: 'email'
         required: true
       children: [input-email]
       binding: static
@@ -72,8 +73,8 @@ graph:
       componentId: text-input
       role: email input
       props:
-        type: "email"
-        placeholder: "user@example.com"
+        type: 'email'
+        placeholder: 'user@example.com'
       children: []
       binding: static
 
@@ -81,8 +82,8 @@ graph:
       componentId: form-field
       role: password field
       props:
-        label: "Password"
-        name: "password"
+        label: 'Password'
+        name: 'password'
         required: true
       children: [input-password]
       binding: static
@@ -91,7 +92,7 @@ graph:
       componentId: text-input
       role: password input
       props:
-        type: "password"
+        type: 'password'
       children: []
       binding: static
 
@@ -99,9 +100,9 @@ graph:
       componentId: button
       role: submit button
       props:
-        type: "submit"
-        label: "Log In"
+        type: 'submit'
+        label: 'Log In'
         primary: true
-        fill: "horizontal"
+        fill: 'horizontal'
       children: []
       binding: static

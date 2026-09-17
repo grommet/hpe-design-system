@@ -1,9 +1,11 @@
 id: navigation-menu
 name: Navigation Menu
-description: Collapsible sidebar navigation with hierarchical items, group headings,
+description:
+  Collapsible sidebar navigation with hierarchical items, group headings,
   active state tracking, keyboard navigation, and mobile Layer fallback. Composed
   entirely from Grommet primitives (Nav, List, Button, Collapsible, Layer).
-problem: Need a sidebar navigation that supports multi-level hierarchies, collapsible
+problem:
+  Need a sidebar navigation that supports multi-level hierarchies, collapsible
   parent items, non-interactive group headings, active state highlighting, keyboard
   accessibility, and a mobile-friendly drawer variant.
 solution: >
@@ -18,86 +20,94 @@ solution: >
   at background-primary-strong - sits inside the inner row as the primary active cue.
   See examples/NavigationMenu/ for the full production reference implementation.
 relatedComponents:
-- nav
-- list
-- button
-- box
-- text
+  - nav
+  - list
+  - button
+  - box
+  - text
 referenceImplementation: examples/NavigationMenu/
 usage:
   whenToUse:
-  - Use Nav as the semantic root element; set role="menubar" on the root list and
-    role="menu" on each recursive nested list.
-  - Use role="menuitem" on each NavItem Button.
-  - Use plain Buttons for all interactive nav items to ensure keyboard accessibility.
-  - Use Collapsible to animate the expand/collapse of child item lists.
-  - Auto-expand ancestor items whose descendants match activeItem (parentsToExpand
-    via useMemo + useEffect).
-  - >-
-    Use a two-layer ItemContainer for active state - outer Box with
-    background-active (persistent fill while item is the active route); inner
-    Box with background-hover overlaid on hover (applies even when the item is
-    active).
-  - Place an ActiveMarker (4px vertical bar, fill vertical, pad-left 4px,
-    round, background-primary-strong / background-primary-strong-hover) inside the
-    inner row as the primary active cue.
-  - Clone the icon element with React.cloneElement to pass the same color prop as
-    the label (text-strong on hover/focus/active, text otherwise).
-  - Use text-strong color on hover, focus, or active items.
-  - Call AnnounceContext announce("Selected X.", "assertive", 2000) on item selection.
-  - Apply background='background-front' to the nav sidebar container.
-  - Use a Layer on xsmall breakpoints to present the nav as a mobile drawer.
-  - Use type='group' on non-interactive items to render section headings that visually
-    separate navigation areas.
-  - Apply aria-current='page' on the active leaf item for screen reader support.
-  - Apply aria-haspopup and aria-expanded on expandable parent items.
-  - Apply aria-labelledby={parentItemId} on each nested NavList.
-  - Call event.preventDefault() in onSelect when using a client-side router.
-  - Use assignUniqueIds to auto-generate stable hierarchical IDs from item labels
-    when the consumer does not provide id fields.
+    - Use Nav as the semantic root element; set role="menubar" on the root list and
+      role="menu" on each recursive nested list.
+    - Use role="menuitem" on each NavItem Button.
+    - Use plain Buttons for all interactive nav items to ensure keyboard accessibility.
+    - Use Collapsible to animate the expand/collapse of child item lists.
+    - Auto-expand ancestor items whose descendants match activeItem (parentsToExpand
+      via useMemo + useEffect).
+    - >-
+      Use a two-layer ItemContainer for active state - outer Box with
+      background-active (persistent fill while item is the active route); inner
+      Box with background-hover overlaid on hover (applies even when the item is
+      active).
+    - Place an ActiveMarker (4px vertical bar, fill vertical, pad-left 4px,
+      round, background-primary-strong / background-primary-strong-hover) inside the
+      inner row as the primary active cue.
+    - Clone the icon element with React.cloneElement to pass the same color prop as
+      the label (text-strong on hover/focus/active, text otherwise).
+    - Use text-strong color on hover, focus, or active items.
+    - Call AnnounceContext announce("Selected X.", "assertive", 2000) on item selection.
+    - Apply background='background-front' to the nav sidebar container.
+    - Use a Layer on xsmall breakpoints to present the nav as a mobile drawer.
+    - Use type='group' on non-interactive items to render section headings that visually
+      separate navigation areas.
+    - Apply aria-current='page' on the active leaf item for screen reader support.
+    - Apply aria-haspopup and aria-expanded on expandable parent items.
+    - Apply aria-labelledby={parentItemId} on each nested NavList.
+    - Call event.preventDefault() in onSelect when using a client-side router.
+    - Use assignUniqueIds to auto-generate stable hierarchical IDs from item labels
+      when the consumer does not provide id fields.
   whenToAvoid:
-  - Do not use div or ul elements — use Nav and List from Grommet.
-  - Do not use background-active alone without the ActiveMarker bar — the outer
-    background-active fill and the inner ActiveMarker bar are both required; neither
-    substitutes for the other.
-  - Do not hardcode colors for hover states — use the background-hover token.
-  - Do not omit role="menubar" / role="menu" / role="menuitem" — without these, the
-    nav tree is not semantically recognizable to assistive technologies.
-  - Do not nest navigation deeper than 2 levels.
-  - Do not use anchor tags for items handled by a client-side router — use Button
-    and handle navigation in onSelect.
-  - Do not forget to close the mobile Layer after selection on leaf items.
-  - Do not skip AnnounceContext — screen readers need the assertive announcement
-    on item selection.
+    - Do not use div or ul elements — use Nav and List from Grommet.
+    - Do not use background-active alone without the ActiveMarker bar — the outer
+      background-active fill and the inner ActiveMarker bar are both required; neither
+      substitutes for the other.
+    - Do not hardcode colors for hover states — use the background-hover token.
+    - Do not omit role="menubar" / role="menu" / role="menuitem" — without these, the
+      nav tree is not semantically recognizable to assistive technologies.
+    - Do not nest navigation deeper than 2 levels.
+    - Do not use anchor tags for items handled by a client-side router — use Button
+      and handle navigation in onSelect.
+    - Do not forget to close the mobile Layer after selection on leaf items.
+    - Do not skip AnnounceContext — screen readers need the assertive announcement
+      on item selection.
 navItemType:
   description: Shape of each navigation item passed to NavigationMenu.
-  definition: 'type NavItemType = { id?: string; label: string; url?: string; icon?:
-    React.ReactNode; children?: NavItemType[]; type?: ''group'' | ''item''; };'
+  definition:
+    "type NavItemType = { id?: string; label: string; url?: string; icon?:
+    React.ReactNode; children?: NavItemType[]; type?: 'group' | 'item'; };"
 props:
   items: NavItemType[] — required. The array of navigation items to render.
   open: 'boolean — whether the navigation sidebar is expanded (default: true).'
   title: string — title displayed in the navigation header.
-  activeItem: string — label of the currently active item. Drives active styling and
+  activeItem:
+    string — label of the currently active item. Drives active styling and
     auto-expansion of parent items.
-  onSelect: ({ item, event }) => void — called when a user selects an item. Use event.preventDefault()
+  onSelect:
+    ({ item, event }) => void — called when a user selects an item. Use event.preventDefault()
     to handle client-side routing.
-  header: React.ReactNode — optional custom header content replacing the default title
+  header:
+    React.ReactNode — optional custom header content replacing the default title
     and collapse toggle.
 examples:
-- description: Basic flat navigation
-  codeFile: knowledge/core/data/examples/navigation-menu/basic-flat-navigation.tsx
-- description: Hierarchical navigation with expandable parent items. Parent items
-    auto-expand when a child matches activeItem.
-  codeFile: knowledge/core/data/examples/navigation-menu/hierarchical-navigation-with-expandable-parent-items-parent-items-auto-expand-when-a-child-matches-activeitem.tsx
-- description: 'Grouped navigation using type: ''group'' for non-interactive section
-    headings'
-  codeFile: knowledge/core/data/examples/navigation-menu/grouped-navigation-using-type-group-for-non-interactive-section-headings.tsx
-- description: 'Mobile-responsive: render NavigationMenu inside a Layer on the xsmall
-    breakpoint'
-  codeFile: knowledge/core/data/examples/navigation-menu/mobile-responsive-render-navigationmenu-inside-a-layer-on-the-xsmall-breakpoint.tsx
-- description: Client-side routing with React Router — call event.preventDefault()
-    in onSelect to avoid full page reloads
-  codeFile: knowledge/core/data/examples/navigation-menu/client-side-routing-with-react-router-call-event-preventdefault-in-onselect-to-avoid-full-page-reloads.tsx
+  - description: Basic flat navigation
+    codeFile: knowledge/core/data/examples/navigation-menu/basic-flat-navigation.tsx
+  - description:
+      Hierarchical navigation with expandable parent items. Parent items
+      auto-expand when a child matches activeItem.
+    codeFile: knowledge/core/data/examples/navigation-menu/hierarchical-navigation-with-expandable-parent-items-parent-items-auto-expand-when-a-child-matches-activeitem.tsx
+  - description:
+      "Grouped navigation using type: 'group' for non-interactive section
+      headings"
+    codeFile: knowledge/core/data/examples/navigation-menu/grouped-navigation-using-type-group-for-non-interactive-section-headings.tsx
+  - description:
+      'Mobile-responsive: render NavigationMenu inside a Layer on the xsmall
+      breakpoint'
+    codeFile: knowledge/core/data/examples/navigation-menu/mobile-responsive-render-navigationmenu-inside-a-layer-on-the-xsmall-breakpoint.tsx
+  - description:
+      Client-side routing with React Router — call event.preventDefault()
+      in onSelect to avoid full page reloads
+    codeFile: knowledge/core/data/examples/navigation-menu/client-side-routing-with-react-router-call-event-preventdefault-in-onselect-to-avoid-full-page-reloads.tsx
 anatomy:
   - label: nav container
     region: outer wrapper (NavContainer)
@@ -123,10 +133,10 @@ graph:
       componentId: box
       role: nav sidebar container (NavContainer)
       props:
-        background: "background-front"
-        overflow: "auto"
-        pad: {horizontal: "xsmall", bottom: "3xsmall"}
-        width: "small"
+        background: 'background-front'
+        overflow: 'auto'
+        pad: { horizontal: 'xsmall', bottom: '3xsmall' }
+        width: 'small'
       children: [slot-nav-header, nav-root]
       binding: context
       notes: >
@@ -148,8 +158,8 @@ graph:
       componentId: nav
       role: navigation list root (NavList)
       props:
-        role: "menubar"
-        gap: "3xsmall"
+        role: 'menubar'
+        gap: '3xsmall'
       children: [item-group, item-parent, item-leaf]
       binding: state
       notes: >
@@ -176,9 +186,9 @@ graph:
       componentId: text
       role: group section heading
       props:
-        weight: "bold"
-        marginVertical: "xsmall"
-        marginHorizontal: "small"
+        weight: 'bold'
+        marginVertical: 'xsmall'
+        marginHorizontal: 'small'
       children: []
       binding: static
 
@@ -206,7 +216,7 @@ graph:
       role: expand/collapse toggle
       props:
         plain: true
-        fill: "horizontal"
+        fill: 'horizontal'
       children: [box-btn-inner]
       binding: state
       notes: >
@@ -218,11 +228,11 @@ graph:
       componentId: box
       role: button label layout
       props:
-        direction: "row"
-        justify: "between"
-        align: "center"
-        padVertical: "3xsmall"
-        padHorizontal: "small"
+        direction: 'row'
+        justify: 'between'
+        align: 'center'
+        padVertical: '3xsmall'
+        padHorizontal: 'small'
       children: [box-icon-label, slot-chevron]
       binding: static
 
@@ -230,9 +240,9 @@ graph:
       componentId: box
       role: icon and label row
       props:
-        direction: "row"
-        gap: "xsmall"
-        align: "center"
+        direction: 'row'
+        gap: 'xsmall'
+        align: 'center'
       children: [slot-item-icon, text-item-label]
       binding: static
 
@@ -274,7 +284,7 @@ graph:
       componentId: box
       role: child items indent
       props:
-        padLeft: "medium"
+        padLeft: 'medium'
       children: [slot-child-items]
       binding: static
 
@@ -292,7 +302,7 @@ graph:
       role: leaf nav item
       props:
         plain: true
-        fill: "horizontal"
+        fill: 'horizontal'
       children: [box-leaf-outer]
       binding: slot
       notes: >
@@ -304,8 +314,8 @@ graph:
       componentId: box
       role: leaf item outer container (ItemContainer outer layer)
       props:
-        direction: "row"
-        round: "small"
+        direction: 'row'
+        round: 'small'
       children: [box-leaf-inner]
       binding: state
       notes: >
@@ -317,13 +327,13 @@ graph:
       componentId: box
       role: leaf item inner layout (ItemContainer inner layer)
       props:
-        direction: "row"
-        align: "center"
-        gap: "3xsmall"
-        padVertical: "3xsmall"
-        padLeft: "3xsmall"
-        padRight: "xxsmall"
-        round: "small"
+        direction: 'row'
+        align: 'center'
+        gap: '3xsmall'
+        padVertical: '3xsmall'
+        padLeft: '3xsmall'
+        padRight: 'xxsmall'
+        round: 'small'
         responsive: false
         flex: true
       children: [box-active-marker, slot-leaf-icon, text-leaf-label]
@@ -340,9 +350,9 @@ graph:
       componentId: box
       role: active state marker (ActiveMarker)
       props:
-        fill: "vertical"
+        fill: 'vertical'
         round: true
-        padLeft: "4px"
+        padLeft: '4px'
       children: []
       binding: state
       notes: >

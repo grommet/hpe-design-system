@@ -1,12 +1,14 @@
 id: application-shell
 name: Application Shell
 aliases:
-- app shell
-- sidebar layout
-- navigation shell
-description: Full-page application layout with navigation, header, main content area,
+  - app shell
+  - sidebar layout
+  - navigation shell
+description:
+  Full-page application layout with navigation, header, main content area,
   and optional context pane. Responsive design with mobile-first approach.
-problem: Need a consistent application structure that works across all screen sizes
+problem:
+  Need a consistent application structure that works across all screen sizes
   with navigation, header utilities, and contextual panels.
 solution: Use Grid with named areas for layout structure. Place a NavigationMenu
   pattern in the nav sidebar slot — do not build ad-hoc Anchor-based navigation.
@@ -14,38 +16,38 @@ solution: Use Grid with named areas for layout structure. Place a NavigationMenu
   context controls. Main content area uses rounded corners. Optional context pane
   slides in from the right for help, user preferences, or AI assistance.
 relatedComponents:
-- grid
-- box
-- heading
-- button
-- nav
+  - grid
+  - box
+  - heading
+  - button
+  - nav
 relatedPatterns:
-- navigation-menu
+  - navigation-menu
 usage:
   whenToUse:
-  - Use the NavigationMenu pattern for the nav sidebar slot — do not build ad-hoc
-    Anchor-based navigation.
-  - Use Grid with named areas for predictable responsive behavior.
-  - 'Use semantic HTML elements: aside for navigation, Header for app header, Main
-    for content.'
-  - Use ResponsiveContext to adapt layout for mobile breakpoints.
-  - Use background='background-front' for navigation and context panes, background='background-back'
-    for main content.
-  - Round the top corners of Main content for visual polish.
-  - Implement navigation as a Layer on mobile with proper focus management.
-  - Use context pane for non-modal, secondary content like help or settings.
+    - Use the NavigationMenu pattern for the nav sidebar slot — do not build ad-hoc
+      Anchor-based navigation.
+    - Use Grid with named areas for predictable responsive behavior.
+    - 'Use semantic HTML elements: aside for navigation, Header for app header, Main
+      for content.'
+    - Use ResponsiveContext to adapt layout for mobile breakpoints.
+    - Use background='background-front' for navigation and context panes, background='background-back'
+      for main content.
+    - Round the top corners of Main content for visual polish.
+    - Implement navigation as a Layer on mobile with proper focus management.
+    - Use context pane for non-modal, secondary content like help or settings.
   whenToAvoid:
-  - Do not use fixed widths for navigation - use 'auto' to allow natural sizing.
-  - Do not render navigation and context pane simultaneously on mobile.
-  - Avoid complex nested Grid layouts - keep the shell simple.
-  - Do not forget focus management when opening/closing Layers and context panes.
+    - Do not use fixed widths for navigation - use 'auto' to allow natural sizing.
+    - Do not render navigation and context pane simultaneously on mobile.
+    - Avoid complex nested Grid layouts - keep the shell simple.
+    - Do not forget focus management when opening/closing Layers and context panes.
 examples:
-- description: Complete Application Shell with Navigation
-  codeFile: knowledge/core/data/examples/application-shell/complete-application-shell-with-navigation.tsx
-- description: Mobile-Responsive Navigation with Layer
-  codeFile: knowledge/core/data/examples/application-shell/mobile-responsive-navigation-with-layer.tsx
-- description: Context Pane with Help/Settings
-  codeFile: knowledge/core/data/examples/application-shell/context-pane-with-help-settings.tsx
+  - description: Complete Application Shell with Navigation
+    codeFile: knowledge/core/data/examples/application-shell/complete-application-shell-with-navigation.tsx
+  - description: Mobile-Responsive Navigation with Layer
+    codeFile: knowledge/core/data/examples/application-shell/mobile-responsive-navigation-with-layer.tsx
+  - description: Context Pane with Help/Settings
+    codeFile: knowledge/core/data/examples/application-shell/context-pane-with-help-settings.tsx
 templateCodeFile: knowledge/core/data/examples/application-shell/template.tsx
 
 # Adjacency list — agent-traversable counterpart to templateCode.
@@ -58,12 +60,13 @@ graph:
       componentId: grid
       role: application shell grid
       props:
-        columns: ["auto", "flex", "auto"]
-        rows: ["auto", "flex"]
-        height: "100%"
+        columns: ['auto', 'flex', 'auto']
+        rows: ['auto', 'flex']
+        height: '100%'
         areas:
-          default: [["nav","header","header"],["nav","main","context-pane"]]
-          small: [["nav","header","header"],["main","main","context-pane"]]
+          default:
+            [['nav', 'header', 'header'], ['nav', 'main', 'context-pane']]
+          small: [['nav', 'header', 'header'], ['main', 'main', 'context-pane']]
       children: [box-nav, header, main, box-context-pane]
       binding: context
       notes: >
@@ -76,9 +79,9 @@ graph:
       componentId: box
       role: navigation sidebar
       props:
-        gridArea: "nav"
-        as: "aside"
-        background: "background-front"
+        gridArea: 'nav'
+        as: 'aside'
+        background: 'background-front'
       children: [slot-nav-menu]
       binding: static
 
@@ -97,10 +100,10 @@ graph:
       componentId: header
       role: application header
       props:
-        gridArea: "header"
-        heightMin: "5xsmall"
-        padHorizontal: "medium"
-        padVertical: "3xsmall"
+        gridArea: 'header'
+        heightMin: '5xsmall'
+        padHorizontal: 'medium'
+        padVertical: '3xsmall'
       children: [btn-brand, slot-header-controls]
       binding: static
 
@@ -116,8 +119,8 @@ graph:
       componentId: text
       role: brand label
       props:
-        content: "HPE Design System"
-        boldPrefix: "HPE"
+        content: 'HPE Design System'
+        boldPrefix: 'HPE'
       children: []
       binding: static
 
@@ -137,10 +140,10 @@ graph:
       componentId: main
       role: main content area
       props:
-        gridArea: "main"
-        background: "background-back"
-        roundCorner: "top"
-        roundSize: "small"
+        gridArea: 'main'
+        background: 'background-back'
+        roundCorner: 'top'
+        roundSize: 'small'
       children: [slot-main-content]
       binding: static
       notes: >
@@ -160,10 +163,10 @@ graph:
       componentId: box
       role: context pane
       props:
-        gridArea: "context-pane"
-        as: "aside"
-        background: "background-front"
-        widthMin: "small"
+        gridArea: 'context-pane'
+        as: 'aside'
+        background: 'background-front'
+        widthMin: 'small'
       children: [slot-context-content]
       binding: state
       notes: >

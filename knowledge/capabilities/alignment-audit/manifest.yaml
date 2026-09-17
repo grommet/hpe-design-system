@@ -9,7 +9,7 @@ spec:
   summary: Audit consumer apps, components, docs, and design-system usage against repo guidance, schema expectations, and the canonical knowledge data.
   entrypoint:
     agent: alignment-audit-orchestrator
-    args: "<scope>"
+    args: '<scope>'
   dependencies:
     data:
       - path: knowledge/core/data/components

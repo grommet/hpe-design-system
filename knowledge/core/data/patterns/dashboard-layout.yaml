@@ -1,52 +1,55 @@
 id: dashboard-layout
 name: Dashboard Layout
 aliases:
-- dashboard
-- metrics dashboard
-- status dashboard
-- metric cards
-description: Responsive dashboard with metric cards, status indicators, and activity
+  - dashboard
+  - metrics dashboard
+  - status dashboard
+  - metric cards
+description:
+  Responsive dashboard with metric cards, status indicators, and activity
   feed. Grid-based layout that adapts to screen size.
-problem: Need to display key metrics and system status in an at-a-glance dashboard
+problem:
+  Need to display key metrics and system status in an at-a-glance dashboard
   format with visual indicators.
-solution: Wrap content in Page (pad bottom="3xlarge") with PageContent (gap="medium")
+solution:
+  Wrap content in Page (pad bottom="3xlarge") with PageContent (gap="medium")
   for consistent page structure and spacing. Use Grid columns="small" for metric cards
   so Grommet auto-fits columns without a fixed count, wrapping naturally at any breakpoint.
   Each card uses Meter for visual status. Pair with an activity feed Card section.
   Use semantic color tokens (status-ok, status-warning, status-critical) for status communication.
 relatedComponents:
-- page
-- page-content
-- page-header
-- grid
-- card
-- meter
-- heading
-- text
-- box
+  - page
+  - page-content
+  - page-header
+  - grid
+  - card
+  - meter
+  - heading
+  - text
+  - box
 relatedPatterns:
-- status-indicator
+  - status-indicator
 usage:
   whenToUse:
-  - Wrap the dashboard in Page with bottom pad of 3xlarge to prevent content clipping on mobile.
-  - Use PageContent with gap medium as the smart-default section spacing container.
-  - Use PageHeader for the page title and subtitle — do not build a custom Box+Heading header.
-  - Use Grid columns small for metric cards — Grommet auto-fits columns at any viewport.
-  - Use gap small on the metric Grid and gap medium on PageContent for consistent visual rhythm.
-  - Use Meter for visual progress and status indicators inside metric cards.
-  - Use semantic status color tokens (status-ok, status-warning, status-critical).
-  - Keep metric cards consistent in height and structure within the same dashboard.
-  - Use CardHeader for section titles in activity feed cards.
+    - Wrap the dashboard in Page with bottom pad of 3xlarge to prevent content clipping on mobile.
+    - Use PageContent with gap medium as the smart-default section spacing container.
+    - Use PageHeader for the page title and subtitle — do not build a custom Box+Heading header.
+    - Use Grid columns small for metric cards — Grommet auto-fits columns at any viewport.
+    - Use gap small on the metric Grid and gap medium on PageContent for consistent visual rhythm.
+    - Use Meter for visual progress and status indicators inside metric cards.
+    - Use semantic status color tokens (status-ok, status-warning, status-critical).
+    - Keep metric cards consistent in height and structure within the same dashboard.
+    - Use CardHeader for section titles in activity feed cards.
   whenToAvoid:
-  - Do not use fixed column counts without responsive considerations.
-  - Do not hardcode status colors - use semantic tokens.
-  - Avoid cluttering cards with too much information.
-  - Do not use different card styles for metrics in the same dashboard.
+    - Do not use fixed column counts without responsive considerations.
+    - Do not hardcode status colors - use semantic tokens.
+    - Avoid cluttering cards with too much information.
+    - Do not use different card styles for metrics in the same dashboard.
 examples:
-- description: Responsive Metric Cards Grid
-  codeFile: knowledge/core/data/examples/dashboard-layout/responsive-metric-cards-grid.tsx
-- description: Activity Feed Card
-  codeFile: knowledge/core/data/examples/dashboard-layout/activity-feed-card.tsx
+  - description: Responsive Metric Cards Grid
+    codeFile: knowledge/core/data/examples/dashboard-layout/responsive-metric-cards-grid.tsx
+  - description: Activity Feed Card
+    codeFile: knowledge/core/data/examples/dashboard-layout/activity-feed-card.tsx
 templateCodeFile: knowledge/core/data/examples/dashboard-layout/template.tsx
 
 graph:
@@ -56,7 +59,7 @@ graph:
       componentId: page
       role: dashboard page
       props:
-        pad: {bottom: "3xlarge"}
+        pad: { bottom: '3xlarge' }
       children: [page-content]
       binding: static
       notes: >
@@ -67,7 +70,7 @@ graph:
       componentId: page-content
       role: page content area
       props:
-        gap: "medium"
+        gap: 'medium'
       children: [page-header, grid-metrics, card-activity-feed]
       binding: static
       notes: >
@@ -79,8 +82,8 @@ graph:
       componentId: page-header
       role: dashboard page header
       props:
-        title: "Dashboard"
-        subtitle: "Monitor key metrics and system health"
+        title: 'Dashboard'
+        subtitle: 'Monitor key metrics and system health'
       children: []
       binding: static
       notes: title and subtitle are consumer-provided data bindings.
@@ -89,8 +92,8 @@ graph:
       componentId: grid
       role: metrics grid
       props:
-        columns: "small"
-        gap: "small"
+        columns: 'small'
+        gap: 'small'
       children: [card-metric]
       binding: static
       notes: >
@@ -103,8 +106,8 @@ graph:
       componentId: card
       role: metric card
       props:
-        background: "background-front"
-        pad: "medium"
+        background: 'background-front'
+        pad: 'medium'
       children: [card-body-metric]
       binding: slot
       notes: Repeated once per metric. Each instance receives title, value, icon, and status props.
@@ -121,10 +124,10 @@ graph:
       componentId: box
       role: metric icon and label row
       props:
-        direction: "row"
-        align: "center"
-        gap: "small"
-        marginBottom: "small"
+        direction: 'row'
+        align: 'center'
+        gap: 'small'
+        marginBottom: 'small'
       children: [slot-icon, text-label]
       binding: static
 
@@ -143,8 +146,8 @@ graph:
       componentId: text
       role: metric label
       props:
-        size: "small"
-        color: "text-weak"
+        size: 'small'
+        color: 'text-weak'
       children: []
       binding: static
 
@@ -153,7 +156,7 @@ graph:
       role: metric value
       props:
         level: 2
-        margin: "none"
+        margin: 'none'
       children: []
       binding: state
       notes: Value is data-driven (e.g. "1,247", "67%", "0.3%").
@@ -162,7 +165,7 @@ graph:
       componentId: box
       role: meter container
       props:
-        marginTop: "small"
+        marginTop: 'small'
       children: [meter-status]
       binding: static
 
@@ -170,8 +173,8 @@ graph:
       componentId: meter
       role: status meter
       props:
-        type: "bar"
-        size: "small"
+        type: 'bar'
+        size: 'small'
       children: []
       binding: state
       notes: >
@@ -184,7 +187,7 @@ graph:
       componentId: card
       role: activity feed card
       props:
-        background: "background-front"
+        background: 'background-front'
       children: [card-header-activity, card-body-activity]
       binding: static
 
@@ -192,7 +195,7 @@ graph:
       componentId: card
       role: activity feed header
       props:
-        pad: "medium"
+        pad: 'medium'
       children: [heading-activity]
       binding: static
       notes: Maps to CardHeader; componentId card with role disambiguation.
@@ -202,7 +205,7 @@ graph:
       role: activity feed title
       props:
         level: 3
-        margin: "none"
+        margin: 'none'
       children: []
       binding: static
 
@@ -210,7 +213,7 @@ graph:
       componentId: card
       role: activity feed body
       props:
-        pad: {horizontal: "medium", bottom: "medium"}
+        pad: { horizontal: 'medium', bottom: 'medium' }
       children: [box-activity-list]
       binding: static
       notes: Maps to CardBody.
@@ -219,7 +222,7 @@ graph:
       componentId: box
       role: activity list container
       props:
-        gap: "small"
+        gap: 'small'
       children: [box-activity-row]
       binding: static
 
@@ -227,11 +230,11 @@ graph:
       componentId: box
       role: activity row
       props:
-        direction: "row"
-        gap: "small"
-        align: "center"
-        pad: {vertical: "xsmall"}
-        border: {side: "bottom", color: "border-weak"}
+        direction: 'row'
+        gap: 'small'
+        align: 'center'
+        pad: { vertical: 'xsmall' }
+        border: { side: 'bottom', color: 'border-weak' }
       children: [slot-activity-status, box-activity-message, text-activity-time]
       binding: slot
       notes: Repeated once per activity entry. Bottom border omitted on the last row.
@@ -260,7 +263,7 @@ graph:
       componentId: text
       role: activity message text
       props:
-        size: "small"
+        size: 'small'
       children: []
       binding: state
 
@@ -268,7 +271,7 @@ graph:
       componentId: text
       role: activity timestamp
       props:
-        size: "xsmall"
-        color: "text-weak"
+        size: 'xsmall'
+        color: 'text-weak'
       children: []
       binding: state

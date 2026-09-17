@@ -133,7 +133,7 @@ graph:
       componentId: data-table
       role: data table
       props:
-        columns: ["name", "email", "role", "status"]
+        columns: ['name', 'email', 'role', 'status']
         sortable: true
         pin: true
       children: []
