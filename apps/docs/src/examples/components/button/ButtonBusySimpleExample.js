@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
-import { Box, Button, Form, FormField, TextInput } from 'grommet';
-import { ButtonGroup } from '@shared/aries-core';
+import React, { useContext, useState } from 'react';
+import {
+  Box,
+  Button,
+  Form,
+  FormField,
+  ResponsiveContext,
+  TextInput,
+} from 'grommet';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const ButtonBusySimpleExample = () => {
   const [busy, setBusy] = useState(false);
   const [success, setSuccess] = useState(false);
+  const size = useContext(ResponsiveContext);
 
   const handleSubmit = () => {
     if (busy || success) return;
@@ -19,47 +27,46 @@ export const ButtonBusySimpleExample = () => {
   };
 
   return (
-    <Box align="center" fill justify="center">
-      <Box
-        background="background-front"
-        pad="medium"
-        round="small"
-        width="medium"
-      >
-        <Form onSubmit={handleSubmit}>
-          <FormField
-            htmlFor="fullName"
-            label="Full name"
-            name="fullName"
-            required
-          >
-            <TextInput
-              id="fullName"
+    <ContentPane width="medium">
+      <Form onSubmit={handleSubmit}>
+        <Box gap="small">
+          <Box>
+            <FormField
+              htmlFor="fullName"
+              label="Full name"
               name="fullName"
-              placeholder="Your full name"
-            />
-          </FormField>
-          <FormField
-            htmlFor="email"
-            label="Email address"
-            name="email"
-            required
-          >
-            <TextInput
-              id="email"
+              required
+            >
+              <TextInput
+                id="fullName"
+                name="fullName"
+                placeholder="Your full name"
+              />
+            </FormField>
+            <FormField
+              htmlFor="email"
+              label="Email address"
               name="email"
-              placeholder="you@example.com"
-              type="email"
-            />
-          </FormField>
-          <FormField htmlFor="jobTitle" label="Job title" name="jobTitle">
-            <TextInput
-              id="jobTitle"
-              name="jobTitle"
-              placeholder="e.g. Platform engineer"
-            />
-          </FormField>
-          <ButtonGroup pad={{ top: 'medium' }}>
+              required
+            >
+              <TextInput
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                type="email"
+              />
+            </FormField>
+            <FormField htmlFor="jobTitle" label="Job title" name="jobTitle">
+              <TextInput
+                id="jobTitle"
+                name="jobTitle"
+                placeholder="e.g. Platform engineer"
+              />
+            </FormField>
+          </Box>
+          <Box
+            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
+          >
             <Button
               busy={busy}
               label="Save profile"
@@ -67,9 +74,9 @@ export const ButtonBusySimpleExample = () => {
               success={success}
               type="submit"
             />
-          </ButtonGroup>
-        </Form>
-      </Box>
-    </Box>
+          </Box>
+        </Box>
+      </Form>
+    </ContentPane>
   );
 };
