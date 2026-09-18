@@ -12,6 +12,7 @@ import {
   Form,
   FormField,
   Heading,
+  ResponsiveContext,
   Select,
   Toolbar,
   TextInput,
@@ -105,6 +106,8 @@ const defaultFormValues = {
 const CreateDeviceForm = ({ onClose, ...rest }) => {
   const [formValue, setFormValue] = useState(defaultFormValues);
   const { setShowLayer, setTouched } = useConfirmation();
+  const size = useContext(ResponsiveContext);
+  const mobileLayout = ['xsmall', 'small', 'medium'].includes(size);
 
   // setTouched to false when form dismounts
   useEffect(() => () => setTouched(false), [setTouched]);
@@ -167,7 +170,7 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
             />
           </FormField>
         </Box>
-        <ButtonGroup>
+        <ButtonGroup direction={mobileLayout ? 'column' : 'row'}>
           <Button label="Create device" primary type="submit" />
           <Button label="Cancel" onClick={onClose} />
         </ButtonGroup>
