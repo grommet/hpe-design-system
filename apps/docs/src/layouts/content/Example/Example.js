@@ -196,7 +196,7 @@ export const Example = ({
     <ExampleContainer
       as="section"
       {...containerProps}
-      background={!plain ? 'background-back' : undefined}
+      background={!plain ? background || 'background-surface-base' : undefined}
       // using "border" treatement to create separation from page background
       // a rare case when border is used to define page sections
       border={
@@ -231,7 +231,7 @@ export const Example = ({
           value={{
             ...(scaledTheme || theme),
             /* prevent theme from overriding the desired background color */
-            background: 'background-front',
+            background: 'background-surface-tone-1',
           }}
         >
           <ResponsiveContext.Provider value={viewPort}>
@@ -313,7 +313,7 @@ export const Example = ({
           }}
         >
           <Layer full>
-            <Box fill background="background-back">
+            <Box fill background="background-surface-base">
               <Box
                 direction="row"
                 justify={
@@ -322,7 +322,7 @@ export const Example = ({
                     : 'end'
                 }
                 pad="5xsmall"
-                background="#111"
+                background="background-surface-tone-1"
               >
                 {(template || screenContainer || showResponsiveControls) && (
                   <ResponsiveControls
