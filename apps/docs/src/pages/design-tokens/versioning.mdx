@@ -25,6 +25,16 @@ import { Example } from '../../layouts';
 
 ## Production-ready versions
 
+### ^3.0.0
+
+This release introduces the Landmark surface system: a structural model for backgrounds built on four design tokens: `background.surface.base`, `background.surface.tone.1`, `background.surface.tone.2`, and `background.surface.floating`.
+
+The token changes are additive. No existing token values change, and legacy tokens remain available alongside the new ones. What changes is the appearance: v3 ships a white page with toned containers, where the legacy model encoded a grey page with white cards. This is a significant change to the look and feel of HPE's brand, which is signalled by a major version.
+
+For Grommet applications, v3 is available in `grommet-theme-hpe` v9.x.
+
+To learn the model, see [understanding surfaces](./understanding-surfaces). To apply it, see [designing with surfaces](./designing-with-surfaces).
+
 ### ^2.0.0
 
 This release, referred to as "v2-Landmark," provides production-ready support for HPE's refreshed visual identity (October 2025 - present). It introduces the new Landmark color palette and the HPE Graphik font face to align with the updated brand expression.
@@ -63,6 +73,34 @@ In the [HPE Design System Figma Component Library](https://www.figma.com/design/
 />
 
 ## Migration
+
+### Migrating from v2 to v3
+
+v3 introduces the Landmark surface system. Because the token changes are additive and the legacy tokens continue to resolve to their current values, nothing in your product changes on upgrade. Adoption is opt-in and can happen incrementally.
+
+When you migrate, map legacy tokens onto new ones **by role, not by value**. The table below shows the mapping. Colors will change, so treat that as intended. Migrating by value preserves today's appearance but assigns the wrong roles, and your product won't pick up future theme changes correctly.
+
+| Legacy token | Replacement | Value relationship | Disposition |
+| --- | --- | --- | --- |
+| `background.back` | `background.surface.base` | Changes: grey-50 to white-100 | Deprecated in v3, frozen at its current value |
+| `background.front` | `background.surface.tone.1` | Changes: white-100 to grey-50 | Deprecated in v3, frozen at its current value |
+| `background.floating` | `background.surface.floating` | Identical | Deprecated in v3, aliased to its replacement |
+| `background.default` | Audit per usage: `background.surface.base` or `background.surface.tone.1` | Depends on the usage | Not deprecated in this release |
+| `background.contrast` | No replacement | Unchanged | Retained. Not a surface |
+
+`background.back` and `background.front` are frozen at their current literal values rather than aliased to their replacements, so that upgrading does not silently flip every unmigrated page from grey to white. `background.floating` is aliased to `background.surface.floating`, because the values are identical at launch and remain so by construction.
+
+`background.default` is not deprecated in this release and has no removal date, because it was used for two different roles and each use needs a per-use judgement. `background.contrast` is retained unchanged; it is not a surface.
+
+Migration is not a colour swap. A design built on the previous convention will contain containers that existed only to lift content off a grey page, and those should be reevaluated.
+
+#### Deprecation schedule
+
+| Token | Values frozen | Deprecation | Removed |
+| --- | --- | --- | --- |
+| `background.back` | v3 | v3.x | Possibly v4 |
+| `background.front` | v3 | v3.x | Possibly v4 |
+| `background.floating` | v3 | v3.x | Possibly v4 |
 
 ### Migrating from v1 to v2
 
