@@ -39,7 +39,10 @@ export const Container = ({
       justify="center"
       margin={showResponsiveControls ? { top: '3xsmall' } : undefined}
       pad={
-        pad || (template ? { horizontal: 'xlarge', top: 'xlarge' } : 'xlarge')
+        pad ||
+        (template
+          ? { horizontal: 'medium', top: 'medium' }
+          : { horizontal: 'small', top: 'small' })
       }
       round={
         !horizontalLayout &&

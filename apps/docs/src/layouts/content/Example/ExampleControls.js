@@ -26,16 +26,16 @@ export const ExampleControls = ({
   const boxProps = !horizontalLayout
     ? {
         background: 'background-surface-tone-1',
-        border: [
-          {
-            side: 'vertical',
-            color: 'border-weak',
-          },
-          {
-            side: 'bottom',
-            color: 'border-weak',
-          },
-        ],
+        // border: [
+        //   {
+        //     side: 'vertical',
+        //     color: 'border-weak',
+        //   },
+        //   {
+        //     side: 'bottom',
+        //     color: 'border-weak',
+        //   },
+        // ],
         pad: { horizontal: 'medium', vertical: 'xsmall' },
       }
     : {

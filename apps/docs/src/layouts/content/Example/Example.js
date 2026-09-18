@@ -196,28 +196,35 @@ export const Example = ({
     <ExampleContainer
       as="section"
       {...containerProps}
-      background={!plain ? background || 'background-surface-base' : undefined}
+      background={!plain ? 'background-surface-tone-1' : undefined}
       // using "border" treatement to create separation from page background
       // a rare case when border is used to define page sections
-      border={
-        // eslint-disable-next-line no-nested-ternary
-        plain
-          ? undefined
-          : exampleControls && !horizontalLayout
-          ? [
-              {
-                side: 'top',
-                color: 'border-weak',
-              },
-              {
-                side: 'vertical',
-                color: 'border-weak',
-              },
-            ]
-          : { color: 'border-weak' }
-      }
+      // border={
+      //   // eslint-disable-next-line no-nested-ternary
+      //   plain
+      //     ? undefined
+      //     : exampleControls && !horizontalLayout
+      //     ? [
+      //         {
+      //           side: 'top',
+      //           color: 'border-weak',
+      //         },
+      //         {
+      //           side: 'vertical',
+      //           color: 'border-weak',
+      //         },
+      //       ]
+      //     : { color: 'border-weak' }
+      // }
     >
-      <ExampleWrapper
+      <Box
+        background="background-surface-tone-2"
+        fill
+        pad="small"
+        justify="center"
+        round="small"
+      >
+        <ExampleWrapper
         background={
           (ExampleWrapper === ResponsiveContainer || screen) && background
             ? background
@@ -231,7 +238,7 @@ export const Example = ({
           value={{
             ...(scaledTheme || theme),
             /* prevent theme from overriding the desired background color */
-            background: 'background-surface-tone-1',
+            background: 'background-surface-tone-2',
           }}
         >
           <ResponsiveContext.Provider value={viewPort}>
@@ -242,6 +249,7 @@ export const Example = ({
           </ResponsiveContext.Provider>
         </ThemeContext.Extend>
       </ExampleWrapper>
+      </Box>
     </ExampleContainer>
   );
 

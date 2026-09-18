@@ -107,7 +107,13 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <NavProvider>
-          <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
+          <Grid 
+            areas={gridAreas}
+            columns={gridColumns}
+            rows={gridRows} 
+            pad={isMobile ? 'none' : 'xsmall'}
+            gap={isMobile ? 'none' : 'xsmall'}
+            >
             {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
@@ -126,6 +132,7 @@ export const Layout = ({
               height={isMobile ? undefined : '100vh'}
               fill={isMobile}
               overflow="auto"
+              round="large"
               style={
                 isMobile
                   ? undefined
