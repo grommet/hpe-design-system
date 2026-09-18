@@ -107,7 +107,13 @@ export const Layout = ({
           <PageBackground backgroundImage={backgroundImage} />
         )}
         <NavProvider>
-          <Grid areas={gridAreas} columns={gridColumns} rows={gridRows}>
+          <Grid 
+            areas={gridAreas}
+            columns={gridColumns}
+            rows={gridRows} 
+            pad={isMobile ? 'none' : 'xsmall'}
+            gap={isMobile ? 'none' : { column: 'small', row: 'none' }}
+            >
             {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
               to have the same background as the hero. */}
@@ -122,10 +128,11 @@ export const Layout = ({
               gridArea="nav"
               as="aside"
               aria-label="Site navigation"
-              background="background-front"
+              background="background-surface-tone-1"
               height={isMobile ? undefined : '100vh'}
               fill={isMobile}
               overflow="auto"
+              round="large"
               style={
                 isMobile
                   ? undefined

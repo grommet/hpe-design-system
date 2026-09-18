@@ -30,7 +30,7 @@ export const UsageExample = ({
       <Box background={colors.background[themeMode]}>
         <Box
           direction="row"
-          background={colors['background-front']}
+          background={colors['background-surface-tone-1']}
           pad={['xsmall', 'small'].includes(size) ? pad.small : pad}
           {...rest}
         >
