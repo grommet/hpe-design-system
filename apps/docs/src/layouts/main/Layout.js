@@ -112,7 +112,7 @@ export const Layout = ({
             columns={gridColumns}
             rows={gridRows} 
             pad={isMobile ? 'none' : 'xsmall'}
-            gap={isMobile ? 'none' : 'xsmall'}
+            gap={isMobile ? 'none' : { column: 'small', row: 'none' }}
             >
             {/* Only render Header for non-home pages.
               Homepage header is rendered in index.js
