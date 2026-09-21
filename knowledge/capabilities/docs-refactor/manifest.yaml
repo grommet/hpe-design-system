@@ -9,7 +9,7 @@ spec:
   summary: Refactor component documentation from legacy MDX to YAML-driven standardized MDX.
   entrypoint:
     agent: docs-refactor-orchestrator
-    args: "<component-name>"
+    args: '<component-name>'
   dependencies:
     data:
       - path: knowledge/core/data/types.ts
@@ -45,15 +45,15 @@ spec:
       - docs/execution.skill.md
   stages:
     - id: extracted
-      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
+      when: 'exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx.bak)'
     - id: generated
-      when: "exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx) && exists(apps/docs/src/pages/components/[component].mdx.bak)"
+      when: 'exists(knowledge/core/data/components/[component].yaml) && exists(apps/docs/src/pages/components/[component].mdx) && exists(apps/docs/src/pages/components/[component].mdx.bak)'
     - id: todos-created
-      when: "exists(apps/docs/todos/TODO-[component].md)"
+      when: 'exists(apps/docs/todos/TODO-[component].md)'
     - id: reviewed
-      when: "exists(apps/docs/src/pages/components/[component].mdx) && !exists(apps/docs/src/pages/components/[component].mdx.bak) && !matches(file_content, /TODO.*example/i)"
+      when: 'exists(apps/docs/src/pages/components/[component].mdx) && !exists(apps/docs/src/pages/components/[component].mdx.bak) && !matches(file_content, /TODO.*example/i)'
     - id: rendered
-      when: "last_build_success() && !exists(console_errors)"
+      when: 'last_build_success() && !exists(console_errors)'
     - id: complete
       when: "exists(knowledge/capabilities/docs-refactor/plan.md) && match_entry(plan.md, /.*\\[[xX]\\].*\\[component\\].*/) "
   x-extensions:

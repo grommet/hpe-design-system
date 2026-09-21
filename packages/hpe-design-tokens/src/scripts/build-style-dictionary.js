@@ -28,6 +28,7 @@ const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
 const DOCS_METADATA_DIR = `${DOCS_DIR}metadata/`;
+const TYPES_DIR = 'src/types/';
 const PREFIX = 'hpe';
 /**
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
@@ -139,6 +140,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building primitive tokens:', e);
+  process.exitCode = 1;
 }
 
 const filterGlobal = token =>
@@ -243,6 +245,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building global tokens:', e);
+  process.exitCode = 1;
 }
 
 /** -----------------------------------
@@ -406,9 +409,10 @@ const writeSemanticColorMetadataArtifacts = files => {
 try {
   writeSemanticColorMetadataArtifacts(colorModeFiles);
 
-  colorModeFiles.forEach(async file => {
+  await colorModeFiles.reduce(async (previousBuild, file) => {
+    await previousBuild;
     const [theme, mode] = getThemeAndMode(file);
-    extendedDictionary = await HPEStyleDictionary.extend({
+    const colorDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
         file,
@@ -510,10 +514,11 @@ try {
         },
       },
     });
-    await extendedDictionary.buildAllPlatforms();
-  });
+    await colorDictionary.buildAllPlatforms();
+  }, Promise.resolve());
 } catch (e) {
   console.error('🛑 Error building color tokens:', e);
+  throw e;
 }
 
 /** -----------------------------------
@@ -529,10 +534,11 @@ const dimensionFiles = fs
   .filter(file => file);
 
 try {
-  dimensionFiles.forEach(async file => {
+  await dimensionFiles.reduce(async (previousBuild, file) => {
+    await previousBuild;
     const [theme, mode] = getThemeAndMode(file);
     const modeSuffix = theme ? `${theme}-${mode}` : mode;
-    extendedDictionary = await HPEStyleDictionary.extend({
+    const dimensionDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
         `${TOKENS_DIR}/semantic/color.light.json`,
@@ -636,10 +642,11 @@ try {
       },
     });
 
-    await extendedDictionary.buildAllPlatforms();
-  });
+    await dimensionDictionary.buildAllPlatforms();
+  }, Promise.resolve());
 } catch (e) {
   console.error('🛑 Error building dimension tokens:', e);
+  throw e;
 }
 
 const filterComponent = token =>
@@ -751,6 +758,7 @@ try {
   await extendedDictionary.buildAllPlatforms();
 } catch (e) {
   console.error('🛑 Error building component tokens:', e);
+  process.exitCode = 1;
 }
 
 /** -----------------------------------
@@ -877,4 +885,12 @@ fs.readdirSync(DOCS_DIR)
     }
   });
 
-console.log('✅ Style system outputs have been generated.');
+fs.copyFileSync(`${TYPES_DIR}esm/index.d.ts`, `${ESM_DIR}index.d.ts`);
+fs.copyFileSync(
+  `${TYPES_DIR}grommet/index.d.ts`,
+  `${GROMMET_DIR}index.d.ts`,
+);
+
+if (!process.exitCode) {
+  console.log('✅ Style system outputs have been generated.');
+}

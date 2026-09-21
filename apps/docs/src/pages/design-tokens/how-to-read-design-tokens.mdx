@@ -29,6 +29,8 @@ These are all of the possible parts of a token name, but each [type of design to
 | **prefix**    | Provides top-level encapsulation of a particular flavor of HPE theme. The prefix helps to avoid collisions and improve developer experience when scanning styles to identify those belonging to HPE Design Tokens. | hpe                                            | --                                                                                                                                                           |
 | **level**     | Identifies if a token is from the “base” (primitive) level of the tokens hierarchy.                                                                                                                                | base                                           | Primitive tokens point directly to raw values and should not be used directly by developers/designers.                                                       |
 | **type**      | The category of a token.                                                                                                                                                                                           | color, dimension, spacing, radius              | --                                                                                                                                                           |
+| **target**    | Where a color is applied.                                                                                                                                                                                          | background, border, text, icon, foreground     | Semantic color tokens only.                                                                                                                                  |
+| **role**      | The semantic meaning of a color.                                                                                                                                                                                    | primary, critical, selected.primary           | Some roles have two parts: a family followed by a name. |
 | **component** | A specific component (such as button) or a family of related components (such as input).                                                                                                                           | anchor, button, formField, menu                | For multi-word names, use camelCase.                                                                                                                         |
 | **variant**   | A stylistic variant of a token.                                                                                                                                                                                    | secondary, primary, critical, warning          | --                                                                                                                                                           |
 | **size**      | The t-shirt size of the component family or individual component.                                                                                                                                                  | small, medium, large                           | --                                                                                                                                                           |
@@ -58,32 +60,40 @@ Each type of token uses a subset of the overall convention. To learn about types
 
 Semantic tokens represent global patterns.
 
+Semantic color tokens name the **target** (the part of an element being styled)
+and the **role** (its semantic meaning), followed by optional **scale** and **state**.
+
+Most roles are a single name, such as `primary` or `critical`. Some roles have
+two parts: a **family** followed by a name, such as `accent.blue` or
+`selected.primary`.
+
 <Example height="auto">
   <TokenHighlight
-    highlight={[
-      'prefix',
-      'type',
-      'subtype',
-      'variant',
-      'element',
-      'scale',
-      'state',
-    ]}
+    highlight={['prefix', 'type', 'target', 'role', 'scale', 'state']}
   />
 </Example>
 
-| prefix | type      | subtype    | variant | scale  | state | Token                                     |
-| ------ | --------- | ---------- | ------- | ------ | ----- | ----------------------------------------- |
-| hpe    | color     | --         | primary | strong | --    | hpe.color.primary.strong                  |
-| hpe    | spacing   | --         | --      | large  | --    | hpe.spacing.large                         |
-| hpe    | color     | background | primary | strong | hover | hpe.color.background.primary.strong.hover |
-| hpe    | radius    | --         | --      | large  | --    | hpe.radius.large                          |
-| hpe    | text      | --         | --      | xlarge | --    | hpe.text.xlarge                           |
-| hpe    | fontStack | --         | primary | --     | --    | hpe.fontStack.primary                     |
+| prefix | type      | target     | role             | scale  | state | Token                                     |
+| ------ | --------- | ---------- | ---------------- | ------ | ----- | ----------------------------------------- |
+| hpe    | color     | background | primary          | strong | hover | hpe.color.background.primary.strong.hover |
+| hpe    | color     | background | accent.blue      | --     | --    | hpe.color.background.accent.blue          |
+| hpe    | color     | background | selected.primary | --     | --    | hpe.color.background.selected.primary     |
+| hpe    | color     | background | accent.blue      | weak   | --    | hpe.color.background.accent.blue.weak     |
+| hpe    | color     | text       | placeholder      | --     | --    | hpe.color.text.placeholder                |
+| hpe    | spacing   | --         | --               | large  | --    | hpe.spacing.large                         |
+| hpe    | radius    | --         | --               | large  | --    | hpe.radius.large                          |
+| hpe    | text      | --         | --               | xlarge | --    | hpe.text.xlarge                           |
+| hpe    | fontStack | --         | primary          | --     | --    | hpe.fontStack.primary                     |
+
+Only `type` is required. `target`, `role`, `scale` and `state` are each
+optional, as the non-color rows above show.
 
 ### Component
 
 Component tokens represent tokens for specific components and should not be used to style a different component.
+
+Component tokens use `variant` where semantic tokens use `role`. These are
+separate schemas and the terms are not interchangeable.
 
 <Example height="auto">
   <TokenHighlight

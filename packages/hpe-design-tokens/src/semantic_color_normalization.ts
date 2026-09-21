@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import {
-  SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
+  SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY,
   SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET,
   SEMANTIC_COLOR_NORMALIZATION_SEGMENTS,
   SEMANTIC_COLOR_SCALES,
@@ -20,13 +20,13 @@ export const SEMANTIC_COLOR_IMPORT_EXCEPTION_SECTIONS = [
   'color/focus',
 ] as const;
 
-const semanticInteractions = SEMANTIC_COLOR_STATES.filter(
+const semanticInteractiveStates = SEMANTIC_COLOR_STATES.filter(
   state => state !== 'REST',
 );
-const semanticProminences = SEMANTIC_COLOR_SCALES;
+const semanticScales = SEMANTIC_COLOR_SCALES;
 
-const semanticInteractionSet = new Set<string>(semanticInteractions);
-const semanticProminenceSet = new Set<string>(semanticProminences);
+const semanticInteractiveStateSet = new Set<string>(semanticInteractiveStates);
+const semanticScaleSet = new Set<string>(semanticScales);
 
 export const normalizationSegmentSet = new Set<string>(
   SEMANTIC_COLOR_NORMALIZATION_SEGMENTS,
@@ -75,8 +75,8 @@ export function expandCompactRoleSegment(
   const lastPart = partTokens[partTokens.length - 1];
 
   if (!knownFamily) {
-    const roleNamesByFamily = SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
-      target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+    const roleNamesByFamily = SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY[
+      target as keyof typeof SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY
     ] as Record<string, readonly string[]> | undefined;
     const compactFamily = firstPart;
     const compactRoleName = partTokens.slice(1).join('-');
@@ -87,13 +87,9 @@ export function expandCompactRoleSegment(
     }
   }
 
-  const interactionCandidate = lastPart;
-  const hasInteraction = isCanonicalState(
-    interactionCandidate as SemanticColorState,
-  );
-  const scaleIndex = hasInteraction
-    ? partTokens.length - 2
-    : partTokens.length - 1;
+  const stateCandidate = lastPart;
+  const hasState = isCanonicalState(stateCandidate as SemanticColorState);
+  const scaleIndex = hasState ? partTokens.length - 2 : partTokens.length - 1;
   const scaleCandidate = partTokens[scaleIndex];
   const normalizedScale = scaleCandidate?.toLowerCase();
   const hasScale =
@@ -101,12 +97,12 @@ export function expandCompactRoleSegment(
     (isCanonicalScale(normalizedScale as SemanticColorScale) ||
       scaleCandidate === 'DEFAULT');
 
-  if (!hasScale && !hasInteraction) {
+  if (!hasScale && !hasState) {
     return [segment];
   }
 
   let roleNameEndIndex = scaleIndex;
-  if (hasInteraction && !hasScale) {
+  if (hasState && !hasScale) {
     roleNameEndIndex = partTokens.length - 1;
   }
   const roleNameParts = partTokens.slice(0, roleNameEndIndex);
@@ -118,8 +114,8 @@ export function expandCompactRoleSegment(
   if (hasScale) {
     expanded.push(scaleCandidate);
   }
-  if (hasInteraction) {
-    expanded.push(interactionCandidate);
+  if (hasState) {
+    expanded.push(stateCandidate);
   }
 
   return expanded;
@@ -153,8 +149,8 @@ export function colorNameToHierarchyPartsCore(
     return parts;
   }
 
-  const roleNamesByFamily = SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
-    target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+  const roleNamesByFamily = SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY[
+    target as keyof typeof SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY
   ] as Record<string, readonly string[]> | undefined;
 
   if (roleNamesByFamily?.[role]) {
@@ -165,7 +161,7 @@ export function colorNameToHierarchyPartsCore(
     }
 
     const expanded = expandCompactRoleSegment(
-      target as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
+      target as keyof typeof SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY,
       tail,
       role,
     );
@@ -193,13 +189,13 @@ export function normalizeColorVariableNameFromFigmaCore(
     )
   ) {
     if (
-      !semanticInteractionSet.has(temp[temp.length - 1]) ||
+      !semanticInteractiveStateSet.has(temp[temp.length - 1]) ||
       temp.join('/') === 'color/focus'
     ) {
       temp.push('REST');
     }
 
-    if (!semanticProminenceSet.has(temp[temp.length - 2])) {
+    if (!semanticScaleSet.has(temp[temp.length - 2])) {
       temp.splice(temp.length - 1, 0, 'DEFAULT');
     }
   }

@@ -3,7 +3,7 @@
 // Parses semantic color token paths into canonical metadata and exports
 // helpers to serialize that metadata for build artifacts.
 import {
-  SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY,
+  SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY,
   SEMANTIC_COLOR_ROLES_BY_TARGET,
   SEMANTIC_COLOR_SCALES,
   SEMANTIC_COLOR_STATES,
@@ -186,8 +186,8 @@ export function parseSemanticColorTokenMetadata(
 
   const family = roleParts[0];
 
-  const roleNamesByFamily = SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[
-    targetSegment as keyof typeof SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY
+  const roleNamesByFamily = SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY[
+    targetSegment as keyof typeof SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY
   ] as Record<string, readonly string[]> | undefined;
 
   const familyIsCanonical = canonicalFamilies.includes(family);
