@@ -8,19 +8,22 @@ export const AvatarSizePreviewExample = () => (
   <Box direction="row-responsive" gap="xlarge">
     <AvatarContainer
       alt="Eric Soderberg image"
+      size="xsmall"
+      src="//s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80"
+      title="Extra small avatar with profile picture"
+    />
+    <AvatarContainer
+      alt="Eric Soderberg image"
       size="small"
       src="//s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80"
       title="Small avatar with profile picture"
     />
     <AvatarContainer
-      // TODO: Consider a different background here.
-      // Temporary solution until there is a wider
-      // range of colors in the theme.
-      background="decorative-green"
+      background="background-accent-blue-strong"
       alt="Avatar containing initial letters J and S"
       title="Medium avatar with initials"
     >
-      <Text size="large" color="text-strong">
+      <Text size="large" color="text-onStrong">
         JS
       </Text>
     </AvatarContainer>
@@ -30,6 +33,13 @@ export const AvatarSizePreviewExample = () => (
       size="large"
       src="/Shape.svg"
       title="Large avatar with logo"
+    />
+    <AvatarContainer
+      round="xlarge"
+      alt="shape logo"
+      size="xlarge"
+      src="/Shape.svg"
+      title="Extra large avatar with logo"
     />
   </Box>
 );
