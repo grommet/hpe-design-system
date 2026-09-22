@@ -82,16 +82,6 @@ table cell. Use a smaller element size for the child than the parent.
 
 Use element tokens when there is not a component-specific token available for an element. For example, a team may be designing a new component that is not offered by the design system. They can use element tokens to ensure that the new component aligns and adapts with the rest of the sizing system.
 
-## In code
-
-`element.[size].fontSize` and `element.[size].lineHeight` currently resolve to the same
-value as the corresponding `text.[size]` tokens, for every size xsmall–xlarge. This is
-not a guarantee — `grommet-theme-hpe` does not expose a standalone `theme.element`
-typography namespace, so consume the element token directly (via `hpe-design-tokens`)
-rather than substituting `<Text size="[size]">`. Treating the two as interchangeable
-bakes in a coincidence that could silently drift if the element and text scales are
-ever tuned independently (for example, to adjust line-height for vertical centering).
-
 ## Element sizes
 
 Element sizes are used to ensure consistent sizing and alignment across layouts. Sizes "xsmall"-"xlarge" are available.
