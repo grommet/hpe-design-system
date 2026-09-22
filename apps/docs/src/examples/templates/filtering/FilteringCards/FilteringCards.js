@@ -67,6 +67,7 @@ const Users = () => {
       >
         {datum => (
           <Card
+            background="background-surface-tone-1"
             as="li"
             aria-label={`User card for ${datum.name}`}
             key={datum.id}

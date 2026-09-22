@@ -64,7 +64,7 @@ export const CreativeToolkit = ({ ...rest }) => {
 
   return (
     <PageContent
-      background={{ fill: 'horizontal', color: 'background-back' }}
+      background={{ fill: 'horizontal' }}
       pad="3xlarge"
     >
       <Box fill gap="large" {...rest}>

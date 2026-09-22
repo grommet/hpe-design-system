@@ -24,6 +24,7 @@ export const ApplicationsNavigationalCards = () => {
       <Grid columns={columns[breakpoint]} gap="medium">
         {applications.map((application, index) => (
           <Card
+            background="background-surface-tone-1"
             key={index}
             title={application.title}
             description={application.description}

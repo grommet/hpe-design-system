@@ -34,7 +34,7 @@ export const AccessVideo = () => {
         />
       </video>
       <Box
-        background="background-front"
+        background="background-surface-tone-1"
         round={{ corner: 'bottom', size: 'medium' }}
         pad="xsmall"
       >

@@ -19,7 +19,7 @@ export const ResponsiveContentLayoutExample = () => {
   return (
     <AppContainer background="background-back">
       <ContentArea title="Global Header" />
-      <Page pad={{ bottom: 'xlarge' }}>
+      <Page pad={{ bottom: 'xlarge' }} background="background-surface-base">
         <PageContent gap="xlarge">
           <PageHeader
             /* for dev purposes, will be replaced with dashboard content */
