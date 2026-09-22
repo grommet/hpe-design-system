@@ -5,9 +5,9 @@ import { Box } from 'grommet';
 
 export const ContentPane = ({ ...rest }) => (
   <Box
-    background="background-surface-tone-1"
-    pad="medium"
-    round="xlarge"
+    //background="background-surface-tone-1"
+    pad="none"
+    round="none"
     {...rest}
   />
 );
