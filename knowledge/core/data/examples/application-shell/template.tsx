@@ -1,4 +1,12 @@
-import { Grid, Box, Header, Main, Button, Text, ResponsiveContext } from 'grommet';
+import {
+  Grid,
+  Box,
+  Header,
+  Main,
+  Button,
+  Text,
+  ResponsiveContext,
+} from 'grommet';
 import { useDesignSystem } from './hooks/useDesignSystem';
 import { useContext } from 'react';
 
@@ -14,11 +22,16 @@ const responsiveGridAreas = {
   ],
 };
 
-export const AppShell = ({ navigationMenu, mainContent, contextContent, setContextContent }) => {
+export const AppShell = ({
+  navigationMenu,
+  mainContent,
+  contextContent,
+  setContextContent,
+}) => {
   const ds = useDesignSystem(); // DS context for type-safe component lookups
   const breakpoint = useContext(ResponsiveContext);
-  const mainRound = contextContent 
-    ? { corner: 'top', size: 'small' } 
+  const mainRound = contextContent
+    ? { corner: 'top', size: 'small' }
     : { corner: 'top-left', size: 'small' };
 
   return (

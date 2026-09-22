@@ -1,7 +1,4 @@
-<Form
-  validate="blur"
-  onSubmit={({ value }) => handleSubmit(value)}
->
+<Form validate="blur" onSubmit={({ value }) => handleSubmit(value)}>
   <FormField
     label="Password"
     name="password"
@@ -14,7 +11,7 @@
   >
     <TextInput name="password" type="password" />
   </FormField>
-  
+
   <FormField
     label="Confirm Password"
     name="confirmPassword"
@@ -27,6 +24,6 @@
   >
     <TextInput name="confirmPassword" type="password" />
   </FormField>
-  
+
   <Button type="submit" label="Create Account" primary />
-</Form>
+</Form>;
