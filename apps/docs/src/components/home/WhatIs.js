@@ -5,7 +5,9 @@ import React from 'react';
 import { Box, Heading, PageContent, Paragraph } from 'grommet';
 
 export const WhatIs = ({ ...rest }) => (
-  <PageContent background={{ fill: 'horizontal' }}>
+  <PageContent
+    background={{ fill: 'horizontal', color: 'background-surface-tone-1' }}
+  >
     <Box fill pad={{ vertical: '3xlarge' }} gap="3xlarge" {...rest}>
       <Box align="center" width="xlarge" alignSelf="center">
         <Heading level={2} size="small" margin="large" textAlign="center">

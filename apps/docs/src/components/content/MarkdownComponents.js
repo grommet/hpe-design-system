@@ -156,7 +156,7 @@ export const components = {
       margin={{ bottom: 'medium' }}
       overflow="auto"
     >
-      <Box background="background-surface-tone-1" pad="medium" round="medium">
+      <Box>
         <Table {...props} />
       </Box>
     </Box>
