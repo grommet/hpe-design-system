@@ -101,6 +101,8 @@ const EditDevice = ({ device, setDevice, ...rest }) => {
 const EditDeviceForm = ({ device, setDevice, onClose, ...rest }) => {
   const [draft, setDraft] = useState(device);
   const { setShowLayer, setTouched } = useConfirmation();
+  const size = useContext(ResponsiveContext);
+  const mobileLayout = ['xsmall', 'small', 'medium'].includes(size);
 
   useEffect(() => {
     setDraft(device);
@@ -164,7 +166,7 @@ const EditDeviceForm = ({ device, setDevice, onClose, ...rest }) => {
             />
           </FormField>
         </>
-        <ButtonGroup>
+        <ButtonGroup direction={mobileLayout ? 'column' : 'row'}>
           <Button label="Save changes" primary type="submit" />
           <Button label="Cancel" onClick={onClose} />
         </ButtonGroup>
