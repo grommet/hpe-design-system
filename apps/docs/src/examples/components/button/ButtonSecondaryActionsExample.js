@@ -34,7 +34,7 @@ export const ButtonSecondaryActionsExample = () => {
           </Paragraph>
         </Box>
         <NameValueList
-          valueProps={{ width: '4xsmall' }}
+          valueProps={{ width: '3xsmall' }}
           pairProps={{ direction: 'column' }}
           layout="grid"
         >
