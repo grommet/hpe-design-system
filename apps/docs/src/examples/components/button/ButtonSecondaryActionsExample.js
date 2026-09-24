@@ -24,8 +24,6 @@ export const ButtonSecondaryActionsExample = () => {
 
   return (
     <ContentPane>
-      {/* using content-driven container 
-        https://design-system.hpe.design/templates/content-layouts?q=content#content-driven-layouts */}
       <Box gap="medium" width="medium">
         <Box gap="5xsmall">
           <Heading level={2} margin="none">

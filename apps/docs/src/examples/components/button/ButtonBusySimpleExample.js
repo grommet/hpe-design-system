@@ -30,7 +30,7 @@ export const ButtonBusySimpleExample = () => {
     <ContentPane width="medium">
       <Form onSubmit={handleSubmit}>
         <Box gap="small">
-          <Box>
+          <>
             <FormField
               htmlFor="fullName"
               label="Full name"
@@ -63,7 +63,7 @@ export const ButtonBusySimpleExample = () => {
                 placeholder="e.g. Platform engineer"
               />
             </FormField>
-          </Box>
+          </>
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
           >
