@@ -2,7 +2,7 @@
 
 ## Monorepo context
 
-This repo is a pnpm monorepo with app, package, shared, sandbox, knowledge, and script workspaces. The durable engineering rules already live in `knowledge/core/instructions/standards/` and should be treated as the source of truth.
+This repo is a pnpm monorepo with `apps/*`, `packages/**`, `shared/*`, `sandbox/*`, and `knowledge/code-connect` workspaces, plus repository-level `knowledge/` and `scripts/` tooling. The durable engineering rules already live in `knowledge/core/instructions/standards/` and should be treated as the source of truth.
 
 Key areas include:
 
@@ -56,7 +56,7 @@ pnpm lint                             # lint all workspaces (pnpm -r lint --cach
 pnpm license-check                    # verify SPDX headers on authored source files
 pnpm validate:knowledge-structure     # validate knowledge/ structure against schema
 pnpm validate:capability-manifests    # validate knowledge/capabilities/*/manifest.yaml
-pnpm validate:design-tokens-changeset # verify a changeset exists for token-value/contract changes
+pnpm validate:design-tokens-changeset # verify required Changeset for token/contract/metadata changes and output-changing implementation/dependency changes
 ```
 
 `pnpm install` can fail when the `grommet` tarball SHA is stale, causing an integrity check failure. Fix: `rm pnpm-lock.yaml && pnpm install`.
@@ -72,7 +72,7 @@ Before opening a PR, run the checks relevant to the changed area:
 - **Package builds**: `pnpm --filter hpe-design-tokens build` and `pnpm --filter "@shared/hooks" build` when token or hooks package output changes
 - **Unit tests**: package-level `test` scripts (e.g. `pnpm --filter "@shared/hooks" test`, `pnpm --filter hpe-design-tokens test`)
 - **Knowledge structure** (if `knowledge/**` changed): `pnpm validate:knowledge-structure` and `pnpm validate:capability-manifests`
-- **Design tokens changeset** (if token values/contracts changed): `pnpm validate:design-tokens-changeset`
+- **Design tokens changeset** (if token values/contracts/metadata changed, or an implementation/dependency change alters published `dist` output): `pnpm validate:design-tokens-changeset`
 - **Docs structure/unit tests** (if `apps/docs/**` changed): `pnpm --filter docs validate:structure` and `pnpm --filter docs test:unit`
 - **Docs e2e**: `pnpm --filter docs test:ci` (TestCafe, headless)
 - **Visual regression**: Chromatic runs in CI against `shared/aries-core` Storybook builds (`.github/workflows/chromatic.yml`) — no local equivalent; check the Chromatic build link on the PR.
@@ -109,11 +109,11 @@ pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test   # Figma →
 pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test --dry-run   # JSON files → Figma
 ```
 
-## UI Framework Conventions (`apps/docs`, `shared/aries-core`, `sandbox/`)
+## UI Framework Conventions (`apps/docs`, `shared/aries-core`, `sandbox/grommet-app`)
 
-These conventions apply to app/component workspaces that render UI (`apps/docs`, `shared/aries-core`, `sandbox/**`). They do not apply to `packages/codemods`, `knowledge/code-connect`, token/build scripts, or other non-UI packages.
+These conventions apply to Grommet-based UI workspaces (`apps/docs`, `shared/aries-core`, and `sandbox/grommet-app`). They do not apply to `sandbox/native-web`, `sandbox/tailwind-app`, `packages/codemods`, `knowledge/code-connect`, token/build scripts, or other non-Grommet packages.
 
-- **Must use Grommet components** (`Box`, `Button`, `Text`, etc. from `grommet`) — not custom HTML elements.
+- **Grommet-first UI**: Use Grommet components (`Box`, `Button`, `Text`, etc. from `grommet`) for UI primitives; use native elements where a semantic wrapper or component API requires them.
 - **Icons**: Use `@hpe-design/icons-grommet` for new codes, not `grommet-icons`. Run `npx hpe-design-system-codemods migrate-grommet-icons-to-hpe <path>` to migrate.
 - **Theming**: Extend `hpe` theme from `grommet-theme-hpe` via `deepMerge(hpe, {...})`. See `apps/docs/src/themes/aries.js`.
 - **Dark mode**: Implemented via `ThemeMode` component (`apps/docs/src/layouts/main/ThemeMode.js`); token files have separate `.light.json`/`.dark.json` variants.
