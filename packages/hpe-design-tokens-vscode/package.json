@@ -1,0 +1,50 @@
+{
+  "name": "hpe-design-token-resolver",
+  "displayName": "HPE Design Token Resolver",
+  "description": "Shows resolved HPE design token values when hovering supported Grommet t-shirt sizes and HPE CSS variables.",
+  "version": "0.1.1",
+  "publisher": "hpe-design",
+  "type": "commonjs",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grommet/hpe-design-system.git"
+  },
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:css",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:less",
+    "onLanguage:scss",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "./src/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "HPE Design Tokens",
+      "properties": {
+        "hpeDesignTokens.tokenDataPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional absolute path to an hpe-design-tokens docs index module."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "jest": "^27.5.1"
+  }
+}

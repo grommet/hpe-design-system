@@ -454,6 +454,19 @@ importers:
         specifier: ^3.0.9
         version: 3.2.7(@types/debug@4.1.13)(@types/node@20.19.43)(@vitest/ui@3.2.7)(jiti@1.21.7)(jsdom@26.1.0)(lightningcss@1.33.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.0)
 
+  packages/hpe-design-tokens-vscode:
+    dependencies:
+      hpe-design-tokens:
+        specifier: workspace:*
+        version: link:../hpe-design-tokens
+    devDependencies:
+      '@types/vscode':
+        specifier: ^1.95.0
+        version: 1.138.0
+      jest:
+        specifier: ^27.5.1
+        version: 27.5.1
+
   packages/icons-grommet:
     devDependencies:
       '@eslint/js':
@@ -4041,6 +4054,9 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
+
+  '@types/vscode@1.138.0':
+    resolution: {integrity: sha512-DhlvrucJa8n6EHst7qQcXOcjLKs/VRTQy55plLO+RN74jonYsr/t9dd66zBnAyz1tpDig0okQAxuoPHpVNje2g==}
 
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
@@ -13891,6 +13907,8 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
+
+  '@types/vscode@1.138.0': {}
 
   '@types/ws@8.18.1':
     dependencies:
