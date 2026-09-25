@@ -33,13 +33,16 @@ export const Container = ({
   return (
     <Box
       align={!template && !screenContainer ? 'center' : undefined}
-      background="background-front"
+      background="background-surface-tone-1"
       direction="row"
       height={height}
       justify="center"
       margin={showResponsiveControls ? { top: '3xsmall' } : undefined}
       pad={
-        pad || (template ? { horizontal: 'xlarge', top: 'xlarge' } : 'xlarge')
+        pad ||
+        (template
+          ? { horizontal: 'medium', top: 'medium' }
+          : { horizontal: 'small', top: 'small' })
       }
       round={
         !horizontalLayout &&

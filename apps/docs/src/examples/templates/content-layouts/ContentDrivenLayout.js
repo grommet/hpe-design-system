@@ -14,7 +14,12 @@ export const ContentDrivenLayout = ({ containerRef }) => {
   const [showModal, setShowModal] = useState(true);
 
   return (
-    <Box align="center" justify="center" fill>
+    <Box
+      align="center"
+      justify="center"
+      fill
+      background="background-surface-base"
+    >
       <Button
         primary
         label="Display layer"
