@@ -1,0 +1,70 @@
+name: Run Chromatic Visual Tests
+on:
+  workflow_call:
+    inputs:
+      branch:
+        required: true
+        type: string
+      ref:
+        required: true
+        type: string
+      sha:
+        required: true
+        type: string
+    secrets:
+      CHROMATIC_PROJECT_TOKEN:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    env:
+      CHROMATIC_BRANCH: ${{ inputs.branch }}
+      CHROMATIC_SHA: ${{ inputs.sha }}
+      CHROMATIC_SLUG: ${{ github.repository }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for Chromatic to track changes
+          ref: ${{ inputs.ref }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create design tokens build
+        run: pnpm --filter hpe-design-tokens build
+
+      - name: Create shared hooks build
+        run: pnpm --filter "@shared/hooks" build
+
+      - name: Create aries-core build
+        run: pnpm --filter "@shared/aries-core" build
+
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: shared/aries-core
+          buildScriptName: build-storybook
+          onlyChanged: true
+          externals: |
+            packages/hpe-design-tokens/src/**
+            packages/hpe-design-tokens/tokens/**
+            shared/hooks/src/**
+          exitZeroOnChanges: true
+          autoAcceptChanges: master
