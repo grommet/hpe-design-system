@@ -65,10 +65,19 @@ jobs:
           # Externals are repository-root-relative and unaffected by workingDir.
           externals: |
             apps/docs/src/**
+            packages/hpe-design-tokens/package.json
             packages/hpe-design-tokens/src/**
             packages/hpe-design-tokens/tokens/**
             pnpm-lock.yaml
             pnpm-workspace.yaml
+            shared/aries-core/.storybook/**
+            shared/aries-core/babel.config.js
+            shared/aries-core/package.json
+            shared/aries-core/tsconfig.json
+            shared/aries-core/webpack.config.js
+            shared/hooks/package.json
             shared/hooks/src/**
+            shared/hooks/tsconfig.build.esm.json
+            shared/hooks/tsconfig.json
           exitZeroOnChanges: true
           autoAcceptChanges: master
