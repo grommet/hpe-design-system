@@ -154,4 +154,36 @@ export interface DesignSystemSchema {
   tokens: DesignTokens;
   components: ComponentDefinition[];
   patterns: PatternDefinition[];
+  foundations: FoundationDefinition[];
+  glossary: GlossaryTerm[];
+}
+
+export interface KnowledgeRef {
+  kind: 'glossary' | 'rule' | 'component' | 'pattern' | 'external';
+  id?: string;
+  label?: string;
+  url?: string;
+}
+
+export interface Rule {
+  id: string;
+  statement: string;
+  rationale: string;
+  example?: ComponentExample;
+  relatedTo?: KnowledgeRef[];
+}
+
+export interface FoundationDefinition {
+  id: string;
+  name: string;
+  description: string;
+  rules: Rule[];
+}
+
+export interface GlossaryTerm {
+  id: string;
+  term: string;
+  definition: string;
+  usage?: string;
+  confusedWith?: string[];
 }

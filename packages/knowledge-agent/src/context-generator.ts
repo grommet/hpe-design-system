@@ -4,12 +4,19 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSearchEntities, querySearchEntities } from './vector-search.js';
-import { loadComponents, loadPatterns } from './data-loader.js';
+import {
+  loadComponents,
+  loadFoundations,
+  loadGlossary,
+  loadPatterns,
+} from './data-loader.js';
 import type {
   DesignSystemSchema,
   FrameworkTarget,
+  GlossaryTerm,
   PatternGraph,
   PatternNode,
+  Rule,
 } from './types.js';
 
 const REPO_ROOT = path.resolve(
@@ -56,6 +63,8 @@ function loadDesignSystem(): DesignSystemSchema {
     tokens: {},
     components: loadComponents(),
     patterns: loadPatterns(),
+    foundations: loadFoundations(),
+    glossary: loadGlossary(),
   };
 }
 
@@ -269,6 +278,9 @@ export function generateSystemPrompt(
     );
   });
 
+  const relevantRules: Rule[] = [];
+  const relevantGlossaryTerms: GlossaryTerm[] = [];
+
   vectorResults.forEach(({ entity }) => {
     if (entity.type === 'component') {
       const component = ds.components.find(
@@ -282,6 +294,19 @@ export function generateSystemPrompt(
       const pattern = ds.patterns.find(candidate => candidate.id === entity.id);
       if (pattern && !relevantPatterns.includes(pattern))
         relevantPatterns.push(pattern);
+    }
+
+    if (entity.type === 'rule') {
+      const rule = ds.foundations
+        .flatMap(foundation => foundation.rules)
+        .find(candidate => candidate.id === entity.id);
+      if (rule && !relevantRules.includes(rule)) relevantRules.push(rule);
+    }
+
+    if (entity.type === 'glossary-term') {
+      const term = ds.glossary.find(candidate => candidate.id === entity.id);
+      if (term && !relevantGlossaryTerms.includes(term))
+        relevantGlossaryTerms.push(term);
     }
   });
 
@@ -387,6 +412,22 @@ export function generateSystemPrompt(
         prompt += `- Template guidance: a framework-specific implementation template is not yet validated for ${targetFramework}; treat the pattern structure as conceptual guidance only.\n`;
       }
     });
+  }
+
+  if (relevantRules.length > 0) {
+    prompt += '### Foundational Rules\n\n';
+    relevantRules.forEach(rule => {
+      prompt += `- ${rule.statement} — ${rule.rationale}\n`;
+    });
+    prompt += '\n';
+  }
+
+  if (relevantGlossaryTerms.length > 0) {
+    prompt += '### Glossary\n\n';
+    relevantGlossaryTerms.forEach(term => {
+      prompt += `- **${term.term}**: ${term.definition}\n`;
+    });
+    prompt += '\n';
   }
   /* eslint-enable max-len */
 

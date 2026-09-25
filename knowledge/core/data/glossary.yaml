@@ -46,3 +46,16 @@
   confusedWith:
     - component
     - surface
+
+- id: component
+  term: Component
+  definition: >
+    A reusable, self-contained implementation unit from the design system
+    library, such as Button, Card, or DataTable.
+  usage: >
+    Use this term for the buildable unit itself, as distinct from the visual
+    or structural role it plays on a page, such as being a surface or
+    containing elements.
+  confusedWith:
+    - surface
+    - element
