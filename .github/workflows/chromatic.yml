@@ -8,22 +8,6 @@ on:
       - ready_for_review
     branches:
       - master
-    paths:
-      - .github/workflows/chromatic.yml
-      - apps/docs/src/examples/templates/**
-      - packages/hpe-design-tokens/package.json
-      - packages/hpe-design-tokens/src/**
-      - packages/hpe-design-tokens/tokens/**
-      - pnpm-lock.yaml
-      - pnpm-workspace.yaml
-      - shared/aries-core/.storybook/**
-      - shared/aries-core/babel.config.js
-      - shared/aries-core/package.json
-      - shared/aries-core/src/**
-      - shared/aries-core/tsconfig.json
-      - shared/aries-core/webpack.config.js
-      - shared/hooks/package.json
-      - shared/hooks/src/**
   push:
     branches:
       - master
@@ -43,6 +27,8 @@ on:
       - shared/aries-core/webpack.config.js
       - shared/hooks/package.json
       - shared/hooks/src/**
+      - shared/hooks/tsconfig.build.esm.json
+      - shared/hooks/tsconfig.json
 
 permissions:
   contents: read
