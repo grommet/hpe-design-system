@@ -67,6 +67,8 @@ jobs:
             apps/docs/src/**
             packages/hpe-design-tokens/src/**
             packages/hpe-design-tokens/tokens/**
+            pnpm-lock.yaml
+            pnpm-workspace.yaml
             shared/hooks/src/**
           exitZeroOnChanges: true
           autoAcceptChanges: master
