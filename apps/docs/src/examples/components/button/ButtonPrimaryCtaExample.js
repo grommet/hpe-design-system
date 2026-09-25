@@ -6,7 +6,7 @@ export const ButtonPrimaryCtaExample = () => (
     <PageHeader
       title="GreenLake Monitoring"
       subtitle="Monitor health and performance of your GreenLake resources."
-      actions={<Button label="Activate service" onClick={() => {}} primary />}
+      actions={<Button label="Activate service" primary />}
     />
   </Box>
 );
