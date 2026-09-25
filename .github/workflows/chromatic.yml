@@ -1,20 +1,69 @@
 name: Chromatic Visual Tests
 on:
   pull_request:
+    types:
+      - labeled
     branches:
       - master
+    paths:
+      - .github/workflows/chromatic.yml
+      - apps/docs/src/examples/templates/**
+      - packages/hpe-design-tokens/package.json
+      - packages/hpe-design-tokens/src/**
+      - packages/hpe-design-tokens/tokens/**
+      - pnpm-workspace.yaml
+      - shared/aries-core/.storybook/**
+      - shared/aries-core/babel.config.js
+      - shared/aries-core/package.json
+      - shared/aries-core/src/**
+      - shared/aries-core/tsconfig.json
+      - shared/aries-core/webpack.config.js
+      - shared/hooks/package.json
+      - shared/hooks/src/**
   push:
     branches:
       - master
+    paths:
+      - .github/workflows/chromatic.yml
+      - apps/docs/src/examples/templates/**
+      - packages/hpe-design-tokens/package.json
+      - packages/hpe-design-tokens/src/**
+      - packages/hpe-design-tokens/tokens/**
+      - pnpm-workspace.yaml
+      - shared/aries-core/.storybook/**
+      - shared/aries-core/babel.config.js
+      - shared/aries-core/package.json
+      - shared/aries-core/src/**
+      - shared/aries-core/tsconfig.json
+      - shared/aries-core/webpack.config.js
+      - shared/hooks/package.json
+      - shared/hooks/src/**
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chromatic-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   chromatic:
+    if: >-
+      github.event_name == 'push' ||
+      (github.event.label.name == 'run-chromatic' &&
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
+    env:
+      CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref || github.ref_name }}
+      CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      CHROMATIC_SLUG: ${{ github.repository }}
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required for Chromatic to track changes
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -28,7 +77,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       # Build dependencies required for Storybook
       - name: Create design tokens build
@@ -47,5 +96,10 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: shared/aries-core
           buildScriptName: build-storybook
+          onlyChanged: true
+          externals: |
+            packages/hpe-design-tokens/src/**
+            packages/hpe-design-tokens/tokens/**
+            shared/hooks/src/**
           exitZeroOnChanges: true
           autoAcceptChanges: master
