@@ -63,6 +63,7 @@ jobs:
           buildScriptName: build-storybook
           onlyChanged: true
           externals: |
+            apps/docs/src/examples/templates/**
             packages/hpe-design-tokens/src/**
             packages/hpe-design-tokens/tokens/**
             shared/hooks/src/**
