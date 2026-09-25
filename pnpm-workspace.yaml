@@ -17,14 +17,14 @@ catalog:
   eslint-config-prettier: ^10.1.8
   eslint-plugin-prettier: ^5.5.6
   eslint-plugin-react-hooks: ^7.1.1
-  eslint-plugin-react-refresh: ^0.5.6
+  eslint-plugin-react-refresh: ^0.5.7
   eslint-plugin-react: ^7.37.5
   globals: ^17.12.0
   grommet: ^2.57.0
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.2.0
   hpe-design-tokens: ^2.3.0
-  prettier: ^3.9.6
+  prettier: ^3.9.8
   prop-types: ^15.8.1
   react: ^19.3.0
   react-dom: ^19.3.0
