@@ -1,16 +1,10 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
 import { Avatar, Box, Button, Grid, ResponsiveContext, Text } from 'grommet';
 import { Add } from '@hpe-design/icons-grommet';
 
-// placeholder — replace with token when
-// color.background.accent.purple.strong is available
-const ACCENT_PURPLE_STRONG = '#7c3aed';
-
 export const StrongBackgrounds = () => {
-  const theme = useContext(ThemeContext);
   const size = useContext(ResponsiveContext);
   return (
     <Grid
@@ -23,10 +17,7 @@ export const StrongBackgrounds = () => {
     >
       <Box gap="medium">
         <Box
-          background={{
-            color: 'background-neutral-xstrong',
-            dark: theme.dark,
-          }}
+          background="background-neutral-xstrong"
           pad="medium"
           round="xlarge"
           gap="medium"
@@ -42,7 +33,7 @@ export const StrongBackgrounds = () => {
               <Text color="text-onStrong">color.text.onStrong</Text>
             </Box>
             <Box direction="row" gap="xsmall">
-              <Add color="icon-onStrong" height="medium" />
+              <Add aria-hidden="true" color="icon-onStrong" height="medium" />
               <Text color="text-onStrong">color.icon.onStrong</Text>
             </Box>
           </Box>
@@ -60,7 +51,7 @@ export const StrongBackgrounds = () => {
       </Box>
       <Box gap="medium">
         <Box
-          background={ACCENT_PURPLE_STRONG}
+          background="background-accent-purple-strong"
           pad="medium"
           round="xlarge"
           gap="medium"
@@ -89,7 +80,7 @@ export const StrongBackgrounds = () => {
           gap="medium"
         >
           <Text size="large">Avatar using strong and onStrong colors.</Text>
-          <Avatar background={ACCENT_PURPLE_STRONG}>
+          <Avatar background="background-accent-purple-strong">
             <Text color="text-onStrong" weight={500}>
               AN
             </Text>
