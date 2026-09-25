@@ -12,7 +12,7 @@ on:
       - .github/workflows/chromatic-label.yml
       - .github/workflows/chromatic-run.yml
       - .github/workflows/chromatic.yml
-      - apps/docs/src/examples/templates/**
+      - apps/docs/src/**
       - packages/hpe-design-tokens/package.json
       - packages/hpe-design-tokens/src/**
       - packages/hpe-design-tokens/tokens/**
@@ -35,7 +35,7 @@ on:
       - .github/workflows/chromatic-label.yml
       - .github/workflows/chromatic-run.yml
       - .github/workflows/chromatic.yml
-      - apps/docs/src/examples/templates/**
+      - apps/docs/src/**
       - packages/hpe-design-tokens/package.json
       - packages/hpe-design-tokens/src/**
       - packages/hpe-design-tokens/tokens/**

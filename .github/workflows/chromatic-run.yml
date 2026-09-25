@@ -64,7 +64,7 @@ jobs:
           onlyChanged: true
           # Externals are repository-root-relative and unaffected by workingDir.
           externals: |
-            apps/docs/src/examples/templates/**
+            apps/docs/src/**
             packages/hpe-design-tokens/src/**
             packages/hpe-design-tokens/tokens/**
             shared/hooks/src/**
