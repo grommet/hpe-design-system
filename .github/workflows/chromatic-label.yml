@@ -1,0 +1,27 @@
+name: Chromatic Visual Tests - Manual Override
+on:
+  pull_request:
+    types:
+      - labeled
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chromatic-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  chromatic:
+    if: >-
+      github.event.label.name == 'run-chromatic' &&
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    uses: ./.github/workflows/chromatic.yml
+    with:
+      branch: ${{ github.event.pull_request.head.ref }}
+      ref: ${{ github.event.pull_request.head.sha }}
+      sha: ${{ github.event.pull_request.head.sha }}
+    secrets: inherit

@@ -1,17 +1,50 @@
 name: Chromatic Visual Tests
 on:
+  workflow_call:
+    inputs:
+      branch:
+        required: true
+        type: string
+      ref:
+        required: true
+        type: string
+      sha:
+        required: true
+        type: string
+    secrets:
+      CHROMATIC_PROJECT_TOKEN:
+        required: true
   pull_request:
     types:
-      - labeled
       - synchronize
       - reopened
       - ready_for_review
     branches:
       - master
+    paths:
+      - .github/workflows/chromatic-label.yml
+      - .github/workflows/chromatic.yml
+      - apps/docs/src/examples/templates/**
+      - packages/hpe-design-tokens/package.json
+      - packages/hpe-design-tokens/src/**
+      - packages/hpe-design-tokens/tokens/**
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - shared/aries-core/.storybook/**
+      - shared/aries-core/babel.config.js
+      - shared/aries-core/package.json
+      - shared/aries-core/src/**
+      - shared/aries-core/tsconfig.json
+      - shared/aries-core/webpack.config.js
+      - shared/hooks/package.json
+      - shared/hooks/src/**
+      - shared/hooks/tsconfig.build.esm.json
+      - shared/hooks/tsconfig.json
   push:
     branches:
       - master
     paths:
+      - .github/workflows/chromatic-label.yml
       - .github/workflows/chromatic.yml
       - apps/docs/src/examples/templates/**
       - packages/hpe-design-tokens/package.json
@@ -40,24 +73,22 @@ concurrency:
 jobs:
   chromatic:
     if: >-
+      github.event_name == 'workflow_call' ||
       github.event_name == 'push' ||
       (github.event.pull_request.draft == false &&
       github.event.pull_request.head.repo.full_name == github.repository &&
-      ((github.event.action == 'labeled' &&
-      github.event.label.name == 'run-chromatic') ||
-      (github.event.action != 'labeled' &&
-      contains(github.event.pull_request.labels.*.name, 'run-chromatic'))))
+      contains(github.event.pull_request.labels.*.name, 'run-chromatic'))
     runs-on: ubuntu-latest
     env:
-      CHROMATIC_BRANCH: ${{ github.event.pull_request.head.ref || github.ref_name }}
-      CHROMATIC_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      CHROMATIC_BRANCH: ${{ inputs.branch || github.event.pull_request.head.ref || github.ref_name }}
+      CHROMATIC_SHA: ${{ inputs.sha || github.event.pull_request.head.sha || github.sha }}
       CHROMATIC_SLUG: ${{ github.repository }}
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required for Chromatic to track changes
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -73,7 +104,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Build dependencies required for Storybook
       - name: Create design tokens build
         run: pnpm --filter hpe-design-tokens build
 
@@ -83,7 +113,6 @@ jobs:
       - name: Create aries-core build
         run: pnpm --filter "@shared/aries-core" build
 
-      # Run Chromatic using the official action for better GitHub integration
       - name: Run Chromatic
         uses: chromaui/action@latest
         with:
