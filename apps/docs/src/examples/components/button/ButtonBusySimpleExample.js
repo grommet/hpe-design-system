@@ -72,17 +72,16 @@ export const ButtonBusySimpleExample = () => {
               />
             </FormField>
           </>
-          <Box
-            align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-          >
-            <Button
-              busy={busy}
-              label="Save profile"
-              primary
-              success={success}
-              type="submit"
-            />
-          </Box>
+          <Button
+            alignSelf={
+              !['xsmall', 'small'].includes(size) ? 'start' : undefined
+            }
+            busy={busy}
+            label="Save profile"
+            primary
+            success={success}
+            type="submit"
+          />
         </Box>
       </Form>
     </ContentPane>
