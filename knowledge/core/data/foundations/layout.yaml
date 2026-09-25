@@ -1,0 +1,124 @@
+id: layout
+name: Layout
+description: >
+  Cross-cutting rules for page structure, responsive composition, sizing, and
+  spatial relationships across product UI.
+
+rules:
+  - id: layout-use-standard-routed-screen-structure
+    statement: >
+      Every routed screen should use Page, then PageContent, then PageHeader,
+      followed by the page content.
+    rationale: >
+      This structure supplies responsive margins, the max-width constraint, and
+      the h1 that anchors the document outline. A page built from Box gets none
+      of those behaviors automatically.
+
+  - id: layout-use-card-for-self-contained-peers
+    statement: >
+      Use Card for self-contained peers and Box for grouping that needs no
+      visual boundary.
+    rationale: >
+      A Card's surface and elevation say that its contents are one thing.
+      Using Card for plain grouping competes with the cards that need to
+      communicate containment.
+
+  - id: layout-use-grid-for-two-dimensions
+    statement: >
+      Use Grid for two dimensions or wrapping, and Box for a single row or
+      column.
+    rationale: >
+      A wrapping Box cannot align items across rows, so a wrapped set of cards
+      can end up ragged.
+
+  - id: layout-use-layer-only-for-interruptive-content
+    statement: >
+      Use Layer only for content that must interrupt the current page.
+    rationale: >
+      Layer traps focus and blocks the page. Used for help text, it forces
+      dismissal before the user can act on what it described. Use a context
+      pane for non-interruptive supporting content.
+
+  - id: layout-use-semantic-region-components
+    statement: >
+      Use semantic region components for their regions, including Main, Header,
+      Nav, and Footer.
+    rationale: >
+      Screen reader users navigate by landmark. A shell of generic containers
+      has no landmarks, leaving tabbing through the whole navigation as the
+      only route to content.
+
+  - id: layout-size-grid-columns-by-content
+    statement: >
+      Size grid columns by content and let them fit; never use a fixed column
+      count.
+    rationale: >
+      An auto-fit grid adapts without breakpoint-specific logic. A fixed count
+      can overflow on a tablet or leave empty columns on a wide monitor.
+
+  - id: layout-use-named-grid-areas
+    statement: >
+      Shells should use named grid areas and change the area map per breakpoint
+      rather than changing the markup.
+    rationale: >
+      Conditionally rendering different trees remounts components, loses their
+      state, and doubles the markup that must be kept in sync.
+
+  - id: layout-limit-grid-nesting
+    statement: >
+      Do not nest grids more than two levels deep, and use one grid for the
+      application shell.
+    rationale: >
+      Each nested grid resolves its own sizing, so the effect of a width change
+      becomes increasingly unpredictable.
+
+  - id: layout-use-responsive-context-for-behavior
+    statement: >
+      Use ResponsiveContext for behavior, not for spacing or other values.
+    rationale: >
+      Spacing already remaps itself at the breakpoint. A manual value override
+      applies the compression twice.
+
+  - id: layout-do-not-show-navigation-and-context-pane-together-on-small
+    statement: >
+      Never show navigation and a context pane together on small screens.
+    rationale: >
+      Both are full-width on small screens, so one covers the other and focus
+      can land in whichever was mounted last.
+
+  - id: layout-match-page-content-kind-to-content
+    statement: >
+      Match PageContent's kind to the content: use the default for forms and
+      prose, and wide or full for dashboards and tables.
+    rationale: >
+      The default max-width exists for readable line length. It actively harms
+      wide tables, which can then scroll inside an artificially narrow column.
+
+  - id: layout-use-container-tokens-for-dimensions
+    statement: >
+      Use container.* tokens for widths and heights, never raw dimensions.
+    rationale: >
+      Container tokens keep panel and card dimensions consistent across teams.
+      They do not compress at the small breakpoint, so content that must become
+      narrower on mobile requires a structural change.
+
+  - id: layout-navigation-sizes-to-content
+    statement: >
+      Navigation should size to its content, never to a fixed width.
+    rationale: >
+      Navigation labels are localized. Fixed widths truncate long languages and
+      waste space for short ones.
+
+  - id: layout-fill-page-content-in-app-shells
+    statement: >
+      Use fill="vertical" on PageContent inside an application shell.
+    rationale: >
+      Without it, a short page can leave the content background stopping
+      partway down the viewport, which reads as a rendering fault.
+
+  - id: layout-constrain-long-form-text
+    statement: >
+      Constrain long-form text to its maxWidth.
+    rationale: >
+      The default is 38em and 30em on small screens. Past roughly 80 characters,
+      the eye loses its place when returning to the next line.

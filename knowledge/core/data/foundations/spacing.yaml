@@ -1,0 +1,177 @@
+id: spacing
+name: Spacing
+description: >
+  Cross-cutting rules for gaps, padding, and margins across product UI.
+
+rules:
+  - id: spacing-use-tokens-everywhere
+    statement: >
+      Use spacing tokens for every gap, padding, and margin in product UI.
+    rationale: >
+      Spacing tokens are the only values that shrink at the small breakpoint.
+      Anything else keeps its desktop size on mobile.
+
+  - id: spacing-use-purpose-built-containers
+    statement: >
+      Use the purpose-built container where one exists, such as Page,
+      PageContent, PageHeader, Card, Header, or Footer, rather than rebuilding
+      it from Box.
+    rationale: >
+      These components already carry page margins, max-width, and responsive
+      padding. Most spacing bugs start with reaching for Box.
+
+  - id: spacing-do-not-use-spacing-tokens-for-text-metrics
+    statement: >
+      Do not use spacing tokens for line-height or letter-spacing.
+    rationale: >
+      Line-height and letter-spacing are ratios of font size and are already
+      defined per text size. Overriding them breaks optical alignment at large
+      sizes.
+
+  - id: spacing-chart-and-illustration-interiors-are-exempt
+    statement: >
+      Chart and illustration interiors are exempt from spacing tokens.
+    rationale: >
+      Inside a canvas, position carries meaning. The exemption stops at the
+      canvas edge; padding around the chart is still spacing.
+
+  - id: spacing-between-groups-exceeds-within-groups
+    statement: >
+      Space between groups should exceed space within them.
+    rationale: >
+      Proximity is the only signal that says what belongs together. Equal gaps
+      make the boundary disappear and the page reads as one flat list.
+
+  - id: spacing-use-element-tokens-inside-controls
+    statement: >
+      Use element tokens inside a control, and spacing tokens between controls
+      and for layout.
+    rationale: >
+      Element spacing is fixed so a button and an input stay the same height.
+      Layout spacing compresses so layouts fit. Using the wrong tier inverts
+      both behaviors.
+
+  - id: spacing-use-named-scale-steps
+    statement: >
+      Use a named spacing step; when nothing fits, go one step smaller.
+    rationale: >
+      A closed scale is what makes responsive remapping possible. An
+      interpolated value has nowhere to remap from.
+
+  - id: spacing-no-raw-dimensions
+    statement: >
+      Do not use raw px, rem, or em values for spacing.
+    rationale: >
+      Raw values cannot participate in the responsive remap, are invisible to
+      theming, and cannot be found reliably by audit tooling.
+
+  - id: spacing-write-zero-explicitly
+    statement: >
+      Write zero explicitly, such as gap="none", rather than omitting the prop.
+    rationale: >
+      An explicit zero records that the absence was deliberate. An omitted prop
+      looks identical to an oversight.
+
+  - id: spacing-do-not-swap-container-and-spacing-scales
+    statement: >
+      Never swap container.* and spacing.* tokens.
+    rationale: >
+      They use the same t-shirt names but represent different scales, and only
+      the spacing scale compresses. A layout that looks right on desktop can
+      develop uneven gaps on mobile.
+
+  - id: spacing-do-not-override-theme-owned-padding
+    statement: >
+      Do not override theme-owned padding. PageContent should not take a pad
+      prop.
+    rationale: >
+      PageContent's responsive padding is what makes page margins consistent.
+      Overriding it replaces a responsive value with a fixed one.
+
+  - id: spacing-parents-space-children
+    statement: >
+      Parents should space their children. Set margin="none" on Heading and
+      Text when the parent owns the spacing.
+    rationale: >
+      Typography ships with default margins that do not match the spacing
+      scale. The real gap can otherwise become the parent's gap plus an
+      unrelated typography margin.
+
+  - id: spacing-pad-one-side-at-shared-edge
+    statement: >
+      At a shared edge, pad one side, not both.
+    rationale: >
+      Two abutting regions each with full padding produce a double gap, which
+      reads as an accidental break.
+
+  - id: spacing-page-rhythm
+    statement: >
+      Use xxlarge between page regions, large between content sections, and
+      small between items.
+    rationale: >
+      Each level is two steps above the one inside it, so the ratio is
+      derivable rather than memorised. A single-column page has no regions;
+      sections become the outermost level and stay at large.
+    relatedTo:
+      - kind: glossary
+        id: page-region
+      - kind: glossary
+        id: content-section
+
+  - id: spacing-decreases-as-things-nest
+    statement: >
+      Spacing should decrease as things nest.
+    rationale: >
+      If a child's gaps match its container's gaps, the hierarchy flattens and
+      the relationship between levels becomes harder to perceive.
+
+  - id: spacing-card-grids-are-tighter-than-containers
+    statement: >
+      Card grids should be at least one step tighter than their container, using
+      the same value for rows and columns.
+    rationale: >
+      Cards are already bounded by their own surfaces, so they need less
+      separation than unbounded regions. Unequal row and column gaps make a
+      regular grid look misaligned.
+
+  - id: spacing-surface-padding-exceeds-inner-gap
+    statement: >
+      A surface's padding should exceed the gap inside it. Use pad="medium"
+      with gap="small" as the default pairing.
+    rationale: >
+      If padding is not larger than the inner gap, content appears to touch the
+      edge and the surface stops reading as a container.
+
+  - id: spacing-grid-gap-does-not-exceed-card-padding
+    statement: >
+      Never let a grid gap exceed the padding of the cards in it.
+    rationale: >
+      More space between surfaces than inside them makes the grid read as
+      scattered fragments rather than a set.
+
+  - id: spacing-page-bottom-padding
+    statement: >
+      Page should take pad={{ bottom: '3xlarge' }}.
+    rationale: >
+      Mobile browser chrome can overlay the bottom of the viewport. Without
+      this padding, the last element can be clipped and, if interactive,
+      unreachable.
+
+  - id: spacing-separate-small-adjacent-targets
+    statement: >
+      Leave at least xsmall between adjacent targets under 44×44px.
+    rationale: >
+      Undersized targets are only safe when separated. xsmall itself compresses
+      at the small breakpoint, so the resolved value must still be checked.
+    example:
+      description: >
+        Adjacent icon-only buttons separated with an explicit xsmall gap.
+      code: |
+        <Box direction="row" gap="xsmall">
+          <Button icon={<Edit />} />
+          <Button icon={<Trash />} />
+        </Box>
+    relatedTo:
+      - kind: external
+        label: WCAG 2.2 SC 2.5.8 Target Size (Minimum)
+        url: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html

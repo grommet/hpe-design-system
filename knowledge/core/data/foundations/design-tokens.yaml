@@ -1,0 +1,82 @@
+id: design-tokens
+name: Design tokens
+description: >
+  Cross-cutting rules for choosing, referencing, and applying design-token
+  tiers across product UI and design files.
+
+rules:
+  - id: design-tokens-use-three-tiers
+    statement: >
+      Use three token tiers: element tokens inside a control, semantic tokens
+      between controls and for layout, and static tokens as the primitive layer
+      that is never authored directly.
+    rationale: >
+      Element spacing is fixed so controls stay aligned. Semantic spacing
+      compresses so layouts fit. Static tokens provide the primitive values
+      that the other tiers reference.
+
+  - id: design-tokens-use-element-tier-only-for-aligned-controls
+    statement: >
+      Use element tokens only when all three conditions are true: the target is
+      the smallest interactive target with its own hover and focus states, it
+      has one primary action, and it must align in height with other controls.
+      Otherwise use semantic tokens.
+    rationale: >
+      Element tokens exist for cross-component proportional consistency.
+      Applying them to anything else creates fixed sizing where layout spacing
+      is more appropriate.
+
+  - id: design-tokens-item-uses-element-container-uses-semantic
+    statement: >
+      The item takes element tokens and the container takes semantic tokens.
+    rationale: >
+      A menu item, list row, or table cell acts as an individual item and needs
+      control-level alignment. A menu, list, or table composes items and has no
+      single outcome to align with.
+
+  - id: design-tokens-stack-gaps-are-semantic
+    statement: >
+      Vertical gaps between stacked children are semantic, even inside an
+      element.
+    rationale: >
+      Element tokens deliberately define control proportions, not stack gaps.
+      Once content is stacking, the rhythm between lines is a layout decision.
+
+  - id: design-tokens-prefer-component-specific-tokens
+    statement: >
+      Prefer a component-specific token over an element token where one exists.
+    rationale: >
+      A component-specific token can be retuned for that component alone.
+      Anything placed on the shared element scale moves whenever that scale
+      changes.
+
+  - id: design-tokens-grommet-uses-token-name
+    statement: >
+      In Grommet, pass the t-shirt name, not the token path: use pad="medium",
+      not pad="spacing.medium".
+    rationale: >
+      Grommet resolves the name against the theme, which applies the responsive
+      remap. A token path can pass through as a literal value instead.
+
+  - id: design-tokens-figma-respects-variable-scope
+    statement: >
+      In Figma, bind the variable and respect its scope. Use the GAP scope for
+      spacing and WIDTH_HEIGHT for container dimensions.
+    rationale: >
+      Scopes keep the two scales apart. Typing a raw number breaks the link
+      that Code Connect uses to map designs to props.
+
+  - id: design-tokens-do-not-reference-static-directly
+    statement: >
+      Never reference a static.* token from product code or a design.
+    rationale: >
+      The static layer has no breakpoint behavior. The semantic layer exists to
+      point at different static values at different breakpoints, so going
+      directly to static discards that behavior.
+
+  - id: design-tokens-reference-do-not-copy-values
+    statement: >
+      Reference tokens rather than copying their values.
+    rationale: >
+      A copied value is a snapshot. It does not follow the token when the
+      scale is retuned, and no audit can reliably identify the divergence.

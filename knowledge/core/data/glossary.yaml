@@ -1,0 +1,48 @@
+- id: page-region
+  term: Page region
+  definition: >
+    A top-level structural division of a page, such as navigation, primary
+    content, or a persistent context pane.
+  usage: >
+    Use this term when describing spacing or layout between the major areas of
+    a page. A single-column page has no separate page regions.
+  confusedWith:
+    - content-section
+    - surface
+
+- id: content-section
+  term: Content section
+  definition: >
+    A coherent group of related content within a page region, usually organized
+    around a heading, task, or subject.
+  usage: >
+    Use this term for divisions within a page region. On a single-column page,
+    content sections may be the outermost meaningful level of the page.
+  confusedWith:
+    - page-region
+    - surface
+
+- id: surface
+  term: Surface
+  definition: >
+    A visual container that establishes a boundary around content through
+    background, border, elevation, or other surface treatment.
+  usage: >
+    Use this term when the visual boundary is part of the meaning of the
+    container, as with a Card or another bounded group of content.
+  confusedWith:
+    - content-section
+    - element
+    - component
+
+- id: element
+  term: Element
+  definition: >
+    An individual UI part or control that performs a specific role within a
+    component, pattern, or page.
+  usage: >
+    Use this term for a constituent part such as a label, icon, menu item,
+    input, or action control, rather than for the containing component.
+  confusedWith:
+    - component
+    - surface
