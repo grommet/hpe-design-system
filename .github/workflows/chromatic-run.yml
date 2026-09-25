@@ -62,6 +62,7 @@ jobs:
           workingDir: shared/aries-core
           buildScriptName: build-storybook
           onlyChanged: true
+          # Externals are repository-root-relative and unaffected by workingDir.
           externals: |
             apps/docs/src/examples/templates/**
             packages/hpe-design-tokens/src/**
