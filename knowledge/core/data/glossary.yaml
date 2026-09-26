@@ -126,6 +126,22 @@
   confusedWith:
     - context-pane
 
+# Color: what a color token is painted on
+- id: color-target
+  term: Color target
+  definition: >
+    The part of the UI a color token is applied to: text, icon, background,
+    border, foreground fill, or chart series. Every semantic color token is
+    named target-role, such as text-critical or icon-warning, and the same
+    role can resolve differently per target: icon-warning is orange while
+    text-warning is neutral.
+  usage: >
+    Use this term when checking that a color name matches what it is
+    painted on. A role with no target, such as status-warning, is a Grommet
+    compatibility alias rather than a token; it resolves to the icon value
+    and must not be used.
+  confusedWith:
+    - surface
 - id: context-pane
   term: Context pane
   definition: >
