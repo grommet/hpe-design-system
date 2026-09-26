@@ -1,0 +1,172 @@
+# Placement test: would this rule still be true if HPE shipped no tokens at
+# all? No: it belongs here. Yes: it belongs in color.yaml, spacing.yaml, or
+# layout.yaml.
+id: design-tokens
+name: Design tokens
+description: >
+  Cross-cutting rules for the token tiers, how tokens are referenced, and
+  how they are consumed in Grommet, in CSS, and in Figma. Rules about which
+  color, space, or size to choose live in the color, spacing, and layout
+  foundations.
+
+rules:
+  - id: design-tokens-use-three-tiers
+    statement: >
+      HPE design tokens have three tiers: primitive (base.* and static.*),
+      semantic (color.*, spacing.*, container.*, radius.*, borderWidth.*,
+      text.*, heading.*, icon.*), and component (button.*, formField.*,
+      menu.*, element.*, and so on). Consume the most specific tier that
+      exists: a component token first, then a semantic token. Never consume
+      a primitive.
+    rationale: >
+      Each tier adds intent. A primitive names a value; a semantic token
+      names where it applies; a component token names the component,
+      variant, state, and property. Specificity is what lets a value be
+      retuned for one component without moving every other use of the same
+      shade or size.
+    relatedTo:
+      - kind: external
+        label: HPE Design System types of design tokens
+        url: https://design-system.hpe.design/design-tokens/overview#types-of-design-tokens
+      - kind: rule
+        id: color-use-semantic-roles
+      - kind: rule
+        id: spacing-use-tokens-everywhere
+
+  - id: design-tokens-do-not-reference-primitives-directly
+    statement: >
+      Never reference a base.* or static.* token from product code or a
+      product design file.
+    rationale: >
+      Primitives carry no mode or breakpoint behavior. base.color has no
+      light and dark variant and static.spacing has no small-breakpoint
+      value; the semantic layer exists to point at different primitives in
+      different contexts. Reaching past it discards that behavior and hides
+      the usage from theme retunes.
+    relatedTo:
+      - kind: external
+        label: HPE Design System primitive tokens
+        url: https://design-system.hpe.design/design-tokens/overview#primitive-tokens
+
+  - id: design-tokens-reference-do-not-copy-values
+    statement: >
+      Reference tokens by name. Never copy a token's resolved value into
+      code or a design.
+    rationale: >
+      A copied value is a snapshot. It does not follow the token when the
+      scale or palette is retuned, does not switch with theme mode, and no
+      audit can tell it apart from an arbitrary number.
+    relatedTo:
+      - kind: external
+        label: HPE Design System design tokens overview
+        url: https://design-system.hpe.design/design-tokens/overview
+
+  - id: design-tokens-component-tokens-are-component-specific
+    statement: >
+      Use a component's own tokens to style that component. Never style one
+      component with another component's tokens.
+    rationale: >
+      A component token encodes a decision about that component alone, so
+      the design system can retune it without side effects. Borrowing
+      button.primary.rest.background for a badge ties the badge to every
+      future button change.
+    relatedTo:
+      - kind: external
+        label: HPE Design System component tokens
+        url: https://design-system.hpe.design/design-tokens/how-to-read-design-tokens#component
+
+  - id: design-tokens-use-element-tokens-for-new-controls
+    statement: >
+      Use element.[size].* tokens only to build a control the design system
+      does not provide, and only for sizing: minHeight, height, width,
+      paddingX, paddingY, borderWidth, fontSize, lineHeight, icon.size,
+      textToIconX, and textToElementX. Do not use element tokens on
+      compositional components such as cards, lists, toolbars, or layers.
+    rationale: >
+      Element tokens define the proportions shared by buttons, inputs,
+      selects, and menu items so that a new control lines up with them at
+      every size. Compositional components are laid out with semantic
+      spacing and container tokens, which is what lets them compress on
+      small screens.
+    relatedTo:
+      - kind: external
+        label: HPE Design System element tokens
+        url: https://design-system.hpe.design/design-tokens/element
+      - kind: rule
+        id: spacing-use-element-tokens-inside-controls
+
+  - id: design-tokens-item-uses-element-container-uses-semantic
+    statement: >
+      Inside a list, menu, or table, the item takes element or component
+      tokens and the container takes semantic tokens.
+    rationale: >
+      A menu item, list row, or table cell is an element and must align in
+      height with other controls. The menu, list, or table that composes
+      them is a layout and has no control to align with.
+    relatedTo:
+      - kind: external
+        label: HPE Design System element tokens
+        url: https://design-system.hpe.design/design-tokens/element
+
+  - id: design-tokens-stack-gaps-are-semantic
+    statement: >
+      Vertical gaps between stacked children are semantic spacing tokens,
+      even inside an element.
+    rationale: >
+      Element tokens define horizontal relationships only (textToIconX,
+      textToElementX, paddingX) plus paddingY. There is no element token for
+      a vertical gap because once content stacks, the rhythm between lines
+      is a layout decision.
+    relatedTo:
+      - kind: rule
+        id: spacing-use-tokens-everywhere
+
+  - id: design-tokens-grommet-uses-token-name
+    statement: >
+      In Grommet, pass the theme name, not the token path: pad="medium",
+      background="background-front", color="text-strong", width="medium".
+      Never pass a token path such as pad="spacing.medium" or a CSS
+      variable.
+    rationale: >
+      grommet-theme-hpe already maps every token into the theme, and
+      Grommet resolves the name against it, which is where the
+      small-breakpoint remap and light and dark mode swap happen. Grommet
+      falls back to using an unrecognised value as literal CSS, so a token
+      path is silently emitted as invalid CSS and the style is dropped.
+    relatedTo:
+      - kind: external
+        label: HPE Design System using tokens with Grommet
+        url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-code
+
+  - id: design-tokens-non-grommet-uses-css-variables
+    statement: >
+      Outside Grommet, consume tokens from hpe-design-tokens as CSS
+      variables (var(--hpe-spacing-medium)) or via the ESM and CommonJS
+      exports, and import the dimension.small and color mode files so
+      breakpoint and mode behavior applies.
+    rationale: >
+      The published CSS carries the small-breakpoint media query and the
+      data-mode light and dark selectors. A project that copies values or
+      omits those files gets desktop-only, light-only styling.
+    relatedTo:
+      - kind: external
+        label: HPE Design System using tokens in non-Grommet projects
+        url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-code
+
+  - id: design-tokens-figma-respects-variable-scope
+    statement: >
+      In Figma, enable only the Design tokens - Semantic library and bind
+      variables rather than typing values. Respect each variable's scope:
+      spacing tokens are scoped to GAP, container tokens to WIDTH_HEIGHT,
+      radius to CORNER_RADIUS, and borderWidth to STROKE.
+    rationale: >
+      Scopes keep the scales apart, so a container size cannot be applied as
+      a gap. The primitive and component libraries are for design system
+      maintainers. A typed number has no token behind it, so Dev Mode shows
+      a value instead of a name and the design stops following the system.
+    relatedTo:
+      - kind: external
+        label: HPE Design System using tokens in Figma
+        url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-figma
+      - kind: rule
+        id: spacing-keep-container-and-spacing-scales-apart

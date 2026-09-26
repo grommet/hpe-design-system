@@ -1,0 +1,263 @@
+id: spacing
+name: Spacing
+description: >
+  Cross-cutting rules for gaps, padding, and margins across product UI.
+
+rules:
+  - id: spacing-use-tokens-everywhere
+    statement: >
+      Use a spacing token for every gap, pad, and margin. Never use raw px,
+      rem, or em values for spacing.
+    rationale: >
+      Spacing tokens step down at the small breakpoint (large becomes small,
+      medium becomes xsmall, and so on). A raw value keeps its desktop size on
+      mobile, ignores theming, and cannot be found by audit tooling.
+    relatedTo:
+      - kind: rule
+        id: design-tokens-grommet-uses-token-name
+
+  - id: spacing-prefer-gap-and-pad-over-margin
+    statement: >
+      Use gap between siblings and pad inside a container. Use margin only
+      when neither is possible.
+    rationale: >
+      Gap and pad are owned by the container, so one value controls every
+      child and remaps once per breakpoint. Margins live on individual
+      children, collapse unpredictably, and are hard to reason about in
+      responsive layouts.
+    relatedTo:
+      - kind: external
+        label: HPE Design System spacing best practices
+        url: https://design-system.hpe.design/foundation/spacing
+
+  - id: spacing-use-nearest-named-step
+    statement: >
+      Use a named spacing step. When no step is an exact fit, take the nearest
+      one, preferring the smaller of two equally close steps, and report the
+      gap to the design system team. Never interpolate.
+    rationale: >
+      The scale is closed so that every step has a defined small-breakpoint
+      value. An in-between value has nothing to remap to and cannot be
+      retuned centrally. Preferring the smaller step keeps groupings tight,
+      and reporting the gap is how new steps enter the scale.
+
+  - id: spacing-keep-container-and-spacing-scales-apart
+    statement: >
+      Use spacing tokens for gap, pad, and margin, and container tokens for
+      width and height. Never use one scale in place of the other.
+    rationale: >
+      The two scales share t-shirt names but not values: spacing.medium is
+      24px and container.medium is 384px, and only the spacing scale
+      compresses at the small breakpoint. Grommet props keep them apart
+      (pad resolves to spacing, width to container), so the risk is in CSS
+      variables and Figma, where the scales sit side by side.
+    relatedTo:
+      - kind: rule
+        id: layout-use-container-tokens-for-dimensions
+      - kind: rule
+        id: design-tokens-figma-respects-variable-scope
+
+  - id: spacing-use-element-tokens-inside-controls
+    statement: >
+      Use element tokens for the padding inside a control, and spacing tokens
+      between controls and for layout.
+    rationale: >
+      Element tokens are fixed so that a button and an input keep the same
+      height at every breakpoint. Spacing tokens compress so that layouts fit.
+      A spacing token inside a control shrinks it on mobile; an element token
+      between controls stops the layout from compressing.
+    relatedTo:
+      - kind: rule
+        id: design-tokens-use-three-tiers
+
+  - id: spacing-do-not-use-spacing-tokens-for-text-metrics
+    statement: >
+      Do not use spacing tokens for line-height or letter-spacing.
+    rationale: >
+      Line-height is set per text size by the typography tokens and already
+      adjusts for headings at the small breakpoint. Letter-spacing is not
+      tokenized and should be left at the font's default. Spacing steps are
+      unrelated to type size, so borrowing one breaks vertical rhythm.
+
+  - id: spacing-chart-and-illustration-interiors-are-exempt
+    statement: >
+      The interior of a chart, diagram, or illustration is exempt from spacing
+      tokens. The exemption ends at the canvas edge.
+    rationale: >
+      Inside a canvas, position encodes data or meaning and must not remap.
+      Padding around the canvas is ordinary layout spacing and uses tokens.
+
+  - id: spacing-use-purpose-built-containers
+    statement: >
+      Use the purpose-built container where one exists, such as Page,
+      PageContent, PageHeader, Card, Header, or Footer, rather than rebuilding
+      it from Box.
+    rationale: >
+      These components carry the theme's page margins, max-width, and padding
+      and change them per breakpoint. A Box rebuilt to match them holds a
+      snapshot that drifts when the theme changes.
+    relatedTo:
+      - kind: rule
+        id: layout-use-standard-routed-screen-structure
+
+  - id: spacing-do-not-override-theme-owned-padding
+    statement: >
+      Do not pass pad to PageContent, PageHeader, CardHeader, CardBody, or
+      CardFooter unless you are deliberately replacing the theme's padding.
+    rationale: >
+      A pad prop replaces the theme value; it does not merge with it. On
+      PageContent, even pad={{ bottom: 'xlarge' }} removes the responsive
+      horizontal page margins entirely.
+
+  - id: spacing-parents-space-children
+    statement: >
+      Let the parent own the spacing. Set margin="none" on Heading and
+      Paragraph when the parent already provides gap or pad.
+    rationale: >
+      Heading and Paragraph render with the browser's default em-based
+      margins unless margin is set. Left in place, the visible gap becomes the
+      parent's gap plus a margin that scales with font size instead of the
+      breakpoint. Text renders a span and has no default margin.
+    relatedTo:
+      - kind: component
+        id: heading
+
+  - id: spacing-pad-one-side-at-shared-edge
+    statement: >
+      Where two padded regions meet, remove the padding from one side of the
+      shared edge.
+    rationale: >
+      Two abutting regions with full padding produce a double gap, which reads
+      as an accidental break. CardHeader and CardBody both default to medium
+      padding, so a card with both needs the top of the body zeroed.
+    example:
+      description: >
+        A card whose body drops its top padding so the header-to-body gap is
+        a single medium step rather than two.
+      code: |
+        <Card>
+          <CardHeader pad="medium">
+            <Heading level={3} margin="none">Servers</Heading>
+          </CardHeader>
+          <CardBody pad={{ top: 'none', horizontal: 'medium', bottom: 'medium' }}>
+            <Text>12 servers need attention.</Text>
+          </CardBody>
+        </Card>
+
+  - id: spacing-write-zero-explicitly
+    statement: >
+      Where a reader would expect spacing, write zero explicitly as
+      gap="none" or pad="none" rather than omitting the prop.
+    rationale: >
+      An explicit none records that the absence was deliberate. An omitted
+      prop looks identical to an oversight and invites someone to add the
+      spacing back.
+
+  - id: spacing-decreases-as-things-nest
+    statement: >
+      Spacing should decrease as things nest, so the gap between groups is
+      always larger than the gap within them.
+    rationale: >
+      Proximity is the primary grouping signal, and HPE minimizes borders, so
+      spacing carries most of the load. Equal gaps at two levels flatten the
+      hierarchy and the page reads as one list.
+
+  - id: spacing-page-rhythm
+    statement: >
+      Use xlarge between a page's top-level sections, medium within a section,
+      and xsmall between items. Page regions such as navigation and content
+      are separated by their own padding, not by a gap.
+    rationale: >
+      Each level is two steps below the one above, and the small-breakpoint
+      remap keeps that ratio (xlarge, medium, xsmall become medium, xsmall,
+      3xsmall). This is the rhythm of the design system's own dashboard and
+      list templates, which set gap="xlarge" on PageContent and gap="medium"
+      on the grids inside it.
+    relatedTo:
+      - kind: glossary
+        id: page-region
+      - kind: glossary
+        id: content-section
+      - kind: pattern
+        id: dashboard-layout
+
+  - id: spacing-surface-padding-exceeds-inner-gap
+    statement: >
+      A surface's padding should exceed the gap between its contents. Use
+      pad="medium" with gap="small" as the default pairing.
+    rationale: >
+      If padding is not larger than the inner gap, content appears to touch
+      the edge and the surface stops reading as a container. Card body
+      padding defaults to medium, so small is the largest inner gap that
+      keeps the relationship.
+    relatedTo:
+      - kind: glossary
+        id: surface
+
+  - id: spacing-card-grid-gaps
+    statement: >
+      In a card grid, use one gap value for rows and columns. Make it at least
+      one step tighter than the gap around the grid and no larger than the
+      cards' padding.
+    rationale: >
+      Cards are bounded by their own surfaces and need less separation than
+      unbounded sections. Unequal row and column gaps make a regular grid look
+      misaligned, and a gap wider than the cards' padding makes the grid read
+      as scattered fragments. The theme's default card grid gap is medium,
+      matching card padding.
+    relatedTo:
+      - kind: component
+        id: card
+      - kind: component
+        id: grid
+
+  - id: spacing-page-bottom-padding
+    statement: >
+      Give Page a bottom pad of 3xlarge. Put it on Page, not PageContent.
+    rationale: >
+      Mobile browser toolbars overlay the bottom of the viewport, so without
+      trailing padding the last element can be clipped and, if interactive,
+      unreachable. Page has no theme padding to disturb; a pad prop on
+      PageContent would replace its responsive horizontal margins.
+    example:
+      description: >
+        Page-level bottom padding as used in the dashboard and list templates.
+      code: |
+        <Page pad={{ bottom: '3xlarge' }}>
+          <PageContent gap="xlarge">
+            <PageHeader title="Dashboard" />
+            {/* sections */}
+          </PageContent>
+        </Page>
+    relatedTo:
+      - kind: pattern
+        id: dashboard-layout
+
+  - id: spacing-separate-undersized-targets
+    statement: >
+      Keep interactive targets at least 24×24 CSS px. Where a target must be
+      smaller, such as a plain icon-only Button, space it so that the centres
+      of adjacent targets stay at least 24px apart at every breakpoint.
+    rationale: >
+      WCAG 2.2 SC 2.5.8 requires 24×24 CSS px targets, with an exception for
+      undersized targets whose 24px circles do not overlap a neighbour.
+      Controls sized with element tokens already meet this, so the risk is
+      plain icon buttons and custom hit areas. Token values remap at the small
+      breakpoint, so check the resolved size, not the token name.
+    example:
+      description: >
+        Plain icon-only buttons render at icon size, 16px for a medium icon.
+        gap="small" keeps their centres 32px apart on desktop and exactly 24px
+        at the small breakpoint, where small resolves to 8px. gap="xsmall"
+        would resolve to 6px there and fail.
+      code: |
+        <Box direction="row" gap="small">
+          <Button plain a11yTitle="Edit" icon={<Edit />} />
+          <Button plain a11yTitle="Delete" icon={<Trash />} />
+        </Box>
+    relatedTo:
+      - kind: external
+        label: WCAG 2.2 SC 2.5.8 Target Size (Minimum)
+        url: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+      - kind: component
+        id: button

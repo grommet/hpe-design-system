@@ -1,0 +1,162 @@
+# Structure: how a screen is divided
+- id: page-region
+  term: Page region
+  definition: >
+    A top-level area of a screen that the application shell lays out
+    directly: the global header, navigation, main content (Main containing
+    Page), an optional context pane, and the footer. Each region maps to one
+    ARIA landmark (header, nav, main, aside, footer) so assistive technology
+    can move between them.
+  usage: >
+    Use this term for the areas the shell arranges with Grid or Box and for
+    the boundaries between them. Regions are separated by their own theme
+    padding, not by a gap. Every screen has regions, including a
+    single-column one, which still has a header, main content, and footer.
+    PageHeader and everything inside PageContent belong to the main content
+    region; divisions there are content sections.
+  confusedWith:
+    - content-section
+    - surface
+
+- id: content-section
+  term: Content section
+  definition: >
+    A group of related content inside the main content region, usually a
+    heading with the content it introduces, a card grid, a table with its
+    toolbar, or a form. Sections sit directly inside PageContent after the
+    PageHeader and are separated by its gap.
+  usage: >
+    Use this term for the first level of grouping inside a page region, the
+    level the page rhythm calls top-level sections: xlarge between them,
+    medium inside. A section may be a surface but usually is a plain Box set
+    apart by spacing and a heading. In the layered background approach,
+    background-front and background-contrast mark which sections carry
+    focus.
+  confusedWith:
+    - page-region
+    - surface
+
+- id: surface
+  term: Surface
+  definition: >
+    A visible container whose background sets it apart from what is behind
+    it: a Card, a Layer, or a Box with background-front, background-contrast,
+    or background-floating. HPE minimizes borders and Card has no elevation
+    at rest, so background and corner radius are what make a surface read as
+    one.
+  usage: >
+    Use this term when the boundary is part of the meaning: the contents are
+    one thing. A surface owns its padding, which must exceed the gap between
+    its contents. A Box with only a gap, or only a border, is a group rather
+    than a surface. Page regions and content sections can be surfaces but
+    most are not.
+  confusedWith:
+    - content-section
+    - component
+    - element
+
+# Building blocks: what a screen is made of
+- id: component
+  term: Component
+  definition: >
+    A named, reusable UI building block the design system publishes with a
+    Grommet implementation, HPE theme styling, and usually its own component
+    tokens: Button, TextInput, Card, DataTable, Layer. Components range from
+    a single control to a compositional component that arranges others.
+  usage: >
+    Use this term for anything with an entry in the components knowledge
+    set. A component token belongs to one component and must not style
+    another. A compositional component, such as Card, List, Toolbar, or
+    Layer, arranges other components and is laid out with semantic tokens,
+    never element tokens. A Box with props is a composition, not a new
+    component.
+  confusedWith:
+    - element
+    - surface
+
+- id: element
+  term: Element
+  definition: >
+    A core UI building block that contains text or icons and cannot be
+    broken down further without ceasing to function: a button, input,
+    select, menu item, or table cell. Elements are sized with element
+    tokens, directly or through the component tokens that reference them,
+    so they align in height across a layout.
+  usage: >
+    Use this term only for what HPE's element-token guidance calls level 2.
+    Text, anchors, icons, checkboxes, radio buttons, and toggles are level 1,
+    typography and controls, not elements. Cards, lists, toolbars, and layers
+    are level 3, compositional components, not elements. When a rule says
+    inside an element, it means the padding and text-to-icon spacing of one
+    element, not the gap between stacked children.
+  confusedWith:
+    - component
+    - control
+    - surface
+
+- id: control
+  term: Control
+  definition: >
+    Any interactive part the user operates to act or to enter data: a
+    button, anchor, input, select, checkbox, radio button, toggle, menu item,
+    or tab. A control is the unit that accessibility rules on target size,
+    focus, and labelling apply to.
+  usage: >
+    Use this term when a rule is about interaction rather than sizing. Most
+    controls are elements; a checkbox or anchor is a control that is not an
+    element, and a table cell is an element that is not a control. Between
+    controls means the gap between adjacent interactive targets.
+  confusedWith:
+    - element
+
+# Panels: supporting content beside the main content
+- id: side-drawer
+  term: Side drawer
+  definition: >
+    An HPE Layer type, position="right" full="vertical", that slides in over
+    the page so the user can view details, configure an item, or adjust
+    filters while the page stays visible. modal={false} keeps the page
+    interactive; modal={true} blocks it.
+  usage: >
+    Use this term, not side panel or flyout, for a Layer at the page edge. A
+    side drawer is temporary and overlays the page, so it is not a page
+    region. At xsmall and small it fills the width, so only one side drawer
+    or navigation drawer should be open at a time. Center and fullscreen are
+    the other two HPE Layer types.
+  confusedWith:
+    - context-pane
+
+# Color: what a color token is painted on
+- id: color-target
+  term: Color target
+  definition: >
+    The part of the UI a color token is applied to: text, icon, background,
+    border, foreground fill, or chart series. Every semantic color token is
+    named target-role, such as text-critical or icon-warning, and the same
+    role can resolve differently per target: icon-warning is orange while
+    text-warning is neutral.
+  usage: >
+    Use this term when checking that a color name matches what it is
+    painted on. A role with no target, such as status-warning, is a Grommet
+    compatibility alias rather than a token; it resolves to the icon value
+    and must not be used.
+  confusedWith:
+    - surface
+- id: context-pane
+  term: Context pane
+  definition: >
+    A persistent page region beside the main content that shows supporting
+    information for the current view, such as help, settings, or details of
+    the selected item. The application shell lays it out as an aside
+    (complementary landmark) and it stays open while the user works rather
+    than overlaying the page.
+  usage: >
+    Use this term for an in-flow panel with its own Grid area, as in the
+    application-shell pattern. This is a knowledge-base term; HPE's
+    published guidance covers only the side drawer Layer, so prefer a side
+    drawer when the content is needed briefly or on demand. At xsmall and
+    small a context pane cannot share the width with content, so it
+    collapses into a side drawer or is hidden behind a control, and only one
+    side panel is open at a time.
+  confusedWith:
+    - side-drawer
