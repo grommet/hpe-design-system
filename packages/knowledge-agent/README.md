@@ -11,12 +11,13 @@ pnpm --filter @hpe-design/knowledge-agent generate -- "Build a login form"
 pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --framework react
 pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --rules none
 pnpm --filter @hpe-design/knowledge-agent generate -- --rule color-names-its-target
+pnpm --filter @hpe-design/knowledge-agent generate -- --checklist
 pnpm --filter @hpe-design/knowledge-agent test
 ```
 
-Builders and validators use the foundation checklist; fetch a rule in full by
-id only when explaining or reporting a failure. Relevance filtering of rules is
-possible future work.
+Builders and validators use the foundation checklist; for validation-only work
+use `--checklist`; fetch a rule in full by id only when explaining or reporting
+a failure. Relevance filtering of rules is possible future work.
 
 The bin command (`hpe-design-agent`) mirrors the same interface once the package is installed:
 

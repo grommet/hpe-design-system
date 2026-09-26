@@ -13,6 +13,12 @@ Use these when working in `knowledge/code-connect/` or when mapping Figma compon
 | `code-connect-drift-audit`         | You need to review an existing mapping for stale props, imports, or structure                 | Findings and targeted fixes          |
 | `code-connect-sync-troubleshooter` | `figma:sync` fails or Figma Dev Mode output does not match expectations                       | Root-cause diagnosis and sync repair |
 
+## Design System Foundations
+
+| Skill              | Use it when                                                                                                      | Main output                                  |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `foundation-rules` | You are building a page from a reference, validating a design or build against the design system, or explaining why a foundation rule exists | A checklist-driven build or a rule id / result / evidence report |
+
 ## General Customization Skills
 
 | Skill                | Use it when                                            |

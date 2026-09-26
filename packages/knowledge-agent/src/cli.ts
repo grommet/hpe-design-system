@@ -2,7 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 import { generateSystemPrompt } from './context-generator.js';
 import { loadFoundations, loadGlossary } from './data-loader.js';
-import { findRule, renderRule, type RuleDetail } from './rules.js';
+import {
+  findRule,
+  renderChecklist,
+  renderRule,
+  type RuleDetail,
+} from './rules.js';
 import type { FrameworkTarget } from './types.js';
 
 const color = {
@@ -46,6 +51,7 @@ Options:
                         detail for the Foundation Rules section
                         (default: checklist)
   --rule <id>           print that one rule in full and exit 0
+  --checklist            print all foundation rules and exit 0
   --help                Show this help message
 `);
 }
@@ -55,12 +61,14 @@ function parseArgs(args: string[]): {
   framework: FrameworkTarget;
   ruleDetail: RuleDetail | 'none';
   ruleId: string | null;
+  checklist: boolean;
   help: boolean;
 } {
   const positional: string[] = [];
   let framework: FrameworkTarget = 'react';
   let ruleDetail: RuleDetail | 'none' = 'checklist';
   let ruleId: string | null = null;
+  let checklist = false;
   let help = false;
 
   for (let i = 0; i < args.length; i += 1) {
@@ -125,6 +133,8 @@ function parseArgs(args: string[]): {
 
       ruleId = next;
       i += 1;
+    } else if (arg === '--checklist') {
+      checklist = true;
     } else if (arg === '--') {
       // Ignore argument separators passed through by package managers.
     } else if (arg.startsWith('-')) {
@@ -141,16 +151,28 @@ function parseArgs(args: string[]): {
     framework,
     ruleDetail,
     ruleId,
+    checklist,
     help,
   };
 }
 
-const { query, framework, ruleDetail, ruleId, help } = parseArgs(
+const { query, framework, ruleDetail, ruleId, checklist, help } = parseArgs(
   process.argv.slice(2),
 );
 
 if (help) {
   printUsage();
+  process.exit(0);
+}
+
+if (checklist && ruleId) {
+  printParseError('--checklist and --rule cannot be used together');
+  printUsage();
+  process.exit(1);
+}
+
+if (checklist) {
+  console.log(renderChecklist(loadFoundations()));
   process.exit(0);
 }
 
