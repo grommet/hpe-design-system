@@ -1,8 +1,13 @@
+# Placement test: would this rule still be true if HPE shipped no tokens at
+# all? No: it belongs here. Yes: it belongs in color.yaml, spacing.yaml, or
+# layout.yaml.
 id: design-tokens
 name: Design tokens
 description: >
-  Cross-cutting rules for choosing, referencing, and applying design tokens
-  across product UI and design files.
+  Cross-cutting rules for the token tiers, how tokens are referenced, and
+  how they are consumed in Grommet, in CSS, and in Figma. Rules about which
+  color, space, or size to choose live in the color, spacing, and layout
+  foundations.
 
 rules:
   - id: design-tokens-use-three-tiers
@@ -23,6 +28,10 @@ rules:
       - kind: external
         label: HPE Design System types of design tokens
         url: https://design-system.hpe.design/design-tokens/overview#types-of-design-tokens
+      - kind: rule
+        id: color-use-semantic-roles
+      - kind: rule
+        id: spacing-use-tokens-everywhere
 
   - id: design-tokens-do-not-reference-primitives-directly
     statement: >
@@ -112,68 +121,6 @@ rules:
       - kind: rule
         id: spacing-use-tokens-everywhere
 
-  - id: design-tokens-use-semantic-color-roles
-    statement: >
-      Choose color by target and role, such as background-front,
-      text-strong, border-weak, or icon-critical. Never use a hex value,
-      an rgb value, or a base palette color.
-    rationale: >
-      Semantic color tokens resolve to different primitives in light and
-      dark mode and are retuned as the palette evolves. A hex or base value
-      renders identically in both modes and, in Grommet, passes straight
-      through to CSS with no theme involvement.
-    relatedTo:
-      - kind: external
-        label: HPE Design System color usage
-        url: https://design-system.hpe.design/design-tokens/color-usage
-
-  - id: design-tokens-pair-strong-with-onstrong
-    statement: >
-      Pair every strong background with its onStrong text and icon tokens,
-      and every role background with its on[Role] tokens: background-critical
-      with text-onCritical, background-primary-strong with
-      text-onPrimaryStrong. Use the most specific pairing that exists.
-    rationale: >
-      Pairings are tested for contrast and the design system keeps them
-      passing when colors change. A hand-picked text color on a strong
-      background can pass today and fail after the next palette update.
-    relatedTo:
-      - kind: external
-        label: HPE Design System color pairing
-        url: https://design-system.hpe.design/foundation/color-pairing
-
-  - id: design-tokens-pick-one-background-approach
-    statement: >
-      Use one background approach across an application. Basic uses
-      background everywhere with background-contrast for secondary content.
-      Layered uses background-back for the page and background-front for
-      primary content surfaces. Never place background-back inside a
-      background-front region.
-    rationale: >
-      Background color carries hierarchy in a system that minimizes borders.
-      Mixing approaches between pages, or nesting back inside front, breaks
-      the reading that front means "the focus" and back means "the page".
-    relatedTo:
-      - kind: external
-        label: HPE Design System background color guidance
-        url: https://design-system.hpe.design/foundation/background-colors-guidance
-      - kind: glossary
-        id: surface
-
-  - id: design-tokens-style-states-with-state-tokens
-    statement: >
-      Style interaction states (rest, hover, focus, active) and application
-      states (disabled, selected, readOnly, error) with their state tokens.
-      Do not derive a state color by adjusting opacity or lightness.
-    rationale: >
-      State tokens are defined per role and per component so that every
-      state stays accessible in both modes. A derived value is a copied
-      value: it neither follows the palette nor switches with mode.
-    relatedTo:
-      - kind: external
-        label: HPE Design System component states
-        url: https://design-system.hpe.design/design-tokens/component-states
-
   - id: design-tokens-grommet-uses-token-name
     statement: >
       In Grommet, pass the theme name, not the token path: pad="medium",
@@ -223,27 +170,3 @@ rules:
         url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-figma
       - kind: rule
         id: spacing-keep-container-and-spacing-scales-apart
-
-  - id: design-tokens-color-names-its-target
-    statement: >
-      Every color token names the target it is applied to: text takes
-      text-*, icons take icon-*, backgrounds take background-*, borders take
-      border-*, and quantitative fills (Meter, progress, DataChart) take
-      graph-* or foreground tokens. Never apply a target-less status alias
-      (status-critical, status-warning, status-ok, status-unknown) to
-      anything, and never put an icon-* token on text or a text-* token on
-      an icon, even when both resolve to the same value today.
-    rationale: >
-      The semantic layer decides per target how a role is shown: critical
-      text and critical icons are red, but warning icons are orange while
-      warning text is neutral. The status-* names in grommet-theme-hpe are
-      Grommet compatibility aliases with no hpe-design-tokens counterpart.
-      They resolve to one hue regardless of target, so they leak icon color
-      onto text and skip the per-target contrast and mode logic.
-    relatedTo:
-      - kind: rule
-        id: design-tokens-use-semantic-color-roles
-      - kind: external
-        label: HPE Design System color usage
-        url: https://design-system.hpe.design/design-tokens/color-usage
-
