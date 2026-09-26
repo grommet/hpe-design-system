@@ -1,82 +1,225 @@
 id: design-tokens
 name: Design tokens
 description: >
-  Cross-cutting rules for choosing, referencing, and applying design-token
-  tiers across product UI and design files.
+  Cross-cutting rules for choosing, referencing, and applying design tokens
+  across product UI and design files.
 
 rules:
   - id: design-tokens-use-three-tiers
     statement: >
-      Use three token tiers: element tokens inside a control, semantic tokens
-      between controls and for layout, and static tokens as the primitive layer
-      that is never authored directly.
+      HPE design tokens have three tiers: primitive (base.* and static.*),
+      semantic (color.*, spacing.*, container.*, radius.*, borderWidth.*,
+      text.*, heading.*, icon.*), and component (button.*, formField.*,
+      menu.*, element.*, and so on). Consume the most specific tier that
+      exists: a component token first, then a semantic token. Never consume
+      a primitive.
     rationale: >
-      Element spacing is fixed so controls stay aligned. Semantic spacing
-      compresses so layouts fit. Static tokens provide the primitive values
-      that the other tiers reference.
+      Each tier adds intent. A primitive names a value; a semantic token
+      names where it applies; a component token names the component,
+      variant, state, and property. Specificity is what lets a value be
+      retuned for one component without moving every other use of the same
+      shade or size.
+    relatedTo:
+      - kind: external
+        label: HPE Design System types of design tokens
+        url: https://design-system.hpe.design/design-tokens/overview#types-of-design-tokens
 
-  - id: design-tokens-use-element-tier-only-for-aligned-controls
+  - id: design-tokens-do-not-reference-primitives-directly
     statement: >
-      Use element tokens only when all three conditions are true: the target is
-      the smallest interactive target with its own hover and focus states, it
-      has one primary action, and it must align in height with other controls.
-      Otherwise use semantic tokens.
+      Never reference a base.* or static.* token from product code or a
+      product design file.
     rationale: >
-      Element tokens exist for cross-component proportional consistency.
-      Applying them to anything else creates fixed sizing where layout spacing
-      is more appropriate.
-
-  - id: design-tokens-item-uses-element-container-uses-semantic
-    statement: >
-      The item takes element tokens and the container takes semantic tokens.
-    rationale: >
-      A menu item, list row, or table cell acts as an individual item and needs
-      control-level alignment. A menu, list, or table composes items and has no
-      single outcome to align with.
-
-  - id: design-tokens-stack-gaps-are-semantic
-    statement: >
-      Vertical gaps between stacked children are semantic, even inside an
-      element.
-    rationale: >
-      Element tokens deliberately define control proportions, not stack gaps.
-      Once content is stacking, the rhythm between lines is a layout decision.
-
-  - id: design-tokens-prefer-component-specific-tokens
-    statement: >
-      Prefer a component-specific token over an element token where one exists.
-    rationale: >
-      A component-specific token can be retuned for that component alone.
-      Anything placed on the shared element scale moves whenever that scale
-      changes.
-
-  - id: design-tokens-grommet-uses-token-name
-    statement: >
-      In Grommet, pass the t-shirt name, not the token path: use pad="medium",
-      not pad="spacing.medium".
-    rationale: >
-      Grommet resolves the name against the theme, which applies the responsive
-      remap. A token path can pass through as a literal value instead.
-
-  - id: design-tokens-figma-respects-variable-scope
-    statement: >
-      In Figma, bind the variable and respect its scope. Use the GAP scope for
-      spacing and WIDTH_HEIGHT for container dimensions.
-    rationale: >
-      Scopes keep the two scales apart. Typing a raw number breaks the link
-      that Code Connect uses to map designs to props.
-
-  - id: design-tokens-do-not-reference-static-directly
-    statement: >
-      Never reference a static.* token from product code or a design.
-    rationale: >
-      The static layer has no breakpoint behavior. The semantic layer exists to
-      point at different static values at different breakpoints, so going
-      directly to static discards that behavior.
+      Primitives carry no mode or breakpoint behavior. base.color has no
+      light and dark variant and static.spacing has no small-breakpoint
+      value; the semantic layer exists to point at different primitives in
+      different contexts. Reaching past it discards that behavior and hides
+      the usage from theme retunes.
+    relatedTo:
+      - kind: external
+        label: HPE Design System primitive tokens
+        url: https://design-system.hpe.design/design-tokens/overview#primitive-tokens
 
   - id: design-tokens-reference-do-not-copy-values
     statement: >
-      Reference tokens rather than copying their values.
+      Reference tokens by name. Never copy a token's resolved value into
+      code or a design.
     rationale: >
       A copied value is a snapshot. It does not follow the token when the
-      scale is retuned, and no audit can reliably identify the divergence.
+      scale or palette is retuned, does not switch with theme mode, and no
+      audit can tell it apart from an arbitrary number.
+    relatedTo:
+      - kind: external
+        label: HPE Design System design tokens overview
+        url: https://design-system.hpe.design/design-tokens/overview
+
+  - id: design-tokens-component-tokens-are-component-specific
+    statement: >
+      Use a component's own tokens to style that component. Never style one
+      component with another component's tokens.
+    rationale: >
+      A component token encodes a decision about that component alone, so
+      the design system can retune it without side effects. Borrowing
+      button.primary.rest.background for a badge ties the badge to every
+      future button change.
+    relatedTo:
+      - kind: external
+        label: HPE Design System component tokens
+        url: https://design-system.hpe.design/design-tokens/how-to-read-design-tokens#component
+
+  - id: design-tokens-use-element-tokens-for-new-controls
+    statement: >
+      Use element.[size].* tokens only to build a control the design system
+      does not provide, and only for sizing: minHeight, height, width,
+      paddingX, paddingY, borderWidth, fontSize, lineHeight, icon.size,
+      textToIconX, and textToElementX. Do not use element tokens on
+      compositional components such as cards, lists, toolbars, or layers.
+    rationale: >
+      Element tokens define the proportions shared by buttons, inputs,
+      selects, and menu items so that a new control lines up with them at
+      every size. Compositional components are laid out with semantic
+      spacing and container tokens, which is what lets them compress on
+      small screens.
+    relatedTo:
+      - kind: external
+        label: HPE Design System element tokens
+        url: https://design-system.hpe.design/design-tokens/element
+      - kind: rule
+        id: spacing-use-element-tokens-inside-controls
+
+  - id: design-tokens-item-uses-element-container-uses-semantic
+    statement: >
+      Inside a list, menu, or table, the item takes element or component
+      tokens and the container takes semantic tokens.
+    rationale: >
+      A menu item, list row, or table cell is an element and must align in
+      height with other controls. The menu, list, or table that composes
+      them is a layout and has no control to align with.
+    relatedTo:
+      - kind: external
+        label: HPE Design System element tokens
+        url: https://design-system.hpe.design/design-tokens/element
+
+  - id: design-tokens-stack-gaps-are-semantic
+    statement: >
+      Vertical gaps between stacked children are semantic spacing tokens,
+      even inside an element.
+    rationale: >
+      Element tokens define horizontal relationships only (textToIconX,
+      textToElementX, paddingX) plus paddingY. There is no element token for
+      a vertical gap because once content stacks, the rhythm between lines
+      is a layout decision.
+    relatedTo:
+      - kind: rule
+        id: spacing-use-tokens-everywhere
+
+  - id: design-tokens-use-semantic-color-roles
+    statement: >
+      Choose color by target and role, such as background-front,
+      text-strong, border-weak, or icon-critical. Never use a hex value,
+      an rgb value, or a base palette color.
+    rationale: >
+      Semantic color tokens resolve to different primitives in light and
+      dark mode and are retuned as the palette evolves. A hex or base value
+      renders identically in both modes and, in Grommet, passes straight
+      through to CSS with no theme involvement.
+    relatedTo:
+      - kind: external
+        label: HPE Design System color usage
+        url: https://design-system.hpe.design/design-tokens/color-usage
+
+  - id: design-tokens-pair-strong-with-onstrong
+    statement: >
+      Pair every strong background with its onStrong text and icon tokens,
+      and every role background with its on[Role] tokens: background-critical
+      with text-onCritical, background-primary-strong with
+      text-onPrimaryStrong. Use the most specific pairing that exists.
+    rationale: >
+      Pairings are tested for contrast and the design system keeps them
+      passing when colors change. A hand-picked text color on a strong
+      background can pass today and fail after the next palette update.
+    relatedTo:
+      - kind: external
+        label: HPE Design System color pairing
+        url: https://design-system.hpe.design/foundation/color-pairing
+
+  - id: design-tokens-pick-one-background-approach
+    statement: >
+      Use one background approach across an application. Basic uses
+      background everywhere with background-contrast for secondary content.
+      Layered uses background-back for the page and background-front for
+      primary content surfaces. Never place background-back inside a
+      background-front region.
+    rationale: >
+      Background color carries hierarchy in a system that minimizes borders.
+      Mixing approaches between pages, or nesting back inside front, breaks
+      the reading that front means "the focus" and back means "the page".
+    relatedTo:
+      - kind: external
+        label: HPE Design System background color guidance
+        url: https://design-system.hpe.design/foundation/background-colors-guidance
+      - kind: glossary
+        id: surface
+
+  - id: design-tokens-style-states-with-state-tokens
+    statement: >
+      Style interaction states (rest, hover, focus, active) and application
+      states (disabled, selected, readOnly, error) with their state tokens.
+      Do not derive a state color by adjusting opacity or lightness.
+    rationale: >
+      State tokens are defined per role and per component so that every
+      state stays accessible in both modes. A derived value is a copied
+      value: it neither follows the palette nor switches with mode.
+    relatedTo:
+      - kind: external
+        label: HPE Design System component states
+        url: https://design-system.hpe.design/design-tokens/component-states
+
+  - id: design-tokens-grommet-uses-token-name
+    statement: >
+      In Grommet, pass the theme name, not the token path: pad="medium",
+      background="background-front", color="text-strong", width="medium".
+      Never pass a token path such as pad="spacing.medium" or a CSS
+      variable.
+    rationale: >
+      grommet-theme-hpe already maps every token into the theme, and
+      Grommet resolves the name against it, which is where the
+      small-breakpoint remap and light and dark mode swap happen. Grommet
+      falls back to using an unrecognised value as literal CSS, so a token
+      path is silently emitted as invalid CSS and the style is dropped.
+    relatedTo:
+      - kind: external
+        label: HPE Design System using tokens with Grommet
+        url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-code
+
+  - id: design-tokens-non-grommet-uses-css-variables
+    statement: >
+      Outside Grommet, consume tokens from hpe-design-tokens as CSS
+      variables (var(--hpe-spacing-medium)) or via the ESM and CommonJS
+      exports, and import the dimension.small and color mode files so
+      breakpoint and mode behavior applies.
+    rationale: >
+      The published CSS carries the small-breakpoint media query and the
+      data-mode light and dark selectors. A project that copies values or
+      omits those files gets desktop-only, light-only styling.
+    relatedTo:
+      - kind: external
+        label: HPE Design System using tokens in non-Grommet projects
+        url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-code
+
+  - id: design-tokens-figma-respects-variable-scope
+    statement: >
+      In Figma, enable only the Design tokens - Semantic library and bind
+      variables rather than typing values. Respect each variable's scope:
+      spacing tokens are scoped to GAP, container tokens to WIDTH_HEIGHT,
+      radius to CORNER_RADIUS, and borderWidth to STROKE.
+    rationale: >
+      Scopes keep the scales apart, so a container size cannot be applied as
+      a gap. The primitive and component libraries are for design system
+      maintainers. A typed number has no token behind it, so Dev Mode shows
+      a value instead of a name and the design stops following the system.
+    relatedTo:
+      - kind: external
+        label: HPE Design System using tokens in Figma
+        url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-figma
+      - kind: rule
+        id: spacing-keep-container-and-spacing-scales-apart
