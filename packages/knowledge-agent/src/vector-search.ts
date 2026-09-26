@@ -3,13 +3,10 @@
 import type {
   ComponentDefinition,
   DesignSystemSchema,
-  FoundationDefinition,
-  GlossaryTerm,
   PatternDefinition,
-  Rule,
 } from './types.js';
 
-export type SearchEntityType = 'component' | 'pattern' | 'rule' | 'glossary-term';
+export type SearchEntityType = 'component' | 'pattern';
 
 export interface SearchEntity {
   id: string;
@@ -160,19 +157,6 @@ function patternText(pattern: PatternDefinition): string {
   ].join(' ');
 }
 
-function ruleText(rule: Rule, foundation: FoundationDefinition): string {
-  return [
-    foundation.name,
-    rule.statement,
-    rule.rationale,
-    rule.example?.description ?? '',
-  ].join(' ');
-}
-
-function glossaryTermText(term: GlossaryTerm): string {
-  return [term.term, term.definition, term.usage ?? ''].join(' ');
-}
-
 export function buildSearchEntities(ds: DesignSystemSchema): SearchEntity[] {
   return [
     ...ds.components.map((component) => ({
@@ -186,20 +170,6 @@ export function buildSearchEntities(ds: DesignSystemSchema): SearchEntity[] {
       type: 'pattern' as const,
       name: pattern.name,
       text: patternText(pattern),
-    })),
-    ...ds.foundations.flatMap((foundation) =>
-      foundation.rules.map((rule) => ({
-        id: rule.id,
-        type: 'rule' as const,
-        name: rule.statement,
-        text: ruleText(rule, foundation),
-      })),
-    ),
-    ...ds.glossary.map((term) => ({
-      id: term.id,
-      type: 'glossary-term' as const,
-      name: term.term,
-      text: glossaryTermText(term),
     })),
   ];
 }
