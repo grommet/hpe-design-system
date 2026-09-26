@@ -223,3 +223,27 @@ rules:
         url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-figma
       - kind: rule
         id: spacing-keep-container-and-spacing-scales-apart
+
+  - id: design-tokens-color-names-its-target
+    statement: >
+      Every color token names the target it is applied to: text takes
+      text-*, icons take icon-*, backgrounds take background-*, borders take
+      border-*, and quantitative fills (Meter, progress, DataChart) take
+      graph-* or foreground tokens. Never apply a target-less status alias
+      (status-critical, status-warning, status-ok, status-unknown) to
+      anything, and never put an icon-* token on text or a text-* token on
+      an icon, even when both resolve to the same value today.
+    rationale: >
+      The semantic layer decides per target how a role is shown: critical
+      text and critical icons are red, but warning icons are orange while
+      warning text is neutral. The status-* names in grommet-theme-hpe are
+      Grommet compatibility aliases with no hpe-design-tokens counterpart.
+      They resolve to one hue regardless of target, so they leak icon color
+      onto text and skip the per-target contrast and mode logic.
+    relatedTo:
+      - kind: rule
+        id: design-tokens-use-semantic-color-roles
+      - kind: external
+        label: HPE Design System color usage
+        url: https://design-system.hpe.design/design-tokens/color-usage
+
