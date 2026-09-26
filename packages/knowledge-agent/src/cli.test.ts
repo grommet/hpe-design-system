@@ -52,4 +52,43 @@ describe('knowledge-agent CLI', () => {
     expect(stripAnsi(result.stderr)).toContain(expectedMessage);
     expect(result.stdout).toContain('--framework <target>');
   });
+
+  it('rejects unsupported rules detail values', () => {
+    const result = spawnSync(
+      'pnpm',
+      [
+        'exec',
+        'tsx',
+        'src/cli.ts',
+        '--',
+        'Create a dashboard',
+        '--rules',
+        'bogus',
+      ],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain(
+      'Expected one of: checklist, full, none',
+    );
+  });
+
+  it('rejects unknown rule ids and lists valid ids', () => {
+    const result = spawnSync(
+      'pnpm',
+      ['exec', 'tsx', 'src/cli.ts', '--', '--rule', 'nope'],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain('Valid ids:');
+    expect(result.stderr).toContain('color-names-its-target');
+  });
 });

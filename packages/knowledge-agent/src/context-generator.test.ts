@@ -15,6 +15,16 @@ describe('knowledge-agent context generator', () => {
 
     expect(prompt).toContain('Login Form');
     expect(prompt).toMatch(/login-form|Login Form/i);
+    expect(prompt).toContain('### Foundation Rules');
+    expect(prompt).toContain('color-names-its-target');
+    expect(prompt).not.toContain('### Foundational Rules');
+    expect(prompt).not.toContain('### Glossary');
+  });
+
+  it('can omit foundation rules from the prompt', () => {
+    const prompt = generateSystemPrompt('Build a login form', 'react', 'none');
+
+    expect(prompt).not.toContain('### Foundation Rules');
   });
 
   it('includes relevant instructions for layout queries', () => {

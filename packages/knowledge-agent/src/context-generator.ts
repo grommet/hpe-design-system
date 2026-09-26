@@ -10,6 +10,7 @@ import {
   loadGlossary,
   loadPatterns,
 } from './data-loader.js';
+import { renderRules, type RuleDetail } from './rules.js';
 import type {
   DesignSystemSchema,
   FrameworkTarget,
@@ -238,6 +239,7 @@ function describePatternGraph(graph: PatternGraph): string {
 export function generateSystemPrompt(
   userQuery: string,
   targetFramework: FrameworkTarget = 'react',
+  ruleDetail: RuleDetail | 'none' = 'checklist',
 ): string {
   const ds = loadDesignSystem();
   const query = normalizeSearchText(userQuery);
@@ -290,7 +292,6 @@ export function generateSystemPrompt(
       if (pattern && !relevantPatterns.includes(pattern))
         relevantPatterns.push(pattern);
     }
-
   });
 
   relevantPatterns.forEach(pattern => {
@@ -347,6 +348,17 @@ export function generateSystemPrompt(
       prompt += `#### From ${instruction.name.replace('.instructions.md', '')}:\n\n`;
       prompt += `${instruction.content}\n\n---\n\n`;
     });
+  }
+
+  if (ruleDetail !== 'none') {
+    prompt += '### Foundation Rules\n\n';
+    if (ruleDetail === 'checklist') {
+      prompt +=
+        'Treat each statement as a constraint on the build. If you need the reason behind a rule, request it by id.\n\n';
+    } else {
+      prompt += 'Here are the foundation rules in full detail.\n\n';
+    }
+    prompt += `${renderRules(ds.foundations, ruleDetail, ds.glossary)}\n\n`;
   }
 
   if (relevantComponents.length > 0) {
