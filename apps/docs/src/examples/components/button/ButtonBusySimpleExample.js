@@ -37,7 +37,7 @@ export const ButtonBusySimpleExample = () => {
   return (
     <ContentPane width="medium">
       <Form onSubmit={handleSubmit}>
-        <Box gap="small">
+        <Box gap="medium">
           <>
             <FormField
               htmlFor="fullName"
