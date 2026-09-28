@@ -15,7 +15,6 @@ const PositionedBox = styled(Box)`
 export const FeedbackButton = ({ elevation, margin, ...buttonProps }) => {
   return (
     <PositionedBox elevation={elevation} margin={margin}>
-      {/* <StyledButton theme={theme} {...buttonProps} /> */}
       <Button {...buttonProps} />
     </PositionedBox>
   );
