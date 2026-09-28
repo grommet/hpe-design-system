@@ -1,51 +1,75 @@
 name: Chromatic Visual Tests
 on:
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
     branches:
       - master
+    paths:
+      - .github/workflows/chromatic-label.yml
+      - .github/workflows/chromatic-run.yml
+      - .github/workflows/chromatic.yml
+      - apps/docs/src/**
+      - packages/hpe-design-tokens/package.json
+      - packages/hpe-design-tokens/src/**
+      - packages/hpe-design-tokens/tokens/**
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - shared/aries-core/.storybook/**
+      - shared/aries-core/babel.config.js
+      - shared/aries-core/package.json
+      - shared/aries-core/src/**
+      - shared/aries-core/tsconfig.json
+      - shared/aries-core/webpack.config.js
+      - shared/hooks/package.json
+      - shared/hooks/src/**
+      - shared/hooks/tsconfig.build.esm.json
+      - shared/hooks/tsconfig.json
   push:
     branches:
       - master
+    paths:
+      - .github/workflows/chromatic-label.yml
+      - .github/workflows/chromatic-run.yml
+      - .github/workflows/chromatic.yml
+      - apps/docs/src/**
+      - packages/hpe-design-tokens/package.json
+      - packages/hpe-design-tokens/src/**
+      - packages/hpe-design-tokens/tokens/**
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - shared/aries-core/.storybook/**
+      - shared/aries-core/babel.config.js
+      - shared/aries-core/package.json
+      - shared/aries-core/src/**
+      - shared/aries-core/tsconfig.json
+      - shared/aries-core/webpack.config.js
+      - shared/hooks/package.json
+      - shared/hooks/src/**
+      - shared/hooks/tsconfig.build.esm.json
+      - shared/hooks/tsconfig.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chromatic-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   chromatic:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Required for Chromatic to track changes
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.30.3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: '24.15.0'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      # Build dependencies required for Storybook
-      - name: Create design tokens build
-        run: pnpm --filter hpe-design-tokens build
-
-      - name: Create shared hooks build
-        run: pnpm --filter "@shared/hooks" build
-
-      - name: Create aries-core build
-        run: pnpm --filter "@shared/aries-core" build
-
-      # Run Chromatic using the official action for better GitHub integration
-      - name: Run Chromatic
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: shared/aries-core
-          buildScriptName: build-storybook
-          exitZeroOnChanges: true
-          autoAcceptChanges: master
+    if: >-
+      github.event_name == 'push' ||
+      (github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      contains(fromJSON('["opened", "synchronize", "reopened", "ready_for_review"]'),
+      github.event.action))
+    uses: ./.github/workflows/chromatic-run.yml
+    with:
+      branch: ${{ github.event.pull_request.head.ref || github.ref_name }}
+      ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      sha: ${{ github.event.pull_request.head.sha || github.sha }}
+    secrets: inherit
