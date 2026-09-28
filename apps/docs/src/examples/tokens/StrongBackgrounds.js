@@ -51,7 +51,7 @@ export const StrongBackgrounds = () => {
       </Box>
       <Box gap="medium">
         <Box
-          background="background-accent-purple-strong"
+          background="background-accent-cyan-strong"
           pad="medium"
           round="xlarge"
           gap="medium"
