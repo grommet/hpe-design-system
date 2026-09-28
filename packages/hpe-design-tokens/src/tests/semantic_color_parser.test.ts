@@ -169,6 +169,25 @@ describe('semantic_color_parser', () => {
     });
   });
 
+  it('parses input background rest and hover as a standalone role', () => {
+    ['REST', 'hover'].forEach(state => {
+      expect(
+        parseSemanticColorTokenMetadata(
+          `color/background/input/DEFAULT/${state}`,
+        ),
+      ).toEqual({
+        ok: true,
+        metadata: {
+          type: 'color',
+          target: 'background',
+          role: { family: null, name: 'input' },
+          scale: 'default',
+          state,
+        },
+      });
+    });
+  });
+
   it('parses selected and accent role variants', () => {
     const selected = parseSemanticColorTokenMetadata(
       'color/background/selected/primary/DEFAULT/REST',

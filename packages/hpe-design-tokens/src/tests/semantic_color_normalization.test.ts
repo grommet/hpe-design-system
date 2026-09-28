@@ -13,6 +13,7 @@ import {
   normalizeColorVariableNameFromFigma,
   tokenAliasToFigmaAlias,
 } from '../semantic_color_figma_adapter.js';
+import * as semanticColorCore from '../semantic_color_core.js';
 import { parseSemanticColorTokenMetadata } from '../semantic_color_parser.js';
 
 describe('semantic_color_normalization', () => {
@@ -58,6 +59,28 @@ describe('semantic_color_normalization', () => {
     expect(tokenAliasToFigmaAliasCore('color/focus/support/DEFAULT/REST')).toBe(
       'color/focus-support',
     );
+  });
+
+  it('round-trips input background names without a nested Figma group', () => {
+    const figmaFamilies =
+      semanticColorCore.SEMANTIC_COLOR_FIGMA_FAMILIES_BY_TARGET;
+    expect(figmaFamilies.background).toContain('accent');
+    expect(figmaFamilies.background).not.toContain('input');
+
+    const aliases = [
+      {
+        canonical: 'color/background/input/DEFAULT/REST',
+        figma: 'color/background/input',
+      },
+      {
+        canonical: 'color/background/input/DEFAULT/hover',
+        figma: 'color/background/input-hover',
+      },
+    ];
+    aliases.forEach(({ canonical, figma }) => {
+      expect(tokenAliasToFigmaAlias(canonical)).toBe(figma);
+      expect(normalizeColorVariableNameFromFigma(figma)).toBe(canonical);
+    });
   });
 
   // eslint-disable-next-line max-len
