@@ -257,6 +257,34 @@
           }
         }
       },
+      "input": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "Background fill for inputs in their rest state. Use for form input containers and for checkbox and radio control fills.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.transparent}"
+          },
+          "hover": {
+            "$description": "Background fill for inputs in their hover state. Use for form input containers.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{color.transparent}"
+          }
+        }
+      },
       "neutral": {
         "xstrong": {
           "REST": {
