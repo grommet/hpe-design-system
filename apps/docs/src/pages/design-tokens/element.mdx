@@ -49,7 +49,22 @@ If any answer is no, use [semantic layout tokens](/design-tokens/layout-and-spac
 | table                         | table cell               |
 | card, modal, toolbar          | —                        |
 
-### Elements that stack internally
+### Quick reference
+
+| Case                                     | Tokens                  |
+| ----------------------------------------- | ------------------------ |
+| Menu item, option row                     | Element                  |
+| Clickable list row                        | Element                  |
+| Table cell                                | Element                  |
+| Tag                                       | Element   |
+| Menu or drop container padding, radius    | Semantic                 |
+| Gap between stacked lines inside an item  | Semantic                 |
+| Divider spacing within a menu             | Semantic                 |
+| Card, modal, toolbar, page layout         | Semantic                 |
+
+{/* TODO: worked example walking a drop/menu component through the element test (container fails Q1, option row passes all three, tag is a nested element one size down) — follow-up PR */}
+
+## Elements that stack internally
 
 An element may grow taller than its nominal height when it holds a label plus
 supporting content such as a description or tag. This does not disqualify it.
@@ -65,25 +80,10 @@ supporting content such as a description or tag. This does not disqualify it.
 Draw the line at behavior: if the whole stack is still one target with one outcome,
 it is an element.
 
-### Nested elements
+## Nested elements
 
 Elements may contain smaller elements — a tag inside a list row, a button inside a
 table cell. Use a smaller element size for the child than the parent.
-
-### Quick reference
-
-| Case                                     | Tokens                  |
-| ----------------------------------------- | ------------------------ |
-| Menu item, option row                     | Element                  |
-| Clickable list row                        | Element                  |
-| Table cell                                | Element                  |
-| Tag                                       | Element   |
-| Menu or drop container padding, radius    | Semantic                 |
-| Gap between stacked lines inside an item  | Semantic                 |
-| Divider spacing within a menu             | Semantic                 |
-| Card, modal, toolbar, page layout         | Semantic                 |
-
-{/* TODO: worked example walking a drop/menu component through the element test (container fails Q1, option row passes all three, tag is a nested element one size down) — follow-up PR */}
 
 ## When to use
 
