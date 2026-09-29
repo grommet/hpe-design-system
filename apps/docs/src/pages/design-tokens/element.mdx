@@ -55,8 +55,7 @@ An element may grow taller than its nominal height when it holds a label plus
 supporting content such as a description or tag. This does not disqualify it.
 
 - Keep `paddingX`, `paddingY`, `textToIconX`, `textToElementX`, and `borderWidth`.
-- Use **`minHeight`**, not `height`, so the element still meets the standard floor
-  when content is short but can grow when it is not.
+- Use **`minHeight`**, not `height`, so the element can grow while still meeting the minimum height requirement.
 - Use **semantic spacing** for the vertical gap between stacked children. Element
   tokens intentionally define no vertical stack gap: once you are stacking, you are
   composing, and the rhythm between lines is a layout decision rather than a
