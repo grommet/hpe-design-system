@@ -39,6 +39,11 @@ New AI workflow contributors should begin with the
 - `prompts/`:
 - `skills/`:
 
+The [knowledge-agent](../packages/knowledge-agent/) package reads
+`core/data` (and relevant `.github/instructions`) to answer natural-language
+implementation queries. Run it with
+`pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"`.
+
 ## Capability Index
 
 - `docs-refactor` (status: active)
@@ -56,7 +61,7 @@ New AI workflow contributors should begin with the
 - `package-release` (status: planned)
   - Entry point: `@package-release-orchestrator <package-name>`
   - Manifest: `knowledge/capabilities/package-release/manifest.yaml`
-- `alignment-audit` (status: planned)
+- `alignment-audit` (status: active)
   - Entry point: `@alignment-audit-orchestrator <scope>`
   - Manifest: `knowledge/capabilities/alignment-audit/manifest.yaml`
 

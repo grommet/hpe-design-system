@@ -1,0 +1,114 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import { generateSystemPrompt } from './context-generator.js';
+import type { FrameworkTarget } from './types.js';
+
+const color = {
+  bold: '\u001B[1m',
+  cyan: '\u001B[36m',
+  red: '\u001B[31m',
+  reset: '\u001B[0m',
+};
+
+const allowedFrameworks: FrameworkTarget[] = [
+  'react',
+  'vue',
+  'angular',
+  'web-components',
+  'agnostic',
+];
+
+function highlight(value: string): string {
+  return `${color.cyan}${value}${color.reset}`;
+}
+
+function printParseError(message: string): void {
+  console.error(`${color.red}${color.bold}Error:${color.reset} ${message}`);
+}
+
+function printUsage(): void {
+  console.log(`
+HPE Design System Context Generator
+
+Usage:
+  hpe-design-agent "Build a login form"
+  hpe-design-agent "Create a dashboard" --framework react
+
+Arguments:
+  query                The user query describing what to build (required)
+
+Options:
+  --framework <target> Target framework: react, vue, angular,
+  web-components, agnostic (default: react)
+  --help                Show this help message
+`);
+}
+
+function parseArgs(args: string[]): {
+  query: string | null;
+  framework: FrameworkTarget;
+  help: boolean;
+} {
+  const positional: string[] = [];
+  let framework: FrameworkTarget = 'react';
+  let help = false;
+
+  for (let i = 0; i < args.length; i += 1) {
+    const arg = args[i];
+
+    if (arg === '--help' || arg === '-h') {
+      help = true;
+    } else if (arg === '--framework' || arg === '-f') {
+      const next = args[i + 1];
+
+      if (!next || next.startsWith('-')) {
+        printParseError(`Missing value for ${highlight(arg)}`);
+        printUsage();
+        process.exit(1);
+      }
+
+      if (!allowedFrameworks.includes(next as FrameworkTarget)) {
+        const expectedFrameworks = allowedFrameworks.map(highlight).join(', ');
+
+        printParseError(
+          `Unknown framework target: ${highlight(
+            next,
+          )}. Expected one of: ${expectedFrameworks}`,
+        );
+        printUsage();
+        process.exit(1);
+      }
+
+      framework = next as FrameworkTarget;
+      i += 1;
+    } else if (arg === '--') {
+      // Ignore argument separators passed through by package managers.
+    } else if (arg.startsWith('-')) {
+      printParseError(`Unknown option: ${highlight(arg)}`);
+      printUsage();
+      process.exit(1);
+    } else {
+      positional.push(arg);
+    }
+  }
+
+  return {
+    query: positional.length ? positional.join(' ') : null,
+    framework,
+    help,
+  };
+}
+
+const { query, framework, help } = parseArgs(process.argv.slice(2));
+
+if (help) {
+  printUsage();
+  process.exit(0);
+}
+
+if (!query) {
+  printUsage();
+  process.exit(1);
+}
+
+console.log(generateSystemPrompt(query, framework));

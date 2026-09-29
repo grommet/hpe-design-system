@@ -21,6 +21,14 @@ const useColorTokens = () => {
 const filterByPrefix = (tokens, prefix) =>
   tokens.filter(t => t.id.startsWith(prefix));
 
+const filterByPath = (tokens, path) =>
+  tokens.filter(token =>
+    path.every(
+      (segment, index) =>
+        segment === '*' || token.id.split('.')[index] === segment,
+    ),
+  );
+
 const pickTokens = (tokens, ids) => tokens.filter(t => ids.includes(t.id));
 
 const getLabel = token => token.token.split('hpe.color.')[1] || token.token;
@@ -49,6 +57,7 @@ ColorSwatch.propTypes = {
 const SwatchGroup = ({ children }) => (
   <Box
     background="background-front"
+    margin={{ bottom: 'medium' }}
     pad="medium"
     gap="medium"
     width={{ max: 'xlarge', min: 'xsmall' }}
@@ -141,6 +150,19 @@ export const BorderSwatch = () => {
     />
   );
 };
+
+export const AccentSwatch = () => (
+  <TokenSwatchList
+    background={t =>
+      t.id.startsWith('hpe.color.border.') ? 'background-front' : t.value
+    }
+    border={t =>
+      t.id.startsWith('hpe.color.border.') ? t.value : undefined
+    }
+    borderSize="small"
+    tokens={filterByPath(useColorTokens(), ['hpe', 'color', '*', 'accent'])}
+  />
+);
 
 export const DecorativeSwatch = () => (
   <TokenSwatchList
