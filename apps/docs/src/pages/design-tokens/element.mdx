@@ -20,7 +20,12 @@ To understand what element tokens apply to, consider various UI components as le
 | **2. Elements**             | button, input, select, menu item, list row, tag, table cells       |
 | **3. Layout/compositional** | card, modal, toolbars, menu container, list container              |
 
-Many common "elements" (corresponding directly to native HTML tags or roles like button, input, select, etc.) have [component-specific design tokens](/design-tokens/how-to-read-design-tokens#component) published. These design tokens reference element tokens.
+Many common "elements" (corresponding directly to native HTML tags or roles like
+button, input, select, etc.) have [component-specific design tokens](/design-tokens/how-to-read-design-tokens#component)
+published, and these reference element tokens. Reach for element tokens directly
+when no component-specific token exists — for example, when designing a new
+component the design system does not offer. Element tokens ensure it aligns and
+adapts with the rest of the sizing system.
 
 ## Decision framework
 
@@ -84,17 +89,11 @@ it is an element.
 Elements may contain smaller elements — a tag inside a list row, a button inside a
 table cell. Use a smaller element size for the child than the parent.
 
-## When to use
-
-Use element tokens when there is not a component-specific token available for an element. For example, a team may be designing a new component that is not offered by the design system. They can use element tokens to ensure that the new component aligns and adapts with the rest of the sizing system.
-
-## Element sizes
-
-Element sizes are used to ensure consistent sizing and alignment across layouts. Sizes "xsmall"-"xlarge" are available.
-
 ## Supported design tokens
 
-The following design tokens exist for each element size. Replace `[size]` with the desired size (e.g., `xsmall`, `small`, `medium`, `large`, `xlarge`).
+Element tokens are available in five sizes: `xsmall`, `small`, `medium`, `large`,
+and `xlarge`. The following tokens exist for each size — replace `[size]` with the
+one you need.
 
 | Property                            | Notes                                                                                                                                      | Example                                   |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
