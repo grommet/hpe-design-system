@@ -23,19 +23,17 @@ export const AvatarSizePreviewExample = () => (
       alt="Avatar containing initial letters J and S"
       title="Medium avatar with initials"
     >
-      <Text size="large" color="text-onStrong">
+      <Text color="text-onStrong">
         JS
       </Text>
     </AvatarContainer>
     <AvatarContainer
-      round="xlarge"
       alt="shape logo"
       size="large"
       src="/Shape.svg"
       title="Large avatar with logo"
     />
     <AvatarContainer
-      round="xlarge"
       alt="shape logo"
       size="xlarge"
       src="/Shape.svg"

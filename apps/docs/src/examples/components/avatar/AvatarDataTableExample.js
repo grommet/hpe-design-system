@@ -29,7 +29,7 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
                     src={datum.avatar.src}
                     size="small"
                   >
-                    <Text size="xsmall" color="text-onStrong">
+                    <Text size="small" color="text-onStrong">
                       {datum.avatar.inital}
                     </Text>
                   </Avatar>
