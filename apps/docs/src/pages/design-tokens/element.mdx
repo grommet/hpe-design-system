@@ -2,11 +2,16 @@ import { ElementToken } from '../../examples';
 
 In the HPE Design System, an "element" refers to a core UI building block.
 
-An element is the smallest complete interactive target in an interface: one thing a
-user clicks, types in, or toggles, producing one outcome. An element may contain text,
-icons, or even smaller elements — what makes it an element is that it behaves as a
-single unit, not that it is visually indivisible (compare to the compositional
-definition in [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/#atoms)).
+An element is the smallest complete unit in an interface that needs to align in
+size with its peers — most often an interactive target such as a button, input,
+or menu item, but also non-interactive units like a tag, avatar, or spinner. An
+element may contain text, icons, or even smaller elements — what makes it an
+element is that it behaves as a single unit, not that it is visually indivisible.
+
+Element tokens exist to keep components of this kind consistently sized. An
+element sized "medium" shares the same height, padding, and typography as every
+other medium element, regardless of what it contains internally, so a button, an
+input, and a menu item sit visually aligned side by side.
 
 To understand what element tokens apply to, consider various UI components as levels from most fundamental to most composed:
 
@@ -20,14 +25,17 @@ Many common "elements" (corresponding directly to native HTML tags or roles like
 
 ## The element test
 
-Use element tokens when the answer to all three is yes:
+Use element tokens when the answer to each of the following is yes (or does not
+apply):
 
-1. **Is it the smallest interactive target?** Does it own its own hover, focus, and
-   selected states, and map to a single role?
-2. **Does it have a single primary action?** Clicking the body of the element
-   produces one default outcome. It may contain smaller nested elements offering
-   secondary actions — those are elements in their own right, sized one step down.
-   If there is no primary outcome, only a set of peer actions, it is compositional.
+1. **Is it a single, self-contained unit?** It reads as one thing, has its own
+   boundary, and (if interactive) owns its own hover, focus, and selected states.
+2. **If interactive, does it have a single primary action?** Clicking the body of
+   the element produces one default outcome. It may contain smaller nested
+   elements offering secondary actions — those are elements in their own right,
+   sized one step down. If there is no primary outcome, only a set of peer
+   actions, it is compositional — use
+   [semantic layout tokens](/design-tokens/layout-and-spacing) instead.
 3. **Does it need to align in height with other elements?** This is the purpose of
    element tokens — cross-component proportional consistency.
 
