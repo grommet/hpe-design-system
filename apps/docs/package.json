@@ -55,7 +55,7 @@
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "catalog:",
-    "grommet-theme-hpe": "catalog:",
+    "grommet-theme-hpe": "catalog:grommet-stable",
     "jsdom": "^26.1.0",
     "start-server-and-test": "^2.0.3",
     "testcafe": "^3.5.0",
