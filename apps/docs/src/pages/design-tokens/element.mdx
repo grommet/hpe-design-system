@@ -1,12 +1,11 @@
 import { ElementToken } from '../../examples';
 
-In the HPE Design System, an "element" refers to a core UI building block.
-
-An element is the smallest complete unit in an interface that needs to align in
-size with its peers — most often an interactive target such as a button, input,
-or menu item, but also non-interactive units like a tag, avatar, or spinner. An
-element may contain text, icons, or even smaller elements — what makes it an
-element is that it behaves as a single unit, not that it is visually indivisible.
+In the HPE Design System, an "element" refers to a core UI building block. It is
+the smallest complete unit in an interface that needs to align in size with its
+peers — most often an interactive target such as a button, input, or menu item,
+but also non-interactive units like a tag, avatar, or spinner. An element may
+contain text, icons, or even smaller elements — what makes it an element is that
+it behaves as a single unit, not that it is visually indivisible.
 
 Element tokens exist to keep components of this kind consistently sized. An
 element sized "medium" shares the same height, padding, and typography as every
@@ -17,13 +16,13 @@ To understand what element tokens apply to, consider various UI components as le
 
 | Level                       | Example components                                                |
 | --------------------------- | ------------------------------------------------------------------ |
-| **1. Typography, controls** | text, anchor, checkbox, radio button, toggle switch                |
+| **1. Typography, controls** | text, anchor, checkbox control, radio button, toggle switch                |
 | **2. Elements**             | button, input, select, menu item, list row, tag, table cells       |
 | **3. Layout/compositional** | card, modal, toolbars, menu container, list container              |
 
 Many common "elements" (corresponding directly to native HTML tags or roles like button, input, select, etc.) have [component-specific design tokens](/design-tokens/how-to-read-design-tokens#component) published. These design tokens reference element tokens.
 
-## The element test
+## Decision framework
 
 Use element tokens when the answer to each of the following is yes (or does not
 apply):
