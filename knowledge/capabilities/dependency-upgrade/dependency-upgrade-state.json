@@ -4,6 +4,36 @@
   "minor": [],
   "major": [
     {
+      "package": "@applitools/eyes-testcafe",
+      "current": "1.17.4",
+      "latest": "6.4.8",
+      "target": "6.4.8",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": ["apps/docs"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "apps/docs/package.json",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [],
+        "migrationGuide": "No official version-specific migration guide found; preserve existing TestCafe and Applitools configuration unless verification identifies a concrete incompatibility."
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "build:docs": "pass",
+        "test:unit:docs": "pass - 66/66",
+        "testcafe:list-tests": "blocked - local port 52631 was already in use and macOS Screen Recording permission was required"
+      }
+    },
+    {
       "package": "vite",
       "current": "^5.4.21",
       "latest": "^8.2.1",
