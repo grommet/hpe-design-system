@@ -5,6 +5,7 @@
 ### Minor Changes
 
 - Added semantic input background fills: `hpe.color.background.input` and `hpe.color.background.input.hover`
+
 ### Patch Changes
 
 - Updated `hpe.formField.default.input.container.{rest,hover}.background`, `hpe.formField.default.input.group.container.{rest,hover}.background`, `hpe.checkbox.default.control.rest.background`, and `hpe.radioButton.default.control.rest.background`
