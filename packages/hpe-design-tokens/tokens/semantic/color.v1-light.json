@@ -264,7 +264,7 @@
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
-                "hiddenFromPublishing": false,
+                "hiddenFromPublishing": true,
                 "scopes": ["FRAME_FILL", "SHAPE_FILL"]
               }
             },
@@ -276,7 +276,7 @@
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
-                "hiddenFromPublishing": false,
+                "hiddenFromPublishing": true,
                 "scopes": ["FRAME_FILL", "SHAPE_FILL"]
               }
             },
@@ -1756,7 +1756,7 @@
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
-                "hiddenFromPublishing": false,
+                "hiddenFromPublishing": true,
                 "scopes": ["ALL_SCOPES"]
               }
             },
@@ -1768,7 +1768,7 @@
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
-                "hiddenFromPublishing": false,
+                "hiddenFromPublishing": true,
                 "scopes": ["ALL_SCOPES"]
               }
             },
@@ -1780,7 +1780,7 @@
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
-                "hiddenFromPublishing": false,
+                "hiddenFromPublishing": true,
                 "scopes": ["ALL_SCOPES"]
               }
             },
@@ -1792,7 +1792,7 @@
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
-                "hiddenFromPublishing": false,
+                "hiddenFromPublishing": true,
                 "scopes": ["ALL_SCOPES"]
               }
             },
