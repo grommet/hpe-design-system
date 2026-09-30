@@ -911,4 +911,33 @@ describe('generatePostVariablesPayload', () => {
     expect(createdNames).toContain('color/background/accent/blue-weak');
     expect(createdNames).not.toContain('color/background/accent-purple-strong');
   });
+
+  it('creates flat input rest and hover Figma variables', () => {
+    const tokensByFile: FlattenedTokensByFile = {
+      'semantic.default.json': {
+        'color/background/input/DEFAULT/REST': {
+          $type: 'color',
+          $value: '#ffffffb8',
+        },
+        'color/background/input/DEFAULT/hover': {
+          $type: 'color',
+          $value: '#ffffffb8',
+        },
+      },
+    };
+
+    const result = generatePostVariablesPayload(tokensByFile, {
+      status: 200,
+      error: false,
+      meta: { variableCollections: {}, variables: {} },
+    });
+    const createdNames = (result.variables || [])
+      .filter(variable => variable.action === 'CREATE' && variable.name)
+      .map(variable => variable.name);
+
+    expect(createdNames).toEqual([
+      'color/background/input',
+      'color/background/input-hover',
+    ]);
+  });
 });
