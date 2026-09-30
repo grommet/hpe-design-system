@@ -841,7 +841,7 @@ export default {
     "$extensions": {
       "com.figma": {
         "codeSyntax": {},
-        "hiddenFromPublishing": false,
+        "hiddenFromPublishing": true,
         "scopes": [
           "FRAME_FILL",
           "SHAPE_FILL"
@@ -857,7 +857,7 @@ export default {
       "$extensions": {
         "com.figma": {
           "codeSyntax": {},
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "FRAME_FILL",
             "SHAPE_FILL"
@@ -889,7 +889,7 @@ export default {
     "$extensions": {
       "com.figma": {
         "codeSyntax": {},
-        "hiddenFromPublishing": false,
+        "hiddenFromPublishing": true,
         "scopes": [
           "FRAME_FILL",
           "SHAPE_FILL"
@@ -905,7 +905,7 @@ export default {
       "$extensions": {
         "com.figma": {
           "codeSyntax": {},
-          "hiddenFromPublishing": false,
+          "hiddenFromPublishing": true,
           "scopes": [
             "FRAME_FILL",
             "SHAPE_FILL"
