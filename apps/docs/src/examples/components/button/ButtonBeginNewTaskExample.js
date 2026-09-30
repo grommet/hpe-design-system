@@ -18,8 +18,6 @@ import {
   Select,
   Toolbar,
   TextInput,
-  Page,
-  PageContent,
 } from 'grommet';
 import { ButtonGroup, LayerHeader } from '@shared/aries-core';
 import devices from '../../../data/mockData/devices.json';
@@ -37,7 +35,7 @@ export const ButtonBeginNewTaskExample = () => (
     <ConfirmationContext.Consumer>
       {({ showLayer, showConfirmation }) => (
         <>
-          <DevicesPage />
+          <Devices />
           {showLayer ? <AddDevice /> : null}
           {showConfirmation ? <DoubleConfirmation title="device" /> : null}
         </>
@@ -57,7 +55,7 @@ const AddDevice = ({ ...rest }) => {
   return (
     <Sidedrawer onEsc={onClose} {...rest}>
       <LayerHeader title="Add device" onClose={onClose} />
-      <CreateDeviceForm id="devices-form" onClose={onClose} />
+      <AddDeviceForm id="devices-form" onClose={onClose} />
     </Sidedrawer>
   );
 };
@@ -68,34 +66,36 @@ const columns = [
   { header: 'Status', property: 'status' },
 ];
 
-const DevicesPage = () => {
+const Devices = () => {
   const { setShowLayer } = useConfirmation();
   return (
-    <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent>
+
         <ContentPane gap="medium">
           <Heading id="devices-heading" level={2} margin="none">
             Devices
           </Heading>
-          <Data data={devices}>
-            <Toolbar>
-              <DataSearch />
-              <DataFilters layer />
-              <Box flex />
-              <Button
-                label="Create device"
-                onClick={() => setShowLayer(true)}
-                secondary
-              />
-            </Toolbar>
-            <DataSummary />
-            <Box height={{ max: 'medium' }} alignSelf="start" overflow="auto">
-              <DataTable aria-describedby="devices-heading" columns={columns} />
-            </Box>
-          </Data>
+          <Box align="start">
+            <Data data={devices}>
+              <Toolbar>
+                <DataSearch />
+                <DataFilters layer />
+                <Box flex />
+                <Button
+                  label="Add device"
+                  onClick={() => setShowLayer(true)}
+                  secondary
+                />
+              </Toolbar>
+              <DataSummary />
+              <Box align="start" overflow="auto">
+                <DataTable 
+                  aria-describedby="devices-heading" 
+                  columns={columns} 
+                />
+              </Box>
+            </Data>
+          </Box>
         </ContentPane>
-      </PageContent>
-    </Page>
   );
 };
 
@@ -105,7 +105,7 @@ const defaultFormValues = {
   'device-status': '',
 };
 
-const CreateDeviceForm = ({ onClose, ...rest }) => {
+const AddDeviceForm = ({ onClose, ...rest }) => {
   const [formValue, setFormValue] = useState(defaultFormValues);
   const { setShowLayer, setTouched } = useConfirmation();
   const size = useContext(ResponsiveContext);
@@ -173,7 +173,7 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
           </FormField>
         </Box>
         <ButtonGroup direction={mobileLayout ? 'column' : 'row'}>
-          <Button label="Create device" primary type="submit" />
+          <Button label="Add device" primary type="submit" />
           <Button label="Cancel" onClick={onClose} />
         </ButtonGroup>
       </Box>
@@ -181,6 +181,6 @@ const CreateDeviceForm = ({ onClose, ...rest }) => {
   );
 };
 
-CreateDeviceForm.propTypes = {
+AddDeviceForm.propTypes = {
   onClose: PropTypes.func.isRequired,
 };

@@ -62,13 +62,11 @@ The user completes a form and activates a submit button to persist their input. 
 
 ### Beginning a new task
 
-The user initiates a workflow for a resource that doesn't yet exist — for example, clicking "Create device" on a device management page or "Deploy application" in a pipeline view. This is the primary action on the page; use it once per view with a verb–noun label (e.g., "Create device", "Schedule backup"). Activating it navigates to the next step or opens the first stage of the workflow.
+The user initiates a workflow for a resource that doesn't yet exist — for example, clicking "Add device" on a device management page or "Deploy application" in a pipeline view. Label actions with a verb-noun label (e.g., "Add device", "Create workspace", "Schedule backup"). Activating it navigates to the next step or opens the first stage of the workflow.
 
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
-  height={{ min: 'small' }}
-  template
-  showResponsiveControls={false}
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/button/ButtonBeginNewTaskExample.js"
 >
   <ButtonBeginNewTaskExample />
 </Example>
