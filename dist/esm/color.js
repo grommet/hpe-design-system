@@ -24,6 +24,8 @@ export default {
         "floating": "var(--hpe-color-background-floating)",
         "front": "var(--hpe-color-background-front)",
         "info": "var(--hpe-color-background-info)",
+        "input": "var(--hpe-color-background-input)",
+        "input-hover": "var(--hpe-color-background-input-hover)",
         "neutral-xstrong": "var(--hpe-color-background-neutral-xstrong)",
         "neutral-xstrong-hover": "var(--hpe-color-background-neutral-xstrong-hover)",
         "ok": "var(--hpe-color-background-ok)",

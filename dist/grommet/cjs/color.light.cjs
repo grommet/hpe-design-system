@@ -24,6 +24,8 @@ module.exports = {
         "floating": "#ffffff",
         "front": "#ffffff",
         "info": "#e3f1ff",
+        "input": "rgba(255, 255, 255, 0.72)",
+        "input-hover": "rgba(255, 255, 255, 0.72)",
         "neutral-xstrong": "#292d3a",
         "neutral-xstrong-hover": "#3e4550",
         "ok": "#d1ffee",

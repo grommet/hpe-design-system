@@ -781,7 +781,7 @@ export default {
             }
           },
           "rest": {
-            "background": "transparent",
+            "background": "background-input",
             "borderColor": "border-strong"
           },
           "selected": {
@@ -1082,7 +1082,7 @@ export default {
               }
             },
             "hover": {
-              "background": "transparent",
+              "background": "background-input-hover",
               "borderColor": "border-strong"
             },
             "readOnly": {
@@ -1092,7 +1092,7 @@ export default {
               }
             },
             "rest": {
-              "background": "transparent",
+              "background": "background-input",
               "borderColor": "border-default"
             }
           },
@@ -1417,7 +1417,7 @@ export default {
             "borderColor": "border-strong"
           },
           "rest": {
-            "background": "transparent",
+            "background": "background-input",
             "borderColor": "border-strong"
           },
           "selected": {

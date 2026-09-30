@@ -165,6 +165,26 @@ export const semanticColorMetadata = {
     "scale": "default",
     "state": "REST"
   },
+  "color/background/input/DEFAULT/REST": {
+    "type": "color",
+    "target": "background",
+    "role": {
+      "family": null,
+      "name": "input"
+    },
+    "scale": "default",
+    "state": "REST"
+  },
+  "color/background/input/DEFAULT/hover": {
+    "type": "color",
+    "target": "background",
+    "role": {
+      "family": null,
+      "name": "input"
+    },
+    "scale": "default",
+    "state": "hover"
+  },
   "color/background/neutral/xstrong/REST": {
     "type": "color",
     "target": "background",

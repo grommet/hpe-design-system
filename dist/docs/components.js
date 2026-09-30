@@ -24980,7 +24980,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "rgba(255, 255, 255, 0.72)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -24996,7 +24996,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.background.input.DEFAULT.REST}"
     },
     "name": "hpe.checkbox.default.control.rest.background",
     "attributes": {
@@ -31688,7 +31688,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "rgba(255, 255, 255, 0.72)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -31704,7 +31704,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.background.input.DEFAULT.hover}"
     },
     "name": "hpe.formField.default.input.container.hover.background",
     "attributes": {
@@ -31886,7 +31886,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "rgba(255, 255, 255, 0.72)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -31902,7 +31902,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.background.input.DEFAULT.REST}"
     },
     "name": "hpe.formField.default.input.container.rest.background",
     "attributes": {
@@ -32406,7 +32406,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{formField.default.input.container.rest.background}"
+      "$value": "{color.transparent}"
     },
     "name": "hpe.formField.default.input.group.container.rest.background",
     "attributes": {
@@ -38496,7 +38496,7 @@ export default {
       }
     },
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "rgba(255, 255, 255, 0.72)",
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
@@ -38512,7 +38512,7 @@ export default {
         }
       },
       "$type": "color",
-      "$value": "{color.transparent}"
+      "$value": "{color.background.input.DEFAULT.REST}"
     },
     "name": "hpe.radioButton.default.control.rest.background",
     "attributes": {

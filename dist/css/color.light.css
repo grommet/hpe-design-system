@@ -186,6 +186,8 @@
   --hpe-color-background-floating: var(--hpe-base-color-white-100); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
   --hpe-color-background-front: var(--hpe-base-color-white-100); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
   --hpe-color-background-info: var(--hpe-base-color-blue-50); /** Use for backgrounds communicating neutral information. Keywords: status */
+  --hpe-color-background-input: var(--hpe-base-color-white-opacity72); /** Background fill for inputs in their rest state. Use for form input containers and for checkbox and radio control fills. */
+  --hpe-color-background-input-hover: var(--hpe-base-color-white-opacity72); /** Background fill for inputs in their hover state. Use for form input containers. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-1000); /** Highest emphasis variant of neutral palette. */
   --hpe-color-background-neutral-xstrong-hover: var(--hpe-base-color-grey-800); /** Hover variant of background-neutral-xstrong. */
   --hpe-color-background-ok: var(--hpe-base-color-green-100); /** Use for backgrounds communicating success. Status color. Keywords: status */
@@ -268,7 +270,6 @@
   --hpe-checkbox-default-control-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-indeterminate-hover-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-indeterminate-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-dataCell-default-hover-background: var(--hpe-color-transparent);
@@ -282,10 +283,9 @@
   --hpe-footerCell-default-pinned-rest-background: var(--hpe-color-transparent);
   --hpe-footerCell-default-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-container-disabled-rest-background: var(--hpe-color-transparent);
-  --hpe-formField-default-input-container-hover-background: var(--hpe-color-transparent);
-  --hpe-formField-default-input-container-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-container-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-container-disabled-rest-borderColor: var(--hpe-color-transparent);
+  --hpe-formField-default-input-group-container-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-container-rest-borderColor: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-disabled-rest-borderColor: var(--hpe-color-transparent);
@@ -302,7 +302,6 @@
   --hpe-menu-default-item-hover-borderColor: var(--hpe-color-transparent);
   --hpe-menu-default-item-rest-background: var(--hpe-color-transparent);
   --hpe-menu-default-item-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-select-default-drop-borderColor: var(--hpe-color-transparent);
@@ -392,6 +391,7 @@
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-rest-background: var(--hpe-color-background-input);
   --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
@@ -427,14 +427,16 @@
   --hpe-formField-default-input-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-container-error-rest-borderColor: var(--hpe-color-border-critical);
+  --hpe-formField-default-input-container-hover-background: var(--hpe-color-background-input-hover);
   --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-contrast);
   --hpe-formField-default-input-container-readOnly-rest-borderColor: var(--hpe-color-border-weak);
+  --hpe-formField-default-input-container-rest-background: var(--hpe-color-background-input);
   --hpe-formField-default-input-container-rest-borderColor: var(--hpe-color-border-default);
   --hpe-formField-default-input-group-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-group-container-error-rest-borderColor: var(--hpe-color-border-critical);
+  --hpe-formField-default-input-group-container-hover-background: var(--hpe-formField-default-input-group-container-rest-background);
   --hpe-formField-default-input-group-container-hover-borderColor: var(--hpe-formField-default-input-group-container-rest-borderColor);
-  --hpe-formField-default-input-group-container-rest-background: var(--hpe-formField-default-input-container-rest-background);
   --hpe-formField-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-label-error-rest-textColor: var(--hpe-color-text-strong);
   --hpe-formField-default-label-hover-textColor: var(--hpe-color-text-strong);
@@ -458,6 +460,7 @@
   --hpe-radioButton-default-control-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-radioButton-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
+  --hpe-radioButton-default-control-rest-background: var(--hpe-color-background-input);
   --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-strong);
   --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
@@ -555,7 +558,6 @@
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-footerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-footerCell-default-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-formField-default-input-group-container-hover-background: var(--hpe-formField-default-input-group-container-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-background: var(--hpe-formField-default-input-container-readOnly-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-borderColor: var(--hpe-formField-default-input-container-readOnly-rest-borderColor);
   --hpe-formField-default-input-group-item-hover-background: var(--hpe-color-background-hover);

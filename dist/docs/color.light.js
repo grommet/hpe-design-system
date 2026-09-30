@@ -836,6 +836,102 @@ export default {
     ],
     "key": "{color.background.info.DEFAULT.REST}"
   },
+  "hpe.color.background.input": {
+    "$description": "Background fill for inputs in their rest state. Use for form input containers and for checkbox and radio control fills.",
+    "$extensions": {
+      "com.figma": {
+        "codeSyntax": {},
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ]
+      }
+    },
+    "$type": "color",
+    "$value": "rgba(255, 255, 255, 0.72)",
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$description": "Background fill for inputs in their rest state. Use for form input containers and for checkbox and radio control fills.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      },
+      "$type": "color",
+      "$value": "{base.color.white.opacity72}"
+    },
+    "name": "hpe.color.background.input",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "input",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "input",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.input.DEFAULT.REST}"
+  },
+  "hpe.color.background.input.hover": {
+    "$description": "Background fill for inputs in their hover state. Use for form input containers.",
+    "$extensions": {
+      "com.figma": {
+        "codeSyntax": {},
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ]
+      }
+    },
+    "$type": "color",
+    "$value": "rgba(255, 255, 255, 0.72)",
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$description": "Background fill for inputs in their hover state. Use for form input containers.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      },
+      "$type": "color",
+      "$value": "{base.color.white.opacity72}"
+    },
+    "name": "hpe.color.background.input.hover",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "input",
+      "subitem": "DEFAULT",
+      "state": "hover"
+    },
+    "path": [
+      "color",
+      "background",
+      "input",
+      "DEFAULT",
+      "hover"
+    ],
+    "key": "{color.background.input.DEFAULT.hover}"
+  },
   "hpe.color.background.neutral.xstrong": {
     "$description": "Highest emphasis variant of neutral palette.",
     "$extensions": {
