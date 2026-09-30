@@ -1,11 +1,10 @@
 # hpe-design-tokens
 
-## 2.3.1
+## 2.4.0
 
-### Patch Changes
+### Minor Changes
 
-- 1ebaff8: feat(tokens): add semantic input background fills
-- 2d7391c: chore(tokens): hide input background and deprecated decorative color tokens from Figma publishing
+- Added semantic input background fills: `hpe.color.background.input` and `hpe.color.background.input.hover`
 
 ## 2.3.0
 
