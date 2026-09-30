@@ -3,10 +3,10 @@ import { Example } from '../../layouts';
 
 In the HPE Design System, an "element" refers to a core UI building block. It is
 the smallest complete unit in an interface that needs to align in size with its
-peers — most often an interactive target such as a button, input, or menu item,
-but also non-interactive units like a tag, avatar, or spinner. It may contain
-text, icons, or even smaller elements — what defines it is that it behaves as a
-single unit, not that it is visually indivisible.
+peers. Most often this is an interactive target such as a button, input, or menu
+item, but it can also be a non-interactive unit like a tag, avatar, or spinner.
+It may contain text, icons, or even smaller elements. What defines it is that it
+behaves as a single unit, not that it is visually indivisible.
 
 Element tokens exist to keep these building blocks consistently sized. Every
 medium-sized element shares the same minimum height, padding, and typography,
@@ -28,8 +28,8 @@ To understand what element tokens apply to, consider various UI components as le
 Many common "elements" (corresponding directly to native HTML tags or roles like
 button, input, select, etc.) have [component-specific design tokens](/design-tokens/how-to-read-design-tokens#component)
 published, and these reference element tokens. Reach for them directly when no
-component-specific token exists — for example, when designing a new component the
-design system does not offer — so it aligns and adapts with the rest of the sizing
+component-specific token exists, for example when designing a new component the
+design system does not offer, so it aligns and adapts with the rest of the sizing
 system.
 
 ## Decision framework
@@ -41,19 +41,19 @@ apply):
    boundary, and (if interactive) owns its own hover, focus, and selected states.
 2. **If interactive, does it have a single primary action?** Clicking the body of
    the element produces one default outcome. It may contain smaller nested
-   elements offering secondary actions — those are elements in their own right,
+   elements offering secondary actions; those are elements in their own right,
    sized one step down. If there is no primary outcome, only a set of peer
-   actions, it is compositional — use
+   actions, it is compositional. Use
    [semantic layout tokens](/design-tokens/layout-and-spacing) instead.
 3. **Does it need to share a minimum height with other elements?** This is the
-   purpose of element tokens — cross-component proportional consistency. An
+   purpose of element tokens: cross-component proportional consistency. An
    element may grow taller than that minimum (see
    [Elements that stack internally](#elements-that-stack-internally)), but it
    never sits shorter.
 
 If any answer is no, use [semantic layout tokens](/design-tokens/layout-and-spacing).
 
-A bare control — the checkbox square, radio dot, or toggle track — is not an
+A bare control (the checkbox square, radio dot, or toggle track) is not an
 element on its own. It has no padding or label and is sized by
 `element.[size].icon.size`. It becomes an element once paired with its label,
 with `textToElementX` as the gap between the two.
@@ -65,7 +65,7 @@ with `textToElementX` as the gap between the two.
 | menu, drop                   | menu item               |
 | list                          | clickable list row      |
 | table                         | table cell               |
-| card, modal, toolbar          | —                        |
+| card, modal, toolbar          | —                     |
 
 ### Quick reference
 
@@ -99,13 +99,13 @@ it is an element.
 
 ## Nested elements
 
-Elements may contain smaller elements — a tag inside a list row, a button inside a
-table cell. Use a smaller element size for the child than the parent.
+Elements may contain smaller elements, such as a tag inside a list row or a button
+inside a table cell. Use a smaller element size for the child than the parent.
 
 ## Supported design tokens
 
 Element tokens are available in five sizes: `xsmall`, `small`, `medium`, `large`,
-and `xlarge`. The following tokens exist for each size — replace `[size]` with the
+and `xlarge`. The following tokens exist for each size; replace `[size]` with the
 one you need.
 
 | Property                            | Notes                                                                                                                                      | Example                                   |
@@ -120,7 +120,7 @@ one you need.
 | **element.[size].textToIconX**      | Use for spacing between text and icon.                                                                                                     | <ElementToken token="textToIconX" />      |
 | **element.[size].textToElementX**   | Use for spacing between text and an internal control like a checkbox.                                                                      | <ElementToken token="textToElementX" />   |
 | **element.[size].borderWidth**      | Border or outline width, including selected-state indicators.                                                                              | <ElementToken token="borderWidth" />      |
-| **element.[size].lineHeight**       | Applies to the element's primary label only. Supporting text such as a description is a typography decision — use text.[size].           | <ElementToken token="lineHeight" />       |
+| **element.[size].lineHeight**       | Applies to the element's primary label only. Supporting text such as a description is a typography decision; use text.[size].            | <ElementToken token="lineHeight" />       |
 | **element.[size].fontSize**         | Applies to the element's primary label only.                                                                                               | <ElementToken token="fontSize" />         |
 | **element.[size].fontWeight**       | --                                                                                                                                         | <ElementToken token="fontWeight" />       |
 | **element.[size].icon.size**        | Applies to width and height of icon.                                                                                                       | <ElementToken token="icon.size" />        |
