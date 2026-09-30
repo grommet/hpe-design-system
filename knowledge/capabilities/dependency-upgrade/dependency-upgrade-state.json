@@ -4,6 +4,48 @@
   "minor": [],
   "major": [
     {
+      "package": "@testing-library/jest-dom + @types/node",
+      "current": {
+        "@testing-library/jest-dom": "^6.8.0",
+        "@types/node": ["^20.4.5", "^22.15.24"]
+      },
+      "latest": {
+        "@testing-library/jest-dom": "^7.0.1",
+        "@types/node": "^26.6.3"
+      },
+      "target": "coordinated Tier 3 upgrade",
+      "source": "direct-and-catalog",
+      "riskTier": 3,
+      "packages": ["shared/aries-core", "packages/hpe-design-tokens", "packages/knowledge-agent"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "shared/aries-core/package.json",
+          "packages/knowledge-agent/package.json",
+          "pnpm-workspace.yaml",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [],
+        "migrationGuide": "No source migration required; validate Jest DOM usage and Node/TypeScript type compatibility."
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "packages/knowledge-agent/package.json",
+        "pnpm-workspace.yaml",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "test:knowledge-agent": "pass - 2 files, 5 tests",
+        "test:aries-core": "pass - 1 suite, 30 tests",
+        "build:aries-core": "pass",
+        "build:hpe-design-tokens": "pass",
+        "resolvedDirectTargets": "pass - @testing-library/jest-dom 7.0.1 and @types/node 26.6.3"
+      }
+    },
+    {
       "package": "@changesets/cli",
       "current": "^2.27.9",
       "latest": "^3.0.3",
