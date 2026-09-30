@@ -49,8 +49,8 @@
     "test": "vitest --watch=false"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-typescript": "^7.26.0",
+    "@babel/preset-env": "^8.0.6",
+    "@babel/preset-typescript": "^8.0.1",
     "@types/node": "catalog:",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",

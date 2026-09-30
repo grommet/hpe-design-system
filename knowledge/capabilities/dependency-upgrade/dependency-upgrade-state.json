@@ -4,6 +4,55 @@
   "minor": [],
   "major": [
     {
+      "package": "Babel 8 ecosystem",
+      "current": {
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.20.5",
+        "@babel/node": "^7.20.5",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/preset-react": "^7.28.5",
+        "@babel/preset-typescript": "^7.27.1"
+      },
+      "latest": "Babel 8.0.6/8.0.1",
+      "target": "Babel 8 ecosystem",
+      "source": "direct-and-catalog",
+      "riskTier": 4,
+      "packages": ["shared/aries-core", "packages/hpe-design-tokens"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "shared/aries-core/package.json",
+          "packages/hpe-design-tokens/package.json",
+          "pnpm-workspace.yaml",
+          "shared/aries-core/babel.config.js",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [
+          "Replaced Babel 7-only @babel/plugin-proposal-class-properties with @babel/plugin-transform-class-properties",
+          "Upgraded babel-loader from 8.x to 10.1.1 for Babel 8 peer compatibility"
+        ],
+        "migrationGuide": "https://babeljs.io/docs/v8-migration"
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "packages/hpe-design-tokens/package.json",
+        "pnpm-workspace.yaml",
+        "shared/aries-core/babel.config.js",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "babel:version": "pass - 8.0.6 (@babel/core 8.0.6)",
+        "babel-node:version": "pass - 8.0.6",
+        "build:aries-core": "pass",
+        "test:aries-core": "blocked by pre-existing syntax error in NavigationMenu.tsx:35; unchanged from HEAD",
+        "build:hpe-design-tokens": "pass",
+        "test:hpe-design-tokens": "pass - 14 files, 126 tests"
+      }
+    },
+    {
       "package": "@testing-library/jest-dom + @types/node",
       "current": {
         "@testing-library/jest-dom": "^6.8.0",
