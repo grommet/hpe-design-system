@@ -4,6 +4,37 @@
   "minor": [],
   "major": [
     {
+      "package": "@changesets/cli",
+      "current": "^2.27.9",
+      "latest": "^3.0.3",
+      "target": "^3.0.3",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": ["aries"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "package.json",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [],
+        "migrationGuide": "Changesets v3 requires Node.js 18+; existing .changeset/config.json and standard CLI usage are compatible."
+      },
+      "modifiedFiles": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "node": "pass - v23.11.0",
+        "changeset:help": "pass",
+        "changeset:status": "pre-existing failure - catalog mismatches and skipped-package tree configuration; reproduced with @changesets/cli 2.31.1",
+        "diff:check": "pass"
+      }
+    },
+    {
       "package": "@applitools/eyes-testcafe",
       "current": "1.17.4",
       "latest": "6.4.8",
