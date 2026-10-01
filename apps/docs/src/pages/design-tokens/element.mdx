@@ -55,9 +55,7 @@ If any answer is no, use [semantic layout tokens](/design-tokens/layout-and-spac
 
 A bare control (the checkbox square, radio dot, or toggle track) is a level-1
 building block, not an element. It has no padding or label, and its dimensions
-come from the component's own `control` tokens on a separate scale from
-`element.[size].icon.size` (a medium control is 24px; a medium element icon is
-16px). Paired with its label it becomes an element: checkbox, radio button, and
+come from the component's own `control` tokens. Paired with its label it becomes an element: checkbox, radio button, and
 switch size their label with `element.[size].fontSize` and `lineHeight`, and the
 control-to-label gap with their own `gapX` token. Reach for
 `element.[size].textToElementX` only when building a custom element that places
