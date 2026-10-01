@@ -354,7 +354,7 @@ importers:
         version: 9.39.5(jiti@2.7.0)
       grommet-theme-hpe:
         specifier: catalog:grommet-stable
-        version: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/ee849d87c778119f1ea673df7e4132c9f776bf53(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/574008d1eddc0c2595f6304ae83cbbfc2a466825(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       jsdom:
         specifier: ^26.1.0
         version: 26.1.0
@@ -558,7 +558,7 @@ importers:
         version: https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       grommet-theme-hpe:
         specifier: catalog:grommet-stable
-        version: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/ee849d87c778119f1ea673df7e4132c9f776bf53(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/574008d1eddc0c2595f6304ae83cbbfc2a466825(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       grommet-theme-hpe-v5:
         specifier: npm:grommet-theme-hpe@5.8.0
         version: grommet-theme-hpe@5.8.0(grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
@@ -862,7 +862,7 @@ importers:
     dependencies:
       grommet-theme-hpe:
         specifier: catalog:grommet-stable
-        version: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/ee849d87c778119f1ea673df7e4132c9f776bf53(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/574008d1eddc0c2595f6304ae83cbbfc2a466825(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       hpe-design-tokens:
         specifier: workspace:*
         version: link:../../packages/hpe-design-tokens
@@ -4812,6 +4812,9 @@ packages:
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
+  '@types/ws@8.18.2':
+    resolution: {integrity: sha512-67MQl+fpWKVTT1NYdnmo3U4sc/xPo/zQBncVnI74qmQa0z/b+1g6iYqNmGCPbxO+zz2aklb08a0oHfegiVd0/w==}
+
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
 
@@ -5158,6 +5161,10 @@ packages:
 
   '@zip.js/zip.js@2.10.0':
     resolution: {integrity: sha512-xRGsVpZiZlp/C/NkTAZHYE+gEhDZXJzvquuAmanDaGl3H81gQ1Di6xItqygySp8RlrzBf1GGW98LDLz0LaC6qA==}
+    engines: {bun: '>=0.7.0', deno: '>=1.0.0', node: '>=18.0.0'}
+
+  '@zip.js/zip.js@2.22.0':
+    resolution: {integrity: sha512-QgkA+BSEPNR0C2l6xbSu5HDXieUxiuDK+Jx4ZeZlp22QO/qRUIF6JRXdxh4WlLiQUmnE/9aaGerlni+OY81wqg==}
     engines: {bun: '>=0.7.0', deno: '>=1.0.0', node: '>=18.0.0'}
 
   abab@2.0.6:
@@ -6636,7 +6643,7 @@ packages:
         optional: true
 
   eslint-plugin-grommet@https://github.com/grommet/eslint-plugin-grommet/tarball/stable:
-    resolution: {integrity: sha512-FM1OCLsEKshEJMlmZZVv//gTlw6NgWiG8htF8EnZlL2drzkd1y9QRUfxEYF5LH0YfvFpWtNmYvJBD1whGiVAkA==, tarball: https://github.com/grommet/eslint-plugin-grommet/tarball/stable}
+    resolution: {tarball: https://github.com/grommet/eslint-plugin-grommet/tarball/stable}
     version: 0.2.0
     engines: {node: '>=16'}
     peerDependencies:
@@ -7258,7 +7265,7 @@ packages:
       styled-components: '>= 5.x'
 
   grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable:
-    resolution: {integrity: sha512-Jbcz+Maa5IgX9hUZZaDAu6V3NjHUD0eehcA/Y6osOeA7b/fN5tfWMQy6/yw7p8F80UPPYTusYXUkr+L/UFNIEw==, tarball: https://github.com/grommet/grommet-icons/tarball/stable}
+    resolution: {tarball: https://github.com/grommet/grommet-icons/tarball/stable}
     version: 4.14.0
     peerDependencies:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -7304,8 +7311,8 @@ packages:
       react: ^16.13.1 || ^17.0.1 || ^18.0.0 || ^19.0.0
       styled-components: ^6.0.0
 
-  grommet-theme-hpe@https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/ee849d87c778119f1ea673df7e4132c9f776bf53:
-    resolution: {tarball: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/ee849d87c778119f1ea673df7e4132c9f776bf53}
+  grommet-theme-hpe@https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/574008d1eddc0c2595f6304ae83cbbfc2a466825:
+    resolution: {tarball: https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/574008d1eddc0c2595f6304ae83cbbfc2a466825}
     version: 8.2.0
     peerDependencies:
       grommet: ^2.57.0
@@ -7601,8 +7608,8 @@ packages:
     resolution: {integrity: sha512-6xwYfHbajpoF0xLW+iwLkhwgvLoZDfjYfoFNu8ftMoXINzwuymNLd9u/KmwtdT2GbR+/Cz66otEGEVVUHX9QLQ==}
     engines: {node: '>=10.13.0'}
 
-  ip-address@10.7.0:
-    resolution: {integrity: sha512-BGFsyJd5mpXp3rK6jIdADLNgpJUK1jnjzvYF8lK+VyDab9JAmqN0YOKDdP17HlgKb2+ehPgDc8EtnRLbGCAMhA==}
+  ip-address@10.7.2:
+    resolution: {integrity: sha512-7H/2gFSIitxc0hG3nOI1glS8QLo/EHBFFLk8vEUjXY/xu0AdL8jZ9U1IzO2PUm0d2D/ofQcAifb0g6OBkt8U7w==}
     engines: {node: '>= 12'}
 
   ipaddr.js@1.9.1:
@@ -11345,6 +11352,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.22.0:
+    resolution: {integrity: sha512-Ydggc987+RO0AnWtZ/7Wq9FtNvcrL1b/RO0ud9mWjUPgDrsAAwQSF51sm2hm1XofbU/4jkpGEsLFsZZxU+1DOg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   wsl-utils@0.1.0:
     resolution: {integrity: sha512-h3Fbisa2nKGPxCpm89Hk33lBLsnaGBvctQopaBSOW/uIs6FTe1ATyAnKFJrzVs9vpGdsTe73WF3V4lIsk4Gacw==}
     engines: {node: '>=18'}
@@ -11396,6 +11415,10 @@ packages:
 
   yargs@17.7.2:
     resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
+    engines: {node: '>=12'}
+
+  yargs@17.7.3:
+    resolution: {integrity: sha512-GZtjxm/J/4TSxuL3FNYjCmLktBTnIw/rVmKSIyKeYAZpmJB2ig9VauCC5xsa82GNKVKDAqpOn3KVzNt0zmrU0g==}
     engines: {node: '>=12'}
 
   yauzl@2.10.0:
@@ -15361,7 +15384,7 @@ snapshots:
       proxy-agent: 6.5.0
       semver: 7.8.5
       tar-fs: 3.1.3
-      yargs: 17.7.2
+      yargs: 17.7.3
     transitivePeerDependencies:
       - bare-abort-controller
       - bare-buffer
@@ -16383,6 +16406,10 @@ snapshots:
     dependencies:
       '@types/node': 26.6.3
 
+  '@types/ws@8.18.2':
+    dependencies:
+      '@types/node': 20.19.43
+
   '@types/yargs-parser@21.0.3': {}
 
   '@types/yargs@16.0.11':
@@ -16395,7 +16422,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 26.6.3
+      '@types/node': 20.19.43
     optional: true
 
   '@typescript-eslint/eslint-plugin@8.70.1(@typescript-eslint/parser@8.70.1(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3)':
@@ -16873,6 +16900,8 @@ snapshots:
   '@yarnpkg/lockfile@1.1.0': {}
 
   '@zip.js/zip.js@2.10.0': {}
+
+  '@zip.js/zip.js@2.22.0': {}
 
   abab@2.0.6: {}
 
@@ -18166,7 +18195,7 @@ snapshots:
   edgedriver@6.3.1:
     dependencies:
       '@wdio/logger': 9.29.1
-      '@zip.js/zip.js': 2.10.0
+      '@zip.js/zip.js': 2.22.0
       decamelize: 6.0.1
       edge-paths: 3.0.5
       http-proxy-agent: 7.0.2
@@ -19223,7 +19252,7 @@ snapshots:
   geckodriver@6.1.1:
     dependencies:
       '@wdio/logger': 9.29.1
-      '@zip.js/zip.js': 2.10.0
+      '@zip.js/zip.js': 2.22.0
       decamelize: 6.0.1
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
@@ -19465,7 +19494,7 @@ snapshots:
       react: 19.3.0
       styled-components: 6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
-  grommet-theme-hpe@https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/ee849d87c778119f1ea673df7e4132c9f776bf53(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
+  grommet-theme-hpe@https://codeload.github.com/grommet/grommet-theme-hpe/tar.gz/574008d1eddc0c2595f6304ae83cbbfc2a466825(grommet@2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
     dependencies:
       '@hpe-design/icons-grommet': 1.2.0(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       grommet: 2.57.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(styled-components@6.5.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
@@ -19793,7 +19822,7 @@ snapshots:
 
   interpret@3.1.1: {}
 
-  ip-address@10.7.0: {}
+  ip-address@10.7.2: {}
 
   ipaddr.js@1.9.1: {}
 
@@ -23002,7 +23031,7 @@ snapshots:
 
   socks@2.8.10:
     dependencies:
-      ip-address: 10.7.0
+      ip-address: 10.7.2
       smart-buffer: 4.2.0
 
   sonic-boom@4.2.1:
@@ -24257,7 +24286,7 @@ snapshots:
   webdriver@9.32.0:
     dependencies:
       '@types/node': 20.19.43
-      '@types/ws': 8.18.1
+      '@types/ws': 8.18.2
       '@wdio/config': 9.32.0
       '@wdio/logger': 9.29.1
       '@wdio/protocols': 9.31.5
@@ -24266,7 +24295,7 @@ snapshots:
       deepmerge-ts: 8.0.2
       https-proxy-agent: 7.0.6
       undici: 6.29.0
-      ws: 8.21.3
+      ws: 8.22.0
     transitivePeerDependencies:
       - bare-abort-controller
       - bare-buffer
@@ -24601,6 +24630,8 @@ snapshots:
 
   ws@8.21.3: {}
 
+  ws@8.22.0: {}
+
   wsl-utils@0.1.0:
     dependencies:
       is-wsl: 3.1.1
@@ -24638,6 +24669,16 @@ snapshots:
       yargs-parser: 20.2.9
 
   yargs@17.7.2:
+    dependencies:
+      cliui: 8.0.1
+      escalade: 3.2.0
+      get-caller-file: 2.0.5
+      require-directory: 2.1.1
+      string-width: 4.2.3
+      y18n: 5.0.8
+      yargs-parser: 21.1.1
+
+  yargs@17.7.3:
     dependencies:
       cliui: 8.0.1
       escalade: 3.2.0
