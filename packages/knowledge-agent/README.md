@@ -40,11 +40,11 @@ Each adapter should only handle protocol/argument parsing and response formattin
 
 **MCP is likely the more important long-term surface for AI agents than the CLI**, since it gives agents native structured primitives instead of requiring them to shell out and parse text. The existing repo structure maps onto MCP's primitives unusually well:
 
-| MCP primitive | Natural mapping here |
-| --- | --- |
-| **Tools** | `search_design_system(query, framework?)`, `get_component(id)`, `get_pattern(id)`, `list_components()` — i.e. `generateSystemPrompt()` and `data-loader.ts` exposed as callable tools. |
-| **Resources** | Direct, addressable access to component/pattern YAML and instruction files, for an agent that wants a specific definition rather than a synthesized answer. |
-| **Prompts** | `knowledge/core/skills/*.skill.md` files (`instruction-writer`, `code-connect-authoring`, etc.) map closely onto MCP's reusable prompt-template primitive — something the CLI has no distribution story for today. |
+| MCP primitive | Natural mapping here                                                                                                                                                                                               |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Tools**     | `search_design_system(query, framework?)`, `get_component(id)`, `get_pattern(id)`, `list_components()` — i.e. `generateSystemPrompt()` and `data-loader.ts` exposed as callable tools.                             |
+| **Resources** | Direct, addressable access to component/pattern YAML and instruction files, for an agent that wants a specific definition rather than a synthesized answer.                                                        |
+| **Prompts**   | `knowledge/core/skills/*.skill.md` files (`instruction-writer`, `code-connect-authoring`, etc.) map closely onto MCP's reusable prompt-template primitive — something the CLI has no distribution story for today. |
 
 ### Cross-Repo Distribution
 
@@ -60,4 +60,3 @@ Before this package (or an MCP adapter built on the same core) can be distribute
 3. **Clarify framework scope.** The underlying data is Grommet/React-specific. If cross-repo distribution targets teams on other stacks, the pitch and docs should make clear this tool is for HPE teams building on Grommet, not a universal design-system tool.
 4. **Adopt real versioning discipline.** Once external repos (or other surfaces) depend on this knowledge, changes to `knowledge/core/data` need a proper release process (the repo already has `@changesets/cli` available at the root) rather than the current model of editing YAML and having it read live.
 5. **Bin naming.** The current bin name is `hpe-design-agent`, chosen so it reads correctly standalone (no monorepo context) once this tool is used from other repositories. Revisit if the tool's scope or branding changes before publishing.
-
