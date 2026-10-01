@@ -42,7 +42,7 @@ apply):
 2. **If interactive, does it have a single primary action?** Clicking the body of
    the element produces one default outcome. It may contain smaller nested
    elements offering secondary actions; those are elements in their own right,
-   sized one step down. If there is no primary outcome, only a set of peer
+   sized down. If there is no primary outcome, only a set of peer
    actions, it is compositional. Use
    [semantic layout tokens](/design-tokens/layout-and-spacing) instead.
 3. **Does it need to share a minimum height with other elements?** This is the
@@ -53,10 +53,15 @@ apply):
 
 If any answer is no, use [semantic layout tokens](/design-tokens/layout-and-spacing).
 
-A bare control (the checkbox square, radio dot, or toggle track) is not an
-element on its own. It has no padding or label and is sized by
-`element.[size].icon.size`. It becomes an element once paired with its label,
-with `textToElementX` as the gap between the two.
+A bare control (the checkbox square, radio dot, or toggle track) is a level-1
+building block, not an element. It has no padding or label, and its dimensions
+come from the component's own `control` tokens on a separate scale from
+`element.[size].icon.size` (a medium control is 24px; a medium element icon is
+16px). Paired with its label it becomes an element: checkbox, radio button, and
+switch size their label with `element.[size].fontSize` and `lineHeight`, and the
+control-to-label gap with their own `gapX` token. Reach for
+`element.[size].textToElementX` only when building a custom element that places
+a control beside text and no component-specific token exists.
 
 **Note:** Element tokens apply to the item, not the container that holds items.
 
@@ -118,7 +123,7 @@ one you need.
 | **element.[size].paddingX.wide**    | Use for components that are fully rounded or need more horizontal affordance.                                                              | <ElementToken token="paddingX.wide" />    |
 | **element.[size].paddingY**         | Vertical padding between the element's edge and its content. | <ElementToken token="paddingY" />         |
 | **element.[size].textToIconX**      | Use for spacing between text and icon.                                                                                                     | <ElementToken token="textToIconX" />      |
-| **element.[size].textToElementX**   | Use for spacing between text and an internal control like a checkbox.                                                                      | <ElementToken token="textToElementX" />   |
+| **element.[size].textToElementX**   | Use for spacing between text and an internal control when building a custom element. Checkbox, radio button, and switch define their own `gapX` instead. | <ElementToken token="textToElementX" />   |
 | **element.[size].borderWidth**      | Border or outline width, including selected-state indicators.                                                                              | <ElementToken token="borderWidth" />      |
 | **element.[size].lineHeight**       | Applies to the element's primary label only. Supporting text such as a description is a typography decision; use text.[size].            | <ElementToken token="lineHeight" />       |
 | **element.[size].fontSize**         | Applies to the element's primary label only.                                                                                               | <ElementToken token="fontSize" />         |
