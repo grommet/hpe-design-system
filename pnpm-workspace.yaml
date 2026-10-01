@@ -7,9 +7,9 @@ packages:
 onlyBuiltDependencies:
   - grommet-theme-hpe
 catalog:
-  '@babel/preset-react': ^7.28.5
+  '@babel/preset-react': ^8.0.1
   '@hpe-design/icons-grommet': ^1.2.0
-  '@types/node': ^20.4.5
+  '@types/node': ^26.6.3
   '@types/react': ^19.3.0
   '@types/react-dom': ^19.3.0
   eslint: ^9.39.1
@@ -23,7 +23,7 @@ catalog:
   grommet: ^2.57.0
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.2.0
-  hpe-design-tokens: ^2.3.0
+  hpe-design-tokens: ^2.4.0
   prettier: ^3.9.9
   prop-types: ^15.8.1
   react: ^19.3.0
