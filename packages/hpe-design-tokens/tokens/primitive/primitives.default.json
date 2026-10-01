@@ -1618,7 +1618,7 @@
     },
     "fontSize": {
       "70": {
-        "$description": "",
+        "$description": "Outside the brand-defined typescale. Requires HPE Brand approval before use.",
         "$extensions": {
           "com.figma": {
             "codeSyntax": {},
@@ -1764,7 +1764,7 @@
     },
     "lineHeight": {
       "70": {
-        "$description": "",
+        "$description": "Pairs with fontSize.70, which is outside the brand-defined typescale. Requires HPE Brand approval before use.",
         "$extensions": {
           "com.figma": {
             "codeSyntax": {},
