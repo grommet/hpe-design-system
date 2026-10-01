@@ -1,48 +1,129 @@
-import { Notification } from 'grommet';
-import { BestPracticeGroup, Example } from '../../layouts';
-import { ElementToken } from '../../examples';
+import { ElementSizes, ElementToken } from '../../examples';
+import { Example } from '../../layouts';
 
-In the HPE Design System, an "element" refers to a core UI building block.
+In the HPE Design System, an "element" refers to a core UI building block. It is
+the smallest complete unit in an interface that needs to align in size with its
+peers. Most often this is an interactive target such as a button, input, or menu
+item, but it can also be a non-interactive unit like a tag, avatar, or spinner.
+It may contain text, icons, or even smaller elements. What defines it is that it
+behaves as a single unit, not that it is visually indivisible.
 
-Elements can contain foundational items like text or icons, but "can't be broken down any further without ceasing to be functional." (source: [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/#atoms))
+Element tokens exist to keep these building blocks consistently sized. Every
+medium-sized element shares the same minimum height, padding, and typography,
+regardless of what it contains internally, so a button, an input, and a menu
+item sit visually aligned side by side.
+
+<Example overflow="auto">
+  <ElementSizes />
+</Example>
 
 To understand what element tokens apply to, consider various UI components as levels from most fundamental to most composed:
 
-| Level                       | Example components                                  |
-| --------------------------- | --------------------------------------------------- |
-| **1. Typography, controls** | text, anchor, checkbox, radio button, toggle switch |
-| **2. Elements**             | button, input, select, menu, table cells            |
-| **3. Layout/compositional** | card, modal, toolbars                               |
+| Level                       | Example components                                                |
+| --------------------------- | ------------------------------------------------------------------ |
+| **1. Typography, controls** | text, anchor, checkbox, radio button, and toggle switch controls   |
+| **2. Elements**             | button, input, select, menu item, list row, tag, table cells       |
+| **3. Layout/compositional** | card, modal, toolbars, menu container, list container              |
 
-Many common "elements" (corresponding directly to native HTML tags or roles like button, input, select, etc.) have [component-specific design tokens](/design-tokens/how-to-read-design-tokens#component) published. These design tokens reference element tokens.
+Many common "elements" (corresponding directly to native HTML tags or roles like
+button, input, select, etc.) have [component-specific design tokens](/design-tokens/how-to-read-design-tokens#component)
+published, and these reference element tokens. Reach for them directly when no
+component-specific token exists, for example when designing a new component the
+design system does not offer, so it aligns and adapts with the rest of the sizing
+system.
 
-## When to use
+## Decision framework
 
-Use element tokens when there is not a component-specific token available for an element. For example, a team may be designing a new component that is not offered by the design system. They can use element tokens to ensure that the new component aligns and adapts with the rest of the sizing system.
+Use element tokens when the answer to each of the following is yes (or does not
+apply):
 
-Do not use element tokens for compositional components like cards, lists, or toolbars. Instead, use [semantic layout tokens](/design-tokens/layout-and-spacing).
+1. **Is it a single, self-contained unit?** It reads as one thing, has its own
+   boundary, and (if interactive) owns its own hover, focus, and selected states.
+2. **If interactive, does it have a single primary action?** Clicking the body of
+   the element produces one default outcome. It may contain smaller nested
+   elements offering secondary actions; those are elements in their own right,
+   sized down. If there is no primary outcome, only a set of peer
+   actions, it is compositional. Use
+   [semantic layout tokens](/design-tokens/layout-and-spacing) instead.
+3. **Does it need to share a minimum height with other elements?** This is the
+   purpose of element tokens: cross-component proportional consistency. An
+   element may grow taller than that minimum (see
+   [Elements that stack internally](#elements-that-stack-internally)), but it
+   never sits shorter.
 
-## Element sizes
+If any answer is no, use [semantic layout tokens](/design-tokens/layout-and-spacing).
 
-Element sizes are used to ensure consistent sizing and alignment across layouts. Sizes "xsmall"-"xlarge" are available.
+A bare control (the checkbox square, radio dot, or toggle track) is a level-1
+building block, not an element. It has no padding or label, and its dimensions
+come from the component's own `control` tokens. Paired with its label it becomes an element: checkbox, radio button, and
+switch size their label with `element.[size].fontSize` and `lineHeight`, and the
+control-to-label gap with their own `gapX` token. Reach for
+`element.[size].textToElementX` only when building a custom element that places
+a control beside text and no component-specific token exists.
+
+**Note:** Element tokens apply to the item, not the container that holds items.
+
+| Container (semantic tokens) | Item (element tokens) |
+| ---------------------------- | ---------------------- |
+| menu, drop                   | menu item               |
+| list                          | clickable list row      |
+| table                         | table cell               |
+| card, modal, toolbar          | —                     |
+
+### Quick reference
+
+| Case                                     | Tokens                  |
+| ----------------------------------------- | ------------------------ |
+| Menu item, option row                     | Element                  |
+| Clickable list row                        | Element                  |
+| Table cell                                | Element                  |
+| Tag                                       | Element   |
+| Menu or drop container padding, radius    | Semantic                 |
+| Gap between stacked lines inside an item  | Semantic                 |
+| Divider spacing within a menu             | Semantic                 |
+| Card, modal, toolbar, page layout         | Semantic                 |
+
+{/* TODO: worked example walking a drop/menu component through the element test (container fails Q1, option row passes all three, tag is a nested element one size down) — follow-up PR */}
+
+## Elements that stack internally
+
+An element may grow taller than its nominal height when it holds a label plus
+supporting content such as a description or tag. 
+
+- Keep `paddingX`, `paddingY`, `textToIconX`, `textToElementX`, and `borderWidth`.
+- Use **`minHeight`**, not `height`, so the element can grow while still meeting the minimum height requirement.
+- Use **[semantic spacing](/design-tokens/layout-and-spacing)** for the vertical gap between stacked children. Element
+  tokens intentionally define no vertical stack gap: once you are stacking, you are
+  composing, and the rhythm between lines is a layout decision rather than a
+  proportional-sizing one.
+
+Draw the line at behavior: if the whole stack is still one target with one outcome,
+it is an element.
+
+## Nested elements
+
+Elements may contain smaller elements, such as a tag inside a list row or a button
+inside a table cell. Use a smaller element size for the child than the parent.
 
 ## Supported design tokens
 
-The following design tokens exist for each element size. Replace `[size]` with the desired size (e.g., `xsmall`, `small`, `medium`, `large`, `xlarge`).
+Element tokens are available in five sizes: `xsmall`, `small`, `medium`, `large`,
+and `xlarge`. The following tokens exist for each size; replace `[size]` with the
+one you need.
 
 | Property                            | Notes                                                                                                                                      | Example                                   |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
-| **element.[size].minHeight**        | Ensures elements achieve the desired minimum height even if internal content varies.                                                       | <ElementToken token="ElementToken" />     |
+| **element.[size].minHeight**        | Ensures elements achieve the desired minimum height even if internal content varies.                                                       | <ElementToken token="minHeight" />        |
 | **element.[size].width**            | Use for fixed size components like avatar, spinner, etc.                                                                                   | <ElementToken token="width" />            |
 | **element.[size].height**           | Use for fixed size components like avatar, spinner, etc.                                                                                   | <ElementToken token="height" />           |
 | **element.[size].paddingX.narrow**  | Use for components that should have equal horizontal and vertical padding. Often this applies to square components like icon-only buttons. | <ElementToken token="paddingX.narrow" />  |
 | **element.[size].paddingX.default** | Use for standard horizontal padding.                                                                                                       | <ElementToken token="paddingX.default" /> |
 | **element.[size].paddingX.wide**    | Use for components that are fully rounded or need more horizontal affordance.                                                              | <ElementToken token="paddingX.wide" />    |
-| **element.[size].paddingY**         | --                                                                                                                                         | <ElementToken token="paddingY" />         |
+| **element.[size].paddingY**         | Vertical padding between the element's edge and its content. | <ElementToken token="paddingY" />         |
 | **element.[size].textToIconX**      | Use for spacing between text and icon.                                                                                                     | <ElementToken token="textToIconX" />      |
-| **element.[size].textToElementX**   | Use for spacing between text and an internal control like a checkbox.                                                                      | <ElementToken token="textToElementX" />   |
-| **element.[size].borderWidth**      | --                                                                                                                                         | <ElementToken token="borderWidth" />      |
-| **element.[size].lineHeight**       | --                                                                                                                                         | <ElementToken token="lineHeight" />       |
-| **element.[size].fontSize**         | --                                                                                                                                         | <ElementToken token="fontSize" />         |
+| **element.[size].textToElementX**   | Use for spacing between text and an internal control when building a custom element. Checkbox, radio button, and switch define their own `gapX` instead. | <ElementToken token="textToElementX" />   |
+| **element.[size].borderWidth**      | Border or outline width, including selected-state indicators.                                                                              | <ElementToken token="borderWidth" />      |
+| **element.[size].lineHeight**       | Applies to the element's primary label only. Supporting text such as a description is a typography decision; use text.[size].            | <ElementToken token="lineHeight" />       |
+| **element.[size].fontSize**         | Applies to the element's primary label only.                                                                                               | <ElementToken token="fontSize" />         |
 | **element.[size].fontWeight**       | --                                                                                                                                         | <ElementToken token="fontWeight" />       |
 | **element.[size].icon.size**        | Applies to width and height of icon.                                                                                                       | <ElementToken token="icon.size" />        |
