@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Box, Button, CheckBoxGroup, FormField, Heading } from 'grommet';
 import { ButtonGroup } from '@shared/aries-core';
@@ -15,8 +17,8 @@ export const ButtonBadActionLabelsPreview = () => (
       />
     </FormField>
     <ButtonGroup>
-      <Button primary label="Apply" onClick={() => {}} />
-      <Button label="Reset" onClick={() => {}} />
+      <Button primary label="Apply" />
+      <Button label="Reset" />
     </ButtonGroup>
   </Box>
 );

@@ -1,6 +1,7 @@
 id: button
 name: Button
-description: A clickable control that triggers an action, submits a form, initiates
+description:
+  A clickable control that triggers an action, submits a form, initiates
   a new task, navigates, or performs another interactive action.
 importPath: grommet
 
@@ -10,7 +11,7 @@ props:
     required: false
     description: Text or content displayed inside the button.
   - name: onClick
-    type: "() => void"
+    type: '() => void'
     required: false
     description: Callback function invoked when the button is clicked.
   - name: primary
@@ -30,12 +31,14 @@ props:
   - name: icon
     type: React.ReactNode
     required: false
-    description: Icon element displayed inside the button, inline with label text or
+    description:
+      Icon element displayed inside the button, inline with label text or
       as the sole content.
   - name: badge
-    type: "boolean | number | { value: number, max?: number }"
+    type: 'boolean | number | { value: number, max?: number }'
     required: false
-    description: Adds a small badge indicator to convey extra information such as a
+    description:
+      Adds a small badge indicator to convey extra information such as a
       notification count. Set to true for a dot, pass a number to display the value,
       or pass an object to control the value and its maximum.
   - name: size
@@ -61,7 +64,8 @@ props:
   - name: aria-label
     type: string
     required: false
-    description: Accessibility label read by screen readers; required for icon-only
+    description:
+      Accessibility label read by screen readers; required for icon-only
       buttons that have no visible label.
   - name: busy
     type: boolean
@@ -76,53 +80,64 @@ props:
 
 usage:
   whenToUse:
-    - "Submitting a form."
-    - "Beginning a new task."
-    - "Providing a primary call to action."
-    - "Presenting secondary actions alongside a primary action."
-    - "Cancelling or dismissing the current screen."
+    - 'Submitting a form.'
+    - 'Beginning a new task.'
+    - 'Providing a primary call to action.'
+    - 'Presenting secondary actions alongside a primary action.'
+    - 'Cancelling or dismissing the current screen.'
   whenToAvoid:
     - "Avoid showing a disabled button for actions that don't apply in context; remove it entirely or leave it active with on-click messaging explaining why the action is unavailable."
-    - "Do not use a Button as a navigation element inside a list or nav structure — use Nav with Anchors."
+    - 'Do not use a Button as a navigation element inside a list or nav structure — use Nav with Anchors.'
 
 variants:
   - name: primary
-    description: High-contrast button with increased visual weight; the key call to
+    description:
+      High-contrast button with increased visual weight; the key call to
       action on a page.
-    when: Use once per view for the single most important action, such as saving, creating,
+    when:
+      Use once per view for the single most important action, such as saving, creating,
       or deploying. Not all views require a primary action.
-    example: "<Button label=\"Create account\" primary onClick={() => {}} />"
+    example: '<Button label="Create account" primary onClick={() => {}} />'
   - name: secondary
-    description: Medium-emphasis button for supporting calls to action that stand alongside
+    description:
+      Medium-emphasis button for supporting calls to action that stand alongside
       or complement a primary button.
-    when: Use for actions that support the primary action or stand alone; multiple
+    when:
+      Use for actions that support the primary action or stand alone; multiple
       secondary buttons may appear per page.
-    example: "<Button label=\"View details\" secondary onClick={() => {}} />"
+    example: '<Button label="View details" secondary onClick={() => {}} />'
   - name: toolbar
-    description: Equal-prominence button styled to sit alongside other toolbar controls
+    description:
+      Equal-prominence button styled to sit alongside other toolbar controls
       such as search inputs and action menus.
     when: Use when a button is placed in a toolbar row with peer controls; apply kind="toolbar".
-    example: "<Button kind=\"toolbar\" label=\"Filter\" icon={<Filter />} onClick={() => {}} />"
+    example: '<Button kind="toolbar" label="Filter" icon={<Filter />} onClick={() => {}} />'
   - name: default
     description: The standard button appearance with no extra visual weight.
-    when: Use for the majority of actions on a page where no single action needs elevated
+    when:
+      Use for the majority of actions on a page where no single action needs elevated
       prominence.
-    example: "<Button label=\"Reset\" onClick={() => {}} />"
+    example: '<Button label="Reset" onClick={() => {}} />'
   - name: icon
-    description: Button containing an icon inline with label text, or an icon-only
+    description:
+      Button containing an icon inline with label text, or an icon-only
       button.
-    when: Use to reinforce a label with a visual cue, or when space is constrained
+    when:
+      Use to reinforce a label with a visual cue, or when space is constrained
       and the icon is self-explanatory; always provide aria-label for icon-only buttons.
-    example: "<Button icon={<Add />} label=\"Add device\" onClick={() => {}} />"
+    example: '<Button icon={<Add />} label="Add device" onClick={() => {}} />'
   - name: badge
-    description: Button with a small badge indicator overlaid to show a count or notification
+    description:
+      Button with a small badge indicator overlaid to show a count or notification
       status.
-    when: Use to surface a notification count or attention dot on a button that opens
+    when:
+      Use to surface a notification count or attention dot on a button that opens
       a related view.
-    example: "<Button aria-label=\"Notifications\" icon={<Notification />} badge={3} />"
+    example: '<Button aria-label="Notifications" icon={<Notification />} badge={3} />'
 
 examples:
-  - description: Default button — the standard appearance used for most actions on
+  - description:
+      Default button — the standard appearance used for most actions on
       a page.
     path: apps/docs/src/examples/components/button/ButtonExample.js
   - description: Default button variant example.
@@ -137,15 +152,18 @@ examples:
     path: apps/docs/src/examples/components/button/ButtonIconExample.js
   - description: Button with a badge showing a notification count.
     path: apps/docs/src/examples/components/button/ButtonBadgeExample.js
-  - description: Button in various interactive and application states (default, active,
+  - description:
+      Button in various interactive and application states (default, active,
       disabled, primary).
     path: apps/docs/src/examples/components/button/ButtonStatesExample.js
-  - description: Simple busy and success state button used for short async actions
+  - description:
+      Simple busy and success state button used for short async actions
       such as form validation.
     path: apps/docs/src/examples/components/button/ButtonBusySimpleExample.js
   - description: Button sizing variants from small to xlarge.
     path: apps/docs/src/examples/components/button/ButtonSizingExample.js
-  - description: Button alignment reference table for common layout contexts such as
+  - description:
+      Button alignment reference table for common layout contexts such as
       modals, drawers, and inline forms.
     path: apps/docs/src/examples/components/button/ButtonAlignmentTable.js
   - description: Left-aligned button group ordering (Primary → Secondary → Default).
@@ -164,17 +182,20 @@ examples:
     path: apps/docs/src/examples/components/button/DosDonts/ButtonGoodLongTitlePreview.js
   - description: Don't — horizontal inline button group on small screen widths.
     path: apps/docs/src/examples/components/button/DosDonts/ButtonBadGroupPreview.js
-  - description: Verb–noun action label example showing correct labeling convention
+  - description:
+      Verb–noun action label example showing correct labeling convention
       (primary action includes noun; secondary omits it when context is clear).
     path: apps/docs/src/examples/components/button/ButtonActionLabelsExample.js
 
 anatomy:
-  - label: "1"
+  - label: '1'
     region: Button container
-    purpose: The interactive element that captures click or keyboard events and communicates
+    purpose:
+      The interactive element that captures click or keyboard events and communicates
       affordance.
     availability: required
-    notes: Rendered as a <button> element for in-page actions; use <a> only when the
+    notes:
+      Rendered as a <button> element for in-page actions; use <a> only when the
       result is navigation to a new URL.
   - label: 1a
     region: Button label
@@ -188,7 +209,8 @@ anatomy:
     notes: When used without a visible label, a11yTitle or aria-label must be provided.
   - label: 1c
     region: Badge
-    purpose: Conveys additional information such as a notification count or attention
+    purpose:
+      Conveys additional information such as a notification count or attention
       indicator overlaid on the button.
     availability: optional
 behaviors:
@@ -206,8 +228,8 @@ behaviors:
     - overflow
 
 contentGuidelines:
-  - "Use clear and concise wording — avoid contractions or colloquialisms."
-  - "Ensure the button label matches the action or route destination."
+  - 'Use clear and concise wording — avoid contractions or colloquialisms.'
+  - 'Ensure the button label matches the action or route destination.'
   - "Use verb + noun format for the primary action label (e.g., 'Apply filters', 'Create device')."
   - "The noun may be omitted from labels beyond the primary button if the action is clear and unambiguous (e.g., 'Reset' instead of 'Reset filters')."
   - "Use 'Add' when associating an existing object with another object or set of objects (e.g., 'Add device' to an existing group)."
@@ -219,16 +241,16 @@ contentGuidelines:
 dosAndDonts:
   - do: "Use the full verb-noun phrase for the primary action label (e.g., 'Apply filters')."
     dont: "Don't omit the noun from the primary action label — doing so creates ambiguity about what the actions refer to."
-    reason: "The primary action must be self-explanatory; subsequent actions can omit the noun when context makes the object obvious."
-  - do: "Use default button styling for cancel buttons, placed according to the established hierarchy."
+    reason: 'The primary action must be self-explanatory; subsequent actions can omit the noun when context makes the object obvious.'
+  - do: 'Use default button styling for cancel buttons, placed according to the established hierarchy.'
     dont: "Don't use Secondary button styling for a Cancel button."
-    reason: "The neutral default appearance signals a non-committal action; secondary styling implies a recommended or supported action."
-  - do: "On screen widths ≤ 576px, expand single buttons to fill the full container width."
+    reason: 'The neutral default appearance signals a non-committal action; secondary styling implies a recommended or supported action.'
+  - do: 'On screen widths ≤ 576px, expand single buttons to fill the full container width.'
     dont: "Don't keep button widths small on mobile — smaller press targets lessen visual impact and increase errant clicks."
-    reason: "Full-width buttons improve press-target size and visual clarity at small breakpoints; minimum button width is 42px."
-  - do: "Reorder button groups vertically on small screen widths so each button achieves its full width."
+    reason: 'Full-width buttons improve press-target size and visual clarity at small breakpoints; minimum button width is 42px.'
+  - do: 'Reorder button groups vertically on small screen widths so each button achieves its full width.'
     dont: "Don't display button groups horizontally inline on small screens — this risks label truncation, word wraps, and undersized press targets."
-    reason: "Vertical stacking preserves readable labels and adequate touch targets at all resolutions."
+    reason: 'Vertical stacking preserves readable labels and adequate touch targets at all resolutions.'
 
 accessibility:
   keyboard:
@@ -246,14 +268,15 @@ accessibility:
       value: descriptive string
       condition: HPE Design System prop equivalent to aria-label; prefer aria-label.
     - attribute: aria-disabled
-      value: "true"
+      value: 'true'
       condition: When the button is in a disabled state.
     - attribute: aria-busy
-      value: "true"
+      value: 'true'
       condition: when busy prop is true and an async operation is in progress
     - attribute: role
       value: button
-      condition: Applied automatically by the browser for native <button> elements;
+      condition:
+        Applied automatically by the browser for native <button> elements;
         verify when using a custom element or anchor styled as a button.
   announcements:
     - trigger: Button activated

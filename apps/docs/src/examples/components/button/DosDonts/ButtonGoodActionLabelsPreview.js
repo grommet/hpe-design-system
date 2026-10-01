@@ -1,9 +1,11 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Box, Button, CheckBoxGroup, FormField, Heading } from 'grommet';
 import { ButtonGroup } from '@shared/aries-core';
 
 export const ButtonGoodActionLabelsPreview = () => (
-   <Box gap="medium">
+  <Box gap="medium">
     <Heading level={2} margin="none">
       Filters
     </Heading>
@@ -15,8 +17,8 @@ export const ButtonGoodActionLabelsPreview = () => (
       />
     </FormField>
     <ButtonGroup>
-      <Button primary label="Apply filters" onClick={() => {}} />
-      <Button label="Reset" onClick={() => {}} />
+      <Button primary label="Apply filters" />
+      <Button label="Reset" />
     </ButtonGroup>
   </Box>
 );
