@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React, { useState } from 'react';
-import { Button, Form, FormField, TextInput } from 'grommet';
-import { ButtonGroup } from '@shared/aries-core';
-=======
 import React, { useContext, useState } from 'react';
 import {
   Box,
@@ -14,7 +9,6 @@ import {
   ResponsiveContext,
   TextInput,
 } from 'grommet';
->>>>>>> 27f6bb858 (more clean up)
 import { ContentPane } from '../../../layouts/content/ContentPane';
 
 export const ButtonBusySimpleExample = () => {
