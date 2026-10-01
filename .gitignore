@@ -8,6 +8,9 @@
 #lock files
 *package-lock.json
 
+# local VS Code extension bundles
+*.vsix
+
 # production
 *dist
 /apps/docs/out

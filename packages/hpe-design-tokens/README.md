@@ -36,6 +36,19 @@ npm i hpe-design-tokens
 
 For usage instructions, see [HPE Design System design tokens documentation](https://design-system.hpe.design/design-tokens).
 
+## IDE Manifest
+
+The package generates compact resolved-token manifests for editor integrations.
+
+- `hpe-design-tokens/ide/manifest` provides the schema version, package version, and available token collections and modes.
+- `hpe-design-tokens/ide/dimension/default` provides resolved default-dimension tokens.
+- `hpe-design-tokens/ide/dimension/small` provides resolved small-dimension tokens.
+
+Each token record includes its resolved `value`, `type`, CSS custom-property
+name, optional description, and original token reference. Editor integrations
+should check `schemaVersion` before reading a manifest and should load only the
+collection and mode needed for the current request.
+
 ## Quick Start (Maintainers)
 
 From repository root:

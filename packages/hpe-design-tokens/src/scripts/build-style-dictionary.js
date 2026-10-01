@@ -28,6 +28,7 @@ const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
 const DOCS_METADATA_DIR = `${DOCS_DIR}metadata/`;
+const IDE_DIR = 'dist/ide/';
 const TYPES_DIR = 'src/types/';
 const PREFIX = 'hpe';
 /**
@@ -301,9 +302,8 @@ const writeSemanticColorMetadataArtifacts = files => {
       },
     );
 
-    const canonicalTokenLeafPaths = collectSemanticColorTokenLeafPathsFromTokenTree(
-      parsedTokens,
-    );
+    const canonicalTokenLeafPaths =
+      collectSemanticColorTokenLeafPathsFromTokenTree(parsedTokens);
 
     const figmaUnparseable = [];
     const figmaExceptions = [];
@@ -516,6 +516,21 @@ try {
             },
           ],
         },
+        ide: {
+          transformGroup: 'js/w3c',
+          buildPath: IDE_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              destination: `color.${theme ? `${theme}-` : ''}${
+                mode || 'default'
+              }.json`,
+              filter: token => filterColor(token, file),
+              format: 'json/ide-manifest',
+            },
+          ],
+        },
       },
     });
     await colorDictionary.buildAllPlatforms();
@@ -536,6 +551,47 @@ const dimensionFiles = fs
       : undefined,
   )
   .filter(file => file);
+
+const writeIdeManifestIndex = () => {
+  const packageMetadata = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  const dimensionModes = dimensionFiles
+    .map(file => getThemeAndMode(file)[1])
+    .sort();
+  const colorModes = colorModeFiles
+    .map(file => {
+      const [theme, mode] = getThemeAndMode(file);
+      return [theme || 'default', mode || 'default'];
+    })
+    .sort(([firstTheme, firstMode], [secondTheme, secondMode]) =>
+      `${firstTheme}.${firstMode}`.localeCompare(
+        `${secondTheme}.${secondMode}`,
+      ),
+    );
+
+  fs.mkdirSync(IDE_DIR, { recursive: true });
+  fs.writeFileSync(
+    `${IDE_DIR}manifest.json`,
+    `${JSON.stringify(
+      {
+        schemaVersion: 1,
+        tokenPackageVersion: packageMetadata.version,
+        collections: {
+          color: Object.fromEntries(
+            colorModes.map(([theme, mode]) => [
+              `${theme}.${mode}`,
+              `./color.${theme !== 'default' ? `${theme}-` : ''}${mode}.json`,
+            ]),
+          ),
+          dimension: Object.fromEntries(
+            dimensionModes.map(mode => [mode, `./dimension.${mode}.json`]),
+          ),
+        },
+      },
+      null,
+      2,
+    )}\n`,
+  );
+};
 
 try {
   await dimensionFiles.reduce(async (previousBuild, file) => {
@@ -651,11 +707,26 @@ try {
             },
           ],
         },
+        ide: {
+          transformGroup: 'js/w3c',
+          buildPath: IDE_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              destination: `dimension.${mode}.json`,
+              filter: token =>
+                token.filePath === file && !token.path.includes(FIGMA_PREFIX),
+              format: 'json/ide-manifest',
+            },
+          ],
+        },
       },
     });
 
     await dimensionDictionary.buildAllPlatforms();
   }, Promise.resolve());
+  writeIdeManifestIndex();
 } catch (e) {
   console.error('🛑 Error building dimension tokens:', e);
   throw e;
@@ -897,10 +968,7 @@ fs.readdirSync(DOCS_DIR)
   });
 
 fs.copyFileSync(`${TYPES_DIR}esm/index.d.ts`, `${ESM_DIR}index.d.ts`);
-fs.copyFileSync(
-  `${TYPES_DIR}grommet/index.d.ts`,
-  `${GROMMET_DIR}index.d.ts`,
-);
+fs.copyFileSync(`${TYPES_DIR}grommet/index.d.ts`, `${GROMMET_DIR}index.d.ts`);
 
 if (!process.exitCode) {
   console.log('✅ Style system outputs have been generated.');

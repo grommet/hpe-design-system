@@ -22,6 +22,8 @@
       "require": "./dist/grommet/cjs/index.cjs"
     },
     "./docs": "./dist/docs/index.js",
+    "./ide/manifest": "./dist/ide/manifest.json",
+    "./ide/dimension/*": "./dist/ide/dimension.*.json",
     "./dist/css/*.css": {
       "import": "./dist/css/*.css",
       "require": "./dist/css/*.css"

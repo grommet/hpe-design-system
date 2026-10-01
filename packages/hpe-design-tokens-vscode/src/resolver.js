@@ -16,14 +16,7 @@ const T_SHIRT_SIZES = new Set([
   '5xlarge',
   '6xsmall',
 ]);
-
-const PROP_CATEGORIES = {
-  gap: 'spacing',
-  margin: 'spacing',
-  pad: 'spacing',
-  round: 'borderRadius',
-  borderWidth: 'borderWidth',
-};
+const { tokenNameForLayoutProp } = require('./grommetAdapter');
 
 const cssVariableName = tokenName =>
   `--${tokenName
@@ -37,8 +30,16 @@ const createTokenIndex = collections => {
 
   collections.forEach(collection => {
     Object.entries(collection).forEach(([name, token]) => {
-      byName.set(name, token);
-      byCssVariable.set(cssVariableName(name), { name, token });
+      const resolvedToken = {
+        ...token,
+        value: token.value ?? token.$value,
+      };
+
+      byName.set(name, resolvedToken);
+      byCssVariable.set(token.cssVariable || cssVariableName(name), {
+        name,
+        token: resolvedToken,
+      });
     });
   });
 
@@ -65,9 +66,11 @@ const findTokenAtPosition = (line, character, tokenIndex) => {
     }
 
     if (!T_SHIRT_SIZES.has(match[0])) return undefined;
-    const category = PROP_CATEGORIES[propBeforeValue(line.slice(0, start))];
-    if (!category) return undefined;
-    const name = `hpe.${category}.${match[0]}`;
+    const name = tokenNameForLayoutProp(
+      propBeforeValue(line.slice(0, start)),
+      match[0],
+    );
+    if (!name) return undefined;
     const token = tokenIndex.byName.get(name);
     return token && { name, token, start, end };
   }

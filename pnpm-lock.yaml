@@ -456,9 +456,9 @@ importers:
 
   packages/hpe-design-tokens-vscode:
     dependencies:
-      hpe-design-tokens:
-        specifier: workspace:*
-        version: link:../hpe-design-tokens
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
     devDependencies:
       '@types/vscode':
         specifier: ^1.95.0

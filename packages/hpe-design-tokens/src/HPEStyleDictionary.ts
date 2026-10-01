@@ -7,6 +7,7 @@ import {
   cssColorModes,
   cssBreakpoints,
   esmGrommetRefs,
+  ideManifest,
   javascriptEsm,
   jsonFlat,
 } from './formats/index.js';
@@ -56,6 +57,10 @@ HPEStyleDictionary.registerFormat({
 HPEStyleDictionary.registerFormat({
   name: `jsonFlat`,
   format: jsonFlat,
+});
+HPEStyleDictionary.registerFormat({
+  name: 'json/ide-manifest',
+  format: ideManifest,
 });
 HPEStyleDictionary.registerTransform({
   ...colorNameJs,

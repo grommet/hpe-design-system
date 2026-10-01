@@ -5,5 +5,6 @@ export { commonJsGrommetRefs } from './commonJsGrommetRefs.js';
 export { cssColorModes } from './cssColorModes.js';
 export { cssBreakpoints } from './cssBreakpoints.js';
 export { esmGrommetRefs } from './esmGrommetRefs.js';
+export { ideManifest } from './ideManifest.js';
 export { javascriptEsm } from './javascriptEsm.js';
 export { jsonFlat } from './jsonFlat.js';
