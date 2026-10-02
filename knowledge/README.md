@@ -43,6 +43,8 @@ The [knowledge-agent](../packages/knowledge-agent/) package reads
 `core/data` (and relevant `.github/instructions`) to answer natural-language
 implementation queries. Run it with
 `pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"`.
+It also renders the foundation rules as a checklist (`--checklist`) or one rule
+in full (`--rule <id>`); see the `foundation-rules` skill.
 
 ## Capability Index
 

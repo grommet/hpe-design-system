@@ -249,4 +249,55 @@ export interface DesignSystemSchema {
   tokens: DesignTokens;
   components: ComponentDefinition[];
   patterns: PatternDefinition[];
+  foundations: FoundationDefinition[];
+  glossary: GlossaryTerm[];
+}
+
+export interface KnowledgeRef {
+  /**
+   * The category of the referenced knowledge.
+   * Internal references use id; external references use label and url.
+   */
+  kind: 'glossary' | 'rule' | 'component' | 'pattern' | 'external';
+
+  /** ID within the design system for internal references. */
+  id?: string;
+
+  /** Human-readable label, primarily for external references. */
+  label?: string;
+
+  /** External URL, required for external references. */
+  url?: string;
+}
+
+export interface Rule {
+  /** Stable descriptive identifier for the rule. */
+  id: string;
+
+  /** The rule stated plainly as an instruction. */
+  statement: string;
+
+  /** The specific reason this rule exists instead of its opposite. */
+  rationale: string;
+
+  /** Optional illustrative code example. */
+  example?: ComponentExample;
+
+  /** Optional references to related knowledge or external standards. */
+  relatedTo?: KnowledgeRef[];
+}
+
+export interface FoundationDefinition {
+  id: string;
+  name: string;
+  description: string;
+  rules: Rule[];
+}
+
+export interface GlossaryTerm {
+  id: string;
+  term: string;
+  definition: string;
+  usage?: string;
+  confusedWith?: string[];
 }

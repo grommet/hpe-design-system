@@ -16,6 +16,8 @@ pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"
 
 Incorporate the components and patterns it returns into your implementation rather than reconstructing component usage from memory or first principles.
 
+The output ends with a "### Foundation Rules" checklist. Build from the returned patterns and components first. Reach for the checklist when a pattern does not hand you a value — spacing, color, size, breakpoint, container — or when composing patterns together; read only that foundation's block. Before finishing, validate your output against the full checklist once; for any rule you cannot confirm, run `pnpm --filter @hpe-design/knowledge-agent generate -- --rule <id>` and fix or report it. The `foundation-rules` skill has the full workflow.
+
 ## Rules and Guidelines
 
 When writing or reviewing React components, follow these core principles and best practices:

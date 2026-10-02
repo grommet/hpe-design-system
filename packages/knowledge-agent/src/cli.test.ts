@@ -52,4 +52,84 @@ describe('knowledge-agent CLI', () => {
     expect(stripAnsi(result.stderr)).toContain(expectedMessage);
     expect(result.stdout).toContain('--framework <target>');
   });
+
+  it('rejects unsupported rules detail values', () => {
+    const result = spawnSync(
+      'pnpm',
+      [
+        'exec',
+        'tsx',
+        'src/cli.ts',
+        '--',
+        'Create a dashboard',
+        '--rules',
+        'bogus',
+      ],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain(
+      'Expected one of: checklist, full, none',
+    );
+  });
+
+  it('rejects unknown rule ids and lists valid ids', () => {
+    const result = spawnSync(
+      'pnpm',
+      ['exec', 'tsx', 'src/cli.ts', '--', '--rule', 'nope'],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain('Valid ids:');
+    expect(result.stderr).toContain('color-names-its-target');
+  });
+
+  it('prints the foundation checklist without a query', () => {
+    const result = spawnSync(
+      'pnpm',
+      ['exec', 'tsx', 'src/cli.ts', '--', '--checklist'],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('### Color');
+    expect(result.stdout).toContain('- [color-names-its-target]');
+    expect(result.stdout).not.toContain('http');
+    expect(result.stdout).not.toContain('Rationale:');
+  });
+
+  it('rejects using checklist and rule together', () => {
+    const result = spawnSync(
+      'pnpm',
+      [
+        'exec',
+        'tsx',
+        'src/cli.ts',
+        '--',
+        '--checklist',
+        '--rule',
+        'color-names-its-target',
+      ],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain(
+      '--checklist and --rule cannot be used together',
+    );
+  });
 });

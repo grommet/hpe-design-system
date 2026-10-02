@@ -1,0 +1,295 @@
+id: layout
+name: Layout
+description: >
+  Cross-cutting rules for page structure, responsive composition, sizing, and
+  spatial relationships across product UI.
+
+rules:
+  - id: layout-use-standard-routed-screen-structure
+    statement: >
+      Build every routed screen as Main, then Page, then PageContent, then
+      PageHeader, followed by the page's content. PageHeader renders the h1;
+      do not add another.
+    rationale: >
+      Page applies the theme's kind-driven max-width, alignment, and
+      responsive horizontal padding; PageContent consumes them; PageHeader
+      renders the title as a level-1 Heading and repositions actions on
+      small screens. A page built from Box has to reproduce all of this and
+      drifts when the theme changes.
+    example:
+      description: >
+        The structure used by the design system's dashboard and list
+        templates.
+      code: |
+        <Main>
+          <Page pad={{ bottom: '3xlarge' }}>
+            <PageContent>
+              <PageHeader title="Servers" />
+              {/* page content */}
+            </PageContent>
+          </Page>
+        </Main>
+    relatedTo:
+      - kind: component
+        id: page
+      - kind: component
+        id: page-content
+      - kind: component
+        id: page-header
+      - kind: pattern
+        id: dashboard-layout
+      - kind: external
+        label: HPE Design System page layouts
+        url: https://design-system.hpe.design/templates/page-layouts
+
+  - id: layout-choose-page-kind-by-content
+    statement: >
+      Set kind on Page, not PageContent. Use the default, wide (max 1536px),
+      for dashboards, tables, lists, and charts; narrow (max 768px) for
+      forms, wizards, articles, and settings; and full for content that must
+      reach the viewport edge, such as maps.
+    rationale: >
+      kind controls the max-width and alignment PageContent receives. Wide is
+      the default and fits most application pages. Narrow exists for readable
+      line length in single-task flows and would force a wide table to
+      scroll inside an artificially narrow column. Every kind has a 336px
+      minimum, below which content scrolls horizontally.
+    relatedTo:
+      - kind: component
+        id: page
+      - kind: external
+        label: HPE Design System page kinds
+        url: https://design-system.hpe.design/templates/page-layouts
+
+  - id: layout-fill-vertical-at-page-level
+    statement: >
+      Make the page fill the viewport with Main, which fills vertically by
+      default, or with fill on Page. Never set fill="vertical" on
+      PageContent.
+    rationale: >
+      Without a vertically filling ancestor, a short page's background ends
+      partway down the viewport, which reads as a rendering fault.
+      PageContent spans the page because of its built-in fill="horizontal";
+      passing fill="vertical" replaces that value and the content collapses
+      to its own width.
+    relatedTo:
+      - kind: component
+        id: main
+      - kind: component
+        id: page-content
+
+  - id: layout-use-semantic-region-components
+    statement: >
+      Use Header, Nav, Main, and Footer for the corresponding regions of the
+      shell, with exactly one Main per screen. Do not build these regions
+      from Box.
+    rationale: >
+      They render the header, nav, main, and footer landmarks. Screen reader
+      users navigate by landmark; a shell of generic containers has none,
+      leaving tabbing through the whole navigation as the only route to
+      content.
+    relatedTo:
+      - kind: component
+        id: header
+      - kind: component
+        id: nav
+      - kind: component
+        id: main
+      - kind: component
+        id: footer
+      - kind: pattern
+        id: application-shell
+      - kind: external
+        label: WAI-ARIA APG Landmark regions
+        url: https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/
+
+  - id: layout-use-card-for-self-contained-peers
+    statement: >
+      Use Card for a self-contained unit that sits alongside peers, and Box
+      for grouping that needs no visual boundary. Do not wrap controls such
+      as filters or toolbars in a Card, and do not nest Cards.
+    rationale: >
+      A Card's surface says its contents are one thing. A Card used for plain
+      grouping competes with the cards that need to communicate containment,
+      and a Card inside a Card doubles both the surface and the padding.
+    relatedTo:
+      - kind: component
+        id: card
+      - kind: component
+        id: box
+      - kind: glossary
+        id: surface
+
+  - id: layout-use-grid-for-two-dimensions
+    statement: >
+      Use Grid when items must align in two dimensions or wrap into rows.
+      Use Box for a single row or column.
+    rationale: >
+      A wrapping Box aligns items only within their own row, so wrapped cards
+      come out ragged across rows. Grid aligns both axes and can place items
+      by area.
+    relatedTo:
+      - kind: component
+        id: grid
+      - kind: component
+        id: box
+
+  - id: layout-use-fluid-grid-for-repeating-peers
+    statement: >
+      For a set of like items such as cards, tiles, or metrics, use a fluid
+      grid: columns="small" or columns={{ count: 'fit', size: 'small' }}.
+      Reserve explicit per-breakpoint column arrays for container-driven
+      regions whose columns have distinct roles.
+    rationale: >
+      A fluid grid adds and removes columns as width changes, with no
+      breakpoint logic, so it cannot overflow a tablet or leave empty columns
+      on a wide monitor. A region layout such as filters beside results has a
+      fixed role per column and is legitimately specified per breakpoint.
+    relatedTo:
+      - kind: component
+        id: grid
+      - kind: external
+        label: HPE Design System content layouts
+        url: https://design-system.hpe.design/templates/content-layouts
+      - kind: external
+        label: HPE Design System Grid
+        url: https://design-system.hpe.design/components/grid
+
+  - id: layout-use-named-grid-areas
+    statement: >
+      In a shell or region grid, give each region a gridArea and change
+      columns, rows, and areas per breakpoint. Prefer this to conditionally
+      rendering different trees.
+    rationale: >
+      Conditionally rendering different trees remounts components, discards
+      their state, and doubles the markup that must be kept in sync. An areas
+      map moves the same children without remounting them.
+    relatedTo:
+      - kind: component
+        id: grid
+      - kind: pattern
+        id: application-shell
+
+  - id: layout-limit-grid-nesting
+    statement: >
+      Use one Grid for the application shell and at most two levels of Grid
+      within a page: a region grid and one grid inside a region. Anything
+      deeper should be a Box or a component that lays itself out.
+    rationale: >
+      Each nested grid resolves its own sizing, so the effect of a width
+      change becomes harder to predict at every level. The design system's
+      dashboard templates need only two levels.
+    relatedTo:
+      - kind: pattern
+        id: application-shell
+      - kind: pattern
+        id: dashboard-layout
+
+  - id: layout-validate-at-hpe-breakpoints
+    statement: >
+      Design and check every layout at the five HPE breakpoints: xsmall
+      (576px and below), small (577 to 768px), medium (769 to 1080px), large
+      (1081 to 1439px), and xlarge (1440px and above).
+    rationale: >
+      These are the widths at which Grid columns, areas, and ResponsiveContext
+      switch, and small is where the theme steps spacing and radius tokens
+      down. A layout checked only at desktop width can pass there and break
+      at every other breakpoint.
+    relatedTo:
+      - kind: external
+        label: HPE Design System breakpoints
+        url: https://design-system.hpe.design/templates/content-layouts#breakpoints
+
+  - id: layout-use-responsive-context-for-structure
+    statement: >
+      Use ResponsiveContext to change structure: columns, areas, what
+      renders, and where content goes. Do not use it to step spacing or
+      radius down at the small breakpoint.
+    rationale: >
+      The theme already remaps spacing and radius tokens at small. Choosing a
+      smaller token there as well compresses twice: xlarge to medium by hand,
+      then medium to xsmall by the theme. Adjusting a gap at medium, where no
+      remap happens, is a structural choice and is fine.
+    relatedTo:
+      - kind: rule
+        id: spacing-use-tokens-everywhere
+
+  - id: layout-match-layer-type-to-interruption
+    statement: >
+      Use a centered modal Layer only for content that must interrupt the
+      task, such as a confirmation. For supporting content the user needs
+      beside the page, such as filters, details, or an add or edit form, use
+      a side drawer: position="right" full="vertical", with modal={false}
+      where the page must stay interactive. Use full for multi-step tasks
+      that need the whole screen.
+    rationale: >
+      A modal Layer traps focus and blocks the page, so used for help text it
+      forces a dismissal before the user can act on what it described. The
+      design system defines center, side drawer, and fullscreen Layer types
+      for exactly these cases.
+    relatedTo:
+      - kind: component
+        id: layer
+      - kind: external
+        label: HPE Design System Layer types
+        url: https://design-system.hpe.design/components/layer#types
+
+  - id: layout-one-side-panel-on-small
+    statement: >
+      On xsmall and small screens, show at most one side panel at a time:
+      a navigation drawer, a side drawer Layer, or a context pane. Close the
+      open panel before opening another.
+    rationale: >
+      At 768px and below each panel is full-width, so a second one covers the
+      first and focus lands in whichever mounted last.
+    relatedTo:
+      - kind: pattern
+        id: application-shell
+
+  - id: layout-use-container-tokens-for-dimensions
+    statement: >
+      Use container tokens for width and height, as a fixed value such as
+      width="medium" or a range such as width={{ min: 'small', max: 'medium' }}.
+      Never use raw px values.
+    rationale: >
+      Container tokens keep panel, card, and column dimensions consistent
+      across teams. Unlike spacing tokens they do not compress at the small
+      breakpoint, so anything that must become narrower on mobile needs a
+      range or a structural change, not a smaller number.
+    relatedTo:
+      - kind: rule
+        id: spacing-keep-container-and-spacing-scales-apart
+      - kind: external
+        label: HPE Design System content container sizes
+        url: https://design-system.hpe.design/foundation/content-container-sizes
+
+  - id: layout-size-navigation-with-container-tokens
+    statement: >
+      Give a navigation sidebar a container-token width, either fixed
+      (width="medium") or a min and max range. Do not let it size purely to
+      its content.
+    rationale: >
+      A content-sized navigation changes width whenever its labels change,
+      between routes or locales, and shifts the main content with it. A
+      token range holds the shell steady while giving localized labels room
+      to wrap. The design system's global header navigation uses
+      width="medium".
+    relatedTo:
+      - kind: component
+        id: nav
+      - kind: pattern
+        id: application-shell
+
+  - id: layout-constrain-long-form-text
+    statement: >
+      Keep Paragraph's default maxWidth of 38em for body copy; do not pass
+      fill or override it. Put long-form text in a narrow Page or a column
+      rather than letting it run the full width of a wide Page.
+    rationale: >
+      38em is roughly 65 to 75 characters per line at body sizes, the range
+      in which the eye returns reliably to the start of the next line. Past
+      about 80 characters readers lose their place, and a wide Page reaches
+      1536px.
+    relatedTo:
+      - kind: rule
+        id: layout-choose-page-kind-by-content

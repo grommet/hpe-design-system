@@ -1,0 +1,127 @@
+# Placement test: would this rule still be true if HPE shipped no tokens at
+# all? Yes: it belongs here or in spacing.yaml / layout.yaml. No: it belongs
+# in design-tokens.yaml.
+id: color
+name: Color
+description: >
+  Cross-cutting rules for choosing, targeting, and pairing color across
+  product UI and design files.
+
+rules:
+  - id: color-use-semantic-roles
+    statement: >
+      Choose color by target and role, such as background-front,
+      text-strong, border-weak, or icon-critical. Never use a hex value, an
+      rgb value, a base palette color, or a target-less alias such as
+      status-warning.
+    rationale: >
+      Semantic color tokens resolve to different primitives in light and
+      dark mode and are retuned as the palette evolves. A hex or base value
+      renders identically in both modes and, in Grommet, passes straight
+      through to CSS with no theme involvement.
+    relatedTo:
+      - kind: external
+        label: HPE Design System color usage
+        url: https://design-system.hpe.design/design-tokens/color-usage
+
+  - id: color-names-its-target
+    statement: >
+      Every color token names the target it is applied to: text takes
+      text-*, icons take icon-*, backgrounds take background-*, borders take
+      border-*, quantitative fills such as Meter and progress take
+      foreground-*, and chart series take dataVis-categorical-* (aliased as
+      graph-N). Never apply a target-less status alias (status-critical,
+      status-warning, status-ok, status-unknown) to anything, and never put
+      an icon-* token on text or a text-* token on an icon, even when both
+      resolve to the same value today.
+    rationale: >
+      The semantic layer decides per target how a role is shown: critical
+      text and critical icons are red, but warning icons are orange while
+      warning text is neutral. The status-* names in grommet-theme-hpe are
+      Grommet compatibility aliases with no hpe-design-tokens counterpart.
+      Each one resolves to the icon-* value for every target, so
+      status-warning paints words orange, skipping the per-target contrast
+      and mode logic that text-warning carries.
+    relatedTo:
+      - kind: rule
+        id: color-use-semantic-roles
+      - kind: rule
+        id: design-tokens-grommet-uses-token-name
+      - kind: glossary
+        id: color-target
+      - kind: external
+        label: HPE Design System color usage
+        url: https://design-system.hpe.design/design-tokens/color-usage
+
+  - id: color-status-text-is-neutral-except-critical
+    statement: >
+      Convey status with a status icon (icon-critical, icon-warning,
+      icon-ok, icon-unknown) and, when a surface is needed, a
+      background-[role] paired with text-on[Role]. Text that names or
+      describes a status is set in text-default or text-strong. The only
+      colored status text is text-critical. text-warning, text-ok,
+      text-unknown, and text-info resolve to text-default by design: use
+      them to record intent, and expect them to render neutral.
+    rationale: >
+      Colored words fail "not by color alone" and compete with the icon for
+      attention; orange and green at body sizes also fail contrast on most
+      backgrounds. Keeping text neutral makes the icon the single, reliable
+      status signal and keeps every status pairing inside the tested set.
+    relatedTo:
+      - kind: rule
+        id: color-pair-strong-with-onstrong
+      - kind: rule
+        id: color-names-its-target
+      - kind: external
+        label: HPE Design System status colors
+        url: https://design-system.hpe.design/foundation/color#status-colors
+      - kind: external
+        label: WCAG 2.2 SC 1.4.1 Use of Color
+        url: https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html
+
+  - id: color-pair-strong-with-onstrong
+    statement: >
+      Pair every strong background with its onStrong text and icon tokens,
+      and every role background with its on[Role] tokens: background-critical
+      with text-onCritical, background-primary-strong with
+      text-onPrimaryStrong. Use the most specific pairing that exists.
+    rationale: >
+      Pairings are tested for contrast and the design system keeps them
+      passing when colors change. A hand-picked text color on a strong
+      background can pass today and fail after the next palette update.
+    relatedTo:
+      - kind: external
+        label: HPE Design System color pairing
+        url: https://design-system.hpe.design/foundation/color-pairing
+
+  - id: color-pick-one-background-approach
+    statement: >
+      Use one background approach across an application. Basic uses
+      background everywhere with background-contrast for secondary content.
+      Layered uses background-back for the page and background-front for
+      primary content surfaces. Never place background-back inside a
+      background-front region.
+    rationale: >
+      Background color carries hierarchy in a system that minimizes borders.
+      Mixing approaches between pages, or nesting back inside front, breaks
+      the reading that front means "the focus" and back means "the page".
+    relatedTo:
+      - kind: external
+        label: HPE Design System background color guidance
+        url: https://design-system.hpe.design/foundation/background-colors-guidance
+      - kind: glossary
+        id: surface
+
+  - id: color-style-states-with-state-tokens
+    statement: >
+      Style interaction states (rest, hover, focus, active) and application
+      states (disabled, selected, readOnly, error) with their state tokens.
+      Do not derive a state color by adjusting opacity or lightness.
+    rationale: >
+      State tokens are defined per role and per component so that every
+      state stays accessible in both modes. A derived value is a copied
+      value: it neither follows the palette nor switches with mode.
+    relatedTo:
+      - kind: external
+        label: HPE Design System component states
+        url: https://design-system.hpe.design/design-tokens/component-states
