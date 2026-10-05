@@ -14,10 +14,11 @@ rules:
     statement: >
       HPE design tokens have three tiers: primitive (base.* and static.*),
       semantic (color.*, spacing.*, container.*, radius.*, borderWidth.*,
-      text.*, heading.*, icon.*), and component (button.*, formField.*,
-      menu.*, element.*, and so on). Consume the most specific tier that
-      exists: a component token first, then a semantic token. Never consume
-      a primitive.
+      shadow.*, text.*, heading.*, fontWeight.*, fontStack.*, icon.*,
+      focusIndicator.*, breakpoint.*), and component (button.*,
+      formField.*, menu.*, element.*, and so on). Consume the most specific
+      tier that exists: a component token first, then a semantic token.
+      Never consume a primitive.
     rationale: >
       Each tier adds intent. A primitive names a value; a semantic token
       names where it applies; a component token names the component,
@@ -79,9 +80,9 @@ rules:
     statement: >
       Use element.[size].* tokens only to build an element the design system
       does not provide, and only for sizing: minHeight, height, width,
-      paddingX, paddingY, borderWidth, fontSize, lineHeight, icon.size,
-      textToIconX, and textToElementX. Do not use element tokens on
-      compositional components such as cards, lists, toolbars, or layers.
+      paddingX, paddingY, borderWidth, fontSize, lineHeight, fontWeight,
+      icon.size, textToIconX, and textToElementX. Do not use element tokens
+      on compositional components such as cards, lists, toolbars, or layers.
     rationale: >
       Element tokens define the proportions shared by buttons, inputs,
       selects, and menu items so that a new element lines up with them at
@@ -113,10 +114,10 @@ rules:
       Vertical gaps between stacked children are semantic spacing tokens,
       even inside an element.
     rationale: >
-      Element tokens define horizontal relationships only (textToIconX,
-      textToElementX, paddingX) plus paddingY. There is no element token for
-      a vertical gap because once content stacks, the rhythm between lines
-      is a layout decision.
+      Element tokens define the spacing between a label and its icon or
+      control (textToIconX, textToElementX) and the element's own padding
+      (paddingX, paddingY), but no gap between stacked children. Once
+      content stacks, the rhythm between lines is a layout decision.
     relatedTo:
       - kind: rule
         id: spacing-use-tokens-everywhere
@@ -158,7 +159,7 @@ rules:
       In Figma, enable only the Design tokens - Semantic library and bind
       variables rather than typing values. Respect each variable's scope:
       spacing tokens are scoped to GAP, container tokens to WIDTH_HEIGHT,
-      radius to CORNER_RADIUS, and borderWidth to STROKE.
+      radius to CORNER_RADIUS, and borderWidth to STROKE_FLOAT.
     rationale: >
       Scopes keep the scales apart, so a container size cannot be applied as
       a gap. The primitive and component libraries are for design system
