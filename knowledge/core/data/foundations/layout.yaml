@@ -119,6 +119,8 @@ rules:
         id: box
       - kind: glossary
         id: surface
+      - kind: rule
+        id: spacing-surface-padding-exceeds-inner-gap
 
   - id: layout-use-grid-for-two-dimensions
     statement: >
@@ -213,6 +215,8 @@ rules:
     relatedTo:
       - kind: rule
         id: spacing-use-tokens-everywhere
+      - kind: rule
+        id: spacing-use-element-tokens-inside-elements
 
   - id: layout-match-layer-type-to-interruption
     statement: >
@@ -272,8 +276,8 @@ rules:
       A content-sized navigation changes width whenever its labels change,
       between routes or locales, and shifts the main content with it. A
       token range holds the shell steady while giving localized labels room
-      to wrap. The design system's global header navigation uses
-      width="medium".
+      to wrap. The design system's NavigationMenu uses width="small" when
+      expanded.
     relatedTo:
       - kind: component
         id: nav
