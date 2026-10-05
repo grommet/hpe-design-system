@@ -1,6 +1,7 @@
 import { Example } from '../../layouts';
 import {
   DashboardExample,
+  HomeDashboard,
   ThreeColumnDashboard,
   TwoColumnDashboard,
 } from '../../examples';
@@ -100,4 +101,38 @@ Templates for 3 column and 4 column dashboards are coming soon.
   github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/dashboards/ThreeColumnDashboard"
 >
   <ThreeColumnDashboard />
+</Example>
+
+### Home dashboard
+
+A landing page that combines at-a-glance service health metrics, a weekly
+summary of cost, attention items, and SLA performance, and a tabbed catalog of
+services to discover. Metrics use `Meter` for status and capacity, the cost
+trend uses `DataChart`, and status counts pair a status icon with a visible
+label on the matching status surface.
+
+<Example
+  screenContainer
+  width="100%"
+  showResponsiveControls={['fullScreen']}
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/HomeDashboard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/home/ServiceHealth.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/home/WeekAtAGlance.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/home/CostTrend.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/home/NeedsAttention.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/home/SlaPerformance.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/home/DiscoverServices.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/content/home/data.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/MetricGroup.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/MetricTile.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/MetricValue.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/StatusCount.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/ServiceCard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/ChartCard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/dashboards/components/DashboardCardHeader.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/apps/docs/src/examples/templates/dashboards/HomeDashboard.js"
+>
+  <HomeDashboard />
 </Example>
