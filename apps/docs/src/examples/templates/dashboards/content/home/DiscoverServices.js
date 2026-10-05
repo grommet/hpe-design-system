@@ -16,7 +16,11 @@ export const DiscoverServices = () => {
       <Tabs justify="start" activeIndex={activeIndex} onActive={setActiveIndex}>
         {serviceGroups.map(({ id, label }) => (
           <Tab key={id} title={label}>
-            <Grid columns={{ count: 'fit', size: 'small' }} gap="small">
+            <Grid
+              columns={{ count: 'fit', size: 'small' }}
+              gap="small"
+              pad={{ top: 'small' }}
+            >
               {services
                 .filter(service => service.groups.includes(id))
                 .map(service => (
