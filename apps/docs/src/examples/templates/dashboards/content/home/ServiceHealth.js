@@ -30,7 +30,7 @@ const capacityDescription =
   'on track to reach 90% capacity within 9 months.';
 
 export const ServiceHealth = () => (
-  <Box as="section" gap="medium">
+  <Box as="section" gap="small">
     <DashboardCardHeader
       title="Service health"
       level={2}

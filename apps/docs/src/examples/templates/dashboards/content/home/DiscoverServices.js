@@ -9,7 +9,7 @@ export const DiscoverServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <Box as="section" gap="medium">
+    <Box as="section" gap="small">
       <Heading level={2} margin="none">
         Discover services
       </Heading>

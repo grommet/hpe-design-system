@@ -38,7 +38,7 @@ export const WeekAtAGlance = () => {
   const { areas, columns, rows } = layout[size] || layout.large;
 
   return (
-    <Box as="section" gap="medium">
+    <Box as="section" gap="small">
       <Heading level={2} margin="none">
         This week at a glance
       </Heading>
