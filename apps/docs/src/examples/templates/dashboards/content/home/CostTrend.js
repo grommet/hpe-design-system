@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
 import { Box, Chart, Stack, Text } from 'grommet';
+import styled from 'styled-components';
 import { ChartCard, MetricValue } from '../../components';
 import { budget, costTrend, surfaceBackground } from './data';
 
@@ -27,6 +28,18 @@ const bounds = {
 };
 
 const series = { color: 'dataVis-categorical-10', thickness: '5xsmall' };
+
+// Chart derives its dash pattern from the stroke width. The design calls for
+// an even dash and gap, which no Chart prop expresses, so the pattern is set
+// here from the spacing scale.
+const DashedChart = styled(Chart)`
+  g {
+    stroke-dasharray: ${({ theme }) => {
+      const dash = theme.global.edgeSize['3xsmall'];
+      return `${dash} ${dash}`;
+    }};
+  }
+`;
 
 const chartProps = {
   bounds,
@@ -54,7 +67,7 @@ export const CostTrend = ({ ...rest }) => (
               opacity="weak"
               {...chartProps}
             />
-            <Chart
+            <DashedChart
               a11yTitle={`Budget ${formatCost(budget)}`}
               type="line"
               values={budgetLine}
