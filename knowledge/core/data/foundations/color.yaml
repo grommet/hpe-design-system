@@ -28,12 +28,14 @@ rules:
     statement: >
       Every color token names the target it is applied to: text takes
       text-*, icons take icon-*, backgrounds take background-*, borders take
-      border-*, quantitative fills such as Meter and progress take
-      foreground-*, and chart series take dataVis-categorical-* (aliased as
-      graph-N). Never apply a target-less status alias (status-critical,
-      status-warning, status-ok, status-unknown) to anything, and never put
-      an icon-* token on text or a text-* token on an icon, even when both
-      resolve to the same value today.
+      border-*, and quantitative fills such as Meter and progress take
+      foreground-*. Two palettes are the exception: dataVis-* and
+      decorative-* name no target and are applied by the consuming
+      component, such as a chart series or an illustration. Never apply a
+      target-less status alias (status-critical, status-warning, status-ok,
+      status-unknown) to anything, and never put an icon-* token on text or
+      a text-* token on an icon, even when both resolve to the same value
+      today.
     rationale: >
       The semantic layer decides per target how a role is shown: critical
       text and critical icons are red, but warning icons are orange while
@@ -46,6 +48,8 @@ rules:
       - kind: rule
         id: color-use-semantic-roles
       - kind: rule
+        id: color-decorative-is-not-functional
+      - kind: rule
         id: design-tokens-grommet-uses-token-name
       - kind: glossary
         id: color-target
@@ -53,20 +57,20 @@ rules:
         label: HPE Design System color usage
         url: https://design-system.hpe.design/design-tokens/color-usage
 
-  - id: color-status-text-is-neutral-except-critical
+  - id: color-convey-status-with-icon-not-text
     statement: >
       Convey status with a status icon (icon-critical, icon-warning,
       icon-ok, icon-unknown) and, when a surface is needed, a
-      background-[role] paired with text-on[Role]. Text that names or
-      describes a status is set in text-default or text-strong. The only
-      colored status text is text-critical. text-warning, text-ok,
-      text-unknown, and text-info resolve to text-default by design: use
-      them to record intent, and expect them to render neutral.
+      background-[role] paired with text-on[Role]. Never signal status by
+      text color alone. Text that names or describes a status uses the
+      text-[role] token for that status, and whatever that token resolves
+      to is the design system's decision.
     rationale: >
       Colored words fail "not by color alone" and compete with the icon for
-      attention; orange and green at body sizes also fail contrast on most
-      backgrounds. Keeping text neutral makes the icon the single, reliable
-      status signal and keeps every status pairing inside the tested set.
+      attention; saturated hues at body sizes also fail contrast on most
+      backgrounds. Making the icon the single, reliable status signal keeps
+      every status pairing inside the tested set and lets the theme decide
+      how much, if any, color status text carries.
     relatedTo:
       - kind: rule
         id: color-pair-strong-with-onstrong
@@ -112,16 +116,44 @@ rules:
       - kind: glossary
         id: surface
 
+  - id: color-decorative-is-not-functional
+    statement: >
+      Use decorative-* only for illustration and non-interactive
+      ornamentation where the hue carries no meaning. For a functional
+      accent on a UI element, use background-accent-* or border-accent-*.
+      Never use either palette to convey status.
+    rationale: >
+      Decorative colors are not contrast-tested against text and icon
+      tokens, so a decorative background behind a label can fail WCAG. The
+      accent palette exists for exactly that case and is validated against
+      text-default, text-strong, and text-weak in both modes. Status has its
+      own tokens, and borrowing a hue for it breaks the one-signal rule.
+    relatedTo:
+      - kind: rule
+        id: color-names-its-target
+      - kind: rule
+        id: color-convey-status-with-icon-not-text
+      - kind: external
+        label: HPE Design System decorative colors
+        url: https://design-system.hpe.design/foundation/color#decorative
+
   - id: color-style-states-with-state-tokens
     statement: >
-      Style interaction states (rest, hover, focus, active) and application
-      states (disabled, selected, readOnly, error) with their state tokens.
-      Do not derive a state color by adjusting opacity or lightness.
+      When building a bespoke component that the design system does not
+      provide, style its interaction states (rest, hover, focus, active)
+      and application states (disabled, selected, readOnly, error) with the
+      semantic state tokens for the target and role. Do not derive a state
+      color by adjusting opacity or lightness. Design system components
+      already carry their states; do not restyle them.
     rationale: >
-      State tokens are defined per role and per component so that every
-      state stays accessible in both modes. A derived value is a copied
-      value: it neither follows the palette nor switches with mode.
+      State tokens are defined per role so that every state stays
+      accessible in both modes. A derived value is a copied value: it
+      neither follows the palette nor switches with mode. Restyling a
+      provided component's states overrides what the theme has already
+      tested.
     relatedTo:
+      - kind: rule
+        id: design-tokens-use-element-tokens-for-new-elements
       - kind: external
         label: HPE Design System component states
         url: https://design-system.hpe.design/design-tokens/component-states
