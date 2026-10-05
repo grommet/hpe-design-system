@@ -209,6 +209,8 @@ rules:
       list templates, which set gap="xlarge" on PageContent and gap="medium"
       on the grids inside it.
     relatedTo:
+      - kind: rule
+        id: spacing-decreases-as-things-nest
       - kind: glossary
         id: page-region
       - kind: glossary
