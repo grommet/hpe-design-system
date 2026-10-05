@@ -63,8 +63,7 @@ rules:
       icon-ok, icon-unknown) and, when a surface is needed, a
       background-[role] paired with text-on[Role]. Never signal status by
       text color alone. Text that names or describes a status uses the
-      text-[role] token for that status, and whatever that token resolves
-      to is the design system's decision.
+      text-[role] token for that status.
     rationale: >
       Colored words fail "not by color alone" and compete with the icon for
       attention; saturated hues at body sizes also fail contrast on most
