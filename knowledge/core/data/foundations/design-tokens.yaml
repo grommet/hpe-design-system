@@ -75,16 +75,16 @@ rules:
         label: HPE Design System component tokens
         url: https://design-system.hpe.design/design-tokens/how-to-read-design-tokens#component
 
-  - id: design-tokens-use-element-tokens-for-new-controls
+  - id: design-tokens-use-element-tokens-for-new-elements
     statement: >
-      Use element.[size].* tokens only to build a control the design system
+      Use element.[size].* tokens only to build an element the design system
       does not provide, and only for sizing: minHeight, height, width,
       paddingX, paddingY, borderWidth, fontSize, lineHeight, icon.size,
       textToIconX, and textToElementX. Do not use element tokens on
       compositional components such as cards, lists, toolbars, or layers.
     rationale: >
       Element tokens define the proportions shared by buttons, inputs,
-      selects, and menu items so that a new control lines up with them at
+      selects, and menu items so that a new element lines up with them at
       every size. Compositional components are laid out with semantic
       spacing and container tokens, which is what lets them compress on
       small screens.
@@ -93,7 +93,7 @@ rules:
         label: HPE Design System element tokens
         url: https://design-system.hpe.design/design-tokens/element
       - kind: rule
-        id: spacing-use-element-tokens-inside-controls
+        id: spacing-use-element-tokens-inside-elements
 
   - id: design-tokens-item-uses-element-container-uses-semantic
     statement: >
@@ -101,8 +101,8 @@ rules:
       tokens and the container takes semantic tokens.
     rationale: >
       A menu item, list row, or table cell is an element and must align in
-      height with other controls. The menu, list, or table that composes
-      them is a layout and has no control to align with.
+      height with other elements. The menu, list, or table that composes
+      them is a layout and has no element to align with.
     relatedTo:
       - kind: external
         label: HPE Design System element tokens

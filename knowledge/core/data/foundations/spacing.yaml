@@ -6,15 +6,24 @@ description: >
 rules:
   - id: spacing-use-tokens-everywhere
     statement: >
-      Use a spacing token for every gap, pad, and margin. Never use raw px,
-      rem, or em values for spacing.
+      Express every spacing value, whether between siblings, inside a
+      container, or around an element, as a reference to a named spacing
+      token, never as a literal number.
     rationale: >
-      Spacing tokens step down at the small breakpoint (large becomes small,
-      medium becomes xsmall, and so on). A raw value keeps its desktop size on
-      mobile, ignores theming, and cannot be found by audit tooling.
+      Each spacing token carries a desktop value and a small-breakpoint
+      value (large steps to small, medium to xsmall, and so on), and the
+      consuming tool applies whichever is current. A literal number has
+      nothing behind it: it holds its desktop size on mobile, ignores theme
+      changes, and is invisible to audit tooling.
     relatedTo:
       - kind: rule
         id: design-tokens-grommet-uses-token-name
+      - kind: rule
+        id: design-tokens-non-grommet-uses-css-variables
+      - kind: rule
+        id: design-tokens-figma-respects-variable-scope
+      - kind: rule
+        id: spacing-chart-and-illustration-interiors-are-exempt
 
   - id: spacing-prefer-gap-and-pad-over-margin
     statement: >
@@ -43,8 +52,9 @@ rules:
 
   - id: spacing-keep-container-and-spacing-scales-apart
     statement: >
-      Use spacing tokens for gap, pad, and margin, and container tokens for
-      width and height. Never use one scale in place of the other.
+      Never use a container token where a spacing token belongs, or the
+      reverse. Spacing tokens size the space between and around things;
+      container tokens size the width and height of the things themselves.
     rationale: >
       The two scales share t-shirt names but not values: spacing.medium is
       24px and container.medium is 384px, and only the spacing scale
@@ -57,18 +67,27 @@ rules:
       - kind: rule
         id: design-tokens-figma-respects-variable-scope
 
-  - id: spacing-use-element-tokens-inside-controls
+  - id: spacing-use-element-tokens-inside-elements
     statement: >
-      Use element tokens for the padding inside a control, and spacing tokens
-      between controls and for layout.
+      Use element tokens for an element's own minimum height, padding,
+      border, and label typography. Use spacing tokens between elements, for
+      layout, and for the vertical gap between lines stacked inside an
+      element.
     rationale: >
-      Element tokens are fixed so that a button and an input keep the same
-      height at every breakpoint. Spacing tokens compress so that layouts fit.
-      A spacing token inside a control shrinks it on mobile; an element token
-      between controls stops the layout from compressing.
+      Element tokens hold their value at every breakpoint so that a button,
+      an input, and a menu item stay the same height side by side. Spacing
+      tokens compress at the small breakpoint so that layouts fit. A spacing
+      token inside an element shrinks it on mobile and breaks that
+      alignment; an element token between elements stops the layout from
+      compressing.
     relatedTo:
       - kind: rule
-        id: design-tokens-use-three-tiers
+        id: design-tokens-use-element-tokens-for-new-elements
+      - kind: rule
+        id: design-tokens-stack-gaps-are-semantic
+      - kind: external
+        label: HPE Design System element tokens
+        url: https://design-system.hpe.design/design-tokens/element
 
   - id: spacing-do-not-use-spacing-tokens-for-text-metrics
     statement: >
@@ -124,12 +143,17 @@ rules:
 
   - id: spacing-pad-one-side-at-shared-edge
     statement: >
-      Where two padded regions meet, remove the padding from one side of the
-      shared edge.
+      Where two padded regions meet, reduce the padding at the shared edge
+      so the two sides together add up to no more than one spacing step.
+      Reduce one side to a small step or zero; leave the other at its
+      default.
     rationale: >
       Two abutting regions with full padding produce a double gap, which reads
       as an accidental break. CardHeader and CardBody both default to medium
-      padding, so a card with both needs the top of the body zeroed.
+      padding, so a card with both needs the shared edge collapsed. The
+      design system's own Card template does this with 3xsmall on the
+      header's bottom and nothing on the body's top; its dashboard cards use
+      xsmall or none.
     example:
       description: >
         A card whose body drops its top padding so the header-to-body gap is
@@ -143,15 +167,26 @@ rules:
             <Text>12 servers need attention.</Text>
           </CardBody>
         </Card>
+    relatedTo:
+      - kind: rule
+        id: spacing-use-none-token-for-zero
+      - kind: component
+        id: card
 
-  - id: spacing-write-zero-explicitly
+  - id: spacing-use-none-token-for-zero
     statement: >
-      Where a reader would expect spacing, write zero explicitly as
-      gap="none" or pad="none" rather than omitting the prop.
+      When spacing is intentionally zero, use the none spacing token, for
+      example gap="none" or pad="none". Do not write 0 or 0px, and do not
+      leave the value undefined or omit it.
     rationale: >
-      An explicit none records that the absence was deliberate. An omitted
-      prop looks identical to an oversight and invites someone to add the
-      spacing back.
+      none is a step on the spacing scale, so it is bound like any other
+      token and audit tooling can find it. It also records that the absence
+      was deliberate. A raw 0 bypasses the scale, and an omitted or undefined
+      value is indistinguishable from an oversight and invites someone to
+      add spacing back.
+    relatedTo:
+      - kind: rule
+        id: spacing-use-tokens-everywhere
 
   - id: spacing-decreases-as-things-nest
     statement: >
