@@ -75,7 +75,7 @@ export const HomeDashboard = () => {
           {showNav && <SideNav gridArea="nav" />}
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
-              <PageContent gap="xlarge">
+              <PageContent gap="large">
                 <PageHeader
                   title="Home"
                   actions={
