@@ -1,7 +1,13 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { Box, Meter, Text } from 'grommet';
-import { ShieldCheck } from '@hpe-design/icons-grommet';
+import {
+  ShieldCheck,
+  StatusCritical,
+  StatusGood,
+  StatusUnknown,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import {
   DashboardCardHeader,
@@ -16,18 +22,54 @@ import {
   uptimeDays,
 } from './data';
 
-// Quantitative fills, such as Meter values, take foreground-* tokens.
-const STATUS_FILL = {
-  critical: 'foreground-critical',
-  warning: 'foreground-warning',
-  ok: 'foreground-ok',
-  unknown: 'foreground-unknown',
+// Quantitative fills, such as Meter values, take foreground-* tokens; the
+// matching status icon lets the legend convey status without relying on
+// color alone.
+const STATUS = {
+  critical: {
+    fill: 'foreground-critical',
+    icon: <StatusCritical size="small" color="icon-critical" aria-hidden />,
+  },
+  warning: {
+    fill: 'foreground-warning',
+    icon: <StatusWarning size="small" color="icon-warning" aria-hidden />,
+  },
+  ok: {
+    fill: 'foreground-ok',
+    icon: <StatusGood size="small" color="icon-ok" aria-hidden />,
+  },
+  unknown: {
+    fill: 'foreground-unknown',
+    icon: <StatusUnknown size="small" color="icon-unknown" aria-hidden />,
+  },
 };
+
+// Grommet's Meter only exposes a single aria-label (values[].label is not
+// announced), so the status breakdown is composed into one description.
+const describe = counts =>
+  counts
+    .map(({ label, value }) => `${value} ${label.toLowerCase()}`)
+    .join(', ');
+
+const uptimeCounts = ['ok', 'warning', 'critical'].map(status => ({
+  label: status === 'ok' ? 'OK' : status,
+  value: uptimeDays.filter(day => day === status).length,
+}));
 
 const capacityUsed = Math.round((capacity.used / capacity.total) * 100);
 const capacityDescription =
   `${capacity.used} of ${capacity.total} ${capacity.unit} used, ` +
   'on track to reach 90% capacity within 9 months.';
+
+const uptimeLabel = `Daily status for the last ${
+  uptimeDays.length
+} days: ${describe(uptimeCounts)}`;
+const systemHealthLabel = `${systemHealth.total} systems: ${describe(
+  systemHealth.values,
+)}`;
+const capacityLabel = `${capacityUsed}% of ${capacity.total} ${
+  capacity.unit
+} used`;
 
 export const ServiceHealth = () => (
   <Box as="section" gap="small">
@@ -43,15 +85,15 @@ export const ServiceHealth = () => (
       >
         <MetricValue value="99.98" unit="%" trend="0.03%" />
         <Meter
-          a11yTitle={`Daily status for the last ${uptimeDays.length} days`}
+          role="img"
+          aria-label={uptimeLabel}
           type="bar"
           thickness="3xsmall"
           size="full"
           max={uptimeDays.length}
-          values={uptimeDays.map((status, day) => ({
-            label: `Day ${day + 1}: ${status}`,
+          values={uptimeDays.map(status => ({
             value: 1,
-            color: STATUS_FILL[status],
+            color: STATUS[status].fill,
           }))}
         />
       </MetricTile>
@@ -65,29 +107,40 @@ export const ServiceHealth = () => (
           trend="3%"
         />
         <Meter
-          a11yTitle="Systems by health status"
+          role="img"
+          aria-label={systemHealthLabel}
           type="bar"
           thickness="3xsmall"
           size="full"
           round
           max={systemHealth.total}
-          values={systemHealth.values.map(({ label, status, value }) => ({
-            label,
+          values={systemHealth.values.map(({ status, value }) => ({
             value,
-            color: STATUS_FILL[status],
+            color: STATUS[status].fill,
           }))}
         />
+        <Box direction="row" gap="small" wrap aria-hidden>
+          {systemHealth.values.map(({ label, status, value }) => (
+            <Box key={status} direction="row" align="center" gap="3xsmall">
+              {STATUS[status].icon}
+              <Text size="small">
+                {value} {label}
+              </Text>
+            </Box>
+          ))}
+        </Box>
       </MetricTile>
       <MetricTile title="Capacity used" description={capacityDescription}>
         <MetricValue value={capacityUsed} unit="%" trend="2%" />
         <Meter
-          a11yTitle={`${capacityUsed}% of capacity used`}
+          role="img"
+          aria-label={capacityLabel}
           type="bar"
           thickness="3xsmall"
           size="full"
           round
           max={100}
-          values={[{ label: 'Capacity used', value: capacityUsed }]}
+          values={[{ value: capacityUsed }]}
         />
       </MetricTile>
       <MetricTile
