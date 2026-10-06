@@ -18,6 +18,8 @@ pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"
 
 Incorporate the components and patterns it returns into your implementation rather than reconstructing layout structure from memory or first principles.
 
+The output ends with a "### Foundation Rules" checklist. Build from the returned patterns and components first. Reach for the checklist when a pattern does not hand you a value — spacing, color, size, breakpoint, container — or when composing patterns together; read only that foundation's block. Before finishing, validate your output against the full checklist once; for any rule you cannot confirm, run `pnpm --filter @hpe-design/knowledge-agent generate -- --rule <id>` and fix or report it. The `foundation-rules` skill has the full workflow.
+
 ## Rules and Guidelines
 
 - **Follow page layout structure**: Use Grommet's specialized page layout components `Page`, `PageContent`, and `PageHeader` to create consistent page structures.
@@ -72,7 +74,7 @@ When structuring content within pages, use Grommet's `Box`, `Card`, and semantic
 
 ## Content Hierarchy and Spacing
 
-- **Spacing between sections**: Spacing between major sections of a page should be larger than spacing between elements within a section. Begin with `xlarge` spacing for sections and `medium` or `small` for elements within sections, adjusting as necessary based on content density.
+- **Spacing rhythm**: Follow the `spacing-page-rhythm` rule in `knowledge/core/data/foundations/spacing.yaml`: `xxlarge` between page columns, `xlarge` between content sections, `small` between a section heading and its body, and `medium` between peers inside a section such as cards in a grid. The gap between groups is always larger than the gap within them.
 - **Consistent margins and padding**: Use consistent margins and padding throughout the application to maintain visual harmony.
 - **Typography hierarchy**: Use Grommet's typography components (`Heading`, `Text`) to establish a clear hierarchy of information, making it easier for users to scan and understand content.
 
