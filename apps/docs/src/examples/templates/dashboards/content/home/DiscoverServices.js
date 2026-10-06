@@ -18,7 +18,7 @@ export const DiscoverServices = () => {
           <Tab key={id} title={label}>
             <Grid
               columns={{ count: 'fit', size: 'small' }}
-              gap="small"
+              gap="medium"
               pad={{ top: 'small' }}
             >
               {services
