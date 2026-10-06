@@ -199,18 +199,49 @@ rules:
 
   - id: spacing-page-rhythm
     statement: >
-      Use xlarge between a page's top-level sections, medium within a section,
-      and xsmall between items. Page regions such as navigation and content
-      are separated by their own padding, not by a gap.
+      Use xxlarge between a page's columns, xlarge between content sections,
+      small between a section's heading and its body, and medium between
+      peers inside a section such as cards in a grid. Page regions such as
+      navigation and content are separated by their own padding, not by a
+      gap.
     rationale: >
-      Each level is two steps below the one above, and the small-breakpoint
-      remap keeps that ratio (xlarge, medium, xsmall become medium, xsmall,
-      3xsmall). This is the rhythm of the design system's own dashboard and
-      list templates, which set gap="xlarge" on PageContent and gap="medium"
-      on the grids inside it.
+      The levels descend the scale so the gap between groups always exceeds
+      the gap within them, and the small-breakpoint remap preserves that
+      order (xxlarge, xlarge, medium, small become large, medium, xsmall,
+      xxsmall). The heading sits tighter to its body than the body's
+      contents sit to each other so it reads as the group's label, not as a
+      peer of it. The design system's dashboard templates set gap="xlarge"
+      on PageContent and gap="medium" on the card grids inside it.
+    example:
+      description: >
+        A two-column dashboard page showing every level of the rhythm.
+      code: |
+        <PageContent>
+          <PageHeader title="Dashboard" />
+          <Grid columns={['flex', 'medium']} gap="xxlarge">
+            <Box gap="xlarge">
+              <Box as="section" gap="small">
+                <Heading level={2} margin="none">Servers</Heading>
+                <Grid columns="small" gap="medium">
+                  <Card>{/* ... */}</Card>
+                  <Card>{/* ... */}</Card>
+                </Grid>
+              </Box>
+              <Box as="section" gap="small">
+                <Heading level={2} margin="none">Storage</Heading>
+                {/* section body */}
+              </Box>
+            </Box>
+            <Box gap="xlarge">
+              {/* second column sections */}
+            </Box>
+          </Grid>
+        </PageContent>
     relatedTo:
       - kind: rule
         id: spacing-decreases-as-things-nest
+      - kind: rule
+        id: spacing-parents-space-children
       - kind: glossary
         id: page-region
       - kind: glossary
