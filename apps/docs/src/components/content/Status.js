@@ -31,7 +31,7 @@ const statuses = {
 const StatusBadge = ({ status, type }) => (
   <Box direction="row">
     <Box
-      background="background-front"
+      background="background-surface-tone-1"
       pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}
       round={{ corner: 'left', size: 'xsmall' }}
       direction="row"

@@ -79,7 +79,11 @@ const DashedBox = ({ ...rest }) => (
 );
 
 const CardExample = ({ ...rest }) => (
-  <Card width="medium" onClick={() => {}} {...rest}>
+  <Card 
+    background="background-surface-tone-1"
+    width="medium"
+    onClick={() => {}} {...rest}
+    >
     <Box id="cta-image" height="xsmall">
       <Image alt={event.image.alt} {...event.image} />
     </Box>

@@ -58,7 +58,9 @@ const Feedback = () => (
 export const Community = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <PageContent background={{ fill: 'horizontal', color: 'background-back' }}>
+    <PageContent
+      background={{ fill: 'horizontal' }}
+    >
       <Box
         fill="horizontal"
         pad={{

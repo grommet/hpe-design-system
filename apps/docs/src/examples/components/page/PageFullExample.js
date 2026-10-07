@@ -26,7 +26,12 @@ import { ContentPane } from '../../../layouts';
 import { demoStyle } from './demoStyle';
 
 export const PageFullExample = () => (
-  <Page kind="full" flex="grow" {...demoStyle}>
+  <Page
+    background="background-surface-base"
+    kind="full"
+    flex="grow"
+    {...demoStyle}
+  >
     <PageContent fill {...demoStyle}>
       <PageHeader title="Full page" />
       <ContentPane>

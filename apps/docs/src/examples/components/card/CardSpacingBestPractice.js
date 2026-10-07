@@ -10,6 +10,7 @@ export const CardSpacingBestPractice = ({ bestPractice = true }) => (
   <Grid gap={!bestPractice ? 'xsmall' : 'medium'} columns="medium">
     {activities.map((activity, index) => (
       <Card
+        background="background-surface-tone-1"
         key={index}
         icon={activity.icon}
         title={activity.title}
