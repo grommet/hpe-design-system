@@ -26,11 +26,14 @@ const appHeaderHeight = '60px';
 export const appHeight = `calc(100vh - ${appHeaderHeight})`;
 const MOCK_SESSION_ID = 'mock-session-id';
 const BADGE_ANIMATION_DURATION = 5500;
+// Set VITE_SKIP_LOGIN=true in sandbox/grommet-app/.env.local to bypass the
+// password gate during local development.
+const SKIP_LOGIN = import.meta.env.VITE_SKIP_LOGIN === 'true';
 
 const App = () => {
   const [sessionId, setSessionId] = useSessionStorage('sessionId', null);
   const [authenticated, setAuthenticated] = useState(
-    localStorage.getItem('design-tokens-demo') || false,
+    SKIP_LOGIN || localStorage.getItem('design-tokens-demo') || false,
   );
   useEffect(() => {
     if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
