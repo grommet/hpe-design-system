@@ -6,6 +6,7 @@ import {
   Box,
   Button,
   DataTable,
+  Skeleton,
   SkeletonContext,
   Text,
 } from 'grommet';
@@ -75,8 +76,6 @@ const columns = [
   },
 ];
 
-// Placeholder rows use empty strings so each cell still renders a Text,
-// which becomes a skeleton bar inside the skeleton context.
 const placeholderRows = Array.from({ length: SKELETON_ROWS }, (_, i) => ({
   id: `placeholder-${i}`,
   name: '',
@@ -89,7 +88,16 @@ const placeholderRows = Array.from({ length: SKELETON_ROWS }, (_, i) => ({
 
 const loadingColumns = columns.map(column => ({
   ...column,
-  render: undefined,
+  render: () => (
+    <Skeleton
+      width="100%"
+      height="1em"
+      colors={{
+        light: ['background-contrast'],
+        dark: ['background-contrast'],
+      }}
+    />
+  ),
 }));
 
 const skeleton = {

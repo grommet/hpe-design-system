@@ -77,7 +77,7 @@ export const TableScenarios = () => {
   const serversData = useMemo(() => servers, []);
 
   return (
-    <>
+    <Box gap="xlarge">
       <TableScenario
         id="table-loading"
         tag="DataTable · 1 of 3"
@@ -124,6 +124,6 @@ export const TableScenarios = () => {
         data={EMPTY}
         outcome="success"
       />
-    </>
+    </Box>
   );
 };
