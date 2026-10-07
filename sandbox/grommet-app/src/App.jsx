@@ -8,6 +8,7 @@ import { themes } from './themes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
+import ApiResponses from './pages/api-responses/index';
 import { Layouts, routes as layoutRoutes } from './pages/layouts';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
@@ -134,6 +135,10 @@ const App = () => {
                           <Route
                             path="/sticker-sheet"
                             element={<StickerSheet />}
+                          />
+                          <Route
+                            path="/api-responses"
+                            element={<ApiResponses />}
                           />
                           <Route path="/layouts" element={<Layouts />}>
                             {layoutRoutes}
