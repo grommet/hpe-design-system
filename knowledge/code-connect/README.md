@@ -460,8 +460,6 @@ The HPE Design System has ~55 components with documented Figma counterparts. Bas
 | `ToggleGroup`       | `options`, `value`                               |
 | `NameValueList`     | Static composition example                       |
 
-Figma also exposes a `show Seconds` variant for `TimeInput`, but Grommet has no corresponding prop.
-
 **Tier 3 — Complex / data-driven (need static representative examples)**
 
 | Component             | Notes                                    |
