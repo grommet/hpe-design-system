@@ -23,19 +23,25 @@ const tiers = [
     title: 'Low cost, easily reversed',
     example: 'Restart iLO',
     behavior:
-      'No confirmation. Run the action immediately, show a busy state on the button, then confirm the outcome with a toast.',
+      `No confirmation. Run the action immediately, show a busy state on
+        the button, then confirm the outcome with a toast.`,
   },
   {
     title: 'Costly or disruptive',
     example: 'Power off',
     behavior:
-      'Confirm with a center layer. Lead with the action in the title, state the consequence in the subtitle, and offer a clear Cancel / confirm pair. The layer itself is the warning, so no additional warning icon or styling.',
+      `Confirm with a center layer. Lead with the action in the title,
+        state the consequence in the subtitle, and offer a clear Cancel /
+        confirm pair. The layer itself is the warning, so no additional
+        warning icon or styling.`,
   },
   {
     title: 'Irreversible and destructive',
     example: 'Delete server',
     behavior:
-      'Double confirmation: the user types the resource name before the primary action is enabled, and a critical inline notification states the action cannot be undone.',
+      `Double confirmation: the user types the resource name before the
+        primary action is enabled, and a critical inline notification
+        states the action cannot be undone.`,
   },
 ];
 
@@ -47,12 +53,14 @@ const errors = {
   powerOff: {
     title: `Unable to power off ${SERVER}`,
     message:
-      'The power command was not acknowledged by the server. No change was made. Try again, and if the problem persists, contact support.',
+      `The power command was not acknowledged by the server. No change was
+        made. Try again, and if the problem persists, contact support.`,
   },
   delete: {
     title: `Unable to delete ${SERVER}`,
     message:
-      'The server could not be deleted because the inventory service is unavailable. No change was made. Try again later.',
+      `The server could not be deleted because the inventory service is
+        unavailable. No change was made. Try again later.`,
   },
 };
 
@@ -82,7 +90,8 @@ export const LayerScenario = () => {
     <Scenario
       id="layer"
       tag="Layer with action"
-      heading="Confirming an action — and handling a request that fails after confirmation"
+      heading={`Confirming an action — and handling a request that fails
+        after confirmation`}
       guidance={`Match the amount of confirmation to the cost of the action. 
         Displaying a confirmation layer is itself the "warning" scenario; 
         don't add extra warning icons or styling. When the request fails 

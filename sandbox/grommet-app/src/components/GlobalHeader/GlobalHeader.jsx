@@ -160,14 +160,6 @@ export const GlobalHeader = ({
                     icon={<LinkNext />}
                     reverse
                   />
-                  <Anchor
-                    alignSelf="start"
-                    as={Link}
-                    to="/api-responses"
-                    label="View API response patterns"
-                    icon={<LinkNext />}
-                    reverse
-                  />
                 </Box>
               }
               dropAlign={{ top: 'bottom', right: 'right' }}

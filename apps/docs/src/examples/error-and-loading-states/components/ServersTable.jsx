@@ -10,8 +10,8 @@ import {
   Text,
 } from 'grommet';
 import { Add, Servers, StatusWarning } from '@hpe-design/icons-grommet';
-import { EmptyState } from '../../../components';
-import { statusMap } from '../../../utils/status';
+import { EmptyState } from '@shared/aries-core';
+import { StatusIcon } from '../../components/datatable/StatusIcon';
 
 const SKELETON_ROWS = 5;
 
@@ -61,14 +61,13 @@ const columns = [
     header: <StructuralHeader>Health</StructuralHeader>,
     size: 'small',
     render: datum => {
-      const status = statusMap.get(datum.health);
       const label =
         datum.health === 'ok'
           ? 'OK'
           : datum.health.charAt(0).toUpperCase() + datum.health.slice(1);
       return (
         <Box direction="row" gap="xsmall" align="center">
-          {status?.icon}
+          <StatusIcon status={datum.health} />
           <Text>{label}</Text>
         </Box>
       );
@@ -144,7 +143,13 @@ const placeholders = {
   empty: NoDataEmptyState,
 };
 
-export const ServersTable = ({ data = [], onAdd, onRetry, status }) => {
+export const ServersTable = ({
+  data = [],
+  describedBy,
+  onAdd,
+  onRetry,
+  status,
+}) => {
   const loading = status === 'loading';
   const Placeholder = placeholders[status];
   let rows = [];
@@ -155,9 +160,11 @@ export const ServersTable = ({ data = [], onAdd, onRetry, status }) => {
     <Box
       skeleton={loading ? skeleton : undefined}
       aria-busy={loading || undefined}
+      overflow="auto"
     >
       <DataTable
         a11yTitle="Servers"
+        aria-describedby={describedBy}
         columns={loading ? loadingColumns : columns}
         data={rows}
         primaryKey="id"
@@ -175,6 +182,7 @@ export const ServersTable = ({ data = [], onAdd, onRetry, status }) => {
 
 ServersTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
+  describedBy: PropTypes.string.isRequired,
   onAdd: PropTypes.func,
   onRetry: PropTypes.func,
   status: PropTypes.oneOf(['loading', 'success', 'error', 'empty']).isRequired,

@@ -8,7 +8,6 @@ import { themes } from './themes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
-import ApiResponses from './pages/api-responses/index';
 import { Layouts, routes as layoutRoutes } from './pages/layouts';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
@@ -26,14 +25,11 @@ const appHeaderHeight = '60px';
 export const appHeight = `calc(100vh - ${appHeaderHeight})`;
 const MOCK_SESSION_ID = 'mock-session-id';
 const BADGE_ANIMATION_DURATION = 5500;
-// Set VITE_SKIP_LOGIN=true in sandbox/grommet-app/.env.local to bypass the
-// password gate during local development.
-const SKIP_LOGIN = import.meta.env.VITE_SKIP_LOGIN === 'true';
 
 const App = () => {
   const [sessionId, setSessionId] = useSessionStorage('sessionId', null);
   const [authenticated, setAuthenticated] = useState(
-    SKIP_LOGIN || localStorage.getItem('design-tokens-demo') || false,
+    localStorage.getItem('design-tokens-demo') || false,
   );
   useEffect(() => {
     if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
@@ -138,10 +134,6 @@ const App = () => {
                           <Route
                             path="/sticker-sheet"
                             element={<StickerSheet />}
-                          />
-                          <Route
-                            path="/api-responses"
-                            element={<ApiResponses />}
                           />
                           <Route path="/layouts" element={<Layouts />}>
                             {layoutRoutes}

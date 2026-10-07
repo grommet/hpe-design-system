@@ -67,6 +67,7 @@ export const ConfirmationLayer = ({
         label={confirmLabel}
         primary
         busy={busy}
+        disabled={destructive && typed.confirmation !== destructive.match}
         type={destructive ? 'submit' : 'button'}
         onClick={destructive ? undefined : confirm}
       />
@@ -117,7 +118,8 @@ export const ConfirmationLayer = ({
                   validate={value =>
                     value !== destructive.match
                       ? {
-                          message: `Enter "${destructive.match}" exactly to continue.`,
+                          message: `Enter "${destructive.match}" exactly
+                            to continue.`,
                           status: 'error',
                         }
                       : undefined

@@ -10,19 +10,26 @@ const walkthrough = [
     step: 'Step 1 · Server details',
     trigger: 'Leave "Server name" empty and click Next.',
     result:
-      'Client-side validation. The error is shown on each failing field, and a step-level summary appears so the user can see something is blocking them even if the field has scrolled out of view.',
+      `Client-side validation. The error is shown on each failing field,
+        and a step-level summary appears so the user can see something
+        is blocking them even if the field has scrolled out of view.`,
   },
   {
     step: 'Step 2 · Network',
     trigger: 'Keep the default subnet (10.0.0.0/24) and click Next.',
     result:
-      'The API rejects the request and names the field. Because the error has a specific target, it is displayed on the "Subnet" field only. Editing the field clears it.',
+      `The API rejects the request and names the field. Because the error
+        has a specific target, it is displayed on the "Subnet" field only.
+        Editing the field clears it.`,
   },
   {
     step: 'Step 3 · Review & create',
     trigger: 'Click "Create server".',
     result:
-      'The API times out. Nothing about the user\'s input is wrong, so the error is displayed at the step level as an inline notification. The button shows a busy state while the request is in flight. Retrying succeeds.',
+      `The API times out. Nothing about the user's input is wrong, so the
+        error is displayed at the step level as an inline notification.
+        The button shows a busy state while the request is in flight.
+        Retrying succeeds.`,
   },
 ];
 
@@ -34,7 +41,8 @@ export const WizardScenario = () => {
     <Scenario
       id="wizard"
       tag="Wizard"
-      heading="Errors in a wizard — validate at step level, display at the most specific target"
+      heading={`Errors in a wizard — validate at step level, display at
+        the most specific target`}
       guidance={`Treat each step like a form: the user can't advance while 
         the current step has errors. Whether the error comes from client-side 
         validation or from an API response, attach it to the most specific 

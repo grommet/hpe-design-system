@@ -94,9 +94,10 @@ const DetailsStep = () => (
     >
       <TextInput id="name" name="name" placeholder="web-prod-03" />
     </FormField>
-    <FormField label="Region" htmlFor="region__input" name="region" required>
+    <FormField label="Region" htmlFor="region" name="region" required>
       <Select
         id="region"
+        a11yTitle="Region"
         name="region"
         options={regions}
         placeholder="Select a region"
@@ -350,7 +351,9 @@ export const CreateServerWizard = ({ onClose, onComplete }) => {
           overflow="auto"
           ref={contentRef}
           align="center"
-          pad={compact ? 'medium' : { vertical: 'xlarge', horizontal: 'medium' }}
+          pad={
+            compact ? 'medium' : { vertical: 'xlarge', horizontal: 'medium' }
+          }
         >
           <Box width={{ width: '100%', max: 'large' }} gap="medium">
             <Box gap="3xsmall">
@@ -386,7 +389,8 @@ export const CreateServerWizard = ({ onClose, onComplete }) => {
                 {!valid && (
                   <Notification
                     status="critical"
-                    message="There is a problem with one or more fields. Fix the highlighted fields to continue."
+                    message={`There is a problem with one or more fields.
+                      Fix the highlighted fields to continue.`}
                   />
                 )}
 

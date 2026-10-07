@@ -18,13 +18,16 @@ const statusLabels = {
   error: 'Response: 503 Service unavailable',
 };
 
-const ResponseStatus = ({ status }) => (
-  <Text size="small" color="text-weak" aria-live="polite">
+const ResponseStatus = ({ id, status }) => (
+  <Text id={id} size="small" color="text-weak" aria-live="polite">
     {statusLabels[status]}
   </Text>
 );
 
-ResponseStatus.propTypes = { status: PropTypes.string.isRequired };
+ResponseStatus.propTypes = {
+  id: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+};
 
 const ReplayButton = ({ onClick, status }) => (
   <Button
@@ -40,14 +43,15 @@ ReplayButton.propTypes = {
   status: PropTypes.string.isRequired,
 };
 
-const TableScenario = ({ data, outcome, ...rest }) => {
+const TableScenario = ({ data, id, outcome, ...rest }) => {
   const { status, run } = useSimulatedRequest({ data, outcome });
   return (
     <Scenario
       {...rest}
+      id={id}
       actions={
-        <Box direction="row" gap="small" align="center">
-          <ResponseStatus status={status} />
+        <Box direction="row" gap="small" align="center" wrap>
+          <ResponseStatus id={`${id}-status`} status={status} />
           <ReplayButton onClick={run} status={status} />
         </Box>
       }
@@ -55,6 +59,7 @@ const TableScenario = ({ data, outcome, ...rest }) => {
       <ServersTable
         status={status}
         data={data}
+        describedBy={`${id}-status`}
         onRetry={run}
         onAdd={() => {}}
       />
@@ -64,6 +69,7 @@ const TableScenario = ({ data, outcome, ...rest }) => {
 
 TableScenario.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  id: PropTypes.string.isRequired,
   outcome: PropTypes.oneOf(['success', 'error']).isRequired,
 };
 

@@ -1,10 +1,8 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Anchor, Box, Header, Heading, Paragraph, Text } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
-import { BackgroundContext } from '../../../contexts';
 
 // A single mockup scenario: labelled with the situation it illustrates,
 // a short summary of the recommended behavior, and a link to the full
@@ -20,14 +18,10 @@ export const Scenario = ({
   tag,
   ...rest
 }) => {
-  const { backgroundBack } = useContext(BackgroundContext);
   return (
     <Box
       id={id}
       gap="medium"
-      background={backgroundBack ? 'background-front' : undefined}
-      pad={backgroundBack ? 'medium' : undefined}
-      round={backgroundBack ? 'small' : undefined}
       flex={false}
       {...rest}
     >
