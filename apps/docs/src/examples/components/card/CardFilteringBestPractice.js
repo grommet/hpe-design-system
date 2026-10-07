@@ -92,7 +92,9 @@ const FilterBar = ({ bestPractice }) => {
   return bestPractice ? (
     content
   ) : (
-    <Card alignSelf="start">
+    <Card
+     background="background-surface-tone-1"
+     alignSelf="start">
       <CardBody>{content}</CardBody>
     </Card>
   );

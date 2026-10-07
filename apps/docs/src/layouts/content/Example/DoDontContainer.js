@@ -8,6 +8,7 @@ import { Container } from '.';
 
 export const DoDontContainer = ({
   bestPractice: bestPracticeProp,
+  children,
   height,
   ...rest
 }) => {
@@ -51,13 +52,20 @@ export const DoDontContainer = ({
   }
 
   return (
-    <>
-      <Container
-        height={!['xsmall', 'small'].includes(size) ? height : undefined}
-        {...rest}
-      />
-      {bestPractice}
-    </>
+    <Container
+      height={!['xsmall', 'small'].includes(size) ? height : undefined}
+      {...rest}
+    >
+      {/*
+        Keeping the Do/Don't guidance inside the same framed container is a
+        demo-focused layout choice. It intentionally preserves the existing
+        Example API and behavior for all other example types.
+      */}
+      <Box fill="horizontal" gap="small" pad={{ bottom: 'small' }}>
+        {children}
+        {bestPractice}
+      </Box>
+    </Container>
   );
 };
 
@@ -66,5 +74,6 @@ DoDontContainer.propTypes = {
     type: PropTypes.oneOf(['do', 'dont']).isRequired,
     message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   }),
+  children: PropTypes.node,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };

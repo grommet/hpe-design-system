@@ -58,7 +58,7 @@ export const SinglePageContent = ({ containerRef }) => {
 
   return (
     <Page
-      background="background-back"
+      background="background-surface-base"
       flex="grow"
       pad={{ vertical: 'xlarge' }}
       {...demoStyle}

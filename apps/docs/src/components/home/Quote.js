@@ -26,7 +26,7 @@ export const Quote = () => {
       justify="center"
       pad="3xlarge"
       overflow="hidden"
-      background={{ fill: 'horizontal', color: 'background-front' }}
+      background={{ fill: 'horizontal' }}
     >
       <Box
         align="center"

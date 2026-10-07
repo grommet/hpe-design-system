@@ -25,6 +25,7 @@ export const ToastNotificationExample = () => {
             status="normal"
             message='Starting deployment of application "XYZ"'
             onClose={onClose}
+            background="background-surface-floating"
           />
         )}
       </Box>

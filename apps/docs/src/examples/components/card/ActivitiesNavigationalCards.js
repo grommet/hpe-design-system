@@ -31,6 +31,7 @@ export const ActivitiesNavigationalCards = ({ heading = true }) => {
             icon={activity.icon}
             title={activity.title}
             description={activity.description}
+            background="background-surface-tone-1"
             actions={
               <Button
                 label={activity.action.label}

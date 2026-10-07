@@ -85,7 +85,7 @@ export const SearchResults = ({
 
   return (
     <Box
-      background="background-front"
+      background="background-surface-floating"
       round="medium"
       pad={{ horizontal: 'medium', top: 'xsmall', bottom: 'xlarge' }}
       gap="xsmall"

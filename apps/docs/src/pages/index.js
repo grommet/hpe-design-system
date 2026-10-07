@@ -40,6 +40,7 @@ Intro.propTypes = {
 // Hero section container with background image
 const Hero = ({ children, bgImage }) => (
   <Box
+    round="large"
     background={{
       image: bgImage,
       size: 'cover',

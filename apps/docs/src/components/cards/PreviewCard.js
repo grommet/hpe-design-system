@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Card } from 'grommet';
 
 export const PreviewImageCard = ({
-  background = 'background-back',
+  background = 'background-surface-tone-2',
   children,
   ...rest
 }) => (

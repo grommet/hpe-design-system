@@ -18,7 +18,7 @@ export const ThemeMode = ({ children, ...rest }) => {
 
   const body = (
     <Grommet
-      background="background-back"
+      background="background-surface-base"
       options={{
         layer: {
           singleId: true,

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, Card, CardBody, Heading, Paragraph } from 'grommet';
 
 export const CardAlignmentBestPractice = ({ bestPractice = true }) => (
-  <Card>
+  <Card background="background-surface-tone-1">
     <CardBody align={!bestPractice ? 'center' : 'start'} gap="medium">
       <Box align={!bestPractice ? 'center' : undefined} gap="xsmall">
         <Heading level={3} margin="none">

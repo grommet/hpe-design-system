@@ -25,7 +25,7 @@ export const SectionCards = ({
                   pad="xsmall"
                   justify="center"
                   round="medium"
-                  background="background-back"
+                  background="background-surface-tone-2"
                   flex={false}
                 >
                   <Icon size="large" />
