@@ -433,45 +433,45 @@ The HPE Design System has ~55 components with documented Figma counterparts. Bas
 
 | Component          | Key Props to Map                                     |
 | ------------------ | ---------------------------------------------------- |
-| `TextInput`        | `placeholder`, `disabled`, `icon`, `reverse`, `size` |
+| `Anchor`           | `label`, `href`, `icon`, `reverse`                   |
+| `Avatar`           | `name`, `src`, `size`, `background`                  |
 | `CheckBox`         | `checked`, `disabled`, `label`, `toggle`             |
 | `RadioButtonGroup` | `options`, `disabled`                                |
 | `Select`           | `options`, `placeholder`, `disabled`, `multiple`     |
 | `SelectMultiple`   | `options`, `placeholder`, `limit`                    |
-| `Avatar`           | `name`, `src`, `size`, `background`                  |
-| `Spinner`          | `size`, `message`                                    |
-| `Anchor`           | `label`, `href`, `icon`, `reverse`                   |
-| `Tip`              | `content`, `plain`                                   |
 | `Skeleton`         | `height`, `width`, `round`                           |
+| `Spinner`          | `size`, `message`                                    |
+| `TextInput`        | `placeholder`, `disabled`, `icon`, `reverse`, `size` |
+| `Tip`              | `content`, `plain`                                   |
 
 **Tier 2 — Medium complexity, high designer-dev friction**
 
 | Component           | Key Props to Map                                 |
 | ------------------- | ------------------------------------------------ |
-| `Notification`      | `status`, `title`, `message`, `toast`, `onClose` |
-| `DataTable`         | Static column + data example                     |
-| `Pagination`        | `numberItems`, `step`, `page`                    |
-| `PageHeader`        | `title`, `subtitle`, `parent`, `actions`         |
-| `Header` / `Footer` | Layout composition examples                      |
 | `Accordion`         | Static multi-item example                        |
+| `DataTable`         | Static column + data example                     |
 | `DropButton`        | `label`, `dropContent`, `open`                   |
+| `Footer` / `Header` | Layout composition examples                      |
+| `NameValueList`     | Static composition example                       |
+| `Notification`      | `status`, `title`, `message`, `toast`, `onClose` |
+| `PageHeader`        | `title`, `subtitle`, `parent`, `actions`         |
+| `Pagination`        | `numberItems`, `step`, `page`                    |
 | `Search`            | `placeholder`, `onChange`                        |
 | `TimeInput`         | `format`, `value`, `disabled`, `readOnly`        |
 | `ToggleGroup`       | `options`, `value`                               |
-| `NameValueList`     | Static composition example                       |
 
 **Tier 3 — Complex / data-driven (need static representative examples)**
 
 | Component             | Notes                                    |
 | --------------------- | ---------------------------------------- |
-| `Data` + `DataTable`  | Needs representative static dataset      |
-| `Chart` / `DataChart` | Static data props only                   |
-| `Meter`               | `values`, `type`, `max`                  |
-| `Diagram`             | Static nodes and connections             |
 | `Calendar`            | `date`, `disabled`                       |
-| `Layer`               | Modal/panel pattern, `modal`, `position` |
-| `Drop`                | `target`, `align`, `stretch`             |
 | `Carousel`            | Static slides example                    |
+| `Chart` / `DataChart` | Static data props only                   |
+| `Data` + `DataTable`  | Needs representative static dataset      |
+| `Diagram`             | Static nodes and connections             |
+| `Drop`                | `target`, `align`, `stretch`             |
+| `Layer`               | Modal/panel pattern, `modal`, `position` |
+| `Meter`               | `values`, `type`, `max`                  |
 
 ### Recommended Approach to Scale
 
@@ -518,26 +518,27 @@ jobs:
 
 | Component | Status       |
 | --------- | ------------ |
+| `Anchor`  | ✅ Connected |
 | `Button`  | ✅ Connected |
-| `Tag`     | ✅ Connected |
 | `Menu`    | ✅ Connected |
 | `Tab`     | ✅ Connected |
 | `Tabs`    | ✅ Connected |
-| `Anchor`  | ✅ Connected |
+| `Tag`     | ✅ Connected |
 
 #### `inputs`
 
 | Component          | Status       |
 | ------------------ | ------------ |
-| `TextInput`        | ✅ Connected |
 | `CheckBox`         | ✅ Connected |
 | `CheckBoxGroup`    | ✅ Connected |
+| `DateInput`        | ✅ Connected |
+| `NumberInput`      | ✅ Connected |
 | `RadioButton`      | ✅ Connected |
 | `RadioButtonGroup` | ✅ Connected |
 | `Select`           | ✅ Connected |
 | `SelectMultiple`   | ✅ Connected |
-| `DateInput`        | ✅ Connected |
-| `NumberInput`      | ✅ Connected |
+| `TextInput`        | ✅ Connected |
+| `TimeInput`        | ✅ Connected |
 
 #### `layouts`
 
@@ -550,33 +551,33 @@ jobs:
 | Component  | Status       |
 | ---------- | ------------ |
 | `Avatar`   | ✅ Connected |
-| `Spinner`  | ✅ Connected |
 | `Skeleton` | ✅ Connected |
+| `Spinner`  | ✅ Connected |
 | `Tip`      | ✅ Connected |
 
 #### Backlog / Not started
 
 | Component       | Status         |
 | --------------- | -------------- |
-| `Notification`  | 🔲 Not started |
-| `DataTable`     | 🔲 Not started |
-| `Pagination`    | 🔲 Not started |
-| `PageHeader`    | 🔲 Not started |
-| `Header`        | 🔲 Not started |
-| `Footer`        | 🔲 Not started |
 | `Accordion`     | 🔲 Not started |
+| `Calendar`      | 🔲 Not started |
+| `Carousel`      | 🔲 Not started |
+| `Chart`         | 🔲 Not started |
+| `Data`          | 🔲 Not started |
+| `DataTable`     | 🔲 Not started |
+| `Diagram`       | 🔲 Not started |
+| `Drop`          | 🔲 Not started |
 | `DropButton`    | 🔲 Not started |
+| `Footer`        | 🔲 Not started |
+| `Header`        | 🔲 Not started |
+| `Layer`         | 🔲 Not started |
+| `Meter`         | 🔲 Not started |
+| `NameValueList` | 🔲 Not started |
+| `Notification`  | 🔲 Not started |
+| `PageHeader`    | 🔲 Not started |
+| `Pagination`    | 🔲 Not started |
 | `Search`        | 🔲 Not started |
 | `ToggleGroup`   | 🔲 Not started |
-| `NameValueList` | 🔲 Not started |
-| `Data`          | 🔲 Not started |
-| `Chart`         | 🔲 Not started |
-| `Meter`         | 🔲 Not started |
-| `Diagram`       | 🔲 Not started |
-| `Calendar`      | 🔲 Not started |
-| `Layer`         | 🔲 Not started |
-| `Drop`          | 🔲 Not started |
-| `Carousel`      | 🔲 Not started |
 
 ---
 
