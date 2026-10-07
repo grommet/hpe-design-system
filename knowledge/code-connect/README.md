@@ -98,6 +98,7 @@ This creates two complementary paths: direct Dev Mode handoff for human implemen
 - [Select](src/inputs/Select.figma.jsx)
 - [SelectMultiple](src/inputs/SelectMultiple.figma.jsx)
 - [TextInput](src/inputs/TextInput.figma.jsx)
+- [TimeInput](src/inputs/TimeInput.figma.jsx)
 
 ### `layouts`
 
@@ -455,8 +456,11 @@ The HPE Design System has ~55 components with documented Figma counterparts. Bas
 | `Accordion`         | Static multi-item example                        |
 | `DropButton`        | `label`, `dropContent`, `open`                   |
 | `Search`            | `placeholder`, `onChange`                        |
+| `TimeInput`         | `format`, `value`, `disabled`, `readOnly`        |
 | `ToggleGroup`       | `options`, `value`                               |
 | `NameValueList`     | Static composition example                       |
+
+Figma also exposes a `show Seconds` variant for `TimeInput`, but Grommet has no corresponding prop.
 
 **Tier 3 — Complex / data-driven (need static representative examples)**
 
