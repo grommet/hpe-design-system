@@ -12,9 +12,11 @@ const columnCount = {
   xlarge: 4,
 };
 
-// Equal-width metrics separated by hairline vertical dividers. Dividers
-// occupy their own grid column so every metric keeps the same width. When
-// metrics wrap onto further rows, the grid gap alone separates the rows.
+// Equal-width metrics separated by hairline dividers. Side by side, the
+// dividers are vertical and occupy their own grid column so every metric
+// keeps the same width. When the group collapses to a single column, the
+// divider turns horizontal so stacked metrics still read as separate items.
+// Wrapped rows at intermediate widths are separated by the grid gap alone.
 export const MetricGroup = ({ children, ...rest }) => {
   const size = useContext(ResponsiveContext);
   const items = Children.toArray(children);
@@ -31,6 +33,18 @@ export const MetricGroup = ({ children, ...rest }) => {
   const areas = [];
   const cells = [];
   for (let row = 0; row < rowCount; row += 1) {
+    if (count === 1 && row > 0) {
+      const area = `rule-${row}`;
+      rows.push('auto');
+      areas.push([area]);
+      cells.push(
+        <Box
+          key={area}
+          gridArea={area}
+          border={{ side: 'top', color: 'border-weak' }}
+        />,
+      );
+    }
     rows.push('auto');
     const rowAreas = [];
     items.slice(row * count, (row + 1) * count).forEach((item, column) => {
