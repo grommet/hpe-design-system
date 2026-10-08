@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
-import { ChartLine } from '@hpe-design/icons-grommet';
+import { Up } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 
 // Change relative to the previous period, e.g. "2%". The icon conveys the
 // direction visually; the accessible name is carried by the parent group.
 export const Trend = ({ value }) => (
   <Box direction="row" align="center" gap="3xsmall">
-    <ChartLine size="small" color="icon-strong" aria-hidden />
+    <Up size="small" color="icon-strong" aria-hidden />
     <TextEmphasis size="xsmall">{value}</TextEmphasis>
   </Box>
 );
