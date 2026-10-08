@@ -29,6 +29,19 @@ test('maps layout and component props to their token paths', () => {
     'hpe.spacing.small',
   );
   assert.equal(
+    tokenNameFor('Accordion', 'pad', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(
+    tokenNameFor('Avatar', 'background', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(tokenNameFor('Avatar', 'gap', 'small'), 'hpe.spacing.small');
+  assert.equal(
+    tokenNameFor('Avatar', 'borderWidth', 'medium'),
+    'hpe.borderWidth.medium',
+  );
+  assert.equal(
     tokenNameFor('Box', 'background', 'background-front'),
     'hpe.color.background.front',
   );
@@ -45,9 +58,25 @@ test('maps layout and component props to their token paths', () => {
     'hpe.borderWidth.medium',
   );
   assert.equal(tokenNameFor('Box', 'gap', 'small'), 'hpe.spacing.small');
+  assert.equal(
+    tokenNameFor('Box', 'hoverIndicator.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  assert.equal(
+    tokenNameFor('Box', 'hoverIndicator.background', 'background-front'),
+    'hpe.color.background.front',
+  );
   assert.equal(tokenNameFor('Button', 'gap', 'small'), 'hpe.spacing.small');
   assert.equal(
     tokenNameFor('Button', 'color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  assert.equal(
+    tokenNameFor('Button', 'hoverIndicator', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('Button', 'hoverIndicator.color', 'decorative-blue'),
     'hpe.color.decorative.blue',
   );
   assert.equal(tokenNameFor('Button', 'margin', 'small'), 'hpe.spacing.small');
@@ -90,15 +119,54 @@ test('maps layout and component props to their token paths', () => {
   );
   assert.equal(tokenNameFor('CheckBox', 'pad', 'none'), 'hpe.spacing.none');
   assert.equal(
+    tokenNameFor('CheckBoxGroup', 'gap', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
     tokenNameFor('DataChart', 'pad', 'medium'),
     'hpe.spacing.medium',
   );
+  assert.equal(tokenNameFor('Data', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(
     tokenNameFor('DataTable', 'margin', 'small'),
     'hpe.spacing.small',
   );
+  assert.equal(
+    tokenNameFor('DataTable', 'background', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('DataTable', 'border.color', 'border-weak'),
+    'hpe.color.border.weak',
+  );
+  assert.equal(
+    tokenNameFor('DataTable', 'border.size', 'medium'),
+    'hpe.borderWidth.medium',
+  );
+  assert.equal(
+    tokenNameFor('DataTable', 'pad', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(
+    tokenNameFor('DataTableGroupBy', 'margin', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('DataTableGroupBy', 'dropHeight', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('DataView', 'margin', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('Diagram', 'connections.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
   assert.equal(tokenNameFor('Drop', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(tokenNameFor('Drop', 'round', 'medium'), 'hpe.radius.medium');
+  assert.equal(tokenNameFor('Drop', 'pad', 'medium'), 'hpe.spacing.medium');
+  assert.equal(tokenNameFor('Drop', 'width', 'medium'), 'hpe.container.medium');
   assert.equal(
     tokenNameFor('Drop', 'background', 'background-front'),
     'hpe.color.background.front',
@@ -123,6 +191,15 @@ test('maps layout and component props to their token paths', () => {
     tokenNameFor('Grommet', 'background.color', 'background-front'),
     'hpe.color.background.front',
   );
+  assert.equal(
+    tokenNameFor('Grid', 'columns', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('Grid', 'columns.size', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(tokenNameFor('Grid', 'rows', 'medium'), 'hpe.container.medium');
   assert.equal(tokenNameFor('Nav', 'gap', 'small'), 'hpe.spacing.small');
   assert.equal(tokenNameFor('List', 'pad', 'medium'), 'hpe.spacing.medium');
   assert.equal(tokenNameFor('List', 'margin', 'small'), 'hpe.spacing.small');
@@ -178,8 +255,20 @@ test('maps layout and component props to their token paths', () => {
     'hpe.spacing.small',
   );
   assert.equal(
+    tokenNameFor('Pagination', 'round', 'medium'),
+    'hpe.radius.medium',
+  );
+  assert.equal(
     tokenNameFor('PageHeader', 'margin', 'small'),
     'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('PageHeader', 'background', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('PageHeader', 'gap', 'medium'),
+    'hpe.spacing.medium',
   );
   assert.equal(
     tokenNameFor('Icon', 'color', 'icon-strong'),
@@ -208,6 +297,10 @@ test('maps layout and component props to their token paths', () => {
     'hpe.color.decorative.blue',
   );
   assert.equal(
+    tokenNameFor('RadioButtonGroup', 'round', 'medium'),
+    'hpe.radius.medium',
+  );
+  assert.equal(
     tokenNameFor('Select', 'dropHeight', 'medium'),
     'hpe.container.medium',
   );
@@ -231,8 +324,29 @@ test('maps layout and component props to their token paths', () => {
   );
   assert.equal(tokenNameFor('Stack', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(tokenNameFor('Spinner', 'margin', 'small'), 'hpe.spacing.small');
+  assert.equal(
+    tokenNameFor('Spinner', 'color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  assert.equal(tokenNameFor('Stepper', 'gap', 'medium'), 'hpe.spacing.medium');
   assert.equal(tokenNameFor('Tag', 'round', 'medium'), 'hpe.radius.medium');
   assert.equal(tokenNameFor('Table', 'margin', 'small'), 'hpe.spacing.small');
+  assert.equal(
+    tokenNameFor('TableCell', 'background', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('TableCell', 'border.color', 'border-weak'),
+    'hpe.color.border.weak',
+  );
+  assert.equal(
+    tokenNameFor('TableCell', 'border.size', 'medium'),
+    'hpe.borderWidth.medium',
+  );
+  assert.equal(
+    tokenNameFor('TableCell', 'pad', 'medium'),
+    'hpe.spacing.medium',
+  );
   assert.equal(tokenNameFor('Tabs', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(
     tokenNameFor('TextInput', 'width.min', 'medium'),
@@ -241,6 +355,30 @@ test('maps layout and component props to their token paths', () => {
   assert.equal(
     tokenNameFor('Toolbar', 'background', 'background-front'),
     'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('ToggleGroup', 'round', 'medium'),
+    'hpe.radius.medium',
+  );
+  assert.equal(
+    tokenNameFor('WizardContent', 'width', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('WizardFooter', 'pad', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(
+    tokenNameFor('WizardHeader', 'background', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('WizardProgress', 'round', 'medium'),
+    'hpe.radius.medium',
+  );
+  assert.equal(
+    tokenNameFor('WizardStepHeader', 'gap', 'small'),
+    'hpe.spacing.small',
   );
   assert.equal(
     tokenNameFor('WorldMap', 'color', 'decorative-blue'),
@@ -302,6 +440,7 @@ test('translates root and container background tokens into Grommet aliases', () 
 test('translates direct component color tokens into Grommet aliases', () => {
   [
     ['Button', 'color'],
+    ['Button', 'hoverIndicator'],
     ['Meter', 'color'],
     ['RangeInput', 'color'],
     ['RangeSelector', 'color'],
@@ -533,5 +672,7 @@ test('provides container values for Skeleton and TextInput dimensions', () => {
 });
 
 test('does not map unsupported component props', () => {
+  assert.equal(tokenNameFor('Avatar', 'width', 'medium'), false);
+  assert.equal(tokenNameFor('Avatar', 'height', 'medium'), false);
   assert.equal(tokenNameFor('Box', 'size', 'small'), undefined);
 });

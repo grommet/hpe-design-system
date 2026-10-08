@@ -202,6 +202,243 @@ test('resolves layout props for newly supported Box-derived components', () => {
   });
 });
 
+test('resolves full layout props for Accordion and Pagination', () => {
+  [
+    ['Accordion', 'pad', 'medium', 'hpe.spacing.medium', '24px'],
+    ['Pagination', 'round', 'medium', 'hpe.radius.medium', '8px'],
+  ].forEach(([componentName, propName, value, tokenName, tokenValue]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="${value}" />`,
+    ].join('\n');
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('resolves full layout props for PageHeader', () => {
+  [
+    ['background', 'background-front', 'hpe.color.background.front', '#ffffff'],
+    ['gap', 'medium', 'hpe.spacing.medium', '24px'],
+  ].forEach(([propName, value, tokenName, tokenValue]) => {
+    const text = [
+      "import { PageHeader } from 'grommet';",
+      `<PageHeader ${propName}="${value}" title="Title" />`,
+    ].join('\n');
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('resolves a Diagram connection semantic color', () => {
+  const text = `import { Diagram } from 'grommet';
+<Diagram connections={[{ color: 'decorative-blue' }]} />`;
+  const match = findJsxTokenAtOffset(
+    text,
+    text.indexOf('decorative-blue') + 4,
+    'javascript',
+    tokenIndex,
+  );
+
+  assert.equal(match.name, 'hpe.color.decorative.blue');
+  assert.equal(match.token.value, '#0070f8');
+});
+
+test('resolves direct hover-indicator background object values', () => {
+  [
+    [
+      'Box',
+      "hoverIndicator={{ color: 'decorative-blue' }}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    [
+      'Box',
+      "hoverIndicator={{ background: 'background-front', elevation: 'small' }}",
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    [
+      'Button',
+      "hoverIndicator={{ color: 'foreground-critical' }}",
+      'foreground-critical',
+      'hpe.color.foreground.critical',
+      '#ec3331',
+    ],
+  ].forEach(([componentName, prop, value, tokenName, tokenValue]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${prop} />`,
+    ].join('\n');
+    const match = findJsxTokenAtOffset(
+      text,
+      text.indexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('does not resolve nested hover-indicator background colors', () => {
+  const text = `import { Box } from 'grommet';
+<Box hoverIndicator={{ background: { color: 'decorative-blue' } }} />`;
+
+  assert.equal(
+    findJsxTokenAtOffset(
+      text,
+      text.indexOf('decorative-blue') + 2,
+      'javascript',
+      tokenIndex,
+    ),
+    undefined,
+  );
+});
+
+test('resolves expanded Drop, Avatar, and DataTableGroupBy props', () => {
+  [
+    ['Avatar', 'gap', 'small', 'hpe.spacing.small', '16px'],
+    ['Avatar', 'borderWidth', 'medium', 'hpe.borderWidth.medium', '4px'],
+    [
+      'DataTableGroupBy',
+      'dropHeight',
+      'medium',
+      'hpe.container.medium',
+      '384px',
+    ],
+    ['Drop', 'pad', 'medium', 'hpe.spacing.medium', '24px'],
+    ['Drop', 'width', 'medium', 'hpe.container.medium', '384px'],
+  ].forEach(([componentName, propName, value, tokenName, tokenValue]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="${value}" />`,
+    ].join('\n');
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('resolves layout props for Data, Stepper, ToggleGroup, and Wizard', () => {
+  [
+    ['Data', 'margin', 'small', 'hpe.spacing.small', '16px'],
+    ['Stepper', 'gap', 'medium', 'hpe.spacing.medium', '24px'],
+    ['ToggleGroup', 'round', 'medium', 'hpe.radius.medium', '8px'],
+    ['WizardContent', 'width', 'medium', 'hpe.container.medium', '384px'],
+    ['WizardFooter', 'pad', 'medium', 'hpe.spacing.medium', '24px'],
+    [
+      'WizardHeader',
+      'background',
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    ['WizardProgress', 'round', 'medium', 'hpe.radius.medium', '8px'],
+    ['WizardStepHeader', 'gap', 'small', 'hpe.spacing.small', '16px'],
+  ].forEach(([componentName, propName, value, tokenName, tokenValue]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="${value}" />`,
+    ].join('\n');
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('resolves layout props for selection, data, and table components', () => {
+  [
+    [
+      'Avatar',
+      'background',
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    ['CheckBoxGroup', 'gap', 'small', 'hpe.spacing.small', '16px'],
+    [
+      'DataTable',
+      'background',
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    ['DataTable', 'pad', 'medium', 'hpe.spacing.medium', '24px'],
+    ['DataTableGroupBy', 'margin', 'small', 'hpe.spacing.small', '16px'],
+    ['DataView', 'margin', 'none', 'hpe.spacing.none', '0px'],
+    ['RadioButtonGroup', 'round', 'medium', 'hpe.radius.medium', '8px'],
+    [
+      'TableCell',
+      'background',
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    ['TableCell', 'pad', 'medium', 'hpe.spacing.medium', '24px'],
+  ].forEach(([componentName, propName, value, tokenName, tokenValue]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="${value}" />`,
+    ].join('\n');
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+
+  [
+    ['border-weak', 'hpe.color.border.weak', '#d4d8db'],
+    ['medium', 'hpe.borderWidth.medium', '4px'],
+  ].forEach(([value, tokenName, tokenValue]) => {
+    const text = `import { DataTable } from 'grommet';
+<DataTable border={{ color: 'border-weak', size: 'medium' }} />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.indexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
 test('resolves component semantic colors and backgrounds', () => {
   [
     [
@@ -362,6 +599,13 @@ test('resolves direct component semantic colors', () => {
       '#0070f8',
     ],
     [
+      'Button',
+      'hoverIndicator',
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    [
       'Meter',
       'color',
       'foreground-critical',
@@ -381,6 +625,13 @@ test('resolves direct component semantic colors', () => {
       'foreground-critical',
       'hpe.color.foreground.critical',
       '#ec3331',
+    ],
+    [
+      'Spinner',
+      'color',
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
     ],
     [
       'WorldMap',
@@ -435,6 +686,37 @@ test('resolves direct and nested component dimensions', () => {
     assert.equal(match.name, 'hpe.container.medium');
     assert.equal(match.token.value, '384px');
   });
+});
+
+test('resolves direct and responsive Grid dimensions', () => {
+  [
+    ['columns="medium"', 'medium'],
+    ['rows="medium"', 'medium'],
+    ["columns={{ count: 'fit', size: 'medium' }}", 'medium'],
+  ].forEach(([prop, value]) => {
+    const text = `import { Grid } from 'grommet';\n<Grid ${prop} />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, 'hpe.container.medium');
+    assert.equal(match.token.value, '384px');
+  });
+
+  const countText = `import { Grid } from 'grommet';
+<Grid columns={{ count: 'fit', size: 'medium' }} />`;
+  assert.equal(
+    findJsxTokenAtOffset(
+      countText,
+      countText.indexOf('fit') + 1,
+      'javascript',
+      tokenIndex,
+    ),
+    undefined,
+  );
 });
 
 test('resolves Text margins through the spacing scale', () => {

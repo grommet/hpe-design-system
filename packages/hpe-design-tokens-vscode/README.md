@@ -17,7 +17,10 @@ also supports direct semantic background aliases such as `decorative-blue` and
 `margin` on `Heading`, `Paragraph`, and `Anchor`, plus semantic `color` and
 `size` on `Paragraph` and `Anchor`. Named HPE icons support semantic
 `color` and `size` props. Grommet `Button` supports spacing-token `gap`,
-`margin`, and `pad` props. Grommet `Calendar`, `Chart`, `List`, and `Skeleton`
+`margin`, and `pad` props, semantic `color`, and direct semantic
+`hoverIndicator`. Grommet `Box` and `Button` also support one-level object-form
+semantic `hoverIndicator.color` and `hoverIndicator.background` values. Grommet
+`Calendar`, `Chart`, `List`, and `Skeleton`
 support spacing-token `margin` props. Grommet `Chart`, `DataChart`, and `List`
 support spacing-token `pad` props. Grommet `Drop` supports spacing-token
 `margin` and radius-token `round` props. Grommet `Skeleton` supports
@@ -27,8 +30,17 @@ a spacing-token `pad` prop. Grommet `DataTable`, `Image`, `Meter`, `Stack`,
 properties, such as
 `--hpe-spacing-medium`, resolve in CSS-family files.
 
-Grommet `Chart` supports semantic `color`, while `Drop` and `Meter` support
-semantic `background` aliases. Grommet `Skeleton` supports container-token
+Grommet `Grid` supports container-token `rows` and `columns`, including the
+`size` field in responsive object-form `columns` values.
+
+Grommet `DataTable` also supports direct and object-form semantic `background`,
+object-form border color and size, and spacing-token `pad` props. Grommet
+`Spinner` supports semantic `color`.
+
+Grommet `Chart`, `Diagram` connection colors, and `Meter` support semantic
+`color`. Grommet `Drop` supports the same layout token props as `Box`, including
+spacing, dimensions, radius, borders, and semantic backgrounds. Grommet
+`Skeleton` supports container-token
 `height` and `width`, including `min` and `max` object values. Grommet
 `TextInput` supports container-token `width`, including `min` and `max` object
 values. Grommet `Carousel` supports container-token `height` and `width`,
@@ -39,14 +51,28 @@ including `min` and `max` object values. Grommet `Button`, `Meter`, `RangeInput`
 Grommet `List` supports direct semantic `background` values. Grommet `Menu`
 supports direct and object-form semantic `dropBackground` values. Grommet
 `DropButton`, `FormField`, and `Menu` support spacing-token `margin` props.
-Grommet `Accordion`, `Cards`, `Pagination`, `Select`, and `SelectMultiple`
-support spacing-token `margin` props. Grommet `Select` and `SelectMultiple`
-support container-token `dropHeight` values. Grommet `Cards` supports a
-spacing-token `pad` prop. Grommet `Distribution` supports spacing-token `gap`
-and `margin` props. Grommet `PageHeader` and `Video` support spacing-token
-`margin` props. Grommet `Nav`, `Sidebar`, `Spinner`, `Tag`, and `Toolbar`
+Grommet `Cards`, `Select`, and `SelectMultiple` support spacing-token `margin`
+props. Grommet `Select` and `SelectMultiple` support container-token
+`dropHeight` values. Grommet `Cards` supports a spacing-token `pad` prop.
+Grommet `Distribution` supports spacing-token `gap` and `margin` props.
+Grommet `Video` supports a spacing-token `margin` prop. Grommet `Accordion`,
+`Nav`, `PageHeader`, `Pagination`, `Sidebar`, `Spinner`, `Tag`, and `Toolbar`
 support the same layout token props as `Box`, including spacing, dimensions,
 radius, borders, and semantic backgrounds.
+
+Grommet `Data`, `Stepper`, and `ToggleGroup`, plus `WizardContent`,
+`WizardFooter`, `WizardHeader`, `WizardProgress`, and `WizardStepHeader`, also
+support the same layout token props as `Box`.
+
+Grommet `CheckBoxGroup` and `RadioButtonGroup` support the same layout token
+props as `Box`. Grommet `Avatar` supports semantic `background`, object-form
+`background.color`, object-form border color and size, `borderWidth`, spacing,
+and radius props; its `height` and `width` props are intentionally not
+supported. Grommet `DataView` supports a spacing-token `margin` prop.
+Grommet `DataTableGroupBy` supports spacing-token `margin` and container-token
+`dropHeight` props.
+Grommet `TableCell` supports semantic `background`, object-form border color
+and size, and spacing-token `pad` props.
 
 The extension first loads `hpe-design-tokens` IDE manifests from the open
 workspace. It checks the installed package and the HPE monorepo package location,

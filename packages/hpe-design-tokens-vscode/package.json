@@ -2,7 +2,7 @@
   "name": "hpe-design-token-resolver",
   "displayName": "HPE Design Token Resolver",
   "description": "Shows resolved HPE design token values when hovering supported Grommet t-shirt sizes and HPE CSS variables.",
-  "version": "0.6.23",
+  "version": "0.6.33",
   "publisher": "hpe-design",
   "type": "commonjs",
   "license": "Apache-2.0",

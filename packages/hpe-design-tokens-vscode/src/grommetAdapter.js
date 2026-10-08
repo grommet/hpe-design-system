@@ -1,22 +1,36 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 const layoutComponents = new Set([
+  'Accordion',
   'Box',
   'Card',
   'CardBody',
   'CardFooter',
   'CardHeader',
+  'CheckBoxGroup',
+  'Data',
+  'Drop',
   'Footer',
   'Grid',
   'Header',
   'Main',
   'Page',
   'PageContent',
+  'PageHeader',
+  'Pagination',
+  'RadioButtonGroup',
   'Nav',
   'Sidebar',
   'Spinner',
+  'Stepper',
   'Tag',
   'Toolbar',
+  'ToggleGroup',
+  'WizardContent',
+  'WizardFooter',
+  'WizardHeader',
+  'WizardProgress',
+  'WizardStepHeader',
 ]);
 
 const layoutPropResolvers = {
@@ -50,8 +64,21 @@ const layoutPropResolvers = {
 };
 
 const componentPropResolvers = {
-  Accordion: {
-    margin: { prefix: 'hpe.spacing.' },
+  Avatar: {
+    background: layoutPropResolvers.background,
+    'background.color': layoutPropResolvers['background.color'],
+    'border.color': layoutPropResolvers['border.color'],
+    'border.size': layoutPropResolvers['border.size'],
+    borderWidth: layoutPropResolvers.borderWidth,
+    gap: layoutPropResolvers.gap,
+    margin: layoutPropResolvers.margin,
+    pad: layoutPropResolvers.pad,
+    round: layoutPropResolvers.round,
+  },
+  Box: {
+    hoverIndicator: layoutPropResolvers.background,
+    'hoverIndicator.background': layoutPropResolvers.background,
+    'hoverIndicator.color': layoutPropResolvers['background.color'],
   },
   Anchor: {
     color: {
@@ -69,6 +96,9 @@ const componentPropResolvers = {
       toTokenValue: value => value.replace(/-/g, '.'),
     },
     gap: { prefix: 'hpe.spacing.' },
+    hoverIndicator: layoutPropResolvers.background,
+    'hoverIndicator.background': layoutPropResolvers.background,
+    'hoverIndicator.color': layoutPropResolvers['background.color'],
     margin: { prefix: 'hpe.spacing.' },
     pad: { prefix: 'hpe.spacing.' },
   },
@@ -102,17 +132,27 @@ const componentPropResolvers = {
   DataChart: {
     pad: { prefix: 'hpe.spacing.' },
   },
-  DataTable: {
+  DataTableGroupBy: {
+    dropHeight: { prefix: 'hpe.container.' },
     margin: { prefix: 'hpe.spacing.' },
   },
-  Drop: {
-    background: {
+  DataTable: {
+    background: layoutPropResolvers.background,
+    'background.color': layoutPropResolvers['background.color'],
+    'border.color': layoutPropResolvers['border.color'],
+    'border.size': layoutPropResolvers['border.size'],
+    margin: { prefix: 'hpe.spacing.' },
+    pad: layoutPropResolvers.pad,
+  },
+  DataView: {
+    margin: { prefix: 'hpe.spacing.' },
+  },
+  Diagram: {
+    'connections.color': {
       fromTokenValue: value => value.replace(/\./g, '-'),
       prefix: 'hpe.color.',
       toTokenValue: value => value.replace(/-/g, '.'),
     },
-    margin: { prefix: 'hpe.spacing.' },
-    round: { prefix: 'hpe.radius.' },
   },
   DropButton: {
     margin: { prefix: 'hpe.spacing.' },
@@ -123,6 +163,11 @@ const componentPropResolvers = {
   },
   FormField: {
     margin: { prefix: 'hpe.spacing.' },
+  },
+  Grid: {
+    columns: { prefix: 'hpe.container.' },
+    'columns.size': { prefix: 'hpe.container.' },
+    rows: { prefix: 'hpe.container.' },
   },
   Grommet: {
     background: {
@@ -153,12 +198,6 @@ const componentPropResolvers = {
     },
     margin: { prefix: 'hpe.spacing.' },
     size: { prefix: 'hpe.text.', suffix: '.fontSize' },
-  },
-  PageHeader: {
-    margin: { prefix: 'hpe.spacing.' },
-  },
-  Pagination: {
-    margin: { prefix: 'hpe.spacing.' },
   },
   Icon: {
     color: {
@@ -252,11 +291,24 @@ const componentPropResolvers = {
     'width.max': { prefix: 'hpe.container.' },
     'width.min': { prefix: 'hpe.container.' },
   },
+  Spinner: {
+    color: {
+      fromTokenValue: value => value.replace(/\./g, '-'),
+      prefix: 'hpe.color.',
+      toTokenValue: value => value.replace(/-/g, '.'),
+    },
+  },
   Stack: {
     margin: { prefix: 'hpe.spacing.' },
   },
   Table: {
     margin: { prefix: 'hpe.spacing.' },
+  },
+  TableCell: {
+    background: layoutPropResolvers.background,
+    'border.color': layoutPropResolvers['border.color'],
+    'border.size': layoutPropResolvers['border.size'],
+    pad: layoutPropResolvers.pad,
   },
   Tabs: {
     margin: { prefix: 'hpe.spacing.' },

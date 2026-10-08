@@ -22,29 +22,55 @@ const parentJsxAttribute = node => {
 const attributeName = node =>
   typescript.isIdentifier(node.name) ? node.name.text : undefined;
 
-const componentNameForAttribute = attribute => {
+const componentNameForAttribute = (attribute, tokenComponents) => {
   const attributes = attribute.parent;
   const openingElement = attributes?.parent;
   const tagName = openingElement?.tagName;
 
-  return typescript.isIdentifier(tagName) ? tagName.text : undefined;
+  if (typescript.isIdentifier(tagName)) {
+    return tokenComponents.named.get(tagName.text);
+  }
+
+  if (
+    !typescript.isPropertyAccessExpression(tagName) ||
+    !typescript.isIdentifier(tagName.expression) ||
+    !typescript.isIdentifier(tagName.name)
+  ) {
+    return undefined;
+  }
+
+  const moduleName = tokenComponents.namespaces.get(tagName.expression.text);
+  if (moduleName === 'grommet') return tagName.name.text;
+  if (moduleName === '@hpe-design/icons-grommet') return 'Icon';
+
+  return undefined;
 };
 
-const objectPropertyName = node => {
+const objectPropertyName = (node, attribute) => {
   const property = node.parent;
   if (
     !typescript.isPropertyAssignment(property) ||
     property.initializer !== node ||
-    !typescript.isIdentifier(property.name)
+    !typescript.isIdentifier(property.name) ||
+    !typescript.isObjectLiteralExpression(property.parent) ||
+    !typescript.isJsxExpression(attribute.initializer)
   ) {
     return undefined;
   }
+
+  const { expression } = attribute.initializer;
+  const isDirectObject = expression === property.parent;
+  const isDirectArrayItem =
+    typescript.isArrayLiteralExpression(expression) &&
+    expression.elements.includes(property.parent);
+  if (!isDirectObject && !isDirectArrayItem) return undefined;
 
   return property.name.text;
 };
 
 const tokenComponentNames = sourceFile => {
-  const names = new Map();
+  const named = new Map();
+  const namespaces = new Map();
 
   sourceFile.statements.forEach(statement => {
     if (
@@ -56,33 +82,54 @@ const tokenComponentNames = sourceFile => {
       return;
     }
 
-    statement.importClause?.namedBindings?.elements?.forEach(element => {
-      names.set(
-        element.name.text,
-        statement.moduleSpecifier.text === '@hpe-design/icons-grommet'
-          ? 'Icon'
-          : element.propertyName?.text || element.name.text,
-      );
-    });
+    const { namedBindings } = statement.importClause || {};
+    if (typescript.isNamedImports(namedBindings)) {
+      namedBindings.elements.forEach(element => {
+        named.set(
+          element.name.text,
+          statement.moduleSpecifier.text === '@hpe-design/icons-grommet'
+            ? 'Icon'
+            : element.propertyName?.text || element.name.text,
+        );
+      });
+    }
+
+    if (typescript.isNamespaceImport(namedBindings)) {
+      namespaces.set(namedBindings.name.text, statement.moduleSpecifier.text);
+    }
   });
 
-  return names;
+  return { named, namespaces };
 };
 
 const jsxValueContext = (node, sourceFile, tokenComponents) => {
   const attribute = parentJsxAttribute(node);
   if (!attribute) return undefined;
 
-  const localComponentName = componentNameForAttribute(attribute);
+  const componentName = componentNameForAttribute(attribute, tokenComponents);
   const attributePropName = attributeName(attribute);
-  const nestedPropertyName = objectPropertyName(node);
+  const nestedPropertyName = objectPropertyName(node, attribute);
+  const supportsNestedProperty = [
+    'background',
+    'border',
+    'columns',
+    'connections',
+    'dropBackground',
+    'height',
+    'hoverIndicator',
+    'width',
+  ].includes(attributePropName);
+  if (
+    supportsNestedProperty &&
+    typescript.isPropertyAssignment(node.parent) &&
+    !nestedPropertyName
+  ) {
+    return undefined;
+  }
   const propName =
-    ['background', 'border', 'dropBackground', 'height', 'width'].includes(
-      attributePropName,
-    ) && nestedPropertyName
+    supportsNestedProperty && nestedPropertyName
       ? `${attributePropName}.${nestedPropertyName}`
       : attributePropName;
-  const componentName = tokenComponents.get(localComponentName);
   if (!componentName || !propName) return undefined;
 
   return {

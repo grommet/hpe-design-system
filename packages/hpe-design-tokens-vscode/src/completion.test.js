@@ -229,11 +229,220 @@ test('offers values for newly supported Box-derived component props', () => {
   });
 });
 
-test('offers semantic colors for Chart, Drop, and Meter', () => {
+test('offers full layout values for Accordion and Pagination', () => {
+  [
+    ['Accordion', 'pad', ['medium', 'none', 'small']],
+    ['Pagination', 'round', ['medium']],
+  ].forEach(([componentName, propName, expectedValues]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="" />`,
+    ].join('\n');
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(`${propName}="`) + `${propName}="`.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
+test('offers full layout values for PageHeader', () => {
+  [
+    [
+      'background',
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['gap', ['medium', 'none', 'small']],
+  ].forEach(([propName, expectedValues]) => {
+    const text = [
+      "import { PageHeader } from 'grommet';",
+      `<PageHeader ${propName}="" title="Title" />`,
+    ].join('\n');
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(`${propName}="`) + `${propName}="`.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
+test('offers semantic colors for Diagram connections', () => {
+  const text = `import { Diagram } from 'grommet';
+<Diagram connections={[{ color: '' }]} />`;
+  const result = completionsAtOffset(
+    text,
+    text.indexOf("color: '") + "color: '".length,
+    'javascript',
+    tokenIndex,
+  );
+
+  assert.deepEqual(
+    result.values.map(item => item.value),
+    [
+      'background-front',
+      'border-weak',
+      'decorative-blue',
+      'foreground-critical',
+      'icon-strong',
+      'text-strong',
+    ],
+  );
+});
+
+test('offers expanded Drop, Avatar, and DataTableGroupBy values', () => {
+  [
+    ['Avatar', 'gap', ['medium', 'none', 'small']],
+    ['Avatar', 'borderWidth', ['medium']],
+    ['DataTableGroupBy', 'dropHeight', ['medium']],
+    ['Drop', 'pad', ['medium', 'none', 'small']],
+    ['Drop', 'width', ['medium']],
+  ].forEach(([componentName, propName, expectedValues]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="" />`,
+    ].join('\n');
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(`${propName}="`) + `${propName}="`.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
+test('offers values for Data, Stepper, ToggleGroup, and Wizard parts', () => {
+  [
+    ['Data', 'margin', ['medium', 'none', 'small']],
+    ['Stepper', 'gap', ['medium', 'none', 'small']],
+    ['ToggleGroup', 'round', ['medium']],
+    ['WizardContent', 'width', ['medium']],
+    ['WizardFooter', 'pad', ['medium', 'none', 'small']],
+    [
+      'WizardHeader',
+      'background',
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['WizardProgress', 'round', ['medium']],
+    ['WizardStepHeader', 'gap', ['medium', 'none', 'small']],
+  ].forEach(([componentName, propName, expectedValues]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="" />`,
+    ].join('\n');
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(`${propName}="`) + `${propName}="`.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
+test('offers values for selection, data, and table components', () => {
+  [
+    [
+      'Avatar',
+      'background',
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['CheckBoxGroup', 'gap', ['medium', 'none', 'small']],
+    [
+      'DataTable',
+      'background',
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['DataTable', 'pad', ['medium', 'none', 'small']],
+    ['DataTableGroupBy', 'margin', ['medium', 'none', 'small']],
+    ['DataView', 'margin', ['medium', 'none', 'small']],
+    ['RadioButtonGroup', 'round', ['medium']],
+    [
+      'TableCell',
+      'background',
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['TableCell', 'pad', ['medium', 'none', 'small']],
+  ].forEach(([componentName, propName, expectedValues]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${propName}="" />`,
+    ].join('\n');
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(`${propName}="`) + `${propName}="`.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
+test('offers semantic colors for Chart, Drop, Meter, and Spinner', () => {
   [
     ['Chart', 'color'],
     ['Drop', 'background'],
     ['Meter', 'background'],
+    ['Spinner', 'color'],
   ].forEach(([componentName, propName]) => {
     const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${propName}="" />`;
     const result = completionsAtOffset(
@@ -257,6 +466,38 @@ test('offers semantic colors for Chart, Drop, and Meter', () => {
   });
 });
 
+test('offers object-form DataTable background and border values', () => {
+  [
+    [
+      "background={{ color: '' }}",
+      "color: '",
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ["border={{ color: '' }}", "color: '", ['border-weak']],
+    ["border={{ size: '' }}", "size: '", ['medium']],
+  ].forEach(([prop, cursor, expectedValues]) => {
+    const text = `import { DataTable } from 'grommet';\n<DataTable ${prop} />`;
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(cursor) + cursor.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
 test('offers semantic backgrounds for Grommet, Layer, List, and Menu', () => {
   [
     ['Grommet', 'background=""', 'background="'],
@@ -267,7 +508,10 @@ test('offers semantic backgrounds for Grommet, Layer, List, and Menu', () => {
     ['Menu', 'dropBackground=""', 'dropBackground="'],
     ['Menu', "dropBackground={{ color: '' }}", "color: '"],
   ].forEach(([componentName, prop, cursor]) => {
-    const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${prop} />`;
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${prop} />`,
+    ].join('\n');
     const result = completionsAtOffset(
       text,
       text.indexOf(cursor) + cursor.length,
@@ -324,9 +568,10 @@ test('offers spacing values for FormField, Menu, and DropButton margins', () => 
   });
 });
 
-test('offers semantic colors for direct color component props', () => {
+test('offers semantic colors for direct component props', () => {
   [
     ['Button', 'color'],
+    ['Button', 'hoverIndicator'],
     ['Meter', 'color'],
     ['RangeInput', 'color'],
     ['RangeSelector', 'color'],
@@ -337,6 +582,37 @@ test('offers semantic colors for direct color component props', () => {
     const result = completionsAtOffset(
       text,
       text.indexOf(`${propName}="`) + `${propName}="`.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    );
+  });
+});
+
+test('offers semantic colors for direct hover-indicator object values', () => {
+  [
+    ['Box', "hoverIndicator={{ color: '' }}", "color: '"],
+    ['Box', "hoverIndicator={{ background: '' }}", "background: '"],
+    ['Button', "hoverIndicator={{ color: '' }}", "color: '"],
+  ].forEach(([componentName, prop, cursor]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${prop} />`,
+    ].join('\n');
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(cursor) + cursor.length,
       'javascript',
       tokenIndex,
     );
@@ -383,6 +659,29 @@ test('offers container values for Skeleton and TextInput dimensions', () => {
     );
   });
 });
+
+test(
+  'offers container values for direct and responsive Grid dimensions',
+  () => {
+  [
+    ['columns=""', 'columns="'],
+    ['rows=""', 'rows="'],
+    ["columns={{ count: 'fit', size: '' }}", "size: '"],
+  ].forEach(([prop, cursor]) => {
+    const text = `import { Grid } from 'grommet';\n<Grid ${prop} />`;
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(cursor) + cursor.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      ['medium'],
+    );
+  },
+);
 
 test('offers spacing values for Text margin', () => {
   const text = 'import { Text } from \'grommet\';\n<Text margin="" />';
