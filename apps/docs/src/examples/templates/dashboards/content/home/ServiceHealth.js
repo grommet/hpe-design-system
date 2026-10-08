@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { Box, Meter, Text } from 'grommet';
+import { Box, Heading, Meter, Text } from 'grommet';
 import {
   ShieldCheck,
   StatusCritical,
@@ -9,13 +9,8 @@ import {
   StatusWarning,
 } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
-import {
-  DashboardCardHeader,
-  MetricGroup,
-  MetricTile,
-  MetricValue,
-} from '../../components';
-import { capacity, serviceHealthSummary, systemHealth } from './data';
+import { MetricGroup, MetricTile, MetricValue } from '../../components';
+import { capacity, systemHealth } from './data';
 
 // Quantitative fills, such as Meter values, take foreground-* tokens; the
 // matching status icon lets the legend convey status without relying on
@@ -60,11 +55,9 @@ const capacityLabel = `${capacityUsed}% of ${capacity.total} ${
 
 export const ServiceHealth = () => (
   <Box as="section" gap="small">
-    <DashboardCardHeader
-      title="Service health"
-      level={2}
-      subtitle={<Text size="small">{serviceHealthSummary}</Text>}
-    />
+    <Heading level={2} margin="none">
+      Service health
+    </Heading>
     <MetricGroup>
       <MetricTile
         title="Availability"

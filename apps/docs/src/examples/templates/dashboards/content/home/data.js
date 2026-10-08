@@ -8,8 +8,6 @@ export const pageBackground = '#ffffff';
 export const surfaceBackground = '#f7f7f7';
 
 // Service health
-export const serviceHealthSummary = '128 systems · 4 regions · 1,842 volumes';
-
 export const systemHealth = {
   total: 128,
   healthy: 116,
