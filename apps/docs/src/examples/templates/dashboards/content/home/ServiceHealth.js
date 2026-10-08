@@ -56,7 +56,7 @@ const capacityLabel = `${capacityUsed}% of ${capacity.total} ${
 export const ServiceHealth = () => (
   <Box as="section" gap="small">
     <Heading level={2} margin="none">
-      Service health
+      Health overview
     </Heading>
     <MetricGroup>
       <MetricTile
