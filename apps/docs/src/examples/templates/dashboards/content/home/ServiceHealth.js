@@ -15,12 +15,7 @@ import {
   MetricTile,
   MetricValue,
 } from '../../components';
-import {
-  capacity,
-  serviceHealthSummary,
-  systemHealth,
-  uptimeDays,
-} from './data';
+import { capacity, serviceHealthSummary, systemHealth } from './data';
 
 // Quantitative fills, such as Meter values, take foreground-* tokens; the
 // matching status icon lets the legend convey status without relying on
@@ -51,19 +46,11 @@ const describe = counts =>
     .map(({ label, value }) => `${value} ${label.toLowerCase()}`)
     .join(', ');
 
-const uptimeCounts = ['ok', 'warning', 'critical'].map(status => ({
-  label: status === 'ok' ? 'OK' : status,
-  value: uptimeDays.filter(day => day === status).length,
-}));
-
 const capacityUsed = Math.round((capacity.used / capacity.total) * 100);
 const capacityDescription =
   `${capacity.used} of ${capacity.total} ${capacity.unit} used, ` +
   'on track to reach 90% capacity within 9 months.';
 
-const uptimeLabel = `Daily status for the last ${
-  uptimeDays.length
-} days: ${describe(uptimeCounts)}`;
 const systemHealthLabel = `${systemHealth.total} systems: ${describe(
   systemHealth.values,
 )}`;
@@ -80,22 +67,14 @@ export const ServiceHealth = () => (
     />
     <MetricGroup>
       <MetricTile
-        title="Uptime"
-        description="2 incidents, 9 min downtime in 28 days. Target is 99.9%."
+        title="Availability"
+        description="2 incidents, 9 min downtime in 28 days."
       >
         <MetricValue value="99.98" unit="%" trend="0.03%" />
-        <Meter
-          role="img"
-          aria-label={uptimeLabel}
-          type="bar"
-          thickness="3xsmall"
-          size="full"
-          max={uptimeDays.length}
-          values={uptimeDays.map(status => ({
-            value: 1,
-            color: STATUS[status].fill,
-          }))}
-        />
+        <Box direction="row" align="center" gap="3xsmall">
+          <StatusGood color="icon-ok" aria-hidden />
+          <Text>Above 99.9% target</Text>
+        </Box>
       </MetricTile>
       <MetricTile
         title="System health"

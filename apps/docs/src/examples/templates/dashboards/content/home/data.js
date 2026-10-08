@@ -10,13 +10,6 @@ export const surfaceBackground = '#f7f7f7';
 // Service health
 export const serviceHealthSummary = '128 systems · 4 regions · 1,842 volumes';
 
-// Daily status for the last 28 days, oldest first.
-export const uptimeDays = Array.from({ length: 28 }, (_, day) => {
-  if (day === 7) return 'warning';
-  if (day === 24 || day === 25) return 'critical';
-  return 'ok';
-});
-
 export const systemHealth = {
   total: 128,
   healthy: 116,
