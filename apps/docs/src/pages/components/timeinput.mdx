@@ -1,0 +1,134 @@
+import { Checkmark } from '@hpe-design/icons-grommet';
+import {
+	BestPracticeGroup,
+	Example,
+} from '../../layouts';
+import {
+	TimeInputBadTimeFormatPreview,
+	TimeInputBadTimeOnlyPreview,
+	TimeInputConstrainingSelectionToBusinessHoursExample,
+	TimeInputDefiningMaintenanceWindowBoundariesExample,
+	TimeInputGoodTimeFormatPreview,
+	TimeInputGoodTimeOnlyPreview,
+	TimeInputPlaygroundExample,
+	TimeInputSettingReportDeliveryTimesExample,
+} from '../../examples';
+
+<Example componentName="TimeInput">
+	<TimeInputPlaygroundExample />
+</Example>
+
+## Use cases
+
+### Defining maintenance window boundaries
+
+Use TimeInput in an operations configuration form when a team defines the start and end of a same-day maintenance window. Place the fields alongside the affected service, change ticket, and notification scope, and collect values such as 02:15 and 03:45 with hours and minutes only. After the policy is saved, update the planned window summary with the selected boundaries.
+
+<Example height={{ min: 'medium' }}>
+	<TimeInputDefiningMaintenanceWindowBoundariesExample />
+</Example>
+
+### Setting report delivery times
+
+Use TimeInput in report scheduling settings when a user chooses when a recurring report should be sent each day. Place it in a configuration form with recipients, frequency, and delivery channel, and use quarter-hour choices such as 8:00 AM, 8:15 AM, and 8:30 AM. After the schedule is saved, show the selected value in the next-run summary without requiring a date or seconds.
+
+<Example height={{ min: 'medium' }}>
+	<TimeInputSettingReportDeliveryTimesExample />
+</Example>
+
+### Constraining selection to business hours
+
+Use TimeInput in customer-facing booking workflows when valid appointment times must stay within operating hours. Configure the workflow around bounds such as 08:00 AM through 06:00 PM and use 15-minute or 30-minute intervals to keep the available choices manageable. Keep off-hours values out of the available choices or reject them before submission so the booking cannot contain an invalid time.
+
+<Example height={{ min: 'medium' }}>
+	<TimeInputConstrainingSelectionToBusinessHoursExample />
+</Example>
+
+## Anatomy
+
+{/* TODO: Add anatomy diagram image */}
+
+| Label | Region | Purpose | Required | Notes |
+| --- | --- | --- | --- | --- |
+| Time input field | Input | Displays and accepts the time value. | <span><Checkmark a11yTitle="true" size="small" /></span> |  |
+| Time sections | Input | Represents the editable sections of the time value, such as hours, minutes, and optionally seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> |  |
+| Meridiem section | Input | Represents the ante meridiem or post meridiem value when a 12-hour format is used. | Optional |  |
+
+## Dos and Don'ts
+
+<BestPracticeGroup>
+	<Example
+		bestPractice={{
+			type: 'do',
+			message:
+				'Use one consistent time convention throughout a workflow so users can compare and enter values without translating between formats.',
+		}}
+	>
+		<TimeInputGoodTimeFormatPreview />
+	</Example>
+	<Example
+		bestPractice={{
+			type: 'dont',
+			message:
+				'Mixing 12-hour and 24-hour conventions in one workflow makes time values harder to compare and interpret.',
+		}}
+	>
+		<TimeInputBadTimeFormatPreview />
+	</Example>
+</BestPracticeGroup>
+
+<BestPracticeGroup>
+	<Example
+		bestPractice={{
+			type: 'do',
+			message:
+				'Use TimeInput when the value contains only a time, such as a report delivery time or appointment time.',
+		}}
+	>
+		<TimeInputGoodTimeOnlyPreview />
+	</Example>
+	<Example
+		bestPractice={{
+			type: 'dont',
+			message:
+				'Do not use TimeInput when the value includes a date or a date-and-time combination; use the appropriate date component instead.',
+		}}
+	>
+		<TimeInputBadTimeOnlyPreview />
+	</Example>
+</BestPracticeGroup>
+
+## Behaviors and States
+
+### Interactive states
+
+- TimeInput presents editable sections for hours and minutes, with seconds available when `showSeconds` is enabled or when the 12-hour format resolves seconds by default.
+- Focus moves between the active time sections as the value is edited, and the time popup provides an alternative way to choose a value.
+- The `format` prop controls whether the input uses a 12-hour or 24-hour arrangement. A 12-hour arrangement includes a meridiem section.
+- The `minuteStep` prop controls the interval used for minute selection. The component normalizes the configured step before applying it.
+
+### Application states
+
+- Set `disabled` when the time cannot be entered or changed. The input and its selection interactions do not accept edits while disabled.
+- Set `readOnly` when the value should remain visible and focusable without allowing edits.
+- Use `defaultValue` for an uncontrolled initial value and `value` with `onChange` for a controlled value.
+- Invalid time input clears the committed value and announces an invalid-time message assertively.
+
+### General behaviors
+
+- When `format` is not provided, the component selects the 12-hour or 24-hour convention from the browser's default locale.
+- When `minuteStep` is not provided, the component uses a one-minute interval.
+- When `showSeconds` is not provided, the component includes seconds for the 12-hour format and omits them for the 24-hour format.
+
+## Content Guidelines
+
+- When customizing `messages`, preserve clear labels for the input, active section, hours, minutes, seconds, and meridiem values.
+- Provide an `invalidTime` message that explains that the entered time is invalid.
+- Provide a `currentValue` message that identifies the committed hour, minute, second, and meridiem values when those sections are complete.
+
+## Accessibility
+
+- Support focus movement between the time sections so keyboard and assistive technology users can identify and edit each portion of the value.
+- The component announces the current completed value politely after a valid value is committed.
+- The component announces invalid time input assertively so the correction is brought to the user's attention.
+- Use `messages` to provide localized labels and announcements for the input, active section, section values, and time-selection controls.

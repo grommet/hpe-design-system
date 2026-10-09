@@ -47,6 +47,7 @@ export * from './tabs';
 export * from './tag';
 export * from './textarea';
 export * from './textinput';
+export * from './timeinput';
 export * from './tip';
 export * from './togglegroup';
 export * from './sidebar';
