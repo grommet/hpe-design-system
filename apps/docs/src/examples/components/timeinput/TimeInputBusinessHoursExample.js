@@ -30,6 +30,9 @@ const validateBusinessHours = time => {
   if (minutes < BUSINESS_START || minutes > BUSINESS_END) {
     return 'Choose a time between 8:00 AM and 6:00 PM.';
   }
+  if (minute % 30 !== 0) {
+    return 'Choose a time in 30-minute intervals.';
+  }
   return undefined;
 };
 
