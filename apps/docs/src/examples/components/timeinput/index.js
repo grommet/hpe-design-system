@@ -2,6 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 export * from './DosDonts';
 export * from './TimeInputConstrainingSelectionToBusinessHoursExample';
-export * from './TimeInputDefiningMaintenanceWindowBoundariesExample';
+export * from './TimeInputMaintenanceWindowExample';
 export * from './TimeInputPlaygroundExample';
 export * from './TimeInputSettingReportDeliveryTimesExample';
