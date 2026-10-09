@@ -55,7 +55,7 @@ const shell = {
   },
 };
 
-export const HomeDashboard = () => {
+export const OverviewDashboard = () => {
   const size = useContext(ResponsiveContext);
   const [user, setUser] = useState(defaultUser);
   const contextValue = useMemo(() => ({ user, setUser }), [user]);
