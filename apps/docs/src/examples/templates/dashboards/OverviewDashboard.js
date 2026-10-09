@@ -27,7 +27,7 @@ import {
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
 import { DiscoverServices, ServiceHealth, WeekAtAGlance } from './content';
-import { pageBackground, surfaceBackground } from './content/home/data';
+import { pageBackground, surfaceBackground } from './content/overview/data';
 
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },

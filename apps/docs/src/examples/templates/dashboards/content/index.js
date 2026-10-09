@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 export * from './chartCards';
-export * from './home';
+export * from './overview';
 export * from './FirmwareBaselines';
 export * from './FirmwareStatus';
 export * from './RecentActivity';
