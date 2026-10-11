@@ -78,7 +78,7 @@ The orchestrator detects the current pipeline stage, confirms before making any 
 - [ ] tabs
 - [ ] tag
 - [ ] textarea
-- [ ] textinput
+- [x] textinput
 - [ ] tip
 - [ ] togglegroup
 - [ ] toolbar
