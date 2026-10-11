@@ -52,4 +52,5 @@ export * from './togglegroup';
 export * from './sidebar';
 export * from './spinner';
 export * from './video';
+export * from './wizard';
 export * from './worldmap';
