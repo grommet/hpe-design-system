@@ -1465,6 +1465,25 @@ export const components = [
     ],
   },
   {
+    name: 'Stepper',
+    available: true,
+    category: 'Controls',
+    description:
+      'Stepper communicates progress through ordered workflow stages, including current, completed, pending, error, and nested steps.',
+    seoDescription:
+      'Stepper communicates progress through ordered workflow stages, including current, completed, pending, error, and nested steps.',
+    preview: {
+      image: {
+        src: {
+          light: '/componentImages/component-preview-stepper.svg',
+          dark: '/componentImages/component-preview-stepper-invert.svg',
+        },
+        alt: 'HPE Design System Stepper',
+        fit: 'contain',
+      },
+    },
+  },
+  {
     name: 'Pagination',
     accessibility: 'Passed WCAG 2.2 AA',
     available: true,
