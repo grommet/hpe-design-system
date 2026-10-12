@@ -78,7 +78,7 @@ export const TimeInputMock = () => {
         width="small"
         border
         round={timeTheme.container?.round || 'small'}
-        pad={{ horizontal: 'xsmall', vertical: '5px' }}
+        pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
         responsive={false}
       >
         <Box direction="row" align="center" gap="xsmall">
