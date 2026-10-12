@@ -9,6 +9,7 @@ export const TimeInputExample = () => {
       <TimeInput
         id="timeinput"
         name="timeinput"
+        defaultValue="10:30:00" // remove seconds for latest Grommet version
         format="24"
         showSeconds={false} // to be removed once latest grommet is updated
       />
