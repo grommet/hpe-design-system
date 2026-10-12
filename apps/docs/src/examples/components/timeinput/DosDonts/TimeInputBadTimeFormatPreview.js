@@ -14,6 +14,7 @@ export const TimeInputBadTimeFormatPreview = () => (
         <TimeInput
           id="bad-start-time"
           name="bad-start-time"
+          defaultValue="08:00:00" // remove seconds for latest Grommet version
           format="12"
           showSeconds={false} // remove after update to latest Grommet version
         />
@@ -22,6 +23,7 @@ export const TimeInputBadTimeFormatPreview = () => (
         <TimeInput
           id="bad-end-time"
           name="bad-end-time"
+          defaultValue="17:00:00" // remove seconds for latest Grommet version
           format="24"
           showSeconds={false} // remove after update to latest Grommet version
         />

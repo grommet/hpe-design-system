@@ -13,6 +13,7 @@ export const TimeInputGoodTimeOnlyPreview = () => (
       <TimeInput
         id="good-time-only"
         name="good-time-only"
+        defaultValue="08:15:00" // remove seconds for latest Grommet version
         format="12"
         showSeconds={false} // remove after update to latest Grommet version
         minuteStep={15}
