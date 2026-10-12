@@ -13,9 +13,8 @@ export const TimeInputGoodTimeOnlyPreview = () => (
       <TimeInput
         id="good-time-only"
         name="good-time-only"
-        value="08:15"
         format="12"
-        showSeconds={false}
+        showSeconds={false} // remove after update to latest Grommet version
         minuteStep={15}
       />
     </FormField>

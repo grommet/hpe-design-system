@@ -14,22 +14,16 @@ export const TimeInputBadTimeFormatPreview = () => (
         <TimeInput
           id="bad-start-time"
           name="bad-start-time"
-          value="08:00"
           format="12"
-          showSeconds={false}
+          showSeconds={false} // remove after update to latest Grommet version
         />
       </FormField>
-      <FormField
-        label="End time"
-        htmlFor="bad-end-time"
-        name="bad-end-time"
-      >
+      <FormField label="End time" htmlFor="bad-end-time" name="bad-end-time">
         <TimeInput
           id="bad-end-time"
           name="bad-end-time"
-          value="17:00"
           format="24"
-          showSeconds={false}
+          showSeconds={false} // remove after update to latest Grommet version
         />
       </FormField>
     </Form>
