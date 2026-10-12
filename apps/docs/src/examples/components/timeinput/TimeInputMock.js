@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text, ThemeContext } from 'grommet';
 import { normalizeColor } from 'grommet/utils';
-import { Clock } from 'grommet-icons';
+import { Clock } from '@hpe-design/icons-grommet';
 
 const getColumns = ({ background, color }) => [
   {
