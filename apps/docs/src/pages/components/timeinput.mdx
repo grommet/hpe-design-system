@@ -19,7 +19,7 @@ import {
 
 ### Defining maintenance window boundaries
 
-Use TimeInput in an operations configuration form when a team defines the start and end of a same-day maintenance window. Place the fields alongside the affected service, change ticket, and notification scope, and collect values such as 02:15 and 03:45 with hours and minutes only. After the policy is saved, update the planned window summary with the selected boundaries.
+Use TimeInput when a user defines the start and end of a same-day window, such as a maintenance window from 02:15 to 03:45. Collect hours and minutes only; a date or seconds would add unnecessary precision.
 
 <Example
   docs="https://v2.grommet.io/timeinput?theme=hpe#props"
@@ -31,7 +31,7 @@ Use TimeInput in an operations configuration form when a team defines the start 
 
 ### Setting report delivery times
 
-Use TimeInput in report scheduling settings when a user chooses when a recurring report should be sent each day. Place it in a configuration form with recipients, frequency, and delivery channel, and use quarter-hour choices such as 8:00 AM, 8:15 AM, and 8:30 AM. After the schedule is saved, show the selected value in the next-run summary without requiring a date or seconds.
+Use TimeInput when a user chooses the time of day a recurring action should run, such as when a daily report is sent. A quarter-hour minuteStep keeps the choices manageable, for example 8:00 AM, 8:15 AM, and 8:30 AM.
 
 <Example height={{ min: 'medium' }}>
   <TimeInputSettingReportDeliveryTimesExample />
@@ -39,7 +39,7 @@ Use TimeInput in report scheduling settings when a user chooses when a recurring
 
 ### Constraining selection to business hours
 
-Use TimeInput in customer-facing booking workflows when valid appointment times must stay within operating hours. Configure the workflow around bounds such as 08:00 AM through 06:00 PM and use 15-minute or 30-minute intervals to keep the available choices manageable. Keep off-hours values out of the available choices or reject them before submission so the booking cannot contain an invalid time.
+Use TimeInput when valid times must fall within a fixed range, such as booking an appointment between 8:00 AM and 6:00 PM and use 15-minute or 30-minute intervals to keep the available choices manageable. Validate out-of-range values before submission so the user cannot proceed with an invalid time.
 
 <Example height={{ min: 'medium' }}>
   <TimeInputConstrainingSelectionToBusinessHoursExample />
@@ -49,11 +49,11 @@ Use TimeInput in customer-facing booking workflows when valid appointment times 
 
 {/* TODO: Add anatomy diagram image */}
 
-| Label            | Region | Purpose                                                                                             | Required                                                 | Notes |
-| ---------------- | ------ | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----- |
-| Time input field | Input  | Displays and accepts the time value.                                                                | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
-| Time sections    | Input  | Represents the editable sections of the time value, such as hours, minutes, and optionally seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
-| Meridiem section | Input  | Represents the ante meridiem or post meridiem value when a 12-hour format is used.                  | Optional                                                 |       |
+| Label                    | Region | Purpose                                                                                             | Required                                                 | Notes |
+| ------------------------ | ------ | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----- |
+| Time input field         | Input  | Displays and accepts the time value.                                                                | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
+| Time sections            | Input  | Represents the editable sections of the time value, such as hours, minutes, and optionally seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
+| Meridiem (AM/PM) section | Input  | Represents the ante meridiem (AM) or post meridiem (PM) value when a 12-hour format is used.        | Optional                                                 |       |
 
 ## Dos and Don'ts
 
@@ -123,7 +123,7 @@ Use TimeInput in customer-facing booking workflows when valid appointment times 
 
 ## Content Guidelines
 
-- When customizing `messages`, preserve clear labels for the input, active section, hours, minutes, seconds, and meridiem values.
+- When customizing `messages`, preserve clear labels for the input, active section, hours, minutes, seconds, and meridiem (AM/PM) values.
 - Provide an `invalidTime` message that explains that the entered time is invalid.
 - Provide a `currentValue` message that identifies the committed hour, minute, second, and meridiem values when those sections are complete.
 
