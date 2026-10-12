@@ -41,10 +41,7 @@ apply):
    boundary, and (if interactive) owns its own hover, focus, and selected states.
 2. **If interactive, does it have a single primary action?** Clicking the body of
    the element produces one default outcome. It may contain smaller nested
-   elements offering secondary actions; those are elements in their own right,
-   sized down. If there is no primary outcome, only a set of peer
-   actions, it is compositional. Use
-   [semantic layout tokens](/design-tokens/layout-and-spacing) instead.
+   elements offering secondary actions, tbut these are treated as elements in their own right.
 3. **Does it need to share a minimum height with other elements?** This is the
    purpose of element tokens: cross-component proportional consistency. An
    element may grow taller than that minimum (see
