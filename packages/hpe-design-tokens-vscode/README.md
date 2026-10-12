@@ -35,7 +35,8 @@ Grommet `Grid` supports container-token `rows` and `columns`, including the
 
 Grommet `DataTable` also supports direct and object-form semantic `background`,
 object-form border color and size, and spacing-token `pad` props. Grommet
-`Spinner` supports semantic `color`.
+`Spinner` supports semantic `color`. Grommet `DataChart` supports static
+object-form semantic `chart.color` values.
 
 Grommet `Chart`, `Diagram` connection colors, and `Meter` support semantic
 `color`. Grommet `Drop` supports the same layout token props as `Box`, including
@@ -43,7 +44,9 @@ spacing, dimensions, radius, borders, and semantic backgrounds. Grommet
 `Skeleton` supports container-token
 `height` and `width`, including `min` and `max` object values. Grommet
 `TextInput` supports container-token `width`, including `min` and `max` object
-values. Grommet `Carousel` supports container-token `height` and `width`,
+values, plus text-token `size`. Grommet `TextArea`, `Select`,
+`SelectMultiple`, `Menu`, and `Tag` also support text-token `size`. Grommet
+`Carousel` supports container-token `height` and `width`,
 including `min` and `max` object values. Grommet `Button`, `Meter`, `RangeInput`, `RangeSelector`, and
 `WorldMap` support semantic `color`; `WorldMap` also supports semantic
 `hoverColor`. Grommet and `Layer` support direct and object-form semantic
@@ -58,7 +61,9 @@ Grommet `Distribution` supports spacing-token `gap` and `margin` props.
 Grommet `Video` supports a spacing-token `margin` prop. Grommet `Accordion`,
 `Nav`, `PageHeader`, `Pagination`, `Sidebar`, `Spinner`, `Tag`, and `Toolbar`
 support the same layout token props as `Box`, including spacing, dimensions,
-radius, borders, and semantic backgrounds.
+radius, borders, and semantic backgrounds. All Box-derived layout components
+supported by the extension also support direct semantic `hoverIndicator`, plus
+one-level `hoverIndicator.color` and `hoverIndicator.background` values.
 
 Grommet `Data`, `Stepper`, and `ToggleGroup`, plus `WizardContent`,
 `WizardFooter`, `WizardHeader`, `WizardProgress`, and `WizardStepHeader`, also
@@ -73,6 +78,16 @@ Grommet `DataTableGroupBy` supports spacing-token `margin` and container-token
 `dropHeight` props.
 Grommet `TableCell` supports semantic `background`, object-form border color
 and size, and spacing-token `pad` props.
+Grommet `DateInput` and `MaskedInput` support text-token `size`. DateInput also
+supports direct one-level `inputProps.size` and `inputProps.dropHeight`,
+`buttonProps.color`, `buttonProps.hoverIndicator`, `buttonProps.gap`,
+`buttonProps.margin`, `buttonProps.pad`, and `calendarProps.margin`. DateInput,
+`Select`, and `SelectMultiple` support direct one-level `dropProps` values for
+semantic `background` and `hoverIndicator`, border width, spacing, dimensions,
+and radius tokens. Grommet `List` supports direct one-level `pinned.background`
+and `pinned.color`. Grommet `FormField` supports direct one-level `contentProps` values for semantic
+`background` and `hoverIndicator`, plus border width, spacing, dimensions, and
+radius tokens. Deeper nested `contentProps` values are intentionally unsupported.
 
 The extension first loads `hpe-design-tokens` IDE manifests from the open
 workspace. It checks the installed package and the HPE monorepo package location,

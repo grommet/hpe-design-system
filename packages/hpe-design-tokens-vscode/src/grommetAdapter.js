@@ -44,6 +44,21 @@ const layoutPropResolvers = {
     prefix: 'hpe.color.',
     toTokenValue: value => value.replace(/-/g, '.'),
   },
+  hoverIndicator: {
+    fromTokenValue: value => value.replace(/\./g, '-'),
+    prefix: 'hpe.color.',
+    toTokenValue: value => value.replace(/-/g, '.'),
+  },
+  'hoverIndicator.background': {
+    fromTokenValue: value => value.replace(/\./g, '-'),
+    prefix: 'hpe.color.',
+    toTokenValue: value => value.replace(/-/g, '.'),
+  },
+  'hoverIndicator.color': {
+    fromTokenValue: value => value.replace(/\./g, '-'),
+    prefix: 'hpe.color.',
+    toTokenValue: value => value.replace(/-/g, '.'),
+  },
   'border.color': {
     fromTokenValue: value => `border-${value.replace(/\./g, '-')}`,
     prefix: 'hpe.color.border.',
@@ -62,6 +77,26 @@ const layoutPropResolvers = {
   'width.max': { prefix: 'hpe.container.' },
   'width.min': { prefix: 'hpe.container.' },
 };
+
+const textSizeResolver = { prefix: 'hpe.text.', suffix: '.fontSize' };
+
+const nestedDropPropResolvers = parentProp =>
+  Object.fromEntries(
+    [
+      'background',
+      'borderWidth',
+      'gap',
+      'height',
+      'hoverIndicator',
+      'margin',
+      'pad',
+      'round',
+      'width',
+    ].map(propName => [
+      `${parentProp}.${propName}`,
+      layoutPropResolvers[propName],
+    ]),
+  );
 
 const componentPropResolvers = {
   Avatar: {
@@ -130,7 +165,28 @@ const componentPropResolvers = {
     pad: { prefix: 'hpe.spacing.' },
   },
   DataChart: {
+    'chart.color': {
+      fromTokenValue: value => value.replace(/\./g, '-'),
+      prefix: 'hpe.color.',
+      toTokenValue: value => value.replace(/-/g, '.'),
+    },
     pad: { prefix: 'hpe.spacing.' },
+  },
+  DateInput: {
+    'buttonProps.color': {
+      fromTokenValue: value => value.replace(/\./g, '-'),
+      prefix: 'hpe.color.',
+      toTokenValue: value => value.replace(/-/g, '.'),
+    },
+    'buttonProps.gap': layoutPropResolvers.gap,
+    'buttonProps.hoverIndicator': layoutPropResolvers.background,
+    'buttonProps.margin': layoutPropResolvers.margin,
+    'buttonProps.pad': layoutPropResolvers.pad,
+    'calendarProps.margin': layoutPropResolvers.margin,
+    ...nestedDropPropResolvers('dropProps'),
+    'inputProps.dropHeight': { prefix: 'hpe.container.' },
+    'inputProps.size': textSizeResolver,
+    size: textSizeResolver,
   },
   DataTableGroupBy: {
     dropHeight: { prefix: 'hpe.container.' },
@@ -162,6 +218,15 @@ const componentPropResolvers = {
     margin: { prefix: 'hpe.spacing.' },
   },
   FormField: {
+    'contentProps.background': layoutPropResolvers.background,
+    'contentProps.borderWidth': layoutPropResolvers.borderWidth,
+    'contentProps.gap': layoutPropResolvers.gap,
+    'contentProps.height': layoutPropResolvers.height,
+    'contentProps.hoverIndicator': layoutPropResolvers.hoverIndicator,
+    'contentProps.margin': layoutPropResolvers.margin,
+    'contentProps.pad': layoutPropResolvers.pad,
+    'contentProps.round': layoutPropResolvers.round,
+    'contentProps.width': layoutPropResolvers.width,
     margin: { prefix: 'hpe.spacing.' },
   },
   Grid: {
@@ -218,6 +283,12 @@ const componentPropResolvers = {
     },
     margin: { prefix: 'hpe.spacing.' },
     pad: { prefix: 'hpe.spacing.' },
+    'pinned.background': layoutPropResolvers.background,
+    'pinned.color': {
+      fromTokenValue: value => value.replace(/\./g, '-'),
+      prefix: 'hpe.color.',
+      toTokenValue: value => value.replace(/-/g, '.'),
+    },
   },
   Layer: {
     background: {
@@ -244,6 +315,10 @@ const componentPropResolvers = {
       toTokenValue: value => value.replace(/-/g, '.'),
     },
     margin: { prefix: 'hpe.spacing.' },
+    size: textSizeResolver,
+  },
+  MaskedInput: {
+    size: textSizeResolver,
   },
   Meter: {
     background: {
@@ -273,12 +348,16 @@ const componentPropResolvers = {
     },
   },
   Select: {
+    ...nestedDropPropResolvers('dropProps'),
     dropHeight: { prefix: 'hpe.container.' },
     margin: { prefix: 'hpe.spacing.' },
+    size: textSizeResolver,
   },
   SelectMultiple: {
+    ...nestedDropPropResolvers('dropProps'),
     dropHeight: { prefix: 'hpe.container.' },
     margin: { prefix: 'hpe.spacing.' },
+    size: textSizeResolver,
   },
   Skeleton: {
     height: { prefix: 'hpe.container.' },
@@ -301,6 +380,9 @@ const componentPropResolvers = {
   Stack: {
     margin: { prefix: 'hpe.spacing.' },
   },
+  Tag: {
+    size: textSizeResolver,
+  },
   Table: {
     margin: { prefix: 'hpe.spacing.' },
   },
@@ -314,9 +396,13 @@ const componentPropResolvers = {
     margin: { prefix: 'hpe.spacing.' },
   },
   TextInput: {
+    size: textSizeResolver,
     width: { prefix: 'hpe.container.' },
     'width.max': { prefix: 'hpe.container.' },
     'width.min': { prefix: 'hpe.container.' },
+  },
+  TextArea: {
+    size: textSizeResolver,
   },
   Text: {
     color: {

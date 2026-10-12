@@ -126,6 +126,10 @@ test('maps layout and component props to their token paths', () => {
     tokenNameFor('DataChart', 'pad', 'medium'),
     'hpe.spacing.medium',
   );
+  assert.equal(
+    tokenNameFor('DataChart', 'chart.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
   assert.equal(tokenNameFor('Data', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(
     tokenNameFor('DataTable', 'margin', 'small'),
@@ -159,6 +163,64 @@ test('maps layout and component props to their token paths', () => {
     tokenNameFor('DataView', 'margin', 'small'),
     'hpe.spacing.small',
   );
+  assert.equal(
+    tokenNameFor('DateInput', 'inputProps.size', 'small'),
+    'hpe.text.small.fontSize',
+  );
+  assert.equal(
+    tokenNameFor('DateInput', 'inputProps.dropHeight', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('DateInput', 'buttonProps.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  assert.equal(
+    tokenNameFor('DateInput', 'buttonProps.hoverIndicator', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('DateInput', 'buttonProps.gap', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('DateInput', 'buttonProps.margin', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('DateInput', 'buttonProps.pad', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(
+    tokenNameFor('DateInput', 'calendarProps.margin', 'small'),
+    'hpe.spacing.small',
+  );
+  [
+    [
+      'DateInput',
+      'background',
+      'background-front',
+      'hpe.color.background.front',
+    ],
+    ['Select', 'borderWidth', 'medium', 'hpe.borderWidth.medium'],
+    ['SelectMultiple', 'gap', 'small', 'hpe.spacing.small'],
+    ['DateInput', 'height', 'medium', 'hpe.container.medium'],
+    [
+      'Select',
+      'hoverIndicator',
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+    ],
+    ['SelectMultiple', 'margin', 'small', 'hpe.spacing.small'],
+    ['DateInput', 'pad', 'medium', 'hpe.spacing.medium'],
+    ['Select', 'round', 'medium', 'hpe.radius.medium'],
+    ['SelectMultiple', 'width', 'medium', 'hpe.container.medium'],
+  ].forEach(([componentName, propName, value, tokenName]) => {
+    assert.equal(
+      tokenNameFor(componentName, `dropProps.${propName}`, value),
+      tokenName,
+    );
+  });
   assert.equal(
     tokenNameFor('Diagram', 'connections.color', 'decorative-blue'),
     'hpe.color.decorative.blue',
@@ -206,6 +268,14 @@ test('maps layout and component props to their token paths', () => {
   assert.equal(
     tokenNameFor('List', 'background', 'background-front'),
     'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('List', 'pinned.background', 'background-front'),
+    'hpe.color.background.front',
+  );
+  assert.equal(
+    tokenNameFor('List', 'pinned.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
   );
   assert.equal(
     tokenNameFor('Layer', 'background.color', 'background-front'),
@@ -389,6 +459,73 @@ test('maps layout and component props to their token paths', () => {
     'hpe.color.decorative.blue',
   );
   assert.equal(tokenNameFor('Video', 'margin', 'small'), 'hpe.spacing.small');
+});
+
+test('maps text-bearing component sizes to text font-size tokens', () => {
+  ['Menu', 'Select', 'SelectMultiple', 'Tag', 'TextArea', 'TextInput'].forEach(
+    componentName => {
+      assert.equal(
+        tokenNameFor(componentName, 'size', 'small'),
+        'hpe.text.small.fontSize',
+      );
+    },
+  );
+});
+
+test('maps DateInput and MaskedInput sizes to text font-size tokens', () => {
+  ['DateInput', 'MaskedInput'].forEach(componentName => {
+    assert.equal(
+      tokenNameFor(componentName, 'size', 'small'),
+      'hpe.text.small.fontSize',
+    );
+  });
+});
+
+test('maps direct FormField content props to Box tokens', () => {
+  [
+    [
+      'contentProps.background',
+      'background-front',
+      'hpe.color.background.front',
+    ],
+    ['contentProps.borderWidth', 'medium', 'hpe.borderWidth.medium'],
+    ['contentProps.gap', 'small', 'hpe.spacing.small'],
+    ['contentProps.height', 'medium', 'hpe.container.medium'],
+    [
+      'contentProps.hoverIndicator',
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+    ],
+    ['contentProps.margin', 'small', 'hpe.spacing.small'],
+    ['contentProps.pad', 'medium', 'hpe.spacing.medium'],
+    ['contentProps.round', 'medium', 'hpe.radius.medium'],
+    ['contentProps.width', 'medium', 'hpe.container.medium'],
+  ].forEach(([propName, value, tokenName]) => {
+    assert.equal(tokenNameFor('FormField', propName, value), tokenName);
+  });
+});
+
+test('maps hover indicators for Box-derived layout components', () => {
+  [
+    ['Accordion', 'hoverIndicator', 'decorative-blue'],
+    ['Card', 'hoverIndicator.color', 'decorative-blue'],
+    ['Data', 'hoverIndicator.background', 'background-front'],
+    ['Drop', 'hoverIndicator', 'decorative-blue'],
+    ['Grid', 'hoverIndicator.color', 'decorative-blue'],
+    ['Nav', 'hoverIndicator.background', 'background-front'],
+    ['PageHeader', 'hoverIndicator', 'decorative-blue'],
+    ['Pagination', 'hoverIndicator.color', 'decorative-blue'],
+    ['Sidebar', 'hoverIndicator.background', 'background-front'],
+    ['Toolbar', 'hoverIndicator.color', 'decorative-blue'],
+    ['ToggleGroup', 'hoverIndicator.background', 'background-front'],
+  ].forEach(([componentName, propName, value]) => {
+    assert.equal(
+      tokenNameFor(componentName, propName, value),
+      value === 'background-front'
+        ? 'hpe.color.background.front'
+        : 'hpe.color.decorative.blue',
+    );
+  });
 });
 
 test('translates semantic color token names into Grommet aliases', () => {

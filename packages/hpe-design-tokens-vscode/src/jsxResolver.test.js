@@ -38,6 +38,168 @@ test('resolves a direct JSX sizing prop', () => {
   assert.equal(match.token.value, '24px');
 });
 
+test('resolves text-size props for text-bearing components', () => {
+  ['Menu', 'Select', 'SelectMultiple', 'Tag', 'TextArea', 'TextInput'].forEach(
+    componentName => {
+      const text = `import { ${componentName} } from 'grommet';\n<${componentName} size="small" />`;
+      const match = findJsxTokenAtOffset(
+        text,
+        text.lastIndexOf('small') + 2,
+        'javascript',
+        tokenIndex,
+      );
+
+      assert.equal(match.name, 'hpe.text.small.fontSize');
+      assert.equal(match.token.value, '14px');
+    },
+  );
+});
+
+test('resolves DateInput and MaskedInput sizes', () => {
+  ['DateInput', 'MaskedInput'].forEach(componentName => {
+    const text = `import { ${componentName} } from 'grommet';\n<${componentName} size="small" />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf('small') + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, 'hpe.text.small.fontSize');
+    assert.equal(match.token.value, '14px');
+  });
+});
+
+test('resolves DateInput child-control and List pinned props', () => {
+  [
+    [
+      'DateInput',
+      "inputProps={{ size: 'small' }}",
+      'small',
+      'hpe.text.small.fontSize',
+      '14px',
+    ],
+    [
+      'DateInput',
+      "inputProps={{ dropHeight: 'medium' }}",
+      'medium',
+      'hpe.container.medium',
+      '384px',
+    ],
+    [
+      'DateInput',
+      "buttonProps={{ color: 'decorative-blue' }}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    [
+      'DateInput',
+      "buttonProps={{ hoverIndicator: 'background-front' }}",
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    [
+      'List',
+      "pinned={{ background: 'background-front' }}",
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    [
+      'List',
+      "pinned={{ color: 'decorative-blue' }}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+  ].forEach(([componentName, prop, value, tokenName, tokenValue]) => {
+    const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${prop} />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.indexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('resolves configured DateInput and select drop props', () => {
+  [
+    [
+      'DateInput',
+      "buttonProps={{ gap: 'small' }}",
+      'small',
+      'hpe.spacing.small',
+      '16px',
+    ],
+    [
+      'DateInput',
+      "calendarProps={{ margin: 'small' }}",
+      'small',
+      'hpe.spacing.small',
+      '16px',
+    ],
+    [
+      'DateInput',
+      "dropProps={{ background: 'background-front', height: 'medium' }}",
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    [
+      'Select',
+      "dropProps={{ borderWidth: 'medium', round: 'medium' }}",
+      'medium',
+      'hpe.borderWidth.medium',
+      '4px',
+    ],
+    [
+      'SelectMultiple',
+      "dropProps={{ gap: 'small', width: 'medium' }}",
+      'medium',
+      'hpe.container.medium',
+      '384px',
+    ],
+  ].forEach(([componentName, prop, value, tokenName, tokenValue]) => {
+    const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${prop} />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.indexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('does not resolve deeper DateInput and List child props', () => {
+  [
+    `import { DateInput } from 'grommet';
+<DateInput buttonProps={{ hoverIndicator: { color: 'decorative-blue' } }} />`,
+    `import { List } from 'grommet';
+<List pinned={{ background: { color: 'decorative-blue' } }} />`,
+    `import { Select } from 'grommet';
+  <Select dropProps={{ background: { color: 'decorative-blue' } }} options={[]} />`,
+  ].forEach(text => {
+    assert.equal(
+      findJsxTokenAtOffset(
+        text,
+        text.indexOf('decorative-blue') + 2,
+        'javascript',
+        tokenIndex,
+      ),
+      undefined,
+    );
+  });
+});
+
 test('resolves Button gaps through the spacing scale', () => {
   const text = 'import { Button } from \'grommet\';\n<Button gap="medium" />';
   const match = findJsxTokenAtOffset(
@@ -258,6 +420,35 @@ test('resolves a Diagram connection semantic color', () => {
   assert.equal(match.token.value, '#0070f8');
 });
 
+test('resolves a static DataChart chart color', () => {
+  const text = `import { DataChart } from 'grommet';
+<DataChart chart={{ color: 'decorative-blue', property: 'amount' }} data={[]} />`;
+  const match = findJsxTokenAtOffset(
+    text,
+    text.indexOf('decorative-blue') + 4,
+    'javascript',
+    tokenIndex,
+  );
+
+  assert.equal(match.name, 'hpe.color.decorative.blue');
+  assert.equal(match.token.value, '#0070f8');
+});
+
+test('does not resolve data-driven DataChart chart colors', () => {
+  const text = `import { DataChart } from 'grommet';
+<DataChart chart={{ property: { color: 'decorative-blue', x: 'year', y: 'amount' } }} data={[]} />`;
+
+  assert.equal(
+    findJsxTokenAtOffset(
+      text,
+      text.indexOf('decorative-blue') + 4,
+      'javascript',
+      tokenIndex,
+    ),
+    undefined,
+  );
+});
+
 test('resolves direct hover-indicator background object values', () => {
   [
     [
@@ -295,6 +486,101 @@ test('resolves direct hover-indicator background object values', () => {
 
     assert.equal(match.name, tokenName);
     assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('resolves direct FormField content props', () => {
+  [
+    ['background', 'background-front', 'hpe.color.background.front', '#ffffff'],
+    ['borderWidth', 'medium', 'hpe.borderWidth.medium', '4px'],
+    ['gap', 'small', 'hpe.spacing.small', '16px'],
+    ['height', 'medium', 'hpe.container.medium', '384px'],
+    [
+      'hoverIndicator',
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    ['margin', 'small', 'hpe.spacing.small', '16px'],
+    ['pad', 'medium', 'hpe.spacing.medium', '24px'],
+    ['round', 'medium', 'hpe.radius.medium', '8px'],
+    ['width', 'medium', 'hpe.container.medium', '384px'],
+  ].forEach(([propName, value, tokenName, tokenValue]) => {
+    const text = `import { FormField } from 'grommet';\n<FormField contentProps={{ ${propName}: '${value}' }} />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.lastIndexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('does not resolve nested FormField content props', () => {
+  const text = `import { FormField } from 'grommet';
+<FormField contentProps={{ background: { color: 'decorative-blue' } }} />`;
+
+  assert.equal(
+    findJsxTokenAtOffset(
+      text,
+      text.indexOf('decorative-blue') + 2,
+      'javascript',
+      tokenIndex,
+    ),
+    undefined,
+  );
+});
+
+test('resolves hover indicators for Box-derived layout components', () => {
+  [
+    ['Accordion', 'hoverIndicator="decorative-blue"', 'decorative-blue'],
+    [
+      'Card',
+      "hoverIndicator={{ color: 'decorative-blue' }}",
+      'decorative-blue',
+    ],
+    [
+      'Data',
+      "hoverIndicator={{ background: 'background-front' }}",
+      'background-front',
+    ],
+    ['Drop', 'hoverIndicator="decorative-blue"', 'decorative-blue'],
+    [
+      'Grid',
+      "hoverIndicator={{ color: 'decorative-blue' }}",
+      'decorative-blue',
+    ],
+    [
+      'PageHeader',
+      "hoverIndicator={{ background: 'background-front' }}",
+      'background-front',
+    ],
+    [
+      'Toolbar',
+      "hoverIndicator={{ color: 'decorative-blue' }}",
+      'decorative-blue',
+    ],
+  ].forEach(([componentName, prop, value]) => {
+    const text = [
+      `import { ${componentName} } from 'grommet';`,
+      `<${componentName} ${prop} />`,
+    ].join('\n');
+    const match = findJsxTokenAtOffset(
+      text,
+      text.indexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(
+      match.name,
+      value === 'background-front'
+        ? 'hpe.color.background.front'
+        : 'hpe.color.decorative.blue',
+    );
   });
 });
 

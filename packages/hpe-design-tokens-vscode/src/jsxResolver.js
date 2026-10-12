@@ -112,11 +112,18 @@ const jsxValueContext = (node, sourceFile, tokenComponents) => {
   const supportsNestedProperty = [
     'background',
     'border',
+    'buttonProps',
+    'calendarProps',
+    'chart',
     'columns',
     'connections',
+    'contentProps',
     'dropBackground',
+    'dropProps',
     'height',
     'hoverIndicator',
+    'inputProps',
+    'pinned',
     'width',
   ].includes(attributePropName);
   if (

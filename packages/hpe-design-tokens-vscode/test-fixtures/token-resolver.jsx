@@ -17,6 +17,7 @@ import {
   Carousel,
   Chart,
   DataChart,
+  DateInput,
   DataTable,
   DataTableGroupBy,
   DataView,
@@ -32,6 +33,7 @@ import {
   List,
   Meter,
   Menu,
+  MaskedInput,
   Nav,
   RangeInput,
   RangeSelector,
@@ -52,6 +54,7 @@ import {
   TableRow,
   Tabs,
   Tag,
+  TextArea,
   TextInput,
   Toolbar,
   ToggleGroup,
@@ -94,7 +97,11 @@ export const TokenResolverFixture = () => (
     <Box
       hoverIndicator={{ background: 'background-front', elevation: 'small' }}
     />
-    <Grid columns={{ count: 'fit', size: 'medium' }} rows="medium">
+    <Grid
+      columns={{ count: 'fit', size: 'medium' }}
+      hoverIndicator={{ color: 'decorative-blue' }}
+      rows="medium"
+    >
       <Box />
     </Grid>
     <Paragraph size="small" />
@@ -106,7 +113,7 @@ export const TokenResolverFixture = () => (
     <Heading margin="none">Title</Heading>
     <Paragraph margin="none" />
     <Anchor margin="xxsmall">Learn more</Anchor>
-    <Accordion margin="small" pad="medium" />
+    <Accordion hoverIndicator="decorative-blue" margin="small" pad="medium" />
     <Button
       color="decorative-blue"
       hoverIndicator={{ color: 'background-front' }}
@@ -125,6 +132,7 @@ export const TokenResolverFixture = () => (
       values={chartValues}
     />
     <DataChart
+      chart={{ color: 'decorative-blue', property: 'amount' }}
       data={dataChartData}
       series={[{ property: 'amount' }]}
       pad="medium"
@@ -140,6 +148,30 @@ export const TokenResolverFixture = () => (
       data={[]}
       margin="none"
       pad="medium"
+    />
+    <DateInput
+      buttonProps={{
+        color: 'decorative-blue',
+        gap: 'small',
+        hoverIndicator: 'background-front',
+        margin: 'small',
+        pad: 'medium',
+      }}
+      calendarProps={{ margin: 'small' }}
+      dropProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+      format="mm/dd/yyyy"
+      inputProps={{ dropHeight: 'medium', size: 'small' }}
+      size="medium"
     />
     <Box id="diagram-start" />
     <Box id="diagram-end" />
@@ -162,8 +194,22 @@ export const TokenResolverFixture = () => (
       width="medium"
     />
     <DropButton dropContent={<Box />} margin="5xsmall" />
-    <FormField label="Name" margin="5xsmall">
-      <TextInput />
+    <FormField
+      contentProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+      label="Name"
+      margin="5xsmall"
+    >
+      <TextInput size="medium" />
     </FormField>
     <Image alt="Placeholder" margin="5xsmall" src="/placeholder.png" />
     <List
@@ -171,6 +217,11 @@ export const TokenResolverFixture = () => (
       data={['One', 'Two']}
       margin="none"
       pad="none"
+      pinned={{
+        background: 'background-front',
+        color: 'decorative-blue',
+        items: ['One'],
+      }}
     />
     <Layer background={{ color: 'decorative-blue' }} margin="5xsmall" />
     <Meter
@@ -183,6 +234,11 @@ export const TokenResolverFixture = () => (
       dropBackground={{ color: 'decorative-blue' }}
       items={menuItems}
       margin="5xsmall"
+      size="small"
+    />
+    <MaskedInput
+      mask={[{ placeholder: '0', regexp: /^[0-9]$/ }]}
+      size="small"
     />
     <Nav gap="small">
       <Text>Navigation</Text>
@@ -190,6 +246,7 @@ export const TokenResolverFixture = () => (
     <PageHeader
       background="background-front"
       gap="medium"
+      hoverIndicator={{ background: 'background-front' }}
       margin="medium"
       title="Page title"
     />
@@ -202,8 +259,31 @@ export const TokenResolverFixture = () => (
       values={[25, 75]}
     />
     <RadioButtonGroup name="radio" options={['One']} round="medium" />
-    <Select dropHeight="medium" margin="medium" options={['One']} />
-    <SelectMultiple dropHeight="medium" margin="none" options={['One']} />
+    <Select
+      dropHeight="medium"
+      dropProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+      }}
+      margin="medium"
+      options={['One']}
+      size="medium"
+    />
+    <SelectMultiple
+      dropHeight="medium"
+      dropProps={{
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+      margin="none"
+      options={['One']}
+      size="large"
+    />
     <Skeleton
       height={{ max: 'medium' }}
       margin="5xsmall"
@@ -211,7 +291,7 @@ export const TokenResolverFixture = () => (
       round="medium"
       width="medium"
     />
-    <Sidebar pad="medium" />
+    <Sidebar hoverIndicator={{ color: 'decorative-blue' }} pad="medium" />
     <Spinner color="decorative-blue" margin="none" />
     <Stack margin="none">
       <Skeleton height="small" />
@@ -233,11 +313,20 @@ export const TokenResolverFixture = () => (
     <Tabs margin="medium">
       <Tab title="First">Content</Tab>
     </Tabs>
-    <Tag round="medium" value="Active" />
-    <Toolbar background="background-front">
+    <Tag round="medium" size="small" value="Active" />
+    <TextArea a11yTitle="Notes" size="large" />
+    <TextInput size="medium" />
+    <Toolbar
+      background="background-front"
+      hoverIndicator={{ background: 'background-front' }}
+    >
       <Button label="Action" />
     </Toolbar>
-    <ToggleGroup options={['One']} round="medium" />
+    <ToggleGroup
+      hoverIndicator={{ color: 'decorative-blue' }}
+      options={['One']}
+      round="medium"
+    />
     <Video margin="none" />
     <Wizard steps={wizardSteps}>
       <WizardHeader background="background-front" />
