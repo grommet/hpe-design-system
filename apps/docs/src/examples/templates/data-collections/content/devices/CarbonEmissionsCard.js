@@ -4,18 +4,25 @@ import PropTypes from 'prop-types';
 import { Box, DataChart, Text } from 'grommet';
 import { StatusWarning } from '@hpe-design/icons-grommet';
 import { LegendItem, MetricValue, SummaryCard } from '../../components';
-import { carbon, energy, formatNumber, surfaceBackground } from './data';
+import { carbon, formatNumber, surfaceBackground } from './data';
 
-const current = { label: 'Last 7 days', color: 'dataVis-categorical-10' };
-const prior = { label: 'Prior 7 days', color: 'dataVis-categorical-20' };
-const line = { type: 'line', thickness: '5xsmall', round: true };
+const emissions = { label: 'Emissions', color: 'dataVis-categorical-10' };
+const target = { label: 'Daily target', color: 'foreground-warning' };
+const tonnes = value => `${formatNumber(value, 1)} t`;
 
+const daysOverTarget = carbon.days.filter(
+  ({ current }) => current > carbon.dailyTarget,
+).length;
+const count =
+  daysOverTarget === carbon.days.length
+    ? `All ${daysOverTarget}`
+    : daysOverTarget;
+const plural = daysOverTarget === 1 ? 'day' : 'days';
+const summary =
+  `${count} ${plural} above the ${tonnes(carbon.dailyTarget)} ` +
+  'daily target.';
 const chartTitle =
-  'Daily carbon emissions for the last 7 days compared with the prior 7 days';
-const method =
-  `${formatNumber(energy.total, 1)} MWh × ${carbon.intensity} kgCO₂e/kWh ` +
-  '(EPA eGRID, WECC). Daily values in tCO₂e. Target set in Sustainability ' +
-  'settings.';
+  'Daily carbon emissions for the last 7 days against the daily target';
 
 export const CarbonEmissionsCard = ({ detailed }) => (
   <SummaryCard
@@ -30,12 +37,24 @@ export const CarbonEmissionsCard = ({ detailed }) => (
           data={carbon.days}
           series={[
             { property: 'day' },
-            { property: 'current', label: current.label, suffix: ' t' },
-            { property: 'prior', label: prior.label, suffix: ' t' },
+            { property: 'current', label: emissions.label, suffix: ' t' },
+            { property: 'target', label: target.label, suffix: ' t' },
           ]}
           chart={[
-            { property: 'prior', color: prior.color, dash: true, ...line },
-            { property: 'current', color: current.color, ...line },
+            {
+              property: 'current',
+              type: 'bar',
+              thickness: 'xsmall',
+              color: emissions.color,
+            },
+            // Drawn after the bars so the target reads over each day.
+            {
+              property: 'target',
+              type: 'line',
+              thickness: '5xsmall',
+              dash: true,
+              color: target.color,
+            },
           ]}
           axis={{
             x: { property: 'day', granularity: 'medium' },
@@ -44,13 +63,14 @@ export const CarbonEmissionsCard = ({ detailed }) => (
           guide={{ y: { granularity: 'medium' } }}
           size={{ width: 'fill', height: 'xsmall' }}
         />
-        <Box direction="row" gap="small" wrap>
-          <LegendItem color={current.color} label={current.label} />
-          <LegendItem color={prior.color} label={prior.label} dash />
-        </Box>
+        <LegendItem
+          color={target.color}
+          label={`${target.label} ${tonnes(carbon.dailyTarget)}`}
+          dash
+        />
+        <Text>{summary}</Text>
       </Box>
     }
-    footer={method}
   >
     <Box gap="xxsmall">
       <MetricValue
