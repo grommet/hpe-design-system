@@ -18,7 +18,7 @@ export const MetricTile = ({
       <Heading level={level} margin="none">
         {title}
       </Heading>
-      <Box gap="xxsmall">
+      <Box gap="xsmall">
         {children}
         {description && <Text>{description}</Text>}
       </Box>

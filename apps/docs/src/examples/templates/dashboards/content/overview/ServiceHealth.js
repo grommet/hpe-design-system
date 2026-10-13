@@ -80,28 +80,30 @@ export const ServiceHealth = () => (
           unit={`of ${systemHealth.total}`}
           trend="3%"
         />
-        <Meter
-          role="img"
-          aria-label={systemHealthLabel}
-          type="bar"
-          thickness="3xsmall"
-          size="full"
-          round
-          max={systemHealth.total}
-          values={systemHealth.values.map(({ status, value }) => ({
-            value,
-            color: STATUS[status].fill,
-          }))}
-        />
-        <Box direction="row" gap="small" wrap aria-hidden>
-          {systemHealth.values.map(({ label, status, value }) => (
-            <Box key={status} direction="row" align="center" gap="3xsmall">
-              {STATUS[status].icon}
-              <Text size="small">
-                {value} {label}
-              </Text>
-            </Box>
-          ))}
+        <Box gap="xxsmall">
+          <Meter
+            role="img"
+            aria-label={systemHealthLabel}
+            type="bar"
+            thickness="3xsmall"
+            size="full"
+            round
+            max={systemHealth.total}
+            values={systemHealth.values.map(({ status, value }) => ({
+              value,
+              color: STATUS[status].fill,
+            }))}
+          />
+          <Box direction="row" gap="small" wrap aria-hidden>
+            {systemHealth.values.map(({ label, status, value }) => (
+              <Box key={status} direction="row" align="center" gap="3xsmall">
+                {STATUS[status].icon}
+                <Text size="small">
+                  {value} {label}
+                </Text>
+              </Box>
+            ))}
+          </Box>
         </Box>
       </MetricTile>
       <MetricTile
