@@ -6,12 +6,17 @@ import {
   Button,
   Form,
   FormField,
+  Header,
+  Heading,
+  NameValueList,
+  NameValuePair,
   ResponsiveContext,
   Select,
   TextInput,
   TimeInput,
 } from 'grommet';
 import { ContentPane } from '../../../layouts/content/ContentPane';
+import { formatTime } from './utils/formatTime';
 
 const defaultFormValues = {
   customer: 'Avery Morgan',
@@ -39,59 +44,97 @@ const validateBusinessHours = time => {
 export const TimeInputBusinessHoursExample = () => {
   const size = useContext(ResponsiveContext);
   const [formValue, setFormValue] = useState(defaultFormValues);
+  const [edit, setEdit] = useState(true);
 
   return (
-    <ContentPane width="medium">
-      <Form value={formValue} onChange={setFormValue} onSubmit={() => {}}>
+    <ContentPane width={edit ? 'medium' : undefined}>
+      {edit ? (
         <Box gap="medium">
-          <>
-            <FormField
-              label="Customer"
-              name="customer"
-              htmlFor="booking-customer"
-            >
-              <TextInput id="booking-customer" name="customer" />
-            </FormField>
-            <FormField label="Service" name="service" htmlFor="booking-service">
-              <Select
-                id="booking-service"
-                name="service"
-                options={[
-                  'Platform consultation',
-                  'Architecture review',
-                  'Support session',
-                ]}
+          <Header direction="column" align="start" gap="5xsmall">
+            <Heading level={2} margin="none">
+              Business Hours
+            </Heading>
+          </Header>
+          <Form
+            value={formValue}
+            onChange={setFormValue}
+            onSubmit={() => setEdit(false)}
+          >
+            <Box gap="medium">
+              <>
+                <FormField
+                  label="Customer"
+                  name="customer"
+                  htmlFor="booking-customer"
+                >
+                  <TextInput id="booking-customer" name="customer" />
+                </FormField>
+                <FormField
+                  label="Service"
+                  name="service"
+                  htmlFor="booking-service"
+                >
+                  <Select
+                    id="booking-service"
+                    name="service"
+                    options={[
+                      'Platform consultation',
+                      'Architecture review',
+                      'Support session',
+                    ]}
+                  />
+                </FormField>
+                <FormField
+                  label="Appointment time"
+                  htmlFor="business-hours"
+                  name="business-hours"
+                  info={
+                    'Available Monday to Friday, 8:00 AM to 6:00 PM ' +
+                    'in 30-minute intervals.'
+                  }
+                  validate={validateBusinessHours}
+                >
+                  <TimeInput
+                    id="business-hours"
+                    name="business-hours"
+                    format="12"
+                    showSeconds={false}
+                    minuteStep={30}
+                  />
+                </FormField>
+              </>
+              <Button
+                alignSelf={
+                  !['xsmall', 'small'].includes(size) ? 'start' : undefined
+                }
+                label="Confirm booking"
+                primary
+                type="submit"
               />
-            </FormField>
-            <FormField
-              label="Appointment time"
-              htmlFor="business-hours"
-              name="business-hours"
-              info={
-                'Available Monday to Friday, 8:00 AM to 6:00 PM ' +
-                'in 30-minute intervals.'
-              }
-              validate={validateBusinessHours}
-            >
-              <TimeInput
-                id="business-hours"
-                name="business-hours"
-                format="12"
-                showSeconds={false}
-                minuteStep={30}
-              />
-            </FormField>
-          </>
-          <Button
-            alignSelf={
-              !['xsmall', 'small'].includes(size) ? 'start' : undefined
-            }
-            label="Confirm booking"
-            primary
-            type="submit"
-          />
+            </Box>
+          </Form>
         </Box>
-      </Form>
+      ) : (
+        <Box gap="medium">
+          <Header direction="row" align="center" justify="between">
+            <Heading level={2} margin="none">
+              Schedule report
+            </Heading>
+            <Button label="Edit" onClick={() => setEdit(true)} plain />
+          </Header>
+          <Box>
+            <NameValueList nameProps={{ width: 'xxsmall' }}>
+              <NameValuePair name="Customer">
+                {formValue.customer}
+              </NameValuePair>
+              <NameValuePair name="Service">{formValue.service}</NameValuePair>
+              <NameValuePair name="Business hours">
+                {formatTime(formValue['business-hours'])}
+              </NameValuePair>
+            </NameValueList>
+          </Box>
+        </Box>
+      )}
     </ContentPane>
   );
 };
