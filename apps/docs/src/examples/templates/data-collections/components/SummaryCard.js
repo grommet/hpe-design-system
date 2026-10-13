@@ -46,7 +46,7 @@ export const SummaryCard = ({
       {children}
       {(detail || footer) && (
         <Collapsible open={detailed}>
-          <Box pad={{ top: 'small' }} gap="small">
+          <Box pad={{ top: 'medium' }} gap="medium">
             {detail}
             {footer && <Text>{footer}</Text>}
           </Box>

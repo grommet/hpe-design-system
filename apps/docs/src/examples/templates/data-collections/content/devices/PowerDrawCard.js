@@ -18,7 +18,9 @@ export const PowerDrawCard = ({ detailed }) => (
     detailed={detailed}
     background={surfaceBackground}
     detail={
-      <>
+      // A Box rather than a fragment so the card's gap separates the chart
+      // from the range summary.
+      <Box gap="medium">
         <DataChart
           a11yTitle="Fleet power draw over the last 24 hours"
           data={power.hours}
@@ -69,7 +71,7 @@ export const PowerDrawCard = ({ detailed }) => (
             ))}
           </NameValueList>
         </Box>
-      </>
+      </Box>
     }
     footer={method}
   >
