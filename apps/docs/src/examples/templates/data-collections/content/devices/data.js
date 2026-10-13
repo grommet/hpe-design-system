@@ -149,17 +149,8 @@ export const power = {
   trend: '7% more',
   average: averagePower,
   hours: hourlyPower.map((kw, hour) => ({ hour: formatHour(hour), kw })),
-  range: [
-    {
-      name: 'Minimum',
-      value: `${hourlyPower[minHour]} kW · ${formatHour(minHour)}`,
-    },
-    { name: 'Average', value: `${averagePower} kW` },
-    {
-      name: 'Peak',
-      value: `${hourlyPower[peakHour]} kW · ${formatHour(peakHour)}`,
-    },
-  ],
+  minimum: { kw: hourlyPower[minHour], hour: formatHour(minHour) },
+  peak: { kw: hourlyPower[peakHour], hour: formatHour(peakHour) },
 };
 
 // Energy by location · last 7 days, aggregated from the devices.

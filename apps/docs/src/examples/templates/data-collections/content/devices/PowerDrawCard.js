@@ -1,12 +1,43 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
-import { Box, DataChart, Heading, NameValueList, NameValuePair } from 'grommet';
+import { Box, DataChart, Text } from 'grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { MetricValue, SummaryCard } from '../../components';
 import { power, surfaceBackground } from './data';
 
 const series = 'dataVis-categorical-10';
+
+// A single operating extreme (minimum or peak load) with the hour it
+// occurred, shown as a contrast block beneath the chart.
+const LoadBlock = ({ hour, kw, label }) => (
+  <Box
+    flex
+    pad="small"
+    round="small"
+    background="background-contrast"
+    gap="xsmall"
+  >
+    <Text size="small" color="text-weak">
+      {label}
+    </Text>
+    <Box gap="6xsmall">
+      <TextEmphasis size="large">
+        {kw} {power.unit}
+      </TextEmphasis>
+      <Text size="xsmall" color="text-weak">
+        at {hour}
+      </Text>
+    </Box>
+  </Box>
+);
+
+LoadBlock.propTypes = {
+  hour: PropTypes.string.isRequired,
+  kw: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
 export const PowerDrawCard = ({ detailed }) => (
   <SummaryCard
     title="Power draw"
@@ -14,8 +45,6 @@ export const PowerDrawCard = ({ detailed }) => (
     detailed={detailed}
     background={surfaceBackground}
     detail={
-      // A Box rather than a fragment so the card's gap separates the chart
-      // from the range summary.
       <Box gap="medium">
         <DataChart
           a11yTitle="Fleet power draw over the last 24 hours"
@@ -47,25 +76,9 @@ export const PowerDrawCard = ({ detailed }) => (
           guide={{ y: { granularity: 'medium' } }}
           size={{ width: 'fill', height: 'xsmall' }}
         />
-        <Box gap="xxsmall">
-          <Heading level={3} margin="none">
-            Range over 24 hours
-          </Heading>
-          <NameValueList
-            layout="grid"
-            // Content-sized tracks so each value stays on one line, with
-            // any spare width shared between the pairs.
-            columns={power.range.map(() => 'auto')}
-            gap="small"
-            pairProps={{ direction: 'column' }}
-            nameProps={{ size: 'small' }}
-          >
-            {power.range.map(({ name, value }) => (
-              <NameValuePair key={name} name={name}>
-                <TextEmphasis size="small">{value}</TextEmphasis>
-              </NameValuePair>
-            ))}
-          </NameValueList>
+        <Box direction="row" gap="small">
+          <LoadBlock label="Minimum load" {...power.minimum} />
+          <LoadBlock label="Peak load" {...power.peak} />
         </Box>
       </Box>
     }
