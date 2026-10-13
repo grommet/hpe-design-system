@@ -15,9 +15,6 @@ const bars = [
   { ...energy.other, color: 'decorative-neutral' },
 ];
 const max = Math.max(...bars.map(({ kwh }) => kwh));
-const summary =
-  `Top 5 of ${energy.siteCount} sites use ${energy.topShare}% ` +
-  'of the total';
 
 export const EnergyByLocationCard = ({ detailed }) => (
   <SummaryCard
@@ -49,7 +46,6 @@ export const EnergyByLocationCard = ({ detailed }) => (
         ))}
       </Box>
     }
-    footer={summary}
   >
     <MetricValue
       value={formatNumber(energy.total, 1)}

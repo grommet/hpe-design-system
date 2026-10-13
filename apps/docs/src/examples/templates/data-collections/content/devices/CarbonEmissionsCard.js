@@ -10,17 +10,6 @@ const emissions = { label: 'Emissions', color: 'dataVis-categorical-10' };
 const target = { label: 'Daily target', color: 'foreground-warning' };
 const tonnes = value => `${formatNumber(value, 1)} t`;
 
-const daysOverTarget = carbon.days.filter(
-  ({ current }) => current > carbon.dailyTarget,
-).length;
-const count =
-  daysOverTarget === carbon.days.length
-    ? `All ${daysOverTarget}`
-    : daysOverTarget;
-const plural = daysOverTarget === 1 ? 'day' : 'days';
-const summary =
-  `${count} ${plural} above the ${tonnes(carbon.dailyTarget)} ` +
-  'daily target.';
 const chartTitle =
   'Daily carbon emissions for the last 7 days against the daily target';
 
@@ -68,7 +57,6 @@ export const CarbonEmissionsCard = ({ detailed }) => (
           label={`${target.label} ${tonnes(carbon.dailyTarget)}`}
           dash
         />
-        <Text>{summary}</Text>
       </Box>
     }
   >

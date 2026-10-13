@@ -12,14 +12,13 @@ import {
 } from 'grommet';
 
 // A summary metric that can expand to show its supporting chart and detail.
-// The headline value in `children` is always visible; `subtitle`, `detail`,
-// and `footer` are wrapped in Collapsible so that toggling `detailed` on the
-// page animates every card open or closed together.
+// The headline value in `children` is always visible; `subtitle` and `detail`
+// are wrapped in Collapsible so that toggling `detailed` on the page animates
+// every card open or closed together.
 export const SummaryCard = ({
   children,
   detail,
   detailed = false,
-  footer,
   level = 2,
   subtitle,
   title,
@@ -44,12 +43,9 @@ export const SummaryCard = ({
     </CardHeader>
     <CardBody>
       {children}
-      {(detail || footer) && (
+      {detail && (
         <Collapsible open={detailed}>
-          <Box pad={{ top: 'medium' }} gap="medium">
-            {detail}
-            {footer && <Text>{footer}</Text>}
-          </Box>
+          <Box pad={{ top: 'medium' }}>{detail}</Box>
         </Collapsible>
       )}
     </CardBody>
@@ -60,7 +56,6 @@ SummaryCard.propTypes = {
   children: PropTypes.node,
   detail: PropTypes.node,
   detailed: PropTypes.bool,
-  footer: PropTypes.node,
   level: PropTypes.number,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired,

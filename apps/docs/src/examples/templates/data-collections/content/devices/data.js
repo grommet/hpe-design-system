@@ -181,7 +181,6 @@ export const energy = {
   trend: '5% higher',
   total: weeklyEnergyTotal / 1000,
   siteCount: rankedSites.length,
-  topShare: Math.round((topSitesTotal / weeklyEnergyTotal) * 100),
   sites: topSites.map(([name, kwh], index) => ({
     name,
     kwh,

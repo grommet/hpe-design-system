@@ -7,10 +7,6 @@ import { MetricValue, SummaryCard } from '../../components';
 import { power, surfaceBackground } from './data';
 
 const series = 'dataVis-categorical-10';
-const method =
-  'Power is metered at the PDU where available; otherwise estimated from ' +
-  'iLO telemetry.';
-
 export const PowerDrawCard = ({ detailed }) => (
   <SummaryCard
     title="Power draw"
@@ -73,7 +69,6 @@ export const PowerDrawCard = ({ detailed }) => (
         </Box>
       </Box>
     }
-    footer={method}
   >
     <MetricValue value={power.average} unit={power.unit} trend={power.trend} />
   </SummaryCard>
