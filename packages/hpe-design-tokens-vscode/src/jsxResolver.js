@@ -111,11 +111,13 @@ const jsxValueContext = (node, sourceFile, tokenComponents) => {
   const nestedPropertyName = objectPropertyName(node, attribute);
   const supportsNestedProperty = [
     'background',
+    'badge',
     'border',
     'buttonProps',
     'calendarProps',
     'chart',
     'columns',
+    'continents',
     'connections',
     'contentProps',
     'dropBackground',
@@ -123,7 +125,11 @@ const jsxValueContext = (node, sourceFile, tokenComponents) => {
     'height',
     'hoverIndicator',
     'inputProps',
+    'offset',
     'pinned',
+    'places',
+    'size',
+    'values',
     'width',
   ].includes(attributePropName);
   if (

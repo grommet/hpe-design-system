@@ -79,8 +79,16 @@ test('maps layout and component props to their token paths', () => {
     tokenNameFor('Button', 'hoverIndicator.color', 'decorative-blue'),
     'hpe.color.decorative.blue',
   );
+  assert.equal(
+    tokenNameFor('Button', 'badge.background', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
   assert.equal(tokenNameFor('Button', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(tokenNameFor('Button', 'pad', 'medium'), 'hpe.spacing.medium');
+  assert.equal(
+    tokenNameFor('Button', 'size', 'small'),
+    'hpe.text.small.fontSize',
+  );
   assert.equal(
     tokenNameFor('Calendar', 'margin', 'small'),
     'hpe.spacing.small',
@@ -113,6 +121,24 @@ test('maps layout and component props to their token paths', () => {
   );
   assert.equal(tokenNameFor('Chart', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(tokenNameFor('Chart', 'pad', 'medium'), 'hpe.spacing.medium');
+  assert.equal(tokenNameFor('Chart', 'gap', 'small'), 'hpe.spacing.small');
+  assert.equal(tokenNameFor('Chart', 'size', 'medium'), 'hpe.container.medium');
+  assert.equal(
+    tokenNameFor('Chart', 'size.height', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('Chart', 'size.width', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('Chart', 'thickness', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(
+    tokenNameFor('Chart', 'values.thickness', 'medium'),
+    'hpe.spacing.medium',
+  );
   assert.equal(
     tokenNameFor('Chart', 'color', 'decorative-blue'),
     'hpe.color.decorative.blue',
@@ -129,6 +155,27 @@ test('maps layout and component props to their token paths', () => {
   assert.equal(
     tokenNameFor('DataChart', 'chart.color', 'decorative-blue'),
     'hpe.color.decorative.blue',
+  );
+  assert.equal(
+    tokenNameFor('DataChart', 'chart.thickness', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(tokenNameFor('DataChart', 'gap', 'small'), 'hpe.spacing.small');
+  assert.equal(
+    tokenNameFor('DataChart', 'offset.gap', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('DataChart', 'size', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('DataChart', 'size.height', 'medium'),
+    'hpe.container.medium',
+  );
+  assert.equal(
+    tokenNameFor('DataChart', 'size.width', 'medium'),
+    'hpe.container.medium',
   );
   assert.equal(tokenNameFor('Data', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(
@@ -192,6 +239,10 @@ test('maps layout and component props to their token paths', () => {
     'hpe.spacing.medium',
   );
   assert.equal(
+    tokenNameFor('DateInput', 'buttonProps.size', 'small'),
+    'hpe.text.small.fontSize',
+  );
+  assert.equal(
     tokenNameFor('DateInput', 'calendarProps.margin', 'small'),
     'hpe.spacing.small',
   );
@@ -221,10 +272,108 @@ test('maps layout and component props to their token paths', () => {
       tokenName,
     );
   });
+  [
+    ['DropButton', 'color', 'decorative-blue', 'hpe.color.decorative.blue'],
+    ['Menu', 'gap', 'small', 'hpe.spacing.small'],
+    [
+      'DropButton',
+      'hoverIndicator',
+      'background-front',
+      'hpe.color.background.front',
+    ],
+    ['Menu', 'margin', 'small', 'hpe.spacing.small'],
+    ['DropButton', 'pad', 'medium', 'hpe.spacing.medium'],
+    ['DropButton', 'size', 'small', 'hpe.text.small.fontSize'],
+  ].forEach(([componentName, propName, value, tokenName]) => {
+    assert.equal(tokenNameFor(componentName, propName, value), tokenName);
+  });
+  [
+    [
+      'DropButton',
+      'background',
+      'background-front',
+      'hpe.color.background.front',
+    ],
+    ['Menu', 'borderWidth', 'medium', 'hpe.borderWidth.medium'],
+    ['MaskedInput', 'gap', 'small', 'hpe.spacing.small'],
+    ['TextInput', 'height', 'medium', 'hpe.container.medium'],
+    [
+      'DropButton',
+      'hoverIndicator',
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+    ],
+    ['Menu', 'margin', 'small', 'hpe.spacing.small'],
+    ['MaskedInput', 'pad', 'medium', 'hpe.spacing.medium'],
+    ['TextInput', 'round', 'medium', 'hpe.radius.medium'],
+    ['DropButton', 'width', 'medium', 'hpe.container.medium'],
+  ].forEach(([componentName, propName, value, tokenName]) => {
+    assert.equal(
+      tokenNameFor(componentName, `dropProps.${propName}`, value),
+      tokenName,
+    );
+  });
   assert.equal(
     tokenNameFor('Diagram', 'connections.color', 'decorative-blue'),
     'hpe.color.decorative.blue',
   );
+  assert.equal(
+    tokenNameFor('Diagram', 'connections.offset', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('Diagram', 'connections.thickness', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(
+    tokenNameFor('Chart', 'values.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  assert.equal(tokenNameFor('Meter', 'size', 'medium'), 'hpe.container.medium');
+  assert.equal(
+    tokenNameFor('Meter', 'thickness', 'medium'),
+    'hpe.spacing.medium',
+  );
+  assert.equal(
+    tokenNameFor('Pagination', 'size', 'small'),
+    'hpe.text.small.fontSize',
+  );
+  assert.equal(
+    tokenNameFor('RangeSelector', 'round', 'medium'),
+    'hpe.radius.medium',
+  );
+  assert.equal(
+    tokenNameFor('RangeSelector', 'size', 'small'),
+    'hpe.spacing.small',
+  );
+  assert.equal(
+    tokenNameFor('Meter', 'values.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  assert.equal(
+    tokenNameFor('WorldMap', 'continents.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  assert.equal(
+    tokenNameFor('WorldMap', 'places.color', 'decorative-blue'),
+    'hpe.color.decorative.blue',
+  );
+  [
+    ['background', 'background-front', 'hpe.color.background.front'],
+    ['borderWidth', 'medium', 'hpe.borderWidth.medium'],
+    ['gap', 'small', 'hpe.spacing.small'],
+    ['height', 'medium', 'hpe.container.medium'],
+    ['hoverIndicator', 'decorative-blue', 'hpe.color.decorative.blue'],
+    ['margin', 'small', 'hpe.spacing.small'],
+    ['pad', 'medium', 'hpe.spacing.medium'],
+    ['round', 'medium', 'hpe.radius.medium'],
+    ['width', 'medium', 'hpe.container.medium'],
+  ].forEach(([propName, value, tokenName]) => {
+    assert.equal(
+      tokenNameFor('Tip', `dropProps.${propName}`, value),
+      tokenName,
+    );
+  });
   assert.equal(tokenNameFor('Drop', 'margin', 'small'), 'hpe.spacing.small');
   assert.equal(tokenNameFor('Drop', 'round', 'medium'), 'hpe.radius.medium');
   assert.equal(tokenNameFor('Drop', 'pad', 'medium'), 'hpe.spacing.medium');

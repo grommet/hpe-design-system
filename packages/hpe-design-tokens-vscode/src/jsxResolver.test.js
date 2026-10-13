@@ -179,6 +179,223 @@ test('resolves configured DateInput and select drop props', () => {
   });
 });
 
+test('resolves menu and input control button and drop props', () => {
+  [
+    [
+      'DropButton',
+      'color="decorative-blue"',
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    ['Menu', 'gap="small"', 'small', 'hpe.spacing.small', '16px'],
+    [
+      'DropButton',
+      "dropProps={{ background: 'background-front' }}",
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    [
+      'Menu',
+      "dropProps={{ borderWidth: 'medium' }}",
+      'medium',
+      'hpe.borderWidth.medium',
+      '4px',
+    ],
+    [
+      'MaskedInput',
+      "dropProps={{ pad: 'small' }}",
+      'small',
+      'hpe.spacing.small',
+      '16px',
+    ],
+    [
+      'TextInput',
+      "dropProps={{ width: 'medium' }}",
+      'medium',
+      'hpe.container.medium',
+      '384px',
+    ],
+  ].forEach(([componentName, prop, value, tokenName, tokenValue]) => {
+    const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${prop} />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.indexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
+test('resolves visual collection colors and geometry', () => {
+  [
+    [
+      'Button',
+      'size="small"',
+      'small',
+      'hpe.text.small.fontSize',
+      '14px',
+    ],
+    [
+      'Button',
+      "badge={{ background: 'decorative-blue', value: 1 }}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    [
+      'DateInput',
+      "buttonProps={{ size: 'small' }}",
+      'small',
+      'hpe.text.small.fontSize',
+      '14px',
+    ],
+    [
+      'DropButton',
+      'dropContent={<div />} size="small"',
+      'small',
+      'hpe.text.small.fontSize',
+      '14px',
+    ],
+    [
+      'Pagination',
+      'numberItems={10} size="small"',
+      'small',
+      'hpe.text.small.fontSize',
+      '14px',
+    ],
+    [
+      'RangeSelector',
+      'round="medium"',
+      'medium',
+      'hpe.radius.medium',
+      '8px',
+    ],
+    [
+      'RangeSelector',
+      'size="small"',
+      'small',
+      'hpe.spacing.small',
+      '16px',
+    ],
+    [
+      'Chart',
+      "size={{ width: 'medium', height: 'medium' }} values={[]}",
+      'medium',
+      'hpe.container.medium',
+      '384px',
+    ],
+    [
+      'Chart',
+      'thickness="medium" values={[]}',
+      'medium',
+      'hpe.spacing.medium',
+      '24px',
+    ],
+    [
+      'Chart',
+      "values={[{ color: 'decorative-blue', value: [10, 20] }]}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    [
+      'Chart',
+      "values={[{ thickness: 'medium', value: [10, 20] }]}",
+      'medium',
+      'hpe.spacing.medium',
+      '24px',
+    ],
+    [
+      'DataChart',
+      "chart={{ thickness: 'medium', property: 'amount' }} data={[]}",
+      'medium',
+      'hpe.spacing.medium',
+      '24px',
+    ],
+    [
+      'DataChart',
+      "offset={{ gap: 'small' }} data={[]}",
+      'small',
+      'hpe.spacing.small',
+      '16px',
+    ],
+    [
+      'DataChart',
+      "size={{ width: 'medium' }} data={[]}",
+      'medium',
+      'hpe.container.medium',
+      '384px',
+    ],
+    [
+      'Meter',
+      "values={[{ color: 'decorative-blue', value: 50 }]}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    ['Meter', 'size="medium"', 'medium', 'hpe.container.medium', '384px'],
+    ['Meter', 'thickness="medium"', 'medium', 'hpe.spacing.medium', '24px'],
+    [
+      'WorldMap',
+      "continents={[{ color: 'decorative-blue', name: 'Africa' }]}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    [
+      'WorldMap',
+      "places={[{ color: 'decorative-blue', location: [0, 0] }]}",
+      'decorative-blue',
+      'hpe.color.decorative.blue',
+      '#0070f8',
+    ],
+    [
+      'Tip',
+      "dropProps={{ background: 'background-front' }}",
+      'background-front',
+      'hpe.color.background.front',
+      '#ffffff',
+    ],
+    [
+      'Diagram',
+      "connections={[{ offset: 'small', fromTarget: 'start', toTarget: 'end' }]}",
+      'small',
+      'hpe.spacing.small',
+      '16px',
+    ],
+    [
+      'Diagram',
+      "connections={[{ thickness: 'medium', fromTarget: 'start', toTarget: 'end' }]}",
+      'medium',
+      'hpe.spacing.medium',
+      '24px',
+    ],
+    [
+      'Tip',
+      "dropProps={{ width: 'medium' }}",
+      'medium',
+      'hpe.container.medium',
+      '384px',
+    ],
+  ].forEach(([componentName, prop, value, tokenName, tokenValue]) => {
+    const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${prop} />`;
+    const match = findJsxTokenAtOffset(
+      text,
+      text.indexOf(value) + 2,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.equal(match.name, tokenName);
+    assert.equal(match.token.value, tokenValue);
+  });
+});
+
 test('does not resolve deeper DateInput and List child props', () => {
   [
     `import { DateInput } from 'grommet';
@@ -187,6 +404,8 @@ test('does not resolve deeper DateInput and List child props', () => {
 <List pinned={{ background: { color: 'decorative-blue' } }} />`,
     `import { Select } from 'grommet';
   <Select dropProps={{ background: { color: 'decorative-blue' } }} options={[]} />`,
+    `import { WorldMap } from 'grommet';
+  <WorldMap continents={[{ color: { light: 'decorative-blue' }, name: 'Africa' }]} />`,
   ].forEach(text => {
     assert.equal(
       findJsxTokenAtOffset(
@@ -198,6 +417,51 @@ test('does not resolve deeper DateInput and List child props', () => {
       undefined,
     );
   });
+});
+
+test('does not resolve nested Chart size modes', () => {
+  const text = `import { Chart } from 'grommet';
+<Chart size={{ width: { light: 'medium' } }} values={[]} />`;
+
+  assert.equal(
+    findJsxTokenAtOffset(
+      text,
+      text.indexOf('medium') + 2,
+      'javascript',
+      tokenIndex,
+    ),
+    undefined,
+  );
+});
+
+test('does not resolve nested DataChart offset gap modes', () => {
+  const text = `import { DataChart } from 'grommet';
+<DataChart data={[]} offset={{ gap: { light: 'medium' } }} />`;
+
+  assert.equal(
+    findJsxTokenAtOffset(
+      text,
+      text.indexOf('medium') + 2,
+      'javascript',
+      tokenIndex,
+    ),
+    undefined,
+  );
+});
+
+test('does not resolve nested Button badge background modes', () => {
+  const text = `import { Button } from 'grommet';
+<Button badge={{ background: { light: 'decorative-blue' }, value: 1 }} />`;
+
+  assert.equal(
+    findJsxTokenAtOffset(
+      text,
+      text.indexOf('decorative-blue') + 2,
+      'javascript',
+      tokenIndex,
+    ),
+    undefined,
+  );
 });
 
 test('resolves Button gaps through the spacing scale', () => {

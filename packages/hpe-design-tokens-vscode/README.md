@@ -17,9 +17,12 @@ also supports direct semantic background aliases such as `decorative-blue` and
 `margin` on `Heading`, `Paragraph`, and `Anchor`, plus semantic `color` and
 `size` on `Paragraph` and `Anchor`. Named HPE icons support semantic
 `color` and `size` props. Grommet `Button` supports spacing-token `gap`,
-`margin`, and `pad` props, semantic `color`, and direct semantic
-`hoverIndicator`. Grommet `Box` and `Button` also support one-level object-form
-semantic `hoverIndicator.color` and `hoverIndicator.background` values. Grommet
+`margin`, and `pad` props, text-token `size`, semantic `color`, and direct
+semantic `hoverIndicator`. Grommet `Box` and `Button` also support one-level
+object-form semantic `hoverIndicator.color` and `hoverIndicator.background`
+values. Grommet `Button` also supports direct one-level semantic
+`badge.background` values. Grommet `Pagination` and `DropButton` support
+text-token `size` values. Grommet
 `Calendar`, `Chart`, `List`, and `Skeleton`
 support spacing-token `margin` props. Grommet `Chart`, `DataChart`, and `List`
 support spacing-token `pad` props. Grommet `Drop` supports spacing-token
@@ -35,11 +38,19 @@ Grommet `Grid` supports container-token `rows` and `columns`, including the
 
 Grommet `DataTable` also supports direct and object-form semantic `background`,
 object-form border color and size, and spacing-token `pad` props. Grommet
-`Spinner` supports semantic `color`. Grommet `DataChart` supports static
-object-form semantic `chart.color` values.
+`Spinner` supports semantic `color`. Grommet `DataChart` supports direct static
+object-form semantic `chart.color` and spacing-token `chart.thickness` values,
+spacing-token `gap` and `offset.gap`, plus container-token `size` including
+direct one-level `size.height` and `size.width`.
 
-Grommet `Chart`, `Diagram` connection colors, and `Meter` support semantic
-`color`. Grommet `Drop` supports the same layout token props as `Box`, including
+Grommet `Chart` supports semantic `color`, spacing-token `gap`, container-token
+`size` including direct one-level `size.height` and `size.width`, and direct
+array-item `values[].color` and `values[].thickness`, plus direct `thickness`.
+Grommet `Diagram` supports semantic connection colors and direct array-item
+`connections[].offset` and `connections[].thickness` spacing values. Grommet
+`Meter` supports semantic `color`, container-token `size`, and spacing-token
+`thickness`. Grommet `Drop` supports the same layout token
+props as `Box`, including
 spacing, dimensions, radius, borders, and semantic backgrounds. Grommet
 `Skeleton` supports container-token
 `height` and `width`, including `min` and `max` object values. Grommet
@@ -48,7 +59,8 @@ values, plus text-token `size`. Grommet `TextArea`, `Select`,
 `SelectMultiple`, `Menu`, and `Tag` also support text-token `size`. Grommet
 `Carousel` supports container-token `height` and `width`,
 including `min` and `max` object values. Grommet `Button`, `Meter`, `RangeInput`, `RangeSelector`, and
-`WorldMap` support semantic `color`; `WorldMap` also supports semantic
+`WorldMap` support semantic `color`; `RangeSelector` also supports spacing-token
+`size` and radius-token `round`; `WorldMap` also supports semantic
 `hoverColor`. Grommet and `Layer` support direct and object-form semantic
 `background` values. Grommet `Layer` also supports spacing-token `margin`, and
 Grommet `List` supports direct semantic `background` values. Grommet `Menu`
@@ -81,11 +93,18 @@ and size, and spacing-token `pad` props.
 Grommet `DateInput` and `MaskedInput` support text-token `size`. DateInput also
 supports direct one-level `inputProps.size` and `inputProps.dropHeight`,
 `buttonProps.color`, `buttonProps.hoverIndicator`, `buttonProps.gap`,
-`buttonProps.margin`, `buttonProps.pad`, and `calendarProps.margin`. DateInput,
-`Select`, and `SelectMultiple` support direct one-level `dropProps` values for
-semantic `background` and `hoverIndicator`, border width, spacing, dimensions,
-and radius tokens. Grommet `List` supports direct one-level `pinned.background`
-and `pinned.color`. Grommet `FormField` supports direct one-level `contentProps` values for semantic
+`buttonProps.margin`, `buttonProps.pad`, `buttonProps.size`, and
+`calendarProps.margin`. DateInput,
+`Select`, `SelectMultiple`, `DropButton`, `Menu`, `MaskedInput`, and `TextInput`
+support direct one-level `dropProps` values for semantic `background` and
+`hoverIndicator`, border width, spacing, dimensions, and radius tokens.
+`DropButton` and `Menu` also support the Button token props `color`, `gap`,
+`hoverIndicator`, `margin`, `pad`, and `size`. Grommet `Tip` supports the same direct
+one-level `dropProps` values. Grommet `Meter` supports direct array-item
+`values[].color`. Grommet `WorldMap` supports direct array-item
+`continents[].color` and `places[].color`; color mode objects are intentionally
+unsupported. Grommet `List` supports direct one-level `pinned.background` and
+`pinned.color`. Grommet `FormField` supports direct one-level `contentProps` values for semantic
 `background` and `hoverIndicator`, plus border width, spacing, dimensions, and
 radius tokens. Deeper nested `contentProps` values are intentionally unsupported.
 

@@ -56,6 +56,7 @@ import {
   Tag,
   TextArea,
   TextInput,
+  Tip,
   Toolbar,
   ToggleGroup,
   Video,
@@ -69,7 +70,6 @@ import {
 } from 'grommet';
 import { Alarm as NoticeIcon } from '@hpe-design/icons-grommet';
 
-const chartValues = [{ value: [10, 20, 30] }];
 const dataChartData = [
   { year: '2024', amount: 10 },
   { year: '2025', amount: 20 },
@@ -105,7 +105,12 @@ export const TokenResolverFixture = () => (
       <Box />
     </Grid>
     <Paragraph size="small" />
-    <Button gap="xsmall" pad="none" />
+    <Button
+      badge={{ background: 'decorative-blue', value: 1 }}
+      gap="xsmall"
+      pad="none"
+      size="small"
+    />
     <Anchor size="small" />
     <CheckBox pad="none" />
     <CheckBoxGroup gap="small" name="checks" options={['One']} />
@@ -127,15 +132,27 @@ export const TokenResolverFixture = () => (
     </Carousel>
     <Chart
       color="decorative-blue"
+      gap="small"
       margin="medium"
       pad="5xsmall"
-      values={chartValues}
+      size={{ height: 'medium', width: 'medium' }}
+      thickness="medium"
+      values={[
+        { color: 'decorative-blue', thickness: 'medium', value: [10, 20, 30] },
+      ]}
     />
     <DataChart
-      chart={{ color: 'decorative-blue', property: 'amount' }}
+      chart={{
+        color: 'decorative-blue',
+        property: 'amount',
+        thickness: 'medium',
+      }}
       data={dataChartData}
+      gap="small"
+      offset={{ gap: 'small' }}
       series={[{ property: 'amount' }]}
       pad="medium"
+      size={{ height: 'medium', width: 'medium' }}
     />
     <Data data={dataChartData} margin="small" views={[{ name: 'Default' }]}>
       <DataTableGroupBy dropHeight="medium" margin="small" options={['year']} />
@@ -156,6 +173,7 @@ export const TokenResolverFixture = () => (
         hoverIndicator: 'background-front',
         margin: 'small',
         pad: 'medium',
+        size: 'small',
       }}
       calendarProps={{ margin: 'small' }}
       dropProps={{
@@ -180,6 +198,8 @@ export const TokenResolverFixture = () => (
         {
           color: 'decorative-blue',
           fromTarget: 'diagram-start',
+          offset: 'small',
+          thickness: 'medium',
           toTarget: 'diagram-end',
         },
       ]}
@@ -193,7 +213,26 @@ export const TokenResolverFixture = () => (
       target={dropTarget}
       width="medium"
     />
-    <DropButton dropContent={<Box />} margin="5xsmall" />
+    <DropButton
+      color="decorative-blue"
+      dropContent={<Box />}
+      dropProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+      gap="small"
+      hoverIndicator="background-front"
+      margin="5xsmall"
+      pad="medium"
+      size="small"
+    />
     <FormField
       contentProps={{
         background: 'background-front',
@@ -228,16 +267,44 @@ export const TokenResolverFixture = () => (
       background="foreground-critical"
       color="decorative-blue"
       margin="medium"
-      value={50}
+      size="medium"
+      thickness="medium"
+      values={[{ color: 'decorative-blue', value: 50 }]}
     />
     <Menu
+      color="decorative-blue"
       dropBackground={{ color: 'decorative-blue' }}
+      dropProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+      gap="small"
+      hoverIndicator="background-front"
       items={menuItems}
       margin="5xsmall"
+      pad="medium"
       size="small"
     />
     <MaskedInput
-      mask={[{ placeholder: '0', regexp: /^[0-9]$/ }]}
+      dropProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+      mask={[{ options: ['1', '2'], placeholder: '0', regexp: /^[0-9]$/ }]}
       size="small"
     />
     <Nav gap="small">
@@ -250,12 +317,14 @@ export const TokenResolverFixture = () => (
       margin="medium"
       title="Page title"
     />
-    <Pagination numberItems={100} round="medium" />
+    <Pagination numberItems={100} round="medium" size="small" />
     <RangeInput color="decorative-blue" value={50} />
     <RangeSelector
       color="foreground-critical"
       max={100}
       min={0}
+      round="medium"
+      size="small"
       values={[25, 75]}
     />
     <RadioButtonGroup name="radio" options={['One']} round="medium" />
@@ -315,7 +384,37 @@ export const TokenResolverFixture = () => (
     </Tabs>
     <Tag round="medium" size="small" value="Active" />
     <TextArea a11yTitle="Notes" size="large" />
-    <TextInput size="medium" />
+    <TextInput
+      dropProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+      size="medium"
+      suggestions={['One', 'Two']}
+    />
+    <Tip
+      content="More information"
+      dropProps={{
+        background: 'background-front',
+        borderWidth: 'medium',
+        gap: 'small',
+        height: 'medium',
+        hoverIndicator: 'decorative-blue',
+        margin: 'small',
+        pad: 'medium',
+        round: 'medium',
+        width: 'medium',
+      }}
+    >
+      <Text>Details</Text>
+    </Tip>
     <Toolbar
       background="background-front"
       hoverIndicator={{ background: 'background-front' }}
@@ -335,6 +434,11 @@ export const TokenResolverFixture = () => (
       <WizardContent width="medium" />
       <WizardFooter pad="medium" />
     </Wizard>
-    <WorldMap color="decorative-blue" hoverColor="foreground-critical" />
+    <WorldMap
+      color="decorative-blue"
+      continents={[{ color: 'foreground-critical', name: 'Africa' }]}
+      hoverColor="foreground-critical"
+      places={[{ color: 'decorative-blue', location: [0, 0], name: 'Origin' }]}
+    />
   </Grommet>
 );

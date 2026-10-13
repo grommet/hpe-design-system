@@ -229,6 +229,189 @@ test('offers configured DateInput and select drop prop values', () => {
   });
 });
 
+test('offers menu and input control button and drop prop values', () => {
+  [
+    ['Button', 'size=""', 'size="', ['small']],
+    [
+      'Button',
+      "badge={{ background: '' }}",
+      "background: '",
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['DateInput', "buttonProps={{ size: '' }}", "size: '", ['small']],
+    [
+      'DropButton',
+      'color=""',
+      'color="',
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['Menu', 'gap=""', 'gap="', ['medium', 'none', 'small']],
+    [
+      'DropButton',
+      "dropProps={{ background: '' }}",
+      "background: '",
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['DropButton', 'dropContent={<div />} size=""', 'size="', ['small']],
+    ['Menu', "dropProps={{ borderWidth: '' }}", "borderWidth: '", ['medium']],
+    [
+      'MaskedInput',
+      "dropProps={{ pad: '' }}",
+      "pad: '",
+      ['medium', 'none', 'small'],
+    ],
+    ['TextInput', "dropProps={{ width: '' }}", "width: '", ['medium']],
+    ['Pagination', 'numberItems={10} size=""', 'size="', ['small']],
+    ['RangeSelector', 'round=""', 'round="', ['medium']],
+    ['RangeSelector', 'size=""', 'size="', ['medium', 'none', 'small']],
+  ].forEach(([componentName, prop, offsetText, expectedValues]) => {
+    const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${prop} />`;
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(offsetText) + offsetText.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
+test('offers visual collection colors, geometry, and Tip drop prop values', () => {
+  [
+    [
+      'Chart',
+      "values={[{ color: '', value: [10, 20] }]}",
+      "color: '",
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    [
+      'Chart',
+      "values={[{ thickness: '', value: [10, 20] }]}",
+      "thickness: '",
+      ['medium', 'none', 'small'],
+    ],
+    [
+      'Chart',
+      'thickness="" values={[]}',
+      'thickness="',
+      ['medium', 'none', 'small'],
+    ],
+    [
+      'DataChart',
+      "chart={{ thickness: '' }} data={[]}",
+      "thickness: '",
+      ['medium', 'none', 'small'],
+    ],
+    [
+      'DataChart',
+      "offset={{ gap: '' }} data={[]}",
+      "gap: '",
+      ['medium', 'none', 'small'],
+    ],
+    ['DataChart', 'size="" data={[]}', 'size="', ['medium']],
+    [
+      'Meter',
+      "values={[{ color: '', value: 50 }]}",
+      "color: '",
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['Meter', 'size=""', 'size="', ['medium']],
+    ['Meter', 'thickness=""', 'thickness="', ['medium', 'none', 'small']],
+    [
+      'WorldMap',
+      "continents={[{ color: '', name: 'Africa' }]}",
+      "color: '",
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    [
+      'WorldMap',
+      "places={[{ color: '', location: [0, 0] }]}",
+      "color: '",
+      [
+        'background-front',
+        'border-weak',
+        'decorative-blue',
+        'foreground-critical',
+        'icon-strong',
+        'text-strong',
+      ],
+    ],
+    ['Chart', "size={{ width: '' }} values={[]}", "width: '", ['medium']],
+    [
+      'Diagram',
+      "connections={[{ offset: '' }]}",
+      "offset: '",
+      ['medium', 'none', 'small'],
+    ],
+    [
+      'Diagram',
+      "connections={[{ thickness: '' }]}",
+      "thickness: '",
+      ['medium', 'none', 'small'],
+    ],
+    ['Tip', "dropProps={{ width: '' }}", "width: '", ['medium']],
+  ].forEach(([componentName, prop, offsetText, expectedValues]) => {
+    const text = `import { ${componentName} } from 'grommet';\n<${componentName} ${prop} />`;
+    const result = completionsAtOffset(
+      text,
+      text.indexOf(offsetText) + offsetText.length,
+      'javascript',
+      tokenIndex,
+    );
+
+    assert.deepEqual(
+      result.values.map(item => item.value),
+      expectedValues,
+    );
+  });
+});
+
 test('offers spacing values for Button props', () => {
   const gapText = 'import { Button } from \'grommet\';\n<Button gap="" />';
   const padText = 'import { Button } from \'grommet\';\n<Button pad="" />';
