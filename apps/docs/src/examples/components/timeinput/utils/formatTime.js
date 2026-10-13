@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-export const formatTime = time => {
+export const formatTime = (time, format = '12') => {
   if (!time) return '';
 
   const match = time
@@ -13,6 +13,10 @@ export const formatTime = time => {
   const hour24 = meridiem
     ? (hour % 12) + (meridiem.toUpperCase() === 'PM' ? 12 : 0)
     : hour;
+
+  if (format === '24') {
+    return `${String(hour24).padStart(2, '0')}:${minutes}`;
+  }
 
   return `${hour24 % 12 || 12}:${minutes} ${hour24 < 12 ? 'AM' : 'PM'}`;
 };
