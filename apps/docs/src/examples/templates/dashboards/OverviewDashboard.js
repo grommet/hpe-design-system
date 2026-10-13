@@ -75,16 +75,19 @@ export const OverviewDashboard = () => {
           {showNav && <SideNav gridArea="nav" />}
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
-              <PageContent gap="xlarge">
+              {/* PageHeader pads medium below; with the medium gap = 48px. */}
+              <PageContent gap="medium">
                 <PageHeader
                   title="Home"
                   actions={
                     <Button label="Customize" icon={<Configure />} secondary />
                   }
                 />
-                <ServiceHealth />
-                <WeekAtAGlance />
-                <DiscoverServices />
+                <Box gap="xlarge">
+                  <ServiceHealth />
+                  <WeekAtAGlance />
+                  <DiscoverServices />
+                </Box>
               </PageContent>
             </Page>
           </Main>
