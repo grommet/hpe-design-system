@@ -31,6 +31,9 @@ export const DiscoverServices = () => {
                     description={service.description}
                     tag={service.tag}
                     background={surfaceBackground}
+                    a11yTitle={`Explore ${service.title}`}
+                    // Typically this would route to the service's page.
+                    onClick={() => {}}
                   />
                 ))}
             </Grid>
