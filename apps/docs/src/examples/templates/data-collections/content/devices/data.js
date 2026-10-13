@@ -171,22 +171,28 @@ const weeklyEnergyTotal = Object.values(energyBySite).reduce(
   (sum, kwh) => sum + kwh,
   0,
 );
-const topSites = Object.entries(energyBySite)
-  .sort(([, a], [, b]) => b - a)
-  .slice(0, 5);
+const rankedSites = Object.entries(energyBySite).sort(([, a], [, b]) => b - a);
+const topSites = rankedSites.slice(0, 5);
+const otherSites = rankedSites.slice(5);
 const topSitesTotal = topSites.reduce((sum, [, kwh]) => sum + kwh, 0);
 
 export const energy = {
   unit: 'MWh',
   trend: '5% higher',
   total: weeklyEnergyTotal / 1000,
-  siteCount: Object.keys(energyBySite).length,
+  siteCount: rankedSites.length,
   topShare: Math.round((topSitesTotal / weeklyEnergyTotal) * 100),
   sites: topSites.map(([name, kwh], index) => ({
     name,
     kwh,
     color: `dataVis-categorical-${(index + 1) * 10}`,
   })),
+  // Remaining sites consolidated into one entry so the top sites can be
+  // read against the whole fleet.
+  other: {
+    name: `Other sites (${otherSites.length})`,
+    kwh: weeklyEnergyTotal - topSitesTotal,
+  },
 };
 
 // Carbon emissions · last 7 days, derived from energy at a fixed grid

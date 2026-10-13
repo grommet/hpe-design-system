@@ -6,8 +6,18 @@ import { TextEmphasis } from '@shared/aries-core';
 import { MetricValue, SummaryCard } from '../../components';
 import { energy, formatNumber, surfaceBackground } from './data';
 
-// The largest site fills its bar; the rest are shown relative to it.
-const max = energy.sites[0].kwh;
+// The remaining sites are consolidated into a final, neutral bar. All bars
+// share one scale so the top sites read honestly against the whole fleet.
+// There is no neutral dataVis token, so decorative-neutral is used for the
+// remainder, where the hue itself carries no meaning.
+const bars = [
+  ...energy.sites,
+  { ...energy.other, color: 'decorative-neutral' },
+];
+const max = Math.max(...bars.map(({ kwh }) => kwh));
+const summary =
+  `Top 5 of ${energy.siteCount} sites use ${energy.topShare}% ` +
+  'of the total';
 
 export const EnergyByLocationCard = ({ detailed }) => (
   <SummaryCard
@@ -17,7 +27,7 @@ export const EnergyByLocationCard = ({ detailed }) => (
     background={surfaceBackground}
     detail={
       <Box gap="small">
-        {energy.sites.map(({ color, kwh, name }) => (
+        {bars.map(({ color, kwh, name }) => (
           <Box key={name} gap="3xsmall">
             <Box direction="row" justify="between" align="start" gap="small">
               <Text size="small">{name}</Text>
@@ -39,7 +49,7 @@ export const EnergyByLocationCard = ({ detailed }) => (
         ))}
       </Box>
     }
-    footer={`Top 5 sites use ${energy.topShare}% of the total`}
+    footer={summary}
   >
     <MetricValue
       value={formatNumber(energy.total, 1)}
