@@ -118,7 +118,7 @@ const EnergySummary = () => {
   const showCharts = activeTab === 0;
 
   return (
-    <Box as="section" gap="large">
+    <Box as="section" gap="small">
       {/* The switch sits in a fixed-width container (as in the design) so the
           tabs flex to an exact width and never report a false overflow. */}
       <Box direction="row" align="center" justify="end" gap="small" wrap>
