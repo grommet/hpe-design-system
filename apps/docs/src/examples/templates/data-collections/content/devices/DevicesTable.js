@@ -112,11 +112,11 @@ const columns = [
   { property: 'age', header: 'Age' },
   { property: 'location', header: 'Location' },
   {
-    property: 'totalEnergy',
-    header: 'Total energy',
+    property: 'weeklyEnergy',
+    header: 'Energy (7 days)',
     units: 'kWh',
     align: 'end',
-    render: datum => formatNumber(datum.totalEnergy, 1),
+    render: datum => formatNumber(datum.weeklyEnergy, 1),
   },
 ];
 
@@ -129,9 +129,9 @@ const properties = {
   },
   age: { label: 'Age', options: ['< 3 years', '3-5 years', '5+ years'] },
   location: { label: 'Location' },
-  totalEnergy: {
-    label: 'Total energy (kWh)',
-    range: { min: 0, max: 10000, step: 100 },
+  weeklyEnergy: {
+    label: 'Energy, 7 days (kWh)',
+    range: { min: 0, max: 400, step: 10 },
   },
 };
 
@@ -148,7 +148,7 @@ const views = [
   },
   {
     name: 'Highest energy',
-    sort: { property: 'totalEnergy', direction: 'desc' },
+    sort: { property: 'weeklyEnergy', direction: 'desc' },
   },
 ];
 
@@ -178,7 +178,7 @@ export const DevicesTable = () => {
         properties={properties}
         views={views}
         defaultView={{
-          sort: { property: 'totalEnergy', direction: 'desc' },
+          sort: { property: 'weeklyEnergy', direction: 'desc' },
           step: 20,
         }}
         gap="small"
@@ -254,8 +254,8 @@ const DeviceCards = () => (
               />
             </NameValuePair>
             <NameValuePair name="Location">{datum.location}</NameValuePair>
-            <NameValuePair name="Total energy">
-              {formatNumber(datum.totalEnergy, 1)} kWh
+            <NameValuePair name="Energy (7 days)">
+              {formatNumber(datum.weeklyEnergy, 1)} kWh
             </NameValuePair>
           </NameValueList>
         </CardBody>

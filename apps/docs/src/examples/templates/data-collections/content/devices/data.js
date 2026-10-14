@@ -75,10 +75,12 @@ const subscriptionFromState = {
   Required: 'Unknown',
 };
 
+// Hardware age bucketed from the ProLiant generation, relative to the
+// reference date below: Gen11 (2022+), Gen10 Plus (2020), Gen9/Gen10 (older).
 const ageFromModel = model => {
-  if (/Gen9/.test(model)) return '5+ years';
-  if (/Gen10 Plus|Gen11/.test(model)) return '< 3 years';
-  return '3-5 years';
+  if (/Gen11/.test(model)) return '< 3 years';
+  if (/Gen10 Plus/.test(model)) return '3-5 years';
+  return '5+ years';
 };
 
 // Subscription dates are relative to a fixed reference so the example reads
@@ -125,9 +127,8 @@ export const devices = serversData.servers.items.map(server => {
     subscriptionDate: subscriptionDate(subscriptionStatus, seed),
     age: ageFromModel(model),
     location: pick(sites, seed, 8),
-    // Lifetime energy in kWh, shown in the table.
-    totalEnergy: 200 + (Math.floor(seed / 2 ** 10) % 90000) / 10,
-    // Energy over the last 7 days in kWh, feeding the summary cards.
+    // Energy over the last 7 days in kWh; the table column and the summary
+    // cards share this so the column sums to the fleet total.
     weeklyEnergy: 120 + (Math.floor(seed / 2 ** 12) % 2600) / 10,
   };
 });
