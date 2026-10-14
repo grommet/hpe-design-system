@@ -52,7 +52,7 @@ export const TimeInputBusinessHoursExample = () => {
         <Box gap="medium">
           <Header direction="column" align="start" gap="5xsmall">
             <Heading level={2} margin="none">
-              Business Hours
+              Booking details
             </Heading>
           </Header>
           <Form
