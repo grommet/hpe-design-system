@@ -106,7 +106,7 @@ export const TimeInputReportDeliveryExample = () => {
             <Heading level={2} margin="none">
               Schedule report
             </Heading>
-            <Button label="Edit" onClick={() => setEdit(true)} plain />
+            <Button label="Edit" onClick={() => setEdit(true)} />
           </Header>
           <Box>
             <NameValueList nameProps={{ width: 'xxsmall' }}>
