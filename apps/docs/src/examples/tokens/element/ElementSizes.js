@@ -9,11 +9,10 @@ export const ElementSizes = () => (
   <Box align="start" gap="large">
     {sizes.map(size => (
       <Box key={size} direction="row" align="center" gap="medium">
-        {/* flex={false} keeps element sizes fixed; they must not shrink. */}
         <Avatar
           size={size}
           background="background-accent-purple-weak"
-          flex={false}
+          flex={false} // keeps the Avatar size fixed; it must not shrink.
         >
           SL
         </Avatar>
