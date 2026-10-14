@@ -6,13 +6,15 @@ import { TextEmphasis } from '@shared/aries-core';
 import { MetricValue, SummaryCard } from '../../components';
 import { energy, formatNumber, surfaceBackground } from './data';
 
-// The remaining sites are consolidated into a final, neutral bar. All bars
-// share one scale so the top sites read honestly against the whole fleet.
-// There is no neutral dataVis token, so decorative-neutral is used for the
-// remainder, where the hue itself carries no meaning.
+// The remaining sites are consolidated into a final bar that takes the next
+// dataVis color. All bars share one scale so the top sites read honestly
+// against the whole fleet.
 const bars = [
   ...energy.sites,
-  { ...energy.other, color: 'decorative-neutral' },
+  {
+    ...energy.other,
+    color: `dataVis-categorical-${(energy.sites.length + 1) * 10}`,
+  },
 ];
 const max = Math.max(...bars.map(({ kwh }) => kwh));
 
