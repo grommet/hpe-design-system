@@ -22,8 +22,8 @@ const defaultFormValues = {
   service: 'Payments API',
   ticket: 'CHG-2048',
   scope: 'Service owners',
-  'maintenance-start': '02:15:00', // remove seconds with latest grommet
-  'maintenance-end': '03:45:00', // remove seconds with latest grommet
+  'maintenance-start': '02:15',
+  'maintenance-end': '03:45',
 };
 
 export const TimeInputMaintenanceWindowExample = () => {
@@ -93,7 +93,6 @@ export const TimeInputMaintenanceWindowExample = () => {
                     id="maintenance-start"
                     name="maintenance-start"
                     format="24"
-                    showSeconds={false}
                   />
                 </FormField>
                 <FormField
@@ -105,7 +104,6 @@ export const TimeInputMaintenanceWindowExample = () => {
                     id="maintenance-end"
                     name="maintenance-end"
                     format="24"
-                    showSeconds={false}
                   />
                 </FormField>
               </>
