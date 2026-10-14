@@ -9,7 +9,7 @@ spec:
   summary: Define and publish a reusable UI pattern with guidance, structure, and validation checks.
   entrypoint:
     agent: pattern-creation-orchestrator
-    args: "<pattern-name>"
+    args: '<pattern-name>'
   assets:
     agents:
       - pattern-creation-orchestrator.agent.md

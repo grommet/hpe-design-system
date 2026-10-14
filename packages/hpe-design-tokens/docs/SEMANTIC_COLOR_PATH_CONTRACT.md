@@ -23,9 +23,9 @@ Applies to semantic color path handling in:
 
 - target: one of `background`, `border`, `dataVis`, `decorative`, `focus`,
   `foreground`, `icon`, `text`, `transparent`.
-- role: top-level semantic role segment for a target.
-- family: role that introduces a nested subrole namespace.
-- subrole: role name inside a family namespace.
+- role: one or two segments, an optional family followed by a name.
+- family: role segment that opens a namespace of role names.
+- name: role name, either standalone or inside a family namespace.
 - scale: `xweak`, `weak`, `default`, `strong`, `xstrong`.
 - state: `REST`, `hover`, `focus`, `active`.
 
@@ -51,7 +51,7 @@ Notes:
 
 ### Family-based semantic color
 
-`color/<target>/<family>/<subrole>/<scale>/<state>`
+`color/<target>/<family>/<name>/<scale>/<state>`
 
 Examples:
 
@@ -84,7 +84,7 @@ Examples:
 
 Some families remain explicit path segments in Figma names:
 
-`color/<target>/<family>/<subrole>-<scale>[-<state>]`
+`color/<target>/<family>/<name>-<scale>[-<state>]`
 
 Examples:
 
@@ -138,8 +138,8 @@ Examples:
 Two core maps represent different concerns:
 
 1. Validation map:
-   `SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY`
-   - shape: target -> family -> allowed subroles
+   `SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY`
+   - shape: target -> family -> allowed role names
    - purpose: parser/normalization validation and expansion
 
 2. Serialization map:
@@ -150,7 +150,7 @@ Two core maps represent different concerns:
 Expected relationship:
 
 - For each target, segmented Figma families should be a subset of the family
-  keys in `SEMANTIC_COLOR_SUBROLES_BY_TARGET_FAMILY[target]`.
+  keys in `SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY[target]`.
 
 ## Where To Update
 

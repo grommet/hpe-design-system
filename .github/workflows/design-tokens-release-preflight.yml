@@ -1,0 +1,62 @@
+name: HPE Design Tokens Release Preflight
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Approved branch or commit to validate'
+        required: true
+        default: 'master'
+        type: string
+  pull_request:
+    branches:
+      - master
+    paths:
+      - packages/hpe-design-tokens/**
+      - .changeset/**
+      - .github/workflows/design-tokens-release-preflight.yml
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out requested ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run package release preflight
+        run: pnpm --filter hpe-design-tokens release:preflight
+
+      - name: Validate release metadata and generated exports
+        run: pnpm --filter hpe-design-tokens release:validate
+
+      - name: Inspect package metadata
+        run: pnpm --filter hpe-design-tokens exec npm pack --dry-run
+
+      - name: Create candidate package artifact
+        run: pnpm --filter hpe-design-tokens release:pack
+
+      - name: Upload candidate package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-design-tokens-release-candidate
+          path: packages/hpe-design-tokens/release-artifacts/*.tgz
+          if-no-files-found: error
