@@ -21,7 +21,7 @@ import { formatTime } from './utils/formatTime';
 const defaultFormValues = {
   customer: 'Avery Morgan',
   service: 'Platform consultation',
-  'business-hours': '07:30:00', // remove seconds with latest grommet
+  'business-hours': '07:30',
 };
 
 const BUSINESS_START = 8 * 60;
@@ -98,7 +98,6 @@ export const TimeInputBusinessHoursExample = () => {
                     id="business-hours"
                     name="business-hours"
                     format="12"
-                    showSeconds={false}
                     minuteStep={30}
                   />
                 </FormField>
