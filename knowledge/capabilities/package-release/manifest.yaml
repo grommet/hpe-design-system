@@ -9,7 +9,7 @@ spec:
   summary: Prepare, validate, and publish design-system packages with changelog and release safeguards.
   entrypoint:
     agent: package-release-orchestrator
-    args: "<package-name>"
+    args: '<package-name>'
   assets:
     agents:
       - package-release-orchestrator.agent.md

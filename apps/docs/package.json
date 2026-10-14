@@ -12,7 +12,7 @@
     "@next/mdx": "^14.1.4",
     "@shared/aries-core": "workspace:*",
     "@shared/hooks": "workspace:*",
-    "grommet": "catalog:",
+    "grommet": "catalog:grommet-stable",
     "grommet-icons": "catalog:grommet-stable",
     "hpe-design-tokens": "catalog:",
     "next": "15.5.9",
@@ -46,7 +46,7 @@
     "validate:structure": "vitest run src/data/__tests__/structure.validation.test.ts --testNamePattern=\"Build-time Validation\""
   },
   "devDependencies": {
-    "@applitools/eyes-testcafe": "1.17.4",
+    "@applitools/eyes-testcafe": "6.4.8",
     "@testing-library/testcafe": "^5.0.1",
     "@types/react": "catalog:",
     "@vitejs/plugin-react": "catalog:",
@@ -55,7 +55,7 @@
     "axe-testcafe": "^3.0.0",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "catalog:",
-    "grommet-theme-hpe": "catalog:",
+    "grommet-theme-hpe": "catalog:grommet-stable",
     "jsdom": "^26.1.0",
     "start-server-and-test": "^2.0.3",
     "testcafe": "^3.5.0",
