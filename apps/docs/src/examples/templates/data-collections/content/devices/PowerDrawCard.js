@@ -44,36 +44,40 @@ export const PowerDrawCard = ({ detailed }) => (
     background={surfaceBackground}
     detail={
       <Box gap="medium">
-        <DataChart
-          a11yTitle="Fleet power draw over the last 24 hours"
-          data={power.hours}
-          series={[
-            { property: 'hour' },
-            { property: 'kw', label: 'Power', suffix: ` ${power.unit}` },
-          ]}
-          chart={[
-            {
-              property: 'kw',
-              type: 'area',
-              color: series,
-              opacity: 'weak',
-              thickness: '5xsmall',
-            },
-            {
-              property: 'kw',
-              type: 'line',
-              color: series,
-              thickness: '5xsmall',
-              round: true,
-            },
-          ]}
-          axis={{
-            x: { property: 'hour', granularity: 'coarse' },
-            y: { property: 'kw', granularity: 'medium' },
-          }}
-          guide={{ y: { granularity: 'medium' } }}
-          size={{ width: 'fill', height: 'xsmall' }}
-        />
+        {/* Y-axis labels are centred on the guides and overhang the chart by
+            half a line, so this keeps them clear of the spacing above. */}
+        <Box pad={{ top: 'xsmall' }}>
+          <DataChart
+            a11yTitle="Fleet power draw over the last 24 hours"
+            data={power.hours}
+            series={[
+              { property: 'hour' },
+              { property: 'kw', label: 'Power', suffix: ` ${power.unit}` },
+            ]}
+            chart={[
+              {
+                property: 'kw',
+                type: 'area',
+                color: series,
+                opacity: 'weak',
+                thickness: '5xsmall',
+              },
+              {
+                property: 'kw',
+                type: 'line',
+                color: series,
+                thickness: '5xsmall',
+                round: true,
+              },
+            ]}
+            axis={{
+              x: { property: 'hour', granularity: 'coarse' },
+              y: { property: 'kw', granularity: 'medium' },
+            }}
+            guide={{ y: { granularity: 'medium' } }}
+            size={{ width: 'fill', height: 'xsmall' }}
+          />
+        </Box>
         <Box direction="row" gap="small">
           <LoadBlock label="Min. load" {...power.minimum} />
           <LoadBlock label="Peak load" {...power.peak} />

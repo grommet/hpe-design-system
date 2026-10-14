@@ -21,37 +21,41 @@ export const CarbonEmissionsCard = ({ detailed }) => (
     background={surfaceBackground}
     detail={
       <Box gap="small">
-        <DataChart
-          a11yTitle={chartTitle}
-          data={carbon.days}
-          series={[
-            { property: 'day' },
-            { property: 'current', label: emissions.label, suffix: ' t' },
-            { property: 'target', label: target.label, suffix: ' t' },
-          ]}
-          chart={[
-            {
-              property: 'current',
-              type: 'bar',
-              thickness: 'xsmall',
-              color: emissions.color,
-            },
-            // Drawn after the bars so the target reads over each day.
-            {
-              property: 'target',
-              type: 'line',
-              thickness: '5xsmall',
-              dash: true,
-              color: target.color,
-            },
-          ]}
-          axis={{
-            x: { property: 'day', granularity: 'medium' },
-            y: { property: 'current', granularity: 'medium' },
-          }}
-          guide={{ y: { granularity: 'medium' } }}
-          size={{ width: 'fill', height: 'xsmall' }}
-        />
+        {/* Y-axis labels are centred on the guides and overhang the chart by
+            half a line, so this keeps them clear of the spacing above. */}
+        <Box pad={{ top: 'xsmall' }}>
+          <DataChart
+            a11yTitle={chartTitle}
+            data={carbon.days}
+            series={[
+              { property: 'day' },
+              { property: 'current', label: emissions.label, suffix: ' t' },
+              { property: 'target', label: target.label, suffix: ' t' },
+            ]}
+            chart={[
+              {
+                property: 'current',
+                type: 'bar',
+                thickness: 'xsmall',
+                color: emissions.color,
+              },
+              // Drawn after the bars so the target reads over each day.
+              {
+                property: 'target',
+                type: 'line',
+                thickness: '5xsmall',
+                dash: true,
+                color: target.color,
+              },
+            ]}
+            axis={{
+              x: { property: 'day', granularity: 'medium' },
+              y: { property: 'current', granularity: 'medium' },
+            }}
+            guide={{ y: { granularity: 'medium' } }}
+            size={{ width: 'fill', height: 'xsmall' }}
+          />
+        </Box>
         <LegendItem
           color={target.color}
           label={`${target.label} ${tonnes(carbon.dailyTarget)}`}
