@@ -2,16 +2,41 @@
 // SPDX-License-Identifier: Apache-2.0
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Box, ResponsiveContext, Text } from 'grommet';
+import {
+  Button,
+  Box,
+  Image,
+  ResponsiveContext,
+  Text,
+  ThemeContext,
+} from 'grommet';
 // TODO replace with DS icon package when available
-import { Aruba, Hpe } from 'grommet-icons';
+import { Aruba } from 'grommet-icons';
 import { UserContext, MenuLayer } from '.';
 
+const HpeLogo = () => {
+  const theme = useContext(ThemeContext);
+  // Logo SVGs are served from the app's public/ directory. When reusing this
+  // template, supply your own copies of the positive and reversed HPE logo.
+  return (
+    <Box width="4xsmall" flex={false}>
+      <Image
+        alt="HPE logo"
+        fit="contain"
+        src={
+          theme.dark
+            ? '/HPE_logo_full-clr_rev_rgb.svg'
+            : '/HPE_logo_full-clr_pos_rgb.svg'
+        }
+      />
+    </Box>
+  );
+};
+
 const brands = {
-  // todo replace with logo
   hpe: {
     name: 'HPE',
-    logo: <Hpe color="brand" />,
+    logo: <HpeLogo />,
   },
   aruba: {
     name: 'Aruba',

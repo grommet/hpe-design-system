@@ -78,9 +78,7 @@ const SidebarHeader = () => (
   >
     <Box gap="3xsmall">
       <Avatar
-        // TODO: Revisit when we have more
-        // token colors available.
-        background="decorative-green"
+        background="background-accent-purple-weak"
         flex={false}
         margin={{ bottom: '3xsmall' }}
       >
