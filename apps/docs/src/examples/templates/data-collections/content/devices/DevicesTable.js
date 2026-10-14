@@ -71,7 +71,7 @@ DeviceIdentity.propTypes = {
 // the status is understandable without color perception.
 const SubscriptionStatus = ({ date, status }) => (
   <Box direction="row" align="start" gap="3xsmall">
-    <Box pad={{ vertical: '6xsmall' }}>{subscriptionIcons[status]}</Box>
+    <Box pad={{ vertical: '5xsmall' }}>{subscriptionIcons[status]}</Box>
     <Box>
       <Text>{status}</Text>
       {date && (
@@ -120,8 +120,12 @@ const columns = [
   },
 ];
 
-// Filterable properties, in the order they appear in the filters layer.
+// Searchable properties. Those without `filter: false` also appear, in this
+// order, in the filters layer.
 const properties = {
+  serialNumber: { label: 'Serial number', filter: false },
+  name: { label: 'Hostname', filter: false },
+  model: { label: 'Model', filter: false },
   type: { label: 'Type' },
   subscriptionStatus: {
     label: 'Subscription status',
@@ -187,9 +191,11 @@ export const DevicesTable = () => {
           <Toolbar>
             <DataSearch placeholder="Search devices" responsive />
             <DataFilters layer>
-              {Object.keys(properties).map(property => (
-                <DataFilter key={property} property={property} />
-              ))}
+              {Object.keys(properties)
+                .filter(property => properties[property].filter !== false)
+                .map(property => (
+                  <DataFilter key={property} property={property} />
+                ))}
             </DataFilters>
             <DataView />
             <ToggleGroup

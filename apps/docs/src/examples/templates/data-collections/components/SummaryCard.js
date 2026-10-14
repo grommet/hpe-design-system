@@ -34,7 +34,7 @@ export const SummaryCard = ({
         </Heading>
         {subtitle && (
           <Collapsible open={detailed}>
-            <Box pad={{ top: '6xsmall' }}>
+            <Box pad={{ top: '5xsmall' }}>
               <Text size="small">{subtitle}</Text>
             </Box>
           </Collapsible>

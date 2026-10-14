@@ -19,7 +19,7 @@ const LoadBlock = ({ hour, kw, label }) => (
     gap="xsmall"
   >
     <Text size="small">{label}</Text>
-    <Box gap="6xsmall">
+    <Box gap="5xsmall">
       <TextEmphasis size="large">
         {kw} {power.unit}
       </TextEmphasis>
