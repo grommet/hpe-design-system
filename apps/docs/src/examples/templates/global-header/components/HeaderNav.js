@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
@@ -13,6 +14,28 @@ import {
 import { Help, Home } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { UserContext } from '.';
+
+const getInitials = ({ firstName = '', lastName = '' }) =>
+  `${firstName.charAt(0)}${lastName.charAt(0)}`;
+
+const UserAvatar = ({ size = 'medium', user }) => {
+  const initials = getInitials(user);
+  return (
+    <Avatar background="background-accent-purple-weak" flex={false} size={size}>
+      <Text size={size === 'large' ? 'xlarge' : 'large'} color="text-strong">
+        {initials}
+      </Text>
+    </Avatar>
+  );
+};
+
+UserAvatar.propTypes = {
+  size: PropTypes.oneOf(['medium', 'large']),
+  user: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+  }).isRequired,
+};
 
 export const HeaderNav = () => {
   const size = useContext(ResponsiveContext);
@@ -34,18 +57,7 @@ export const HeaderNav = () => {
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
       >
-        {!user.image ? (
-          // TODO: Consider a different background here.
-          // Temporary solution until there is a wider
-          // range of colors in the theme.
-          <Avatar background="decorative-green" flex={false}>
-            <Text size="large" color="text-strong">
-              JD
-            </Text>
-          </Avatar>
-        ) : (
-          <Avatar src={user.image} />
-        )}
+        <UserAvatar user={user} />
       </DropButton>
     </Nav>
   ) : null;
@@ -56,18 +68,7 @@ const UserDetails = () => {
   return (
     <Box width="medium">
       <Box pad="medium" direction="row" gap="xsmall">
-        {user && !user.image ? (
-          // TODO: Consider a different background here.
-          // Temporary solution until there is a wider
-          // range of colors in the theme.
-          <Avatar background="decorative-green" flex={false} size="large">
-            <Text size="xlarge" color="text-strong">
-              JD
-            </Text>
-          </Avatar>
-        ) : (
-          <Avatar src={user.image} size="large" />
-        )}
+        <UserAvatar user={user} size="large" />
         <Box pad={{ vertical: 'xsmall' }}>
           <TextEmphasis size="large">
             {`${user.firstName} ${user.lastName}`}
