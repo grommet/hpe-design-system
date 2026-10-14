@@ -4,7 +4,13 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSearchEntities, querySearchEntities } from './vector-search.js';
-import { loadComponents, loadPatterns } from './data-loader.js';
+import {
+  loadComponents,
+  loadFoundations,
+  loadGlossary,
+  loadPatterns,
+} from './data-loader.js';
+import { renderRules, type RuleDetail } from './rules.js';
 import type {
   DesignSystemSchema,
   FrameworkTarget,
@@ -56,6 +62,8 @@ function loadDesignSystem(): DesignSystemSchema {
     tokens: {},
     components: loadComponents(),
     patterns: loadPatterns(),
+    foundations: loadFoundations(),
+    glossary: loadGlossary(),
   };
 }
 
@@ -231,6 +239,7 @@ function describePatternGraph(graph: PatternGraph): string {
 export function generateSystemPrompt(
   userQuery: string,
   targetFramework: FrameworkTarget = 'react',
+  ruleDetail: RuleDetail | 'none' = 'checklist',
 ): string {
   const ds = loadDesignSystem();
   const query = normalizeSearchText(userQuery);
@@ -341,6 +350,17 @@ export function generateSystemPrompt(
     });
   }
 
+  if (ruleDetail !== 'none') {
+    prompt += '### Foundation Rules\n\n';
+    if (ruleDetail === 'checklist') {
+      prompt +=
+        'Treat each statement as a constraint on the build. If you need the reason behind a rule, request it by id.\n\n';
+    } else {
+      prompt += 'Here are the foundation rules in full detail.\n\n';
+    }
+    prompt += `${renderRules(ds.foundations, ruleDetail, ds.glossary)}\n\n`;
+  }
+
   if (relevantComponents.length > 0) {
     prompt += '### Available Components\n\n';
     relevantComponents.forEach(component => {
@@ -388,6 +408,7 @@ export function generateSystemPrompt(
       }
     });
   }
+
   /* eslint-enable max-len */
 
   return prompt;

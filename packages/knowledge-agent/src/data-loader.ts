@@ -4,7 +4,12 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'yaml';
-import type { ComponentDefinition, PatternDefinition } from './types.js';
+import type {
+  ComponentDefinition,
+  FoundationDefinition,
+  GlossaryTerm,
+  PatternDefinition,
+} from './types.js';
 
 const ROOT_DIR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -24,6 +29,20 @@ const PATTERNS_DIR = path.join(
   'core',
   'data',
   'patterns',
+);
+const FOUNDATIONS_DIR = path.join(
+  ROOT_DIR,
+  'knowledge',
+  'core',
+  'data',
+  'foundations',
+);
+const GLOSSARY_FILE = path.join(
+  ROOT_DIR,
+  'knowledge',
+  'core',
+  'data',
+  'glossary.yaml',
 );
 
 function resolveFile(relPath: string): string {
@@ -86,4 +105,21 @@ export function loadComponents(): ComponentDefinition[] {
 export function loadPatterns(): PatternDefinition[] {
   const raw = loadYamlOrJsonFiles<PatternDefinition>(PATTERNS_DIR, 'patterns');
   return raw.map(resolvePatternFiles);
+}
+
+export function loadFoundations(): FoundationDefinition[] {
+  return loadYamlOrJsonFiles<FoundationDefinition>(
+    FOUNDATIONS_DIR,
+    'foundations',
+  );
+}
+
+export function loadGlossary(): GlossaryTerm[] {
+  if (!fs.existsSync(GLOSSARY_FILE)) {
+    console.warn(`⚠️  glossary file not found: ${GLOSSARY_FILE}`);
+    return [];
+  }
+
+  const content = fs.readFileSync(GLOSSARY_FILE, 'utf-8');
+  return yaml.parse(content) as GlossaryTerm[];
 }

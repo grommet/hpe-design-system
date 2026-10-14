@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import yaml from 'yaml';
 
 const scriptFilePath = fileURLToPath(import.meta.url);
 const scriptDirPath = path.dirname(scriptFilePath);
@@ -122,6 +123,60 @@ thinPromptChecks.forEach((check) => {
         `${check.path}: duplicate workflow heading "${heading}" belongs in ${check.requiredReference}`,
       );
     }
+  });
+});
+
+const foundationsDir = path.join(repoRoot, 'knowledge', 'core', 'data', 'foundations');
+const glossaryPath = path.join(repoRoot, 'knowledge', 'core', 'data', 'glossary.yaml');
+
+const glossaryTerms = fs.existsSync(glossaryPath)
+  ? yaml.parse(fs.readFileSync(glossaryPath, 'utf8'))
+  : [];
+const glossaryIds = new Set(glossaryTerms.map((term) => term.id));
+
+glossaryTerms.forEach((term) => {
+  (term.confusedWith ?? []).forEach((confusedId) => {
+    if (!glossaryIds.has(confusedId)) {
+      violations.push(
+        `knowledge/core/data/glossary.yaml: term "${term.id}" has confusedWith reference to unknown term "${confusedId}"`,
+      );
+    }
+  });
+});
+
+const foundationFiles = fs.existsSync(foundationsDir)
+  ? fs.readdirSync(foundationsDir).filter((file) => file.endsWith('.yaml'))
+  : [];
+const foundationsByFile = foundationFiles.map((file) => ({
+  file,
+  foundation: yaml.parse(fs.readFileSync(path.join(foundationsDir, file), 'utf8')),
+}));
+
+const ruleIds = new Set();
+foundationsByFile.forEach(({ foundation }) => {
+  (foundation.rules ?? []).forEach((rule) => ruleIds.add(rule.id));
+});
+
+foundationsByFile.forEach(({ file, foundation }) => {
+  const seenInFile = new Set();
+  (foundation.rules ?? []).forEach((rule) => {
+    if (seenInFile.has(rule.id)) {
+      violations.push(`knowledge/core/data/foundations/${file}: duplicate rule id "${rule.id}"`);
+    }
+    seenInFile.add(rule.id);
+
+    (rule.relatedTo ?? []).forEach((ref) => {
+      if (ref.kind === 'glossary' && !glossaryIds.has(ref.id)) {
+        violations.push(
+          `knowledge/core/data/foundations/${file}: rule "${rule.id}" has relatedTo reference to unknown glossary term "${ref.id}"`,
+        );
+      }
+      if (ref.kind === 'rule' && !ruleIds.has(ref.id)) {
+        violations.push(
+          `knowledge/core/data/foundations/${file}: rule "${rule.id}" has relatedTo reference to unknown rule "${ref.id}"`,
+        );
+      }
+    });
   });
 });
 

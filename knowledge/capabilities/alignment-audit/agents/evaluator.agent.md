@@ -35,6 +35,7 @@ pnpm --filter @hpe-design/knowledge-agent generate -- "<feature area>"
 ```
 
 Record which components, patterns, and instructions the generator surfaces for each feature. This output is the **intended implementation path** — use it as the reference target during scoring.
+The output ends with a "### Foundation Rules" checklist ("- [<id>] <statement>" per rule). Keep it; it is the rule set for step 3.
 
 ### 3. Scan for token and structure violations (grep-first)
 
@@ -46,6 +47,8 @@ Before reading any file in full, run targeted scans on `SCOPE`:
 - Styling escape hatch: `grep -rn "styled\.\|className=" <SCOPE>`
 - Theme violation: `grep -rn "themeMode\|ThemeContext" <SCOPE>`
 - Semantic status displays: `grep -rnE 'property: "status"|Status(Good|Warning|Critical|Info)|status-(ok|warning|critical|unknown)' <SCOPE>`
+
+Then walk the Foundation Rules checklist against `SCOPE`. Classify every line pass / fail / not applicable / cannot determine; do not skip lines. For each fail, run `pnpm --filter @hpe-design/knowledge-agent generate -- --rule <id>` and record the finding with the rule id at the start of its Description, e.g. `[spacing-use-tokens-everywhere] Card padding uses px`. Use the existing categories (`T`, `L`, `C`...) — the id is the evidence, not a new category.
 
 Read the matched files needed to establish each composition. For every meaningful pattern found, record its user problem, locations, component/behavior evidence, nearest `knowledge/core/data/patterns` match, alignment, confidence, and one classification: **DS-standardization candidate**, **app-domain-specific**, or **needs evidence**.
 
@@ -87,8 +90,8 @@ Assign a score `/10` for each of the seven dimensions below. Maximum total is **
 | 1   | Context Generator Quality | Does output for `EVAL_FEATURES` surface correct components, patterns, and guidance?                                                          |
 | 2   | Component Coverage        | Are all Grommet components needed for `EVAL_FEATURES` documented in `knowledge/core/data/components/`?                                       |
 | 3   | TypeScript DX             | Does the scope compile cleanly (`tsc --noEmit`) with accurate types consumed?                                                                |
-| 4   | Token Compliance          | Do source files use design tokens for color, spacing, typography — zero hardcoded hex/px/inline styles?                                      |
-| 5   | App/Layout Structure      | Does the app shell, routing, and page layout match `grommet-layouts.instructions.md` conventions?                                            |
+| 4   | Token Compliance          | Do source files use design tokens for color, spacing, typography — zero hardcoded hex/px/inline styles? Cite failed foundation rule ids as evidence. |
+| 5   | App/Layout Structure      | Does the app shell, routing, and page layout match `grommet-layouts.instructions.md` conventions? Cite failed foundation rule ids as evidence. |
 | 6   | Developer Confidence      | Could an agent reproduce a new feature in this scope using only DS context, without escaping to raw HTML or undocumented patterns?           |
 | 7   | Pattern Alignment         | Do implemented compositions satisfy applicable pattern anatomy and normative usage rules, and are unmatched patterns responsibly classified? |
 
@@ -184,6 +187,7 @@ applicable anatomy region, `whenToUse` rule, and `whenToAvoid` rule.]
 - [ ] Design-system baseline loaded (types, instructions, components, patterns)
 - [ ] Context generator run for every feature in `EVAL_FEATURES`
 - [ ] Grep-first scans run and matched files reviewed
+- [ ] Foundation Rules checklist walked; every failed rule cited by id in Findings
 - [ ] Every surfaced or nearest matched pattern checked against applicable
       `anatomy`, `whenToUse`, and `whenToAvoid` rules
 - [ ] Pattern Conformance table records source evidence for each applicable rule
