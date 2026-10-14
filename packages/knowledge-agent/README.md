@@ -34,9 +34,12 @@ only re-exports its types; do not add independent copies in the agent.
 
 `ComponentDefinitionSource` and `PatternDefinitionSource` describe authored
 content. Their examples require `code` or `codeFile` (both are allowed).
-Resolved `ComponentExample` values require `code`; pattern examples and
-templates are resolved from files when loaded. Source types are derived from
-the shared definitions rather than maintained as separate copies.
+Resolved `ComponentExample` values require `code`; both component and pattern
+examples are resolved from files when loaded, as are pattern templates.
+Explicit inline example code takes precedence over `codeFile`, including an
+empty string. Missing files retain the loader's warning and placeholder-code
+behavior. Source types are derived from the shared definitions rather than
+maintained as separate copies.
 
 Run `pnpm validate:knowledge-schema` after editing contracts or knowledge data.
 It generates JSON Schemas in memory from the canonical TypeScript types and

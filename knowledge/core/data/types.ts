@@ -20,7 +20,7 @@ export interface ComponentProp {
 export interface ComponentExample {
   description: string;
   code: string;
-  /** Path to a .tsx snippet relative to the repo root. Pattern
+  /** Path to a .tsx snippet relative to the repo root. Component and pattern
    * examples are resolved when loaded. */
   codeFile?: string;
 }
