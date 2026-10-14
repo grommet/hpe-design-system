@@ -37,7 +37,7 @@ export const TimeInputMaintenanceWindowExample = () => {
         <Box gap="medium">
           <Header direction="column" align="start" gap="5xsmall">
             <Heading level={2} margin="none">
-              Schedule report
+              Maintenance Window
             </Heading>
           </Header>
           <Form
