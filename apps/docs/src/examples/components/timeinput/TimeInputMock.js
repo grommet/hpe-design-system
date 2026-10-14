@@ -6,21 +6,29 @@ import { Box, Button, Text, ThemeContext } from 'grommet';
 import { normalizeColor } from 'grommet/utils';
 import { Clock } from '@hpe-design/icons-grommet';
 
-const getColumns = ({ background, color }) => [
+const columns = [
   {
     name: 'Hours',
     options: [
-      { label: '07' },
-      { label: '08', background, color },
-      { label: '09' },
-      { label: '10' },
-    ],
+      '07',
+      '08',
+      '09',
+      '10',
+      '11',
+      '12',
+      '01',
+      '02',
+      '03',
+      '04',
+      '05',
+      '06',
+    ].map(label => ({ label, selected: label === '08' })),
   },
   {
     name: 'Minutes',
     options: [
       { label: '00' },
-      { label: '15', background, color },
+      { label: '15', selected: true },
       {
         label: '30',
         id: 'timeinput-anatomy-option',
@@ -31,43 +39,56 @@ const getColumns = ({ background, color }) => [
   },
   {
     name: 'Period',
-    options: [{ label: 'AM', background, color }, { label: 'PM' }],
+    options: [{ label: 'AM', selected: true }, { label: 'PM' }],
   },
 ];
 
-const TimeInputMockOption = ({ label, color = 'text', ...rest }) => (
-  <Box
-    align="center"
-    pad={{ vertical: 'xxsmall', horizontal: 'xsmall' }}
-    responsive={false}
-    round="xsmall"
-    {...rest}
-  >
-    <Text size="small" color={color}>
-      {label}
-    </Text>
-  </Box>
-);
+const TimeInputMockOption = ({ label, selected, ...rest }) => {
+  const theme = useContext(ThemeContext);
+  const optionTheme = theme.timeInput.drop.option;
+  const background = selected
+    ? optionTheme.selected.background
+    : optionTheme.background;
+  const color = selected ? optionTheme.selected.color || 'text' : 'text';
+
+  return (
+    <Box
+      align="center"
+      background={background && normalizeColor(background, theme)}
+      flex={false}
+      pad={optionTheme.pad}
+      responsive={false}
+      round={optionTheme.round || theme.global.control.border.radius}
+      {...rest}
+    >
+      <Text
+        size={optionTheme.size || theme.global.input.font.size || 'small'}
+        weight={selected ? optionTheme.selected.text?.weight : undefined}
+        color={normalizeColor(color, theme)}
+      >
+        {label}
+      </Text>
+    </Box>
+  );
+};
 
 TimeInputMockOption.propTypes = {
   label: PropTypes.string.isRequired,
-  color: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  selected: PropTypes.bool,
 };
 
 export const TimeInputMock = () => {
   const theme = useContext(ThemeContext);
   const dropTheme = theme.global.drop;
   const timeTheme = theme.timeInput || {};
-  const selectedTheme = timeTheme.drop.option.selected;
-  const columns = getColumns({
-    background: normalizeColor(selectedTheme.background, theme),
-    color: normalizeColor(selectedTheme.color || 'text', theme),
-  });
+  const inputTheme = theme.global.input;
 
   return (
     <>
       <Box gridArea="label" fill="horizontal" align="start">
-        <Text id="timeinput-anatomy-label">Start time</Text>
+        <Text {...theme.formField.label} id="timeinput-anatomy-label">
+          Start time
+        </Text>
       </Box>
       <Box
         id="timeinput-anatomy-field"
@@ -76,14 +97,35 @@ export const TimeInputMock = () => {
         align="center"
         justify="between"
         width="small"
-        border
+        border={{
+          color: theme.global.control.border.color,
+          size: theme.global.control.border.width,
+        }}
         round={timeTheme.container?.round || 'small'}
-        pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
+        pad={inputTheme.padding}
         responsive={false}
       >
-        <Box direction="row" align="center" gap="xsmall">
-          <Text id="timeinput-anatomy-sections">08:15</Text>
-          <Text id="timeinput-anatomy-period">AM</Text>
+        <Box
+          direction="row"
+          align="center"
+          gap={timeTheme.active?.pad || '3xsmall'}
+        >
+          <Text
+            id="timeinput-anatomy-sections"
+            size={inputTheme.font.size}
+            weight={inputTheme.weight || inputTheme.font.weight}
+            color="text"
+          >
+            08:15
+          </Text>
+          <Text
+            id="timeinput-anatomy-period"
+            size={inputTheme.font.size}
+            weight={inputTheme.weight || inputTheme.font.weight}
+            color="text"
+          >
+            AM
+          </Text>
         </Box>
         <Button
           id="timeinput-anatomy-button"
@@ -100,11 +142,20 @@ export const TimeInputMock = () => {
           background={timeTheme.drop?.background || dropTheme.background}
           elevation={dropTheme.shadowSize}
           round={dropTheme.border.radius}
-          pad="xxsmall"
-          gap="xxsmall"
+          pad={timeTheme.drop.pad || 'small'}
+          gap={timeTheme.drop.gap || 'xsmall'}
         >
           {columns.map(({ name, options }) => (
-            <Box key={name} gap="xxsmall" flex={false}>
+            <Box
+              key={name}
+              gap={timeTheme.drop.option.gap || 'xxsmall'}
+              height={{
+                max:
+                  timeTheme.drop.column?.maxHeight || theme.global.size.small,
+              }}
+              overflow="auto"
+              flex={false}
+            >
               {options.map(option => (
                 <TimeInputMockOption key={option.label} {...option} />
               ))}

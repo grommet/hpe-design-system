@@ -45,7 +45,7 @@ const AnatomyGrid = ({ ...rest }) => (
 );
 
 export const TimeInputAnatomy = () => (
-  <Stack margin={{ bottom: 'medium' }} interactiveChild="last">
+  <Stack margin={{ bottom: 'medium' }} interactiveChild="first">
     <AnatomyGrid>
       {annotations.map(({ label }) => (
         <Annotation
