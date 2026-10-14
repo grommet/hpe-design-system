@@ -126,7 +126,7 @@ export const TimeInputMaintenanceWindowExample = () => {
             <Heading level={2} margin="none">
               Maintenance Window
             </Heading>
-            <Button label="Edit" onClick={() => setEdit(true)} plain />
+            <Button label="Edit" onClick={() => setEdit(true)} />
           </Header>
           <Box>
             <NameValueList nameProps={{ width: 'xsmall' }}>
