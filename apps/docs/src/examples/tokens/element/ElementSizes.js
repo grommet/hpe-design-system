@@ -17,7 +17,7 @@ export const ElementSizes = () => (
         >
           SL
         </Avatar>
-        <Button size={size} label="Label" primary flex={false} />
+        <Button size={size} label="Label" primary />
         <Tag size={size} name="name" value="value" />
         {/* Decorative here: shows sizing, not a loading state. */}
         {/* eslint-disable-next-line grommet/spinner-message */}
