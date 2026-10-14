@@ -26,6 +26,7 @@ evidence for the next workflow.
 | Icons              | Approved HPE icon assets in raw SVG and Grommet-aware React forms.                                               | [packages/icons-svg](../../packages/icons-svg/) and [packages/icons-grommet](../../packages/icons-grommet/) | The SVG package owns source assets; the React package provides themed, accessible components for Grommet applications. Use these instead of drawing substitute inline SVGs.                          |
 | Documentation site | Published education and usage guidance for the design system.                                                    | [apps/docs](../../apps/docs/)                                                                               | The Next.js and MDX site explains the system to consumers. Its structural validation keeps navigation and content organization coherent.                                                             |
 | Knowledge base     | Versioned instructions, skills, data, prompts, agents, schemas, and capability definitions for AI-assisted work. | [knowledge](../)                                                                                            | This is the reusable workflow layer. It turns system knowledge into repeatable, inspectable agent behavior.                                                                                          |
+| Design-system agent | CLI/package that reads `knowledge/core/data` (components and patterns) and repository instructions to answer natural-language implementation queries. | [packages/knowledge-agent](../../packages/knowledge-agent/) | Powers the `alignment-audit` capability's evaluation step and is the canonical way to check what the knowledge base currently surfaces for a given feature request. |
 | Figma Code Connect | Repository-owned Figma Dev Mode mappings to real Grommet JSX.                                                    | [knowledge/code-connect](../code-connect/)                                                                  | It connects a Figma component to approved production-oriented code for human handoff and provides useful implementation context to MCP and IDE agents.                                               |
 
 ## How The Pieces Relate
@@ -67,18 +68,27 @@ experimentation:
 
 - **Operational:** token build and contract checks; Grommet/theme/icon package
   consumption; the docs application; existing Code Connect mappings and their
-  Figma publish workflow; knowledge skills and instructions.
-- **Active capability example:**
+  Figma publish workflow; knowledge skills and instructions; the
+  [knowledge-agent](../../packages/knowledge-agent/) context generator
+  over `knowledge/core/data`.
+- **Active capability examples:**
   [docs-refactor](../capabilities/docs-refactor/manifest.yaml) demonstrates how
   a capability brings together structured data, skills, agents, stages, and
   verification.
+  [alignment-audit](../capabilities/alignment-audit/manifest.yaml) demonstrates
+  an evaluate → plan → execute loop that audits a consumer app or scope against
+  the knowledge base and repo guidance, delegating to dedicated sub-agents.
 - **Evaluation work:** [the design-to-code evaluation plan](design-to-code-evaluation-plan.md)
   starts with simple artifacts and uses the Grommet sandbox to assess generated
   React code.
 - **Planned or evolving work:** most capability bundles listed in
   [the knowledge index](../README.md) are marked planned. Treat their manifests
   as design inputs, not proven automation, until their status and validation
-  evidence say otherwise.
+  evidence say otherwise. The
+  [knowledge-agent](../../packages/knowledge-agent/) package is architected as
+  a surface-agnostic core with a CLI adapter; multi-surface distribution (an
+  MCP server, cross-repo use) is a documented future consideration, not yet
+  built — see that package's README for the current thinking.
 
 ## Primary References
 
