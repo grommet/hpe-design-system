@@ -22,7 +22,7 @@ const defaultFormValues = {
   recipient: 'operations@example.com',
   frequency: 'Daily',
   channel: 'Email',
-  'report-delivery': '08:15:00',
+  'report-delivery': '08:15',
 };
 
 export const TimeInputReportDeliveryExample = () => {
@@ -84,7 +84,6 @@ export const TimeInputReportDeliveryExample = () => {
                     id="report-delivery"
                     name="report-delivery"
                     format="12"
-                    showSeconds={false}
                     minuteStep={15}
                   />
                 </FormField>
