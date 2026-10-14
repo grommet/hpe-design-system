@@ -47,7 +47,7 @@ The authoring aid `COMPONENT_EXAMPLE.yaml` and example TSX files are not loader
 inputs and are excluded. Token-package validation remains separately owned.
 
 Availability remains free-form. Existing descriptive animation lists and
-structured token references are both supported; WCAG `note`/`notes` and
+structured token references are both supported; WCAG `notes` arrays and
 pattern metadata are preserved in the shared contract.
 
 CI runs schema validation, the agent typecheck, and tests. Schema validation

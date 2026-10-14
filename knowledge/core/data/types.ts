@@ -73,8 +73,7 @@ export interface WcagCriterion {
   /** e.g. "1.4.3 Contrast (Minimum)" */
   criterion: string;
   status: 'pass' | 'fail' | 'conditional';
-  note?: string;
-  notes?: string;
+  notes?: string[];
 }
 
 export interface ComponentAccessibility {

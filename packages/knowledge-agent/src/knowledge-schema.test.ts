@@ -77,6 +77,36 @@ describe('knowledge source schemas', () => {
     ).toContain('fixture.json:/examples/0:');
   });
 
+  it('accepts WCAG notes only as an optional array of strings', () => {
+    const wcag = (fields: Record<string, unknown>) => ({
+      ...component,
+      accessibility: {
+        wcag: [
+          {
+            criterion: '1.3.1 Info and Relationships',
+            status: 'conditional',
+            ...fields,
+          },
+        ],
+      },
+    });
+    for (const fields of [
+      {},
+      { notes: [] },
+      { notes: ['One'] },
+      { notes: ['One', 'Two'] },
+    ]) {
+      expect(validate(wcag(fields))).toEqual([]);
+    }
+    expect(validate(wcag({ note: 'Legacy' })).join('\n')).toContain('(note)');
+    expect(validate(wcag({ notes: 'Scalar' })).join('\n')).toContain(
+      '/accessibility/wcag/0/notes:',
+    );
+    expect(validate(wcag({ notes: [42] })).join('\n')).toContain(
+      '/accessibility/wcag/0/notes/0:',
+    );
+  });
+
   it('preserves free-form availability and both animation representations', () => {
     for (const animation of [
       ['expand'],
