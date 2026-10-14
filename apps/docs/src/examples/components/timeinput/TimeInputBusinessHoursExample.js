@@ -120,7 +120,7 @@ export const TimeInputBusinessHoursExample = () => {
             <Heading level={2} margin="none">
               Booking details
             </Heading>
-            <Button label="Edit" onClick={() => setEdit(true)} plain />
+            <Button label="Edit" onClick={() => setEdit(true)} />
           </Header>
           <Box>
             <NameValueList nameProps={{ width: 'xxsmall' }}>
