@@ -83,7 +83,9 @@ export const DevicesCollection = () => {
           {showNav && <SideNav gridArea="nav" />}
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
-              <PageContent gap="xlarge">
+              {/* PageHeader already pads below itself, so a medium gap is
+                  enough before the content; the sections keep xlarge. */}
+              <PageContent gap="medium">
                 <PageHeader
                   title="Devices"
                   actions={
@@ -94,8 +96,10 @@ export const DevicesCollection = () => {
                     />
                   }
                 />
-                <EnergySummary />
-                <DevicesTable />
+                <Box gap="xlarge">
+                  <EnergySummary />
+                  <DevicesTable />
+                </Box>
               </PageContent>
             </Page>
           </Main>
