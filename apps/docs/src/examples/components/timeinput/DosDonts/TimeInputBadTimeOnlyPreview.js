@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React from 'react';
-import { Box, DateInput, FormField } from 'grommet';
+import { Box, DateTimeInput, FormField } from 'grommet';
 
 export const TimeInputBadTimeOnlyPreview = () => (
   <Box width="medium">
@@ -10,11 +10,11 @@ export const TimeInputBadTimeOnlyPreview = () => (
       htmlFor="bad-time-only"
       name="bad-time-only"
     >
-      <DateInput
+      <DateTimeInput
         id="bad-time-only"
         name="bad-time-only"
-        value="2026-09-07T08:15:00"
-        format="mm/dd/yyyy"
+        format="12"
+        defaultValue="2026-10-14T08:15"
       />
     </FormField>
   </Box>
