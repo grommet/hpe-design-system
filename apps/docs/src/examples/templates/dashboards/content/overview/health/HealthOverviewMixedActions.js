@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
-import { Box, Button, Text } from 'grommet';
+import { Button, Text } from 'grommet';
 import { ShieldCheck } from '@hpe-design/icons-grommet';
 import { MetricValue } from '../../../components';
 import { Bar } from './Bar';
@@ -19,15 +19,7 @@ import {
   volumesStatus,
 } from './data';
 
-// Variant 7: mixed, actionable, with the heading counting the things that
-// need attention rather than the tiles that hold them, so "2 need attention"
-// agrees with the "2 of 1,104" failed drives beneath it. Each exception tile
-// can carry one call to action. Without tileActions the verdict is the link,
-// as in the mixed, actionable variant. With tileActions a secondary button is
-// the only way in and the verdict stays plain text, so a tile never offers
-// two routes to the same place. Buttons are named for what the admin does
-// next, not for what the system cannot do: a failed drive is replaced, not
-// fixed from a dashboard.
+// Mixed-action variant: exceptions link to details or offer one tile action.
 //
 // Descriptions follow the content at the tile's normal gap rather than
 // sitting on the bottom edge; one-line descriptions leave their spare room
@@ -48,37 +40,13 @@ export const HealthOverviewMixedActions = ({
     volumes: volumesStatus(volumes),
     drives: countStatus(drives.failed),
   };
-  // A breached target counts once; each unprotected volume or failed drive
-  // counts on its own, which is how an admin would tally the work.
-  const issues = {
-    availability: status.availability === 'ok' ? 0 : 1,
-    capacity: status.capacity === 'ok' ? 0 : 1,
-    volumes: unprotected,
-    drives: drives.failed,
-  };
-  const total = Object.values(issues).reduce((sum, count) => sum + count, 0);
-  const worst = Object.values(status).includes('critical')
-    ? 'critical'
-    : 'warning';
-
   const linkIf = value => (value === 'ok' || tileActions ? undefined : '#');
   const actionIf = (value, label) =>
     tileActions && value !== 'ok' ? (
       <Button label={label} secondary href="#" />
     ) : undefined;
 
-  const summary = (
-    <Box direction="row" align="center" gap="small">
-      {total ? (
-        <QuietStatusRow status={worst} href="#">
-          {total} need{total === 1 ? 's' : ''} attention
-        </QuietStatusRow>
-      ) : (
-        <Text>All healthy</Text>
-      )}
-      <Text color="text-weak">Checked {checked}</Text>
-    </Box>
-  );
+  const summary = <Text color="text-weak">Checked {checked}</Text>;
 
   return (
     <HealthSection summary={summary}>

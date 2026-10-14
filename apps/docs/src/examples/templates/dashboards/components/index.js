@@ -14,7 +14,6 @@ export * from './Legend';
 export * from './Measure';
 export * from './MeterGroup';
 export * from './MetricGroup';
-export * from './MetricTile';
 export * from './MetricValue';
 export * from './Greeting';
 export * from './ServiceCard';

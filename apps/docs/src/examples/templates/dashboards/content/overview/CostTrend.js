@@ -74,7 +74,13 @@ export const CostTrend = ({ ...rest }) => (
               dash
               {...chartProps}
             />
-            <Chart type="line" values={actual} round {...chartProps} />
+            <Chart
+              type="line"
+              values={actual}
+              round
+              aria-hidden
+              {...chartProps}
+            />
           </Stack>
         </Box>
         <Box direction="row" justify="between">

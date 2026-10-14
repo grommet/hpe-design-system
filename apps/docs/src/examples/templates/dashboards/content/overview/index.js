@@ -4,6 +4,5 @@ export * from './CostTrend';
 export * from './DiscoverServices';
 export * from './health';
 export * from './NeedsAttention';
-export * from './ServiceHealth';
 export * from './SlaPerformance';
 export * from './WeekAtAGlance';

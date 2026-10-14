@@ -7,20 +7,6 @@
 export const pageBackground = '#ffffff';
 export const surfaceBackground = '#f7f7f7';
 
-// Service health
-export const systemHealth = {
-  total: 128,
-  healthy: 116,
-  values: [
-    { status: 'critical', label: 'Critical', value: 2 },
-    { status: 'warning', label: 'Warning', value: 4 },
-    { status: 'ok', label: 'Okay', value: 116 },
-    { status: 'unknown', label: 'Unknown', value: 6 },
-  ],
-};
-
-export const capacity = { used: 3.4, total: 4.8, unit: 'PB' };
-
 // This week at a glance
 export const budget = 265;
 

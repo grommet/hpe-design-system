@@ -52,19 +52,6 @@ StatusIcon.propTypes = {
   status: PropTypes.oneOf(Object.keys(STATUS)).isRequired,
 };
 
-// One-line verdict under a metric, e.g. "Above 99.9% target".
-export const StatusRow = ({ children, status }) => (
-  <Box direction="row" align="center" gap="3xsmall">
-    <StatusIcon status={status} />
-    <Text>{children}</Text>
-  </Box>
-);
-
-StatusRow.propTypes = {
-  children: PropTypes.node.isRequired,
-  status: PropTypes.oneOf(Object.keys(STATUS)).isRequired,
-};
-
 // Verdict line that stays quiet while things are fine. The status icon is
 // only rendered for warning and critical, so "good" is not repeated in every
 // tile; pass icon to mark the subject instead, e.g. a shield for protection.
