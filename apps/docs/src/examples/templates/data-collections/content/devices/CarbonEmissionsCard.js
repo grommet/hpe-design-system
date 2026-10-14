@@ -60,7 +60,7 @@ export const CarbonEmissionsCard = ({ detailed }) => (
       </Box>
     }
   >
-    <Box gap="xxsmall">
+    <Box gap="4xsmall">
       <MetricValue
         value={formatNumber(carbon.total, 1)}
         unit={carbon.unit}
