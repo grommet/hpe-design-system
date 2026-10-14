@@ -18,9 +18,7 @@ const LoadBlock = ({ hour, kw, label }) => (
     background="background-contrast"
     gap="xsmall"
   >
-    <Text size="small" color="text-weak">
-      {label}
-    </Text>
+    <Text size="small">{label}</Text>
     <Box gap="6xsmall">
       <TextEmphasis size="large">
         {kw} {power.unit}
@@ -77,7 +75,7 @@ export const PowerDrawCard = ({ detailed }) => (
           size={{ width: 'fill', height: 'xsmall' }}
         />
         <Box direction="row" gap="small">
-          <LoadBlock label="Minimum load" {...power.minimum} />
+          <LoadBlock label="Min. load" {...power.minimum} />
           <LoadBlock label="Peak load" {...power.peak} />
         </Box>
       </Box>
