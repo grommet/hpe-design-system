@@ -106,12 +106,14 @@ export type FrameworkTarget =
  * Only fields that differ from the component's defaults need to be specified.
  */
 export interface ComponentImplementation {
-  /** Package name to import the component from in this framework (e.g. "@hpe/vue-components") */
+  /** Package name to import the component from in this framework (e.g.
+   * "@hpe/vue-components") */
   importPath: string;
   /**
    * Per-prop type string overrides for this framework.
    * Key = prop name, value = framework-specific type string.
-   * e.g. { "label": "string | VNode" } for Vue, { "label": "string | TemplateRef" } for Angular.
+   * e.g. { "label": "string | VNode" } for Vue,
+   * { "label": "string | TemplateRef" } for Angular.
    * Prop types not listed here fall back to the top-level props[].type value.
    */
   propTypeOverrides?: Record<string, string>;
@@ -122,8 +124,9 @@ export interface ComponentDefinition {
   name: string;
   description: string;
   /**
-   * Default import path, used when no framework-specific implementation is defined.
-   * For React components this is the component library package (e.g. "grommet").
+   * Default import path, used when no framework-specific implementation
+   * is defined. For React components this is the component library
+   * package (e.g. "grommet").
    */
   importPath: string;
   /**
@@ -135,7 +138,8 @@ export interface ComponentDefinition {
    * Framework-specific overrides for importPath and prop type strings.
    * Present only when the component has been adapted for multiple frameworks.
    * The build resolves the correct entry per consumer before writing output —
-   * agents and consuming apps always receive a flat, single-framework definition.
+   * agents and consuming apps always receive a flat, single-framework
+   * definition.
    */
   implementations?: Partial<Record<FrameworkTarget, ComponentImplementation>>;
   // Generated from props during build; do not author in source JSON
@@ -190,16 +194,19 @@ export interface PatternNode {
   id: string;
   /** References a ComponentDefinition.id in the design system. */
   componentId: string;
-  /** Human-readable role within the pattern (e.g. "nav sidebar", "brand button"). */
+  /** Human-readable role within the pattern (e.g. "nav sidebar",
+   * "brand button"). */
   role?: string;
   /**
    * Prop values for this node instance, keyed by prop name.
-   * Omit runtime-computed or function props — those remain in `templateCode` only.
+   * Omit runtime-computed or function props — those remain in
+   * `templateCode` only.
    */
   props: Record<string, PatternPropValue>;
   /** IDs of direct child PatternNodes in the adjacency list. */
   children: string[];
-  /** How this node's presence or content is determined. Defaults to "static". */
+  /** How this node's presence or content is determined. Defaults
+   * to "static". */
   binding?: PatternNodeBinding;
   /** Implementation notes specific to this node's usage in the pattern. */
   notes?: string;
@@ -214,20 +221,24 @@ export interface PatternNode {
 export interface PatternGraph {
   /** ID of the root PatternNode (entry point for DFS traversal). */
   rootId: string;
-  /** Flat list of all nodes; children arrays form the directed acyclic graph. */
+  /** Flat list of all nodes; children arrays form the directed
+   * acyclic graph. */
   nodes: PatternNode[];
 }
 
 export interface PatternDefinition {
   id: string;
   name: string;
-  /** Alternative names or shorthand phrases (e.g. "app shell" for "Application Shell"). Used by the context generator for keyword matching. */
+  /** Alternative names or shorthand phrases (e.g. "app shell" for
+   * "Application Shell"). Used by the context generator for keyword
+   * matching. */
   aliases?: string[];
   description: string;
   problem: string;
   solution: string;
   relatedComponents: string[]; // IDs of components
-  /** IDs of other patterns that compose with or are recommended alongside this one. */
+  /** IDs of other patterns that compose with or are recommended
+   * alongside this one. */
   relatedPatterns?: string[];
   referenceImplementation?: string;
   navItemType?: { description: string; definition: string };
@@ -238,7 +249,8 @@ export interface PatternDefinition {
     whenToAvoid: string[];
   };
   templateCode?: string;
-  /** Path to a .tsx template relative to the repo root. Resolved when the pattern is loaded. */
+  /** Path to a .tsx template relative to the repo root. Resolved when
+   * the pattern is loaded. */
   templateCodeFile?: string;
   examples?: ComponentExample[];
   /**
