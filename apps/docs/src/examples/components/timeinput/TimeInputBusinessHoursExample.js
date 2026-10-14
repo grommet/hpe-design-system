@@ -118,7 +118,7 @@ export const TimeInputBusinessHoursExample = () => {
         <Box gap="medium">
           <Header direction="row" align="center" justify="between">
             <Heading level={2} margin="none">
-              Schedule report
+              Booking details
             </Heading>
             <Button label="Edit" onClick={() => setEdit(true)} plain />
           </Header>
