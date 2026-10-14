@@ -3,5 +3,5 @@
 export * from './DosDonts';
 export * from './TimeInputBusinessHoursExample';
 export * from './TimeInputDefiningMaintenanceWindowBoundariesExample';
-export * from './TimeInputPlaygroundExample';
+export * from './TimeInputExample';
 export * from './TimeInputSettingReportDeliveryTimesExample';
