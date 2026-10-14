@@ -416,7 +416,8 @@ export const components = [
   {
     name: 'TimeInput',
     category: 'Inputs',
-    description: 'A field which allows the user to enter a time.',
+    description:
+      'Use TimeInput to collect a time of day. Its structured input helps users enter time consistently in a 12 or 24-hour format.',
     seoDescription:
       'TimeInput allows users to enter a time in a consistent, accessible format.',
     relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
