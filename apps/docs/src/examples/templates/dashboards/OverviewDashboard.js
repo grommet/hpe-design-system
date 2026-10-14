@@ -26,7 +26,11 @@ import {
 } from '@hpe-design/icons-grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
-import { DiscoverServices, ServiceHealth, WeekAtAGlance } from './content';
+import {
+  DiscoverServices,
+  HealthOverviewMixedActions,
+  WeekAtAGlance,
+} from './content';
 import { pageBackground, surfaceBackground } from './content/overview/data';
 
 const navigation = [
@@ -84,7 +88,7 @@ export const OverviewDashboard = () => {
                   }
                 />
                 <Box gap="xlarge">
-                  <ServiceHealth />
+                  <HealthOverviewMixedActions />
                   <WeekAtAGlance />
                   <DiscoverServices />
                 </Box>

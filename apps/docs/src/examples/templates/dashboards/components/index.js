@@ -3,6 +3,7 @@
 export * from './data';
 export * from './Activity';
 export * from './ActivityFeed';
+export * from './AlignedMetricTile';
 export * from './ChartCard';
 export * from './DashboardCard';
 export * from './DashboardCardHeader';
