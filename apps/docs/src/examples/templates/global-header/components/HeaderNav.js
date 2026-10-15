@@ -1,41 +1,14 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
-import {
-  Avatar,
-  Box,
-  Button,
-  DropButton,
-  Nav,
-  ResponsiveContext,
-  Text,
-} from 'grommet';
+import { Box, Button, DropButton, Nav, ResponsiveContext, Text } from 'grommet';
 import { Help, Home } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { UserContext } from '.';
+import { UserAvatar } from './UserAvatar';
 
 const getInitials = ({ firstName = '', lastName = '' }) =>
   `${firstName.charAt(0)}${lastName.charAt(0)}`;
-
-const UserAvatar = ({ size = 'medium', user }) => {
-  const initials = getInitials(user);
-  return (
-    <Avatar background="background-accent-purple-weak" flex={false} size={size}>
-      <Text size={size === 'large' ? 'xlarge' : 'large'} color="text-strong">
-        {initials}
-      </Text>
-    </Avatar>
-  );
-};
-
-UserAvatar.propTypes = {
-  size: PropTypes.oneOf(['medium', 'large']),
-  user: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-  }).isRequired,
-};
 
 export const HeaderNav = () => {
   const size = useContext(ResponsiveContext);
@@ -57,7 +30,7 @@ export const HeaderNav = () => {
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
       >
-        <UserAvatar user={user} />
+        <UserAvatar initials={getInitials(user)} />
       </DropButton>
     </Nav>
   ) : null;
@@ -68,7 +41,7 @@ const UserDetails = () => {
   return (
     <Box width="medium">
       <Box pad="medium" direction="row" gap="xsmall">
-        <UserAvatar user={user} size="large" />
+        <UserAvatar initials={getInitials(user)} size="large" />
         <Box pad={{ vertical: 'xsmall' }}>
           <TextEmphasis size="large">
             {`${user.firstName} ${user.lastName}`}

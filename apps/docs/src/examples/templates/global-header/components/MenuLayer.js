@@ -3,7 +3,6 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Avatar,
   Box,
   Button,
   Header,
@@ -17,6 +16,7 @@ import { Close, Menu } from '@hpe-design/icons-grommet';
 // TODO replace with DS icon package when available
 import { Aruba } from 'grommet-icons';
 import { TextEmphasis } from '@shared/aries-core';
+import { UserAvatar } from './UserAvatar';
 
 export const MenuLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -77,15 +77,9 @@ const SidebarHeader = () => (
     flex={false}
   >
     <Box gap="3xsmall">
-      <Avatar
-        background="background-accent-purple-weak"
-        flex={false}
-        margin={{ bottom: '3xsmall' }}
-      >
-        <Text size="large" color="text-strong">
-          A
-        </Text>
-      </Avatar>
+      <Box margin={{ bottom: '3xsmall' }}>
+        <UserAvatar initials="A" />
+      </Box>
       <TextEmphasis>AT&T Corporation</TextEmphasis>
       <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
     </Box>
