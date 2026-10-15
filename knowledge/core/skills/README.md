@@ -4,14 +4,22 @@ This directory contains repository-scoped GitHub Copilot skills for the HPE Desi
 
 ## Code Connect Skills
 
-Use these when working in `knowledge/code-connect/` or when mapping Figma components to Grommet code.
+Use these for Code Connect work in this repository, including mapping Grommet components to Figma components.
 
-| Skill                              | Use it when                                                                                   | Main output                          |
-| ---------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------ |
-| `code-connect-intake`              | You need to confirm the target component, Figma node URL, and target file path before editing | A correct mapping starting point     |
-| `code-connect-authoring`           | You need to create or update a `.figma.jsx` mapping                                           | A repo-aligned Code Connect file     |
-| `code-connect-drift-audit`         | You need to review an existing mapping for stale props, imports, or structure                 | Findings and targeted fixes          |
-| `code-connect-sync-troubleshooter` | `figma:sync` fails or Figma Dev Mode output does not match expectations                       | Root-cause diagnosis and sync repair |
+| Skill                              | Use it when                                                                       | Main output                               |
+| ---------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------- |
+| `code-connect-authoring`           | You need to intake, create, or update an HPE repo mapping                         | `.figma.jsx` file using `figma.connect()` |
+| `code-connect-drift-audit`         | You need to review an existing HPE mapping for stale props, imports, or structure | Findings and targeted fixes               |
+| `code-connect-sync-troubleshooter` | `figma:sync` fails or Figma Dev Mode output does not match expectations           | Root-cause diagnosis and sync repair      |
+
+## Figma Skills
+
+Use these when working with Figma files, Plugin API actions, or Code Connect templates.
+
+| Skill                   | Use it when                                                            |
+| ----------------------- | ---------------------------------------------------------------------- |
+| `figma-use`             | You need to inspect or modify a Figma file through the Plugin API      |
+| `figma-generate-design` | You need to create or update an editable Figma screen or composed view |
 
 ## General Customization Skills
 

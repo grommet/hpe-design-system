@@ -1,6 +1,6 @@
 ---
 name: code-connect-authoring
-description: 'Authoring workflow for HPE Design System Code Connect mappings. Use when asked to create or update a `.figma.jsx` file, translate Figma properties into `figma.connect(...)`, choose between `props`, `variant`, or static composition patterns, or mirror a Grommet component API in `knowledge/code-connect/src/`.'
+description: 'Repo-specific workflow for HPE Design System Code Connect mappings. Use when asked to intake, create, or update an HPE `.figma.jsx` mapping with `figma.connect(...)`, map Figma properties to a Grommet component, or choose between props, variants, and static composition.'
 version: 1.0.0
 ---
 
