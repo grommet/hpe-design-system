@@ -22,7 +22,7 @@ export const ShippingInfomation = ({ name }) => (
       <TextInput
         id={`address1-${name}`}
         name="address1"
-        placeholder="Street Address"
+        placeholder="Street address"
       />
     </FormField>
     <FormField

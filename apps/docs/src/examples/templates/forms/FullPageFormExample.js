@@ -13,7 +13,7 @@ export const FullPageFormExample = () => {
           ? '/templateImages/coming-soon-invert.svg'
           : '/templateImages/coming-soon.svg'
       }
-      alt="Coming Soon text next to a clock icon."
+      alt="Coming soon text next to a clock icon."
       fit="contain"
     />
   );
