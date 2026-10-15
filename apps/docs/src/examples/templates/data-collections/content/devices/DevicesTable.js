@@ -242,7 +242,7 @@ const DeviceCards = () => (
   <Cards
     as="ul"
     aria-describedby="devices-heading"
-    columns={{ count: 'fit', size: 'small' }}
+    columns={{ count: 'fit', size: ['small', 'medium'] }}
     gap="medium"
   >
     {datum => (
@@ -251,7 +251,7 @@ const DeviceCards = () => (
           <DeviceIdentity name={datum.name} serialNumber={datum.serialNumber} />
         </CardHeader>
         <CardBody>
-          <NameValueList nameProps={{ width: 'xsmall' }}>
+          <NameValueList pairProps={{ direction: 'column' }}>
             <NameValuePair name="Model">{datum.model}</NameValuePair>
             <NameValuePair name="Subscription">
               <SubscriptionStatus
