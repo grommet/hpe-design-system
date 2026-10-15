@@ -129,7 +129,7 @@ export const TimeInputMaintenanceWindowExample = () => {
           <Box>
             <NameValueList nameProps={{ width: 'xsmall' }}>
               <NameValuePair name="Service">{formValue.service}</NameValuePair>
-              <NameValuePair name="Ticket">{formValue.ticket}</NameValuePair>
+              <NameValuePair name="Change ticket">{formValue.ticket}</NameValuePair>
               <NameValuePair name="Notification scope">
                 {formValue.scope}
               </NameValuePair>
