@@ -21,14 +21,14 @@ import { formatTime } from './utils/formatTime';
 const defaultFormValues = {
   customer: 'Avery Morgan',
   service: 'Platform consultation',
-  'business-hours': '07:30',
+  'appointment-time': '07:30',
 };
 
 const BUSINESS_START = 8 * 60;
 const BUSINESS_END = 18 * 60;
 
 // TimeInput values are 24-hour HH:MM:SS strings.
-const validateBusinessHours = time => {
+const validateAppointmentTime = time => {
   if (!time) return 'Appointment time is required.';
   const [hour, minute] = time.split(':').map(Number);
   const minutes = hour * 60 + minute;
@@ -86,17 +86,17 @@ export const TimeInputBusinessHoursExample = () => {
                 </FormField>
                 <FormField
                   label="Appointment time"
-                  htmlFor="business-hours"
-                  name="business-hours"
+                  htmlFor="appointment-time"
+                  name="appointment-time"
                   info={
                     'Available Monday to Friday, 8:00 AM to 6:00 PM ' +
                     'in 30-minute intervals.'
                   }
-                  validate={validateBusinessHours}
+                  validate={validateAppointmentTime}
                 >
                   <TimeInput
-                    id="business-hours"
-                    name="business-hours"
+                    id="appointment-time"
+                    name="appointment-time"
                     format="12"
                     minuteStep={30}
                   />
@@ -125,7 +125,7 @@ export const TimeInputBusinessHoursExample = () => {
             <NameValuePair name="Customer">{formValue.customer}</NameValuePair>
             <NameValuePair name="Service">{formValue.service}</NameValuePair>
             <NameValuePair name="Appointment time">
-              {formatTime(formValue['business-hours'])}
+              {formatTime(formValue['appointment-time'])}
             </NameValuePair>
           </NameValueList>
         </Box>
