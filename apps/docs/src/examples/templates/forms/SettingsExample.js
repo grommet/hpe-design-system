@@ -73,7 +73,7 @@ export const SettingsExample = () => {
             <FormField
               htmlFor="notificationsVolume"
               name="notificationsVolume"
-              label="Notifications Volume"
+              label="Notifications volume"
             >
               <RangeInput
                 id="notificationsVolume"
