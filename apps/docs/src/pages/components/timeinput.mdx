@@ -2,11 +2,9 @@ import { Checkmark } from '@hpe-design/icons-grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   TimeInputBadTimeFormatPreview,
-  TimeInputBadTimeOnlyPreview,
   TimeInputConstrainingSelectionToBusinessHoursExample,
   TimeInputDefiningMaintenanceWindowBoundariesExample,
   TimeInputGoodTimeFormatPreview,
-  TimeInputGoodTimeOnlyPreview,
   TimeInputExample,
   TimeInputSettingReportDeliveryTimesExample,
 } from '../../examples';
@@ -82,27 +80,6 @@ Use TimeInput when valid times must fall within a fixed range, such as booking a
     }}
   >
     <TimeInputBadTimeFormatPreview />
-  </Example>
-</BestPracticeGroup>
-
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message:
-        'Use TimeInput when the value contains only a time, such as a report delivery time or appointment time.',
-    }}
-  >
-    <TimeInputGoodTimeOnlyPreview />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message:
-        'Do not use TimeInput when the value includes a date or a date-and-time combination; use the appropriate date component instead.',
-    }}
-  >
-    <TimeInputBadTimeOnlyPreview />
   </Example>
 </BestPracticeGroup>
 
