@@ -35,7 +35,7 @@ export const TimeInputMaintenanceWindowExample = () => {
     <ContentPane width={edit ? 'medium' : undefined}>
       {edit ? (
         <Box gap="medium">
-          <Header direction="column" align="start" gap="5xsmall">
+          <Header>
             <Heading level={2} margin="none">
               Maintenance window
             </Heading>
@@ -120,27 +120,29 @@ export const TimeInputMaintenanceWindowExample = () => {
         </Box>
       ) : (
         <Box gap="medium">
-          <Header direction="row" align="center" justify="between">
+          <Header>
             <Heading level={2} margin="none">
               Maintenance window
             </Heading>
             <Button label="Edit" onClick={() => setEdit(true)} />
           </Header>
-          <Box>
-            <NameValueList nameProps={{ width: 'xsmall' }}>
-              <NameValuePair name="Affected service">{formValue.service}</NameValuePair>
-              <NameValuePair name="Change ticket">{formValue.ticket}</NameValuePair>
-              <NameValuePair name="Notification scope">
-                {formValue.scope}
-              </NameValuePair>
-              <NameValuePair name="Maintenance starts">
-                {formatTime(formValue['maintenance-start'], '24')}
-              </NameValuePair>
-              <NameValuePair name="Maintenance ends">
-                {formatTime(formValue['maintenance-end'], '24')}
-              </NameValuePair>
-            </NameValueList>
-          </Box>
+          <NameValueList nameProps={{ width: 'xsmall' }}>
+            <NameValuePair name="Affected service">
+              {formValue.service}
+            </NameValuePair>
+            <NameValuePair name="Change ticket">
+              {formValue.ticket}
+            </NameValuePair>
+            <NameValuePair name="Notification scope">
+              {formValue.scope}
+            </NameValuePair>
+            <NameValuePair name="Maintenance starts">
+              {formatTime(formValue['maintenance-start'], '24')}
+            </NameValuePair>
+            <NameValuePair name="Maintenance ends">
+              {formatTime(formValue['maintenance-end'], '24')}
+            </NameValuePair>
+          </NameValueList>
         </Box>
       )}
     </ContentPane>
