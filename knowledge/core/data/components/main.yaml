@@ -97,23 +97,23 @@ accessibility:
       status: pass
     - criterion: 4.1.2 Name, Role, Value
       status: pass
-      note:
-        Main renders as the HTML <main> element, which intrinsically carries the
-        ARIA landmark role 'main'. No explicit role or aria-* attribute is required
-        unless there are multiple main landmarks on the same page.
+      notes:
+        - Main renders as the HTML <main> element, which intrinsically carries the
+          ARIA landmark role 'main'. No explicit role or aria-* attribute is required
+          unless there are multiple main landmarks on the same page.
     - criterion: 2.4.3 Focus Order
       status: conditional
-      note:
-        When SkipLinks targets Main via the id prop, ensure the element (or its
-        first interactive child) can receive programmatic focus. Add tabIndex={-1} on
-        Main if focus is not captured after skip-link activation.
+      notes:
+        - When SkipLinks targets Main via the id prop, ensure the element (or its
+          first interactive child) can receive programmatic focus. Add tabIndex={-1} on
+          Main if focus is not captured after skip-link activation.
     - criterion: 2.4.1 Bypass Blocks
       status: conditional
-      note:
-        The <main> landmark alone is not sufficient — keyboard users must also have
-        a mechanism to skip past the Header and Nav. Add a SkipLinks + SkipLink pair
-        before the Header, pointing at the Main element's id prop. Without this pairing,
-        keyboard users must Tab through every navigation item on every page load.
+      notes:
+        - The <main> landmark alone is not sufficient — keyboard users must also have
+          a mechanism to skip past the Header and Nav. Add a SkipLinks + SkipLink pair
+          before the Header, pointing at the Main element's id prop. Without this pairing,
+          keyboard users must Tab through every navigation item on every page load.
 relatedComponents:
   - page
   - page-content
