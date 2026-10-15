@@ -10,7 +10,7 @@ import { TextEmphasis } from '@shared/aries-core';
 export const Trend = ({ direction = 'up', value }) => {
   const Icon = direction === 'down' ? Descending : Ascending;
   return (
-    <Box direction="row" align="center" gap="3xsmall">
+    <Box direction="row" align="center" gap="5xsmall">
       <Icon size="small" color="icon-strong" aria-hidden />
       <TextEmphasis size="xsmall">{value}</TextEmphasis>
     </Box>
