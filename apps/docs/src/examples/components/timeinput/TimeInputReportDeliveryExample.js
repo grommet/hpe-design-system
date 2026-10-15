@@ -118,7 +118,7 @@ export const TimeInputReportDeliveryExample = () => {
               <NameValuePair name="Delivery channel">
                 {formValue.channel}
               </NameValuePair>
-              <NameValuePair name="Next run">
+              <NameValuePair name="Daily delivery time">
                 {formatTime(formValue['report-delivery'])}
               </NameValuePair>
             </NameValueList>
