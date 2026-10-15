@@ -127,7 +127,7 @@ export const TimeInputBusinessHoursExample = () => {
                 {formValue.customer}
               </NameValuePair>
               <NameValuePair name="Service">{formValue.service}</NameValuePair>
-              <NameValuePair name="Business hours">
+              <NameValuePair name="Appointment time">
                 {formatTime(formValue['business-hours'])}
               </NameValuePair>
             </NameValueList>
