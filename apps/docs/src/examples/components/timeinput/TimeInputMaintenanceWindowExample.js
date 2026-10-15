@@ -122,7 +122,7 @@ export const TimeInputMaintenanceWindowExample = () => {
         <Box gap="medium">
           <Header direction="row" align="center" justify="between">
             <Heading level={2} margin="none">
-              Maintenance Window
+              Maintenance window
             </Heading>
             <Button label="Edit" onClick={() => setEdit(true)} />
           </Header>
