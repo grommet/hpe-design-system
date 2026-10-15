@@ -1,7 +1,8 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Chart, Stack, Text } from 'grommet';
+import { Box, Chart, Stack, Text, ThemeContext } from 'grommet';
 import styled from 'styled-components';
 import { ChartCard, MetricValue } from '../../components';
 import { budget, costTrend, surfaceBackground } from './data';
@@ -29,14 +30,17 @@ const bounds = {
 
 const series = { color: 'dataVis-categorical-10', thickness: '5xsmall' };
 
-// Chart derives its dash pattern from the stroke width. The design calls for
-// an even dash and gap, which no Chart prop expresses, so the pattern is set
-// here from the spacing scale.
+// The design calls for an even dash and gap, which no Chart prop expresses.
+// Grommet sets stroke-dasharray on each path, so the override targets paths,
+// and round caps add one stroke width to every dash, so it is taken off the
+// dash and added to the gap.
 const DashedChart = styled(Chart)`
-  g {
+  g,
+  g path {
     stroke-dasharray: ${({ theme }) => {
-      const dash = theme.global.edgeSize['3xsmall'];
-      return `${dash} ${dash}`;
+      const dash = parseInt(theme.global.edgeSize['3xsmall'], 10);
+      const cap = parseInt(theme.global.edgeSize[series.thickness], 10);
+      return `${dash - cap}px ${dash + cap}px`;
     }};
   }
 `;
@@ -72,6 +76,7 @@ export const CostTrend = ({ ...rest }) => (
               type="line"
               values={budgetLine}
               dash
+              round
               {...chartProps}
             />
             <Chart
@@ -100,24 +105,34 @@ export const CostTrend = ({ ...rest }) => (
   </ChartCard>
 );
 
-// Legend swatches mirror the strokes in the chart: a solid line for actual
-// cost and a dashed line for the budget.
-const LegendItem = ({ dash, label }) => (
-  <Box direction="row" align="center" gap="3xsmall">
-    <Box
-      pad={{ horizontal: 'xxsmall' }}
-      border={{
-        side: 'top',
-        size: 'small',
-        color: series.color,
-        style: dash ? 'dashed' : 'solid',
-      }}
-      flex={false}
-      aria-hidden
-    />
-    <Text size="small">{label}</Text>
-  </Box>
-);
+const legendValues = [{ value: [0, 0.5] }, { value: [1, 0.5] }];
+const legendBounds = { x: { min: 0, max: 1 }, y: { min: 0, max: 1 } };
+
+// Legend swatches are miniature charts so their strokes and caps match the
+// plot: a solid line for actual cost and a dashed line for the budget.
+const LegendItem = ({ dash, label }) => {
+  const theme = useContext(ThemeContext);
+  const SwatchChart = dash ? DashedChart : Chart;
+  return (
+    <Box direction="row" align="center" gap="3xsmall">
+      <SwatchChart
+        type="line"
+        values={legendValues}
+        bounds={legendBounds}
+        size={{
+          width: theme.global.edgeSize.small,
+          height: theme.global.edgeSize[series.thickness],
+        }}
+        dash={dash}
+        round
+        overflow
+        aria-hidden
+        {...series}
+      />
+      <Text size="small">{label}</Text>
+    </Box>
+  );
+};
 
 LegendItem.propTypes = {
   dash: PropTypes.bool,
