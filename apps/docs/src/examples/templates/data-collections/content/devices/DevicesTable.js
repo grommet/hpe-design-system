@@ -55,6 +55,8 @@ const subscriptionIcons = {
 // In an application this would navigate to the device's detail page.
 const openDevice = () => {};
 
+const searchId = 'devices-search';
+
 // Devices are identified by serial number; the hostname is secondary and
 // may be long, so the cell is capped and the hostname truncates within it.
 const DeviceIdentity = ({ name, serialNumber }) => (
@@ -178,7 +180,7 @@ export const DevicesTable = () => {
 
   return (
     <Box as="section" gap="small">
-      <Heading id="devices-heading" level={2} margin="none">
+      <Heading id="devices-heading" level={2} margin="none" tabIndex={-1}>
         Devices
       </Heading>
       <Data
@@ -193,7 +195,7 @@ export const DevicesTable = () => {
       >
         <Toolbar gap="medium">
           <Toolbar>
-            <DataSearch placeholder="Search devices" responsive />
+            <DataSearch id={searchId} placeholder="Search devices" responsive />
             <DataFilters layer>
               {Object.keys(properties)
                 .filter(property => properties[property].filter !== false)
@@ -267,16 +269,23 @@ DevicesContent.propTypes = {
 
 // Shown when search or filters match no devices.
 const NoDevicesFound = () => {
-  const { onView, setFiltersCleared, view } = useContext(DataContext);
+  const { clearFilters, onView, view } = useContext(DataContext);
 
-  // DataContext.clearFilters leaves the search term in place, so reset both.
+  // clearFilters resets the filter badge but leaves the search term, and its
+  // view update is overridden by the onView call below.
   const clear = () => {
     const nextView = { ...view };
     ['properties', 'search', 'page', 'name', 'view'].forEach(key => {
       delete nextView[key];
     });
-    setFiltersCleared(true);
+    clearFilters();
     onView(nextView);
+    // The button unmounts once results return, so move focus first. The
+    // search is collapsed on small screens, so fall back to the heading.
+    (
+      document.getElementById(searchId) ??
+      document.getElementById('devices-heading')
+    )?.focus();
   };
 
   return (
@@ -286,7 +295,7 @@ const NoDevicesFound = () => {
         description={`No devices match your search or filters. Try 
         different criteria or clear them to see all devices.`}
         icon={<Search />}
-        actions={<Button label="Clear filters" onClick={clear} />}
+        actions={<Button label="Clear search and filters" onClick={clear} />}
         level={3}
       />
     </Box>
