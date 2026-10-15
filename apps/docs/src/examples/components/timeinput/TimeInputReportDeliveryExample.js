@@ -34,7 +34,7 @@ export const TimeInputReportDeliveryExample = () => {
     <ContentPane width={edit ? 'medium' : undefined}>
       {edit ? (
         <Box gap="medium">
-          <Header direction="column" align="start" gap="5xsmall">
+          <Header>
             <Heading level={2} margin="none">
               Schedule report
             </Heading>
@@ -101,28 +101,26 @@ export const TimeInputReportDeliveryExample = () => {
         </Box>
       ) : (
         <Box gap="medium">
-          <Header direction="row" align="center" justify="between">
+          <Header>
             <Heading level={2} margin="none">
               Schedule report
             </Heading>
             <Button label="Edit" onClick={() => setEdit(true)} />
           </Header>
-          <Box>
-            <NameValueList nameProps={{ width: 'xxsmall' }}>
-              <NameValuePair name="Recipients">
-                {formValue.recipient}
-              </NameValuePair>
-              <NameValuePair name="Frequency">
-                {formValue.frequency}
-              </NameValuePair>
-              <NameValuePair name="Delivery channel">
-                {formValue.channel}
-              </NameValuePair>
-              <NameValuePair name="Daily delivery time">
-                {formatTime(formValue['report-delivery'])}
-              </NameValuePair>
-            </NameValueList>
-          </Box>
+          <NameValueList nameProps={{ width: 'xxsmall' }}>
+            <NameValuePair name="Recipients">
+              {formValue.recipient}
+            </NameValuePair>
+            <NameValuePair name="Frequency">
+              {formValue.frequency}
+            </NameValuePair>
+            <NameValuePair name="Delivery channel">
+              {formValue.channel}
+            </NameValuePair>
+            <NameValuePair name="Daily delivery time">
+              {formatTime(formValue['report-delivery'])}
+            </NameValuePair>
+          </NameValueList>
         </Box>
       )}
     </ContentPane>
