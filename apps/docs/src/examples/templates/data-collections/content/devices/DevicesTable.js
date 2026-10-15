@@ -1,15 +1,17 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
+  Button,
   Card,
   CardBody,
   CardHeader,
   Cards,
   Data,
+  DataContext,
   DataFilter,
   DataFilters,
   DataSearch,
@@ -27,12 +29,14 @@ import {
 } from 'grommet';
 import {
   Apps,
+  Search,
   StatusCritical,
   StatusGood,
   StatusUnknown,
   StatusWarning,
   Table,
 } from '@hpe-design/icons-grommet';
+import { EmptyState } from '@shared/aries-core';
 import {
   devices,
   formatDate,
@@ -213,25 +217,78 @@ export const DevicesTable = () => {
           />
         </Toolbar>
         <DataSummary />
-        {display === 'table' ? (
-          <Box overflow="auto">
-            <DataTable
-              aria-describedby="devices-heading"
-              columns={columns}
-              primaryKey="id"
-              sortable
-              pin
-              select={selected}
-              onSelect={setSelected}
-            />
-          </Box>
-        ) : (
-          <DeviceCards />
-        )}
-        <Box pad={{ top: 'xsmall' }} border={{ side: 'top' }}>
-          <Pagination summary stepOptions={[10, 20, 50]} />
-        </Box>
+        <DevicesContent
+          display={display}
+          selected={selected}
+          onSelect={setSelected}
+        />
       </Data>
+    </Box>
+  );
+};
+
+const DevicesContent = ({ display, onSelect, selected }) => {
+  const { filteredTotal, total } = useContext(DataContext);
+
+  // A dataset that is empty before filtering is not a filter miss.
+  if (filteredTotal === 0 && total > 0) return <NoDevicesFound />;
+
+  return (
+    <>
+      {display === 'table' ? (
+        <Box overflow="auto">
+          <DataTable
+            aria-describedby="devices-heading"
+            columns={columns}
+            primaryKey="id"
+            sortable
+            pin
+            select={selected}
+            onSelect={onSelect}
+          />
+        </Box>
+      ) : (
+        <DeviceCards />
+      )}
+      <Box pad={{ top: 'xsmall' }} border={{ side: 'top' }}>
+        <Pagination summary stepOptions={[10, 20, 50]} />
+      </Box>
+    </>
+  );
+};
+
+DevicesContent.propTypes = {
+  display: PropTypes.oneOf(['table', 'cards']).isRequired,
+  onSelect: PropTypes.func.isRequired,
+  selected: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  ).isRequired,
+};
+
+// Shown when search or filters match no devices.
+const NoDevicesFound = () => {
+  const { onView, setFiltersCleared, view } = useContext(DataContext);
+
+  // DataContext.clearFilters leaves the search term in place, so reset both.
+  const clear = () => {
+    const nextView = { ...view };
+    ['properties', 'search', 'page', 'name', 'view'].forEach(key => {
+      delete nextView[key];
+    });
+    setFiltersCleared(true);
+    onView(nextView);
+  };
+
+  return (
+    <Box pad={{ vertical: 'xlarge' }} align="center">
+      <EmptyState
+        title="No devices found"
+        description={`No devices match your search or filters. Try 
+        different criteria or clear them to see all devices.`}
+        icon={<Search />}
+        actions={<Button label="Clear filters" onClick={clear} />}
+        level={3}
+      />
     </Box>
   );
 };
