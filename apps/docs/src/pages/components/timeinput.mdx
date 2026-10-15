@@ -1,6 +1,7 @@
 import { Checkmark } from '@hpe-design/icons-grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
+  TimeInputAnatomy,
   TimeInputBadTimeFormatPreview,
   TimeInputConstrainingSelectionToBusinessHoursExample,
   TimeInputDefiningMaintenanceWindowBoundariesExample,
@@ -47,18 +48,19 @@ Use TimeInput when valid times must fall within a fixed range, such as booking a
 
 ## Anatomy
 
-{/* TODO: Add anatomy diagram image */}
+<Example caption="Diagram illustrating the parts composing TimeInput." plain>
+  <TimeInputAnatomy />
+</Example>
 
-| Label                    | Region | Purpose                                                                                             | Required                                                 | Notes |
-| ------------------------ | ------ | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----- |
-| Time input field         | Input  | Displays and accepts the time value.                                                                | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
-| Time sections            | Input  | Represents the editable sections of the time value, such as hours, minutes, and optionally seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
-| Meridiem (AM/PM) section | Input  | Represents the ante meridiem (AM) or post meridiem (PM) value when a 12-hour format is used.        | Optional                                                 |       |
-| Label                    | Region | Purpose                                                                                             | Required                                                 | Notes |
-| ----------------         | ------ | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----- |
-| Time input field         | Input  | Displays and accepts the time value.                                                                | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
-| Time sections            | Input  | Represents the editable sections of the time value, such as hours, minutes, and optionally seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
-| Meridiem section         | Input  | Represents the ante meridiem or post meridiem value when a 12-hour format is used.                  | Optional                                                 |       |
+| Label  | Region                 | Purpose                                                       |                         Required                         | Notes                                                                                     |
+| ------ | ---------------------- | ------------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------------------------------------------------------------- |
+| **1**  | **FormField label**    | Identifies the purpose of the time input.                     |                         Optional                         | Provide a visible label or an accessible name.                                            |
+| **2**  | **Time input field**   | Displays and accepts the time value.                          | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                        |
+| **2a** | **Time sections**      | Represents the editable hours, minutes, and optional seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Seconds are not shown as default. To show second use the `showSeconds` prop.</span> |
+| **2b** | **Meridiem section**   | Indicates AM or PM.                                           |                         Optional                         | Appears in the 12-hour format.                                                            |
+| **3**  | **Time picker button** | Opens the time selection dropdown.                            | <span><Checkmark a11yTitle="true" size="small" /></span> | Not shown when the input is read-only.                                                    |
+| **4**  | **Drop container**     | Holds the columns of time choices.                            | <span><Checkmark a11yTitle="true" size="small" /></span> | Appears when the time picker is open.                                                     |
+| **5**  | **Time option**        | Selects a value for one time section.                         | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                        |
 
 ## Dos and Don'ts
 
