@@ -2,7 +2,7 @@ import { Checkmark } from '@hpe-design/icons-grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   TimeInputBadTimeFormatPreview,
-  TimeInputConstrainingSelectionToBusinessHoursExample,
+  TimeInputBusinessHoursExample,
   TimeInputMaintenanceWindowExample,
   TimeInputGoodTimeFormatPreview,
   TimeInputExample,
@@ -55,8 +55,15 @@ Use TimeInput when a user chooses the time of day a recurring action should run,
 
 Use TimeInput when valid times must fall within a fixed range, such as booking an appointment between 8:00 AM and 6:00 PM and use 15-minute or 30-minute intervals to keep the available choices manageable. Validate out-of-range values before submission so the user cannot proceed with an invalid time.
 
-<Example height={{ min: 'medium' }}>
-  <TimeInputConstrainingSelectionToBusinessHoursExample />
+<Example
+  docs="https://v2.grommet.io/timeinput?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/TimeInputBusinessHoursExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/utils/formatTime.js',
+  ]}
+  height={{ min: 'medium' }}
+>
+  <TimeInputBusinessHoursExample />
 </Example>
 
 ## Anatomy
