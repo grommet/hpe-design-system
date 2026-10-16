@@ -1,0 +1,135 @@
+import { Checkmark } from '@hpe-design/icons-grommet';
+import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  TimeInputBadTimeFormatPreview,
+  TimeInputBusinessHoursExample,
+  TimeInputMaintenanceWindowExample,
+  TimeInputGoodTimeFormatPreview,
+  TimeInputExample,
+  TimeInputReportDeliveryExample,
+} from '../../examples';
+
+<Example
+  componentName="TimeInput"
+  docs="https://v2.grommet.io/timeinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/TimeInputExample.js"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?node-id=42063-13841&t=9WRYzCrLSGbEkD3N-4"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/TimeInput/TimeInput.js"
+>
+  <TimeInputExample />
+</Example>
+
+## Use cases
+
+### Defining maintenance window boundaries
+
+Use TimeInput when a user defines the start and end of a same-day window, such as a maintenance window from 02:15 to 03:45. Collect hours and minutes only; a date or seconds would add unnecessary precision.
+
+<Example
+  docs="https://v2.grommet.io/timeinput?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/TimeInputMaintenanceWindowExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/utils/formatTime.js',
+  ]}
+  height={{ min: 'medium' }}
+>
+  <TimeInputMaintenanceWindowExample />
+</Example>
+
+### Setting report delivery times
+
+Use TimeInput when a user chooses the time of day a recurring action should run, such as when a daily report is sent. A quarter-hour minuteStep keeps the choices manageable, for example 8:00 AM, 8:15 AM, and 8:30 AM.
+
+<Example
+  docs="https://v2.grommet.io/timeinput?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/TimeInputReportDeliveryExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/utils/formatTime.js',
+  ]}
+  height={{ min: 'medium' }}
+>
+  <TimeInputReportDeliveryExample />
+</Example>
+
+### Constraining selection to business hours
+
+Use TimeInput when valid times must fall within a fixed range, such as booking an appointment between 8:00 AM and 6:00 PM and use 15-minute or 30-minute intervals to keep the available choices manageable. Validate out-of-range values before submission so the user cannot proceed with an invalid time.
+
+<Example
+  docs="https://v2.grommet.io/timeinput?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/TimeInputBusinessHoursExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/utils/formatTime.js',
+  ]}
+  height={{ min: 'medium' }}
+>
+  <TimeInputBusinessHoursExample />
+</Example>
+
+## Anatomy
+
+{/* TODO: Add anatomy diagram image */}
+
+| Label                    | Region | Purpose                                                                                             | Required                                                 | Notes |
+| ------------------------ | ------ | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----- |
+| Time input field         | Input  | Displays and accepts the time value.                                                                | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
+| Time sections            | Input  | Represents the editable sections of the time value, such as hours, minutes, and optionally seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
+| Meridiem (AM/PM) section | Input  | Represents the ante meridiem (AM) or post meridiem (PM) value when a 12-hour format is used.        | Optional                                                 |       |
+
+## Dos and Don'ts
+
+<BestPracticeGroup>
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use one consistent time convention throughout a workflow so users can compare and enter values without translating between formats.',
+    }}
+  >
+    <TimeInputGoodTimeFormatPreview />
+  </Example>
+  <Example
+    bestPractice={{
+      type: 'dont',
+      message:
+        'Mixing 12-hour and 24-hour conventions in one workflow makes time values harder to compare and interpret.',
+    }}
+  >
+    <TimeInputBadTimeFormatPreview />
+  </Example>
+</BestPracticeGroup>
+
+## Behaviors and States
+
+### Interactive states
+
+- TimeInput presents editable sections for hours and minutes, with seconds available when `showSeconds` is enabled or when the 12-hour format resolves seconds by default.
+- Focus moves between the active time sections as the value is edited, and the time popup provides an alternative way to choose a value.
+- The `format` prop controls whether the input uses a 12-hour or 24-hour arrangement. A 12-hour arrangement includes a meridiem section.
+- The `minuteStep` prop controls the interval used for minute selection. The component normalizes the configured step before applying it.
+
+### Application states
+
+- Set `disabled` when the time cannot be entered or changed. The input and its selection interactions do not accept edits while disabled.
+- Set `readOnly` when the value should remain visible and focusable without allowing edits.
+- Use `defaultValue` for an uncontrolled initial value and `value` with `onChange` for a controlled value.
+- Invalid time input clears the committed value and announces an invalid-time message assertively.
+
+### General behaviors
+
+- When `format` is not provided, the component selects the 12-hour or 24-hour convention from the browser's default locale.
+- When `minuteStep` is not provided, the component uses a one-minute interval.
+- When `showSeconds` is not provided, the component includes seconds for the 12-hour format and omits them for the 24-hour format.
+
+## Content Guidelines
+
+- When customizing `messages`, preserve clear labels for the input, active section, hours, minutes, seconds, and meridiem (AM/PM) values.
+- Provide an `invalidTime` message that explains that the entered time is invalid.
+- Provide a `currentValue` message that identifies the committed hour, minute, second, and meridiem values when those sections are complete.
+
+## Accessibility
+
+- Support focus movement between the time sections so keyboard and assistive technology users can identify and edit each portion of the value.
+- The component announces the current completed value politely after a valid value is committed.
+- The component announces invalid time input assertively so the correction is brought to the user's attention.
+- Use `messages` to provide localized labels and announcements for the input, active section, section values, and time-selection controls.

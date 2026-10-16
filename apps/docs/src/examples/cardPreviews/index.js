@@ -40,6 +40,7 @@ export * from './status-indicator';
 export * from './tabs';
 export * from './textarea';
 export * from './textinput';
+export * from './timeinput';
 export * from './toast-notification';
 export * from './togglegroup';
 export * from './toolbar';
