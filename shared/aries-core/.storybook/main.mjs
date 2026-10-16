@@ -19,6 +19,9 @@ function getAbsolutePath(value) {
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: ['../src/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  // Serve the docs site's public assets so examples imported from
+  // `apps/docs` can resolve root-relative paths like `/HPE_logo_*.svg`.
+  staticDirs: ['../../../apps/docs/public'],
   addons: [
     getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     getAbsolutePath('@storybook/addon-links'),

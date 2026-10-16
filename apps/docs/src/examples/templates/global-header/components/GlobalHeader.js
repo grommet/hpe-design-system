@@ -11,7 +11,6 @@ export const GlobalHeader = () => {
     <Header
       align="center"
       background="background"
-      border={user ? { color: 'border-weak', side: 'bottom' } : undefined}
       justify="between"
       fill="horizontal"
       pad={{
@@ -19,7 +18,7 @@ export const GlobalHeader = () => {
         vertical: 'xsmall',
       }}
     >
-      <AppIdentity title="Service Name" brand="hpe" />
+      <AppIdentity title="Service Name" />
       {user && <HeaderNav />}
     </Header>
   );
