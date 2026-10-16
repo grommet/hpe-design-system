@@ -2,13 +2,11 @@ import { Checkmark } from '@hpe-design/icons-grommet';
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
   TimeInputBadTimeFormatPreview,
-  TimeInputBadTimeOnlyPreview,
   TimeInputBusinessHoursExample,
-  TimeInputDefiningMaintenanceWindowBoundariesExample,
+  TimeInputMaintenanceWindowExample,
   TimeInputGoodTimeFormatPreview,
-  TimeInputGoodTimeOnlyPreview,
   TimeInputExample,
-  TimeInputSettingReportDeliveryTimesExample,
+  TimeInputReportDeliveryExample,
 } from '../../examples';
 
 <Example
@@ -27,16 +25,30 @@ import {
 
 Use TimeInput when a user defines the start and end of a same-day window, such as a maintenance window from 02:15 to 03:45. Collect hours and minutes only; a date or seconds would add unnecessary precision.
 
-<Example height={{ min: 'medium' }}>
-  <TimeInputDefiningMaintenanceWindowBoundariesExample />
+<Example
+  docs="https://v2.grommet.io/timeinput?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/TimeInputMaintenanceWindowExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/utils/formatTime.js',
+  ]}
+  height={{ min: 'medium' }}
+>
+  <TimeInputMaintenanceWindowExample />
 </Example>
 
 ### Setting report delivery times
 
 Use TimeInput when a user chooses the time of day a recurring action should run, such as when a daily report is sent. A quarter-hour minuteStep keeps the choices manageable, for example 8:00 AM, 8:15 AM, and 8:30 AM.
 
-<Example height={{ min: 'medium' }}>
-  <TimeInputSettingReportDeliveryTimesExample />
+<Example
+  docs="https://v2.grommet.io/timeinput?theme=hpe#props"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/TimeInputReportDeliveryExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/timeinput/utils/formatTime.js',
+  ]}
+  height={{ min: 'medium' }}
+>
+  <TimeInputReportDeliveryExample />
 </Example>
 
 ### Constraining selection to business hours
@@ -84,27 +96,6 @@ Use TimeInput when valid times must fall within a fixed range, such as booking a
     }}
   >
     <TimeInputBadTimeFormatPreview />
-  </Example>
-</BestPracticeGroup>
-
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message:
-        'Use TimeInput when the value contains only a time, such as a report delivery time or appointment time.',
-    }}
-  >
-    <TimeInputGoodTimeOnlyPreview />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message:
-        'Do not use TimeInput when the value includes a date or a date-and-time combination; use the appropriate date component instead.',
-    }}
-  >
-    <TimeInputBadTimeOnlyPreview />
   </Example>
 </BestPracticeGroup>
 
