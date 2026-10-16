@@ -413,6 +413,13 @@ export const components = [
     ],
   },
   {
+    name: 'FormField',
+    category: 'Inputs',
+    description: 'A single field in a form.',
+    seoDescription:
+      'Wrapper for form inputs that provides labels, help text, and validation messages.',
+  },
+  {
     name: 'TextArea',
     category: 'Inputs',
     description:
