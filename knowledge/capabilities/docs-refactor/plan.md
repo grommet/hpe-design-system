@@ -35,7 +35,7 @@ The orchestrator detects the current pipeline stage, confirms before making any 
 - [ ] anchor
 - [ ] avatar
 - [ ] box
-- [ ] button
+- [x] button
 - [ ] card/call-to-action-card
 - [ ] card/index
 - [ ] card/navigational-card
