@@ -26,6 +26,25 @@ type NavPage = {
 const realStructure = structure as NavPage[];
 
 describe('Navigation Data Integration', () => {
+  it('includes FormField as a leaf link in Components > Inputs', async () => {
+    const { navItems } = await import('../navItems');
+    const components = navItems.find(item => item.label === 'Components');
+    const inputs = components?.children?.find(item => item.label === 'Inputs');
+    const formFieldItems = inputs?.children?.filter(
+      item => item.label === 'FormField',
+    );
+
+    expect(formFieldItems).toHaveLength(1);
+    expect(formFieldItems?.[0]).toEqual({
+      label: 'FormField',
+      url: '/components/formfield',
+    });
+    expect(components?.children?.[0]).toMatchObject({
+      label: 'Overview',
+      url: '/components',
+    });
+  });
+
   it('Home should define all primary hub pages', () => {
     const home = getPageDetails('Home') as NavPage;
 
