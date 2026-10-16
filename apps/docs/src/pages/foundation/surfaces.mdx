@@ -1,3 +1,6 @@
+import { NestingTonesExample } from '../../examples';
+import { Example } from '../../layouts';
+
 Surfaces are the layers of a page, from the page itself to containers such as cards and panels, and temporary elements that appear above them. Each surface holds content or sets it apart from its surroundings. By separating sections and grouping related content, surfaces make pages cleaner, easier to read, and easier to navigate.
 
 To apply this in practice, see [Designing with surfaces](/foundation/designing-with-surfaces).
@@ -22,9 +25,11 @@ A floating layer sits over the page rather than in it, so that a menu, a dialog,
 
 Nested containers alternate between `background.surface.tone.1` and `background.surface.tone.2`. Tone 1, then tone 2, then tone 1 again, as deep as the content goes: the pair works indefinitely, and nothing runs out.
 
-placeholder image
+<Example width="100%">
+	<NestingTonesExample />
+</Example>
 
-*Tones can be used on `background.surface.base` or `background.surface.floating` and alternate and nest indefinitely. The first container on either takes `background.surface.tone.1`.*
+*Tones can be used on `background.surface.base` or `background.surface.floating` and alternate and nest indefinitely. The first container on either takes `background.surface.tone.1`. There is no ceiling: the two tones keep alternating.*
 
 ### A note on the numbers
 
