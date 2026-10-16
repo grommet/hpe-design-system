@@ -2,22 +2,21 @@
 // SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Avatar, Text } from 'grommet';
+import { Avatar } from 'grommet';
 
-export const UserAvatar = ({ initials, size }) => (
+// String children let Avatar apply the theme's avatar.text.size mapping.
+export const UserAvatar = ({ initials, size = 'medium' }) => (
   <Avatar
     a11yTitle={`Avatar containing initial letters ${initials}`}
     background="background-accent-purple-weak"
     flex={false}
     size={size}
   >
-    <Text size={size === 'large' ? 'xlarge' : 'large'} color="text-strong">
-      {initials}
-    </Text>
+    {initials}
   </Avatar>
 );
 
 UserAvatar.propTypes = {
   initials: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['medium', 'large']),
+  size: PropTypes.string,
 };
