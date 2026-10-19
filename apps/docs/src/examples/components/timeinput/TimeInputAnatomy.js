@@ -37,14 +37,12 @@ const AnatomyGrid = ({ ...rest }) => (
     ]}
     gap={{ row: '3xsmall', column: 'xsmall' }}
     align="center"
-    justify="center"
-    justifyContent="start"
     {...rest}
   />
 );
 
 export const TimeInputAnatomy = () => (
-  <Stack margin={{ bottom: 'medium' }} interactiveChild="first">
+  <Stack interactiveChild="first">
     <AnatomyGrid>
       {annotations.map(({ label }) => (
         <Annotation
