@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Avatar } from 'grommet';
 
 // String children let Avatar apply the theme's avatar.text.size mapping.
-export const UserAvatar = ({ initials, size = 'medium' }) => (
+export const UserAvatar = ({ initials, size }) => (
   <Avatar
     a11yTitle={`Avatar containing initial letters ${initials}`}
     background="background-accent-purple-weak"

@@ -4,7 +4,6 @@ import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Box, ResponsiveContext, Text } from 'grommet';
 import { HpeLogo } from '../../../../components/content/AppIdentity';
-// TODO replace with DS icon package when available
 import { UserContext, MenuLayer } from '.';
 
 export const AppIdentity = forwardRef(
@@ -30,9 +29,7 @@ export const AppIdentity = forwardRef(
             pad={{ vertical: 'xsmall' }}
             responsive={false}
           >
-            {/* If user is logged in, show the application specific logo.
-            This will be either HPE or Aruba. If user is logged out,
-            show HPE logo */}
+            {/* If user is logged in, pair HPE logo with the service name */}
             <HpeLogo />
             {!logoOnly &&
               (user ? (
