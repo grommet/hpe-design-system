@@ -21,7 +21,7 @@ import {
 
 ### Entering a labeled form value
 
-Use FormField inside a `Form` to capture a project name before saving project settings. Provide a `TextInput` labeled “Project name,” with “Infrastructure monitoring” as representative entered content. Associate the label with the input using matching `htmlFor` and `id` values. As the user types, the input displays the updated project name.
+Use FormField to give an input a clear, persistent label so users understand what to enter. Associate the label with its input using matching `htmlFor` and `id` values.
 
 <Example height={{ min: 'small' }} pad="medium">
   <FormFieldEnteringLabeledFormValueExample />
@@ -29,7 +29,7 @@ Use FormField inside a `Form` to capture a project name before saving project se
 
 ### Validating a named form field
 
-Use a named FormField inside a `Form` when a project code must meet a defined format before submission. Label the field “Project code” and describe an illustrative format of three uppercase letters followed by three digits, such as “OPS123.” Configure the field's `validate` rule and explicitly choose `validateOn="submit"` for this scenario. Submitting “OPS12” presents a field error; correcting the value to “OPS123” and submitting again allows the form's successful submission path.
+Use a named FormField inside a Form to check that an entered value meets your requirements before submission. Define validation rules with `validate` and use `validateOn` to control when they run. Provide clear guidance on the expected input and actionable error messages so users can correct invalid values.
 
 <Example height={{ min: 'medium' }} pad="medium">
   <FormFieldValidatingNamedFormFieldExample />

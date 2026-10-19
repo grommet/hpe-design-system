@@ -31,7 +31,9 @@ export const FormFieldValidatingNamedFormFieldExample = () => {
         >
           <TextInput id={id} name="projectCode" />
         </FormField>
-        <Button type="submit" label="Create project" primary />
+        <Box margin={{ top: 'medium' }} responsive={false} align="start">
+          <Button type="submit" label="Create project" primary />
+        </Box>
       </Form>
       {submitted && (
         <Text role="status">Submitted locally: {submitted.projectCode}</Text>

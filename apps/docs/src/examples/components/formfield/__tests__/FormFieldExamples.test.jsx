@@ -63,14 +63,14 @@ const submit = async () => {
 };
 
 describe('FormField examples', () => {
-  it('submits the edited name and clears stale feedback', async () => {
+  it('associates the label and updates the form-managed value', async () => {
     await render(<FormFieldEnteringLabeledFormValueExample />);
+    const input = container.querySelector('input[name="projectName"]');
+    expect(container.querySelector('label').htmlFor).toBe(input.id);
+    expect(input.value).toBe('Infrastructure monitoring');
     await fill('Network operations');
-    await submit();
-    expect(container.querySelector('[role="status"]').textContent).toBe(
-      'Submitted locally: Network operations',
-    );
-    await fill('Infrastructure monitoring');
+    expect(input.value).toBe('Network operations');
+    expect(container.querySelector('button')).toBeNull();
     expect(container.querySelector('[role="status"]')).toBeNull();
   });
 
