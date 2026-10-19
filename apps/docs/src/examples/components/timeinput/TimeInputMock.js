@@ -141,7 +141,6 @@ export const TimeInputMock = () => {
           height={timeTheme.drop.height}
           pad={timeTheme.drop.pad}
           responsive={false}
-          gap={timeTheme.drop.gap}
         >
           {columns.map(({ name, options }) => (
             <Box
