@@ -59,7 +59,7 @@ const TimeInputMockOption = ({ label, selected, ...rest }) => {
       {...rest}
     >
       <Text
-        size="small"
+        size={text.size}
         weight={selected ? text.selected.weight : undefined}
         color={selected ? text.selected.color : 'text'}
       >
@@ -126,7 +126,7 @@ export const TimeInputMock = () => {
         <Button
           id="timeinput-anatomy-button"
           a11yTitle="Choose time"
-          icon={timeTheme.icon.clock.render()}
+          icon={timeTheme.drop.dropButton.icon.clock.render()}
           kind="toolbar"
           tabIndex={-1}
         />
