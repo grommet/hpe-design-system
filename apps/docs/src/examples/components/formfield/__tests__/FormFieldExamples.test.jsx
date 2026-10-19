@@ -4,6 +4,7 @@ import React, { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Grommet } from 'grommet';
+import { hpe } from 'grommet-theme-hpe';
 import {
   FormFieldExample,
   FormFieldEnteringLabeledFormValueExample,
@@ -38,7 +39,7 @@ afterEach(async () => {
 });
 
 const render = async example => {
-  await act(async () => root.render(<Grommet>{example}</Grommet>));
+  await act(async () => root.render(<Grommet theme={hpe}>{example}</Grommet>));
 };
 
 const fill = async value => {
@@ -128,26 +129,60 @@ describe('FormField examples', () => {
     );
   });
 
-  it('updates playground disabled, required, and help options', async () => {
+  it('shows password anatomy and requires a value', async () => {
     await render(<FormFieldExample />);
-    await submit();
-    expect(container.querySelector('[role="status"]')).toBeNull();
-    const toggles = container.querySelectorAll('input[type="checkbox"]');
-    await act(async () => toggles[0].click());
-    expect(container.querySelector('input[name="projectName"]').disabled).toBe(
-      true,
+    const input = container.querySelector('input[name="password"]');
+    expect(input.type).toBe('password');
+    expect(container.querySelector('label').htmlFor).toBe(input.id);
+    expect(container.textContent).toContain('*');
+    expect(container.textContent).toContain(
+      'Choose a password that meets all the requirements below.',
     );
-    await act(async () => {
-      toggles[0].click();
-      toggles[1].click();
-      toggles[2].click();
+    expect(container.textContent).toContain('At least 8 characters');
+    const descriptionIds = input.getAttribute('aria-describedby').split(' ');
+    descriptionIds.forEach(id => {
+      expect(document.getElementById(id)).not.toBeNull();
     });
     await submit();
+    expect(container.querySelector('[role="status"]')).toBeNull();
+    expect(input.getAttribute('aria-invalid')).toBe('true');
+    expect(container.textContent).toContain('Enter a password.');
+  });
+
+  it.each(['Abcdef!', 'abcdefgh!', 'ABCDEFGH!', 'Abcdefgh'])(
+    'rejects a password that misses a requirement: %s',
+    async password => {
+      await render(<FormFieldExample />);
+      await fill(password);
+      await submit();
+      const input = container.querySelector('input');
+      expect(input.getAttribute('aria-invalid')).toBe('true');
+      expect(container.textContent).toContain('Password requirements not met.');
+      expect(container.querySelector('[role="status"]')).toBeNull();
+    },
+  );
+
+  it('accepts a corrected password and clears stale feedback', async () => {
+    await render(<FormFieldExample />);
+    const input = container.querySelector('input[name="password"]');
+    await fill('short');
+    await submit();
+    expect(input.getAttribute('aria-invalid')).toBe('true');
+    await fill('Abcdefg!');
+    await submit();
+    expect(input.hasAttribute('aria-invalid')).toBe(false);
     expect(container.querySelector('[role="status"]').textContent).toBe(
-      'Submitted locally: (empty value)',
+      'Password meets the requirements.',
     );
-    expect(container.textContent).not.toContain(
-      'Enter a name for the project.',
+    expect(container.textContent).not.toContain('Abcdefg!');
+    expect(container.textContent).toContain(
+      'Choose a password that meets all the requirements below.',
     );
+    expect(container.textContent).toContain('At least 8 characters');
+    input.getAttribute('aria-describedby').split(' ').forEach(id => {
+      expect(document.getElementById(id)).not.toBeNull();
+    });
+    await fill('short');
+    expect(container.querySelector('[role="status"]')).toBeNull();
   });
 });

@@ -1,79 +1,75 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React, { useId, useState } from 'react';
+import { Box, Button, Form, FormField, List, Text, TextInput } from 'grommet';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
-  Box,
-  Button,
-  CheckBox,
-  Form,
-  FormField,
-  Text,
-  TextInput,
-} from 'grommet';
+  passwordRequirements,
+  passwordRulesStrong,
+} from '../../templates/forms/utils/FormValidation';
 
 export const FormFieldExample = () => {
   const id = useId();
-  const [value, setValue] = useState({ projectName: '' });
-  const [disabled, setDisabled] = useState(false);
-  const [required, setRequired] = useState(true);
-  const [showHelp, setShowHelp] = useState(true);
-  const [submitted, setSubmitted] = useState();
+  const [value, setValue] = useState({ password: '' });
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <Box gap="medium" width="medium">
-      <Box gap="small">
-        <CheckBox
-          label="Disable field"
-          checked={disabled}
-          onChange={event => {
-            setDisabled(event.target.checked);
-            setSubmitted(undefined);
-          }}
-        />
-        <CheckBox
-          label="Require a value"
-          checked={required}
-          onChange={event => {
-            setRequired(event.target.checked);
-            setSubmitted(undefined);
-          }}
-        />
-        <CheckBox
-          label="Show help text"
-          checked={showHelp}
-          onChange={event => setShowHelp(event.target.checked)}
-        />
-      </Box>
       <Form
         value={value}
         onChange={nextValue => {
           setValue(nextValue);
-          setSubmitted(undefined);
+          setSubmitted(false);
         }}
-        onSubmit={({ value: nextValue }) => setSubmitted(nextValue)}
+        onSubmit={() => setSubmitted(true)}
+        messages={{ required: 'Enter a password.' }}
       >
         <FormField
-          label="Project name"
-          name="projectName"
+          label="Password"
+          name="password"
           htmlFor={id}
-          help={showHelp ? 'Enter a name for the project.' : undefined}
-          disabled={disabled}
-          required={required}
+          help={
+            <Text id={`${id}-help`} size="xsmall">
+              Choose a password that meets all the requirements below.
+            </Text>
+          }
+          info={
+            <List
+              id={`${id}-info`}
+              data={passwordRulesStrong}
+              border={false}
+              pad="none"
+            >
+              {rule => (
+                <Box direction="row" gap="3xsmall">
+                  {value.password && rule.regexp.test(value.password) && (
+                    <Box alignSelf="center">
+                      <Checkmark size="small" a11yTitle="Requirement met" />
+                    </Box>
+                  )}
+                  <Text size="xsmall">{rule.message}</Text>
+                </Box>
+              )}
+            </List>
+          }
+          required
+          validate={passwordRequirements}
           validateOn="submit"
         >
-          <TextInput id={id} name="projectName" disabled={disabled} />
+          <TextInput
+            id={id}
+            name="password"
+            type="password"
+            autoComplete="new-password"
+            aria-describedby={`${id}-help ${id}-info`}
+          />
         </FormField>
-        <Button
-          type="submit"
-          label="Try submission"
-          disabled={disabled}
-          primary
-        />
+        <Box margin={{ top: 'medium' }} responsive={false} align="start">
+          <Button type="submit" label="Check password" primary />
+        </Box>
       </Form>
       {submitted && (
-        <Text role="status">
-          Submitted locally: {submitted.projectName || '(empty value)'}
-        </Text>
+        <Text role="status">Password meets the requirements.</Text>
       )}
     </Box>
   );
