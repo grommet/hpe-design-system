@@ -4,6 +4,7 @@
 import { Checkmark } from '@hpe-design/icons-grommet';
 import { Example } from '../../layouts';
 import {
+  FormFieldAnatomy,
   FormFieldExample,
   FormFieldEnteringLabeledFormValueExample,
   FormFieldValidatingNamedFormFieldExample,
@@ -37,6 +38,10 @@ Use a named FormField inside a Form to check that an entered value meets your re
 
 ## Anatomy
 
+<Example caption="Diagram illustrating the parts composing FormField." plain>
+  <FormFieldAnatomy />
+</Example>
+
 | Label  | Region                    | Purpose                                                |                         Required                         | Notes |
 | :----: | ------------------------- | ------------------------------------------------------ | :------------------------------------------------------: | ----- |
 | **1**  | **Label**                 | Identifies the field.                                  |                         Optional                         | If no visible label is provided, give the control an accessible name. |
@@ -45,7 +50,6 @@ Use a named FormField inside a Form to check that an entered value meets your re
 | **4**  | **Help text**             | Explains how to complete the field.                    |                         Optional                         | -- |
 | **5**  | **Validation message**    | Describes an issue with the field value.               |                        Conditional                       | Shown when validation fails. |
 | **6**  | **Informational text**    | Provides additional information about the field value. |                         Optional                         | -- |
-| **7**  | **Container**             | Groups the control and its supporting content.        |                       Inherent                        | Provides the field's layout and presentation. |
 
 ## Behaviors and states
 

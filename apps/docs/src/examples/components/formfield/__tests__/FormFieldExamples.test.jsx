@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import {
+  FormFieldAnatomy,
   FormFieldExample,
   FormFieldEnteringLabeledFormValueExample,
   FormFieldCorrectingFieldValueExample,
@@ -63,6 +64,37 @@ const submit = async () => {
 };
 
 describe('FormField examples', () => {
+  it('shows six anatomy regions with unique annotation targets', async () => {
+    await render(
+      <>
+        <FormFieldAnatomy />
+        <FormFieldAnatomy />
+      </>,
+    );
+    const inputs = container.querySelectorAll('[id$="-input"]');
+    expect(inputs).toHaveLength(2);
+    inputs.forEach(input => {
+      const prefix = input.id.slice(0, -'input'.length);
+      const regions = [
+        'label', 'required', 'input', 'help', 'error', 'info',
+      ];
+      regions.forEach((region, index) => {
+        expect(document.getElementById(`${prefix}${region}`)).not.toBeNull();
+        expect(
+          document.getElementById(`${prefix}annotation-${index + 1}`),
+        ).not.toBeNull();
+      });
+      expect(document.getElementById(`${prefix}annotation-7`)).toBeNull();
+      expect(input.tagName).toBe('DIV');
+      expect(input.textContent).toBe('input');
+      const label = container.querySelector(`label[for="${input.id}"]`);
+      expect(label).not.toBeNull();
+    });
+    expect(container.querySelector('input')).toBeNull();
+    const ids = [...container.querySelectorAll('[id]')].map(node => node.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
   it('associates the label and updates the form-managed value', async () => {
     await render(<FormFieldEnteringLabeledFormValueExample />);
     const input = container.querySelector('input[name="projectName"]');
