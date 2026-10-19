@@ -6,13 +6,12 @@ import { Annotation } from '../../../layouts';
 import { TimeInputMock } from './TimeInputMock';
 
 const annotations = [
-  { label: '1', target: 'label', anchor: 'horizontal' },
-  { label: '2', target: 'field', anchor: 'horizontal' },
-  { label: '2a', target: 'sections', anchor: 'vertical' },
-  { label: '2b', target: 'period', anchor: 'vertical' },
-  { label: '3', target: 'button', anchor: 'horizontal' },
-  { label: '4', target: 'drop', anchor: 'horizontal' },
-  { label: '5', target: 'option', anchor: 'horizontal' },
+  { label: '1', target: 'field', anchor: 'horizontal' },
+  { label: '1a', target: 'sections', anchor: 'vertical' },
+  { label: '1b', target: 'period', anchor: 'vertical' },
+  { label: '2', target: 'button', anchor: 'horizontal' },
+  { label: '3', target: 'drop', anchor: 'horizontal' },
+  { label: '4', target: 'option', anchor: 'horizontal' },
 ];
 
 const connections = annotations.map(({ label, target, anchor }) => ({
@@ -29,12 +28,12 @@ const AnatomyGrid = ({ ...rest }) => (
     columns={['max-content', 'max-content', 'max-content', 'max-content']}
     rows={['auto', 'auto', 'auto', 'auto', 'flex', 'flex']}
     areas={[
-      ['annotation-1', 'label', 'label', 'empty-label'],
-      ['annotation-2', 'field', 'field', 'annotation-3'],
-      ['annotation-2a', 'drop', 'drop', 'empty-drop-top'],
-      ['annotation-2b', 'drop', 'drop', 'empty-drop-middle'],
-      ['annotation-4', 'drop', 'drop', 'annotation-5'],
-      ['annotation-4', 'drop', 'drop', 'annotation-5'],
+      ['empty-label-start', 'label', 'label', 'empty-label-end'],
+      ['annotation-1', 'field', 'field', 'annotation-2'],
+      ['annotation-1a', 'drop', 'drop', 'empty-drop-top'],
+      ['annotation-1b', 'drop', 'drop', 'empty-drop-middle'],
+      ['annotation-3', 'drop', 'drop', 'annotation-4'],
+      ['annotation-3', 'drop', 'drop', 'annotation-4'],
     ]}
     gap={{ row: '3xsmall', column: 'xsmall' }}
     align="center"
