@@ -9,7 +9,6 @@ export const targets = {
 };
 
 export const driveFailure = {
-  checked: '2 min ago',
   availability: {
     percent: 99.98,
     trend: '0.03%',

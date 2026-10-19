@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
-import { Button, Text } from 'grommet';
+import { Button } from 'grommet';
 import { ShieldCheck } from '@hpe-design/icons-grommet';
 import { MetricValue } from '../../../components';
 import { Bar } from './Bar';
@@ -30,7 +30,7 @@ export const HealthOverviewMixedActions = ({
   scenario = driveFailure,
   tileActions = false,
 }) => {
-  const { availability, capacity, checked, drives, volumes } = scenario;
+  const { availability, capacity, drives, volumes } = scenario;
   const used = capacityPercent(capacity);
   const unprotected = volumes.total - volumes.protectedCount;
 
@@ -46,10 +46,8 @@ export const HealthOverviewMixedActions = ({
       <Button label={label} secondary href="#" />
     ) : undefined;
 
-  const summary = <Text color="text-weak">Checked {checked}</Text>;
-
   return (
-    <HealthSection summary={summary}>
+    <HealthSection>
       <Tile
         title="Availability"
         description={`${availability.incidents} incidents, ${
