@@ -3,8 +3,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Text, ThemeContext } from 'grommet';
-import { normalizeColor } from 'grommet/utils';
-import styled from 'styled-components';
 
 const columns = [
   {
@@ -43,23 +41,17 @@ const columns = [
   },
 ];
 
-const StyledTimeInputMockOption = styled(Box)`
-  &:hover {
-    background: ${({ $hoverBackground }) => $hoverBackground};
-  }
-`;
-
 const TimeInputMockOption = ({ label, selected, ...rest }) => {
   const theme = useContext(ThemeContext);
   const { container, text } = theme.timeInput.drop.option;
-  const hoverBackground =
-    !selected && normalizeColor(container.hover.background, theme);
 
   return (
-    <StyledTimeInputMockOption
+    <Box
       align="center"
       background={selected ? container.selected.background : undefined}
-      $hoverBackground={hoverBackground}
+      hoverIndicator={!selected && container.hover.background}
+      onClick={() => {}}
+      tabIndex={-1}
       flex={false}
       pad={container.pad}
       responsive={false}
@@ -73,7 +65,7 @@ const TimeInputMockOption = ({ label, selected, ...rest }) => {
       >
         {label}
       </Text>
-    </StyledTimeInputMockOption>
+    </Box>
   );
 };
 
