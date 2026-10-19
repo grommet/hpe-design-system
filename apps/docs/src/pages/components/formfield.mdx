@@ -2,16 +2,11 @@
 {/* SPDX-License-Identifier: Apache-2.0 */}
 
 import { Checkmark } from '@hpe-design/icons-grommet';
-import { BestPracticeGroup, Example } from '../../layouts';
+import { Example } from '../../layouts';
 import {
   FormFieldExample,
   FormFieldEnteringLabeledFormValueExample,
-  FormFieldCorrectingFieldValueExample,
   FormFieldValidatingNamedFormFieldExample,
-  FormFieldGoodLabelAssociationPreview,
-  FormFieldBadLabelAssociationPreview,
-  FormFieldGoodNamedValidationPreview,
-  FormFieldBadNamedValidationPreview,
 } from '../../examples';
 
 <Example
@@ -32,14 +27,6 @@ Use FormField inside a `Form` to capture a project name before saving project se
   <FormFieldEnteringLabeledFormValueExample />
 </Example>
 
-### Correcting a field value
-
-Use FormField inside a contact-details `Form` to explain an email-address issue next to the affected `TextInput`. Label the field “Contact email” and use “operations.example.com” as an illustrative invalid entry. Provide help text explaining the expected address format and error text identifying the missing “@” character. When the user corrects the value to “operations@example.com” and validation succeeds, clear the error while retaining the help text.
-
-<Example height={{ min: 'medium' }} pad="medium">
-  <FormFieldCorrectingFieldValueExample />
-</Example>
-
 ### Validating a named form field
 
 Use a named FormField inside a `Form` when a project code must meet a defined format before submission. Label the field “Project code” and describe an illustrative format of three uppercase letters followed by three digits, such as “OPS123.” Configure the field's `validate` rule and explicitly choose `validateOn="submit"` for this scenario. Submitting “OPS12” presents a field error; correcting the value to “OPS123” and submitting again allows the form's successful submission path.
@@ -50,78 +37,38 @@ Use a named FormField inside a `Form` when a project code must meet a defined fo
 
 ## Anatomy
 
-{/* TODO: Add anatomy diagram image and verify the YAML-derived regions and required/optional classification against the reviewed component design. */}
-
-| Label | Region             | Purpose                                                |                         Required                         | Notes |
-| :---: | ------------------ | ------------------------------------------------------ | :------------------------------------------------------: | ----- |
-| **1** | Label              | Identifies the field.                                  |                         Optional                         |       |
-| **2** | Help text          | Explains how the field works.                          |                         Optional                         |       |
-| **3** | Input area         | Contains the input used to enter a field value.        | <span><Checkmark a11yTitle="true" size="small" /></span> |       |
-| **4** | Error message      | Describes an issue with the field value.               |                         Optional                         |       |
-| **5** | Informational text | Provides additional information about the field value. |                         Optional                         |       |
-
-## Variants
-
-{/* TODO: Confirm stable named variants before adding guidance; do not classify focus, disabled, or error states as variants. */}
-
-## Dos and don'ts
-
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message: 'Match htmlFor to the identifier of the contained input.',
-    }}
-  >
-    <FormFieldGoodLabelAssociationPreview />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message: 'Do not point htmlFor at an unrelated input.',
-    }}
-  >
-    <FormFieldBadLabelAssociationPreview />
-  </Example>
-</BestPracticeGroup>
-
-<BestPracticeGroup>
-  <Example
-    bestPractice={{
-      type: 'do',
-      message: 'Supply a name when using validate within Form.',
-    }}
-  >
-    <FormFieldGoodNamedValidationPreview />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message: 'Do not configure field validation without a name.',
-    }}
-  >
-    <FormFieldBadNamedValidationPreview />
-  </Example>
-</BestPracticeGroup>
+| Label  | Region                    | Purpose                                                |                         Required                         | Notes |
+| :----: | ------------------------- | ------------------------------------------------------ | :------------------------------------------------------: | ----- |
+| **1**  | **Label**                 | Identifies the field.                                  |                         Optional                         | If no visible label is provided, give the control an accessible name. |
+| **2**  | **Required indicator**    | Visually communicates that the field is required.     |                        Optional                       | -- |
+| **3**  | **Control / input**       | Lets the user enter or select a value.                | <span><Checkmark a11yTitle="true" size="small" /></span> | Provide it as a child or have FormField create it with component inside a Form. Learn more in [Composition.](#composition) |
+| **4**  | **Help text**             | Explains how to complete the field.                    |                         Optional                         | -- |
+| **5**  | **Validation message**    | Describes an issue with the field value.               |                        Conditional                       | Shown when validation fails. |
+| **6**  | **Informational text**    | Provides additional information about the field value. |                         Optional                         | -- |
+| **7**  | **Container**             | Groups the control and its supporting content.        |                       Inherent                        | Provides the field's layout and presentation. |
 
 ## Behaviors and states
 
 ### Interactive states
 
-- FormField tracks focus within the field and applies the focus treatment configured by the theme. The visible treatment depends on the border and focus configuration; it is not a separate field control.
+- FormField tracks focus within the field and applies focus styling; focus is not a separate field control.
 - Recognized Grommet input children can receive field-managed focus styling when they have not explicitly configured their own `plain` or `focusIndicator` properties. Do not assume the same behavior for arbitrary custom children.
 
 ### Application states
 
-- **Disabled:** `disabled` changes the field's theme-dependent presentation. It is passed to an input created internally by FormField, but is not automatically copied to every explicitly supplied child. Configure an explicit child input's disabled state as needed.
-- **Error:** `error` displays a field-specific message and can affect border or background styling according to the theme. Help, error, and informational text are separate message regions; an error does not inherently replace help text.
+- **Disabled:** `disabled` disables an input created internally by FormField, but is not automatically copied to every explicitly supplied child. Configure an explicit child input's disabled state as needed.
+- **Error:** `error` displays a field-specific message and marks the field as invalid. 
 
 ### General behaviors
 
 - Use `validate` within `Form` and supply a field `name`. Set `validateOn` to `blur`, `change`, or `submit` when the validation timing needs to be explicit.
 - For blur validation, moving focus into a related input dropdown does not immediately count as leaving the field.
-- `required` controls the required-field configuration. The visible indicator depends on the theme; the object form with `indicator: false` suppresses that indicator.
-- Within `Form`, FormField can create an input when no child is supplied, using `component` or its internal TextInput fallback. Explicit children remain responsible for their own input configuration.
+- `required` marks the field as required and displays its indicator. Use `required={{ indicator: false }}` to suppress the visual indicator without removing required semantics.
+
+#### Composition
+
+- **Child control:** Provide and configure the input as a child of FormField. This gives you direct control over its props and composition. Manage its value yourself outside a `Form`; inside a Grommet `Form`, give the child input a `name` to connect it to form values and submission.
+- **FormField-created control:** Inside a Grommet `Form`, use the `component` and `name` properties when you want FormField to create the input and connect it to form-managed values and submission. If no child or `component` is provided, FormField uses its TextInput fallback.
 
 ## Content guidelines
 
@@ -140,7 +87,7 @@ FormField does not define a separate keyboard interaction pattern. The contained
 | ------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `aria-invalid`     | `true`                             | A field error is present on a recognized Grommet input child or an internally created input.                                                                                               |
 | `aria-describedby` | Generated error-message identifier | An error and `htmlFor` are present; FormField links recognized Grommet input children or its internally created input to the error message and preserves existing description identifiers. |
-| `aria-hidden`      | `true`                             | The theme uses the built-in boolean required indicator; the visual asterisk is hidden from assistive technology and accompanied by visually hidden “required” text.                        |
+| `aria-hidden`      | `true`                             | When the built-in required indicator is displayed, the visual asterisk is hidden from assistive technology and accompanied by visually hidden “required” text.                                |
 
 Do not assume that FormField automatically associates help or informational text with every input. Provide and verify any additional description associations required by the chosen input. Custom child components do not receive the same automatic error associations as recognized Grommet inputs.
 
