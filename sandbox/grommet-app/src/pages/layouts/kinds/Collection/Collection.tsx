@@ -153,7 +153,7 @@ export const Collection = ({ ...rest }) => {
   );
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} {...rest}>
+    <Page {...rest}>
       <PageContent>
         <PageHeader
           title="Virtual Machines"

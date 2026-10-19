@@ -26,7 +26,7 @@ const EmptyStatePage = ({ ...rest }) => {
   const data = bareMetal['Las Vegas'];
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} {...rest}>
+    <Page {...rest}>
       <PageContent>
         <PageHeader
           title="Bare Metal"

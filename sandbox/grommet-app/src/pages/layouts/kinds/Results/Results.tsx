@@ -149,7 +149,7 @@ const ResultDetail = ({ datum }) => {
 export const Results = () => {
   const { setShowSupporting } = useContext(SupportingContext);
   return (
-    <Page pad={{ bottom: 'large' }}>
+    <Page>
       <PageContent>
         <PageHeader title="Insights" />
         <Data data={insights.insights} properties={properties}>

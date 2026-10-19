@@ -50,7 +50,7 @@ export const Form = () => {
   const [numFiles, setNumFiles] = useState(0);
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} kind="narrow">
+    <Page kind="narrow">
       <PageContent>
         <PageHeader
           title="Form"

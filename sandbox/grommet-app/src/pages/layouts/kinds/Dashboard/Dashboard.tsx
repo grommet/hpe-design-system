@@ -30,7 +30,7 @@ export const Dashboard = () => {
   const { setShowSupporting } = useContext(SupportingContext);
   const breakpoint = useContext(ResponsiveContext);
   return (
-    <Page kind="full" pad={{ bottom: 'large' }}>
+    <Page kind="full">
       <PageContent>
         <PageHeader
           title="Hub"

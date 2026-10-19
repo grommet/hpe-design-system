@@ -59,7 +59,7 @@ export const RecordDetail: React.FC = () => {
     : areasDefault;
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} flex="grow">
+    <Page flex="grow">
       <PageContent>
         <PageHeader
           title="Server group name"

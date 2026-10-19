@@ -19,8 +19,8 @@ export const NavigationalSidebar = () => {
         items={navItems}
         height={appHeight}
       />
-      <Page pad={{ bottom: 'xlarge' }}>
-        <PageContent alignSelf="start">
+      <Page>
+        <PageContent>
           <PageHeader
             title="Navigational sidebar"
             subtitle="Demonstrates how a collapsible sidebar can be used for navigation."

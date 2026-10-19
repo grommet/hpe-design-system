@@ -52,7 +52,7 @@ const App = () => {
   }, [backgroundBack]);
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
-  const [activeTheme, setActiveTheme] = useSessionStorage('activeTheme', Object.keys(themes)[0]);
+  const [activeTheme, setActiveTheme] = useSessionStorage('activeTheme', 'v3');
   const { theme: qaTheme } = useThemePreview();
   const theme = useMemo(
     () => (activeTheme === 'qa' ? qaTheme : themes[activeTheme]),
