@@ -14,22 +14,16 @@ export const TimeInputGoodTimeFormatPreview = () => (
         <TimeInput
           id="good-start-time"
           name="good-start-time"
-          value="08:00"
+          defaultValue="08:00"
           format="12"
-          showSeconds={false}
         />
       </FormField>
-      <FormField
-        label="End time"
-        htmlFor="good-end-time"
-        name="good-end-time"
-      >
+      <FormField label="End time" htmlFor="good-end-time" name="good-end-time">
         <TimeInput
           id="good-end-time"
           name="good-end-time"
-          value="05:00"
+          defaultValue="17:00"
           format="12"
-          showSeconds={false}
         />
       </FormField>
     </Form>
