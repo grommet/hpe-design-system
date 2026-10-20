@@ -1,6 +1,8 @@
 id: form-field
 name: FormField
-description: A single field in a form.
+description:
+  FormField wraps a control with a label and supporting content, such as help,
+  error, or informational messages.
 importPath: grommet
 framework: react
 props:
@@ -13,27 +15,40 @@ props:
   - name: disabled
     type: boolean
     required: false
-    description: Whether the field appears disabled.
+    description:
+      Disables an input created internally by FormField. Explicit child inputs
+      need their own disabled configuration.
   - name: error
     type: string | React.ReactNode
     required: false
-    description: Error text describing an issue with the field value.
+    description:
+      Displays a field-specific error message and marks the field as invalid.
+      Help, error, and informational text are separate message regions.
   - name: help
     type: string | React.ReactNode
     required: false
-    description: Help text describing how the field works.
+    description:
+      Help text explaining how to complete the field. Do not assume automatic
+      association with the input; provide and verify description identifiers.
   - name: htmlFor
     type: string
     required: false
-    description: The identifier of the input element contained in the field.
+    description:
+      Matches the contained input's id to associate its label. For recognized
+      Select or SelectMultiple children with a matching id, FormField appends
+      __input when needed to target the internal input.
   - name: info
     type: string | React.ReactNode
     required: false
-    description: Informational text about the field value.
+    description:
+      Additional context about the field value. Do not assume automatic
+      association with the input; provide and verify description identifiers.
   - name: label
     type: string | React.ReactNode
     required: false
-    description: A short label describing the field.
+    description:
+      A short, descriptive label. If no visible label is provided, the control
+      still needs an accessible name.
   - name: margin
     type: 'string | { bottom?: string; end?: string; horizontal?: string; left?:
       string; right?: string; start?: string; top?: string; vertical?: string }'
@@ -62,11 +77,19 @@ props:
     required: false
     description:
       Whether the field is required, with an object form that can suppress
-      the required indicator.
+      the visual indicator without making the field optional. Do not assume
+      aria-required is automatically set on every child; verify required
+      semantics on the actual input, especially when hiding the indicator.
   - name: component
     type: any
     required: false
-    description: The input component inserted into the field.
+    description:
+      The control FormField creates inside Form when no child is supplied.
+      Supply a name to connect it to form-managed values and submission.
+      Without a child or component, FormField uses its TextInput fallback.
+      Explicit child controls remain responsible for their own configuration;
+      manage their value directly outside Form, or supply a name inside Form
+      to participate in form-managed values and submission.
   - name: validate
     type:
       "{ regexp?: object; message?: string | React.ReactNode; status?: 'error'
@@ -80,38 +103,205 @@ props:
   - name: validateOn
     type: "'blur' | 'submit' | 'change'"
     required: false
-    description: When to validate the field.
+    description:
+      When to validate a named field within Form. For blur validation, moving
+      focus into a related input dropdown does not immediately count as leaving
+      the field.
 usage:
   whenToUse:
-    - Entering a value in a form with a descriptive field label.
-    - Correcting a form value using field-specific help and error messages.
-    - Validating a named field as part of a Form.
+    - Entering a value with a clear, persistent field label.
+    - Validating a named field within Form before submission.
   whenToAvoid: []
 variants: []
-examples: []
+examples:
+  - description:
+      Password field with a label, required indicator, help, an informational
+      requirements checklist, and submit validation. Successful validation
+      never displays the password.
+    codeFile: apps/docs/src/examples/components/formfield/FormFieldExample.js
+    code: |
+      import React, { useId, useState } from 'react';
+      import { Box, Button, Form, FormField, List, Text, TextInput } from 'grommet';
+      import { Checkmark } from '@hpe-design/icons-grommet';
+      import {
+        passwordRequirements,
+        passwordRulesStrong,
+      } from '../../templates/forms/utils/FormValidation';
+
+      export const FormFieldExample = () => {
+        const id = useId();
+        const [value, setValue] = useState({ password: '' });
+        const [submitted, setSubmitted] = useState(false);
+
+        return (
+          <Box gap="medium" width="medium">
+            <Form
+              value={value}
+              onChange={nextValue => {
+                setValue(nextValue);
+                setSubmitted(false);
+              }}
+              onSubmit={() => setSubmitted(true)}
+              messages={{ required: 'Enter a password.' }}
+            >
+              <FormField
+                label="Password"
+                name="password"
+                htmlFor={id}
+                help={
+                  <Text id={`${id}-help`} size="xsmall">
+                    Choose a password that meets all the requirements below.
+                  </Text>
+                }
+                info={
+                  <List
+                    id={`${id}-info`}
+                    data={passwordRulesStrong}
+                    border={false}
+                    pad="none"
+                  >
+                    {rule => (
+                      <Box direction="row" gap="3xsmall">
+                        {value.password && rule.regexp.test(value.password) && (
+                          <Box alignSelf="center">
+                            <Checkmark size="small" a11yTitle="Requirement met" />
+                          </Box>
+                        )}
+                        <Text size="xsmall">{rule.message}</Text>
+                      </Box>
+                    )}
+                  </List>
+                }
+                required
+                validate={passwordRequirements}
+                validateOn="submit"
+              >
+                <TextInput
+                  id={id}
+                  name="password"
+                  type="password"
+                  autoComplete="new-password"
+                  aria-describedby={`${id}-help ${id}-info`}
+                />
+              </FormField>
+              <Box margin={{ top: 'medium' }} responsive={false} align="start">
+                <Button type="submit" label="Check password" primary />
+              </Box>
+            </Form>
+            {submitted && (
+              <Text role="status">Password meets the requirements.</Text>
+            )}
+          </Box>
+        );
+      };
+  - description:
+      Entering a labeled form value. Matching htmlFor and id values associate
+      the label with its input; matching names connect the input to Form values.
+    codeFile: apps/docs/src/examples/components/formfield/FormFieldEnteringLabeledFormValueExample.js
+    code: |
+      import React, { useId, useState } from 'react';
+      import { Box, Form, FormField, TextInput } from 'grommet';
+
+      export const FormFieldEnteringLabeledFormValueExample = () => {
+        const id = useId();
+        const [value, setValue] = useState({
+          projectName: 'Infrastructure monitoring',
+        });
+
+        return (
+          <Box width="medium">
+            <Form value={value} onChange={nextValue => setValue(nextValue)}>
+              <FormField label="Project name" name="projectName" htmlFor={id}>
+                <TextInput id={id} name="projectName" />
+              </FormField>
+            </Form>
+          </Box>
+        );
+      };
+  - description:
+      Validating a named form field. A submit-time format check displays an
+      actionable error and blocks submission until the value is corrected.
+    codeFile: apps/docs/src/examples/components/formfield/FormFieldValidatingNamedFormFieldExample.js
+    code: |
+      import React, { useId, useState } from 'react';
+      import { Box, Button, Form, FormField, Text, TextInput } from 'grommet';
+
+      export const FormFieldValidatingNamedFormFieldExample = () => {
+        const id = useId();
+        const [value, setValue] = useState({ projectCode: 'OPS12' });
+        const [submitted, setSubmitted] = useState();
+
+        return (
+          <Box gap="medium" width="medium">
+            <Form
+              value={value}
+              onChange={nextValue => {
+                setValue(nextValue);
+                setSubmitted(undefined);
+              }}
+              onSubmit={({ value: nextValue }) => setSubmitted(nextValue)}
+            >
+              <FormField
+                label="Project code"
+                name="projectCode"
+                htmlFor={id}
+                help="Use three uppercase letters followed by three digits."
+                validate={{
+                  regexp: /^[A-Z]{3}[0-9]{3}$/,
+                  message: 'Enter three uppercase letters followed by three digits.',
+                }}
+                validateOn="submit"
+              >
+                <TextInput id={id} name="projectCode" />
+              </FormField>
+              <Box margin={{ top: 'medium' }} responsive={false} align="start">
+                <Button type="submit" label="Create project" primary />
+              </Box>
+            </Form>
+            {submitted && (
+              <Text role="status">Submitted locally: {submitted.projectCode}</Text>
+            )}
+          </Box>
+        );
+      };
 anatomy:
   - label: '1'
     region: Label
     purpose: Identifies the field.
     availability: optional
+    notes: If no visible label is provided, give the control an accessible name.
   - label: '2'
-    region: Help text
-    purpose: Explains how the field works.
+    region: Required indicator
+    purpose: Visually communicates that the field is required.
     availability: optional
   - label: '3'
-    region: Input area
-    purpose: Contains the input used to enter a field value.
+    region: Control / input
+    purpose: Lets the user enter or select a value.
     availability: required
+    notes:
+      Provide it as a child or have FormField create it with component inside
+      Form. Child controls can manage their value outside Form or use a name
+      inside Form to participate in form-managed values and submission.
   - label: '4'
-    region: Error message
-    purpose: Describes an issue with the field value.
+    region: Help text
+    purpose: Explains how to complete the field.
     availability: optional
   - label: '5'
+    region: Validation message
+    purpose: Describes an issue with the field value.
+    availability: conditional
+    notes: Shown when validation fails.
+  - label: '6'
     region: Informational text
     purpose: Provides additional information about the field value.
     availability: optional
 behaviors:
-  interactiveStates: []
+  interactiveStates:
+    - FormField tracks focus within the field and applies focus styling.
+    - >-
+      Recognized Grommet input children can receive field-managed focus styling
+      when they have not explicitly configured plain or focusIndicator.
+      Arbitrary custom children do not receive the same automatic handling.
   applicationStates:
     - disabled
     - error
@@ -121,6 +311,9 @@ behaviors:
     references: []
 contentGuidelines:
   - Keep the field label short and descriptive.
+  - Use help text to explain how to complete the field.
+  - Use error text to describe an issue with the current value.
+  - Use info text for additional context about the field value.
 dosAndDonts:
   - do: Match htmlFor to the identifier of the contained input.
     dont: Point htmlFor at an unrelated input.
@@ -129,8 +322,45 @@ dosAndDonts:
     dont: Configure field validation without a name.
     reason: The API requires a name when using the validate property.
 accessibility:
-  keyboard: []
-  aria: []
+  keyboard:
+    - key: Input-specific keys
+      action:
+        FormField does not define a separate keyboard interaction pattern.
+        The contained input provides keyboard behavior; custom inputs must
+        supply their own keyboard support and accessible semantics.
+  aria:
+    - attribute: htmlFor / id binding
+      value: Matching FormField htmlFor and input id
+      condition:
+        Associates a visible label with its input. For recognized Select or
+        SelectMultiple children with a matching id, FormField appends __input
+        when needed to target the internal input.
+    - attribute: aria-invalid
+      value: 'true'
+      condition:
+        A field error is present on a recognized Grommet input child or an
+        internally created input. Custom child components do not receive
+        the same automatic error associations.
+    - attribute: aria-describedby
+      value: Generated error-message identifier
+      condition:
+        An error and htmlFor are present. FormField links recognized Grommet
+        input children or its internally created input to the error message
+        and preserves existing description identifiers. Help and informational
+        text are not automatically associated with every input; provide and
+        verify any additional description associations.
+    - attribute: aria-hidden
+      value: 'true'
+      condition:
+        When the built-in required indicator is displayed, the visual asterisk
+        is hidden from assistive technology and accompanied by visually hidden
+        required text.
+    - attribute: aria-required
+      value: 'true'
+      condition:
+        Do not assume FormField automatically sets this on every child. Verify
+        required semantics on the actual input, especially when the visual
+        indicator is suppressed.
   announcements: []
   wcag: []
 relatedComponents: []
