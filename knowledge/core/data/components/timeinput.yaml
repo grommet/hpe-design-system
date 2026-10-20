@@ -103,7 +103,7 @@ behaviors:
 contentGuidelines:
   - When customizing messages, preserve clear labels for the input, active section, hours, minutes, seconds, and meridiem (AM/PM) values.
   - Provide an invalidTime message that explains that the entered time is invalid.
-  - Provide a currentValue message that identifies the committed hour, minute, second, and meridiem values when those sections are complete.
+  - When customizing completion announcements, provide currentValueWithoutSeconds for hours, minutes, and meridiem; provide currentValue, including seconds, when showSeconds is enabled.
 dosAndDonts:
   - do: Use a format that matches the time convention expected by the user.
     dont: Mix 12-hour and 24-hour conventions within the same time-entry workflow.
