@@ -87,8 +87,8 @@ anatomy:
   - label: '3'
     region: Drop container
     purpose: Holds the columns of time choices.
-    availability: required
-    notes: Appears when the time picker is open.
+    availability: optional
+    notes: Appears when the time picker is open. Not rendered when inline is set.
   - label: '4'
     region: Time option
     purpose: Selects a value for one time section.
