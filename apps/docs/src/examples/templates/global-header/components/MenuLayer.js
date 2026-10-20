@@ -76,12 +76,12 @@ const SidebarHeader = () => (
     gap="medium"
     flex={false}
   >
-    <Box gap="3xsmall">
-      <Box margin={{ bottom: '3xsmall' }}>
-        <UserAvatar initials="A" />
+    <Box gap="xsmall">
+      <UserAvatar initials="A" />
+      <Box gap="3xsmall">
+        <TextEmphasis>AT&T Corporation</TextEmphasis>
+        <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
       </Box>
-      <TextEmphasis>AT&T Corporation</TextEmphasis>
-      <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
     </Box>
     <Button label="Switch Account" secondary />
   </Box>
