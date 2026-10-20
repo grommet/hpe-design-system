@@ -82,8 +82,8 @@ anatomy:
   - label: '2'
     region: Time picker button
     purpose: Opens the time selection dropdown.
-    availability: required
-    notes: Not shown when the input is read-only.
+    availability: optional
+    notes: Not shown when readOnly or inline is set. The button appearance can be customized through the theme.
   - label: '3'
     region: Drop container
     purpose: Holds the columns of time choices.
@@ -100,10 +100,6 @@ behaviors:
   applicationStates:
     - disabled
     - read-only
-contentGuidelines:
-  - When customizing messages, preserve clear labels for the input, active section, hours, minutes, seconds, and meridiem (AM/PM) values.
-  - Provide an invalidTime message that explains that the entered time is invalid.
-  - When customizing completion announcements, provide currentValueWithoutSeconds for hours, minutes, and meridiem; provide currentValue, including seconds, when showSeconds is enabled.
 dosAndDonts:
   - do: Use a format that matches the time convention expected by the user.
     dont: Mix 12-hour and 24-hour conventions within the same time-entry workflow.
