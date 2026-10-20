@@ -5,28 +5,25 @@ import PropTypes from 'prop-types';
 import { Box, Button, Image, Text } from 'grommet';
 import { ThemeContext } from 'styled-components';
 
-const HpeLogo = () => {
+export const HpeLogo = () => {
   const theme = useContext(ThemeContext);
   return (
     <Box width="4xsmall" animation={{ type: 'fadeIn', duration: 500 }}>
       <Image
         alt="HPE logo"
         fit="contain"
-        src={theme?.dark
-          ? '/HPE_logo_full-clr_rev_rgb.svg'
-          : '/HPE_logo_full-clr_pos_rgb.svg'}
+        src={
+          theme?.dark
+            ? '/HPE_logo_full-clr_rev_rgb.svg'
+            : '/HPE_logo_full-clr_pos_rgb.svg'
+        }
       />
     </Box>
   );
 };
 export const AppIdentity = forwardRef(
   (
-    {
-      logo = true,
-      logoOnly = false,
-      title = 'HPE Design System',
-      ...rest
-    },
+    { logo = true, logoOnly = false, title = 'HPE Design System', ...rest },
     ref,
   ) => {
     const textSize = 'medium';
@@ -46,13 +43,13 @@ export const AppIdentity = forwardRef(
           {logo && <HpeLogo />}
           {!logoOnly && (
             <Box direction="row" gap="3xsmall" wrap>
-              {!logo &&
+              {!logo && (
                 <Box animation={{ type: 'fadeIn', duration: 500 }}>
                   <Text weight="bold" size={textSize} color="text-strong">
                     HPE
                   </Text>
                 </Box>
-              }
+              )}
               <Text size={textSize} color="text-strong">
                 {title}
               </Text>
