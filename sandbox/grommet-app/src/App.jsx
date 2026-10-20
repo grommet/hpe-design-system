@@ -7,6 +7,7 @@ import { useSessionStorage, useThemePreview } from '@shared/hooks';
 import { themes } from './themes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
+import PageContentMultiple from './pages/PageContentMultiple';
 import StickerSheet from './pages/sticker-sheet/index';
 import { Layouts, routes as layoutRoutes } from './pages/layouts';
 import { Login } from './Login';
@@ -127,6 +128,10 @@ const App = () => {
                         />
                         <Routes>
                           <Route path="/" element={<Home />} />
+                          <Route
+                            path="/pagecontent-multiple"
+                            element={<PageContentMultiple />}
+                          />
                           <Route
                             path="/sustainability"
                             element={<Sustainability />}

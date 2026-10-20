@@ -161,8 +161,8 @@ export const Collection = ({ ...rest }) => {
           parent={
             <RoutedAnchor
               as={Link}
-              label="Layouts"
-              to="/layouts"
+              label="Home"
+              to="/"
               icon={<Left />}
             />
           }

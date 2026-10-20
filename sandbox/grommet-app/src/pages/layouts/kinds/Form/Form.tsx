@@ -57,8 +57,8 @@ export const Form = () => {
           parent={
             <RoutedAnchor
               as={Link}
-              label="Layouts"
-              to="/layouts"
+              label="Home"
+              to="/"
               icon={<Left />}
             />
           }

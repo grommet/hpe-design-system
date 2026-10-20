@@ -59,8 +59,8 @@ export const DSCCSystemDetail = () => {
           parent={
             <RoutedAnchor
               as={Link}
-              to="/layouts"
-              label="Layouts"
+              to="/"
+              label="Home"
               icon={<Left />}
             />
           }

@@ -11,7 +11,8 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Link } from 'react-router-dom';
-import { Configure, AIGenFill, NewWindow } from '@hpe-design/icons-grommet';
+import { Configure, AIGenFill, Left, NewWindow } from '@hpe-design/icons-grommet';
+import { RoutedAnchor } from '../../../../components';
 import { Capacity } from './components';
 import { SustainabilityOverview } from '../../../SustainabilityOverview';
 import { Usage } from './Usage';
@@ -34,6 +35,9 @@ export const Dashboard = () => {
       <PageContent>
         <PageHeader
           title="Hub"
+          parent={
+            <RoutedAnchor as={Link} to="/" label="Home" icon={<Left />} />
+          }
           actions={
             <Box direction="row">
               <Button icon={<Configure />} size="large" />
