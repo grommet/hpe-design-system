@@ -2,6 +2,7 @@ id: timeinput
 name: TimeInput
 description: Use TimeInput to collect a time of day. Its structured input helps users enter time consistently in a 12 or 24-hour format.
 importPath: grommet
+framework: react
 props:
   - name: defaultValue
     type: string
@@ -19,20 +20,26 @@ props:
     type: string
     required: false
     description: HTML id attribute for the input.
+  - name: inline
+    type: boolean
+    required: false
+    description: Renders the time selection columns inline instead of in a drop. Ignores disabled and readOnly when set.
+    defaultValue: false
   - name: messages
-    type: "{ activePeriodValue?: string; activeSection?: string; activeSectionValue?: string; chooseTime?: string; currentValue?: string; inputLabel?: string; invalidTime?: string; openDrop?: string; sectionHours?: string; sectionMeridiem?: string; sectionMinutes?: string; sectionSeconds?: string }"
+    type: '{ activePeriodValue?: string; activeSection?: string; activeSectionValue?: string; chooseTime?: string; currentValue?: string; currentValueWithoutSeconds?: string; inputLabel?: string; invalidTime?: string; openDrop?: string; sectionHours?: string; sectionMeridiem?: string; sectionMinutes?: string; sectionSeconds?: string }'
     required: false
     description: Custom messages used by the time input.
   - name: minuteStep
     type: number
     required: false
-    description: Increment used when selecting minutes.
+    description: Increment, in minutes, used when selecting minutes.
+    defaultValue: 1
   - name: name
     type: string
     required: false
     description: HTML name attribute for the input.
   - name: onChange
-    type: "(event: { value?: string }) => void"
+    type: '(event: { value?: string }) => void'
     required: false
     description: Callback invoked when the time value changes.
   - name: readOnly
@@ -43,6 +50,7 @@ props:
     type: boolean
     required: false
     description: Controls whether seconds are included in the time input.
+    defaultValue: false
   - name: value
     type: string
     required: false
@@ -50,26 +58,52 @@ props:
 usage:
   whenToUse:
     - Collecting a time value as part of a form.
-    - Letting users enter a time with a 12-hour or 24-hour format.
-  whenToAvoid: []
+    - Defining the start and end of a same-day window, such as a maintenance window.
+    - Choosing the time of day a recurring action runs, such as when a daily report is sent.
+    - Constraining time selection to a fixed range, such as booking an appointment within business hours.
+  whenToAvoid:
+    - Avoid collecting seconds unless the task needs that precision.
 examples: []
 anatomy:
-  - label: Time input field
-    region: Input
+  - label: '1'
+    region: Time input field
     purpose: Displays and accepts the time value.
     availability: required
-  - label: Time sections
-    region: Input
-    purpose: Represents the editable sections of the time value, such as hours, minutes, and optionally seconds.
+  - label: 1a
+    region: Time sections
+    purpose: Represents the editable hours, minutes, and optional seconds.
     availability: required
-  - label: Meridiem section
-    region: Input
-    purpose: Represents the ante meridiem or post meridiem value when a 12-hour format is used.
+    notes: Seconds are hidden by default. Use the showSeconds prop to show them.
+  - label: 1b
+    region: Meridiem section
+    purpose: Indicates AM or PM.
     availability: optional
+    notes: Appears in the 12-hour format.
+  - label: '2'
+    region: Time picker button
+    purpose: Opens the time selection dropdown.
+    availability: optional
+    notes: Not shown when readOnly or inline is set. The button icon and styling can be customized through the theme.
+  - label: '3'
+    region: Drop container
+    purpose: Holds the columns of time choices.
+    availability: optional
+    notes: Appears when the time picker is open. Not rendered when inline is set.
+  - label: '4'
+    region: Time option
+    purpose: Selects a value for one time section.
+    availability: required
+behaviors:
+  interactiveStates:
+    - rest
+    - focus
+  applicationStates:
+    - disabled
+    - read-only
 dosAndDonts:
   - do: Use a format that matches the time convention expected by the user.
     dont: Mix 12-hour and 24-hour conventions within the same time-entry workflow.
     reason: Consistent time formatting helps users enter the intended value.
-  - do: Use TimeInput when the user needs to provide a time value.
-    dont: Use TimeInput when the user needs to provide a date or a date-and-time value.
-    reason: The component API represents a time value only.
+relatedComponents:
+  - date-input
+  - form-field
