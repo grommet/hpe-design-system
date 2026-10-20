@@ -83,7 +83,7 @@ anatomy:
     region: Time picker button
     purpose: Opens the time selection dropdown.
     availability: optional
-    notes: Not shown when readOnly or inline is set. The button appearance can be customized through the theme.
+    notes: Not shown when readOnly or inline is set. The button icon and styling can be customized through the theme.
   - label: '3'
     region: Drop container
     purpose: Holds the columns of time choices.
