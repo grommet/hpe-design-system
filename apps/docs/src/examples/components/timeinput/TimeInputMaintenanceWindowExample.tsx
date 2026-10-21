@@ -40,7 +40,7 @@ export const TimeInputMaintenanceWindowExample = () => {
               Maintenance window
             </Heading>
           </Header>
-          <Form
+          <Form<typeof defaultFormValues>
             value={formValue}
             onChange={setFormValue}
             onSubmit={() => setEdit(false)}

@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-export const formatTime = (time, format = '12') => {
+export const formatTime = (time?: string, format: '12' | '24' = '12') => {
   if (!time) return '';
 
   const match = time

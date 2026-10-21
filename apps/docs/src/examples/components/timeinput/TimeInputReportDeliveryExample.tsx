@@ -39,7 +39,7 @@ export const TimeInputReportDeliveryExample = () => {
               Schedule report
             </Heading>
           </Header>
-          <Form
+          <Form<typeof defaultFormValues>
             value={formValue}
             onChange={setFormValue}
             onSubmit={() => setEdit(false)}
