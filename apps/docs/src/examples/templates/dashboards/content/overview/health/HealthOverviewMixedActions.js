@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
-import { Button } from 'grommet';
+import { Anchor, Button } from 'grommet';
 import { ShieldCheck } from '@hpe-design/icons-grommet';
 import { MetricValue } from '../../../components';
 import { Bar } from './Bar';
@@ -50,33 +50,42 @@ export const HealthOverviewMixedActions = ({
     <HealthSection>
       <Tile
         title="Availability"
-        description={`${availability.incidents} incidents, ${
-          availability.downtime
-        } min downtime in 28 days.`}
-        action={actionIf(status.availability, 'View incidents')}
+        description={
+          <>
+            {availability.incidents > 0 && !tileActions ? (
+              <Anchor href="#" size="inherit">
+                {availability.incidents} incidents
+              </Anchor>
+            ) : (
+              `${availability.incidents} incidents`
+            )}{' '}
+            causing {availability.downtime} minutes downtime in 28 days.
+          </>
+        }
+        action={actionIf(
+          availability.incidents > 0 ? 'warning' : status.availability,
+          'View incidents',
+        )}
       >
         <MetricValue
           value={availability.percent.toFixed(2)}
           unit="%"
-          trend={availability.trend}
-          trendDirection={availability.trendDirection}
         />
-        <QuietStatusRow
-          status={status.availability}
-          href={linkIf(status.availability)}
-        >
-          {status.availability === 'ok' ? 'Above' : 'Below'}{' '}
-          {targets.availability}% target
-        </QuietStatusRow>
+        {status.availability !== 'ok' && (
+          <QuietStatusRow
+            status={status.availability}
+            href={linkIf(status.availability)}
+          >
+            Below {targets.availability}% target
+          </QuietStatusRow>
+        )}
       </Tile>
       <Tile
         title="Capacity used"
-        description={`${capacity.used} of ${capacity.total} ${
-          capacity.unit
-        } used. 90% in about ${capacity.monthsTo90} months.`}
+        description={`90% capacity within ${capacity.monthsTo90} months.`}
         action={actionIf(status.capacity, 'Review capacity')}
       >
-        <MetricValue value={used} unit="%" trend={capacity.trend} />
+        <MetricValue value={used} unit="%" />
         <Bar
           alignToText
           label={`${used}% of ${capacity.total} ${capacity.unit} used`}

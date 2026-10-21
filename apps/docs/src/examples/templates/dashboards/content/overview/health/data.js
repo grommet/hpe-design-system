@@ -17,7 +17,7 @@ export const driveFailure = {
     downtime: 9,
   },
   capacity: { used: 3.4, total: 4.8, unit: 'PB', trend: '2%', monthsTo90: 9 },
-  volumes: { total: 1842, protectedCount: 1842, verified: '4 min ago' },
+  volumes: { total: 1842, protectedCount: 1842, verified: '4 minutes ago' },
   drives: { total: 1104, failed: 2, spares: 4 },
 };
 

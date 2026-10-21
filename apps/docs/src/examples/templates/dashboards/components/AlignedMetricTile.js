@@ -52,7 +52,7 @@ AlignedMetricTile.propTypes = {
   action: PropTypes.node,
   anchor: PropTypes.bool,
   children: PropTypes.node,
-  description: PropTypes.string,
+  description: PropTypes.node,
   level: PropTypes.number,
   statusIcon: PropTypes.node,
   title: PropTypes.string.isRequired,
