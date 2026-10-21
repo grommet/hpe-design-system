@@ -1,5 +1,5 @@
 import { Checkmark } from '@hpe-design/icons-grommet';
-import { BestPracticeGroup, Example } from '../../layouts';
+import { AccessibilitySection, BestPracticeGroup, Example } from '../../layouts';
 import {
   TimeInputBadTimeFormatPreview,
   TimeInputBusinessHoursExample,
@@ -127,5 +127,17 @@ Use TimeInput when valid times must fall within a fixed range, such as booking a
 
 ## Accessibility
 
+### A11y guidance
+
+The following guidance should be considered for each instance of the component and is the responsibility of the implementer. WCAG criteria provided directly by the Grommet component are summarized under [WCAG compliance](#wcag-compliance).
+
 - Support focus movement between the time sections so keyboard and assistive technology users can identify and edit each portion of the value.
 - Use `messages` to provide localized labels and announcements for the input, active section, section values, and time-selection controls.
+- Provide descriptive text identifying the time being requested. FormField can provide this label; when used, set matching `htmlFor` and `id` values to associate it with TimeInput.
+- Validate the entered time and associate error messages with the input so assistive technology users can identify errors.
+- Explain how to correct invalid values, including any required time range or interval.
+- Provide contextual help about the expected time format and any restrictions. Do not rely on placeholder text for essential instructions.
+
+### WCAG compliance
+
+<AccessibilitySection title="TimeInput" />
