@@ -1,10 +1,21 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { Box, Button, Text, ThemeContext } from 'grommet';
+import type { BoxExtendedProps, TextProps } from 'grommet';
+import { Clock } from '@hpe-design/icons-grommet';
+import type { ThemeType } from 'grommet/themes';
 
-const columns = [
+
+type TimeInputMockOptionProps = BoxExtendedProps & {
+  label: string;
+  selected?: boolean;
+};
+
+const columns: {
+  name: string;
+  options: TimeInputMockOptionProps[];
+}[] = [
   {
     name: 'Hours',
     options: [
@@ -41,15 +52,18 @@ const columns = [
   },
 ];
 
-const TimeInputMockOption = ({ label, selected, ...rest }) => {
-  const theme = useContext(ThemeContext);
-  const { container, text } = theme.timeInput.drop.option;
-
+const TimeInputMockOption = ({
+  label,
+  selected,
+  ...rest
+}: TimeInputMockOptionProps) => {
+  const theme = useContext(ThemeContext) as ThemeType;
+  const { container = {}, text = {} } = theme.timeInput?.drop?.option || {};
   return (
     <Box
       align="center"
-      background={selected ? container.selected.background : undefined}
-      hoverIndicator={!selected && container.hover.background}
+      background={selected ? container.selected?.background : undefined}
+      hoverIndicator={!selected && container.hover?.background}
       onClick={() => {}}
       tabIndex={-1}
       flex={false}
@@ -60,8 +74,8 @@ const TimeInputMockOption = ({ label, selected, ...rest }) => {
     >
       <Text
         size={text.size}
-        weight={selected ? text.selected.weight : undefined}
-        color={selected ? text.selected.color : 'text'}
+        weight={selected ? text.selected?.weight : undefined}
+        color={selected ? text.selected?.color : 'text'}
       >
         {label}
       </Text>
@@ -69,22 +83,18 @@ const TimeInputMockOption = ({ label, selected, ...rest }) => {
   );
 };
 
-TimeInputMockOption.propTypes = {
-  label: PropTypes.string.isRequired,
-  selected: PropTypes.bool,
-};
-
 export const TimeInputMock = () => {
-  const theme = useContext(ThemeContext);
-  const timeTheme = theme.timeInput;
-  const dropTheme = theme.global.drop;
-  const inputTheme = theme.global.input;
-  const textProps = {
-    weight: inputTheme.font.weight,
+  const theme = useContext(ThemeContext) as ThemeType;
+  const timeTheme = theme.timeInput || {};
+  const dropTheme = theme.global?.drop || {};
+  const inputTheme = theme.global?.input || {};
+  const textProps: TextProps = {
+    weight: inputTheme.font?.weight as TextProps['weight'],
     color: 'text',
   };
-  const segment = label => (
-    <Box pad={timeTheme.segment.pad}>
+
+  const segment = (label: string) => (
+    <Box pad={timeTheme.segment?.pad}>
       <Text {...textProps}>{label}</Text>
     </Box>
   );
@@ -92,7 +102,7 @@ export const TimeInputMock = () => {
   return (
     <>
       <Box gridArea="label" fill="horizontal" align="start">
-        <Text {...theme.formField.label} id="timeinput-anatomy-label">
+        <Text {...theme.formField?.label} id="timeinput-anatomy-label">
           Start time
         </Text>
       </Box>
@@ -104,10 +114,10 @@ export const TimeInputMock = () => {
         justify="between"
         width="small"
         border={{
-          color: theme.global.control.border.color,
-          size: theme.global.control.border.width,
+          color: theme.global?.control?.border?.color,
+          size: theme.global?.control?.border?.width,
         }}
-        round={timeTheme.container.round}
+        round={timeTheme.container?.round}
         responsive={false}
       >
         <Box
@@ -124,9 +134,8 @@ export const TimeInputMock = () => {
           <Box id="timeinput-anatomy-period">{segment('AM')}</Box>
         </Box>
         <Button
-          id="timeinput-anatomy-button"
           a11yTitle="Choose time"
-          icon={timeTheme.drop.dropButton.icon.clock.render()}
+          icon={<Clock id="timeinput-anatomy-button" />}
           kind="toolbar"
           tabIndex={-1}
         />
@@ -137,18 +146,18 @@ export const TimeInputMock = () => {
           direction="row"
           background={dropTheme.background}
           elevation={dropTheme.shadowSize}
-          round={dropTheme.border.radius}
-          height={timeTheme.drop.height}
-          pad={timeTheme.drop.pad}
+          round={dropTheme.border?.radius}
+          height={timeTheme.drop?.height}
+          pad={timeTheme.drop?.pad}
           responsive={false}
         >
           {columns.map(({ name, options }) => (
             <Box
               key={name}
-              gap={timeTheme.drop.column.gap}
-              pad={timeTheme.drop.column.pad}
+              gap={timeTheme.drop?.column?.gap}
+              pad={timeTheme.drop?.column?.pad}
               responsive={false}
-              height={timeTheme.drop.column.height}
+              height={timeTheme.drop?.column?.height}
               overflow="auto"
               flex={false}
             >
@@ -162,3 +171,4 @@ export const TimeInputMock = () => {
     </>
   );
 };
+

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { Diagram, Grid, Stack } from 'grommet';
+import type { DiagramProps, GridExtendedProps } from 'grommet';
 import { Annotation } from '../../../layouts';
 import { TimeInputMock } from './TimeInputMock';
 
@@ -12,18 +13,20 @@ const annotations = [
   { label: '2', target: 'button', anchor: 'horizontal' },
   { label: '3', target: 'drop', anchor: 'horizontal' },
   { label: '4', target: 'option', anchor: 'horizontal' },
-];
+] as const;
 
-const connections = annotations.map(({ label, target, anchor }) => ({
-  anchor,
-  type: 'direct',
-  color: 'border',
-  thickness: 'hair',
-  fromTarget: `timeinput-annotation-${label}`,
-  toTarget: `timeinput-anatomy-${target}`,
-}));
+const connections: DiagramProps['connections'] = annotations.map(
+  ({ label, target, anchor }) => ({
+    anchor,
+    type: 'direct',
+    color: 'border',
+    thickness: 'hair',
+    fromTarget: `timeinput-annotation-${label}`,
+    toTarget: `timeinput-anatomy-${target}`,
+  }),
+);
 
-const AnatomyGrid = ({ ...rest }) => (
+const AnatomyGrid = ({ ...rest }: GridExtendedProps) => (
   <Grid
     columns={['max-content', 'max-content', 'max-content', 'max-content']}
     rows={['auto', 'auto', 'auto', 'auto', 'flex', 'flex']}
@@ -48,6 +51,8 @@ export const TimeInputAnatomy = () => (
         <Annotation
           key={label}
           id={`timeinput-annotation-${label}`}
+          // Explicit undefined satisfies TypeScript's inferred required prop.
+          kind={undefined} 
           target={label}
           gridArea={`annotation-${label}`}
         />
