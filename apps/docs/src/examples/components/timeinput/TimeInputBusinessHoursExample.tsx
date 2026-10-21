@@ -28,7 +28,7 @@ const BUSINESS_START = 8 * 60;
 const BUSINESS_END = 18 * 60;
 
 // TimeInput values are 24-hour HH:MM:SS strings.
-const validateAppointmentTime = time => {
+const validateAppointmentTime = (time?: string) => {
   if (!time) return 'Appointment time is required.';
   const [hour, minute] = time.split(':').map(Number);
   const minutes = hour * 60 + minute;
@@ -55,7 +55,7 @@ export const TimeInputBusinessHoursExample = () => {
               Booking details
             </Heading>
           </Header>
-          <Form
+          <Form<typeof defaultFormValues>
             value={formValue}
             onChange={setFormValue}
             onSubmit={() => setEdit(false)}
