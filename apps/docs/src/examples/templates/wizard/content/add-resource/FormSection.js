@@ -13,7 +13,7 @@ export const FormSection = ({ children, gap = 'medium', title, ...rest }) => (
     background={surfaceBackground}
     pad="medium"
     round="medium"
-    gap="medium"
+    gap="small"
     flex={false}
     {...rest}
   >

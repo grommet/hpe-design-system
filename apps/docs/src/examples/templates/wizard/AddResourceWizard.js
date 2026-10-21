@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -11,6 +11,7 @@ import {
   Main,
   Page,
   PageContent,
+  ResponsiveContext,
 } from 'grommet';
 import { Close, LinkNext, LinkPrev } from '@hpe-design/icons-grommet';
 import {
@@ -29,6 +30,7 @@ import {
 export const AddResourceWizard = ({ containerRef }) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
+  const size = useContext(ResponsiveContext);
   const [activeIndex, setActiveIndex] = useState(0);
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [open, setOpen] = useState(false);
@@ -104,7 +106,11 @@ export const AddResourceWizard = ({ containerRef }) => {
         <Main ref={mainRef} flex>
           <Page kind="narrow">
             <PageContent>
-              <Box pad={{ top: 'xlarge', bottom: 'xxlarge' }} gap="medium">
+              <Box
+                pad={{ top: 'xlarge', bottom: '3xlarge' }}
+                gap="medium"
+                flex={false}
+              >
                 <StepHeader
                   summaryId={`${id}-summary`}
                   titleId={`${id}-title`}
@@ -120,39 +126,47 @@ export const AddResourceWizard = ({ containerRef }) => {
             </PageContent>
           </Page>
         </Main>
-        <Footer
-          border={{ side: 'top', color: 'border-weak' }}
-          justify="center"
+        {/* mirrors Page kind="narrow" so the footer border spans the
+            content column rather than the full viewport width */}
+        <Box
+          alignSelf="center"
+          fill="horizontal"
           flex={false}
+          pad={{ horizontal: size === 'medium' ? 'medium' : 'xlarge' }}
+          width={{ max: 'xlarge' }}
         >
-          <Box
-            direction="row"
-            gap="xsmall"
-            justify="between"
-            pad={{ horizontal: 'xlarge', vertical: 'xxsmall' }}
-            width="xlarge"
+          <Footer
+            border={{ side: 'top', color: 'border' }}
+            pad={{ vertical: 'xxsmall' }}
           >
-            <Box>
-              {activeIndex > 0 && (
+            <Box
+              direction="row"
+              gap="xsmall"
+              justify="between"
+              fill="horizontal"
+            >
+              <Box>
+                {activeIndex > 0 && (
+                  <Button
+                    icon={<LinkPrev />}
+                    label="Previous"
+                    onClick={onPrevious}
+                  />
+                )}
+              </Box>
+              <Box direction="row" gap="xsmall">
+                <Button label="Cancel" onClick={() => setOpen(true)} />
                 <Button
-                  icon={<LinkPrev />}
-                  label="Previous"
-                  onClick={onPrevious}
+                  icon={<LinkNext />}
+                  label={lastStep ? 'Add resources' : 'Next'}
+                  onClick={onNext}
+                  primary
+                  reverse
                 />
-              )}
+              </Box>
             </Box>
-            <Box direction="row" gap="xsmall">
-              <Button label="Cancel" onClick={() => setOpen(true)} />
-              <Button
-                icon={<LinkNext />}
-                label={lastStep ? 'Add resources' : 'Next'}
-                onClick={onNext}
-                primary
-                reverse
-              />
-            </Box>
-          </Box>
-        </Footer>
+          </Footer>
+        </Box>
       </Box>
       {open && (
         <CancellationLayer
