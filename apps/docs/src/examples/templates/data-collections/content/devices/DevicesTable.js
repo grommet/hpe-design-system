@@ -247,6 +247,7 @@ const DevicesContent = ({ display, onSelect, selected }) => {
             pin
             select={selected}
             onSelect={onSelect}
+            verticalAlign={{ body: 'top' }}
           />
         </Box>
       ) : (
