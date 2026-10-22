@@ -8,7 +8,7 @@ import { TextEmphasis } from '@shared/aries-core';
 // Change relative to the previous period, e.g. "7% more". The icon carries
 // the direction, so it is named for assistive technology.
 const Trend = ({ value }) => (
-  <Box direction="row" align="center" gap="3xsmall">
+  <Box direction="row" align="center" gap="6xsmall">
     <Ascending size="small" color="icon-strong" a11yTitle="up" />
     <TextEmphasis size="xsmall">{value}</TextEmphasis>
   </Box>
