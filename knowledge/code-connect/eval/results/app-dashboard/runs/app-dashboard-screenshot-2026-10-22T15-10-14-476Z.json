@@ -9,7 +9,7 @@
     "isEvaluation": false,
     "model": null,
     "promptVersion": null,
-    "source": "eval/fixtures/passing.jsx",
+    "source": "eval/fixtures/passing-page.jsx",
     "caseFile": "eval/cases/app-dashboard/case.json"
   },
   "metrics": {

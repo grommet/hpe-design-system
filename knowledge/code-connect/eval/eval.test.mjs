@@ -28,7 +28,10 @@ const fixture = name =>
   readFile(path.join(evalDirectory, 'fixtures', name), 'utf8');
 
 test('counts mapped components through aliased imports', async () => {
-  const metrics = scoreSource(await fixture('passing.jsx'), appDashboardCase);
+  const metrics = scoreSource(
+    await fixture('passing-page.jsx'),
+    appDashboardCase,
+  );
   assert.equal(metrics.coverage.coveredTotal, 22);
   assert.equal(metrics.coverage.percent, 100);
   assert.deepEqual(metrics.coverage.components.Button, {
@@ -54,7 +57,10 @@ test('scores the single Button smoke target', async () => {
 });
 
 test('reports coverage, import, and hygiene failures', async () => {
-  const metrics = scoreSource(await fixture('failing.jsx'), appDashboardCase);
+  const metrics = scoreSource(
+    await fixture('failing-page.jsx'),
+    appDashboardCase,
+  );
   assert.equal(metrics.coverage.coveredTotal, 2);
   assert.deepEqual(metrics.imports.disallowed, ['not-allowed-package']);
   assert.deepEqual(metrics.hygiene.counts, {
