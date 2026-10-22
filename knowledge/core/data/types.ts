@@ -14,34 +14,41 @@ export interface ComponentProp {
   required: boolean;
   description: string;
   defaultValue?: string | number | boolean;
+  scope?: string;
 }
 
 export interface ComponentExample {
   description: string;
   code: string;
-  /** Path to a .tsx file containing the code snippet (relative to repo root). Resolved to `code` at build time. */
+  /** Path to a .tsx snippet relative to the repo root. Component and pattern
+   * examples are resolved when loaded. */
   codeFile?: string;
 }
+
+export type ComponentExampleSource = Omit<ComponentExample, 'code'> &
+  ({ code: string } | { codeFile: string; code?: string });
 
 export interface AnatomyPart {
   label: string;
   region: string;
   purpose: string;
-  availability: 'required' | 'optional';
+  availability: string;
   notes?: string;
 }
 
 export interface ComponentBehaviors {
   /** States driven by user interaction: rest, hover, focus, active, drag */
   interactiveStates?: string[];
-  /** States driven by application logic: disabled, error, readonly, selected, indeterminate, pinned */
+  /** States driven by application logic: disabled, error, readonly, selected,
+   * indeterminate, pinned */
   applicationStates?: string[];
-  /** States driven by data: loading, empty, "missing-values", "has-value", error */
+  /** States driven by data: loading, empty, "missing-values", "has-value",
+   * error */
   dataStates?: string[];
   /** Space and layout behaviors: responsive, overflow, truncation */
   realEstate?: string[];
-  /** Motion — token path references only, no raw values */
-  animation?: { references: string[] };
+  /** Motion descriptions, or structured token path references. */
+  animation?: string[] | { references: string[] };
 }
 
 export interface KeyboardInteraction {
@@ -52,7 +59,8 @@ export interface KeyboardInteraction {
 export interface AriaAttribute {
   attribute: string;
   value: string;
-  /** Free-form description of when this attribute applies, e.g. "always", "when menu is open" */
+  /** Free-form description of when this attribute applies, e.g. "always",
+   * "when menu is open" */
   condition: string;
 }
 
@@ -65,6 +73,7 @@ export interface WcagCriterion {
   /** e.g. "1.4.3 Contrast (Minimum)" */
   criterion: string;
   status: 'pass' | 'fail' | 'conditional';
+  notes?: string[];
 }
 
 export interface ComponentAccessibility {
@@ -90,23 +99,21 @@ export interface ComponentVariant {
  * The build resolves the correct implementation before writing consumer output.
  */
 export type FrameworkTarget =
-  | 'react'
-  | 'vue'
-  | 'angular'
-  | 'web-components'
-  | 'agnostic';
+  'react' | 'vue' | 'angular' | 'web-components' | 'agnostic';
 
 /**
  * Framework-specific override values for a single component.
  * Only fields that differ from the component's defaults need to be specified.
  */
 export interface ComponentImplementation {
-  /** Package name to import the component from in this framework (e.g. "@hpe/vue-components") */
+  /** Package name to import the component from in this framework (e.g.
+   * "@hpe/vue-components") */
   importPath: string;
   /**
    * Per-prop type string overrides for this framework.
    * Key = prop name, value = framework-specific type string.
-   * e.g. { "label": "string | VNode" } for Vue, { "label": "string | TemplateRef" } for Angular.
+   * e.g. { "label": "string | VNode" } for Vue,
+   * { "label": "string | TemplateRef" } for Angular.
    * Prop types not listed here fall back to the top-level props[].type value.
    */
   propTypeOverrides?: Record<string, string>;
@@ -117,8 +124,9 @@ export interface ComponentDefinition {
   name: string;
   description: string;
   /**
-   * Default import path, used when no framework-specific implementation is defined.
-   * For React components this is the component library package (e.g. "grommet").
+   * Default import path, used when no framework-specific implementation
+   * is defined. For React components this is the component library
+   * package (e.g. "grommet").
    */
   importPath: string;
   /**
@@ -130,7 +138,8 @@ export interface ComponentDefinition {
    * Framework-specific overrides for importPath and prop type strings.
    * Present only when the component has been adapted for multiple frameworks.
    * The build resolves the correct entry per consumer before writing output —
-   * agents and consuming apps always receive a flat, single-framework definition.
+   * agents and consuming apps always receive a flat, single-framework
+   * definition.
    */
   implementations?: Partial<Record<FrameworkTarget, ComponentImplementation>>;
   // Generated from props during build; do not author in source JSON
@@ -161,15 +170,11 @@ export interface ComponentDefinition {
  * - string  — token reference (e.g. "background-front", "medium") or attribute (e.g. "aside")
  * - number  — numeric prop (e.g. line-height multiplier)
  * - boolean — flag prop (e.g. plain: true)
- * - string[] — ordered list (e.g. Grid columns: ["auto","flex","auto"])
+ * - string[] / number[] — ordered list (e.g. Grid columns or pagination step options)
  * - Record  — structured object (e.g. responsive areas map, pad shorthand)
  */
 export type PatternPropValue =
-  | string
-  | number
-  | boolean
-  | string[]
-  | Record<string, unknown>;
+  string | number | boolean | string[] | number[] | Record<string, unknown>;
 
 /**
  * How a PatternNode's presence or content is determined.
@@ -189,16 +194,19 @@ export interface PatternNode {
   id: string;
   /** References a ComponentDefinition.id in the design system. */
   componentId: string;
-  /** Human-readable role within the pattern (e.g. "nav sidebar", "brand button"). */
+  /** Human-readable role within the pattern (e.g. "nav sidebar",
+   * "brand button"). */
   role?: string;
   /**
    * Prop values for this node instance, keyed by prop name.
-   * Omit runtime-computed or function props — those remain in `templateCode` only.
+   * Omit runtime-computed or function props — those remain in
+   * `templateCode` only.
    */
   props: Record<string, PatternPropValue>;
   /** IDs of direct child PatternNodes in the adjacency list. */
   children: string[];
-  /** How this node's presence or content is determined. Defaults to "static". */
+  /** How this node's presence or content is determined. Defaults
+   * to "static". */
   binding?: PatternNodeBinding;
   /** Implementation notes specific to this node's usage in the pattern. */
   notes?: string;
@@ -213,27 +221,36 @@ export interface PatternNode {
 export interface PatternGraph {
   /** ID of the root PatternNode (entry point for DFS traversal). */
   rootId: string;
-  /** Flat list of all nodes; children arrays form the directed acyclic graph. */
+  /** Flat list of all nodes; children arrays form the directed
+   * acyclic graph. */
   nodes: PatternNode[];
 }
 
 export interface PatternDefinition {
   id: string;
   name: string;
-  /** Alternative names or shorthand phrases (e.g. "app shell" for "Application Shell"). Used by the context generator for keyword matching. */
+  /** Alternative names or shorthand phrases (e.g. "app shell" for
+   * "Application Shell"). Used by the context generator for keyword
+   * matching. */
   aliases?: string[];
   description: string;
   problem: string;
   solution: string;
   relatedComponents: string[]; // IDs of components
-  /** IDs of other patterns that compose with or are recommended alongside this one. */
+  /** IDs of other patterns that compose with or are recommended
+   * alongside this one. */
   relatedPatterns?: string[];
+  referenceImplementation?: string;
+  navItemType?: { description: string; definition: string };
+  props?: Record<string, string>;
+  anatomy?: AnatomyPart[];
   usage?: {
     whenToUse: string[];
     whenToAvoid: string[];
   };
   templateCode?: string;
-  /** Path to a .tsx file for the template (relative to repo root). Resolved to `templateCode` at build time. */
+  /** Path to a .tsx template relative to the repo root. Resolved when
+   * the pattern is loaded. */
   templateCodeFile?: string;
   examples?: ComponentExample[];
   /**
@@ -250,3 +267,14 @@ export interface DesignSystemSchema {
   components: ComponentDefinition[];
   patterns: PatternDefinition[];
 }
+
+export type ComponentDefinitionSource = Omit<
+  ComponentDefinition,
+  'examples'
+> & {
+  examples: ComponentExampleSource[];
+};
+
+export type PatternDefinitionSource = Omit<PatternDefinition, 'examples'> & {
+  examples?: ComponentExampleSource[];
+};
