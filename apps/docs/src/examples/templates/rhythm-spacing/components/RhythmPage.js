@@ -89,6 +89,8 @@ export const RhythmPage = ({
             </Box>
             {showNav && <SideNav gridArea="nav" />}
             <Main gridArea="main">
+              {/* The nav sits outside Page; PageContent gets the horizontal
+                  gutters from the theme, spacing it from the nav and edge. */}
               <Page pad={{ bottom: '3xlarge' }}>
                 {/* PageHeader pads medium below itself, so a medium gap
                     before the content keeps the header-to-content distance

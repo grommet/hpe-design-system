@@ -18,6 +18,7 @@ import ServiceCatalogSource from 'apps/docs/src/examples/templates/rhythm-spacin
 import BillingCostsSource from 'apps/docs/src/examples/templates/rhythm-spacing/pages/BillingCosts.js?raw';
 import AccountSettingsSource from 'apps/docs/src/examples/templates/rhythm-spacing/pages/AccountSettings.js?raw';
 import SupportCenterSource from 'apps/docs/src/examples/templates/rhythm-spacing/pages/SupportCenter.js?raw';
+import RhythmPageSource from 'apps/docs/src/examples/templates/rhythm-spacing/components/RhythmPage.js?raw';
 
 // Full page designs rendered in both spacing rhythms. Every design carries a
 // Rhythm 1 / Rhythm 2 toggle in its page header, so the two can be compared
@@ -31,6 +32,11 @@ const meta = {
 };
 
 export default meta;
+
+// Pages built on RhythmPage don't render Page/PageContent themselves, so the
+// shell source is appended to show where the page gutters come from.
+const withShell = source =>
+  `${source}\n// --- components/RhythmPage.js ---\n${RhythmPageSource}`;
 
 const story = (Page, source, name, withProvider) => ({
   name,
@@ -66,42 +72,42 @@ export const DataCollection = story(
 
 export const Operations = story(
   OperationsDashboard,
-  OperationsDashboardSource,
+  withShell(OperationsDashboardSource),
   'Operations dashboard',
   false,
 );
 
 export const ResourceDetail = story(
   ServerDetail,
-  ServerDetailSource,
+  withShell(ServerDetailSource),
   'Resource detail',
   false,
 );
 
 export const Catalog = story(
   ServiceCatalog,
-  ServiceCatalogSource,
+  withShell(ServiceCatalogSource),
   'Service catalog',
   false,
 );
 
 export const Billing = story(
   BillingCosts,
-  BillingCostsSource,
+  withShell(BillingCostsSource),
   'Billing and costs',
   false,
 );
 
 export const Settings = story(
   AccountSettings,
-  AccountSettingsSource,
+  withShell(AccountSettingsSource),
   'Settings hub',
   false,
 );
 
 export const Support = story(
   SupportCenter,
-  SupportCenterSource,
+  withShell(SupportCenterSource),
   'Support center',
   false,
 );
