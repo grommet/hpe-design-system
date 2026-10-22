@@ -7,6 +7,7 @@ This directory is the AI-first knowledge system for the HPE Design System.
 - `core/`: reusable knowledge primitives shared across capabilities
 - `capabilities/`: task-focused bundles with one orchestrator entrypoint each
 - `code-connect/`: Figma Code Connect package and component mapping source files
+- `figma-guidelines/`: source content for guidelines added to Figma's Guidelines feature
 - `onboarding/`: orientation and working guides for AI workflow contributors
 - `schemas/`: machine validation contracts, including capability manifest schema
 - `archive/`: deprecated or historical knowledge artifacts
@@ -19,6 +20,8 @@ This directory is the AI-first knowledge system for the HPE Design System.
   Each capability owns its orchestrator, subordinate agents, local documentation, and manifest.
 - Keep Figma Code Connect mappings in `knowledge/code-connect/`.
   The source files live under `knowledge/code-connect/src/`, and the preferred sync command is `pnpm --filter @hpe-design/code-connect figma:sync` from the repository root.
+- Keep source content for Figma's Guidelines feature in `knowledge/figma-guidelines/`.
+  These guidelines inform Figma agents' responses to consumers and are separate from Code Connect mappings.
 - Use `.github/` for Copilot-discoverable entrypoints, repository governance, and meta-guidance.
   When `.github/` files mirror knowledge content, keep them thin and aligned with the authoritative `knowledge/` paths.
 - Do not create a second manually divergent source of truth across `.github/` and `knowledge/`.
