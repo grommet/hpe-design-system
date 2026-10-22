@@ -192,22 +192,18 @@ const weeklyCarbonTotal = (weeklyEnergyTotal * carbonIntensity) / 1000;
 const priorWeekFactor = 0.91;
 const weeklyCarbonTarget = weeklyCarbonTotal * 0.9;
 const dailyShare = [0.13, 0.15, 0.16, 0.14, 0.15, 0.14, 0.13];
-const priorDailyShare = [0.14, 0.14, 0.15, 0.15, 0.14, 0.14, 0.14];
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const dailyCarbonTarget = weeklyCarbonTarget / days.length;
 
 export const carbon = {
   unit: 'tCO₂e',
-  intensity: carbonIntensity,
   total: weeklyCarbonTotal,
-  target: weeklyCarbonTarget,
   dailyTarget: dailyCarbonTarget,
   trend: `${Math.round((1 / priorWeekFactor - 1) * 100)}% higher`,
   aboveTarget: Math.round((weeklyCarbonTotal / weeklyCarbonTarget - 1) * 100),
   days: days.map((day, index) => ({
     day,
     current: weeklyCarbonTotal * dailyShare[index],
-    prior: weeklyCarbonTotal * priorWeekFactor * priorDailyShare[index],
     target: dailyCarbonTarget,
   })),
 };

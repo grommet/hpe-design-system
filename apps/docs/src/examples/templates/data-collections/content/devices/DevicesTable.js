@@ -253,7 +253,7 @@ const DevicesContent = ({ display, onSelect, selected }) => {
         <DeviceCards />
       )}
       <Box pad={{ top: 'xsmall' }} border={{ side: 'top' }}>
-        <Pagination summary stepOptions={[10, 20, 50]} />
+        <Pagination stepOptions={[10, 20, 50]} />
       </Box>
     </>
   );
