@@ -1,5 +1,14 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import {
+  Analytics,
+  Bucket,
+  Folder,
+  History,
+  ServerCluster,
+  Storage,
+} from '@hpe-design/icons-grommet';
+
 export interface Service {
   name: string;
   href: string;
@@ -36,6 +45,17 @@ export const regions: Region[] = [
   region('Galway', ['Object Storage']),
   region('Delhi', ['Zerto']),
 ];
+
+const icons: Record<string, typeof Storage> = {
+  'File Storage': Folder,
+  'Block Storage': Storage,
+  'Object Storage': Bucket,
+  'HPE Sustainability Insight Center': Analytics,
+  Zerto: History,
+  'Compute Ops Manager': ServerCluster,
+};
+
+export const serviceIcon = (name: string) => icons[name] || Storage;
 
 export const serviceCount = regions.reduce(
   (sum, { services }) => sum + services.length,
