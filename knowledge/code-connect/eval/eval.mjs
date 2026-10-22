@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
 const EVAL_DIR = path.dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = path.resolve(EVAL_DIR, '../../..');
 const DEFAULT_CASE = path.join(EVAL_DIR, 'cases/app-dashboard/case.json');
 const RESULTS_DIR = path.join(EVAL_DIR, 'results');
 const CONDITIONS = new Set(['screenshot', 'mcp-no-cc', 'mcp-cc']);
@@ -295,16 +296,55 @@ const parseOptions = args => {
   return options;
 };
 
+const resolvePrompt = async options => {
+  if (options.prompt && options['prompt-file'])
+    throw new Error('Use either --prompt or --prompt-file, not both');
+  if (options.prompt?.trim()) return { text: options.prompt, filePath: null };
+  if (options['prompt-file']) {
+    const filePath = path.resolve(options['prompt-file']);
+    const text = await readFile(filePath, 'utf8');
+    if (text.trim()) return { text, filePath };
+  }
+  throw new Error('score requires a non-empty --prompt or --prompt-file');
+};
+
+const resolveMappingCommit = override => {
+  if (override) return override;
+  const result = spawnSync('git', ['rev-parse', 'HEAD'], {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+  });
+  if (result.error || result.status !== 0)
+    throw new Error(
+      'Unable to determine mapping commit; pass --mapping-commit',
+    );
+  return result.stdout.trim();
+};
+
 const scoreRun = async options => {
-  if (!options.source || !options.condition || !options.build)
-    throw new Error('score requires --source, --condition, and --build');
+  if (
+    !options.source ||
+    !options.condition ||
+    !options.build ||
+    !options.model ||
+    !options['run-number']
+  )
+    throw new Error(
+      'score requires --source, --condition, --build, --model, ' +
+        'and --run-number',
+    );
   if (!CONDITIONS.has(options.condition))
     throw new Error(`Unknown condition: ${options.condition}`);
+  const runNumber = Number(options['run-number']);
+  if (!Number.isSafeInteger(runNumber) || runNumber < 1)
+    throw new Error('--run-number must be a positive integer');
 
   const casePath = path.resolve(options.case ?? DEFAULT_CASE);
   const sourcePath = path.resolve(options.source);
   const caseData = JSON.parse(await readFile(casePath, 'utf8'));
   const source = await readFile(sourcePath, 'utf8');
+  const prompt = await resolvePrompt(options);
+  const mappingCommit = resolveMappingCommit(options['mapping-commit']);
   const metrics = scoreSource(source, caseData, sourcePath);
   const cwd = path.resolve(options.cwd ?? process.cwd());
   const build = runBuild(options.build, cwd);
@@ -313,16 +353,26 @@ const scoreRun = async options => {
   const record = {
     schemaVersion: 1,
     caseId: caseData.id,
+    runNumber,
     runId,
     condition: options.condition,
     recordedAt: new Date().toISOString(),
     metadata: {
       purpose: options.purpose ?? 'evaluation',
       isEvaluation: options.purpose !== 'tooling-smoke',
-      model: options.model ?? null,
-      promptVersion: options.prompt ?? null,
-      source: path.relative(process.cwd(), sourcePath),
-      caseFile: path.relative(process.cwd(), casePath),
+      model: options.model,
+      prompt: prompt.text,
+      promptFile: prompt.filePath
+        ? path.relative(REPO_ROOT, prompt.filePath)
+        : null,
+      promptVersion: options['prompt-version'] ?? null,
+      figmaFileKey: caseData.figmaFileKey ?? null,
+      figmaNodeId: caseData.figmaNodeId ?? caseData.figmaTargetNodeId ?? null,
+      figmaFrameNodeId: caseData.figmaFrameNodeId ?? null,
+      mappingCommit,
+      outputPath: path.relative(REPO_ROOT, sourcePath),
+      source: path.relative(REPO_ROOT, sourcePath),
+      caseFile: path.relative(REPO_ROOT, casePath),
     },
     metrics,
     build,

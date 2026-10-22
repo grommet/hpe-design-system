@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -129,6 +130,69 @@ test('writes records without overwriting and summarizes per case', async () => {
     assert.equal(summary.conditions['mcp-cc'].runCount, 1);
     assert.equal(summary.conditions['mcp-cc'].meanCoveragePercent, 100);
     assert.equal(summary.conditions.screenshot, undefined);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('records CLI run provenance', async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'code-connect-cli-'));
+  const promptPath = path.join(directory, 'prompt.txt');
+  const prompt = 'Use the supplied Figma design as the implementation target.';
+  const repoRoot = path.resolve(evalDirectory, '../../..');
+  const sourcePath = path.join(evalDirectory, 'fixtures/passing-page.jsx');
+  await writeFile(promptPath, prompt);
+
+  try {
+    const result = spawnSync(
+      process.execPath,
+      [
+        path.join(evalDirectory, 'eval.mjs'),
+        'score',
+        '--source',
+        sourcePath,
+        '--condition',
+        'screenshot',
+        '--build',
+        'node -e "process.exit(0)"',
+        '--cwd',
+        repoRoot,
+        '--results-dir',
+        path.join(directory, 'results'),
+        '--run-number',
+        '2',
+        '--run-id',
+        'provenance-check',
+        '--model',
+        'test-model',
+        '--prompt-file',
+        promptPath,
+        '--mapping-commit',
+        'test-mapping-commit',
+      ],
+      { cwd: repoRoot, encoding: 'utf8' },
+    );
+    assert.equal(result.status, 0, result.stderr);
+
+    const recordPath = path.join(
+      directory,
+      'results/runs/app-dashboard-screenshot-provenance-check.json',
+    );
+    const record = JSON.parse(await readFile(recordPath, 'utf8'));
+    assert.equal(record.runNumber, 2);
+    assert.equal(record.metadata.model, 'test-model');
+    assert.equal(record.metadata.prompt, prompt);
+    assert.equal(record.metadata.figmaFileKey, '4iURKcNplsUigS8LcGtVH0');
+    assert.equal(record.metadata.figmaNodeId, '1:978');
+    assert.equal(record.metadata.mappingCommit, 'test-mapping-commit');
+    assert.equal(
+      record.metadata.outputPath,
+      path.relative(repoRoot, sourcePath),
+    );
+    assert.equal(
+      record.metadata.promptFile,
+      path.relative(repoRoot, promptPath),
+    );
   } finally {
     await rm(directory, { recursive: true, force: true });
   }

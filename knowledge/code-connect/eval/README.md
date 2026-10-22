@@ -64,10 +64,12 @@ pnpm --filter @hpe-design/code-connect eval:test
 
 Score an output and capture its build result. Use `--case` to select another case; the default is `app-dashboard`. `--results-dir` overrides that case's result root. Each run is written to a new JSON file and existing records are never overwritten.
 
-```bash
-pnpm --filter @hpe-design/code-connect eval:score -- --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929
+Every scored run requires a positive `--run-number`, `--model`, and the exact prompt via `--prompt-file` (or `--prompt`). Copy the locked prompt above into `eval/.scratch/prompt.txt` for the examples below. Number repetitions from 1 independently for each case and condition. The record captures the prompt text, Figma identifiers from the case contract, the output path, and the current repository commit as `mappingCommit`; pass `--mapping-commit` to override the commit recorded.
 
-pnpm --filter @hpe-design/code-connect eval:score -- --case eval/cases/button-smoke/case.json --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929
+```bash
+pnpm --filter @hpe-design/code-connect eval:score -- --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929 --run-number 1 --prompt-file eval/.scratch/prompt.txt
+
+pnpm --filter @hpe-design/code-connect eval:score -- --case eval/cases/button-smoke/case.json --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929 --run-number 1 --prompt-file eval/.scratch/prompt.txt
 ```
 
 Summarize eligible evaluation runs by condition for the selected case. Tooling smoke records are excluded.
