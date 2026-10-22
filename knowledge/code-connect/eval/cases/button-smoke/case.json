@@ -1,0 +1,39 @@
+{
+  "id": "button-smoke",
+  "figmaFileKey": "HDckqS2MWhINfC8EIQPMV1",
+  "figmaFrameNodeId": "2133:694",
+  "figmaTargetNodeId": "2133:695",
+  "referenceImage": "assets/button-primary-small.png",
+  "expectedMappedInstances": {
+    "Button": 1
+  },
+  "allowedPackages": [
+    "@hpe-design/icons-grommet",
+    "grommet",
+    "grommet-icons",
+    "hpe-design-tokens",
+    "react"
+  ],
+  "colorProps": [
+    "background",
+    "backgroundColor",
+    "borderColor",
+    "color",
+    "fill",
+    "outlineColor",
+    "stroke",
+    "textColor"
+  ],
+  "pixelValueProps": [
+    "basis",
+    "gap",
+    "height",
+    "maxHeight",
+    "maxWidth",
+    "minHeight",
+    "minWidth",
+    "pad",
+    "margin",
+    "width"
+  ]
+}

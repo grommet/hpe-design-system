@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "caseId": "app-dashboard",
+  "runId": "2026-10-22T15-10-14-476Z",
+  "condition": "screenshot",
+  "recordedAt": "2026-10-22T15:10:14.477Z",
+  "metadata": {
+    "purpose": "scorer smoke test using passing fixture; not an evaluation run",
+    "isEvaluation": false,
+    "model": null,
+    "promptVersion": null,
+    "source": "eval/fixtures/passing.jsx",
+    "caseFile": "eval/cases/app-dashboard/case.json"
+  },
+  "metrics": {
+    "coverage": {
+      "components": {
+        "Button": {
+          "expected": 21,
+          "actual": 21,
+          "covered": 21
+        },
+        "Menu": {
+          "expected": 1,
+          "actual": 1,
+          "covered": 1
+        }
+      },
+      "expectedTotal": 22,
+      "coveredTotal": 22,
+      "percent": 100,
+      "scope": "AST-level component presence only; mapping semantics and visible intent require review."
+    },
+    "imports": {
+      "packages": ["@hpe-design/icons-grommet", "grommet", "react"],
+      "disallowed": []
+    },
+    "hygiene": {
+      "clean": true,
+      "counts": {},
+      "findings": []
+    }
+  },
+  "build": {
+    "command": "pnpm --filter grommet-app build",
+    "cwd": "/Users/shill/Developer/hpe-design-system",
+    "status": "pass",
+    "exitCode": 0,
+    "signal": null,
+    "durationMs": 2106,
+    "stdout": "\n> grommet-app@0.0.0 build /Users/shill/Developer/hpe-design-system/sandbox/grommet-app\n> vite build\n\nvite v8.2.1 building client environment for production...\ntransforming...✓ 1925 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                     0.44 kB │ gzip:   0.29 kB\ndist/assets/index-O7AjDtiJ.css      0.44 kB │ gzip:   0.23 kB\ndist/assets/index-Cy3sPw45.js   1,729.01 kB │ gzip: 430.23 kB\n✓ built in 730ms\n",
+    "stderr": "[plugin builtin:vite-reporter]\n(!) Some chunks are larger than 500 kB after minification.\n"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "app-dashboard",
+  "expectedMappedInstances": {
+    "Button": 21,
+    "Menu": 1
+  },
+  "allowedPackages": [
+    "@hpe-design/icons-grommet",
+    "grommet",
+    "grommet-icons",
+    "hpe-design-tokens",
+    "react"
+  ],
+  "colorProps": [
+    "background",
+    "backgroundColor",
+    "borderColor",
+    "color",
+    "fill",
+    "outlineColor",
+    "stroke",
+    "textColor"
+  ],
+  "pixelValueProps": [
+    "basis",
+    "gap",
+    "height",
+    "maxHeight",
+    "maxWidth",
+    "minHeight",
+    "minWidth",
+    "pad",
+    "margin",
+    "width"
+  ]
+}

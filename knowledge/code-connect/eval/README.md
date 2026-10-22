@@ -15,7 +15,8 @@ Only the design-context condition changes. Use the same model, prompt, repositor
 ## Locked Inputs
 
 - Primary model: **Anthropic Claude Sonnet 4.5**, model ID `claude-sonnet-4-5-20250929`.
-- Full-page and Button fixture: [App Dashboard case](cases/app-dashboard.md).
+- Full-page fixture: [App Dashboard case](cases/app-dashboard/README.md).
+- Button smoke fixture: [Button smoke case](cases/button-smoke/README.md).
 - Output path: `sandbox/grommet-app/src/eval/Example.jsx` in an isolated run workspace.
 - Shared prompt: use this text unchanged for every condition and replication. Provide the target screenshot as the visual attachment; provide MCP access only in the two MCP conditions.
 
@@ -49,4 +50,28 @@ Record each run's build result, visual-fidelity score, mapped-instance coverage,
 | `moderate`      |            16–45 | Several substantive corrections, but the implementation remains usable.     |
 | `rewrite`       |              46+ | More than 45 minutes or replacement of the implementation's core structure. |
 
-The targets above are prospective; do not report them as results until the runs and scoring are completed. Scoring tooling, smoke executions, and full-page runs are owned by their follow-on issues.
+The targets above are prospective; do not report them as results until the runs and scoring are completed. The scorer verifies AST-level component presence and import usage, not whether each instance semantically matches its Figma mapping or visible intent. Evaluate those aspects visually and through reviewer assessment.
+
+## Scoring
+
+Case contracts are stored beside their human guides in `cases/<case-id>/`. Run records and summaries are stored under `results/<case-id>/`.
+
+Run the scorer tests:
+
+```bash
+pnpm --filter @hpe-design/code-connect eval:test
+```
+
+Score an output and capture its build result. Use `--case` to select another case; the default is `app-dashboard`. `--results-dir` overrides that case's result root. Each run is written to a new JSON file and existing records are never overwritten.
+
+```bash
+pnpm --filter @hpe-design/code-connect eval:score -- --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929
+
+pnpm --filter @hpe-design/code-connect eval:score -- --case eval/cases/button-smoke/case.json --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929
+```
+
+Summarize eligible evaluation runs by condition for the selected case. Tooling smoke records are excluded.
+
+```bash
+pnpm --filter @hpe-design/code-connect eval:summary
+```

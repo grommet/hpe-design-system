@@ -2,6 +2,8 @@
 
 > **Innovation Sprint:** Bridging the gap between Figma designs and production-ready Grommet code.
 
+See the [design-to-code evaluation protocol](eval/README.md) for the controlled Code Connect evaluation and run guide.
+
 ## What Is This?
 
 This package contains **Figma Code Connect** mappings for HPE Design System components. Code Connect is a Figma feature that bridges the design-to-development handoff gap — when a designer selects a component in Figma Dev Mode, instead of seeing raw CSS or Figma auto-generated pseudo-code, they see **real, production-ready Grommet JSX** that a developer can copy directly into a project.
