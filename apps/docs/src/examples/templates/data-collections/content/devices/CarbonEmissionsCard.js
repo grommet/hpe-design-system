@@ -1,14 +1,32 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Box, DataChart, Text } from 'grommet';
 import { StatusWarning } from '@hpe-design/icons-grommet';
 import { LegendItem, MetricValue, SummaryCard } from '../../components';
 import { carbon, formatNumber, surfaceBackground } from './data';
 
 const emissions = { label: 'Emissions', color: 'dataVis-categorical-10' };
-const target = { label: 'Daily target', color: 'foreground-warning' };
+const target = {
+  label: 'Daily target',
+  color: 'foreground-warning',
+  thickness: '5xsmall',
+};
 const tonnes = value => `${formatNumber(value, 1)} t`;
+
+// Round caps add one stroke width to each end of every dash, which closes the
+// gaps; that width is taken off the dash and added to the gap. Only dashed
+// paths carry a stroke-dasharray attribute, so bars are unaffected.
+const TargetDashes = styled(Box)`
+  path[stroke-dasharray] {
+    stroke-dasharray: ${({ theme }) => {
+      const dash = parseInt(theme.global.edgeSize['3xsmall'], 10);
+      const cap = parseInt(theme.global.edgeSize[target.thickness], 10);
+      return `${dash - cap}px ${dash + cap}px`;
+    }};
+  }
+`;
 
 const chartTitle =
   'Daily carbon emissions for the last 7 days against the daily target';
@@ -23,7 +41,7 @@ export const CarbonEmissionsCard = ({ detailed }) => (
       <Box gap="small">
         {/* Y-axis labels are centred on the guides and overhang the chart by
             half a line, so this keeps them clear of the spacing above. */}
-        <Box pad={{ top: 'xsmall' }}>
+        <TargetDashes pad={{ top: 'xsmall' }}>
           <DataChart
             a11yTitle={chartTitle}
             data={carbon.days}
@@ -43,8 +61,9 @@ export const CarbonEmissionsCard = ({ detailed }) => (
               {
                 property: 'target',
                 type: 'line',
-                thickness: '5xsmall',
+                thickness: target.thickness,
                 dash: true,
+                round: true,
                 color: target.color,
               },
             ]}
@@ -55,7 +74,7 @@ export const CarbonEmissionsCard = ({ detailed }) => (
             guide={{ y: { granularity: 'medium' } }}
             size={{ width: 'fill', height: 'xsmall' }}
           />
-        </Box>
+        </TargetDashes>
         <LegendItem
           color={target.color}
           label={`${target.label} ${tonnes(carbon.dailyTarget)}`}
