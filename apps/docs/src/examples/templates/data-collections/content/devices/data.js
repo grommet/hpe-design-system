@@ -165,7 +165,6 @@ const weeklyEnergyTotal = Object.values(energyBySite).reduce(
 );
 const rankedSites = Object.entries(energyBySite).sort(([, a], [, b]) => b - a);
 const topSites = rankedSites.slice(0, 5);
-const otherSites = rankedSites.slice(5);
 const topSitesTotal = topSites.reduce((sum, [, kwh]) => sum + kwh, 0);
 
 export const energy = {
@@ -181,7 +180,7 @@ export const energy = {
   // Remaining sites consolidated into one entry so the top sites can be
   // read against the whole fleet.
   other: {
-    name: `Other sites (${otherSites.length})`,
+    name: 'Other sites',
     kwh: weeklyEnergyTotal - topSitesTotal,
   },
 };

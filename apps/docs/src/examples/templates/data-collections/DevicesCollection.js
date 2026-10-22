@@ -144,7 +144,7 @@ const EnergySummary = () => {
         )}
       </Box>
       {showCharts && (
-        <Grid columns={{ count: 'fit', size: 'small' }} gap="medium">
+        <Grid columns={{ count: 'fit', size: 'small' }} gap="small">
           <PowerDrawCard detailed={detailed} />
           <EnergyByLocationCard detailed={detailed} />
           <CarbonEmissionsCard detailed={detailed} />
