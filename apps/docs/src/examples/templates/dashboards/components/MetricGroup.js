@@ -25,7 +25,7 @@ export const MetricGroup = ({ children, ...rest }) => {
   const columns = Array(count).fill('flex');
 
   return (
-    <Grid columns={columns} gap="medium" {...rest}>
+    <Grid columns={columns} gap="small" {...rest}>
       {items}
     </Grid>
   );

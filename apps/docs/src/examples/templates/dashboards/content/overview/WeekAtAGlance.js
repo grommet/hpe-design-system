@@ -42,7 +42,7 @@ export const WeekAtAGlance = () => {
       <Heading level={2} margin="none">
         This week at a glance
       </Heading>
-      <Grid columns={columns} rows={rows} areas={areas} gap="medium">
+      <Grid columns={columns} rows={rows} areas={areas} gap="small">
         <CostTrend gridArea="cost" />
         <NeedsAttention gridArea="attention" />
         <SlaPerformance gridArea="sla" />

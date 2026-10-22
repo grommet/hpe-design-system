@@ -47,7 +47,7 @@ export const MetricValue = ({
       {(trend || unit) && (
         <Box justify="end" pad={{ vertical: '3xsmall' }} aria-hidden>
           {trend && <Trend value={trend} direction={trendDirection} />}
-          {unit && <Text size="xsmall">{unit}</Text>}
+          {unit && <Text size="small">{unit}</Text>}
         </Box>
       )}
     </Box>
