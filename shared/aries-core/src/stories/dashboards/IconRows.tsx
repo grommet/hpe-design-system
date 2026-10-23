@@ -36,7 +36,7 @@ export const IconRows = ({
     >
       <Grid columns={{ count: columns, size: 'auto' }} gap="medium">
         {groups.map(column => (
-          <Box key={column[0].name} gap="small">
+          <Box key={column[0].name} gap="medium">
             {column.map(region => (
               <Box key={region.name}>
                 <RegionHeading name={region.name} />

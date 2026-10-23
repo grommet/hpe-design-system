@@ -41,7 +41,13 @@ export const ServiceTiles = ({
             {column.map(region => (
               <Box key={region.name} gap="3xsmall">
                 <RegionHeading name={region.name} />
-                <Box direction="row" wrap gap="xxsmall">
+                {/* Align tile edges with the heading's indent. */}
+                <Box
+                  direction="row"
+                  wrap
+                  gap="xxsmall"
+                  pad={{ horizontal: 'small' }}
+                >
                   {region.services.map(service => {
                     const Icon = serviceIcon(service.name);
                     return (

@@ -6,16 +6,23 @@ import { Service } from './myServices';
 
 /**
  * Region sub-heading. Mirrors `NavigationMenu`'s `GroupHeading` (size,
- * weight, colour and vertical rhythm) so the widget reads like the app's
- * side navigation rather than a text document. The left indent is reduced
- * to the row's own text inset so heading and items share a left edge.
+ * weight and vertical rhythm) so the widget reads like the app's side
+ * navigation rather than a text document. Colour is text-strong and the
+ * indent equals the row's horizontal padding so headings and items share a
+ * left edge.
  */
 export const RegionHeading = ({ name }: { name: string }) => (
   <Box
     direction="row"
-    pad={{ left: '3xsmall', top: 'xxsmall', bottom: '5xsmall' }}
+    pad={{ left: 'small', top: 'xxsmall', bottom: '5xsmall' }}
   >
-    <Text size="xsmall" weight="bold" role="heading" aria-level={3}>
+    <Text
+      size="xsmall"
+      weight="bold"
+      color="text-strong"
+      role="heading"
+      aria-level={3}
+    >
       {name}
     </Text>
   </Box>
@@ -38,17 +45,16 @@ interface ServiceRowProps {
   service: Service;
   /** Optional leading icon, coloured to match the label state. */
   icon?: React.ReactElement<{ color?: string }>;
-  /** Optional trailing adornment, e.g. a chevron. */
-  trailing?: React.ReactNode;
 }
 
 /**
  * A single clickable service. Replicates `NavigationMenu`'s `NavItem`
- * spacing (3xsmall vertical / 3xsmall left / xxsmall right padding, small
- * radius, hover fill, text → text-strong on hover) minus the active marker,
- * since these rows navigate away rather than mark the current location.
+ * treatment (3xsmall vertical padding, small radius, hover fill, text →
+ * text-strong on hover) minus the active marker, since these rows navigate
+ * away rather than mark the current location. Horizontal padding is `small`,
+ * matching the ~18px inset a nav item's label has from its hover edge.
  */
-export const ServiceRow = ({ service, icon, trailing }: ServiceRowProps) => (
+export const ServiceRow = ({ service, icon }: ServiceRowProps) => (
   <Box as="li" style={{ listStyle: 'none' }}>
     <Button
       plain
@@ -63,9 +69,7 @@ export const ServiceRow = ({ service, icon, trailing }: ServiceRowProps) => (
             <Box
               direction="row"
               align="center"
-              justify="between"
-              gap="3xsmall"
-              pad={{ vertical: '3xsmall', left: '3xsmall', right: 'xxsmall' }}
+              pad={{ vertical: '3xsmall', horizontal: 'small' }}
               round="small"
               background={hover ? 'background-hover' : undefined}
             >
@@ -77,7 +81,6 @@ export const ServiceRow = ({ service, icon, trailing }: ServiceRowProps) => (
                 )}
                 <Text color={color}>{service.name}</Text>
               </Box>
-              {trailing}
             </Box>
           </Box>
         );
