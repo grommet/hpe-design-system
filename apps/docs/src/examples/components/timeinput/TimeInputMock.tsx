@@ -160,6 +160,7 @@ export const TimeInputMock = () => {
               height={timeTheme.drop?.column?.height}
               overflow="auto"
               flex={false}
+              tabIndex={-1}
             >
               {options.map(option => (
                 <TimeInputMockOption key={option.label} {...option} />
