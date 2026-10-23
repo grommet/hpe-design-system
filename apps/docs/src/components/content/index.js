@@ -8,6 +8,7 @@ export * from './DecisionTree';
 export * from './design-tokens';
 export * from './DocsMessage';
 export * from './HighlightPhrase';
+export * from './LastModified';
 export * from './PageBackground';
 export * from './SubsectionText';
 export * from './Status';
