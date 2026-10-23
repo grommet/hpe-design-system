@@ -1,23 +1,16 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React from 'react';
-import { Box, Button, Header } from 'grommet';
+import { Box, Button } from 'grommet';
 import { ButtonGroup, TextEmphasis } from '@shared/aries-core';
 
 export const ButtonLeftAlignExample = () => (
   <Box width="xlarge" gap="medium" pad="xsmall">
-    <Header
-      direction="column"
-      align="start"
-      gap="3xsmall"
-      pad={{ horizontal: '5xsmall' }}
-    >
-      <TextEmphasis size="large">Left-aligned buttons</TextEmphasis>
-    </Header>
+    <TextEmphasis size="large">Left-aligned buttons</TextEmphasis>
     <ButtonGroup>
-      <Button primary label="Primary" onClick={() => {}} />
-      <Button secondary label="Secondary" onClick={() => {}} />
-      <Button label="Default" onClick={() => {}} />
+      <Button primary label="Primary" />
+      <Button secondary label="Secondary" />
+      <Button label="Default" />
     </ButtonGroup>
   </Box>
 );
