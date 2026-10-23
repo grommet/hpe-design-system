@@ -22,7 +22,10 @@
     "react-ga": "^2.7.0",
     "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^4.0.0",
+    "remark-mdx": "^3.1.1",
+    "remark-parse": "^11.0.0",
     "styled-components": "catalog:",
+    "unified": "^11.0.5",
     "zod": "^4.3.6"
   },
   "scripts": {
@@ -34,8 +37,8 @@
     "start": "pnpm build-design-tokens && pnpm build-shared-hooks && pnpm build-search && next",
     "start-server": "pnpm build && pnpm next -p 3030",
     "test": "pnpm build && node src/scripts/start-tests.js",
-    "test:unit": "vitest run",
-    "test:unit:watch": "vitest",
+    "test:unit": "pnpm build-page-metadata && vitest run",
+    "test:unit:watch": "pnpm build-page-metadata && vitest",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
     "test:ci": "start-server-and-test 'pnpm next -p 3030' 3030 'testcafe chrome:headless'",
     "test:applitools": "start-server-and-test 'pnpm next -p 3030' 3030 'testcafe chrome:headless src/applitools/'",
@@ -43,6 +46,7 @@
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
     "build-search": "node src/scripts/site-contents.mjs",
+    "build-page-metadata": "node src/scripts/page-metadata.mjs",
     "validate:structure": "vitest run src/data/__tests__/structure.validation.test.ts --testNamePattern=\"Build-time Validation\""
   },
   "devDependencies": {

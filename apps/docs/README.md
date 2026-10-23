@@ -35,6 +35,53 @@ CI workflow behavior:
 
 ## Contributing Content
 
+### Last modified dates
+
+Every MDX page displays a "Last modified" date in its page header, immediately
+below the description or WCAG tag when present.
+JavaScript pages, including category landing pages, do not display this date.
+The date comes from the latest Git commit changing reader-facing MDX content,
+following renames. The build parses historical versions of each page rather
+than counting every file edit.
+
+- Counts changes to prose, headings, lists, tables, Markdown links and images,
+  inline expressions, and code snippets.
+- Counts JSX content and reader-facing attributes such as `message`, `label`,
+  `title`, `description`, `caption`, `alt`, and `href`, including instructional
+  messages inside `bestPractice` objects.
+- Ignores imports/exports, comments, ordinary whitespace/reflow, file moves,
+  example source URLs (`code`, `docs`, `figma`, etc.), and presentation props
+  such as example height or width.
+
+Changes to imported examples, shared components, or other files do not affect
+the date, and uncommitted edits are not reflected. Reader-facing JSX attributes
+are explicitly listed in `src/scripts/page-metadata.mjs`; extend that list if a
+new component uses another prop for guidance. Exported data changes are not
+tracked as content, even if an inline expression references that data.
+This is a content-change date, not confirmation of an editorial review.
+
+Dates are displayed in English using the UTC calendar date, with the full ISO
+timestamp available in the HTML `time` element.
+
+Next.js generates the route-to-date metadata automatically when its configuration
+loads for development or production. To generate it separately, run:
+
+```bash
+pnpm --filter docs build-page-metadata
+```
+
+The generated metadata is ignored by Git. Builds require a Git checkout with
+full history; for shallow clones run `git fetch --unshallow`, and in GitHub
+Actions use `actions/checkout` with `fetch-depth: 0`. Configure other deployment
+providers to supply full history as well. Missing history fails generation
+instead of substituting the build date. New MDX files must have a commit before
+they can be built.
+
+Standard MDX pages receive the date through the shared documentation header.
+MDX pages with a custom/plain layout, such as [What's New](src/pages/whats-new.mdx),
+should import `LastModified` from the documentation components and render it
+immediately after their main heading. Do not add it to JavaScript landing pages.
+
 TODOs:
 - Add background on markdown, .mdx files
 - Include instructions for how to find and edit documentation
