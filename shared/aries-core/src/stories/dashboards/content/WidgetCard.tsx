@@ -24,6 +24,8 @@ export interface WidgetProps {
   columns?: number;
   /** Maximum service rows to show before a "View all" footer appears. */
   limit?: number;
+  /** Card surface colour override, e.g. a dashboard's grey widget surface. */
+  background?: string;
 }
 
 interface WidgetCardProps {
@@ -31,6 +33,8 @@ interface WidgetCardProps {
   truncated: boolean;
   /** Horizontal body padding; 'small' lets full-width rows own the hover edge. */
   bodyPad?: 'small' | 'medium';
+  /** Card surface colour; defaults to the theme's Card background. */
+  background?: string;
   children: React.ReactNode;
 }
 
@@ -42,9 +46,10 @@ export const WidgetCard = ({
   width,
   truncated,
   bodyPad = 'medium',
+  background,
   children,
 }: WidgetCardProps) => (
-  <Card width={width}>
+  <Card width={width} background={background}>
     <CardHeader align="center">
       <Heading level={2} margin="none">
         {TITLE}

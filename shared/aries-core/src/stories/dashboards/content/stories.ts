@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import { pageBackground } from 'apps/docs/src/examples/templates/dashboards/content/overview/data';
 import type { WidgetProps } from './WidgetCard';
 
 /** Shared Storybook meta pieces so every widget treatment is compared alike. */
@@ -27,3 +28,24 @@ export const widgetSizes: Record<string, { name: string; args: WidgetProps }> =
       args: { width: 'medium', columns: 1, limit: 5 },
     },
   };
+
+/** Meta pieces for the "on Overview dashboard" story set. */
+export const dashboardArgTypes = {
+  ...widgetArgTypes,
+  widget: { table: { disable: true } },
+  background: { table: { disable: true } },
+};
+
+export const dashboardParameters = {
+  layout: 'fullscreen',
+  background: pageBackground,
+};
+
+export const dashboardSizes: Record<
+  string,
+  { name: string; args: WidgetProps }
+> = {
+  small: widgetSizes.small,
+  medium: widgetSizes.medium,
+  large: widgetSizes.large,
+};

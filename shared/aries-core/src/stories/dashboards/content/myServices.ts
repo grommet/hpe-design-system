@@ -78,7 +78,7 @@ export const limitRegions = (limit = Infinity): Region[] => {
  * Split `items` into `count` ordered columns, balancing by `weight`.
  * Mirrors how a dashboard widget flows grouped content when it is widened.
  */
-export const distribute = <T,>(
+export const distribute = <T>(
   items: T[],
   count: number,
   weight: (item: T) => number = () => 1,
