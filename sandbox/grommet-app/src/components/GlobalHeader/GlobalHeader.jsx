@@ -55,7 +55,7 @@ export const GlobalHeader = ({
           justify="between"
           align="center"
           background={
-            activeTheme === 'v2'
+            ['v2', 'v3'].includes(activeTheme)
               ? 'transparent'
               : activeTheme === 'v1'
               ? 'background-primary-xstrong'

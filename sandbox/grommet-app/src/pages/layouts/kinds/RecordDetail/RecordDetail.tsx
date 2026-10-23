@@ -59,7 +59,7 @@ export const RecordDetail: React.FC = () => {
     : areasDefault;
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} flex="grow">
+    <Page flex="grow">
       <PageContent>
         <PageHeader
           title="Server group name"
@@ -67,8 +67,8 @@ export const RecordDetail: React.FC = () => {
           parent={
             <RoutedAnchor
               as={Link}
-              to="/layouts"
-              label="Layouts"
+              to="/"
+              label="Home"
               icon={<Left />}
             />
           }
