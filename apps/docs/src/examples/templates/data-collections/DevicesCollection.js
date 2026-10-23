@@ -36,7 +36,11 @@ import {
   PowerDrawCard,
 } from './content';
 import { pageBackground, surfaceBackground } from './content/devices/data';
-import { RhythmToggle, useRhythm } from '../rhythm-spacing/RhythmContext';
+import {
+  PagePaddingToggle,
+  RhythmToggle,
+  useRhythm,
+} from '../rhythm-spacing/RhythmContext';
 
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },
@@ -66,7 +70,7 @@ const shell = {
 
 export const DevicesCollection = () => {
   const size = useContext(ResponsiveContext);
-  const { gaps } = useRhythm();
+  const { gaps, pageContentProps } = useRhythm();
   const [user, setUser] = useState(defaultUser);
   const contextValue = useMemo(() => ({ user, setUser }), [user]);
 
@@ -87,7 +91,8 @@ export const DevicesCollection = () => {
             <Page pad={{ bottom: '3xlarge' }}>
               {/* PageHeader already pads below itself, so a medium gap is
                   enough before the content; the sections keep xlarge. */}
-              <PageContent gap="medium">
+              {/* Temporary: pageContentProps overrides the theme gutters. */}
+              <PageContent gap="medium" {...pageContentProps}>
                 <PageHeader
                   title="Devices"
                   actions={
@@ -98,6 +103,7 @@ export const DevicesCollection = () => {
                         secondary
                       />
                       <RhythmToggle />
+                      <PagePaddingToggle />
                     </Box>
                   }
                 />

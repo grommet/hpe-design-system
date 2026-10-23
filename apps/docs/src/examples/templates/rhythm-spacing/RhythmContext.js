@@ -31,24 +31,51 @@ export const rhythms = {
   },
 };
 
-const options = Object.entries(rhythms).map(([value, { label, tip }]) => ({
-  label,
-  tip,
-  value,
-}));
+// The horizontal page padding values under comparison.
+export const pagePads = {
+  large: { label: 'Large', tip: 'Page padding large' },
+  xlarge: { label: 'XLarge', tip: 'Page padding xlarge' },
+};
 
-// Without a provider, designs render Rhythm 1 and show no toggle.
+const toOptions = map =>
+  Object.entries(map).map(([value, { label, tip }]) => ({
+    label,
+    tip,
+    value,
+  }));
+
+const options = toOptions(rhythms);
+const pagePadOptions = toOptions(pagePads);
+
+// Without a provider, designs render Rhythm 1 with the theme's page padding
+// and show no toggles.
 const RhythmContext = createContext({
   rhythm: 'rhythm1',
   gaps: rhythms.rhythm1.gaps,
   setRhythm: undefined,
+  pagePad: undefined,
+  pageContentProps: {},
+  setPagePad: undefined,
 });
 
-export const RhythmProvider = ({ children, defaultRhythm = 'rhythm1' }) => {
+export const RhythmProvider = ({
+  children,
+  defaultRhythm = 'rhythm1',
+  defaultPagePad = 'xlarge',
+}) => {
   const [rhythm, setRhythm] = useState(defaultRhythm);
+  const [pagePad, setPagePad] = useState(defaultPagePad);
   const value = useMemo(
-    () => ({ rhythm, gaps: rhythms[rhythm].gaps, setRhythm }),
-    [rhythm],
+    () => ({
+      rhythm,
+      gaps: rhythms[rhythm].gaps,
+      setRhythm,
+      pagePad,
+      // Overrides the theme's responsive page gutters at every breakpoint.
+      pageContentProps: { pad: { horizontal: pagePad } },
+      setPagePad,
+    }),
+    [rhythm, pagePad],
   );
   return (
     <RhythmContext.Provider value={value}>{children}</RhythmContext.Provider>
@@ -58,6 +85,7 @@ export const RhythmProvider = ({ children, defaultRhythm = 'rhythm1' }) => {
 RhythmProvider.propTypes = {
   children: PropTypes.node,
   defaultRhythm: PropTypes.oneOf(Object.keys(rhythms)),
+  defaultPagePad: PropTypes.oneOf(Object.keys(pagePads)),
 };
 
 export const useRhythm = () => useContext(RhythmContext);
@@ -73,6 +101,20 @@ export const RhythmToggle = () => {
       options={options}
       value={rhythm}
       onToggle={({ value }) => value && setRhythm(value)}
+    />
+  );
+};
+
+// Switches the left and right padding of the page content.
+export const PagePaddingToggle = () => {
+  const { pagePad, setPagePad } = useRhythm();
+  if (!setPagePad) return null;
+  return (
+    <ToggleGroup
+      a11yTitle="Page padding"
+      options={pagePadOptions}
+      value={pagePad}
+      onToggle={({ value }) => value && setPagePad(value)}
     />
   );
 };

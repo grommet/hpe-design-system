@@ -29,7 +29,12 @@ import {
   pageBackground,
   surfaceBackground,
 } from '../../dashboards/content/overview/data';
-import { RhythmProvider, RhythmToggle } from '../RhythmContext';
+import {
+  PagePaddingToggle,
+  RhythmProvider,
+  RhythmToggle,
+  useRhythm,
+} from '../RhythmContext';
 
 export { surfaceBackground };
 
@@ -89,27 +94,14 @@ export const RhythmPage = ({
             </Box>
             {showNav && <SideNav gridArea="nav" />}
             <Main gridArea="main">
-              {/* The nav sits outside Page; PageContent gets the horizontal
-                  gutters from the theme, spacing it from the nav and edge. */}
-              <Page pad={{ bottom: '3xlarge' }}>
-                {/* PageHeader pads medium below itself, so a medium gap
-                    before the content keeps the header-to-content distance
-                    constant across both rhythms. */}
-                <PageContent gap="medium">
-                  <PageHeader
-                    title={title}
-                    subtitle={subtitle}
-                    parent={parent}
-                    actions={
-                      <Box direction="row" align="center" gap="small" wrap>
-                        {actions}
-                        <RhythmToggle />
-                      </Box>
-                    }
-                  />
-                  {children}
-                </PageContent>
-              </Page>
+              <PageBody
+                actions={actions}
+                parent={parent}
+                subtitle={subtitle}
+                title={title}
+              >
+                {children}
+              </PageBody>
             </Main>
           </Grid>
         </AppContainer>
@@ -122,6 +114,44 @@ RhythmPage.propTypes = {
   actions: PropTypes.node,
   children: PropTypes.node,
   defaultRhythm: PropTypes.string,
+  parent: PropTypes.node,
+  subtitle: PropTypes.string,
+  title: PropTypes.string.isRequired,
+};
+
+// Split out so it renders inside RhythmProvider and can read the page padding.
+const PageBody = ({ actions, children, parent, subtitle, title }) => {
+  const { pageContentProps } = useRhythm();
+  return (
+    // The nav sits outside Page; PageContent gets the horizontal gutters from
+    // the theme, spacing it from the nav and edge.
+    <Page pad={{ bottom: '3xlarge' }}>
+      {/* PageHeader pads medium below itself, so a medium gap before the
+          content keeps the header-to-content distance constant across both
+          rhythms. */}
+      {/* pageContentProps temporarily overrides the theme page padding. */}
+      <PageContent gap="medium" {...pageContentProps}>
+        <PageHeader
+          title={title}
+          subtitle={subtitle}
+          parent={parent}
+          actions={
+            <Box direction="row" align="center" gap="small" wrap>
+              {actions}
+              <RhythmToggle />
+              <PagePaddingToggle />
+            </Box>
+          }
+        />
+        {children}
+      </PageContent>
+    </Page>
+  );
+};
+
+PageBody.propTypes = {
+  actions: PropTypes.node,
+  children: PropTypes.node,
   parent: PropTypes.node,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired,

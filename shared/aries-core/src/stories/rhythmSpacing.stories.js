@@ -20,9 +20,10 @@ import AccountSettingsSource from 'apps/docs/src/examples/templates/rhythm-spaci
 import SupportCenterSource from 'apps/docs/src/examples/templates/rhythm-spacing/pages/SupportCenter.js?raw';
 import RhythmPageSource from 'apps/docs/src/examples/templates/rhythm-spacing/components/RhythmPage.js?raw';
 
-// Full page designs rendered in both spacing rhythms. Every design carries a
-// Rhythm 1 / Rhythm 2 toggle in its page header, so the two can be compared
-// on the fly without navigating between stories.
+// Full page designs rendered in both spacing rhythms and two horizontal page
+// paddings. Every design carries a Rhythm 1 / Rhythm 2 toggle and a Large /
+// XLarge page padding toggle in its page header, so each can be compared on
+// the fly without navigating between stories.
 const meta = {
   title: 'Patterns/Rhythm spacing',
   parameters: {

@@ -32,7 +32,11 @@ import {
   WeekAtAGlance,
 } from './content';
 import { pageBackground, surfaceBackground } from './content/overview/data';
-import { RhythmToggle, useRhythm } from '../rhythm-spacing/RhythmContext';
+import {
+  PagePaddingToggle,
+  RhythmToggle,
+  useRhythm,
+} from '../rhythm-spacing/RhythmContext';
 
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },
@@ -62,7 +66,7 @@ const shell = {
 
 export const OverviewDashboard = () => {
   const size = useContext(ResponsiveContext);
-  const { gaps } = useRhythm();
+  const { gaps, pageContentProps } = useRhythm();
   const [user, setUser] = useState(defaultUser);
   const contextValue = useMemo(() => ({ user, setUser }), [user]);
 
@@ -82,7 +86,8 @@ export const OverviewDashboard = () => {
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
               {/* PageHeader pads medium below; with the medium gap = 48px. */}
-              <PageContent gap="medium">
+              {/* Temporary: pageContentProps overrides the theme gutters. */}
+              <PageContent gap="medium" {...pageContentProps}>
                 <PageHeader
                   title="Home"
                   actions={
@@ -93,6 +98,7 @@ export const OverviewDashboard = () => {
                         secondary
                       />
                       <RhythmToggle />
+                      <PagePaddingToggle />
                     </Box>
                   }
                 />
