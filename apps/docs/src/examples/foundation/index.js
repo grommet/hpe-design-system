@@ -11,3 +11,4 @@ export * from './typography';
 export * from './icons';
 export * from './scale-system';
 export * from './spacing';
+export * from './surfaces';
