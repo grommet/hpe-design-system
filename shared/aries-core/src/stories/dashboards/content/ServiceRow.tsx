@@ -1,30 +1,23 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React from 'react';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button, Heading, Text } from 'grommet';
 import { Service } from './myServices';
 
 /**
- * Region sub-heading. Mirrors `NavigationMenu`'s `GroupHeading` (size,
- * weight and vertical rhythm) so the widget reads like the app's side
- * navigation rather than a text document. Colour is text-strong and the
- * indent equals the row's horizontal padding so headings and items share a
- * left edge.
+ * Region sub-heading. Uses the theme's `heading-xsmall` type (h5) in
+ * text-strong, and borrows `NavigationMenu`'s `GroupHeading` vertical rhythm.
+ * The indent equals the row's horizontal padding so headings and items share
+ * a left edge.
  */
 export const RegionHeading = ({ name }: { name: string }) => (
   <Box
     direction="row"
     pad={{ left: 'small', top: 'xxsmall', bottom: '5xsmall' }}
   >
-    <Text
-      size="xsmall"
-      weight="bold"
-      color="text-strong"
-      role="heading"
-      aria-level={3}
-    >
+    <Heading level={5} margin="none" color="text-strong">
       {name}
-    </Text>
+    </Heading>
   </Box>
 );
 
