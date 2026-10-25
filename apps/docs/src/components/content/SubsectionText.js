@@ -36,6 +36,7 @@ export const SubsectionText = ({
   level = 2,
   size,
   accessibility,
+  footer,
   ...rest
 }) => (
   <StyledBox gap="3xsmall" width="xlarge" margin={{ bottom: 'medium' }}>
@@ -63,11 +64,13 @@ export const SubsectionText = ({
         }}
       />
     )}
+    {footer}
   </StyledBox>
 );
 
 SubsectionText.propTypes = {
   accessibility: PropTypes.string,
+  footer: PropTypes.node,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,

@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
+import { generatePageMetadata } from './src/scripts/page-metadata.mjs';
+
+await generatePageMetadata();
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -30,7 +33,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   output: 'export',
-  transpilePackages: ['@shared/aries-core', '@shared/hooks', 'grommet-theme-hpe'],
+  transpilePackages: [
+    '@shared/aries-core',
+    '@shared/hooks',
+    'grommet-theme-hpe',
+  ],
 };
 
 export default withMDX(nextConfig);

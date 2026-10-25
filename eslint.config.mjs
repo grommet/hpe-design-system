@@ -34,6 +34,7 @@ export default defineConfig([
       '**/public/',
       '**/babel.config.js',
       'apps/docs/src/data/search',
+      'apps/docs/src/data/generated',
     ],
   },
   {
@@ -119,7 +120,10 @@ export default defineConfig([
           // contentForSearch is generated and may be missing on a fresh clone.
           // Ignore this unresolved import so lint is stable before docs generation runs.
           // No inline eslint-disable is needed; eslint --fix prunes it as "unused".
-          ignore: ['data/search/contentForSearch$'],
+          ignore: [
+            'data/search/contentForSearch$',
+            'data/generated/mdxLastModified\\.json$',
+          ],
         },
       ],
     },
