@@ -1,0 +1,151 @@
+import { Checkmark } from '@hpe-design/icons-grommet';
+import { Example } from '../../layouts';
+import {
+	WizardCompletingComplexLinearFlowsExample,
+	WizardCompletingGroupedSetupTasksExample,
+	WizardExample,
+	WizardRunningCompactFlowsWithoutVisibleProgressExample,
+} from '../../examples';
+
+<Example
+	componentName="Wizard"
+	docs="https://v2.grommet.io/wizard?theme=hpe#props"
+	grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Wizard/Wizard.js"
+	height="xlarge"
+	width="100%"
+	background="background-floating"
+	overflow="hidden"
+	pad="medium"
+	screenContainer
+	showResponsiveControls={['laptop', 'mobile']}
+>
+	<WizardExample />
+</Example>
+
+## Use cases
+
+### Completing linear flows
+
+Use Wizard for predictable, multi-step flows that need clear orientation from
+start to finish. Place it in a full-page layer and set
+`showProgress="horizontal"` so Stepper shows. Move through one step at a time; Wizard marks each
+step complete after a successful transition.
+
+<Example
+	height="xlarge"
+	width="100%"
+	background="background-floating"
+	overflow="hidden"
+	pad="medium"
+	screenContainer
+	showResponsiveControls={['laptop', 'mobile']}
+>
+  <WizardCompletingComplexLinearFlowsExample />
+</Example>
+
+### Running flows without visible progress
+
+Use Wizard without visible progress for short flows, flows that show progress
+elsewhere, or constrained layouts. For example, create a role by adding its
+name and description, choosing its permissions, and reviewing the result. Set
+`showProgress={false}` and keep the step title, description, and action labels
+explicit.
+
+<Example
+	height="xlarge"
+	width="100%"
+	background="background-floating"
+	overflow="hidden"
+	pad="medium"
+	screenContainer
+	showResponsiveControls={['laptop', 'mobile']}
+>
+  <WizardRunningCompactFlowsWithoutVisibleProgressExample />
+</Example>
+
+### Completing grouped setup tasks
+
+Use Wizard with nested steps when a setup flow has clear phases that contain
+related tasks. For example, claim infrastructure and services for Acme
+Workspace, then review the claim before activating it. Set
+`showProgress="vertical"` so `Stepper` shows phases, nested tasks, and each
+task's completion state. Complete one task at a time while the vertical progress
+indicator shows the current task within the larger claim.
+
+<Example
+  height="xlarge"
+  width="100%"
+  background="background-floating"
+  overflow="hidden"
+  pad="medium"
+  screenContainer
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <WizardCompletingGroupedSetupTasksExample />
+</Example>
+
+## Anatomy
+
+| Label | Region | Purpose | Required | Notes |
+| :---: | ------ | ------- | :------: | ----- |
+| **1** | **Wizard container** | Defines the task flow region and owns step state, shared form value, and navigation events. | <span><Checkmark a11yTitle="true" size="small" /></span> | Use `aria-label` when the visible title does not fully describe the region. |
+| **2** | **Header** | Displays the wizard title and close action. | <span><Checkmark a11yTitle="true" size="small" /></span> | The default header receives the `title` value. |
+| **3** | **Progress** | Shows the current position and step status through `Stepper`. | Optional | Controlled by `showProgress`. |
+| **4** | **Step header** | Announces the current step number, title, and description after navigation. | <span><Checkmark a11yTitle="true" size="small" /></span> | Keep titles short and task-oriented. |
+| **5** | **Step content** | Contains form fields, review content, or task content for the current step. | <span><Checkmark a11yTitle="true" size="small" /></span> | Each step can define `render`, or `Wizard` can use a shared `renderStep`. |
+| **6** | **Footer** | Provides cancel, previous, skip, next, and complete actions based on the current step. | <span><Checkmark a11yTitle="true" size="small" /></span> | Use `messages` to customize action labels. |
+
+## Variants
+
+### Visible progress
+
+Show progress in longer flows where people need to understand their position and
+the remaining steps. Set `showProgress` to `horizontal` or `vertical` so
+Wizard displays Stepper progress.
+
+### No visible progress
+
+Use Wizards with no visible progress for short flows where the step title or surrounding context
+already provides orientation. Set `showProgress={false}` to hide the progress
+indicator while preserving validation and completion behavior.
+
+## Behaviors and states
+
+### Responsiveness
+
+- The default layout hides progress on small breakpoints.
+- Horizontal progress changes to vertical progress when steps include nested sub-steps.
+
+### Header and footer
+
+The default Wizard layout keeps the task title and navigation actions
+available while step content scrolls.
+
+### Cancellation
+
+Use `onCancel` when leaving a Wizard could discard work. Open a [double
+confirmation](/templates/double-confirmation) before discarding or preserving
+the current form value.
+
+## Content guidelines
+
+### Writing steps and actions
+
+- Use short step titles that describe the task.
+- Use action labels that describe the result of continuing or completing the flow.
+- Include step descriptions only when they clarify what information is needed.
+- Keep validation messages specific to the field or step that blocked progress.
+
+## Accessibility
+
+| Key | Action |
+| --- | ------ |
+| Tab | Moves focus through the wizard header, current step content, and footer actions. |
+| Enter | Submits the current step form and triggers validation before navigation. |
+| Escape | Closes the wizard only when the surrounding modal or application provides that behavior. |
+
+| Attribute | Value | Condition |
+| --------- | ----- | --------- |
+| `aria-label` | Descriptive string | Provide when the wizard title does not fully describe the region. |
+| `aria-live` | `polite` | Applied by `WizardStepHeader` so screen readers receive step changes. |
+| `aria-label` | Wizard progress | Applied to `WizardProgress` when progress is visible. |

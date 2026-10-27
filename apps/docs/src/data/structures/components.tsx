@@ -1072,6 +1072,55 @@ export const components = [
     ],
   },
   {
+    name: 'Wizard',
+    available: true,
+    category: 'Layouts',
+    description:
+      'A full-page task flow that guides users through ordered steps with validation, progress, and completion handling.',
+    preview: {
+      image: {
+        src: {
+          light: '/templateImages/template-preview-wizard.svg',
+          dark: '/templateImages/template-preview-wizard-invert.svg',
+        },
+        alt: 'HPE Wizard Preview',
+        fit: 'contain',
+      },
+    },
+    seoDescription:
+      'A full-page task flow that guides users through ordered steps with validation, progress, and completion handling.',
+    sections: [
+      'Completing complex linear setup flows',
+      'Running compact flows without visible progress',
+      'Completing grouped setup tasks',
+      'Visible progress',
+      'Compact',
+      'Interactive states',
+      'Application states',
+      'Layout behavior',
+      'Content guidelines',
+      'Accessibility',
+    ],
+    relatedContent: ['Forms', 'Layer', 'Button'],
+    tags: [
+      'multi-step form',
+      'mutliple steps',
+      'multistep form',
+      'stepped form',
+      'task wizard',
+      'progress indicators',
+      'step sequencing',
+      'form input',
+      'sequiential workflow',
+      'task flow',
+      'form wizard',
+      'stepped workflow',
+      'progressive dialog',
+      'progressive dialog',
+      'progressive form',
+    ],
+  },
+  {
     name: 'MaskedInput',
     category: 'Inputs',
     description:
