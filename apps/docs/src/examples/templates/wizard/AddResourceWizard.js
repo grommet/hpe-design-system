@@ -67,7 +67,15 @@ export const AddResourceWizard = ({ containerRef }) => {
             width={{ max: 'xlarge' }}
           >
             <WizardStepHeader />
-            <WizardContent />
+            {/* Grommet's base theme renders step content inside a padded
+            "card" (wizard.content). Each FormSection here is already a card,
+            so flatten the wrapper to avoid card-in-card and the lost width */}
+            <WizardContent
+              pad="none"
+              background="none"
+              round={false}
+              margin={{ top: 'medium' }}
+            />
           </Box>
         </Box>
         <WizardFooter />
