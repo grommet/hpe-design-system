@@ -2,17 +2,25 @@
 // SPDX-License-Identifier: Apache-2.0
 import { Anchor, Box, Button, Heading, Skeleton } from 'grommet';
 import PropTypes from 'prop-types';
-import {
-  ChapterAdd,
-  Cloud,
-  Edit,
-  Map,
-  Stakeholder,
-  UserAdd,
-} from '@hpe-design/icons-grommet';
+import { Edit } from '@hpe-design/icons-grommet';
+import { Link as LinkIcon } from 'grommet-icons';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useLoading } from '../utils/skeleton';
+
+const layoutLinks = [
+  { label: 'PageContent multiple', to: '/pagecontent-multiple' },
+  { label: 'Collection', to: '/layouts/collection' },
+  { label: 'Dashboard', to: '/layouts/dashboard' },
+  { label: 'Detail - COM', to: '/layouts/detail-com' },
+  { label: 'Detail - DSCC System', to: '/layouts/detail-dscc-system' },
+  { label: 'Detail - OpsRamp', to: '/layouts/detail-opsramp' },
+  { label: 'Empty state', to: '/layouts/empty-state' },
+  { label: 'Form', to: '/layouts/form' },
+  { label: 'Results', to: '/layouts/results' },
+  { label: 'Navigational sidebar', to: '/layouts/navigational-sidebar' },
+];
 
 export const QuickActions = ({ edit = true, icons }) => {
   const theme = useContext(ThemeContext);
@@ -26,38 +34,18 @@ export const QuickActions = ({ edit = true, icons }) => {
         {edit && <Button label="Edit" icon={<Edit />} reverse />}
       </Box>
       <Box gap="small" animation={!skeleton ? 'fadeIn' : undefined}>
-        {skeleton ? (
-          <Skeleton height={theme.text.medium.size} />
-        ) : (
-          <Anchor icon={icons && <ChapterAdd />} label="Add devices" href="#" />
-        )}
-        {skeleton ? (
-          <Skeleton height={theme.text.medium.size} />
-        ) : (
-          <Anchor
-            icon={icons && <Cloud />}
-            label="Add service subscriptions"
-            href="#"
-          />
-        )}
-        {skeleton ? (
-          <Skeleton height={theme.text.medium.size} />
-        ) : (
-          <Anchor icon={icons && <UserAdd />} label="Add users" href="#" />
-        )}
-        {skeleton ? (
-          <Skeleton height={theme.text.medium.size} />
-        ) : (
-          <Anchor
-            icon={icons && <Stakeholder />}
-            label="Assign roles"
-            href="#"
-          />
-        )}
-        {skeleton ? (
-          <Skeleton height={theme.text.medium.size} />
-        ) : (
-          <Anchor icon={icons && <Map />} label="Create location" href="#" />
+        {layoutLinks.map(({ label, to }) =>
+          skeleton ? (
+            <Skeleton key={to} height={theme.text.medium.size} />
+          ) : (
+            <Anchor
+              key={to}
+              as={Link}
+              to={to}
+              icon={icons && <LinkIcon />}
+              label={label}
+            />
+          ),
         )}
       </Box>
     </Box>
