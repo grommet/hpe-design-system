@@ -1,0 +1,118 @@
+import { NestingTonesExample } from '../../examples';
+import { Example } from '../../layouts';
+
+Surfaces are the layers of a page, from the page itself to containers such as cards and panels, and temporary elements that appear above them. Each surface holds content or sets it apart from its surroundings. By separating sections and grouping related content, surfaces make pages cleaner, easier to read, and easier to navigate.
+
+To apply this in practice, see [Designing with surfaces](/foundation/designing-with-surfaces).
+
+## What surfaces are for
+
+Surfaces make relationships between parts of a page visible, showing what belongs together, what is separate, and what is asking for attention.
+
+A surface does more than color a background. Placing content on its own surface draws a boundary around it. Contrast between a surface and the one behind it signals *this is a distinct thing*. This is why the system uses surfaces first, only reaching for dividers or borders when a surface alone is not enough. The result is a page with fewer lines on it, and less visual noise for the reader to process.
+
+Structure typically starts with spacing, headings, and layout. Surfaces are added when those are insufficient, and dividers are a last resort when a boundary needs further emphasis.
+
+A floating layer sits over the page rather than in it, so that a menu, a dialog, or a tooltip can appear without disturbing the layout beneath. See [what counts as floating](#what-counts-as-floating).
+
+## Root surfaces and tones
+
+**Root surfaces** are the starting surfaces upon which content and other surfaces sit. `background.surface.base` is the page or canvas. `background.surface.floating` is for modals, drawers, menus, and tooltips.
+
+**Surface tones** are used on containers needing grouping, separation, or emphasis. These are `background.surface.tone.1` and `background.surface.tone.2`.
+
+### Nesting tones
+
+Nested containers alternate between `background.surface.tone.1` and `background.surface.tone.2`. Tone 1, then tone 2, then tone 1 again, as deep as the content goes: the pair works indefinitely, and nothing runs out.
+
+<Example width="100%">
+	<NestingTonesExample />
+</Example>
+
+*Tones can be used on `background.surface.base` or `background.surface.floating` and alternate and nest indefinitely. The first container on either takes `background.surface.tone.1`. There is no ceiling: the two tones keep alternating.*
+
+### A note on the numbers
+
+The tones are peers. Neither is deeper than the other, and the numbers are labels rather than levels. `background.surface.tone.2` is not "level two". What decides which tone applies is what the container is sitting on, not how far down it is. The one fixed point is the start: the first container on the page or on a floating layer always takes `background.surface.tone.1`, so `background.surface.tone.2` never sits directly on either.
+
+Surfaces are chosen by asking what the content needs: "Does this need grouping, separation, or emphasis?" not by asking "How far down the tree does it sit?"
+
+## Surface design tokens
+
+| Role | Design token | Example light | Example dark | Definition |
+| --- | --- | --- | --- | --- |
+| Page (root surface) | `background.surface.base` | placeholder image | placeholder image | The surface a page or canvas is built on. Content and containers sit on it. A container placed directly on it takes `background.surface.tone.1`, or no surface at all if it should read as part of the page. |
+| Tone | `background.surface.tone.1` | placeholder image | placeholder image | A surface used to group, separate, or emphasise. Use it for a container that sits directly on `background.surface.base`, on `background.surface.floating`, or on `background.surface.tone.2`. |
+| Tone | `background.surface.tone.2` | placeholder image | placeholder image | A surface used to group, separate, or emphasise. Use it for a container that sits on `background.surface.tone.1`. Not for use directly on the page or on a floating surface. |
+| Floating (root surface) | `background.surface.floating` | placeholder image | placeholder image | The root surface for floating UI. See [what counts as floating](#what-counts-as-floating). |
+
+### What counts as floating
+
+**In the page, or over it?**
+
+A floating element appears over the page rather than in it. A menu opens on top of whatever is beneath it. A modal covers the page until you deal with it. A tooltip sits over the content it describes.
+
+The clearest test is whether it fits the layout. A container has to fit the space its layout gives it. A floating layer does not. It can be larger than the thing that opened it, and can sit over content it has nothing to do with. If it stays inside the area it belongs to and moves and scrolls with the content around it, it is a container: give it a tone. If it breaks out over the top of everything else, it is floating.
+
+A navigation rail, a contextual side panel, and an inspector all take up space in the layout: content sits alongside them, not underneath. They take a tone, however panel-like they look.
+
+Because a floating layer is a root surface, the tones start again from it. A container inside a modal takes `background.surface.tone.1`, exactly as it would on the page. The same component works in both places without knowing where it is.
+
+## What is not a surface
+
+A surface is a structural fill: the page, a container, or a floating layer. It takes part in the alternation, and it changes when the surface values change. Other background design tokens do neither. They are chosen for what they mean, not for what they sit on.
+
+| Need | Use | Why it is not a surface |
+| --- | --- | --- |
+| A fill that carries meaning, such as a status banner or alert region | A status background such as `background.info` or `background.critical` | It signals a state, not a boundary. |
+| An emphasis or promotional panel | An accent background such as `background.accent.blue.weak`, used sparingly | It draws attention. It does not group or separate. |
+| A small fill inside a component, such as a table header band, a card footer, or a chip | `background.contrast` | It is local to the component and takes no part in the page's layering. |
+| Chrome that must stand apart from a `background.surface.tone.1` panel | A named background design token outside the surface set. Raise it with the design system team rather than improvising a third tone. | It is a deliberate exception, not a third tone. |
+
+None of these alternate, and none is affected by a change to the surface values.
+
+`background.default` is not a surface either. It is retained for existing work and takes no part in the alternation; for a page, a container, or a floating layer, use the surface design tokens.
+
+### Fills inside a component
+
+A band, footer, or header inside a component is usually a small fill doing local work, so it takes a standard background design token such as `background.contrast`. Only where a region inside a component genuinely reads as a container in its own right does it take a surface tone, whichever tone the component is not. The component resolves this itself: apply a surface tone to the component, never to its parts.
+
+## Existing designs
+
+For the earlier `background.back`, `background.front`, and `background.floating` design tokens, and how to move an existing design onto the surface tokens, see [design token versioning](/design-tokens/versioning).
+
+{/*
+MAINTAINER APPENDIX — source comment only. Not rendered on the website.
+Heading syntax is intentionally avoided here: the search builder indexes
+comment text and the in-page ToC would pick up any "#"-prefixed line.
+
+APPENDIX FOR DESIGN SYSTEM MAINTAINERS
+
+Why the pair is closed
+
+Background for anyone maintaining or extending the system. It does not affect day-to-day use.
+
+Two tones alternate predictably, and that predictability is what makes change efficient should we ever need to update the theme. The whole system can be changed by swapping values at the token level: the page becomes tinted, the first container becomes plain, the nested container becomes tinted, everywhere at once, with no per-product remapping and no audit.
+
+Three tones would end that. Choosing between three is a judgement rather than a forced choice, so the distribution across products becomes unknowable and the result of any value change becomes unpredictable. Making it predictable again would mean defining a progression between the three, which is an ordered, positional model, the thing this architecture was chosen over.
+
+The trade is explicit:
+
+- Two tones: the choice is forced, the distribution is predictable, change is a value swap.
+- Three tones: the choice is a judgement, the distribution is unknown, change is a remap.
+
+This also depends on the alternation actually having been followed. A product that hard-codes a tone will not change correctly, which is why reusable components must not hard-code one.
+
+TODO: Add a verified link for "reusable components must not hard-code one". No destination has been confirmed; do not invent one.
+
+There is no tone.3. Where a genuinely different surface is needed—a distinct chrome, an emphasis panel, or a status fill—it comes from a named background or accent token, chosen for what it means rather than for what it sits on. It does not alternate and is not part of the pair.
+
+Light and dark resolution notes
+
+- The four surface tokens resolve through internal reference tokens ordered by distance from the page surface, not by lightness. That ordering holds in both color modes, which is why one alias per consumer token is correct in light and dark without any mode-specific mapping.
+- Light mode uses two distinct surface values; dark mode uses three. The duplicated pair in light mode is adjacent on the internal scale, so the duplication reads as intentional.
+- background.surface.tone.2 and background.surface.floating resolve to the same color. floating is a root surface because the tones restart from it and because it is chosen by role, not because of its color. Elevation on floating components is applied by the component and is typical, not required.
+- No resolved values are published here. See color (/foundation/color).
+
+placeholder image
+*/}
