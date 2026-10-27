@@ -193,7 +193,8 @@ accessibility:
       status: pass
     - criterion: 2.2.2 Pause, Stop, Hide
       status: pass
-      notes: Auto-play must be pauseable; ensure play prop is used responsibly
+      notes:
+        - Auto-play must be pauseable; ensure play prop is used responsibly
     - criterion: 2.4.7 Focus Visible
       status: pass
     - criterion: 4.1.2 Name, Role, Value

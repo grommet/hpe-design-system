@@ -19,13 +19,13 @@ import {
 import { Alert } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts/content/ContentPane';
 
-const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
+const superPower = ['Flying', 'Sky runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];
 
 export const RequiredFieldsExample = () => {
   const [formValues, setFormValues] = React.useState({
     name: 'Enduro',
-    superPower: 'Sky Runner',
+    superPower: 'Sky runner',
     nemesis: true,
     email: 'enduro@skyrunner.io.com',
     weakness: 'PB & J',
@@ -60,7 +60,7 @@ export const RequiredFieldsExample = () => {
         section, therefor h2 is the semantically correct heading. For 
         additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
         <Heading level={2} margin="none">
-          Form Heading
+          Form heading
         </Heading>
       </Header>
       <Box

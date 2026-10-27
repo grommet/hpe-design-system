@@ -64,7 +64,7 @@ export const SimpleSignUpExample = () => {
         section, therefor h2 is the semantically correct heading. For 
         additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
         <Heading level={2} margin="none">
-          Sign Up
+          Sign up
         </Heading>
         <Text>for a Hewlett Packard Enterprise account</Text>
       </Header>
@@ -156,14 +156,14 @@ export const SimpleSignUpExample = () => {
                 <Text>
                   I accept the HPE{' '}
                   <Anchor
-                    label="Terms of Use"
+                    label="Terms of use"
                     href="#"
                     target="_blank"
                     rel="noreferrer noopener"
                   />{' '}
                   and{' '}
                   <Anchor
-                    label="Privacy Policy"
+                    label="Privacy policy"
                     href="#"
                     target="_blank"
                     rel="noreferrer noopener"
@@ -176,7 +176,7 @@ export const SimpleSignUpExample = () => {
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
             margin={{ top: 'medium', bottom: 'xsmall' }}
           >
-            <Button label="Sign Up" primary type="submit" />
+            <Button label="Sign up" primary type="submit" />
           </Box>
         </Form>
       </Box>

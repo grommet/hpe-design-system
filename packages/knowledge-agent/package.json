@@ -8,11 +8,13 @@
   },
   "scripts": {
     "generate": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run"
   },
   "devDependencies": {
     "@types/node": "^26.6.3",
     "tsx": "^4.21.0",
+    "typescript": "catalog:",
     "vitest": "^3.2.4"
   },
   "dependencies": {

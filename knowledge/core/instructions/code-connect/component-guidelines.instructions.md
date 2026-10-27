@@ -42,17 +42,16 @@ Use `figma.connect` with exactly three arguments:
 2. The Figma component node URL.
 3. A config object containing `example`, and `props` and/or `variant` when needed.
 
+Define the exact Figma component node URL in a `FIGMA_URL` constant and pass it as the second argument. Keep the `node-id` in the URL.
+
 ```jsx
-figma.connect(
-  ComponentName,
-  'https://www.figma.com/design/<fileKey>/...?node-id=<nodeId>',
-  {
-    props: {/* property mappings */},
-    example: ({/* destructured props */}) => (
-      <ComponentName /* mapped props */ />
-    ),
-  },
-);
+const FIGMA_URL =
+  'https://www.figma.com/design/<fileKey>/<fileName>?node-id=<nodeId>';
+
+figma.connect(ComponentName, FIGMA_URL, {
+  props: {/* property mappings */},
+  example: ({/* destructured props */}) => <ComponentName /* mapped props */ />,
+});
 ```
 
 For static composition mappings in this repo, the config may contain only `example`.
@@ -86,9 +85,15 @@ label: figma.string('Label#70:14');
 
 1. **True for boolean variants:** Use `true` as the mapped value when a variant option enables a boolean prop (e.g., `primary: figma.enum('Kind', { primary: true })`).
 2. **Match casing:** Map Figma variant option names exactly as they appear in the Figma panel, then assign the correct React prop value.
+3. **Preserve numeric-looking string options:** Figma variant options such as `12` and `24` are strings. Keep their object keys quoted; Prettier removes those quotes by default, so place `// prettier-ignore` immediately before the corresponding property to preserve parser-compatible string keys.
 
 ```jsx
 props: {
+  // prettier-ignore
+  format: figma.enum('Format', {
+    '12': '12',
+    '24': '24',
+  }),
   primary: figma.enum('Kind', { primary: true }),
   secondary: figma.enum('Kind', { secondary: true }),
   size: figma.enum('Size', {
