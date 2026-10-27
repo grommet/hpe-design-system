@@ -51,9 +51,9 @@ export const defaultFormValues = {
   resourceType: 'containers',
   deploymentModel: 'public-cloud',
   resources: [
-    { id: 'NDE-7291XKVM', location: 'us-east-1a' },
-    { id: 'NDE-3845PCTR', location: 'eu-west-2b' },
-    { id: 'NDE-91827364KVMLONGID', location: 'us-central-2f-extended' },
+    { id: 'RES-7291XKVM', location: 'prod-us-east' },
+    { id: 'RES-3845PCTR', location: 'staging-eu-west' },
+    { id: 'RES-91827364KVMLONGID', location: 'analytics-us-central-extended' },
   ],
   region: '',
   networkName: '',

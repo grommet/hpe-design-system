@@ -76,29 +76,44 @@ export const ResourceDetailsStep = () => {
     }
   };
 
+  // SelectorGroup single-select allows clicking the active option to clear
+  // it. These choices behave like radios, so ignore the empty value.
+  const selectField =
+    field =>
+    ({ value }) =>
+      value && setField(field, value);
+
   return (
     <Box gap="large">
       <FormSection title="Choose resource type" gap="xsmall">
         <SelectorGroup
           a11yTitle="Resource type"
           value={formValue.resourceType}
-          onSelect={({ value }) => setField('resourceType', value)}
+          onSelect={selectField('resourceType')}
         >
           {resourceTypes.map(option => (
             <Selector key={option.value} {...option} />
           ))}
         </SelectorGroup>
       </FormSection>
-      <FormSection title="Select the deployment model">
+      <FormSection title="Select the deployment model" gap="xsmall">
         <SelectorGroup
           a11yTitle="Deployment model"
           value={formValue.deploymentModel}
-          onSelect={({ value }) => setField('deploymentModel', value)}
+          onSelect={selectField('deploymentModel')}
         >
           {deploymentModels.map(option => (
             <Selector key={option.value} {...option} />
           ))}
         </SelectorGroup>
+      </FormSection>
+      <FormSection
+        title="Specify resources"
+        description={
+          'Enter a resource ID and cluster name, then select Add. At least ' +
+          'one resource is required to continue.'
+        }
+      >
         <Box
           direction={mobile ? 'column' : 'row'}
           align={mobile ? 'stretch' : 'start'}
