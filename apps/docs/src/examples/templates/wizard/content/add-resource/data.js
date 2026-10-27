@@ -48,8 +48,10 @@ export const regions = [
 ];
 
 export const defaultFormValues = {
-  resourceType: 'containers',
-  deploymentModel: 'public-cloud',
+  // Deliberate choices: left unselected so the user must pick them. The
+  // step's validate() blocks navigation until both are chosen.
+  resourceType: '',
+  deploymentModel: '',
   resources: [
     { id: 'RES-7291XKVM', location: 'prod-us-east' },
     { id: 'RES-3845PCTR', location: 'staging-eu-west' },
