@@ -1,27 +1,26 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React, { useContext } from 'react';
-import { Box, NameValueList, NameValuePair, Text } from 'grommet';
-import { WizardContext } from '../../components';
+import React from 'react';
+import { Box, NameValueList, NameValuePair, Text, useWizard } from 'grommet';
 import { FormSection } from './FormSection';
 import { deploymentModels, getLabel, resourceTypes } from './data';
 
 export const ReviewStep = () => {
-  const { formValues } = useContext(WizardContext);
+  const { formValue } = useWizard();
 
   return (
     <Box gap="large">
       <FormSection title="Resource details">
         <NameValueList>
           <NameValuePair name="Resource type">
-            {getLabel(resourceTypes, formValues.resourceType)}
+            {getLabel(resourceTypes, formValue.resourceType)}
           </NameValuePair>
           <NameValuePair name="Deployment model">
-            {getLabel(deploymentModels, formValues.deploymentModel)}
+            {getLabel(deploymentModels, formValue.deploymentModel)}
           </NameValuePair>
           <NameValuePair name="Resources">
             <Box>
-              {formValues.resources.map(resource => (
+              {formValue.resources.map(resource => (
                 <Text key={resource.id}>
                   {resource.id} · {resource.location}
                 </Text>
@@ -32,17 +31,15 @@ export const ReviewStep = () => {
       </FormSection>
       <FormSection title="Networking">
         <NameValueList>
-          <NameValuePair name="Region">
-            {formValues.region || '—'}
-          </NameValuePair>
+          <NameValuePair name="Region">{formValue.region || '—'}</NameValuePair>
           <NameValuePair name="Network name">
-            {formValues.networkName || 'Default network'}
+            {formValue.networkName || 'Default network'}
           </NameValuePair>
           <NameValuePair name="Public access">
-            {formValues.publicAccess ? 'Allowed' : 'Not allowed'}
+            {formValue.publicAccess ? 'Allowed' : 'Not allowed'}
           </NameValuePair>
           <NameValuePair name="Auto-scaling">
-            {formValues.autoScaling ? 'Enabled' : 'Disabled'}
+            {formValue.autoScaling ? 'Enabled' : 'Disabled'}
           </NameValuePair>
         </NameValueList>
       </FormSection>

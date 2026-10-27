@@ -4,16 +4,15 @@ import React, { useContext, useState } from 'react';
 import {
   Box,
   Button,
-  Form,
   FormField,
   List,
   ResponsiveContext,
   Text,
   TextInput,
+  useWizard,
 } from 'grommet';
 import { Trash } from '@hpe-design/icons-grommet';
 import { Selector, SelectorGroup } from '@shared/aries-core';
-import { WizardContext } from '../../components';
 import { FormSection } from './FormSection';
 import { deploymentModels, resourceTypes } from './data';
 
@@ -21,19 +20,22 @@ const defaultResource = { resourceId: '', clusterName: '' };
 
 export const ResourceDetailsStep = () => {
   const size = useContext(ResponsiveContext);
-  const { formValues, setFormValues, setValid } = useContext(WizardContext);
+  const { formValue, setFormValue } = useWizard();
   const [resource, setResource] = useState(defaultResource);
   const mobile = ['xsmall', 'small'].includes(size);
 
-  const setField = (field, value) => {
-    setFormValues({ ...formValues, [field]: value });
-    setValid(true);
-  };
+  const setField = (field, value) =>
+    setFormValue(prev => ({ ...prev, [field]: value }));
+
+  const resourceId = resource.resourceId.trim();
+  const clusterName = resource.clusterName.trim();
+  const canAdd = resourceId && clusterName;
 
   const addResource = () => {
+    if (!canAdd) return;
     setField('resources', [
-      ...formValues.resources,
-      { id: resource.resourceId.trim(), location: resource.clusterName.trim() },
+      ...formValue.resources,
+      { id: resourceId, location: clusterName },
     ]);
     setResource(defaultResource);
   };
@@ -41,15 +43,25 @@ export const ResourceDetailsStep = () => {
   const removeResource = id =>
     setField(
       'resources',
-      formValues.resources.filter(item => item.id !== id),
+      formValue.resources.filter(item => item.id !== id),
     );
+
+  // Wizard already wraps the step in a Form, so this draft is kept out of
+  // the form value (no `name` props) and Enter adds the resource instead
+  // of submitting the step.
+  const onKeyDown = event => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addResource();
+    }
+  };
 
   return (
     <Box gap="large">
       <FormSection title="Choose resource type" gap="xsmall">
         <SelectorGroup
           a11yTitle="Resource type"
-          value={formValues.resourceType}
+          value={formValue.resourceType}
           onSelect={({ value }) => setField('resourceType', value)}
         >
           {resourceTypes.map(option => (
@@ -60,73 +72,65 @@ export const ResourceDetailsStep = () => {
       <FormSection title="Select the deployment model">
         <SelectorGroup
           a11yTitle="Deployment model"
-          value={formValues.deploymentModel}
+          value={formValue.deploymentModel}
           onSelect={({ value }) => setField('deploymentModel', value)}
         >
           {deploymentModels.map(option => (
             <Selector key={option.value} {...option} />
           ))}
         </SelectorGroup>
-        {/* The add-resource inputs are their own form so that "Add" (and
-            pressing Enter) validates only these two fields. */}
-        <Form
-          value={resource}
-          onChange={setResource}
-          onSubmit={addResource}
-          messages={{ required: 'This is a required field.' }}
+        <Box
+          direction={mobile ? 'column' : 'row'}
+          align={mobile ? 'stretch' : 'end'}
+          gap="xsmall"
+          onKeyDown={onKeyDown}
         >
-          <Box
-            direction={mobile ? 'column' : 'row'}
-            align={mobile ? 'stretch' : 'end'}
-            gap="xsmall"
-          >
-            <Box flex>
-              <FormField
-                htmlFor="resourceId"
-                name="resourceId"
-                label="Resource ID"
-                required
-              >
-                <TextInput
-                  id="resourceId"
-                  name="resourceId"
-                  placeholder="RES-4A7B2C9D"
-                />
-              </FormField>
-            </Box>
-            <Box flex>
-              <FormField
-                htmlFor="clusterName"
-                name="clusterName"
-                label="Cluster name"
-                required
-              >
-                <TextInput
-                  id="clusterName"
-                  name="clusterName"
-                  placeholder="prod-us-east"
-                />
-              </FormField>
-            </Box>
-            {/* offset matches FormField content margin so the button
-                aligns with the inputs */}
-            <Box
-              flex={false}
-              margin={mobile ? undefined : { bottom: '3xsmall' }}
-            >
-              <Button label="Add" secondary type="submit" />
-            </Box>
+          <Box flex>
+            {/* eslint-disable-next-line grommet/formfield-name */}
+            <FormField htmlFor="resourceId" label="Resource ID">
+              <TextInput
+                id="resourceId"
+                value={resource.resourceId}
+                onChange={event =>
+                  setResource({ ...resource, resourceId: event.target.value })
+                }
+                placeholder="RES-4A7B2C9D"
+              />
+            </FormField>
           </Box>
-        </Form>
+          <Box flex>
+            {/* eslint-disable-next-line grommet/formfield-name */}
+            <FormField htmlFor="clusterName" label="Cluster name">
+              <TextInput
+                id="clusterName"
+                value={resource.clusterName}
+                onChange={event =>
+                  setResource({ ...resource, clusterName: event.target.value })
+                }
+                placeholder="prod-us-east"
+              />
+            </FormField>
+          </Box>
+          {/* offset matches FormField content margin so the button
+              aligns with the inputs */}
+          <Box flex={false} margin={mobile ? undefined : { bottom: '3xsmall' }}>
+            <Button
+              label="Add"
+              secondary
+              disabled={!canAdd}
+              onClick={addResource}
+            />
+          </Box>
+        </Box>
         <Box gap="xsmall">
           <Text size="small" id="added-resources-label">
-            Added resources ({formValues.resources.length})
+            Added resources ({formValue.resources.length})
           </Text>
           <List
             aria-labelledby="added-resources-label"
-            data={formValues.resources}
+            data={formValue.resources}
             border={{ side: 'bottom', color: 'border-weak' }}
-            itemProps={{ [formValues.resources.length - 1]: { border: false } }}
+            itemProps={{ [formValue.resources.length - 1]: { border: false } }}
             pad={{ horizontal: 'none', vertical: 'xsmall' }}
             action={(item, index) => (
               <Button
