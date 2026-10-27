@@ -413,6 +413,14 @@ export const components = [
     ],
   },
   {
+    name: 'FormField',
+    category: 'Inputs',
+    description:
+      'FormField wraps a control with a label and supporting content, such as help, error, or informational messages.',
+    seoDescription:
+      'Wrapper for form inputs that provides labels, help text, and validation messages.',
+  },
+  {
     name: 'TextArea',
     category: 'Inputs',
     description:
