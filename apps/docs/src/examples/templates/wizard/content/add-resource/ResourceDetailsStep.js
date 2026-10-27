@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -17,27 +17,47 @@ import { FormSection } from './FormSection';
 import { deploymentModels, resourceTypes } from './data';
 
 const defaultResource = { resourceId: '', clusterName: '' };
+const requiredMessages = {
+  resourceId: 'Enter a resource ID.',
+  clusterName: 'Enter a cluster name.',
+};
 
 export const ResourceDetailsStep = () => {
   const size = useContext(ResponsiveContext);
   const { formValue, setFormValue } = useWizard();
   const [resource, setResource] = useState(defaultResource);
+  const [errors, setErrors] = useState({});
+  const inputRefs = { resourceId: useRef(), clusterName: useRef() };
   const mobile = ['xsmall', 'small'].includes(size);
 
   const setField = (field, value) =>
     setFormValue(prev => ({ ...prev, [field]: value }));
 
-  const resourceId = resource.resourceId.trim();
-  const clusterName = resource.clusterName.trim();
-  const canAdd = resourceId && clusterName;
+  const updateResource = (field, value) => {
+    setResource({ ...resource, [field]: value });
+    if (errors[field]) setErrors({ ...errors, [field]: undefined });
+  };
 
+  // Per design system guidance the Add button stays enabled; missing input
+  // is reported on click by marking the empty fields and focusing the first.
   const addResource = () => {
-    if (!canAdd) return;
+    const resourceId = resource.resourceId.trim();
+    const clusterName = resource.clusterName.trim();
+    const nextErrors = {};
+    if (!resourceId) nextErrors.resourceId = requiredMessages.resourceId;
+    if (!clusterName) nextErrors.clusterName = requiredMessages.clusterName;
+    if (Object.keys(nextErrors).length) {
+      setErrors(nextErrors);
+      const first = Object.keys(nextErrors)[0];
+      inputRefs[first].current?.focus();
+      return;
+    }
     setField('resources', [
       ...formValue.resources,
       { id: resourceId, location: clusterName },
     ]);
     setResource(defaultResource);
+    setErrors({});
   };
 
   const removeResource = id =>
@@ -81,18 +101,23 @@ export const ResourceDetailsStep = () => {
         </SelectorGroup>
         <Box
           direction={mobile ? 'column' : 'row'}
-          align={mobile ? 'stretch' : 'end'}
+          align={mobile ? 'stretch' : 'start'}
           gap="xsmall"
           onKeyDown={onKeyDown}
         >
           <Box flex>
             {/* eslint-disable-next-line grommet/formfield-name */}
-            <FormField htmlFor="resourceId" label="Resource ID">
+            <FormField
+              htmlFor="resourceId"
+              label="Resource ID"
+              error={errors.resourceId}
+            >
               <TextInput
+                ref={inputRefs.resourceId}
                 id="resourceId"
                 value={resource.resourceId}
                 onChange={event =>
-                  setResource({ ...resource, resourceId: event.target.value })
+                  updateResource('resourceId', event.target.value)
                 }
                 placeholder="RES-4A7B2C9D"
               />
@@ -100,26 +125,27 @@ export const ResourceDetailsStep = () => {
           </Box>
           <Box flex>
             {/* eslint-disable-next-line grommet/formfield-name */}
-            <FormField htmlFor="clusterName" label="Cluster name">
+            <FormField
+              htmlFor="clusterName"
+              label="Cluster name"
+              error={errors.clusterName}
+            >
               <TextInput
+                ref={inputRefs.clusterName}
                 id="clusterName"
                 value={resource.clusterName}
                 onChange={event =>
-                  setResource({ ...resource, clusterName: event.target.value })
+                  updateResource('clusterName', event.target.value)
                 }
                 placeholder="prod-us-east"
               />
             </FormField>
           </Box>
-          {/* offset matches FormField content margin so the button
-              aligns with the inputs */}
-          <Box flex={false} margin={mobile ? undefined : { bottom: '3xsmall' }}>
-            <Button
-              label="Add"
-              secondary
-              disabled={!canAdd}
-              onClick={addResource}
-            />
+          {/* Offset by the FormField label block (label margin + xsmall
+              text line + content margin) so the button stays aligned with
+              the inputs even when an error message renders beneath them */}
+          <Box flex={false} margin={mobile ? undefined : { top: '28px' }}>
+            <Button label="Add" secondary onClick={addResource} />
           </Box>
         </Box>
         <Box gap="xsmall">
