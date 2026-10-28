@@ -8,3 +8,5 @@ System consumers. It is separate from the Code Connect mappings in
 - [Using the HPE Design System Libraries](./library-usage.md)
 - [Design Tokens in Figma](./design-variables.md)
 - [Color, Spacing, and Layout in Figma](./design-foundations.md)
+- [Responsive Layouts in Figma](./responsive-layouts.md)
+- [Screen Patterns in Figma](./screen-patterns.md)
