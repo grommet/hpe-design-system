@@ -320,8 +320,7 @@ export const AssetSelectionExample = () => {
         direction="row"
         justify="between"
         align="center"
-        border="top"
-        pad={{ top: 'medium' }}
+        pad={{ top: 'small' }}
       >
         <Text weight="bold">Total devices to return</Text>
         <Text weight="bold" size="large">
