@@ -107,13 +107,12 @@ const selectionState = (count, available) => {
 };
 
 const CountInput = ({ model, value, onChange }) => (
-  <Box width="108px" flex={false}>
+  <Box width="4xsmall" flex={false}>
     <TextInput
       a11yTitle={`${model.name} count`}
       type="number"
       min={0}
       size="small"
-      textAlign="end"
       value={value === 0 ? '0' : String(value)}
       onChange={(event) => {
         const next = Number.parseInt(event.target.value, 10);
