@@ -1,8 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box, DataChart, Text } from 'grommet';
+import { Box, DataChart, Text, type ThemeType } from 'grommet';
 import { StatusWarning } from '@hpe-design/icons-grommet';
 import { LegendItem, MetricValue, SummaryCard } from '../../components';
 import { carbon, formatNumber, surfaceBackground } from './data';
@@ -13,7 +12,11 @@ const target = {
   color: 'foreground-warning',
   thickness: '5xsmall',
 };
-const tonnes = value => `${formatNumber(value, 1)} t`;
+const tonnes = (value: number) => `${formatNumber(value, 1)} t`;
+
+type CarbonEmissionsCardProps = {
+  detailed?: boolean;
+};
 
 // Round caps add one stroke width to each end of every dash, which closes the
 // gaps; that width is taken off the dash and added to the gap. Only dashed
@@ -21,8 +24,11 @@ const tonnes = value => `${formatNumber(value, 1)} t`;
 const TargetDashes = styled(Box)`
   path[stroke-dasharray] {
     stroke-dasharray: ${({ theme }) => {
-      const dash = parseInt(theme.global.edgeSize['3xsmall'], 10);
-      const cap = parseInt(theme.global.edgeSize[target.thickness], 10);
+        const hpeTheme = theme as ThemeType & {
+          global: { edgeSize: Record<string, string> };
+        };
+        const dash = parseInt(hpeTheme.global.edgeSize['3xsmall'], 10);
+        const cap = parseInt(hpeTheme.global.edgeSize[target.thickness], 10);
       return `${dash - cap}px ${dash + cap}px`;
     }};
   }
@@ -31,7 +37,9 @@ const TargetDashes = styled(Box)`
 const chartTitle =
   'Daily carbon emissions for the last 7 days against the daily target';
 
-export const CarbonEmissionsCard = ({ detailed }) => (
+export const CarbonEmissionsCard = ({
+  detailed,
+}: CarbonEmissionsCardProps) => (
   <SummaryCard
     title="Carbon emissions"
     subtitle="Last 7 days"
@@ -96,7 +104,3 @@ export const CarbonEmissionsCard = ({ detailed }) => (
     </Box>
   </SummaryCard>
 );
-
-CarbonEmissionsCard.propTypes = {
-  detailed: PropTypes.bool,
-};

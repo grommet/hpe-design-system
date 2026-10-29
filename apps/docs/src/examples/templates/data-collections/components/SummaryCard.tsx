@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
+import type { ComponentProps, ReactNode } from 'react';
 import {
   Box,
   Card,
@@ -10,6 +10,14 @@ import {
   Heading,
   Text,
 } from 'grommet';
+
+type SummaryCardProps = ComponentProps<typeof Card> & {
+  detail?: ReactNode;
+  detailed?: boolean;
+  level?: ComponentProps<typeof Heading>['level'];
+  subtitle?: string;
+  title: string;
+};
 
 // A summary metric that can expand to show its supporting chart and detail.
 // The headline value in `children` is always visible; `subtitle` and `detail`
@@ -23,7 +31,7 @@ export const SummaryCard = ({
   subtitle,
   title,
   ...rest
-}) => (
+}: SummaryCardProps) => (
   <Card {...rest}>
     {/* The header's bottom padding is removed so the title and headline value
         are separated by the body's padding alone (one spacing step). */}
@@ -51,12 +59,3 @@ export const SummaryCard = ({
     </CardBody>
   </Card>
 );
-
-SummaryCard.propTypes = {
-  children: PropTypes.node,
-  detail: PropTypes.node,
-  detailed: PropTypes.bool,
-  level: PropTypes.number,
-  subtitle: PropTypes.string,
-  title: PropTypes.string.isRequired,
-};

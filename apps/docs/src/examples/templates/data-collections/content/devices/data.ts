@@ -2,6 +2,30 @@
 // SPDX-License-Identifier: Apache-2.0
 import serversData from '../../../../../data/mockData/servers.json';
 
+export const subscriptionStatuses = [
+  'Expired',
+  'Expiring soon',
+  'Active',
+  'Unknown',
+] as const;
+
+export type SubscriptionStatus = (typeof subscriptionStatuses)[number];
+
+type DeviceAge = '< 3 years' | '3-5 years' | '5+ years';
+
+export type Device = {
+  id: string;
+  name: string;
+  serialNumber: string;
+  model: string;
+  type: string;
+  subscriptionStatus: SubscriptionStatus;
+  subscriptionDate?: Date;
+  age: DeviceAge;
+  location: string;
+  weeklyEnergy: number;
+};
+
 // The incoming theme update inverts today's layered background approach:
 // the page is white and content surfaces are light grey. Until the official
 // tokens are released these two surfaces are hard-coded here, in one place,
@@ -13,12 +37,12 @@ export const surfaceBackground = '#f7f7f7';
 // does not carry (site, device type, subscription window, energy) are derived
 // deterministically from each record's id so the table is stable across
 // renders and no new mock data is added to the system.
-const hash = value =>
+const hash = (value: string) =>
   Array.from(value).reduce(
     (acc, char) => (acc * 31 + char.charCodeAt(0)) % 2 ** 32,
     7,
   );
-const pick = (list, seed, shift = 0) =>
+const pick = <T,>(list: readonly T[], seed: number, shift = 0): T =>
   list[Math.floor(seed / 2 ** shift) % list.length];
 
 // Weighted so a handful of major sites carry most of the fleet.
@@ -55,13 +79,7 @@ const fallbackModels = [
   'ProLiant DL380 Gen9',
 ];
 
-export const subscriptionStatuses = [
-  'Expired',
-  'Expiring soon',
-  'Active',
-  'Unknown',
-];
-const subscriptionWeights = [
+const subscriptionWeights: SubscriptionStatus[] = [
   'Active',
   'Active',
   'Expiring soon',
@@ -69,7 +87,7 @@ const subscriptionWeights = [
   'Expired',
   'Unknown',
 ];
-const subscriptionFromState = {
+const subscriptionFromState: Record<string, SubscriptionStatus> = {
   Expired: 'Expired',
   Subscribed: 'Active',
   Required: 'Unknown',
@@ -77,7 +95,7 @@ const subscriptionFromState = {
 
 // Hardware age bucketed from the ProLiant generation, relative to the
 // reference date below: Gen11 (2022+), Gen10 Plus (2020), Gen9/Gen10 (older).
-const ageFromModel = model => {
+const ageFromModel = (model: string): DeviceAge => {
   if (/Gen11/.test(model)) return '< 3 years';
   if (/Gen10 Plus/.test(model)) return '3-5 years';
   return '5+ years';
@@ -87,9 +105,12 @@ const ageFromModel = model => {
 // the same on every visit.
 const referenceDate = new Date(2026, 7, 15);
 const dayInMs = 24 * 60 * 60 * 1000;
-const subscriptionDate = (status, seed) => {
+const subscriptionDate = (
+  status: SubscriptionStatus,
+  seed: number,
+): Date | undefined => {
   if (status === 'Unknown') return undefined;
-  const offsets = {
+  const offsets: Record<Exclude<SubscriptionStatus, 'Unknown'>, number> = {
     Expired: -(1 + (seed % 90)),
     'Expiring soon': 1 + (seed % 45),
     Active: 180 + (seed % 540),
@@ -97,24 +118,25 @@ const subscriptionDate = (status, seed) => {
   return new Date(referenceDate.getTime() + offsets[status] * dayInMs);
 };
 
-export const formatDate = date =>
+export const formatDate = (date: Date) =>
   date.toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
   });
 
-export const formatNumber = (value, digits = 1) =>
+export const formatNumber = (value: number, digits = 1) =>
   value.toLocaleString('en-US', {
     minimumFractionDigits: digits,
     maximumFractionDigits: digits,
   });
 
-export const devices = serversData.servers.items.map(server => {
+export const devices: Device[] = serversData.servers.items.map(server => {
   const seed = hash(`${server.id}:${server.hardware.serialNumber}`);
   const model = server.hardware.model || pick(fallbackModels, seed, 2);
+  const stateSubscription = server.state.subscriptionState;
   const subscriptionStatus =
-    subscriptionFromState[server.state.subscriptionState] ||
+    (stateSubscription && subscriptionFromState[stateSubscription]) ||
     pick(subscriptionWeights, seed, 4);
 
   return {
@@ -138,7 +160,7 @@ const hourlyPower = [
   65, 66, 68, 70, 72, 74, 78, 82, 85, 88, 90, 92, 94, 95, 96, 95, 94, 92, 89,
   86, 82, 78, 74, 70,
 ];
-const formatHour = hour => `${String(hour).padStart(2, '0')}:00`;
+const formatHour = (hour: number) => `${String(hour).padStart(2, '0')}:00`;
 const peakHour = hourlyPower.indexOf(Math.max(...hourlyPower));
 const minHour = hourlyPower.indexOf(Math.min(...hourlyPower));
 const averagePower = Math.round(
@@ -155,10 +177,13 @@ export const power = {
 };
 
 // Energy by location · last 7 days, aggregated from the devices.
-const energyBySite = devices.reduce((acc, { location, weeklyEnergy }) => {
-  acc[location] = (acc[location] || 0) + weeklyEnergy;
-  return acc;
-}, {});
+const energyBySite = devices.reduce<Record<string, number>>(
+  (acc, { location, weeklyEnergy }) => {
+    acc[location] = (acc[location] || 0) + weeklyEnergy;
+    return acc;
+  },
+  {},
+);
 const weeklyEnergyTotal = Object.values(energyBySite).reduce(
   (sum, kwh) => sum + kwh,
   0,

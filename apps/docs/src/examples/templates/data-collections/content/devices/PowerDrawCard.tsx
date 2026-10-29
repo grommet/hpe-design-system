@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
 import { Box, DataChart, Text } from 'grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { MetricValue, SummaryCard } from '../../components';
@@ -10,7 +9,13 @@ const series = 'dataVis-categorical-10';
 
 // A single operating extreme (minimum or peak load) with the hour it
 // occurred, shown as a contrast block beneath the chart.
-const LoadBlock = ({ hour, kw, label }) => (
+type LoadBlockProps = {
+  hour: string;
+  kw: number;
+  label: string;
+};
+
+const LoadBlock = ({ hour, kw, label }: LoadBlockProps) => (
   <Box
     flex
     pad="small"
@@ -30,13 +35,11 @@ const LoadBlock = ({ hour, kw, label }) => (
   </Box>
 );
 
-LoadBlock.propTypes = {
-  hour: PropTypes.string.isRequired,
-  kw: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
+type PowerDrawCardProps = {
+  detailed?: boolean;
 };
 
-export const PowerDrawCard = ({ detailed }) => (
+export const PowerDrawCard = ({ detailed }: PowerDrawCardProps) => (
   <SummaryCard
     title="Power draw"
     subtitle="Last 24 hours · fleet average"
@@ -88,7 +91,3 @@ export const PowerDrawCard = ({ detailed }) => (
     <MetricValue value={power.average} unit={power.unit} trend={power.trend} />
   </SummaryCard>
 );
-
-PowerDrawCard.propTypes = {
-  detailed: PropTypes.bool,
-};

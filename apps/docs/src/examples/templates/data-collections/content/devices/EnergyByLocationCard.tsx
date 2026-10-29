@@ -1,8 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useLayoutEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Meter, Text, ThemeContext } from 'grommet';
+import { Box, Meter, Text, ThemeContext, type ThemeType } from 'grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { MetricValue, SummaryCard } from '../../components';
 import { energy, formatNumber, surfaceBackground } from './data';
@@ -19,14 +18,21 @@ const segments = [
   percent: Math.round((site.kwh / totalKwh) * 100),
 }));
 
+type EnergyByLocationCardProps = {
+  detailed?: boolean;
+};
+
 // Meter draws in a fixed 288 unit viewBox when size is "full", which stretches
 // the round caps into ellipses; a pixel size keeps the drawing 1:1.
 const ShareBar = () => {
-  const theme = useContext(ThemeContext);
-  const ref = useRef(null);
+  const theme = useContext(ThemeContext) as ThemeType & {
+    global: { edgeSize: Record<string, string> };
+  };
+  const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
+    if (!ref.current) return undefined;
     const observer = new ResizeObserver(([entry]) =>
       setWidth(Math.floor(entry.contentRect.width)),
     );
@@ -51,8 +57,12 @@ const ShareBar = () => {
   );
 };
 
-export const EnergyByLocationCard = ({ detailed }) => {
-  const theme = useContext(ThemeContext);
+export const EnergyByLocationCard = ({
+  detailed,
+}: EnergyByLocationCardProps) => {
+  const theme = useContext(ThemeContext) as ThemeType & {
+    global: { edgeSize: Record<string, string> };
+  };
   const swatch = theme.global.edgeSize.xsmall;
 
   return (
@@ -100,8 +110,4 @@ export const EnergyByLocationCard = ({ detailed }) => {
       />
     </SummaryCard>
   );
-};
-
-EnergyByLocationCard.propTypes = {
-  detailed: PropTypes.bool,
 };
