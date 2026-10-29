@@ -42,12 +42,12 @@ const changedFiles = execFileSync(
   .filter(Boolean);
 const mergeBase = execFileSync('git', ['merge-base', base, head], {
   encoding: 'utf8',
-})
-  .trim();
+}).trim();
 
-const tokenValuesContractsOrMetadataChanged = changedFiles.some(file =>
-  new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
-  file === `${tokenPackagePath}/package.json`,
+const tokenValuesContractsOrMetadataChanged = changedFiles.some(
+  file =>
+    new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
+    file === `${tokenPackagePath}/package.json`,
 );
 const implementationFiles = changedFiles.filter(
   file =>
@@ -78,8 +78,9 @@ const getDeletedTokenChangesets = () =>
     .split('\n')
     .filter(Boolean)
     .map(line => line.split('\t'))
-    .filter(([status, file]) =>
-      status === 'D' && /^\.changeset\/[^/]+\.md$/.test(file),
+    .filter(
+      ([status, file]) =>
+        status === 'D' && /^\.changeset\/[^/]+\.md$/.test(file),
     )
     .filter(([, file]) =>
       changesetNamesTokenPackage(
@@ -159,9 +160,9 @@ const compareDirectories = (leftDirectory, rightDirectory) => {
       } else if (leftEntry.isDirectory()) {
         compareDirectory(childRelativePath);
       } else if (
-        !fs.readFileSync(path.join(leftDirectory, childRelativePath)).equals(
-          fs.readFileSync(path.join(rightDirectory, childRelativePath)),
-        )
+        !fs
+          .readFileSync(path.join(leftDirectory, childRelativePath))
+          .equals(fs.readFileSync(path.join(rightDirectory, childRelativePath)))
       ) {
         differences.push(childRelativePath);
       }
@@ -196,10 +197,20 @@ const buildPublishedArtifacts = (worktreePath, revision) => {
     },
   );
   try {
-    execFileSync('pnpm', ['install', '--frozen-lockfile', '--ignore-scripts'], {
-      cwd: worktreePath,
-      stdio: 'pipe',
-    });
+    execFileSync(
+      'pnpm',
+      [
+        'install',
+        '--filter',
+        'hpe-design-tokens...',
+        '--frozen-lockfile',
+        '--ignore-scripts',
+      ],
+      {
+        cwd: worktreePath,
+        stdio: 'pipe',
+      },
+    );
     execFileSync('pnpm', ['--filter', 'hpe-design-tokens', 'build'], {
       cwd: worktreePath,
       stdio: 'pipe',
@@ -242,16 +253,16 @@ if (
   !dependencyGraphChanged
 ) {
   console.log(
-    'No token values, contracts, package metadata, or output-changing '
-      + 'implementation or dependency changes require a Changeset.',
+    'No token values, contracts, package metadata, or output-changing ' +
+      'implementation or dependency changes require a Changeset.',
   );
   process.exit(0);
 }
 
 if (changesetsVersionUpdate) {
   console.log(
-    'Changesets-generated hpe-design-tokens version and changelog update; '
-      + 'no additional Changeset required.',
+    'Changesets-generated hpe-design-tokens version and changelog update; ' +
+      'no additional Changeset required.',
   );
   process.exit(0);
 }
@@ -268,8 +279,8 @@ if (!tokenValuesContractsOrMetadataChanged) {
 
   if (changedArtifacts.length === 0) {
     console.log(
-      'Implementation changes do not alter published hpe-design-tokens '
-        + 'artifacts; no Changeset required.',
+      'Implementation changes do not alter published hpe-design-tokens ' +
+        'artifacts; no Changeset required.',
     );
     process.exit(0);
   }
@@ -289,15 +300,16 @@ const tokenChangeset = changedChangesets.find(file =>
 
 if (!tokenChangeset) {
   console.error(
-    'Published hpe-design-tokens changes require a Changeset naming '
-      + 'hpe-design-tokens.',
+    'Published hpe-design-tokens changes require a Changeset naming ' +
+      'hpe-design-tokens.',
   );
   if (tokenValuesContractsOrMetadataChanged) {
     console.error('Changed token values, contracts, or package metadata:');
     changedFiles
-      .filter(file =>
-        new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
-        file === `${tokenPackagePath}/package.json`,
+      .filter(
+        file =>
+          new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
+          file === `${tokenPackagePath}/package.json`,
       )
       .forEach(file => console.error(`  - ${file}`));
   } else {

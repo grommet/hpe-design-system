@@ -22,6 +22,7 @@ import {
   SearchPreview,
   SkeletonPreview,
   TabsPreview,
+  TimeInputPreview,
   TextAreaPreview,
   TextInputPreview,
   ToggleGroupPreview,
@@ -411,6 +412,21 @@ export const components = [
       'Attach Document',
       'Document Input',
     ],
+  },
+  {
+    name: 'TimeInput',
+    category: 'Inputs',
+    accessibility: 'Passed WCAG 2.2 AA',
+    description:
+      'Use TimeInput to collect a time of day. Its structured input helps users enter time consistently in a 12 or 24-hour format.',
+    seoDescription:
+      'TimeInput allows users to enter a time in a consistent, accessible format.',
+    relatedContent: ['Forms', 'TextInput', 'MaskedInput'],
+    sections: [],
+    preview: {
+      component: () => <TimeInputPreview />,
+    },
+    tags: ['time input', 'time picker', 'TimeInput'],
   },
   {
     name: 'TextArea',
