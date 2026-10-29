@@ -196,10 +196,20 @@ const buildPublishedArtifacts = (worktreePath, revision) => {
     },
   );
   try {
-    execFileSync('pnpm', ['install', '--frozen-lockfile', '--ignore-scripts'], {
-      cwd: worktreePath,
-      stdio: 'pipe',
-    });
+    execFileSync(
+      'pnpm',
+      [
+        'install',
+        '--filter',
+        'hpe-design-tokens...',
+        '--frozen-lockfile',
+        '--ignore-scripts',
+      ],
+      {
+        cwd: worktreePath,
+        stdio: 'pipe',
+      },
+    );
     execFileSync('pnpm', ['--filter', 'hpe-design-tokens', 'build'], {
       cwd: worktreePath,
       stdio: 'pipe',
