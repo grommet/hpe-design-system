@@ -10,6 +10,43 @@ export const surfaceBackground = '#f7f7f7';
 // This week at a glance
 export const budget = 265;
 
+export type ServiceGroupId =
+  | 'recommended'
+  | 'networking'
+  | 'storage'
+  | 'private-cloud'
+  | 'compute';
+
+export type AttentionStatus = 'critical' | 'warning' | 'unknown';
+
+export type SlaStatus = 'ok' | 'warning';
+
+export type ServiceGroup = {
+  id: ServiceGroupId;
+  label: string;
+};
+
+export type Service = {
+  category: string;
+  title: string;
+  description: string;
+  groups: ServiceGroupId[];
+  tag?: string;
+};
+
+export type AttentionItem = {
+  status: AttentionStatus;
+  label: string;
+  count: number;
+};
+
+export type SlaStat = {
+  name: string;
+  value: string;
+  unit: string;
+  status: SlaStatus;
+};
+
 // Monthly spend in thousands of USD.
 export const costTrend = [
   { month: 'December', actual: 243 },
@@ -24,20 +61,20 @@ export const costTrend = [
   { month: 'September', actual: 284 },
 ].map(datum => ({ ...datum, budget }));
 
-export const attentionItems = [
+export const attentionItems: AttentionItem[] = [
   { status: 'critical', label: 'Act now', count: 3 },
   { status: 'warning', label: 'Fix this week', count: 26 },
   { status: 'unknown', label: 'Plan ahead', count: 260 },
 ];
 
-export const slaStats = [
+export const slaStats: SlaStat[] = [
   { name: 'Sev 1 response time', value: '14', unit: 'min', status: 'ok' },
   { name: 'Sev 2 response time', value: '1.7', unit: 'hr', status: 'ok' },
   { name: 'Resolved within SLA', value: '91', unit: '%', status: 'warning' },
 ];
 
 // Discover services
-export const serviceGroups = [
+export const serviceGroups: ServiceGroup[] = [
   { id: 'recommended', label: 'Recommended' },
   { id: 'networking', label: 'Networking' },
   { id: 'storage', label: 'Storage' },
@@ -45,7 +82,7 @@ export const serviceGroups = [
   { id: 'compute', label: 'Compute' },
 ];
 
-export const services = [
+export const services: Service[] = [
   {
     category: 'Storage',
     title: 'Block Storage',

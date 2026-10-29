@@ -1,14 +1,24 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import type { ComponentProps, ComponentType } from 'react';
 import { Box, Button, Text } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
-import { ChartCard, StatusCount } from '../../components';
+import { ChartCard } from '../../components';
+import { StatusCount } from '../../components/StatusCount';
 import { attentionItems, surfaceBackground } from './data';
+
+const TypedChartCard = ChartCard as ComponentType<
+  Partial<ComponentProps<typeof ChartCard>>
+>;
 
 const openItems = attentionItems.reduce((total, item) => total + item.count, 0);
 
-export const NeedsAttention = ({ ...rest }) => (
-  <ChartCard
+type NeedsAttentionProps = {
+  gridArea?: ComponentProps<typeof Box>['gridArea'];
+};
+
+export const NeedsAttention = ({ ...rest }: NeedsAttentionProps) => (
+  <TypedChartCard
     title="Needs attention"
     level={3}
     subtitle={<Text size="small">{openItems.toLocaleString()} open items</Text>}
@@ -38,5 +48,5 @@ export const NeedsAttention = ({ ...rest }) => (
         to fill in 3 weeks.
       </Text>
     </Box>
-  </ChartCard>
+  </TypedChartCard>
 );

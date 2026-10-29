@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
+import type { ComponentProps } from 'react';
 import { Box, Text } from 'grommet';
 import {
   StatusCritical,
@@ -37,8 +37,19 @@ const STATUS_MAP = {
   },
 };
 
+type StatusCountProps = ComponentProps<typeof Box> & {
+  count: number | string;
+  label: string;
+  status: keyof typeof STATUS_MAP;
+};
+
 // A labeled count of items in a given status, on that status' surface.
-export const StatusCount = ({ count, label, status, ...rest }) => {
+export const StatusCount = ({
+  count,
+  label,
+  status,
+  ...rest
+}: StatusCountProps) => {
   const { background, color, icon, strongColor } = STATUS_MAP[status];
   return (
     <Box
@@ -59,10 +70,4 @@ export const StatusCount = ({ count, label, status, ...rest }) => {
       </TextEmphasis>
     </Box>
   );
-};
-
-StatusCount.propTypes = {
-  count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  label: PropTypes.string.isRequired,
-  status: PropTypes.oneOf(Object.keys(STATUS_MAP)).isRequired,
 };

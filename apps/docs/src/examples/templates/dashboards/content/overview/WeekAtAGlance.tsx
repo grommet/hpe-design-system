@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
+import type { ComponentProps } from 'react';
 import { Box, Grid, Heading, ResponsiveContext } from 'grommet';
 import { CostTrend } from './CostTrend';
 import { NeedsAttention } from './NeedsAttention';
@@ -8,13 +9,18 @@ import { SlaPerformance } from './SlaPerformance';
 
 // The cost trend chart is given twice the width of its peers, so this region
 // is laid out per breakpoint rather than as a fluid grid.
-const stacked = {
+type DashboardLayout = Pick<
+  ComponentProps<typeof Grid>,
+  'areas' | 'columns' | 'rows'
+>;
+
+const stacked: DashboardLayout = {
   columns: ['flex'],
   rows: ['auto', 'auto', 'auto'],
   areas: [['cost'], ['attention'], ['sla']],
 };
 
-const layout = {
+const layout: Record<string, DashboardLayout> = {
   xsmall: stacked,
   small: stacked,
   medium: {

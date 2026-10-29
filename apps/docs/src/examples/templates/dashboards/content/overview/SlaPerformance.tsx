@@ -1,24 +1,41 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import type { ComponentProps, ComponentType } from 'react';
 import { Box, List, Tag, Text } from 'grommet';
-import { ChartCard, MetricValue } from '../../components';
+import { ChartCard } from '../../components';
+import { MetricValue } from '../../components/MetricValue';
 import { slaStats, surfaceBackground } from './data';
 
-const SLA_STATUS = {
+const TypedChartCard = ChartCard as ComponentType<
+  Partial<ComponentProps<typeof ChartCard>>
+>;
+
+const SLA_STATUS: Record<
+  'ok' | 'warning',
+  { label: string; background: string }
+> = {
   ok: { label: 'On target', background: 'background-contrast' },
   warning: { label: 'Degrading', background: 'background-warning' },
 };
 
 // Dividers between stats only; the first and last rows have none.
-const dividers = Object.fromEntries(
-  slaStats.map((_, index) => [
-    index,
-    index > 0 ? { border: { side: 'top', color: 'border-weak' } } : {},
-  ]),
-);
+const dividers = slaStats.reduce<
+  NonNullable<ComponentProps<typeof List>['itemProps']>
+>((result, _, index) =>
+  index > 0
+    ? {
+        ...result,
+        [index]: { border: { side: 'top', color: 'border-weak' } },
+      }
+    : result,
+{});
 
-export const SlaPerformance = ({ ...rest }) => (
-  <ChartCard
+type SlaPerformanceProps = {
+  gridArea?: ComponentProps<typeof Box>['gridArea'];
+};
+
+export const SlaPerformance = ({ ...rest }: SlaPerformanceProps) => (
+  <TypedChartCard
     title="SLA performance"
     level={3}
     background={surfaceBackground}
@@ -31,7 +48,7 @@ export const SlaPerformance = ({ ...rest }) => (
       itemProps={dividers}
       pad={{ vertical: 'xsmall', horizontal: 'none' }}
     >
-      {({ name, status, unit, value }) => (
+      {({ name, status, unit, value }: (typeof slaStats)[number]) => (
         <Box fill="horizontal">
           <Text>{name}</Text>
           <Box
@@ -52,5 +69,5 @@ export const SlaPerformance = ({ ...rest }) => (
         </Box>
       )}
     </List>
-  </ChartCard>
+  </TypedChartCard>
 );

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 import { Box, Grid, Heading, Tab, Tabs } from 'grommet';
-import { ServiceCard } from '../../components';
+import { ServiceCard } from '../../components/ServiceCard';
 import { serviceGroups, services, surfaceBackground } from './data';
 
 export const DiscoverServices = () => {

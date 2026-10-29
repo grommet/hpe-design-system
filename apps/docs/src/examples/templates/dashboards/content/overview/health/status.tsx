@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
+import type { ComponentProps, ReactNode } from 'react';
 import { Anchor, Box, Text } from 'grommet';
 import {
   StatusCritical,
@@ -8,6 +8,7 @@ import {
   StatusUnknown,
   StatusWarning,
 } from '@hpe-design/icons-grommet';
+import type { HealthStatus } from './data';
 
 // Quantitative fills, such as Meter values, take foreground-* tokens; icons
 // take icon-* tokens. Pairing a shape with each color means status is never
@@ -39,17 +40,21 @@ export const STATUS = {
   },
 };
 
+type StatusIconProps = Omit<ComponentProps<typeof StatusCritical>, 'color'> & {
+  announce?: boolean;
+  status: HealthStatus;
+};
+
 // Decorative by default; pass announce when the icon is the only thing
 // conveying status, e.g. in a tile's title row.
-export const StatusIcon = ({ announce = false, status, ...rest }) => {
+export const StatusIcon = ({
+  announce = false,
+  status,
+  ...rest
+}: StatusIconProps) => {
   const { Icon, color, label } = STATUS[status];
   const a11y = announce ? { a11yTitle: label } : { 'aria-hidden': true };
   return <Icon color={color} {...a11y} {...rest} />;
-};
-
-StatusIcon.propTypes = {
-  announce: PropTypes.bool,
-  status: PropTypes.oneOf(Object.keys(STATUS)).isRequired,
 };
 
 // Verdict line that stays quiet while things are fine. The status icon is
@@ -57,7 +62,19 @@ StatusIcon.propTypes = {
 // tile; pass icon to mark the subject instead, e.g. a shield for protection.
 // When there is an exception the status is announced, and an href turns the
 // verdict into the link to go and deal with it.
-export const QuietStatusRow = ({ children, href, icon, status }) => {
+type QuietStatusRowProps = {
+  children: ReactNode;
+  href?: string;
+  icon?: ReactNode;
+  status: HealthStatus;
+};
+
+export const QuietStatusRow = ({
+  children,
+  href,
+  icon,
+  status,
+}: QuietStatusRowProps) => {
   const exception = status !== 'ok';
   return (
     <Box direction="row" align="center" gap="3xsmall">
@@ -65,11 +82,4 @@ export const QuietStatusRow = ({ children, href, icon, status }) => {
       {href ? <Anchor href={href}>{children}</Anchor> : <Text>{children}</Text>}
     </Box>
   );
-};
-
-QuietStatusRow.propTypes = {
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string,
-  icon: PropTypes.node,
-  status: PropTypes.oneOf(Object.keys(STATUS)).isRequired,
 };

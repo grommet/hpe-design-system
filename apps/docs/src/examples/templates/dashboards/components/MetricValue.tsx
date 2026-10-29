@@ -1,13 +1,20 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
+import type { ComponentProps } from 'react';
 import { Box, Text } from 'grommet';
 import { Ascending, Descending } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 
 // Change relative to the previous period, e.g. "2%". The icon conveys the
 // direction visually; the accessible name is carried by the parent group.
-export const Trend = ({ direction = 'up', value }) => {
+type TrendDirection = 'up' | 'down';
+
+type TrendProps = {
+  direction?: TrendDirection;
+  value: string;
+};
+
+export function Trend({ direction = 'up', value }: TrendProps) {
   const Icon = direction === 'down' ? Descending : Ascending;
   return (
     <Box direction="row" align="center" gap="5xsmall">
@@ -15,23 +22,26 @@ export const Trend = ({ direction = 'up', value }) => {
       <TextEmphasis size="xsmall">{value}</TextEmphasis>
     </Box>
   );
-};
-
-Trend.propTypes = {
-  direction: PropTypes.oneOf(['up', 'down']),
-  value: PropTypes.string.isRequired,
-};
+}
 
 // Large metric value with an optional unit and trend aligned to its baseline.
 // The group is announced as one phrase, e.g. "99.98 %, up 0.03%", rather
 // than as separate fragments.
+type MetricValueProps = {
+  size?: ComponentProps<typeof TextEmphasis>['size'];
+  trend?: string;
+  trendDirection?: TrendDirection;
+  unit?: string;
+  value: string | number;
+};
+
 export const MetricValue = ({
   size = '3xl',
   trend,
   trendDirection = 'up',
   unit,
   value,
-}) => {
+}: MetricValueProps) => {
   const a11yTitle = [
     [value, unit].filter(Boolean).join(' '),
     trend && `${trendDirection} ${trend}`,
@@ -52,12 +62,4 @@ export const MetricValue = ({
       )}
     </Box>
   );
-};
-
-MetricValue.propTypes = {
-  size: PropTypes.string,
-  trend: PropTypes.string,
-  trendDirection: PropTypes.oneOf(['up', 'down']),
-  unit: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };

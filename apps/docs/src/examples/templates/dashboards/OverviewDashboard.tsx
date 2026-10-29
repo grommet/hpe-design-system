@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
+import type { ComponentProps } from 'react';
 import {
   Box,
   Button,
@@ -24,9 +24,10 @@ import {
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
+import type { User } from '../global-header';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
-import {
+import {  
   DiscoverServices,
   HealthOverviewMixedActions,
   WeekAtAGlance,
@@ -43,7 +44,15 @@ const navigation = [
   { label: 'Monitoring', icon: <Beacon /> },
 ];
 
-const shell = {
+type ShellLayout = Pick<
+  ComponentProps<typeof Grid>,
+  'areas' | 'columns' | 'rows'
+>;
+
+const shell: {
+  withNav: ShellLayout;
+  withoutNav: ShellLayout;
+} = {
   withNav: {
     columns: ['auto', 'flex'],
     rows: ['auto', 'flex'],
@@ -59,9 +68,35 @@ const shell = {
   },
 };
 
+// Collapsed, icon-only primary navigation rail.
+function SideNav({ ...rest }: ComponentProps<typeof Box>) {
+  return (
+    <Box pad="xsmall" flex={false} {...rest}>
+      <Nav
+        a11yTitle="Primary"
+        align="center"
+        background={surfaceBackground}
+        fill="vertical"
+        gap="4xsmall"
+        pad={{ vertical: '3xsmall' }}
+        round="large"
+        width="5xsmall"
+      >
+        <Button
+          icon={<Sidebar />}
+          a11yTitle="Expand navigation"
+          tip="Expand navigation"
+        />
+        {navigation.map(({ icon, label }) => (
+          <Button key={label} icon={icon} a11yTitle={label} tip={label} />
+        ))}
+      </Nav>
+    </Box>
+  );
+}
 export const OverviewDashboard = () => {
   const size = useContext(ResponsiveContext);
-  const [user, setUser] = useState(defaultUser);
+  const [user, setUser] = useState<User | undefined>(defaultUser);
   const contextValue = useMemo(() => ({ user, setUser }), [user]);
 
   // On small screens the navigation would move into a drawer opened from
@@ -99,33 +134,4 @@ export const OverviewDashboard = () => {
       </AppContainer>
     </UserContext.Provider>
   );
-};
-
-// Collapsed, icon-only primary navigation rail.
-const SideNav = ({ ...rest }) => (
-  <Box pad="xsmall" flex={false} {...rest}>
-    <Nav
-      a11yTitle="Primary"
-      align="center"
-      background={surfaceBackground}
-      fill="vertical"
-      gap="4xsmall"
-      pad={{ vertical: '3xsmall' }}
-      round="large"
-      width="5xsmall"
-    >
-      <Button
-        icon={<Sidebar />}
-        a11yTitle="Expand navigation"
-        tip="Expand navigation"
-      />
-      {navigation.map(({ icon, label }) => (
-        <Button key={label} icon={icon} a11yTitle={label} tip={label} />
-      ))}
-    </Nav>
-  </Box>
-);
-
-SideNav.propTypes = {
-  gridArea: PropTypes.string,
 };

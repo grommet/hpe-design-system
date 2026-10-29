@@ -1,7 +1,17 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
+import type { ComponentProps, ReactNode } from 'react';
 import { Box, Card, CardBody, Heading, Text } from 'grommet';
+
+type AlignedMetricTileProps = Omit<ComponentProps<typeof Card>, 'children'> & {
+  action?: ReactNode;
+  anchor?: boolean;
+  children?: ReactNode;
+  description?: ReactNode;
+  level?: ComponentProps<typeof Heading>['level'];
+  statusIcon?: ReactNode;
+  title: string;
+};
 
 // Variant of MetricTile that anchors the description to the bottom edge so
 // the last line of every tile in a row lines up. The content Box grows to
@@ -21,7 +31,7 @@ export const AlignedMetricTile = ({
   statusIcon,
   title,
   ...rest
-}) => {
+}: AlignedMetricTileProps) => {
   const bottom = anchor ? { margin: { top: 'auto' } } : undefined;
   return (
     <Card {...rest}>
@@ -46,14 +56,4 @@ export const AlignedMetricTile = ({
       </CardBody>
     </Card>
   );
-};
-
-AlignedMetricTile.propTypes = {
-  action: PropTypes.node,
-  anchor: PropTypes.bool,
-  children: PropTypes.node,
-  description: PropTypes.node,
-  level: PropTypes.number,
-  statusIcon: PropTypes.node,
-  title: PropTypes.string.isRequired,
 };
