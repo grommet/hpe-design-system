@@ -1,5 +1,9 @@
 import { Checkmark } from '@hpe-design/icons-grommet';
-import { AccessibilitySection, BestPracticeGroup, Example } from '../../layouts';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
 import {
   TimeInputAnatomy,
   TimeInputBadTimeFormatPreview,
@@ -54,7 +58,7 @@ Use TimeInput when a user chooses the time of day a recurring action should run,
 
 ### Constraining selection to a fixed range
 
-Use TimeInput when valid times must fall within a fixed range, such as booking an appointment between 8:00 AM and 6:00 PM and use 15-minute or 30-minute intervals to keep the available choices manageable. Validate out-of-range values before submission so the user cannot proceed with an invalid time.
+Use TimeInput when valid times must fall within a fixed range, such as booking an appointment between 8:00 AM and 6:00 PM, and use the 'minuteStep' prop (e.g., 15 or 30) to keep available choices manageable. Validate out-of-range values before submission so the user cannot proceed with an invalid time.
 
 <Example
   docs="https://v2.grommet.io/timeinput?theme=hpe#props"
@@ -80,10 +84,10 @@ Use TimeInput when valid times must fall within a fixed range, such as booking a
 | Label  | Region                 | Purpose                                                       |                         Required                         | Notes                                                                                     |
 | ------ | ---------------------- | ------------------------------------------------------------- | :------------------------------------------------------: | ----------------------------------------------------------------------------------------- |
 | **1**  | **Time input field**   | Displays and accepts the time value.                          | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                        |
-| **1a** | **Time segments**      | Represents the editable hours, minutes, and optional seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Seconds are not shown as default. To show second use the `showSeconds` prop.</span> |
+| **1a** | **Time segments**      | Represents the editable hours, minutes, and optional seconds. | <span><Checkmark a11yTitle="true" size="small" /></span> | <span>Seconds are hidden by default. Use showSeconds to display them.</span> |
 | **1b** | **Meridiem segment**   | Indicates AM or PM.                                           |                         Optional                         | Appears in the 12-hour format.                                                            |
-| **2**  | **Time picker button** | Opens the time selection dropdown.                            |                         Optional                         | <span>Not shown when `readOnly` or `inline` is set.</span>                                             |
-| **3**  | **Drop container**     | Holds the columns of time choices.                            |                         Optional                         | <span>Appears when the time picker is open. Not rendered when `inline` is set.</span>                  |
+| **2**  | **Time picker button** | Opens the time selection dropdown.                            |                        Conditonal                        | <span>Not shown when `readOnly` or `inline` is set.</span>                                |
+| **3**  | **Drop container**     | Holds the columns of time choices.                            |                       Conditional                        | <span>Appears when the time picker is open. Not rendered when `inline` is set.</span>     |
 | **4**  | **Time option**        | Selects a value for one time section.                         | <span><Checkmark a11yTitle="true" size="small" /></span> | --                                                                                        |
 
 ## Dos and Don'ts
@@ -141,8 +145,7 @@ Use TimeInput when valid times must fall within a fixed range, such as booking a
 
 The following guidance should be considered for each instance of the component and is the responsibility of the implementer. WCAG criteria provided directly by the Grommet component are summarized under [WCAG compliance](#wcag-compliance).
 
-- Support focus movement between the time sections so keyboard and assistive technology users can identify and edit each portion of the value.
-- Use `messages` to provide localized labels and announcements for the input, active section, section values, and time-selection controls.
+- Provide localized messages to support internationalization. Ensure translations preserve clear labels for the input overall, active segments, unit values (hours, minutes, seconds), and meridiem (AM/PM).
 - Provide descriptive text identifying the time being requested. FormField can provide this label; when used, set matching `htmlFor` and `id` values to associate it with TimeInput.
 - Validate the entered time and associate error messages with the input so assistive technology users can identify errors.
 - Explain how to correct invalid values, including any required time range or interval.

@@ -82,12 +82,12 @@ anatomy:
   - label: '2'
     region: Time picker button
     purpose: Opens the time selection dropdown.
-    availability: optional
+    availability: conditional
     notes: Not shown when readOnly or inline is set. The button icon and styling can be customized through the theme.
   - label: '3'
     region: Drop container
     purpose: Holds the columns of time choices.
-    availability: optional
+    availability: conditional
     notes: Appears when the time picker is open. Not rendered when inline is set.
   - label: '4'
     region: Time option
