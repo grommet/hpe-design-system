@@ -37,14 +37,25 @@ the painted colours for verification.
 
 - **Works.** 16/16 combinations resolve to the specified values; identical in `native-web`.
   `theme.dark` is derived correctly from the root background in all four theme × mode combos.
-- **`toned` dark = default dark.** With only `color.surface.10/20/30`, the toned mode cannot
-  alias one step per token without collapsing dark to two values (and making `tone.1` share an
-  alias with `floating`, so a card in a modal disappears — the mapping #6289 tried). The
-  branch adds `40/50/60` (same dark values, light swapped) so `toned` keeps the tested dark
-  progression; cost is three hidden reference variables.
+- **`toned` on the three-step tier.** `toned` is the #6020 value swap written as aliases:
+  `base` ↔ `tone.1` exchange steps, `tone.2` and `floating` follow the grey step (`30`).
+  Light inverts as specified (grey page, white containers, grey nested). Dark becomes a
+  two-value reordering (page `grey.1000`, containers `grey.1300`), because only one step is
+  grey in light so `base` and `tone.2` must share it. That is the recorded Part 3 dark answer.
+  If a product needs `toned` dark to equal default dark, the option is three extra reference
+  steps (`40/50/60`: dark values copied from `10/20/30`, light values swapped) — shown as the
+  "optional 40–60" comparison in `native-web`, not shipped.
 - **The reference tier must leak** into `global.colors` and CSS: it is the join between the
   two mode axes. Guard with description and lint, not a filter.
 - **Where A′ strains:** in dark the `base` sheet inside `tone.1` chrome reads as a recess,
   not raised paper; A′ and "sheet = `tone.2`" are pixel-identical in light.
+
+## Presentation (`/presentation.html`)
+
+A slide deck rendered *with* `grommet-theme-hpe` and the Surface themes above — every
+container on a slide is a real `Box` / `Card` / `Layer` / `Drop` carrying a surface token,
+annotated with the alias chain and the colour the browser painted. Covers what was added,
+how it resolves on screen, `floating`, the toned swap, the 40–60 decision point and the
+developer-relevant findings. Same surface / colour-mode switches as the validation pages.
 
 Full write-up: `validation-assessment.md` in the validation session (not committed).

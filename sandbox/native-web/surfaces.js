@@ -237,20 +237,26 @@ const PAGES = {
   dialog: { label: '3 · Dialog', render: () => dialogPage() },
 };
 
-// Alternative toned dark orders, for comparison only (see assessment).
-// Applied as overrides when html[data-surface=toned][data-mode=dark].
+// Alternative toned dark mappings, for comparison only (Part 3, decision
+// 12). Applied as overrides when html[data-surface=toned][data-mode=dark].
+// `built` is the shipped swap (base ↔ tone.1 on the three-step tier).
+// `#6289` is the mapping that issue tried (tone.1 → 20, floating → 20).
+// `optional 40–60` simulates the rejected-for-now extension: three extra
+// reference steps whose dark values equal 10–30, so toned dark = default
+// dark. Those steps do not exist in the tokens, so it is written against the
+// primitives directly.
 const TONED_DARK_ALTS = {
   built: '',
-  'A (one new step)': `
-    --hpe-color-background-surface-base: var(--hpe-color-surface-30);
-    --hpe-color-background-surface-tone-1: var(--hpe-color-surface-10);
-    --hpe-color-background-surface-tone-2: var(--hpe-color-surface-50);
-    --hpe-color-background-surface-floating: var(--hpe-color-surface-50);`,
-  'b (#6289, no new step)': `
+  '#6289 (tone.1 → 20)': `
     --hpe-color-background-surface-base: var(--hpe-color-surface-30);
     --hpe-color-background-surface-tone-1: var(--hpe-color-surface-20);
     --hpe-color-background-surface-tone-2: var(--hpe-color-surface-30);
     --hpe-color-background-surface-floating: var(--hpe-color-surface-20);`,
+  'optional 40–60 (dark = default)': `
+    --hpe-color-background-surface-base: var(--hpe-base-color-grey-1300);
+    --hpe-color-background-surface-tone-1: var(--hpe-base-color-grey-1000);
+    --hpe-color-background-surface-tone-2: var(--hpe-base-color-grey-1200);
+    --hpe-color-background-surface-floating: var(--hpe-base-color-grey-1200);`,
 };
 
 const state = {
