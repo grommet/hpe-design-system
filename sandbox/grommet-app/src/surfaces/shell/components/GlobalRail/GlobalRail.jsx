@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
@@ -121,7 +122,7 @@ const PinnedDock = () => {
 // Global rail — Capability (top) + User (bottom).
 // Persistent entry point to everything the platform can do, and everything
 // about you. Identical for every user, in every service.
-export const GlobalRail = () => {
+export const GlobalRail = ({ background = 'background-contrast', ...rest }) => {
   const { navPanel, navCollapsed, dispatch } = useShell();
   const hasNav = Boolean(navPanel);
 
@@ -131,10 +132,11 @@ export const GlobalRail = () => {
       aria-label="Global"
       width={RAIL_WIDTH}
       flex={false}
-      background="background-contrast"
+      background={background}
       pad="small"
       justify="between"
       gap="small"
+      {...rest}
     >
       <ScrollArea
         // forwardedAs: on a styled(Box), `as` would replace Box itself.
@@ -167,3 +169,5 @@ export const GlobalRail = () => {
     </Box>
   );
 };
+
+GlobalRail.propTypes = { background: PropTypes.string };

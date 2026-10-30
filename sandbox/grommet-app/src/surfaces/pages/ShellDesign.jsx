@@ -18,12 +18,24 @@ import { SHELL_READINGS, SurfaceContext } from '../shell/surfaces';
  *   framedAlt  A:  sheet and panel alternate from the chrome (tone-2)
  *   beside     the overview dashboard: page base, rail and cards tone-1
  */
+// Open with the Copilot panel and the Services capability nav showing, so
+// every architectural region (rail, nav, page, cards, contextual panel) is
+// on screen at once, as in the #6708 / #6635 designs.
+const OPEN_PANELS = [
+  { type: 'OPEN_COPILOT' },
+  { type: 'OPEN_CAPABILITY', id: 'services' },
+];
+
 export const ShellDesign = ({ reading }) => {
   const { colorMode, setColorMode } = useContext(SurfaceStateContext);
   const surfaces = useMemo(() => ({ reading, annotate: true }), [reading]);
   return (
     <SurfaceContext.Provider value={surfaces}>
-      <ShellProvider themeMode={colorMode} setThemeMode={setColorMode}>
+      <ShellProvider
+        themeMode={colorMode}
+        setThemeMode={setColorMode}
+        initialActions={OPEN_PANELS}
+      >
         <Shell layout={reading === 'beside' ? 'beside' : 'framed'} height="100%" />
       </ShellProvider>
     </SurfaceContext.Provider>

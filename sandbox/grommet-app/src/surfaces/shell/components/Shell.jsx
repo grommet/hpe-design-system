@@ -3,6 +3,7 @@
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
+  Box,
   Layer,
   Main,
   ResponsiveContext,
@@ -79,75 +80,56 @@ export const Shell = ({ layout = 'framed', height = '100vh' }) => {
     dispatch({ type: 'SET_PANEL_WIDTH', panel, width });
   const overlayNavSurface = useSurface('overlayNav');
 
-  return (
-    <Surface
-      role="chrome"
-      label={beside ? 'shell · page (beside)' : 'shell · chrome'}
-      direction="row"
-      height={height}
-      overflow="hidden"
+  const navPanelEl = !overlay && (
+    <SlidePanel
+      open={navVisible}
+      side="left"
+      width={navWidth}
+      gap={beside ? 'small' : undefined}
+      bounds={PANEL_SIZES.nav}
+      onResize={setWidth('nav')}
+      onReset={() => setWidth('nav')(PANEL_SIZES.nav.default)}
+      resizeLabel="Resize navigation"
     >
-      <SkipLinks id="skip-links">
-        <SkipLink id={MAIN_ID} label="Skip to main content" />
-      </SkipLinks>
+      <LocalNav
+        panel={renderedNav}
+        {...(beside && {
+          background: TOKENS.tone1,
+          surfaceRole: 'card',
+          round: 'medium',
+          'data-surface-token': TOKENS.tone1,
+          'data-surface-label': 'shell · nav panel',
+        })}
+      />
+    </SlidePanel>
+  );
 
-      <GlobalRail />
+  const contextPanelEl = !overlay && (
+    <SlidePanel
+      open={contextOpen}
+      side="right"
+      width={contextWidth}
+      gap="small"
+      bounds={PANEL_SIZES.context}
+      onResize={setWidth('context')}
+      onReset={() => setWidth('context')(PANEL_SIZES.context.default)}
+      resizeLabel="Resize panel"
+    >
+      <ContextualPanel
+        panel={renderedContext}
+        {...(beside && { round: 'medium' })}
+      />
+    </SlidePanel>
+  );
 
-      {/* Panels slide open and closed; the outgoing panel stays rendered
-          until the motion finishes. */}
-      {!overlay && (
-        <SlidePanel
-          open={navVisible}
-          side="left"
-          width={navWidth}
-          bounds={PANEL_SIZES.nav}
-          onResize={setWidth('nav')}
-          onReset={() => setWidth('nav')(PANEL_SIZES.nav.default)}
-          resizeLabel="Resize navigation"
-        >
-          <LocalNav
-            panel={renderedNav}
-            {...(beside && { background: TOKENS.tone1, surfaceRole: 'card' })}
-          />
-        </SlidePanel>
-      )}
+  const main = (
+    <Main flex overflow={{ vertical: 'auto' }}>
+      {fullscreen ? <CopilotPanel fullscreen /> : <CurrentPage />}
+    </Main>
+  );
 
-      <Surface
-        role="sheet"
-        label="shell · sheet"
-        flex
-        round={
-          beside || overlay
-            ? 'none'
-            : contextPanel
-              ? 'xlarge'
-              : { corner: 'left', size: 'xlarge' }
-        }
-        overflow="hidden"
-        responsive="container"
-      >
-        <GlobalHeader />
-        <SkipLinkTarget id={MAIN_ID} />
-        <Main flex overflow={{ vertical: 'auto' }}>
-          {fullscreen ? <CopilotPanel fullscreen /> : <CurrentPage />}
-        </Main>
-      </Surface>
-
-      {!overlay && (
-        <SlidePanel
-          open={contextOpen}
-          side="right"
-          width={contextWidth}
-          gap="small"
-          bounds={PANEL_SIZES.context}
-          onResize={setWidth('context')}
-          onReset={() => setWidth('context')(PANEL_SIZES.context.default)}
-          resizeLabel="Resize panel"
-        >
-          <ContextualPanel panel={renderedContext} />
-        </SlidePanel>
-      )}
-
+  const overlays = (
+    <>
       {overlay && navVisible && (
         <Layer
           position="left"
@@ -177,6 +159,94 @@ export const Shell = ({ layout = 'framed', height = '100vh' }) => {
 
       <FeedbackLayer />
       <ShellToast />
+    </>
+  );
+
+  // Beside: the rail is docked left (tone-1); to its right the header spans
+  // the page, and the nav and contextual panels are rounded tone-1
+  // containers sitting on the page beside the content, like the cards.
+  if (beside) {
+    return (
+      <Surface
+        role="chrome"
+        label="shell · page (beside)"
+        direction="row"
+        height={height}
+        overflow="hidden"
+      >
+        <SkipLinks id="skip-links">
+          <SkipLink id={MAIN_ID} label="Skip to main content" />
+        </SkipLinks>
+        <GlobalRail
+          background={TOKENS.tone1}
+          data-surface-token={TOKENS.tone1}
+          data-surface-label="shell · rail"
+        />
+        <Box flex overflow="hidden" responsive="container">
+          <GlobalHeader />
+          <SkipLinkTarget id={MAIN_ID} />
+          <Box
+            direction="row"
+            flex
+            overflow="hidden"
+            pad={{ horizontal: 'small', bottom: 'small' }}
+          >
+            {navPanelEl}
+            <Surface
+              role="sheet"
+              label="shell · page content"
+              flex
+              overflow="hidden"
+            >
+              {main}
+            </Surface>
+            {contextPanelEl}
+          </Box>
+        </Box>
+        {overlays}
+      </Surface>
+    );
+  }
+
+  return (
+    <Surface
+      role="chrome"
+      label="shell · chrome"
+      direction="row"
+      height={height}
+      overflow="hidden"
+    >
+      <SkipLinks id="skip-links">
+        <SkipLink id={MAIN_ID} label="Skip to main content" />
+      </SkipLinks>
+
+      <GlobalRail />
+
+      {/* Panels slide open and closed; the outgoing panel stays rendered
+          until the motion finishes. */}
+      {navPanelEl}
+
+      <Surface
+        role="sheet"
+        label="shell · sheet"
+        flex
+        round={
+          overlay
+            ? 'none'
+            : contextPanel
+              ? 'xlarge'
+              : { corner: 'left', size: 'xlarge' }
+        }
+        overflow="hidden"
+        responsive="container"
+      >
+        <GlobalHeader />
+        <SkipLinkTarget id={MAIN_ID} />
+        {main}
+      </Surface>
+
+      {contextPanelEl}
+      {overlays}
     </Surface>
   );
 };

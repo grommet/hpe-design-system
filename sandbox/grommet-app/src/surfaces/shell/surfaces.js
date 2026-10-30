@@ -59,14 +59,14 @@ export const SHELL_READINGS = {
   },
   beside: {
     label: 'Beside shell · Overview dashboard',
-    tokens: { ...FRAMED_TOKENS, chrome: TOKENS.base },
+    tokens: { ...FRAMED_TOKENS, chrome: TOKENS.base, panel: TOKENS.tone1 },
     notes: {
       root: 'Grommet root = the page (base)',
       chrome:
-        'no chrome surface · rail and local nav sit beside the page and carry their own tone-1',
+        'no chrome surface · the page is base edge to edge; the rail is docked left in tone-1',
       sheet: 'the page (base) · header transparent on it (decision 6)',
-      panel: 'contextual panel · base',
-      card: 'card on the page (tone-1)',
+      panel: 'contextual panel · a tone-1 container on the page, like the cards',
+      card: 'card on the page (tone-1) · the nav panel is the same',
       inner: 'panel inside a tone-1 card',
       overlayNav: 'local nav inside a Layer · a floating root',
     },

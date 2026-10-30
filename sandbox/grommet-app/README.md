@@ -29,7 +29,10 @@ resolves it to and the value the browser painted; switches for surface mode
    `4b` shows the A reading (sheet = `tone.2`). Every area carries a chip with token · theme
    value · painted value.
 5. **GreenLake beside shell · Overview dashboard** (#6635) — the same content with the chrome
-   beside the page: page `base`, rail and nav `tone.1`, cards `tone.1`, header transparent.
+   beside the page: the page is `base` edge to edge with the header on it (transparent,
+   decision 6); the rail is docked left in `tone.1`; the nav panel and the contextual panel are
+   rounded `tone.1` containers sitting on the page, like the cards; inner panels `tone.2`.
+   Both designs open with the Services nav and the GreenLake AI panel showing.
 
 The shell lives in `src/surfaces/shell/` (components, pages, data, contexts copied from the
 prototype); `shell/surfaces.js` maps its roles to the four Surface tokens for the three

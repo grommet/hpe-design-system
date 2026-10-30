@@ -5,8 +5,17 @@ import PropTypes from 'prop-types';
 import { getService } from '../data/services';
 import { ShellContext, initialState, shellReducer } from './ShellContext';
 
-export const ShellProvider = ({ children, themeMode, setThemeMode }) => {
-  const [state, dispatch] = useReducer(shellReducer, initialState);
+// `initialActions`: actions applied to the initial state before first
+// render, so a design can open with its panels showing.
+export const ShellProvider = ({
+  children,
+  themeMode,
+  setThemeMode,
+  initialActions = [],
+}) => {
+  const [state, dispatch] = useReducer(shellReducer, initialState, start =>
+    initialActions.reduce(shellReducer, start),
+  );
 
   const value = useMemo(
     () => ({
@@ -32,4 +41,5 @@ ShellProvider.propTypes = {
   children: PropTypes.node,
   themeMode: PropTypes.oneOf(['light', 'dark']).isRequired,
   setThemeMode: PropTypes.func.isRequired,
+  initialActions: PropTypes.arrayOf(PropTypes.object),
 };
