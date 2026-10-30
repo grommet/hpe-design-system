@@ -289,13 +289,13 @@ const DevicesOnboarded = props => {
 // ---------------------------------------------------------------------------
 // Section
 // ---------------------------------------------------------------------------
-// The two charts (cost, CPU) take twice the width of the smaller cards and
-// the device map spans two columns, so this region is laid out per
+// The cost chart and device map take twice the width of the smaller cards
+// and the CPU chart closes the section, so this region is laid out per
 // breakpoint rather than as a fluid grid.
 const stacked = {
   columns: ['flex'],
   rows: ['auto', 'auto', 'auto', 'auto', 'auto'],
-  areas: [['cost'], ['cpu'], ['attention'], ['sla'], ['devices']],
+  areas: [['cost'], ['attention'], ['sla'], ['devices'], ['cpu']],
 };
 
 const layout = {
@@ -306,17 +306,17 @@ const layout = {
     rows: ['auto', 'auto', 'auto', 'auto'],
     areas: [
       ['cost', 'cost'],
-      ['cpu', 'cpu'],
       ['attention', 'sla'],
       ['devices', 'devices'],
+      ['cpu', 'cpu'],
     ],
   },
   large: {
     columns: ['flex', 'flex', 'flex', 'flex'],
     rows: ['auto', 'auto'],
     areas: [
-      ['cost', 'cost', 'cpu', 'cpu'],
-      ['attention', 'sla', 'devices', 'devices'],
+      ['cost', 'cost', 'attention', 'sla'],
+      ['devices', 'devices', 'cpu', 'cpu'],
     ],
   },
 };
@@ -333,10 +333,10 @@ export const WeekAtAGlance = () => {
       </Heading>
       <Grid columns={columns} rows={rows} areas={areas} gap="small">
         <CostTrend gridArea="cost" />
-        <CpuDemand gridArea="cpu" />
         <NeedsAttention gridArea="attention" />
         <SlaPerformance gridArea="sla" />
         <DevicesOnboarded gridArea="devices" />
+        <CpuDemand gridArea="cpu" />
       </Grid>
     </Box>
   );

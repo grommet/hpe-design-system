@@ -33,7 +33,7 @@ To restore the demo app, point `main.jsx` back at `./App.jsx`.
 
 | # | Scenario | How to get there |
 |---|----------|------------------|
-| 1 | HPE GreenLake home | Default view, or **Home** in the rail / the brand logo. Follows the overview dashboard template: *Health overview* (server health, firmware compliance, utilization, subscriptions — figures reconcile with the Compute overview and verdicts drill into it), *This week at a glance* (cost trend, CPU demand, needs attention, SLA, devices onboarded this week), *Discover services* |
+| 1 | HPE GreenLake home | Default view, or **Home** in the rail / the brand logo. Follows the overview dashboard template: *Health overview* (server health, firmware compliance, utilization, subscriptions — figures reconcile with the Compute overview and verdicts drill into it), *This week at a glance* (cost trend, needs attention, SLA, devices onboarded this week, CPU demand), *Discover services* |
 | 2 | Compute home | Rail → **Services** → *HPE Compute Ops Management* (also via **Recent**, the home "My services" widget, or the pinned dock) |
 | 3 | Copilot panel open | Rail → **GreenLake AI** (sparkle). Close with the X in the panel or click the sparkle again. The expand icon (or "Open in full screen" in the panel menu) moves the conversation into the content area; contract/"Exit full screen" returns it |
 | 4 | Copilot "nav panel" | Opens in the navigation slot together with the panel; shows favorites + chat/canvas history. Pick a session to load it; send a prompt to append a (simulated) reply |
