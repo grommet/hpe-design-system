@@ -19,6 +19,7 @@ import {
 } from 'grommet';
 import { Info, LinkNext } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
+import { CpuDemand } from './CpuDemand';
 import {
   MetricValue,
   ShellCard,
@@ -317,12 +318,13 @@ const DevicesOnboarded = props => {
 // ---------------------------------------------------------------------------
 // Section
 // ---------------------------------------------------------------------------
-// Cost trend is twice the width of its peers and the device map spans two
-// rows, so this region is laid out per breakpoint rather than as a fluid grid.
+// The two charts (cost, CPU) take twice the width of the smaller cards and
+// the device map spans two columns, so this region is laid out per
+// breakpoint rather than as a fluid grid.
 const stacked = {
   columns: ['flex'],
-  rows: ['auto', 'auto', 'auto', 'auto'],
-  areas: [['cost'], ['attention'], ['sla'], ['devices']],
+  rows: ['auto', 'auto', 'auto', 'auto', 'auto'],
+  areas: [['cost'], ['cpu'], ['attention'], ['sla'], ['devices']],
 };
 
 const layout = {
@@ -330,9 +332,10 @@ const layout = {
   small: stacked,
   medium: {
     columns: ['flex', 'flex'],
-    rows: ['auto', 'auto', 'auto'],
+    rows: ['auto', 'auto', 'auto', 'auto'],
     areas: [
       ['cost', 'cost'],
+      ['cpu', 'cpu'],
       ['attention', 'sla'],
       ['devices', 'devices'],
     ],
@@ -341,7 +344,7 @@ const layout = {
     columns: ['flex', 'flex', 'flex', 'flex'],
     rows: ['auto', 'auto'],
     areas: [
-      ['cost', 'cost', 'devices', 'devices'],
+      ['cost', 'cost', 'cpu', 'cpu'],
       ['attention', 'sla', 'devices', 'devices'],
     ],
   },
@@ -359,6 +362,7 @@ export const WeekAtAGlance = () => {
       </Heading>
       <Grid columns={columns} rows={rows} areas={areas} gap="small">
         <CostTrend gridArea="cost" />
+        <CpuDemand gridArea="cpu" />
         <NeedsAttention gridArea="attention" />
         <SlaPerformance gridArea="sla" />
         <DevicesOnboarded gridArea="devices" />

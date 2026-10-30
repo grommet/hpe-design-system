@@ -78,6 +78,17 @@ export const countStatus = (count, severity = 'warning') =>
   count ? severity : 'ok';
 
 // This week at a glance
+// Daily CPU demand; the summaries reconcile with the Health overview tile.
+export const cpuDemand = [
+  { day: 'Mon', average: 56, peak: 74 },
+  { day: 'Tue', average: 60, peak: 79 },
+  { day: 'Wed', average: 63, peak: 82 },
+  { day: 'Thu', average: 65, peak: 86 },
+  { day: 'Fri', average: 68, peak: 91 },
+  { day: 'Sat', average: 61, peak: 78 },
+  { day: 'Sun', average: 61, peak: 76 },
+];
+
 export const budget = 265;
 
 // Monthly spend in thousands of USD.
