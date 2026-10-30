@@ -13,7 +13,14 @@ import {
   Text,
   WorldMap,
 } from 'grommet';
-import { Filter, LinkNext, List, Map } from '@hpe-design/icons-grommet';
+import {
+  Filter,
+  LinkNext,
+  List,
+  Map,
+  StatusGood,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 import { useShell } from '../contexts/ShellContext';
 import { DonutMetric, Legend, ShellCard } from '../components/common';
 import {
@@ -77,42 +84,46 @@ const ComplianceCard = () => {
   );
 };
 
-const NeedsAttentionCard = () => {
-  return (
-    <ShellCard title={needsAttention.title}>
-      <Box direction="row" wrap>
-        {needsAttention.items.map((item, index) => {
-          const ItemIcon = item.icon;
-          return (
-            <Box
-              key={item.label}
-              direction="row"
-              gap="small"
-              align="start"
-              pad={{
-                right: 'medium',
-                left: index > 0 ? 'medium' : undefined,
-                vertical: 'xsmall',
-              }}
-              border={
-                index > 0 ? { side: 'left', color: 'border-weak' } : undefined
-              }
-              flex="grow"
-            >
-              <Box>
-                <Text size="xlarge" weight={500} color="text-strong">
-                  {item.value}
-                </Text>
-                <Text size="xsmall">{item.label}</Text>
+// "Good is zero" counts, laid out like the docs' Measure: a small status
+// icon inline before the label, the value beneath. Non-zero counts take the
+// warning shape; zero counts stay quiet.
+const NeedsAttentionCard = () => (
+  <ShellCard title={needsAttention.title}>
+    {/* Same fit grid as the docs dashboard StatusBar: measures sit side by
+        side when there is room and wrap cleanly when there is not. */}
+    <Grid
+      columns={{ count: 'fit', size: ['3xsmall', 'auto'] }}
+      gap={{ column: 'xlarge', row: 'medium' }}
+    >
+      {needsAttention.items.map(item => {
+        const exception = item.value > 0;
+        return (
+          <Box key={item.label}>
+            <Box direction="row" align="start" gap="xsmall">
+              {/* centre the 12px icon on the first 20px line of the label,
+                  so it stays put when the label wraps */}
+              <Box flex={false} margin={{ top: '4xsmall' }}>
+                {exception ? (
+                  <StatusWarning
+                    size="xsmall"
+                    color="status-warning"
+                    a11yTitle="Warning"
+                  />
+                ) : (
+                  <StatusGood size="xsmall" color="status-ok" a11yTitle="OK" />
+                )}
               </Box>
-              <ItemIcon color="icon-weak" aria-hidden="true" />
+              <Text size="small">{item.label}</Text>
             </Box>
-          );
-        })}
-      </Box>
-    </ShellCard>
-  );
-};
+            <Text size="xxlarge" weight={500} color="text-strong">
+              {item.value}
+            </Text>
+          </Box>
+        );
+      })}
+    </Grid>
+  </ShellCard>
+);
 
 const SustainabilityCard = () => {
   return (

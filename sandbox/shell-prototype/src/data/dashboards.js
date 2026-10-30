@@ -1,7 +1,5 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { Analytics, Cpu, Device } from '@hpe-design/icons-grommet';
-
 // ---------------------------------------------------------------------------
 // HPE Compute Ops Management
 // ---------------------------------------------------------------------------
@@ -66,9 +64,9 @@ export const groupsCompliance = {
 export const needsAttention = {
   title: 'Needs attention',
   items: [
-    { label: 'Servers not connected', value: 1, icon: Cpu },
-    { label: 'Servers inactive', value: 0, icon: Device },
-    { label: 'Utilization alerts', value: 2, icon: Analytics },
+    { label: 'Servers not connected', value: 1 },
+    { label: 'Servers inactive', value: 0 },
+    { label: 'Utilization alerts', value: 2 },
   ],
 };
 
