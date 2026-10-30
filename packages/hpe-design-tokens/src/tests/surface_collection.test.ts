@@ -96,7 +96,11 @@ const PRIMITIVE_HEX = {
 } as const;
 
 // Expected resolution for every surface mode x colour mode (decisions 2b,
-// 3, 11b; toned dark order recorded in the validation assessment).
+// 3, 11b). `toned` is the value swap from #6020 "Why the Pair Is Invertible"
+// expressed on the three-step tier: base and tone.1 exchange steps, tone.2
+// and floating follow the grey step (30). In light that is the documented
+// grey page / white containers / grey nested; in dark it is a reordering to
+// two values (page 1000, containers 1300) — the recorded Part 3 answer.
 const EXPECTED = {
   default: {
     light: {
@@ -120,10 +124,10 @@ const EXPECTED = {
       floating: 'grey.50',
     },
     dark: {
-      base: 'grey.1300',
-      'tone.1': 'grey.1000',
-      'tone.2': 'grey.1200',
-      floating: 'grey.1200',
+      base: 'grey.1000',
+      'tone.1': 'grey.1300',
+      'tone.2': 'grey.1000',
+      floating: 'grey.1000',
     },
   },
 } as const;
@@ -193,6 +197,16 @@ describe('surface collection: token files', () => {
       expect(leaf(surface, CONSUMER_TOKENS.floating).$value).toBe(
         leaf(surface, CONSUMER_TOKENS['tone.2']).$value,
       );
+    });
+  });
+
+  it('keeps the reference tier at the three specified steps (#6073)', () => {
+    COLOR_FILES.forEach(colorFile => {
+      expect(Object.keys(readJson(colorFile).color.surface)).toEqual([
+        '10',
+        '20',
+        '30',
+      ]);
     });
   });
 
@@ -355,16 +369,16 @@ describe('surface collection: build outputs', () => {
     expect(tonedCss).toContain('[data-surface=toned] {');
     expect(tonedCss).not.toContain(':root');
     expect(tonedCss).toContain(
-      '--hpe-color-background-surface-base: var(--hpe-color-surface-40);',
+      '--hpe-color-background-surface-base: var(--hpe-color-surface-30);',
     );
     expect(tonedCss).toContain(
-      '--hpe-color-background-surface-tone-1: var(--hpe-color-surface-60);',
+      '--hpe-color-background-surface-tone-1: var(--hpe-color-surface-10);',
     );
     expect(tonedCss).toContain(
-      '--hpe-color-background-surface-tone-2: var(--hpe-color-surface-50);',
+      '--hpe-color-background-surface-tone-2: var(--hpe-color-surface-30);',
     );
     expect(tonedCss).toContain(
-      '--hpe-color-background-surface-floating: var(--hpe-color-surface-50);',
+      '--hpe-color-background-surface-floating: var(--hpe-color-surface-30);',
     );
   });
 
@@ -378,10 +392,10 @@ describe('surface collection: build outputs', () => {
     });
     const toned = readEsmDefault(`${BUILD_DIR}grommet/surface.toned.js`);
     expect(toned.hpe.color.background).toEqual({
-      'surface-base': 'surface-40',
-      'surface-floating': 'surface-50',
-      'surface-tone-1': 'surface-60',
-      'surface-tone-2': 'surface-50',
+      'surface-base': 'surface-30',
+      'surface-floating': 'surface-30',
+      'surface-tone-1': 'surface-10',
+      'surface-tone-2': 'surface-30',
     });
   });
 
@@ -442,9 +456,6 @@ describe('surface collection: Figma variables payload and round trip', () => {
       'color/surface/10',
       'color/surface/20',
       'color/surface/30',
-      'color/surface/40',
-      'color/surface/50',
-      'color/surface/60',
     ]);
     refs.forEach(v => {
       expect(v.variableCollectionId).toBe('color');
@@ -486,16 +497,16 @@ describe('surface collection: Figma variables payload and round trip', () => {
       'color/surface/20',
     );
     expect(aliasFor('color/background/surface-base', 'toned')).toBe(
-      'color/surface/40',
+      'color/surface/30',
     );
     expect(aliasFor('color/background/surface-tone-1', 'toned')).toBe(
-      'color/surface/60',
+      'color/surface/10',
     );
     expect(aliasFor('color/background/surface-tone-2', 'toned')).toBe(
-      'color/surface/50',
+      'color/surface/30',
     );
     expect(aliasFor('color/background/surface-floating', 'toned')).toBe(
-      'color/surface/50',
+      'color/surface/30',
     );
   });
 

@@ -97,9 +97,9 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
   decorative: ['blue', 'brand', 'cyan', 'green', 'neutral', 'purple'],
   focus: ['support'],
   foreground: ['critical', 'info', 'ok', 'primary', 'unknown', 'warning'],
-  // Abstract tens ordinals. 10-30 is the default chain, 40-60 the toned
-  // chain; each chain is ordered by distance from its page value.
-  surface: ['10', '20', '30', '40', '50', '60'],
+  // Abstract tens ordinals, a three-step scale (#6073: 10 darkest, 30
+  // lightest in dark; 10 and 20 share a value in light). Insertable (15, 25).
+  surface: ['10', '20', '30'],
   icon: [
     'critical',
     'default',

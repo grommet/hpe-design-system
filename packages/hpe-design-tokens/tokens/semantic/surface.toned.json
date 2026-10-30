@@ -14,7 +14,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.surface.40.DEFAULT.REST}"
+              "$value": "{color.surface.30.DEFAULT.REST}"
             }
           }
         },
@@ -30,7 +30,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.surface.50.DEFAULT.REST}"
+              "$value": "{color.surface.30.DEFAULT.REST}"
             }
           }
         },
@@ -47,7 +47,7 @@
                   }
                 },
                 "$type": "color",
-                "$value": "{color.surface.60.DEFAULT.REST}"
+                "$value": "{color.surface.10.DEFAULT.REST}"
               }
             }
           },
@@ -63,7 +63,7 @@
                   }
                 },
                 "$type": "color",
-                "$value": "{color.surface.50.DEFAULT.REST}"
+                "$value": "{color.surface.30.DEFAULT.REST}"
               }
             }
           }
