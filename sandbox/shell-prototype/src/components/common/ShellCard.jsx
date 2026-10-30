@@ -11,6 +11,13 @@ import {
   Stack,
   Text,
 } from 'grommet';
+import {
+  StatusCritical,
+  StatusDisabled,
+  StatusGood,
+  StatusUnknown,
+  StatusWarning,
+} from '@hpe-design/icons-grommet';
 
 // Dashboard card surface following the overview dashboard template: header
 // with a level-3 heading, optional subtitle and action; body padded
@@ -76,18 +83,42 @@ ShellCard.propTypes = {
   pad: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
+// Status legends pair each colour with its shape so status is never
+// conveyed by colour alone (design-system StatusIndicator pattern).
+// Values without a `status` (plain categories) fall back to a colour dot.
+const STATUS_ICONS = {
+  critical: StatusCritical,
+  warning: StatusWarning,
+  ok: StatusGood,
+  unknown: StatusUnknown,
+  disabled: StatusDisabled,
+};
+
+const LegendSwatch = ({ status, color }) => {
+  const Icon = STATUS_ICONS[status];
+  if (Icon) return <Icon size="small" color={color} aria-hidden="true" />;
+  return (
+    <Box
+      width="8px"
+      height="8px"
+      round="full"
+      background={color}
+      flex={false}
+    />
+  );
+};
+
+LegendSwatch.propTypes = {
+  status: PropTypes.oneOf(Object.keys(STATUS_ICONS)),
+  color: PropTypes.string.isRequired,
+};
+
 export const Legend = ({ values, showValues = true }) => (
   <Box gap="3xsmall" flex>
     {values.map(item => (
       <Box key={item.label} direction="row" justify="between" gap="small">
         <Box direction="row" gap="xsmall" align="center">
-          <Box
-            width="8px"
-            height="8px"
-            round="full"
-            background={item.color}
-            flex={false}
-          />
+          <LegendSwatch status={item.status} color={item.color} />
           <Text size="xsmall">{item.label}</Text>
         </Box>
         {showValues && (
@@ -106,6 +137,7 @@ Legend.propTypes = {
       label: PropTypes.string.isRequired,
       value: PropTypes.number,
       color: PropTypes.string.isRequired,
+      status: PropTypes.oneOf(Object.keys(STATUS_ICONS)),
     }),
   ).isRequired,
   showValues: PropTypes.bool,

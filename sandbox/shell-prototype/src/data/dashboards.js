@@ -21,11 +21,16 @@ export const serversHealth = {
   total: 23,
   unit: 'Servers',
   values: [
-    { label: 'Critical', value: 3, color: 'status-critical' },
-    { label: 'Warning', value: 3, color: 'status-warning' },
-    { label: 'Ok', value: 15, color: 'status-ok' },
-    { label: 'Unknown', value: 2, color: 'status-unknown' },
-    { label: 'Disabled', value: 0, color: 'text-weak' },
+    {
+      label: 'Critical',
+      value: 3,
+      color: 'status-critical',
+      status: 'critical',
+    },
+    { label: 'Warning', value: 3, color: 'status-warning', status: 'warning' },
+    { label: 'Ok', value: 15, color: 'status-ok', status: 'ok' },
+    { label: 'Unknown', value: 2, color: 'status-unknown', status: 'unknown' },
+    { label: 'Disabled', value: 0, color: 'text-weak', status: 'disabled' },
   ],
 };
 
@@ -35,11 +40,16 @@ export const iloSecurity = {
   total: 23,
   unit: 'Servers',
   values: [
-    { label: 'Critical', value: 1, color: 'status-critical' },
-    { label: 'Warning', value: 2, color: 'status-warning' },
-    { label: 'Ok', value: 18, color: 'status-ok' },
-    { label: 'Unknown', value: 2, color: 'status-unknown' },
-    { label: 'Unsupported', value: 0, color: 'text-weak' },
+    {
+      label: 'Critical',
+      value: 1,
+      color: 'status-critical',
+      status: 'critical',
+    },
+    { label: 'Warning', value: 2, color: 'status-warning', status: 'warning' },
+    { label: 'Ok', value: 18, color: 'status-ok', status: 'ok' },
+    { label: 'Unknown', value: 2, color: 'status-unknown', status: 'unknown' },
+    { label: 'Unsupported', value: 0, color: 'text-weak', status: 'disabled' },
   ],
 };
 
@@ -49,10 +59,20 @@ export const groupsCompliance = {
   nonCompliant: 0,
   percent: 100,
   values: [
-    { label: 'Not compliant', value: 0, color: 'status-critical' },
+    {
+      label: 'Not compliant',
+      value: 0,
+      color: 'status-critical',
+      status: 'critical',
+    },
     { label: 'Compliant', value: 2, color: 'dataVis-categorical-10' },
-    { label: 'Unknown', value: 0, color: 'status-unknown' },
-    { label: 'Not applicable', value: 0, color: 'text-weak' },
+    { label: 'Unknown', value: 0, color: 'status-unknown', status: 'unknown' },
+    {
+      label: 'Not applicable',
+      value: 0,
+      color: 'text-weak',
+      status: 'disabled',
+    },
   ],
 };
 
