@@ -6,3 +6,4 @@ export * from './PlaceholderTable';
 export * from './Metric';
 export * from './useElementWidth';
 export * from './Selector';
+export * from './ChartLegend';

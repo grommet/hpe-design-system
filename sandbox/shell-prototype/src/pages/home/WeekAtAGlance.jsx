@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
 import {
   Anchor,
   Box,
@@ -14,13 +13,13 @@ import {
   Stack,
   Tag,
   Text,
-  ThemeContext,
   WorldMap,
 } from 'grommet';
 import { Info, LinkNext } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
 import { CpuDemand } from './CpuDemand';
 import {
+  ChartLegendItem,
   MetricValue,
   ShellCard,
   StatusCount,
@@ -57,38 +56,6 @@ const bounds = {
 };
 
 const series = { color: 'dataVis-categorical-10', thickness: '5xsmall' };
-
-const legendValues = [{ value: [0, 0.5] }, { value: [1, 0.5] }];
-const legendBounds = { x: { min: 0, max: 1 }, y: { min: 0, max: 1 } };
-
-// Legend swatches are miniature charts so their strokes match the plot.
-const LegendItem = ({ dash, label }) => {
-  const theme = useContext(ThemeContext);
-  return (
-    <Box direction="row" align="center" gap="3xsmall">
-      <Chart
-        type="line"
-        values={legendValues}
-        bounds={legendBounds}
-        size={{
-          width: theme.global.edgeSize.small,
-          height: theme.global.edgeSize[series.thickness],
-        }}
-        dash={dash}
-        round
-        overflow
-        aria-hidden="true"
-        {...series}
-      />
-      <Text size="small">{label}</Text>
-    </Box>
-  );
-};
-
-LegendItem.propTypes = {
-  dash: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-};
 
 const CostTrend = props => {
   // Measure the plot area so the chart tracks the card width as shell
@@ -142,8 +109,12 @@ const CostTrend = props => {
           </Box>
         </Box>
         <Box direction="row" gap="small" wrap>
-          <LegendItem label="Actual" />
-          <LegendItem label={`Budget ${formatCost(budget)}`} dash />
+          <ChartLegendItem color={series.color} label="Actual" />
+          <ChartLegendItem
+            color={series.color}
+            label={`Budget ${formatCost(budget)}`}
+            dash
+          />
         </Box>
       </Box>
     </ShellCard>
