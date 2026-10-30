@@ -1,0 +1,193 @@
+/* Surface token validation (#6071) — native-web environment.
+ * Every surface is a plain element whose background is one built custom
+ * property. Theme and mode are two independent attributes on <html>:
+ *   data-mode=light|dark      -> dist/css/color.<mode>.css
+ *   data-surface=default|toned -> dist/css/surface.<mode>.css
+ */
+
+:root {
+  font-family: Metric, Arial, sans-serif;
+  color: var(--hpe-color-text-default);
+  background-color: var(--hpe-color-background-surface-base);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Surfaces: the token is the attribute, the background is the property. */
+.surface {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.surface[data-surface-token='background-surface-base'] {
+  background-color: var(--hpe-color-background-surface-base);
+}
+.surface[data-surface-token='background-surface-tone-1'] {
+  background-color: var(--hpe-color-background-surface-tone-1);
+}
+.surface[data-surface-token='background-surface-tone-2'] {
+  background-color: var(--hpe-color-background-surface-tone-2);
+}
+.surface[data-surface-token='background-surface-floating'] {
+  background-color: var(--hpe-color-background-surface-floating);
+  box-shadow: var(--hpe-shadow-large);
+}
+.surface[data-surface-token='none'] {
+  background-color: transparent;
+}
+/* decision 14, stranded case: a literal value, not a token */
+.surface[data-surface-token='#f7f7f7'] {
+  background-color: #f7f7f7;
+}
+.surface.bordered {
+  border: 1px solid var(--hpe-color-border-weak);
+}
+.surface.square {
+  border-radius: 0;
+}
+.surface.rounded {
+  border-radius: var(--hpe-radius-medium, 12px);
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+}
+.meta {
+  font-size: 12px;
+  color: var(--hpe-color-text-weak);
+  margin: 0;
+}
+
+/* Layout helpers */
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: stretch;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fill {
+  min-height: calc(100vh - 56px);
+}
+.flex {
+  flex: 1;
+  min-width: 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.w-small {
+  width: 200px;
+  flex: 0 0 200px;
+}
+.w-medium {
+  width: 300px;
+  flex: 0 0 300px;
+}
+.w-rail {
+  width: 56px;
+  flex: 0 0 56px;
+  align-items: center;
+}
+
+/* Controls bar: background-contrast, not a surface (decision 20) */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--hpe-color-background-contrast);
+  border-bottom: 1px solid var(--hpe-color-border-weak);
+  font-size: 14px;
+}
+.controls button {
+  font: inherit;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--hpe-color-border-weak);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.controls button[aria-pressed='true'] {
+  background: var(--hpe-color-background-primary-strong);
+  color: var(--hpe-color-text-onPrimaryStrong);
+  border-color: transparent;
+}
+
+/* Minimal component stand-ins (decision 16 checks) */
+.btn-secondary {
+  font: inherit;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--hpe-color-background-contrast);
+  color: var(--hpe-color-text-default);
+  cursor: pointer;
+}
+.btn-primary {
+  font: inherit;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--hpe-color-background-primary-strong);
+  color: var(--hpe-color-text-onPrimaryStrong);
+}
+.nav-item {
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+.nav-item:hover {
+  background: var(--hpe-color-background-hover);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+td,
+th {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--hpe-color-border-weak);
+}
+tr[aria-selected='true'] td {
+  background: var(--hpe-color-background-active);
+}
+
+/* Dialog page: scrim + floating panel */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: var(--hpe-color-background-screenOverlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dialog {
+  width: 560px;
+  max-width: 90vw;
+}
+.drop {
+  position: absolute;
+  width: 240px;
+  box-shadow: var(--hpe-shadow-medium);
+}
+.anchor {
+  position: relative;
+}
