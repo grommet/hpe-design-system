@@ -5,7 +5,7 @@ import { Box } from 'grommet';
 import { AddResourceWizard } from 'apps/docs/src/examples/templates/wizard/AddResourceWizard';
 import { TwoColumnWizardExample } from 'apps/docs/src/examples/templates/wizard/TwoColumnWizardExample';
 import { WizardValidationExample } from 'apps/docs/src/examples/templates/wizard/WizardValidationExample';
-import AddResourceWizardSource from 'apps/docs/src/examples/templates/wizard/AddResourceWizard.js?raw';
+import AddResourceWizardSource from 'apps/docs/src/examples/templates/wizard/AddResourceWizard.tsx?raw';
 import TwoColumnWizardExampleSource from 'apps/docs/src/examples/templates/wizard/TwoColumnWizardExample.js?raw';
 import WizardValidationExampleSource from 'apps/docs/src/examples/templates/wizard/WizardValidationExample.js?raw';
 
@@ -63,7 +63,7 @@ export const AddResource = {
     docs: {
       source: {
         code: AddResourceWizardSource,
-        language: 'jsx',
+        language: 'tsx',
         type: 'code',
       },
       canvas: {

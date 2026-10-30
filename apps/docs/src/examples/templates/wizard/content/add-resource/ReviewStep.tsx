@@ -1,12 +1,16 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React from 'react';
 import { Box, NameValueList, NameValuePair, Text, useWizard } from 'grommet';
 import { FormSection } from './FormSection';
-import { deploymentModels, getLabel, resourceTypes } from './data';
+import {
+  deploymentModels,
+  getLabel,
+  resourceTypes,
+  type ResourceFormValues,
+} from './data';
 
 export const ReviewStep = () => {
-  const { formValue } = useWizard();
+  const { formValue } = useWizard<ResourceFormValues>();
 
   return (
     <Box gap="large">

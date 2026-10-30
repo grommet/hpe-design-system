@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React from 'react';
 import { Box, CheckBox, FormField, Select, TextInput } from 'grommet';
 import { FormSection } from './FormSection';
 import { regions } from './data';

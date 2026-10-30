@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React from 'react';
+import type { WizardStep } from 'grommet';
+import type { ResourceFormValues } from './data';
 import { ResourceDetailsStep } from './ResourceDetailsStep';
 import { NetworkingStep } from './NetworkingStep';
 import { ReviewStep } from './ReviewStep';
@@ -11,7 +12,7 @@ export * from './FormSection';
 // Wizard wraps each step in a Form, so FormField `required` rules are
 // validated automatically. `validate` covers inputs that are not form
 // fields; returning a string blocks navigation and shows the message.
-export const steps = [
+export const steps: WizardStep<ResourceFormValues>[] = [
   {
     id: 'resource-details',
     title: 'Configure resource details',

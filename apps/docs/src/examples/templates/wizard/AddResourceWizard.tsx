@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React, { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useRef, useState } from 'react';
+import type { RefObject } from 'react';
 import {
   Box,
   Wizard,
@@ -13,12 +13,19 @@ import {
 import { CancellationLayer } from './components';
 import {
   defaultFormValues,
+  type ResourceFormValues,
   pageBackground,
   steps,
   wizardTitle,
 } from './content/add-resource';
 
-export const AddResourceWizard = ({ containerRef }) => {
+type AddResourceWizardProps = {
+  containerRef?: RefObject<HTMLElement | null>;
+};
+
+export const AddResourceWizard = ({
+  containerRef,
+}: AddResourceWizardProps) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [open, setOpen] = useState(false);
@@ -28,11 +35,11 @@ export const AddResourceWizard = ({ containerRef }) => {
   const reset = () => setWizardKey(key => key + 1);
   // Wizard's built-in scroll reset targets its own container, so the
   // composed scroll region below is reset explicitly on each step change.
-  const bodyRef = useRef();
+  const bodyRef = useRef<HTMLDivElement>(null);
 
   return (
     <Box fill background={pageBackground}>
-      <Wizard
+      <Wizard<ResourceFormValues>
         key={wizardKey}
         id="add-resource-wizard"
         aria-label={wizardTitle}
@@ -90,8 +97,4 @@ export const AddResourceWizard = ({ containerRef }) => {
       )}
     </Box>
   );
-};
-
-AddResourceWizard.propTypes = {
-  containerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
