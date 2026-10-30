@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { Children, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, Heading, ResponsiveContext } from 'grommet';
+import { Anchor, Box, Grid, Heading, ResponsiveContext } from 'grommet';
 import { Certificate, Cpu } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
 import {
@@ -42,8 +42,10 @@ MetricGroup.propTypes = {
 };
 
 // Health overview — a compute user's four questions: is the estate
-// healthy, is it current, is it busy, will it keep running. Exceptions link
-// to the place to deal with them (mixed-actions variant).
+// healthy, is it current, is it busy, will it keep running. Only genuine
+// exceptions get a status row; informational counts are linked from the
+// description so one tile stands out instead of four (mixed-actions
+// variant of the overview dashboard template).
 export const HealthOverview = () => {
   const { dispatch } = useShell();
   const { servers, firmware, utilization, subscriptions } = health;
@@ -52,10 +54,11 @@ export const HealthOverview = () => {
     servers: serversStatus(servers),
     firmware: firmwareStatus(firmware),
     utilization: utilizationStatus(utilization),
-    subscriptions: countStatus(subscriptions.expiring),
+    subscriptions: countStatus(subscriptions.expiringSoon),
   };
   const attention = servers.critical + servers.warning;
   const compliance = firmwarePercent(firmware);
+  const pending = firmware.total - firmware.compliant;
 
   const openCompute = pageId => () =>
     dispatch({ type: 'OPEN_SERVICE', serviceId: 'compute', pageId });
@@ -89,7 +92,25 @@ export const HealthOverview = () => {
         </MetricTile>
         <MetricTile
           title="Firmware compliance"
-          description={`Updates available for ${firmware.updatesAvailable} ${firmware.generation} servers.`}
+          description={
+            <>
+              {pending ? (
+                <>
+                  <Anchor
+                    size="inherit"
+                    onClick={openCompute('firmware-baselines')}
+                  >
+                    {pending} {pending === 1 ? 'server' : 'servers'}
+                  </Anchor>{' '}
+                  pending {firmware.baseline}.
+                </>
+              ) : (
+                `All servers on ${firmware.baseline}.`
+              )}{' '}
+              {firmware.updatesAvailable} {firmware.generation} updates
+              available.
+            </>
+          }
         >
           <MetricValue value={compliance} unit="%" />
           <StatusBar
@@ -99,18 +120,33 @@ export const HealthOverview = () => {
             value={compliance}
             status={status.firmware}
           />
-          <QuietStatusRow
-            status={status.firmware}
-            onClick={linkIf(status.firmware, openCompute('firmware-baselines'))}
-          >
-            {firmware.total - firmware.compliant
-              ? `${firmware.total - firmware.compliant} servers below baseline ${firmware.baseline}`
-              : `All servers on ${firmware.baseline}`}
-          </QuietStatusRow>
+          {status.firmware !== 'ok' && (
+            <QuietStatusRow
+              status={status.firmware}
+              onClick={openCompute('firmware-baselines')}
+            >
+              Below {targets.firmwareWarning}% compliance target
+            </QuietStatusRow>
+          )}
         </MetricTile>
         <MetricTile
           title="Utilization"
-          description={`Peak ${utilization.peakCpu}% on ${utilization.peakServer} this week.`}
+          description={
+            <>
+              {utilization.alerts ? (
+                <Anchor
+                  size="inherit"
+                  onClick={openCompute('ai-insights-overview')}
+                >
+                  {utilization.alerts} utilization alerts
+                </Anchor>
+              ) : (
+                'No utilization alerts'
+              )}{' '}
+              this week; peak {utilization.peakCpu}% on {utilization.peakServer}
+              .
+            </>
+          }
         >
           <MetricValue value={utilization.averageCpu} unit="% avg CPU" />
           <StatusBar
@@ -120,24 +156,32 @@ export const HealthOverview = () => {
             value={utilization.averageCpu}
             status={status.utilization}
           />
-          <QuietStatusRow
-            status={status.utilization}
-            onClick={linkIf(
-              status.utilization,
-              openCompute('ai-insights-overview'),
-            )}
-          >
-            {utilization.alerts
-              ? `${utilization.alerts} utilization alerts`
-              : 'Within capacity headroom'}
-          </QuietStatusRow>
+          {status.utilization !== 'ok' && (
+            <QuietStatusRow
+              status={status.utilization}
+              onClick={openCompute('ai-insights-overview')}
+            >
+              Above {targets.utilizationWarning}% average
+            </QuietStatusRow>
+          )}
         </MetricTile>
         <MetricTile
           title="Subscriptions"
-          description={`Next renewal ${subscriptions.nextRenewal} · ${formatCount(subscriptions.devices)} device subscriptions.`}
+          description={
+            <>
+              <Anchor
+                size="inherit"
+                onClick={openPlatform('service-subscriptions')}
+              >
+                {subscriptions.renewalsDue} renewals
+              </Anchor>{' '}
+              due by {subscriptions.nextRenewal} ·{' '}
+              {formatCount(subscriptions.devices)} device subscriptions.
+            </>
+          }
         >
           <MetricValue
-            value={subscriptions.total - subscriptions.expiring}
+            value={subscriptions.total - subscriptions.expiringSoon}
             unit={`of ${subscriptions.total} active`}
           />
           <QuietStatusRow
@@ -148,9 +192,9 @@ export const HealthOverview = () => {
             )}
             icon={<Certificate aria-hidden="true" />}
           >
-            {subscriptions.expiring
-              ? `${subscriptions.expiring} expire within ${targets.renewalWindow} days`
-              : 'No renewals due'}
+            {subscriptions.expiringSoon
+              ? `${subscriptions.expiringSoon} expire within ${targets.renewalWarning} days`
+              : 'All active'}
           </QuietStatusRow>
         </MetricTile>
       </MetricGroup>

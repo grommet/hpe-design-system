@@ -7,13 +7,14 @@
 // Health overview — a compute user's view of the platform. Figures
 // reconcile with the Compute Ops Management overview (23 servers: 3
 // critical, 3 warning, 2 utilization alerts, SPP 2025.03 recommended) and
-// the subscription summaries.
+// the subscription summaries. Only genuine exceptions take a status; the
+// rest is stated quietly so the one thing that needs attention stands out.
 export const targets = {
   firmwareWarning: 95, // percent compliant
   firmwareCritical: 80,
   utilizationWarning: 80, // percent average CPU
   utilizationCritical: 90,
-  renewalWindow: 60, // days
+  renewalWarning: 30, // days
 };
 
 export const health = {
@@ -25,20 +26,21 @@ export const health = {
   },
   firmware: {
     total: 23,
-    compliant: 20,
+    compliant: 22,
     baseline: 'SPP 2025.03',
     updatesAvailable: 12,
     generation: 'Gen11',
   },
   utilization: {
     averageCpu: 62,
-    alerts: 2,
+    alerts: 2, // informational; the estate still has headroom
     peakCpu: 91,
     peakServer: 'hou-esx-02',
   },
   subscriptions: {
     total: 31,
-    expiring: 3,
+    renewalsDue: 3, // upcoming, outside the warning window
+    expiringSoon: 0, // within targets.renewalWarning days
     nextRenewal: 'Aug 1, 2026',
     devices: 161,
   },
@@ -65,9 +67,9 @@ export const firmwareStatus = firmware => {
   return 'ok';
 };
 
-export const utilizationStatus = ({ averageCpu, alerts }) => {
+export const utilizationStatus = ({ averageCpu }) => {
   if (averageCpu >= targets.utilizationCritical) return 'critical';
-  if (averageCpu >= targets.utilizationWarning || alerts) return 'warning';
+  if (averageCpu >= targets.utilizationWarning) return 'warning';
   return 'ok';
 };
 
