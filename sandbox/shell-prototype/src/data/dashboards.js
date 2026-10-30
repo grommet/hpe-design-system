@@ -65,7 +65,7 @@ export const groupsCompliance = {
       color: 'status-critical',
       status: 'critical',
     },
-    { label: 'Compliant', value: 2, color: 'dataVis-categorical-10' },
+    { label: 'Compliant', value: 2, color: 'status-ok', status: 'ok' },
     { label: 'Unknown', value: 0, color: 'status-unknown', status: 'unknown' },
     {
       label: 'Not applicable',

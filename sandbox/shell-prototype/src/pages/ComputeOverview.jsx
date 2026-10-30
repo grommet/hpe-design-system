@@ -70,12 +70,7 @@ const ComplianceCard = () => {
           thickness="xsmall"
           round
           max={100}
-          values={[
-            {
-              value: groupsCompliance.percent,
-              color: 'dataVis-categorical-10',
-            },
-          ]}
+          values={[{ value: groupsCompliance.percent, color: 'foreground-ok' }]}
           a11yTitle={`${groupsCompliance.percent}% compliant`}
         />
         <Box flex={false}>
