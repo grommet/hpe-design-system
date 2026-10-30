@@ -7,6 +7,7 @@ import { createContext } from 'react';
 export const SurfaceStateContext = createContext({
   surfaceMode: 'default',
   colorMode: 'light',
+  setColorMode: () => {},
 });
 
 export const TOKENS = {

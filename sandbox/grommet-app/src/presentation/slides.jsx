@@ -19,6 +19,7 @@ import {
   ThemePane,
 } from './parts';
 import { tonedWithOptionalSteps } from './optionalExtension';
+import { ShellDesign } from '../surfaces/pages/ShellDesign';
 
 const useMode = () => useContext(SurfaceStateContext);
 
@@ -73,7 +74,7 @@ export const Claim = () => (
           changed anywhere. Before this phase that had only been shown in
           light mode; dark mode was the open question. This phase made it
           decidable — the two possible dark renderings and the evidence are
-          on slides 9–12 — but it does not decide it.
+          on slides 10–13 — but it does not decide it.
         </Note>
         <Note title="3 · floating is a root">
           Unaffected by what it sits over; containers alternate from it
@@ -281,6 +282,70 @@ export const Resolution = () => {
   );
 };
 
+/* 6b --------------------------------------------------------------------- */
+const DESIGNS = [
+  { id: 'framed', label: 'Framed shell · #6708 · A′' },
+  { id: 'framedAlt', label: 'Framed shell · sheet = tone.2' },
+  { id: 'beside', label: 'Beside shell · Overview dashboard · #6635' },
+];
+
+export const RealDesigns = () => {
+  const [reading, setReading] = useState('framed');
+  const { surfaceMode, colorMode } = useMode();
+  return (
+    <Slide
+      kicker="Part 2 · on the real designs"
+      title="The GreenLake shell and the Overview dashboard, painted by the tokens"
+      lead="The two designs from the shell prototype, ported and themed with the Surface collection. Every area carries its token, the theme value and the painted value. Use the deck switches above; the moon in the rail also flips colour mode."
+    >
+      <Box direction="row" gap="xsmall" wrap>
+        {DESIGNS.map(d => (
+          <Button
+            key={d.id}
+            label={d.label}
+            size="small"
+            primary={reading === d.id}
+            onClick={() => setReading(d.id)}
+          />
+        ))}
+      </Box>
+      <Box
+        height="520px"
+        round="small"
+        overflow="hidden"
+        border={{ color: 'border-weak' }}
+        flex={false}
+      >
+        <ShellDesign reading={reading} />
+      </Box>
+      <Columns>
+        <Column>
+          <Note title="Framed shell (A′)">
+            Chrome tone.1 on the root; the content sheet and contextual panel
+            are base (decisions 13, 23); cards tone.1; inner panels tone.2. In
+            dark the sheet reads as a recess inside the chrome.
+          </Note>
+        </Column>
+        <Column>
+          <Note title="Beside shell">
+            No chrome surface: the page is base, the rail and nav carry tone.1
+            beside it, cards tone.1, header transparent on the page. The
+            textbook fit for decisions 6, 13 and 23.
+          </Note>
+        </Column>
+        <Column>
+          <Note title={`Now showing: ${surfaceMode} · ${colorMode}`}>
+            Full-size versions with the sweep: pages 4, 4b and 5 of{' '}
+            <Anchor href="/surfaces.html" label="/surfaces.html" />. In
+            toned · dark the cards sit darker than the page — the open
+            question on slides 11–13, seen on a real screen.
+          </Note>
+        </Column>
+      </Columns>
+    </Slide>
+  );
+};
+
 /* 7 ---------------------------------------------------------------------- */
 export const ThemeWiring = () => {
   const [showLayer, setShowLayer] = useState(false);
@@ -405,7 +470,7 @@ export const FloatingSlide = () => {
             paints #292d3a on a #292d3a page and is separated by its shadow
             only, where shadows barely read — a situation default never has in
             dark (#22252e on #1d1f27). Not yet reviewed by design; it is one of
-            the costs on slide 12.
+            the costs on slide 13.
           </Note>
         </Column>
         <Column>

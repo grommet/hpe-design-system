@@ -23,6 +23,19 @@ resolves it to and the value the browser painted; switches for surface mode
 2. **Framed shell** (#6708, A′ reading) — chrome = `tone.1` wrapping a `base` sheet and panel;
    `2b` shows the alternative reading (sheet = `tone.2`).
 3. **Dialog** — `Layer`, `Drop` and `Tip` over page 1, with `tone.1` / `tone.2` inside.
+4. **GreenLake framed shell** (#6708, ported from `sandbox/shell-prototype` on the
+   `prototype/shell-exploration` branch) — the real shell: rail, local nav, header, content
+   sheet, contextual panel, Home page. A′ reading (chrome `tone.1`, sheet and panel `base`);
+   `4b` shows the A reading (sheet = `tone.2`). Every area carries a chip with token · theme
+   value · painted value.
+5. **GreenLake beside shell · Overview dashboard** (#6635) — the same content with the chrome
+   beside the page: page `base`, rail and nav `tone.1`, cards `tone.1`, header transparent.
+
+The shell lives in `src/surfaces/shell/` (components, pages, data, contexts copied from the
+prototype); `shell/surfaces.js` maps its roles to the four Surface tokens for the three
+readings, and `shell/theme.js` holds its layout constants. It takes the page's theme, so the
+surface-mode and colour-mode switches re-paint it; the moon in the rail also flips colour mode.
+The `native-web` sandbox does not have these two pages (they are Grommet components).
 
 `src/surfaces/theme.js` is the prototype of the grommet-theme-hpe 9.0 change: `buildTheme`
 receives the Surface collection as one more input beside `light` / `dark`, its Grommet refs

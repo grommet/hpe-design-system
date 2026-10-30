@@ -9,6 +9,7 @@ import { themes } from './theme';
 import { StandardPage } from './pages/StandardPage';
 import { FramedShell } from './pages/FramedShell';
 import { DialogPage } from './pages/DialogPage';
+import { ShellDesign } from './pages/ShellDesign';
 
 const PAGES = {
   standard: { label: '1 · Standard page', render: () => <StandardPage /> },
@@ -18,6 +19,18 @@ const PAGES = {
     render: () => <FramedShell sheetToken={TOKENS.tone2} />,
   },
   dialog: { label: '3 · Dialog', render: () => <DialogPage /> },
+  greenlake: {
+    label: '4 · GreenLake framed shell (#6708, A′, annotated)',
+    render: () => <ShellDesign reading="framed" />,
+  },
+  greenlakeAlt: {
+    label: '4b · GreenLake framed shell (sheet = tone.2)',
+    render: () => <ShellDesign reading="framedAlt" />,
+  },
+  overview: {
+    label: '5 · GreenLake beside shell · Overview dashboard (#6635)',
+    render: () => <ShellDesign reading="beside" />,
+  },
 };
 
 // Two frames plus a short settle: Grommet syncs some controlled state
@@ -88,7 +101,7 @@ const App = () => {
   const [colorMode, setColorMode] = useState('light');
   const [page, setPage] = useState('standard');
   const state = useMemo(
-    () => ({ surfaceMode, colorMode }),
+    () => ({ surfaceMode, colorMode, setColorMode }),
     [surfaceMode, colorMode],
   );
 

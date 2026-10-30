@@ -44,7 +44,7 @@ export const Deck = () => {
   const [colorMode, setColorMode] = useState('light');
   const [index, setIndex] = useState(fromHash);
   const state = useMemo(
-    () => ({ surfaceMode, colorMode }),
+    () => ({ surfaceMode, colorMode, setColorMode }),
     [surfaceMode, colorMode],
   );
   const go = useCallback(n => setIndex(wrap(n)), []);
