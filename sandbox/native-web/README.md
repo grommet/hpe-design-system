@@ -25,10 +25,11 @@ A scoped `data-mode` region inside a toned page inherits the surface properties 
 resolved against the root's mode and paints the wrong colour; scoped regions would need the
 surface declarations repeated inside each mode block.
 
-The "toned·dark order" toggle applies alternative `toned` dark mappings as overrides, for
-comparison with the built swap: the mapping #6289 tried (`tone.1 → 20`), and the optional
-40–60 extension (toned dark = default dark, simulated from the primitives because those
-steps are not in the tokens). `window.__runSurfaceMatrix(pages, alt)` sweeps and returns
-painted colours.
+The "toned·dark order" toggle shows the three toned·dark orders side by side as overrides,
+named neutrally: `10–30 swap (tokens)` — what the tokens hold; `10–30 #6289 (tone.1 → 20)` —
+the mapping that issue tried; `40–60 (option, simulated)` — the six-step option, written
+against the primitives because those steps are not in the tokens. Which of the first and
+third to ship is open for design review. `window.__runSurfaceMatrix(pages, alt)` sweeps and
+returns painted colours.
 
 See `sandbox/grommet-app/README.md` for the short assessment.

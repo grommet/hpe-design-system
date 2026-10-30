@@ -237,22 +237,23 @@ const PAGES = {
   dialog: { label: '3 · Dialog', render: () => dialogPage() },
 };
 
-// Alternative toned dark mappings, for comparison only (Part 3, decision
-// 12). Applied as overrides when html[data-surface=toned][data-mode=dark].
-// `built` is the shipped swap (base ↔ tone.1 on the three-step tier).
-// `#6289` is the mapping that issue tried (tone.1 → 20, floating → 20).
-// `optional 40–60` simulates the rejected-for-now extension: three extra
-// reference steps whose dark values equal 10–30, so toned dark = default
-// dark. Those steps do not exist in the tokens, so it is written against the
-// primitives directly.
+// Three toned·dark orders, for comparison (Part 3, decision 12 — open).
+// Applied as overrides when html[data-surface=toned][data-mode=dark].
+// `10–30 swap` is what the tokens hold (base ↔ tone.1 on the three-step
+// tier): page 1000, containers 1300, nested 1000, floating 1000.
+// `10–30 #6289` is the mapping that issue tried (tone.1 → 20, floating → 20).
+// `40–60` is the six-step option: three extra reference steps whose dark
+// values equal 10–30's, so toned dark = default dark. Those steps are not in
+// the tokens, so it is written against the primitives directly.
+const TONED_DARK_DEFAULT = '10–30 swap (tokens)';
 const TONED_DARK_ALTS = {
-  built: '',
-  '#6289 (tone.1 → 20)': `
+  [TONED_DARK_DEFAULT]: '',
+  '10–30 #6289 (tone.1 → 20)': `
     --hpe-color-background-surface-base: var(--hpe-color-surface-30);
     --hpe-color-background-surface-tone-1: var(--hpe-color-surface-20);
     --hpe-color-background-surface-tone-2: var(--hpe-color-surface-30);
     --hpe-color-background-surface-floating: var(--hpe-color-surface-20);`,
-  'optional 40–60 (dark = default)': `
+  '40–60 (option, simulated)': `
     --hpe-color-background-surface-base: var(--hpe-base-color-grey-1300);
     --hpe-color-background-surface-tone-1: var(--hpe-base-color-grey-1000);
     --hpe-color-background-surface-tone-2: var(--hpe-base-color-grey-1200);
@@ -263,7 +264,7 @@ const state = {
   page: 'standard',
   surfaceMode: 'default',
   colorMode: 'light',
-  alt: 'built',
+  alt: TONED_DARK_DEFAULT,
 };
 
 const html = document.documentElement;
@@ -354,7 +355,10 @@ Object.assign(window, {
     ...state,
     surfaces: readSurfaces(),
   }),
-  __runSurfaceMatrix: (pages = Object.keys(PAGES), alt = 'built') => {
+  __runSurfaceMatrix: (
+    pages = Object.keys(PAGES),
+    alt = TONED_DARK_DEFAULT,
+  ) => {
     state.alt = alt;
     return COMBOS(pages).reduce(async (previous, combo) => {
       const results = await previous;

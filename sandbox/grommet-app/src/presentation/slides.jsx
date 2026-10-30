@@ -71,8 +71,9 @@ export const Claim = () => (
           Swapping the values turns a white page with grey containers into a
           grey page with white containers — on every screen, with no token
           changed anywhere. Before this phase that had only been shown in
-          light mode; dark mode was the open question, and it is answered on
-          slides 9–10.
+          light mode; dark mode was the open question. This phase made it
+          decidable — the two possible dark renderings and the evidence are
+          on slides 9–12 — but it does not decide it.
         </Note>
         <Note title="3 · floating is a root">
           Unaffected by what it sits over; containers alternate from it
@@ -398,10 +399,13 @@ export const FloatingSlide = () => {
         <Column>
           <Note title="What happens under toned">
             floating follows tone.2 onto step 30: grey.50 in light, grey.1000
-            in dark — which is also the toned page. The card inside is still
-            tone.1 (white / grey.1300), so the chain inside the modal holds in
-            both themes. Over the page, a toned floating surface is separated
-            by elevation alone, in both modes.
+            in dark — which is also the toned page, in <em>both</em> modes.
+            The card inside is still tone.1 (white / grey.1300), so the chain
+            inside the modal holds. But over the page a toned Layer in dark
+            paints #292d3a on a #292d3a page and is separated by its shadow
+            only, where shadows barely read — a situation default never has in
+            dark (#22252e on #1d1f27). Not yet reviewed by design; it is one of
+            the costs on slide 12.
           </Note>
         </Column>
         <Column>
@@ -444,8 +448,8 @@ floating → color.surface.30   (was 20)   grey.50  over the page`}
 /* 10 --------------------------------------------------------------------- */
 export const InvertDark = () => (
   <Slide
-    kicker="Part 3 · invertibility, dark — the recorded answer"
-    title="In dark the swap is a reordering, and it collapses to two values"
+    kicker="Part 3 · invertibility, dark — determined, not decided"
+    title="In dark the swap is a reordering, and on 10–30 it collapses to two values"
     lead="Dark holds three values and base is not a member of the pair. Only one step is grey in light (30), so toned base and toned tone.2 must both point at it — and in dark they share grey.1000. Both panes are forced to dark."
   >
     <Columns>
@@ -458,17 +462,20 @@ export const InvertDark = () => (
     </Columns>
     <Columns>
       <Column>
-        <Note title="What it looks like">
-          Page grey.1000 (lighter), first container grey.1300 (darkest), nested
-          grey.1000 again. Containers read as recesses rather than raised paper.
-          Coherent, visibly different from default dark, and a zebra at depth.
+        <Note title="What is painted (both environments)">
+          Page #292d3a (grey.1000), first container #1d1f27 (grey.1300), nested
+          #292d3a again; Layer and Drop #292d3a, equal to the page. Every
+          boundary is the 1300↔1000 step and 1200 is never used. Visibly
+          different from default dark.
         </Note>
       </Column>
       <Column>
-        <Note title="Why this is the answer">
-          It is what a three-step tier can express. Light inverts exactly as
-          specified; dark inverts as a reordering with two values. Recorded for
-          #6020 (decision 12) instead of assumed.
+        <Note title="Status: not assessed — requires design review">
+          This is the two-tone dark pattern #6020 reports tested badly
+          (“excessive contrast”). #6071 says the inverted dark order should be
+          looked at rather than assumed; it has not been looked at by design in
+          either environment. The alternative that avoids it is on the next
+          slide.
         </Note>
       </Column>
     </Columns>
@@ -478,40 +485,43 @@ export const InvertDark = () => (
 /* 11 --------------------------------------------------------------------- */
 export const Decision = () => (
   <Slide
-    kicker="Decision point"
-    title="Keep 10–30 and let toned dark reorder, or add 40–60 so it doesn't?"
-    lead="A fork in the road, and a design decision rather than an engineering one. With 10–30 only, toned dark reorders; adding 40–60 would let dark look identical in both surface modes. The tokens ship 10–30 only, as specified; the extension is kept as an option, not built."
+    kicker="For decision · not decided"
+    title="Toned dark: two values on 10–30, or three on 40–60?"
+    lead="Both routes give the specified light swap. They differ only in dark. All four toned-dark surfaces are below for each — page, container, nested, and a floating surface over the page with the shadow a real Layer uses. The tokens currently hold 10–30; 40–60 is simulated here, not built. This is a design decision to be made with both renderings in front of designers."
   >
     <Columns>
-      <ThemePane title="default · dark" surfaceMode="default" colorMode="dark">
+      <ThemePane title="default · dark (reference)" surfaceMode="default" colorMode="dark">
         <Chain compact />
+        <Floating />
       </ThemePane>
-      <ThemePane title="toned · dark · 10–30 (built)" surfaceMode="toned" colorMode="dark">
+      <ThemePane title="toned · dark · 10–30 (in the tokens now)" surfaceMode="toned" colorMode="dark">
         <Chain compact />
+        <Floating />
       </ThemePane>
-      <ThemePane title="toned · dark · optional 40–60 (simulated)" theme={tonedWithOptionalSteps} colorMode="dark">
+      <ThemePane title="toned · dark · 40–60 (option, simulated)" theme={tonedWithOptionalSteps} colorMode="dark">
         <Chain compact />
+        <Floating />
       </ThemePane>
     </Columns>
     <Columns>
       <Column>
-        <Note title="Option kept · three steps">
-          Matches #6073 / #6020. toned dark becomes page grey.1000, containers
-          grey.1300. Smallest tier; dark appearance changes under toned.
+        <Note title="10–30 · what it gives">
+          Three reference steps, one scale, as #6073 wrote them. Toned dark:
+          page grey.1000, containers grey.1300, nested grey.1000, floating =
+          page. base ≡ tone.2 in both modes.
         </Note>
       </Column>
       <Column>
-        <Note title="Optional extra · add 40 / 50 / 60">
-          Three more reference steps make it possible for dark mode to look
-          the same whether the surface mode is default or toned: their dark
-          values are copied from 10/20/30 and only the light values are
-          swapped. A team adopting toned to keep a legacy grey page would keep
-          its dark look too. Cost: three more hidden reference variables and a
-          tier that is two chains rather than one scale.
+        <Note title="40 / 50 / 60 · what it gives">
+          Three more hidden reference steps — dark values copied from 10/20/30,
+          light values swapped — so dark looks the same whether the surface
+          mode is default or toned: 1300 / 1000 / 1200, floating 1200 on 1300.
+          Built and verified through every output earlier on this branch
+          before being removed, so it is known to work.
         </Note>
       </Column>
       <Column>
-        <Code title="If it is ever wanted">
+        <Code title="The option, if chosen">
           {`color.surface.40  grey.50 / grey.1300
 color.surface.50  grey.50 / grey.1200
 color.surface.60  white   / grey.1000
@@ -521,6 +531,54 @@ toned: base→40 tone.1→60 tone.2→50 floating→50`}
     </Columns>
   </Slide>
 );
+
+/* 12 --------------------------------------------------------------------- */
+const COST_ROWS = [
+  ['toned dark · page · container · nested · floating', '1000 · 1300 · 1000 · 1000', '1300 · 1000 · 1200 · 1200 (= default dark)'],
+  ['distinct dark values', '2', '3'],
+  ['floating vs base in dark', 'equal — #292d3a on #292d3a, shadow only', 'distinct — 1200 on 1300'],
+  ['base carries a third value in toned (#6020\'s reason for base being a token)', 'no — base ≡ tone.2 in both modes', 'yes'],
+  ['legacy grey-page team\'s dark on adopting toned (decision 11\'s purpose)', 'changes (today 1300 / 1000 / 1200)', 'unchanged'],
+  ['#6020: “alternating only two tones in dark produced excessive contrast”', 'reproduces that pattern — needs design review', 'no'],
+  ['reference tier', '3 steps, one scale', '6 steps, two chains; 3 more hidden variables'],
+  ['consumer tokens / Figma public surface', 'unchanged', 'unchanged'],
+  ['#6289 mapping (30 / 20 / 30 / 20)', 'rejected — tone.1 ≡ floating', 'rejected'],
+];
+
+export const CostTable = () => {
+  const grid = {
+    display: 'grid',
+    gridTemplateColumns: '1.4fr 1fr 1fr',
+    gap: '0 16px',
+    alignItems: 'stretch',
+  };
+  const cell = { padding: '8px 0', borderBottom: '1px solid var(--border-weak, rgba(128,128,128,.3))' };
+  return (
+    <Slide
+      kicker="For decision · the costs, side by side"
+      title="What each route costs"
+      lead="Light is identical under both. Every row below is about dark, and none of it has been reviewed by design yet. The write-up recommends neither route until that review happens."
+    >
+      <Box style={grid} flex={false}>
+        <Text size="small" weight={500} style={cell}>&nbsp;</Text>
+        <Text size="small" weight={500} style={cell}>10–30 (in the tokens now)</Text>
+        <Text size="small" weight={500} style={cell}>40 / 50 / 60 (option, not built)</Text>
+        {COST_ROWS.map(([k, a, b]) => [
+          <Text key={`${k}-k`} size="small" style={cell}>{k}</Text>,
+          <Text key={`${k}-a`} size="small" style={cell}>{a}</Text>,
+          <Text key={`${k}-b`} size="small" style={cell}>{b}</Text>,
+        ])}
+      </Box>
+      <Note title="One framing to keep in mind">
+        If toned is primarily the migration route decision 11 describes, the
+        40–60 option is the one that delivers its promise; if toned is
+        primarily “the light swap, and dark is whatever falls out”, 10–30 is
+        the honest minimum. That is the question for design, not for this
+        phase.
+      </Note>
+    </Slide>
+  );
+};
 
 /* 12 --------------------------------------------------------------------- */
 export const FailureModes = () => (
@@ -652,12 +710,17 @@ export const Scorecard = () => (
         </Note>
         <Note title="Part 2 · alternation on a real screen — pass (G, N)">
           Distinguishable at every step, no depth ceiling, card in modal and
-          card on page use one token, dark reads as a progression.
+          card on page use one token. Default dark reads as a three-value
+          progression (1300 → 1000 → 1200); toned dark is two values and is
+          <em> not assessed</em> — it needs design review.
         </Note>
-        <Note title="Part 3 · invertibility — recorded">
-          Light: value swap, no token change on any screen. Dark: a reordering
-          to two values (page grey.1000, containers grey.1300). Shell and
-          floating after inversion reviewed (previous slides).
+        <Note title="Part 3 · invertibility — light pass; dark for decision">
+          Light: value swap, no token change on any screen, both environments.
+          Dark: determined for both routes (10–30: 1000 / 1300 / 1000 /
+          floating = page; 40–60: 1300 / 1000 / 1200) and rendered side by
+          side, but not reviewed by design and not decided. Shell after
+          inversion reviewed; floating after inversion mechanically holds,
+          visually not assessed.
         </Note>
       </Column>
       <Column>
@@ -670,9 +733,10 @@ export const Scorecard = () => (
           present in theme.global.colors. Toast not covered.
         </Note>
         <Note title="Not covered">
-          Live Figma file (Parts 2/4/5 in Figma); toast; the docs app does not
-          know the surface / toned exports yet. Findings are drafted for #6020,
-          not yet written back.
+          Live Figma file (Parts 2/4/5 in Figma); toast; toned dark not
+          visually reviewed in either environment; the docs app does not know
+          the surface / toned exports yet. Findings are drafted for #6020, not
+          yet written back.
         </Note>
       </Column>
     </Columns>

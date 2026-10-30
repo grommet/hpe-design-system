@@ -273,20 +273,29 @@ export const Chain = ({ compact = false }) => (
 
 Chain.propTypes = { compact: PropTypes.bool };
 
-/** A floating surface over the page with the chain restarting inside it. */
-export const Floating = ({ note }) => (
-  <Surface
-    token={TOKENS.floating}
-    label="Floating (modal, drop, tooltip)"
-    note={note}
-    elevation="medium"
-    round="small"
-  >
-    <Surface token={TOKENS.tone1} label="Card in floating">
-      <Surface token={TOKENS.tone2} label="Nested in card" />
+/**
+ * A floating surface over the page with the chain restarting inside it. The
+ * shadow is the one the HPE theme gives a real Layer
+ * (theme.layer.container.elevation), so floating-on-base reads as it would
+ * in a modal.
+ */
+export const Floating = ({ note }) => {
+  const theme = useContext(ThemeContext);
+  const elevation = theme.layer?.container?.elevation || 'large';
+  return (
+    <Surface
+      token={TOKENS.floating}
+      label={`Floating over the page (elevation "${elevation}", as Layer)`}
+      note={note}
+      elevation={elevation}
+      round="small"
+    >
+      <Surface token={TOKENS.tone1} label="Card in floating">
+        <Surface token={TOKENS.tone2} label="Nested in card" />
+      </Surface>
     </Surface>
-  </Surface>
-);
+  );
+};
 
 Floating.propTypes = { note: PropTypes.string };
 
