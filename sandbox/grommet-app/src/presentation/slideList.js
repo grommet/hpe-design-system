@@ -1,0 +1,43 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import {
+  Claim,
+  CostTable,
+  Decision,
+  FailureModes,
+  FindingsCode,
+  FindingsMore,
+  FloatingSlide,
+  InvertDark,
+  InvertLight,
+  Pipeline,
+  RealDesigns,
+  ReferenceTier,
+  Resolution,
+  Scorecard,
+  SurfaceCollection,
+  ThemeWiring,
+  Title,
+  WhereToLook,
+} from './slides';
+
+export const slides = [
+  { id: 'title', label: 'Does it work?', Component: Title },
+  { id: 'claim', label: 'The claim', Component: Claim },
+  { id: 'reference-tier', label: 'Added: reference tier', Component: ReferenceTier },
+  { id: 'collection', label: 'Added: Surface collection', Component: SurfaceCollection },
+  { id: 'pipeline', label: 'Added: build + wiring', Component: Pipeline },
+  { id: 'resolution', label: 'Resolution on screen', Component: Resolution },
+  { id: 'designs', label: 'On the real designs', Component: RealDesigns },
+  { id: 'theme', label: 'Theme wiring', Component: ThemeWiring },
+  { id: 'floating', label: 'Floating', Component: FloatingSlide },
+  { id: 'invert-light', label: 'Inversion · light', Component: InvertLight },
+  { id: 'invert-dark', label: 'Inversion · dark', Component: InvertDark },
+  { id: 'decision', label: 'For decision: 10–30 vs 40–60', Component: Decision },
+  { id: 'costs', label: 'For decision: the costs', Component: CostTable },
+  { id: 'failure-modes', label: 'Failure modes', Component: FailureModes },
+  { id: 'findings-1', label: 'Findings 1', Component: FindingsCode },
+  { id: 'findings-2', label: 'Findings 2', Component: FindingsMore },
+  { id: 'scorecard', label: 'Scorecard', Component: Scorecard },
+  { id: 'where', label: 'Where to look', Component: WhereToLook },
+];

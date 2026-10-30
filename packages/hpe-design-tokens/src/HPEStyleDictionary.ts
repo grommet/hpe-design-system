@@ -5,6 +5,7 @@ import {
   commonJs,
   commonJsGrommetRefs,
   cssColorModes,
+  cssCollectionModes,
   cssBreakpoints,
   esmGrommetRefs,
   javascriptEsm,
@@ -44,6 +45,10 @@ HPEStyleDictionary.registerFormat({
 HPEStyleDictionary.registerFormat({
   name: 'css/variables-themed',
   format: cssColorModes,
+});
+HPEStyleDictionary.registerFormat({
+  name: 'css/variables-collection-modes',
+  format: cssCollectionModes,
 });
 HPEStyleDictionary.registerFormat({
   name: 'css/variables-breakpoints',

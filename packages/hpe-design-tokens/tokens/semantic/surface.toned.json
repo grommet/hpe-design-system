@@ -1,0 +1,74 @@
+{
+  "color": {
+    "background": {
+      "surface": {
+        "base": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "Root surface for the page, app background or canvas. Content and containers sit on it. A container placed on it takes background-surface-tone-1; a container that should match the page takes no surface. Keywords: page, canvas, root",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.surface.30.DEFAULT.REST}"
+            }
+          }
+        },
+        "floating": {
+          "DEFAULT": {
+            "REST": {
+              "$description": "Root surface for UI that renders over the page rather than in it: modals, drawers, menus, tooltips. Not for panels that are part of the layout. A container inside it takes background-surface-tone-1. Keywords: layer, dialog, popover, drawer, floating, dropdown, elevated",
+              "$extensions": {
+                "com.figma": {
+                  "codeSyntax": {},
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                }
+              },
+              "$type": "color",
+              "$value": "{color.surface.30.DEFAULT.REST}"
+            }
+          }
+        },
+        "tone": {
+          "1": {
+            "DEFAULT": {
+              "REST": {
+                "$description": "Surface tone for containers that group, separate or emphasize. Use it for a container that sits directly on the page, on a floating surface, or on background-surface-tone-2. The two tones alternate, so a container never repeats the surface behind it. Keywords: container, card, panel",
+                "$extensions": {
+                  "com.figma": {
+                    "codeSyntax": {},
+                    "hiddenFromPublishing": false,
+                    "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                  }
+                },
+                "$type": "color",
+                "$value": "{color.surface.10.DEFAULT.REST}"
+              }
+            }
+          },
+          "2": {
+            "DEFAULT": {
+              "REST": {
+                "$description": "Surface tone for containers that group, separate or emphasize. Use it for a container that sits on background-surface-tone-1. Not for use directly on the page or on a floating surface. Keywords: container, card, panel, nested",
+                "$extensions": {
+                  "com.figma": {
+                    "codeSyntax": {},
+                    "hiddenFromPublishing": false,
+                    "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                  }
+                },
+                "$type": "color",
+                "$value": "{color.surface.30.DEFAULT.REST}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
