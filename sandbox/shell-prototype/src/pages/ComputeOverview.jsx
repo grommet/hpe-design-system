@@ -236,18 +236,21 @@ const ServerMapCard = () => {
         justify="center"
       >
         <Notification status="info" message={serverMap.banner} />
-        <WorldMap
-          color="border-weak"
-          continents={[
-            { name: 'North America', color: 'dataVis-categorical-10' },
-          ]}
-          places={serverMap.places.map(place => ({
-            name: `${place.name}: ${place.count} servers need attention`,
-            location: place.location,
-            color: 'status-warning',
-          }))}
-          a11yTitle="Compute server map"
-        />
+        <Box width={{ max: 'xlarge' }} fill="horizontal">
+          <WorldMap
+            fill="horizontal"
+            color="border-weak"
+            continents={[
+              { name: 'North America', color: 'dataVis-categorical-10' },
+            ]}
+            places={serverMap.places.map(place => ({
+              name: `${place.name}: ${place.count} servers need attention`,
+              location: place.location,
+              color: 'status-warning',
+            }))}
+            a11yTitle="Compute server map"
+          />
+        </Box>
       </Box>
     </ShellCard>
   );

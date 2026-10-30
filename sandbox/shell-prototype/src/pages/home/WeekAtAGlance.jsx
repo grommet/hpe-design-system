@@ -277,8 +277,12 @@ const DevicesByLocation = props => {
           justify="center"
           flex
         >
-          <Box width={{ max: 'large' }} fill="horizontal">
+          {/* fill="horizontal" lets the map scale with the card width;
+              without it Grommet keeps a fixed 460px height and the map sits
+              small in the top-left of a tall box. */}
+          <Box width={{ max: 'xlarge' }} fill="horizontal">
             <WorldMap
+              fill="horizontal"
               color="border-weak"
               continents={[
                 { name: 'North America', color: 'dataVis-categorical-10' },
