@@ -68,8 +68,10 @@ export const Claim = () => (
           tone.2 → tone.1 …
         </Note>
         <Note title="2 · The pair inverts">
-          By changing values alone — no token changes on any screen. Light had
-          been shown; dark had never been tested.
+          Swapping the values turns a white page with grey containers into a
+          grey page with white containers — on every screen, with no token
+          changed anywhere. This had only ever been shown in light mode; dark
+          mode had never been tested.
         </Note>
         <Note title="3 · floating is a root">
           Unaffected by what it sits over; containers alternate from it
@@ -477,7 +479,7 @@ export const Decision = () => (
   <Slide
     kicker="Decision point"
     title="Keep 10–30 and let toned dark reorder, or add 40–60 so it doesn't?"
-    lead="A fork in the road, and a design decision rather than an engineering one. The tokens ship 10–30 only, as specified. The extension is kept as an option, not built."
+    lead="A fork in the road, and a design decision rather than an engineering one. With 10–30 only, toned dark reorders; adding 40–60 would let dark look identical in both surface modes. The tokens ship 10–30 only, as specified; the extension is kept as an option, not built."
   >
     <Columns>
       <ThemePane title="default · dark" surfaceMode="default" colorMode="dark">
@@ -499,10 +501,12 @@ export const Decision = () => (
       </Column>
       <Column>
         <Note title="Optional extra · add 40 / 50 / 60">
-          Dark values copied from 10/20/30, light values swapped. toned dark
-          then equals default dark, so a team adopting toned to keep a legacy
-          grey page keeps its dark look too. Cost: three more hidden reference
-          variables and a tier that is two chains rather than one scale.
+          Three more reference steps make it possible for dark mode to look
+          the same whether the surface mode is default or toned: their dark
+          values are copied from 10/20/30 and only the light values are
+          swapped. A team adopting toned to keep a legacy grey page would keep
+          its dark look too. Cost: three more hidden reference variables and a
+          tier that is two chains rather than one scale.
         </Note>
       </Column>
       <Column>
