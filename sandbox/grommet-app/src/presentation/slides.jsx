@@ -70,8 +70,9 @@ export const Claim = () => (
         <Note title="2 · The pair inverts">
           Swapping the values turns a white page with grey containers into a
           grey page with white containers — on every screen, with no token
-          changed anywhere. This had only ever been shown in light mode; dark
-          mode had never been tested.
+          changed anywhere. Before this phase that had only been shown in
+          light mode; dark mode was the open question, and it is answered on
+          slides 9–10.
         </Note>
         <Note title="3 · floating is a root">
           Unaffected by what it sits over; containers alternate from it
