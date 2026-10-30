@@ -33,12 +33,12 @@ const SummaryCard = ({ children, detail, title }: SummaryCardProps) => (
 
 export const SubscriptionSummary = () => (
   <Box as="section" aria-label="Subscription summary">
-    <Grid columns={{ count: 'fit', size: 'small' }} gap="medium">
-      <SummaryCard title="Subscription">
-        <MetricValue
-          value="Started"
-          unit={`Since ${formatDate(subscription.started)}`}
-        />
+    <Grid columns={{ count: 'fit', size: 'small' }} gap="small">
+      <SummaryCard
+        title="Subscription"
+        detail={`Since ${formatDate(subscription.started)}.`}
+      >
+        <MetricValue value="Started" />
       </SummaryCard>
       <SummaryCard
         title="Expires in"

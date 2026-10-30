@@ -1,12 +1,11 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useMemo, useState } from 'react';
-import type { ComponentProps, SetStateAction } from 'react';
+import type { ComponentProps, MouseEvent, SetStateAction } from 'react';
 import {
   Box,
   Button,
   Grid,
-  Layer,
   Main,
   Menu,
   Nav,
@@ -17,6 +16,7 @@ import {
   ResponsiveContext,
   Tab,
   Tabs,
+  ThemeContext,
 } from 'grommet';
 import {
   Apps,
@@ -38,7 +38,6 @@ import {
   SubscriptionSummary,
 } from './content/subscription';
 import {
-  composerActions,
   followUpPrompts,
   pageBackground,
   raisedBackground,
@@ -60,11 +59,10 @@ const navigation = [
   { label: 'Monitoring', icon: <Beacon /> },
 ];
 
-// Shell variants by which side regions are present. The assistant pane is
-// a third column where the page keeps a comfortable width (large and up);
-// below that it opens as a Layer.
+// The assistant always occupies a shell column, reducing the page width
+// rather than covering its content.
 const shell: Record<
-  'navAndPanel' | 'nav' | 'mainOnly',
+  'navAndPanel' | 'panel' | 'nav' | 'mainOnly',
   Pick<ComponentProps<typeof Grid>, 'columns' | 'rows' | 'areas'>
 > = {
   navAndPanel: {
@@ -83,6 +81,14 @@ const shell: Record<
       ['nav', 'main'],
     ],
   },
+  panel: {
+    columns: ['flex', 'auto'],
+    rows: ['auto', 'flex'],
+    areas: [
+      ['header', 'header'],
+      ['main', 'panel'],
+    ],
+  },
   mainOnly: {
     columns: ['flex'],
     rows: ['auto', 'flex'],
@@ -90,8 +96,21 @@ const shell: Record<
   },
 };
 
+const pageSpacing = { pad: { horizontal: 'xlarge' } };
+const pageTheme = {
+  page: {
+    full: {
+      xsmall: pageSpacing,
+      small: pageSpacing,
+      medium: pageSpacing,
+      large: pageSpacing,
+      xlarge: pageSpacing,
+    },
+  },
+};
+
 // In an application this would return to the subscriptions list.
-const openSubscriptions = () => {};
+const openSubscriptions = (event: MouseEvent) => event.preventDefault();
 
 const actions = [
   { label: 'Renew subscription' },
@@ -174,10 +193,8 @@ export const SubscriptionDetails = () => {
   // On small screens the navigation would move into a drawer opened from
   // the global header; it is omitted here to keep the example focused.
   const showNav = !small;
-  const panelInline = assistantOpen && (size === 'large' || size === 'xlarge');
-  const panelInLayer = assistantOpen && !panelInline;
-  const { areas, columns, rows } = panelInline
-    ? shell.navAndPanel
+  const { areas, columns, rows } = assistantOpen
+    ? shell[showNav ? 'navAndPanel' : 'panel']
     : shell[showNav ? 'nav' : 'mainOnly'];
 
   // Return focus to the control that opened the pane so keyboard users are
@@ -192,7 +209,6 @@ export const SubscriptionDetails = () => {
     title: assistantName,
     background: surfaceBackground,
     raisedBackground,
-    composerActions,
     disclaimer: `${assistantName} is AI and can make mistakes.`,
     placeholder: 'Ask anything about HPE GreenLake...',
     prompts: followUpPrompts,
@@ -221,34 +237,36 @@ export const SubscriptionDetails = () => {
           <Main gridArea="main" overflow="auto">
             {/* Page sizes to its content so its bottom padding follows the
                 list rather than the viewport. */}
-            <Page pad={{ bottom: '3xlarge' }} flex={false}>
-              {/* PageHeader already pads below itself, so a medium gap is
-                  enough before the tabs. */}
-              <PageContent gap="medium">
-                <PageHeader
-                  title={subscription.key}
-                  subtitle={`${subscription.tier} • ${subscription.product}`}
-                  parent={
-                    <ReverseAnchor
-                      label="Device subscriptions"
-                      href="#"
-                      onClick={openSubscriptions}
-                    />
-                  }
-                  actions={
-                    <Menu
-                      label="Actions"
-                      a11yTitle="Actions"
-                      items={actions}
-                      dropAlign={{ top: 'bottom', right: 'right' }}
-                    />
-                  }
-                />
-                <DetailsTabs />
-              </PageContent>
-            </Page>
+            <ThemeContext.Extend value={pageTheme}>
+              <Page kind="full" pad={{ bottom: '3xlarge' }} flex={false}>
+                {/* PageHeader already pads below itself, so a medium gap is
+                    enough before the tabs. */}
+                <PageContent gap="medium" responsive={false}>
+                  <PageHeader
+                    title={subscription.key}
+                    subtitle={`${subscription.tier} • ${subscription.product}`}
+                    parent={
+                      <ReverseAnchor
+                        label="Device subscriptions"
+                        href="#"
+                        onClick={openSubscriptions}
+                      />
+                    }
+                    actions={
+                      <Menu
+                        label="Actions"
+                        a11yTitle="Actions"
+                        items={actions}
+                        dropAlign={{ top: 'bottom', right: 'right' }}
+                      />
+                    }
+                  />
+                  <DetailsTabs />
+                </PageContent>
+              </Page>
+            </ThemeContext.Extend>
           </Main>
-          {panelInline && (
+          {assistantOpen && (
             <Box
               gridArea="panel"
               pad={{ vertical: 'xsmall', right: 'xsmall' }}
@@ -261,26 +279,6 @@ export const SubscriptionDetails = () => {
           )}
         </Grid>
       </AppContainer>
-      {/* Where there is no room for a third column the assistant becomes a
-          drawer the page stays usable beside. On small screens the theme
-          makes the Layer full-screen, so it is modal and fills the width. */}
-      {panelInLayer && (
-        <Layer
-          position="right"
-          full="vertical"
-          modal={small}
-          onEsc={closeAssistant}
-          onClickOutside={small ? closeAssistant : undefined}
-        >
-          <CopilotPanel
-            {...panelProps}
-            width={small ? undefined : 'medium'}
-            round="none"
-          >
-            <CopilotConversation />
-          </CopilotPanel>
-        </Layer>
-      )}
     </UserContext.Provider>
   );
 };

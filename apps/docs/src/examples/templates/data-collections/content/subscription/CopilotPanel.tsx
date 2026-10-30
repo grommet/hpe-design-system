@@ -13,7 +13,7 @@ import {
   TextArea,
   type ThemeType,
 } from 'grommet';
-import { Add, Close, More, Send } from '@hpe-design/icons-grommet';
+import { Add, Close, Down, More, Send } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 
 type CopilotPanelContextValue = {
@@ -28,12 +28,9 @@ const CopilotPanelContext = createContext<CopilotPanelContextValue>({
 
 export const useCopilotPanel = () => useContext(CopilotPanelContext);
 
-type ComposerAction = { label: string };
-
 // Match the focus indicator's rounding to the prompt's container.
 type RadiusTheme = ThemeType & { global: { radius: Record<string, string> } };
 
-// Match the focus indicator's rounding to the prompt's container.
 const PromptButton = styled(Button)`
   border-radius: ${({ theme }) => (theme as RadiusTheme).global.radius.xsmall};
 `;
@@ -43,7 +40,7 @@ type FollowUpPromptProps = {
   onClick?: () => void;
 };
 
-// A suggested follow-up the user can send with one click.
+// A suggested follow-up that fills the composer, ready to send.
 const FollowUpPrompt = ({ label, onClick }: FollowUpPromptProps) => (
   <PromptButton plain hoverIndicator onClick={onClick} alignSelf="start">
     <Box
@@ -87,16 +84,19 @@ export const AssistantMessage = ({ children }: MessageProps) => (
 );
 
 type ComposerProps = {
-  actions?: ComposerAction[];
+  draft: string;
+  onDraftChange: (draft: string) => void;
   placeholder?: string;
   productName: string;
 };
 
-// Where the user types the next prompt. The Act menu offers the
-// assistant's ready-made tasks for this page.
-const Composer = ({ actions, placeholder, productName }: ComposerProps) => {
+const Composer = ({
+  draft,
+  onDraftChange,
+  placeholder,
+  productName,
+}: ComposerProps) => {
   const { raisedBackground } = useCopilotPanel();
-  const [draft, setDraft] = useState('');
   return (
     <Box
       background={raisedBackground}
@@ -112,17 +112,16 @@ const Composer = ({ actions, placeholder, productName }: ComposerProps) => {
         resize={false}
         rows={1}
         value={draft}
-        onChange={event => setDraft(event.target.value)}
+        onChange={event => onDraftChange(event.target.value)}
       />
       <Box direction="row" align="center" justify="between" gap="xsmall">
         <Box direction="row" align="center" gap="3xsmall">
           <Button icon={<Add />} size="small" a11yTitle="Add attachment" />
-          <Menu
+          <Button
             label="Act"
-            a11yTitle="Act"
+            icon={<Down aria-hidden="true" />}
+            reverse
             size="small"
-            items={actions ?? []}
-            dropAlign={{ bottom: 'top', left: 'left' }}
           />
         </Box>
         <Button
@@ -143,7 +142,6 @@ type CopilotPanelProps = Omit<
 > & {
   background?: string;
   children?: ReactNode;
-  composerActions?: ComposerAction[];
   disclaimer?: string;
   onClose: () => void;
   onPrompt?: (prompt: string) => void;
@@ -160,7 +158,6 @@ type CopilotPanelProps = Omit<
 export const CopilotPanel = ({
   background = 'background-front',
   children,
-  composerActions,
   disclaimer,
   onClose,
   onPrompt,
@@ -170,6 +167,7 @@ export const CopilotPanel = ({
   title,
   ...rest
 }: CopilotPanelProps) => {
+  const [draft, setDraft] = useState('');
   const contextValue = useMemo(
     () => ({ raisedBackground }),
     [raisedBackground],
@@ -212,10 +210,8 @@ export const CopilotPanel = ({
           overflow="auto"
           pad={{ horizontal: 'medium', bottom: 'small' }}
         >
-          {/* The pane's medium padding exceeds the small gap between
-              messages; the follow-up prompts sit a step further away. */}
           <Box gap="medium" flex={false}>
-            <Box role="log" aria-label="Conversation" gap="small">
+            <Box role="log" aria-label="Conversation">
               {children}
             </Box>
             {prompts.length > 0 && (
@@ -224,7 +220,10 @@ export const CopilotPanel = ({
                   <FollowUpPrompt
                     key={prompt}
                     label={prompt}
-                    onClick={onPrompt && (() => onPrompt(prompt))}
+                    onClick={() => {
+                      setDraft(prompt);
+                      onPrompt?.(prompt);
+                    }}
                   />
                 ))}
               </Box>
@@ -233,7 +232,8 @@ export const CopilotPanel = ({
         </Box>
         <Box pad="small" gap="xsmall" flex={false}>
           <Composer
-            actions={composerActions}
+            draft={draft}
+            onDraftChange={setDraft}
             placeholder={placeholder}
             productName={title}
           />

@@ -132,9 +132,3 @@ export const followUpPrompts = [
   'Compare Gen12 vs Gen13 savings',
   'Break down costs by device group',
 ];
-
-export const composerActions = [
-  { label: 'Summarize this subscription' },
-  { label: 'Draft a renewal request' },
-  { label: 'Export device list' },
-];

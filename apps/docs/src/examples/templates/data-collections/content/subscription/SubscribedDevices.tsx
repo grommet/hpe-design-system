@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
+import type { MouseEvent } from 'react';
 import {
   Anchor,
   Box,
@@ -42,7 +43,7 @@ const headingId = 'subscribed-devices-heading';
 const searchId = 'subscribed-devices-search';
 
 // In an application this would navigate to the device's detail page.
-const openDevice = () => {};
+const openDevice = (event: MouseEvent) => event.preventDefault();
 
 // Searchable properties. Those without `filter: false` also appear, in
 // this order, in the filters layer.
@@ -119,7 +120,12 @@ const DevicesContent = () => {
       >
         {(datum: SubscribedDevice) => (
           <Box key={datum.id}>
-            <Anchor label={datum.serialNumber} onClick={openDevice} />
+            {/* Placeholder href keeps the link in the tab order. */}
+            <Anchor
+              label={datum.serialNumber}
+              href="#"
+              onClick={openDevice}
+            />
             <Text size="small" color="text-weak">
               {[datum.model, datum.type, datum.location].join(' • ')}
             </Text>
@@ -144,11 +150,9 @@ export const SubscribedDevices = () => (
       defaultView={{ step: 10 }}
       gap="small"
     >
-      <Toolbar gap="medium" align="center">
-        <Toolbar flex>
-          <Box flex>
-            <DataSearch id={searchId} placeholder="Search" responsive />
-          </Box>
+      <Toolbar gap="medium" align="center" justify="between" wrap>
+        <Toolbar>
+          <DataSearch id={searchId} placeholder="Search" responsive />
           <DataFilters layer>
             {Object.keys(properties)
               .filter(property => properties[property].filter !== false)
@@ -157,7 +161,9 @@ export const SubscribedDevices = () => (
               ))}
           </DataFilters>
         </Toolbar>
-        <Button label="Assign devices" secondary />
+        <Box flex={false}>
+          <Button label="Assign devices" secondary />
+        </Box>
       </Toolbar>
       <DataSummary />
       <DevicesContent />

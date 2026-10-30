@@ -4,8 +4,9 @@ import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { SubscriptionDetails } from
   // @ts-expect-error apps/docs is a Storybook webpack alias.
   'apps/docs/src/examples/templates/data-collections/SubscriptionDetails';
-// @ts-expect-error TypeScript can't resolve webpack's ?raw query syntax
-import SubscriptionDetailsSource from 'apps/docs/src/examples/templates/data-collections/SubscriptionDetails.tsx?raw';  
+import SubscriptionDetailsSource from
+  // @ts-expect-error TypeScript can't resolve webpack's ?raw query syntax
+  'apps/docs/src/examples/templates/data-collections/SubscriptionDetails.tsx?raw';
 
 const meta = {
   title: 'Patterns/Data collections',

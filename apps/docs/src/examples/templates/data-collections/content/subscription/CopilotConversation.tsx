@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { ReactNode } from 'react';
 import { Box, Card, CardBody, CardHeader, Paragraph, Text } from 'grommet';
-import { AIGen } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { AssistantMessage, UserMessage, useCopilotPanel } from './CopilotPanel';
 import { MetricValue, type MetricValueProps } from './MetricValue';
@@ -40,10 +39,7 @@ const RefreshSavingsCard = () => {
         align="start"
       >
         <Box>
-          <Box direction="row" align="center" gap="4xsmall">
-            <AIGen size="small" color="icon-strong" aria-hidden />
-            <TextEmphasis>{title}</TextEmphasis>
-          </Box>
+          <TextEmphasis>{title}</TextEmphasis>
           <Text size="small">{scope}</Text>
         </Box>
       </CardHeader>
@@ -80,13 +76,13 @@ const RefreshSavingsCard = () => {
   );
 };
 
-// The conversation shown when the page opens: the user's question about
-// refreshing the subscribed fleet and the assistant's answer.
 const licensed = `${subscription.deviceCount} licensed devices`;
 const { tier } = subscription;
 
+// The conversation shown when the page opens: the user's question about
+// refreshing the subscribed fleet and the assistant's answer.
 export const CopilotConversation = () => (
-  <>
+  <Box gap="medium" flex={false}>
     <UserMessage>
       How does upgrading these {subscription.deviceCount} devices to newer
       ProLiant models affect carbon emissions versus cost over the next 3 years?
@@ -100,5 +96,5 @@ export const CopilotConversation = () => (
       </Paragraph>
       <RefreshSavingsCard />
     </AssistantMessage>
-  </>
+  </Box>
 );
