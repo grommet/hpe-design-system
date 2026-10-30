@@ -287,10 +287,12 @@ const DevicesByLocation = props => {
               continents={[
                 { name: 'North America', color: 'dataVis-categorical-10' },
               ]}
+              // Places take the next categorical hue so they stand out
+              // from the highlighted continent without implying status.
               places={devicesByLocation.map(place => ({
                 name: `${place.name}: ${place.count} devices`,
                 location: place.location,
-                color: 'dataVis-categorical-10',
+                color: 'dataVis-categorical-50',
               }))}
               a11yTitle="Devices by location"
             />
