@@ -112,12 +112,14 @@ Legend.propTypes = {
 };
 
 // Circular meter with a centred total, matching the design's summary donuts.
+// xxsmall (128px) with a small (16px) ring leaves a 96px hole, enough for
+// the total and its unit to sit clear of the ring; 3xsmall was too tight.
 export const DonutMetric = ({ total, unit, values, direction = 'row' }) => (
   <Box direction={direction} gap="medium" align="center" wrap>
     <Stack anchor="center">
       <Meter
         type="circle"
-        size="3xsmall"
+        size="xxsmall"
         thickness="small"
         max={total || 1}
         values={values.map(item => ({
@@ -128,10 +130,10 @@ export const DonutMetric = ({ total, unit, values, direction = 'row' }) => (
         a11yTitle={`${total} ${unit || 'total'}`}
       />
       <Box align="center">
-        <Text size="xlarge" weight={500} color="text-strong">
+        <Text size="xxlarge" weight={500} color="text-strong">
           {total}
         </Text>
-        <Text size="xsmall" color="text-weak">
+        <Text size="small" color="text-weak">
           {unit}
         </Text>
       </Box>
