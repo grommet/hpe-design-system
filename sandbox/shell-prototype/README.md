@@ -7,6 +7,11 @@ It is a separate, deliberately small sandbox app: no theme-version switching,
 no token tooling, no router. It exists to show the shell anatomy and how the
 regions work together.
 
+Like `apps/docs` and `sandbox/grommet-app`, it takes `grommet-theme-hpe` from
+the `grommet-stable` catalog (the theme's `stable` branch) rather than the npm
+release, so it renders what the design system site shows — including fixes
+such as the `text-onStrong` light/dark swap that landed after v8.2.0.
+
 ## Run it
 
 ```bash
@@ -45,7 +50,8 @@ workspaces-and-regions **hub** (right panel, design system Selector pattern)
 in the header; **pin / unpin** a
 service to the rail dock via the bookmark in the nav header; **Help**,
 **Feedback** (dialog), **Notifications** and **Appearance** (light/dark) in the
-user section of the rail; the initials **Avatar** uses an accent background.
+user section of the rail; the initials **Avatar** uses the docs' strong accent
+pairing (`background-accent-blue-strong` + `text-onStrong`).
 
 ## Anatomy → code
 

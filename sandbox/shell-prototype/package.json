@@ -12,7 +12,7 @@
   "dependencies": {
     "@hpe-design/icons-grommet": "catalog:",
     "grommet": "catalog:",
-    "grommet-theme-hpe": "catalog:",
+    "grommet-theme-hpe": "catalog:grommet-stable",
     "prop-types": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
