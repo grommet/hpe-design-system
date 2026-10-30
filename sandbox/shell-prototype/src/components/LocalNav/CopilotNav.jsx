@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav } from 'grommet';
-import { Add, Chat, Down, Star, Template, Up } from '@hpe-design/icons-grommet';
+import { Add, Down, Up } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
 import { copilotFavorites } from '../../data/copilot';
 import { NavDivider, NavItem, NavSectionHeading } from './NavItem';
@@ -61,7 +61,6 @@ export const CopilotNav = ({ onClose }) => {
             <NavItem
               key={item.id}
               label={item.title}
-              icon={<Star size="small" color="icon-weak" aria-hidden="true" />}
               onClick={() =>
                 dispatch({
                   type: 'SEND_PROMPT',
@@ -78,13 +77,6 @@ export const CopilotNav = ({ onClose }) => {
             <NavItem
               key={conversation.id}
               label={conversation.title}
-              icon={
-                conversation.kind === 'canvas' ? (
-                  <Template size="small" color="icon-weak" aria-hidden="true" />
-                ) : (
-                  <Chat size="small" color="icon-weak" aria-hidden="true" />
-                )
-              }
               active={conversation.id === activeConversationId}
               onClick={() =>
                 dispatch({ type: 'SELECT_CONVERSATION', id: conversation.id })
