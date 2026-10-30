@@ -1292,6 +1292,104 @@
         }
       }
     },
+    "surface": {
+      "10": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. Steps 10-30 are the default chain, ordered by distance from the page in both modes. Two steps may share a value in one mode; this is deliberate.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1300}"
+          }
+        }
+      },
+      "20": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. Steps 10-30 are the default chain, ordered by distance from the page in both modes. Two steps may share a value in one mode; this is deliberate.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1200}"
+          }
+        }
+      },
+      "30": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. Steps 10-30 are the default chain, ordered by distance from the page in both modes. Two steps may share a value in one mode; this is deliberate.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1000}"
+          }
+        }
+      },
+      "40": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens in the toned surface mode. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. Steps 40-60 are the toned chain, ordered by distance from the page in both modes. Dark values match steps 10-30; only the light values differ.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1300}"
+          }
+        }
+      },
+      "50": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens in the toned surface mode. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. Steps 40-60 are the toned chain, ordered by distance from the page in both modes. Dark values match steps 10-30; only the light values differ.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1200}"
+          }
+        }
+      },
+      "60": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens in the toned surface mode. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. Steps 40-60 are the toned chain, ordered by distance from the page in both modes. Dark values match steps 10-30; only the light values differ.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1000}"
+          }
+        }
+      }
+    },
     "text": {
       "anchor": {
         "DEFAULT": {

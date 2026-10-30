@@ -9,6 +9,10 @@ export const SEMANTIC_COLOR_TARGETS = [
   'focus',
   'foreground',
   'icon',
+  // Internal reference tier for the surface tokens (color.surface.10-60).
+  // A standalone category like dataVis/decorative/focus; consumer tokens live
+  // under background.surface.*. See grommet/hpe-design-system#5969 decision 2b.
+  'surface',
   'text',
   'transparent', // transparent does not feel right as a target. Revisit.
 ] as const;
@@ -67,6 +71,7 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
     'primary',
     'screenOverlay',
     'selected',
+    'surface',
     'unknown',
     'warning',
     'accent',
@@ -92,6 +97,9 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
   decorative: ['blue', 'brand', 'cyan', 'green', 'neutral', 'purple'],
   focus: ['support'],
   foreground: ['critical', 'info', 'ok', 'primary', 'unknown', 'warning'],
+  // Abstract tens ordinals. 10-30 is the default chain, 40-60 the toned
+  // chain; each chain is ordered by distance from its page value.
+  surface: ['10', '20', '30', '40', '50', '60'],
   icon: [
     'critical',
     'default',
@@ -148,6 +156,11 @@ export const SEMANTIC_COLOR_ROLE_NAMES_BY_TARGET_FAMILY = {
   background: {
     selected: ['primary'],
     accent: ['blue', 'cyan', 'purple'],
+    // tone.1 / tone.2 arrive as joined role names (tone-1, tone-2), matching
+    // their flattened Grommet and CSS names. Not a Figma family: the flat
+    // name `surface-tone-1` round-trips to `surface.tone.1` via the
+    // dash-to-slash rule, whereas a family folder would not.
+    surface: ['base', 'floating', 'tone-1', 'tone-2'],
   },
   border: {
     accent: ['blue', 'cyan', 'purple'],
