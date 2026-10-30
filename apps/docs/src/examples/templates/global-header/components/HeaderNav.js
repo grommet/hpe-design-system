@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Button, DropButton, Nav, ResponsiveContext, Text } from 'grommet';
-import { Help, Home } from '@hpe-design/icons-grommet';
+import { AIGen, Help, Home } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { UserContext } from '.';
 import { UserAvatar } from './UserAvatar';
@@ -10,13 +11,27 @@ import { UserAvatar } from './UserAvatar';
 const getInitials = ({ firstName = '', lastName = '' }) =>
   `${firstName.charAt(0)}${lastName.charAt(0)}`;
 
-export const HeaderNav = () => {
+export const HeaderNav = ({ assistant }) => {
   const size = useContext(ResponsiveContext);
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState();
 
   return user ? (
     <Nav align="center" direction="row" gap="xsmall">
+      {/* The assistant toggle stays available at every size so the panel
+          can be opened and closed from the UI on small screens too. */}
+      {assistant && (
+        <Button
+          id={assistant.id}
+          icon={<AIGen />}
+          a11yTitle={assistant.label}
+          title={assistant.label}
+          aria-expanded={assistant.open}
+          aria-controls={assistant.open ? assistant.controls : undefined}
+          active={assistant.open}
+          onClick={assistant.onToggle}
+        />
+      )}
       {!['xsmall', 'small'].includes(size) && (
         <>
           <Button icon={<Help />} a11yTitle="Help" title="Help" />
@@ -34,6 +49,16 @@ export const HeaderNav = () => {
       </DropButton>
     </Nav>
   ) : null;
+};
+
+HeaderNav.propTypes = {
+  assistant: PropTypes.shape({
+    id: PropTypes.string,
+    label: PropTypes.string,
+    open: PropTypes.bool,
+    onToggle: PropTypes.func.isRequired,
+    controls: PropTypes.string,
+  }),
 };
 
 const UserDetails = () => {
