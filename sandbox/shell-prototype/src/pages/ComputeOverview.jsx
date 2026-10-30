@@ -27,9 +27,8 @@ import {
 } from '../data/dashboards';
 
 const StatusCard = ({ data }) => {
-  const Icon = data.icon;
   return (
-    <ShellCard icon={<Icon aria-hidden="true" />} title={data.title}>
+    <ShellCard title={data.title}>
       <DonutMetric total={data.total} unit={data.unit} values={data.values} />
     </ShellCard>
   );
@@ -37,7 +36,6 @@ const StatusCard = ({ data }) => {
 
 StatusCard.propTypes = {
   data: PropTypes.shape({
-    icon: PropTypes.elementType,
     title: PropTypes.string,
     total: PropTypes.number,
     unit: PropTypes.string,
@@ -46,12 +44,8 @@ StatusCard.propTypes = {
 };
 
 const ComplianceCard = () => {
-  const Icon = groupsCompliance.icon;
   return (
-    <ShellCard
-      icon={<Icon aria-hidden="true" />}
-      title={groupsCompliance.title}
-    >
+    <ShellCard title={groupsCompliance.title}>
       <Box direction="row" gap="medium" align="center" wrap>
         <Box align="center" flex={false}>
           <Text size="3xl" weight={500} color="text-strong">
@@ -84,9 +78,8 @@ const ComplianceCard = () => {
 };
 
 const NeedsAttentionCard = () => {
-  const Icon = needsAttention.icon;
   return (
-    <ShellCard icon={<Icon aria-hidden="true" />} title={needsAttention.title}>
+    <ShellCard title={needsAttention.title}>
       <Box direction="row" wrap>
         {needsAttention.items.map((item, index) => {
           const ItemIcon = item.icon;
@@ -122,12 +115,8 @@ const NeedsAttentionCard = () => {
 };
 
 const SustainabilityCard = () => {
-  const Icon = sustainabilityInsights.icon;
   return (
-    <ShellCard
-      icon={<Icon aria-hidden="true" />}
-      title={sustainabilityInsights.title}
-    >
+    <ShellCard title={sustainabilityInsights.title}>
       <Box direction="row" gap="large" wrap>
         <Box>
           <Box direction="row" align="baseline" gap="xsmall">
@@ -158,10 +147,8 @@ const SustainabilityCard = () => {
 };
 
 const RecommendedActionsCard = () => {
-  const Icon = recommendedActions.icon;
   return (
     <ShellCard
-      icon={<Icon aria-hidden="true" />}
       title={recommendedActions.title}
       pad={{ horizontal: 'small', bottom: 'small' }}
     >
@@ -195,10 +182,8 @@ const RecommendedActionsCard = () => {
 };
 
 const ServerMapCard = () => {
-  const Icon = serverMap.icon;
   return (
     <ShellCard
-      icon={<Icon aria-hidden="true" />}
       title={serverMap.title}
       action={
         <Box direction="row" gap="3xsmall">

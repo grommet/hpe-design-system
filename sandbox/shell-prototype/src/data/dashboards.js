@@ -1,22 +1,11 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import {
-  Analytics,
-  Bulb,
-  Compliance,
-  Cpu,
-  Device,
-  Info,
-  Location,
-  Secure,
-  Tree,
-} from '@hpe-design/icons-grommet';
+import { Analytics, Cpu, Device } from '@hpe-design/icons-grommet';
 
 // ---------------------------------------------------------------------------
 // HPE Compute Ops Management
 // ---------------------------------------------------------------------------
 export const serversHealth = {
-  icon: Analytics,
   title: 'Servers health status',
   total: 23,
   unit: 'Servers',
@@ -35,7 +24,6 @@ export const serversHealth = {
 };
 
 export const iloSecurity = {
-  icon: Secure,
   title: 'iLO security status',
   total: 23,
   unit: 'Servers',
@@ -54,7 +42,6 @@ export const iloSecurity = {
 };
 
 export const groupsCompliance = {
-  icon: Compliance,
   title: 'Groups compliance',
   nonCompliant: 0,
   percent: 100,
@@ -77,7 +64,6 @@ export const groupsCompliance = {
 };
 
 export const needsAttention = {
-  icon: Info,
   title: 'Needs attention',
   items: [
     { label: 'Servers not connected', value: 1, icon: Cpu },
@@ -87,7 +73,6 @@ export const needsAttention = {
 };
 
 export const sustainabilityInsights = {
-  icon: Tree,
   title: 'Sustainability insights',
   emissions: '8.97',
   emissionsUnit: 'MtCO2e',
@@ -98,7 +83,6 @@ export const sustainabilityInsights = {
 };
 
 export const recommendedActions = {
-  icon: Bulb,
   title: 'Recommended actions',
   items: [
     {
@@ -118,7 +102,6 @@ export const recommendedActions = {
 };
 
 export const serverMap = {
-  icon: Location,
   title: 'Compute server map',
   banner:
     '2 servers do not have an assigned location or have a location that cannot be correctly mapped. Additionally, location is required for auto HPE support case creation.',
