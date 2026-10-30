@@ -199,8 +199,14 @@ const framedShell = ({ sheetToken = T.base } = {}) =>
   });
 
 // Page 3 — dialog over page 1: floating root, tones restart inside it.
+// Open by default so the sweep reads it; Close, Esc and a scrim click
+// dismiss it, and a Reopen button brings it back.
 const dialogPage = () =>
-  `${standardPage({ failureModes: false })}<div class="scrim">
+  `${standardPage({ failureModes: false })}
+  <button class="btn-primary reopen" data-dialog="open" hidden>
+    Reopen dialog
+  </button>
+  <div class="scrim" data-dialog="scrim">
     ${surface({
       token: T.floating,
       label: 'Dialog',
@@ -223,6 +229,9 @@ const dialogPage = () =>
             cls: 'drop',
             children: surface({ token: T.tone1, label: 'Card in drop' }),
           })}
+        </div>
+        <div class="dialog-actions">
+          <button class="btn-secondary" data-dialog="close">Close</button>
         </div>`,
     })}
   </div>`;
@@ -323,11 +332,35 @@ const render = () => {
   annotate();
 };
 
+const setDialog = open => {
+  const scrim = app.querySelector('[data-dialog=scrim]');
+  const reopen = app.querySelector('[data-dialog=open]');
+  if (!scrim || !reopen) return;
+  scrim.hidden = !open;
+  reopen.hidden = open;
+};
+
 app.addEventListener('click', event => {
+  if (event.target.closest('[data-dialog=close]')) {
+    setDialog(false);
+    return;
+  }
+  if (event.target.closest('[data-dialog=open]')) {
+    setDialog(true);
+    return;
+  }
+  if (event.target.matches('[data-dialog=scrim]')) {
+    setDialog(false);
+    return;
+  }
   const button = event.target.closest('button[data-key]');
   if (!button) return;
   state[button.dataset.key] = button.dataset.value;
   render();
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') setDialog(false);
 });
 
 const nextPaint = () =>

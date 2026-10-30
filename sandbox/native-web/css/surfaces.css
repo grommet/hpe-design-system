@@ -183,6 +183,20 @@ tr[aria-selected='true'] td {
   width: 560px;
   max-width: 90vw;
 }
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.reopen {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 5;
+}
+[hidden] {
+  display: none !important;
+}
 .drop {
   position: absolute;
   width: 240px;
