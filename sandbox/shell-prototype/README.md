@@ -51,7 +51,7 @@ in the header; **pin / unpin** a
 service to the rail dock via the bookmark in the nav header; **Help**,
 **Feedback** (dialog), **Notifications** and **Appearance** (light/dark) in the
 user section of the rail; the initials **Avatar** uses the docs' strong accent
-pairing (`background-accent-blue-strong` + `text-onStrong`).
+pairing (`background-accent-purple-strong` + `text-onStrong`).
 
 ## Anatomy → code
 

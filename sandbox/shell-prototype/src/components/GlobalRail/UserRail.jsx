@@ -119,11 +119,7 @@ const AccountContent = () => {
   return (
     <Box width="medium">
       <Box pad="small" direction="row" gap="small" align="center">
-        <Avatar
-          size="large"
-          background="background-accent-blue-strong"
-          round="medium"
-        >
+        <Avatar size="large" background="background-accent-purple-strong">
           <Text size="large" color="text-onStrong">
             {initials}
           </Text>
@@ -220,11 +216,7 @@ export const UserRail = () => {
           {/* Strong accent + onStrong text, per the docs Avatar guidance.
               Grommet drops a11yTitle when the child is a node, so the
               DropButton carries the accessible name. */}
-          <Avatar
-            size="medium"
-            background="background-accent-blue-strong"
-            round="medium"
-          >
+          <Avatar size="medium" background="background-accent-purple-strong">
             <Text color="text-onStrong">{initials}</Text>
           </Avatar>
         </DropButton>
