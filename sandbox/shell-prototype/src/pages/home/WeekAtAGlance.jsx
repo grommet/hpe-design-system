@@ -29,7 +29,7 @@ import {
   attentionItems,
   budget,
   costTrend,
-  devicesByLocation,
+  devicesOnboarded,
   slaStats,
 } from '../../data/home';
 
@@ -246,18 +246,18 @@ const SlaPerformance = props => (
 );
 
 // ---------------------------------------------------------------------------
-// Devices by location
+// Devices onboarded this week
 // ---------------------------------------------------------------------------
-const totalDevices = devicesByLocation.reduce((sum, p) => sum + p.count, 0);
+const onboarded = devicesOnboarded.sites.reduce((sum, s) => sum + s.count, 0);
 
-const DevicesByLocation = props => {
+const DevicesOnboarded = props => {
   const { dispatch } = useShell();
   const openInventory = () =>
     dispatch({ type: 'OPEN_PLATFORM_PAGE', pageId: 'device-inventory' });
   return (
     <ShellCard
-      title="Devices"
-      subtitle={`${totalDevices} assets by location`}
+      title="Devices onboarded"
+      subtitle={`${onboarded} this week · ${devicesOnboarded.total} total`}
       action={
         <Button
           icon={<LinkNext aria-hidden="true" />}
@@ -289,19 +289,19 @@ const DevicesByLocation = props => {
               ]}
               // Places take the next categorical hue so they stand out
               // from the highlighted continent without implying status.
-              places={devicesByLocation.map(place => ({
-                name: `${place.name}: ${place.count} devices`,
-                location: place.location,
+              places={devicesOnboarded.sites.map(site => ({
+                name: `${site.name}: ${site.count} onboarded this week`,
+                location: site.location,
                 color: 'dataVis-categorical-50',
               }))}
-              a11yTitle="Devices by location"
+              a11yTitle="Devices onboarded this week, by site"
             />
           </Box>
         </Box>
         <Box direction="row" gap="xsmall" align="center">
           <Info size="small" color="icon-info" aria-hidden="true" />
           <Text size="small">
-            4 devices have no location assigned.{' '}
+            {devicesOnboarded.unassigned} arrived without a location.{' '}
             <Anchor
               label="Assign locations"
               size="small"
@@ -361,7 +361,7 @@ export const WeekAtAGlance = () => {
         <CostTrend gridArea="cost" />
         <NeedsAttention gridArea="attention" />
         <SlaPerformance gridArea="sla" />
-        <DevicesByLocation gridArea="devices" />
+        <DevicesOnboarded gridArea="devices" />
       </Grid>
     </Box>
   );

@@ -106,11 +106,17 @@ export const slaStats = [
   { name: 'Resolved within SLA', value: '91', unit: '%', status: 'warning' },
 ];
 
-export const devicesByLocation = [
-  { name: 'Houston', location: [29.76, -95.37], count: 44 },
-  { name: 'San Jose', location: [37.34, -121.89], count: 26 },
-  { name: 'Chicago', location: [41.88, -87.63], count: 12 },
-];
+// Devices onboarded this week, by site, so the card fits the section's
+// time frame; `unassigned` devices arrived without a location.
+export const devicesOnboarded = {
+  total: 82,
+  unassigned: 4,
+  sites: [
+    { name: 'Houston', location: [29.76, -95.37], count: 3 },
+    { name: 'San Jose', location: [37.34, -121.89], count: 2 },
+    { name: 'Chicago', location: [41.88, -87.63], count: 1 },
+  ],
+};
 
 // Discover services
 export const serviceGroups = [
