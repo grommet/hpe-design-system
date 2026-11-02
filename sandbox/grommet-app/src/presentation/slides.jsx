@@ -30,84 +30,108 @@ export const Title = () => (
     title="Does the architecture work?"
     lead={
       <>
-        Four surface tokens and one claim: <em>a container takes whichever tone
-        its parent is not</em>. This deck is rendered with grommet-theme-hpe plus
-        the prototype Surface themes, so every container below is a live
-        Grommet component carrying a real token. Use the switches above at any
-        point — nothing here is a screenshot.
+        The surface token architecture was agreed on paper. This phase built
+        it with prototype tokens and checked that it works end to end — in the
+        build, in the browser, in the Grommet theme and in Figma. This deck is
+        itself a grommet-theme-hpe render using the prototype Surface themes,
+        so every container below is a live Grommet component carrying a real
+        token. Use the switches above at any point — nothing here is a
+        screenshot.
       </>
     }
   >
     <Columns>
       <Column>
-        <Surface token={TOKENS.base} label="Page" note="surface.base — the root">
+        <Surface token={TOKENS.base} label="Page" note="surface.base — the page">
           <Chain compact />
         </Surface>
       </Column>
       <Column>
-        <Floating note="surface.floating — the other root; tones restart from it" />
+        <Floating note="surface.floating — over the page; containers alternate from it" />
       </Column>
     </Columns>
     <Text size="small" color="text-weak">
-      Each label reads: token · the value the theme resolves it to · the value
-      the browser painted (getComputedStyle). Keyboard: ← → to move.
+      Four tokens: base (the page), tone.1 and tone.2 (two container colours
+      that alternate — a container takes whichever tone its parent is not),
+      floating (anything over the page). Keyboard: ← → to move. The
+      “values” switch shows the theme and painted colour on each surface.
     </Text>
   </Slide>
 );
 
 /* 2 ---------------------------------------------------------------------- */
+const QUESTIONS = [
+  [
+    'Does it build?',
+    'Four consumer tokens pointing at three internal values, through the real Style Dictionary pipeline, out as correct CSS, Grommet theme entries, ESM/CJS and docs — one alias per token, no mode special-casing.',
+    'slides 3–6',
+  ],
+  [
+    'Does it resolve on a real screen?',
+    'A Grommet app via grommet-theme-hpe and a plain HTML/CSS page using only the built CSS: does every surface paint what its token says, in light and dark, and do the two agree pixel for pixel?',
+    'slide 7',
+  ],
+  [
+    'Does the alternation hold in practice?',
+    'Page → card → panel → region; a shell wrapping a sheet; a modal with a card inside. Every level visibly different from the one around it, no depth limit, both modes, on realistic layouts and on real designs.',
+    'slides 7–8',
+  ],
+  [
+    'Can the look be inverted without touching a product?',
+    'A second surface file re-points the same four names (a “toned” theme: grey page, white cards). Does every screen invert with no product change — and what happens in dark, which had never been tried?',
+    'slides 11–14',
+  ],
+  [
+    'Does the Grommet theme wire up?',
+    'Card, Layer, Drop and Tip take the tokens from the theme; theme.dark still derives correctly; the tokens are in theme.global.colors.',
+    'slide 9',
+  ],
+  [
+    'Does it round-trip with Figma?',
+    'The generated variables payload has the right shape — a Surface collection with modes, hidden internal values, visible consumer tokens — and exporting it back reproduces the token files.',
+    'slide 6',
+  ],
+  [
+    'Do the known failure modes behave as expected?',
+    'Self-nesting, tone.2 placed directly on the page, a hard-coded tone: which are visible, which detectable, which neither?',
+    'slide 15',
+  ],
+];
+
 export const Claim = () => (
   <Slide
-    kicker="What is being proven"
-    title="Three testable consequences of one rule"
-    lead="The architecture gives a product four surface tokens — base (the page), tone.1 and tone.2 (two container colours that alternate), and floating (anything over the page). The rule: a container takes whichever tone its parent is not. Three things follow, and each one was tested."
+    kicker="What this phase set out to validate"
+    title="Seven practical questions, not a conceptual one"
+    lead="The architecture had been designed and agreed. The job here was to find out whether it survives contact with the build, the browser, the theme and Figma."
   >
     <Columns>
       <Column>
-        <Note title="1 · Alternation resolves at any depth">
-          Put tone.1 on a card, tone.2 on a panel inside it, tone.1 on a
-          region inside that, and so on. Every level must come out a
-          different colour from the one around it — in light and in dark,
-          in Grommet and in plain CSS, with no limit on how deep you go.
-          Tested on three layouts (page, framed shell, dialog) in all four
-          combinations of surface mode × colour mode.
-        </Note>
-        <Note title="2 · The whole look can be inverted without touching a product">
-          Today a page is white and its cards are grey. Some products want
-          the reverse: a grey page with white cards. Because every container
-          alternates, that can be done by changing what the four tokens
-          <em> point at</em> — in a second theme file — rather than by any
-          product editing its screens. This deck calls that second theme
-          “toned”. Before this phase the swap had only been shown in light
-          mode; what happens in dark was the open question. The phase
-          produced both possible dark renderings and the evidence (slides
-          11–14) so the question can now be decided — it does not decide it.
-        </Note>
-        <Note title="3 · floating starts a new chain">
-          A modal, drop or tooltip is “over” the page, not “in” it, so its
-          colour does not depend on what it happens to cover, and the first
-          container inside it is tone.1 again — the same token a card on the
-          page uses.
-        </Note>
+        {QUESTIONS.slice(0, 4).map(([q, a, where]) => (
+          <Note key={q} title={q}>
+            <Text size="small">{a}</Text>
+            <Text size="xsmall" color="text-weak">
+              {where}
+            </Text>
+          </Note>
+        ))}
       </Column>
       <Column>
-        <Code title="How it was tested">
+        {QUESTIONS.slice(4).map(([q, a, where]) => (
+          <Note key={q} title={q}>
+            <Text size="small">{a}</Text>
+            <Text size="xsmall" color="text-weak">
+              {where}
+            </Text>
+          </Note>
+        ))}
+        <Code title="How">
           {`token files  →  Style Dictionary  →  CSS · Grommet · ESM · docs
-                                  →  Figma variables payload + round trip
-outputs      →  grommet-app (this app) and native-web (plain CSS)
-screens      →  3 layouts × 2 surface modes × 2 colour modes = 16
+                                  →  Figma payload + round trip
+consumers    →  grommet-app (this app) and native-web (plain CSS)
+screens      →  3 layouts + 2 real designs, × 2 surface modes
+                × 2 colour modes
 evidence     →  getComputedStyle() on every surface, compared
-                across environments (0 differences)`}
-        </Code>
-        <Code title="The layout (#6071 Part 2)">
-          {`Page                      surface.base
-├─ Card                   surface.tone.1
-│   └─ Inner section      surface.tone.2
-│       └─ Nested region  surface.tone.1
-├─ Shell panel            surface.tone.1
-│   └─ Card in shell      surface.tone.2
-└─ Modal                  surface.floating
-    └─ Card in modal      surface.tone.1`}
+                across environments`}
         </Code>
       </Column>
     </Columns>

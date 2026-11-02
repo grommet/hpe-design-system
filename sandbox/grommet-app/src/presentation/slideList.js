@@ -24,7 +24,7 @@ import {
 
 export const slides = [
   { id: 'title', label: 'Does it work?', Component: Title },
-  { id: 'claim', label: 'The claim', Component: Claim },
+  { id: 'claim', label: 'What we set out to validate', Component: Claim },
   { id: 'added', label: 'What was added', Component: WhatWasAdded },
   { id: 'reference-tier', label: 'Added: reference tier', Component: ReferenceTier },
   { id: 'collection', label: 'Added: Surface collection', Component: SurfaceCollection },
