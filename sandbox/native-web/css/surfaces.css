@@ -215,6 +215,9 @@ body {
 .pad {
   padding: 12px;
 }
+.pad-y {
+  padding: 4px 12px;
+}
 .pad-x {
   padding: 0 12px 12px;
 }

@@ -53,8 +53,7 @@ const surface = ({
       scaffold ? '<span class="meta tag">not rendered UI</span>' : ''
     }</p>
     <p class="meta">
-      <span class="chip">${shortName(token)} ·
-        <span class="painted"></span></span>
+      <span class="chip">${shortName(token)}</span>
       ${note ? `<span>${note}</span>` : ''}
     </p>
     ${children}
@@ -129,15 +128,11 @@ const standardPage = ({ failureModes = true } = {}) =>
     cls: 'square fill tight',
     children: `
     <div class="row flex nogap">
-      ${rail('bordered-right')}
       <div class="col flex pad-x">
-        ${surface({
-          token: 'none',
-          label: 'Header',
-          region: true,
-          note: 'decision 6 / 23: no surface, reads as the page',
-          children: headerBar(),
-        })}
+        <div class="pad-y" data-surface-token="none"
+          data-surface-label="Header">
+          ${headerBar()}
+        </div>
         <div class="row flex">
       ${surface({
         token: T.tone1,
@@ -393,14 +388,6 @@ const readSurfaces = () => [
   })),
 ];
 
-const annotate = () => {
-  document.querySelectorAll('.surface').forEach(el => {
-    const painted = el.querySelector(':scope > .meta .painted');
-    if (painted)
-      painted.textContent = `painted ${getComputedStyle(el).backgroundColor}`;
-  });
-};
-
 const toggle = (name, options, key) =>
   `<span>${name}:</span>${options
     .map(
@@ -426,7 +413,6 @@ const render = () => {
       ${toggle('toned·dark order', Object.keys(TONED_DARK_ALTS), 'alt')}
     </div>
     ${PAGES[state.page].render()}`;
-  annotate();
 };
 
 const setDialog = open => {

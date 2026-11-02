@@ -20,7 +20,7 @@ import {
   MetricLines,
   Surface,
 } from '../Surface';
-import { HeaderBar, NavList, PageTitle, Rail } from '../Furniture';
+import { HeaderBar, NavList, PageTitle } from '../Furniture';
 import { TOKENS } from '../surfaceState';
 
 const rows = [
@@ -31,11 +31,11 @@ const rows = [
 
 /**
  * Page 1 — standard page (#6071 Part 2 shape, decisions 6, 13, 23). The
- * beside-shell anatomy: a rail docked left, the page (base) edge to edge
- * with the header on it, and nav menu / contextual panel as tone-1
- * containers on the page beside the content, like the cards.
+ * page (base) edge to edge with the header on it, and nav menu /
+ * contextual panel as tone-1 containers on the page beside the content,
+ * like the cards. No global rail: that belongs to the shell pages.
  *   Page = base · nav, contextual panel, cards = tone.1 · inner = tone.2
- *   Header carries no surface (decision 6 / 23). Rail = background-contrast.
+ *   Header carries no surface (decision 6 / 23).
  * Also walks Part 4 (self-nesting, tone.2 on base, hard-coded tone) and the
  * decision 16 check (secondary button, selected row on a tone-1 panel).
  */
@@ -52,17 +52,15 @@ export const StandardPage = ({ showFailureModes = true }) => {
       pad="none"
     >
       <Box direction="row" flex gap="none">
-        <Rail border={{ side: 'right', color: 'border-weak' }} />
         <Box flex gap="small" pad={{ horizontal: 'small', bottom: 'small' }}>
-          <Surface
-            token={undefined}
-            label="Header"
-            region
-            note="decision 6 / 23: no surface, reads as the page"
+          {/* Header carries no surface and reads as the page (decisions 6, 23). */}
+          <Box
             pad={{ horizontal: 'small', vertical: 'xsmall' }}
+            data-surface-token="none"
+            data-surface-label="Header"
           >
             <HeaderBar />
-          </Surface>
+          </Box>
 
           <Box direction="row" flex gap="small">
             <Surface
