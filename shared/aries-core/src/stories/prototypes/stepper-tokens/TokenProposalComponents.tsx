@@ -15,7 +15,7 @@ import {
   Text,
   ThemeContext,
 } from 'grommet';
-import { useTheme } from './themes';
+import { isSwappedPair, useTheme } from './themes';
 import {
   INTERACTIONS,
   NEW_TOKENS,
@@ -35,24 +35,31 @@ const identity: NameFor = t => t;
 
 const useMode = (): Mode => (useTheme()?.dark ? 'dark' : 'light');
 
-// Read a colour out of the theme. Tokens suffixed `*` are swapped in
-// colors.js (light holds the dark value and vice versa) so the authored value
-// is the opposite mode's entry.
+// Read a colour out of the theme. Tokens suffixed `*` are on-strong colours
+// that colors.js may swap (light holds the dark value and vice versa); detect
+// that from the values so the authored colour is shown on any theme version.
 const readColor = (
   theme: any,
   token: string,
   mode: Mode,
 ): string | undefined => {
-  const swapped = token.endsWith('*');
+  const onStrong = token.endsWith('*');
   const clean = token.replace(/\*$/, '');
   if (NEW_TOKENS[clean]) return NEW_TOKENS[clean][mode];
   const value = theme?.global?.colors?.[clean];
   if (!value) return undefined;
-  const pick = swapped ? (mode === 'light' ? 'dark' : 'light') : mode;
-  if (typeof value === 'object') return value[pick];
-  const aliased = theme?.global?.colors?.[value];
-  if (aliased && typeof aliased === 'object') return aliased[pick];
-  return aliased ?? value;
+  const resolved =
+    typeof value === 'object' ? value : theme?.global?.colors?.[value];
+  if (resolved && typeof resolved === 'object') {
+    const pick =
+      onStrong && isSwappedPair(resolved)
+        ? mode === 'light'
+          ? 'dark'
+          : 'light'
+        : mode;
+    return resolved[pick];
+  }
+  return resolved ?? value;
 };
 
 const useResolve = () => {

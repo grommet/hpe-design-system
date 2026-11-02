@@ -8,22 +8,43 @@ import { NEW_TOKENS } from './tokenProposal';
 
 export const useTheme = (): any => useContext(ThemeContext) as any;
 
-// Un-swapped {light, dark} for a swapped on-colour, for passing straight to
-// the Stepper (which resolves colours without smart pairing).
-const rawPair = (theme: any, token: string) => {
+const luminance = (hex: string): number => {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim());
+  if (!m) return 0;
+  const n = parseInt(m[1], 16);
+  return (
+    0.2126 * ((n >> 16) & 255) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255)
+  );
+};
+
+// Whether a `{light, dark}` on-strong colour has been swapped in colors.js.
+// Some grommet-theme-hpe 8.x releases swap `icon-onStrong` (8.2.0+), others
+// don't (8.1.5), so detect it from the values: an authored on-strong colour is
+// the lighter one in light mode.
+export const isSwappedPair = (value: unknown): boolean =>
+  !!value &&
+  typeof value === 'object' &&
+  typeof (value as any).light === 'string' &&
+  typeof (value as any).dark === 'string' &&
+  luminance((value as any).light) < luminance((value as any).dark);
+
+// Authored {light, dark} for an on-strong colour, for passing straight to the
+// Stepper (which resolves colours without smart pairing).
+export const authoredPair = (theme: any, token: string) => {
   const value = theme?.global?.colors?.[token];
-  if (value && typeof value === 'object') {
+  if (isSwappedPair(value)) {
     return { light: value.dark, dark: value.light };
   }
   return value;
 };
 
-// grommet-theme-hpe 8.x passes the swapped `icon-onStrong` name to the
-// currentError glyph, which renders inverted. This mirrors the fix proposed
-// for misc.js: hand the Stepper the authored values.
+// grommet-theme-hpe passes the `icon-onStrong` token name to the currentError
+// glyph; in releases where colors.js swaps that token (8.2.0+) the glyph
+// renders inverted. Hand the Stepper the authored values instead, which is the
+// fix proposed for misc.js and is a no-op on releases that don't swap.
 export const useCurrentThemeFix = () => {
   const theme = useTheme();
-  const iconOnStrong = rawPair(theme, 'icon-onStrong');
+  const iconOnStrong = authoredPair(theme, 'icon-onStrong');
   return {
     stepper: {
       currentError: {

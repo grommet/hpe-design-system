@@ -185,10 +185,11 @@ export const Overview = {
                   <code>icon-onStrong</code> as the glyph. Neither critical
                   colour has a hover token, so Grommet falls back to{' '}
                   <code>color-mix(in srgb, X 80%, black)</code> for hover — an
-                  un-tokenised colour that darkens in dark mode too. (The
-                  published theme also passes the swapped{' '}
-                  <code>icon-onStrong</code> name, rendering the glyph inverted;
-                  this page applies the proposed fix so the intent is visible.)
+                  un-tokenised colour that darkens in dark mode too. (On theme
+                  versions where <code>colors.js</code> swaps{' '}
+                  <code>icon-onStrong</code>, the glyph renders inverted; this
+                  page hands the Stepper the authored value so the intent is
+                  visible regardless of version.)
                 </Paragraph>
               </Box>
               <Box gap="xsmall">
