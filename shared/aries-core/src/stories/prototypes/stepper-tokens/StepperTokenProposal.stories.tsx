@@ -147,6 +147,82 @@ const ProsCons = ({ pros, cons }: { pros: string[]; cons: string[] }) => (
   </Grid>
 );
 
+// Rows: how each visual treatment is tokenised today for the primary (green)
+// states, and what the error states do by comparison.
+const PATTERN_ROWS: {
+  treatment: string;
+  primary: string[];
+  error: string[];
+  errorOk: boolean;
+}[] = [
+  {
+    treatment: 'Unselected — outline ring + glyph',
+    primary: ['icon-primary', 'icon-primary-hover'],
+    error: ['icon-critical', '(no hover → color-mix)'],
+    errorOk: true,
+  },
+  {
+    treatment: 'Selected — solid fill',
+    primary: [
+      'background-selected-primary-strong',
+      'background-selected-primary-strong-hover',
+    ],
+    error: ['icon-critical (as a fill)', '(no hover → color-mix)'],
+    errorOk: false,
+  },
+  {
+    treatment: 'Selected — glyph on the fill',
+    primary: ['icon-onSelectedPrimaryStrong'],
+    error: ['icon-onStrong (generic)'],
+    errorOk: false,
+  },
+];
+
+const PatternTable = () => (
+  <Box gap="xsmall">
+    <Grid columns={['1/3', '1/3', '1/3']} gap="small">
+      <Text size="small" weight="bold">
+        Treatment
+      </Text>
+      <Text size="small" weight="bold">
+        Primary states (complete / selected)
+      </Text>
+      <Text size="small" weight="bold">
+        Error states today
+      </Text>
+    </Grid>
+    {PATTERN_ROWS.map(row => (
+      <Grid
+        key={row.treatment}
+        columns={['1/3', '1/3', '1/3']}
+        gap="small"
+        pad={{ vertical: 'xsmall' }}
+        border="top"
+      >
+        <Text size="small">{row.treatment}</Text>
+        <Box>
+          {row.primary.map(t => (
+            <Text key={t} size="small">
+              <code>{t}</code>
+            </Text>
+          ))}
+        </Box>
+        <Box>
+          {row.error.map(t => (
+            <Text
+              key={t}
+              size="small"
+              color={row.errorOk ? undefined : 'text-critical'}
+            >
+              <code>{t}</code>
+            </Text>
+          ))}
+        </Box>
+      </Grid>
+    ))}
+  </Box>
+);
+
 const A1_TOKENS = [
   'background-critical-strong',
   'background-critical-strong-hover',
@@ -199,6 +275,26 @@ export const Overview = {
                 <TokenList tokens={CURRENT_TOKENS_USED} />
               </Box>
             </Grid>
+          </Section>
+
+          <Section title="Why a background token at all?">
+            <Paragraph size="small" fill margin="none">
+              The primary states already follow a rule: an <em>outline</em>{' '}
+              indicator is painted with <code>icon-*</code> tokens, and a{' '}
+              <em>filled</em> indicator is painted with a{' '}
+              <code>background-*-strong</code> token plus its matching{' '}
+              <code>icon-on*Strong</code> glyph. The error states only follow
+              that rule while unselected. Once selected, the fill reaches for an
+              icon colour because no critical background-strong exists — that is
+              the role mismatch Option A fixes.
+            </Paragraph>
+            <PatternTable />
+            <Paragraph size="small" fill margin="none">
+              So the proposal is not "we need another red"; it is "the selected
+              error indicator is a strong background and should be tokenised
+              like one", with <code>icon-critical-hover</code> added so the
+              unselected error state gets the same hover affordance as complete.
+            </Paragraph>
           </Section>
 
           <Section title="Option A — filled = selected, with dedicated critical tokens">
