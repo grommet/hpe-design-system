@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { Box, Button, Grid, Text } from 'grommet';
+import { Box, Grid } from 'grommet';
 import PropTypes from 'prop-types';
-import { Surface } from '../Surface';
+import { Lines, MetricLines, Surface } from '../Surface';
+import { HeaderBar, NavList, PageTitle, Rail } from '../Furniture';
 import { TOKENS } from '../surfaceState';
 
 /**
@@ -15,85 +16,108 @@ import { TOKENS } from '../surfaceState';
  * whether or not chrome surrounds it. `sheetToken` lets the alternative
  * reading (sheet = tone.2, the workspace as a container in the chrome) be
  * shown for comparison.
+ *
+ * The Grommet root (base) sits behind the chrome and is never visible in
+ * the real UI — the chrome fills the viewport. It is drawn here as a dashed
+ * scaffold strip, separated from the chrome by a sliver of its own colour,
+ * only so the stack of surfaces is explicit.
  */
 export const FramedShell = ({ sheetToken = TOKENS.base }) => (
   <Surface
     token={TOKENS.base}
     label="Root"
+    note="Grommet root · surface.base · behind the chrome, never seen in the product"
+    scaffold
     fill
-    pad="none"
     round={false}
-    gap="none"
+    gap="xsmall"
+    pad={{ top: 'xsmall', horizontal: 'xsmall' }}
   >
     <Surface
       token={TOKENS.tone1}
-      label="Chrome (rail + local nav + frame)"
-      note="decision 13: a tone-1 container on the root"
+      label="Chrome"
+      region
+      note="decision 13: a tone-1 container on the root · rail + local nav + frame"
       fill
       round={false}
-      pad="small"
+      pad={{ top: 'small' }}
       gap="small"
     >
-      <Box direction="row" flex gap="small">
-        <Box
-          width="xxsmall"
-          gap="small"
-          align="center"
-          flex={false}
-          data-surface-token="none"
-          data-surface-label="Rail (no surface)"
-        >
-          {['A', 'B', 'C'].map(i => (
-            <Button key={i} label={i} plain hoverIndicator />
-          ))}
-        </Box>
+      <Box direction="row" flex gap="none">
+        <Rail border={{ side: 'right', color: 'border-weak' }} />
         <Box
           width="small"
           gap="xsmall"
           flex={false}
+          pad="small"
           data-surface-token="none"
           data-surface-label="Local nav (no surface)"
         >
-          <Text size="small" weight={500}>
-            Local nav (no surface)
-          </Text>
-          {['Overview', 'Devices', 'Alerts'].map(i => (
-            <Button key={i} label={i} plain hoverIndicator />
-          ))}
+          <Surface
+            token={undefined}
+            label="Local nav"
+            region
+            note="no surface · inherits the chrome"
+            pad="none"
+          />
+          <NavList />
         </Box>
 
-        <Surface
-          token={sheetToken}
-          label="Content sheet"
-          note={
-            sheetToken === TOKENS.base
-              ? 'A′: workspace is base inside chrome'
-              : 'alternative: sheet as a tone-2 container'
-          }
+        <Box
           flex
-          round="medium"
-          pad="medium"
+          direction="row"
+          gap="small"
+          pad={{ right: 'small', bottom: 'small' }}
         >
-          <Grid columns={{ count: 'fit', size: 'small' }} gap="medium">
-            <Surface token={TOKENS.tone1} label="Card A" />
-            <Surface token={TOKENS.tone1} label="Card B">
-              <Surface token={TOKENS.tone2} label="Inner panel" />
-            </Surface>
-            <Surface token={TOKENS.tone1} label="Card C" />
-          </Grid>
-        </Surface>
-
-        <Surface
-          token={sheetToken}
-          label="Contextual panel"
-          width="medium"
-          flex={false}
-          round="medium"
-        >
-          <Surface token={TOKENS.tone1} label="Card in panel">
-            <Surface token={TOKENS.tone2} label="Inner" />
+          <Surface
+            token={sheetToken}
+            label="Content sheet"
+            region
+            note={
+              sheetToken === TOKENS.base
+                ? 'A′: workspace is base inside chrome'
+                : 'alternative: sheet as a tone-2 container'
+            }
+            flex
+            round="large"
+            pad="medium"
+            gap="medium"
+          >
+            <HeaderBar />
+            <PageTitle />
+            <Grid columns={{ count: 'fit', size: 'small' }} gap="medium">
+              <Surface token={TOKENS.tone1} label="Card A">
+                <MetricLines />
+              </Surface>
+              <Surface token={TOKENS.tone1} label="Card B">
+                <Lines count={2} />
+                <Surface token={TOKENS.tone2} label="Inner panel">
+                  <Lines count={2} />
+                </Surface>
+              </Surface>
+              <Surface token={TOKENS.tone1} label="Card C">
+                <MetricLines />
+              </Surface>
+            </Grid>
           </Surface>
-        </Surface>
+
+          <Surface
+            token={sheetToken}
+            label="Contextual panel"
+            region
+            width="medium"
+            flex={false}
+            round="large"
+          >
+            <Lines count={3} />
+            <Surface token={TOKENS.tone1} label="Card in panel">
+              <Lines count={2} />
+              <Surface token={TOKENS.tone2} label="Inner">
+                <Lines count={1} />
+              </Surface>
+            </Surface>
+          </Surface>
+        </Box>
       </Box>
     </Surface>
   </Surface>

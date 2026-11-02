@@ -96,10 +96,22 @@ Toggle.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
+const fromQuery = (key, allowed, fallback) => {
+  const value = new URLSearchParams(window.location.search).get(key);
+  return allowed.includes(value) ? value : fallback;
+};
+
 const App = () => {
-  const [surfaceMode, setSurfaceMode] = useState('default');
-  const [colorMode, setColorMode] = useState('light');
-  const [page, setPage] = useState('standard');
+  // ?page=shell&surface=toned&mode=dark deep-links a combination.
+  const [surfaceMode, setSurfaceMode] = useState(() =>
+    fromQuery('surface', ['default', 'toned'], 'default'),
+  );
+  const [colorMode, setColorMode] = useState(() =>
+    fromQuery('mode', ['light', 'dark'], 'light'),
+  );
+  const [page, setPage] = useState(() =>
+    fromQuery('page', Object.keys(PAGES), 'standard'),
+  );
   const state = useMemo(
     () => ({ surfaceMode, colorMode, setColorMode }),
     [surfaceMode, colorMode],

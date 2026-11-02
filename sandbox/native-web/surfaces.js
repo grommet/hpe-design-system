@@ -29,17 +29,71 @@ const shortName = token => {
     .replace('tone-', 'tone.');
 };
 
-const navItem = item => `<div class="nav-item">${item}</div>`;
+const navItem = (item, active = false) =>
+  `<div class="nav-item${active ? ' active' : ''}">${item}</div>`;
 
 // A labelled surface. The painted value is filled in after render.
-const surface = ({ token = 'none', label, note, cls = '', children = '' }) => `
-  <div class="surface ${cls}"
+// `region` marks a chief architectural area (larger heading); `scaffold`
+// marks something not rendered in the real UI (the root behind a chrome).
+const surface = ({
+  token = 'none',
+  label,
+  note,
+  cls = '',
+  region = false,
+  scaffold = false,
+  children = '',
+}) => `
+  <div class="surface ${cls}${region ? ' region' : ''}${
+    scaffold ? ' scaffold' : ''
+  }"
     data-surface-token="${token}"
     data-surface-label="${label}">
-    <p class="label">${label}</p>
-    <p class="meta">${shortName(token)} · <span class="painted"></span></p>
-    ${note ? `<p class="meta">${note}</p>` : ''}
+    <p class="label">${label}${
+      scaffold ? '<span class="meta tag">not rendered UI</span>' : ''
+    }</p>
+    <p class="meta">
+      <span class="chip">${shortName(token)} ·
+        <span class="painted"></span></span>
+      ${note ? `<span>${note}</span>` : ''}
+    </p>
     ${children}
+  </div>`;
+
+/* Content stand-ins: skeleton lines, and the furniture a shell has (rail
+ * icons, brand + search + actions, nav items, page title). None of these are
+ * surfaces. */
+const lines = (count = 3) =>
+  `<div class="lines" aria-hidden="true">${Array.from(
+    { length: count },
+    (_, i) => `<i${i === count - 1 ? ' class="short"' : ''}></i>`,
+  ).join('')}</div>`;
+const metric = () => `<div class="metric" aria-hidden="true"></div>${lines(2)}`;
+const icon = name =>
+  `<span class="icon" role="img" aria-label="${name}" title="${name}"></span>`;
+const RAIL_ICONS = ['Home', 'Services', 'Dashboards', 'Devices', 'Compliance'];
+const rail = (cls = '') => `
+  <nav class="rail ${cls}" aria-label="Global"
+    data-surface-token="none" data-surface-label="Rail">
+    <div class="col center">${RAIL_ICONS.map(icon).join('')}</div>
+    <div class="col center">${['Help', 'Account'].map(icon).join('')}</div>
+  </nav>`;
+const headerBar = () => `
+  <div class="header-bar">
+    <span class="brand"><b>greenlake</b><small>by HPE</small></span>
+    <span class="search">${icon('Search')} Search</span>
+    <span class="spacer"></span>
+    ${['Notifications', 'Help', 'Services', 'Account'].map(icon).join('')}
+  </div>`;
+const navList = () => `
+  <p class="label">Menu title</p>
+  ${['Overview', 'Devices', 'Alerts', 'Subscriptions', 'Settings']
+    .map(i => navItem(i, i === 'Devices'))
+    .join('')}`;
+const pageTitle = () => `
+  <div class="page-title">
+    <h2>Devices</h2>
+    <button class="btn-primary">Add device</button>
   </div>`;
 
 const hardCoded = where =>
@@ -71,30 +125,37 @@ const standardPage = ({ failureModes = true } = {}) =>
   surface({
     token: T.base,
     label: 'Page',
-    cls: 'square fill',
+    region: true,
+    cls: 'square fill tight',
     children: `
-    <div class="row flex">
-      ${surface({
-        token: T.tone1,
-        label: 'Nav menu',
-        cls: 'w-small square',
-        children: `
-          ${['Overview', 'Devices', 'Alerts', 'Settings'].map(navItem).join('')}
-          <button class="btn-secondary">Secondary on tone.1</button>
-          ${failureModes ? hardCoded('in nav') : ''}`,
-      })}
-      <div class="col flex">
+    <div class="row flex nogap">
+      ${rail('bordered-right')}
+      <div class="col flex pad-x">
         ${surface({
           token: 'none',
           label: 'Header',
+          region: true,
           note: 'decision 6 / 23: no surface, reads as the page',
-          children: '<button class="btn-primary">Primary action</button>',
+          children: headerBar(),
         })}
+        <div class="row flex">
+      ${surface({
+        token: T.tone1,
+        label: 'Nav menu',
+        region: true,
+        cls: 'w-small rounded',
+        children: `
+          ${navList()}
+          <button class="btn-secondary">Secondary on tone.1</button>
+          ${failureModes ? hardCoded('in nav') : ''}`,
+      })}
+      <div class="col flex pad-x">
+        ${pageTitle()}
         <div class="grid">
           ${surface({
             token: T.tone1,
             label: 'Card A',
-            children: '<p class="meta">Plain card.</p>',
+            children: metric(),
           })}
           ${surface({
             token: T.tone1,
@@ -102,11 +163,14 @@ const standardPage = ({ failureModes = true } = {}) =>
             children: surface({
               token: T.tone2,
               label: 'Panel inside card',
-              children: surface({
-                token: T.tone1,
-                label: 'Nested region (depth 3)',
-                note: 'alternation continues',
-              }),
+              children:
+                lines(2) +
+                surface({
+                  token: T.tone1,
+                  label: 'Nested region (depth 3)',
+                  note: 'alternation continues',
+                  children: lines(1),
+                }),
             }),
           })}
           ${
@@ -134,66 +198,99 @@ const standardPage = ({ failureModes = true } = {}) =>
       ${surface({
         token: T.tone1,
         label: 'Contextual panel',
-        cls: 'w-medium square',
+        region: true,
+        cls: 'w-medium rounded',
         children: `
           <p class="meta">Selected row on tone.1 (decision 16)</p>
           ${table}
           <button class="btn-secondary">Secondary on tone.1</button>
-          ${surface({ token: T.tone2, label: 'Card in panel' })}`,
+          ${surface({
+            token: T.tone2,
+            label: 'Card in panel',
+            children: lines(2),
+          })}`,
       })}
+        </div>
+      </div>
     </div>`,
   });
 
 // Page 2 — framed shell (#6708). A′: sheet and panel = base.
+// The Grommet root (base) is behind the chrome and never visible in the real
+// UI; drawn as a dashed scaffold strip so the stack of surfaces is explicit.
 const framedShell = ({ sheetToken = T.base } = {}) =>
   surface({
     token: T.base,
     label: 'Root',
+    note: 'root · surface.base · behind the chrome, never seen in the product',
+    scaffold: true,
     cls: 'square fill',
     children: surface({
       token: T.tone1,
-      label: 'Chrome (rail + local nav + frame)',
-      note: 'decision 13: a tone-1 container on the root',
-      cls: 'square flex',
+      label: 'Chrome',
+      region: true,
+      note:
+        'decision 13: a tone-1 container on the root · rail, local nav, frame',
+      cls: 'square flex tight',
       children: `
-      <div class="row flex">
-        <div class="col w-rail" data-surface-token="none"
-          data-surface-label="Rail (no surface)">
-          ${['A', 'B', 'C'].map(navItem).join('')}
-        </div>
-        <div class="col w-small" data-surface-token="none"
+      <div class="row flex nogap">
+        ${rail('bordered-right')}
+        <div class="col w-small pad" data-surface-token="none"
           data-surface-label="Local nav (no surface)">
-          <p class="label">Local nav (no surface)</p>
-          ${['Overview', 'Devices', 'Alerts'].map(navItem).join('')}
+          ${surface({
+            token: 'none',
+            label: 'Local nav',
+            region: true,
+            note: 'no surface · inherits the chrome',
+            cls: 'tight',
+          })}
+          ${navList()}
         </div>
+        <div class="row flex pad-r">
         ${surface({
           token: sheetToken,
           label: 'Content sheet',
+          region: true,
           note:
             sheetToken === T.base
               ? 'A′: workspace is base inside chrome'
               : 'alternative: sheet as a tone-2 container',
-          cls: 'rounded flex',
-          children: `<div class="grid">
-            ${surface({ token: T.tone1, label: 'Card A' })}
+          cls: 'rounded-large flex pad-l',
+          children: `
+            ${headerBar()}
+            ${pageTitle()}
+            <div class="grid">
+            ${surface({ token: T.tone1, label: 'Card A', children: metric() })}
             ${surface({
               token: T.tone1,
               label: 'Card B',
-              children: surface({ token: T.tone2, label: 'Inner panel' }),
+              children:
+                lines(2) +
+                surface({
+                  token: T.tone2,
+                  label: 'Inner panel',
+                  children: lines(2),
+                }),
             })}
-            ${surface({ token: T.tone1, label: 'Card C' })}
+            ${surface({ token: T.tone1, label: 'Card C', children: metric() })}
           </div>`,
         })}
         ${surface({
           token: sheetToken,
           label: 'Contextual panel',
-          cls: 'rounded w-medium',
-          children: surface({
-            token: T.tone1,
-            label: 'Card in panel',
-            children: surface({ token: T.tone2, label: 'Inner' }),
-          }),
+          region: true,
+          cls: 'rounded-large w-medium',
+          children:
+            lines(3) +
+            surface({
+              token: T.tone1,
+              label: 'Card in panel',
+              children:
+                lines(2) +
+                surface({ token: T.tone2, label: 'Inner', children: lines(1) }),
+            }),
         })}
+        </div>
       </div>`,
     }),
   });
@@ -298,7 +395,7 @@ const readSurfaces = () => [
 
 const annotate = () => {
   document.querySelectorAll('.surface').forEach(el => {
-    const painted = el.querySelector(':scope > .meta > .painted');
+    const painted = el.querySelector(':scope > .meta .painted');
     if (painted)
       painted.textContent = `painted ${getComputedStyle(el).backgroundColor}`;
   });

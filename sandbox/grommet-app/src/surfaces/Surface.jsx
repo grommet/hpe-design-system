@@ -7,13 +7,29 @@ import { normalizeColor } from 'grommet/utils';
 import PropTypes from 'prop-types';
 import { SurfaceStateContext, TOKENS, shortName } from './surfaceState';
 
+const MONO = 'ui-monospace, SFMono-Regular, Menlo, monospace';
+
 /**
  * A labelled box carrying one surface token. Annotates itself with the token,
  * the value the theme resolves it to, and the value the browser actually
  * painted (getComputedStyle), so the two can be compared without judging by
  * eye. Exposes data attributes for the verification sweep.
+ *
+ * `region` marks a chief architectural area (page, nav, header, content
+ * sheet, contextual panel, chrome): the label renders as a larger heading so
+ * the page structure reads at a glance. `scaffold` marks something that is
+ * not rendered UI in the real product (the Grommet root behind a chrome)
+ * and draws it as a dashed, labelled strip instead of a surface.
  */
-export const Surface = ({ token, label, children, note, ...rest }) => {
+export const Surface = ({
+  token,
+  label,
+  children,
+  note,
+  region = false,
+  scaffold = false,
+  ...rest
+}) => {
   const theme = useContext(ThemeContext);
   const state = useContext(SurfaceStateContext);
   const ref = useRef();
@@ -36,20 +52,42 @@ export const Surface = ({ token, label, children, note, ...rest }) => {
       pad="small"
       gap="small"
       round="xsmall"
+      {...(scaffold && {
+        border: { color: 'border-strong', style: 'dashed' },
+        pad: { horizontal: 'small', vertical: 'xsmall' },
+      })}
       {...rest}
     >
       <Box gap="xxsmall" flex={false}>
-        <Text size="small" weight={500}>
+        <Text
+          size={region ? 'large' : 'small'}
+          weight={region ? 600 : 500}
+          color={scaffold ? 'text-weak' : undefined}
+        >
           {label}
+          {scaffold && (
+            <Text size="xsmall" color="text-weak" margin={{ left: 'small' }}>
+              not rendered UI
+            </Text>
+          )}
         </Text>
-        <Text size="xsmall" color="text-weak">
-          {shortName(token)} · theme {expected} · painted {computed}
-        </Text>
-        {note && (
-          <Text size="xsmall" color="text-weak">
-            {note}
-          </Text>
-        )}
+        <Box direction="row" gap="xsmall" align="center" wrap>
+          <Box
+            round="xsmall"
+            border={{ color: 'border-weak' }}
+            pad={{ horizontal: 'xsmall', vertical: '5xsmall' }}
+            flex={false}
+          >
+            <Text size="xsmall" style={{ fontFamily: MONO }}>
+              {shortName(token)} · theme {expected} · painted {computed}
+            </Text>
+          </Box>
+          {note && (
+            <Text size="xsmall" color="text-weak">
+              {note}
+            </Text>
+          )}
+        </Box>
       </Box>
       {children}
     </Box>
@@ -60,8 +98,48 @@ Surface.propTypes = {
   token: PropTypes.string,
   label: PropTypes.string.isRequired,
   note: PropTypes.string,
+  region: PropTypes.bool,
+  scaffold: PropTypes.bool,
   children: PropTypes.node,
 };
+
+/* ------------------------------------------------------------------------
+ * Content stand-ins. The pages must read as a UI without carrying any real
+ * content, so cards and panels are filled with skeleton lines and the chrome
+ * with the furniture a real shell has (brand, search, actions, rail icons,
+ * nav items). None of these are surfaces: the bars use a translucent text
+ * colour, the rail uses background-contrast (a standard fill, decision 15a).
+ * ---------------------------------------------------------------------- */
+
+/** A few skeleton lines standing in for text. */
+export const Lines = ({ count = 3, width = '100%' }) => (
+  <Box gap="xsmall" flex={false} aria-hidden="true">
+    {Array.from({ length: count }, (_, i) => (
+      <Box
+        key={i}
+        height="10px"
+        width={i === count - 1 ? '60%' : width}
+        round="xsmall"
+        background={{ color: 'text-weak', opacity: 'weak' }}
+      />
+    ))}
+  </Box>
+);
+
+Lines.propTypes = { count: PropTypes.number, width: PropTypes.string };
+
+/** A metric-shaped stand-in: big number, label, a line. */
+export const MetricLines = () => (
+  <Box gap="xsmall" flex={false} aria-hidden="true">
+    <Box
+      height="28px"
+      width="40%"
+      round="xsmall"
+      background={{ color: 'text-weak', opacity: 'medium' }}
+    />
+    <Lines count={2} />
+  </Box>
+);
 
 /**
  * Decision 14 failure mode: a reusable component that hard-codes a tone.
