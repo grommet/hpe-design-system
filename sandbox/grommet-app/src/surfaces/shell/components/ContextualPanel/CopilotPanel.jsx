@@ -35,7 +35,7 @@ const SuggestionCard = ({ suggestion, onPrompt }) => {
   const [open, setOpen] = useState(false);
   const Icon = suggestion.icon;
   return (
-    <Surface role="card" round="medium" flex={false}>
+    <Surface role="panelCard" round="medium" flex={false}>
       <Button plain onClick={() => setOpen(!open)} aria-expanded={open}>
         <Box
           direction="row"
@@ -55,7 +55,7 @@ const SuggestionCard = ({ suggestion, onPrompt }) => {
               <Text size="xsmall" color="text-weak">
                 {suggestion.description}
               </Text>
-              <SurfaceTag role="card" note="card on the panel" />
+              <SurfaceTag role="panelCard" />
             </Box>
           </Box>
           {open ? (
@@ -133,7 +133,7 @@ const Message = ({ message }) => {
   if (message.role === 'user') {
     return (
       <Surface
-        role="card"
+        role="panelCard"
         alignSelf="end"
         round="medium"
         pad={{ horizontal: 'small', vertical: 'xsmall' }}
@@ -206,7 +206,7 @@ const CoWork = () => (
       const Icon = agent.icon;
       return (
         <Surface
-          role="card"
+          role="panelCard"
           key={agent.name}
           direction="row"
           gap="small"

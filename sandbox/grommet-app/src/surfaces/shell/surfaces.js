@@ -23,6 +23,8 @@ const FRAMED_TOKENS = {
   panel: TOKENS.base,
   card: TOKENS.tone1,
   inner: TOKENS.tone2,
+  // a card inside the contextual panel: whichever tone the panel is not
+  panelCard: TOKENS.tone1,
   overlayNav: TOKENS.floating,
   raised: TOKENS.floating,
 };
@@ -40,12 +42,18 @@ export const SHELL_READINGS = {
       panel: 'contextual panel · a second sheet (base)',
       card: 'card on base',
       inner: 'panel inside a tone-1 card',
+      panelCard: 'card on the panel (base) · tone-1',
       overlayNav: 'local nav inside a Layer · a floating root',
     },
   },
   framedAlt: {
     label: 'Framed shell · A (sheet = tone-2)',
-    tokens: { ...FRAMED_TOKENS, sheet: TOKENS.tone2, panel: TOKENS.tone2 },
+    tokens: {
+      ...FRAMED_TOKENS,
+      sheet: TOKENS.tone2,
+      panel: TOKENS.tone2,
+      panelCard: TOKENS.tone1,
+    },
     notes: {
       root: 'Grommet root; never visible behind the chrome',
       chrome: 'shell chrome · tone-1 on the root',
@@ -54,12 +62,18 @@ export const SHELL_READINGS = {
       panel: 'contextual panel · sibling of the sheet on the chrome (tone-2)',
       card: 'card on the sheet (tone-1)',
       inner: 'panel inside a tone-1 card',
+      panelCard: 'card on the panel (tone-2) · tone-1',
       overlayNav: 'local nav inside a Layer · a floating root',
     },
   },
   beside: {
     label: 'Beside shell · Overview dashboard',
-    tokens: { ...FRAMED_TOKENS, chrome: TOKENS.base, panel: TOKENS.tone1 },
+    tokens: {
+      ...FRAMED_TOKENS,
+      chrome: TOKENS.base,
+      panel: TOKENS.tone1,
+      panelCard: TOKENS.tone2,
+    },
     notes: {
       root: 'Grommet root = the page (base)',
       chrome:
@@ -67,6 +81,7 @@ export const SHELL_READINGS = {
       sheet: 'the page (base) · header transparent on it (decision 6)',
       panel: 'contextual panel · a tone-1 container on the page, like the cards',
       card: 'card on the page (tone-1) · the nav panel is the same',
+      panelCard: 'card on the panel · the panel is tone-1, so this alternates to tone-2',
       inner: 'panel inside a tone-1 card',
       overlayNav: 'local nav inside a Layer · a floating root',
     },
