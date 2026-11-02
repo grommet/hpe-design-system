@@ -60,25 +60,34 @@ export const Claim = () => (
   <Slide
     kicker="What is being proven"
     title="Three testable consequences of one rule"
-    lead="From the issue: because there are exactly two tones, the whole system inverts by swapping values rather than remapping tokens."
+    lead="The architecture gives a product four surface tokens — base (the page), tone.1 and tone.2 (two container colours that alternate), and floating (anything over the page). The rule: a container takes whichever tone its parent is not. Three things follow, and each one was tested."
   >
     <Columns>
       <Column>
-        <Note title="1 · Alternation resolves">
-          At any depth, in light and dark, on every platform. Page → tone.1 →
-          tone.2 → tone.1 …
+        <Note title="1 · Alternation resolves at any depth">
+          Put tone.1 on a card, tone.2 on a panel inside it, tone.1 on a
+          region inside that, and so on. Every level must come out a
+          different colour from the one around it — in light and in dark,
+          in Grommet and in plain CSS, with no limit on how deep you go.
+          Tested on three layouts (page, framed shell, dialog) in all four
+          combinations of surface mode × colour mode.
         </Note>
-        <Note title="2 · The pair inverts">
-          Swapping the values turns a white page with grey containers into a
-          grey page with white containers — on every screen, with no token
-          changed anywhere. Before this phase that had only been shown in
-          light mode; dark mode was the open question. This phase made it
-          decidable — the two possible dark renderings and the evidence are
-          on slides 10–13 — but it does not decide it.
+        <Note title="2 · The whole look can be inverted without touching a product">
+          Today a page is white and its cards are grey. Some products want
+          the reverse: a grey page with white cards. Because every container
+          alternates, that can be done by changing what the four tokens
+          <em> point at</em> — in a second theme file — rather than by any
+          product editing its screens. This deck calls that second theme
+          “toned”. Before this phase the swap had only been shown in light
+          mode; what happens in dark was the open question. The phase
+          produced both possible dark renderings and the evidence (slides
+          11–14) so the question can now be decided — it does not decide it.
         </Note>
-        <Note title="3 · floating is a root">
-          Unaffected by what it sits over; containers alternate from it
-          normally.
+        <Note title="3 · floating starts a new chain">
+          A modal, drop or tooltip is “over” the page, not “in” it, so its
+          colour does not depend on what it happens to cover, and the first
+          container inside it is tone.1 again — the same token a card on the
+          page uses.
         </Note>
       </Column>
       <Column>
@@ -105,12 +114,63 @@ evidence     →  getComputedStyle() on every surface, compared
   </Slide>
 );
 
+/* 2b --------------------------------------------------------------------- */
+export const WhatWasAdded = () => (
+  <Slide
+    kicker="What was added · overview"
+    title="Seven new tokens, two new files, and the plumbing to build them"
+    lead="Everything below lives in packages/hpe-design-tokens and was built with the normal token pipeline. Nothing in the existing colour system was changed; the legacy back / front / floating tokens are untouched and now guarded by a test."
+  >
+    <Columns>
+      <Column>
+        <Note title="1 · Three internal colour values · in the existing colour files">
+          <Code title="tokens/semantic/color.light.json  and  color.dark.json">
+            {`color.surface.10   light: white      dark: grey.1300
+color.surface.20   light: white      dark: grey.1200
+color.surface.30   light: grey.50    dark: grey.1000`}
+          </Code>
+          <Text size="small" style={{ marginTop: 8 }}>
+            Each one holds a light value and a dark value. They are
+            implementation detail — hidden from Figma publishing, marked
+            [INTERNAL] — and nobody styles a screen with them. Next slide.
+          </Text>
+        </Note>
+      </Column>
+      <Column>
+        <Note title="2 · Four surface tokens · in a new Surface collection">
+          <Code title="tokens/semantic/surface.default.json   (new file)">
+            {`color.background.surface.base      → color.surface.10
+color.background.surface.tone.1    → color.surface.30
+color.background.surface.tone.2    → color.surface.20
+color.background.surface.floating  → color.surface.20`}
+          </Code>
+          <Code title="tokens/semantic/surface.toned.json     (new file, the grey-page look)">
+            {`color.background.surface.base      → color.surface.30
+color.background.surface.tone.1    → color.surface.10
+color.background.surface.tone.2    → color.surface.30
+color.background.surface.floating  → color.surface.30`}
+          </Code>
+          <Text size="small" style={{ marginTop: 8 }}>
+            These are what products use. Each points at one internal value;
+            the file decides which. Slide 5.
+          </Text>
+        </Note>
+      </Column>
+    </Columns>
+    <Note title="3 · Build, parser and tests · so the files become CSS, Grommet theme entries and Figma variables">
+      One new block in the Style Dictionary build script, one new output
+      format (CSS scoped to a data-surface attribute), two entries in the
+      token-name parser, and a 16-test suite. Slide 6.
+    </Note>
+  </Slide>
+);
+
 /* 3 ---------------------------------------------------------------------- */
 export const ReferenceTier = () => (
   <Slide
-    kicker="What was added · 1 of 3"
-    title="Three internal reference tokens in the Color collection"
-    lead="color.surface.10 / .20 / .30 carry the light and dark values. They are the only new entries in color.light.json and color.dark.json."
+    kicker="What was added · 1 of 3 · the internal values"
+    title="Three entries added to color.light.json and color.dark.json"
+    lead="Named color.surface.10, .20 and .30. Each file gives them its own value: in color.light.json they are white, white and grey.50; in color.dark.json they are grey.1300, grey.1200 and grey.1000. They are not meant to be used directly — they exist so that one surface token can mean one colour in light and another in dark."
   >
     <Columns>
       <Column>
@@ -135,11 +195,18 @@ export const ReferenceTier = () => (
         <Note title="As built (read from hpe-design-tokens/grommet)">
           <ReferenceTable />
         </Note>
-        <Note title="Why a tier at all">
-          A consumer token can hold only one alias, and an alias cannot say
-          “white in light, grey.1300 in dark”. The step holds the pair; the
-          consumer points at the step. 10 and 20 sharing white in light is
-          deliberate — in dark they are three distinct values, 10 darkest.
+        <Note title="Why not point the surface tokens straight at grey.50 etc.?">
+          A surface token lives in its own collection and can hold only one
+          pointer — it cannot say “white in light, grey.1300 in dark”. So it
+          points at color.surface.10, and color.surface.10 is the thing that
+          already has a light value and a dark value, because it lives in the
+          colour files that are split by mode. That is the whole job of
+          these three entries.
+        </Note>
+        <Note title="Why 10 and 20 are both white in light">
+          Deliberate. In light a page and a nested panel are both white (only
+          the first container is grey). In dark they are three different
+          greys, 10 darkest.
         </Note>
       </Column>
     </Columns>
@@ -338,7 +405,7 @@ export const RealDesigns = () => {
             Full-size versions with the sweep: pages 4, 4b and 5 of{' '}
             <Anchor href="/surfaces.html" label="/surfaces.html" />. In
             toned · dark the cards sit darker than the page — the open
-            question on slides 11–13, seen on a real screen.
+            question on slides 12–14, seen on a real screen.
           </Note>
         </Column>
       </Columns>
@@ -470,7 +537,7 @@ export const FloatingSlide = () => {
             paints #292d3a on a #292d3a page and is separated by its shadow
             only, where shadows barely read — a situation default never has in
             dark (#22252e on #1d1f27). Not yet reviewed by design; it is one of
-            the costs on slide 13.
+            the costs on slide 14.
           </Note>
         </Column>
         <Column>
@@ -489,9 +556,9 @@ export const FloatingSlide = () => {
 /* 9 ---------------------------------------------------------------------- */
 export const InvertLight = () => (
   <Slide
-    kicker="Part 3 · invertibility, light"
-    title="Swap the values: grey page, white containers, grey nested"
-    lead="Same tokens, same markup, no product change. toned re-aliases base ↔ tone.1 and lets tone.2 and floating follow the grey step. Both panes below are forced to light."
+    kicker="Part 3 · the grey-page look, light mode"
+    title="A grey page with white cards, with no product changing a thing"
+    lead="Suppose a product wants a grey page instead of a white one. We do not touch its screens. We add a second surface file — surface.toned.json — in which the same four token names point at different internal values: base now points at the grey one, tone.1 at the white one. Load that file instead of surface.default.json (in Grommet: use the toned theme object) and every screen inverts. Both panes below are forced to light."
   >
     <Columns>
       <ThemePane title="default · light" surfaceMode="default" colorMode="light">
@@ -501,21 +568,33 @@ export const InvertLight = () => (
         <Chain />
       </ThemePane>
     </Columns>
-    <Code title="surface.toned.json · the whole change">
-      {`base     → color.surface.30   (was 10)   grey.50  page
-tone.1   → color.surface.10   (was 30)   white    first container
-tone.2   → color.surface.30   (was 20)   grey.50  nested
-floating → color.surface.30   (was 20)   grey.50  over the page`}
-    </Code>
+    <Columns>
+      <Column>
+        <Code title="surface.toned.json · the whole change, four lines">
+          {`base      → color.surface.30   (default points at .10)   page becomes grey.50
+tone.1    → color.surface.10   (default points at .30)   cards become white
+tone.2    → color.surface.30   (default points at .20)   nested panels grey.50
+floating  → color.surface.30   (default points at .20)   modals grey.50`}
+        </Code>
+      </Column>
+      <Column>
+        <Note title="Why this is the point of the architecture">
+          No product edited a screen, renamed a token or shipped a release.
+          The tokens on every card, panel and page are exactly the ones they
+          were. Only what the names resolve to changed, in one file. This is
+          what “the pair inverts” on slide 2 means in practice.
+        </Note>
+      </Column>
+    </Columns>
   </Slide>
 );
 
 /* 10 --------------------------------------------------------------------- */
 export const InvertDark = () => (
   <Slide
-    kicker="Part 3 · invertibility, dark — determined, not decided"
-    title="In dark the swap is a reordering, and on 10–30 it collapses to two values"
-    lead="Dark holds three values and base is not a member of the pair. Only one step is grey in light (30), so toned base and toned tone.2 must both point at it — and in dark they share grey.1000. Both panes are forced to dark."
+    kicker="Part 3 · the grey-page look, dark mode — the open question"
+    title="The same four lines, in dark, give a two-colour result"
+    lead="The toned file changes what the tokens point at; it cannot change the internal values themselves, and each internal value carries a dark colour too. In light the swap was perfect. In dark the page and the nested panels end up the same grey, the cards the only other grey, and modals the same colour as the page. Both panes are forced to dark."
   >
     <Columns>
       <ThemePane title="default · dark" surfaceMode="default" colorMode="dark">
@@ -527,20 +606,24 @@ export const InvertDark = () => (
     </Columns>
     <Columns>
       <Column>
-        <Note title="What is painted (both environments)">
-          Page #292d3a (grey.1000), first container #1d1f27 (grey.1300), nested
-          #292d3a again; Layer and Drop #292d3a, equal to the page. Every
-          boundary is the 1300↔1000 step and 1200 is never used. Visibly
-          different from default dark.
+        <Note title="Why it happens">
+          Only one of the three internal values is grey in light
+          (color.surface.30). To make the page grey in light, base must point
+          at it — and so must tone.2, for the nested panels. But .30 is also a
+          specific dark grey (grey.1000). So in dark the page and the nested
+          panels are forced to the same colour, and the three-step dark
+          progression the default theme has (1300 → 1000 → 1200) becomes a
+          two-step one (1000 → 1300 → 1000).
         </Note>
       </Column>
       <Column>
-        <Note title="Status: not assessed — requires design review">
-          This is the two-tone dark pattern #6020 reports tested badly
-          (“excessive contrast”). #6071 says the inverted dark order should be
-          looked at rather than assumed; it has not been looked at by design in
-          either environment. The alternative that avoids it is on the next
-          slide.
+        <Note title="Status: not assessed — needs a design look">
+          It is coherent (containers read as recesses) but it is visibly
+          different from today’s dark, and the spec recorded that two-tone
+          dark patterns tested badly in the past. Nobody has reviewed this
+          rendering yet. It is not a defect in the pipeline — it is a
+          consequence of having three internal values — and there is a way
+          to avoid it, on the next slide.
         </Note>
       </Column>
     </Columns>
@@ -550,9 +633,9 @@ export const InvertDark = () => (
 /* 11 --------------------------------------------------------------------- */
 export const Decision = () => (
   <Slide
-    kicker="For decision · not decided"
-    title="Toned dark: two values on 10–30, or three on 40–60?"
-    lead="Both routes give the specified light swap. They differ only in dark. All four toned-dark surfaces are below for each — page, container, nested, and a floating surface over the page with the shadow a real Layer uses. The tokens currently hold 10–30; 40–60 is simulated here, not built. This is a design decision to be made with both renderings in front of designers."
+    kicker="An option, not a decision"
+    title="If the grey-page look should keep today’s dark mode, add three more internal values"
+    lead="Nothing has to be decided now. The toned theme is not shipping, and this only matters if and when a product adopts it. But it is worth knowing the choice exists. Left: today’s dark. Middle: the toned theme in dark with the three internal values we have. Right: the toned theme in dark if we added three more internal values (40, 50, 60) whose dark colours copy 10–30 — then dark looks identical in both themes. The right pane is simulated; those values are not in the token files."
   >
     <Columns>
       <ThemePane title="default · dark (reference)" surfaceMode="default" colorMode="dark">
@@ -570,23 +653,26 @@ export const Decision = () => (
     </Columns>
     <Columns>
       <Column>
-        <Note title="10–30 · what it gives">
-          Three reference steps, one scale, as #6073 wrote them. Toned dark:
-          page grey.1000, containers grey.1300, nested grey.1000, floating =
-          page. base ≡ tone.2 in both modes.
+        <Note title="Keep three internal values (what is in the files now)">
+          Simplest. The grey-page theme changes dark mode too: page and nested
+          panels grey.1000, cards grey.1300, modals the same grey as the page.
+          Fine if “toned” is meant as a light-mode look; a change for anyone
+          who adopts it to keep what they have today.
         </Note>
       </Column>
       <Column>
-        <Note title="40 / 50 / 60 · what it gives">
-          Three more hidden reference steps — dark values copied from 10/20/30,
-          light values swapped — so dark looks the same whether the surface
-          mode is default or toned: 1300 / 1000 / 1200, floating 1200 on 1300.
-          Built and verified through every output earlier on this branch
-          before being removed, so it is known to work.
+        <Note title="Add three more (the option)">
+          color.surface.40, .50 and .60 — light values swapped, dark values
+          copied from 10/20/30 — and point the toned file at those. Then
+          switching themes changes light mode and leaves dark exactly as it
+          is. Cost: three more internal values nobody uses directly. It was
+          built and verified on this branch before being taken out, so it is
+          known to work; it was removed so the files hold only what the spec
+          asked for.
         </Note>
       </Column>
       <Column>
-        <Code title="The option, if chosen">
+        <Code title="What it would look like in the files">
           {`color.surface.40  grey.50 / grey.1300
 color.surface.50  grey.50 / grey.1200
 color.surface.60  white   / grey.1000
@@ -602,12 +688,11 @@ const COST_ROWS = [
   ['toned dark · page · container · nested · floating', '1000 · 1300 · 1000 · 1000', '1300 · 1000 · 1200 · 1200 (= default dark)'],
   ['distinct dark values', '2', '3'],
   ['floating vs base in dark', 'equal — #292d3a on #292d3a, shadow only', 'distinct — 1200 on 1300'],
-  ['base carries a third value in toned (#6020\'s reason for base being a token)', 'no — base ≡ tone.2 in both modes', 'yes'],
-  ['legacy grey-page team\'s dark on adopting toned (decision 11\'s purpose)', 'changes (today 1300 / 1000 / 1200)', 'unchanged'],
-  ['#6020: “alternating only two tones in dark produced excessive contrast”', 'reproduces that pattern — needs design review', 'no'],
-  ['reference tier', '3 steps, one scale', '6 steps, two chains; 3 more hidden variables'],
-  ['consumer tokens / Figma public surface', 'unchanged', 'unchanged'],
-  ['#6289 mapping (30 / 20 / 30 / 20)', 'rejected — tone.1 ≡ floating', 'rejected'],
+  ['page and nested panels distinguishable in dark', 'no — same grey', 'yes'],
+  ['a product adopting the grey-page theme keeps its current dark mode', 'no — dark changes too', 'yes'],
+  ['matches a dark pattern the spec says tested badly (two alternating greys)', 'yes — needs a design look', 'no'],
+  ['internal values', '3', '6 (three more that nobody uses directly)'],
+  ['the four surface tokens products use', 'unchanged', 'unchanged'],
 ];
 
 export const CostTable = () => {
@@ -620,9 +705,9 @@ export const CostTable = () => {
   const cell = { padding: '8px 0', borderBottom: '1px solid var(--border-weak, rgba(128,128,128,.3))' };
   return (
     <Slide
-      kicker="For decision · the costs, side by side"
-      title="What each route costs"
-      lead="Light is identical under both. Every row below is about dark, and none of it has been reviewed by design yet. The write-up recommends neither route until that review happens."
+      kicker="The option · side by side"
+      title="What each route costs — for when the question comes up"
+      lead="This is not a decision we are forced into now; it only arises when a product wants the grey-page theme, and it can be made then with both renderings in front of designers. Light mode is identical under both routes, so every row is about dark. This work recommends neither."
     >
       <Box style={grid} flex={false}>
         <Text size="small" weight={500} style={cell}>&nbsp;</Text>
@@ -635,11 +720,12 @@ export const CostTable = () => {
         ])}
       </Box>
       <Note title="One framing to keep in mind">
-        If toned is primarily the migration route decision 11 describes, the
-        40–60 option is the one that delivers its promise; if toned is
-        primarily “the light swap, and dark is whatever falls out”, 10–30 is
-        the honest minimum. That is the question for design, not for this
-        phase.
+        If the grey-page theme is mainly a way for existing products to keep
+        the look they have today (which is what the decision log says it is
+        for), the three extra values are what make that true in dark as well
+        as light. If it is mainly “a light-mode swap, and dark is whatever
+        follows”, three values are enough. That is a design question, and it
+        can wait until someone needs the theme.
       </Note>
     </Slide>
   );

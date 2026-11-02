@@ -79,7 +79,8 @@ export const Surface = ({
             flex={false}
           >
             <Text size="xsmall" style={{ fontFamily: MONO }}>
-              {shortName(token)} · theme {expected} · painted {computed}
+              {shortName(token)}
+              {state.detail && ` · theme ${expected} · painted ${computed}`}
             </Text>
           </Box>
           {note && (

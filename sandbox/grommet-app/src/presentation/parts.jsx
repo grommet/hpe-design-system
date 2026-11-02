@@ -285,8 +285,8 @@ export const Floating = ({ note }) => {
   return (
     <Surface
       token={TOKENS.floating}
-      label={`Floating over the page (elevation "${elevation}", as Layer)`}
-      note={note}
+      label="Floating over the page"
+      note={note || `shadow: elevation "${elevation}", as a real Layer`}
       elevation={elevation}
       round="small"
     >

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useEffect, useMemo, useState } from 'react';
-import { Box, Button, Grommet, Text } from 'grommet';
+import { Box, Button, CheckBox, Grommet, Text } from 'grommet';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import { SurfaceStateContext, TOKENS } from './surfaceState';
@@ -112,9 +112,12 @@ const App = () => {
   const [page, setPage] = useState(() =>
     fromQuery('page', Object.keys(PAGES), 'standard'),
   );
+  const [detail, setDetail] = useState(
+    () => fromQuery('detail', ['on', 'off'], 'off') === 'on',
+  );
   const state = useMemo(
-    () => ({ surfaceMode, colorMode, setColorMode }),
-    [surfaceMode, colorMode],
+    () => ({ surfaceMode, colorMode, setColorMode, detail }),
+    [surfaceMode, colorMode, detail],
   );
 
   // Programmatic controls for the verification sweep (browser automation).
@@ -195,6 +198,12 @@ const App = () => {
             <Text size="xsmall" color="text-weak">
               {PAGES[page].label}
             </Text>
+            <CheckBox
+              toggle
+              label="values"
+              checked={detail}
+              onChange={event => setDetail(event.target.checked)}
+            />
             <ThemeDarkBadge />
           </Box>
           <Box flex overflow="auto">

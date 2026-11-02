@@ -45,12 +45,13 @@ Surface.propTypes = {
 const usePainted = (enabled, token) => {
   const ref = useRef();
   const state = useContext(SurfaceStateContext);
+  const active = enabled && state.detail;
   const [painted, setPainted] = useState('');
   useLayoutEffect(() => {
-    if (!enabled || !ref.current) return;
+    if (!active || !ref.current) return;
     const el = ref.current.closest(`[data-surface-token="${token}"]`);
     setPainted(el ? getComputedStyle(el).backgroundColor : '');
-  }, [enabled, token, state.surfaceMode, state.colorMode]);
+  }, [active, token, state.surfaceMode, state.colorMode]);
   return [ref, painted];
 };
 
@@ -64,6 +65,7 @@ const usePainted = (enabled, token) => {
 export const SurfaceTag = ({ role, token, note, showVariant, ...rest }) => {
   const variant = useSurfaceVariant();
   const theme = useContext(ThemeContext);
+  const { detail } = useContext(SurfaceStateContext);
   const assigned = token || variant.tokens[role];
   const [ref, painted] = usePainted(variant.annotate, assigned);
   if (!variant.annotate) return null;
@@ -92,8 +94,8 @@ export const SurfaceTag = ({ role, token, note, showVariant, ...rest }) => {
             style={{ fontFamily: 'ui-monospace, Menlo, monospace' }}
           >
             {shortName(assigned)}
-            {showResolved && ` · ${resolved}`}
-            {painted && ` · painted ${painted}`}
+            {detail && showResolved && ` · ${resolved}`}
+            {detail && painted && ` · painted ${painted}`}
           </Text>
         </Box>
         {text && (

@@ -4,10 +4,13 @@ import { createContext } from 'react';
 
 // Which surface mode and colour mode the page is showing. Used to re-read
 // computed styles after a toggle, and by the verification sweep.
+// `detail`: show the theme value and the painted value beside each token
+// (the verification view). Off by default; the token alone is the message.
 export const SurfaceStateContext = createContext({
   surfaceMode: 'default',
   colorMode: 'light',
   setColorMode: () => {},
+  detail: false,
 });
 
 export const TOKENS = {

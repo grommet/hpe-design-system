@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Box, Button, Grommet, Select, Text } from 'grommet';
+import { Box, Button, CheckBox, Grommet, Select, Text } from 'grommet';
 import PropTypes from 'prop-types';
 import { SurfaceStateContext } from '../surfaces/surfaceState';
 import { themes } from '../surfaces/theme';
@@ -43,9 +43,10 @@ export const Deck = () => {
   const [surfaceMode, setSurfaceMode] = useState('default');
   const [colorMode, setColorMode] = useState('light');
   const [index, setIndex] = useState(fromHash);
+  const [detail, setDetail] = useState(false);
   const state = useMemo(
-    () => ({ surfaceMode, colorMode, setColorMode }),
-    [surfaceMode, colorMode],
+    () => ({ surfaceMode, colorMode, setColorMode, detail }),
+    [surfaceMode, colorMode, detail],
   );
   const go = useCallback(n => setIndex(wrap(n)), []);
 
@@ -114,6 +115,12 @@ export const Deck = () => {
               value={colorMode}
               options={['light', 'dark']}
               onChange={setColorMode}
+            />
+            <CheckBox
+              toggle
+              label="values"
+              checked={detail}
+              onChange={event => setDetail(event.target.checked)}
             />
             <Box flex />
             <Box direction="row" gap="small" align="center">
