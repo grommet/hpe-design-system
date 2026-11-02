@@ -35,18 +35,32 @@ export const NetworkingStep = () => (
           />
         </FormField>
       </Box>
-      <CheckBox
-        id="publicAccess"
-        name="publicAccess"
-        label="Allow public access"
-        toggle
-      />
-      <CheckBox
-        id="autoScaling"
-        name="autoScaling"
-        label="Enable auto-scaling"
-        toggle
-      />
+      <Box gap="medium">
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+        <FormField
+          name="publicAccess"
+          contentProps={{ border: false, margin: 'none' }}
+        >
+          <CheckBox
+            id="publicAccess"
+            name="publicAccess"
+            label="Allow public access"
+            toggle
+          />
+        </FormField>
+        {/* eslint-disable-next-line grommet/formfield-htmlfor-id */}
+        <FormField
+          name="autoScaling"
+          contentProps={{ border: false, margin: 'none' }}
+        >
+          <CheckBox
+            id="autoScaling"
+            name="autoScaling"
+            label="Enable auto-scaling"
+            toggle
+          />
+        </FormField>
+      </Box>
     </FormSection>
   </Box>
 );
