@@ -46,6 +46,11 @@ implementation queries. Run it with
 
 ## Capability Index
 
+- `docs-creation` (status: active)
+  - Entry point: `@docs-creation-orchestrator <component-name>`
+  - Manifest: `knowledge/capabilities/docs-creation/manifest.yaml`
+  - Creates new component pages through context intake, website integration,
+    human-approved YAML, example generation, and publication-readiness review.
 - `docs-refactor` (status: active)
   - Entry point: `@docs-refactor-orchestrator <component-name>`
   - Manifest: `knowledge/capabilities/docs-refactor/manifest.yaml`

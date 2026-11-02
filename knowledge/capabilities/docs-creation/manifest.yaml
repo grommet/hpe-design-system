@@ -1,0 +1,73 @@
+apiVersion: knowledge.hpe.com/v1
+kind: CapabilityManifest
+metadata:
+  name: docs-creation
+  version: 1.0.0
+  status: active
+  owner: design-system
+spec:
+  summary: Create new component documentation from supplied context and approved YAML, integrate it into the website, generate examples, and verify publication readiness.
+  entrypoint:
+    agent: docs-creation-orchestrator
+    args: '<component-name>'
+  dependencies:
+    data:
+      - path: knowledge/core/data/types.ts
+      - path: knowledge/core/data/components
+    skills:
+      - path: knowledge/core/skills/derive-prop-types.skill.md
+      - path: knowledge/core/skills/writing-style.skill.md
+      - path: knowledge/core/skills/schema-to-doc-generation.skill.md
+      - path: knowledge/core/skills/example-synthesis.skill.md
+      - path: knowledge/core/skills/guidance-authoring.skill.md
+      - path: knowledge/core/skills/content-quality-review.skill.md
+      - path: knowledge/core/instructions/standards/coding-guidelines.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-layouts.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-responsive.instructions.md
+      - path: knowledge/core/instructions/standards/grommet-data.instructions.md
+    external:
+      - path: apps/docs
+  assets:
+    agents:
+      - docs-creation-orchestrator.agent.md
+      - agents/website-integration.agent.md
+      - agents/populate-yaml.agent.md
+      - agents/generate-mdx.agent.md
+      - agents/generate-examples.agent.md
+      - agents/dos-donts.agent.md
+      - agents/coverage-readiness.agent.md
+      - agents/review-copy.agent.md
+      - agents/verify-render.agent.md
+  stages:
+    - id: context-collected
+      when: 'The user answered the additional-context question and supplied sources were read or explicitly marked inaccessible.'
+    - id: website-integrated
+      when: 'Context is collected; route registration and a render-safe scaffold exist, with an explicit identity and integration handoff.'
+    - id: yaml-populated
+      when: 'The canonical YAML validates and its evidence, conflicts, gaps, and example plan have been presented.'
+    - id: yaml-approved
+      when: 'The human approved the current YAML and example plan; no blocking source conflicts remain.'
+    - id: mdx-generated
+      when: 'The approved definition is represented in MDX, with hidden briefs and no newly coded examples.'
+    - id: examples-generated
+      when: 'Example generation has consumed the YAML and MDX briefs, wired exports, and reported all unresolved briefs.'
+    - id: dos-donts-generated
+      when: 'Paired preview generation has consumed the YAML and MDX briefs and reported all unresolved pairs.'
+    - id: coverage-reviewed
+      when: 'Coverage was checked against sources, YAML, and MDX; apps/docs/todos/TODO-<page-slug>.md contains all required sections.'
+    - id: copy-reviewed
+      when: 'Copy review preserves technical meaning and hidden briefs; no unreviewed content changes remain.'
+    - id: render-verified
+      when: 'Required checks and browser verification passed for the current files, and the TODO file reflects remaining gaps.'
+    - id: human-verified
+      when: 'The human verified the current page and explicitly accepted any non-blocking follow-ups.'
+    - id: pr-created
+      when: 'The human separately authorized publication actions and the resulting PR URL was verified.'
+  x-extensions:
+    workflowContract: docs/workflow.md
+    pageTemplate: docs/COMPONENT_TEMPLATE.md
+    todoPath: apps/docs/todos/TODO-<page-slug>.md
+    humanGates:
+      - yaml-approved
+      - human-verified
+    publicationRequiresExplicitAuthorization: true
