@@ -14,13 +14,16 @@ const TypedChartCard = ChartCard as ComponentType<
 
 const formatCost = (value: number) => `$${value}K`;
 
-const latest = costTrend[costTrend.length - 1].actual;
 const first = costTrend[0];
 const last = costTrend[costTrend.length - 1];
+const previous = costTrend[costTrend.length - 2];
+const costChange = last.actual - previous.actual;
+const trend = `${Math.abs((costChange / previous.actual) * 100).toFixed(1)}%`;
+const budgetLabel = `Budget ${formatCost(budget)}`;
 
-const actual = costTrend.map(({ actual: value }, index) => ({
+const actual = costTrend.map(({ actual: value, month }, index) => ({
   value: [index, value],
-  label: `${costTrend[index].month}: ${formatCost(value)}`,
+  label: `${month}: ${formatCost(value)}`,
 }));
 const budgetLine = costTrend.map((_, index) => ({ value: [index, budget] }));
 
@@ -107,19 +110,24 @@ export const CostTrend = ({ ...rest }: CostTrendProps) => (
     {...rest}
   >
     <Box gap="xxsmall">
-      <MetricValue value={formatCost(latest)} unit="USD" trend="2%" />
+      <MetricValue
+        value={formatCost(last.actual)}
+        unit="USD"
+        trend={trend}
+        trendDirection={costChange < 0 ? 'down' : 'up'}
+      />
       <Box gap="xxsmall">
         <Box border={{ side: 'bottom', color: 'border-weak' }}>
           <Stack guidingChild="first">
             <Chart
-              a11yTitle="Monthly cost, December to September"
+              a11yTitle={`Monthly cost, ${first.month} to ${last.month}`}
               type="area"
               values={actual}
               opacity="weak"
               {...chartProps}
             />
             <DashedChart
-              a11yTitle={`Budget ${formatCost(budget)}`}
+              a11yTitle={budgetLabel}
               type="line"
               values={budgetLine}
               dash
@@ -146,7 +154,7 @@ export const CostTrend = ({ ...rest }: CostTrendProps) => (
       </Box>
       <Box direction="row" gap="small" wrap>
         <LegendItem label="Actual" />
-        <LegendItem label={`Budget ${formatCost(budget)}`} dash />
+        <LegendItem label={budgetLabel} dash />
       </Box>
     </Box>
   </TypedChartCard>

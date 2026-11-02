@@ -14,7 +14,7 @@ type TrendProps = {
   value: string;
 };
 
-export function Trend({ direction = 'up', value }: TrendProps) {
+function Trend({ direction = 'up', value }: TrendProps) {
   const Icon = direction === 'down' ? Descending : Ascending;
   return (
     <Box direction="row" align="center" gap="5xsmall">

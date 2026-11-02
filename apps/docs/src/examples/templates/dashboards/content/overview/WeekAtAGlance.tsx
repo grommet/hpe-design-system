@@ -20,6 +20,12 @@ const stacked: DashboardLayout = {
   areas: [['cost'], ['attention'], ['sla']],
 };
 
+const large: DashboardLayout = {
+  columns: ['flex', 'flex', 'flex', 'flex'],
+  rows: ['auto'],
+  areas: [['cost', 'cost', 'attention', 'sla']],
+};
+
 const layout: Record<string, DashboardLayout> = {
   xsmall: stacked,
   small: stacked,
@@ -31,13 +37,9 @@ const layout: Record<string, DashboardLayout> = {
       ['attention', 'sla'],
     ],
   },
-  large: {
-    columns: ['flex', 'flex', 'flex', 'flex'],
-    rows: ['auto'],
-    areas: [['cost', 'cost', 'attention', 'sla']],
-  },
+  large,
+  xlarge: large,
 };
-layout.xlarge = layout.large;
 
 export const WeekAtAGlance = () => {
   const size = useContext(ResponsiveContext);

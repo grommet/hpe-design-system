@@ -1,9 +1,15 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import type { AttentionStatus, SlaStatus } from '../../components/status';
+
 // The incoming theme update inverts today's layered background approach:
 // the page is white and content surfaces are light grey. Until the official
 // tokens are released these two surfaces are hard-coded here, in one place,
 // so they can be swapped for `background-back`/`background-front` later.
+
+// TODO(#6624): Replace these intentional placeholder colors with the
+// background.surface.* tokens when they are released. The current theme's
+// background-back/front tokens do not represent these surface roles.
 export const pageBackground = '#ffffff';
 export const surfaceBackground = '#f7f7f7';
 
@@ -11,15 +17,7 @@ export const surfaceBackground = '#f7f7f7';
 export const budget = 265;
 
 export type ServiceGroupId =
-  | 'recommended'
-  | 'networking'
-  | 'storage'
-  | 'private-cloud'
-  | 'compute';
-
-export type AttentionStatus = 'critical' | 'warning' | 'unknown';
-
-export type SlaStatus = 'ok' | 'warning';
+  'recommended' | 'networking' | 'storage' | 'private-cloud' | 'compute';
 
 export type ServiceGroup = {
   id: ServiceGroupId;

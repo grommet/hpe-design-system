@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import type { ComponentProps, ReactNode } from 'react';
-import { Anchor, Button } from 'grommet';
+import { Anchor } from 'grommet';
 import { ShieldCheck } from '@hpe-design/icons-grommet';
 import { MetricValue } from '../../../components/MetricValue';
+import { formatCount } from '../utils';
 import { Bar } from './Bar';
 import { HealthSection, HealthTile } from './HealthSection';
 import { QuietStatusRow } from './status';
@@ -14,31 +14,13 @@ import {
   capacityThreshold,
   countStatus,
   driveFailure,
-  formatCount,
   targets,
   volumesStatus,
 } from './data';
-import type { HealthScenario, OperationalStatus } from './data';
+import type { OperationalStatus } from '../../../components/status';
 
-// Mixed-action variant: exceptions link to details or offer one tile action.
-//
-// Descriptions follow the content at the tile's normal gap rather than
-// sitting on the bottom edge; one-line descriptions leave their spare room
-// at the bottom of the tile, which reads better than a band in the middle.
-const Tile = (props: ComponentProps<typeof HealthTile>) => (
-  <HealthTile anchor={false} {...props} />
-);
-
-type HealthOverviewMixedActionsProps = {
-  scenario?: HealthScenario;
-  tileActions?: boolean;
-};
-
-export const HealthOverviewMixedActions = ({
-  scenario = driveFailure,
-  tileActions = false,
-}: HealthOverviewMixedActionsProps) => {
-  const { availability, capacity, drives, volumes } = scenario;
+export const HealthOverview = () => {
+  const { availability, capacity, drives, volumes } = driveFailure;
   const used = capacityPercent(capacity);
   const unprotected = volumes.total - volumes.protectedCount;
 
@@ -49,19 +31,15 @@ export const HealthOverviewMixedActions = ({
     drives: countStatus(drives.failed),
   };
   const linkIf = (value: OperationalStatus) =>
-    value === 'ok' || tileActions ? undefined : '#';
-  const actionIf = (value: OperationalStatus, label: string): ReactNode =>
-    tileActions && value !== 'ok' ? (
-      <Button label={label} secondary href="#" />
-    ) : undefined;
+    value === 'ok' ? undefined : '#';
 
   return (
     <HealthSection>
-      <Tile
+      <HealthTile
         title="Availability"
         description={
           <>
-            {availability.incidents > 0 && !tileActions ? (
+            {availability.incidents > 0 ? (
               <Anchor href="#" size="inherit">
                 {availability.incidents} incidents
               </Anchor>
@@ -71,15 +49,8 @@ export const HealthOverviewMixedActions = ({
             causing {availability.downtime} minutes downtime in 28 days.
           </>
         }
-        action={actionIf(
-          availability.incidents > 0 ? 'warning' : status.availability,
-          'View incidents',
-        )}
       >
-        <MetricValue
-          value={availability.percent.toFixed(2)}
-          unit="%"
-        />
+        <MetricValue value={availability.percent.toFixed(2)} unit="%" />
         {status.availability !== 'ok' && (
           <QuietStatusRow
             status={status.availability}
@@ -88,15 +59,13 @@ export const HealthOverviewMixedActions = ({
             Below {targets.availability}% target
           </QuietStatusRow>
         )}
-      </Tile>
-      <Tile
+      </HealthTile>
+      <HealthTile
         title="Capacity used"
         description={`90% capacity within ${capacity.monthsTo90} months.`}
-        action={actionIf(status.capacity, 'Review capacity')}
       >
         <MetricValue value={used} unit="%" />
         <Bar
-          alignToText
           label={`${used}% of ${capacity.total} ${capacity.unit} used`}
           max={100}
           value={used}
@@ -111,11 +80,10 @@ export const HealthOverviewMixedActions = ({
             threshold
           </QuietStatusRow>
         )}
-      </Tile>
-      <Tile
+      </HealthTile>
+      <HealthTile
         title="Volume protection"
         description={`Policies verified ${volumes.verified}.`}
-        action={actionIf(status.volumes, 'Protect volumes')}
       >
         <MetricValue
           value={formatCount(volumes.protectedCount)}
@@ -128,11 +96,10 @@ export const HealthOverviewMixedActions = ({
         >
           {unprotected ? `${unprotected} unprotected volumes` : 'All protected'}
         </QuietStatusRow>
-      </Tile>
-      <Tile
+      </HealthTile>
+      <HealthTile
         title="Failed drives"
         description={`${drives.spares} hot spares available.`}
-        action={actionIf(status.drives, 'Replace drives')}
       >
         <MetricValue
           value={drives.failed}
@@ -143,7 +110,7 @@ export const HealthOverviewMixedActions = ({
             ? `${drives.failed} rebuilds in progress`
             : 'No rebuilds in progress'}
         </QuietStatusRow>
-      </Tile>
+      </HealthTile>
     </HealthSection>
   );
 };

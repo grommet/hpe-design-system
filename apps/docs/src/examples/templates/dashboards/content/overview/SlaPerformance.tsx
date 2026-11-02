@@ -4,16 +4,14 @@ import type { ComponentProps, ComponentType } from 'react';
 import { Box, List, Tag, Text } from 'grommet';
 import { ChartCard } from '../../components';
 import { MetricValue } from '../../components/MetricValue';
-import { slaStats, surfaceBackground } from './data';
+import type { SlaStatus } from '../../components/status';
+import { slaStats, surfaceBackground, type SlaStat } from './data';
 
 const TypedChartCard = ChartCard as ComponentType<
   Partial<ComponentProps<typeof ChartCard>>
 >;
 
-const SLA_STATUS: Record<
-  'ok' | 'warning',
-  { label: string; background: string }
-> = {
+const SLA_STATUS: Record<SlaStatus, { label: string; background: string }> = {
   ok: { label: 'On target', background: 'background-contrast' },
   warning: { label: 'Degrading', background: 'background-warning' },
 };
@@ -48,7 +46,7 @@ export const SlaPerformance = ({ ...rest }: SlaPerformanceProps) => (
       itemProps={dividers}
       pad={{ vertical: 'xsmall', horizontal: 'none' }}
     >
-      {({ name, status, unit, value }: (typeof slaStats)[number]) => (
+      {({ name, status, unit, value }: SlaStat) => (
         <Box fill="horizontal">
           <Text>{name}</Text>
           <Box

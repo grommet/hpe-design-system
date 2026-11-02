@@ -27,9 +27,9 @@ import {
 import type { User } from '../global-header';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
-import {  
+import {
   DiscoverServices,
-  HealthOverviewMixedActions,
+  HealthOverview,
   WeekAtAGlance,
 } from './content';
 import { pageBackground, surfaceBackground } from './content/overview/data';
@@ -123,7 +123,7 @@ export const OverviewDashboard = () => {
                   }
                 />
                 <Box gap="xlarge">
-                  <HealthOverviewMixedActions />
+                  <HealthOverview />
                   <WeekAtAGlance />
                   <DiscoverServices />
                 </Box>

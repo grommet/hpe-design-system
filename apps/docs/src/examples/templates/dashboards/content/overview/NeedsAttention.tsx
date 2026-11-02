@@ -6,6 +6,7 @@ import { LinkNext } from '@hpe-design/icons-grommet';
 import { ChartCard } from '../../components';
 import { StatusCount } from '../../components/StatusCount';
 import { attentionItems, surfaceBackground } from './data';
+import { formatCount } from './utils';
 
 const TypedChartCard = ChartCard as ComponentType<
   Partial<ComponentProps<typeof ChartCard>>
@@ -21,7 +22,7 @@ export const NeedsAttention = ({ ...rest }: NeedsAttentionProps) => (
   <TypedChartCard
     title="Needs attention"
     level={3}
-    subtitle={<Text size="small">{openItems.toLocaleString()} open items</Text>}
+    subtitle={<Text size="small">{formatCount(openItems)} open items</Text>}
     action={
       <Button
         icon={<LinkNext />}
