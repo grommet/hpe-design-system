@@ -820,10 +820,17 @@ export const FindingsCode = () => (
           <Mono>color.surface.*</Mono> only, and the tier may alias primitives
           only. Not a filter on the build.
         </Note>
-        <Note title="toned is a theme, not a themeMode">
-          Grommet&apos;s themeMode stays light / dark. toned is a second{' '}
-          <Mono>buildTheme</Mono> result: <Mono>&lt;Grommet theme=&#123;hpeToned&#125;&gt;</Mono>.
-          Two axes, two mechanisms.
+        <Note title="toned has to be a theme object; themeMode cannot carry it">
+          Grommet&apos;s <Mono>themeMode</Mono> accepts only light / dark / auto and
+          becomes a boolean, <Mono>theme.dark</Mono>, that 13 files in Grommet
+          branch on — shadows and text contrast as well as colours. A second
+          axis needs four combinations; a two-value switch cannot hold them.
+          So you use both: <Mono>&lt;Grommet theme=&#123;hpeToned&#125; themeMode=&quot;dark&quot;&gt;</Mono>.
+          Changing Grommet to make themeMode 2×2 would be a breaking change to
+          a library HPE does not own, for an axis that is a product-level
+          build choice rather than a user-level runtime one. Ask
+          grommet-theme-hpe for <Mono>buildTheme(tokens, &#123; surface: &apos;toned&apos; &#125;)</Mono>{' '}
+          instead — same mechanism, nicer packaging.
         </Note>
       </Column>
     </Columns>
