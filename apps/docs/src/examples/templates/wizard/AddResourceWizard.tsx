@@ -23,9 +23,7 @@ type AddResourceWizardProps = {
   containerRef?: RefObject<HTMLElement | null>;
 };
 
-export const AddResourceWizard = ({
-  containerRef,
-}: AddResourceWizardProps) => {
+export const AddResourceWizard = ({ containerRef }: AddResourceWizardProps) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [open, setOpen] = useState(false);
@@ -46,7 +44,6 @@ export const AddResourceWizard = ({
         steps={steps}
         defaultValue={defaultFormValues}
         showProgress={false}
-        closable
         messages={{ complete: 'Add resources' }}
         onCancel={() => setOpen(true)}
         onStepChange={({ phase }) => {

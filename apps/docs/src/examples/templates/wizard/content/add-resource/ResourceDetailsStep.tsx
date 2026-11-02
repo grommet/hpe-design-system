@@ -59,10 +59,12 @@ export const ResourceDetailsStep = () => {
     const clusterName = resource.clusterName.trim();
     const nextErrors: ResourceErrors = {};
     if (!resourceId) nextErrors.resourceId = requiredMessages.resourceId;
+    else if (formValue.resources.some(item => item.id === resourceId))
+      nextErrors.resourceId = 'This resource ID has already been added.';
     if (!clusterName) nextErrors.clusterName = requiredMessages.clusterName;
     if (Object.keys(nextErrors).length) {
       setErrors(nextErrors);
-      const first = !resourceId ? 'resourceId' : 'clusterName';
+      const first = nextErrors.resourceId ? 'resourceId' : 'clusterName';
       inputRefs[first].current?.focus();
       return;
     }

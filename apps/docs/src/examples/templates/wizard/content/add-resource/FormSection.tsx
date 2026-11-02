@@ -28,7 +28,7 @@ export const FormSection = ({
     {...rest}
   >
     <Box gap="xxsmall">
-      <Heading level={2} margin="none">
+      <Heading level={3} margin="none">
         {title}
       </Heading>
       {description && <Text>{description}</Text>}
