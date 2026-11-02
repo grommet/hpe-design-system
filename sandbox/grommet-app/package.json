@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && pnpm run build:native-web",
     "lint": "eslint . --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:native-web": "pnpm --filter native-web build && rm -rf dist/native-web && cp -R ../native-web/dist dist/native-web"
   },
   "dependencies": {
     "@hpe-design/icons-grommet": "catalog:",

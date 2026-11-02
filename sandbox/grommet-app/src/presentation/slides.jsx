@@ -949,7 +949,7 @@ native-web/surfaces.js · css/surfaces.css  plain-CSS consumer`}
       <Column>
         <Note title="Live pages">
           <Anchor href="/surfaces.html" label="grommet-app validation pages (/surfaces.html)" />
-          <Anchor href="http://localhost:5182/surfaces.html" label="native-web validation pages (:5182/surfaces.html)" />
+          <Anchor href="/native-web/surfaces.html" label="native-web validation pages (/native-web/surfaces.html)" />
           <Text size="small" color="text-weak">
             Both expose <Mono>window.__runSurfaceMatrix()</Mono>, which sweeps
             every page × surface mode × colour mode and returns the painted
