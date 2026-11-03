@@ -44,7 +44,7 @@ const ShareBar = () => {
     <Box ref={ref} height={theme.global.edgeSize.xsmall}>
       {width > 0 && (
         <Meter
-          a11yTitle="Share of weekly energy by location"
+          aria-label="Share of weekly energy by location"
           size={`${width}px`}
           thickness="xsmall"
           round
