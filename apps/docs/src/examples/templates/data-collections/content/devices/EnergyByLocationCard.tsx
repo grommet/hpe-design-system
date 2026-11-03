@@ -45,7 +45,6 @@ const ShareBar = () => {
       {width > 0 && (
         <Meter
           a11yTitle="Share of weekly energy by location"
-          type="bar"
           size={`${width}px`}
           thickness="xsmall"
           round
