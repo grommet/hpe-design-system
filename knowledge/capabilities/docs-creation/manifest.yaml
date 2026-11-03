@@ -2,7 +2,7 @@ apiVersion: knowledge.hpe.com/v1
 kind: CapabilityManifest
 metadata:
   name: docs-creation
-  version: 1.0.0
+  version: 1.1.0
   status: active
   owner: design-system
 spec:
@@ -46,11 +46,11 @@ spec:
     - id: yaml-populated
       when: 'The canonical YAML validates and its evidence, conflicts, gaps, and example plan have been presented.'
     - id: yaml-approved
-      when: 'The human approved the current YAML and example plan; no blocking source conflicts remain.'
+      when: 'The human approved the YAML and presentation plan: one simple primary, contextual tasks, table-only anatomy, variant subsections, and listing-only previews.'
     - id: mdx-generated
-      when: 'The approved definition is represented in MDX, with hidden briefs and no newly coded examples.'
+      when: 'The approved definition is represented in MDX with hidden briefs, no newly coded examples, and a passing page-contract check.'
     - id: examples-generated
-      when: 'Example generation has consumed the YAML and MDX briefs, wired exports, and reported all unresolved briefs.'
+      when: 'Generation implements the approved task contexts, keeps previews listing-only and anatomy table-only, wires exports, and passes the page-contract check.'
     - id: dos-donts-generated
       when: 'Paired preview generation has consumed the YAML and MDX briefs and reported all unresolved pairs.'
     - id: coverage-reviewed
@@ -66,6 +66,8 @@ spec:
   x-extensions:
     workflowContract: docs/workflow.md
     pageTemplate: docs/COMPONENT_TEMPLATE.md
+    pageValidator: scripts/validate-page.mjs
+    pageValidatorTests: scripts/validate-page.test.mjs
     todoPath: apps/docs/todos/TODO-<page-slug>.md
     humanGates:
       - yaml-approved

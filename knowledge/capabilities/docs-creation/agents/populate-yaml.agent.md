@@ -38,8 +38,13 @@ package and version, existing canonical YAML if present, and intended scope.
    `wcagDataFile`, provenance, approval, or workflow fields to YAML.
 5. Do not code examples. Preserve existing valid examples after checking their
    sources. For new examples, use `examples: []` until files exist; return a
-   concrete example plan covering primary usage, scenarios, variants/states,
-   anatomy, and any card preview. Do not create dangling `codeFile` references.
+   concrete presentation/example plan separating: exactly one simple primary;
+   user-task use cases with hosts, surrounding controls, actions and visible
+   outcomes; optional variant/state demonstrations; and a listing-only card
+   preview. Configuration choices belong to variants, not generic use cases.
+   Keep anatomy table-only and record its visual as a collaborator-owned manual
+   handoff, not an example to generate. Do not create dangling `codeFile`
+   references or add presentation-role fields to canonical YAML.
 6. Keep unresolved fields explicit in the report. An empty array needed for a
    schema-valid draft is a reported gap, not evidence that no props or examples
    are needed. Missing types or normative guidance are blocking decisions for
@@ -50,6 +55,6 @@ package and version, existing canonical YAML if present, and intended scope.
 ## Human review handoff
 
 Return status, YAML path and changes, evidence supporting each substantive
-section, source conflicts, required decisions, deferred content, example plan,
+section, source conflicts, required decisions, deferred content, presentation/example plan,
 and exact validation results. The orchestrator must show this to a human and
 obtain approval before MDX generation. Never approve your own output.

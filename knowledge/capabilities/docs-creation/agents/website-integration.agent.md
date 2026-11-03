@@ -42,6 +42,8 @@ worktree changes, and any confirmed identity/category decisions.
 7. Determine whether a component-card preview and new example export barrel
    are needed. Hand those exact paths and registration details to example
    generation; do not create an empty import or code a preview at this stage.
+   Mark that preview as listing-only; it must never be rendered in the MDX body
+   or substituted for the page's simple primary example.
 8. Run `pnpm --filter docs validate:structure`. Do not bypass strict validation,
    add missing-page allowlist entries, or hand-edit generated search data.
 

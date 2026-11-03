@@ -59,19 +59,28 @@ unresolved briefs, and exact check results. Inspect outputs before advancing.
    identity map, new scaffold, valid registration, and later preview handoff.
 2. Invoke `populate-yaml-agent`. Inspect the YAML validation result and evidence
    report. Show the YAML path, substantive content, example plan, and open
-   questions to the user.
+   questions to the user. Show the presentation plan: one simple primary,
+   contextual task examples with hosts/actions/outcomes, optional variant/state
+   examples, listing-only card preview, and manual anatomy-visual ownership.
 3. **YAML gate:** ask the user to approve, request changes, or pause. Do not treat
    an empty array, generated file, or successful schema check as approval.
    Resolve blocking conflicts first. Record approval of the current content.
 4. Invoke MDX generation only after approval. Verify the page follows the local
    template, contains concrete hidden briefs, and does not code examples.
+   Require a passing `pnpm validate:docs-creation-page -- <mdxPath> <yamlPath>`
+   result before implementation agents run.
 5. Invoke example generation, then Do/Don't generation. Both must read YAML and
    MDX briefs. Do not run these writers concurrently.
+   Re-run the page-contract check after insertion. Inspect the example sources
+   against their context/outcome briefs; do not accept standalone demos for
+   contextual tasks. Route violations back before coverage review.
 6. Invoke coverage/readiness and verify that
    `apps/docs/todos/TODO-<pageSlug>.md` exists with every required heading.
 7. Invoke copy review, then render verification. Missing examples can remain
    documented while reviewing a draft, but they prevent publication when
    required by the approved plan.
+   Repeat the page-contract check after copy/repair edits. Anatomy visuals are
+   collaborator-owned manual Follow-ups, not work for the example agent.
 8. Route discovered blockers back to the responsible local agent. Apply the
    workflow contract's invalidation rules, then repeat affected reviews and
    verification. Stop after three repair cycles or any unresolved decision;

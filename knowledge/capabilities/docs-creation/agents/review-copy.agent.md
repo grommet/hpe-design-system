@@ -28,6 +28,11 @@ metadata, and the coverage/readiness TODO file.
    rewrite their technical instructions as marketing copy.
 4. Keep use-case headings task-oriented and gerund-based. Keep Do/Don't labels
    inside the `bestPractice` messages, not new per-pair subheadings.
+   Flag configuration-only use cases for the responsible owner rather than
+   approving them as tasks. Preserve one `###` subsection per YAML variant
+   with concise explanatory prose; do not collapse variants into a table.
+   Do not add a second introductory example, render listing previews, or
+   replace the Anatomy table with a generated visual.
 5. If description wording changes, keep canonical YAML and structure metadata
    aligned only through the responsible owner; return the proposed edit to the
    orchestrator. Page-only, meaning-preserving copy edits can be applied directly.

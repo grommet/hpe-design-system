@@ -36,9 +36,11 @@ do not need separate discovery wrappers.
 3. Run `populate-yaml-agent` to populate or validate the canonical definition.
 4. **Human gate:** review the YAML, source conflicts, missing information, and
    planned examples. Do not generate the documentation before approval.
-5. Generate MDX with hidden implementation briefs, not coded examples.
+5. Generate MDX with hidden implementation briefs, not coded examples, and check
+   the page presentation contract before implementing them.
 6. Generate examples, then Do/Don't previews, using both the approved YAML and
    the hidden MDX briefs.
+   Recheck presentation after insertion and after copy/repair edits.
 7. Review coverage/readiness and write `apps/docs/todos/TODO-<page-slug>.md`.
 8. Review copy.
 9. Verify structure, build, and the rendered page.
@@ -54,16 +56,16 @@ and [manifest](manifest.yaml).
 
 ## Agent roster
 
-| Specification                                              | Agent name                              | Responsibility                                              |
-| ---------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------- |
-| [Website integration](agents/website-integration.agent.md) | `website-integration-agent`             | Initial route, metadata, scaffold, and integration handoff  |
-| [Populate YAML](agents/populate-yaml.agent.md)             | `populate-yaml-agent`                   | Evidence-backed canonical component definition              |
-| [Generate MDX](agents/generate-mdx.agent.md)               | `docs-creation-generate-mdx-agent`      | Page prose, tables, wrappers, and hidden example briefs     |
-| [Generate examples](agents/generate-examples.agent.md)     | `docs-creation-generate-examples-agent` | Live examples, anatomy, card preview, and export wiring     |
-| [Do/Don't previews](agents/dos-donts.agent.md)             | `docs-creation-dos-donts-agent`         | Paired previews from YAML and MDX instructions              |
-| [Coverage/readiness](agents/coverage-readiness.agent.md)   | `coverage-readiness-agent`              | Evidence and output audit, including the standard TODO file |
-| [Review copy](agents/review-copy.agent.md)                 | `docs-creation-review-copy-agent`       | Writing quality without changing approved semantics         |
-| [Verify render](agents/verify-render.agent.md)             | `docs-creation-verify-render-agent`     | Validation and browser verification, with bounded repairs   |
+| Specification                                              | Agent name                              | Responsibility                                                      |
+| ---------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------- |
+| [Website integration](agents/website-integration.agent.md) | `website-integration-agent`             | Initial route, metadata, scaffold, and integration handoff          |
+| [Populate YAML](agents/populate-yaml.agent.md)             | `populate-yaml-agent`                   | Evidence-backed canonical component definition                      |
+| [Generate MDX](agents/generate-mdx.agent.md)               | `docs-creation-generate-mdx-agent`      | Page prose, tables, wrappers, and hidden example briefs             |
+| [Generate examples](agents/generate-examples.agent.md)     | `docs-creation-generate-examples-agent` | Simple primary, contextual tasks, listing-only preview, and exports |
+| [Do/Don't previews](agents/dos-donts.agent.md)             | `docs-creation-dos-donts-agent`         | Paired previews from YAML and MDX instructions                      |
+| [Coverage/readiness](agents/coverage-readiness.agent.md)   | `coverage-readiness-agent`              | Evidence and output audit, including the standard TODO file         |
+| [Review copy](agents/review-copy.agent.md)                 | `docs-creation-review-copy-agent`       | Writing quality without changing approved semantics                 |
+| [Verify render](agents/verify-render.agent.md)             | `docs-creation-verify-render-agent`     | Validation and browser verification, with bounded repairs           |
 
 Agent names that overlap refactor roles are capability-prefixed to avoid
 discovery collisions. They are separate implementations, not aliases.
@@ -74,6 +76,11 @@ discovery collisions. They are separate implementations, not aliases.
 - Page at `apps/docs/src/pages/components/<page-slug>.mdx`.
 - Registration in `apps/docs/src/data/structures/components.tsx`.
 - Examples and exports under `apps/docs/src/examples/`.
+- Exactly one simple primary example; contextual task examples; table-only
+  anatomy; one prose subsection per approved variant. Listing-card previews
+  never appear in the documentation body.
+- Manual anatomy visuals handed to a collaborator as a TODO Follow-up, not
+  generated or treated as an automated example-generation blocker.
 - The standard `apps/docs/todos/TODO-<page-slug>.md`, even when no gaps remain.
 - Verified accessibility data if a WCAG compliance section is included.
 - Exact verification commands/results and a final human review handoff.
@@ -93,6 +100,7 @@ For changes to this capability:
 ```sh
 pnpm validate:capability-manifests
 pnpm validate:knowledge-structure
+node --test knowledge/capabilities/docs-creation/scripts/validate-page.test.mjs
 ```
 
 These commands validate manifests and repository knowledge conventions, not agent
@@ -102,3 +110,16 @@ describe static validation as a successful documentation-generation run.
 
 For generated documentation, use the verification procedure in the
 [render agent](agents/verify-render.agent.md).
+
+Run the focused presentation check explicitly for the page and approved YAML:
+
+```sh
+pnpm validate:docs-creation-page -- apps/docs/src/pages/components/<page-slug>.mdx knowledge/core/data/components/<component-id>.yaml
+```
+
+The [checker](scripts/validate-page.mjs) parses MDX without executing it and
+rejects duplicate primary examples, rendered listing previews, generated
+anatomy visuals, and missing/table-based variant subsections. It also checks
+required sections and per-variant prose. It accepts hidden scaffold briefs,
+so contextual example quality and task outcomes still require source/browser
+review. It does not impose this capability's contract on older pages by default.

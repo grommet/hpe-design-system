@@ -14,7 +14,7 @@ Use the existing site's MDX/layout integration, not a new layout framework.
 
 Use this order:
 
-1. Primary interactive example, with verified resource links.
+1. Exactly one simple primary interactive example, with verified resource links.
 2. `## Use cases` (required).
 3. `## Anatomy` (required).
 4. `## Variants` when applicable.
@@ -24,15 +24,17 @@ Use this order:
 8. `## Accessibility` (required).
 
 Keep required sections present in drafts and record missing evidence as hidden
-briefs and coverage gaps. A required section with a TODO is not publish-ready.
+briefs and coverage gaps. An unresolved automated deliverable is not publish-ready;
+collaborator-owned anatomy visuals are a separate manual handoff, not an
+automated-generation blocker.
 Do not create empty optional sections or invent content to fill them.
 
 ## Example scaffolding
 
 The MDX generator does not code examples, create example source files, or embed
 raw YAML snippets as examples. It creates hidden multiline JSX comments for
-the primary example, every use case, any needed variant/state example, and
-anatomy. Reuse an existing implementation only in the example-generation stage
+the primary example, every use case, and any needed variant/state example.
+Do not create anatomy-visual briefs. Reuse an existing implementation only in the example-generation stage
 after verifying that it meets the brief.
 
 Each brief contains all seven fields with concrete instructions, supported by
@@ -82,6 +84,15 @@ Never import a not-yet-created example. Do not supply fake `code` URLs.
 
 ## Primary example and resources
 
+Before `## Use cases`, render exactly one `Example` with one simple component
+demonstration. Include an accessible label and only the state needed to make
+the basic interaction work. Do not put a full task form, configuration gallery,
+state comparison, anatomy visual, or second example here.
+
+Card previews belong exclusively to component-listing cards. Generate and
+register them separately when required; never import or render a card-preview
+component in the MDX body, even if it is also a valid component demonstration.
+
 Use `Example` from the existing layouts. Set `componentName` to the actual API
 name and include verified `docs`, `figma`, `grommetSource`, or other supported
 resource props from integration. Omit unknown optional links and report them.
@@ -95,24 +106,49 @@ only supported guidance; do not invent facts to reach a sentence count.
 Follow each use case with an example brief. Put counter-indications in
 Do/Don't guidance or an appropriate explicit alternative, not in task prose.
 
+Every use case demonstrates a user task in its actual surrounding UI, not just
+API configuration. For example, "Scheduling maintenance" can show a form with a
+maintenance title, date/time field, submit action, and a visible confirmation.
+Use scenarios supported by the component; do not imply extra component features.
+Locale, hour format, and inline display are configurations for Variants, not
+standalone use cases unless embedded in a distinct supported task.
+
+The hidden brief's `CONTEXT` must name the host and surrounding controls,
+`INTERACTION` must specify the task action and observable outcome, and
+`CONSTRAINTS` must prohibit replacing that scene with a standalone component.
+The coded example must render that context and outcome. Prose mentioning a
+form, or an input wrapped only in `FormField`, does not satisfy a full form
+scenario. Use the appropriate host for the task; not every component needs a form.
+
 ## Anatomy
 
-Create an anatomy diagram brief, then render the approved anatomy as a table:
+Generate only the approved anatomy table:
 
 ```text
 Label | Region | Purpose | Required | Notes
 ```
 
 Map `availability` to readable Required/Optional text without losing conditions.
-Use meaningful numbered labels and accessible diagram descriptions.
-Do not invent component parts. Diagrams use actual UI where practical, meaningful
-boundaries, monochrome annotations, and no decorative outer border.
+Use meaningful numbered labels and do not invent component parts.
+Do not create, import, or render anatomy diagrams, annotated components, images,
+SVGs, or anatomy `Example` blocks. A collaborator creates visuals manually.
+Do not write a hidden coded-example brief for that work. Record a manual
+Follow-up under Missing visual assets in the standard TODO file, not a missing
+coded-example Blocker. A later collaborator's visual addition is outside this
+automated table-only generation contract.
 
 ## Variants
 
 A variant is a stable named configuration, not hover, focus, loading, or another
-transient state. Render the schema's `name`, `description`, and `when` guidance,
-then add a brief when a separate example helps. Do not introduce unsupported
+transient state. Under `## Variants`, create one `###` subsection per approved
+YAML variant, in YAML order. Convert hyphenated names to sentence-case display
+headings without changing their meaning (for example, `drop-picker` becomes
+`### Drop picker`). Explain what changes and when to choose it in concise prose,
+including relevant evidenced configuration or limitations.
+Do not replace subsections with a summary table or bare labels. Do not invent
+guidance or prescribe a paragraph/sentence quota to fill the section.
+Add a hidden brief when a separate example helps; an example is not mandatory
+for every variant. Do not introduce unsupported
 fields such as `kind` or `defaultView` into canonical YAML.
 
 ## Dos and Don'ts
