@@ -13,10 +13,9 @@ import {
   TextInput,
   useWizard,
 } from 'grommet';
-import type { ThemeType } from 'grommet/themes';
+import { ThemeContext } from 'styled-components';
 import { Trash } from '@hpe-design/icons-grommet';
 import { Selector, SelectorGroup } from '@shared/aries-core';
-import styled, { css } from 'styled-components';
 import { FormSection } from './FormSection';
 import {
   deploymentModels,
@@ -27,46 +26,23 @@ import {
 const defaultResource = { resourceId: '', clusterName: '' };
 type ResourceDraftField = keyof typeof defaultResource;
 type ResourceErrors = Partial<Record<ResourceDraftField, string>>;
+type FieldAlignmentTheme = {
+  text: { xsmall: { height: string } };
+  global: { edgeSize: Record<string, string> };
+  formField: {
+    label: { margin: { top: string } };
+    content: { margin: { vertical: string } };
+  };
+};
 
 const requiredMessages = {
   resourceId: 'Enter a resource ID.',
   clusterName: 'Enter a cluster name.',
 };
 
-const ResourceFields = styled(Grid)<{ $inline: boolean }>`
-  ${({ $inline }) =>
-    $inline &&
-    css`
-      @supports not (grid-template-rows: subgrid) {
-        display: flex;
-        flex-direction: column;
-        row-gap: ${({ theme }) =>
-          (theme as ThemeType).global?.edgeSize?.xsmall};
-
-        > * {
-          align-self: stretch;
-        }
-      }
-    `}
-`;
-
-// Share the label, input, and error rows without separating FormField's
-// accessible label and validation message from the input.
-const ResourceField = styled(FormField)<{ $inline: boolean }>`
-  ${({ $inline }) =>
-    $inline &&
-    css`
-      @supports (grid-template-rows: subgrid) {
-        display: grid;
-        grid-template-rows: subgrid;
-        grid-row: span 3;
-        min-width: 0;
-      }
-    `}
-`;
-
 export const ResourceDetailsStep = () => {
   const size = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext) as FieldAlignmentTheme;
   const { formValue, setFormValue } = useWizard<ResourceFormValues>();
   const [resource, setResource] = useState(defaultResource);
   const [errors, setErrors] = useState<ResourceErrors>({});
@@ -75,6 +51,11 @@ export const ResourceDetailsStep = () => {
     clusterName: useRef<HTMLInputElement>(null),
   };
   const mobile = ['xsmall', 'small'].includes(size);
+  const buttonOffset = `${
+    parseInt(theme.text.xsmall.height, 10) * 16 +
+    parseInt(theme.global.edgeSize[theme.formField.label.margin.top], 10) +
+    parseInt(theme.global.edgeSize[theme.formField.content.margin.vertical], 10)
+  }px`;
 
   const setField = <K extends keyof ResourceFormValues>(
     field: K,
@@ -168,16 +149,14 @@ export const ResourceDetailsStep = () => {
           'one resource is required to continue.'
         }
       >
-        <ResourceFields
-          $inline={!mobile}
-          as={mobile ? Box : undefined}
-          columns={mobile ? undefined : ['flex', 'flex', 'auto']}
-          rows={mobile ? undefined : ['auto', 'auto', 'auto']}
-          gap={mobile ? 'xsmall' : { column: 'xsmall', row: 'none' }}
+        <Grid
+          columns={mobile ? ['flex'] : ['flex', 'flex', 'auto']}
+          gap={mobile ? { row: 'xsmall' } : { column: 'xsmall' }}
+          responsive={false}
           onKeyDown={onKeyDown}
         >
-          <ResourceField
-            $inline={!mobile}
+          {/* eslint-disable-next-line grommet/formfield-name */}
+          <FormField
             htmlFor="resourceId"
             label="Resource ID"
             error={errors.resourceId}
@@ -191,9 +170,9 @@ export const ResourceDetailsStep = () => {
               }
               placeholder="RES-4A7B2C9D"
             />
-          </ResourceField>
-          <ResourceField
-            $inline={!mobile}
+          </FormField>
+          {/* eslint-disable-next-line grommet/formfield-name */}
+          <FormField
             htmlFor="clusterName"
             label="Cluster name"
             error={errors.clusterName}
@@ -207,15 +186,14 @@ export const ResourceDetailsStep = () => {
               }
               placeholder="prod-us-east"
             />
-          </ResourceField>
+          </FormField>
           <Box
-            flex={false}
-            gridArea={mobile ? undefined : '2 / 3'}
-            alignSelf={mobile ? 'stretch' : 'center'}
+            // use theme style values to align Button with FormField input
+            pad={mobile ? undefined : { top: buttonOffset }}
           >
             <Button label="Add" secondary onClick={addResource} />
           </Box>
-        </ResourceFields>
+        </Grid>
         <Box gap="xsmall">
           <Text size="small" id="added-resources-label">
             Added resources ({formValue.resources.length})
