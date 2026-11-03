@@ -12,12 +12,12 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@types/node": "^26.6.3",
-    "tsx": "^4.21.0",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
     "typescript": "catalog:",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.7"
   },
   "dependencies": {
-    "yaml": "^2.8.3"
+    "yaml": "^2.9.1"
   }
 }

@@ -23,9 +23,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "jscodeshift": "^17.3.0"
+    "jscodeshift": "^17.4.0"
   },
   "devDependencies": {
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.7"
   }
 }
