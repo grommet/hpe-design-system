@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@eslint/js": "catalog:",
-    "@storybook/react-vite": "^10.5.8",
+    "@storybook/react-vite": "^10.6.5",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
@@ -56,11 +56,11 @@
     "eslint-plugin-react-refresh": "catalog:",
     "globals": "catalog:",
     "grommet-theme-hpe": "catalog:grommet-theme-hpe-v7",
-    "minimatch": "^10.0.3",
+    "minimatch": "^10.2.6",
     "react": "catalog:",
-    "storybook": "^10.5.8",
+    "storybook": "^10.6.5",
     "styled-components": "catalog:",
-    "terser": "^5.50.0",
+    "terser": "^5.51.2",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
     "vite": "catalog:"

@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
+import { isDeepStrictEqual } from 'node:util';
 
 const repoRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -45,17 +46,10 @@ const mergeBase = execFileSync('git', ['merge-base', base, head], {
 })
   .trim();
 
-const tokenValuesContractsOrMetadataChanged = changedFiles.some(file =>
-  new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
-  file === `${tokenPackagePath}/package.json`,
-);
 const implementationFiles = changedFiles.filter(
   file =>
     file.startsWith(`${tokenPackagePath}/src/`) &&
     !file.startsWith(`${tokenPackagePath}/src/tests/`),
-);
-const dependencyGraphChanged = changedFiles.some(file =>
-  ['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml'].includes(file),
 );
 
 const readJsonAtRevision = (revision, file) =>
@@ -64,6 +58,33 @@ const readJsonAtRevision = (revision, file) =>
       cwd: repoRoot,
       encoding: 'utf8',
     }),
+  );
+
+const getPublishedPackageMetadataAtRevision = revision => {
+  const packageMetadata = readJsonAtRevision(revision, tokenPackageJsonPath);
+  delete packageMetadata.devDependencies;
+  return packageMetadata;
+};
+const tokenPackageManifestChanged = changedFiles.includes(tokenPackageJsonPath);
+const tokenValuesContractsOrMetadataChanged =
+  changedFiles.some(file =>
+    new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file),
+  ) ||
+  (tokenPackageManifestChanged &&
+    !isDeepStrictEqual(
+      getPublishedPackageMetadataAtRevision(mergeBase),
+      getPublishedPackageMetadataAtRevision(head),
+    ));
+const tokenPackageDevelopmentDependenciesChanged =
+  tokenPackageManifestChanged &&
+  !isDeepStrictEqual(
+    readJsonAtRevision(mergeBase, tokenPackageJsonPath).devDependencies,
+    readJsonAtRevision(head, tokenPackageJsonPath).devDependencies,
+  );
+const dependencyGraphChanged =
+  tokenPackageDevelopmentDependenciesChanged ||
+  changedFiles.some(file =>
+    ['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml'].includes(file),
   );
 
 const changesetNamesTokenPackage = contents =>
@@ -196,10 +217,20 @@ const buildPublishedArtifacts = (worktreePath, revision) => {
     },
   );
   try {
-    execFileSync('pnpm', ['install', '--frozen-lockfile', '--ignore-scripts'], {
-      cwd: worktreePath,
-      stdio: 'pipe',
-    });
+    execFileSync(
+      'pnpm',
+      [
+        'install',
+        '--filter',
+        'hpe-design-tokens...',
+        '--frozen-lockfile',
+        '--ignore-scripts',
+      ],
+      {
+        cwd: worktreePath,
+        stdio: 'pipe',
+      },
+    );
     execFileSync('pnpm', ['--filter', 'hpe-design-tokens', 'build'], {
       cwd: worktreePath,
       stdio: 'pipe',
