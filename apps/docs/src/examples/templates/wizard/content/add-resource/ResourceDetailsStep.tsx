@@ -6,14 +6,17 @@ import {
   Box,
   Button,
   FormField,
+  Grid,
   List,
   ResponsiveContext,
   Text,
   TextInput,
   useWizard,
 } from 'grommet';
+import type { ThemeType } from 'grommet/themes';
 import { Trash } from '@hpe-design/icons-grommet';
 import { Selector, SelectorGroup } from '@shared/aries-core';
+import styled, { css } from 'styled-components';
 import { FormSection } from './FormSection';
 import {
   deploymentModels,
@@ -30,6 +33,38 @@ const requiredMessages = {
   clusterName: 'Enter a cluster name.',
 };
 
+const ResourceFields = styled(Grid)<{ $inline: boolean }>`
+  ${({ $inline }) =>
+    $inline &&
+    css`
+      @supports not (grid-template-rows: subgrid) {
+        display: flex;
+        flex-direction: column;
+        row-gap: ${({ theme }) =>
+          (theme as ThemeType).global?.edgeSize?.xsmall};
+
+        > * {
+          align-self: stretch;
+        }
+      }
+    `}
+`;
+
+// Share the label, input, and error rows without separating FormField's
+// accessible label and validation message from the input.
+const ResourceField = styled(FormField)<{ $inline: boolean }>`
+  ${({ $inline }) =>
+    $inline &&
+    css`
+      @supports (grid-template-rows: subgrid) {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+        min-width: 0;
+      }
+    `}
+`;
+
 export const ResourceDetailsStep = () => {
   const size = useContext(ResponsiveContext);
   const { formValue, setFormValue } = useWizard<ResourceFormValues>();
@@ -44,8 +79,7 @@ export const ResourceDetailsStep = () => {
   const setField = <K extends keyof ResourceFormValues>(
     field: K,
     value: ResourceFormValues[K],
-  ) =>
-    setFormValue(prev => ({ ...prev, [field]: value }));
+  ) => setFormValue(prev => ({ ...prev, [field]: value }));
 
   const updateResource = (field: ResourceDraftField, value: string) => {
     setResource({ ...resource, [field]: value });
@@ -134,55 +168,54 @@ export const ResourceDetailsStep = () => {
           'one resource is required to continue.'
         }
       >
-        <Box
-          direction={mobile ? 'column' : 'row'}
-          align={mobile ? 'stretch' : 'start'}
-          gap="xsmall"
+        <ResourceFields
+          $inline={!mobile}
+          as={mobile ? Box : undefined}
+          columns={mobile ? undefined : ['flex', 'flex', 'auto']}
+          rows={mobile ? undefined : ['auto', 'auto', 'auto']}
+          gap={mobile ? 'xsmall' : { column: 'xsmall', row: 'none' }}
           onKeyDown={onKeyDown}
         >
-          <Box flex>
-            {/* eslint-disable-next-line grommet/formfield-name */}
-            <FormField
-              htmlFor="resourceId"
-              label="Resource ID"
-              error={errors.resourceId}
-            >
-              <TextInput
-                ref={inputRefs.resourceId}
-                id="resourceId"
-                value={resource.resourceId}
-                onChange={event =>
-                  updateResource('resourceId', event.target.value)
-                }
-                placeholder="RES-4A7B2C9D"
-              />
-            </FormField>
-          </Box>
-          <Box flex>
-            {/* eslint-disable-next-line grommet/formfield-name */}
-            <FormField
-              htmlFor="clusterName"
-              label="Cluster name"
-              error={errors.clusterName}
-            >
-              <TextInput
-                ref={inputRefs.clusterName}
-                id="clusterName"
-                value={resource.clusterName}
-                onChange={event =>
-                  updateResource('clusterName', event.target.value)
-                }
-                placeholder="prod-us-east"
-              />
-            </FormField>
-          </Box>
-          {/* Offset by the FormField label block (label margin + xsmall
-              text line + content margin) so the button stays aligned with
-              the inputs even when an error message renders beneath them */}
-          <Box flex={false} margin={mobile ? undefined : { top: '28px' }}>
+          <ResourceField
+            $inline={!mobile}
+            htmlFor="resourceId"
+            label="Resource ID"
+            error={errors.resourceId}
+          >
+            <TextInput
+              ref={inputRefs.resourceId}
+              id="resourceId"
+              value={resource.resourceId}
+              onChange={event =>
+                updateResource('resourceId', event.target.value)
+              }
+              placeholder="RES-4A7B2C9D"
+            />
+          </ResourceField>
+          <ResourceField
+            $inline={!mobile}
+            htmlFor="clusterName"
+            label="Cluster name"
+            error={errors.clusterName}
+          >
+            <TextInput
+              ref={inputRefs.clusterName}
+              id="clusterName"
+              value={resource.clusterName}
+              onChange={event =>
+                updateResource('clusterName', event.target.value)
+              }
+              placeholder="prod-us-east"
+            />
+          </ResourceField>
+          <Box
+            flex={false}
+            gridArea={mobile ? undefined : '2 / 3'}
+            alignSelf={mobile ? 'stretch' : 'center'}
+          >
             <Button label="Add" secondary onClick={addResource} />
           </Box>
-        </Box>
+        </ResourceFields>
         <Box gap="xsmall">
           <Text size="small" id="added-resources-label">
             Added resources ({formValue.resources.length})
