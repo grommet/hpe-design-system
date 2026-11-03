@@ -96,15 +96,12 @@ const shell: Record<
   },
 };
 
-const pageSpacing = { pad: { horizontal: 'xlarge' } };
+// The theme's page padding is xlarge at every breakpoint except medium,
+// where it steps down to medium; keep xlarge there too.
 const pageTheme = {
   page: {
-    full: {
-      xsmall: pageSpacing,
-      small: pageSpacing,
-      medium: pageSpacing,
-      large: pageSpacing,
-      xlarge: pageSpacing,
+    wide: {
+      medium: { pad: { horizontal: 'xlarge' } },
     },
   },
 };
@@ -238,7 +235,7 @@ export const SubscriptionDetails = () => {
             {/* Page sizes to its content so its bottom padding follows the
                 list rather than the viewport. */}
             <ThemeContext.Extend value={pageTheme}>
-              <Page kind="full" pad={{ bottom: '3xlarge' }} flex={false}>
+              <Page pad={{ bottom: '3xlarge' }} flex={false}>
                 {/* PageHeader already pads below itself, so a medium gap is
                     enough before the tabs. */}
                 <PageContent gap="medium" responsive={false}>
