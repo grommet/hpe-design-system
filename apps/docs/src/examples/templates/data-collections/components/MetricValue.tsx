@@ -6,14 +6,14 @@ import { Ascending } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 
 // Change relative to the previous period, e.g. "7% more". The icon carries
-// the direction, so it is named for assistive technology.
+// the direction through its default accessible label.
 type TrendProps = {
   value: string;
 };
 
 const Trend = ({ value }: TrendProps) => (
   <Box direction="row" align="center" gap="6xsmall">
-    <Ascending size="small" color="icon-strong" a11yTitle="up" />
+    <Ascending size="small" color="icon-strong" />
     <TextEmphasis size="xsmall">{value}</TextEmphasis>
   </Box>
 );
@@ -27,7 +27,7 @@ type MetricValueProps = {
 
 // Large metric value with an optional unit and trend aligned to its baseline.
 // Everything stays in the accessibility tree, so it reads in document order,
-// e.g. "82, up 7% more, kW".
+// e.g. "82, Ascending 7% more, kW".
 export const MetricValue = ({
   size = '3xl',
   trend,
