@@ -53,9 +53,9 @@ const assistantPanelId = 'copilot-panel';
 
 // Size the grid column along with its content so the page reflows smoothly.
 const AssistantPanelSlot = styled(Box)<{ $open: boolean }>`
-  width: ${({ $open, theme }) =>
+  width: ${({ $open, theme: { global } }) =>
     $open
-      ? `calc(${theme.global.size.medium} + ${theme.global.edgeSize.xsmall})`
+      ? `calc(${global.size.medium} + 2 * ${global.edgeSize.xsmall})`
       : '0px'};
   transition: width 200ms ease-in-out;
 `;
@@ -266,11 +266,7 @@ export const SubscriptionDetails = () => {
             $open={assistantOpen}
           >
             <Collapsible direction="horizontal" open={assistantOpen}>
-              <Box
-                pad={{ vertical: 'xsmall', right: 'xsmall' }}
-                fill="vertical"
-                flex={false}
-              >
+              <Box pad="xsmall" responsive={false} fill="vertical" flex={false}>
                 <CopilotPanel {...panelProps} width="medium">
                   <CopilotConversation />
                 </CopilotPanel>
