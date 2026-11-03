@@ -31,6 +31,7 @@ export type MetricValueProps = {
   trend?: string;
   trendDirection?: TrendDirection;
   unit?: string;
+  unitSize?: ComponentProps<typeof Text>['size'];
   value: string | number;
 };
 
@@ -42,6 +43,7 @@ export const MetricValue = ({
   trend,
   trendDirection = 'up',
   unit,
+  unitSize = 'small',
   value,
 }: MetricValueProps) => (
   <Box direction="row" gap="xxsmall">
@@ -49,7 +51,7 @@ export const MetricValue = ({
     {(trend || unit) && (
       <Box justify="end" pad={{ vertical: '3xsmall' }}>
         {trend && <Trend direction={trendDirection} value={trend} />}
-        {unit && <Text size="xsmall">{unit}</Text>}
+        {unit && <Text size={unitSize}>{unit}</Text>}
       </Box>
     )}
   </Box>

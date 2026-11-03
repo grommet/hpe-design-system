@@ -25,7 +25,7 @@ const SummaryCard = ({ children, detail, title }: SummaryCardProps) => (
     <CardBody>
       <Box gap="xxsmall">
         {children}
-        {detail && <Text size="xsmall">{detail}</Text>}
+        {detail && <Text>{detail}</Text>}
       </Box>
     </CardBody>
   </Card>

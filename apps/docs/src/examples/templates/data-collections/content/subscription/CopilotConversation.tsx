@@ -7,7 +7,10 @@ import { AssistantMessage, UserMessage, useCopilotPanel } from './CopilotPanel';
 import { MetricValue, type MetricValueProps } from './MetricValue';
 import { refreshSavings, subscription } from './data';
 
-type SavingProps = Omit<MetricValueProps, 'size' | 'trendDirection'> & {
+type SavingProps = Omit<
+  MetricValueProps,
+  'size' | 'trendDirection' | 'unitSize'
+> & {
   children: ReactNode;
   label: string;
 };
@@ -17,7 +20,12 @@ type SavingProps = Omit<MetricValueProps, 'size' | 'trendDirection'> & {
 const Saving = ({ children, label, ...metric }: SavingProps) => (
   <Box gap="xxsmall">
     <TextEmphasis>{label}</TextEmphasis>
-    <MetricValue size="3xl" trendDirection="down" {...metric} />
+    <MetricValue
+      size="3xl"
+      trendDirection="down"
+      unitSize="xsmall"
+      {...metric}
+    />
     <Text size="xsmall">{children}</Text>
   </Box>
 );
