@@ -2,9 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useMemo, useState } from 'react';
 import type { ComponentProps, MouseEvent, SetStateAction } from 'react';
+import styled from 'styled-components';
 import {
   Box,
   Button,
+  Collapsible,
   Grid,
   Main,
   Menu,
@@ -49,6 +51,15 @@ const assistantName = 'GreenLake Copilot';
 const assistantToggleId = 'copilot-toggle';
 const assistantPanelId = 'copilot-panel';
 
+// Size the grid column along with its content so the page reflows smoothly.
+const AssistantPanelSlot = styled(Box)<{ $open: boolean }>`
+  width: ${({ $open, theme }) =>
+    $open
+      ? `calc(${theme.global.size.medium} + ${theme.global.edgeSize.xsmall})`
+      : '0px'};
+  transition: width 200ms ease-in-out;
+`;
+
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },
   { label: 'Console', icon: <Console /> },
@@ -62,7 +73,7 @@ const navigation = [
 // The assistant always occupies a shell column, reducing the page width
 // rather than covering its content.
 const shell: Record<
-  'navAndPanel' | 'panel' | 'nav' | 'mainOnly',
+  'navAndPanel' | 'panel',
   Pick<ComponentProps<typeof Grid>, 'columns' | 'rows' | 'areas'>
 > = {
   navAndPanel: {
@@ -73,14 +84,6 @@ const shell: Record<
       ['nav', 'main', 'panel'],
     ],
   },
-  nav: {
-    columns: ['auto', 'flex'],
-    rows: ['auto', 'flex'],
-    areas: [
-      ['header', 'header'],
-      ['nav', 'main'],
-    ],
-  },
   panel: {
     columns: ['flex', 'auto'],
     rows: ['auto', 'flex'],
@@ -88,11 +91,6 @@ const shell: Record<
       ['header', 'header'],
       ['main', 'panel'],
     ],
-  },
-  mainOnly: {
-    columns: ['flex'],
-    rows: ['auto', 'flex'],
-    areas: [['header'], ['main']],
   },
 };
 
@@ -190,9 +188,7 @@ export const SubscriptionDetails = () => {
   // On small screens the navigation would move into a drawer opened from
   // the global header; it is omitted here to keep the example focused.
   const showNav = !small;
-  const { areas, columns, rows } = assistantOpen
-    ? shell[showNav ? 'navAndPanel' : 'panel']
-    : shell[showNav ? 'nav' : 'mainOnly'];
+  const { areas, columns, rows } = shell[showNav ? 'navAndPanel' : 'panel'];
 
   // Return focus to the control that opened the pane so keyboard users are
   // not dropped at the top of the document when it closes.
@@ -263,17 +259,24 @@ export const SubscriptionDetails = () => {
               </Page>
             </ThemeContext.Extend>
           </Main>
-          {assistantOpen && (
-            <Box
-              gridArea="panel"
-              pad={{ vertical: 'xsmall', right: 'xsmall' }}
-              flex={false}
-            >
-              <CopilotPanel {...panelProps} width="medium">
-                <CopilotConversation />
-              </CopilotPanel>
-            </Box>
-          )}
+          <AssistantPanelSlot
+            gridArea="panel"
+            direction="row"
+            overflow="hidden"
+            $open={assistantOpen}
+          >
+            <Collapsible direction="horizontal" open={assistantOpen}>
+              <Box
+                pad={{ vertical: 'xsmall', right: 'xsmall' }}
+                fill="vertical"
+                flex={false}
+              >
+                <CopilotPanel {...panelProps} width="medium">
+                  <CopilotConversation />
+                </CopilotPanel>
+              </Box>
+            </Collapsible>
+          </AssistantPanelSlot>
         </Grid>
       </AppContainer>
     </UserContext.Provider>
