@@ -19,25 +19,28 @@ export const HeaderNav = ({ assistant }) => {
   return user ? (
     <Nav align="center" direction="row" gap="xsmall">
       {/* The assistant toggle stays available at every size so the panel
-          can be opened and closed from the UI on small screens too. */}
-      {assistant && (
-        <Button
-          id={assistant.id}
-          icon={<AIGen />}
-          a11yTitle={assistant.label}
-          title={assistant.label}
-          aria-expanded={assistant.open}
-          aria-controls={assistant.open ? assistant.controls : undefined}
-          active={assistant.open}
-          onClick={assistant.onToggle}
-        />
-      )}
-      {!['xsmall', 'small'].includes(size) && (
-        <>
-          <Button icon={<Help />} a11yTitle="Help" title="Help" />
-          <Button icon={<Home />} a11yTitle="Home" title="Home" />
-        </>
-      )}
+          can be opened and closed from the UI on small screens too. It is
+          grouped with Help and Home so the three are spaced alike. */}
+      <>
+        {assistant && (
+          <Button
+            id={assistant.id}
+            icon={<AIGen />}
+            a11yTitle={assistant.label}
+            title={assistant.label}
+            aria-expanded={assistant.open}
+            aria-controls={assistant.open ? assistant.controls : undefined}
+            active={assistant.open}
+            onClick={assistant.onToggle}
+          />
+        )}
+        {!['xsmall', 'small'].includes(size) && (
+          <>
+            <Button icon={<Help />} a11yTitle="Help" title="Help" />
+            <Button icon={<Home />} a11yTitle="Home" title="Home" />
+          </>
+        )}
+      </>
       <DropButton
         dropContent={<UserDetails />}
         dropProps={{ align: { top: 'bottom', right: 'right' } }}
