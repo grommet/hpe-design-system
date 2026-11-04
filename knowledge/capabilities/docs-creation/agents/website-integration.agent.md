@@ -44,7 +44,11 @@ worktree changes, and any confirmed identity/category decisions.
    generation; do not create an empty import or code a preview at this stage.
    Mark that preview as listing-only; it must never be rendered in the MDX body
    or substituted for the page's simple primary example.
-8. Run `pnpm --filter docs validate:structure`. Do not bypass strict validation,
+8. Before dependent validation, prepare missing/stale workspace outputs with
+   the docs package's existing prerequisite scripts, as described in the render
+   specification. Record their inputs/results for reuse; do not race output
+   generation against validation. Run `pnpm --filter docs validate:structure`.
+   Do not bypass strict validation,
    add missing-page allowlist entries, or hand-edit generated search data.
 
 ## Outputs

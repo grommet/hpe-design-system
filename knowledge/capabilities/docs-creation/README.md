@@ -26,6 +26,31 @@ loads the [authoritative orchestrator](docs-creation-orchestrator.agent.md).
 Subordinate agents are local specifications invoked by that orchestrator; they
 do not need separate discovery wrappers.
 
+## Execution and turnaround
+
+Default to one coordinator and three bounded phase executors, not a new agent
+for every role. Executors apply the existing role specifications sequentially;
+the review executor is separate from the generation executor. No nested agents
+are needed for ordinary documentation creation.
+
+| Phase | Includes | Initial active-time budget |
+| --- | --- | --- |
+| Evidence and YAML | Integration, implementation exceptions, canonical definition | 8 minutes |
+| Page and examples | Approved MDX, examples, applicable Do/Don't pairs | 12 minutes |
+| Review and verification | Coverage, copy, validation, build, browser checklist | 10 minutes |
+
+Budgets include tool/model waits but exclude human waits. At the deadline,
+persist progress and return a useful checkpoint rather than silently extending
+the run. Command timeouts cannot exceed the remaining phase budget; a docs build
+has a five-minute ceiling. These are execution guidance, not a hard runtime
+watchdog or a guaranteed completion time.
+
+Show a reviewable draft after generation, before verification. Track active time
+to draft and to verified result separately to evaluate a roughly 20–30-minute
+target. Resume from saved approvals, evidence, and valid check results rather
+than repeating intake. Follow the [workflow contract](docs/workflow.md) for
+input-based invalidation, dependency ordering, and checkpoint requirements.
+
 ## Workflow
 
 1. Ask whether the user wants to provide additional information, including RFCs,
@@ -33,9 +58,13 @@ do not need separate discovery wrappers.
    Wait for the answer and collect the supplied context.
 2. Run website integration first: establish identifiers, register the route and
    metadata, and create a render-safe page scaffold.
-3. Run `populate-yaml-agent` to populate or validate the canonical definition.
+3. Apply `populate-yaml-agent` to populate or validate the canonical definition.
+   Default to component-specific props, not inherited React/HTML attributes.
+   Check runtime exceptions before approval: inline/overlay, disabled/read-only,
+   value states, events, and serialization/timezone behavior where applicable.
 4. **Human gate:** review the YAML, source conflicts, missing information, and
-   planned examples. Do not generate the documentation before approval.
+   planned examples, separating required work from optional demos/follow-ups.
+   Do not generate the documentation before approval.
 5. Generate MDX with hidden implementation briefs, not coded examples, and check
    the page presentation contract before implementing them.
 6. Generate examples, then Do/Don't previews, using both the approved YAML and
@@ -48,8 +77,10 @@ do not need separate discovery wrappers.
     creation. Do not commit, push, or create a PR without that authorization.
 
 Examples and Do/Don't previews run sequentially because both edit MDX and export
-barrels. All later stages receive the user's additional context; it is not
-discarded after intake.
+barrels. When there are no approved Do/Don't pairs, record not applicable without
+a separate agent launch. All later stages receive the user's additional context;
+it is not discarded after intake. Required checks and both human gates remain
+mandatory; budget expiry leaves the work a draft, not implicitly approved.
 
 See the [workflow contract](docs/workflow.md), [page template](docs/COMPONENT_TEMPLATE.md),
 and [manifest](manifest.yaml).

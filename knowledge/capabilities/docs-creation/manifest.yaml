@@ -2,7 +2,7 @@ apiVersion: knowledge.hpe.com/v1
 kind: CapabilityManifest
 metadata:
   name: docs-creation
-  version: 1.1.0
+  version: 1.2.0
   status: active
   owner: design-system
 spec:
@@ -44,7 +44,7 @@ spec:
     - id: website-integrated
       when: 'Context is collected; route registration and a render-safe scaffold exist, with an explicit identity and integration handoff.'
     - id: yaml-populated
-      when: 'The canonical YAML validates and its evidence, conflicts, gaps, and example plan have been presented.'
+      when: 'The canonical YAML validates; component-prop scope and runtime exceptions were checked, and evidence, conflicts, gaps, and required/optional example scope have been presented.'
     - id: yaml-approved
       when: 'The human approved the YAML and presentation plan: one simple primary, contextual tasks, table-only anatomy, variant subsections, and listing-only previews.'
     - id: mdx-generated
@@ -52,7 +52,7 @@ spec:
     - id: examples-generated
       when: 'Generation implements the approved task contexts, keeps previews listing-only and anatomy table-only, wires exports, and passes the page-contract check.'
     - id: dos-donts-generated
-      when: 'Paired preview generation has consumed the YAML and MDX briefs and reported all unresolved pairs.'
+      when: 'Paired preview generation has consumed the YAML and MDX briefs and reported unresolved pairs, or no approved pairs exist and not-applicable evidence was recorded.'
     - id: coverage-reviewed
       when: 'Coverage was checked against sources, YAML, and MDX; apps/docs/todos/TODO-<page-slug>.md contains all required sections.'
     - id: copy-reviewed

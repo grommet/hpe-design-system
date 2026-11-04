@@ -28,20 +28,32 @@ package and version, existing canonical YAML if present, and intended scope.
    changes. If none exists, create one matching `ComponentDefinitionSource`.
    Required fields include `id`, `name`, `description`, `importPath`, `props`,
    `usage`, and `examples`. Include `framework` where appropriate.
-3. Derive props from the actual exported type, including inherited/imported
-   types. Document exact requiredness and evidenced defaults. Never invent
+3. Derive component-specific props from the actual exported interface, resolving
+   imported member types and component-specific base interfaces. Exclude generic
+   inherited React/HTML/DOM attributes by default unless the user requests them.
+   Preserve existing human-authored definitions and report scope conflicts.
+   Document exact requiredness and evidenced defaults. Never invent
    behavior from a type alone. For non-Grommet components, use their actual
    package/type rather than assuming a Grommet interface.
 4. Populate supported usage, anatomy, variants, behaviors, content guidance,
    Do/Don't pairs, accessibility, and related-component identifiers from the
    evidence. Use the schema's actual field names and values. Do not add `path`,
    `wcagDataFile`, provenance, approval, or workflow fields to YAML.
+   Before handing off for approval, check the relevant runtime branches against
+   each anatomy/behavior/accessibility claim: inline versus overlay, disabled,
+   read-only, empty/partial/cleared, controlled/default values, change events,
+   and serialization/timezone behavior where applicable. Return a compact
+   evidence matrix with source locations, exceptions, and explicitly inapplicable
+   cases in the session report. Resolve contradictions before approval rather
+   than deferring this check to coverage review.
 5. Do not code examples. Preserve existing valid examples after checking their
    sources. For new examples, use `examples: []` until files exist; return a
    concrete presentation/example plan separating: exactly one simple primary;
    user-task use cases with hosts, surrounding controls, actions and visible
    outcomes; optional variant/state demonstrations; and a listing-only card
    preview. Configuration choices belong to variants, not generic use cases.
+   Separate required examples from optional variant/state demos and follow-ups;
+   do not expand the plan or add Do/Don't policy simply to fill sections.
    Keep anatomy table-only and record its visual as a collaborator-owned manual
    handoff, not an example to generate. Do not create dangling `codeFile`
    references or add presentation-role fields to canonical YAML.

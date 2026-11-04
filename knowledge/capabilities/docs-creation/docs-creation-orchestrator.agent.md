@@ -8,9 +8,10 @@ argument-hint: 'Component name, with optional RFC, Figma, or implementation refe
 
 Read [README.md](README.md) and [docs/workflow.md](docs/workflow.md) before acting.
 You coordinate this independent capability. Never invoke docs-refactor agents.
-Do not author repository content yourself; delegate it to this capability's
-agents. Use editing tools only for session-local workflow records. Tool access
-is intentionally inherited from the host so intake can use its question and
+Do not author repository content yourself; delegate bounded execution phases
+using this capability's role specifications. Use editing tools only for
+session-local workflow records. Tool access is intentionally inherited from
+the host so intake can use its question and
 configured Figma tools, and subagents can use available browser/validation tools.
 If required tools are unavailable, report the limitation rather than skipping
 the corresponding gate or check.
@@ -32,10 +33,14 @@ the corresponding gate or check.
 
 ## Agent registry
 
-Every path is relative to this capability. Pass the exact specification path
-and require the agent to read it. Prefer registered custom agents if available;
-otherwise delegate a task that explicitly adopts the local specification.
-Do not assume local specs are registered by the manifest.
+Every path is relative to this capability. These are role specifications, not
+eight mandatory agent launches. Follow the workflow contract's three bounded
+phases: evidence/YAML (8 minutes), page/examples (12 minutes), and independent
+review/verification (10 minutes). Pass all exact specification paths needed by
+each phase and require sequential role execution, with no nested delegation.
+Use a registered agent only if it supports the complete assigned phase;
+otherwise delegate a task explicitly adopting those specifications. Do not
+assume local specs are registered by the manifest.
 
 | Order | Agent                                   | Specification                                                              |
 | ----- | --------------------------------------- | -------------------------------------------------------------------------- |
@@ -52,12 +57,22 @@ For each delegation provide the shared context from the workflow contract,
 supplied-source summaries, approval snapshot, prior outputs, allowed write paths,
 and expected result. Require `completed`, `blocked`, or `failed`, changed paths,
 unresolved briefs, and exact check results. Inspect outputs before advancing.
+Include the phase deadline and stop condition. Persist stage results, elapsed
+time, and input hashes at phase boundaries; return a checkpoint when time expires
+instead of extending the run. Ask user questions from the coordinator, not from
+a nested agent. Reuse completed evidence and valid checks on continuation.
 
 ## Execution and YAML approval
 
-1. Invoke website integration as the first file-modifying step. Confirm the
-   identity map, new scaffold, valid registration, and later preview handoff.
-2. Invoke `populate-yaml-agent`. Inspect the YAML validation result and evidence
+Assign the following roles to each phase executor; the coordinator inspects
+the returned evidence and owns user decisions, not repository authoring.
+
+1. In the evidence/YAML phase, perform website integration as the first
+   file-modifying step. Confirm the identity map, new scaffold, valid
+   registration, and later preview handoff.
+2. Then adopt `populate-yaml-agent`. Require its implementation-exception check
+   before approval and component-specific props by default, not generic inherited
+   React/HTML attributes. Inspect the YAML validation result and evidence
    report. Show the YAML path, substantive content, example plan, and open
    questions to the user. Show the presentation plan: one simple primary,
    contextual task examples with hosts/actions/outcomes, optional variant/state
@@ -65,26 +80,31 @@ unresolved briefs, and exact check results. Inspect outputs before advancing.
 3. **YAML gate:** ask the user to approve, request changes, or pause. Do not treat
    an empty array, generated file, or successful schema check as approval.
    Resolve blocking conflicts first. Record approval of the current content.
-4. Invoke MDX generation only after approval. Verify the page follows the local
-   template, contains concrete hidden briefs, and does not code examples.
+4. Start the page/examples phase only after approval. Assign MDX generation.
+   Verify the page follows the local template, contains concrete hidden briefs,
+   and does not yet include newly coded examples.
    Require a passing `pnpm validate:docs-creation-page -- <mdxPath> <yamlPath>`
-   result before implementation agents run.
-5. Invoke example generation, then Do/Don't generation. Both must read YAML and
-   MDX briefs. Do not run these writers concurrently.
+   result before the implementation roles run.
+5. Adopt example generation, then Do/Don't generation when approved pairs exist.
+   Otherwise record not applicable with evidence, without another agent launch.
+   Both must read YAML and MDX briefs. Do not run these writers concurrently.
    Re-run the page-contract check after insertion. Inspect the example sources
    against their context/outcome briefs; do not accept standalone demos for
    contextual tasks. Route violations back before coverage review.
-6. Invoke coverage/readiness and verify that
-   `apps/docs/todos/TODO-<pageSlug>.md` exists with every required heading.
-7. Invoke copy review, then render verification. Missing examples can remain
-   documented while reviewing a draft, but they prevent publication when
-   required by the approved plan.
+   Return a reviewable-draft checkpoint with elapsed time before verification;
+   this is not final approval or evidence of passing checks.
+6. In the independent review/verification phase, assign coverage/readiness and
+   verify that `apps/docs/todos/TODO-<pageSlug>.md` exists with every required heading.
+7. Assign copy review, then render verification in that same phase. Missing
+   examples can remain documented while reviewing a draft, but they prevent
+   publication when required by the approved plan.
    Repeat the page-contract check after copy/repair edits. Anatomy visuals are
    collaborator-owned manual Follow-ups, not work for the example agent.
 8. Route discovered blockers back to the responsible local agent. Apply the
    workflow contract's invalidation rules, then repeat affected reviews and
-   verification. Stop after three repair cycles or any unresolved decision;
-   show concrete diagnostics instead of claiming completion.
+   verification. Stop at the phase deadline, after three repair cycles, or at
+   any unresolved decision, whichever comes first. Show concrete diagnostics
+   instead of claiming completion.
 
 ## Resume and persistence
 

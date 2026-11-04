@@ -15,12 +15,27 @@ not merely whether MDX exists. Do not approve publication on the human's behalf.
 
 Require coverage/readiness's standard TODO file and the copy-review result.
 Review remaining briefs and blockers; do not hide them to make checks pass.
+Use the review/verification phase's remaining time budget and check records.
+Reuse results only under the workflow contract's input/environment rules.
+Do not repeat research or broaden verification into baseline repairs.
 
 ## Verification
 
 1. Inspect the diff, exact installed scripts, example exports/imports, route
    registration, heading metadata, and any dynamic WCAG data dependency.
-2. Run the existing validators from the repository root:
+2. Inspect the current docs scripts before choosing command order. Prepare
+   missing/stale workspace outputs using existing scripts before dependent
+   tests. Currently these prerequisites are:
+
+   ```sh
+   pnpm --filter docs build-design-tokens
+   pnpm --filter docs build-shared-hooks
+   ```
+
+   Reuse fresh outputs when their inputs match; do not install dependencies
+   preemptively. Never run these writers concurrently with dependent tests.
+   Run the existing validators from the repository root, reusing only recorded
+   valid results:
 
    ```sh
    pnpm validate:docs-creation-page -- <mdxPath> <yamlPath>
@@ -34,23 +49,41 @@ Review remaining briefs and blockers; do not hide them to make checks pass.
    if generation or a repair changed them after their previous lint run.
    Report each exact command and result. Separate unrelated baseline failures
    from task failures, but do not call failed checks passed.
+   Attempt the full docs build once per content snapshot, with a timeout of at
+   most five minutes or the remaining phase budget, whichever is shorter.
+   Capture its exit code and a concise output tail. On timeout/failure, record
+   verification incomplete and return the diagnostic; do not loop or infer a
+   pass from generated artifacts. A new attempt requires a concrete relevant
+   repair and remaining budget, or a user-requested continuation.
 
 3. Use an existing appropriate VS Code preview task when available; otherwise
    start a local docs preview using the documented package command. Reuse a
    responsive server where possible. If starting one, confirm the specific
-   process and HTTP response before browser checks. Stop only processes started
+   process, HTTP response for the actual route, and that it serves the current
+   content/package version before browser checks. Do not run a preview while a
+   build writes the same generated directories. Leave stale/unrelated servers
+   untouched; use an available separate port and the documented start command.
+   Stop only processes started
    for this verification, unless the user asks to keep them running.
-4. Use available browser tools to open `/components/<pageSlug>`. Check actual
-   rendered content, imports/runtime errors, primary/use-case/variant examples,
-   Do/Don't previews, anatomy table, listing-only card preview, desktop and narrow layouts, theme
-   modes, in-page navigation, related links, and search discoverability.
-   Exercise documented interactions and inspect keyboard/focus behavior.
-   Record what was actually checked; this is not a full WCAG certification.
-   Verify exactly one simple primary before Use cases; exercise each contextual
-   task's surrounding UI and visible result. Confirm no listing preview is
-   rendered in the page, Anatomy is table-only, and each variant has its own
-   heading and explanatory prose. A passing build or static checker does not
-   establish these semantic/visual expectations.
+4. Open `/components/<pageSlug>` and perform one bounded browser checklist.
+   Record each row as pass, fail, incomplete, or not applicable with evidence
+   (not applicable requires a reason):
+
+   | Check | Required evidence |
+   | --- | --- |
+   | Route/runtime | Current page title and content; no observed import/runtime error |
+   | Primary | Exactly one simple primary before Use cases; documented input/picker interaction and keyboard/focus behavior |
+   | Contextual tasks | Each approved task's surrounding controls, action, and visible outcome |
+   | Variants and previews | Each variant heading/prose; implemented variant/state interactions and approved Do/Don't pairs |
+   | Anatomy and listing | Table-only anatomy; card preview absent from body and present in intended category/listing |
+   | Responsive and themes | Actual desktop/narrow viewport dimensions, reflow/overflow observations, supported theme modes |
+   | Navigation and search | Section targets, applicable related destinations, search query and matching result linking to this route |
+
+   Do not repeat browser actions without a concrete reason. Report a failed or
+   untestable interaction and stop expanding that investigation; continue other
+   independent checklist rows only within the budget. This is not exhaustive
+   accessibility testing or WCAG certification. A passing build or static checker
+   does not establish semantic/visual expectations.
 5. Verify the component appears in its intended listing/category. Search data
    is generated by the docs build; do not hand-edit generated content.
 6. If browser tooling, required sources, dependencies, or execution are
@@ -60,7 +93,8 @@ Review remaining briefs and blockers; do not hide them to make checks pass.
 ## Repairs and TODO updates
 
 Apply only known, local syntax/import/export/registration fixes, at most three
-repair cycles. Do not change approved behavior, invent accessibility data,
+repair cycles and only within the remaining phase budget. Do not change approved
+behavior, invent accessibility data,
 delete failing examples, add route allowlist exceptions, suppress strict
 validation, or modify unrelated files.
 Do not generate anatomy visuals to close a manual collaborator handoff. Keep
