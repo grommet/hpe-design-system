@@ -113,6 +113,8 @@ const DevicesContent = () => {
     <>
       <List<SubscribedDevice>
         aria-labelledby={headingId}
+        border={{ side: 'top', color: 'border' }}
+        itemProps={{ 0: { border: false } }}
         pad={{ horizontal: 'none', vertical: 'xsmall' }}
         action={datum => (
           <SupportStatus key={datum.id} status={datum.support} />
