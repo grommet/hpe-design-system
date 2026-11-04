@@ -287,8 +287,10 @@ export const RepositoriesTable = ({
     <Data data={repositories} properties={properties} defaultView={view}>
       {expanded ? (
         // Fullscreen Layer anatomy: Page > PageContent > LayerHeader > body.
+        // kind="full" lifts the wide page's 1536px cap so the table can use
+        // the whole viewport, keeping the theme's responsive gutters.
         <Layer full onEsc={collapse}>
-          <Page background="background-front" fill>
+          <Page kind="full" background="background-front" fill>
             <PageContent fill>
               <Box fill gap="medium" pad={{ vertical: 'medium' }}>
                 <LayerHeader title="Repositories" onClose={collapse} />
