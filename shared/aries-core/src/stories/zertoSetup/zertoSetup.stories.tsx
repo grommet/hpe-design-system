@@ -93,9 +93,6 @@ export const CombinedCells = {
 
 export const CompactText = {
   name: 'Recommended with text.small (14px)',
-  // Hidden from the sidebar and docs; kept so it can be re-enabled if the
-  // discussion moves to type scale rather than layout.
-  tags: ['!dev', '!autodocs'],
   render: () => <ZertoSetupCompactText />,
   parameters: {
     docs: {
