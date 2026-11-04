@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { useState, type ComponentProps } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Grid,
@@ -31,11 +31,8 @@ import {
   Selector as SelectorJs,
   SelectorGroup as SelectorGroupJs,
 } from '../../js/components/core/Selector';
+import { type Loose } from './loose';
 
-// Selector is authored in JS, so TS reads its destructured props as required.
-type Loose<T extends React.ComponentType<any>> = React.ComponentType<
-  Partial<ComponentProps<T>>
->;
 const Selector = SelectorJs as Loose<typeof SelectorJs>;
 const SelectorGroup = SelectorGroupJs as Loose<typeof SelectorGroupJs>;
 
