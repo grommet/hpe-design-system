@@ -326,8 +326,9 @@ export const Overview = {
                     Light-mode hover of a red.800 fill needs a darker step that
                     does not exist: proposed primitive{' '}
                     <code>red.900 = {PROPOSED_PRIMITIVES['red.900']}</code>{' '}
-                    (parallel to green.800 → green.900). Dark mode can reuse
-                    red.400.
+                    (parallel to green.800 → green.900; rest-to-hover change
+                    1.52×, matching icon-primary&apos;s 1.51×). Dark mode can
+                    reuse red.400.
                   </Text>
                 </Box>
               </Grid>

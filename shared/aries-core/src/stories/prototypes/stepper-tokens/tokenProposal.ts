@@ -70,9 +70,11 @@ export const ROLES: [Role, string][] = [
 
 // red.900 does not exist. It is the step between red.800 (#cc1f1a) and
 // red.1000 (#552120) needed for a light-mode hover of a red.800 fill,
-// mirroring green.800 -> green.900 for the primary strong fill.
+// mirroring green.800 -> green.900 for the primary strong fill. #9c0f0b
+// steps slightly further than the green hovers (rest-vs-hover 1.52x vs
+// 1.47-1.51x) because saturated red masks lightness change.
 export const PROPOSED_PRIMITIVES = {
-  'red.900': '#a3140f',
+  'red.900': '#9c0f0b',
 };
 
 export interface NewToken {
