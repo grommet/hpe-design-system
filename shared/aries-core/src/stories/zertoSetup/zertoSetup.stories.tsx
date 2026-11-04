@@ -77,9 +77,9 @@ export const CombinedCells = {
       description: {
         story:
           'Trades vertical for horizontal space at the same 16px text. ' +
-          'Connectivity sits under status, storage type under the repository ' +
-          'name, and the usage meter under its value, so the same information ' +
-          'needs two fewer columns. Only the path stays in column settings.',
+          'Storage type sits under the repository name and the usage value ' +
+          'under its meter, so the same information needs fewer columns. ' +
+          'Body cells are top-aligned so first lines read as one row.',
       },
       source: {
         code: RepositoriesTableCombinedSource,

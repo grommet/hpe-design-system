@@ -16,11 +16,9 @@ import { EmptyValue, RepositoriesTable, SingleLine } from './RepositoriesTable';
 import { StatusIndicator } from './StatusIndicator';
 
 // Descriptive attributes move under the value they describe, so the stacked
-// Status and Repository cells cover storage type and connectivity without
-// their own columns. Numbers users compare down the table keep their own
-// right-aligned columns. Every stacked cell has a value on every row, which
-// keeps row heights even. Path is long reference data and stays in column
-// settings.
+// Repository cell covers storage type without its own column. Numbers users
+// compare down the table keep their own right-aligned columns. Path and
+// connectivity stay in column settings.
 const defaultView = {
   columns: [
     'status',
@@ -44,18 +42,13 @@ const Supporting = ({ children }: { children: string }) => (
 const useCombinedColumns = (): ColumnConfig<Repository>[] => {
   const theme = useContext(ThemeContext) as ThemeType;
   const primaryTextProps = theme.dataTable?.primary as TextProps | undefined;
-  return useMemo(
-    () => [
+  return useMemo(() => {
+    const columns: ColumnConfig<Repository>[] = [
       {
         property: 'status',
         header: 'Status',
         pin: true,
-        render: datum => (
-          <Box>
-            <StatusIndicator status={datum.status} />
-            <Supporting>{datum.connectivity}</Supporting>
-          </Box>
-        ),
+        render: datum => <StatusIndicator status={datum.status} />,
       },
       {
         property: 'name',
@@ -75,8 +68,8 @@ const useCombinedColumns = (): ColumnConfig<Repository>[] => {
           </Box>
         ),
       },
-      // Still offered in column settings for sorting, even though their
-      // values also appear as supporting text above.
+      // Still offered in column settings for sorting, even though storage
+      // type also appears as supporting text above.
       {
         property: 'storageType',
         header: 'Storage type',
@@ -107,13 +100,8 @@ const useCombinedColumns = (): ColumnConfig<Repository>[] => {
             <EmptyValue />
           ) : (
             // The text sets the column width; the meter stretches to match it
-            // underneath instead of claiming width beside it.
+            // and leads so the bar lines up with the first line of other cells.
             <Box gap="5xsmall">
-              <Text>
-                {`${formatGb(datum.usedGb)}\u00A0/\u00A0${formatGb(
-                  datum.capacityGb,
-                )}`}
-              </Text>
               <Meter
                 aria-label={`${Math.round(
                   (datum.usedGb / datum.capacityGb) * 100,
@@ -123,6 +111,11 @@ const useCombinedColumns = (): ColumnConfig<Repository>[] => {
                 max={datum.capacityGb}
                 values={[{ value: datum.usedGb }]}
               />
+              <Text>
+                {`${formatGb(datum.usedGb)}\u00A0/\u00A0${formatGb(
+                  datum.capacityGb,
+                )}`}
+              </Text>
             </Box>
           ),
       },
@@ -146,16 +139,18 @@ const useCombinedColumns = (): ColumnConfig<Repository>[] => {
         header: 'Immutability',
         render: datum => <SingleLine>{datum.immutability}</SingleLine>,
       },
-    ],
-    [primaryTextProps],
-  );
+    ];
+    // Stacked cells make rows taller than single-line ones; top-align every
+    // body cell so first lines read as one row (header keeps the default).
+    return columns.map(column => ({ verticalAlign: 'top', ...column }));
+  }, [primaryTextProps]);
 };
 
 /**
  * Trades vertical for horizontal space: two-line cells combine related
- * attributes (status + connectivity, repository + storage type, usage text +
- * meter) so two fewer columns are needed for the same information. Shares the
- * toolbar, fullscreen layer and pagination with the recommended table.
+ * attributes (repository + storage type, usage meter + value) so fewer
+ * columns are needed for the same information. Shares the toolbar,
+ * fullscreen layer and pagination with the recommended table.
  */
 export const RepositoriesTableCombined = () => (
   <RepositoriesTable columns={useCombinedColumns()} defaultView={defaultView} />
