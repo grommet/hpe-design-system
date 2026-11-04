@@ -15,12 +15,23 @@ import { type Repository, formatGb } from './data';
 import { EmptyValue, RepositoriesTable, SingleLine } from './RepositoriesTable';
 import { StatusIndicator } from './StatusIndicator';
 
-// Descriptive attributes move under the value they describe, so the default
-// view needs fewer columns. Numbers users compare down the table keep their
-// own right-aligned columns. Every stacked cell has a value on every row,
-// which keeps row heights even.
+// Descriptive attributes move under the value they describe, so the stacked
+// Status and Repository cells cover storage type and connectivity without
+// their own columns. Numbers users compare down the table keep their own
+// right-aligned columns. Every stacked cell has a value on every row, which
+// keeps row heights even. Path is long reference data and stays in column
+// settings.
 const defaultView = {
-  columns: ['status', 'name', 'usedGb', 'vpgs', 'restorePoints'],
+  columns: [
+    'status',
+    'name',
+    'connectionType',
+    'usedGb',
+    'freeGb',
+    'vpgs',
+    'restorePoints',
+    'immutability',
+  ],
 };
 
 // Second line of a stacked cell: same 16px size, hierarchy comes from colour.
@@ -115,7 +126,7 @@ const useCombinedColumns = (): ColumnConfig<Repository>[] => {
             </Box>
           ),
       },
-      // Derivable from usage, so hidden by default but still a column.
+      // Derivable from usage, but a comparable number so it keeps a column.
       {
         property: 'freeGb',
         header: 'Free',
@@ -143,7 +154,7 @@ const useCombinedColumns = (): ColumnConfig<Repository>[] => {
 /**
  * Trades vertical for horizontal space: two-line cells combine related
  * attributes (status + connectivity, repository + storage type, usage text +
- * meter) so the default view fits without horizontal scrolling. Shares the
+ * meter) so two fewer columns are needed for the same information. Shares the
  * toolbar, fullscreen layer and pagination with the recommended table.
  */
 export const RepositoriesTableCombined = () => (

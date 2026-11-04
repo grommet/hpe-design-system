@@ -78,9 +78,8 @@ export const CombinedCells = {
         story:
           'Trades vertical for horizontal space at the same 16px text. ' +
           'Connectivity sits under status, storage type under the repository ' +
-          'name, and the usage meter under its value, so the default view ' +
-          'needs five columns instead of eight. Free space is derivable and ' +
-          'moves to column settings.',
+          'name, and the usage meter under its value, so the same information ' +
+          'needs two fewer columns. Only the path stays in column settings.',
       },
       source: {
         code: RepositoriesTableCombinedSource,
