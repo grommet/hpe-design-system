@@ -21,6 +21,7 @@ export * from './dropbutton';
 export * from './header';
 export * from './image';
 export * from './fileinput';
+export * from './formfield';
 export * from './footer';
 export * from './grid';
 export * from './layer';

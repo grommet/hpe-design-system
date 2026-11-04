@@ -10,7 +10,13 @@ import {
   ALLOWED_CATEGORIES,
   validateStructureData,
 } from '../structureValidation';
-import { nameToPath } from '../../utils/search';
+import {
+  getCards,
+  getPageDetails,
+  getParentPage,
+  getSearchSuggestions,
+  nameToPath,
+} from '../../utils/search';
 
 // Importing ../structure pulls in React components and other heavier modules
 // that are not needed for these schema-validation tests and can make the test
@@ -94,6 +100,49 @@ const getPageRoutes = async (dirPath: string): Promise<string[]> => {
 };
 
 describe('Structure Data Validation', () => {
+  describe('FormField registration', () => {
+    it('registers one first-level Inputs page under Components', () => {
+      const pages = realStructure.filter(
+        page => page.name === 'FormField' && !page.href,
+      );
+
+      expect(pages).toHaveLength(1);
+      expect(pages[0]).toMatchObject({
+        name: 'FormField',
+        category: 'Inputs',
+        seoDescription: expect.any(String),
+      });
+      expect(pages[0]).not.toHaveProperty('parentPage');
+      expect(getPageDetails('formfield')).toBe(pages[0]);
+      expect(getParentPage('FormField')?.name).toBe('Components');
+      expect(categoryMapping.Components.Inputs).toContain('FormField');
+      expect(nameToPath('FormField')).toBe('/components/formfield');
+    });
+
+    it('includes one FormField card in the overview Inputs section', () => {
+      const cards = getCards('Components').filter(
+        card => card.category === 'Inputs' && !card.parentPage,
+      );
+      const formFieldCards = cards.filter(card => card.name === 'FormField');
+
+      expect(formFieldCards).toHaveLength(1);
+      expect(formFieldCards[0].href || nameToPath(formFieldCards[0].name)).toBe(
+        '/components/formfield',
+      );
+    });
+
+    it('includes FormField in page search suggestions', () => {
+      const suggestions = getSearchSuggestions().filter(
+        suggestion => suggestion.label === 'FormField',
+      );
+
+      expect(suggestions).toHaveLength(1);
+      expect(nameToPath(suggestions[0].value.name)).toBe(
+        '/components/formfield',
+      );
+    });
+  });
+
   describe('Schema Validation', () => {
     it('should have all required properties for each page', () => {
       realStructure.forEach((page, index) => {
