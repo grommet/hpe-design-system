@@ -87,11 +87,11 @@ const defaultView = {
   ],
 };
 
-const EmptyValue = () => <Text a11yTitle="No value">--</Text>;
+export const EmptyValue = () => <Text a11yTitle="No value">--</Text>;
 
 // Keep every cell on one line so row height stays at the theme's minimum;
 // the table scrolls horizontally behind the pinned columns instead of wrapping.
-const SingleLine = ({ children }: { children: string }) => (
+export const SingleLine = ({ children }: { children: string }) => (
   <Text truncate>{children}</Text>
 );
 
@@ -196,14 +196,25 @@ const useColumns = (): ColumnConfig<Repository>[] => {
   );
 };
 
+interface RepositoriesTableProps {
+  // Overrides let the "Combined cells" variant swap the column rendering
+  // while sharing this toolbar, fullscreen layer and pagination.
+  columns?: ColumnConfig<Repository>[];
+  defaultView?: typeof defaultView;
+}
+
 /**
  * Repositories table built on the Data pattern. Keeps the theme's 16px
  * text and 48px rows; density comes from column sizing, a pinned primary
  * column, units in headers, and user-controlled column visibility.
  * An Expand control moves the same table into a fullscreen Layer.
  */
-export const RepositoriesTable = () => {
-  const columns = useColumns();
+export const RepositoriesTable = ({
+  columns: columnsOverride,
+  defaultView: view = defaultView,
+}: RepositoriesTableProps = {}) => {
+  const sizedColumns = useColumns();
+  const columns = columnsOverride ?? sizedColumns;
   const [expanded, setExpanded] = useState(false);
   // Grommet types Button's ref for both anchor and button renderings.
   const toggleRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
@@ -273,11 +284,7 @@ export const RepositoriesTable = () => {
   );
 
   return (
-    <Data
-      data={repositories}
-      properties={properties}
-      defaultView={defaultView}
-    >
+    <Data data={repositories} properties={properties} defaultView={view}>
       {expanded ? (
         // Fullscreen Layer anatomy: Page > PageContent > LayerHeader > body.
         <Layer full onEsc={collapse}>

@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { ZertoSetupAsAdopted } from './ZertoSetupAsAdopted';
+import { ZertoSetupCombined } from './ZertoSetupCombined';
 import { ZertoSetupCompactText } from './ZertoSetupCompactText';
 import { ZertoSetupRecommended } from './ZertoSetupRecommended';
 // ts-expect-error is intentional: TypeScript can't resolve webpack's ?raw query syntax.
@@ -11,6 +12,8 @@ import { ZertoSetupRecommended } from './ZertoSetupRecommended';
 import RepositoriesTableSource from './RepositoriesTable.tsx?raw';
 // @ts-expect-error TypeScript can't resolve webpack's ?raw query syntax
 import RepositoriesTableAsAdoptedSource from './RepositoriesTableAsAdopted.tsx?raw';
+// @ts-expect-error TypeScript can't resolve webpack's ?raw query syntax
+import RepositoriesTableCombinedSource from './RepositoriesTableCombined.tsx?raw';
 // @ts-expect-error TypeScript can't resolve webpack's ?raw query syntax
 import ZertoSetupCompactTextSource from './ZertoSetupCompactText.tsx?raw';
 
@@ -58,6 +61,29 @@ export const Recommended = {
       },
       source: {
         code: RepositoriesTableSource,
+        language: 'tsx',
+        type: 'code',
+      },
+      canvas: { sourceState: 'shown' },
+    },
+  },
+};
+
+export const CombinedCells = {
+  name: 'Combined cells (stacked, 16px)',
+  render: () => <ZertoSetupCombined />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Trades vertical for horizontal space at the same 16px text. ' +
+          'Connectivity sits under status, storage type under the repository ' +
+          'name, and the usage meter under its value, so the default view ' +
+          'needs five columns instead of eight. Free space is derivable and ' +
+          'moves to column settings.',
+      },
+      source: {
+        code: RepositoriesTableCombinedSource,
         language: 'tsx',
         type: 'code',
       },
