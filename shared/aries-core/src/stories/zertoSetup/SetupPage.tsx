@@ -1,11 +1,8 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 import {
-  Anchor,
   Box,
-  Card,
-  CardBody,
   Grid,
   Heading,
   Main,
@@ -30,6 +27,17 @@ import {
   NavigationMenu,
   type NavItemType,
 } from '../../js/components/core/NavigationMenu';
+import {
+  Selector as SelectorJs,
+  SelectorGroup as SelectorGroupJs,
+} from '../../js/components/core/Selector';
+
+// Selector is authored in JS, so TS reads its destructured props as required.
+type Loose<T extends React.ComponentType<any>> = React.ComponentType<
+  Partial<ComponentProps<T>>
+>;
+const Selector = SelectorJs as Loose<typeof SelectorJs>;
+const SelectorGroup = SelectorGroupJs as Loose<typeof SelectorGroupJs>;
 
 const navItems: NavItemType[] = [
   { label: 'Dashboard', url: '/dashboard', icon: <Dashboard aria-hidden="true" /> },
@@ -56,7 +64,6 @@ interface SummaryMetric {
   title: string;
   value: string;
   description: string;
-  action?: string;
 }
 
 const summary: SummaryMetric[] = [
@@ -67,7 +74,6 @@ const summary: SummaryMetric[] = [
     title: 'Guest services credentials',
     value: '0',
     description: 'None configured',
-    action: 'Add credentials',
   },
 ];
 
@@ -78,7 +84,8 @@ interface SetupPageProps {
 /**
  * Application shell recreating the Zerto "Setup" screen with HPE Design System
  * layout primitives: persistent navigation, a routed page with a single h1,
- * a fluid grid of self-contained summary cards, and a section for the table.
+ * a group of summary Selectors (quick-filter tiles that don't filter here),
+ * and a section for the table.
  */
 export const SetupPage = ({ children }: SetupPageProps) => {
   const [activeItem, setActiveItem] = useState('Setup');
@@ -107,38 +114,42 @@ export const SetupPage = ({ children }: SetupPageProps) => {
         />
       </Box>
       <Main gridArea="main" background="background-back" overflow="auto">
-        <Page pad={{ bottom: '3xlarge' }}>
-          <PageContent gap="xlarge">
+        {/* flex={false} lets Page grow with its content so the 3xlarge bottom
+            pad sits below the table instead of being swallowed by the
+            scrolling Main. */}
+        <Page pad={{ bottom: '3xlarge' }} flex={false}>
+          <PageContent>
+            {/* PageHeader's theme bottom pad (medium) is the only space
+                before the Selectors; sections below are spaced xlarge. */}
             <PageHeader
               title="Setup"
               subtitle="Repositories, VRAs, datastores and credentials for site gui_local_vcd."
             />
-            <Grid
-              as="section"
-              aria-label="Site summary"
-              columns={{ count: 'fit', size: 'xsmall' }}
-              gap="medium"
-            >
-              {summary.map(({ title, value, description, action }) => (
-                <Card key={title}>
-                  <CardBody gap="xsmall">
-                    <Heading level={2} size="small" margin="none">
-                      {title}
-                    </Heading>
-                    <Text size="xxlarge" weight="bold" color="text-strong">
-                      {value}
-                    </Text>
+            <Box gap="xlarge">
+              <SelectorGroup a11yTitle="Site summary">
+                {summary.map(({ title, value, description }) => (
+                  <Selector
+                    key={title}
+                    value={title}
+                    title={title}
+                    description={
+                      <Text size="xxlarge" weight="bold" color="text-strong">
+                        {value}
+                      </Text>
+                    }
+                  >
                     <Text color="text-weak">{description}</Text>
-                    {action && <Anchor label={action} href="#" />}
-                  </CardBody>
-                </Card>
-              ))}
-            </Grid>
-            <Box as="section" gap="small">
-              <Heading id="repositories-heading" level={2} margin="none">
-                Repositories
-              </Heading>
-              {children}
+                  </Selector>
+                ))}
+              </SelectorGroup>
+              <Box as="section" gap="small">
+                <Heading id="repositories-heading" level={2} margin="none">
+                  Repositories
+                </Heading>
+                <Box background="background-front" pad="medium" round="medium">
+                  {children}
+                </Box>
+              </Box>
             </Box>
           </PageContent>
         </Page>

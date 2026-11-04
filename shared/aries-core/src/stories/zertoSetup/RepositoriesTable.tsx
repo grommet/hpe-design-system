@@ -219,8 +219,12 @@ export const RepositoriesTable = () => {
       <Box overflow="auto">
         <DataTable
           aria-describedby="repositories-heading"
-          // Opaque pinned cells so scrolled columns don't show through them.
-          background={{ header: 'background-back', pinned: 'background-back' }}
+          // Opaque pinned cells so scrolled columns don't show through them;
+          // matches the background-front surface the table sits on.
+          background={{
+            header: 'background-front',
+            pinned: 'background-front',
+          }}
           columns={columns}
           primaryKey="id"
           sortable
