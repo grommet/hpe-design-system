@@ -26,6 +26,7 @@ const defaultFormValues = {
 
 const BUSINESS_START = 8 * 60;
 const BUSINESS_END = 18 * 60;
+const businessHours = `${formatTime('08:00')} to ${formatTime('18:00')}`;
 
 // TimeInput values are 24-hour HH:MM:SS strings.
 const validateAppointmentTime = (time?: string) => {
@@ -33,7 +34,7 @@ const validateAppointmentTime = (time?: string) => {
   const [hour, minute] = time.split(':').map(Number);
   const minutes = hour * 60 + minute;
   if (minutes < BUSINESS_START || minutes > BUSINESS_END) {
-    return 'Choose a time between 8:00 AM and 6:00 PM.';
+    return `Choose a time between ${businessHours}.`;
   }
   if (minute % 30 !== 0) {
     return 'Choose a time in 30-minute intervals.';
@@ -89,7 +90,7 @@ export const TimeInputBusinessHoursExample = () => {
                   htmlFor="appointment-time"
                   name="appointment-time"
                   info={
-                    'Available Monday to Friday, 8:00 AM to 6:00 PM ' +
+                    `Available Monday to Friday, ${businessHours} ` +
                     'in 30-minute intervals.'
                   }
                   validate={validateAppointmentTime}
