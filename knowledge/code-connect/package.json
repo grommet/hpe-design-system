@@ -4,6 +4,7 @@
   "private": true,
   "description": "Figma Code Connect mappings for the HPE Design System",
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "figma:sync": "dotenv -e .env -- figma connect publish"
   },
   "dependencies": {
@@ -12,7 +13,7 @@
     "react": "catalog:"
   },
   "devDependencies": {
-    "@figma/code-connect": "^1.5.3",
+    "@figma/code-connect": "^2.1.0",
     "dotenv-cli": "^11.1.0"
   }
 }

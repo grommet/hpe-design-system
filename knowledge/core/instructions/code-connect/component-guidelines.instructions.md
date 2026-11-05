@@ -1,194 +1,103 @@
 ---
 name: Code Connect Component Guidelines
-description: 'Planning inputs, naming requirements, and figma.connect authoring rules for creating or updating Code Connect files from Figma.'
+description: 'Planning inputs, template structure, and property mapping rules for Code Connect v2.'
 applyTo: '**/*.figma.{js,jsx,ts,tsx}'
 ---
 
-# Instructions: Code Connect Component Guidelines
-
-## Rules and Guidelines
-
-Before implementing a Code Connect file from Figma, capture the basic planning inputs clearly and consistently. Then follow the authoring rules below when writing the `figma.connect` call.
+# Code Connect Component Guidelines
 
 ## Planning Inputs
 
-Before creating or updating a Code Connect file:
+1. Verify the target Grommet component's real public JSX API.
+2. Obtain the exact Figma `COMPONENT` or `COMPONENT_SET` URL including `node-id`.
+3. Inspect the component property inventory using the Code Connect context tool.
+4. Choose the component-family folder using [file-structure.instructions.md](file-structure.instructions.md).
+5. Reuse the nearest existing `.figma.ts` template.
 
-1. **Component Name:** Identify the Grommet component to connect (e.g., `Button` from `grommet`).
-2. **Figma Source:** Capture the exact Figma component node URL, including the `node-id` query parameter.
-3. **Auto-generate boilerplate first:** Run `figma connect create` with the component URL to scaffold the full `props` block automatically — this is the recommended way to ensure no Figma properties are missed:
-   ```bash
-   dotenv -e .env -- figma connect create "<figma-component-url>"
-   ```
-4. **Variant Inventory:** After generating, review the scaffolded props against the Figma component panel to confirm all properties are mapped correctly.
-5. **Repo Reference:** Locate the closest existing Code Connect file in `knowledge/code-connect/src/` before creating a new one, including files in existing subfolders such as `knowledge/code-connect/src/inputs/`.
+## Template Format
 
-## Required Imports
+Use Code Connect v2 parserless templates, not `figma.connect(...)` or JSX source files.
+Import the template runtime from `figma`. Put Grommet and icon imports in the exported
+`imports` array so they appear in the generated snippet, not in the template runtime.
 
-1. **`figma` import:** Always import `figma` as a default import from `@figma/code-connect`.
-2. **Component imports:** Import the target Grommet component and any supporting Grommet components used in the example from `grommet`.
-3. **Icons:** When the example needs an icon, always use `@hpe-design/icons-grommet` for consistency with the HPE Design System. Do not import icons from `grommet-icons`.
+```ts
+// url=https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?node-id=2133-694
+// source=https://github.com/grommet/grommet/blob/master/src/js/components/Button/Button.js
+// component=Button
+import figma from 'figma';
 
-```jsx
-import figma from '@figma/code-connect';
-import { Button } from 'grommet';
+const label = figma.selectedInstance.getString('Label');
+
+export default {
+  id: 'Button',
+  imports: ["import { Button } from 'grommet';"],
+  example: figma.code`<Button${figma.helpers.react.renderProp('label', label)} />`,
+  metadata: { nestable: true },
+};
 ```
 
-## `figma.connect` Structure
-
-Use `figma.connect` with exactly three arguments:
-
-1. The React/Grommet component reference.
-2. The Figma component node URL.
-3. A config object containing `example`, and `props` and/or `variant` when needed.
-
-Define the exact Figma component node URL in a `FIGMA_URL` constant and pass it as the second argument. Keep the `node-id` in the URL.
-
-```jsx
-const FIGMA_URL =
-  'https://www.figma.com/design/<fileKey>/<fileName>?node-id=<nodeId>';
-
-figma.connect(ComponentName, FIGMA_URL, {
-  props: {/* property mappings */},
-  example: ({/* destructured props */}) => <ComponentName /* mapped props */ />,
-});
-```
-
-For static composition mappings in this repo, the config may contain only `example`.
+- Preserve the leading `url`, `source`, and `component` directives.
+- Use a stable component ID and the correct upstream source URL, not a local
+  `node_modules/.pnpm` path.
+- Keep template IDs unique across the package. The ID identifies the mapping,
+  while `component` and `source` identify the emitted code component. For example,
+  NumberInput has ID `NumberInput` but emits Grommet `TextInput type="number"`.
+- Use `@hpe-design/icons-grommet` for snippet icons, never `grommet-icons`.
+- Use `figma.code` for snippets; do not concatenate structured template results.
 
 ## Property Mapping
 
-Use the appropriate `figma.*` helper for each Figma property type:
+| Figma property  | Template API                                                 |
+| --------------- | ------------------------------------------------------------ |
+| Text            | `figma.selectedInstance.getString('Label')`                  |
+| Boolean         | `figma.selectedInstance.getBoolean('Disabled')`              |
+| Variant         | `figma.selectedInstance.getEnum('Size', { small: 'small' })` |
+| Instance swap   | `figma.selectedInstance.getInstanceSwap('Icon')`             |
+| Nested instance | `figma.selectedInstance.findInstance('Layer name')`          |
+| Text layer      | `figma.selectedInstance.findText('Layer name')`              |
+| Slot            | `figma.selectedInstance.getSlot('Content')`                  |
 
-| Figma Property Type | Helper              | Usage                                                                            |
-| ------------------- | ------------------- | -------------------------------------------------------------------------------- |
-| Text / string       | `figma.string`      | `label: figma.string('Label')`                                                   |
-| Boolean             | `figma.boolean`     | `disabled: figma.boolean('Disabled')`                                            |
-| Boolean with values | `figma.boolean`     | `tip: figma.boolean('show Tip', { true: { content: 'Tip' }, false: undefined })` |
-| Variant / enum      | `figma.enum`        | `size: figma.enum('Size', { small: 'small' })`                                   |
-| Instance swap       | `figma.instance`    | `icon: figma.instance('Icon')`                                                   |
-| Nested props        | `figma.nestedProps` | Map sub-component properties                                                     |
+- Match property names and enum options exactly, stripping API ID suffixes such as
+  `#70:14`. Account for all relevant properties and document intentional omissions.
+- Distinguish BOOLEAN properties from string-valued VARIANT options named `true`
+  and `false`. Use `getBoolean` for actual boolean toggles; do not compare them to
+  strings copied from legacy variant filters.
+- Map all known enum options; use `undefined` only when omission is intentional.
+- Render every mapped value. Prefer `figma.helpers.react.renderProp(name, value)`
+  to preserve React quoting, booleans, object props, and omitted `undefined` values.
+- `renderProp` omits `false` as well as `undefined`. Use it only when omitting
+  `false` preserves the component's behavior; otherwise emit an explicit
+  `prop={false}` snippet for that state.
+- Use `figma.helpers.react.object`, `.array`, and `.function` for structured code
+  values. Do not insert raw functions or stringify nested template sections.
+- Branch in TypeScript when a state changes snippet structure. The v1 restriction
+  against conditionals in an `example` function does not apply to v2 templates.
+- Resolve swapped or configurable child instances dynamically. Check
+  `type === 'INSTANCE'` before executing their templates.
+- Use `getSlot` only for Figma SLOT properties, not INSTANCE_SWAP properties.
+  Keep nested snippet sections structured and do not gate execution on
+  `hasCodeConnect()`; the runtime handles unconnected instances.
+- Keep static representative compositions when there is no useful Figma-driven
+  equivalent. Mirror the actual Grommet API rather than inventing props.
 
-### String Property Names
-
-The Figma API returns property names with an internal ID suffix (e.g., `Label#70:14`). Code Connect only accepts the **base name before the `#`**. Always strip the suffix:
-
-```jsx
-// ✅ Correct
-label: figma.string('Label');
-
-// ❌ Wrong — will fail validation
-label: figma.string('Label#70:14');
-```
-
-### Enum Mapping Rules
-
-1. **True for boolean variants:** Use `true` as the mapped value when a variant option enables a boolean prop (e.g., `primary: figma.enum('Kind', { primary: true })`).
-2. **Match casing:** Map Figma variant option names exactly as they appear in the Figma panel, then assign the correct React prop value.
-3. **Preserve numeric-looking string options:** Figma variant options such as `12` and `24` are strings. Keep their object keys quoted; Prettier removes those quotes by default, so place `// prettier-ignore` immediately before the corresponding property to preserve parser-compatible string keys.
-
-```jsx
-props: {
-  // prettier-ignore
-  format: figma.enum('Format', {
-    '12': '12',
-    '24': '24',
-  }),
-  primary: figma.enum('Kind', { primary: true }),
-  secondary: figma.enum('Kind', { secondary: true }),
-  size: figma.enum('Size', {
-    xSmall: 'xsmall',
-    small: 'small',
-    medium: 'medium',
-    large: 'large',
-    xLarge: 'xlarge',
-  }),
-  disabled: figma.enum('State', { disabled: true }),
-},
-```
-
-## Example Render Function
-
-1. **Consume all declared props:** If the config includes a `props` block, the `example` function must destructure and apply every declared prop.
-2. **Mirror the API:** Reflect the component's actual JSX usage. Static representative JSX is acceptable for components in this repo that are mapped as compositions rather than property-driven variants.
-3. **Keep imports honest:** Do not introduce helper components or icon imports that are not needed by the rendered example.
-
-```jsx
-example: ({ label, primary, secondary, size, disabled }) => (
-  <Button
-    label={label}
-    primary={primary}
-    secondary={secondary}
-    size={size}
-    disabled={disabled}
-  />
-),
-```
-
-## Full Example
-
-```jsx
-import figma from '@figma/code-connect';
-import { Button } from 'grommet';
-
-figma.connect(
-  Button,
-  'https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?node-id=2133-694',
-  {
-    props: {
-      label: figma.string('Label'),
-      primary: figma.enum('Kind', { primary: true }),
-      secondary: figma.enum('Kind', { secondary: true }),
-      size: figma.enum('Size', {
-        xSmall: 'xsmall',
-        small: 'small',
-        medium: 'medium',
-        large: 'large',
-        xLarge: 'xlarge',
-      }),
-      disabled: figma.enum('State', { disabled: true }),
-    },
-    example: ({ label, primary, secondary, size, disabled }) => (
-      <Button
-        label={label}
-        primary={primary}
-        secondary={secondary}
-        size={size}
-        disabled={disabled}
-      />
-    ),
-  },
-);
-```
-
-## Publishing
-
-Prefer the following command from the repo root to publish all Code Connect files to Figma. This uses `dotenv-cli` in `knowledge/code-connect` to automatically load `FIGMA_ACCESS_TOKEN` from the local `.env` file:
+## Validation and Publishing
 
 ```bash
+pnpm --filter @hpe-design/code-connect typecheck
+pnpm --filter @hpe-design/code-connect exec figma connect parse
 pnpm --filter @hpe-design/code-connect figma:sync
 ```
 
-Equivalent from `knowledge/code-connect/`:
+Parsing checks discovery and bundling; it does not prove runtime output matches
+every Figma state. Preview representative variants and inspect Dev Mode when a
+valid token is available.
 
-```bash
-pnpm run figma:sync
-```
-
-Never pass the token directly in the terminal command. Store it only in `.env` (which is already covered by the root `.gitignore`).
-
-## What to Avoid
-
-1. **No unmapped props:** Do not pass hardcoded values in the `example` function for props that should be driven by Figma.
-2. **No missing relevant props:** Do not omit a relevant Figma property from the `props` block without a documented reason.
-3. **No wrong node URL:** Always use the exact Figma component node URL with `node-id` — not a page or frame URL. The target node must be a `COMPONENT` or `COMPONENT_SET` (purple diamond ◆ or ◈ icon in Figma layers panel). Linking to a frame or group will cause a validation error.
-4. **No conditional expressions in `example`:** The Code Connect parser does not support inline conditionals like `kind === 'primary'`. Map each boolean state as a separate `figma.enum` prop instead.
-5. **No `.map()` or dynamic iteration in `example`:** The Code Connect renderer cannot handle array iteration. Use static, explicit JSX children instead. For compound components like `Tabs`+`Tab`, hardcode representative children directly in the `example` function.
-
----
+Load the token from the gitignored package `.env`, never from a command argument
+or source file. Do not report publishing as successful until sync exits `0`.
 
 ## Related References
 
-- [file-structure.instructions.md](file-structure.instructions.md): Defines file naming conventions and where to place Code Connect files.
-- [guidelines.instructions.md](guidelines.instructions.md): High-level overview of the Code Connect workflow and sync process.
-- [coding-guidelines.instructions.md](../standards/coding-guidelines.instructions.md): Covers React/Grommet component authoring conventions used in the `example` render function.
+- [file-structure.instructions.md](file-structure.instructions.md)
+- [figma-mcp.instructions.md](figma-mcp.instructions.md)
+- [guidelines.instructions.md](guidelines.instructions.md)
+- [coding-guidelines.instructions.md](../standards/coding-guidelines.instructions.md)

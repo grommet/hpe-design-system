@@ -1,33 +1,76 @@
 # Code Connect Authoring Patterns
 
-Use these repo-specific patterns when writing `.figma.jsx` files.
+Use these repo-specific patterns when writing Code Connect v2 `.figma.ts` templates.
 
 ## Common Patterns
 
 ### Property-driven mapping
 
-Use a single `figma.connect(...)` call with a `props` block when one JSX structure can represent the component and only prop values change.
+Read properties from `figma.selectedInstance` and interpolate them into a single
+`figma.code` snippet using `figma.helpers.react.renderProp`.
 
-### Variant split mapping
+### Structural variants
 
-Use multiple `figma.connect(...)` calls with `variant` filters when a Figma state changes JSX structure rather than only changing prop values.
+Branch in TypeScript using `getPropertyValue` when a Figma state changes snippet
+structure. Export the selected template once.
 
 Typical examples in this repo:
 
-- `Tag` uses separate mappings for `show Name`
-- `Menu` uses separate mappings for `is Icon Only`
+- `Avatar` branches on `Kind`
+- `Menu` branches on `is Icon Only`
 
 ### Static composition mapping
 
-Use an `example`-only mapping when the component is best represented as a fixed example rather than a prop-driven surface.
+Use a static `figma.code` example when the component is best represented as a fixed
+composition rather than a property-driven surface.
 
 Typical example in this repo:
 
 - `Card` uses a representative composition of `CardHeader`, `CardBody`, and `CardFooter`
 
-## Parser Safety
+## Optional and Structured Props
 
-- Avoid inline conditionals in `example`
-- Avoid `.map()` and dynamic iteration in `example`
-- Render every declared prop from the `props` block
-- Keep imports limited to what the example actually uses
+Read real BOOLEAN toggles with `getBoolean`, not string comparisons. Use code
+helpers for object, array, and function values:
+
+```ts
+const tip = figma.selectedInstance.getBoolean('show Tip', {
+  true: figma.helpers.react.object({ content: 'Tip' }),
+  false: undefined,
+});
+const example = figma.code`<Button${figma.helpers.react.renderProp('tip', tip)} />`;
+```
+
+For callbacks, map the enabled state to
+`figma.helpers.react.function('() => {}')`, not an actual runtime function.
+For action arrays, use `figma.helpers.react.array` with `.object` entries. See the
+[Button template](../../../../code-connect/src/controls/Button.figma.ts)
+as a component-specific reference.
+
+`renderProp` omits `false` and `undefined`. If a component defaults a prop to
+`true`, emit an explicit `prop={false}` snippet when disabling it instead.
+
+## Swapped Instances
+
+```ts
+const iconInstance = figma.selectedInstance.getInstanceSwap('Icon');
+const icon =
+  iconInstance?.type === 'INSTANCE'
+    ? iconInstance.executeTemplate().example
+    : undefined;
+const example = figma.code`<Button${figma.helpers.react.renderProp('icon', icon)} />`;
+```
+
+Check the handle's type because failed lookups may return a truthy ERROR handle.
+Do not concatenate the returned sections or require `hasCodeConnect()` before
+execution. Use `getSlot` only for actual SLOT properties.
+
+## Template Safety
+
+- Use `.figma.ts`, never JSX or `figma.connect`.
+- Render every mapped value.
+- Interpolate structured snippet sections; never string-concatenate or join them.
+- Keep runtime imports limited to `figma`; export snippet imports separately.
+- Validate with package typecheck and CLI parse before publishing.
+- Review generated IDs, source links, and boolean branches after migration.
+- Use a unique mapping ID even when two templates emit the same Grommet component.
