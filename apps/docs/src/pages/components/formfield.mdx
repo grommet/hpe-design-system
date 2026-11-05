@@ -72,7 +72,36 @@ Use a named FormField inside a Form to check that an entered value meets require
 #### Composition
 
 - **Child control:** Provide and configure the input as a child of FormField for direct control over its props and composition. Manage its value outside a `Form`; inside a Grommet `Form`, give the child input a `name` to connect it to form values and submission.
+
+  ```jsx
+  <Form>
+    <FormField label="Email" name="email" htmlFor="email" required>
+      <TextInput
+        id="email"
+        name="email"
+        type="email"
+        placeholder="name@example.com"
+      />
+    </FormField>
+  </Form>
+  ```
+
 - **FormField-created control:** Inside a Grommet `Form`, use the `component` and `name` properties to have FormField create the input and connect it to form-managed values and submission. If no child or `component` is provided, FormField uses its `TextInput` fallback.
+
+  ```jsx
+  <Form>
+    <FormField
+      label="Email"
+      name="email"
+      htmlFor="email"
+      id="email"
+      component={TextInput}
+      type="email"
+      placeholder="name@example.com"
+      required
+    />
+  </Form>
+  ```
 
 ## Content guidelines
 
