@@ -193,22 +193,29 @@ rules:
       Spacing should decrease as things nest, so the gap between groups is
       always larger than the gap within them.
     rationale: >
-      Proximity is the primary grouping signal, and HPE minimizes borders, so
-      spacing carries most of the load. Equal gaps at two levels flatten the
-      hierarchy and the page reads as one list.
+      Under the Gestalt principle of proximity, people perceive elements that
+      sit close together as a group. Proximity is therefore the primary
+      grouping signal, and HPE minimizes borders, so spacing carries most of
+      the load. Equal gaps at two levels flatten the hierarchy and the page
+      reads as one list.
+    relatedTo:
+      - kind: external
+        label: Nielsen Norman Group proximity principle
+        url: https://www.nngroup.com/articles/gestalt-proximity/
 
   - id: spacing-page-rhythm
     statement: >
-      Use xxlarge between a page's columns, xlarge between content sections,
-      small between a section's heading and its body, and medium between
-      peers inside a section such as cards in a grid. Page regions such as
-      navigation and content are separated by their own padding, not by a
-      gap.
+      Use xxlarge between a page's primary content regions, whether arranged
+      in rows or columns, xlarge between content sections, small between a
+      section's heading and its body, and medium between peers inside a
+      section such as cards in a grid. Application regions such as navigation
+      and main content are separated by their own padding, not by a gap.
     rationale: >
       The levels descend the scale so the gap between groups always exceeds
-      the gap within them, and the small-breakpoint remap preserves that
-      order (xxlarge, xlarge, medium, small become large, medium, xsmall,
-      xxsmall). The heading sits tighter to its body than the body's
+      the gap within them. At the xsmall and small breakpoints, the theme
+      reduces the resolved spacing values while preserving their order; the
+      selected token names stay unchanged. The heading sits tighter to its
+      body than the body's
       contents sit to each other so it reads as the group's label, not as a
       peer of it. The design system's dashboard templates set gap="xlarge"
       on PageContent and gap="medium" on the card grids inside it.
@@ -283,10 +290,11 @@ rules:
     statement: >
       Give Page a bottom pad of 3xlarge. Put it on Page, not PageContent.
     rationale: >
-      Mobile browser toolbars overlay the bottom of the viewport, so without
-      trailing padding the last element can be clipped and, if interactive,
-      unreachable. Page has no theme padding to disturb; a pad prop on
-      PageContent would replace its responsive horizontal margins.
+      Trailing padding separates the final content from the page or viewport
+      edge, reducing visual crowding and giving the end of the page breathing
+      room at every viewport size. Page has no theme padding to disturb; a
+      pad prop on PageContent would replace its responsive horizontal
+      margins.
     example:
       description: >
         Page-level bottom padding as used in the dashboard and list templates.
