@@ -23,6 +23,8 @@ Keep fixture data and page-specific content out of these component folders.
 
 - `examples/dashboards/overview/`: the overview dashboard composition, its
   sections, health presentation helpers, and dashboard-specific sample data.
+  It uses the latest parent PR's `MetricTile` and `HealthOverview`, replacing
+  the older aligned-tile and mixed-actions variants.
 - `examples/data/`: fixtures shared across examples, such as the default user.
 
 Examples import their components directly to avoid pulling in unrelated

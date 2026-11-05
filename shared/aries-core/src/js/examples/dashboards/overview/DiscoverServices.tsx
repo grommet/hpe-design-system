@@ -1,24 +1,21 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { useState } from 'react';
 import { Box, Grid, Heading, Tab, Tabs } from 'grommet';
 import { ServiceCard } from '../../../components/helpers/Dashboard/ServiceCard';
 import { serviceGroups, services, surfaceBackground } from './data';
 
 export const DiscoverServices = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <Box as="section" gap="small">
       <Heading level={2} margin="none">
         Discover services
       </Heading>
-      <Tabs justify="start" activeIndex={activeIndex} onActive={setActiveIndex}>
+      <Tabs justify="start">
         {serviceGroups.map(({ id, label }) => (
           <Tab key={id} title={label}>
             <Grid
               columns={{ count: 'fit', size: 'small' }}
-              gap="medium"
+              gap="small"
               pad={{ top: 'small' }}
             >
               {services

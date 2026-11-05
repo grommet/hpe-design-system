@@ -168,7 +168,8 @@ accessibility:
       status: pass
     - criterion: 4.1.3 Status Messages
       status: pass
-      notes: Loading state should be communicated via aria-busy or a live region
+      notes:
+        - Loading state should be communicated via aria-busy or a live region
 relatedComponents:
   - list
   - data-table

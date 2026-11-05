@@ -1,28 +1,39 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ComponentType } from 'react';
 import { Box, List, Tag, Text } from 'grommet';
 import { ChartCard } from '../../../components/helpers/Dashboard/ChartCard';
 import { MetricValue } from '../../../components/helpers/Dashboard/MetricValue';
-import { slaStats, surfaceBackground } from './data';
-import type { SlaStat } from './data';
+import type { SlaStatus } from '../../../components/helpers/Dashboard/status';
+import { slaStats, surfaceBackground, type SlaStat } from './data';
 
-const SLA_STATUS = {
+const TypedChartCard = ChartCard as ComponentType<
+  Partial<ComponentProps<typeof ChartCard>>
+>;
+
+const SLA_STATUS: Record<SlaStatus, { label: string; background: string }> = {
   ok: { label: 'On target', background: 'background-contrast' },
   warning: { label: 'Degrading', background: 'background-warning' },
 };
 
 // Dividers between stats only; the first and last rows have none.
-const dividers: ComponentProps<typeof List>['itemProps'] = Object.fromEntries(
-  slaStats.map((_, index) => [
-    index,
-    index > 0 ? { border: { side: 'top', color: 'border-weak' } } : {},
-  ]),
-);
+const dividers = slaStats.reduce<
+  NonNullable<ComponentProps<typeof List>['itemProps']>
+>((result, _, index) =>
+  index > 0
+    ? {
+        ...result,
+        [index]: { border: { side: 'top', color: 'border-weak' } },
+      }
+    : result,
+{});
 
-export type SlaPerformanceProps = ComponentProps<typeof ChartCard>;
+type SlaPerformanceProps = {
+  gridArea?: ComponentProps<typeof Box>['gridArea'];
+};
+
 export const SlaPerformance = ({ ...rest }: SlaPerformanceProps) => (
-  <ChartCard
+  <TypedChartCard
     title="SLA performance"
     level={3}
     background={surfaceBackground}
@@ -56,5 +67,5 @@ export const SlaPerformance = ({ ...rest }: SlaPerformanceProps) => (
         </Box>
       )}
     </List>
-  </ChartCard>
+  </TypedChartCard>
 );

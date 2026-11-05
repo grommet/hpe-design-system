@@ -2,16 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { ComponentProps, ComponentType } from 'react';
 import { Box, Card, CardBody, Paragraph, Tag, Text } from 'grommet';
-import { TextEmphasis as JavaScriptTextEmphasis } from '../../typography/TextEmphasis';
+import {
+  TextEmphasis as JavaScriptTextEmphasis,
+} from '../../typography/TextEmphasis';
 
 const TextEmphasis = JavaScriptTextEmphasis as ComponentType<
   ComponentProps<typeof Text>
 >;
 
-export type ServiceCardProps = Omit<
-  ComponentProps<typeof Card>,
-  'children' | 'title'
-> & {
+export type ServiceCardProps = Omit<ComponentProps<typeof Card>, 'children'> & {
   category: string;
   description: string;
   tag?: string;

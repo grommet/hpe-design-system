@@ -3,7 +3,9 @@
 import type { ComponentProps, ComponentType } from 'react';
 import { Box, Text } from 'grommet';
 import { Ascending, Descending } from '@hpe-design/icons-grommet';
-import { TextEmphasis as JavaScriptTextEmphasis } from '../../typography/TextEmphasis';
+import {
+  TextEmphasis as JavaScriptTextEmphasis,
+} from '../../typography/TextEmphasis';
 
 // TextEmphasis forwards Text props; bridge its untyped JavaScript signature.
 const TextEmphasis = JavaScriptTextEmphasis as ComponentType<
@@ -17,17 +19,9 @@ export type TrendProps = {
   value: string;
 };
 
-export type MetricValueProps = {
-  size?: ComponentProps<typeof Text>['size'];
-  trend?: string;
-  trendDirection?: TrendDirection;
-  unit?: string;
-  value: string | number;
-};
-
 // Change relative to the previous period, e.g. "2%". The icon conveys the
 // direction visually; the accessible name is carried by the parent group.
-export const Trend = ({ direction = 'up', value }: TrendProps) => {
+function Trend({ direction = 'up', value }: TrendProps) {
   const Icon = direction === 'down' ? Descending : Ascending;
   return (
     <Box direction="row" align="center" gap="5xsmall">
@@ -35,11 +29,19 @@ export const Trend = ({ direction = 'up', value }: TrendProps) => {
       <TextEmphasis size="xsmall">{value}</TextEmphasis>
     </Box>
   );
-};
+}
 
 // Large metric value with an optional unit and trend aligned to its baseline.
 // The group is announced as one phrase, e.g. "99.98 %, up 0.03%", rather
 // than as separate fragments.
+export type MetricValueProps = {
+  size?: ComponentProps<typeof TextEmphasis>['size'];
+  trend?: string;
+  trendDirection?: TrendDirection;
+  unit?: string;
+  value: string | number;
+};
+
 export const MetricValue = ({
   size = '3xl',
   trend,
@@ -62,7 +64,7 @@ export const MetricValue = ({
       {(trend || unit) && (
         <Box justify="end" pad={{ vertical: '3xsmall' }} aria-hidden>
           {trend && <Trend value={trend} direction={trendDirection} />}
-          {unit && <Text size="xsmall">{unit}</Text>}
+          {unit && <Text size="small">{unit}</Text>}
         </Box>
       )}
     </Box>

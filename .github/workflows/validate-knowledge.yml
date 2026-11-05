@@ -84,9 +84,13 @@ jobs:
           node-version: '24.15.0'
           cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+      - name: Validate knowledge schemas
+        run: pnpm validate:knowledge-schema
+      - name: Typecheck knowledge agent
+        run: pnpm --filter @hpe-design/knowledge-agent typecheck
       - name: Run knowledge agent tests
         run: pnpm --filter @hpe-design/knowledge-agent test
       - name: Annotate test failure
         if: ${{ failure() }}
-        run: echo "::error title=Knowledge Agent Tests Failed::Run 'pnpm --filter @hpe-design/knowledge-agent test' locally for details."
+        run: echo "::error title=Knowledge Contract Checks Failed::Run 'pnpm validate:knowledge-schema', 'pnpm --filter @hpe-design/knowledge-agent typecheck', and 'pnpm --filter @hpe-design/knowledge-agent test' locally for details."

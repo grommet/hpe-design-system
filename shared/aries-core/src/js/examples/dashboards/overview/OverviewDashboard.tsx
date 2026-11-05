@@ -24,13 +24,21 @@ import {
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
-import { GlobalHeader } from '../../../components/helpers/GlobalHeader/GlobalHeader';
-import { UserContext } from '../../../components/helpers/GlobalHeader/UserContext';
-import type { User } from '../../../components/helpers/GlobalHeader/UserContext';
-import { AppContainer } from '../../../components/layouts/AppContainer/AppContainer';
+import type {
+  User,
+} from '../../../components/helpers/GlobalHeader/UserContext';
+import {
+  GlobalHeader,
+} from '../../../components/helpers/GlobalHeader/GlobalHeader';
+import {
+  UserContext,
+} from '../../../components/helpers/GlobalHeader/UserContext';
 import { defaultUser } from '../../data/user';
+import {
+  AppContainer,
+} from '../../../components/layouts/AppContainer/AppContainer';
 import { DiscoverServices } from './DiscoverServices';
-import { HealthOverviewMixedActions } from './health/HealthOverviewMixedActions';
+import { HealthOverview } from './health/HealthOverview';
 import { WeekAtAGlance } from './WeekAtAGlance';
 import { pageBackground, surfaceBackground } from './data';
 
@@ -46,9 +54,13 @@ const navigation = [
 
 type ShellLayout = Pick<
   ComponentProps<typeof Grid>,
-  'columns' | 'rows' | 'areas'
+  'areas' | 'columns' | 'rows'
 >;
-const shell: Record<string, ShellLayout> = {
+
+const shell: {
+  withNav: ShellLayout;
+  withoutNav: ShellLayout;
+} = {
   withNav: {
     columns: ['auto', 'flex'],
     rows: ['auto', 'flex'],
@@ -64,6 +76,32 @@ const shell: Record<string, ShellLayout> = {
   },
 };
 
+// Collapsed, icon-only primary navigation rail.
+function SideNav({ ...rest }: ComponentProps<typeof Box>) {
+  return (
+    <Box pad="xsmall" flex={false} {...rest}>
+      <Nav
+        a11yTitle="Primary"
+        align="center"
+        background={surfaceBackground}
+        fill="vertical"
+        gap="4xsmall"
+        pad={{ vertical: '3xsmall' }}
+        round="large"
+        width="5xsmall"
+      >
+        <Button
+          icon={<Sidebar />}
+          a11yTitle="Expand navigation"
+          tip="Expand navigation"
+        />
+        {navigation.map(({ icon, label }) => (
+          <Button key={label} icon={icon} a11yTitle={label} tip={label} />
+        ))}
+      </Nav>
+    </Box>
+  );
+}
 export const OverviewDashboard = () => {
   const size = useContext(ResponsiveContext);
   const [user, setUser] = useState<User | undefined>(defaultUser);
@@ -93,7 +131,7 @@ export const OverviewDashboard = () => {
                   }
                 />
                 <Box gap="xlarge">
-                  <HealthOverviewMixedActions />
+                  <HealthOverview />
                   <WeekAtAGlance />
                   <DiscoverServices />
                 </Box>
@@ -105,29 +143,3 @@ export const OverviewDashboard = () => {
     </UserContext.Provider>
   );
 };
-
-export type SideNavProps = ComponentProps<typeof Box>;
-// Collapsed, icon-only primary navigation rail.
-const SideNav = ({ ...rest }: SideNavProps) => (
-  <Box pad="xsmall" flex={false} {...rest}>
-    <Nav
-      a11yTitle="Primary"
-      align="center"
-      background={surfaceBackground}
-      fill="vertical"
-      gap="4xsmall"
-      pad={{ vertical: '3xsmall' }}
-      round="large"
-      width="5xsmall"
-    >
-      <Button
-        icon={<Sidebar />}
-        a11yTitle="Expand navigation"
-        tip="Expand navigation"
-      />
-      {navigation.map(({ icon, label }) => (
-        <Button key={label} icon={icon} a11yTitle={label} tip={label} />
-      ))}
-    </Nav>
-  </Box>
-);

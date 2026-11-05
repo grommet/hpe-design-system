@@ -2,12 +2,14 @@
 
 **Outcome**: Compare how well Copilot/VS Code can turn a high-quality, simple HPE Design System artifact into reviewable React/Grommet code while preserving design intent.
 
+The steps below describe the general design-to-code workflow. To evaluate Code Connect's effect on this workflow, use the [Code Connect evaluation protocol](../code-connect/eval/README.md) as a controlled comparison: run the same target with screenshot-only input, Figma MCP without Code Connect, and Figma MCP with Code Connect, keeping the model, prompt, repository snapshot, and viewport constant. The protocol's App Dashboard full-page fixture and Button smoke check supplement, rather than replace, the simple Button/Badge exercise described here.
+
 ## Steps
 
 1. **Select Artifact**: Choose a simple high-quality design artifact from HPE Design System (e.g., an HPE Button or Badge layout).
 2. **Setup Test Bed**: Prepare an entry point in `sandbox/grommet-app/src` to drop in generated React code.
 3. **Execute Workflow (Copilot/VS Code)**: Feed the design artifact (image representation or Figma specs) to Copilot and prompt it to generate the corresponding React/Grommet code.
-4. **Evaluate Output**: Assess the generated code for visual fidelity, code quality, and adherence to Grommet/HPE design tokens.
+4. **Evaluate Output**: Assess the generated code for visual fidelity, code quality, and adherence to Grommet/HPE design tokens. For a controlled Code Connect comparison, use the protocol's measures and success targets.
 5. **Document Findings**: Record the results within this document.
 
 ## Relevant Files

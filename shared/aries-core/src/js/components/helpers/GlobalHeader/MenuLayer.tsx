@@ -3,7 +3,6 @@
 import React, { useContext, useState } from 'react';
 import type { ComponentType, PropsWithChildren } from 'react';
 import {
-  Avatar,
   Box,
   Button,
   Header,
@@ -17,10 +16,72 @@ import type { TextProps } from 'grommet';
 import { Close, Menu } from '@hpe-design/icons-grommet';
 // TODO replace with DS icon package when available
 import { Aruba } from 'grommet-icons';
-import { TextEmphasis as UntypedTextEmphasis } from '../../typography/TextEmphasis';
+import {
+  TextEmphasis as UntypedTextEmphasis,
+} from '../../typography/TextEmphasis';
+import { UserAvatar } from './UserAvatar';
 
 const TextEmphasis: ComponentType<PropsWithChildren<TextProps>> =
   UntypedTextEmphasis;
+
+const SidebarHeader = () => (
+  <Box
+    align="start"
+    border={{ color: 'border-weak', side: 'bottom' }}
+    pad={{ top: 'xsmall', bottom: 'medium' }}
+    gap="medium"
+    flex={false}
+  >
+    <Box gap="xsmall">
+      <UserAvatar initials="A" />
+      <Box gap="3xsmall">
+        <TextEmphasis>AT&T Corporation</TextEmphasis>
+        <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
+      </Box>
+    </Box>
+    <Button label="Switch Account" secondary />
+  </Box>
+);
+
+type NavButtonProps = {
+  label?: string;
+};
+
+const NavButton = ({ label }: NavButtonProps) => (
+  <Button>
+    <Text color="text-strong">{label}</Text>
+  </Button>
+);
+
+const SidebarNav = () => (
+  <Nav a11yTitle="Sidebar Navigation">
+    <NavButton label="Home" />
+    <NavButton label="My apps" />
+    <NavButton label="App catalog" />
+    <NavButton label="Manage" />
+  </Nav>
+);
+
+const SidebarFooter = () => (
+  <Footer pad={{ bottom: 'xsmall' }}>
+    <Box fill="horizontal" gap="medium">
+      <Box border={{ side: 'bottom' }} pad={{ bottom: '3xsmall' }}>
+        <Text size="xsmall">Last Visited</Text>
+      </Box>
+      <Button>
+        <Box direction="row" gap="xsmall">
+          <Box pad="xsmall" round="medium">
+            <Aruba />
+          </Box>
+          <Box>
+            <TextEmphasis size="xsmall">Aruba Network Manager</TextEmphasis>
+            <Text size="xsmall">US West</Text>
+          </Box>
+        </Box>
+      </Button>
+    </Box>
+  </Footer>
+);
 
 export const MenuLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -71,70 +132,3 @@ export const MenuLayer = () => {
     </>
   );
 };
-
-const SidebarHeader = () => (
-  <Box
-    align="start"
-    border={{ color: 'border-weak', side: 'bottom' }}
-    pad={{ top: 'xsmall', bottom: 'medium' }}
-    gap="medium"
-    flex={false}
-  >
-    <Box gap="3xsmall">
-      <Avatar
-        // TODO: Revisit when we have more
-        // token colors available.
-        background="decorative-green"
-        flex={false}
-        margin={{ bottom: '3xsmall' }}
-      >
-        <Text size="large" color="text-strong">
-          A
-        </Text>
-      </Avatar>
-      <TextEmphasis>AT&T Corporation</TextEmphasis>
-      <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
-    </Box>
-    <Button label="Switch Account" secondary />
-  </Box>
-);
-
-const SidebarNav = () => (
-  <Nav a11yTitle="Sidebar Navigation">
-    <NavButton label="Home" />
-    <NavButton label="My apps" />
-    <NavButton label="App catalog" />
-    <NavButton label="Manage" />
-  </Nav>
-);
-
-type NavButtonProps = {
-  label?: string;
-};
-
-const NavButton = ({ label }: NavButtonProps) => (
-  <Button>
-    <Text color="text-strong">{label}</Text>
-  </Button>
-);
-
-const SidebarFooter = () => (
-  <Footer pad={{ bottom: 'xsmall' }}>
-    <Box fill="horizontal" gap="medium">
-      <Box border={{ side: 'bottom' }} pad={{ bottom: '3xsmall' }}>
-        <Text size="xsmall">Last Visited</Text>
-      </Box>
-      <Button>
-        <Box direction="row" gap="xsmall">
-          <Box pad="xsmall" round="medium">
-            <Aruba />
-          </Box>
-          <Box>
-            <TextEmphasis size="xsmall">Aruba Network Manager</TextEmphasis>
-            <Text size="xsmall">US West</Text>
-          </Box>
-        </Box>
-      </Button>
-    </Box>
-  </Footer>
-);

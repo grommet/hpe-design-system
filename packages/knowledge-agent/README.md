@@ -9,6 +9,8 @@ From the repository root:
 ```bash
 pnpm --filter @hpe-design/knowledge-agent generate -- "Build a login form"
 pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --framework react
+pnpm validate:knowledge-schema
+pnpm --filter @hpe-design/knowledge-agent typecheck
 pnpm --filter @hpe-design/knowledge-agent test
 ```
 
@@ -24,6 +26,39 @@ hpe-design-agent "Build a login form"
 - `src/context-generator.ts` combines that data with matching `.github/instructions/*.instructions.md` files and `src/vector-search.ts` similarity matching to produce a natural-language response. This module is intentionally surface-agnostic — it has no CLI or `process.exit` dependencies — so it can be imported by any future adapter (CLI, MCP server, HTTP API) without pulling in argument-parsing or output-formatting concerns.
 - `src/cli.ts` is the CLI adapter: it owns argument parsing (`--framework`, `--help`) and output formatting. It is the single TypeScript entry point used by both the `pnpm run generate` script and the `hpe-design-agent` bin.
 - All paths are resolved **relative to this package's own location inside the `hpe-design-system` monorepo** — there is currently no build step; YAML is read live at request time.
+
+## Knowledge Contracts
+
+`knowledge/core/data/types.ts` is the authoritative contract. `src/types.ts`
+only re-exports its types; do not add independent copies in the agent.
+
+`ComponentDefinitionSource` and `PatternDefinitionSource` describe authored
+content. Their examples require `code` or `codeFile` (both are allowed).
+Resolved `ComponentExample` values require `code`; both component and pattern
+examples are resolved from files when loaded, as are pattern templates.
+Explicit inline example code takes precedence over `codeFile`, including an
+empty string. Missing files retain the loader's warning and placeholder-code
+behavior. Source types are derived from the shared definitions rather than
+maintained as separate copies.
+
+Run `pnpm validate:knowledge-schema` after editing contracts or knowledge data.
+It generates JSON Schemas in memory from the canonical TypeScript types and
+uses Ajv to validate the component and pattern YAML/JSON files read by the
+loader. It rejects unknown structured fields, preserves open prop dictionaries,
+and reports filenames and field paths. No generated schemas need to be committed.
+The authoring aid `COMPONENT_EXAMPLE.yaml` and example TSX files are not loader
+inputs and are excluded. Token-package validation remains separately owned.
+
+Availability remains free-form. Existing descriptive animation lists and
+structured token references are both supported; WCAG `notes` arrays and
+pattern metadata are preserved in the shared contract.
+
+CI runs schema validation, the agent typecheck, and tests. Schema validation
+checks data shapes; `pnpm validate:knowledge-structure` retains its separate
+structure/reference checks. **Agent loading still uses trusted type assertions**:
+it does not validate local edits at query time or check snippet-file existence
+as part of schema validation. Run the local validation command before querying
+uncommitted content.
 
 ## Future Consideration: Multi-Surface Distribution
 

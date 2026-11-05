@@ -7,19 +7,26 @@ import { CostTrend } from './CostTrend';
 import { NeedsAttention } from './NeedsAttention';
 import { SlaPerformance } from './SlaPerformance';
 
-type WeekLayout = Pick<
-  ComponentProps<typeof Grid>,
-  'columns' | 'rows' | 'areas'
->;
 // The cost trend chart is given twice the width of its peers, so this region
 // is laid out per breakpoint rather than as a fluid grid.
-const stacked: WeekLayout = {
+type DashboardLayout = Pick<
+  ComponentProps<typeof Grid>,
+  'areas' | 'columns' | 'rows'
+>;
+
+const stacked: DashboardLayout = {
   columns: ['flex'],
   rows: ['auto', 'auto', 'auto'],
   areas: [['cost'], ['attention'], ['sla']],
 };
 
-const layout: Record<string, WeekLayout> = {
+const large: DashboardLayout = {
+  columns: ['flex', 'flex', 'flex', 'flex'],
+  rows: ['auto'],
+  areas: [['cost', 'cost', 'attention', 'sla']],
+};
+
+const layout: Record<string, DashboardLayout> = {
   xsmall: stacked,
   small: stacked,
   medium: {
@@ -30,13 +37,9 @@ const layout: Record<string, WeekLayout> = {
       ['attention', 'sla'],
     ],
   },
-  large: {
-    columns: ['flex', 'flex', 'flex', 'flex'],
-    rows: ['auto'],
-    areas: [['cost', 'cost', 'attention', 'sla']],
-  },
+  large,
+  xlarge: large,
 };
-layout.xlarge = layout.large;
 
 export const WeekAtAGlance = () => {
   const size = useContext(ResponsiveContext);
@@ -47,7 +50,7 @@ export const WeekAtAGlance = () => {
       <Heading level={2} margin="none">
         This week at a glance
       </Heading>
-      <Grid columns={columns} rows={rows} areas={areas} gap="medium">
+      <Grid columns={columns} rows={rows} areas={areas} gap="small">
         <CostTrend gridArea="cost" />
         <NeedsAttention gridArea="attention" />
         <SlaPerformance gridArea="sla" />

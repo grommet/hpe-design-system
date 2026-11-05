@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 import React, { forwardRef, useContext } from 'react';
 import type { ComponentProps } from 'react';
-import { Button, Box, ResponsiveContext, Text } from 'grommet';
-// TODO replace with DS icon package when available
-import { Aruba, Hpe } from 'grommet-icons';
+import { Button, Box, Image, ResponsiveContext, Text } from 'grommet';
+import type { ThemeType } from 'grommet';
+import { ThemeContext } from 'styled-components';
 import { UserContext } from './UserContext';
 import { MenuLayer } from './MenuLayer';
 
@@ -12,30 +12,38 @@ type GlobalHeaderIdentityProps = Omit<
   ComponentProps<typeof Button>,
   'ref' | 'children'
 > & {
-  brand: 'hpe' | 'aruba';
   logoOnly?: boolean;
   title?: string;
 };
 
-const brands = {
-  // todo replace with logo
-  hpe: {
-    name: 'HPE',
-    logo: <Hpe color="brand" />,
-  },
-  aruba: {
-    name: 'Aruba',
-    logo: <Aruba color="plain" />,
-  },
+// Keep the docs logo behavior local without changing standalone AppIdentity.
+const HpeLogo = () => {
+  // Grommet adds the active mode at runtime, outside ThemeType's declarations.
+  const theme = useContext(ThemeContext) as
+    | (ThemeType & { dark?: boolean })
+    | undefined;
+  return (
+    <Box width="4xsmall" animation={{ type: 'fadeIn', duration: 500 }}>
+      <Image
+        alt="HPE logo"
+        fit="contain"
+        src={
+          theme?.dark
+            ? '/HPE_logo_full-clr_rev_rgb.svg'
+            : '/HPE_logo_full-clr_pos_rgb.svg'
+        }
+      />
+    </Box>
+  );
 };
 
 export const GlobalHeaderIdentity = forwardRef<
   HTMLAnchorElement,
   GlobalHeaderIdentityProps
->(({ brand, href, logoOnly, title, ...rest }, ref) => {
+>(({ href, logoOnly, title, ...rest }, ref) => {
   const { user } = useContext(UserContext);
   const size = useContext(ResponsiveContext);
-  // Grommet's polymorphic Button declares an intersection of anchor/button refs.
+  // Grommet's polymorphic Button intersects anchor/button refs.
   const buttonRef = ref as ComponentProps<typeof Button>['ref'];
 
   return (
@@ -56,28 +64,17 @@ export const GlobalHeaderIdentity = forwardRef<
           pad={{ vertical: 'xsmall' }}
           responsive={false}
         >
-          {/* If user is logged in, show the application specific logo.
-          This will be either HPE or Aruba. If user is logged out,
-          show HPE logo */}
-          {brand && user ? brands[brand].logo : brands.hpe.logo}
-          {!logoOnly && (
-            <Box direction="row" gap="3xsmall" wrap>
-              {user ? (
-                // user is signed in, display service name
-                <Box direction="row" gap="3xsmall">
-                  <Text weight="bold" color="text-strong">
-                    {brands[brand].name}
-                  </Text>
-                  <Text color="text-strong">{title}</Text>
-                </Box>
-              ) : (
-                // user is not signed in
-                <Text color="text-strong" weight="bold">
-                  Hewlett Packard Enterprise
-                </Text>
-              )}
-            </Box>
-          )}
+          {/* If user is logged in, pair HPE logo with the service name */}
+          <HpeLogo />
+          {!logoOnly &&
+            (user ? (
+              <Text color="text-strong">{title}</Text>
+            ) : (
+              // user is not signed in
+              <Text color="text-strong" weight="bold">
+                Hewlett Packard Enterprise
+              </Text>
+            ))}
         </Box>
       </Button>
     </Box>

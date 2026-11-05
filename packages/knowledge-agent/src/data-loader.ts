@@ -4,7 +4,14 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'yaml';
-import type { ComponentDefinition, PatternDefinition } from './types.js';
+import type {
+  ComponentDefinition,
+  ComponentDefinitionSource,
+  ComponentExample,
+  ComponentExampleSource,
+  PatternDefinition,
+  PatternDefinitionSource,
+} from './types.js';
 
 const ROOT_DIR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -35,18 +42,27 @@ function resolveFile(relPath: string): string {
   return fs.readFileSync(abs, 'utf-8');
 }
 
-function resolvePatternFiles(pattern: PatternDefinition): PatternDefinition {
-  const resolved = { ...pattern };
+function resolveExample(example: ComponentExampleSource): ComponentExample {
+  if (typeof example.code === 'string') {
+    return { ...example, code: example.code };
+  }
+  if (typeof example.codeFile === 'string') {
+    return { ...example, code: resolveFile(example.codeFile) };
+  }
+  throw new Error(
+    `Example "${example.description}" must specify code or codeFile.`,
+  );
+}
+
+function resolvePatternFiles(
+  pattern: PatternDefinitionSource,
+): PatternDefinition {
+  const resolved: PatternDefinition = {
+    ...pattern,
+    examples: pattern.examples?.map(resolveExample),
+  };
   if (resolved.templateCodeFile && !resolved.templateCode) {
     resolved.templateCode = resolveFile(resolved.templateCodeFile);
-  }
-  if (resolved.examples) {
-    resolved.examples = resolved.examples.map(ex => {
-      if (ex.codeFile && !ex.code) {
-        return { ...ex, code: resolveFile(ex.codeFile) };
-      }
-      return ex;
-    });
   }
   return resolved;
 }
@@ -80,10 +96,20 @@ function loadYamlOrJsonFiles<T>(dir: string, label: string): T[] {
 }
 
 export function loadComponents(): ComponentDefinition[] {
-  return loadYamlOrJsonFiles<ComponentDefinition>(COMPONENTS_DIR, 'components');
+  const raw = loadYamlOrJsonFiles<ComponentDefinitionSource>(
+    COMPONENTS_DIR,
+    'components',
+  );
+  return raw.map(component => ({
+    ...component,
+    examples: component.examples.map(resolveExample),
+  }));
 }
 
 export function loadPatterns(): PatternDefinition[] {
-  const raw = loadYamlOrJsonFiles<PatternDefinition>(PATTERNS_DIR, 'patterns');
+  const raw = loadYamlOrJsonFiles<PatternDefinitionSource>(
+    PATTERNS_DIR,
+    'patterns',
+  );
   return raw.map(resolvePatternFiles);
 }
