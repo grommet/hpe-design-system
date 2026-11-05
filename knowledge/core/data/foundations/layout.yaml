@@ -283,6 +283,8 @@ rules:
         id: nav
       - kind: pattern
         id: application-shell
+      - kind: pattern
+        id: navigation-menu
 
   - id: layout-constrain-long-form-text
     statement: >
