@@ -1,0 +1,372 @@
+/* Surface token validation (#6071) — native-web environment.
+ * Every surface is a plain element whose background is one built custom
+ * property. Theme and mode are two independent attributes on <html>:
+ *   data-mode=light|dark      -> dist/css/color.<mode>.css
+ *   data-surface=default|toned -> dist/css/surface.<mode>.css
+ */
+
+:root {
+  font-family: Metric, Arial, sans-serif;
+  color: var(--hpe-color-text-default);
+  background-color: var(--hpe-color-background-surface-base);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Surfaces: the token is the attribute, the background is the property. */
+.surface {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.surface[data-surface-token='background-surface-base'] {
+  background-color: var(--hpe-color-background-surface-base);
+}
+.surface[data-surface-token='background-surface-tone-1'] {
+  background-color: var(--hpe-color-background-surface-tone-1);
+}
+.surface[data-surface-token='background-surface-tone-2'] {
+  background-color: var(--hpe-color-background-surface-tone-2);
+}
+.surface[data-surface-token='background-surface-floating'] {
+  background-color: var(--hpe-color-background-surface-floating);
+  box-shadow: var(--hpe-shadow-large);
+}
+.surface[data-surface-token='none'] {
+  background-color: transparent;
+}
+/* decision 14, stranded case: a literal value, not a token */
+.surface[data-surface-token='#f7f7f7'] {
+  background-color: #f7f7f7;
+}
+.surface.bordered {
+  border: 1px solid var(--hpe-color-border-weak);
+}
+.surface.square {
+  border-radius: 0;
+}
+.surface.rounded {
+  border-radius: var(--hpe-radius-medium, 12px);
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+}
+.surface.region > .label {
+  font-size: 20px;
+  font-weight: 600;
+}
+.meta {
+  font-size: 12px;
+  color: var(--hpe-color-text-weak);
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.chip {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--hpe-color-text-default);
+  border: 1px solid var(--hpe-color-border-weak);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.tag {
+  margin-left: 8px;
+  font-weight: 400;
+}
+/* Not rendered UI in the product: a dashed, labelled strip. */
+.surface.scaffold {
+  border: 1px dashed var(--hpe-color-border-strong);
+  gap: 4px;
+  padding: 6px 8px;
+}
+.surface.scaffold > .label {
+  color: var(--hpe-color-text-weak);
+}
+.surface.tight {
+  padding: 0;
+}
+.surface.tight > .label,
+.surface.tight > .meta {
+  padding: 0 12px;
+}
+.surface.tight > .label {
+  padding-top: 8px;
+}
+
+/* Skeleton lines and a metric block standing in for content. */
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lines i {
+  display: block;
+  height: 10px;
+  border-radius: 4px;
+  background: var(--hpe-color-text-weak);
+  opacity: 0.18;
+}
+.lines i.short {
+  width: 60%;
+}
+.metric {
+  height: 28px;
+  width: 40%;
+  border-radius: 4px;
+  background: var(--hpe-color-text-weak);
+  opacity: 0.3;
+  margin-bottom: 8px;
+}
+
+/* Shell furniture: rail, header bar, page title. Not surfaces. */
+.rail {
+  background: var(--hpe-color-background-contrast);
+  width: 56px;
+  flex: 0 0 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 4px;
+  box-sizing: border-box;
+}
+.rail.bordered-right {
+  border-right: 1px solid var(--hpe-color-border-weak);
+}
+.center {
+  align-items: center;
+}
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--hpe-color-icon-default, currentColor);
+  border-radius: 5px;
+  opacity: 0.6;
+  box-sizing: border-box;
+  margin: 8px;
+}
+.header-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 4px 0;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand b {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.brand small {
+  font-size: 10px;
+  color: var(--hpe-color-text-weak);
+  align-self: flex-end;
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 320px;
+  padding: 6px 12px;
+  border: 1px solid var(--hpe-color-border-weak);
+  border-radius: 6px;
+  color: var(--hpe-color-text-weak);
+  font-size: 14px;
+}
+.search .icon {
+  width: 16px;
+  height: 16px;
+  margin: 0 4px 0 0;
+}
+.spacer {
+  flex: 1;
+}
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-title h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+.nav-item.active {
+  background: var(--hpe-color-background-active);
+}
+.nogap {
+  gap: 0;
+}
+.pad {
+  padding: 12px;
+}
+.pad-y {
+  padding: 4px 12px;
+}
+.pad-x {
+  padding: 0 12px 12px;
+}
+.pad-r {
+  padding: 0 12px 12px 0;
+}
+.pad-l {
+  padding: 16px;
+}
+.surface.rounded-large {
+  border-radius: var(--hpe-radius-large, 18px);
+}
+
+/* Layout helpers */
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: stretch;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fill {
+  min-height: calc(100vh - 56px);
+}
+.flex {
+  flex: 1;
+  min-width: 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.w-small {
+  width: 200px;
+  flex: 0 0 200px;
+}
+.w-medium {
+  width: 300px;
+  flex: 0 0 300px;
+}
+.w-rail {
+  width: 56px;
+  flex: 0 0 56px;
+  align-items: center;
+}
+
+/* Controls bar: background-contrast, not a surface (decision 20) */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--hpe-color-background-contrast);
+  border-bottom: 1px solid var(--hpe-color-border-weak);
+  font-size: 14px;
+}
+.controls button {
+  font: inherit;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--hpe-color-border-weak);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.controls button[aria-pressed='true'] {
+  background: var(--hpe-color-background-primary-strong);
+  color: var(--hpe-color-text-onPrimaryStrong);
+  border-color: transparent;
+}
+
+/* Minimal component stand-ins (decision 16 checks) */
+.btn-secondary {
+  font: inherit;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--hpe-color-background-contrast);
+  color: var(--hpe-color-text-default);
+  cursor: pointer;
+}
+.btn-primary {
+  font: inherit;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--hpe-color-background-primary-strong);
+  color: var(--hpe-color-text-onPrimaryStrong);
+}
+.nav-item {
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+.nav-item:hover {
+  background: var(--hpe-color-background-hover);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+td,
+th {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--hpe-color-border-weak);
+}
+tr[aria-selected='true'] td {
+  background: var(--hpe-color-background-active);
+}
+
+/* Dialog page: scrim + floating panel */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: var(--hpe-color-background-screenOverlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dialog {
+  width: 560px;
+  max-width: 90vw;
+}
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.reopen {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 5;
+}
+[hidden] {
+  display: none !important;
+}
+.drop {
+  position: absolute;
+  width: 240px;
+  box-shadow: var(--hpe-shadow-medium);
+}
+.anchor {
+  position: relative;
+}
