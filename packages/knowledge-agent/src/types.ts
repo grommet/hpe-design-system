@@ -158,12 +158,21 @@ export interface DesignSystemSchema {
   glossary: GlossaryTerm[];
 }
 
-export interface KnowledgeRef {
-  kind: 'glossary' | 'rule' | 'component' | 'pattern' | 'external';
-  id?: string;
-  label?: string;
-  url?: string;
+export type InternalKnowledgeRefKind =
+  'glossary' | 'rule' | 'component' | 'pattern';
+
+export interface InternalKnowledgeRef {
+  kind: InternalKnowledgeRefKind;
+  id: string;
 }
+
+export interface ExternalKnowledgeRef {
+  kind: 'external';
+  label: string;
+  url: string;
+}
+
+export type KnowledgeRef = InternalKnowledgeRef | ExternalKnowledgeRef;
 
 export interface Rule {
   id: string;

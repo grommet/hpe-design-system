@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'yaml';
+import { validateFoundationReferences } from './knowledge-references.mjs';
 
 const scriptFilePath = fileURLToPath(import.meta.url);
 const scriptDirPath = path.dirname(scriptFilePath);
@@ -127,7 +128,22 @@ thinPromptChecks.forEach((check) => {
 });
 
 const foundationsDir = path.join(repoRoot, 'knowledge', 'core', 'data', 'foundations');
+const componentsDir = path.join(repoRoot, 'knowledge', 'core', 'data', 'components');
+const patternsDir = path.join(repoRoot, 'knowledge', 'core', 'data', 'patterns');
 const glossaryPath = path.join(repoRoot, 'knowledge', 'core', 'data', 'glossary.yaml');
+
+// Mirrors the knowledge agent's loader so references resolve to loaded ids.
+const loadDataFiles = (dir) =>
+  fs.existsSync(dir)
+    ? fs
+        .readdirSync(dir)
+        .filter((file) => /\.(json|ya?ml)$/.test(file))
+        .sort()
+        .map((file) => {
+          const source = fs.readFileSync(path.join(dir, file), 'utf8');
+          return { file, data: file.endsWith('.json') ? JSON.parse(source) : yaml.parse(source) };
+        })
+    : [];
 
 const glossaryTerms = fs.existsSync(glossaryPath)
   ? yaml.parse(fs.readFileSync(glossaryPath, 'utf8'))
@@ -144,41 +160,20 @@ glossaryTerms.forEach((term) => {
   });
 });
 
-const foundationFiles = fs.existsSync(foundationsDir)
-  ? fs.readdirSync(foundationsDir).filter((file) => file.endsWith('.yaml'))
-  : [];
-const foundationsByFile = foundationFiles.map((file) => ({
+const foundationsByFile = loadDataFiles(foundationsDir).map(({ file, data }) => ({
   file,
-  foundation: yaml.parse(fs.readFileSync(path.join(foundationsDir, file), 'utf8')),
+  foundation: data,
 }));
+const componentIds = new Set(loadDataFiles(componentsDir).map(({ data }) => data?.id));
+const patternIds = new Set(loadDataFiles(patternsDir).map(({ data }) => data?.id));
 
-const ruleIds = new Set();
-foundationsByFile.forEach(({ foundation }) => {
-  (foundation.rules ?? []).forEach((rule) => ruleIds.add(rule.id));
-});
-
-foundationsByFile.forEach(({ file, foundation }) => {
-  const seenInFile = new Set();
-  (foundation.rules ?? []).forEach((rule) => {
-    if (seenInFile.has(rule.id)) {
-      violations.push(`knowledge/core/data/foundations/${file}: duplicate rule id "${rule.id}"`);
-    }
-    seenInFile.add(rule.id);
-
-    (rule.relatedTo ?? []).forEach((ref) => {
-      if (ref.kind === 'glossary' && !glossaryIds.has(ref.id)) {
-        violations.push(
-          `knowledge/core/data/foundations/${file}: rule "${rule.id}" has relatedTo reference to unknown glossary term "${ref.id}"`,
-        );
-      }
-      if (ref.kind === 'rule' && !ruleIds.has(ref.id)) {
-        violations.push(
-          `knowledge/core/data/foundations/${file}: rule "${rule.id}" has relatedTo reference to unknown rule "${ref.id}"`,
-        );
-      }
-    });
-  });
-});
+violations.push(
+  ...validateFoundationReferences(foundationsByFile, {
+    glossary: glossaryIds,
+    component: componentIds,
+    pattern: patternIds,
+  }),
+);
 
 if (violations.length > 0) {
   console.error('Knowledge structure validation failed:');

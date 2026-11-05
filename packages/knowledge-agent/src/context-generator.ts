@@ -350,17 +350,6 @@ export function generateSystemPrompt(
     });
   }
 
-  if (ruleDetail !== 'none') {
-    prompt += '### Foundation Rules\n\n';
-    if (ruleDetail === 'checklist') {
-      prompt +=
-        'Treat each statement as a constraint on the build. If you need the reason behind a rule, request it by id.\n\n';
-    } else {
-      prompt += 'Here are the foundation rules in full detail.\n\n';
-    }
-    prompt += `${renderRules(ds.foundations, ruleDetail, ds.glossary)}\n\n`;
-  }
-
   if (relevantComponents.length > 0) {
     prompt += '### Available Components\n\n';
     relevantComponents.forEach(component => {
@@ -407,6 +396,18 @@ export function generateSystemPrompt(
         prompt += `- Template guidance: a framework-specific implementation template is not yet validated for ${targetFramework}; treat the pattern structure as conceptual guidance only.\n`;
       }
     });
+    prompt += '\n';
+  }
+
+  if (ruleDetail !== 'none') {
+    prompt += '### Foundation Rules\n\n';
+    if (ruleDetail === 'checklist') {
+      prompt +=
+        'Treat each statement as a constraint on the build. If you need the reason behind a rule, request it by id.\n\n';
+    } else {
+      prompt += 'Here are the foundation rules in full detail.\n\n';
+    }
+    prompt += `${renderRules(ds.foundations, ruleDetail, ds.glossary)}\n\n`;
   }
 
   /* eslint-enable max-len */

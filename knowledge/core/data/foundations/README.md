@@ -12,7 +12,7 @@ Each file is a `FoundationDefinition` (see [types.ts](../types.ts)): an `id`, `n
 - Use `relatedTo` (not `relatedComponents`/`relatedPatterns`, which stay on components/patterns) for mixed-type cross-references.
 - Placement test: would the rule still be true if HPE shipped no tokens at all? If yes, it belongs in `color.yaml`, `spacing.yaml`, or `layout.yaml`. If no, it belongs in `design-tokens.yaml`.
 - Verify claims against source before writing them down. A rationale that cites a token value, Figma scope, theme behaviour, or template code should be checked against `packages/hpe-design-tokens/tokens`, `grommet-theme-hpe`, or `apps/docs/src/examples`.
-- `pnpm validate:knowledge-structure` checks rule id uniqueness and that `relatedTo`/`confusedWith` references resolve to real ids.
+- `pnpm validate:knowledge-structure` checks that rule ids are unique across all foundation files, that every internal `relatedTo` reference (`glossary`, `rule`, `component`, `pattern`) has an `id` that resolves, that every `external` reference has a `label` and `url`, and that glossary `confusedWith` ids resolve. It does not make network requests to check external URLs.
 
 ## Consuming
 

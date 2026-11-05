@@ -23,8 +23,11 @@ export function renderChecklist(foundations: FoundationDefinition[]): string {
   const sections = foundations.map(foundation => {
     const rules = foundation.rules.map(rule => {
       const related = (rule.relatedTo ?? [])
-        .filter(reference => reference.kind !== 'external' && reference.id)
-        .map(reference => `${reference.kind}:${reference.id}`)
+        .flatMap(reference =>
+          reference.kind === 'external'
+            ? []
+            : [`${reference.kind}:${reference.id}`],
+        )
         .join(',');
       const suffix = related ? ` (see: ${related})` : '';
       return `- [${rule.id}] ${collapseWhitespace(rule.statement)}${suffix}`;
@@ -68,17 +71,17 @@ export function renderRule(
   if (related.length > 0) {
     lines.push('', 'Related:');
     related.forEach(reference => {
-      if (reference.kind === 'external' && reference.url) {
-        lines.push(`- [${reference.label ?? reference.url}](${reference.url})`);
-      } else if (reference.id) {
+      if (reference.kind === 'external') {
+        lines.push(`- [${reference.label}](${reference.url})`);
+      } else {
         lines.push(`- ${reference.kind}: ${reference.id}`);
       }
     });
   }
 
   const glossaryTerms = related
-    .filter(reference => reference.kind === 'glossary' && reference.id)
-    .map(reference => glossary.find(term => term.id === reference.id))
+    .flatMap(reference => (reference.kind === 'glossary' ? [reference.id] : []))
+    .map(id => glossary.find(term => term.id === id))
     .filter((term): term is GlossaryTerm => Boolean(term));
   if (glossaryTerms.length > 0) {
     lines.push('', 'Terms:');

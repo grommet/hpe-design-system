@@ -27,6 +27,20 @@ describe('knowledge-agent context generator', () => {
     expect(prompt).not.toContain('### Foundation Rules');
   });
 
+  it('renders foundation rules after components and patterns', () => {
+    const prompt = generateSystemPrompt('Build a login form');
+    const rulesIndex = prompt.indexOf('### Foundation Rules');
+
+    expect(prompt.indexOf('### Available Components')).toBeGreaterThan(-1);
+    expect(prompt.indexOf('### Recommended Patterns')).toBeGreaterThan(-1);
+    expect(rulesIndex).toBeGreaterThan(
+      prompt.indexOf('### Available Components'),
+    );
+    expect(rulesIndex).toBeGreaterThan(
+      prompt.indexOf('### Recommended Patterns'),
+    );
+  });
+
   it('includes relevant instructions for layout queries', () => {
     const prompt = generateSystemPrompt('Create an app shell with navigation');
 

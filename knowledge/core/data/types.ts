@@ -90,11 +90,7 @@ export interface ComponentVariant {
  * The build resolves the correct implementation before writing consumer output.
  */
 export type FrameworkTarget =
-  | 'react'
-  | 'vue'
-  | 'angular'
-  | 'web-components'
-  | 'agnostic';
+  'react' | 'vue' | 'angular' | 'web-components' | 'agnostic';
 
 /**
  * Framework-specific override values for a single component.
@@ -165,11 +161,7 @@ export interface ComponentDefinition {
  * - Record  — structured object (e.g. responsive areas map, pad shorthand)
  */
 export type PatternPropValue =
-  | string
-  | number
-  | boolean
-  | string[]
-  | Record<string, unknown>;
+  string | number | boolean | string[] | Record<string, unknown>;
 
 /**
  * How a PatternNode's presence or content is determined.
@@ -253,22 +245,35 @@ export interface DesignSystemSchema {
   glossary: GlossaryTerm[];
 }
 
-export interface KnowledgeRef {
-  /**
-   * The category of the referenced knowledge.
-   * Internal references use id; external references use label and url.
-   */
-  kind: 'glossary' | 'rule' | 'component' | 'pattern' | 'external';
+/** Knowledge categories that internal references resolve by id. */
+export type InternalKnowledgeRefKind =
+  'glossary' | 'rule' | 'component' | 'pattern';
 
-  /** ID within the design system for internal references. */
-  id?: string;
+/** Reference to design system knowledge by its id. */
+export interface InternalKnowledgeRef {
+  /** The category of the referenced knowledge. */
+  kind: InternalKnowledgeRefKind;
 
-  /** Human-readable label, primarily for external references. */
-  label?: string;
-
-  /** External URL, required for external references. */
-  url?: string;
+  /** ID of the referenced knowledge within the design system. */
+  id: string;
 }
+
+/** Reference to an external standard or resource. */
+export interface ExternalKnowledgeRef {
+  kind: 'external';
+
+  /** Human-readable title, rendered as the link text. */
+  label: string;
+
+  /** URL of the external resource. */
+  url: string;
+}
+
+/**
+ * Cross-reference from a rule to related knowledge.
+ * Internal references require id; external references require label and url.
+ */
+export type KnowledgeRef = InternalKnowledgeRef | ExternalKnowledgeRef;
 
 export interface Rule {
   /** Stable descriptive identifier for the rule. */
