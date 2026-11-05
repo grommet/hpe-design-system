@@ -27,7 +27,7 @@
     PageHeader and are separated by its gap.
   usage: >
     Use this term for the first level of grouping inside a page region, the
-    level the page rhythm calls top-level sections: xlarge between them,
+    level the page rhythm calls top-level sections: xlarge between content-sections,
     medium inside. A content-section may be a surface but usually is a plain Box set
     apart by spacing and a heading. In the layered background approach,
     background-front and background-contrast mark which sections carry
