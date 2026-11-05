@@ -292,7 +292,7 @@ rules:
         Page-level bottom padding as used in the dashboard and list templates.
       code: |
         <Page pad={{ bottom: '3xlarge' }}>
-          <PageContent gap="xlarge">
+          <PageContent>
             <PageHeader title="Dashboard" />
             {/* sections */}
           </PageContent>
