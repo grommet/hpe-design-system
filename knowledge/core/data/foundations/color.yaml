@@ -33,7 +33,7 @@ rules:
       decorative-* name no target and are applied by the consuming
       component, such as a chart series or an illustration. Never apply a
       target-less status alias (status-critical, status-warning, status-ok,
-      status-unknown) to anything, and never put an icon-* token on text or
+      status-unknown) to anything. Use target specific status colors instead (e.g., background-warning, text-critical). Never put an icon-* token on text or
       a text-* token on an icon, even when both resolve to the same value
       today.
     rationale: >
