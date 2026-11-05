@@ -1,20 +1,38 @@
 # Structure: how a screen is divided
+- id: application-region
+  term: Application region
+  definition: >
+    A top-level area that the application shell arranges: the global header,
+    navigation, main content (Main containing Page), a shell-managed context
+    pane, or the footer. These regions are built with semantic components
+    such as Header, Nav, Main, and Footer, whose HTML elements expose
+    landmark roles when used in the appropriate context, so assistive
+    technology can move between them.
+  usage: >
+    Use this term for the areas the shell arranges with Grid or Box and for
+    the boundaries between them. Application regions are separated by their
+    own theme padding, not by a gap. Every screen has application regions,
+    including a single-column one, which still has a header, main content,
+    and footer. PageHeader and everything inside PageContent belong to the
+    main content region; divisions there are page regions and content
+    sections.
+  confusedWith:
+    - page-region
+    - context-pane
+
 - id: page-region
   term: Page region
   definition: >
-    A top-level area of a screen that the application shell lays out
-    directly: the global header, navigation, main content (Main containing
-    Page), an optional context pane, and the footer. Each region maps to one
-    ARIA landmark (header, nav, main, aside, footer) so assistive technology
-    can move between them.
+    A major content area within Main, such as a filters region beside a
+    results region. A page region may contain content sections and need not
+    be an ARIA landmark.
   usage: >
-    Use this term for the areas the shell arranges with Grid or Box and for
-    the boundaries between them. Regions are separated by their own theme
-    padding, not by a gap. Every screen has regions, including a
-    single-column one, which still has a header, main content, and footer.
-    PageHeader and everything inside PageContent belong to the main content
-    region; divisions there are content sections.
+    Use this term for the largest divisions of a page's content, whether
+    they are arranged in rows or columns. The page rhythm separates page
+    regions with xxlarge. Shell-level areas such as navigation or a context
+    pane are application regions, not page regions.
   confusedWith:
+    - application-region
     - content-section
     - surface
 
@@ -23,8 +41,9 @@
   definition: >
     A group of related content inside the main content region, usually a
     heading with the content it introduces, a card grid, a table with its
-    toolbar, or a form. Sections sit directly inside PageContent after the
-    PageHeader and are separated by its gap.
+    toolbar, or a form. Sections sit inside PageContent, potentially within
+    a parent Box or Grid, and follow PageHeader when present. Their
+    containing layout controls their spacing.
   usage: >
     Use this term for the first level of grouping inside a page region, the
     level the page rhythm calls top-level sections: xlarge between content-sections,
@@ -34,6 +53,7 @@
     focus.
   confusedWith:
     - page-region
+    - content-container
     - surface
 
 - id: surface
@@ -52,8 +72,26 @@
     most are not.
   confusedWith:
     - content-section
+    - content-container
     - component
     - element
+
+- id: content-container
+  term: Content container
+  definition: >
+    A grouping of related content or controls arranged as a unit. A content
+    container may be visually uncontained or presented on a surface.
+  usage: >
+    Use this term for an existing Box, Grid, or similar layout container that
+    holds related content together at any level of a page. Whether it reads
+    as visually contained depends on whether it is a surface; whether it is a
+    unit of the page's organization depends on whether it is a content
+    section. It does not call for an extra wrapper, and it is not
+    necessarily a Card: use Card only for a concise, independent summary of
+    a single topic.
+  confusedWith:
+    - surface
+    - content-section
 
 # Building blocks: what a screen is made of
 - id: component
@@ -119,10 +157,10 @@
     interactive; modal={true} blocks it.
   usage: >
     Use this term, not side panel or flyout, for a Layer at the page edge. A
-    side drawer is temporary and overlays the page, so it is not a page
-    region. At xsmall and small it fills the width, so only one side drawer
-    or navigation drawer should be open at a time. Center and fullscreen are
-    the other two HPE Layer types.
+    side drawer is temporary and overlays the page, so it is not an
+    application region. At xsmall and small it fills the width, so only one
+    side drawer or navigation drawer should be open at a time. Center and
+    fullscreen are the other two HPE Layer types.
   confusedWith:
     - context-pane
 
@@ -145,11 +183,11 @@
 - id: context-pane
   term: Context pane
   definition: >
-    A persistent page region beside the main content that shows supporting
-    information for the current view, such as help, settings, or details of
-    the selected item. The application shell lays it out as an aside
-    (complementary landmark) and it stays open while the user works rather
-    than overlaying the page.
+    A persistent application region beside the main content that shows
+    supporting information for the current view, such as help, settings, or
+    details of the selected item. The application shell lays it out as an
+    aside, which exposes the complementary landmark role in that context,
+    and it stays open while the user works rather than overlaying the page.
   usage: >
     Use this term for an in-flow panel with its own Grid area, as in the
     application-shell pattern. This is a knowledge-base term; HPE's
@@ -160,3 +198,4 @@
     side panel is open at a time.
   confusedWith:
     - side-drawer
+    - page-region

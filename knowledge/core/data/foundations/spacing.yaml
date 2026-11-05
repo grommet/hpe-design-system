@@ -252,6 +252,8 @@ rules:
       - kind: glossary
         id: page-region
       - kind: glossary
+        id: application-region
+      - kind: glossary
         id: content-section
       - kind: pattern
         id: dashboard-layout
