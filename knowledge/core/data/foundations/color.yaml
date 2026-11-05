@@ -28,15 +28,18 @@ rules:
     statement: >
       Every semantic color token names the target it is applied to: text takes
       text-*, icons take icon-*, backgrounds take background-*, borders take
-      border-*, and quantitative fills such as Meter and progress take
-      foreground-*. Two palettes are the exception: dataVis-* and
-      decorative-* name no target and are applied by the consuming
-      component, such as a chart series or an illustration. Never apply a
-      target-less grommet-theme-hpe compatibility alias (status-critical,
-      status-warning, status-ok, status-unknown) to anything. Use
-      target-specific semantic color tokens instead (e.g., background-warning,
-      text-critical). Never put an icon-* token on text or a text-* token on
-      an icon, even when both resolve to the same value today.
+      border-*. When a quantitative fill such as Meter needs an explicit
+      semantic color, use foreground-*. Otherwise, leave its color unset to
+      preserve the component's theme default; the HPE theme's single-value
+      Meter default is dataVis-categorical-10. Use dataVis-* when a
+      visualization needs intentional categorical color. The dataVis-* and
+      decorative-* palettes name no target and are applied by the consuming
+      component, such as a chart series or an illustration. Never apply a target-less
+      grommet-theme-hpe compatibility alias (status-critical, status-warning,
+      status-ok, status-unknown) to anything. Use target-specific semantic
+      color tokens instead (e.g., background-warning, text-critical). Never
+      put an icon-* token on text or a text-* token on an icon, even when both
+      resolve to the same value today.
     rationale: >
       The semantic layer decides per target how a role is shown: critical
       text and critical icons are red, but warning icons are orange while
@@ -44,7 +47,12 @@ rules:
       Grommet compatibility aliases with no hpe-design-tokens counterpart.
       Each one resolves to the icon-* value for every target, so
       status-warning paints words orange, skipping the per-target contrast
-      and mode logic that text-warning carries.
+      and mode logic that text-warning carries. Setting foreground-primary
+      explicitly on a Meter also overrides its HPE theme's
+      dataVis-categorical-10 default. Leave values[].color unset when a
+      quantitative fill has no semantic or categorical color to encode;
+      choose a foreground-* token only when the fill itself needs to
+      communicate a semantic role.
     relatedTo:
       - kind: rule
         id: color-use-semantic-roles
