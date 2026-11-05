@@ -81,7 +81,7 @@ rules:
   - id: layout-use-semantic-region-components
     statement: >
       Use Header, Nav, Main, and Footer for the corresponding regions of the
-      shell, with exactly one Main per screen. Do not build these regions
+      application, with exactly one Main per screen. Do not build these regions
       from Box.
     rationale: >
       They render the header, nav, main, and footer landmarks. Screen reader
