@@ -49,7 +49,7 @@ Use a named FormField inside a Form to check that an entered value meets require
 | **3**  | **Control / input**       | Lets the user enter or select a value.                | <span><Checkmark a11yTitle="true" size="small" /></span> | Provide it as a child or have FormField create it with component inside a Form. Learn more in [Composition.](#composition) |
 | **4**  | **Help text**             | Explains how to complete the field.                    |                         Optional                         | -- |
 | **5**  | **Validation message**    | Describes an issue with the field value.               |                        Conditional                       | Shown when validation fails. |
-| **6**  | **Informational text**    | Provides additional information about the field value. |                         Optional                         | -- |
+| **6**  | **Informational text**    | Provides input guidance or context about the field value. |                         Optional                         | -- |
 
 ## Behaviors and states
 
@@ -107,8 +107,10 @@ Use a named FormField inside a Form to check that an entered value meets require
 
 - Keep field labels short and descriptive.
 - Use `help` text to explain how to complete the field.
-- Use `error` text to describe an issue with the current value.
-- Use `info` text for additional context about the field value.
+- Use `error` text to identify unmet requirements or other issues with the current value and explain how to correct them.
+- Use `info` text to explain input requirements or provide information about the current value or selection, without indicating an error.
+  - For input requirements, use guidance such as "Use at least 12 characters, including a number and a symbol."
+  - For selection-related information, use feedback such as "Version 8.1 selected" with a "See version details" link.
 
 ## Accessibility
 
@@ -123,7 +125,8 @@ FormField does not define a separate keyboard interaction pattern. The contained
 | `aria-describedby` | Generated error-message identifier | An error and `htmlFor` are present; FormField links recognized Grommet input children or its internally created input to the error message and preserves existing description identifiers. |
 | `aria-hidden`      | `true`                             | The built-in required indicator is displayed. The visual asterisk is hidden from assistive technology and paired with visually hidden “required” text.                                |
 
-- Verify help and informational text associations on the chosen input — FormField does not automatically associate them with every input.
+- Associate help and informational text with the input, using `aria-describedby` where appropriate, and verify the association on the chosen input. FormField does not automatically associate this text with every input.
+- When informational text changes in response to input or selection, make relevant feedback available to assistive technology without moving focus. Use an appropriate live region when an announcement is needed; FormField does not automatically announce `info` updates.
 - Verify error associations on custom child components — only recognized Grommet inputs receive automatic error associations.
 - Verify required semantics on the actual input, especially when the visual indicator is suppressed — `required` does not automatically set `aria-required` on every child.
 
