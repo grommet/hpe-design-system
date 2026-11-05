@@ -82,12 +82,14 @@ rules:
     statement: >
       Use Header, Nav, Main, and Footer for the corresponding regions of the
       application, with exactly one Main per screen. Do not build these regions
-      from Box.
+      from Box. Header and Footer may also provide introductory and closing
+      content within an article or section. Nav may identify navigation within
+      a page.
     rationale: >
-      They render the header, nav, main, and footer landmarks. Screen reader
-      users navigate by landmark; a shell of generic containers has none,
-      leaving tabbing through the whole navigation as the only route to
-      content.
+      These components render semantic HTML elements in the DOM, which expose
+      landmark roles when used in the appropriate context. Screen reader users
+      can navigate an application's major regions by landmark; generic
+      containers alone do not provide those semantics.
     relatedTo:
       - kind: component
         id: header
@@ -105,13 +107,17 @@ rules:
 
   - id: layout-use-card-for-self-contained-peers
     statement: >
-      Use Card for a self-contained unit that sits alongside peers, and Box
-      for grouping that needs no visual boundary. Do not wrap controls such
-      as filters or toolbars in a Card, and do not nest Cards.
+      Use Card for a concise, self-contained summary of a single topic that
+      can be understood independently and scanned quickly. Use Box for general
+      grouping, including groups that need a styled surface but do not meet
+      these Card criteria. Do not use Card merely to enclose filters or
+      toolbars, and do not nest Cards.
     rationale: >
-      A Card's surface says its contents are one thing. A Card used for plain
-      grouping competes with the cards that need to communicate containment,
-      and a Card inside a Card doubles both the surface and the padding.
+      A Card tells users that its contents summarize one topic they can
+      understand without the surrounding page. A visual boundary alone does
+      not make content a Card: using Card for general grouping or controls
+      blurs that meaning, and a Card inside a Card doubles both the surface
+      and the padding.
     relatedTo:
       - kind: component
         id: card
@@ -121,6 +127,12 @@ rules:
         id: surface
       - kind: rule
         id: spacing-surface-padding-exceeds-inner-gap
+      - kind: external
+        label: HPE Design System Card principles
+        url: https://design-system.hpe.design/components/card#principles
+      - kind: external
+        label: Nielsen Norman Group card guidance
+        url: https://www.nngroup.com/articles/cards-component/
 
   - id: layout-use-grid-for-two-dimensions
     statement: >
@@ -172,26 +184,11 @@ rules:
       - kind: pattern
         id: application-shell
 
-  - id: layout-limit-grid-nesting
-    statement: >
-      Use one Grid for the application shell and at most two levels of Grid
-      within a page: a region grid and one grid inside a region. Anything
-      deeper should be a Box or a component that lays itself out.
-    rationale: >
-      Each nested grid resolves its own sizing, so the effect of a width
-      change becomes harder to predict at every level. The design system's
-      dashboard templates need only two levels.
-    relatedTo:
-      - kind: pattern
-        id: application-shell
-      - kind: pattern
-        id: dashboard-layout
-
   - id: layout-validate-at-hpe-breakpoints
     statement: >
-      Design and check every layout at the five HPE breakpoints: xsmall
-      (576px and below), small (577 to 768px), medium (769 to 1080px), large
-      (1081 to 1439px), and xlarge (1440px and above).
+      Design and check every layout at the HPE breakpoints: xsmall, small,
+      medium, large, and xlarge. Use the active HPE theme's breakpoint
+      definitions for their width ranges.
     rationale: >
       These are the widths at which Grid columns, areas, and ResponsiveContext
       switch, and small is where the theme steps spacing and radius tokens
@@ -244,8 +241,8 @@ rules:
       a navigation drawer, a side drawer Layer, or a context pane. Close the
       open panel before opening another.
     rationale: >
-      At 768px and below each panel is full-width, so a second one covers the
-      first and focus lands in whichever mounted last.
+      At the xsmall and small breakpoints each panel is full-width, so a
+      second one covers the first and focus lands in whichever mounted last.
     relatedTo:
       - kind: pattern
         id: application-shell
@@ -276,7 +273,7 @@ rules:
       A content-sized navigation changes width whenever its labels change,
       between routes or locales, and shifts the main content with it. A
       token range holds the shell steady while giving localized labels room
-      to wrap. 
+      to wrap.
     relatedTo:
       - kind: component
         id: nav
@@ -287,14 +284,24 @@ rules:
 
   - id: layout-constrain-long-form-text
     statement: >
-      Keep Paragraph's default maxWidth of 38em for body copy; do not pass
-      fill or override it. Put long-form text in a narrow Page or a column
-      rather than letting it run the full width of a wide Page.
+      Preserve Paragraph's theme-provided maxWidth for body copy; do not
+      bypass it with fill or an explicit override. Put long-form text in a
+      narrow Page or a column rather than letting it run the full width of a
+      wide Page.
     rationale: >
-      38em is roughly 65 to 75 characters per line at body sizes, the range
-      in which the eye returns reliably to the start of the next line. Past
-      about 80 characters readers lose their place, and a wide Page reaches
-      1536px.
+      Long lines make it harder for readers to track from the end of one line
+      to the start of the next. WCAG 1.4.8 Visual Presentation (Level AAA)
+      calls for a mechanism that keeps line width to no more than 80
+      characters, or 40 for CJK text. The theme sets Paragraph's maxWidth
+      from the text dimension tokens for each text size to keep body copy
+      within a readable measure, but the token alone does not guarantee an
+      exact character count or conformance.
     relatedTo:
       - kind: rule
         id: layout-choose-page-kind-by-content
+      - kind: external
+        label: HPE design tokens text dimensions (maxWidth)
+        url: https://github.com/grommet/hpe-design-system/blob/master/packages/hpe-design-tokens/tokens/semantic/dimension.default.json
+      - kind: external
+        label: WCAG 2.2 Understanding Visual Presentation
+        url: https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html
