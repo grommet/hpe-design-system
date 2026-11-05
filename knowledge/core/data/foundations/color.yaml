@@ -26,7 +26,7 @@ rules:
 
   - id: color-names-its-target
     statement: >
-      Every color token names the target it is applied to: text takes
+      Every semantic color token names the target it is applied to: text takes
       text-*, icons take icon-*, backgrounds take background-*, borders take
       border-*, and quantitative fills such as Meter and progress take
       foreground-*. Two palettes are the exception: dataVis-* and
