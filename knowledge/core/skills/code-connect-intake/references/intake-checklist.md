@@ -13,12 +13,13 @@ Use this checklist before creating or updating a Code Connect mapping in this re
 
 1. Confirm the Figma URL points to a `COMPONENT` or `COMPONENT_SET`, not a page or frame.
 2. Inspect the live component API before deciding which props belong in the mapping.
-3. Look for the nearest existing mapping pattern in `knowledge/code-connect/src/`.
-4. Check whether the component belongs in an existing subfolder such as `knowledge/code-connect/src/inputs/`.
-5. Decide whether the mapping should be property-driven, variant-split, or static composition.
+3. Classify the component by its design-system purpose, then inspect that family folder and nearest existing mapping patterns in `knowledge/code-connect/src/`.
+4. Put the v2 `.figma.ts` template in the matching existing family folder when one applies; use the root only when the component does not belong to an established family. For example, Notification is a visualisation, so use `knowledge/code-connect/src/visualisations/Notification.figma.ts`.
+5. Decide whether the template needs one property-driven snippet, TypeScript branches for structural variants, or static composition.
 
 ## Output Expectations
 
-- A concrete target file path like `knowledge/code-connect/src/Button.figma.jsx`
+- A concrete target file path like `knowledge/code-connect/src/controls/Button.figma.ts`
 - A short list of expected Figma properties to map
-- A clear note if the mapping should be static composition instead of a full `props` mapping
+- A stable template ID, the emitted code component name, and its real source URL; these may differ from the Figma component name
+- A clear note if the template should use static composition instead of property-driven output

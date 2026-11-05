@@ -12,24 +12,37 @@ Choose the correct file name, location, and sync process when creating or updati
 
 ## File Naming
 
-1. **Pattern:** Name files using `<ComponentName>.figma.jsx` (e.g., `Button.figma.jsx`).
+1. **Pattern:** Name files using `<ComponentName>.figma.ts` (e.g., `Button.figma.ts`).
 2. **Casing:** Use PascalCase matching the Grommet component name exactly.
-3. **Extension:** Use `.figma.jsx` for all React/Grommet Code Connect files.
+3. **Extension:** Use `.figma.ts` for Code Connect v2 parserless templates. Do not create legacy `.figma.jsx` or `.figma.tsx` mappings.
 
 ## File Location
 
 1. **Directory:** Place all Code Connect files under `knowledge/code-connect/src/`.
-2. **Existing subfolders:** Reuse an existing subfolder when it matches the component family, such as `knowledge/code-connect/src/inputs/` for input components.
-3. **One file per component:** Each Grommet component gets its own `.figma.jsx` file. Multiple `figma.connect` calls are acceptable in the same file when they describe variants of that same component.
+2. **Component-family folders:** Classify the component by its design-system purpose and reuse the matching existing family folder. Do not choose a folder based only on the component's name, source package, or API. Existing families include:
+   - `knowledge/code-connect/src/controls/` for interactive controls such as buttons, tabs, menus, and anchors.
+   - `knowledge/code-connect/src/inputs/` for form inputs.
+   - `knowledge/code-connect/src/layouts/` for layout components such as cards.
+   - `knowledge/code-connect/src/visualisations/` for components that communicate status or information visually, such as Avatar, Skeleton, Spinner, Tip, and Notification.
+     Use the root `src/` only when no existing family fits.
+3. **One file per component:** Each Grommet component gets its own `.figma.ts` file. Branch inside the template when variants change the snippet structure.
 
 ```text
 knowledge/code-connect/src/
-  Button.figma.jsx
-  Card.figma.jsx
+  controls/
+    Button.figma.ts
+  layouts/
+    Card.figma.ts
   inputs/
-    CheckBox.figma.jsx
-    DateInput.figma.jsx
+    CheckBox.figma.ts
+    DateInput.figma.ts
+  visualisations/
+    Notification.figma.ts
 ```
+
+The package `figma.config.json` must include `src/**/*.figma.ts` and label snippets
+as `React`. Template TypeScript types come from `@figma/code-connect/figma-types`
+in the package `tsconfig.json`.
 
 ## Syncing to Figma
 
@@ -65,13 +78,13 @@ The `.env` file is covered by the root `.gitignore` and must never be committed.
 
 ## What to Avoid
 
-1. **No misplaced files:** Do not place `.figma.jsx` files outside of `knowledge/code-connect/src/`.
-2. **No mixed files:** Do not place multiple unrelated `figma.connect` calls in one file.
+1. **No misplaced files:** Do not place `.figma.ts` templates outside of `knowledge/code-connect/src/`.
+2. **No mixed files:** Do not put unrelated component templates in one file.
 3. **No unsynced changes:** Do not merge Code Connect file changes without running the Code Connect sync command and confirming success.
 
 ---
 
 ## Related References
 
-- [component-guidelines.instructions.md](component-guidelines.instructions.md): Covers `figma.connect` authoring rules, property mapping, and the example render function.
+- [component-guidelines.instructions.md](component-guidelines.instructions.md): Covers v2 template structure, property mapping, and snippet rendering.
 - [guidelines.instructions.md](guidelines.instructions.md): High-level overview of the Code Connect workflow.

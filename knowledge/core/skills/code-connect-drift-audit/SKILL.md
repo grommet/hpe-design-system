@@ -1,7 +1,7 @@
 ---
 name: code-connect-drift-audit
-description: 'Audit workflow for HPE Design System Code Connect drift. Use when asked to review an existing `.figma.jsx` mapping, compare mapping props against the current component API, detect stale imports or patterns, check whether Figma properties are still represented correctly, or find gaps before sync.'
-version: 1.0.0
+description: 'Audit workflow for HPE Design System Code Connect drift. Use when asked to review an existing `.figma.ts` template, compare emitted props against the current component API, detect stale imports or patterns, check whether Figma properties are still represented correctly, or find gaps before sync.'
+version: 2.0.0
 ---
 
 # Code Connect Drift Audit
@@ -19,11 +19,11 @@ Use this skill to review an existing Code Connect mapping for behavioral drift b
 
 ### Audit a Mapping
 
-1. Open the target `.figma.jsx` file and identify every declared prop, variant split, import, and rendered prop.
+1. Open the target `.figma.ts` template and identify property accessors, structural branches, snippet imports, and rendered props.
 2. Compare the mapping against the current component API and neighboring mappings that use the same family pattern.
-3. Check that every declared prop is actually consumed in `example` and that no rendered prop is invented.
+3. Check that every mapped value is consumed in the exported snippet and that no rendered prop is invented.
 4. Verify whether the current file should still be property-driven or should be simplified to a static composition pattern.
-5. Report concrete drift as findings first: missing props, stale props, mismatched imports, invalid structural assumptions, or parser-hostile JSX.
+5. Report concrete drift as findings first: missing props, stale props, mismatched imports, invalid structural assumptions, or invalid template rendering.
 
 ## Gotchas
 

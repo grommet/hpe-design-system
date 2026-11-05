@@ -1,7 +1,7 @@
 ---
 name: Code Connect Figma MCP
 description: 'Extract component definitions from Figma and implement or update Code Connect mappings for the HPE Design System.'
-applyTo: 'knowledge/code-connect/src/**/*.figma.jsx'
+applyTo: 'knowledge/code-connect/src/**/*.figma.ts'
 ---
 
 # Instructions: Code Connect Figma MCP
