@@ -190,14 +190,16 @@ rules:
 
   - id: spacing-decreases-as-things-nest
     statement: >
-      Spacing should decrease as things nest, so the gap between groups is
-      always larger than the gap within them.
+      Keep the gap between content groups larger than the gaps between peers
+      within them. Within a section, the heading-to-body gap may match the
+      gap between its cards.
     rationale: >
       Under the Gestalt principle of proximity, people perceive elements that
       sit close together as a group. Proximity is therefore the primary
       grouping signal, and HPE minimizes borders, so spacing carries most of
-      the load. Equal gaps at two levels flatten the hierarchy and the page
-      reads as one list.
+      the load. Equal gaps between groups and within them flatten the hierarchy.
+      Within a card section, heading typography and card surfaces distinguish
+      the heading from the cards even when both gaps use small.
     relatedTo:
       - kind: external
         label: Nielsen Norman Group proximity principle
@@ -207,48 +209,54 @@ rules:
     statement: >
       Use xxlarge between a page's primary content regions, whether arranged
       in rows or columns, xlarge between content sections, small between a
-      section's heading and its body, and medium between peers inside a
-      section such as cards in a grid. Application regions such as navigation
-      and main content are separated by their own padding, not by a gap.
+      section's heading and its body, and small by default between cards.
+      Use medium between other peers inside a section. Application regions
+      such as navigation and main content are separated by their own padding,
+      not by a gap.
     rationale: >
-      The levels descend the scale so the gap between groups always exceeds
-      the gap within them. At the xsmall and small breakpoints, the theme
+      The gaps between regions and sections exceed the gaps within them.
+      A section's heading-to-body gap and its card-to-card gap can both be
+      small because typography and card surfaces also communicate grouping.
+      At the xsmall and small breakpoints, the theme
       reduces the resolved spacing values while preserving their order; the
-      selected token names stay unchanged. The heading sits tighter to its
-      body than the body's
-      contents sit to each other so it reads as the group's label, not as a
-      peer of it. The design system's dashboard templates set gap="xlarge"
-      on PageContent and gap="medium" on the card grids inside it.
+      selected token names stay unchanged. Existing dashboard examples may
+      still use medium between cards; the default for new layouts is small.
     example:
       description: >
-        A two-column dashboard page showing every level of the rhythm.
+        A two-column dashboard page with small gaps between cards.
       code: |
-        <PageContent>
-          <PageHeader title="Dashboard" />
-          <Grid columns={['flex', 'medium']} gap="xxlarge">
-            <Box gap="xlarge">
-              <Box as="section" gap="small">
-                <Heading level={2} margin="none">Servers</Heading>
-                <Grid columns="small" gap="medium">
-                  <Card>{/* ... */}</Card>
-                  <Card>{/* ... */}</Card>
-                </Grid>
-              </Box>
-              <Box as="section" gap="small">
-                <Heading level={2} margin="none">Storage</Heading>
-                {/* section body */}
-              </Box>
-            </Box>
-            <Box gap="xlarge">
-              {/* second column sections */}
-            </Box>
-          </Grid>
-        </PageContent>
+        <Main>
+          <Page pad={{ bottom: '3xlarge' }}>
+            <PageContent>
+              <PageHeader title="Dashboard" />
+              <Grid columns={['flex', 'medium']} gap="xxlarge">
+                <Box gap="xlarge">
+                  <Box as="section" gap="small">
+                    <Heading level={2} margin="none">Servers</Heading>
+                    <Grid columns="small" gap="small">
+                      <Card>{/* ... */}</Card>
+                      <Card>{/* ... */}</Card>
+                    </Grid>
+                  </Box>
+                  <Box as="section" gap="small">
+                    <Heading level={2} margin="none">Storage</Heading>
+                    {/* section body */}
+                  </Box>
+                </Box>
+                <Box gap="xlarge">
+                  {/* second column sections */}
+                </Box>
+              </Grid>
+            </PageContent>
+          </Page>
+        </Main>
     relatedTo:
       - kind: rule
         id: spacing-decreases-as-things-nest
       - kind: rule
         id: spacing-parents-space-children
+      - kind: rule
+        id: spacing-card-grid-gaps
       - kind: glossary
         id: page-region
       - kind: glossary
@@ -273,16 +281,21 @@ rules:
 
   - id: spacing-card-grid-gaps
     statement: >
-      In a card grid, use one gap value for rows and columns. Make it at least
-      one step tighter than the gap around the grid and no larger than the
-      cards' padding.
+      Use spacing-small (16px in the default dimension mode) between cards
+      by default; in Grommet, set gap="small". In a card grid, use the same gap
+      for rows and columns. Make it at least one step tighter than the gap
+      between surrounding content sections and no larger than the cards'
+      padding.
     rationale: >
       Cards are bounded by their own surfaces and need less separation than
       unbounded sections. Unequal row and column gaps make a regular grid look
       misaligned, and a gap wider than the cards' padding makes the grid read
-      as scattered fragments. The theme's default card grid gap is medium,
-      matching card padding.
+      as scattered fragments. The small gap is tighter than the default
+      medium card padding. Consume the token rather than hardcoding 16px so
+      the theme can resolve it to 8px in the small dimension mode.
     relatedTo:
+      - kind: rule
+        id: spacing-page-rhythm
       - kind: component
         id: card
       - kind: component

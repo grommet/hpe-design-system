@@ -74,7 +74,7 @@ When structuring content within pages, use Grommet's `Box`, `Card`, and semantic
 
 ## Content Hierarchy and Spacing
 
-- **Spacing rhythm**: Follow the `spacing-page-rhythm` rule in `knowledge/core/data/foundations/spacing.yaml`: `xxlarge` between a page's primary content regions (whether arranged in rows or columns), `xlarge` between content sections, `small` between a section heading and its body, and `medium` between peers inside a section such as cards in a grid. The gap between groups is always larger than the gap within them.
+- **Spacing rhythm**: Follow `spacing-page-rhythm` and `spacing-card-grid-gaps` in `knowledge/core/data/foundations/spacing.yaml`: `xxlarge` between a page's primary content regions (whether arranged in rows or columns), `xlarge` between content sections, `small` between a section heading and its body, and `small` by default between cards (`spacing-small`, 16px in the default dimension mode; use `gap="small"`). Keep `medium` for other peers inside a section. Let the theme resolve responsive values rather than hardcoding pixels.
 - **Consistent margins and padding**: Use consistent margins and padding throughout the application to maintain visual harmony.
 - **Typography hierarchy**: Use Grommet's typography components (`Heading`, `Text`) to establish a clear hierarchy of information, making it easier for users to scan and understand content.
 
