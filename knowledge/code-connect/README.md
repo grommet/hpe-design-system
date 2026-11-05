@@ -107,9 +107,15 @@ This creates two complementary paths: direct Dev Mode handoff for human implemen
 ### `visualisations`
 
 - [Avatar](src/visualisations/Avatar.figma.ts)
+- [Notification](src/visualisations/Notification.figma.ts)
 - [Skeleton](src/visualisations/Skeleton.figma.ts)
 - [Spinner](src/visualisations/Spinner.figma.ts)
 - [Tip](src/visualisations/Tip.figma.ts)
+
+Notification maps Status to `status`, Kind to `global`/`toast`, and the Title,
+onClose, and Actions toggles to optional `title`, `onClose`, and `actions` props.
+The message and enabled title/action text are representative content, not
+parent-exposed Figma text properties.
 
 ---
 
@@ -390,6 +396,7 @@ knowledge/code-connect/
 │   │   └── Card.figma.ts
 │   └── visualisations/
 │       ├── Avatar.figma.ts
+│       ├── Notification.figma.ts
 │       ├── Skeleton.figma.ts
 │       ├── Spinner.figma.ts
 │       └── Tip.figma.ts
@@ -550,12 +557,13 @@ jobs:
 
 #### `visualisations`
 
-| Component  | Status       |
-| ---------- | ------------ |
-| `Avatar`   | ✅ Connected |
-| `Skeleton` | ✅ Connected |
-| `Spinner`  | ✅ Connected |
-| `Tip`      | ✅ Connected |
+| Component      | Status       |
+| -------------- | ------------ |
+| `Avatar`       | ✅ Connected |
+| `Notification` | ✅ Connected |
+| `Skeleton`     | ✅ Connected |
+| `Spinner`      | ✅ Connected |
+| `Tip`          | ✅ Connected |
 
 #### Backlog / Not started
 
