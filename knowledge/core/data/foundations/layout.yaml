@@ -7,11 +7,14 @@ description: >
 rules:
   - id: layout-use-standard-routed-screen-structure
     statement: >
-      Build every routed screen as Main, then Page, then PageContent, then
-      PageHeader, followed by the page's content. When the application shell
-      already renders Main, start the routed page with Page inside it and do
-      not add a second Main. PageHeader renders the h1; do not add another.
+      Always place Page inside Main and PageContent inside Page. Never place
+      Main inside Page or PageContent. For routed screens, place PageHeader
+      first inside PageContent, followed by the page's content. When the
+      application shell already renders Main, reuse it rather than adding a
+      second Main. PageHeader renders the h1; do not add another.
     rationale: >
+      Main provides the main landmark around the page and its content;
+      Page and PageContent do not provide that landmark themselves.
       Page applies the theme's kind-driven max-width, alignment, and
       responsive horizontal padding; PageContent consumes them; PageHeader
       renders the title as a level-1 Heading and repositions actions on
@@ -19,8 +22,8 @@ rules:
       drifts when the theme changes.
     example:
       description: >
-        The structure used by the design system's dashboard and list
-        templates.
+        The required nesting for a standalone screen. If the application shell
+        already provides Main, render Page inside that existing Main.
       code: |
         <Main>
           <Page pad={{ bottom: '3xlarge' }}>
@@ -31,6 +34,8 @@ rules:
           </Page>
         </Main>
     relatedTo:
+      - kind: component
+        id: main
       - kind: component
         id: page
       - kind: component

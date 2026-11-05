@@ -1,8 +1,8 @@
 id: page
 name: Page
 description:
-  Top-level page container that provides consistent responsive margins
-  and background.
+  Page layout container inside Main that provides consistent responsive margins
+  and background for its PageContent.
 importPath: grommet
 framework: react
 props:
@@ -21,9 +21,9 @@ props:
     description: Padding inside the page
 usage:
   whenToUse:
-    - Use Page as the outermost container for page content, inside Main. When
-      the application shell already renders Main, start the routed page with
-      Page inside it.
+    - Always place Page inside Main, with PageContent nested inside Page. When
+      the application shell already renders Main, reuse it rather than adding
+      another Main in the routed page.
     - Use background='background-back' for proper visual hierarchy.
     - Pair with PageContent and PageHeader for structure.
     - Choose kind based on content density.

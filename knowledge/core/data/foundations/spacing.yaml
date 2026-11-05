@@ -299,14 +299,16 @@ rules:
       margins.
     example:
       description: >
-        Page-level bottom padding as used in the dashboard and list templates.
+        Page-level bottom padding inside the main landmark.
       code: |
-        <Page pad={{ bottom: '3xlarge' }}>
-          <PageContent>
-            <PageHeader title="Dashboard" />
-            {/* sections */}
-          </PageContent>
-        </Page>
+        <Main>
+          <Page pad={{ bottom: '3xlarge' }}>
+            <PageContent>
+              <PageHeader title="Dashboard" />
+              {/* sections */}
+            </PageContent>
+          </Page>
+        </Main>
     relatedTo:
       - kind: pattern
         id: dashboard-layout

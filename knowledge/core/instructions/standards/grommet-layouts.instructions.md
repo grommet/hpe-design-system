@@ -22,7 +22,7 @@ The output ends with a "### Foundation Rules" checklist. Build from the returned
 
 ## Rules and Guidelines
 
-- **Follow page layout structure**: Use Grommet's specialized page layout components `Page`, `PageContent`, and `PageHeader` to create consistent page structures.
+- **Follow page layout structure**: Always place `Page` inside `Main` and `PageContent` inside `Page`, following `layout-use-standard-routed-screen-structure`. Reuse a shell-owned `Main`; never place `Main` inside `Page` or `PageContent`.
 - **Implement app layout**: Use Grommet's `Grid` component to create a consistent app layout with header, sidebar, main content area, and optional context panel.
 - **Use navigation components**: Utilize Grommet's `Nav`, `Menu`, and `Anchor` components to build intuitive and accessible navigation menus.
 - **Ensure light/dark mode support**: Leverage Grommet's theming capabilities to provide seamless light and dark mode experiences.
@@ -58,11 +58,11 @@ Use Grommet's `Nav`, `Menu`, and `Anchor` components to create intuitive and acc
 
 ## Page Layout
 
-This section covers the layout and structure of individual pages within your application, typically presented within the main content area of the app layout.
+This section covers individual pages within the application's `Main` content area.
 
-1. **Page structure**: Use `Page`, `PageContent`, and `PageHeader` components to define the overall structure of your pages. These components help maintain consistency across different pages and provide built-in responsive margins and text.
+1. **Page structure**: Inside the existing `Main`, use `Page` containing `PageContent`, with `PageHeader` followed by the page's content. If there is no shell-owned `Main`, wrap `Page` in one. These components provide the main landmark, responsive margins, and page heading.
    - **Never add `pad` to `PageContent`** — its internal padding is managed entirely by `grommet-theme-hpe`. Adding a `pad` prop overrides the theme's responsive page margins.
-2. **Layout components**: Use components like `Box`, `Grid`, `Header`, `Footer`, and `Main` to create responsive and accessible layouts.
+2. **Layout components**: Use `Box` and `Grid` for content layouts, and contextual `Header` and `Footer` where appropriate. `Main` belongs outside `Page`, not inside the page content.
 
 ### Content Containers
 

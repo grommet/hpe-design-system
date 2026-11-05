@@ -12,12 +12,14 @@ problem:
   Need to display key metrics and system status in an at-a-glance dashboard
   format with visual indicators.
 solution:
+  Place Page inside Main, reusing the application shell's Main when present.
   Wrap content in Page (pad bottom="3xlarge") with PageContent (gap="medium")
   for consistent page structure and spacing. Use Grid columns="small" for metric cards
   so Grommet auto-fits columns without a fixed count, wrapping naturally at any breakpoint.
   Each card uses Meter for visual status. Pair with an activity feed Card section.
   Use semantic color tokens (status-ok, status-warning, status-critical) for status communication.
 relatedComponents:
+  - main
   - page
   - page-content
   - page-header
@@ -31,6 +33,8 @@ relatedPatterns:
   - status-indicator
 usage:
   whenToUse:
+    - Always place the dashboard's Page and PageContent inside Main. The Page-rooted
+      examples and graph assume that Main is supplied by the surrounding application shell.
     - Wrap the dashboard in Page with bottom pad of 3xlarge to prevent content clipping on mobile.
     - Use PageContent with gap medium as the smart-default section spacing container.
     - Use PageHeader for the page title and subtitle — do not build a custom Box+Heading header.
