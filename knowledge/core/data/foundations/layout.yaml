@@ -8,8 +8,9 @@ rules:
   - id: layout-use-standard-routed-screen-structure
     statement: >
       Build every routed screen as Main, then Page, then PageContent, then
-      PageHeader, followed by the page's content. PageHeader renders the h1;
-      do not add another.
+      PageHeader, followed by the page's content. When the application shell
+      already renders Main, start the routed page with Page inside it and do
+      not add a second Main. PageHeader renders the h1; do not add another.
     rationale: >
       Page applies the theme's kind-driven max-width, alignment, and
       responsive horizontal padding; PageContent consumes them; PageHeader
@@ -70,8 +71,8 @@ rules:
       Without a vertically filling ancestor, a short page's background ends
       partway down the viewport, which reads as a rendering fault.
       PageContent spans the page because of its built-in fill="horizontal";
-      passing fill="vertical" replaces that value and the content collapses
-      to its own width.
+      passing fill="vertical" replaces that value and removes the horizontal
+      fill, so the content may no longer span the page.
     relatedTo:
       - kind: component
         id: main
