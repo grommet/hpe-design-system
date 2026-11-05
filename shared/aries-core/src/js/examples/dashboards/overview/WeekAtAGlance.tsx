@@ -1,20 +1,25 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
+import type { ComponentProps } from 'react';
 import { Box, Grid, Heading, ResponsiveContext } from 'grommet';
 import { CostTrend } from './CostTrend';
 import { NeedsAttention } from './NeedsAttention';
 import { SlaPerformance } from './SlaPerformance';
 
+type WeekLayout = Pick<
+  ComponentProps<typeof Grid>,
+  'columns' | 'rows' | 'areas'
+>;
 // The cost trend chart is given twice the width of its peers, so this region
 // is laid out per breakpoint rather than as a fluid grid.
-const stacked = {
+const stacked: WeekLayout = {
   columns: ['flex'],
   rows: ['auto', 'auto', 'auto'],
   areas: [['cost'], ['attention'], ['sla']],
 };
 
-const layout = {
+const layout: Record<string, WeekLayout> = {
   xsmall: stacked,
   small: stacked,
   medium: {

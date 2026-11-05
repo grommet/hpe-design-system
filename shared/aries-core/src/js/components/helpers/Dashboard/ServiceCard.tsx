@@ -1,11 +1,31 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
+import type { ComponentProps, ComponentType } from 'react';
 import { Box, Card, CardBody, Paragraph, Tag, Text } from 'grommet';
-import { TextEmphasis } from '@shared/aries-core';
+import { TextEmphasis as JavaScriptTextEmphasis } from '../../typography/TextEmphasis';
+
+const TextEmphasis = JavaScriptTextEmphasis as ComponentType<
+  ComponentProps<typeof Text>
+>;
+
+export type ServiceCardProps = Omit<
+  ComponentProps<typeof Card>,
+  'children' | 'title'
+> & {
+  category: string;
+  description: string;
+  tag?: string;
+  title: string;
+};
 
 // Summary card for a service in a catalog or discovery grid.
-export const ServiceCard = ({ category, description, tag, title, ...rest }) => (
+export const ServiceCard = ({
+  category,
+  description,
+  tag,
+  title,
+  ...rest
+}: ServiceCardProps) => (
   <Card {...rest}>
     <CardBody gap="xsmall">
       <Box direction="row" align="center" justify="between" gap="xsmall">
@@ -26,10 +46,3 @@ export const ServiceCard = ({ category, description, tag, title, ...rest }) => (
     </CardBody>
   </Card>
 );
-
-ServiceCard.propTypes = {
-  category: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  tag: PropTypes.string,
-  title: PropTypes.string.isRequired,
-};

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
+import type { ComponentProps } from 'react';
 import {
   Box,
   Button,
@@ -24,14 +24,15 @@ import {
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
-import { defaultUser, GlobalHeader, UserContext } from '../global-header';
-import { AppContainer } from '../page-layouts/components';
-import {
-  DiscoverServices,
-  HealthOverviewMixedActions,
-  WeekAtAGlance,
-} from './content';
-import { pageBackground, surfaceBackground } from './content/overview/data';
+import { GlobalHeader } from '../../../components/helpers/GlobalHeader/GlobalHeader';
+import { UserContext } from '../../../components/helpers/GlobalHeader/UserContext';
+import type { User } from '../../../components/helpers/GlobalHeader/UserContext';
+import { AppContainer } from '../../../components/layouts/AppContainer/AppContainer';
+import { defaultUser } from '../../data/user';
+import { DiscoverServices } from './DiscoverServices';
+import { HealthOverviewMixedActions } from './health/HealthOverviewMixedActions';
+import { WeekAtAGlance } from './WeekAtAGlance';
+import { pageBackground, surfaceBackground } from './data';
 
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },
@@ -43,7 +44,11 @@ const navigation = [
   { label: 'Monitoring', icon: <Beacon /> },
 ];
 
-const shell = {
+type ShellLayout = Pick<
+  ComponentProps<typeof Grid>,
+  'columns' | 'rows' | 'areas'
+>;
+const shell: Record<string, ShellLayout> = {
   withNav: {
     columns: ['auto', 'flex'],
     rows: ['auto', 'flex'],
@@ -61,7 +66,7 @@ const shell = {
 
 export const OverviewDashboard = () => {
   const size = useContext(ResponsiveContext);
-  const [user, setUser] = useState(defaultUser);
+  const [user, setUser] = useState<User | undefined>(defaultUser);
   const contextValue = useMemo(() => ({ user, setUser }), [user]);
 
   // On small screens the navigation would move into a drawer opened from
@@ -101,8 +106,9 @@ export const OverviewDashboard = () => {
   );
 };
 
+export type SideNavProps = ComponentProps<typeof Box>;
 // Collapsed, icon-only primary navigation rail.
-const SideNav = ({ ...rest }) => (
+const SideNav = ({ ...rest }: SideNavProps) => (
   <Box pad="xsmall" flex={false} {...rest}>
     <Nav
       a11yTitle="Primary"
@@ -125,7 +131,3 @@ const SideNav = ({ ...rest }) => (
     </Nav>
   </Box>
 );
-
-SideNav.propTypes = {
-  gridArea: PropTypes.string,
-};

@@ -1,13 +1,16 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import type { ComponentProps } from 'react';
 import { Box, Button, Text } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
-import { ChartCard, StatusCount } from '../../components';
+import { ChartCard } from '../../../components/helpers/Dashboard/ChartCard';
+import { StatusCount } from '../../../components/helpers/Dashboard/StatusCount';
 import { attentionItems, surfaceBackground } from './data';
 
 const openItems = attentionItems.reduce((total, item) => total + item.count, 0);
+export type NeedsAttentionProps = ComponentProps<typeof ChartCard>;
 
-export const NeedsAttention = ({ ...rest }) => (
+export const NeedsAttention = ({ ...rest }: NeedsAttentionProps) => (
   <ChartCard
     title="Needs attention"
     level={3}

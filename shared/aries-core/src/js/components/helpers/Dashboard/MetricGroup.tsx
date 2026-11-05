@@ -1,10 +1,14 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { Children, useContext } from 'react';
-import PropTypes from 'prop-types';
+import type { ComponentProps, ReactNode } from 'react';
 import { Grid, ResponsiveContext } from 'grommet';
 
-const columnCount = {
+export type MetricGroupProps = Omit<ComponentProps<typeof Grid>, 'children'> & {
+  children?: ReactNode;
+};
+
+const columnCount: Record<string, number> = {
   xsmall: 1,
   small: 1,
   medium: 2,
@@ -17,20 +21,16 @@ const columnCount = {
 // keeps the same width. When the group collapses to a single column, the
 // divider turns horizontal so stacked metrics still read as separate items.
 // Wrapped rows at intermediate widths are separated by the grid gap alone.
-export const MetricGroup = ({ children, ...rest }) => {
+export const MetricGroup = ({ children, ...rest }: MetricGroupProps) => {
   const size = useContext(ResponsiveContext);
   const items = Children.toArray(children);
   const count = Math.min(columnCount[size] || columnCount.large, items.length);
 
-  const columns = Array(count).fill('flex');
+  const columns = Array<string>(count).fill('flex');
 
   return (
     <Grid columns={columns} gap="medium" {...rest}>
       {items}
     </Grid>
   );
-};
-
-MetricGroup.propTypes = {
-  children: PropTypes.node,
 };

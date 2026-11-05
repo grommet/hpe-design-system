@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
+import type { ComponentProps, ComponentType, ReactNode } from 'react';
 import { Box, Text } from 'grommet';
 import {
   StatusCritical,
@@ -8,7 +8,26 @@ import {
   StatusUnknown,
   StatusWarning,
 } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from '@shared/aries-core';
+import { TextEmphasis as JavaScriptTextEmphasis } from '../../typography/TextEmphasis';
+
+const TextEmphasis = JavaScriptTextEmphasis as ComponentType<
+  ComponentProps<typeof Text>
+>;
+
+export type DashboardStatus = 'critical' | 'warning' | 'ok' | 'unknown';
+
+export type StatusCountProps = Omit<ComponentProps<typeof Box>, 'children'> & {
+  count: string | number;
+  label: string;
+  status: DashboardStatus;
+};
+
+type StatusAppearance = {
+  background: ComponentProps<typeof Box>['background'];
+  color: ComponentProps<typeof Text>['color'];
+  icon: ReactNode;
+  strongColor: ComponentProps<typeof Text>['color'];
+};
 
 const STATUS_MAP = {
   critical: {
@@ -35,10 +54,15 @@ const STATUS_MAP = {
     icon: <StatusUnknown color="icon-unknown" a11yTitle="Unknown" />,
     strongColor: 'text-onUnknown-strong',
   },
-};
+} satisfies Record<DashboardStatus, StatusAppearance>;
 
 // A labeled count of items in a given status, on that status' surface.
-export const StatusCount = ({ count, label, status, ...rest }) => {
+export const StatusCount = ({
+  count,
+  label,
+  status,
+  ...rest
+}: StatusCountProps) => {
   const { background, color, icon, strongColor } = STATUS_MAP[status];
   return (
     <Box
@@ -59,10 +83,4 @@ export const StatusCount = ({ count, label, status, ...rest }) => {
       </TextEmphasis>
     </Box>
   );
-};
-
-StatusCount.propTypes = {
-  count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  label: PropTypes.string.isRequired,
-  status: PropTypes.oneOf(Object.keys(STATUS_MAP)).isRequired,
 };

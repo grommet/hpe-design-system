@@ -1,11 +1,12 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import PropTypes from 'prop-types';
 import { Button, Text } from 'grommet';
 import { ShieldCheck } from '@hpe-design/icons-grommet';
-import { MetricValue } from '../../../components';
+import { MetricValue } from '../../../../components/helpers/Dashboard/MetricValue';
+import type { DashboardStatus } from '../../../../components/helpers/Dashboard/StatusCount';
 import { Bar } from './Bar';
 import { HealthSection, HealthTile } from './HealthSection';
+import type { HealthTileProps } from './HealthSection';
 import { QuietStatusRow } from './status';
 import {
   availabilityStatus,
@@ -18,18 +19,24 @@ import {
   targets,
   volumesStatus,
 } from './data';
+import type { HealthScenario } from './data';
 
 // Mixed-action variant: exceptions link to details or offer one tile action.
 //
 // Descriptions follow the content at the tile's normal gap rather than
 // sitting on the bottom edge; one-line descriptions leave their spare room
 // at the bottom of the tile, which reads better than a band in the middle.
-const Tile = props => <HealthTile anchor={false} {...props} />;
+type TileProps = Omit<HealthTileProps, 'anchor'>;
+const Tile = (props: TileProps) => <HealthTile anchor={false} {...props} />;
 
+export type HealthOverviewMixedActionsProps = {
+  scenario?: HealthScenario;
+  tileActions?: boolean;
+};
 export const HealthOverviewMixedActions = ({
   scenario = driveFailure,
   tileActions = false,
-}) => {
+}: HealthOverviewMixedActionsProps) => {
   const { availability, capacity, checked, drives, volumes } = scenario;
   const used = capacityPercent(capacity);
   const unprotected = volumes.total - volumes.protectedCount;
@@ -40,8 +47,9 @@ export const HealthOverviewMixedActions = ({
     volumes: volumesStatus(volumes),
     drives: countStatus(drives.failed),
   };
-  const linkIf = value => (value === 'ok' || tileActions ? undefined : '#');
-  const actionIf = (value, label) =>
+  const linkIf = (value: DashboardStatus) =>
+    value === 'ok' || tileActions ? undefined : '#';
+  const actionIf = (value: DashboardStatus, label: string) =>
     tileActions && value !== 'ok' ? (
       <Button label={label} secondary href="#" />
     ) : undefined;
@@ -130,9 +138,4 @@ export const HealthOverviewMixedActions = ({
       </Tile>
     </HealthSection>
   );
-};
-
-HealthOverviewMixedActions.propTypes = {
-  scenario: PropTypes.shape({}),
-  tileActions: PropTypes.bool,
 };

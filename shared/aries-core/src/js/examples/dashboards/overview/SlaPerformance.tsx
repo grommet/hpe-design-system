@@ -1,8 +1,11 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import type { ComponentProps } from 'react';
 import { Box, List, Tag, Text } from 'grommet';
-import { ChartCard, MetricValue } from '../../components';
+import { ChartCard } from '../../../components/helpers/Dashboard/ChartCard';
+import { MetricValue } from '../../../components/helpers/Dashboard/MetricValue';
 import { slaStats, surfaceBackground } from './data';
+import type { SlaStat } from './data';
 
 const SLA_STATUS = {
   ok: { label: 'On target', background: 'background-contrast' },
@@ -10,14 +13,15 @@ const SLA_STATUS = {
 };
 
 // Dividers between stats only; the first and last rows have none.
-const dividers = Object.fromEntries(
+const dividers: ComponentProps<typeof List>['itemProps'] = Object.fromEntries(
   slaStats.map((_, index) => [
     index,
     index > 0 ? { border: { side: 'top', color: 'border-weak' } } : {},
   ]),
 );
 
-export const SlaPerformance = ({ ...rest }) => (
+export type SlaPerformanceProps = ComponentProps<typeof ChartCard>;
+export const SlaPerformance = ({ ...rest }: SlaPerformanceProps) => (
   <ChartCard
     title="SLA performance"
     level={3}
@@ -31,7 +35,7 @@ export const SlaPerformance = ({ ...rest }) => (
       itemProps={dividers}
       pad={{ vertical: 'xsmall', horizontal: 'none' }}
     >
-      {({ name, status, unit, value }) => (
+      {({ name, status, unit, value }: SlaStat) => (
         <Box fill="horizontal">
           <Text>{name}</Text>
           <Box

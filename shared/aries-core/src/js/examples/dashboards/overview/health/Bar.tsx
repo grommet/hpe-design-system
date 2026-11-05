@@ -1,11 +1,29 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext } from 'react';
-import PropTypes from 'prop-types';
+import type { ComponentProps, ComponentType } from 'react';
 import { ThemeContext } from 'styled-components';
 import { Box, Meter } from 'grommet';
-import { STATUS } from './status';
+import type { DashboardStatus } from '../../../../components/helpers/Dashboard/StatusCount';
+import { STATUS } from './statusConfig';
 
+type BarTheme = { text: { medium: { height: string } } };
+// Meter forwards role at runtime, but its published declarations omit it.
+const AccessibleMeter = Meter as ComponentType<
+  ComponentProps<typeof Meter> & { role?: string }
+>;
+export type BarProps = {
+  alignToText?: boolean;
+  label: string;
+  max: number;
+  status?: DashboardStatus;
+} & (
+  | { value: number; values?: never }
+  | {
+      value?: number;
+      values: NonNullable<ComponentProps<typeof Meter>['values']>;
+    }
+);
 // Thin horizontal meter for a share of a whole. Neutral while status is ok
 // and takes the status fill otherwise, so color only appears when something
 // needs attention. Pass values for a stacked bar. With alignToText the bar
@@ -19,10 +37,10 @@ export const Bar = ({
   status = 'ok',
   value,
   values,
-}) => {
-  const theme = useContext(ThemeContext);
+}: BarProps) => {
+  const theme = useContext(ThemeContext) as BarTheme;
   const meter = (
-    <Meter
+    <AccessibleMeter
       role="img"
       aria-label={label}
       type="bar"
@@ -44,13 +62,4 @@ export const Bar = ({
   ) : (
     meter
   );
-};
-
-Bar.propTypes = {
-  alignToText: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  max: PropTypes.number.isRequired,
-  status: PropTypes.oneOf(Object.keys(STATUS)),
-  value: PropTypes.number,
-  values: PropTypes.arrayOf(PropTypes.shape({})),
 };
