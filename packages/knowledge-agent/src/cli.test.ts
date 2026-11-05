@@ -92,10 +92,18 @@ describe('knowledge-agent CLI', () => {
     expect(result.stderr).toContain('color-names-its-target');
   });
 
-  it('prints the foundation checklist without a query', () => {
+  it.each([
+    { label: 'without a query', queryArgs: [] },
+    {
+      label: 'with a query',
+      queryArgs: [
+        'device fleet page with summary cards, filterable table and detail drawer',
+      ],
+    },
+  ])('prints the foundation checklist $label', ({ queryArgs }) => {
     const result = spawnSync(
       'pnpm',
-      ['exec', 'tsx', 'src/cli.ts', '--', '--checklist'],
+      ['exec', 'tsx', 'src/cli.ts', '--', ...queryArgs, '--checklist'],
       {
         cwd: packageRoot,
         encoding: 'utf8',
@@ -103,6 +111,8 @@ describe('knowledge-agent CLI', () => {
     );
 
     expect(result.status).toBe(0);
+    expect(result.stdout).toMatch(/^### Foundation Rules\n\n/);
+    expect(result.stdout.match(/^### Foundation Rules$/gm)).toHaveLength(1);
     expect(result.stdout).toContain('### Color');
     expect(result.stdout).toContain('- [color-names-its-target]');
     expect(result.stdout).not.toContain('http');

@@ -18,8 +18,10 @@ pnpm --filter @hpe-design/knowledge-agent test
 ```
 
 Builders and validators use the foundation checklist; for validation-only work
-use `--checklist`; fetch a rule in full by id only when explaining or reporting
-a failure. Relevance filtering of rules is possible future work.
+use `--checklist`. It prints all rules under `### Foundation Rules` and exits,
+whether or not a query is supplied. Fetch a rule in full by id only when
+explaining or reporting a failure. Relevance filtering of rules is possible
+future work.
 
 The bin command (`hpe-design-agent`) mirrors the same interface once the package is installed:
 

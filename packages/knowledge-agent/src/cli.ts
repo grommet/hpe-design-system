@@ -172,7 +172,7 @@ if (checklist && ruleId) {
 }
 
 if (checklist) {
-  console.log(renderChecklist(loadFoundations()));
+  console.log(`### Foundation Rules\n\n${renderChecklist(loadFoundations())}`);
   process.exit(0);
 }
 
