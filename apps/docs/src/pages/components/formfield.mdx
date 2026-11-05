@@ -20,7 +20,7 @@ import {
 
 ## Use cases
 
-### Entering a labeled form value
+### Entering a labeled input
 
 Use FormField to give an input a clear, persistent label so users understand what to enter. Associate the label with its input using matching `htmlFor` and `id` values.
 
@@ -28,9 +28,9 @@ Use FormField to give an input a clear, persistent label so users understand wha
   <FormFieldEnteringLabeledFormValueExample />
 </Example>
 
-### Validating a named form field
+### Validating a named input
 
-Use a named FormField inside a `Form` to check that an entered value meets requirements before submission. Define validation rules with `validate` and use `validateOn` to control when they run. Provide clear guidance on the expected input and actionable error messages so users can correct invalid values.
+Use a named FormField inside a Form to check that an entered value meets requirements before submission. Define validation rules with `validate` and use `validateOn` to control when they run. Provide clear guidance on the expected input and actionable error messages so users can correct invalid values.
 
 <Example height={{ min: 'medium' }} pad="medium">
   <FormFieldValidatingNamedFormFieldExample />
@@ -46,7 +46,7 @@ Use a named FormField inside a `Form` to check that an entered value meets requi
 | :----: | ------------------------- | ------------------------------------------------------ | :------------------------------------------------------: | ----- |
 | **1**  | **Label**                 | Identifies the field.                                  |                         Optional                         | If no visible label is provided, give the control an accessible name. |
 | **2**  | **Required indicator**    | Visually communicates that the field is required.     |                        Optional                       | -- |
-| **3**  | **Control / input**       | Lets the user enter or select a value.                | <span><Checkmark a11yTitle="true" size="small" /></span> | Provide it as a child or have FormField create it with `component` inside a `Form`. Learn more in [Composition](#composition). |
+| **3**  | **Control / input**       | Lets the user enter or select a value.                | <span><Checkmark a11yTitle="true" size="small" /></span> | Provide it as a child or have FormField create it with component inside a Form. Learn more in [Composition.](#composition) |
 | **4**  | **Help text**             | Explains how to complete the field.                    |                         Optional                         | -- |
 | **5**  | **Validation message**    | Describes an issue with the field value.               |                        Conditional                       | Shown when validation fails. |
 | **6**  | **Informational text**    | Provides additional information about the field value. |                         Optional                         | -- |
