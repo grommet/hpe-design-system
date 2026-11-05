@@ -83,24 +83,24 @@ export const FormFieldAnatomy = () => {
               {/* A diagram placeholder replaces the actual input control. */}
               {/* eslint-disable-next-line grommet/formfield-name */}
               <FormField
-                label={<span id={target('label')}>Work email</span>}
+                label={<span id={target('label')}>Password</span>}
                 htmlFor={target('input')}
-                name="workEmail"
+                name="password"
                 contentProps={{ border: false }}
                 required
                 help={
                   <Text id={target('help')} size="xsmall">
-                    Use your work email address.
+                    Create a password for your account.
                   </Text>
                 }
                 error={
                   <Text size="xsmall" color="text-critical">
-                    Include an @ character.
+                    Password must contain at least 12 characters.
                   </Text>
                 }
                 info={
                   <Text id={target('info')} size="xsmall">
-                    Used for account notifications.
+                    Use at least 12 characters, including a number and a symbol.
                   </Text>
                 }
               >
