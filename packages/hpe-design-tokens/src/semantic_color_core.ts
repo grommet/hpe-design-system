@@ -61,6 +61,7 @@ export const SEMANTIC_COLOR_ROLES_BY_TARGET = {
     'floating',
     'front',
     'info',
+    'input',
     'neutral',
     'ok',
     'primary',

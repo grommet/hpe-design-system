@@ -1,7 +1,7 @@
 {
   "name": "hpe-design-tokens",
   "description": "Design tokens for use with the HPE Design System.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "license": "Apache-2.0",
   "files": [
     "dist",
@@ -49,21 +49,21 @@
     "test": "vitest --watch=false"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-typescript": "^7.26.0",
+    "@babel/preset-env": "^8.0.7",
+    "@babel/preset-typescript": "^8.0.7",
     "@types/node": "catalog:",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
-    "axios": "^1.15.0",
+    "axios": "^1.21.0",
     "del": "^6.1.1",
-    "dotenv": "^16.3.1",
-    "fs-extra": "^11.2.0",
+    "dotenv": "^16.6.1",
+    "fs-extra": "^11.4.1",
     "prettier": "catalog:",
-    "simple-git": "^3.32.3",
-    "style-dictionary": "^4.2.0",
-    "style-dictionary-utils": "^3.0.0",
-    "tsx": "^4.21.0",
+    "simple-git": "^3.36.0",
+    "style-dictionary": "^4.4.0",
+    "style-dictionary-utils": "^3.3.2",
+    "tsx": "^4.23.15",
     "typescript": "catalog:",
-    "vitest": "^3.0.9"
+    "vitest": "^3.2.7"
   }
 }

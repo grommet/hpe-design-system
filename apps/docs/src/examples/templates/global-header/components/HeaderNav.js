@@ -1,18 +1,14 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import React, { useContext, useState } from 'react';
-import {
-  Avatar,
-  Box,
-  Button,
-  DropButton,
-  Nav,
-  ResponsiveContext,
-  Text,
-} from 'grommet';
+import { Box, Button, DropButton, Nav, ResponsiveContext, Text } from 'grommet';
 import { Help, Home } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from '@shared/aries-core';
 import { UserContext } from '.';
+import { UserAvatar } from './UserAvatar';
+
+const getInitials = ({ firstName = '', lastName = '' }) =>
+  `${firstName.charAt(0)}${lastName.charAt(0)}`;
 
 export const HeaderNav = () => {
   const size = useContext(ResponsiveContext);
@@ -34,18 +30,7 @@ export const HeaderNav = () => {
         onOpen={() => setOpen(true)}
         onClose={() => setOpen(false)}
       >
-        {!user.image ? (
-          // TODO: Consider a different background here.
-          // Temporary solution until there is a wider
-          // range of colors in the theme.
-          <Avatar background="decorative-green" flex={false}>
-            <Text size="large" color="text-strong">
-              JD
-            </Text>
-          </Avatar>
-        ) : (
-          <Avatar src={user.image} />
-        )}
+        <UserAvatar initials={getInitials(user)} />
       </DropButton>
     </Nav>
   ) : null;
@@ -56,18 +41,7 @@ const UserDetails = () => {
   return (
     <Box width="medium">
       <Box pad="medium" direction="row" gap="xsmall">
-        {user && !user.image ? (
-          // TODO: Consider a different background here.
-          // Temporary solution until there is a wider
-          // range of colors in the theme.
-          <Avatar background="decorative-green" flex={false} size="large">
-            <Text size="xlarge" color="text-strong">
-              JD
-            </Text>
-          </Avatar>
-        ) : (
-          <Avatar src={user.image} size="large" />
-        )}
+        <UserAvatar initials={getInitials(user)} size="large" />
         <Box pad={{ vertical: 'xsmall' }}>
           <TextEmphasis size="large">
             {`${user.firstName} ${user.lastName}`}

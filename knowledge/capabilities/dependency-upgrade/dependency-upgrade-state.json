@@ -4,6 +4,158 @@
   "minor": [],
   "major": [
     {
+      "package": "Babel 8 ecosystem",
+      "current": {
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.20.5",
+        "@babel/node": "^7.20.5",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/preset-react": "^7.28.5",
+        "@babel/preset-typescript": "^7.27.1"
+      },
+      "latest": "Babel 8.0.6/8.0.1",
+      "target": "Babel 8 ecosystem",
+      "source": "direct-and-catalog",
+      "riskTier": 4,
+      "packages": ["shared/aries-core", "packages/hpe-design-tokens"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "shared/aries-core/package.json",
+          "packages/hpe-design-tokens/package.json",
+          "pnpm-workspace.yaml",
+          "shared/aries-core/babel.config.js",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [
+          "Replaced Babel 7-only @babel/plugin-proposal-class-properties with @babel/plugin-transform-class-properties",
+          "Upgraded babel-loader from 8.x to 10.1.1 for Babel 8 peer compatibility"
+        ],
+        "migrationGuide": "https://babeljs.io/docs/v8-migration"
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "packages/hpe-design-tokens/package.json",
+        "pnpm-workspace.yaml",
+        "shared/aries-core/babel.config.js",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "babel:version": "pass - 8.0.6 (@babel/core 8.0.6)",
+        "babel-node:version": "pass - 8.0.6",
+        "build:aries-core": "pass",
+        "test:aries-core": "blocked by pre-existing syntax error in NavigationMenu.tsx:35; unchanged from HEAD",
+        "build:hpe-design-tokens": "pass",
+        "test:hpe-design-tokens": "pass - 14 files, 126 tests"
+      }
+    },
+    {
+      "package": "@testing-library/jest-dom + @types/node",
+      "current": {
+        "@testing-library/jest-dom": "^6.8.0",
+        "@types/node": ["^20.4.5", "^22.15.24"]
+      },
+      "latest": {
+        "@testing-library/jest-dom": "^7.0.1",
+        "@types/node": "^26.6.3"
+      },
+      "target": "coordinated Tier 3 upgrade",
+      "source": "direct-and-catalog",
+      "riskTier": 3,
+      "packages": ["shared/aries-core", "packages/hpe-design-tokens", "packages/knowledge-agent"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "shared/aries-core/package.json",
+          "packages/knowledge-agent/package.json",
+          "pnpm-workspace.yaml",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [],
+        "migrationGuide": "No source migration required; validate Jest DOM usage and Node/TypeScript type compatibility."
+      },
+      "modifiedFiles": [
+        "shared/aries-core/package.json",
+        "packages/knowledge-agent/package.json",
+        "pnpm-workspace.yaml",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "test:knowledge-agent": "pass - 2 files, 5 tests",
+        "test:aries-core": "pass - 1 suite, 30 tests",
+        "build:aries-core": "pass",
+        "build:hpe-design-tokens": "pass",
+        "resolvedDirectTargets": "pass - @testing-library/jest-dom 7.0.1 and @types/node 26.6.3"
+      }
+    },
+    {
+      "package": "@changesets/cli",
+      "current": "^2.27.9",
+      "latest": "^3.0.3",
+      "target": "^3.0.3",
+      "source": "direct",
+      "riskTier": 2,
+      "packages": ["aries"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "package.json",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [],
+        "migrationGuide": "Changesets v3 requires Node.js 18+; existing .changeset/config.json and standard CLI usage are compatible."
+      },
+      "modifiedFiles": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "node": "pass - v23.11.0",
+        "changeset:help": "pass",
+        "changeset:status": "pre-existing failure - catalog mismatches and skipped-package tree configuration; reproduced with @changesets/cli 2.31.1",
+        "diff:check": "pass"
+      }
+    },
+    {
+      "package": "@applitools/eyes-testcafe",
+      "current": "1.17.4",
+      "latest": "6.4.8",
+      "target": "6.4.8",
+      "source": "direct",
+      "riskTier": 1,
+      "packages": ["apps/docs"],
+      "status": "complete",
+      "plan": {
+        "filesToChange": [
+          "apps/docs/package.json",
+          "pnpm-lock.yaml"
+        ],
+        "breakingChangesApplied": [],
+        "migrationGuide": "No official version-specific migration guide found; preserve existing TestCafe and Applitools configuration unless verification identifies a concrete incompatibility."
+      },
+      "modifiedFiles": [
+        "apps/docs/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "repairFiles": [],
+      "verifiedAt": "2026-09-30T00:00:00.000Z",
+      "verificationResults": {
+        "install": "pass",
+        "build:docs": "pass",
+        "test:unit:docs": "pass - 66/66",
+        "testcafe:list-tests": "blocked - local port 52631 was already in use and macOS Screen Recording permission was required"
+      }
+    },
+    {
       "package": "vite",
       "current": "^5.4.21",
       "latest": "^8.2.1",

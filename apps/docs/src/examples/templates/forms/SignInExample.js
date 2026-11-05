@@ -49,7 +49,7 @@ const ResetPassword = ({ closeLayer, email }) => {
         width="medium"
       >
         <Heading level={2} margin="none">
-          Reset Password
+          Reset password
         </Heading>
         <Form
           validate="blur"
@@ -129,7 +129,7 @@ export const SignInExample = () => {
         section, therefor h2 is the semantically correct heading. For 
         additional detail, see https://design-system.hpe.design/foundation/typography#semantic-usage-of-heading-levels). */}
         <Heading level={2} margin="none">
-          Sign In
+          Sign in
         </Heading>
         <Text>to Hewlett Packard Enterprise</Text>
       </Header>
@@ -196,7 +196,7 @@ export const SignInExample = () => {
             margin={{ top: 'medium', bottom: 'xsmall' }}
           >
             <Button
-              label="Sign In"
+              label="Sign in"
               icon={<Right />}
               reverse
               primary

@@ -1,4 +1,3 @@
-import { Notification } from 'grommet';
 import {
   AccessibilitySection,
   BestPracticeGroup,
@@ -6,6 +5,7 @@ import {
 } from '../../layouts';
 import {
   AvatarAccessibilityExample,
+  AvatarColorExample,
   AvatarDarkModeExample,
   AvatarDataTableExample,
   AvatarDataTableIconExample,
@@ -31,13 +31,15 @@ Avatars are not the only components that provide visual representation. When app
 
 ## Anatomy
 
-Avatars can be displayed as an image, initials, or a logo. They come in three different sizes:
+Avatars can be displayed as an image, initials, or a logo. They come in five different sizes:
 
 | T-shirt size | Dimensions (in pixels) |
 | ------------ | ---------------------- |
+| **xsmall**   | 18x18px                |
 | **small**    | 24x24px                |
-| **medium**   | 48x48px                |
-| **large**    | 96x96px                |
+| **medium**   | 36x36px                |
+| **large**    | 48x48px                |
+| **xlarge**   | 72x72px                |
 
 The container of an avatar can be circular or a rounded square based on the use case.
 
@@ -58,6 +60,21 @@ When possible, provide both a light and dark mode version of a company logo. If 
 
 <Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/avatar/AvatarDarkModeExample.js">
   <AvatarDarkModeExample />
+</Example>
+
+## Using color with initials
+
+When an avatar shows initials, use an accent background. Accent backgrounds come
+in `weak` and `strong` variants for each hue. See [color pairing](/foundation/color-pairing)
+for full guidance on pairing text with weak and strong backgrounds.
+
+Color is decorative here and should never be the only way a user identifies an
+entity. Always pair the avatar with a name or other identifying text.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/avatar/AvatarColorExample.js"
+>
+  <AvatarColorExample />
 </Example>
 
 ## Avatar vs. Image
@@ -134,11 +151,6 @@ When applicable, an avatar is aligned to the left of the title within a PageHead
 </Example>
 
 ## Accessibility
-
-<Notification
-  status="warning"
-  message="If using a background color with Avatar use 'decorative-green' with 'text-strong' as the text to meet accessibility contrast requirements."
-/>
 
 Inform users of assistive technologies what the avatar represents by including an `a11yTitle`. This text will be read out by a screen reader when the user reaches the avatar.
 

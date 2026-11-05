@@ -100,11 +100,11 @@ accessibility:
   wcag:
     - criterion: 1.3.1 Info and Relationships
       status: conditional
-      note:
-        Page renders as a div with no intrinsic ARIA landmark role. Place Page
-        inside Main, and let the application shell provide the global Header and
-        Nav outside Main, so assistive technology can identify the application's
-        regions. If the shell already renders Main, do not add a second one.
+      notes:
+        - Page renders as a div with no intrinsic ARIA landmark role. Place Page
+          inside Main, and let the application shell provide the global Header and
+          Nav outside Main, so assistive technology can identify the application's
+          regions. If the shell already renders Main, do not add a second one.
     - criterion: 1.4.4 Resize Text
       status: pass
 relatedComponents:

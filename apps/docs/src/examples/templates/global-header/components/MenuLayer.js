@@ -3,7 +3,6 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Avatar,
   Box,
   Button,
   Header,
@@ -17,6 +16,7 @@ import { Close, Menu } from '@hpe-design/icons-grommet';
 // TODO replace with DS icon package when available
 import { Aruba } from 'grommet-icons';
 import { TextEmphasis } from '@shared/aries-core';
+import { UserAvatar } from './UserAvatar';
 
 export const MenuLayer = () => {
   const size = useContext(ResponsiveContext);
@@ -76,20 +76,12 @@ const SidebarHeader = () => (
     gap="medium"
     flex={false}
   >
-    <Box gap="3xsmall">
-      <Avatar
-        // TODO: Revisit when we have more
-        // token colors available.
-        background="decorative-green"
-        flex={false}
-        margin={{ bottom: '3xsmall' }}
-      >
-        <Text size="large" color="text-strong">
-          A
-        </Text>
-      </Avatar>
-      <TextEmphasis>AT&T Corporation</TextEmphasis>
-      <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
+    <Box gap="xsmall">
+      <UserAvatar initials="A" />
+      <Box gap="3xsmall">
+        <TextEmphasis>AT&T Corporation</TextEmphasis>
+        <Text size="small">ID: 0a7141c332ec4c4aae04aa4b8fe59deb</Text>
+      </Box>
     </Box>
     <Button label="Switch Account" secondary />
   </Box>

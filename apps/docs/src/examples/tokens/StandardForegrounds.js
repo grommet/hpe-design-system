@@ -21,8 +21,11 @@ export const StandardForegrounds = () => {
           'color.text.unknown',
           'color.text.heading',
         ].map(color => (
-          <Box key={color} direction="row" gap="xsmall" pad="xsmall">
-            <Text color={color.split('.').slice(1).join('-')}>Aa</Text> {color}
+          <Box key={color} direction="row" gap="3xsmall" pad="xsmall">
+            <Text 
+            color={color.split('.').slice(1).join('-')}
+            weight="bold"
+            >Aa</Text> {color}
           </Box>
         ))}
       </ContentPane>
@@ -38,8 +41,10 @@ export const StandardForegrounds = () => {
           'color.icon.info',
           'color.icon.unknown',
         ].map(color => (
-          <Box key={color} direction="row" gap="xsmall" pad="xsmall">
+          <Box key={color} direction="row" gap="3xsmall" pad="xsmall">
             <Trigger
+              aria-label={`Icon styled with ${color}`}
+              role="img"
               color={color.split('.').slice(1).join('-')}
               height="medium"
             />{' '}

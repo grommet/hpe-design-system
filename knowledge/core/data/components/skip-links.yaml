@@ -87,16 +87,16 @@ accessibility:
   wcag:
     - criterion: 2.4.1 Bypass Blocks
       status: pass
-      note:
-        SkipLinks satisfies WCAG 2.4.1 by providing a mechanism to skip repeated
-        navigation blocks. Place before the first repeated element on the page.
+      notes:
+        - SkipLinks satisfies WCAG 2.4.1 by providing a mechanism to skip repeated
+          navigation blocks. Place before the first repeated element on the page.
     - criterion: 2.1.1 Keyboard
       status: pass
     - criterion: 2.4.7 Focus Visible
       status: pass
-      note:
-        Skip links are only visible when focused, satisfying 2.4.7 and the spirit
-        of 2.4.11 Focus Appearance.
+      notes:
+        - Skip links are only visible when focused, satisfying 2.4.7 and the spirit
+          of 2.4.11 Focus Appearance.
 relatedComponents:
   - header
   - main

@@ -111,12 +111,12 @@ accessibility:
       status: conditional
     - criterion: 4.1.2 Name, Role, Value
       status: conditional
-      note:
-        When using the children prop with a custom control (e.g. a plain CheckBoxGroup
-        or RangeInput), ensure the control has an accessible label. The auto-generated
-        filter label above the control is not automatically associated via htmlFor/aria-labelledby
-        with a custom child. Pass a label prop directly on the child control or use
-        aria-labelledby pointing to the filter label element.
+      notes:
+        - When using the children prop with a custom control (e.g. a plain CheckBoxGroup
+          or RangeInput), ensure the control has an accessible label. The auto-generated
+          filter label above the control is not automatically associated via htmlFor/aria-labelledby
+          with a custom child. Pass a label prop directly on the child control or use
+          aria-labelledby pointing to the filter label element.
 relatedComponents:
   - data-filters
   - data
