@@ -32,10 +32,11 @@ rules:
       foreground-*. Two palettes are the exception: dataVis-* and
       decorative-* name no target and are applied by the consuming
       component, such as a chart series or an illustration. Never apply a
-      target-less status alias (status-critical, status-warning, status-ok,
-      status-unknown) to anything. Use target specific status colors instead (e.g., background-warning, text-critical). Never put an icon-* token on text or
-      a text-* token on an icon, even when both resolve to the same value
-      today.
+      target-less grommet-theme-hpe compatibility alias (status-critical,
+      status-warning, status-ok, status-unknown) to anything. Use
+      target-specific semantic color tokens instead (e.g., background-warning,
+      text-critical). Never put an icon-* token on text or a text-* token on
+      an icon, even when both resolve to the same value today.
     rationale: >
       The semantic layer decides per target how a role is shown: critical
       text and critical icons are red, but warning icons are orange while
@@ -124,9 +125,11 @@ rules:
     rationale: >
       Decorative colors are not contrast-tested against text and icon
       tokens, so a decorative background behind a label can fail WCAG. The
-      accent palette exists for exactly that case and is validated against
-      text-default, text-strong, and text-weak in both modes. Status has its
-      own tokens, and borrowing a hue for it breaks the one-signal rule.
+      accent palette exists for exactly that case: weak accent backgrounds
+      are validated against the default, strong, and weak text and icon
+      tokens, and strong accent backgrounds against text-onStrong and
+      icon-onStrong, in both modes. Status has its own tokens, and borrowing
+      a hue for it breaks the one-signal rule.
     relatedTo:
       - kind: rule
         id: color-names-its-target
