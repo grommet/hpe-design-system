@@ -320,8 +320,8 @@ rules:
         would resolve to 6px there and fail.
       code: |
         <Box direction="row" gap="small">
-          <Button plain a11yTitle="Edit" icon={<Edit />} />
-          <Button plain a11yTitle="Delete" icon={<Trash />} />
+          <Button plain a11yTitle="Edit" icon={<Edit aria-hidden="true" />} />
+          <Button plain a11yTitle="Delete" icon={<Trash aria-hidden="true" />} />
         </Box>
     relatedTo:
       - kind: external
