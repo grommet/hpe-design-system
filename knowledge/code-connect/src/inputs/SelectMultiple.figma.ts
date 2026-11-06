@@ -4,6 +4,14 @@
 
 import figma from 'figma';
 
+const options = figma.helpers.react.array([
+  'Azure ISO27001:2013',
+  'Azure MAS-TRM:v2019.03',
+  'Azure NIST800-53:R4',
+  'Azure NZISM:v3.2',
+  'Azure Security Health Check',
+  'Butterfly:v1.0',
+]);
 const value = figma.selectedInstance.getEnum('has Value', {
   false: undefined,
   true: figma.helpers.react.array([
@@ -36,7 +44,10 @@ const showSelectedInline = figma.selectedInstance.getEnum('Selected Inline', {
 export default {
   id: 'SelectMultiple',
   imports: ["import { SelectMultiple } from 'grommet';"],
-  example: figma.code`<SelectMultiple name="select-multiple" placeholder="Select multiple items" searchPlaceholder="Search Frameworks" options={options}${figma.helpers.react.renderProp(
+  example: figma.code`<SelectMultiple name="select-multiple" placeholder="Select multiple items" searchPlaceholder="Search Frameworks"${figma.helpers.react.renderProp(
+    'options',
+    options,
+  )}${figma.helpers.react.renderProp(
     'value',
     value,
   )}${figma.helpers.react.renderProp(

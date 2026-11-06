@@ -51,7 +51,10 @@ const id = figma.selectedInstance.getEnum('State', {
 
 export default {
   id: 'DateInput',
-  imports: ["import { DateInput } from 'grommet';"],
+  imports: [
+    "import { DateInput } from 'grommet';",
+    "import { Calendar } from '@hpe-design/icons-grommet';",
+  ],
   example: figma.code`<DateInput${figma.helpers.react.renderProp(
     'id',
     id,

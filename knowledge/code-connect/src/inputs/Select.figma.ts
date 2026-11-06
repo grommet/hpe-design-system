@@ -4,6 +4,14 @@
 
 import figma from 'figma';
 
+const options = figma.helpers.react.array([
+  'Item one',
+  'Item two',
+  'Item three',
+  'Item four',
+  'Item five',
+  'Item six',
+]);
 const value = figma.selectedInstance.getEnum('is Value', {
   false: undefined,
   true: 'Item three',
@@ -28,7 +36,10 @@ const focusIndicator = figma.selectedInstance.getEnum('State', {
 export default {
   id: 'Select',
   imports: ["import { Select } from 'grommet';"],
-  example: figma.code`<Select name="select" placeholder="Select item" options={options}${figma.helpers.react.renderProp(
+  example: figma.code`<Select name="select" placeholder="Select item"${figma.helpers.react.renderProp(
+    'options',
+    options,
+  )}${figma.helpers.react.renderProp(
     'value',
     value,
   )}${figma.helpers.react.renderProp(
