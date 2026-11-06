@@ -36,7 +36,10 @@ const focusIndicator = figma.selectedInstance.getEnum('State', {
 export default {
   id: 'Select',
   imports: ["import { Select } from 'grommet';"],
-  example: figma.code`<Select name="select" placeholder="Select item"${figma.helpers.react.renderProp(
+  example: figma.code`
+  <Select name="select"
+    placeholder="Select item"
+  ${figma.helpers.react.renderProp(
     'options',
     options,
   )}${figma.helpers.react.renderProp(
