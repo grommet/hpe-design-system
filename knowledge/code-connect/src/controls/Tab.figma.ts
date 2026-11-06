@@ -11,7 +11,10 @@ const showIcon = figma.selectedInstance.getBoolean('show Icon', {
 
 export default {
   id: 'Tab',
-  imports: ["import { Box, Tab } from 'grommet';"],
+  imports: [
+    "import { Box, Tab } from 'grommet';",
+    "import { Info as CircleInformation } from '@hpe-design/icons-grommet';",
+  ],
   example: figma.code`<Tab title="Label"${figma.helpers.react.renderProp(
     'icon',
     showIcon,
