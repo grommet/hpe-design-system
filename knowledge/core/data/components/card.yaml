@@ -15,7 +15,10 @@ props:
     type: "'none' | 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large'
       | 'xlarge'"
     required: false
-    description: Padding size token
+    description:
+      Padding on the Card container. Leave unset — the HPE theme already pads
+      CardHeader, CardBody, and CardFooter (medium), so pad on Card stacks with
+      that and doubles the inset (48px instead of 24px).
     defaultValue: "'none'"
   - name: elevation
     type: "'none' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'"
@@ -46,19 +49,34 @@ usage:
   whenToAvoid:
     - Do not nest cards too deeply.
     - Do not hardcode background colors.
+    - Do not set pad on Card, CardHeader, CardBody, or CardFooter. The HPE theme
+      owns card padding (medium on header and body, medium/xsmall on footer);
+      pad on Card adds to the sub-component padding and doubles the inset, and pad
+      on the sub-components overrides theme-owned spacing.
 examples:
   - description: Basic Card with Header
-    code:
-      "<Card background=\"background-front\" pad=\"medium\">\n  <CardHeader>\n \
-      \   <Heading level={3}>User Profile</Heading>\n  </CardHeader>\n  <CardBody>\n\
-      \    <Text>Name: John Doe</Text>\n  </CardBody>\n</Card>"
+    code: |-
+      <Card background="background-front">
+        <CardHeader>
+          <Heading level={3} margin="none">User Profile</Heading>
+        </CardHeader>
+        <CardBody>
+          <Text>Name: John Doe</Text>
+        </CardBody>
+      </Card>
   - description: Card with Footer
-    code:
-      "<Card background=\"background-front\">\n  <CardHeader pad=\"medium\">\n \
-      \   <Heading level={3} margin=\"none\">Settings</Heading>\n  </CardHeader>\n \
-      \ <CardBody pad=\"medium\">\n    <Text>Configuration options...</Text>\n  </CardBody>\n\
-      \  <CardFooter pad=\"medium\" background=\"background-contrast\">\n    <Button\
-      \ label=\"Save\" primary />\n  </CardFooter>\n</Card>"
+    code: |-
+      <Card background="background-front">
+        <CardHeader>
+          <Heading level={3} margin="none">Settings</Heading>
+        </CardHeader>
+        <CardBody>
+          <Text>Configuration options...</Text>
+        </CardBody>
+        <CardFooter background="background-contrast">
+          <Button label="Save" primary />
+        </CardFooter>
+      </Card>
 variants:
   - name: informational
     description:
@@ -67,10 +85,11 @@ variants:
     when:
       Dashboards, profile summaries, and content grouping where no per-card action
       is available.
-    example:
-      "<Card background=\"background-front\">\n  <CardHeader pad=\"small\"><Heading\
-      \ level={3} margin=\"none\">Title</Heading></CardHeader>\n  <CardBody pad=\"small\"\
-      ><Text>Content goes here.</Text></CardBody>\n</Card>"
+    example: |-
+      <Card background="background-front">
+        <CardHeader><Heading level={3} margin="none">Title</Heading></CardHeader>
+        <CardBody><Text>Content goes here.</Text></CardBody>
+      </Card>
   - name: clickable
     description:
       The entire card surface is an interactive target that navigates or
@@ -78,10 +97,10 @@ variants:
     when:
       Grid or list of items where each card leads to a detail view. Add role='button'
       (or wrap in Anchor) and tabIndex={0} for keyboard access.
-    example:
-      "<Card background=\"background-front\" onClick={() => navigate(`/items/${item.id}`)}\
-      \ role=\"button\" tabIndex={0} focusIndicator>\n  <CardBody pad=\"medium\"><Text>{item.name}</Text></CardBody>\n\
-      </Card>"
+    example: |-
+      <Card background="background-front" onClick={() => navigate(`/items/${item.id}`)} role="button" tabIndex={0} focusIndicator>
+        <CardBody><Text>{item.name}</Text></CardBody>
+      </Card>
   - name: metric
     description:
       Displays a large numeric value with a supporting label. Common in executive
@@ -89,10 +108,13 @@ variants:
     when:
       KPI tiles and stat summaries where a single quantitative measure needs visual
       emphasis.
-    example:
-      "<Card background=\"background-front\" pad=\"medium\">\n  <CardBody align=\"\
-      center\" gap=\"xsmall\">\n    <Text size=\"xxlarge\" weight=\"bold\">99.9%</Text>\n\
-      \    <Text color=\"text-weak\">Uptime</Text>\n  </CardBody>\n</Card>"
+    example: |-
+      <Card background="background-front">
+        <CardBody align="center" gap="xsmall">
+          <Text size="xxlarge" weight="bold">99.9%</Text>
+          <Text color="text-weak">Uptime</Text>
+        </CardBody>
+      </Card>
   - name: status
     description:
       Uses a color-coded left border, badge, or icon to communicate health
@@ -100,10 +122,10 @@ variants:
     when:
       System health dashboards, incident lists, or any context where the card's
       state must be immediately scannable without reading the content.
-    example:
-      "<Card border={{ side: 'left', size: 'medium', color: 'status-critical'\
-      \ }} background=\"background-front\" pad=\"medium\">\n  <CardBody><Text>Service\
-      \ degraded</Text></CardBody>\n</Card>"
+    example: |-
+      <Card border={{ side: 'left', size: 'medium', color: 'status-critical' }} background="background-front">
+        <CardBody><Text>Service degraded</Text></CardBody>
+      </Card>
 anatomy:
   - label: '1'
     region: Card container
