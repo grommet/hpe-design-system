@@ -44,24 +44,29 @@ const showSelectedInline = figma.selectedInstance.getEnum('Selected Inline', {
 export default {
   id: 'SelectMultiple',
   imports: ["import { SelectMultiple } from 'grommet';"],
-  example: figma.code`<SelectMultiple name="select-multiple" placeholder="Select multiple items" searchPlaceholder="Search Frameworks"${figma.helpers.react.renderProp(
-    'options',
-    options,
-  )}${figma.helpers.react.renderProp(
-    'value',
-    value,
-  )}${figma.helpers.react.renderProp(
-    'disabled',
-    disabled,
-  )}${figma.helpers.react.renderProp(
-    'open',
-    open,
-  )}${figma.helpers.react.renderProp(
-    'focusIndicator',
-    focusIndicator,
-  )}${figma.helpers.react.renderProp(
-    'showSelectedInline',
-    showSelectedInline,
-  )}/>`,
+  example: figma.code`
+    <SelectMultiple
+      name="select-multiple"
+      placeholder="Select multiple items"
+      searchPlaceholder="Search Frameworks"${figma.helpers.react.renderProp(
+        'options',
+        options,
+      )}${figma.helpers.react.renderProp(
+        'value',
+        value,
+      )}${figma.helpers.react.renderProp(
+        'disabled',
+        disabled,
+      )}${figma.helpers.react.renderProp(
+        'open',
+        open,
+      )}${figma.helpers.react.renderProp(
+        'focusIndicator',
+        focusIndicator,
+      )}${figma.helpers.react.renderProp(
+        'showSelectedInline',
+        showSelectedInline,
+      )}
+    />`,
   metadata: { nestable: true },
 };
