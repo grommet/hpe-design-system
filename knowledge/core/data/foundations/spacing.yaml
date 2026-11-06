@@ -121,12 +121,16 @@ rules:
 
   - id: spacing-do-not-override-theme-owned-padding
     statement: >
-      Do not pass pad to PageContent, PageHeader, CardHeader, CardBody, or
-      CardFooter unless you are deliberately replacing the theme's padding.
+      Do not pass pad to Card, PageContent, PageHeader, CardHeader, CardBody,
+      or CardFooter unless you are deliberately replacing the theme's padding.
+      Put gap on CardBody, not pad on Card.
     rationale: >
-      A pad prop replaces the theme value; it does not merge with it. On
-      PageContent, even pad={{ bottom: 'xlarge' }} removes the responsive
-      horizontal page margins entirely.
+      On the sub-components a pad prop replaces the theme value; it does not
+      merge with it. On PageContent, even pad={{ bottom: 'xlarge' }} removes
+      the responsive horizontal page margins entirely. The Card container is
+      the opposite case: the theme gives it no pad and pads CardHeader,
+      CardBody and CardFooter instead, so pad="medium" on Card adds to the
+      inset and renders content 48px from the edge instead of 24px.
 
   - id: spacing-parents-space-children
     statement: >
@@ -268,8 +272,10 @@ rules:
 
   - id: spacing-surface-padding-exceeds-inner-gap
     statement: >
-      A surface's padding should exceed the gap between its contents. Use
-      pad="medium" with gap="small" as the default pairing.
+      A surface's padding should exceed the gap between its contents. On a
+      bespoke Box surface use pad="medium" with gap="small" as the default
+      pairing. A Card already receives medium padding from CardBody, so set
+      gap="small" on CardBody and add no pad to the Card.
     rationale: >
       If padding is not larger than the inner gap, content appears to touch
       the edge and the surface stops reading as a container. Card body

@@ -87,11 +87,15 @@ examples:
     code:
       "<Box fill align=\"center\" justify=\"center\" pad=\"large\">\n  <Text>Centered\
       \ Content</Text>\n</Box>"
-  - description: Card-like Container
-    code:
-      "<Box background=\"background-front\" pad=\"medium\" round=\"small\" gap=\"\
-      small\">\n  <Heading level={4}>Title</Heading>\n  <Text>Content goes here</Text>\n\
-      </Box>"
+  - description: Styled surface for general grouping (not a Card)
+    code: |-
+      {/* A bespoke surface pads itself (pad="medium"); a Card does not — its
+          CardBody already carries the inset. Use Card for a self-contained summary
+          of one topic (layout-use-card-for-self-contained-peers). */}
+      <Box background="background-front" pad="medium" round="small" gap="small">
+        <Heading level={4} margin="none">Title</Heading>
+        <Text>Content goes here</Text>
+      </Box>
 variants:
   - name: layout-column
     description:
@@ -107,11 +111,13 @@ variants:
       label="Action" /></Box>
   - name: card-surface
     description:
-      Box styled as a card surface with background, elevation, and border
-      radius.
+      Box styled as a surface with background, elevation, and border radius.
+      Because it is a bespoke surface it pads itself; this is the one place
+      pad="medium" belongs, never on a Card.
     when:
-      Lightweight content grouping without the full CardHeader/CardBody/CardFooter
-      structure. Use Card when sub-regions are needed.
+      General grouping that needs a styled surface but is not a self-contained
+      summary of a single topic. Use Card (without pad) when the content is a
+      scannable, independent summary or needs CardHeader/CardBody/CardFooter.
     example:
       <Box background="background-front" round="small" elevation="small" pad="medium"
       gap="small"><Text>Content</Text></Box>
