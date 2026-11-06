@@ -1,10 +1,16 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ComponentType } from 'react';
 import { Box, Card, CardBody, Paragraph, Tag, Text } from 'grommet';
-import { TextEmphasis } from '@shared/aries-core';
+import {
+  TextEmphasis as JavaScriptTextEmphasis,
+} from '../../typography/TextEmphasis';
 
-type ServiceCardProps = Omit<ComponentProps<typeof Card>, 'children'> & {
+const TextEmphasis = JavaScriptTextEmphasis as ComponentType<
+  ComponentProps<typeof Text>
+>;
+
+export type ServiceCardProps = Omit<ComponentProps<typeof Card>, 'children'> & {
   category: string;
   description: string;
   tag?: string;

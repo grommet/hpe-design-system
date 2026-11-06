@@ -1,19 +1,26 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ComponentType } from 'react';
 import { Box, Text } from 'grommet';
 import { Ascending, Descending } from '@hpe-design/icons-grommet';
-import { TextEmphasis } from '@shared/aries-core';
+import {
+  TextEmphasis as JavaScriptTextEmphasis,
+} from '../../typography/TextEmphasis';
 
-// Change relative to the previous period, e.g. "2%". The icon conveys the
-// direction visually; the accessible name is carried by the parent group.
-type TrendDirection = 'up' | 'down';
+// TextEmphasis forwards Text props; bridge its untyped JavaScript signature.
+const TextEmphasis = JavaScriptTextEmphasis as ComponentType<
+  ComponentProps<typeof Text>
+>;
 
-type TrendProps = {
+export type TrendDirection = 'up' | 'down';
+
+export type TrendProps = {
   direction?: TrendDirection;
   value: string;
 };
 
+// Change relative to the previous period, e.g. "2%". The icon conveys the
+// direction visually; the accessible name is carried by the parent group.
 function Trend({ direction = 'up', value }: TrendProps) {
   const Icon = direction === 'down' ? Descending : Ascending;
   return (
@@ -27,7 +34,7 @@ function Trend({ direction = 'up', value }: TrendProps) {
 // Large metric value with an optional unit and trend aligned to its baseline.
 // The group is announced as one phrase, e.g. "99.98 %, up 0.03%", rather
 // than as separate fragments.
-type MetricValueProps = {
+export type MetricValueProps = {
   size?: ComponentProps<typeof TextEmphasis>['size'];
   trend?: string;
   trendDirection?: TrendDirection;

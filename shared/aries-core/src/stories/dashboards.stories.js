@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 import { DashboardExample } from 'apps/docs/src/examples/templates/dashboards/DashboardExample';
-import { OverviewDashboard } from 'apps/docs/src/examples/templates/dashboards/OverviewDashboard';
 import { ThreeColumnDashboard } from 'apps/docs/src/examples/templates/dashboards';
 import { TwoColumnDashboard } from 'apps/docs/src/examples/templates/dashboards/TwoColumnDashboard';
 import DashboardExampleSource from 'apps/docs/src/examples/templates/dashboards/DashboardExample.js?raw';
-import OverviewDashboardSource from 'apps/docs/src/examples/templates/dashboards/OverviewDashboard.tsx?raw';
 import ThreeColumnDashboardSource from 'apps/docs/src/examples/templates/dashboards/ThreeColumnDashboard.js?raw';
 import TwoColumnDashboardSource from 'apps/docs/src/examples/templates/dashboards/TwoColumnDashboard.js?raw';
+import { OverviewDashboard } from '../js/examples/dashboards/overview/OverviewDashboard';
+import OverviewDashboardSource from '../js/examples/dashboards/overview/OverviewDashboard.tsx?raw';
 
 const meta = {
   title: 'Patterns/Dashboards',

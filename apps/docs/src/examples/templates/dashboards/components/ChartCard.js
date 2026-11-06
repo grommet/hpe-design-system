@@ -13,9 +13,7 @@ import {
 import { DashboardCardHeader } from '.';
 
 export const ChartCard = ({
-  action,
   title,
-  level = 2,
   subtitle,
   children,
   footer,
@@ -35,12 +33,7 @@ export const ChartCard = ({
             : { horizontal: header.pad, top: header.pad, bottom: 'xsmall' }
         }
       >
-        <DashboardCardHeader
-          action={action}
-          title={title}
-          level={level}
-          subtitle={subtitle}
-        />
+        <DashboardCardHeader title={title} level={2} subtitle={subtitle} />
       </CardHeader>
       <CardBody
         pad={
@@ -68,11 +61,9 @@ export const ChartCard = ({
 };
 
 ChartCard.propTypes = {
-  action: PropTypes.node,
   children: PropTypes.node,
   footer: PropTypes.node,
-  level: PropTypes.number,
   onClick: PropTypes.func,
-  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  subtitle: PropTypes.string,
   title: PropTypes.string,
 };

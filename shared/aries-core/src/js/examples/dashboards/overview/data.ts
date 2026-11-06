@@ -1,6 +1,9 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import type { AttentionStatus, SlaStatus } from '../../components/status';
+import type {
+  AttentionStatus,
+  SlaStatus,
+} from '../../../components/helpers/Dashboard/status';
 
 // The incoming theme update inverts today's layered background approach:
 // the page is white and content surfaces are light grey. Until the official

@@ -2,8 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { ReactNode } from 'react';
 import { Anchor, Box, Text } from 'grommet';
-import { StatusIcon } from '../../../components/status';
-import type { DashboardStatus } from '../../../components/status';
+import { StatusIcon } from '../../../../components/helpers/Dashboard/status';
+import type {
+  DashboardStatus,
+} from '../../../../components/helpers/Dashboard/status';
 
 // Verdict line that stays quiet while things are fine. The status icon is
 // only rendered for warning and critical, so "good" is not repeated in every

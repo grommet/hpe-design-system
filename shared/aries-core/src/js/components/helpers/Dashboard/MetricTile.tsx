@@ -3,7 +3,7 @@
 import type { ComponentProps, ReactNode } from 'react';
 import { Box, Card, CardBody, Heading, Text } from 'grommet';
 
-type MetricTileProps = Omit<ComponentProps<typeof Card>, 'children'> & {
+export type MetricTileProps = Omit<ComponentProps<typeof Card>, 'children'> & {
   children?: ReactNode;
   description?: ReactNode;
   level?: ComponentProps<typeof Heading>['level'];

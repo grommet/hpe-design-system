@@ -2,8 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { ComponentProps } from 'react';
 import { Box, Heading } from 'grommet';
-import { MetricGroup } from '../../../components/MetricGroup';
-import { MetricTile } from '../../../components/MetricTile';
+import {
+  MetricGroup,
+} from '../../../../components/helpers/Dashboard/MetricGroup';
+import {
+  MetricTile,
+} from '../../../../components/helpers/Dashboard/MetricTile';
 import { surfaceBackground } from '../data';
 
 export const HealthSection = ({
