@@ -123,7 +123,7 @@ variants:
       System health dashboards, incident lists, or any context where the card's
       state must be immediately scannable without reading the content.
     example: |-
-      <Card border={{ side: 'left', size: 'medium', color: 'status-critical' }} background="background-front">
+      <Card border={{ side: 'left', size: 'medium', color: 'border-critical' }} background="background-front">
         <CardBody><Text>Service degraded</Text></CardBody>
       </Card>
 anatomy:

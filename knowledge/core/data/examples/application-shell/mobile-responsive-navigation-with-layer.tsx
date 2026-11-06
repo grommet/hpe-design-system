@@ -32,7 +32,8 @@ export const NavigationPanel = ({ activeItem, setActiveItem, items }) => {
     <>
       <Box justify="center" fill pad={{ horizontal: 'xxsmall' }}>
         <Button
-          icon={<Menu />}
+          icon={<Menu aria-hidden="true" />}
+          a11yTitle="Open navigation"
           onClick={() => setOpenLayer(true)}
         />
       </Box>
