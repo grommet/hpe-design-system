@@ -26,11 +26,10 @@ graph:
     - id: card-header
       componentId: card
       role: card header
-      props:
-        pad: 'medium'
+      props: {}
       children: [heading-login]
       binding: static
-      notes: CardHeader sub-region of Card; maps to componentId card with role disambiguation.
+      notes: CardHeader sub-region of Card; maps to componentId card with role disambiguation. No pad — the theme pads CardHeader.
 
     - id: heading-login
       componentId: heading
@@ -45,11 +44,10 @@ graph:
     - id: card-body
       componentId: card
       role: card body
-      props:
-        pad: 'medium'
+      props: {}
       children: [form-login]
       binding: static
-      notes: CardBody sub-region of Card.
+      notes: CardBody sub-region of Card. No pad — the theme pads CardBody.
 
     - id: form-login
       componentId: form

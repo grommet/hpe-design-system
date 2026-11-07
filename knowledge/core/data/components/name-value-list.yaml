@@ -54,11 +54,17 @@ variants:
       Each pair is displayed as a row with the name on the left and value
       on the right (default).
     when: Displaying a short list of metadata properties on a detail view.
-    example:
-      "<NameValueList>\n  <NameValuePair name=\"Status\">\n    <Text color=\"\
-      status-ok\">Online</Text>\n  </NameValuePair>\n  <NameValuePair name=\"Region\"\
-      >US West</NameValuePair>\n  <NameValuePair name=\"OS\">Ubuntu 22.04 LTS</NameValuePair>\n\
-      </NameValueList>"
+    example: |-
+      <NameValueList>
+        <NameValuePair name="Status">
+          <Box direction="row" gap="xsmall" align="center">
+            <StatusGood aria-hidden="true" color="icon-ok" />
+            <Text>Online</Text>
+          </Box>
+        </NameValuePair>
+        <NameValuePair name="Region">US West</NameValuePair>
+        <NameValuePair name="OS">Ubuntu 22.04 LTS</NameValuePair>
+      </NameValueList>
   - name: grid-layout
     description:
       Pairs flow into a multi-column grid, maximizing use of wide screen
@@ -126,14 +132,28 @@ behaviors:
     - Grid layout wraps based on available space
 examples:
   - description: Server detail card
-    code:
-      "<Card pad=\"medium\">\n  <CardHeader>\n    <Heading level={3} margin=\"none\"\
-      >Server details</Heading>\n  </CardHeader>\n  <CardBody>\n    <NameValueList>\n\
-      \      <NameValuePair name=\"Name\">app-server-01</NameValuePair>\n      <NameValuePair\
-      \ name=\"Status\">\n        <Text color=\"status-ok\">Running</Text>\n      </NameValuePair>\n\
-      \      <NameValuePair name=\"IP address\">10.0.0.23</NameValuePair>\n      <NameValuePair\
-      \ name=\"Region\">us-west-2</NameValuePair>\n      <NameValuePair name=\"OS\"\
-      >Ubuntu 22.04 LTS</NameValuePair>\n    </NameValueList>\n  </CardBody>\n</Card>"
+    code: |-
+      import { StatusGood } from '@hpe-design/icons-grommet';
+
+      <Card>
+        <CardHeader>
+          <Heading level={3} margin="none">Server details</Heading>
+        </CardHeader>
+        <CardBody>
+          <NameValueList>
+            <NameValuePair name="Name">app-server-01</NameValuePair>
+            <NameValuePair name="Status">
+              <Box direction="row" gap="xsmall" align="center">
+                <StatusGood aria-hidden="true" color="icon-ok" />
+                <Text>Running</Text>
+              </Box>
+            </NameValuePair>
+            <NameValuePair name="IP address">10.0.0.23</NameValuePair>
+            <NameValuePair name="Region">us-west-2</NameValuePair>
+            <NameValuePair name="OS">Ubuntu 22.04 LTS</NameValuePair>
+          </NameValueList>
+        </CardBody>
+      </Card>
   - description: Grid layout for many attributes
     code:
       "<NameValueList layout=\"grid\">\n  <NameValuePair name=\"CPU\">16 cores</NameValuePair>\n\
@@ -149,16 +169,29 @@ examples:
       \ />\n  </NameValuePair>\n  <NameValuePair name=\"Owner\">\n    <Anchor href=\"\
       /users/jsmith\" label=\"Jane Smith\" />\n  </NameValuePair>\n</NameValueList>"
   - description: Read-only summary in a side panel
-    code:
-      "<Box width=\"medium\" pad=\"medium\">\n  <Heading level={4} margin={{ top:\
-      \ 'none', bottom: 'small' }}>Instance summary</Heading>\n  <NameValueList>\n \
-      \   <NameValuePair name=\"Instance ID\">{instance.id}</NameValuePair>\n    <NameValuePair\
-      \ name=\"Type\">{instance.type}</NameValuePair>\n    <NameValuePair name=\"State\"\
-      >\n      <Box direction=\"row\" gap=\"xsmall\" align=\"center\">\n        <StatusGoodSmall\
-      \ color={instance.state === 'running' ? 'status-ok' : 'status-unknown'} />\n \
-      \       <Text>{instance.state}</Text>\n      </Box>\n    </NameValuePair>\n  \
-      \  <NameValuePair name=\"Launch time\">\n      {new Date(instance.launchTime).toLocaleString()}\n\
-      \    </NameValuePair>\n  </NameValueList>\n</Box>"
+    code: |-
+      import { StatusGood, StatusUnknown } from '@hpe-design/icons-grommet';
+
+      <Box width="medium" pad="medium">
+        <Heading level={4} margin={{ top: 'none', bottom: 'small' }}>Instance summary</Heading>
+        <NameValueList>
+          <NameValuePair name="Instance ID">{instance.id}</NameValuePair>
+          <NameValuePair name="Type">{instance.type}</NameValuePair>
+          <NameValuePair name="State">
+            <Box direction="row" gap="xsmall" align="center">
+              {instance.state === 'running' ? (
+                <StatusGood aria-hidden="true" color="icon-ok" />
+              ) : (
+                <StatusUnknown aria-hidden="true" color="icon-unknown" />
+              )}
+              <Text>{instance.state}</Text>
+            </Box>
+          </NameValuePair>
+          <NameValuePair name="Launch time">
+            {new Date(instance.launchTime).toLocaleString()}
+          </NameValuePair>
+        </NameValueList>
+      </Box>
 accessibility:
   keyboard: []
   aria:

@@ -37,7 +37,9 @@ props:
   - name: background
     type: string
     required: false
-    description: Background color token or hex value for the tag container
+    description:
+      Background color token for the tag container. Use theme tokens (e.g.
+      background-contrast); never hex values and never status colors.
   - name: border
     type: boolean | string | object
     required: false
@@ -86,10 +88,12 @@ variants:
       \      a11yTitle={`Filter by ${opt.label}`}\n    />\n  ))}\n</Box>"
   - name: highlight
     description: Visually emphasized tag to draw attention to a key attribute.
-    when: One attribute is especially important and warrants a distinct visual treatment.
-    example:
-      "<Tag\n  name=\"Priority\"\n  value=\"Critical\"\n  background=\"status-critical\"\
-      \n/>"
+    when:
+      One attribute is especially important and warrants a distinct visual treatment.
+      Use a neutral emphasis token; never a status color — severity belongs to the
+      status-indicator pattern, not to a Tag.
+    example: |-
+      <Tag name="Owner" value="Primary" background="background-contrast" />
 anatomy:
   - label: tag container
     region: root
@@ -126,12 +130,17 @@ behaviors:
     - Inline, wraps naturally in flex containers
 examples:
   - description: Metadata tags on a resource card
-    code:
-      "<Card>\n  <CardBody pad=\"medium\">\n    <Heading level={4} margin={{ top:\
-      \ 'none', bottom: 'xsmall' }}>web-server-01</Heading>\n    <Box direction=\"row\"\
-      \ gap=\"xsmall\" wrap>\n      <Tag name=\"Region\" value=\"eu-west-1\" />\n  \
-      \    <Tag name=\"OS\" value=\"RHEL 9\" />\n      <Tag name=\"Cluster\" value=\"\
-      prod-cluster-a\" />\n    </Box>\n  </CardBody>\n</Card>"
+    code: |-
+      <Card>
+        <CardBody>
+          <Heading level={4} margin={{ top: 'none', bottom: 'xsmall' }}>web-server-01</Heading>
+          <Box direction="row" gap="xsmall" wrap>
+            <Tag name="Region" value="eu-west-1" />
+            <Tag name="OS" value="RHEL 9" />
+            <Tag name="Cluster" value="prod-cluster-a" />
+          </Box>
+        </CardBody>
+      </Card>
   - description: Removable tag list
     code:
       "const [appliedTags, setAppliedTags] = useState(['critical', 'storage', 'us-east']);\n\

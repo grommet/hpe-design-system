@@ -84,7 +84,7 @@ variants:
       issue.
     when: An API call fails and content cannot be displayed.
     example:
-      "<EmptyState\n  icon={<Disconnect size=\"xlarge\" color=\"status-critical\"\
+      "<EmptyState\n  icon={<CloudOffline size=\"xlarge\" color=\"icon-critical\" aria-hidden=\"true\"\
       \ />}\n  heading=\"Unable to load data\"\n  description=\"Check your network connection\
       \ and try again.\"\n  action={\n    <Button label=\"Retry\" primary onClick={handleRetry}\
       \ />\n  }\n/>"
