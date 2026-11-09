@@ -49,7 +49,7 @@ jobs:
         run: |
           test "$WORKFLOW_REF" = "$DEFAULT_BRANCH"
           test "$CIRCLECI_CONFIRMED" = "true"
-          [[ "$CIRCLECI_RUN_URL" == https://* ]]
+          [[ "$CIRCLECI_RUN_URL" == https://app.circleci.com/* || "$CIRCLECI_RUN_URL" == https://circleci.com/* ]]
 
       - name: Check out dispatched default-branch commit
         uses: actions/checkout@v4
@@ -145,8 +145,11 @@ jobs:
           const metadata = {
             package: process.env.PACKAGE_NAME,
             version: process.env.REQUESTED_VERSION,
+            requested_version: process.env.REQUESTED_VERSION,
             commit_sha: process.env.GITHUB_SHA,
             circleci_run_url: process.env.CIRCLECI_RUN_URL,
+            circleci_confirmed: true,
+            circleci_checks_passed: true,
             circleci_confirmed_by: process.env.GITHUB_ACTOR,
             artifact_sha256: fs.readFileSync(
               `${process.env.GITHUB_WORKSPACE}/release-artifact/tarball.sha256`,
@@ -169,6 +172,7 @@ jobs:
       - name: Write candidate evidence summary
         env:
           PACKAGE_NAME: ${{ inputs.package }}
+          PACKAGE_ID: ${{ steps.package.outputs.package_id }}
           REQUESTED_VERSION: ${{ inputs.version }}
           CIRCLECI_RUN_URL: ${{ inputs.circleci_run_url }}
         run: |
@@ -179,7 +183,10 @@ jobs:
             echo "| --- | --- |"
             echo "| Package | $PACKAGE_NAME |"
             echo "| Version | $REQUESTED_VERSION |"
+            echo "| Candidate run | $GITHUB_RUN_ID |"
+            echo "| Artifact | hpe-icons-$PACKAGE_ID-$REQUESTED_VERSION-candidate |"
             echo "| Commit | $GITHUB_SHA |"
-            echo "| CircleCI confirmation | $CIRCLECI_RUN_URL (confirmed by $GITHUB_ACTOR) |"
+            echo "| CircleCI checks | All checks/jobs confirmed passed: $CIRCLECI_RUN_URL (confirmed by $GITHUB_ACTOR) |"
+            echo "| Tarball SHA-256 | $(cat release-artifact/tarball.sha256) |"
             echo "| NPM publication | Not performed; explicit human approval and a protected publisher are required |"
           } >> "$GITHUB_STEP_SUMMARY"

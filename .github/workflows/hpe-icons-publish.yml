@@ -1,0 +1,309 @@
+name: Publish HPE icon package
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_run_id:
+        description: 'Successful HPE icon candidate workflow run ID'
+        required: true
+        type: string
+      package:
+        description: 'Package represented by the candidate artifact'
+        required: true
+        type: choice
+        options:
+          - '@hpe-design/icons-grommet'
+          - '@hpe-design/icons-svg'
+      version:
+        description: 'Exact package version from the candidate artifact'
+        required: true
+        type: string
+      commit_sha:
+        description: 'Exact commit SHA recorded by the candidate workflow'
+        required: true
+        type: string
+      release_notes:
+        description: 'Human-written release notes for the draft GitHub release'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hpe-icons-publish-${{ inputs.package }}-${{ inputs.version }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '24.15.0'
+  CANDIDATE_WORKFLOW: hpe-icons-release-candidate.yml
+  DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+
+jobs:
+  prepare:
+    name: Validate candidate and prepare draft release
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
+    outputs:
+      package_id: ${{ steps.package.outputs.package_id }}
+      release_tag: ${{ steps.package.outputs.release_tag }}
+    steps:
+      - name: Require default-branch dispatch
+        env:
+          WORKFLOW_REF: ${{ github.ref_name }}
+        run: test "$WORKFLOW_REF" = "$DEFAULT_BRANCH"
+
+      - name: Check out default branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Validate package and release identifiers
+        id: package
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          REQUESTED_SHA: ${{ inputs.commit_sha }}
+          CANDIDATE_RUN_ID: ${{ inputs.candidate_run_id }}
+        run: |
+          [[ "$CANDIDATE_RUN_ID" =~ ^[0-9]+$ ]]
+          [[ "$REQUESTED_VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]
+          [[ "$REQUESTED_SHA" =~ ^[0-9a-f]{40}$ ]]
+
+          case "$PACKAGE_NAME" in
+            @hpe-design/icons-grommet)
+              package_id=grommet
+              ;;
+            @hpe-design/icons-svg)
+              package_id=svg
+              ;;
+            *)
+              echo "Unsupported package: $PACKAGE_NAME" >&2
+              exit 1
+              ;;
+          esac
+
+          release_tag="${PACKAGE_NAME}@${REQUESTED_VERSION}"
+          git check-ref-format "refs/tags/$release_tag"
+          echo "package_id=$package_id" >> "$GITHUB_OUTPUT"
+          echo "release_tag=$release_tag" >> "$GITHUB_OUTPUT"
+
+      - name: Validate successful candidate workflow run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN_ID: ${{ inputs.candidate_run_id }}
+          EXPECTED_SHA: ${{ inputs.commit_sha }}
+        run: |
+          run=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/$CANDIDATE_RUN_ID")
+          test "$(jq -r '.path' <<<"$run")" = ".github/workflows/$CANDIDATE_WORKFLOW"
+          test "$(jq -r '.event' <<<"$run")" = "workflow_dispatch"
+          test "$(jq -r '.status' <<<"$run")" = "completed"
+          test "$(jq -r '.conclusion' <<<"$run")" = "success"
+          test "$(jq -r '.head_branch' <<<"$run")" = "$DEFAULT_BRANCH"
+          test "$(jq -r '.head_sha' <<<"$run")" = "$EXPECTED_SHA"
+
+      - name: Download candidate artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hpe-icons-${{ steps.package.outputs.package_id }}-${{ inputs.version }}-candidate
+          path: candidate-artifact
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.candidate_run_id }}
+
+      - name: Verify candidate package, version, commit, and digest
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          REQUESTED_SHA: ${{ inputs.commit_sha }}
+        run: |
+          shopt -s nullglob
+          tarballs=(candidate-artifact/*.tgz)
+          test "${#tarballs[@]}" -eq 1
+          tarball="${tarballs[0]}"
+          metadata=candidate-artifact/release-metadata.json
+          test -f "$metadata"
+
+          jq -e \
+            --arg package "$PACKAGE_NAME" \
+            --arg version "$REQUESTED_VERSION" \
+            --arg sha "$REQUESTED_SHA" \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .circleci_confirmed == true and .circleci_checks_passed == true and (.circleci_run_url | test("^https://(app\\.)?circleci\\.com/"))' \
+            "$metadata" >/dev/null
+
+          actual_name=$(tar -xOf "$tarball" package/package.json | jq -r '.name')
+          actual_version=$(tar -xOf "$tarball" package/package.json | jq -r '.version')
+          test "$actual_name" = "$PACKAGE_NAME"
+          test "$actual_version" = "$REQUESTED_VERSION"
+          expected_sha=$(cat candidate-artifact/tarball.sha256)
+          actual_sha=$(sha256sum "$tarball" | cut -d ' ' -f1)
+          test "$actual_sha" = "$expected_sha"
+
+      - name: Create or validate draft GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.package.outputs.release_tag }}
+          COMMIT_SHA: ${{ inputs.commit_sha }}
+          RELEASE_NOTES: ${{ inputs.release_notes }}
+        run: |
+          test -n "$RELEASE_NOTES"
+          printf '%s\n' "$RELEASE_NOTES" > release-notes.md
+
+          release_json=$(mktemp)
+          if gh release view "$RELEASE_TAG" --json isDraft,targetCommitish > "$release_json" 2>/dev/null; then
+            jq -e '.isDraft == true' "$release_json" >/dev/null
+            test "$(jq -r '.targetCommitish' "$release_json")" = "$COMMIT_SHA"
+            echo "Reusing the matching draft release. Review its notes before publication."
+          else
+            if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
+              echo "A tag exists without a matching draft release: $RELEASE_TAG" >&2
+              exit 1
+            fi
+            gh release create "$RELEASE_TAG" \
+              --target "$COMMIT_SHA" \
+              --title "$RELEASE_TAG" \
+              --notes-file release-notes.md \
+              --draft
+          fi
+
+  publish_npm:
+    name: Publish approved NPM candidate
+    needs: prepare
+    runs-on: ubuntu-latest
+    environment:
+      name: npm-production
+      url: https://www.npmjs.com/package/${{ inputs.package }}/v/${{ inputs.version }}
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out exact candidate commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit_sha }}
+
+      - name: Set up Node.js for npm trusted publishing
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Verify npm trusted-publishing client version
+        run: |
+          IFS=. read -r npm_major npm_minor npm_patch <<< "$(npm --version)"
+          if (( npm_major < 11 || (npm_major == 11 && (npm_minor < 5 || (npm_minor == 5 && npm_patch < 1))) )); then
+            echo "npm 11.5.1 or later is required for trusted publishing." >&2
+            exit 1
+          fi
+
+      - name: Download candidate artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hpe-icons-${{ needs.prepare.outputs.package_id }}-${{ inputs.version }}-candidate
+          path: candidate-artifact
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.candidate_run_id }}
+
+      - name: Verify artifact and publish through OIDC
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          REQUESTED_SHA: ${{ inputs.commit_sha }}
+        run: |
+          shopt -s nullglob
+          tarballs=(candidate-artifact/*.tgz)
+          test "${#tarballs[@]}" -eq 1
+          tarball="${tarballs[0]}"
+          metadata=candidate-artifact/release-metadata.json
+          test -f "$metadata"
+
+          jq -e \
+            --arg package "$PACKAGE_NAME" \
+            --arg version "$REQUESTED_VERSION" \
+            --arg sha "$REQUESTED_SHA" \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .circleci_confirmed == true and .circleci_checks_passed == true' \
+            "$metadata" >/dev/null
+
+          actual_sha=$(sha256sum "$tarball" | cut -d ' ' -f1)
+          test "$actual_sha" = "$(cat candidate-artifact/tarball.sha256)"
+          test "$(tar -xOf "$tarball" package/package.json | jq -r '.name')" = "$PACKAGE_NAME"
+          test "$(tar -xOf "$tarball" package/package.json | jq -r '.version')" = "$REQUESTED_VERSION"
+
+          if npm view "$PACKAGE_NAME@$REQUESTED_VERSION" version >/dev/null 2>&1; then
+            registry_tarball=$(npm view "$PACKAGE_NAME@$REQUESTED_VERSION" dist.tarball)
+            curl --fail --location "$registry_tarball" --output registry-package.tgz
+            registry_sha=$(sha256sum registry-package.tgz | cut -d ' ' -f1)
+            if [[ "$registry_sha" != "$actual_sha" ]]; then
+              echo "NPM already has this version with a different tarball." >&2
+              exit 1
+            fi
+            echo "The matching package version is already published; verified and skipped duplicate publish."
+          else
+            # The npm-production GitHub Environment must require an independent reviewer.
+            # NPM trusted publishing supplies OIDC authentication, not release approval.
+            npm publish "$tarball" --access public --tag latest
+          fi
+
+          for attempt in 1 2 3 4 5 6; do
+            if npm view "$PACKAGE_NAME@$REQUESTED_VERSION" version >/dev/null 2>&1; then
+              break
+            fi
+            if [[ "$attempt" -eq 6 ]]; then
+              echo "NPM did not register the package version in time." >&2
+              exit 1
+            fi
+            sleep 10
+          done
+
+          registry_tarball=$(npm view "$PACKAGE_NAME@$REQUESTED_VERSION" dist.tarball)
+          curl --fail --location "$registry_tarball" --output registry-package.tgz
+          registry_sha=$(sha256sum registry-package.tgz | cut -d ' ' -f1)
+          test "$registry_sha" = "$actual_sha"
+
+      - name: Create Slack announcement draft and release evidence
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          RELEASE_TAG: ${{ needs.prepare.outputs.release_tag }}
+          RELEASE_NOTES: ${{ inputs.release_notes }}
+        run: |
+          {
+            echo "# ${PACKAGE_NAME}@${REQUESTED_VERSION} release"
+            echo
+            echo "${PACKAGE_NAME}@${REQUESTED_VERSION} is available on NPM."
+            echo
+            echo "GitHub draft: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}"
+            echo "NPM: https://www.npmjs.com/package/${PACKAGE_NAME}/v/${REQUESTED_VERSION}"
+            echo
+            echo "Highlights:"
+            printf '%s\n' "$RELEASE_NOTES"
+          } > slack-announcement-draft.md
+          cp slack-announcement-draft.md release-evidence.md
+          {
+            echo "## HPE icon NPM publication verified"
+            echo
+            echo "| Evidence | Value |"
+            echo "| --- | --- |"
+            echo "| Package | $PACKAGE_NAME |"
+            echo "| Version | $REQUESTED_VERSION |"
+            echo "| Candidate run | ${{ inputs.candidate_run_id }} |"
+            echo "| Commit | ${{ inputs.commit_sha }} |"
+            echo "| GitHub release | Draft; human review and publication still required |"
+            echo "| Slack | Draft artifact only; posting remains a human action |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload release evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-icons-${{ needs.prepare.outputs.package_id }}-${{ inputs.version }}-release-evidence
+          path: |
+            slack-announcement-draft.md
+            release-evidence.md
+          if-no-files-found: error
+          retention-days: 90

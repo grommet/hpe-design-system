@@ -22,8 +22,9 @@ its [orchestrator](../../knowledge/capabilities/package-release/package-release-
   publication, NPM publication, or Slack posting.
 - NPM publication always requires explicit human approval for this exact package and
   version, on every release. Trusted publishing does not remove the approval requirement.
-- Protected icon publication automation is not implemented yet. Stop at that blocker;
-  never direct the user to publish from a local machine.
+- The protected publisher exists, but external GitHub Environment and NPM trusted-publisher
+  settings must be verified before dispatch. Never direct the user to publish from a local
+  machine.
 
 ## Inputs
 
@@ -42,8 +43,7 @@ its [orchestrator](../../knowledge/capabilities/package-release/package-release-
    approvals.
 4. Present release evidence and the next required human approval. Keep the version PR,
    CircleCI, GitHub release notes, NPM publication, and Slack announcement gates distinct.
-5. If publication is requested, report `publication-blocked` until a protected workflow
-   and its approval/trusted-publishing configuration are implemented and verified.
+5. Stop publication until `npm-production` reviewers and both NPM trusted publishers are verified.
 
 ## Output Expectations
 

@@ -6,7 +6,7 @@ metadata:
   status: active
   owner: design-system
 spec:
-  summary: Prepare and validate independent HPE icon package releases with explicit approval gates; protected publication automation remains pending.
+  summary: Prepare and publish independent HPE icon package releases through immutable candidates, trusted publishing, and explicit human approval gates.
   entrypoint:
     agent: package-release-orchestrator
     args: '<package-name> <version>'
@@ -18,6 +18,7 @@ spec:
       - path: packages/icons-svg/vite.config.ts
       - path: .github/prompts/release-hpe-icons.prompt.md
       - path: .github/workflows/hpe-icons-release-candidate.yml
+      - path: .github/workflows/hpe-icons-publish.yml
       - path: .github/workflows/design-tokens-release.yml
       - path: .github/workflows/design-tokens-publish.yml
   assets:
@@ -49,4 +50,4 @@ spec:
       - github-release-notes
       - npm-publication-every-release
       - slack-announcement
-    publicationWorkflowStatus: not-implemented
+    publicationWorkflowStatus: awaiting-external-configuration

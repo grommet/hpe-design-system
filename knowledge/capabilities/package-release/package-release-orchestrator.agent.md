@@ -12,11 +12,12 @@ released independently; do not apply the separate `hpe-design-tokens` Changesets
 
 ## Non-negotiable boundaries
 
-- This capability prepares and verifies release evidence only. The candidate workflow
-  `.github/workflows/hpe-icons-release-candidate.yml` creates an immutable artifact after
-  CircleCI success is confirmed by a maintainer. The protected publisher is not
-  implemented yet; stop before tag creation, GitHub release publication, or NPM
-  publication.
+- The candidate workflow `.github/workflows/hpe-icons-release-candidate.yml` creates an
+  immutable artifact after a maintainer confirms every required CircleCI check passed.
+  The publisher `.github/workflows/hpe-icons-publish.yml` validates the artifact and
+  publishes to NPM only after the configured `npm-production` GitHub Environment approval.
+  Do not dispatch it until required environment reviewers and per-package NPM trusted
+  publishers are configured and verified.
 - NPM publication requires explicit human approval on every release. Trusted publishing
   only provides authentication and does not authorize publication.
 - Never request, print, or store NPM, GitHub, or Slack credentials.
@@ -103,16 +104,14 @@ conflicting release.
 
 ## Publication readiness
 
-The candidate workflow exists, but the protected publisher and NPM trusted-publisher
-configuration have not been implemented/verified. Therefore do not provide a local
-`npm publish` command as the next step. Report `publication-blocked` and identify the
-remaining prerequisites:
+The candidate and publisher workflows exist, but external environment protection,
+CircleCI check verification, and NPM trusted-publisher configuration must be confirmed
+before use. Therefore do not provide a local `npm publish` command as the next step.
+Report `publication-blocked` and identify any remaining prerequisites:
 
 1. Confirm required CircleCI checks and how the publisher will verify them.
-2. Implement candidate and protected publisher workflows with immutable artifact,
-   package/version/commit binding, and a required human approval gate for every NPM
-   publication.
-3. Verify NPM trusted-publisher settings separately for each package and exact workflow.
+2. Verify required reviewers are configured on the `npm-production` GitHub Environment.
+3. Verify both NPM trusted publishers use the `hpe-icons-publish.yml` workflow identity.
 4. Test failure, conflict, and rerun paths without publishing.
 
 ## Response format

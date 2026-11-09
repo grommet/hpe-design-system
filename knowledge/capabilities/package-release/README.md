@@ -1,7 +1,8 @@
 # Package Release
 
 Status: active for release preparation and preflight of the HPE icon packages.
-Protected publication automation is not yet implemented.
+Candidate and publisher workflows are implemented. External GitHub/NPM protections must
+be configured and verified before enabling publication.
 
 ## Purpose
 
@@ -31,17 +32,18 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - NPM publication always requires a separate, explicit human approval for every release.
   NPM trusted publishing is authentication, not authorization, and does not remove this
   approval gate.
-- The planned GitHub Actions publisher should follow the candidate/publisher separation
-  used for design tokens. Configure a protected GitHub Environment (for example,
-  `npm-production`) with required reviewers and attach the publish job to that environment
-  so a human must approve each release before publication.
+- The GitHub Actions publisher follows the candidate/publisher separation used for design
+  tokens. Configure a protected GitHub Environment named `npm-production` with required
+  reviewers and attach the publish job to that environment so a human must approve every
+  release before NPM publication.
 - GitHub release notes and the Slack announcement remain human-reviewed. Do not post the
   announcement automatically.
 - The candidate workflow `.github/workflows/hpe-icons-release-candidate.yml` builds and
   uploads a package artifact after a maintainer confirms the CircleCI run. It does not
-  publish. The protected publisher workflow is not implemented yet; stop before tag
-  creation, GitHub release publication, or NPM publication until it and its approval
-  controls are implemented and verified.
+  publish. The publisher `.github/workflows/hpe-icons-publish.yml` validates that exact
+  candidate, creates or reuses a draft GitHub release, then waits for the `npm-production`
+  environment approval before publishing the artifact. It verifies the registry tarball
+  and leaves the GitHub release in draft for a separate human review and publish action.
 
 ## Stages
 
@@ -53,8 +55,7 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
    release-tag/version consistency.
 4. `ci-gate` — confirm the required CircleCI checks passed for the merged release commit.
 5. `release-approval` — present candidate evidence and release notes for human review.
-6. `publication-blocked` — stop because the protected icon publisher is not yet
-   implemented or required external configuration is unverified.
+6. `publication-blocked` — stop if environment protection, NPM trust, CircleCI evidence, or artifact binding is missing.
 7. `post-release` — after an authorized publication, verify the GitHub release and NPM
    registry version, then prepare a Slack announcement draft.
 
@@ -83,28 +84,25 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 After the protected publisher workflow has a stable filename, configure each NPM package
 separately in its NPM package settings:
 
-1. Add a GitHub Actions trusted publisher for organization `grommet`, repository
-   `hpe-design-system`, and the exact publisher workflow filename (filename only, not the
-   `.github/workflows/` path).
+1. In each NPM package, add a GitHub Actions publisher for `grommet/hpe-design-system`.
+   Use filename `hpe-icons-publish.yml`, not the workflow path.
 2. Set its GitHub Environment to the exact protected environment used by the publisher,
    recommended as `npm-production`.
-3. Give the publisher job only the required `id-token: write` permission and use a
-   GitHub-hosted runner with Node.js 22.14+ and npm CLI 11.5.1+.
-4. Require an independent reviewer for that GitHub Environment on every run. Do not rely
-   on the NPM trusted-publisher relationship itself as the approval mechanism.
-5. Test the configuration on a coordinated release attempt. NPM requires a newly created
+3. Use a GitHub-hosted runner, Node.js 22.14+, npm CLI 11.5.1+, and job-scoped `id-token: write`.
+4. Allow direct `npm publish` in NPM because the workflow publishes after the GitHub approval gate.
+   New NPM publisher configurations default to staged publishing; select deliberately.
+   Stage-only access requires changing this workflow to stage and wait for NPM approval.
+5. Require independent environment reviewers, prevent self-review, and restrict deploy access.
+   NPM trust is authentication, not an approval mechanism.
+6. Test the configuration on a coordinated release attempt. NPM requires a newly created
    trusted-publisher configuration to complete its first successful publish within two
    days; otherwise it expires and must be recreated.
-6. After a successful OIDC publish is verified, review NPM's token-access settings and
+7. After a successful OIDC publish is verified, review NPM's token-access settings and
    revoke unneeded automation tokens. Do not revoke a fallback token before the trusted
    path has been verified.
 
-Use a stable publisher filename, proposed as `hpe-icons-publish.yml`, so the NPM trust
-configuration and workflow identity remain aligned. Before configuring either package,
-verify that its `package.json` `repository` field matches `grommet/hpe-design-system` as
-required by NPM. The current package manifests use package-subdirectory URLs; confirm
-whether NPM accepts those or update the metadata in a reviewed change before the first
-trusted publish.
+Both package manifests now identify the canonical repository URL and their monorepo
+directory. This must remain aligned with the NPM trusted-publisher repository identity.
 
 Official setup and current requirements: [NPM trusted publishing documentation](https://docs.npmjs.com/trusted-publishers/).
 
