@@ -147,11 +147,25 @@ jobs:
           actual_sha=$(sha256sum "$tarball" | cut -d ' ' -f1)
           test "$actual_sha" = "$expected_sha"
 
+      - name: Create short-lived tag-push token
+        id: tag-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.RELEASE_TAG_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_TAG_APP_PRIVATE_KEY }}
+          owner: grommet
+          repositories: hpe-design-system
+          permission-contents: write
+          permission-workflows: write
+
       - name: Create or verify package version tag
         env:
           RELEASE_TAG: ${{ steps.package.outputs.release_tag }}
           EXPECTED_SHA: ${{ inputs.commit_sha }}
+          GH_TOKEN: ${{ steps.tag-token.outputs.token }}
         run: |
+          gh auth setup-git
+
           if git show-ref --verify --quiet "refs/tags/$RELEASE_TAG"; then
             local_tag_sha=$(git rev-parse "$RELEASE_TAG^{commit}")
             if [[ "$local_tag_sha" != "$EXPECTED_SHA" ]]; then
