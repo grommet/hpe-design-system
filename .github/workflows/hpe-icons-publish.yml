@@ -30,6 +30,10 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: hpe-icons-publish-${{ inputs.package }}-${{ inputs.version }}
   cancel-in-progress: false
@@ -156,8 +160,16 @@ jobs:
           release_json=$(mktemp)
           if gh release view "$RELEASE_TAG" --json isDraft,targetCommitish > "$release_json" 2>/dev/null; then
             jq -e '.isDraft == true' "$release_json" >/dev/null
-            test "$(jq -r '.targetCommitish' "$release_json")" = "$COMMIT_SHA"
-            echo "Reusing the matching draft release. Review its notes before publication."
+            draft_target=$(jq -r '.targetCommitish' "$release_json")
+            if [[ "$draft_target" != "$COMMIT_SHA" ]]; then
+              releases=$(gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/releases?per_page=100")
+              release_id=$(jq -er --arg tag "$RELEASE_TAG" '[.[][] | select(.tag_name == $tag and .draft == true)][0].id' <<< "$releases")
+              gh api --method PATCH "repos/${GITHUB_REPOSITORY}/releases/$release_id" \
+                -f target_commitish="$COMMIT_SHA" >/dev/null
+              echo "Updated the existing unpublished draft to the validated candidate commit; release notes are unchanged."
+            else
+              echo "Reusing the matching draft release. Review its notes before publication."
+            fi
           else
             if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
               echo "A tag exists without a matching draft release: $RELEASE_TAG" >&2

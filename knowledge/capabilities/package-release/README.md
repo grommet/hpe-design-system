@@ -50,8 +50,14 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
   same publisher inputs to verify the live registry tarball against the candidate. Before
   staging, the publisher unpacks and repacks the immutable candidate and requires the
   repacked tarball hash to match. It runs `npm stage publish` from the extracted package
-  directory and fails the job if that command fails. The GitHub release remains a draft
-  for separate human review and publication.
+  directory and fails the job if that command fails. Workflow scripts use Bash with
+  `pipefail`, and archive checks avoid early-closing pipelines, so failed commands cannot
+  be hidden behind successful downstream commands. The GitHub release remains a draft for
+  separate human review and publication.
+- A candidate built before the workflow records `npm_cli_version: 11.15.0` does not meet
+  the publisher's artifact contract. Rebuild the candidate from updated `master` before
+  retrying the publisher. A publisher run is considered staged only if the `npm stage
+publish` step succeeds; a green job summary alone is not staging evidence.
 
 ## Stages
 

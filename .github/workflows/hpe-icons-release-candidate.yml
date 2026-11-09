@@ -18,6 +18,10 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: hpe-icons-candidate-${{ inputs.package }}-${{ inputs.version }}
   cancel-in-progress: false
@@ -119,17 +123,18 @@ jobs:
           packed_version=$(tar -xOf "$tarball" package/package.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")
           test "$packed_name" = "$PACKAGE_NAME"
           test "$packed_version" = "$REQUESTED_VERSION"
-          tar -tzf "$tarball" | grep -q '^package/dist/'
+          tar -tzf "$tarball" > "$RUNNER_TEMP/tarball-files.txt"
+          grep -q '^package/dist/' "$RUNNER_TEMP/tarball-files.txt"
 
           if [[ "$PACKAGE_NAME" == "@hpe-design/icons-grommet" ]]; then
             for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/hpe-icons.d.ts; do
-              tar -tzf "$tarball" | grep -q "^$entry$"
+              grep -Fx "$entry" "$RUNNER_TEMP/tarball-files.txt" >/dev/null
             done
           else
             for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/index.d.ts; do
-              tar -tzf "$tarball" | grep -q "^$entry$"
+              grep -Fx "$entry" "$RUNNER_TEMP/tarball-files.txt" >/dev/null
             done
-            tar -tzf "$tarball" | grep -q '^package/dist/.*\.svg$'
+            grep -q '^package/dist/.*\.svg$' "$RUNNER_TEMP/tarball-files.txt"
           fi
 
           sha256sum "$tarball" | awk '{print $1}' > "$artifact_dir/tarball.sha256"
