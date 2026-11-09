@@ -1,0 +1,185 @@
+name: HPE icons release candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Icon package to prepare'
+        required: true
+        type: choice
+        options:
+          - '@hpe-design/icons-grommet'
+          - '@hpe-design/icons-svg'
+      version:
+        description: 'Exact package version from the merged version PR'
+        required: true
+        type: string
+      confirm_circleci_success:
+        description: 'I verified that all required CircleCI checks passed for the merged commit'
+        required: true
+        default: false
+        type: boolean
+      circleci_run_url:
+        description: 'URL of the successful CircleCI run reviewed'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hpe-icons-candidate-${{ inputs.package }}-${{ inputs.version }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '24.15.0'
+  PNPM_VERSION: '10.30.3'
+
+jobs:
+  candidate:
+    name: Build approved icon candidate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require default-branch dispatch and CircleCI confirmation
+        env:
+          WORKFLOW_REF: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          CIRCLECI_CONFIRMED: ${{ inputs.confirm_circleci_success }}
+          CIRCLECI_RUN_URL: ${{ inputs.circleci_run_url }}
+        run: |
+          test "$WORKFLOW_REF" = "$DEFAULT_BRANCH"
+          test "$CIRCLECI_CONFIRMED" = "true"
+          [[ "$CIRCLECI_RUN_URL" == https://* ]]
+
+      - name: Check out dispatched default-branch commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate selected package and version
+        id: package
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+        run: |
+          case "$PACKAGE_NAME" in
+            @hpe-design/icons-grommet)
+              package_dir=packages/icons-grommet
+              package_id=grommet
+              ;;
+            @hpe-design/icons-svg)
+              package_dir=packages/icons-svg
+              package_id=svg
+              ;;
+            *)
+              echo "Unsupported package: $PACKAGE_NAME" >&2
+              exit 1
+              ;;
+          esac
+
+          actual_name=$(node -p "require('./$package_dir/package.json').name")
+          actual_version=$(node -p "require('./$package_dir/package.json').version")
+          test "$actual_name" = "$PACKAGE_NAME"
+          test "$actual_version" = "$REQUESTED_VERSION"
+          echo "package_dir=$package_dir" >> "$GITHUB_OUTPUT"
+          echo "package_id=$package_id" >> "$GITHUB_OUTPUT"
+
+      - name: Build selected package
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+        run: pnpm --filter "$PACKAGE_NAME" build
+
+      - name: Lint icons-grommet
+        if: inputs.package == '@hpe-design/icons-grommet'
+        run: pnpm --filter @hpe-design/icons-grommet lint
+
+      - name: Pack and verify package artifact
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          PACKAGE_DIR: ${{ steps.package.outputs.package_dir }}
+          CIRCLECI_RUN_URL: ${{ inputs.circleci_run_url }}
+        run: |
+          artifact_dir="$GITHUB_WORKSPACE/release-artifact"
+          mkdir -p "$artifact_dir"
+          cd "$PACKAGE_DIR"
+          npm pack --json --pack-destination "$artifact_dir" > "$artifact_dir/pack-result.json"
+          tarball_name=$(node -p "require('$GITHUB_WORKSPACE/release-artifact/pack-result.json')[0].filename")
+          tarball="$artifact_dir/$tarball_name"
+          test -f "$tarball"
+
+          packed_name=$(tar -xOf "$tarball" package/package.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).name")
+          packed_version=$(tar -xOf "$tarball" package/package.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")
+          test "$packed_name" = "$PACKAGE_NAME"
+          test "$packed_version" = "$REQUESTED_VERSION"
+          tar -tzf "$tarball" | grep -q '^package/dist/'
+
+          if [[ "$PACKAGE_NAME" == "@hpe-design/icons-grommet" ]]; then
+            for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/hpe-icons.d.ts; do
+              tar -tzf "$tarball" | grep -q "^$entry$"
+            done
+          else
+            for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/index.d.ts; do
+              tar -tzf "$tarball" | grep -q "^$entry$"
+            done
+            tar -tzf "$tarball" | grep -q '^package/dist/.*\.svg$'
+          fi
+
+          sha256sum "$tarball" | awk '{print $1}' > "$artifact_dir/tarball.sha256"
+          node <<'NODE'
+          const fs = require('node:fs');
+          const metadata = {
+            package: process.env.PACKAGE_NAME,
+            version: process.env.REQUESTED_VERSION,
+            commit_sha: process.env.GITHUB_SHA,
+            circleci_run_url: process.env.CIRCLECI_RUN_URL,
+            circleci_confirmed_by: process.env.GITHUB_ACTOR,
+            artifact_sha256: fs.readFileSync(
+              `${process.env.GITHUB_WORKSPACE}/release-artifact/tarball.sha256`,
+              'utf8',
+            ).trim(),
+          };
+          fs.writeFileSync(
+            `${process.env.GITHUB_WORKSPACE}/release-artifact/release-metadata.json`,
+            `${JSON.stringify(metadata, null, 2)}\n`,
+          );
+          NODE
+      - name: Upload immutable candidate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-icons-${{ steps.package.outputs.package_id }}-${{ inputs.version }}-candidate
+          path: release-artifact/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write candidate evidence summary
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          CIRCLECI_RUN_URL: ${{ inputs.circleci_run_url }}
+        run: |
+          {
+            echo "## HPE icon release candidate"
+            echo
+            echo "| Evidence | Value |"
+            echo "| --- | --- |"
+            echo "| Package | $PACKAGE_NAME |"
+            echo "| Version | $REQUESTED_VERSION |"
+            echo "| Commit | $GITHUB_SHA |"
+            echo "| CircleCI confirmation | $CIRCLECI_RUN_URL (confirmed by $GITHUB_ACTOR) |"
+            echo "| NPM publication | Not performed; explicit human approval and a protected publisher are required |"
+          } >> "$GITHUB_STEP_SUMMARY"
