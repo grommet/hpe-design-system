@@ -30,6 +30,10 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: hpe-icons-publish-${{ inputs.package }}-${{ inputs.version }}
   cancel-in-progress: false
@@ -120,6 +124,7 @@ jobs:
           REQUESTED_VERSION: ${{ inputs.version }}
           REQUESTED_SHA: ${{ inputs.commit_sha }}
         run: |
+          set -o pipefail
           shopt -s nullglob
           tarballs=(candidate-artifact/*.tgz)
           test "${#tarballs[@]}" -eq 1
@@ -131,7 +136,7 @@ jobs:
             --arg package "$PACKAGE_NAME" \
             --arg version "$REQUESTED_VERSION" \
             --arg sha "$REQUESTED_SHA" \
-            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha' \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .npm_cli_version == "11.15.0"' \
             "$metadata" >/dev/null
 
           actual_name=$(tar -xOf "$tarball" package/package.json | jq -r '.name')
@@ -155,8 +160,16 @@ jobs:
           release_json=$(mktemp)
           if gh release view "$RELEASE_TAG" --json isDraft,targetCommitish > "$release_json" 2>/dev/null; then
             jq -e '.isDraft == true' "$release_json" >/dev/null
-            test "$(jq -r '.targetCommitish' "$release_json")" = "$COMMIT_SHA"
-            echo "Reusing the matching draft release. Review its notes before publication."
+            draft_target=$(jq -r '.targetCommitish' "$release_json")
+            if [[ "$draft_target" != "$COMMIT_SHA" ]]; then
+              releases=$(gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/releases?per_page=100")
+              release_id=$(jq -er --arg tag "$RELEASE_TAG" '[.[][] | select(.tag_name == $tag and .draft == true)][0].id' <<< "$releases")
+              gh api --method PATCH "repos/${GITHUB_REPOSITORY}/releases/$release_id" \
+                -f target_commitish="$COMMIT_SHA" >/dev/null
+              echo "Updated the existing unpublished draft to the validated candidate commit; release notes are unchanged."
+            else
+              echo "Reusing the matching draft release. Review its notes before publication."
+            fi
           else
             if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
               echo "A tag exists without a matching draft release: $RELEASE_TAG" >&2
@@ -220,6 +233,7 @@ jobs:
           REQUESTED_VERSION: ${{ inputs.version }}
           REQUESTED_SHA: ${{ inputs.commit_sha }}
         run: |
+          set -o pipefail
           shopt -s nullglob
           tarballs=(candidate-artifact/*.tgz)
           test "${#tarballs[@]}" -eq 1
@@ -231,7 +245,7 @@ jobs:
             --arg package "$PACKAGE_NAME" \
             --arg version "$REQUESTED_VERSION" \
             --arg sha "$REQUESTED_SHA" \
-            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha' \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .npm_cli_version == "11.15.0"' \
             "$metadata" >/dev/null
 
           actual_sha=$(sha256sum "$tarball" | cut -d ' ' -f1)
@@ -253,7 +267,21 @@ jobs:
           else
             # The trusted publisher must allow npm stage publish, but not npm publish.
             # NPM requires a separate maintainer approval with 2FA before this version is public.
-            npm stage publish "$tarball" --access public --tag latest 2>&1 | tee npm-stage-output.txt
+            stage_dir="$RUNNER_TEMP/package-to-stage"
+            repack_dir="$RUNNER_TEMP/repacked-candidate"
+            mkdir -p "$stage_dir" "$repack_dir"
+            tar -xzf "$tarball" -C "$stage_dir"
+
+            # npm stage publish packs the current working directory. Repack first and
+            # require byte-for-byte identity with the immutable candidate tarball.
+            (cd "$stage_dir/package" && npm pack --json --pack-destination "$repack_dir" > "$RUNNER_TEMP/repack-result.json")
+            repacked_name=$(node -p "require('$RUNNER_TEMP/repack-result.json')[0].filename")
+            repacked_tarball="$repack_dir/$repacked_name"
+            test -f "$repacked_tarball"
+            repacked_sha=$(sha256sum "$repacked_tarball" | cut -d ' ' -f1)
+            test "$repacked_sha" = "$actual_sha"
+
+            (cd "$stage_dir/package" && npm stage publish --access public --tag latest) 2>&1 | tee npm-stage-output.txt
             echo "state=staged-pending-approval" >> "$GITHUB_OUTPUT"
           fi
 

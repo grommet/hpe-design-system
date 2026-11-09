@@ -18,6 +18,10 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: hpe-icons-candidate-${{ inputs.package }}-${{ inputs.version }}
   cancel-in-progress: false
@@ -94,11 +98,18 @@ jobs:
         if: inputs.package == '@hpe-design/icons-grommet'
         run: pnpm --filter @hpe-design/icons-grommet lint
 
+      - name: Install npm CLI with staged-publishing support
+        run: npm install --global npm@11.15.0
+
+      - name: Verify npm CLI version
+        run: test "$(npm --version)" = "11.15.0"
+
       - name: Pack and verify package artifact
         env:
           PACKAGE_NAME: ${{ inputs.package }}
           REQUESTED_VERSION: ${{ inputs.version }}
           PACKAGE_DIR: ${{ steps.package.outputs.package_dir }}
+          NPM_CLI_VERSION: 11.15.0
         run: |
           artifact_dir="$GITHUB_WORKSPACE/release-artifact"
           mkdir -p "$artifact_dir"
@@ -112,17 +123,18 @@ jobs:
           packed_version=$(tar -xOf "$tarball" package/package.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")
           test "$packed_name" = "$PACKAGE_NAME"
           test "$packed_version" = "$REQUESTED_VERSION"
-          tar -tzf "$tarball" | grep -q '^package/dist/'
+          tar -tzf "$tarball" > "$RUNNER_TEMP/tarball-files.txt"
+          grep -q '^package/dist/' "$RUNNER_TEMP/tarball-files.txt"
 
           if [[ "$PACKAGE_NAME" == "@hpe-design/icons-grommet" ]]; then
             for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/hpe-icons.d.ts; do
-              tar -tzf "$tarball" | grep -q "^$entry$"
+              grep -Fx "$entry" "$RUNNER_TEMP/tarball-files.txt" >/dev/null
             done
           else
             for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/index.d.ts; do
-              tar -tzf "$tarball" | grep -q "^$entry$"
+              grep -Fx "$entry" "$RUNNER_TEMP/tarball-files.txt" >/dev/null
             done
-            tar -tzf "$tarball" | grep -q '^package/dist/.*\.svg$'
+            grep -q '^package/dist/.*\.svg$' "$RUNNER_TEMP/tarball-files.txt"
           fi
 
           sha256sum "$tarball" | awk '{print $1}' > "$artifact_dir/tarball.sha256"
@@ -133,6 +145,7 @@ jobs:
             version: process.env.REQUESTED_VERSION,
             requested_version: process.env.REQUESTED_VERSION,
             commit_sha: process.env.GITHUB_SHA,
+            npm_cli_version: process.env.NPM_CLI_VERSION,
             artifact_sha256: fs.readFileSync(
               `${process.env.GITHUB_WORKSPACE}/release-artifact/tarball.sha256`,
               'utf8',
