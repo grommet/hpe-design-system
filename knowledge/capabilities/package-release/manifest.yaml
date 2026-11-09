@@ -35,6 +35,8 @@ spec:
       when: 'required GitHub checks pass for the merged release PR and package candidate preflight succeeds'
     - id: release-approval
       when: 'candidate evidence and GitHub release notes are ready for human review'
+    - id: version-tagged
+      when: 'protected publisher created or verified the package version tag at the candidate commit'
     - id: publication-blocked
       when: 'protected icon publisher or required external configuration is not verified'
     - id: npm-staged

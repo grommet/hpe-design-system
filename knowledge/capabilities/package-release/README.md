@@ -35,6 +35,10 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Build each selected package and inspect its packed artifact. Current package manifests
   include `dist` and `package.json`; the package root is the packaging context. Do not
   publish from a directory or artifact other than the one verified for that package.
+- After validating the candidate artifact, the protected publisher creates and pushes the
+  annotated `<package-name>@<version>` tag at the candidate commit. If the tag already
+  exists, it must point to that same commit; a conflicting tag stops the workflow. The
+  GitHub release draft is then created against that version tag.
 - The publisher uses `npm stage publish` through trusted publishing; it must not have
   permission to run direct `npm publish`. NPM staging is not public publication.
 - Every release requires a human to review and approve the staged package in NPM with
@@ -93,8 +97,10 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 
 ## Safety Boundaries
 
-- Never create or push tags, merge PRs, publish a GitHub release, or run `npm publish`
-  from the Copilot/local workflow.
+- Never create or push tags from Copilot or a developer's local workflow. The protected
+  publisher creates/verifies the version tag only after candidate artifact validation.
+- Do not merge PRs, publish a GitHub release, or run direct `npm publish` from Copilot or
+  a developer's local workflow.
 - Never treat a successful build, a trusted-publisher configuration, or an earlier
   approval as approval for the current NPM publication.
 - Stop on a dirty worktree, version mismatch, missing CI evidence, conflicting tag or

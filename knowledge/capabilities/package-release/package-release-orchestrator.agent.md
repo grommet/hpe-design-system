@@ -21,6 +21,9 @@ released independently; do not apply the separate `hpe-design-tokens` Changesets
   environment reviewers and per-package stage-only NPM trusted publishers are verified.
 - NPM stage approval is required for every release. The OIDC workflow must not approve or
   directly publish a staged package.
+- The protected publisher creates the package version tag at the validated candidate SHA
+  and verifies any existing tag points to that same SHA. Do not create tags from the
+  orchestrator or a local shell.
 - Never request, print, or store NPM, GitHub, or Slack credentials.
 - Do not commit, push, merge PRs, create/push tags, run `npm publish`, or post to Slack.
 - Do not infer required GitHub check names or external trusted-publisher settings.
