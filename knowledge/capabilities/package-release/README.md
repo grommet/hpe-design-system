@@ -97,15 +97,15 @@ Verify each NPM package's trusted-publisher entry in its NPM package settings:
    Use filename `hpe-icons-publish.yml`, not the workflow path.
 2. Set its GitHub Environment to the exact protected environment used by the publisher,
    recommended as `npm-production`.
-3. Use a GitHub-hosted runner, Node.js 22.14+, npm CLI 11.15.0+, and job-scoped `id-token: write`.
-4. Allow `npm stage publish` only; do not grant direct `npm publish` to the trusted publisher.
-5. Require independent environment reviewers, prevent self-review, and restrict deploy access.
-   NPM's staged-package 2FA approval is the final per-release public-release gate.
-6. Require NPM 2FA for approvers. They approve through NPM's Staged Packages page;
+3. Use a GitHub-hosted runner with Node.js 22.14 or newer.
+4. Install npm CLI 11.15.0 or newer; Node 24.15.0 currently bundles an older npm.
+5. Grant only job-scoped `id-token: write` and allow `npm stage publish` only.
+6. Require independent environment reviewers, prevent self-review, and restrict deployment.
+7. Require NPM 2FA for approvers. They approve through NPM's Staged Packages page;
    `npm stage approve` requires interactive authentication and is unavailable to OIDC.
-7. Complete the first staged publish within two days of creating a new trusted publisher,
-   or NPM expires that configuration.
-8. After stage and approval are verified, review token access and revoke unused automation
+8. Complete the first staged publish within two days of creating a trusted publisher,
+   or NPM expires it.
+9. After stage and approval are verified, review token access and revoke unused automation
    tokens. Keep fallback tokens until the trusted path is proven.
 
 After the workflow reports `staged`, review the package in NPM's Staged Packages page and

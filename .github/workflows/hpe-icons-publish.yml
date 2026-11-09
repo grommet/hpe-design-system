@@ -193,6 +193,9 @@ jobs:
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
 
+      - name: Install npm CLI with staged-publishing support
+        run: npm install --global npm@11.15.0
+
       - name: Verify npm trusted-publishing client version
         run: |
           IFS=. read -r npm_major npm_minor npm_patch <<< "$(npm --version)"
