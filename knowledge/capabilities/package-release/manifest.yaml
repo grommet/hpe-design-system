@@ -9,7 +9,7 @@ spec:
   summary: Prepare and publish independent HPE icon package releases through immutable candidates, trusted publishing, and explicit human approval gates.
   entrypoint:
     agent: package-release-orchestrator
-    args: '<package-name> <version>'
+    args: '<package-name> <version> <version-pr-number>'
   dependencies:
     external:
       - path: packages/icons-grommet/package.json
@@ -35,6 +35,8 @@ spec:
       when: 'required GitHub checks pass for the merged release PR and package candidate preflight succeeds'
     - id: release-approval
       when: 'candidate evidence and GitHub release notes are ready for human review'
+    - id: version-tagged
+      when: 'protected publisher created or verified the package version tag at the candidate commit'
     - id: publication-blocked
       when: 'protected icon publisher or required external configuration is not verified'
     - id: npm-staged

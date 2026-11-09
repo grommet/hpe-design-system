@@ -3,7 +3,7 @@ description: 'Prepare and validate an HPE icon package release without publishin
 name: 'Release HPE Icons'
 agent: agent
 tools: [read, search, execute]
-argument-hint: 'Package name and exact target version'
+argument-hint: 'Package name, exact target version, and merged version PR number'
 ---
 
 # Release HPE Icons
@@ -17,7 +17,8 @@ its [orchestrator](../../knowledge/capabilities/package-release/package-release-
 ## Scope & Preconditions
 
 - Supported packages are `@hpe-design/icons-grommet` and `@hpe-design/icons-svg`.
-- Releases are independent. Require one package name and an exact target version.
+- Releases are independent. Require one package name, exact target version, and merged
+  version PR number.
 - This prompt does not authorize commits, pushes, PR merges, tag creation, GitHub release
   publication, NPM publication, or Slack posting.
 - Every staged NPM package requires human review and NPM 2FA approval before it becomes
@@ -28,9 +29,8 @@ its [orchestrator](../../knowledge/capabilities/package-release/package-release-
 
 ## Inputs
 
-- Release request: `${input:releaseRequest:package name and exact target version}`.
-- If the package or exact version is missing or invalid, ask for the missing value and
-  stop before changing files or running release actions.
+- Release request: `${input:releaseRequest:package, version, and merged version PR number}`.
+- If any required value is missing or invalid, ask for it and stop before release actions.
 
 ## Workflow
 

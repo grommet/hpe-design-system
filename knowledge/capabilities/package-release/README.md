@@ -13,8 +13,8 @@ validation, evidence, and approval gates. The packages are released independentl
 
 ## Entry Points
 
-- `@package-release-orchestrator <package-name> <version>`
-- `/release-hpe-icons <package-name> <version>` from `.github/prompts/`
+- `@package-release-orchestrator <package-name> <version> <version-pr-number>`
+- `/release-hpe-icons <package-name> <version> <version-pr-number>` from `.github/prompts/`
 
 Read the [orchestrator](package-release-orchestrator.agent.md) and
 [manifest](manifest.yaml) as the release contract.
@@ -24,6 +24,10 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Versioning remains a package-specific `package.json` version update in a reviewed PR;
   do not add Changesets as part of this process.
 - The version PR must be approved and merged before a release candidate is prepared.
+- The candidate workflow requires the merged version PR number and verifies that the PR
+  changed exactly one file: the selected package's `package.json`. It compares the base and
+  merged manifests and rejects any change other than the `version` field. Do not run
+  `pnpm install` for a version-only update.
 - Confirm the merged version PR's required GitHub checks are successful before preparing a
   candidate. The candidate workflow independently runs the selected package's build,
   Grommet lint where applicable, and packed-artifact checks; artifact upload occurs only if
@@ -31,6 +35,10 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Build each selected package and inspect its packed artifact. Current package manifests
   include `dist` and `package.json`; the package root is the packaging context. Do not
   publish from a directory or artifact other than the one verified for that package.
+- After validating the candidate artifact, the protected publisher creates and pushes the
+  annotated `<package-name>@<version>` tag at the candidate commit. If the tag already
+  exists, it must point to that same commit; a conflicting tag stops the workflow. The
+  GitHub release draft is then created against that version tag.
 - The publisher uses `npm stage publish` through trusted publishing; it must not have
   permission to run direct `npm publish`. NPM staging is not public publication.
 - Every release requires a human to review and approve the staged package in NPM with
@@ -54,10 +62,11 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
   `pipefail`, and archive checks avoid early-closing pipelines, so failed commands cannot
   be hidden behind successful downstream commands. The GitHub release remains a draft for
   separate human review and publication.
-- A candidate built before the workflow records `npm_cli_version: 11.15.0` does not meet
-  the publisher's artifact contract. Rebuild the candidate from updated `master` before
-  retrying the publisher. A publisher run is considered staged only if the `npm stage
-publish` step succeeds; a green job summary alone is not staging evidence.
+- A candidate built before the workflow records `npm_cli_version: 11.15.0` and
+  `version_pr_number` does not meet the publisher's artifact contract. Rebuild the
+  candidate from updated `master` before retrying the publisher. A publisher run is
+  considered staged only if `npm stage publish` succeeds; a green job summary alone is not
+  staging evidence.
 
 ## Stages
 
@@ -88,8 +97,10 @@ publish` step succeeds; a green job summary alone is not staging evidence.
 
 ## Safety Boundaries
 
-- Never create or push tags, merge PRs, publish a GitHub release, or run `npm publish`
-  from the Copilot/local workflow.
+- Never create or push tags from Copilot or a developer's local workflow. The protected
+  publisher creates/verifies the version tag only after candidate artifact validation.
+- Do not merge PRs, publish a GitHub release, or run direct `npm publish` from Copilot or
+  a developer's local workflow.
 - Never treat a successful build, a trusted-publisher configuration, or an earlier
   approval as approval for the current NPM publication.
 - Stop on a dirty worktree, version mismatch, missing CI evidence, conflicting tag or
