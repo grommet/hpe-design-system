@@ -120,6 +120,7 @@ jobs:
           REQUESTED_VERSION: ${{ inputs.version }}
           REQUESTED_SHA: ${{ inputs.commit_sha }}
         run: |
+          set -o pipefail
           shopt -s nullglob
           tarballs=(candidate-artifact/*.tgz)
           test "${#tarballs[@]}" -eq 1
@@ -131,7 +132,7 @@ jobs:
             --arg package "$PACKAGE_NAME" \
             --arg version "$REQUESTED_VERSION" \
             --arg sha "$REQUESTED_SHA" \
-            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha' \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .npm_cli_version == "11.15.0"' \
             "$metadata" >/dev/null
 
           actual_name=$(tar -xOf "$tarball" package/package.json | jq -r '.name')
@@ -220,6 +221,7 @@ jobs:
           REQUESTED_VERSION: ${{ inputs.version }}
           REQUESTED_SHA: ${{ inputs.commit_sha }}
         run: |
+          set -o pipefail
           shopt -s nullglob
           tarballs=(candidate-artifact/*.tgz)
           test "${#tarballs[@]}" -eq 1
@@ -231,7 +233,7 @@ jobs:
             --arg package "$PACKAGE_NAME" \
             --arg version "$REQUESTED_VERSION" \
             --arg sha "$REQUESTED_SHA" \
-            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha' \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .npm_cli_version == "11.15.0"' \
             "$metadata" >/dev/null
 
           actual_sha=$(sha256sum "$tarball" | cut -d ' ' -f1)
@@ -253,7 +255,21 @@ jobs:
           else
             # The trusted publisher must allow npm stage publish, but not npm publish.
             # NPM requires a separate maintainer approval with 2FA before this version is public.
-            npm stage publish "$tarball" --access public --tag latest 2>&1 | tee npm-stage-output.txt
+            stage_dir="$RUNNER_TEMP/package-to-stage"
+            repack_dir="$RUNNER_TEMP/repacked-candidate"
+            mkdir -p "$stage_dir" "$repack_dir"
+            tar -xzf "$tarball" -C "$stage_dir"
+
+            # npm stage publish packs the current working directory. Repack first and
+            # require byte-for-byte identity with the immutable candidate tarball.
+            (cd "$stage_dir/package" && npm pack --json --pack-destination "$repack_dir" > "$RUNNER_TEMP/repack-result.json")
+            repacked_name=$(node -p "require('$RUNNER_TEMP/repack-result.json')[0].filename")
+            repacked_tarball="$repack_dir/$repacked_name"
+            test -f "$repacked_tarball"
+            repacked_sha=$(sha256sum "$repacked_tarball" | cut -d ' ' -f1)
+            test "$repacked_sha" = "$actual_sha"
+
+            (cd "$stage_dir/package" && npm stage publish --access public --tag latest) 2>&1 | tee npm-stage-output.txt
             echo "state=staged-pending-approval" >> "$GITHUB_OUTPUT"
           fi
 

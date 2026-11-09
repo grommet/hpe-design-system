@@ -94,11 +94,18 @@ jobs:
         if: inputs.package == '@hpe-design/icons-grommet'
         run: pnpm --filter @hpe-design/icons-grommet lint
 
+      - name: Install npm CLI with staged-publishing support
+        run: npm install --global npm@11.15.0
+
+      - name: Verify npm CLI version
+        run: test "$(npm --version)" = "11.15.0"
+
       - name: Pack and verify package artifact
         env:
           PACKAGE_NAME: ${{ inputs.package }}
           REQUESTED_VERSION: ${{ inputs.version }}
           PACKAGE_DIR: ${{ steps.package.outputs.package_dir }}
+          NPM_CLI_VERSION: 11.15.0
         run: |
           artifact_dir="$GITHUB_WORKSPACE/release-artifact"
           mkdir -p "$artifact_dir"
@@ -133,6 +140,7 @@ jobs:
             version: process.env.REQUESTED_VERSION,
             requested_version: process.env.REQUESTED_VERSION,
             commit_sha: process.env.GITHUB_SHA,
+            npm_cli_version: process.env.NPM_CLI_VERSION,
             artifact_sha256: fs.readFileSync(
               `${process.env.GITHUB_WORKSPACE}/release-artifact/tarball.sha256`,
               'utf8',

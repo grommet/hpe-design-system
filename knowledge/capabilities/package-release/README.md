@@ -47,8 +47,11 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
   candidate, creates or reuses a draft GitHub release, then waits for the `npm-production`
   environment approval before staging the artifact. The first run reports `staged`, not
   `published`. A maintainer approves the staged package in NPM with 2FA, then reruns the
-  same publisher inputs to verify the live registry tarball against the candidate. The
-  GitHub release remains a draft for separate human review and publication.
+  same publisher inputs to verify the live registry tarball against the candidate. Before
+  staging, the publisher unpacks and repacks the immutable candidate and requires the
+  repacked tarball hash to match. It runs `npm stage publish` from the extracted package
+  directory and fails the job if that command fails. The GitHub release remains a draft
+  for separate human review and publication.
 
 ## Stages
 
