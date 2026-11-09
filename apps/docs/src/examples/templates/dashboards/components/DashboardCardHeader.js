@@ -4,22 +4,14 @@ import PropTypes from 'prop-types';
 import { Box, Heading, Menu, Text } from 'grommet';
 import { MoreVertical } from '@hpe-design/icons-grommet';
 
-export const DashboardCardHeader = ({
-  action,
-  title,
-  level,
-  subtitle,
-  menuItems,
-}) => (
+export const DashboardCardHeader = ({ title, level, subtitle, menuItems }) => (
   <Box direction="row" align="start" justify="between" fill>
     <Box>
       <Heading margin="none" level={level}>
         {title}
       </Heading>
-      {subtitle &&
-        (typeof subtitle === 'string' ? <Text>{subtitle}</Text> : subtitle)}
+      {subtitle && <Text>{subtitle}</Text>}
     </Box>
-    {action}
     {menuItems && (
       <Menu
         icon={<MoreVertical />}
@@ -31,10 +23,9 @@ export const DashboardCardHeader = ({
 );
 
 DashboardCardHeader.propTypes = {
-  action: PropTypes.node,
   level: PropTypes.number,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  subtitle: PropTypes.string,
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),

@@ -69,18 +69,3 @@ export const STATUS: Record<
     strongColor: 'text-onUnknown-strong',
   },
 };
-
-type StatusIconProps = Omit<
-  ComponentProps<typeof StatusCritical>,
-  'color' | 'a11yTitle'
-> & {
-  status: DashboardStatus;
-};
-
-export const StatusIcon = ({
-  status,
-  ...rest
-}: StatusIconProps) => {
-  const { Icon, iconColor, label } = STATUS[status];
-  return <Icon color={iconColor} a11yTitle={label} {...rest} />;
-};

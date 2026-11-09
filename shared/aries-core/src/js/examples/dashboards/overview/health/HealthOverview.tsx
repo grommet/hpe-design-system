@@ -2,7 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 import { Anchor } from 'grommet';
 import { ShieldCheck } from '@hpe-design/icons-grommet';
-import { MetricValue } from '../../../components/MetricValue';
+import {
+  MetricValue,
+} from '../../../../components/helpers/Dashboard/MetricValue';
 import { formatCount } from '../utils';
 import { Bar } from './Bar';
 import { HealthSection, HealthTile } from './HealthSection';
@@ -17,7 +19,9 @@ import {
   targets,
   volumesStatus,
 } from './data';
-import type { OperationalStatus } from '../../../components/status';
+import type {
+  OperationalStatus,
+} from '../../../../components/helpers/Dashboard/status';
 
 export const HealthOverview = () => {
   const { availability, capacity, drives, volumes } = driveFailure;

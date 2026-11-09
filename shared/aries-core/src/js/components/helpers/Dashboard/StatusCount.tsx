@@ -1,12 +1,21 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ComponentType } from 'react';
 import { Box, Text } from 'grommet';
-import { TextEmphasis } from '@shared/aries-core';
-import { STATUS, StatusIcon } from './status';
-import type { DashboardStatus } from './status';
+import {
+  TextEmphasis as JavaScriptTextEmphasis,
+} from '../../typography/TextEmphasis';
+import { STATUS } from './statusConfig';
+import type { DashboardStatus } from './statusConfig';
+import { StatusIcon } from './status';
 
-type StatusCountProps = ComponentProps<typeof Box> & {
+export type { DashboardStatus } from './statusConfig';
+
+const TextEmphasis = JavaScriptTextEmphasis as ComponentType<
+  ComponentProps<typeof Text>
+>;
+
+export type StatusCountProps = ComponentProps<typeof Box> & {
   count: number | string;
   label: string;
   status: DashboardStatus;

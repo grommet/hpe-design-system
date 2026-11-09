@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { ComponentProps, ComponentType } from 'react';
 import { Box, List, Tag, Text } from 'grommet';
-import { ChartCard } from '../../components';
-import { MetricValue } from '../../components/MetricValue';
-import type { SlaStatus } from '../../components/status';
+import { ChartCard } from '../../../components/helpers/Dashboard/ChartCard';
+import { MetricValue } from '../../../components/helpers/Dashboard/MetricValue';
+import type { SlaStatus } from '../../../components/helpers/Dashboard/status';
 import { slaStats, surfaceBackground, type SlaStat } from './data';
 
 const TypedChartCard = ChartCard as ComponentType<

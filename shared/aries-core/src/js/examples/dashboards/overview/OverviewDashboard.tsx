@@ -24,15 +24,23 @@ import {
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
-import type { User } from '../global-header';
-import { defaultUser, GlobalHeader, UserContext } from '../global-header';
-import { AppContainer } from '../page-layouts/components';
+import type {
+  User,
+} from '../../../components/helpers/GlobalHeader/UserContext';
 import {
-  DiscoverServices,
-  HealthOverview,
-  WeekAtAGlance,
-} from './content';
-import { pageBackground, surfaceBackground } from './content/overview/data';
+  GlobalHeader,
+} from '../../../components/helpers/GlobalHeader/GlobalHeader';
+import {
+  UserContext,
+} from '../../../components/helpers/GlobalHeader/UserContext';
+import { defaultUser } from '../../data/user';
+import {
+  AppContainer,
+} from '../../../components/layouts/AppContainer/AppContainer';
+import { DiscoverServices } from './DiscoverServices';
+import { HealthOverview } from './health/HealthOverview';
+import { WeekAtAGlance } from './WeekAtAGlance';
+import { pageBackground, surfaceBackground } from './data';
 
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },
