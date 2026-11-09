@@ -1,7 +1,7 @@
 {
   "name": "@hpe-design/icons-svg",
   "description": "HPE Icons in SVG format for use with the HPE Design System.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
