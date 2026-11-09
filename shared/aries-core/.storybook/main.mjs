@@ -59,6 +59,8 @@ const config = {
       ...config.resolve,
       alias: {
         ...config.resolve.alias,
+        // Docs examples must share the decorator's Grommet context providers.
+        grommet: join(getAbsolutePath('grommet'), 'es6'),
         'apps/docs': resolve(__dirname, '../../../apps/docs'),
         // Docs examples use a different Grommet dependency. Share the host's
         // instance so its theme and responsive contexts reach every example.
