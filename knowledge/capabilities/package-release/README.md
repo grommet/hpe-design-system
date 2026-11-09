@@ -13,8 +13,8 @@ validation, evidence, and approval gates. The packages are released independentl
 
 ## Entry Points
 
-- `@package-release-orchestrator <package-name> <version>`
-- `/release-hpe-icons <package-name> <version>` from `.github/prompts/`
+- `@package-release-orchestrator <package-name> <version> <version-pr-number>`
+- `/release-hpe-icons <package-name> <version> <version-pr-number>` from `.github/prompts/`
 
 Read the [orchestrator](package-release-orchestrator.agent.md) and
 [manifest](manifest.yaml) as the release contract.
@@ -24,6 +24,10 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Versioning remains a package-specific `package.json` version update in a reviewed PR;
   do not add Changesets as part of this process.
 - The version PR must be approved and merged before a release candidate is prepared.
+- The candidate workflow requires the merged version PR number and verifies that the PR
+  changed exactly one file: the selected package's `package.json`. It compares the base and
+  merged manifests and rejects any change other than the `version` field. Do not run
+  `pnpm install` for a version-only update.
 - Confirm the merged version PR's required GitHub checks are successful before preparing a
   candidate. The candidate workflow independently runs the selected package's build,
   Grommet lint where applicable, and packed-artifact checks; artifact upload occurs only if
@@ -54,10 +58,11 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
   `pipefail`, and archive checks avoid early-closing pipelines, so failed commands cannot
   be hidden behind successful downstream commands. The GitHub release remains a draft for
   separate human review and publication.
-- A candidate built before the workflow records `npm_cli_version: 11.15.0` does not meet
-  the publisher's artifact contract. Rebuild the candidate from updated `master` before
-  retrying the publisher. A publisher run is considered staged only if the `npm stage
-publish` step succeeds; a green job summary alone is not staging evidence.
+- A candidate built before the workflow records `npm_cli_version: 11.15.0` and
+  `version_pr_number` does not meet the publisher's artifact contract. Rebuild the
+  candidate from updated `master` before retrying the publisher. A publisher run is
+  considered staged only if `npm stage publish` succeeds; a green job summary alone is not
+  staging evidence.
 
 ## Stages
 

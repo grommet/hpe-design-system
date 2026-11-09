@@ -1,7 +1,7 @@
 ---
 name: package-release-orchestrator
 description: 'Prepare and verify approval-gated HPE icon package releases without performing publication.'
-argument-hint: 'Package name and exact target version.'
+argument-hint: 'Package name, exact target version, and merged version PR number.'
 tools: [read, search, execute]
 ---
 
@@ -29,13 +29,14 @@ released independently; do not apply the separate `hpe-design-tokens` Changesets
 
 ## Intake
 
-Accept exactly one package name and an explicit target version:
+Accept exactly one package name, an explicit target version, and the merged version PR number:
 
 - `@hpe-design/icons-grommet` → `packages/icons-grommet`
 - `@hpe-design/icons-svg` → `packages/icons-svg`
 
-If the package or version is missing or ambiguous, ask for it and stop. Read the selected
-package manifest and record its current version. Do not choose or infer a new version.
+If the package, version, or merged PR number is missing or ambiguous, ask for it and stop.
+Read the selected package manifest and record its current version. Do not choose or infer
+a new version.
 Inspect the current branch and worktree before proposing any action. Do not switch branches
 or discard local changes.
 
@@ -58,6 +59,8 @@ Classify the request as one of:
 ## Version PR contract
 
 - The version change is limited to the selected package's `package.json` `version` field.
+- Do not run `pnpm install` for a version-only change. The candidate workflow verifies the
+  merged PR changed only that one field.
 - Do not add or modify Changesets as part of this process.
 - A peer must review and approve the PR, and the PR must be merged before release
   preflight is treated as release-ready.

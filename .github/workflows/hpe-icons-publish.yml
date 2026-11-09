@@ -1,4 +1,4 @@
-name: Stage and verify HPE icon package
+name: Stage HPE design icons for NPM approval
 
 on:
   workflow_dispatch:
@@ -45,7 +45,7 @@ env:
 
 jobs:
   prepare:
-    name: Validate candidate and prepare draft release
+    name: Prepare HPE icon release
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -147,7 +147,7 @@ jobs:
           actual_sha=$(sha256sum "$tarball" | cut -d ' ' -f1)
           test "$actual_sha" = "$expected_sha"
 
-      - name: Create or validate draft GitHub release
+      - name: Prepare GitHub release draft
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.package.outputs.release_tag }}
@@ -183,12 +183,11 @@ jobs:
           fi
 
   stage_npm:
-    name: Stage or verify NPM candidate
+    name: Stage or verify HPE icon release
     needs: prepare
     runs-on: ubuntu-latest
     environment:
       name: npm-production
-      url: https://www.npmjs.com/package/${{ inputs.package }}/v/${{ inputs.version }}
     permissions:
       actions: read
       contents: read
@@ -226,7 +225,7 @@ jobs:
           repository: ${{ github.repository }}
           run-id: ${{ inputs.candidate_run_id }}
 
-      - name: Verify candidate and stage through OIDC or verify NPM approval
+      - name: Stage or verify HPE icon release
         id: npm_stage
         env:
           PACKAGE_NAME: ${{ inputs.package }}
@@ -304,7 +303,9 @@ jobs:
             fi
             echo
             echo "GitHub draft: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}"
-            echo "NPM: https://www.npmjs.com/package/${PACKAGE_NAME}/v/${REQUESTED_VERSION}"
+            if [[ "$NPM_STATE" == "published-verified" ]]; then
+              echo "NPM: https://www.npmjs.com/package/${PACKAGE_NAME}/v/${REQUESTED_VERSION}"
+            fi
             echo
             echo "Highlights:"
             printf '%s\n' "$RELEASE_NOTES"
