@@ -60,6 +60,9 @@ const config = {
       alias: {
         ...config.resolve.alias,
         'apps/docs': resolve(__dirname, '../../../apps/docs'),
+        // Docs examples use a different Grommet dependency. Share the host's
+        // instance so its theme and responsive contexts reach every example.
+        grommet: getAbsolutePath('grommet'),
       },
       fallback: {
         fs: false,
