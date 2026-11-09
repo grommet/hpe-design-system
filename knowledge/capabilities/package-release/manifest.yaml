@@ -37,6 +37,10 @@ spec:
       when: 'candidate evidence and GitHub release notes are ready for human review'
     - id: publication-blocked
       when: 'protected icon publisher or required external configuration is not verified'
+    - id: npm-staged
+      when: 'publisher staged the immutable candidate and NPM maintainer approval is pending'
+    - id: npm-approved
+      when: 'NPM stage was approved with 2FA and the live registry tarball matches the candidate'
     - id: post-release
       when: 'GitHub and NPM publication evidence is available for verification'
   x-extensions:
@@ -48,6 +52,6 @@ spec:
       - version-pr-review-and-merge
       - circleci-required-checks
       - github-release-notes
-      - npm-publication-every-release
+      - npm-staged-package-approval-with-2fa-every-release
       - slack-announcement
-    publicationWorkflowStatus: awaiting-external-configuration
+    publicationWorkflowStatus: staged-publishing-configured-per-maintainer-report

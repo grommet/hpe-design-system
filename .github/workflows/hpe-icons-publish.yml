@@ -1,4 +1,4 @@
-name: Publish HPE icon package
+name: Stage and verify HPE icon package
 
 on:
   workflow_dispatch:
@@ -169,8 +169,8 @@ jobs:
               --draft
           fi
 
-  publish_npm:
-    name: Publish approved NPM candidate
+  stage_npm:
+    name: Stage or verify NPM candidate
     needs: prepare
     runs-on: ubuntu-latest
     environment:
@@ -196,8 +196,8 @@ jobs:
       - name: Verify npm trusted-publishing client version
         run: |
           IFS=. read -r npm_major npm_minor npm_patch <<< "$(npm --version)"
-          if (( npm_major < 11 || (npm_major == 11 && (npm_minor < 5 || (npm_minor == 5 && npm_patch < 1))) )); then
-            echo "npm 11.5.1 or later is required for trusted publishing." >&2
+          if (( npm_major < 11 || (npm_major == 11 && npm_minor < 15) )); then
+            echo "npm 11.15.0 or later is required for staged publishing." >&2
             exit 1
           fi
 
@@ -210,7 +210,8 @@ jobs:
           repository: ${{ github.repository }}
           run-id: ${{ inputs.candidate_run_id }}
 
-      - name: Verify artifact and publish through OIDC
+      - name: Verify candidate and stage through OIDC or verify NPM approval
+        id: npm_stage
         env:
           PACKAGE_NAME: ${{ inputs.package }}
           REQUESTED_VERSION: ${{ inputs.version }}
@@ -234,6 +235,7 @@ jobs:
           test "$actual_sha" = "$(cat candidate-artifact/tarball.sha256)"
           test "$(tar -xOf "$tarball" package/package.json | jq -r '.name')" = "$PACKAGE_NAME"
           test "$(tar -xOf "$tarball" package/package.json | jq -r '.version')" = "$REQUESTED_VERSION"
+          : > npm-stage-output.txt
 
           if npm view "$PACKAGE_NAME@$REQUESTED_VERSION" version >/dev/null 2>&1; then
             registry_tarball=$(npm view "$PACKAGE_NAME@$REQUESTED_VERSION" dist.tarball)
@@ -243,28 +245,14 @@ jobs:
               echo "NPM already has this version with a different tarball." >&2
               exit 1
             fi
-            echo "The matching package version is already published; verified and skipped duplicate publish."
+            echo "The NPM stage was approved and the live version matches the candidate artifact."
+            echo "state=published-verified" >> "$GITHUB_OUTPUT"
           else
-            # The npm-production GitHub Environment must require an independent reviewer.
-            # NPM trusted publishing supplies OIDC authentication, not release approval.
-            npm publish "$tarball" --access public --tag latest
+            # The trusted publisher must allow npm stage publish, but not npm publish.
+            # NPM requires a separate maintainer approval with 2FA before this version is public.
+            npm stage publish "$tarball" --access public --tag latest 2>&1 | tee npm-stage-output.txt
+            echo "state=staged-pending-approval" >> "$GITHUB_OUTPUT"
           fi
-
-          for attempt in 1 2 3 4 5 6; do
-            if npm view "$PACKAGE_NAME@$REQUESTED_VERSION" version >/dev/null 2>&1; then
-              break
-            fi
-            if [[ "$attempt" -eq 6 ]]; then
-              echo "NPM did not register the package version in time." >&2
-              exit 1
-            fi
-            sleep 10
-          done
-
-          registry_tarball=$(npm view "$PACKAGE_NAME@$REQUESTED_VERSION" dist.tarball)
-          curl --fail --location "$registry_tarball" --output registry-package.tgz
-          registry_sha=$(sha256sum registry-package.tgz | cut -d ' ' -f1)
-          test "$registry_sha" = "$actual_sha"
 
       - name: Create Slack announcement draft and release evidence
         env:
@@ -272,11 +260,17 @@ jobs:
           REQUESTED_VERSION: ${{ inputs.version }}
           RELEASE_TAG: ${{ needs.prepare.outputs.release_tag }}
           RELEASE_NOTES: ${{ inputs.release_notes }}
+          NPM_STATE: ${{ steps.npm_stage.outputs.state }}
         run: |
           {
             echo "# ${PACKAGE_NAME}@${REQUESTED_VERSION} release"
             echo
-            echo "${PACKAGE_NAME}@${REQUESTED_VERSION} is available on NPM."
+            if [[ "$NPM_STATE" == "published-verified" ]]; then
+              echo "${PACKAGE_NAME}@${REQUESTED_VERSION} is available on NPM."
+            else
+              echo "${PACKAGE_NAME}@${REQUESTED_VERSION} is staged on NPM and is not public yet."
+              echo "Do not post this announcement until a maintainer approves the NPM stage and the live version is verified."
+            fi
             echo
             echo "GitHub draft: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}"
             echo "NPM: https://www.npmjs.com/package/${PACKAGE_NAME}/v/${REQUESTED_VERSION}"
@@ -284,9 +278,8 @@ jobs:
             echo "Highlights:"
             printf '%s\n' "$RELEASE_NOTES"
           } > slack-announcement-draft.md
-          cp slack-announcement-draft.md release-evidence.md
           {
-            echo "## HPE icon NPM publication verified"
+            echo "## HPE icon NPM stage evidence"
             echo
             echo "| Evidence | Value |"
             echo "| --- | --- |"
@@ -294,8 +287,23 @@ jobs:
             echo "| Version | $REQUESTED_VERSION |"
             echo "| Candidate run | ${{ inputs.candidate_run_id }} |"
             echo "| Commit | ${{ inputs.commit_sha }} |"
+            echo "| NPM state | $NPM_STATE |"
+            if [[ "$NPM_STATE" == "staged-pending-approval" ]]; then
+              echo "| NPM action | Review and approve in the NPM Staged Packages page using 2FA; then rerun this workflow to verify the live tarball |"
+            fi
             echo "| GitHub release | Draft; human review and publication still required |"
-            echo "| Slack | Draft artifact only; posting remains a human action |"
+            echo "| Slack | Draft only; posting remains a human action |"
+          } > release-evidence.md
+          {
+            echo "## HPE icon package stage"
+            echo
+            echo "| Package | Version | NPM state |"
+            echo "| --- | --- | --- |"
+            echo "| $PACKAGE_NAME | $REQUESTED_VERSION | $NPM_STATE |"
+            if [[ "$NPM_STATE" == "staged-pending-approval" ]]; then
+              echo
+              echo "Review the staged package in NPM's Staged Packages page and approve it with 2FA. Then rerun this workflow with the same candidate inputs; the rerun verifies the public tarball against the candidate and does not stage again."
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload release evidence
@@ -305,5 +313,6 @@ jobs:
           path: |
             slack-announcement-draft.md
             release-evidence.md
+            npm-stage-output.txt
           if-no-files-found: error
           retention-days: 90

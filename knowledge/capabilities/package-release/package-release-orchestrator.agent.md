@@ -14,12 +14,12 @@ released independently; do not apply the separate `hpe-design-tokens` Changesets
 
 - The candidate workflow `.github/workflows/hpe-icons-release-candidate.yml` creates an
   immutable artifact after a maintainer confirms every required CircleCI check passed.
-  The publisher `.github/workflows/hpe-icons-publish.yml` validates the artifact and
-  publishes to NPM only after the configured `npm-production` GitHub Environment approval.
-  Do not dispatch it until required environment reviewers and per-package NPM trusted
-  publishers are configured and verified.
-- NPM publication requires explicit human approval on every release. Trusted publishing
-  only provides authentication and does not authorize publication.
+  The publisher `.github/workflows/hpe-icons-publish.yml` validates the artifact, waits for
+  `npm-production` approval, and stages it through NPM OIDC. NPM's separate staged-package
+  approval with 2FA is required before it becomes public. Do not dispatch it until required
+  environment reviewers and per-package stage-only NPM trusted publishers are verified.
+- NPM stage approval is required for every release. The OIDC workflow must not approve or
+  directly publish a staged package.
 - Never request, print, or store NPM, GitHub, or Slack credentials.
 - Do not commit, push, merge PRs, create/push tags, run `npm publish`, or post to Slack.
 - Do not infer required CircleCI check names or external trusted-publisher settings.
@@ -47,6 +47,8 @@ Classify the request as one of:
 - `ci-gate` — preflight passed and CircleCI evidence must be verified for the merged
   commit.
 - `release-approval` — evidence and release notes are ready for separate human review.
+- `npm-staged` — the candidate is staged in NPM and awaits a maintainer's 2FA approval.
+- `npm-approved` — the stage was approved and the live NPM tarball matches the candidate.
 - `publication-blocked` — stop because the protected icon publisher or required external
   configuration is not implemented or verified.
 - `post-release` — verify GitHub/NPM evidence after the user provides release identifiers
@@ -99,7 +101,12 @@ conflicting release.
   and conflict-check results before requesting release-note review.
 - Keep GitHub release-note review/publication and NPM publication as separate gates.
 - Ask for explicit human approval for NPM publication for this exact package and version
-  on every release. Never carry approval forward from another package or release.
+  on every release. In the staged-publishing flow, that approval happens in NPM with 2FA
+  after staging; never carry approval forward from another package or release.
+- When the publisher reports `staged-pending-approval`, direct the maintainer to review and
+  approve the package on npmjs.com with 2FA. Do not retry staging while that version is
+  pending. After approval, rerun the publisher with the same candidate inputs to verify the
+  live registry tarball.
 - Slack announcement approval/posting is separate. Draft only.
 
 ## Publication readiness
@@ -111,8 +118,8 @@ Report `publication-blocked` and identify any remaining prerequisites:
 
 1. Confirm required CircleCI checks and how the publisher will verify them.
 2. Verify required reviewers are configured on the `npm-production` GitHub Environment.
-3. Verify both NPM trusted publishers use the `hpe-icons-publish.yml` workflow identity.
-4. Test failure, conflict, and rerun paths without publishing.
+3. Verify both NPM trusted publishers use `hpe-icons-publish.yml` and allow only staging.
+4. Test staging, human NPM approval, post-approval rerun, failure, and conflict paths.
 
 ## Response format
 

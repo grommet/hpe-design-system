@@ -1,8 +1,9 @@
 # Package Release
 
 Status: active for release preparation and preflight of the HPE icon packages.
-Candidate and publisher workflows are implemented. External GitHub/NPM protections must
-be configured and verified before enabling publication.
+Candidate and publisher workflows are implemented. Per NPM's staged-publishing setup,
+trusted publishing stages candidates; verify the publisher identity and GitHub protections
+for each package before use.
 
 ## Purpose
 
@@ -29,21 +30,24 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Build each selected package and inspect its packed artifact. Current package manifests
   include `dist` and `package.json`; the package root is the packaging context. Do not
   publish from a directory or artifact other than the one verified for that package.
-- NPM publication always requires a separate, explicit human approval for every release.
-  NPM trusted publishing is authentication, not authorization, and does not remove this
-  approval gate.
+- The publisher uses `npm stage publish` through trusted publishing; it must not have
+  permission to run direct `npm publish`. NPM staging is not public publication.
+- Every release requires a human to review and approve the staged package in NPM with
+  2FA. Trusted publishing only stages the candidate; it cannot approve the stage.
 - The GitHub Actions publisher follows the candidate/publisher separation used for design
   tokens. Configure a protected GitHub Environment named `npm-production` with required
-  reviewers and attach the publish job to that environment so a human must approve every
-  release before NPM publication.
+  reviewers and attach the NPM staging job to it. This is a pre-stage approval; NPM's own
+  staged-package 2FA approval remains required before public release.
 - GitHub release notes and the Slack announcement remain human-reviewed. Do not post the
   announcement automatically.
 - The candidate workflow `.github/workflows/hpe-icons-release-candidate.yml` builds and
   uploads a package artifact after a maintainer confirms the CircleCI run. It does not
   publish. The publisher `.github/workflows/hpe-icons-publish.yml` validates that exact
   candidate, creates or reuses a draft GitHub release, then waits for the `npm-production`
-  environment approval before publishing the artifact. It verifies the registry tarball
-  and leaves the GitHub release in draft for a separate human review and publish action.
+  environment approval before staging the artifact. The first run reports `staged`, not
+  `published`. A maintainer approves the staged package in NPM with 2FA, then reruns the
+  same publisher inputs to verify the live registry tarball against the candidate. The
+  GitHub release remains a draft for separate human review and publication.
 
 ## Stages
 
@@ -55,8 +59,11 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
    release-tag/version consistency.
 4. `ci-gate` — confirm the required CircleCI checks passed for the merged release commit.
 5. `release-approval` — present candidate evidence and release notes for human review.
-6. `publication-blocked` — stop if environment protection, NPM trust, CircleCI evidence, or artifact binding is missing.
-7. `post-release` — after an authorized publication, verify the GitHub release and NPM
+6. `publication-blocked` — stop if environment protection, NPM trust, CircleCI evidence,
+   or artifact binding is missing.
+7. `npm-staged` — the candidate artifact is staged and awaits NPM maintainer review/2FA.
+8. `npm-approved` — NPM approval is complete and the public registry tarball matches the candidate.
+9. `post-release` — after an authorized publication, verify the GitHub release and NPM
    registry version, then prepare a Slack announcement draft.
 
 ## Human Approval Gates
@@ -64,8 +71,8 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Peer review and merge of the package version PR.
 - Confirmation that all required CircleCI checks passed.
 - Review and approval of GitHub release title and notes.
-- Explicit NPM publication approval for every release, before the protected publisher is
-  dispatched.
+- Explicit NPM staged-package review and 2FA approval for every release before it becomes
+  public. The GitHub environment approval is an additional pre-stage gate.
 - Human review and posting of the Slack announcement.
 
 ## Safety Boundaries
@@ -79,27 +86,31 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Do not infer CircleCI check names or NPM/GitHub trusted-publisher configuration from
   repository files. Record external verification as a blocker.
 
-## NPM Trusted Publishing Setup (Pending)
+## NPM Trusted Publishing Verification
 
-After the protected publisher workflow has a stable filename, configure each NPM package
-separately in its NPM package settings:
+Verify each NPM package's trusted-publisher entry in its NPM package settings:
 
 1. In each NPM package, add a GitHub Actions publisher for `grommet/hpe-design-system`.
    Use filename `hpe-icons-publish.yml`, not the workflow path.
 2. Set its GitHub Environment to the exact protected environment used by the publisher,
    recommended as `npm-production`.
-3. Use a GitHub-hosted runner, Node.js 22.14+, npm CLI 11.5.1+, and job-scoped `id-token: write`.
-4. Allow direct `npm publish` in NPM because the workflow publishes after the GitHub approval gate.
-   New NPM publisher configurations default to staged publishing; select deliberately.
-   Stage-only access requires changing this workflow to stage and wait for NPM approval.
+3. Use a GitHub-hosted runner, Node.js 22.14+, npm CLI 11.15.0+, and job-scoped `id-token: write`.
+4. Allow `npm stage publish` only; do not grant direct `npm publish` to the trusted publisher.
 5. Require independent environment reviewers, prevent self-review, and restrict deploy access.
-   NPM trust is authentication, not an approval mechanism.
-6. Test the configuration on a coordinated release attempt. NPM requires a newly created
-   trusted-publisher configuration to complete its first successful publish within two
-   days; otherwise it expires and must be recreated.
-7. After a successful OIDC publish is verified, review NPM's token-access settings and
-   revoke unneeded automation tokens. Do not revoke a fallback token before the trusted
-   path has been verified.
+   NPM's staged-package 2FA approval is the final per-release public-release gate.
+6. Require NPM 2FA for approvers. They approve through NPM's Staged Packages page;
+   `npm stage approve` requires interactive authentication and is unavailable to OIDC.
+7. Complete the first staged publish within two days of creating a new trusted publisher,
+   or NPM expires that configuration.
+8. After stage and approval are verified, review token access and revoke unused automation
+   tokens. Keep fallback tokens until the trusted path is proven.
+
+After the workflow reports `staged`, review the package in NPM's Staged Packages page and
+approve it with 2FA. Do not rerun staging while that version is pending; staged versions
+occupy the package's unique version slot. After approval, rerun the publisher with the same
+candidate inputs. It compares the live tarball to the candidate and reports
+`published-verified` without staging again. Then review/publish the GitHub draft and post
+the Slack announcement manually.
 
 Both package manifests now identify the canonical repository URL and their monorepo
 directory. This must remain aligned with the NPM trusted-publisher repository identity.

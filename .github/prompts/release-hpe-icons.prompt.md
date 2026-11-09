@@ -20,8 +20,8 @@ its [orchestrator](../../knowledge/capabilities/package-release/package-release-
 - Releases are independent. Require one package name and an exact target version.
 - This prompt does not authorize commits, pushes, PR merges, tag creation, GitHub release
   publication, NPM publication, or Slack posting.
-- NPM publication always requires explicit human approval for this exact package and
-  version, on every release. Trusted publishing does not remove the approval requirement.
+- Every staged NPM package requires human review and NPM 2FA approval before it becomes
+  public. Trusted publishing cannot approve a stage.
 - The protected publisher exists, but external GitHub Environment and NPM trusted-publisher
   settings must be verified before dispatch. Never direct the user to publish from a local
   machine.
@@ -42,7 +42,7 @@ its [orchestrator](../../knowledge/capabilities/package-release/package-release-
    failed builds, lint, artifact validation, CircleCI checks, conflicts, or missing
    approvals.
 4. Present release evidence and the next required human approval. Keep the version PR,
-   CircleCI, GitHub release notes, NPM publication, and Slack announcement gates distinct.
+   CircleCI, GitHub release notes, NPM stage approval, and Slack announcement gates distinct.
 5. Stop publication until `npm-production` reviewers and both NPM trusted publishers are verified.
 
 ## Output Expectations
