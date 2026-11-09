@@ -3,13 +3,55 @@ kind: CapabilityManifest
 metadata:
   name: package-release
   version: 1.0.0
-  status: planned
+  status: active
   owner: design-system
 spec:
-  summary: Prepare, validate, and publish design-system packages with changelog and release safeguards.
+  summary: Prepare and publish independent HPE icon package releases through immutable candidates, trusted publishing, and explicit human approval gates.
   entrypoint:
     agent: package-release-orchestrator
-    args: '<package-name>'
+    args: '<package-name> <version>'
+  dependencies:
+    external:
+      - path: packages/icons-grommet/package.json
+      - path: packages/icons-grommet/vite.config.ts
+      - path: packages/icons-svg/package.json
+      - path: packages/icons-svg/vite.config.ts
+      - path: .github/prompts/release-hpe-icons.prompt.md
+      - path: .github/workflows/hpe-icons-release-candidate.yml
+      - path: .github/workflows/hpe-icons-publish.yml
+      - path: .github/workflows/design-tokens-release.yml
+      - path: .github/workflows/design-tokens-publish.yml
   assets:
     agents:
       - package-release-orchestrator.agent.md
+  stages:
+    - id: intake
+      when: 'one supported package and explicit target version are identified'
+    - id: version-pr
+      when: 'package.json-only version change is reviewed and merged'
+    - id: preflight
+      when: 'package build and packed-artifact checks pass'
+    - id: ci-gate
+      when: 'required CircleCI checks pass for the merged release commit'
+    - id: release-approval
+      when: 'candidate evidence and GitHub release notes are ready for human review'
+    - id: publication-blocked
+      when: 'protected icon publisher or required external configuration is not verified'
+    - id: npm-staged
+      when: 'publisher staged the immutable candidate and NPM maintainer approval is pending'
+    - id: npm-approved
+      when: 'NPM stage was approved with 2FA and the live registry tarball matches the candidate'
+    - id: post-release
+      when: 'GitHub and NPM publication evidence is available for verification'
+  x-extensions:
+    supportedPackages:
+      - '@hpe-design/icons-grommet'
+      - '@hpe-design/icons-svg'
+    versioning: 'manual package.json-only PR; no Changesets'
+    approvalGates:
+      - version-pr-review-and-merge
+      - circleci-required-checks
+      - github-release-notes
+      - npm-staged-package-approval-with-2fa-every-release
+      - slack-announcement
+    publicationWorkflowStatus: staged-publishing-configured-per-maintainer-report
