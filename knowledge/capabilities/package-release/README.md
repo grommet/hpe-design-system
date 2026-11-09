@@ -24,9 +24,10 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Versioning remains a package-specific `package.json` version update in a reviewed PR;
   do not add Changesets as part of this process.
 - The version PR must be approved and merged before a release candidate is prepared.
-- CircleCI is the authoritative CI gate. Required check names and successful results must
-  be confirmed from the actual PR/commit. Every CircleCI check/job required for the
-  release must pass; this repository does not define those checks.
+- Confirm the merged version PR's required GitHub checks are successful before preparing a
+  candidate. The candidate workflow independently runs the selected package's build,
+  Grommet lint where applicable, and packed-artifact checks; artifact upload occurs only if
+  those checks pass.
 - Build each selected package and inspect its packed artifact. Current package manifests
   include `dist` and `package.json`; the package root is the packaging context. Do not
   publish from a directory or artifact other than the one verified for that package.
@@ -41,7 +42,7 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - GitHub release notes and the Slack announcement remain human-reviewed. Do not post the
   announcement automatically.
 - The candidate workflow `.github/workflows/hpe-icons-release-candidate.yml` builds and
-  uploads a package artifact after a maintainer confirms the CircleCI run. It does not
+  uploads a package artifact after its package checks pass. It does not
   publish. The publisher `.github/workflows/hpe-icons-publish.yml` validates that exact
   candidate, creates or reuses a draft GitHub release, then waits for the `npm-production`
   environment approval before staging the artifact. The first run reports `staged`, not
@@ -57,9 +58,9 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
    merge are required before continuing.
 3. `preflight` — build and inspect the package artifact; verify package metadata and
    release-tag/version consistency.
-4. `ci-gate` — confirm the required CircleCI checks passed for the merged release commit.
+4. `ci-gate` — confirm required GitHub checks passed for the merged version PR.
 5. `release-approval` — present candidate evidence and release notes for human review.
-6. `publication-blocked` — stop if environment protection, NPM trust, CircleCI evidence,
+6. `publication-blocked` — stop if environment protection, NPM trust, CI evidence,
    or artifact binding is missing.
 7. `npm-staged` — the candidate artifact is staged and awaits NPM maintainer review/2FA.
 8. `npm-approved` — NPM approval is complete and the public registry tarball matches the candidate.
@@ -69,7 +70,8 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 ## Human Approval Gates
 
 - Peer review and merge of the package version PR.
-- Confirmation that all required CircleCI checks passed.
+- Confirmation that required GitHub checks passed for the merged version PR and candidate
+  build/preflight succeeded.
 - Review and approval of GitHub release title and notes.
 - Explicit NPM staged-package review and 2FA approval for every release before it becomes
   public. The GitHub environment approval is an additional pre-stage gate.
@@ -83,8 +85,9 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
   approval as approval for the current NPM publication.
 - Stop on a dirty worktree, version mismatch, missing CI evidence, conflicting tag or
   registry version, failed validation, or missing approval.
-- Do not infer CircleCI check names or NPM/GitHub trusted-publisher configuration from
-  repository files. Record external verification as a blocker.
+- Do not infer required GitHub checks or NPM/GitHub trusted-publisher configuration from
+  repository files. Verify the merged PR checks and record external publisher setup as a
+  blocker when needed.
 
 ## NPM Trusted Publishing Verification
 

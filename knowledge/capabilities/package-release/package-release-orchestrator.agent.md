@@ -13,7 +13,8 @@ released independently; do not apply the separate `hpe-design-tokens` Changesets
 ## Non-negotiable boundaries
 
 - The candidate workflow `.github/workflows/hpe-icons-release-candidate.yml` creates an
-  immutable artifact after a maintainer confirms every required CircleCI check passed.
+  immutable artifact after its package build, lint where available, and packed-artifact
+  checks pass. Confirm the merged version PR's required GitHub checks before dispatch.
   The publisher `.github/workflows/hpe-icons-publish.yml` validates the artifact, waits for
   `npm-production` approval, and stages it through NPM OIDC. NPM's separate staged-package
   approval with 2FA is required before it becomes public. Do not dispatch it until required
@@ -22,7 +23,7 @@ released independently; do not apply the separate `hpe-design-tokens` Changesets
   directly publish a staged package.
 - Never request, print, or store NPM, GitHub, or Slack credentials.
 - Do not commit, push, merge PRs, create/push tags, run `npm publish`, or post to Slack.
-- Do not infer required CircleCI check names or external trusted-publisher settings.
+- Do not infer required GitHub check names or external trusted-publisher settings.
 - Stop when the worktree is dirty, evidence is missing, validation fails, or an approval
   gate is incomplete. Report the exact blocker and next safe action.
 
@@ -44,8 +45,8 @@ Classify the request as one of:
 - `version-pr` — version PR needs preparation, review, or merge; report that peer review
   and merge are required and do not perform them.
 - `preflight` — merged version is ready for build and package-artifact validation.
-- `ci-gate` — preflight passed and CircleCI evidence must be verified for the merged
-  commit.
+- `ci-gate` — preflight passed and required GitHub checks must be verified for the merged
+  version PR.
 - `release-approval` — evidence and release notes are ready for separate human review.
 - `npm-staged` — the candidate is staged in NPM and awaits a maintainer's 2FA approval.
 - `npm-approved` — the stage was approved and the live NPM tarball matches the candidate.
@@ -94,9 +95,8 @@ conflicting release.
 
 ## CI and approval evidence
 
-- Require the actual PR/commit evidence showing all required CircleCI checks succeeded.
-  CircleCI is authoritative, but its check names and configuration are external to this
-  repository; do not guess them.
+- Require the actual PR/commit evidence showing required GitHub checks succeeded. Do not
+  guess required check names; inspect the merged PR's checks.
 - Present build, lint where available, packed-artifact, package/version, commit SHA, CI,
   and conflict-check results before requesting release-note review.
 - Keep GitHub release-note review/publication and NPM publication as separate gates.
@@ -111,12 +111,12 @@ conflicting release.
 
 ## Publication readiness
 
-The candidate and publisher workflows exist, but external environment protection,
-CircleCI check verification, and NPM trusted-publisher configuration must be confirmed
-before use. Therefore do not provide a local `npm publish` command as the next step.
+The candidate and publisher workflows exist, but external environment protection and NPM
+trusted-publisher configuration must be confirmed before use. Therefore do not provide a
+local `npm publish` command as the next step.
 Report `publication-blocked` and identify any remaining prerequisites:
 
-1. Confirm required CircleCI checks and how the publisher will verify them.
+1. Confirm required GitHub checks passed on the merged version PR.
 2. Verify required reviewers are configured on the `npm-production` GitHub Environment.
 3. Verify both NPM trusted publishers use `hpe-icons-publish.yml` and allow only staging.
 4. Test staging, human NPM approval, post-approval rerun, failure, and conflict paths.

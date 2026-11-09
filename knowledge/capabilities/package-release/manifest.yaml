@@ -32,7 +32,7 @@ spec:
     - id: preflight
       when: 'package build and packed-artifact checks pass'
     - id: ci-gate
-      when: 'required CircleCI checks pass for the merged release commit'
+      when: 'required GitHub checks pass for the merged release PR and package candidate preflight succeeds'
     - id: release-approval
       when: 'candidate evidence and GitHub release notes are ready for human review'
     - id: publication-blocked
@@ -50,7 +50,7 @@ spec:
     versioning: 'manual package.json-only PR; no Changesets'
     approvalGates:
       - version-pr-review-and-merge
-      - circleci-required-checks
+      - merged-pr-github-checks
       - github-release-notes
       - npm-staged-package-approval-with-2fa-every-release
       - slack-announcement

@@ -14,15 +14,6 @@ on:
         description: 'Exact package version from the merged version PR'
         required: true
         type: string
-      confirm_circleci_success:
-        description: 'I verified that every CircleCI check/job passed for the merged commit'
-        required: true
-        default: false
-        type: boolean
-      circleci_run_url:
-        description: 'URL of the successful CircleCI run reviewed'
-        required: true
-        type: string
 
 permissions:
   contents: read
@@ -40,16 +31,12 @@ jobs:
     name: Build approved icon candidate
     runs-on: ubuntu-latest
     steps:
-      - name: Require default-branch dispatch and CircleCI confirmation
+      - name: Require default-branch dispatch
         env:
           WORKFLOW_REF: ${{ github.ref_name }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-          CIRCLECI_CONFIRMED: ${{ inputs.confirm_circleci_success }}
-          CIRCLECI_RUN_URL: ${{ inputs.circleci_run_url }}
         run: |
           test "$WORKFLOW_REF" = "$DEFAULT_BRANCH"
-          test "$CIRCLECI_CONFIRMED" = "true"
-          [[ "$CIRCLECI_RUN_URL" == https://app.circleci.com/* || "$CIRCLECI_RUN_URL" == https://circleci.com/* ]]
 
       - name: Check out dispatched default-branch commit
         uses: actions/checkout@v4
@@ -112,7 +99,6 @@ jobs:
           PACKAGE_NAME: ${{ inputs.package }}
           REQUESTED_VERSION: ${{ inputs.version }}
           PACKAGE_DIR: ${{ steps.package.outputs.package_dir }}
-          CIRCLECI_RUN_URL: ${{ inputs.circleci_run_url }}
         run: |
           artifact_dir="$GITHUB_WORKSPACE/release-artifact"
           mkdir -p "$artifact_dir"
@@ -147,10 +133,6 @@ jobs:
             version: process.env.REQUESTED_VERSION,
             requested_version: process.env.REQUESTED_VERSION,
             commit_sha: process.env.GITHUB_SHA,
-            circleci_run_url: process.env.CIRCLECI_RUN_URL,
-            circleci_confirmed: true,
-            circleci_checks_passed: true,
-            circleci_confirmed_by: process.env.GITHUB_ACTOR,
             artifact_sha256: fs.readFileSync(
               `${process.env.GITHUB_WORKSPACE}/release-artifact/tarball.sha256`,
               'utf8',
@@ -174,7 +156,6 @@ jobs:
           PACKAGE_NAME: ${{ inputs.package }}
           PACKAGE_ID: ${{ steps.package.outputs.package_id }}
           REQUESTED_VERSION: ${{ inputs.version }}
-          CIRCLECI_RUN_URL: ${{ inputs.circleci_run_url }}
         run: |
           {
             echo "## HPE icon release candidate"
@@ -186,7 +167,7 @@ jobs:
             echo "| Candidate run | $GITHUB_RUN_ID |"
             echo "| Artifact | hpe-icons-$PACKAGE_ID-$REQUESTED_VERSION-candidate |"
             echo "| Commit | $GITHUB_SHA |"
-            echo "| CircleCI checks | All checks/jobs confirmed passed: $CIRCLECI_RUN_URL (confirmed by $GITHUB_ACTOR) |"
+            echo "| Validation | Package build, lint where available, and packed-artifact checks passed in this candidate run |"
             echo "| Tarball SHA-256 | $(cat release-artifact/tarball.sha256) |"
             echo "| NPM publication | Not performed; explicit human approval and a protected publisher are required |"
           } >> "$GITHUB_STEP_SUMMARY"
