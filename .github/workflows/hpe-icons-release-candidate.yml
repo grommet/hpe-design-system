@@ -15,7 +15,7 @@ on:
         required: true
         type: string
       confirm_circleci_success:
-        description: 'I verified that all required CircleCI checks passed for the merged commit'
+        description: 'I verified that every CircleCI check/job passed for the merged commit'
         required: true
         default: false
         type: boolean
