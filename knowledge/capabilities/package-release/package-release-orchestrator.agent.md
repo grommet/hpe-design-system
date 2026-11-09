@@ -21,11 +21,11 @@ released independently; do not apply the separate `hpe-design-tokens` Changesets
   environment reviewers and per-package stage-only NPM trusted publishers are verified.
 - NPM stage approval is required for every release. The OIDC workflow must not approve or
   directly publish a staged package.
-- The protected publisher creates the package version tag at the validated candidate SHA
-  and verifies any existing tag points to that same SHA. Do not create tags from the
-  orchestrator or a local shell. The tag-push step requires the repository-scoped GitHub
-  App configured in the capability README; the default Actions token is insufficient when
-  GitHub enforces workflow-file permission on the tag ref.
+- The protected publisher checks for an existing draft or conflicting version tag. When
+  neither exists, `gh release create --target <candidate-sha> --draft` creates both the
+  version tag and draft, following the design-tokens workflow. An existing draft must target
+  the candidate SHA; an existing tag without a matching draft is a blocker. Do not create
+  tags from the orchestrator or a local shell.
 - Never request, print, or store NPM, GitHub, or Slack credentials.
 - Do not commit, push, merge PRs, create/push tags, run `npm publish`, or post to Slack.
 - Do not infer required GitHub check names or external trusted-publisher settings.
@@ -127,9 +127,7 @@ Report `publication-blocked` and identify any remaining prerequisites:
 1. Confirm required GitHub checks passed on the merged version PR.
 2. Verify required reviewers are configured on the `npm-production` GitHub Environment.
 3. Verify both NPM trusted publishers use `hpe-icons-publish.yml` and allow only staging.
-4. Configure `RELEASE_TAG_APP_CLIENT_ID` and `RELEASE_TAG_APP_PRIVATE_KEY` for the
-   repository-installed GitHub App with Contents and Workflows write permissions.
-5. Test tag creation, staging, human NPM approval, post-approval rerun, failure, and
+4. Test draft/tag creation, staging, human NPM approval, post-approval rerun, failure, and
    conflicting-tag paths.
 
 ## Response format

@@ -35,13 +35,11 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - Build each selected package and inspect its packed artifact. Current package manifests
   include `dist` and `package.json`; the package root is the packaging context. Do not
   publish from a directory or artifact other than the one verified for that package.
-- After validating the candidate artifact, the protected publisher creates and pushes the
-  annotated `<package-name>@<version>` tag at the candidate commit. If the tag already
-  exists, it must point to that same commit; a conflicting tag stops the workflow. The
-  tag object uses the standard `github-actions[bot]` committer identity, set for the tag
-  command only. Tag push uses a short-lived, repository-scoped GitHub App token because
-  GitHub rejects the default Actions token when the tagged history includes workflow-file
-  changes. The GitHub release draft is then created against that version tag.
+- After validating the candidate artifact, the protected publisher checks for an existing
+  draft or conflicting tag. If neither exists, it runs `gh release create <tag> --target
+<candidate-sha> --draft`; GitHub creates the version tag at the target commit as part of
+  draft creation, following the design-tokens publisher pattern. Existing drafts must point
+  to the candidate commit, and an existing tag without a matching draft stops the workflow.
 - The publisher uses `npm stage publish` through trusted publishing; it must not have
   permission to run direct `npm publish`. NPM staging is not public publication.
 - Every release requires a human to review and approve the staged package in NPM with
@@ -142,20 +140,6 @@ Both package manifests now identify the canonical repository URL and their monor
 directory. This must remain aligned with the NPM trusted-publisher repository identity.
 
 Official setup and current requirements: [NPM trusted publishing documentation](https://docs.npmjs.com/trusted-publishers/).
-
-## Version Tag Push App (Required)
-
-Install a dedicated GitHub App on `grommet/hpe-design-system` with repository permissions
-`Contents: write` and `Workflows: write`. Set repository Actions variable
-`RELEASE_TAG_APP_CLIENT_ID` to the App client ID and Actions secret
-`RELEASE_TAG_APP_PRIVATE_KEY` to its private key. The publisher mints a short-lived token
-scoped to this repository and these permissions immediately before pushing the version
-tag. Do not replace this with a broad personal access token or grant extra permissions to
-`GITHUB_TOKEN`.
-
-Until the App installation and those Actions settings exist, automated tag creation remains
-blocked. A rerun of an old workflow attempt will not pick up a newly merged workflow fix;
-dispatch a fresh publisher run from `master` after the configuration is in place.
 
 ## Manifest
 
