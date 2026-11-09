@@ -181,7 +181,9 @@ jobs:
           fi
 
           if ! git show-ref --verify --quiet "refs/tags/$RELEASE_TAG"; then
-            git tag -a "$RELEASE_TAG" "$EXPECTED_SHA" -m "$RELEASE_TAG"
+            git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              tag -a "$RELEASE_TAG" "$EXPECTED_SHA" -m "$RELEASE_TAG"
           fi
           git push origin "refs/tags/$RELEASE_TAG"
           echo "Created and pushed $RELEASE_TAG at $EXPECTED_SHA."

@@ -38,7 +38,8 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
 - After validating the candidate artifact, the protected publisher creates and pushes the
   annotated `<package-name>@<version>` tag at the candidate commit. If the tag already
   exists, it must point to that same commit; a conflicting tag stops the workflow. The
-  GitHub release draft is then created against that version tag.
+  tag object uses the standard `github-actions[bot]` committer identity, set for the tag
+  command only. The GitHub release draft is then created against that version tag.
 - The publisher uses `npm stage publish` through trusted publishing; it must not have
   permission to run direct `npm publish`. NPM staging is not public publication.
 - Every release requires a human to review and approve the staged package in NPM with
