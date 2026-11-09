@@ -131,7 +131,7 @@ jobs:
             --arg package "$PACKAGE_NAME" \
             --arg version "$REQUESTED_VERSION" \
             --arg sha "$REQUESTED_SHA" \
-            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .circleci_confirmed == true and .circleci_checks_passed == true and (.circleci_run_url | test("^https://(app\\.)?circleci\\.com/"))' \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha' \
             "$metadata" >/dev/null
 
           actual_name=$(tar -xOf "$tarball" package/package.json | jq -r '.name')
@@ -228,7 +228,7 @@ jobs:
             --arg package "$PACKAGE_NAME" \
             --arg version "$REQUESTED_VERSION" \
             --arg sha "$REQUESTED_SHA" \
-            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha and .circleci_confirmed == true and .circleci_checks_passed == true' \
+            '.package == $package and .version == $version and .requested_version == $version and .commit_sha == $sha' \
             "$metadata" >/dev/null
 
           actual_sha=$(sha256sum "$tarball" | cut -d ' ' -f1)

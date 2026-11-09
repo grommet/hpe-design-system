@@ -27,8 +27,7 @@ or post Slack messages.
   canonical capability rather than duplicate its policy.
 - Preserve the current versioning process for this evaluation: a reviewed PR that only
   updates the selected package's `package.json` version, with no Changesets updates.
-- CircleCI remains the authoritative CI gate. The exact required check names and their
-  external configuration must be confirmed; do not infer them from this checkout.
+- Verify required GitHub checks on the merged version PR; do not infer them.
 - NPM publication always requires explicit human approval for every release.
 - Automation may prepare and execute the publish step only after approval.
 - Trusted publishing does not remove this approval gate.
@@ -72,8 +71,8 @@ or post Slack messages.
 6. Define explicit human approval gates, required evidence, failure handling, safe
    reruns, and package/version/tag conflict checks. Require a separate, explicit human
    approval for NPM publication on every release, even when a protected workflow and
-   trusted publishing perform the actual publish. Do not recommend bypassing the reviewed
-   version PR, the confirmed CircleCI gate, or the per-release NPM approval.
+   trusted publishing perform the actual publish. Do not bypass the reviewed version PR,
+   required GitHub checks, or per-release NPM approval.
 7. Produce a phased implementation roadmap with dependencies and validation criteria.
    Separate verified findings, recommendations, assumptions, and open questions.
 
@@ -83,7 +82,7 @@ or post Slack messages.
 2. Update only the selected package's `package.json` version, then commit and push the
    branch.
 3. Open a version-update PR for peer review and merge it after approval.
-4. Confirm all required CircleCI jobs pass before starting release publication.
+4. Confirm all required GitHub checks pass before starting release publication.
 5. From the merged version on `master`, create and push a package-scoped tag using the
    convention `<package-name>@<version>`; draft a GitHub release with a human-reviewed
    title and notes.
@@ -121,12 +120,12 @@ verified. Do not make edits or perform release actions as part of this evaluatio
 ## Quality Assurance
 
 - Cover both packages independently when `packageTargets` is `both`.
-- Preserve the package.json-only version PR and CircleCI as the authoritative gate.
+- Preserve the package.json-only version PR and verify its required GitHub checks.
 - Require explicit human approval for every NPM publication.
 - Treat trusted publishing as authentication, not authorization.
 - Do not assume where the package should be published from; require artifact/build
   evidence for that recommendation.
-- Separate repository facts from external NPM, GitHub, and CircleCI configuration.
+- Separate repository facts from external NPM, GitHub, and CI configuration.
 - Include approval gates, secrets/permissions boundaries, failure cases, and safe reruns.
 - Recommend a skill or tool only when it has a reusable responsibility distinct from the
   canonical capability and protected release workflow.

@@ -38,11 +38,11 @@ its [orchestrator](../../knowledge/capabilities/package-release/package-release-
    `package-release-orchestrator.agent.md`.
 2. Identify the package and requested version, inspect the worktree, and determine the
    current release stage.
-3. Run only the package-specific preflight checks required by the capability. Stop on
-   failed builds, lint, artifact validation, CircleCI checks, conflicts, or missing
-   approvals.
+3. Run the package preflight. Stop on failed builds, lint, artifact or GitHub checks,
+   conflicts, or missing approvals.
 4. Present release evidence and the next required human approval. Keep the version PR,
-   CircleCI, GitHub release notes, NPM stage approval, and Slack announcement gates distinct.
+   GitHub checks, GitHub release notes, NPM stage approval, and Slack announcement gates
+   distinct.
 5. Stop publication until `npm-production` reviewers and both NPM trusted publishers are verified.
 
 ## Output Expectations
@@ -54,6 +54,6 @@ release is published without GitHub and NPM evidence.
 ## Quality Assurance
 
 - Use the canonical capability as the source of truth; do not duplicate its procedure.
-- Preserve the package.json-only version PR and CircleCI as the authoritative CI gate.
+- Preserve the package.json-only version PR and verify its required GitHub checks.
 - Require explicit human approval for every NPM publication.
 - Do not publish, create tags, or post announcements from this prompt.
