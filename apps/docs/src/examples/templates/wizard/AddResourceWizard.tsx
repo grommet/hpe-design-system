@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import type { RefObject } from 'react';
 import {
   Box,
+  Notification,
   Wizard,
   WizardContent,
   WizardFooter,
@@ -21,12 +22,19 @@ import {
 
 type AddResourceWizardProps = {
   containerRef?: RefObject<HTMLElement | null>;
+  onCancel?: () => void;
+  onComplete?: (value: ResourceFormValues) => void;
 };
 
-export const AddResourceWizard = ({ containerRef }: AddResourceWizardProps) => {
+export const AddResourceWizard = ({
+  containerRef,
+  onCancel,
+  onComplete,
+}: AddResourceWizardProps = {}) => {
   // containerRef is for demonstration purposes on this site. Most
   // implementations should likely remove.
   const [open, setOpen] = useState(false);
+  const [completed, setCompleted] = useState(false);
   // Wizard is uncontrolled; changing the key remounts it so both the form
   // values and the active step return to their defaults.
   const [wizardKey, setWizardKey] = useState(0);
@@ -50,8 +58,11 @@ export const AddResourceWizard = ({ containerRef }: AddResourceWizardProps) => {
           if (phase === 'navigated') bodyRef.current?.scrollTo({ top: 0 });
         }}
         onComplete={({ value }) => {
-          console.log('onSubmit:', value);
-          reset();
+          if (onComplete) onComplete(value);
+          else {
+            setCompleted(true);
+            reset();
+          }
         }}
       >
         <WizardHeader title={wizardTitle} />
@@ -88,8 +99,20 @@ export const AddResourceWizard = ({ containerRef }: AddResourceWizardProps) => {
         <CancellationLayer
           target={containerRef && containerRef.current}
           title={wizardTitle}
-          onExit={reset}
+          onExit={onCancel || reset}
           onSetOpen={setOpen}
+        />
+      )}
+      {completed && (
+        <Notification
+          toast={{ autoClose: false }}
+          status="normal"
+          title="Resources added (demo)"
+          message={
+            'The resource form was completed. ' +
+            'No live resources were provisioned.'
+          }
+          onClose={() => setCompleted(false)}
         />
       )}
     </Box>

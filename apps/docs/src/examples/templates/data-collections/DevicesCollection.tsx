@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useMemo, useState } from 'react';
-import type { ComponentProps, SetStateAction } from 'react';
+import type { ComponentProps, MouseEvent, SetStateAction } from 'react';
 import {
   Box,
   Button,
@@ -26,9 +26,11 @@ import {
   Sidebar,
   Storage,
   VirtualStorage,
+  Add,
 } from '@hpe-design/icons-grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
+import { ReverseAnchor } from '../ReverseAnchor';
 import {
   CarbonEmissionsCard,
   DevicesTable,
@@ -36,6 +38,7 @@ import {
   PowerDrawCard,
 } from './content';
 import { pageBackground, surfaceBackground } from './content/devices/data';
+import type { Device } from './content/devices/data';
 
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },
@@ -138,7 +141,17 @@ function SideNav({ ...rest }: Pick<ComponentProps<typeof Box>, 'gridArea'>) {
   );
 }
 
-export const DevicesCollection = () => {
+type DevicesCollectionProps = {
+  onHome?: () => void;
+  onAddResource?: () => void;
+  onOpenSubscription?: (device: Device) => void;
+};
+
+export const DevicesCollection = ({
+  onHome,
+  onAddResource,
+  onOpenSubscription,
+}: DevicesCollectionProps = {}) => {
   const size = useContext(ResponsiveContext);
   const [user, setUser] = useState<typeof defaultUser | undefined>(defaultUser);
   const contextValue = useMemo(
@@ -160,7 +173,7 @@ export const DevicesCollection = () => {
       <AppContainer background={pageBackground}>
         <Grid columns={columns} rows={rows} areas={areas}>
           <Box gridArea="header">
-            <GlobalHeader />
+            <GlobalHeader onHome={onHome} />
           </Box>
           {showNav && <SideNav gridArea="nav" />}
           <Main gridArea="main">
@@ -170,17 +183,39 @@ export const DevicesCollection = () => {
               <PageContent gap="medium">
                 <PageHeader
                   title="Devices"
+                  parent={
+                    onHome && (
+                      <ReverseAnchor
+                        label="Home"
+                        href="#"
+                        onClick={(event: MouseEvent) => {
+                          event.preventDefault();
+                          onHome();
+                        }}
+                      />
+                    )
+                  }
                   actions={
-                    <Button
-                      label="Export report"
-                      icon={<Download />}
-                      secondary
-                    />
+                    <Box direction="row" gap="small" wrap>
+                      <Button
+                        label="Export report"
+                        icon={<Download />}
+                        secondary
+                      />
+                      {onAddResource && (
+                        <Button
+                          label="Add resource"
+                          icon={<Add aria-hidden />}
+                          primary
+                          onClick={onAddResource}
+                        />
+                      )}
+                    </Box>
                   }
                 />
                 <Box gap="xlarge">
                   <EnergySummary />
-                  <DevicesTable />
+                  <DevicesTable onOpenSubscription={onOpenSubscription} />
                 </Box>
               </PageContent>
             </Page>

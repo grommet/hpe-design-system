@@ -7,7 +7,13 @@ import { AppIdentity, HeaderNav, UserContext } from '.';
 
 // `assistant` adds the AI assistant toggle to the header's global services.
 // Omit it for applications without an assistant.
-export const GlobalHeader = ({ assistant }) => {
+/**
+ * @param {{ assistant?: {
+ *   id?: string, label?: string, open?: boolean,
+ *   controls?: string, onToggle: () => void
+ * }, onHome?: () => void }} props
+ */
+export const GlobalHeader = ({ assistant, onHome }) => {
   const size = useContext(ResponsiveContext);
   const { user } = useContext(UserContext);
   return (
@@ -22,12 +28,13 @@ export const GlobalHeader = ({ assistant }) => {
       }}
     >
       <AppIdentity title="Service Name" />
-      {user && <HeaderNav assistant={assistant} />}
+      {user && <HeaderNav assistant={assistant} onHome={onHome} />}
     </Header>
   );
 };
 
 GlobalHeader.propTypes = {
+  onHome: PropTypes.func,
   assistant: PropTypes.shape({
     id: PropTypes.string,
     label: PropTypes.string,

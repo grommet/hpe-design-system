@@ -11,7 +11,7 @@ import { UserAvatar } from './UserAvatar';
 const getInitials = ({ firstName = '', lastName = '' }) =>
   `${firstName.charAt(0)}${lastName.charAt(0)}`;
 
-export const HeaderNav = ({ assistant }) => {
+export const HeaderNav = ({ assistant, onHome }) => {
   const size = useContext(ResponsiveContext);
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState();
@@ -37,7 +37,12 @@ export const HeaderNav = ({ assistant }) => {
         {!['xsmall', 'small'].includes(size) && (
           <>
             <Button icon={<Help />} a11yTitle="Help" title="Help" />
-            <Button icon={<Home />} a11yTitle="Home" title="Home" />
+            <Button
+              icon={<Home />}
+              a11yTitle="Home"
+              title="Home"
+              onClick={onHome}
+            />
           </>
         )}
       </>
@@ -55,6 +60,7 @@ export const HeaderNav = ({ assistant }) => {
 };
 
 HeaderNav.propTypes = {
+  onHome: PropTypes.func,
   assistant: PropTypes.shape({
     id: PropTypes.string,
     label: PropTypes.string,

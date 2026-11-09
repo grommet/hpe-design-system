@@ -27,11 +27,7 @@ import {
 import type { User } from '../global-header';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
-import {
-  DiscoverServices,
-  HealthOverview,
-  WeekAtAGlance,
-} from './content';
+import { DiscoverServices, HealthOverview, WeekAtAGlance } from './content';
 import { pageBackground, surfaceBackground } from './content/overview/data';
 
 const navigation = [
@@ -94,7 +90,13 @@ function SideNav({ ...rest }: ComponentProps<typeof Box>) {
     </Box>
   );
 }
-export const OverviewDashboard = () => {
+type OverviewDashboardProps = {
+  onOpenDevices?: () => void;
+};
+
+export const OverviewDashboard = ({
+  onOpenDevices,
+}: OverviewDashboardProps = {}) => {
   const size = useContext(ResponsiveContext);
   const [user, setUser] = useState<User | undefined>(defaultUser);
   const contextValue = useMemo(() => ({ user, setUser }), [user]);
@@ -124,7 +126,7 @@ export const OverviewDashboard = () => {
                 />
                 <Box gap="xlarge">
                   <HealthOverview />
-                  <WeekAtAGlance />
+                  <WeekAtAGlance onOpenDevices={onOpenDevices} />
                   <DiscoverServices />
                 </Box>
               </PageContent>

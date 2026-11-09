@@ -47,10 +47,7 @@ const openDevice = (event: MouseEvent) => event.preventDefault();
 
 // Searchable properties. Those without `filter: false` also appear, in
 // this order, in the filters layer.
-const properties: Exclude<
-  NonNullable<DataProps['properties']>,
-  string[]
-> = {
+const properties: Exclude<NonNullable<DataProps['properties']>, string[]> = {
   serialNumber: { label: 'Serial number', filter: false },
   model: { label: 'Model' },
   type: { label: 'Type' },
@@ -123,11 +120,7 @@ const DevicesContent = () => {
         {(datum: SubscribedDevice) => (
           <Box key={datum.id}>
             {/* Placeholder href keeps the link in the tab order. */}
-            <Anchor
-              label={datum.serialNumber}
-              href="#"
-              onClick={openDevice}
-            />
+            <Anchor label={datum.serialNumber} href="#" onClick={openDevice} />
             <Text size="small" color="text-weak">
               {[datum.model, datum.type, datum.location].join(' • ')}
             </Text>
@@ -141,13 +134,17 @@ const DevicesContent = () => {
   );
 };
 
-export const SubscribedDevices = () => (
+export const SubscribedDevices = ({
+  devicesData = devices,
+}: {
+  devicesData?: SubscribedDevice[];
+} = {}) => (
   <Box as="section" gap="small">
     <Heading id={headingId} level={2} margin="none" tabIndex={-1}>
       Subscribed devices
     </Heading>
     <Data
-      data={devices}
+      data={devicesData}
       properties={properties}
       defaultView={{ step: 10 }}
       gap="small"

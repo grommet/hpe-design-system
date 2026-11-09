@@ -16,9 +16,13 @@ const openItems = attentionItems.reduce((total, item) => total + item.count, 0);
 
 type NeedsAttentionProps = {
   gridArea?: ComponentProps<typeof Box>['gridArea'];
+  onOpenDevices?: () => void;
 };
 
-export const NeedsAttention = ({ ...rest }: NeedsAttentionProps) => (
+export const NeedsAttention = ({
+  onOpenDevices,
+  ...rest
+}: NeedsAttentionProps) => (
   <TypedChartCard
     title="Needs attention"
     level={3}
@@ -26,8 +30,11 @@ export const NeedsAttention = ({ ...rest }: NeedsAttentionProps) => (
     action={
       <Button
         icon={<LinkNext />}
-        a11yTitle="View all items needing attention"
-        tip="View all"
+        a11yTitle={
+          onOpenDevices ? 'View devices' : 'View all items needing attention'
+        }
+        tip={onOpenDevices ? 'View devices' : 'View all'}
+        onClick={onOpenDevices}
       />
     }
     background={surfaceBackground}
@@ -35,14 +42,25 @@ export const NeedsAttention = ({ ...rest }: NeedsAttentionProps) => (
   >
     <Box flex justify="between" gap="medium">
       <Box gap="xxsmall">
-        {attentionItems.map(({ count, label, status }) => (
-          <StatusCount
-            key={label}
-            status={status}
-            label={label}
-            count={count}
-          />
-        ))}
+        {attentionItems.map(({ count, label, status }) =>
+          onOpenDevices ? (
+            <Button
+              key={label}
+              plain
+              a11yTitle={`${label}: view devices`}
+              onClick={onOpenDevices}
+            >
+              <StatusCount status={status} label={label} count={count} />
+            </Button>
+          ) : (
+            <StatusCount
+              key={label}
+              status={status}
+              label={label}
+              count={count}
+            />
+          ),
+        )}
       </Box>
       <Text size="small">
         Oldest critical item open 4 days. One pool in Frankfurt-DC2 is projected

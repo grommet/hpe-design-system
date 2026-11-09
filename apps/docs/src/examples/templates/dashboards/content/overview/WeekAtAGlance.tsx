@@ -41,7 +41,9 @@ const layout: Record<string, DashboardLayout> = {
   xlarge: large,
 };
 
-export const WeekAtAGlance = () => {
+export const WeekAtAGlance = ({
+  onOpenDevices,
+}: { onOpenDevices?: () => void } = {}) => {
   const size = useContext(ResponsiveContext);
   const { areas, columns, rows } = layout[size] || layout.large;
 
@@ -52,7 +54,7 @@ export const WeekAtAGlance = () => {
       </Heading>
       <Grid columns={columns} rows={rows} areas={areas} gap="small">
         <CostTrend gridArea="cost" />
-        <NeedsAttention gridArea="attention" />
+        <NeedsAttention gridArea="attention" onOpenDevices={onOpenDevices} />
         <SlaPerformance gridArea="sla" />
       </Grid>
     </Box>

@@ -60,6 +60,8 @@ const subscriptionIcons: Record<SubscriptionStatus, ReactNode> = {
 type DeviceIdentityProps = {
   name: string;
   serialNumber: string;
+  onOpenSubscription?: () => void;
+  subscriptionUnknown?: boolean;
 };
 
 // In an application this would navigate to the device's detail page.
@@ -69,9 +71,32 @@ const searchId = 'devices-search';
 
 // Devices are identified by serial number; the hostname is secondary and
 // may be long, so the cell is capped and the hostname truncates within it.
-const DeviceIdentity = ({ name, serialNumber }: DeviceIdentityProps) => (
+const DeviceIdentity = ({
+  name,
+  serialNumber,
+  onOpenSubscription,
+  subscriptionUnknown,
+}: DeviceIdentityProps) => (
   <Box width={{ max: 'xsmall' }}>
-    <Anchor label={serialNumber} onClick={openDevice} />
+    {subscriptionUnknown ? (
+      <Text>{serialNumber}</Text>
+    ) : (
+      <Anchor
+        label={serialNumber}
+        href={onOpenSubscription ? '#' : undefined}
+        a11yTitle={
+          onOpenSubscription
+            ? `View subscription for device ${serialNumber}`
+            : undefined
+        }
+        onClick={event => {
+          if (onOpenSubscription) {
+            event.preventDefault();
+            onOpenSubscription();
+          } else openDevice();
+        }}
+      />
+    )}
     <Text size="small" color="text-weak" truncate>
       {name}
     </Text>
@@ -99,13 +124,28 @@ const SubscriptionStatus = ({ date, status }: SubscriptionStatusProps) => (
   </Box>
 );
 
-const columns: DataTableProps<Device>['columns'] = [
+type DevicesTableProps = {
+  onOpenSubscription?: (device: Device) => void;
+};
+
+const columns = (
+  onOpenSubscription?: DevicesTableProps['onOpenSubscription'],
+): DataTableProps<Device>['columns'] => [
   {
     property: 'serialNumber',
     header: 'Device',
     primary: true,
     render: datum => (
-      <DeviceIdentity name={datum.name} serialNumber={datum.serialNumber} />
+      <DeviceIdentity
+        name={datum.name}
+        serialNumber={datum.serialNumber}
+        onOpenSubscription={
+          onOpenSubscription && (() => onOpenSubscription(datum))
+        }
+        subscriptionUnknown={
+          !!onOpenSubscription && datum.subscriptionStatus === 'Unknown'
+        }
+      />
     ),
   },
   { property: 'model', header: 'Model' },
@@ -133,10 +173,7 @@ const columns: DataTableProps<Device>['columns'] = [
 
 // Searchable properties. Those without `filter: false` also appear, in this
 // order, in the filters layer.
-const properties: Exclude<
-  NonNullable<DataProps['properties']>,
-  string[]
-> = {
+const properties: Exclude<NonNullable<DataProps['properties']>, string[]> = {
   serialNumber: { label: 'Serial number', filter: false },
   name: { label: 'Hostname', filter: false },
   model: { label: 'Model', filter: false },
@@ -182,7 +219,7 @@ const displays = [
   { icon: <Apps />, value: 'cards', tip: 'Cards' },
 ];
 
-type DevicesContentProps = {
+type DevicesContentProps = DevicesTableProps & {
   display: 'table' | 'cards';
   onSelect: (selected: (string | number)[]) => void;
   selected: (string | number)[];
@@ -244,7 +281,7 @@ function NoDevicesFound() {
 
 // Alternate card presentation of the same collection, driven by the
 // surrounding Data context.
-function DeviceCards() {
+function DeviceCards({ onOpenSubscription }: DevicesTableProps) {
   return (
     <Cards
       as="ul"
@@ -258,6 +295,12 @@ function DeviceCards() {
             <DeviceIdentity
               name={datum.name}
               serialNumber={datum.serialNumber}
+              onOpenSubscription={
+                onOpenSubscription && (() => onOpenSubscription(datum))
+              }
+              subscriptionUnknown={
+                !!onOpenSubscription && datum.subscriptionStatus === 'Unknown'
+              }
             />
           </CardHeader>
           <CardBody>
@@ -285,6 +328,7 @@ function DevicesContent({
   display,
   onSelect,
   selected,
+  onOpenSubscription,
 }: DevicesContentProps) {
   const { filteredTotal, total } = useContext(
     DataContext,
@@ -299,7 +343,7 @@ function DevicesContent({
         <Box overflow="auto">
           <DataTable
             aria-describedby="devices-heading"
-            columns={columns}
+            columns={columns(onOpenSubscription)}
             primaryKey="id"
             sortable
             pin
@@ -309,7 +353,7 @@ function DevicesContent({
           />
         </Box>
       ) : (
-        <DeviceCards />
+        <DeviceCards onOpenSubscription={onOpenSubscription} />
       )}
       <Box pad={{ top: 'xsmall' }} border={{ side: 'top' }}>
         <Pagination stepOptions={[10, 20, 50]} />
@@ -318,7 +362,9 @@ function DevicesContent({
   );
 }
 
-export const DevicesTable = () => {
+export const DevicesTable = ({
+  onOpenSubscription,
+}: DevicesTableProps = {}) => {
   const [display, setDisplay] = useState<'table' | 'cards'>('table');
   const [selected, setSelected] = useState<(string | number)[]>([]);
 
@@ -327,6 +373,12 @@ export const DevicesTable = () => {
       <Heading id="devices-heading" level={2} margin="none" tabIndex={-1}>
         Devices
       </Heading>
+      {onOpenSubscription && (
+        <Text>
+          Select a device serial number to view its subscription. Devices with
+          unknown subscription status have no subscription link.
+        </Text>
+      )}
       <Data
         data={devices}
         properties={properties}
@@ -369,6 +421,7 @@ export const DevicesTable = () => {
           display={display}
           selected={selected}
           onSelect={setSelected}
+          onOpenSubscription={onOpenSubscription}
         />
       </Data>
     </Box>

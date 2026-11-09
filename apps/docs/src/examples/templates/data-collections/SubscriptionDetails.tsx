@@ -1,7 +1,12 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useMemo, useState } from 'react';
-import type { ComponentProps, MouseEvent, SetStateAction } from 'react';
+import type {
+  ComponentProps,
+  MouseEvent,
+  ReactNode,
+  SetStateAction,
+} from 'react';
 import styled from 'styled-components';
 import {
   Box,
@@ -19,9 +24,11 @@ import {
   Tab,
   Tabs,
   ThemeContext,
+  type ThemeType,
 } from 'grommet';
 import {
   Apps,
+  Add,
   Beacon,
   Cloud,
   Console,
@@ -45,6 +52,7 @@ import {
   raisedBackground,
   subscription,
   surfaceBackground,
+  type SubscribedDevice,
 } from './content/subscription/data';
 
 const assistantName = 'GreenLake Copilot';
@@ -52,10 +60,10 @@ const assistantToggleId = 'copilot-toggle';
 const assistantPanelId = 'copilot-panel';
 
 // Size the grid column along with its content so the page reflows smoothly.
-const AssistantPanelSlot = styled(Box)<{ $open: boolean }>`
+const AssistantPanelSlot = styled(Box)<{ $open: boolean; theme: ThemeType }>`
   width: ${({ $open, theme: { global } }) =>
     $open
-      ? `calc(${global.size.medium} + 2 * ${global.edgeSize.xsmall})`
+      ? `calc(${global?.size?.medium} + 2 * ${global?.edgeSize?.xsmall})`
       : '0px'};
   transition: width 200ms ease-in-out;
 `;
@@ -116,13 +124,34 @@ const actions = [
 
 // Details is the only tab with content in this example; the others stand
 // in for the activity log and order history the application would show.
-function DetailsTabs() {
+type SubscriptionDetailsProps = {
+  onBack?: () => void;
+  onHome?: () => void;
+  onAddResource?: () => void;
+  subscriptionData?: typeof subscription;
+  devicesData?: SubscribedDevice[];
+  selectedDeviceLabel?: string;
+  statusLabel?: string;
+  assistantContent?: ReactNode;
+};
+
+function DetailsTabs({
+  subscriptionData,
+  devicesData,
+  statusLabel,
+}: Pick<
+  SubscriptionDetailsProps,
+  'subscriptionData' | 'devicesData' | 'statusLabel'
+>) {
   return (
     <Tabs justify="start">
       <Tab title="Details">
         <Box pad={{ top: 'small' }} gap="xlarge">
-          <SubscriptionSummary />
-          <SubscribedDevices />
+          <SubscriptionSummary
+            subscriptionData={subscriptionData}
+            statusLabel={statusLabel}
+          />
+          <SubscribedDevices devicesData={devicesData} />
         </Box>
       </Tab>
       <Tab title="Activity">
@@ -170,7 +199,16 @@ function SideNav({ ...rest }: Pick<ComponentProps<typeof Box>, 'gridArea'>) {
   );
 }
 
-export const SubscriptionDetails = () => {
+export const SubscriptionDetails = ({
+  onBack,
+  onHome,
+  onAddResource,
+  subscriptionData = subscription,
+  devicesData,
+  selectedDeviceLabel,
+  statusLabel,
+  assistantContent,
+}: SubscriptionDetailsProps = {}) => {
   const size = useContext(ResponsiveContext);
   const [user, setUser] = useState<typeof defaultUser | undefined>(defaultUser);
   const contextValue = useMemo(
@@ -216,6 +254,7 @@ export const SubscriptionDetails = () => {
         <Grid columns={columns} rows={rows} areas={areas} height="100vh">
           <Box gridArea="header">
             <GlobalHeader
+              onHome={onHome}
               assistant={{
                 id: assistantToggleId,
                 label: assistantName,
@@ -236,25 +275,52 @@ export const SubscriptionDetails = () => {
                     enough before the tabs. */}
                 <PageContent gap="medium" responsive={false}>
                   <PageHeader
-                    title={subscription.key}
-                    subtitle={`${subscription.tier} • ${subscription.product}`}
+                    title={subscriptionData.key}
+                    subtitle={[
+                      subscriptionData.tier,
+                      subscriptionData.product,
+                      ...(selectedDeviceLabel
+                        ? [`Selected device: ${selectedDeviceLabel}`]
+                        : []),
+                    ].join(' • ')}
                     parent={
                       <ReverseAnchor
-                        label="Device subscriptions"
+                        label={onBack ? 'Devices' : 'Device subscriptions'}
                         href="#"
-                        onClick={openSubscriptions}
+                        onClick={
+                          onBack
+                            ? (event: MouseEvent) => {
+                                event.preventDefault();
+                                onBack();
+                              }
+                            : openSubscriptions
+                        }
                       />
                     }
                     actions={
-                      <Menu
-                        label="Actions"
-                        a11yTitle="Actions"
-                        items={actions}
-                        dropAlign={{ top: 'bottom', right: 'right' }}
-                      />
+                      <Box direction="row" gap="small" wrap>
+                        <Menu
+                          label="Actions"
+                          a11yTitle="Actions"
+                          items={actions}
+                          dropAlign={{ top: 'bottom', right: 'right' }}
+                        />
+                        {onAddResource && (
+                          <Button
+                            label="Add resource"
+                            icon={<Add aria-hidden />}
+                            primary
+                            onClick={onAddResource}
+                          />
+                        )}
+                      </Box>
                     }
                   />
-                  <DetailsTabs />
+                  <DetailsTabs
+                    subscriptionData={subscriptionData}
+                    devicesData={devicesData}
+                    statusLabel={statusLabel}
+                  />
                 </PageContent>
               </Page>
             </ThemeContext.Extend>
@@ -268,7 +334,7 @@ export const SubscriptionDetails = () => {
             <Collapsible direction="horizontal" open={assistantOpen}>
               <Box pad="xsmall" responsive={false} fill="vertical" flex={false}>
                 <CopilotPanel {...panelProps} width="medium">
-                  <CopilotConversation />
+                  {assistantContent ?? <CopilotConversation />}
                 </CopilotPanel>
               </Box>
             </Collapsible>

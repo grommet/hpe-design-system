@@ -31,23 +31,32 @@ const SummaryCard = ({ children, detail, title }: SummaryCardProps) => (
   </Card>
 );
 
-export const SubscriptionSummary = () => (
+export const SubscriptionSummary = ({
+  subscriptionData = subscription,
+  statusLabel,
+}: {
+  subscriptionData?: typeof subscription;
+  statusLabel?: string;
+} = {}) => (
   <Box as="section" aria-label="Subscription summary">
     <Grid columns={{ count: 'fit', size: 'small' }} gap="small">
       <SummaryCard
         title="Subscription"
-        detail={`Since ${formatDate(subscription.started)}.`}
+        detail={`Since ${formatDate(subscriptionData.started)}.`}
       >
-        <MetricValue value="Started" />
+        <MetricValue value={statusLabel || 'Started'} />
       </SummaryCard>
       <SummaryCard
-        title="Expires in"
-        detail={`Renewal due on ${formatDate(subscription.renewal)}.`}
+        title={subscriptionData.daysRemaining < 0 ? 'Expired' : 'Expires in'}
+        detail={`Renewal due on ${formatDate(subscriptionData.renewal)}.`}
       >
-        <MetricValue value={subscription.daysRemaining} unit="Days" />
+        <MetricValue
+          value={Math.abs(subscriptionData.daysRemaining)}
+          unit={subscriptionData.daysRemaining < 0 ? 'Days ago' : 'Days'}
+        />
       </SummaryCard>
       <SummaryCard title="Devices assigned">
-        <MetricValue value={subscription.deviceCount} />
+        <MetricValue value={subscriptionData.deviceCount} />
       </SummaryCard>
     </Grid>
   </Box>

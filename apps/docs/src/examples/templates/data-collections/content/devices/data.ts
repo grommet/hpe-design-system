@@ -103,7 +103,7 @@ const ageFromModel = (model: string): DeviceAge => {
 
 // Subscription dates are relative to a fixed reference so the example reads
 // the same on every visit.
-const referenceDate = new Date(2026, 7, 15);
+export const referenceDate = new Date(2026, 7, 15);
 const dayInMs = 24 * 60 * 60 * 1000;
 const subscriptionDate = (
   status: SubscriptionStatus,
