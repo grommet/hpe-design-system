@@ -63,7 +63,7 @@ implementation queries. Run it with
 - `design-tokens-publishing` (status: planned)
   - Entry point: `@design-tokens-publishing-orchestrator <token-scope>`
   - Manifest: `knowledge/capabilities/design-tokens-publishing/manifest.yaml`
-- `package-release` (status: planned)
+- `package-release` (status: active; verify GitHub/NPM protections before publication)
   - Entry point: `@package-release-orchestrator <package-name>`
   - Manifest: `knowledge/capabilities/package-release/manifest.yaml`
 - `alignment-audit` (status: active)

@@ -12,8 +12,13 @@ export type Icon = React.ComponentType<
   IconProps & React.SVGProps<SVGSVGElement>
 >;
 
-export declare const AIGenFill: Icon;
+export declare const AIAgent: Icon;
+export declare const AIChat: Icon;
 export declare const AIGen: Icon;
+export declare const AIGenFill: Icon;
+export declare const AIModel: Icon;
+export declare const AISearch: Icon;
+export declare const AISecurity: Icon;
 export declare const AISystems: Icon;
 export declare const SD: Icon;
 export declare const VMMaintenance: Icon;

@@ -1,0 +1,231 @@
+name: HPE icons release candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Icon package to prepare'
+        required: true
+        type: choice
+        options:
+          - '@hpe-design/icons-grommet'
+          - '@hpe-design/icons-svg'
+      version:
+        description: 'Exact package version from the merged version PR'
+        required: true
+        type: string
+      version_pr_number:
+        description: 'Merged PR that changed only this package version'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: hpe-icons-candidate-${{ inputs.package }}-${{ inputs.version }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '24.15.0'
+  PNPM_VERSION: '10.30.3'
+
+jobs:
+  candidate:
+    name: Build approved icon candidate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require default-branch dispatch
+        env:
+          WORKFLOW_REF: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          test "$WORKFLOW_REF" = "$DEFAULT_BRANCH"
+
+      - name: Check out dispatched default-branch commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate selected package and version
+        id: package
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          VERSION_PR_NUMBER: ${{ inputs.version_pr_number }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          case "$PACKAGE_NAME" in
+            @hpe-design/icons-grommet)
+              package_dir=packages/icons-grommet
+              package_id=grommet
+              ;;
+            @hpe-design/icons-svg)
+              package_dir=packages/icons-svg
+              package_id=svg
+              ;;
+            *)
+              echo "Unsupported package: $PACKAGE_NAME" >&2
+              exit 1
+              ;;
+          esac
+
+          actual_name=$(node -p "require('./$package_dir/package.json').name")
+          actual_version=$(node -p "require('./$package_dir/package.json').version")
+          test "$actual_name" = "$PACKAGE_NAME"
+          test "$actual_version" = "$REQUESTED_VERSION"
+
+          pr=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/$VERSION_PR_NUMBER")
+          test "$(jq -r '.state' <<< "$pr")" = "closed"
+          test "$(jq -r '.merged_at' <<< "$pr")" != "null"
+          test "$(jq -r '.base.ref' <<< "$pr")" = "$DEFAULT_BRANCH"
+          pr_merge_sha=$(jq -r '.merge_commit_sha' <<< "$pr")
+          git merge-base --is-ancestor "$pr_merge_sha" "$GITHUB_SHA"
+
+          changed_files=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/$VERSION_PR_NUMBER/files?per_page=100")
+          test "$(jq 'length' <<< "$changed_files")" -eq 1
+          test "$(jq -r '.[0].filename' <<< "$changed_files")" = "$package_dir/package.json"
+
+          base_sha=$(jq -r '.base.sha' <<< "$pr")
+          git show "$base_sha:$package_dir/package.json" > "$RUNNER_TEMP/package-before.json"
+          git show "$pr_merge_sha:$package_dir/package.json" > "$RUNNER_TEMP/package-after.json"
+          node - "$RUNNER_TEMP/package-before.json" "$RUNNER_TEMP/package-after.json" "$PACKAGE_NAME" "$REQUESTED_VERSION" <<'NODE'
+          const fs = require('node:fs');
+          const [beforePath, afterPath, expectedName, requestedVersion] = process.argv.slice(2);
+          const before = JSON.parse(fs.readFileSync(beforePath, 'utf8'));
+          const after = JSON.parse(fs.readFileSync(afterPath, 'utf8'));
+          if (before.name !== expectedName || after.name !== expectedName) {
+            throw new Error('Version PR package name does not match the selected package.');
+          }
+          if (after.version !== requestedVersion || before.version === after.version) {
+            throw new Error('Version PR does not contain the requested version change.');
+          }
+          const normalizedBefore = { ...before, version: after.version };
+          if (JSON.stringify(normalizedBefore) !== JSON.stringify(after)) {
+            throw new Error('Version PR changes package.json fields other than version.');
+          }
+          NODE
+
+          echo "package_dir=$package_dir" >> "$GITHUB_OUTPUT"
+          echo "package_id=$package_id" >> "$GITHUB_OUTPUT"
+
+      - name: Build selected package
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+        run: pnpm --filter "$PACKAGE_NAME" build
+
+      - name: Lint icons-grommet
+        if: inputs.package == '@hpe-design/icons-grommet'
+        run: pnpm --filter @hpe-design/icons-grommet lint
+
+      - name: Install npm CLI with staged-publishing support
+        run: npm install --global npm@11.15.0
+
+      - name: Verify npm CLI version
+        run: test "$(npm --version)" = "11.15.0"
+
+      - name: Pack and verify package artifact
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          PACKAGE_DIR: ${{ steps.package.outputs.package_dir }}
+          VERSION_PR_NUMBER: ${{ inputs.version_pr_number }}
+          NPM_CLI_VERSION: 11.15.0
+        run: |
+          artifact_dir="$GITHUB_WORKSPACE/release-artifact"
+          mkdir -p "$artifact_dir"
+          cd "$PACKAGE_DIR"
+          npm pack --json --pack-destination "$artifact_dir" > "$artifact_dir/pack-result.json"
+          tarball_name=$(node -p "require('$GITHUB_WORKSPACE/release-artifact/pack-result.json')[0].filename")
+          tarball="$artifact_dir/$tarball_name"
+          test -f "$tarball"
+
+          packed_name=$(tar -xOf "$tarball" package/package.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).name")
+          packed_version=$(tar -xOf "$tarball" package/package.json | node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version")
+          test "$packed_name" = "$PACKAGE_NAME"
+          test "$packed_version" = "$REQUESTED_VERSION"
+          tar -tzf "$tarball" > "$RUNNER_TEMP/tarball-files.txt"
+          grep -q '^package/dist/' "$RUNNER_TEMP/tarball-files.txt"
+
+          if [[ "$PACKAGE_NAME" == "@hpe-design/icons-grommet" ]]; then
+            for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/hpe-icons.d.ts; do
+              grep -Fx "$entry" "$RUNNER_TEMP/tarball-files.txt" >/dev/null
+            done
+          else
+            for entry in package/dist/hpe-icons.js package/dist/hpe-icons.cjs package/dist/index.d.ts; do
+              grep -Fx "$entry" "$RUNNER_TEMP/tarball-files.txt" >/dev/null
+            done
+            grep -q '^package/dist/.*\.svg$' "$RUNNER_TEMP/tarball-files.txt"
+          fi
+
+          sha256sum "$tarball" | awk '{print $1}' > "$artifact_dir/tarball.sha256"
+          node <<'NODE'
+          const fs = require('node:fs');
+          const metadata = {
+            package: process.env.PACKAGE_NAME,
+            version: process.env.REQUESTED_VERSION,
+            requested_version: process.env.REQUESTED_VERSION,
+            commit_sha: process.env.GITHUB_SHA,
+            version_pr_number: process.env.VERSION_PR_NUMBER,
+            npm_cli_version: process.env.NPM_CLI_VERSION,
+            artifact_sha256: fs.readFileSync(
+              `${process.env.GITHUB_WORKSPACE}/release-artifact/tarball.sha256`,
+              'utf8',
+            ).trim(),
+          };
+          fs.writeFileSync(
+            `${process.env.GITHUB_WORKSPACE}/release-artifact/release-metadata.json`,
+            `${JSON.stringify(metadata, null, 2)}\n`,
+          );
+          NODE
+      - name: Upload immutable candidate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hpe-icons-${{ steps.package.outputs.package_id }}-${{ inputs.version }}-candidate
+          path: release-artifact/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Write candidate evidence summary
+        env:
+          PACKAGE_NAME: ${{ inputs.package }}
+          PACKAGE_ID: ${{ steps.package.outputs.package_id }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          VERSION_PR_NUMBER: ${{ inputs.version_pr_number }}
+        run: |
+          {
+            echo "## HPE icon release candidate"
+            echo
+            echo "| Evidence | Value |"
+            echo "| --- | --- |"
+            echo "| Package | $PACKAGE_NAME |"
+            echo "| Version | $REQUESTED_VERSION |"
+            echo "| Candidate run | $GITHUB_RUN_ID |"
+            echo "| Artifact | hpe-icons-$PACKAGE_ID-$REQUESTED_VERSION-candidate |"
+            echo "| Version PR | #$VERSION_PR_NUMBER (only package.json version change verified) |"
+            echo "| Commit | $GITHUB_SHA |"
+            echo "| Validation | Package build, lint where available, and packed-artifact checks passed in this candidate run |"
+            echo "| Tarball SHA-256 | $(cat release-artifact/tarball.sha256) |"
+            echo "| NPM publication | Not performed; explicit human approval and a protected publisher are required |"
+          } >> "$GITHUB_STEP_SUMMARY"

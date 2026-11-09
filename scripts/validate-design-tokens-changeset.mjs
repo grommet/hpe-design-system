@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
+import { isDeepStrictEqual } from 'node:util';
 
 const repoRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -42,20 +43,12 @@ const changedFiles = execFileSync(
   .filter(Boolean);
 const mergeBase = execFileSync('git', ['merge-base', base, head], {
   encoding: 'utf8',
-})
-  .trim();
+}).trim();
 
-const tokenValuesContractsOrMetadataChanged = changedFiles.some(file =>
-  new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
-  file === `${tokenPackagePath}/package.json`,
-);
 const implementationFiles = changedFiles.filter(
   file =>
     file.startsWith(`${tokenPackagePath}/src/`) &&
     !file.startsWith(`${tokenPackagePath}/src/tests/`),
-);
-const dependencyGraphChanged = changedFiles.some(file =>
-  ['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml'].includes(file),
 );
 
 const readJsonAtRevision = (revision, file) =>
@@ -64,6 +57,33 @@ const readJsonAtRevision = (revision, file) =>
       cwd: repoRoot,
       encoding: 'utf8',
     }),
+  );
+
+const getPublishedPackageMetadataAtRevision = revision => {
+  const packageMetadata = readJsonAtRevision(revision, tokenPackageJsonPath);
+  delete packageMetadata.devDependencies;
+  return packageMetadata;
+};
+const tokenPackageManifestChanged = changedFiles.includes(tokenPackageJsonPath);
+const tokenValuesContractsOrMetadataChanged =
+  changedFiles.some(file =>
+    new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file),
+  ) ||
+  (tokenPackageManifestChanged &&
+    !isDeepStrictEqual(
+      getPublishedPackageMetadataAtRevision(mergeBase),
+      getPublishedPackageMetadataAtRevision(head),
+    ));
+const tokenPackageDevelopmentDependenciesChanged =
+  tokenPackageManifestChanged &&
+  !isDeepStrictEqual(
+    readJsonAtRevision(mergeBase, tokenPackageJsonPath).devDependencies,
+    readJsonAtRevision(head, tokenPackageJsonPath).devDependencies,
+  );
+const dependencyGraphChanged =
+  tokenPackageDevelopmentDependenciesChanged ||
+  changedFiles.some(file =>
+    ['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml'].includes(file),
   );
 
 const changesetNamesTokenPackage = contents =>
@@ -78,8 +98,9 @@ const getDeletedTokenChangesets = () =>
     .split('\n')
     .filter(Boolean)
     .map(line => line.split('\t'))
-    .filter(([status, file]) =>
-      status === 'D' && /^\.changeset\/[^/]+\.md$/.test(file),
+    .filter(
+      ([status, file]) =>
+        status === 'D' && /^\.changeset\/[^/]+\.md$/.test(file),
     )
     .filter(([, file]) =>
       changesetNamesTokenPackage(
@@ -159,9 +180,9 @@ const compareDirectories = (leftDirectory, rightDirectory) => {
       } else if (leftEntry.isDirectory()) {
         compareDirectory(childRelativePath);
       } else if (
-        !fs.readFileSync(path.join(leftDirectory, childRelativePath)).equals(
-          fs.readFileSync(path.join(rightDirectory, childRelativePath)),
-        )
+        !fs
+          .readFileSync(path.join(leftDirectory, childRelativePath))
+          .equals(fs.readFileSync(path.join(rightDirectory, childRelativePath)))
       ) {
         differences.push(childRelativePath);
       }
@@ -196,10 +217,20 @@ const buildPublishedArtifacts = (worktreePath, revision) => {
     },
   );
   try {
-    execFileSync('pnpm', ['install', '--frozen-lockfile', '--ignore-scripts'], {
-      cwd: worktreePath,
-      stdio: 'pipe',
-    });
+    execFileSync(
+      'pnpm',
+      [
+        'install',
+        '--filter',
+        'hpe-design-tokens...',
+        '--frozen-lockfile',
+        '--ignore-scripts',
+      ],
+      {
+        cwd: worktreePath,
+        stdio: 'pipe',
+      },
+    );
     execFileSync('pnpm', ['--filter', 'hpe-design-tokens', 'build'], {
       cwd: worktreePath,
       stdio: 'pipe',
@@ -242,16 +273,16 @@ if (
   !dependencyGraphChanged
 ) {
   console.log(
-    'No token values, contracts, package metadata, or output-changing '
-      + 'implementation or dependency changes require a Changeset.',
+    'No token values, contracts, package metadata, or output-changing ' +
+      'implementation or dependency changes require a Changeset.',
   );
   process.exit(0);
 }
 
 if (changesetsVersionUpdate) {
   console.log(
-    'Changesets-generated hpe-design-tokens version and changelog update; '
-      + 'no additional Changeset required.',
+    'Changesets-generated hpe-design-tokens version and changelog update; ' +
+      'no additional Changeset required.',
   );
   process.exit(0);
 }
@@ -268,8 +299,8 @@ if (!tokenValuesContractsOrMetadataChanged) {
 
   if (changedArtifacts.length === 0) {
     console.log(
-      'Implementation changes do not alter published hpe-design-tokens '
-        + 'artifacts; no Changeset required.',
+      'Implementation changes do not alter published hpe-design-tokens ' +
+        'artifacts; no Changeset required.',
     );
     process.exit(0);
   }
@@ -289,15 +320,16 @@ const tokenChangeset = changedChangesets.find(file =>
 
 if (!tokenChangeset) {
   console.error(
-    'Published hpe-design-tokens changes require a Changeset naming '
-      + 'hpe-design-tokens.',
+    'Published hpe-design-tokens changes require a Changeset naming ' +
+      'hpe-design-tokens.',
   );
   if (tokenValuesContractsOrMetadataChanged) {
     console.error('Changed token values, contracts, or package metadata:');
     changedFiles
-      .filter(file =>
-        new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
-        file === `${tokenPackagePath}/package.json`,
+      .filter(
+        file =>
+          new RegExp(`^${tokenPackagePath}/(tokens|contracts)/`).test(file) ||
+          file === `${tokenPackagePath}/package.json`,
       )
       .forEach(file => console.error(`  - ${file}`));
   } else {
