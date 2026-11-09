@@ -39,7 +39,9 @@ Read the [orchestrator](package-release-orchestrator.agent.md) and
   annotated `<package-name>@<version>` tag at the candidate commit. If the tag already
   exists, it must point to that same commit; a conflicting tag stops the workflow. The
   tag object uses the standard `github-actions[bot]` committer identity, set for the tag
-  command only. The GitHub release draft is then created against that version tag.
+  command only. Tag push uses a short-lived, repository-scoped GitHub App token because
+  GitHub rejects the default Actions token when the tagged history includes workflow-file
+  changes. The GitHub release draft is then created against that version tag.
 - The publisher uses `npm stage publish` through trusted publishing; it must not have
   permission to run direct `npm publish`. NPM staging is not public publication.
 - Every release requires a human to review and approve the staged package in NPM with
@@ -140,6 +142,20 @@ Both package manifests now identify the canonical repository URL and their monor
 directory. This must remain aligned with the NPM trusted-publisher repository identity.
 
 Official setup and current requirements: [NPM trusted publishing documentation](https://docs.npmjs.com/trusted-publishers/).
+
+## Version Tag Push App (Required)
+
+Install a dedicated GitHub App on `grommet/hpe-design-system` with repository permissions
+`Contents: write` and `Workflows: write`. Set repository Actions variable
+`RELEASE_TAG_APP_CLIENT_ID` to the App client ID and Actions secret
+`RELEASE_TAG_APP_PRIVATE_KEY` to its private key. The publisher mints a short-lived token
+scoped to this repository and these permissions immediately before pushing the version
+tag. Do not replace this with a broad personal access token or grant extra permissions to
+`GITHUB_TOKEN`.
+
+Until the App installation and those Actions settings exist, automated tag creation remains
+blocked. A rerun of an old workflow attempt will not pick up a newly merged workflow fix;
+dispatch a fresh publisher run from `master` after the configuration is in place.
 
 ## Manifest
 
