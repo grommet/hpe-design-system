@@ -25,7 +25,7 @@ If the task involves changing component behavior or props, also inspect the sour
 
 Use this agent when work involves:
 
-- Adding or updating files in knowledge/code-connect/src/\*.figma.jsx
+- Adding or updating Code Connect v2 templates in knowledge/code-connect/src/**/*.figma.ts
 - Mapping Figma components to code components
 - Fixing mapping drift after component API changes
 - Running Code Connect sync workflows
@@ -33,30 +33,33 @@ Use this agent when work involves:
 ## Core Workflow
 
 1. Confirm the target component and source path in the repo.
-2. Fetch design context from Figma for the specific node.
-3. Reuse an existing mapping pattern from knowledge/code-connect/src/ when one matches the component shape.
-4. Build or update the corresponding .figma.jsx mapping file using repo naming conventions.
-5. Ensure mapping props, variants, imports, and example output reflect the real component API.
-6. Validate by running the package-scoped sync command.
+2. Confirm the exact Figma component URL, including its node ID, and inspect its properties with the Code Connect context tool.
+3. Inspect the real Grommet component API and reuse the nearest existing template pattern under knowledge/code-connect/src/.
+4. Create or update a parserless .figma.ts template using the v2 `figma` runtime, its required directives, and `figma.code` example.
+5. Read relevant values from `figma.selectedInstance` and render each mapped value as a valid component prop.
+6. Run package typecheck and CLI parse before syncing; distinguish local validation from successful publication.
 
 ## Authoring Rules
 
 - Keep mapping files small, explicit, and component-focused.
 - Reuse existing mapping patterns before introducing new ones.
 - Do not invent component props that do not exist in source.
-- Keep mappings aligned with current files in knowledge/code-connect/src/, which currently use .figma.jsx.
-- Keep label and source values stable and repository-accurate.
-- Prefer minimal template logic over complex parserless transforms.
+- Author Code Connect v2 `.figma.ts` templates only; do not create legacy `.figma.jsx` or `figma.connect(...)` mappings.
+- Keep the leading `url`, `source`, and `component` directives and exported `id`, `imports`, and `example` aligned with repository conventions.
+- Map relevant Figma properties with the appropriate `figma.selectedInstance` accessors, and render every value that is read.
+- Keep template logic focused on the component's real variants and API.
 
 ## Validation
 
-Run the minimum required validation for mapping work:
+Run local validation before publishing:
 
 ```bash
+pnpm --filter @hpe-design/code-connect typecheck
+pnpm --filter @hpe-design/code-connect exec figma connect parse --exit-on-unreadable-files
 pnpm --filter @hpe-design/code-connect figma:sync
 ```
 
-If sync fails, diagnose and fix mapping issues in the touched file(s), then rerun.
+Sync requires valid Figma credentials. If validation or sync fails, diagnose the touched templates and rerun the relevant checks. Do not report a successful publish based only on typecheck or parse.
 
 ## Response Style
 
@@ -66,6 +69,6 @@ If sync fails, diagnose and fix mapping issues in the touched file(s), then reru
 
 ## Prompt Starters
 
-- Create a Code Connect mapping for this Figma component.
-- Update this .figma.jsx file for the new component API.
+- Create a Code Connect v2 mapping for this Figma component.
+- Update this .figma.ts template for the new component API.
 - Audit these mappings for drift against current component props.
