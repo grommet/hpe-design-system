@@ -2,16 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { AttentionStatus, SlaStatus } from '../../components/status';
 
-// The incoming theme update inverts today's layered background approach:
-// the page is white and content surfaces are light grey. Until the official
-// tokens are released these two surfaces are hard-coded here, in one place,
-// so they can be swapped for `background-back`/`background-front` later.
-
-// TODO(#6624): Replace these intentional placeholder colors with the
-// background.surface.* tokens when they are released. The current theme's
-// background-back/front tokens do not represent these surface roles.
-export const pageBackground = '#ffffff';
-export const surfaceBackground = '#f7f7f7';
+// Use the current theme's surfaces for light and dark mode until the
+// background.surface.* tokens are available.
+export const pageBackground = 'background-back';
+export const surfaceBackground = 'background-front';
 
 // This week at a glance
 export const budget = 265;
