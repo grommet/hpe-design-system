@@ -218,13 +218,15 @@ rules:
       such as navigation and main content are separated by their own padding,
       not by a gap.
     rationale: >
-      The gaps between regions and sections exceed the gaps within them.
-      A section's heading-to-body gap and its card-to-card gap can both be
-      small because typography and card surfaces also communicate grouping.
-      At the xsmall and small breakpoints, the theme
-      reduces the resolved spacing values while preserving their order; the
-      selected token names stay unchanged. Existing dashboard examples may
-      still use medium between cards; the default for new layouts is small.
+      Proximity signals grouping: things that sit closer together read as one
+      group, and things further apart read as separate groups. Equal gaps
+      between groups and within them flatten the hierarchy into one long list,
+      so this rule steps the gaps down at each level of nesting, from xxlarge
+      to xlarge to small. Heading-to-body and card-to-card gaps can both be
+      small because typography and card surfaces already separate them. At the
+      xsmall and small breakpoints, the theme shrinks the gaps but keeps the
+      same token names and order. Existing dashboard examples may still use
+      medium between cards; small is the default for new layouts.
     example:
       description: >
         A two-column dashboard page with small gaps between cards.
