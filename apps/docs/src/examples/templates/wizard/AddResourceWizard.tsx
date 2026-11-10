@@ -14,7 +14,6 @@ import { CancellationLayer } from './components';
 import {
   defaultFormValues,
   type ResourceFormValues,
-  pageBackground,
   steps,
   wizardTitle,
 } from './content/add-resource';
@@ -36,7 +35,9 @@ export const AddResourceWizard = ({ containerRef }: AddResourceWizardProps) => {
   const bodyRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Box fill background={pageBackground}>
+    // Wizard only paints its own background-back page surface when it
+    // renders the default layout, so the custom composition supplies it here.
+    <Box fill background="background-back">
       <Wizard<ResourceFormValues>
         key={wizardKey}
         id="add-resource-wizard"
@@ -71,9 +72,9 @@ export const AddResourceWizard = ({ containerRef }: AddResourceWizardProps) => {
             width={{ max: 'xlarge' }}
           >
             <WizardStepHeader />
-            {/* Grommet's base theme renders step content inside a padded
-            "card" (wizard.content). Each FormSection here is already a card,
-            so flatten the wrapper to avoid card-in-card and the lost width */}
+            {/* The theme renders step content inside a padded card
+            (wizard.content). Each FormSection reuses that card styling, so
+            flatten the wrapper to avoid card-in-card and the lost width */}
             <WizardContent
               pad="none"
               background="none"

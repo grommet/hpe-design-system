@@ -21,13 +21,6 @@ type ResourceOption = {
   description: string;
 };
 
-// Temporary hard-coded surface colors. The page is white and the form
-// sections are light grey, which inverts the current theme's
-// background-back/background-front relationship. Replace these with the
-// official theme colors when they are released.
-export const pageBackground = '#ffffff';
-export const surfaceBackground = '#f7f7f7';
-
 export const wizardTitle = 'Add resource';
 
 export const resourceTypes: ResourceOption[] = [
