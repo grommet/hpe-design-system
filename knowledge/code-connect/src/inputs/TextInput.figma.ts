@@ -60,7 +60,7 @@ if (figma.selectedInstance.getPropertyValue('has Icon') === 'none') {
     )}${figma.helpers.react.renderProp(
       'readOnlyCopy',
       readOnlyCopy,
-    )}${figma.helpers.react.renderProp('focusIndicator', focusIndicator)}/>`,
+    )} focusIndicator={${focusIndicator}}/>`,
     metadata: { nestable: true },
   };
 } else if (figma.selectedInstance.getPropertyValue('has Icon') === 'left') {
@@ -122,7 +122,7 @@ if (figma.selectedInstance.getPropertyValue('has Icon') === 'none') {
     )}${figma.helpers.react.renderProp(
       'readOnlyCopy',
       readOnlyCopy,
-    )}${figma.helpers.react.renderProp('focusIndicator', focusIndicator)}/>`,
+    )} focusIndicator={${focusIndicator}}/>`,
     metadata: { nestable: true },
   };
 } else if (figma.selectedInstance.getPropertyValue('has Icon') === 'right') {
@@ -184,7 +184,7 @@ if (figma.selectedInstance.getPropertyValue('has Icon') === 'none') {
     )}${figma.helpers.react.renderProp(
       'readOnlyCopy',
       readOnlyCopy,
-    )}${figma.helpers.react.renderProp('focusIndicator', focusIndicator)}/>`,
+    )} focusIndicator={${focusIndicator}}/>`,
     metadata: { nestable: true },
   };
 } else {
@@ -246,7 +246,7 @@ if (figma.selectedInstance.getPropertyValue('has Icon') === 'none') {
     )}${figma.helpers.react.renderProp(
       'readOnlyCopy',
       readOnlyCopy,
-    )}${figma.helpers.react.renderProp('focusIndicator', focusIndicator)}/>`,
+    )} focusIndicator={${focusIndicator}}/>`,
     metadata: { nestable: true },
   };
 }

@@ -60,10 +60,7 @@ export default {
       )}${figma.helpers.react.renderProp(
         'open',
         open,
-      )}${figma.helpers.react.renderProp(
-        'focusIndicator',
-        focusIndicator,
-      )}${figma.helpers.react.renderProp(
+      )} focusIndicator={${focusIndicator}}${figma.helpers.react.renderProp(
         'showSelectedInline',
         showSelectedInline,
       )}

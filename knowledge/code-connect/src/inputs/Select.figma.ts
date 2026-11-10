@@ -51,6 +51,6 @@ export default {
   )}${figma.helpers.react.renderProp(
     'open',
     open,
-  )}${figma.helpers.react.renderProp('focusIndicator', focusIndicator)}/>`,
+  )} focusIndicator={${focusIndicator}}/>`,
   metadata: { nestable: true },
 };

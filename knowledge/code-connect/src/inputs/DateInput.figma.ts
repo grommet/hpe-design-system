@@ -76,6 +76,6 @@ export default {
   )}${figma.helpers.react.renderProp(
     'disabled',
     disabled,
-  )}${figma.helpers.react.renderProp('focusIndicator', readOnlyFocus)}/>`,
+  )} focusIndicator={${readOnlyFocus}}/>`,
   metadata: { nestable: true },
 };
