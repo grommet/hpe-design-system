@@ -7,8 +7,6 @@ import { TwoColumnDashboard } from 'apps/docs/src/examples/templates/dashboards/
 import DashboardExampleSource from 'apps/docs/src/examples/templates/dashboards/DashboardExample.js?raw';
 import ThreeColumnDashboardSource from 'apps/docs/src/examples/templates/dashboards/ThreeColumnDashboard.js?raw';
 import TwoColumnDashboardSource from 'apps/docs/src/examples/templates/dashboards/TwoColumnDashboard.js?raw';
-import { OverviewDashboard } from '../js/examples/dashboards/overview/OverviewDashboard';
-import OverviewDashboardSource from '../js/examples/dashboards/overview/OverviewDashboard.tsx?raw';
 
 const meta = {
   title: 'Patterns/Dashboards',
@@ -59,22 +57,6 @@ export const TwoColumn = {
       source: {
         code: TwoColumnDashboardSource,
         language: 'jsx',
-        type: 'code',
-      },
-      canvas: {
-        sourceState: 'shown',
-      },
-    },
-  },
-};
-
-export const Overview = {
-  render: () => <OverviewDashboard />,
-  parameters: {
-    docs: {
-      source: {
-        code: OverviewDashboardSource,
-        language: 'tsx',
         type: 'code',
       },
       canvas: {

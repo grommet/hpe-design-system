@@ -3,7 +3,7 @@
 import type {
   AttentionStatus,
   SlaStatus,
-} from '../../../components/helpers/Dashboard/status';
+} from '../../../components/status';
 
 // The incoming theme update inverts today's layered background approach:
 // the page is white and content surfaces are light grey. Until the official

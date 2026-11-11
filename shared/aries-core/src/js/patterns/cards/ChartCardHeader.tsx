@@ -4,7 +4,7 @@ import type { ComponentProps, ReactNode } from 'react';
 import { Box, Heading, Menu, Text } from 'grommet';
 import { MoreVertical } from '@hpe-design/icons-grommet';
 
-export type DashboardCardHeaderProps = {
+export type ChartCardHeaderProps = {
   action?: ReactNode;
   title?: string;
   level?: ComponentProps<typeof Heading>['level'];
@@ -12,13 +12,13 @@ export type DashboardCardHeaderProps = {
   menuItems?: ComponentProps<typeof Menu>['items'];
 };
 
-export const DashboardCardHeader = ({
+export const ChartCardHeader = ({
   action,
   title,
   level,
   subtitle,
   menuItems,
-}: DashboardCardHeaderProps) => (
+}: ChartCardHeaderProps) => (
   <Box direction="row" align="start" justify="between" fill>
     <Box>
       <Heading margin="none" level={level}>

@@ -4,8 +4,8 @@ import { useContext } from 'react';
 import type { ComponentProps, ComponentType } from 'react';
 import { Box, Chart, Stack, Text, ThemeContext } from 'grommet';
 import styled from 'styled-components';
-import { ChartCard } from '../../../components/helpers/Dashboard/ChartCard';
-import { MetricValue } from '../../../components/helpers/Dashboard/MetricValue';
+import { ChartCard } from '../../../patterns/cards';
+import { MetricValue } from '../../../components/MetricValue';
 import { budget, costTrend, surfaceBackground } from './data';
 
 const TypedChartCard = ChartCard as ComponentType<

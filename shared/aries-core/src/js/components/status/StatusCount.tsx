@@ -4,10 +4,10 @@ import type { ComponentProps, ComponentType } from 'react';
 import { Box, Text } from 'grommet';
 import {
   TextEmphasis as JavaScriptTextEmphasis,
-} from '../../typography/TextEmphasis';
+} from '../typography/TextEmphasis';
 import { STATUS } from './statusConfig';
 import type { DashboardStatus } from './statusConfig';
-import { StatusIcon } from './status';
+import { StatusIcon } from './StatusIcon';
 
 export type { DashboardStatus } from './statusConfig';
 

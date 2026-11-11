@@ -1,14 +1,23 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import { Header, ResponsiveContext } from 'grommet';
-import { GlobalHeaderIdentity } from './GlobalHeaderIdentity';
-import { HeaderNav } from './HeaderNav';
-import { UserContext } from './UserContext';
 
-export const GlobalHeader = () => {
+type GlobalHeaderProps = Omit<
+  ComponentProps<typeof Header>,
+  'children'
+> & {
+  identity: ReactNode;
+  navigation?: ReactNode;
+};
+
+export const GlobalHeader = ({
+  identity,
+  navigation,
+  ...rest
+}: GlobalHeaderProps) => {
   const size = useContext(ResponsiveContext);
-  const { user } = useContext(UserContext);
   return (
     <Header
       align="center"
@@ -19,9 +28,10 @@ export const GlobalHeader = () => {
         horizontal: !['xsmall', 'small'].includes(size) ? 'medium' : 'xsmall',
         vertical: 'xsmall',
       }}
+      {...rest}
     >
-      <GlobalHeaderIdentity title="Service Name" />
-      {user && <HeaderNav />}
+      {identity}
+      {navigation}
     </Header>
   );
 };

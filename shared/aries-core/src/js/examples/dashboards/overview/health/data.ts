@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import type {
   OperationalStatus,
-} from '../../../../components/helpers/Dashboard/status';
+} from '../../../../components/status';
 
 export const targets = {
   availability: 99.9, // percent

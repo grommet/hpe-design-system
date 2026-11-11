@@ -4,7 +4,7 @@ import { Anchor } from 'grommet';
 import { ShieldCheck } from '@hpe-design/icons-grommet';
 import {
   MetricValue,
-} from '../../../../components/helpers/Dashboard/MetricValue';
+} from '../../../../components/MetricValue';
 import { formatCount } from '../utils';
 import { Bar } from './Bar';
 import { HealthSection, HealthTile } from './HealthSection';
@@ -21,7 +21,7 @@ import {
 } from './data';
 import type {
   OperationalStatus,
-} from '../../../../components/helpers/Dashboard/status';
+} from '../../../../components/status';
 
 export const HealthOverview = () => {
   const { availability, capacity, drives, volumes } = driveFailure;

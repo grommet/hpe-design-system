@@ -3,26 +3,26 @@
 import type { ComponentProps, ReactNode } from 'react';
 import { Box, Card, CardBody, Heading, Text } from 'grommet';
 
-export type MetricTileProps = Omit<ComponentProps<typeof Card>, 'children'> & {
+export type MetricCardProps = Omit<ComponentProps<typeof Card>, 'children'> & {
   children?: ReactNode;
   description?: ReactNode;
   level?: ComponentProps<typeof Heading>['level'];
   title: string;
 };
 
-export const MetricTile = ({
+export const MetricCard = ({
   children,
   description,
   level = 3,
   title,
   ...rest
-}: MetricTileProps) => (
+}: MetricCardProps) => (
   <Card {...rest}>
     <CardBody gap="small">
       <Heading level={level} margin="none">
         {title}
       </Heading>
-      {/* Descriptions follow the tile content at its normal gap instead of
+      {/* Descriptions follow the card content at its normal gap instead of
           being pinned to the bottom, leaving any spare height below. */}
       <Box gap="xsmall" flex>
         {children}

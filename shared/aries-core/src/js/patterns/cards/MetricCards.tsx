@@ -4,7 +4,7 @@ import { Children, useContext } from 'react';
 import type { ComponentProps } from 'react';
 import { Grid, ResponsiveContext } from 'grommet';
 
-export type MetricGroupProps = Omit<ComponentProps<typeof Grid>, 'columns'> & {
+export type MetricCardsProps = Omit<ComponentProps<typeof Grid>, 'columns'> & {
   columns?: never;
 };
 
@@ -18,7 +18,7 @@ const columnCount: Record<string, number> = {
 
 // Equal-width metrics arranged in responsive columns. The grid gap separates
 // wrapped rows as well as neighboring metrics.
-export const MetricGroup = ({ children, ...rest }: MetricGroupProps) => {
+export const MetricCards = ({ children, ...rest }: MetricCardsProps) => {
   const size = useContext(ResponsiveContext);
   const items = Children.toArray(children);
   const countForSize = columnCount[size] ?? columnCount.large;

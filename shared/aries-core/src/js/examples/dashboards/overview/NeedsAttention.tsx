@@ -3,8 +3,8 @@
 import type { ComponentProps, ComponentType } from 'react';
 import { Box, Button, Text } from 'grommet';
 import { LinkNext } from '@hpe-design/icons-grommet';
-import { ChartCard } from '../../../components/helpers/Dashboard/ChartCard';
-import { StatusCount } from '../../../components/helpers/Dashboard/StatusCount';
+import { ChartCard } from '../../../patterns/cards';
+import { StatusCount } from '../../../components/status';
 import { attentionItems, surfaceBackground } from './data';
 import { formatCount } from './utils';
 

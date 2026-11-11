@@ -11,7 +11,7 @@ import {
   ResponsiveContext,
   ThemeContext,
 } from 'grommet';
-import { DashboardCardHeader } from './DashboardCardHeader';
+import { ChartCardHeader } from './ChartCardHeader';
 
 export type ChartCardProps = Omit<
   ComponentProps<typeof Card>,
@@ -58,7 +58,7 @@ export const ChartCard = ({
             : { horizontal: header.pad, top: header.pad, bottom: 'xsmall' }
         }
       >
-        <DashboardCardHeader
+        <ChartCardHeader
           action={action}
           title={title}
           level={level}

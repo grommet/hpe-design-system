@@ -2,12 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import type { ComponentProps } from 'react';
 import { Box, Heading } from 'grommet';
-import {
-  MetricGroup,
-} from '../../../../components/helpers/Dashboard/MetricGroup';
-import {
-  MetricTile,
-} from '../../../../components/helpers/Dashboard/MetricTile';
+import { MetricCard, MetricCards } from '../../../../patterns/cards';
 import { surfaceBackground } from '../data';
 
 export const HealthSection = ({
@@ -18,11 +13,11 @@ export const HealthSection = ({
     <Heading level={2} margin="none">
       Health overview
     </Heading>
-    <MetricGroup>{children}</MetricGroup>
+    <MetricCards>{children}</MetricCards>
   </Box>
 );
 
 // Tile with the section's surface applied, so tiles only describe content.
-export const HealthTile = (props: ComponentProps<typeof MetricTile>) => (
-  <MetricTile background={surfaceBackground} {...props} />
+export const HealthTile = (props: ComponentProps<typeof MetricCard>) => (
+  <MetricCard background={surfaceBackground} {...props} />
 );

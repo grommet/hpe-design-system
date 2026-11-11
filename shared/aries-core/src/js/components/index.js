@@ -4,3 +4,6 @@ export * from './core';
 export * from './helpers';
 export * from './layouts';
 export * from './typography';
+export * from './MetricValue';
+export * from './ServiceCard';
+export * from './status';

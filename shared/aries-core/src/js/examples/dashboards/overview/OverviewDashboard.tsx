@@ -24,16 +24,10 @@ import {
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
-import type {
-  User,
-} from '../../../components/helpers/GlobalHeader/UserContext';
-import {
-  GlobalHeader,
-} from '../../../components/helpers/GlobalHeader/GlobalHeader';
-import {
-  UserContext,
-} from '../../../components/helpers/GlobalHeader/UserContext';
-import { defaultUser } from '../../data/user';
+import { UserContext } from '../../../patterns/navigation/GlobalHeader';
+import type { User } from '../../../patterns/navigation/GlobalHeader';
+import { OverviewHeader } from './GlobalHeader/OverviewHeader';
+import { defaultUser } from './user';
 import {
   AppContainer,
 } from '../../../components/layouts/AppContainer/AppContainer';
@@ -117,7 +111,7 @@ export const OverviewDashboard = () => {
       <AppContainer background={pageBackground}>
         <Grid columns={columns} rows={rows} areas={areas}>
           <Box gridArea="header">
-            <GlobalHeader />
+            <OverviewHeader />
           </Box>
           {showNav && <SideNav gridArea="nav" />}
           <Main gridArea="main">

@@ -5,7 +5,7 @@ import { Box, Text } from 'grommet';
 import { Ascending, Descending } from '@hpe-design/icons-grommet';
 import {
   TextEmphasis as JavaScriptTextEmphasis,
-} from '../../typography/TextEmphasis';
+} from './typography/TextEmphasis';
 
 // TextEmphasis forwards Text props; bridge its untyped JavaScript signature.
 const TextEmphasis = JavaScriptTextEmphasis as ComponentType<

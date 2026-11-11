@@ -3,10 +3,10 @@
 import { useContext } from 'react';
 import type { ComponentProps, ComponentType } from 'react';
 import { Box, Meter, ThemeContext } from 'grommet';
-import { STATUS } from '../../../../components/helpers/Dashboard/statusConfig';
+import { STATUS } from '../../../../components/status';
 import type {
   DashboardStatus,
-} from '../../../../components/helpers/Dashboard/status';
+} from '../../../../components/status';
 
 type BarTheme = {
   text: { medium: { height: string } };

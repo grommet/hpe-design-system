@@ -2,5 +2,3 @@
 // SPDX-License-Identifier: Apache-2.0
 export * from './AppIdentity';
 export * from './Anchors';
-export * from './Dashboard';
-export * from './GlobalHeader';
