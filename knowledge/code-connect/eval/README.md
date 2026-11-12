@@ -15,7 +15,8 @@ Only the design-context condition changes. Use the same model, prompt, repositor
 ## Locked Inputs
 
 - Primary model: **Anthropic Claude Sonnet 4.5**, model ID `claude-sonnet-4-5-20250929`.
-- Full-page and Button fixture: [App Dashboard case](cases/app-dashboard.md).
+- Full-page fixture: [App Dashboard case](cases/app-dashboard.md).
+- Button smoke fixture: [Button smoke case](cases/button-smoke/README.md).
 - Output path: `sandbox/grommet-app/src/eval/Example.jsx` in an isolated run workspace.
 - Shared prompt: use this text unchanged for every condition and replication. Provide the target screenshot as the visual attachment; provide MCP access only in the two MCP conditions.
 
@@ -29,7 +30,59 @@ Implement the supplied Figma target as a single, default-exported React componen
 - **3 Button smoke runs:** 1 run in each condition, scoped to the Button node and screenshot identified in the case file.
 - Total: 12 generated outputs. Smoke runs are a readiness check and are not included in the full-page coverage-gain calculation.
 
-Use a fresh agent context for each run. Preserve the prompt, target, and screenshot exactly. Keep each output and its run metadata separate so repetitions cannot influence one another.
+Use a fresh agent context for each run. Preserve the prompt, target, and screenshot exactly. Keep each output and its run metadata separate so repetitions cannot influence one another. Never supply or paste a Code Connect mapping manually.
+
+## Button Smoke Run Procedure
+
+The smoke fixture is [Button smoke](cases/button-smoke/README.md): frame `2133:694`, representative mapped Button target `2133:695`, with its reference image and case contract under `cases/button-smoke/`.
+
+Run one valid attempt in each condition. Start each in a new agent session and a clean, isolated workspace at the same repository snapshot. Use the same model, locked prompt, output path, viewport, and fixture image. Do not let an agent see another run's output or context.
+
+### Prepare each run
+
+1. Copy the locked prompt above unchanged to `knowledge/code-connect/eval/.scratch/prompt.txt`.
+2. Create a clean workspace for the run and place the generated component only at `sandbox/grommet-app/src/eval/Example.jsx`.
+3. Use the Button reference image at `knowledge/code-connect/eval/cases/button-smoke/assets/button-primary-small.png`. Attach it as the visual target in every condition.
+4. Capture the context actually available to the agent in a file beside that run's output. Preserve the raw MCP response/snippet or the screenshot-only input and record the prompt, condition, model ID, and repository commit. Do not substitute a summary for the received context.
+
+### Provide condition-specific context
+
+| Condition | Agent input |
+| --- | --- |
+| `screenshot` | The reference image only. Do not call or provide Figma MCP context. |
+| `mcp-no-cc` | The reference image and Figma MCP context for frame `2133:694`, with Code Connect disabled. |
+| `mcp-cc` | The reference image and Figma MCP context for frame `2133:694`, with repository Code Connect enabled by default. Do not paste a mapping into the prompt or context. |
+
+For either MCP condition, request design context for the frame with its screenshot. If the response contains only page/frame metadata and no useful target details, request context for mapped child `2133:695` and preserve both responses. The expected connected snippet is `import { Button } from 'grommet';` and `<Button label="Label" primary size="small"/>`; use its appearance in the captured context to verify delivery, not as manually supplied input.
+
+### Build, render, and record
+
+Build and render the generated component in a disposable copy/worktree of `sandbox/grommet-app`; do not change the working application or use a build result that does not compile the generated component. In the disposable workspace, add a temporary Vite entry that imports `src/eval/Example.jsx` and wraps it in the sandbox HPE theme, then build that entry and render it at the fixture viewport. Keep the temporary harness out of the committed results. Save the build output and rendered screenshot with the run evidence.
+
+Before scoring, confirm the attempt completed without tool/context errors, its received context matches its condition, and its component builds and renders. Rerun a failed or broken attempt in a new clean session; do not score it or include it in the summary.
+
+After each valid run, save the received context, generated `Example.jsx`, build log, and render screenshot beside its scorer record in `knowledge/code-connect/eval/results/button-smoke/runs/`. Use distinct filenames containing the condition and run number. Generate the case summary under `knowledge/code-connect/eval/results/button-smoke/summaries/`. The expected outcome is that the Button Code Connect snippet appears in the received context only for `mcp-cc`.
+
+Score only the three valid runs, after their context, build, and render have been verified. In each isolated workspace, run the scorer from the repository root; the temporary sandbox entry must point to `src/eval/main.jsx`, which imports and renders `Example.jsx`.
+
+```bash
+pnpm --filter @hpe-design/code-connect eval:score -- \
+  --case eval/cases/button-smoke/case.json \
+  --source sandbox/grommet-app/src/eval/Example.jsx \
+  --condition screenshot \
+  --build 'pnpm --filter grommet-app exec vite build --config eval.config.js' \
+  --cwd "$PWD" \
+  --model claude-sonnet-4-5-20250929 \
+  --run-number 1 \
+  --prompt-file eval/.scratch/prompt.txt
+```
+
+Repeat with `--condition mcp-no-cc` and `--condition mcp-cc` in their respective clean workspaces. Confirm the three JSON records and their evidence files are under `eval/results/button-smoke/runs/`. Then generate the condition summary:
+
+```bash
+pnpm --filter @hpe-design/code-connect eval:summary -- \
+  --case eval/cases/button-smoke/case.json
+```
 
 ## Measures And Targets
 
