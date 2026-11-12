@@ -7,7 +7,7 @@
 - Target size: 63 × 28 px.
 - Reference: [PNG](assets/button-primary-small.png).
 - Code Connect snippet: `import { Button } from 'grommet';` and `<Button label="Label" primary size="small"/>`.
-- Mapping source: [Button Code Connect mapping](../../../src/controls/Button.figma.jsx).
+- Mapping source: [Button Code Connect mapping](../../../src/controls/Button.figma.ts).
 
 The frame contains a sheet of Button variants; this smoke case deliberately scopes the generated output to its representative mapped child. In MCP conditions, query the mapped target node so the comparison can confirm whether the snippet is delivered. Do not manually supply a mapping.
 
