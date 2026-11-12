@@ -7,7 +7,8 @@
     "figma:sync": "dotenv -e .env -- figma connect publish",
     "eval:score": "node eval/eval.mjs score",
     "eval:summary": "node eval/eval.mjs summary",
-    "eval:test": "node --test eval/*.test.mjs"
+    "eval:test": "node --test eval/*.test.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hpe-design/icons-grommet": "workspace:*",
@@ -15,7 +16,7 @@
     "react": "catalog:"
   },
   "devDependencies": {
-    "@figma/code-connect": "^1.1.0",
-    "dotenv-cli": "^11.0.0"
+    "@figma/code-connect": "^2.1.0",
+    "dotenv-cli": "^11.1.0"
   }
 }

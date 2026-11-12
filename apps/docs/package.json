@@ -7,9 +7,9 @@
   "private": true,
   "dependencies": {
     "@hpe-design/icons-grommet": "catalog:",
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.1.4",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^14.2.35",
     "@shared/aries-core": "workspace:*",
     "@shared/hooks": "workspace:*",
     "grommet": "catalog:grommet-stable",
@@ -20,10 +20,10 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-ga": "^2.7.0",
-    "react-syntax-highlighter": "^15.5.0",
-    "remark-gfm": "^4.0.0",
+    "react-syntax-highlighter": "^15.6.6",
+    "remark-gfm": "^4.0.1",
     "styled-components": "catalog:",
-    "zod": "^4.3.6"
+    "zod": "^4.6.7"
   },
   "scripts": {
     "build": "pnpm build-design-tokens && pnpm build-shared-hooks && pnpm validate:structure && pnpm build-search && next build",
@@ -50,17 +50,17 @@
     "@testing-library/testcafe": "^5.0.1",
     "@types/react": "catalog:",
     "@vitejs/plugin-react": "catalog:",
-    "@vitest/ui": "^3.2.4",
-    "axe-core": "^4.9.0",
+    "@vitest/ui": "^3.2.7",
+    "axe-core": "^4.14.0",
     "axe-testcafe": "^3.0.0",
-    "babel-plugin-styled-components": "^2.1.4",
+    "babel-plugin-styled-components": "^2.4.0",
     "eslint": "catalog:",
     "grommet-theme-hpe": "catalog:grommet-stable",
     "jsdom": "^26.1.0",
-    "start-server-and-test": "^2.0.3",
-    "testcafe": "^3.5.0",
+    "start-server-and-test": "^2.1.5",
+    "testcafe": "^3.7.7",
     "testcafe-react-selectors": "^5.0.3",
     "vite": "catalog:",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.7"
   }
 }

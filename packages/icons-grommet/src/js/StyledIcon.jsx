@@ -42,13 +42,13 @@ const colorStyle = (name, value, theme, required) => css`
 `;
 
 const colorCss = css`
-  ${(props) =>
+  ${props =>
     colorStyle(
       'fill',
       props.color || props.theme.global.colors.icon,
       props.theme,
     )}
-  ${(props) =>
+  ${props =>
     colorStyle(
       'stroke',
       props.color || props.theme.global.colors.icon,
@@ -81,10 +81,12 @@ const colorCss = css`
   }
 `;
 
+// Keep this legacy forwardRef wrapper in the same module as its styled export.
+// eslint-disable-next-line react-refresh/only-export-components
 const IconInner = forwardRef(
-  // Copying implementation from original 
+  // Copying implementation from original
   // https://github.com/grommet/grommet-icons/blob/master/src/js/StyledIcon.js
-  // Disabling eslint rule for unused vars. Need to confirm whether 
+  // Disabling eslint rule for unused vars. Need to confirm whether
   // it was intentional to not pass color, size, theme to the svg.
   // eslint-disable-next-line no-unused-vars
   ({ a11yTitle, color, size, theme, ...rest }, ref) => (
@@ -96,7 +98,7 @@ IconInner.displayName = 'Icon';
 const StyledIcon = styled(IconInner).withConfig({
   // don't let height attribute leak to DOM
   // https://styled-components.com/docs/api#shouldforwardprop
-  shouldForwardProp: (prop) => !['height', 'width'].includes(prop),
+  shouldForwardProp: prop => !['height', 'width'].includes(prop),
 })`
   display: inline-block;
   flex: 0 0 auto;
@@ -127,7 +129,7 @@ const StyledIcon = styled(IconInner).withConfig({
     `;
   }}
   ${({ color }) => color !== 'plain' && colorCss}
-  ${(props) => (props.height || props.width) && useIconPad(props)}
+  ${props => (props.height || props.width) && useIconPad(props)}
   ${({ theme }) => theme && theme.icon.extend}
 `;
 

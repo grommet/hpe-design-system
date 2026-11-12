@@ -319,8 +319,17 @@ See [Filtering](/templates/filtering) for greater detail.
 
 ### Navigation via DataTable
 
+When table rows represent records that have their own detail view, there are two supported navigation patterns.
+
+| Pattern              | When to use                                                                                                                                                                                         | Interactivity cue              |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| Clickable row        | Navigation is the only action for a row and the row contains no other interactive elements (links, checkboxes, menus).                                                                 | Row hover state, cursor change and visible keyboard focus.                |
+| Anchor within a cell | The row does more than navigate. For example, it includes selection checkboxes, row actions such as buttons or menus, or more than one link. | Standard [Anchor](/components/anchor) styling. |
+
+#### Clickable rows
+
 Clicking on a data table row takes the user to a context where the most prominent heading matches the primary column text.
-This context could either be a page or a modal. In this example, clicking on a table row navigates to a detail page.
+This context could either be a page or a [layer](/components/layer).
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/components/datatable/DataTableSingleSelectExample.js"
@@ -330,6 +339,14 @@ This context could either be a page or a modal. In this example, clicking on a t
 >
   <DataTableSingleSelectExample />
 </Example>
+
+#### Anchors within a row
+
+When making the entire row clickable is not an option, use a standard [Anchor](/components/anchor) in the primary column to navigate to the record's detail view.
+
+- Keep default Anchor styling so the link is clearly recognizable as navigable. Do not restyle it to appear as plain or bold text.
+- Do not apply a row `onClick` or row hover state when using in-cell anchors. Hover on the row should only appear when the entire row is clickable.
+- This is the pattern applied when checkboxes enable multi-select — see [Selecting multiple records & batch actions](#selecting-multiple-records-and-batch-actions).
 
 ### Selecting multiple records & batch actions
 

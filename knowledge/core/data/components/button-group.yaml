@@ -35,10 +35,10 @@ variants:
       \ />\n  <Button label=\"Cancel\" onClick={handleCancel} />\n</ButtonGroup>"
   - name: multiple-actions
     description: Three related actions with clear hierarchy.
-    when: Operation dialogs with distinct action paths (e.g., Save, Save & close, Cancel).
+    when: Operation dialogs with distinct action paths (e.g., Save, Save and close, Cancel).
     example:
       "<ButtonGroup>\n  <Button label=\"Apply\" primary onClick={handleApply}\
-      \ />\n  <Button label=\"Apply & close\" onClick={handleApplyClose} />\n  <Button\
+      \ />\n  <Button label=\"Apply and close\" onClick={handleApplyClose} />\n  <Button\
       \ label=\"Cancel\" onClick={handleCancel} />\n</ButtonGroup>"
   - name: destructive
     description:

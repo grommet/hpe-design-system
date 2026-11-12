@@ -46,6 +46,11 @@ implementation queries. Run it with
 
 ## Capability Index
 
+- `docs-creation` (status: active)
+  - Entry point: `@docs-creation-orchestrator <component-name>`
+  - Manifest: `knowledge/capabilities/docs-creation/manifest.yaml`
+  - Creates new component pages through context intake, website integration,
+    human-approved YAML, example generation, and publication-readiness review.
 - `docs-refactor` (status: active)
   - Entry point: `@docs-refactor-orchestrator <component-name>`
   - Manifest: `knowledge/capabilities/docs-refactor/manifest.yaml`
@@ -58,7 +63,7 @@ implementation queries. Run it with
 - `design-tokens-publishing` (status: planned)
   - Entry point: `@design-tokens-publishing-orchestrator <token-scope>`
   - Manifest: `knowledge/capabilities/design-tokens-publishing/manifest.yaml`
-- `package-release` (status: planned)
+- `package-release` (status: active; verify GitHub/NPM protections before publication)
   - Entry point: `@package-release-orchestrator <package-name>`
   - Manifest: `knowledge/capabilities/package-release/manifest.yaml`
 - `alignment-audit` (status: active)

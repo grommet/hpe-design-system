@@ -48,10 +48,11 @@ rm -rf packages/hpe-design-tokens/release-artifacts
 ## 2. Changeset Enforcement
 
 The Changeset check requires a Changeset when token values, contracts, or published package
-metadata change. For package implementation changes or root dependency-graph changes to
-`package.json`, `pnpm-lock.yaml`, or `pnpm-workspace.yaml`, it builds the pull request merge base
-and candidate revisions with their respective dependency graphs and requires a Changeset only
-when their published `dist` artifacts differ. Documentation, tests, and release-automation-only
+metadata change. For package implementation changes, package development-dependency changes, or
+root dependency-graph changes to `package.json`, `pnpm-lock.yaml`, or `pnpm-workspace.yaml`, it
+builds the pull request merge base and candidate revisions with their respective dependency graphs
+and requires a Changeset only when their published `dist` artifacts differ. Documentation, tests,
+and release-automation-only
 changes should not require one. The Changesets-generated package version and changelog update is
 also exempt for the GitHub Actions-created release PR because it consumes the pending Changeset.
 
