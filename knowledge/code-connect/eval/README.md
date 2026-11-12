@@ -14,7 +14,7 @@ Only the design-context condition changes. Use the same model, prompt, repositor
 
 ## Locked Inputs
 
-- Primary model: **Anthropic Claude Sonnet 4.5**, model ID `claude-sonnet-4-5-20250929`.
+- Primary model: **Anthropic Claude Sonnet 5.5**, Copilot model ID `claude-sonnet-5.5`. This replaces the original Sonnet 4.5 selection before any evaluation runs; do not combine results from different models.
 - Full-page fixture: [App Dashboard case](cases/app-dashboard/README.md).
 - Button smoke fixture: [Button smoke case](cases/button-smoke/README.md).
 - Output path: `sandbox/grommet-app/src/eval/Example.jsx` in an isolated run workspace.
@@ -43,17 +43,17 @@ Run one valid attempt in each condition. Start each in a new agent session and a
 1. Copy the locked prompt above unchanged to `knowledge/code-connect/eval/.scratch/prompt.txt`.
 2. Create a clean workspace for the run and place the generated component only at `sandbox/grommet-app/src/eval/Example.jsx`.
 3. Use the Button reference image at `knowledge/code-connect/eval/cases/button-smoke/assets/button-primary-small.png`. Attach it as the visual target in every condition.
-4. Capture the context actually available to the agent in a file beside that run's output. Preserve the raw MCP response/snippet or the screenshot-only input and record the prompt, condition, model ID, and repository commit. Do not substitute a summary for the received context.
+4. Capture the context actually received by the agent in a file beside that run's output. Preserve the agent's tool-call inputs and raw MCP responses, or the screenshot-only input and evidence that Figma MCP was unavailable. Record the prompt, condition, model ID, and repository commit. Do not substitute a summary or a separate investigator's MCP request for the received context. If the client cannot preserve this evidence or enforce a condition, treat the run as blocked.
 
 ### Provide condition-specific context
 
 | Condition | Agent input |
 | --- | --- |
 | `screenshot` | The reference image only. Do not call or provide Figma MCP context. |
-| `mcp-no-cc` | The reference image and Figma MCP context for frame `2133:694`, with Code Connect disabled. |
-| `mcp-cc` | The reference image and Figma MCP context for frame `2133:694`, with repository Code Connect enabled by default. Do not paste a mapping into the prompt or context. |
+| `mcp-no-cc` | The reference image and Figma MCP context for target `2133:695`, with Code Connect disabled. |
+| `mcp-cc` | The reference image and Figma MCP context for target `2133:695`, with repository Code Connect enabled by default. Do not paste a mapping into the prompt or context. |
 
-For either MCP condition, request design context for the frame with its screenshot. If the response contains only page/frame metadata and no useful target details, request context for mapped child `2133:695` and preserve both responses. The expected connected snippet is `import { Button } from 'grommet';` and `<Button label="Label" primary size="small"/>`; use its appearance in the captured context to verify delivery, not as manually supplied input.
+For either MCP condition, request design context for the mapped target with its screenshot. If a page or frame request returns only metadata, request context for the relevant child node and preserve both responses. The expected connected snippet is `import { Button } from 'grommet';` and `<Button label="Label" primary size="small"/>`; use its appearance in the captured context to verify delivery, not as manually supplied input.
 
 ### Build, render, and record
 
@@ -68,16 +68,16 @@ Score only the three valid runs, after their context, build, and render have bee
 ```bash
 pnpm --filter @hpe-design/code-connect eval:score -- \
   --case eval/cases/button-smoke/case.json \
-  --source sandbox/grommet-app/src/eval/Example.jsx \
+  --source ../../sandbox/grommet-app/src/eval/Example.jsx \
   --condition screenshot \
   --build 'pnpm --filter grommet-app exec vite build --config eval.config.js' \
   --cwd "$PWD" \
-  --model claude-sonnet-4-5-20250929 \
+  --model claude-sonnet-5.5 \
   --run-number 1 \
   --prompt-file eval/.scratch/prompt.txt
 ```
 
-Repeat with `--condition mcp-no-cc` and `--condition mcp-cc` in their respective clean workspaces. Confirm the three JSON records and their evidence files are under `eval/results/button-smoke/runs/`. Then generate the condition summary:
+Repeat with `--condition mcp-no-cc` and `--condition mcp-cc` in their respective clean workspaces. Copy the three JSON records and their evidence files into `eval/results/button-smoke/runs/` in one scoring workspace, without overwriting existing files. Then generate the condition summary:
 
 ```bash
 pnpm --filter @hpe-design/code-connect eval:summary -- \
@@ -119,9 +119,9 @@ Score an output and capture its build result. Use `--case` to select another cas
 Every scored run requires a positive `--run-number`, `--model`, and the exact prompt via `--prompt-file` (or `--prompt`). Copy the locked prompt above into `eval/.scratch/prompt.txt` for the examples below. Number repetitions from 1 independently for each case and condition. The record captures the prompt text, Figma identifiers from the case contract, the output path, and the current repository commit as `mappingCommit`; pass `--mapping-commit` to override the commit recorded.
 
 ```bash
-pnpm --filter @hpe-design/code-connect eval:score -- --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929 --run-number 1 --prompt-file eval/.scratch/prompt.txt
+pnpm --filter @hpe-design/code-connect eval:score -- --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-5.5 --run-number 1 --prompt-file eval/.scratch/prompt.txt
 
-pnpm --filter @hpe-design/code-connect eval:score -- --case eval/cases/button-smoke/case.json --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929 --run-number 1 --prompt-file eval/.scratch/prompt.txt
+pnpm --filter @hpe-design/code-connect eval:score -- --case eval/cases/button-smoke/case.json --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-5.5 --run-number 1 --prompt-file eval/.scratch/prompt.txt
 ```
 
 Summarize eligible evaluation runs by condition for the selected case. Tooling smoke records are excluded.
