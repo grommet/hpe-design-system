@@ -11,7 +11,6 @@ type TimeInputMockOptionProps = BoxExtendedProps & {
   label: string;
   selected?: boolean;
 };
-
 const columns: {
   name: string;
   options: TimeInputMockOptionProps[];
@@ -172,4 +171,3 @@ export const TimeInputMock = () => {
     </>
   );
 };
-

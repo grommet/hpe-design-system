@@ -4,8 +4,11 @@
   "private": true,
   "description": "Figma Code Connect mappings for the HPE Design System",
   "scripts": {
-    "typecheck": "tsc --noEmit",
-    "figma:sync": "dotenv -e .env -- figma connect publish"
+    "figma:sync": "dotenv -e .env -- figma connect publish",
+    "eval:score": "node eval/eval.mjs score",
+    "eval:summary": "node eval/eval.mjs summary",
+    "eval:test": "node --test eval/*.test.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hpe-design/icons-grommet": "workspace:*",

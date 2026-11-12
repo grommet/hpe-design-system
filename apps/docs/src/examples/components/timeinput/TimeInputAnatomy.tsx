@@ -52,7 +52,7 @@ export const TimeInputAnatomy = () => (
           key={label}
           id={`timeinput-annotation-${label}`}
           // Explicit undefined satisfies TypeScript's inferred required prop.
-          kind={undefined} 
+          kind={undefined}
           target={label}
           gridArea={`annotation-${label}`}
         />
