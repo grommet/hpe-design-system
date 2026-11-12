@@ -10,16 +10,16 @@ Use this checklist when reviewing an existing mapping for correctness drift.
 
 ## Compare Within the Mapping
 
-1. Ensure every declared prop is consumed in `example`.
+1. Ensure every property accessor's value is consumed in the exported snippet.
 2. Ensure no rendered prop is hardcoded when it should be driven by Figma.
-3. Check whether `variant` is being used for structural states.
+3. Check whether TypeScript branches correctly select structural states.
 4. Check icon imports and helper component imports against nearby mappings.
 
 ## Compare Against Repo Patterns
 
 1. Verify the file still fits the existing folder and naming convention.
 2. Compare the mapping shape with nearby files in the same component family.
-3. Preserve intentional static composition mappings instead of forcing them into `props` form.
+3. Preserve intentional static compositions instead of forcing them to be property-driven.
 
 ## Findings Format
 
@@ -28,5 +28,5 @@ Report findings as concrete drift items:
 - stale prop names
 - missing prop consumption
 - invalid structural assumptions
-- parser-hostile JSX
+- invalid structured template rendering
 - inconsistent imports or file placement

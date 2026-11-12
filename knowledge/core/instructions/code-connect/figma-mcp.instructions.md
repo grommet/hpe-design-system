@@ -1,7 +1,7 @@
 ---
 name: Code Connect Figma MCP
 description: 'Extract component definitions from Figma and implement or update Code Connect mappings for the HPE Design System.'
-applyTo: 'knowledge/code-connect/src/*.figma.jsx'
+applyTo: 'knowledge/code-connect/src/**/*.figma.ts'
 ---
 
 # Instructions: Code Connect Figma MCP
@@ -17,24 +17,24 @@ When creating or updating a Code Connect file from Figma, follow this process:
 3. Run the design-context tool to confirm the intended component usage and variant behavior.
 4. If the response is too large or truncated, use metadata to identify the required node and then re-fetch only that node.
 5. Review an existing mapping in `knowledge/code-connect/src/` before creating a new file so naming and structure stay consistent.
-6. Add or update a single `.figma.jsx` file for the component under `knowledge/code-connect/src/`.
+6. Add or update a single `.figma.ts` template in the component's matching family folder under `knowledge/code-connect/src/`.
 7. Prefer `pnpm --filter @hpe-design/code-connect figma:sync` from the repo root, or run `pnpm run figma:sync` from `knowledge/code-connect`, and confirm it exits with code `0` before marking the work complete.
 
 ## Implementation Rules
 
 - Treat Figma MCP output as component and property reference data, not as final implementation code.
-- Author mappings as React Code Connect files using `figma.connect(...)` from `@figma/code-connect`.
-- Import components from `grommet`, add supporting Grommet building blocks when the example needs them, and mirror the public JSX API in the `example` function.
-- Map every relevant Figma property with the appropriate helper (`figma.string`, `figma.boolean`, `figma.enum`, `figma.instance`, `figma.nestedProps`).
+- Author Code Connect v2 templates with `import figma from 'figma'`, leading `url`, `source`, and `component` directives, and a default export containing `id`, `imports`, and `example: figma.code`.
+- Put `grommet` and supporting component imports in the exported `imports` array and mirror their public JSX APIs in the snippet.
+- Read relevant Figma properties with `figma.selectedInstance.getString`, `getBoolean`, `getEnum`, `getInstanceSwap`, or descendant lookup methods.
 - Static composition mappings are acceptable when the existing project pattern does not expose useful Figma-driven props for that component.
-- Keep example JSX parser-friendly for Code Connect. Prefer mapped props over inline conditional expressions when the parser cannot resolve them.
-- Place each component mapping in its own file named `<ComponentName>.figma.jsx`.
+- Use TypeScript branches for structural variants and React rendering helpers for optional props. Do not concatenate structured snippet sections.
+- Place each component template in its own file named `<ComponentName>.figma.ts`.
 - Do not use page-level or frame-level Figma URLs. Always connect to the exact component node.
 - Do not leave changes unsynced. A mapping is not complete until the Code Connect sync command succeeds.
 
 ## Related References
 
 - [guidelines.instructions.md](guidelines.instructions.md): High-level workflow and required sync behavior for Code Connect mappings.
-- [component-guidelines.instructions.md](component-guidelines.instructions.md): Property mapping helpers, `figma.connect` structure, and example render requirements.
+- [component-guidelines.instructions.md](component-guidelines.instructions.md): Template property accessors, export structure, and snippet rendering requirements.
 - [file-structure.instructions.md](file-structure.instructions.md): File naming and placement rules for `knowledge/code-connect/src/`.
 - [coding-guidelines.instructions.md](../standards/coding-guidelines.instructions.md): React and Grommet authoring conventions used inside Code Connect examples.
