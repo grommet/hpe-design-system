@@ -7,7 +7,6 @@ import {
   Button,
   Grid,
   Main,
-  Nav,
   Page,
   PageContent,
   PageHeader,
@@ -20,13 +19,13 @@ import {
   Configure,
   Console,
   Cube,
-  Sidebar,
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
 import type { User } from '../global-header';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
+import { SideNav } from '../side-nav';
 import {
   DiscoverServices,
   HealthOverview,
@@ -68,32 +67,6 @@ const shell: {
   },
 };
 
-// Collapsed, icon-only primary navigation rail.
-function SideNav({ ...rest }: ComponentProps<typeof Box>) {
-  return (
-    <Box pad="xsmall" flex={false} {...rest}>
-      <Nav
-        a11yTitle="Primary"
-        align="center"
-        background={surfaceBackground}
-        fill="vertical"
-        gap="4xsmall"
-        pad={{ vertical: '3xsmall' }}
-        round="large"
-        width="5xsmall"
-      >
-        <Button
-          icon={<Sidebar />}
-          a11yTitle="Expand navigation"
-          tip="Expand navigation"
-        />
-        {navigation.map(({ icon, label }) => (
-          <Button key={label} icon={icon} a11yTitle={label} tip={label} />
-        ))}
-      </Nav>
-    </Box>
-  );
-}
 export const OverviewDashboard = () => {
   const size = useContext(ResponsiveContext);
   const [user, setUser] = useState<User | undefined>(defaultUser);
@@ -111,7 +84,13 @@ export const OverviewDashboard = () => {
           <Box gridArea="header">
             <GlobalHeader />
           </Box>
-          {showNav && <SideNav gridArea="nav" />}
+          {showNav && (
+            <SideNav
+              items={navigation}
+              background={surfaceBackground}
+              gridArea="nav"
+            />
+          )}
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
               {/* PageHeader pads medium below; with the medium gap = 48px. */}
