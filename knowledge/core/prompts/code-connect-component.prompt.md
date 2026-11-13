@@ -1,6 +1,6 @@
 ---
 name: code-connect-component
-description: Generate or update one Figma Code Connect mapping for a single Grommet component and Figma node, then validate with sync.
+description: Generate or update one Code Connect v2 template for a Grommet component and Figma node, then validate and publish it.
 agent: agent
 tools: [vscode, execute, read, edit, search, 'figma/*', 'figma-desktop/*']
 argument-hint: figmaUrl, componentName, fileName, propertyInventory
@@ -10,7 +10,7 @@ argument-hint: figmaUrl, componentName, fileName, propertyInventory
 
 ## Mission
 
-Create or update exactly one Figma Code Connect mapping file for one Grommet component and one Figma node, then validate and publish it with the repository sync command.
+Create or update exactly one Code Connect v2 template for one Grommet component and one Figma node, then validate and publish it with the repository sync command.
 
 ## Scope & Preconditions
 
@@ -23,7 +23,7 @@ Create or update exactly one Figma Code Connect mapping file for one Grommet com
 
 - Figma URL: `${input:figmaUrl:https://www.figma.com/design/<fileKey>/<fileName>?node-id=<nodeId>}`
 - Target component name: `${input:componentName:Tag}`
-- Destination file name: `${input:fileName:Tag.figma.jsx}`
+- Destination file name: `${input:fileName:Tag.figma.ts}`
 - Variant/property inventory: `${input:propertyInventory:Name(TEXT), Value(TEXT), Size(VARIANT), is Clickable(VARIANT), is Removable(VARIANT)}`
 - Current file context: `${file}`
 - Selected code context: `${selection}`
@@ -35,62 +35,40 @@ Read and follow these instruction files before making edits:
 - `knowledge/core/instructions/code-connect/guidelines.instructions.md`
 - `knowledge/core/instructions/code-connect/file-structure.instructions.md`
 - `knowledge/core/instructions/code-connect/component-guidelines.instructions.md`
+- `knowledge/core/instructions/code-connect/figma-mcp.instructions.md`
 
 ## Workflow
 
-1. Resolve the target file path as `knowledge/code-connect/src/${input:fileName}`.
-2. Check existing Code Connect files for naming and mapping patterns.
-3. Use Figma tools to inspect the exact node and confirm all mappable properties.
-4. Map only supported props for the specified Grommet component.
-5. Implement one `figma.connect` call with:
-   - default `figma` import from `@figma/code-connect`
-   - named component import from `grommet`
-   - exact Figma URL with `node-id`
-   - `props` mapping block
-   - `example` render function
-6. Ensure `example` passes mapped props directly.
-7. Run sync from `knowledge/code-connect`:
+1. Resolve the target file path as `knowledge/code-connect/src/${input:fileName}` and use the `.figma.ts` extension.
+2. Check existing v2 templates for naming and mapping patterns.
+3. Use the Figma Code Connect context tool on the exact component or component-set URL and confirm its properties.
+4. Inspect the specified Grommet component API and map only supported props.
+5. Implement a parserless v2 template using the `figma` runtime, the required URL/source/component directives, and a default-exported `figma.code` example.
+6. Read relevant property values from `figma.selectedInstance` and render each mapped value into the example.
+7. Run local validation from the repository root:
 
 ```bash
-pnpm run figma:sync
+pnpm --filter @hpe-design/code-connect typecheck
+pnpm --filter @hpe-design/code-connect exec figma connect parse --exit-on-unreadable-files
 ```
 
-8. If parser validation fails, fix mapping shape and rerun until successful.
-9. Report final published component links from sync output.
+8. Preview representative states when Figma credentials are available, then publish with:
+
+```bash
+pnpm --filter @hpe-design/code-connect figma:sync
+```
+
+9. Report local validation separately from publication and include published component links when sync provides them.
 
 ## Authoring Rules
 
-- One component mapping per file.
-- Match file and component naming (for example, `Tag.figma.jsx` for `Tag`).
+- One component template per file.
+- Match file and component naming (for example, `Tag.figma.ts` for `Tag`).
 - Map each relevant Figma property unless intentionally omitted with rationale.
-- Use exact Figma variant option strings on enum map keys.
+- Use the appropriate `figma.selectedInstance` accessor for each property type.
 - Keep mapped prop values API-correct for the chosen Grommet component.
-
-## Example Function Constraints
-
-- Use direct mapped values in JSX props.
-- Do not use inline conditional expressions in JSX props referencing mapped variables.
-- Do not use computed wrappers that the Code Connect parser cannot trace.
-
-### Good
-
-```jsx
-props: {
-  onRemove: figma.enum('is Removable', {
-    true: () => {},
-    false: undefined,
-  }),
-},
-example: ({ value, onRemove }) => <Tag value={value} onRemove={onRemove} />,
-```
-
-### Bad
-
-```jsx
-example: ({ removable }) => (
-  <Tag onRemove={removable ? () => {} : undefined} />
-),
-```
+- Render every value read from the selected instance, and use `figma.helpers.react.renderProp` for mapped values.
+- Do not create legacy `.figma.jsx` or `figma.connect(...)` mappings.
 
 ## Output Expectations
 
@@ -98,7 +76,7 @@ Complete code changes in the workspace and provide:
 
 1. File(s) created or updated.
 2. Mapping summary (component, Figma node, mapped props).
-3. Sync result summary with publish links.
+3. Typecheck and parse outcomes, plus sync result and publish links when available.
 4. Any intentional omissions or unresolved mapping constraints.
 
 ## Quality Checks
@@ -106,9 +84,9 @@ Complete code changes in the workspace and provide:
 Before finishing:
 
 1. Confirm file location and naming match Code Connect conventions.
-2. Confirm `figma.connect` has component reference, exact node URL, `props`, and `example`.
-3. Confirm no parser-unsafe JSX prop expressions are used.
-4. Confirm `pnpm run figma:sync` succeeds and includes the target component in publish output.
+2. Confirm the v2 directives, `figma.selectedInstance` property reads, and `figma.code` example are correct.
+3. Confirm each read property is rendered and each emitted prop exists in the component API.
+4. Confirm typecheck and CLI parse succeed before sync; report whether publication completed.
 
 ## Avoid
 

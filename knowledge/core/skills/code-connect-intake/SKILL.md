@@ -1,7 +1,7 @@
 ---
 name: code-connect-intake
-description: 'Intake workflow for HPE Design System Code Connect work. Use when asked to start a new Code Connect mapping, confirm a Figma node URL, identify the target Grommet component, choose the correct `.figma.jsx` file location, or gather the minimum inputs before editing `knowledge/code-connect/src/`.'
-version: 1.0.0
+description: 'Intake workflow for HPE Design System Code Connect work. Use when asked to start a new Code Connect mapping, confirm a Figma node URL, identify the target Grommet component, choose the correct `.figma.ts` template location, or gather the minimum inputs before editing `knowledge/code-connect/src/`.'
+version: 2.0.0
 ---
 
 # Code Connect Intake
@@ -21,16 +21,17 @@ Use this skill to gather the minimum correct inputs before creating or updating 
 
 1. Identify the target code component and confirm its real JSX API in source before proposing mapping behavior.
 2. Confirm the exact Figma component URL includes `node-id` and points to a `COMPONENT` or `COMPONENT_SET` node.
-3. Check for the closest existing mapping pattern in `knowledge/code-connect/src/`, including component-family subfolders such as `knowledge/code-connect/src/inputs/`.
-4. Choose the target file path using the repo convention `<ComponentName>.figma.jsx`.
-5. Decide whether the component should be property-driven, variant-split, or a static composition example.
+3. Classify the component by its design-system family and check the matching folder in `knowledge/code-connect/src/` for the closest mapping pattern. Do not infer the folder from the component's import path or API alone.
+4. Choose the target file path using the v2 convention `<ComponentName>.figma.ts` inside the matching family folder when one exists.
+5. Decide whether to use one property-driven snippet, TypeScript branches for structural variants, or a static composition example.
 
 ## Gotchas
 
 - **Do not start from a page or frame URL**. Code Connect needs the exact component node URL.
 - **Do not assume every mapping lives at the top of `src/`**. This repo already uses subfolders such as `src/inputs/`.
+- **Do not place a component based only on its name or implementation API**. Use its design-system role and the existing folder taxonomy; for example, Notification is a visualisation and belongs in `src/visualisations/`.
 - **Do not invent props from Figma alone**. Figma properties must be reconciled with the real Grommet or wrapper component API.
-- **Do not require a `props` block for every file**. Some mappings in this repo are static composition examples.
+- **Do not create a legacy `figma.connect` mapping**. Use v2 `figma.code` templates; some templates are static composition examples.
 
 ## References
 

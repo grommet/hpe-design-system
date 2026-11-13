@@ -1,7 +1,12 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-export * from './AIGenFill';
+export * from './AIAgent';
+export * from './AIChat';
 export * from './AIGen';
+export * from './AIGenFill';
+export * from './AIModel';
+export * from './AISearch';
+export * from './AISecurity';
 export * from './AISystems';
 export * from './SD';
 export * from './VMMaintenance';

@@ -80,36 +80,42 @@ This creates two complementary paths: direct Dev Mode handoff for human implemen
 
 ### `controls`
 
-- [Anchor](src/controls/Anchor.figma.jsx)
-- [Button](src/controls/Button.figma.jsx)
-- [Menu](src/controls/Menu.figma.jsx)
-- [Tab](src/controls/Tab.figma.jsx)
-- [Tabs](src/controls/Tabs.figma.jsx)
-- [Tag](src/controls/Tag.figma.jsx)
+- [Anchor](src/controls/Anchor.figma.ts)
+- [Button](src/controls/Button.figma.ts)
+- [Menu](src/controls/Menu.figma.ts)
+- [Tab](src/controls/Tab.figma.ts)
+- [Tabs](src/controls/Tabs.figma.ts)
+- [Tag](src/controls/Tag.figma.ts)
 
 ### `inputs`
 
-- [CheckBox](src/inputs/CheckBox.figma.jsx)
-- [CheckBoxGroup](src/inputs/CheckBoxGroup.figma.jsx)
-- [DateInput](src/inputs/DateInput.figma.jsx)
-- [NumberInput](src/inputs/NumberInput.figma.jsx)
-- [RadioButton](src/inputs/RadioButton.figma.jsx)
-- [RadioButtonGroup](src/inputs/RadioButtonGroup.figma.jsx)
-- [Select](src/inputs/Select.figma.jsx)
-- [SelectMultiple](src/inputs/SelectMultiple.figma.jsx)
-- [TextInput](src/inputs/TextInput.figma.jsx)
-- [TimeInput](src/inputs/TimeInput.figma.jsx)
+- [CheckBox](src/inputs/CheckBox.figma.ts)
+- [CheckBoxGroup](src/inputs/CheckBoxGroup.figma.ts)
+- [DateInput](src/inputs/DateInput.figma.ts)
+- [NumberInput](src/inputs/NumberInput.figma.ts)
+- [RadioButton](src/inputs/RadioButton.figma.ts)
+- [RadioButtonGroup](src/inputs/RadioButtonGroup.figma.ts)
+- [Select](src/inputs/Select.figma.ts)
+- [SelectMultiple](src/inputs/SelectMultiple.figma.ts)
+- [TextInput](src/inputs/TextInput.figma.ts)
+- [TimeInput](src/inputs/TimeInput.figma.ts)
 
 ### `layouts`
 
-- [Card](src/layouts/Card.figma.jsx)
+- [Card](src/layouts/Card.figma.ts)
 
 ### `visualisations`
 
-- [Avatar](src/visualisations/Avatar.figma.jsx)
-- [Skeleton](src/visualisations/Skeleton.figma.jsx)
-- [Spinner](src/visualisations/Spinner.figma.jsx)
-- [Tip](src/visualisations/Tip.figma.jsx)
+- [Avatar](src/visualisations/Avatar.figma.ts)
+- [Notification](src/visualisations/Notification.figma.ts)
+- [Skeleton](src/visualisations/Skeleton.figma.ts)
+- [Spinner](src/visualisations/Spinner.figma.ts)
+- [Tip](src/visualisations/Tip.figma.ts)
+
+Notification maps Status to `status`, Kind to `global`/`toast`, and the Title,
+onClose, and Actions toggles to optional `title`, `onClose`, and `actions` props.
+The message and enabled title/action text are representative content, not
+parent-exposed Figma text properties.
 
 ---
 
@@ -137,12 +143,14 @@ FIGMA_ACCESS_TOKEN=figd_your_token_here
 
 ### Install & Publish
 
-Publishing Code Connect pushes each `figma.connect(...)` mapping in this package to Figma and attaches that mapping to the referenced component node metadata.
+Publishing Code Connect v2 pushes each `.figma.ts` template in this package to
+Figma and attaches it to the component identified by its leading `// url=` directive.
 
 After a successful publish:
 
-- Figma Dev Mode shows repository-authored JSX examples from each mapping's `example` function.
-- Figma property values (variants, booleans, text) are translated through the mapping functions (`figma.enum`, `figma.boolean`, `figma.string`) into real Grommet props.
+- Figma Dev Mode shows repository-authored JSX snippets from each template's `example`.
+- Templates read variants, booleans, text, and nested instances through
+  `figma.selectedInstance` and render real Grommet props with `figma.code`.
 - Designers and developers get a shared design-to-code contract directly in Dev Mode instead of manually translating visual specs.
 
 What publish does not do:
@@ -165,6 +173,22 @@ Equivalent from `knowledge/code-connect/`:
 pnpm run figma:sync
 ```
 
+### Troubleshooting sync
+
+- `No config file found ... proceeding with default options` is informational,
+  but this package requires `figma.config.json` to discover its `.figma.ts`
+  templates. Run from the package directory or use the root-scoped sync command.
+- `ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL` reports that the underlying command failed.
+  Look above it for the original error.
+- If `minimatch` throws `brace_expansion_1.expand is not a function`, check the
+  root dependency overrides. The `brace-expansion` 1.1.18 override must apply only
+  to version-1 consumers (`brace-expansion@<2`), not to newer major versions with
+  different APIs. Run `pnpm install` after correcting the override, then retry sync.
+- `403 Token expired` means the Figma token must be replaced in the local `.env`.
+  Generate a new token with the scopes above; do not paste it into chat or commit it.
+- `Framework-specific parsers are no longer supported` means a legacy
+  `figma.connect` mapping is being passed to v2. Migrate it to a `.figma.ts` template.
+
 ---
 
 ## Adding a New Component
@@ -176,7 +200,11 @@ cd knowledge/code-connect
 dotenv -e .env -- figma connect create "<figma-component-url>"
 ```
 
-This calls the Figma API, reads the real component properties, and generates a starter mapping file with all property names pre-filled. Move it into the appropriate location under `src/` and rename it to match the repo convention if needed: `<ComponentName>.figma.jsx`.
+Inspect the generated template against the real Figma property inventory and
+Grommet API. Keep the v2 parserless format (`import figma from 'figma'` plus a
+default-exported `figma.code` example), not a legacy `figma.connect` file.
+Place `<ComponentName>.figma.ts` in the matching existing family folder under `src/`.
+Notification, for example, belongs in `src/visualisations/`.
 
 ### Step 2 — Map the properties
 
@@ -185,10 +213,33 @@ Open the generated file and replace placeholder mappings with real ones. Use the
 ### Step 3 — Validate and publish
 
 ```bash
+pnpm --filter @hpe-design/code-connect typecheck
+pnpm --filter @hpe-design/code-connect exec figma connect parse --exit-on-unreadable-files
 pnpm --filter @hpe-design/code-connect figma:sync
 ```
 
-Fix any validation errors (property name typos, wrong node type, etc.) then re-run.
+Typechecking and parsing are local checks. Publishing and previews require a valid
+Figma token. To inspect representative variant output before publishing:
+
+```bash
+cd knowledge/code-connect
+pnpm exec dotenv -e .env -- figma connect preview src/controls/Button.figma.ts --unique
+```
+
+Fix validation errors (property name typos, wrong node type, etc.) then re-run.
+
+### Migrating legacy mappings
+
+The 21 existing mappings in this package were converted using Code Connect v2's official
+`figma connect migrate` command, preserving component-family folders and variant
+branches. For any remaining legacy mappings:
+
+```bash
+pnpm --filter @hpe-design/code-connect exec figma connect migrate --delete --exit-on-unreadable-files
+```
+
+Review generated source links, imports, structured prop values, and variant
+branches. Keep legacy `__props` metadata only if parent templates consume it.
 
 ### Step 4 — Verify in Figma Dev Mode
 
@@ -204,82 +255,59 @@ Designer selects component in Figma Dev Mode
   Figma reads component property values
   (e.g. Kind="primary", Size="large")
               ↓
-    figma.* mapping functions translate
+    Template property accessors translate
     Figma properties → React prop values
               ↓
-    example() function called with those values
+    figma.code interpolates those values
               ↓
     JSX rendered and shown to developer
 ```
 
-There are three mapping primitives:
+The template runtime is supplied by Figma, not imported from the application:
 
-### `figma.string('PropertyName')`
+```ts
+// url=https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?node-id=2133-694
+// source=https://github.com/grommet/grommet/blob/master/src/js/components/Button/Button.js
+// component=Button
+import figma from 'figma';
 
-Reads a Figma text property and passes the string through as-is.
-
-```js
-label: figma.string('Label');
-// Figma: Label = "Submit"  →  label="Submit"
-```
-
-### `figma.boolean('PropertyName')`
-
-Reads a Figma boolean toggle. Use a value map when `false` should omit the prop rather than pass `false`:
-
-```js
-badge: figma.boolean('show Badge', { true: true, false: undefined });
-// show Badge = ✓  →  badge={true}
-// show Badge = ✗  →  (prop omitted)
-```
-
-### `figma.enum('PropertyName', { figmaValue: reactValue })`
-
-Maps specific Figma variant values to React prop values. Unmapped values produce `undefined` (prop omitted):
-
-```js
-size: figma.enum('Size', {
-  xSmall: 'xsmall',
-  large: 'large',
+const label = figma.selectedInstance.getString('Label');
+const badge = figma.selectedInstance.getBoolean('show Badge', {
+  true: true,
+  false: undefined,
 });
-// Figma: Size = "large"  →  size="large"
-// Figma: Size = "xSmall" →  size="xsmall"
+
+export default {
+  id: 'Button',
+  imports: ["import { Button } from 'grommet';"],
+  example: figma.code`<Button${figma.helpers.react.renderProp('label', label)}${figma.helpers.react.renderProp('badge', badge)} />`,
+  metadata: { nestable: true },
+};
 ```
+
+Use `getString` for text, `getBoolean` for booleans, `getEnum` for variants, and
+`getInstanceSwap` for swappable instances. Match Figma property names and options
+exactly, and map all known enum values. `renderProp` handles React quoting,
+booleans, structured values, and omission of `undefined`.
 
 ---
 
 ## Authoring Patterns
 
-### 1. The `variant` pattern — structurally different JSX per Figma state
+### 1. Structural variants
 
-When a single Figma boolean/enum should produce **different JSX structure** (not just a different prop value), split into multiple `figma.connect` calls with a `variant` filter:
-
-```js
-// When "show Name" toggle is ON — include name prop
-figma.connect(Tag, FIGMA_URL, {
-  variant: { 'show Name': 'True' },
-  props: { name: figma.string('Name'), ...sharedProps },
-  example: ({ name, value }) => <Tag name={name} value={value} />,
-});
-
-// When "show Name" toggle is OFF — name prop absent entirely
-figma.connect(Tag, FIGMA_URL, {
-  variant: { 'show Name': 'False' },
-  props: sharedProps,
-  example: ({ value }) => <Tag value={value} />,
-});
-```
-
-Used in: **Tag** (`show Name`), **Menu** (`is Icon Only`)
+Branch in TypeScript when Figma states require different snippet structures,
+then default-export the selected template. See [Avatar](src/visualisations/Avatar.figma.ts)
+and [Menu](src/controls/Menu.figma.ts). Unlike the v1 JSX parser, v2 templates
+support ordinary TypeScript conditionals.
 
 ### 2. Enum for boolean-sourced non-boolean outputs
 
 When a single Figma enum/variant drives **two separate React boolean props**, map them independently:
 
-```js
-// Both driven by the same Figma "Kind" property
-primary:   figma.enum('Kind', { primary: true }),
-secondary: figma.enum('Kind', { secondary: true }),
+```ts
+const primary = figma.selectedInstance.getEnum('Kind', { primary: true });
+const secondary = figma.selectedInstance.getEnum('Kind', { secondary: true });
 ```
 
 When `Kind = "primary"` → `primary={true}`, `secondary={undefined}`. Used in: **Button**
@@ -309,56 +337,35 @@ items={[
 
 Figma's "show 2nd Group" / "show 5th Group" toggles are prototype design-time conveniences — they don't map to React props.
 
-### 5. `variant` only works on the connected node's own properties
+### 5. Resolve properties on the correct instance
 
-The `variant` filter can only reference properties belonging to **the exact Figma node** in the `figma.connect` URL. `show Icon` belongs to `Tab` (`59-2098`) — not `Tabs` (`59-2087`) — so it can only be used as a variant in `controls/Tab.figma.jsx`.
+`figma.selectedInstance` accesses the connected component's properties.
+For example, `show Icon` belongs to Tab, not Tabs. Read configurable children
+through their own templates rather than assuming child properties exist on the parent.
 
-### 6. No conditionals or `.map()` in `example`
+### 6. Preserve structured snippet results
 
-The Code Connect parser requires the `example` function to produce statically analyzable JSX:
+`executeTemplate().example` returns structured sections, not a string. Interpolate
+these sections in `figma.code`; never concatenate them or call `.join()`.
+Check `type === 'INSTANCE'` before executing a child template.
 
-```js
-// ✗ Rejected — conditional
-example: ({ busy }) => <Button busy={busy && true} />;
+### 7. Reading a prop is not the same as rendering it
 
-// ✗ Rejected — map
-example: () => (
-  <Tabs>
-    {tabs.map(t => (
-      <Tab title={t} />
-    ))}
-  </Tabs>
-);
-
-// ✓ Correct — static JSX, prop omitted via undefined
-example: ({ busy }) => <Button busy={busy} />;
-```
-
-### 7. Declaring a prop is not the same as using it
-
-Every prop declared in `props` must also be destructured and passed in `example` — Code Connect will not warn you if you forget:
-
-```js
-// ✗ badge mapped but never used — silently dropped from output
-props: { badge: figma.boolean('show Badge') },
-example: ({ label }) => <Button label={label} />
-
-// ✓ badge declared AND wired through
-props: { badge: figma.boolean('show Badge', { true: true, false: undefined }) },
-example: ({ label, badge }) => <Button label={label} badge={badge} />
-```
+Every mapped value must be included in the exported snippet. Use
+`figma.helpers.react.renderProp` for optional React props and
+`figma.helpers.react.object`, `.array`, and `.function` for code-valued props.
 
 ---
 
 ## Limitations
 
-| Limitation                             | Impact                                          | Workaround                                         |
-| -------------------------------------- | ----------------------------------------------- | -------------------------------------------------- |
-| No conditionals in `example`           | Can't show/hide optional JSX blocks             | `variant` pattern for structural differences       |
-| No `.map()` in `example`               | Can't generate dynamic child counts             | Static hardcoded children                          |
-| Prototype-only Figma props             | Figma group toggles have no React equivalent    | Dropped from mapping, static representative shown  |
-| `variant` filter scoped to node        | Can't cross-reference child component props     | Keep variant logic in the child's own `.figma.jsx` |
-| Figma Dev Mode shows duplicate imports | Visual issue when parent + child both connected | Figma display behaviour, not fixable               |
+| Limitation                                | Impact                                          | Workaround                                         |
+| ----------------------------------------- | ----------------------------------------------- | -------------------------------------------------- |
+| Structured snippets are not strings       | Concatenation can produce invalid output        | Interpolate sections with `figma.code`             |
+| Local parse does not execute Figma states | Bundling alone cannot verify all snippets       | Preview representative variants with a valid token |
+| Prototype-only Figma props                | Figma group toggles have no React equivalent    | Dropped from mapping, static representative shown  |
+| Property access scoped to instance        | Child properties are not parent properties      | Resolve the child's own template                   |
+| Figma Dev Mode shows duplicate imports    | Visual issue when parent + child both connected | Figma display behaviour, not fixable               |
 
 ---
 
@@ -368,33 +375,36 @@ example: ({ label, badge }) => <Button label={label} badge={badge} />
 knowledge/code-connect/
 ├── src/
 │   ├── controls/
-│   │   ├── Anchor.figma.jsx
-│   │   ├── Button.figma.jsx
-│   │   ├── Menu.figma.jsx
-│   │   ├── Tab.figma.jsx
-│   │   ├── Tabs.figma.jsx
-│   │   └── Tag.figma.jsx
+│   │   ├── Anchor.figma.ts
+│   │   ├── Button.figma.ts
+│   │   ├── Menu.figma.ts
+│   │   ├── Tab.figma.ts
+│   │   ├── Tabs.figma.ts
+│   │   └── Tag.figma.ts
 │   ├── inputs/
-│   │   ├── CheckBox.figma.jsx
-│   │   ├── CheckBoxGroup.figma.jsx
-│   │   ├── DateInput.figma.jsx
-│   │   ├── NumberInput.figma.jsx
-│   │   ├── RadioButton.figma.jsx
-│   │   ├── RadioButtonGroup.figma.jsx
-│   │   ├── Select.figma.jsx
-│   │   ├── SelectMultiple.figma.jsx
-│   │   └── TextInput.figma.jsx
+│   │   ├── CheckBox.figma.ts
+│   │   ├── CheckBoxGroup.figma.ts
+│   │   ├── DateInput.figma.ts
+│   │   ├── NumberInput.figma.ts
+│   │   ├── RadioButton.figma.ts
+│   │   ├── RadioButtonGroup.figma.ts
+│   │   ├── Select.figma.ts
+│   │   ├── SelectMultiple.figma.ts
+│   │   ├── TextInput.figma.ts
+│   │   └── TimeInput.figma.ts
 │   ├── layouts/
-│   │   └── Card.figma.jsx
+│   │   └── Card.figma.ts
 │   └── visualisations/
-│       ├── Avatar.figma.jsx
-│       ├── Skeleton.figma.jsx
-│       ├── Spinner.figma.jsx
-│       └── Tip.figma.jsx
+│       ├── Avatar.figma.ts
+│       ├── Notification.figma.ts
+│       ├── Skeleton.figma.ts
+│       ├── Spinner.figma.ts
+│       └── Tip.figma.ts
 ├── .env                   # FIGMA_ACCESS_TOKEN (gitignored)
-├── package.json           # figma:sync script
-├── README.md
-└── src/
+├── figma.config.json      # .figma.ts discovery and React label
+├── package.json           # typecheck and figma:sync scripts
+├── tsconfig.json          # Figma template runtime types
+└── README.md
 ```
 
 ---
@@ -405,16 +415,16 @@ knowledge/code-connect/
 
 - **Token scopes aren't obvious** — need both `file_content:read` AND `file_code_connect:write`; missing either gives a cryptic 403
 - **Figma node type matters** — connect to a `COMPONENT` or `COMPONENT_SET` node, not a Frame; always copy the link from the component itself not the surrounding frame
-- **The parser is stricter than it looks** — no conditionals (`&&`, ternaries), no `.map()`, no dynamic expressions; all JSX in `example` must be fully static
-- **Parent and child components need separate files** — `Tabs` and `Tab` are two different Figma nodes with separate property sets; you can't reference a child's property as a `variant` filter on the parent
+- **Major CLI upgrades can change file formats** — Code Connect v2 requires parserless templates; use the official migration command rather than publishing v1 JSX files
+- **Parent and child components need separate files** — `Tabs` and `Tab` are two different Figma nodes with separate property sets
 - **Grommet and Figma attributes are not always 1:1** — Figma uses `Icon = left/right` for position; Grommet uses `icon={<Add />}` plus a separate `reverse` prop. One Figma property mapped to two React props
-- **Declaring a prop is not the same as using it** — declaring a prop in `props` only reads it from Figma; you still have to use it in `example` or it disappears from the output with no warning
+- **Reading a prop is not the same as rendering it** — a property accessor must feed the exported snippet or the value disappears from the output
 - **Figma prototype toggles ≠ React props** — design-time visibility toggles (e.g. "show 2nd Group") have no code equivalent; mapping them creates noise
 
 ### What we'd do differently
 
 - Always start with `figma connect create` — never hand-author property names
-- Audit `props` vs `example` as a checklist — every mapped prop must appear in both
+- Audit property accessors against the exported snippet — every mapped value must be rendered
 - Add `figma.config.json` from day one to avoid CLI path detection issues
 - Store the token in a shared secrets manager, not per-developer `.env` files
 - Prefer the package sync command directly from the repo root so publish behavior stays consistent across contributors
@@ -478,15 +488,14 @@ The HPE Design System has ~55 components with documented Figma counterparts. Bas
 **1. One component per sprint**
 Use `figma connect create` to scaffold, refine the mapping, and publish in the same session. Aim for 2-3 components per innovation sprint.
 
-**2. Use a config file for multi-directory support**
-As the mapping count grows, add a `figma.config.json` to the package root:
+**2. Keep template discovery explicit**
+The package-root `figma.config.json` includes all family folders:
 
 ```json
 {
   "codeConnect": {
-    "parser": "react",
-    "include": ["src/**/*.figma.{jsx,tsx}"],
-    "figmaFileUrl": "https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2"
+    "include": ["src/**/*.figma.ts"],
+    "label": "React"
   }
 }
 ```
@@ -548,12 +557,13 @@ jobs:
 
 #### `visualisations`
 
-| Component  | Status       |
-| ---------- | ------------ |
-| `Avatar`   | ✅ Connected |
-| `Skeleton` | ✅ Connected |
-| `Spinner`  | ✅ Connected |
-| `Tip`      | ✅ Connected |
+| Component      | Status       |
+| -------------- | ------------ |
+| `Avatar`       | ✅ Connected |
+| `Notification` | ✅ Connected |
+| `Skeleton`     | ✅ Connected |
+| `Spinner`      | ✅ Connected |
+| `Tip`          | ✅ Connected |
 
 #### Backlog / Not started
 
@@ -573,7 +583,6 @@ jobs:
 | `Layer`         | 🔲 Not started |
 | `Meter`         | 🔲 Not started |
 | `NameValueList` | 🔲 Not started |
-| `Notification`  | 🔲 Not started |
 | `PageHeader`    | 🔲 Not started |
 | `Pagination`    | 🔲 Not started |
 | `Search`        | 🔲 Not started |

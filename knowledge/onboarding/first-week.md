@@ -24,8 +24,8 @@ for component-level React and Figma details.
       and identify the difference between source tokens, generated outputs, and the
       Grommet export.
 - [ ] Read [the Code Connect guide](../code-connect/README.md), then trace one
-      existing `.figma.jsx` mapping from its Figma component URL through its mapped
-      JSX example.
+      existing `.figma.ts` template from its Figma component URL through its
+      `figma.code` example.
 - [ ] Read [the skills index](../core/skills/README.md), then inspect the active
       [docs-refactor manifest](../capabilities/docs-refactor/manifest.yaml) as an
       example of a capability composed from data, skills, agents, stages, and

@@ -15,6 +15,7 @@ export default defineConfig({
         {
           src: 'src/icons/**/*.svg',
           dest: '.',
+          rename: { stripBase: true },
         },
       ],
     }),
