@@ -40,6 +40,7 @@ import {
   Table,
 } from '@hpe-design/icons-grommet';
 import { EmptyState } from '@shared/aries-core';
+import { ContentPane } from '../../../../../layouts/content/ContentPane';
 import {
   devices,
   type Device,
@@ -323,7 +324,12 @@ export const DevicesTable = () => {
   const [selected, setSelected] = useState<(string | number)[]>([]);
 
   return (
-    <Box as="section" gap="small">
+    <ContentPane
+      as="section"
+      background={display === 'table' ? surfaceBackground : undefined}
+      gap="small"
+      pad={display === 'table' ? 'medium' : undefined}
+    >
       <Heading id="devices-heading" level={2} margin="none" tabIndex={-1}>
         Devices
       </Heading>
@@ -371,6 +377,6 @@ export const DevicesTable = () => {
           onSelect={setSelected}
         />
       </Data>
-    </Box>
+    </ContentPane>
   );
 };
