@@ -22,8 +22,10 @@ import {
 import { DataContext } from 'grommet';
 import { Search, StatusCritical } from '@hpe-design/icons-grommet';
 import { EmptyState } from '@shared/aries-core';
+import { ContentPane } from '../../../../../layouts/content/ContentPane';
 import {
   devices,
+  surfaceBackground,
   type SubscribedDevice,
   supportStatuses,
   type SupportStatus as SupportStatusValue,
@@ -142,7 +144,7 @@ const DevicesContent = () => {
 };
 
 export const SubscribedDevices = () => (
-  <Box as="section" gap="small">
+  <ContentPane as="section" background={surfaceBackground} gap="small">
     <Heading id={headingId} level={2} margin="none" tabIndex={-1}>
       Subscribed devices
     </Heading>
@@ -170,5 +172,5 @@ export const SubscribedDevices = () => (
       <DataSummary />
       <DevicesContent />
     </Data>
-  </Box>
+  </ContentPane>
 );
