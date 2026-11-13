@@ -286,7 +286,7 @@ fs.appendFileSync(
 const filterColor = (token, file) =>
   token.filePath === file && !token.path.includes(FIGMA_PREFIX);
 
-const writeSemanticColorMetadataArtifacts = files => {
+const writeSemanticColorMetadataArtifacts = (files, { collection } = {}) => {
   fs.mkdirSync(DOCS_METADATA_DIR, { recursive: true });
   const parseFailures = [];
 
@@ -301,9 +301,8 @@ const writeSemanticColorMetadataArtifacts = files => {
       },
     );
 
-    const canonicalTokenLeafPaths = collectSemanticColorTokenLeafPathsFromTokenTree(
-      parsedTokens,
-    );
+    const canonicalTokenLeafPaths =
+      collectSemanticColorTokenLeafPathsFromTokenTree(parsedTokens);
 
     const figmaUnparseable = [];
     const figmaExceptions = [];
@@ -371,7 +370,12 @@ const writeSemanticColorMetadataArtifacts = files => {
       softExceptionOnNonCanonicalRole: true,
     });
 
-    const fileSuffix = theme ? `${theme}-${mode}` : `${mode || 'default'}`;
+    const fileSuffix = [
+      collection,
+      theme ? `${theme}-${mode}` : `${mode || 'default'}`,
+    ]
+      .filter(Boolean)
+      .join('-');
     const reportPath = `${DOCS_METADATA_DIR}semanticColorMetadata.report.${fileSuffix}.json`;
 
     fs.writeFileSync(
@@ -522,6 +526,143 @@ try {
   }, Promise.resolve());
 } catch (e) {
   console.error('🛑 Error building color tokens:', e);
+  throw e;
+}
+
+/** -----------------------------------
+ * Surface collection
+ *
+ * A peer collection with its own mode axis (default / toned). Consumer
+ * tokens alias the color.surface.* reference tier, which carries light and
+ * dark, so one alias is correct in both colour modes and the outputs here
+ * are colour-mode agnostic:
+ * - CSS: var(--hpe-color-surface-NN) refs under [data-surface=<mode>]
+ * - Grommet: 'surface-NN' colour refs resolved through global.colors
+ * - ESM/CJS: var(--hpe-color-background-surface-*) names
+ * Docs output resolves against color.light.json for a representative value.
+ * See grommet/hpe-design-system#5969 decisions 2b(ii), 3 and 11b.
+ * ----------------------------------- */
+const surfaceModeFiles = fs
+  .readdirSync(`${TOKENS_DIR}/semantic`)
+  .filter(
+    file =>
+      file.startsWith('surface.') &&
+      !file.includes('v1') &&
+      !file.includes('v0'),
+  )
+  .map(file => `${TOKENS_DIR}/semantic/${file}`);
+
+const SURFACE_DEFAULT_MODE = 'default';
+
+const filterSurface = (token, file) =>
+  token.filePath === file && !token.path.includes(FIGMA_PREFIX);
+
+try {
+  writeSemanticColorMetadataArtifacts(surfaceModeFiles, {
+    collection: 'surface',
+  });
+
+  await surfaceModeFiles.reduce(async (previousBuild, file) => {
+    await previousBuild;
+    const [, mode] = getThemeAndMode(file);
+    const surfaceDictionary = await HPEStyleDictionary.extend({
+      source: [
+        `${TOKENS_DIR}/primitive/primitives.default.json`,
+        `${TOKENS_DIR}/semantic/color.light.json`, // reference tier; alias is mode-agnostic
+        file,
+      ],
+      platforms: {
+        grommet: {
+          transformGroup: 'js/w3c',
+          buildPath: GROMMET_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              destination: `surface.${mode}.js`,
+              format: 'esmGrommetRefs',
+              filter: token => filterSurface(token, file),
+            },
+          ],
+        },
+        'grommet/cjs': {
+          transformGroup: 'js/w3c',
+          buildPath: GROMMET_CJS_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              destination: `surface.${mode}.cjs`,
+              format: 'commonJsGrommetRefs',
+              filter: token => filterSurface(token, file),
+            },
+          ],
+        },
+        js: {
+          transformGroup: 'js/css',
+          buildPath: ESM_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              // custom property names are the same in every surface mode
+              destination: 'surface.js',
+              format: 'javascript/esm',
+              filter: token => filterSurface(token, file),
+            },
+          ],
+        },
+        'js/cjs': {
+          transformGroup: 'js/css',
+          buildPath: CJS_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              destination: 'surface.cjs',
+              format: 'javascript/commonJs',
+              filter: token => filterSurface(token, file),
+            },
+          ],
+        },
+        css: {
+          transformGroup: 'css/w3c',
+          buildPath: CSS_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              destination: `surface.${mode}.css`,
+              format: 'css/variables-collection-modes',
+              options: {
+                outputReferences: true,
+                attribute: 'data-surface',
+                mode,
+                defaultMode: SURFACE_DEFAULT_MODE,
+              },
+              filter: token => filterSurface(token, file),
+            },
+          ],
+        },
+        docs: {
+          transformGroup: 'js/w3c',
+          buildPath: DOCS_DIR,
+          prefix: PREFIX,
+          options: defaultOptions,
+          files: [
+            {
+              destination: `surface.${mode}.js`,
+              filter: token => filterSurface(token, file),
+              format: 'jsonFlat',
+            },
+          ],
+        },
+      },
+    });
+    await surfaceDictionary.buildAllPlatforms();
+  }, Promise.resolve());
+} catch (e) {
+  console.error('🛑 Error building surface tokens:', e);
   throw e;
 }
 
@@ -897,10 +1038,7 @@ fs.readdirSync(DOCS_DIR)
   });
 
 fs.copyFileSync(`${TYPES_DIR}esm/index.d.ts`, `${ESM_DIR}index.d.ts`);
-fs.copyFileSync(
-  `${TYPES_DIR}grommet/index.d.ts`,
-  `${GROMMET_DIR}index.d.ts`,
-);
+fs.copyFileSync(`${TYPES_DIR}grommet/index.d.ts`, `${GROMMET_DIR}index.d.ts`);
 
 if (!process.exitCode) {
   console.log('✅ Style system outputs have been generated.');
