@@ -96,10 +96,8 @@ const Composer = ({
   placeholder,
   productName,
 }: ComposerProps) => {
-  const { raisedBackground } = useCopilotPanel();
   return (
     <Box
-      background={raisedBackground}
       border={{ color: 'border-weak' }}
       round="small"
       pad="xsmall"
@@ -154,7 +152,7 @@ type CopilotPanelProps = Omit<
 // Context pane for the AI assistant: a titled header, a scrolling
 // transcript, optional follow-up prompts, and a composer pinned to the end.
 // `background` is the pane surface; `raisedBackground` is used for anything
-// sitting on it, such as the user's bubbles and the composer.
+// sitting on it, such as the user's bubbles and transcript cards.
 export const CopilotPanel = ({
   background = 'background-front',
   children,
