@@ -1,0 +1,73 @@
+name: Copilot code review validation
+
+on:
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: copilot-code-review-${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  repository-validation:
+    name: Validate repository changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint workspaces
+        run: pnpm lint
+
+      - name: Build design tokens
+        run: pnpm --filter hpe-design-tokens build
+
+      - name: Build shared hooks
+        run: pnpm --filter "@shared/hooks" build
+
+      - name: Test design tokens
+        run: pnpm --filter hpe-design-tokens test
+
+      - name: Test shared hooks
+        run: pnpm --filter "@shared/hooks" exec vitest run
+
+      - name: Test shared components
+        run: pnpm --filter "@shared/aries-core" exec jest --runInBand
+
+      - name: Test docs units
+        run: pnpm --filter docs test:unit
+
+      - name: Verify license headers
+        run: pnpm license-check
+
+      - name: Validate knowledge structure
+        run: pnpm validate:knowledge-structure
+
+      - name: Validate capability manifests
+        run: pnpm validate:capability-manifests
+
+      - name: Validate token Changeset requirements
+        env:
+          GITHUB_PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: >-
+          node scripts/validate-design-tokens-changeset.mjs
+          --base=${{ github.event.pull_request.base.sha }}
+          --head=${{ github.sha }}
