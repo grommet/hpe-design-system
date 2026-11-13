@@ -26,12 +26,10 @@ export type Device = {
   weeklyEnergy: number;
 };
 
-// The incoming theme update inverts today's layered background approach:
-// the page is white and content surfaces are light grey. Until the official
-// tokens are released these two surfaces are hard-coded here, in one place,
-// so they can be swapped for `background-back`/`background-front` later.
-export const pageBackground = '#ffffff';
-export const surfaceBackground = '#f7f7f7';
+// Use the current theme's surfaces for light and dark mode until the
+// background.surface.* tokens are available.
+export const pageBackground = 'background-back';
+export const surfaceBackground = 'background-front';
 
 // Devices are sourced from the shared servers dataset. Fields the dataset
 // does not carry (site, device type, subscription window, energy) are derived
