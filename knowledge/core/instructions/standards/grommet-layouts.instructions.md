@@ -18,9 +18,11 @@ pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"
 
 Incorporate the components and patterns it returns into your implementation rather than reconstructing layout structure from memory or first principles.
 
+The output ends with a "### Foundation Rules" checklist. Build from the returned patterns and components first. Reach for the checklist when a pattern does not hand you a value — spacing, color, size, breakpoint, container — or when composing patterns together; read only that foundation's block. Before finishing, validate your output against the full checklist once; for any rule you cannot confirm, run `pnpm --filter @hpe-design/knowledge-agent generate -- --rule <id>` and fix or report it. The `foundation-rules` skill has the full workflow.
+
 ## Rules and Guidelines
 
-- **Follow page layout structure**: Use Grommet's specialized page layout components `Page`, `PageContent`, and `PageHeader` to create consistent page structures.
+- **Follow page layout structure**: Always place `Page` inside `Main` and `PageContent` inside `Page`, following `layout-use-standard-routed-screen-structure`. Reuse a shell-owned `Main`; never place `Main` inside `Page` or `PageContent`.
 - **Implement app layout**: Use Grommet's `Grid` component to create a consistent app layout with header, sidebar, main content area, and optional context panel.
 - **Use navigation components**: Utilize Grommet's `Nav`, `Menu`, and `Anchor` components to build intuitive and accessible navigation menus.
 - **Ensure light/dark mode support**: Leverage Grommet's theming capabilities to provide seamless light and dark mode experiences.
@@ -56,11 +58,11 @@ Use Grommet's `Nav`, `Menu`, and `Anchor` components to create intuitive and acc
 
 ## Page Layout
 
-This section covers the layout and structure of individual pages within your application, typically presented within the main content area of the app layout.
+This section covers individual pages within the application's `Main` content area.
 
-1. **Page structure**: Use `Page`, `PageContent`, and `PageHeader` components to define the overall structure of your pages. These components help maintain consistency across different pages and provide built-in responsive margins and text.
+1. **Page structure**: Inside the existing `Main`, use `Page` containing `PageContent`, with `PageHeader` followed by the page's content. If there is no shell-owned `Main`, wrap `Page` in one. These components provide the main landmark, responsive margins, and page heading.
    - **Never add `pad` to `PageContent`** — its internal padding is managed entirely by `grommet-theme-hpe`. Adding a `pad` prop overrides the theme's responsive page margins.
-2. **Layout components**: Use components like `Box`, `Grid`, `Header`, `Footer`, and `Main` to create responsive and accessible layouts.
+2. **Layout components**: Use `Box` and `Grid` for content layouts, and contextual `Header` and `Footer` where appropriate. `Main` belongs outside `Page`, not inside the page content.
 
 ### Content Containers
 
@@ -72,7 +74,7 @@ When structuring content within pages, use Grommet's `Box`, `Card`, and semantic
 
 ## Content Hierarchy and Spacing
 
-- **Spacing between sections**: Spacing between major sections of a page should be larger than spacing between elements within a section. Begin with `xlarge` spacing for sections and `medium` or `small` for elements within sections, adjusting as necessary based on content density.
+- **Spacing rhythm**: Follow `spacing-page-rhythm` and `spacing-card-grid-gaps` in `knowledge/core/data/foundations/spacing.yaml`: `xxlarge` between a page's primary content regions (whether arranged in rows or columns), `xlarge` between content sections, `small` between a section heading and its body, and `small` by default between cards (`spacing-small`, 16px in the default dimension mode; use `gap="small"`). Keep `medium` for other peers inside a section. Let the theme resolve responsive values rather than hardcoding pixels.
 - **Consistent margins and padding**: Use consistent margins and padding throughout the application to maintain visual harmony.
 - **Typography hierarchy**: Use Grommet's typography components (`Heading`, `Text`) to establish a clear hierarchy of information, making it easier for users to scan and understand content.
 

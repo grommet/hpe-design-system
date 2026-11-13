@@ -15,7 +15,7 @@ props:
   - name: color
     type: string
     required: false
-    description: Text color token (e.g., 'text-weak', 'brand', 'status-ok')
+    description: Text color token (e.g., 'text-weak', 'text-strong', 'text-critical'); never a status-* alias
   - name: truncate
     type: boolean | 'tip'
     required: false

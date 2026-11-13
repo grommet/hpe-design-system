@@ -79,8 +79,8 @@ variants:
       "<DropButton\n  label=\"Actions\"\n  dropContent={\n    <Box pad=\"small\"\
       >\n      <Button label=\"View details\" plain onClick={handleView} />\n      <Button\
       \ label=\"Edit\" plain onClick={handleEdit} />\n      <Button label=\"Archive\"\
-      \ plain color=\"status-warning\" onClick={handleArchive} />\n      <Button label=\"\
-      Delete\" plain color=\"status-critical\" onClick={handleDelete} />\n    </Box>\n\
+      \ plain onClick={handleArchive} />\n      <Button label=\"\
+      Delete\" plain onClick={handleDelete} />\n    </Box>\n\
       \  }\n/>"
   - name: filter-panel
     description:
@@ -172,10 +172,9 @@ examples:
       \  plain\n  dropContent={\n    <Box pad=\"small\" width=\"small\">\n      {[\n\
       \        { label: 'View details', action: viewDetails },\n        { label: 'Edit\
       \ tags', action: editTags },\n        { label: 'Transfer', action: transfer },\n\
-      \        { label: 'Decommission', action: decommission, color: 'status-critical'\
-      \ },\n      ].map(({ label, action, color }) => (\n        <Button\n         \
-      \ key={label}\n          label={label}\n          plain\n          color={color}\n\
-      \          onClick={action}\n        />\n      ))}\n    </Box>\n  }\n  dropProps={{\
+      \        { label: 'Decommission', action: decommission },\n      ].map(({ label,\
+      \ action }) => (\n        <Button\n          key={label}\n          label={label}\n\
+      \          plain\n          onClick={action}\n        />\n      ))}\n    </Box>\n  }\n  dropProps={{\
       \ align: { top: 'bottom', right: 'right' } }}\n/>"
   - description: Controlled drop with external state
     code:

@@ -26,12 +26,14 @@ import {
 export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page pad={{ bottom: '3xlarge' }}>
-      <PageContent gap="xlarge">
-        <PageHeader title="Dashboard" />
-        <Content />
-      </PageContent>
-    </Page>
+    <Main>
+      <Page pad={{ bottom: '3xlarge' }}>
+        <PageContent gap="xlarge">
+          <PageHeader title="Dashboard" />
+          <Content />
+        </PageContent>
+      </Page>
+    </Main>
     <ContentArea title="Global Footer" />
   </AppContainer>
 );
@@ -96,49 +98,44 @@ const Content = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Main>
-      <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
-        {/* RecentActivity is top priority content. At narrow breakpoints, 
-        place as first content element. Otherwise, place in second column. */}
-        {['xsmall', 'small'].includes(size) && <RecentActivity />}
-        <Box gap="xlarge">
-          <Box gap="xsmall">
-            <Heading level={2} margin="none">
-              Servers
-            </Heading>
-            <Grid
-              columns={firstChildGrid.columns[size]}
-              gap={firstChildGrid.gap}
-            >
-              <ServerHealth />
-              <ServerAttention />
-            </Grid>
-          </Box>
-          <Box gap="xsmall">
-            <Heading level={2} margin="none">
-              Firmware
-            </Heading>
-            <Grid
-              columns={secondChildGrid.columns[size]}
-              rows={secondChildGrid.rows}
-              areas={secondChildGrid.areas[size]}
-              gap={secondChildGrid.gap}
-            >
-              <FirmwareStatus gridArea="firmwareStatus" />
-              <UpdatesAvaliable gridArea="firmwareUpdates" />
-              <FirmwareBaselines gridArea="firmwareBaselines" />
-            </Grid>
-          </Box>
+    <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
+      {/* RecentActivity is top priority content. At narrow breakpoints, 
+      place as first content element. Otherwise, place in second column. */}
+      {['xsmall', 'small'].includes(size) && <RecentActivity />}
+      <Box gap="xlarge">
+        <Box gap="xsmall">
+          <Heading level={2} margin="none">
+            Servers
+          </Heading>
+          <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
+            <ServerHealth />
+            <ServerAttention />
+          </Grid>
         </Box>
-        {!['xsmall', 'small'].includes(size) && (
-          <Box gap="xlarge">
-            {/* fragment is used to create a gap spacing element 
-            for alignment to column 1 */}
-            <></>
-            <RecentActivity />
-          </Box>
-        )}
-      </Grid>
-    </Main>
+        <Box gap="xsmall">
+          <Heading level={2} margin="none">
+            Firmware
+          </Heading>
+          <Grid
+            columns={secondChildGrid.columns[size]}
+            rows={secondChildGrid.rows}
+            areas={secondChildGrid.areas[size]}
+            gap={secondChildGrid.gap}
+          >
+            <FirmwareStatus gridArea="firmwareStatus" />
+            <UpdatesAvaliable gridArea="firmwareUpdates" />
+            <FirmwareBaselines gridArea="firmwareBaselines" />
+          </Grid>
+        </Box>
+      </Box>
+      {!['xsmall', 'small'].includes(size) && (
+        <Box gap="xlarge">
+          {/* fragment is used to create a gap spacing element 
+          for alignment to column 1 */}
+          <></>
+          <RecentActivity />
+        </Box>
+      )}
+    </Grid>
   );
 };

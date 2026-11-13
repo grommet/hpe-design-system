@@ -15,6 +15,30 @@ describe('knowledge-agent context generator', () => {
 
     expect(prompt).toContain('Login Form');
     expect(prompt).toMatch(/login-form|Login Form/i);
+    expect(prompt).toContain('### Foundation Rules');
+    expect(prompt).toContain('color-names-its-target');
+    expect(prompt).not.toContain('### Foundational Rules');
+    expect(prompt).not.toContain('### Glossary');
+  });
+
+  it('can omit foundation rules from the prompt', () => {
+    const prompt = generateSystemPrompt('Build a login form', 'react', 'none');
+
+    expect(prompt).not.toContain('### Foundation Rules');
+  });
+
+  it('renders foundation rules after components and patterns', () => {
+    const prompt = generateSystemPrompt('Build a login form');
+    const rulesIndex = prompt.indexOf('### Foundation Rules');
+
+    expect(prompt.indexOf('### Available Components')).toBeGreaterThan(-1);
+    expect(prompt.indexOf('### Recommended Patterns')).toBeGreaterThan(-1);
+    expect(rulesIndex).toBeGreaterThan(
+      prompt.indexOf('### Available Components'),
+    );
+    expect(rulesIndex).toBeGreaterThan(
+      prompt.indexOf('### Recommended Patterns'),
+    );
   });
 
   it('includes relevant instructions for layout queries', () => {

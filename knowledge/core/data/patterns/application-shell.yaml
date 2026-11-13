@@ -60,19 +60,24 @@ graph:
       componentId: grid
       role: application shell grid
       props:
-        columns: ['auto', 'flex', 'auto']
+        columns:
+          default: ['auto', 'flex', 'auto']
+          small: ['flex']
         rows: ['auto', 'flex']
         height: '100%'
         areas:
           default:
             [['nav', 'header', 'header'], ['nav', 'main', 'context-pane']]
-          small: [['nav', 'header', 'header'], ['main', 'main', 'context-pane']]
+          small: [['header'], ['main']]
       children: [box-nav, header, main, box-context-pane]
       binding: context
       notes: >
         Grid areas and columns adapt to breakpoint via ResponsiveContext.
-        On small screens the nav row spans full-width and the context pane
-        is hidden by collapsing the nav column.
+        On xsmall and small the grid holds only header and main. The
+        navigation sidebar is not rendered in the grid; it opens as a Layer
+        from a hamburger button in the header (see the mobile-responsive
+        example). The context pane is likewise a Layer on small, and only
+        one of the two panels is open at a time.
 
     # ── Navigation sidebar ───────────────────────────────────────────────────────
     - id: box-nav
