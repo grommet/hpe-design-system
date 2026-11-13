@@ -2,15 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 import serversData from '../../../../../data/mockData/servers.json';
 
-// The incoming theme update inverts today's layered background approach:
-// the page is white and content surfaces are light grey, with a white
-// surface again for anything raised on top of a grey one (a chat bubble or
-// a card inside the assistant panel). Until the official tokens are released
-// these surfaces are hard-coded here, in one place, so they can be swapped
-// for the released tokens later.
-export const pageBackground = '#ffffff';
-export const surfaceBackground = '#f7f7f7';
-export const raisedBackground = '#ffffff';
+// Use the current theme's surfaces for light and dark mode until the
+// background.surface.* tokens are available.
+export const pageBackground = 'background-back';
+export const surfaceBackground = 'background-front';
+// Surfaces within the panel, such as message bubbles, cards, and the composer.
+export const raisedBackground = 'background-back';
 
 export const subscription = {
   key: 'K386551201',
