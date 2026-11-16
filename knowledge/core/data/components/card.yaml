@@ -43,6 +43,8 @@ props:
 usage:
   whenToUse:
     - Use CardHeader for titles and actions.
+    - Set the card heading's level from the page's heading hierarchy; level 3
+      in these examples is illustrative.
     - Use CardBody for main content.
     - Use CardFooter for secondary actions or metadata.
     - Leave background unset to take the HPE theme's 'background-front'. When
