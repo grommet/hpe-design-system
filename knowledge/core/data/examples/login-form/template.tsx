@@ -10,7 +10,7 @@ import {
   Heading,
 } from 'grommet';
 
-<Card background="background-front" width="medium">
+<Card width="medium">
   <CardHeader>
     <Heading level={3} margin="none">
       Login

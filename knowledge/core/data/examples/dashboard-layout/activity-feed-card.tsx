@@ -1,4 +1,4 @@
-<Card background="background-front">
+<Card>
   <CardHeader>
     <Heading level={3} margin="none">
       Recent Activity

@@ -30,7 +30,7 @@ function MetricCard({ title, value, icon, status = 'ok' }: MetricCardProps) {
   };
 
   return (
-    <Card background="background-front">
+    <Card>
       <CardBody gap="small">
         <Box direction="row" align="center" gap="small">
           {icon}

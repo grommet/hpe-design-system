@@ -45,7 +45,9 @@ usage:
     - Use CardHeader for titles and actions.
     - Use CardBody for main content.
     - Use CardFooter for secondary actions or metadata.
-    - Use semantic background tokens like 'background-front'.
+    - Leave background unset to take the HPE theme's 'background-front'. When
+      the design specifies a different surface, use a semantic background
+      token.
   whenToAvoid:
     - Do not nest cards too deeply.
     - Do not hardcode background colors.
@@ -66,7 +68,7 @@ examples:
       </Card>
   - description: Card with Footer
     code: |-
-      <Card background="background-front">
+      <Card>
         <CardHeader>
           <Heading level={3} margin="none">Settings</Heading>
         </CardHeader>
@@ -86,7 +88,7 @@ variants:
       Dashboards, profile summaries, and content grouping where no per-card action
       is available.
     example: |-
-      <Card background="background-front">
+      <Card>
         {/* use semantically correct heading level */}
         <CardHeader><Heading level={3} margin="none">Title</Heading></CardHeader>
         <CardBody><Text>Content goes here.</Text></CardBody>
@@ -99,7 +101,7 @@ variants:
       Grid or list of items where each card leads to a detail view. Add role='button'
       (or wrap in Anchor) and tabIndex={0} for keyboard access.
     example: |-
-      <Card background="background-front" onClick={() => navigate(`/items/${item.id}`)} role="button" tabIndex={0} focusIndicator>
+      <Card onClick={() => navigate(`/items/${item.id}`)} role="button" tabIndex={0} focusIndicator>
         <CardBody><Text>{item.name}</Text></CardBody>
       </Card>
   - name: metric
@@ -110,7 +112,7 @@ variants:
       KPI tiles and stat summaries where a single quantitative measure needs visual
       emphasis.
     example: |-
-      <Card background="background-front">
+      <Card>
         <CardBody align="center" gap="xsmall">
           <Text size="xxlarge" weight="bold">99.9%</Text>
           <Text color="text-weak">Uptime</Text>
@@ -124,7 +126,7 @@ variants:
       System health dashboards, incident lists, or any context where the card's
       state must be immediately scannable without reading the content.
     example: |-
-      <Card border={{ side: 'left', size: 'medium', color: 'border-critical' }} background="background-front">
+      <Card border={{ side: 'left', size: 'medium', color: 'border-critical' }}>
         <CardBody><Text>Service degraded</Text></CardBody>
       </Card>
 anatomy:
