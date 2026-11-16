@@ -90,6 +90,7 @@ export const OverviewDashboard = () => {
                 items={navigation}
                 background="background-front"
                 fill="vertical"
+                open={false}
                 round="large"
               />
             </Box>
