@@ -139,6 +139,24 @@ rules:
         label: HPE Design System using tokens with Grommet
         url: https://design-system.hpe.design/design-tokens/using-design-tokens-in-code
 
+  - id: design-tokens-take-theme-defaults-first
+    statement: >
+      In Grommet, omit a style prop to take the grommet-theme-hpe default.
+      Set one only when the design specifies something different from the
+      default, and then pass a theme name on the part the theme styles.
+    rationale: >
+      grommet-theme-hpe already applies tokens to each component, for
+      example Card's background and radius and the padding of CardHeader,
+      CardBody, and CardFooter. A prop that repeats the default adds
+      nothing and stops following the theme if the default changes. A prop
+      set on a different part from the one the theme styles stacks with
+      the default instead of replacing it.
+    relatedTo:
+      - kind: rule
+        id: spacing-do-not-override-theme-owned-padding
+      - kind: component
+        id: card
+
   - id: design-tokens-non-grommet-uses-css-variables
     statement: >
       Outside Grommet, consume tokens from hpe-design-tokens as CSS

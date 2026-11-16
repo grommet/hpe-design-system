@@ -16,9 +16,9 @@ props:
       | 'xlarge'"
     required: false
     description:
-      Padding on the Card container. Leave unset — the HPE theme already pads
-      CardHeader, CardBody, and CardFooter (medium), so pad on Card stacks with
-      that and doubles the inset (48px instead of 24px).
+      Padding on the Card container, added on top of the padding of its
+      parts. Normally leave unset; the HPE theme pads CardHeader, CardBody,
+      and CardFooter. To change a card's inset, set pad on those parts.
     defaultValue: "'none'"
   - name: elevation
     type: "'none' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'"
@@ -49,10 +49,10 @@ usage:
   whenToAvoid:
     - Do not nest cards too deeply.
     - Do not hardcode background colors.
-    - Do not set pad on Card, CardHeader, CardBody, or CardFooter. The HPE theme
-      owns card padding (medium on header and body, medium/xsmall on footer);
-      pad on Card adds to the sub-component padding and doubles the inset, and pad
-      on the sub-components overrides theme-owned spacing.
+    - Do not set pad on Card to inset its content. The HPE theme pads
+      CardHeader, CardBody, and CardFooter, and pad on Card adds to that.
+      Leave pad unset for the default; when the design specifies a
+      different inset, set pad on the part.
 examples:
   - description: Basic Card with Header
     code: |-

@@ -121,16 +121,20 @@ rules:
 
   - id: spacing-do-not-override-theme-owned-padding
     statement: >
-      Do not pass pad to Card, PageContent, PageHeader, CardHeader, CardBody,
-      or CardFooter unless you are deliberately replacing the theme's padding.
-      Put gap on CardBody, not pad on Card.
+      Leave pad unset on Card, CardHeader, CardBody, CardFooter, PageContent,
+      and PageHeader to take the theme's padding. When the design specifies
+      a different inset for a card, set pad on CardHeader, CardBody, or
+      CardFooter, not on Card.
     rationale: >
-      On the sub-components a pad prop replaces the theme value; it does not
-      merge with it. On PageContent, even pad={{ bottom: 'xlarge' }} removes
-      the responsive horizontal page margins entirely. The Card container is
-      the opposite case: the theme gives it no pad and pads CardHeader,
-      CardBody and CardFooter instead, so pad="medium" on Card adds to the
-      inset and renders content 48px from the edge instead of 24px.
+      On the parts the theme pads, a pad prop replaces the theme value; it
+      does not merge with it. On PageContent, even pad={{ bottom: 'xlarge' }}
+      removes the responsive horizontal page margins entirely. The Card
+      container is the opposite case: the theme gives it no pad and pads
+      CardHeader, CardBody, and CardFooter instead, so pad on Card adds to
+      their padding and doubles the inset.
+    relatedTo:
+      - kind: rule
+        id: design-tokens-take-theme-defaults-first
 
   - id: spacing-parents-space-children
     statement: >
