@@ -52,6 +52,9 @@ usage:
     - Leave background unset to take the HPE theme's 'background-front'. When
       the design specifies a different surface, use a semantic background
       token.
+    - To show status in a card, put a status indicator (status icon plus
+      text, see the status-indicator pattern) in its content; there is no
+      separate status card treatment.
   whenToAvoid:
     - Do not nest cards too deeply.
     - Do not hardcode background colors.
@@ -121,17 +124,6 @@ variants:
           <Text size="xxlarge" weight="bold">99.9%</Text>
           <Text color="text-weak">Uptime</Text>
         </CardBody>
-      </Card>
-  - name: status
-    description:
-      Uses a color-coded left border, badge, or icon to communicate health
-      or severity.
-    when:
-      System health dashboards, incident lists, or any context where the card's
-      state must be immediately scannable without reading the content.
-    example: |-
-      <Card border={{ side: 'left', size: 'medium', color: 'border-critical' }}>
-        <CardBody><Text>Service degraded</Text></CardBody>
       </Card>
 anatomy:
   - label: '1'
