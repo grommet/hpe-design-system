@@ -135,11 +135,14 @@ export const DevicesCollection = () => {
             <GlobalHeader />
           </Box>
           {showNav && (
-            <NavigationMenu
-              items={navigation}
-              background={surfaceBackground}
-              gridArea="nav"
-            />
+            <Box gridArea="nav" pad="xsmall" flex={false}>
+              <NavigationMenu
+                items={navigation}
+                background={surfaceBackground}
+                fill="vertical"
+                round="large"
+              />
+            </Box>
           )}
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
