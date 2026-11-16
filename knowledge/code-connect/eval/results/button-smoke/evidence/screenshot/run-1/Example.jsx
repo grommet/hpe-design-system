@@ -1,5 +1,7 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
 import { Button } from 'grommet';
 
-const Example = () => <Button label="Label" kind="primary" size="small" />;
+const Example = () => <Button label="Label" primary size="small" />;
 
 export default Example;

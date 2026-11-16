@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "caseId": "button-smoke",
   "runNumber": 1,
-  "runId": "2026-11-16T20-50-47-658Z",
-  "condition": "mcp-no-cc",
-  "recordedAt": "2026-11-16T20:50:50.827Z",
+  "runId": "2026-11-16T21-39-24-986Z",
+  "condition": "mcp-cc",
+  "recordedAt": "2026-11-16T21:39:29.994Z",
   "metadata": {
     "purpose": "evaluation",
     "isEvaluation": true,
@@ -16,8 +16,8 @@
     "figmaNodeId": "2133:695",
     "figmaFrameNodeId": "2133:694",
     "mappingCommit": "83a2cdd04b7e58e1cc8ba5ca40830a1357fb5be0",
-    "outputPath": "knowledge/code-connect/eval/results/button-smoke/evidence/mcp-no-cc/run-1/Example.jsx",
-    "source": "knowledge/code-connect/eval/results/button-smoke/evidence/mcp-no-cc/run-1/Example.jsx",
+    "outputPath": "knowledge/code-connect/eval/results/button-smoke/evidence/mcp-cc/run-1/Example.jsx",
+    "source": "knowledge/code-connect/eval/results/button-smoke/evidence/mcp-cc/run-1/Example.jsx",
     "caseFile": "knowledge/code-connect/eval/cases/button-smoke/case.json"
   },
   "metrics": {
@@ -36,7 +36,8 @@
     },
     "imports": {
       "packages": [
-        "grommet"
+        "grommet",
+        "react"
       ],
       "disallowed": []
     },
@@ -47,13 +48,13 @@
     }
   },
   "build": {
-    "command": "pnpm --filter grommet-app exec node --input-type=module -e 'import { build } from \"vite\"; import { mkdtemp, rm } from \"node:fs/promises\"; import { tmpdir } from \"node:os\"; import path from \"node:path\"; const outDir = await mkdtemp(path.join(tmpdir(), \"button-smoke-score-\")); try { await build({ build: { outDir, lib: { entry: \"/Users/shill/Developer/hpe/hpe-eval-mcp-no-cc/sandbox/grommet-app/src/eval/Example.jsx\", formats: [\"es\"], fileName: \"example\" } } }); } finally { await rm(outDir, { recursive: true }); }'",
+    "command": "pnpm --filter grommet-app exec node --input-type=module -e 'import { build } from \"vite\"; import { mkdtemp, rm } from \"node:fs/promises\"; import { tmpdir } from \"node:os\"; import path from \"node:path\"; const outDir = await mkdtemp(path.join(tmpdir(), \"button-smoke-score-\")); try { await build({ build: { outDir, lib: { entry: \"/Users/shill/Developer/hpe/hpe-eval-mcp-cc/sandbox/grommet-app/src/eval/Example.jsx\", formats: [\"es\"], fileName: \"example\" } } }); } finally { await rm(outDir, { recursive: true }); }'",
     "cwd": "/Users/shill/Developer/hpe/hpe-design-system",
     "status": "pass",
     "exitCode": 0,
     "signal": null,
-    "durationMs": 649,
-    "stdout": "vite v8.3.5 building client environment for production...\ntransforming...\n✓ 541 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../../../../../../../var/folders/03/yvstvq7n3zq9j72r4247b1w80000gn/T/button-smoke-score-Sn8DV0/example.js  355.24 kB │ gzip: 85.77 kB\n\n✓ built in 106ms\n",
-    "stderr": "\n(!) outDir /var/folders/03/yvstvq7n3zq9j72r4247b1w80000gn/T/button-smoke-score-Sn8DV0 is not inside project root and will not be emptied.\nUse --emptyOutDir to override.\n\n"
+    "durationMs": 646,
+    "stdout": "vite v8.3.5 building client environment for production...\ntransforming...\n✓ 541 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../../../../../../../var/folders/03/yvstvq7n3zq9j72r4247b1w80000gn/T/button-smoke-score-Cq5P61/example.js  355.13 kB │ gzip: 85.75 kB\n\n✓ built in 108ms\n",
+    "stderr": "\n(!) outDir /var/folders/03/yvstvq7n3zq9j72r4247b1w80000gn/T/button-smoke-score-Cq5P61 is not inside project root and will not be emptied.\nUse --emptyOutDir to override.\n\n"
   }
 }
