@@ -27,10 +27,10 @@ import {
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
+import { NavigationMenu } from '@shared/aries-core';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
 import { ReverseAnchor } from '../ReverseAnchor';
-import { SideNav } from '../side-nav';
 import {
   CopilotConversation,
   CopilotPanel,
@@ -198,9 +198,9 @@ export const SubscriptionDetails = () => {
             />
           </Box>
           {showNav && (
-            <SideNav
+            <NavigationMenu
               items={navigation}
-              background={surfaceBackground}
+              background="background-front"
               gridArea="nav"
             />
           )}
