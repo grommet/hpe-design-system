@@ -93,6 +93,7 @@ examples:
           CardBody already carries the inset. Use Card for a self-contained summary
           of one topic (layout-use-card-for-self-contained-peers). */}
       <Box background="background-front" pad="medium" round="small" gap="small">
+        {*/ use semantically correct heading level based on context. Level={4} is for example only */}
         <Heading level={4} margin="none">Title</Heading>
         <Text>Content goes here</Text>
       </Box>
