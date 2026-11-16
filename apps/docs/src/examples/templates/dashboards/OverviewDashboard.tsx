@@ -85,11 +85,14 @@ export const OverviewDashboard = () => {
             <GlobalHeader />
           </Box>
           {showNav && (
-            <NavigationMenu
-              items={navigation}
-              background="background-front"
-              gridArea="nav"
-            />
+            <Box gridArea="nav" pad="xsmall" flex={false}>
+              <NavigationMenu
+                items={navigation}
+                background="background-front"
+                fill="vertical"
+                round="large"
+              />
+            </Box>
           )}
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
