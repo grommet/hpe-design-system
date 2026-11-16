@@ -3,6 +3,7 @@
 import { forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, DropButton, Tip } from 'grommet';
+import { useSurface } from '../../surfaces';
 
 // Rail icons use the largest regular icon token so the rail reads as the
 // primary way around the platform; with 8px padding tiles are 36px, the
@@ -10,22 +11,25 @@ import { Box, Button, DropButton, Tip } from 'grommet';
 export const RAIL_ICON_SIZE = 'xlarge';
 
 // Rounded-square target shared by every rail entry.
-export const RailTarget = ({ active, hover, elevated, children }) => (
-  <Box
-    pad="xxsmall"
-    round="medium"
-    flex={false}
-    background={
-      (elevated && 'shell-page') ||
-      (active && 'background-contrast') ||
-      (hover && 'background-hover') ||
-      undefined
-    }
-    elevation={elevated ? 'small' : undefined}
-  >
-    {children}
-  </Box>
-);
+export const RailTarget = ({ active, hover, elevated, children }) => {
+  const raised = useSurface('raised');
+  return (
+    <Box
+      pad="xxsmall"
+      round="medium"
+      flex={false}
+      background={
+        (elevated && raised) ||
+        (active && 'background-contrast') ||
+        (hover && 'background-hover') ||
+        undefined
+      }
+      elevation={elevated ? 'small' : undefined}
+    >
+      {children}
+    </Box>
+  );
+};
 
 RailTarget.propTypes = {
   active: PropTypes.bool,

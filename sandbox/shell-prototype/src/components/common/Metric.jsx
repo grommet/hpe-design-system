@@ -20,6 +20,7 @@ import {
   StatusUnknown,
   StatusWarning,
 } from '@hpe-design/icons-grommet';
+import { Surface, SurfaceTag } from './Surface';
 
 // Ported from apps/docs templates/dashboards (overview dashboard) so the
 // GreenLake home follows the same tile anatomy and spacing rules.
@@ -146,7 +147,13 @@ export const MetricTile = ({
   title,
   ...rest
 }) => (
-  <Card background="shell-card" elevation="none" round="medium" {...rest}>
+  <Surface
+    role="card"
+    component={Card}
+    elevation="none"
+    round="medium"
+    {...rest}
+  >
     <CardBody gap="small">
       <Box direction="row" align="center" justify="between" gap="small">
         <Heading level={level} margin="none">
@@ -154,6 +161,7 @@ export const MetricTile = ({
         </Heading>
         {statusIcon}
       </Box>
+      <SurfaceTag role="card" />
       <Box gap="xsmall" flex>
         {children}
         {action ? (
@@ -166,7 +174,7 @@ export const MetricTile = ({
         )}
       </Box>
     </CardBody>
-  </Card>
+  </Surface>
 );
 
 MetricTile.propTypes = {

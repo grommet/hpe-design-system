@@ -15,7 +15,13 @@ import {
 } from 'grommet';
 import { Filter, LinkNext, List, Map } from '@hpe-design/icons-grommet';
 import { useShell } from '../contexts/ShellContext';
-import { DonutMetric, Legend, ShellCard } from '../components/common';
+import {
+  DonutMetric,
+  Legend,
+  ShellCard,
+  Surface,
+  SurfaceTag,
+} from '../components/common';
 import {
   groupsCompliance,
   iloSecurity,
@@ -226,8 +232,8 @@ const ServerMapCard = () => {
         </Box>
       }
     >
-      <Box
-        background="shell-page"
+      <Surface
+        role="inner"
         round="small"
         pad="small"
         gap="small"
@@ -235,6 +241,7 @@ const ServerMapCard = () => {
         align="center"
         justify="center"
       >
+        <SurfaceTag role="inner" alignSelf="stretch" />
         <Notification status="info" message={serverMap.banner} />
         <WorldMap
           color="border-weak"
@@ -248,7 +255,7 @@ const ServerMapCard = () => {
           }))}
           a11yTitle="Compute server map"
         />
-      </Box>
+      </Surface>
     </ShellCard>
   );
 };

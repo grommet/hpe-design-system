@@ -4,6 +4,7 @@ import { Box, Button, Page, PageContent, PageHeader } from 'grommet';
 import { Configure } from '@hpe-design/icons-grommet';
 import { useShell } from '../contexts/ShellContext';
 import { PAGE_KIND } from '../theme';
+import { SurfaceTag } from '../components/common';
 import { DiscoverServices } from './home/DiscoverServices';
 import { HealthOverview } from './home/HealthOverview';
 import { WeekAtAGlance } from './home/WeekAtAGlance';
@@ -20,6 +21,7 @@ export const HomePage = () => {
       <PageContent gap="medium">
         <PageHeader
           title="Home"
+          subtitle={<SurfaceTag role="sheet" showVariant />}
           pad={{ top: 'medium', bottom: 'medium' }}
           actions={
             <Button

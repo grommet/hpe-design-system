@@ -663,6 +663,9 @@ importers:
       grommet-theme-hpe:
         specifier: 'catalog:'
         version: 8.2.0(grommet@2.58.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)))(react@19.3.1)(styled-components@6.6.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1))
+      hpe-design-tokens:
+        specifier: workspace:*
+        version: link:../../packages/hpe-design-tokens
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1

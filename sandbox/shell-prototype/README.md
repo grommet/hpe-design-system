@@ -3,14 +3,16 @@
 An interactive prototype of the proposed HPE GreenLake shell, built with the
 HPE Design System (`grommet` + `grommet-theme-hpe` + `@hpe-design/icons-grommet`).
 
-It is a separate, deliberately small sandbox app: no theme-version switching,
-no token tooling, no router. It exists to show the shell anatomy and how the
-regions work together.
+It is a separate, deliberately small sandbox app: no theme-version switching
+and no router. It exists to show the shell anatomy and how the regions work
+together. On this branch it is also the harness for comparing surface-token
+architectures; see [Surface token previews](#surface-token-previews).
 
 ## Run it
 
 ```bash
 pnpm install
+pnpm --filter hpe-design-tokens build   # the theme is built from these
 pnpm start:shell-prototype      # or: pnpm --filter shell-prototype dev
 ```
 
@@ -25,9 +27,10 @@ Netlify-style SPA hosting.
 On this branch the demo app (`sandbox/grommet-app`) renders the prototype
 instead of itself — its `src/main.jsx` imports `../../shell-prototype/src/App.jsx`
 — so the demo app's existing Netlify deploy preview *is* the prototype
-preview; no Netlify changes are needed. The prototype has no dependency on
-`@shared/hooks` or `hpe-design-tokens`, so that build stays self-contained.
-To restore the demo app, point `main.jsx` back at `./App.jsx`.
+preview; no Netlify changes are needed. The prototype builds its theme from
+the workspace `hpe-design-tokens` (`src/theme.js`), so that package has to be
+built before the app is. To restore the demo app, point `main.jsx` back at
+`./App.jsx`.
 
 ## What it demonstrates
 
@@ -122,12 +125,94 @@ gap="small"` separated by an `xlarge` gap, grids use a `small` gap, and cards
 use a level-3 heading with a `medium` body pad. The global header is wrapped
 in `Page`/`PageContent` so the brand lines up with the content edge.
 
-## Temporary colours
+## Surface token previews
 
-The design inverts today's page/card relationship (white page, grey cards) and
-uses raw hex values for those two surfaces. They are hard-coded once in
-`src/theme.js` as `shell-page` (`#ffffff`) and `shell-card` (`#f7f7f7`) and
-should be swapped for the official tokens when the theme update ships. The
-shell chrome is `shell-card`, with the rail one `background-contrast` layer
-darker so it reads as a separate region from the local nav. Everything else
-uses HPE theme tokens.
+The design inverts today's page/card relationship (white page, grey cards).
+These previews compare three candidate architectures for the surface tokens
+proposed in grommet/hpe-design-system#5969 on the same pages. The four
+proposed tokens are not in `hpe-design-tokens` yet, so `src/theme.js` adds
+them to the theme as colour names; nothing in the token package changes.
+The pipeline version of the tokens is in #6714.
+
+The app is one page with a bar on top:
+
+- **Architecture** select: which architecture paints the page. The info
+  button beside it explains the selected architecture in a paragraph.
+- **Tabs**: Overview (what each architecture is, with a comparison table),
+  Framed shell (the prototype itself), Beside shell (the same prototype with
+  its panels sitting on the page), and five stress-test layouts: email
+  client, kanban, word processor, node editor and knowledge base.
+- **Annotations**: label each area with the token it is painted with. On the
+  two shell tabs the bar also lists the token each role takes, so a change
+  of architecture is visible at a glance.
+- **Grey page**: apply a peer surface theme. Light values are swapped (base
+  and tone-2 take grey.50, tone-1 takes white) and dark is unchanged, because
+  in dark the Landmark and legacy values already agree (decisions 11b, 4a).
+  This is not the toned mode built in #6714, which also changes dark and
+  points `floating` at the grey step; that option is not shown here.
+- **Dark mode**.
+
+The view is kept in the URL hash so it can be linked, for example
+`#page=shell&arch=frame&grey=1&dark=1&notes=0`.
+
+| Architecture | Tokens | Idea |
+| --- | --- | --- |
+| Tonal with roles | `base`, `tone-1`, `tone-2`, `floating` | Two unordered tones for containers plus two roots. The token set decided in #5969, read with the workspace kept `base` even when chrome wraps it, which would amend decisions 13 and 23. |
+| Tonal scale | `tone-1`, `tone-2`, `floating` | Tones only; the page is a tone too. `tone-2` dark is re-valued to grey.1300. |
+| Tonal + frame | `base`, `frame`, `floating`, `tone-1`, `tone-2` | Tonal with roles plus a `frame` root for chrome that surrounds the page. |
+
+They were A′, C and D in an earlier exploration of eight architectures.
+
+| Role | Tonal with roles | Tonal scale | Tonal + frame |
+| --- | --- | --- | --- |
+| Grommet root (hidden) | `base` | `tone-2` | `base` |
+| Shell chrome (rail + local nav sit on it) | `tone-1` | `tone-1` | `frame` |
+| Content sheet | `base` | `tone-2` | `base` |
+| Contextual panel | `base` | `tone-2` | `base` |
+| Cards, chat bubbles | `tone-1` | `tone-1` | `tone-1` |
+| Panels inside a card | `tone-2` | `tone-2` | `tone-2` |
+| Local nav inside a `Layer` | `floating` | `floating` | `floating` |
+
+Light mode is the same picture under all three. In dark, chrome → sheet →
+card → inner is grey 1000 → 1300 → 1000 → 1200 for Tonal with roles and
+Tonal + frame, and 1000 → 1300 → 1000 → 1300 for Tonal scale.
+
+The table above is the framed shell, where chrome wraps the page (#6708).
+The Beside shell tab keeps the same anatomy and puts the chrome on the page
+instead, as the examples in #6635 and #6660 do: the page is the root and
+stays visible, and the rail, the local nav and the contextual panel are
+rounded containers on it. Two roles change in every architecture (the
+contextual panel and the cards in it), and under Tonal + frame the rail and
+local nav change as well:
+
+| Role | Framed shell | Beside shell |
+| --- | --- | --- |
+| Rail and local nav | `tone-1` (`frame` in Tonal + frame) | `tone-1` |
+| Contextual panel | the page's token | `tone-1` |
+| Cards in the contextual panel | `tone-1` | `tone-2` |
+
+So a card takes a different tone in the contextual panel than on the page,
+and Tonal + frame has no frame to paint. In dark, page → panel → card in
+panel is grey 1300 → 1000 → 1200, or 1300 → 1000 → 1300 for Tonal scale.
+
+Where things live:
+
+- `src/surfaces.js`: the role → token table for each architecture and page
+  theme.
+- `src/theme.js`: the theme. It defines the four surface tokens, and
+  `buildVariantTheme` applies what an architecture or page theme adds or
+  re-values (`frame`, the grey theme, Tonal scale's `tone-2`). The token
+  package is untouched.
+- `src/components/common/Surface.jsx`: `Surface` paints a role, `SurfaceTag`
+  labels it when annotations are on.
+- `src/preview/`: the bar, the URL state, the Overview and the stress-test
+  page.
+- `src/layouts/`: the stress-test layouts, declared by role (`roles.js`).
+  Their chips show the value actually painted, measured from the element.
+
+In the framed shell the rail is one `background-contrast` layer darker than
+the chrome so it reads as a separate region from the local nav; in the
+beside shell the rail and the local nav are separate containers. The chat
+composer sits directly on
+the contextual panel and takes no surface of its own, only a border.
+Everything else uses HPE theme tokens.

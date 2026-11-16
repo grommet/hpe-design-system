@@ -23,6 +23,8 @@ import {
   MetricValue,
   ShellCard,
   StatusCount,
+  Surface,
+  SurfaceTag,
   useElementWidth,
 } from '../../components/common';
 import {
@@ -269,14 +271,15 @@ const DevicesByLocation = props => {
       {...props}
     >
       <Box flex justify="between" gap="small">
-        <Box
-          background="shell-page"
+        <Surface
+          role="inner"
           round="small"
           pad="small"
           align="center"
           justify="center"
           flex
         >
+          <SurfaceTag role="inner" alignSelf="stretch" />
           <Box width={{ max: 'large' }} fill="horizontal">
             <WorldMap
               color="border-weak"
@@ -291,7 +294,7 @@ const DevicesByLocation = props => {
               a11yTitle="Devices by location"
             />
           </Box>
-        </Box>
+        </Surface>
         <Box direction="row" gap="xsmall" align="center">
           <Info size="small" color="icon-info" aria-hidden="true" />
           <Text size="small">

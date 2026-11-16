@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Anchor, Box, Button, Menu, Text } from 'grommet';
 import { Bookmark, More } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
+import { SurfaceTag } from './Surface';
 
 // Top of the primary content area: page title, page-level actions
 // (more, bookmark) and breadcrumbs. Owned by the service, inside the frame.
@@ -12,6 +13,7 @@ export const ContentTitleBar = ({ title, crumbs = [], onCrumb }) => {
   const { dispatch } = useShell();
   return (
     <Box flex={false} gap="xsmall" pad={{ top: 'medium' }}>
+      <SurfaceTag role="sheet" showVariant />
       <Box direction="row" justify="between" align="center" gap="small">
         <Text size="large" weight={500} color="text-strong">
           {title}

@@ -25,7 +25,12 @@ import {
   StatusGood,
   StatusWarning,
 } from '@hpe-design/icons-grommet';
-import { ShellCard, useElementWidth } from '../components/common';
+import {
+  ShellCard,
+  Surface,
+  SurfaceTag,
+  useElementWidth,
+} from '../components/common';
 import { AMBIENT_MOTION } from '../theme';
 import {
   affectedFilters,
@@ -84,9 +89,9 @@ const TopologyNode = ({ node, gridArea }) => {
   return (
     // The wrapper centres the tile within its grid cell.
     <Box gridArea={gridArea} align="center" justify="center">
-      <Box
+      <Surface
+        role="inner"
         id={nodeId(node.id)}
-        background="shell-page"
         round="small"
         elevation="small"
         pad="small"
@@ -97,13 +102,14 @@ const TopologyNode = ({ node, gridArea }) => {
           <Icon size="small" color="icon-weak" aria-hidden="true" />
           <Text size="small">{node.label}</Text>
         </Box>
+        <SurfaceTag role="inner" />
         <Box direction="row" gap="xsmall" align="center">
           <Text size="large" weight={500} color="text-strong">
             {node.value}
           </Text>
           {node.status && statusIcon[node.status]}
         </Box>
-      </Box>
+      </Surface>
     </Box>
   );
 };

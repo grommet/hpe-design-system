@@ -13,6 +13,7 @@
     "@hpe-design/icons-grommet": "catalog:",
     "grommet": "catalog:",
     "grommet-theme-hpe": "catalog:",
+    "hpe-design-tokens": "workspace:*",
     "prop-types": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

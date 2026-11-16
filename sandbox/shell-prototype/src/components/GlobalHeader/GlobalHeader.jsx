@@ -16,6 +16,8 @@ import {
 } from 'grommet';
 import { Briefcase, Down, Search } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
+import { SurfaceTag } from '../common';
+import { useSurfaceVariant } from '../../surfaces';
 import { PAGE_KIND } from '../../theme';
 import { findWorkspace, regions, tenants } from '../../data/context';
 
@@ -131,6 +133,7 @@ const ContextSelectors = () => {
 // as the page below, so the brand lines up with the content edge.
 export const GlobalHeader = () => {
   const breakpoint = useContext(ResponsiveContext);
+  const { shell } = useSurfaceVariant();
   const small = ['xsmall', 'small'].includes(breakpoint);
 
   return (
@@ -144,6 +147,16 @@ export const GlobalHeader = () => {
         >
           <Box direction="row" align="center" gap="medium" flex>
             <Brand />
+            <SurfaceTag
+              compact
+              alignSelf="center"
+              token="no surface"
+              note={
+                shell === 'beside'
+                  ? 'global header sits on the page'
+                  : 'global header inherits the sheet'
+              }
+            />
             {small ? (
               <Button icon={<Search aria-hidden="true" />} a11yTitle="Search" />
             ) : (

@@ -1,11 +1,13 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box } from 'grommet';
 import { Sidebar } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
 import { capabilities } from '../../data/capabilities';
 import { getService } from '../../data/services';
+import { SURFACE_ROLES, useSurface } from '../../surfaces';
 import { RAIL_ICON_SIZE, RailButton, RailDivider } from './RailButton';
 import { UserRail } from './UserRail';
 
@@ -121,8 +123,12 @@ const PinnedDock = () => {
 // Global rail — Capability (top) + User (bottom).
 // Persistent entry point to everything the platform can do, and everything
 // about you. Identical for every user, in every service.
-export const GlobalRail = () => {
+// In the framed shell the rail is a darker strip on the chrome. Pass
+// `surface` to paint it as a container in its own right instead, as the
+// beside shell does; other props reach the rail's box.
+export const GlobalRail = ({ surface, ...rest }) => {
   const { navPanel, navCollapsed, dispatch } = useShell();
+  const container = useSurface(surface);
   const hasNav = Boolean(navPanel);
 
   return (
@@ -131,10 +137,11 @@ export const GlobalRail = () => {
       aria-label="Global"
       width={RAIL_WIDTH}
       flex={false}
-      background="background-contrast"
+      background={container || 'background-contrast'}
       pad="small"
       justify="between"
       gap="small"
+      {...rest}
     >
       <ScrollArea
         // forwardedAs: on a styled(Box), `as` would replace Box itself.
@@ -166,4 +173,8 @@ export const GlobalRail = () => {
       <UserRail />
     </Box>
   );
+};
+
+GlobalRail.propTypes = {
+  surface: PropTypes.oneOf(SURFACE_ROLES),
 };

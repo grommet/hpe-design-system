@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
@@ -29,12 +29,19 @@ import {
 } from '@hpe-design/icons-grommet';
 import { useShell } from '../../contexts/ShellContext';
 import { copilotSuggestions, user } from '../../data/copilot';
+import { Surface, SurfaceTag } from '../common';
+
+// Surface role of the cards in the conversation. They sit on the contextual
+// panel, or on the page when GreenLake AI is full screen, and those two
+// parents do not always share a tone.
+const CardRole = createContext('panelCard');
 
 const SuggestionCard = ({ suggestion, onPrompt }) => {
   const [open, setOpen] = useState(false);
+  const role = useContext(CardRole);
   const Icon = suggestion.icon;
   return (
-    <Box background="shell-card" round="medium" flex={false}>
+    <Surface role={role} round="medium" flex={false}>
       <Button plain onClick={() => setOpen(!open)} aria-expanded={open}>
         <Box
           direction="row"
@@ -54,6 +61,7 @@ const SuggestionCard = ({ suggestion, onPrompt }) => {
               <Text size="xsmall" color="text-weak">
                 {suggestion.description}
               </Text>
+              <SurfaceTag role={role} />
             </Box>
           </Box>
           {open ? (
@@ -80,7 +88,7 @@ const SuggestionCard = ({ suggestion, onPrompt }) => {
           ))}
         </Box>
       </Collapsible>
-    </Box>
+    </Surface>
   );
 };
 
@@ -123,6 +131,7 @@ Welcome.propTypes = {
 };
 
 const Message = ({ message }) => {
+  const role = useContext(CardRole);
   if (message.action) {
     return (
       <Button label={message.text} secondary size="small" alignSelf="start" />
@@ -130,9 +139,9 @@ const Message = ({ message }) => {
   }
   if (message.role === 'user') {
     return (
-      <Box
+      <Surface
+        role={role}
         alignSelf="end"
-        background="shell-card"
         round="medium"
         pad={{ horizontal: 'small', vertical: 'xsmall' }}
         width={{ max: '85%' }}
@@ -141,7 +150,7 @@ const Message = ({ message }) => {
         <Text size="small" color="text-strong">
           {message.text}
         </Text>
-      </Box>
+      </Surface>
     );
   }
   return (
@@ -194,38 +203,41 @@ const agents = [
   { name: 'Human request', detail: 'Speaking with agent', icon: User },
 ];
 
-const CoWork = () => (
-  <Box gap="small" flex={false}>
-    <Text size="small">
-      Co-work lets GreenLake AI agents carry out multi-step tasks in your
-      workspace while you watch and approve each step.
-    </Text>
-    {agents.map(agent => {
-      const Icon = agent.icon;
-      return (
-        <Box
-          key={agent.name}
-          direction="row"
-          gap="small"
-          align="center"
-          background="shell-card"
-          round="medium"
-          pad="small"
-        >
-          <Icon aria-hidden="true" />
-          <Box>
-            <Text size="small" weight={500} color="text-strong">
-              {agent.name}
-            </Text>
-            <Text size="xsmall" color="text-weak">
-              {agent.detail}
-            </Text>
-          </Box>
-        </Box>
-      );
-    })}
-  </Box>
-);
+const CoWork = () => {
+  const role = useContext(CardRole);
+  return (
+    <Box gap="small" flex={false}>
+      <Text size="small">
+        Co-work lets GreenLake AI agents carry out multi-step tasks in your
+        workspace while you watch and approve each step.
+      </Text>
+      {agents.map(agent => {
+        const Icon = agent.icon;
+        return (
+          <Surface
+            role={role}
+            key={agent.name}
+            direction="row"
+            gap="small"
+            align="center"
+            round="medium"
+            pad="small"
+          >
+            <Icon aria-hidden="true" />
+            <Box>
+              <Text size="small" weight={500} color="text-strong">
+                {agent.name}
+              </Text>
+              <Text size="xsmall" color="text-weak">
+                {agent.detail}
+              </Text>
+            </Box>
+          </Surface>
+        );
+      })}
+    </Box>
+  );
+};
 
 const Composer = ({ onSend }) => {
   const [value, setValue] = useState('');
@@ -237,11 +249,14 @@ const Composer = ({ onSend }) => {
   };
   return (
     <Box flex={false} gap="xsmall">
+      <SurfaceTag
+        token="no surface"
+        note="composer sits on the panel; border only (decision 6)"
+      />
       <Box
         border={{ color: 'border-weak' }}
         round="medium"
         pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
-        background="shell-page"
       >
         <TextArea
           plain
@@ -383,13 +398,15 @@ export const CopilotPanel = ({ fullscreen = false }) => {
         />
       </Box>
       <Box flex overflow={{ vertical: 'auto' }} pad="medium">
-        {copilotMode === 'cowork' ? (
-          <CoWork />
-        ) : activeConversation ? (
-          <Conversation conversation={activeConversation} />
-        ) : (
-          <Welcome onPrompt={send} />
-        )}
+        <CardRole.Provider value={fullscreen ? 'card' : 'panelCard'}>
+          {copilotMode === 'cowork' ? (
+            <CoWork />
+          ) : activeConversation ? (
+            <Conversation conversation={activeConversation} />
+          ) : (
+            <Welcome onPrompt={send} />
+          )}
+        </CardRole.Provider>
       </Box>
       <Box pad={{ horizontal: 'medium', bottom: 'medium' }} flex={false}>
         <Composer onSend={send} />

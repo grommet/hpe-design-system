@@ -14,6 +14,7 @@ import {
   Select,
   Text,
 } from 'grommet';
+import { Surface, SurfaceTag } from '../components/common';
 import { List } from '@hpe-design/icons-grommet';
 import { useShell } from '../contexts/ShellContext';
 import { regionLabel, serviceInstances } from '../data/services';
@@ -50,7 +51,7 @@ const groupByRegion = instances => {
 };
 
 const ServiceInstanceCard = ({ service, onLaunch }) => (
-  <Card background="shell-card" elevation="none" round="medium">
+  <Surface role="card" component={Card} elevation="none" round="medium">
     <CardBody
       direction="row"
       align="center"
@@ -63,6 +64,7 @@ const ServiceInstanceCard = ({ service, onLaunch }) => (
           {service.name}
         </Text>
         <Text size="small">{service.category}</Text>
+        <SurfaceTag role="card" />
       </Box>
       <Button
         label="Launch"
@@ -71,7 +73,7 @@ const ServiceInstanceCard = ({ service, onLaunch }) => (
         onClick={onLaunch}
       />
     </CardBody>
-  </Card>
+  </Surface>
 );
 
 ServiceInstanceCard.propTypes = {

@@ -16,10 +16,17 @@ import {
 } from 'grommet';
 import { useShell } from '../../contexts/ShellContext';
 import { catalog, serviceGroups } from '../../data/home';
+import { Surface, SurfaceTag } from '../../components/common';
 
 // Summary card for a service in a catalog or discovery grid.
 const ServiceCard = ({ category, description, tag, title, ...rest }) => (
-  <Card background="shell-card" elevation="none" round="medium" {...rest}>
+  <Surface
+    role="card"
+    component={Card}
+    elevation="none"
+    round="medium"
+    {...rest}
+  >
     <CardBody gap="xsmall">
       <Box direction="row" align="center" justify="between" gap="xsmall">
         <Box gap="5xsmall">
@@ -38,8 +45,9 @@ const ServiceCard = ({ category, description, tag, title, ...rest }) => (
         )}
       </Box>
       <Paragraph margin="none">{description}</Paragraph>
+      <SurfaceTag role="card" />
     </CardBody>
-  </Card>
+  </Surface>
 );
 
 ServiceCard.propTypes = {

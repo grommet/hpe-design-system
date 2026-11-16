@@ -11,6 +11,7 @@ import {
   Stack,
   Text,
 } from 'grommet';
+import { Surface, SurfaceTag } from './Surface';
 
 // Dashboard card surface following the overview dashboard template: header
 // with a level-3 heading, optional subtitle and action; body padded
@@ -26,7 +27,13 @@ export const ShellCard = ({
   pad,
   ...rest
 }) => (
-  <Card background="shell-card" elevation="none" round="medium" {...rest}>
+  <Surface
+    role="card"
+    component={Card}
+    elevation="none"
+    round="medium"
+    {...rest}
+  >
     {(icon || title) && (
       <CardHeader
         pad={{ horizontal: 'medium', top: 'medium', bottom: 'xsmall' }}
@@ -45,6 +52,7 @@ export const ShellCard = ({
               ) : (
                 subtitle
               ))}
+            <SurfaceTag role="card" />
           </Box>
         </Box>
         {action}
@@ -63,7 +71,7 @@ export const ShellCard = ({
     >
       {children}
     </CardBody>
-  </Card>
+  </Surface>
 );
 
 ShellCard.propTypes = {

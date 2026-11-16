@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useContext, useState } from 'react';
 import {
-  Box,
   Layer,
   Main,
   ResponsiveContext,
@@ -19,6 +18,8 @@ import { GlobalRail } from './GlobalRail';
 import { LocalNav, NAV_WIDTH } from './LocalNav';
 import { FeedbackLayer, ShellToast } from './Overlays';
 import { SlidePanel } from './SlidePanel';
+import { Surface } from './common';
+import { useSurfaceVariant } from '../surfaces';
 import { PANEL_SIZES } from '../theme';
 
 const MAIN_ID = 'main-content';
@@ -38,9 +39,48 @@ const CurrentPage = () => {
 //   │      │          │ Primary content area         │ (right)   │
 //   │ user │          │                              │           │
 //   └──────┴──────────┴──────────────────────────────┴───────────┘
-// The rail is the darkest layer (contrast over the grey chrome), the local
-// nav sits on the grey chrome, and header + content share a white "sheet",
-// as does the contextual panel.
+// The anatomy is the same in both arrangements; the surfaces differ.
+//
+// Framed (#6708): chrome wraps the page. The rail is the darkest layer
+// (contrast over the grey chrome), the local nav sits on the grey chrome,
+// and header + content share a white "sheet", as does the contextual panel.
+//
+// Beside (#6635, #6660): chrome sits on the page. The page is the root and
+// stays visible all round; the rail, the local nav and the contextual
+// panel are rounded containers on it, inset from the window edge and from
+// each other, and the header and content have no surface of their own.
+const INSET = 'xsmall';
+const PANEL_ROUND = 'large';
+const SHEET_ROUND = 'xlarge';
+
+// What differs between the two arrangements, part by part. Beside, the
+// shell's ground and the sheet take no surface: the Grommet root already
+// paints the page, and painting it again would nest a token in itself.
+const ARRANGEMENTS = {
+  framed: {
+    ground: 'chrome',
+    sheet: 'sheet',
+    rail: {},
+    nav: {},
+    context: {},
+    contextGap: 'small',
+  },
+  beside: {
+    rail: { surface: 'chrome', round: PANEL_ROUND, margin: INSET },
+    nav: {
+      surface: 'chrome',
+      round: PANEL_ROUND,
+      margin: { vertical: INSET },
+    },
+    navGap: INSET,
+    context: {
+      round: PANEL_ROUND,
+      margin: { vertical: INSET, right: INSET },
+    },
+    contextGap: INSET,
+  },
+};
+
 // Remembers the last non-empty value so a panel keeps its content while it
 // slides closed. Storing the previous render's value in state (set
 // conditionally during render) avoids reading refs in render.
@@ -60,6 +100,8 @@ export const Shell = () => {
     contextWidth,
     dispatch,
   } = useShell();
+  const { shell } = useSurfaceVariant();
+  const parts = ARRANGEMENTS[shell];
   const breakpoint = useContext(ResponsiveContext);
   const overlay = ['xsmall', 'small'].includes(breakpoint);
   const renderedNav = useLastPanel(navPanel);
@@ -70,19 +112,22 @@ export const Shell = () => {
   const contextOpen = Boolean(contextPanel) && !fullscreen;
   const setWidth = panel => width =>
     dispatch({ type: 'SET_PANEL_WIDTH', panel, width });
+  // Framed, the sheet is rounded where it meets the chrome. Beside, it is
+  // the page itself and has no edge to round.
+  let sheetRound;
+  if (shell === 'framed')
+    sheetRound =
+      contextPanel && !overlay
+        ? SHEET_ROUND
+        : { corner: 'left', size: SHEET_ROUND };
 
   return (
-    <Box
-      direction="row"
-      height="100vh"
-      background="shell-card"
-      overflow="hidden"
-    >
+    <Surface role={parts.ground} direction="row" flex overflow="hidden">
       <SkipLinks id="skip-links">
         <SkipLink id={MAIN_ID} label="Skip to main content" />
       </SkipLinks>
 
-      <GlobalRail />
+      <GlobalRail {...parts.rail} />
 
       {/* Panels slide open and closed; the outgoing panel stays rendered
           until the motion finishes. */}
@@ -91,23 +136,20 @@ export const Shell = () => {
           open={navVisible}
           side="left"
           width={navWidth}
+          gap={parts.navGap}
           bounds={PANEL_SIZES.nav}
           onResize={setWidth('nav')}
           onReset={() => setWidth('nav')(PANEL_SIZES.nav.default)}
           resizeLabel="Resize navigation"
         >
-          <LocalNav panel={renderedNav} />
+          <LocalNav panel={renderedNav} {...parts.nav} />
         </SlidePanel>
       )}
 
-      <Box
+      <Surface
+        role={parts.sheet}
         flex
-        background="shell-page"
-        round={
-          contextPanel && !overlay
-            ? 'xlarge'
-            : { corner: 'left', size: 'xlarge' }
-        }
+        round={sheetRound}
         overflow="hidden"
         responsive="container"
       >
@@ -116,20 +158,20 @@ export const Shell = () => {
         <Main flex overflow={{ vertical: 'auto' }}>
           {fullscreen ? <CopilotPanel fullscreen /> : <CurrentPage />}
         </Main>
-      </Box>
+      </Surface>
 
       {!overlay && (
         <SlidePanel
           open={contextOpen}
           side="right"
           width={contextWidth}
-          gap="small"
+          gap={parts.contextGap}
           bounds={PANEL_SIZES.context}
           onResize={setWidth('context')}
           onReset={() => setWidth('context')(PANEL_SIZES.context.default)}
           resizeLabel="Resize panel"
         >
-          <ContextualPanel panel={renderedContext} />
+          <ContextualPanel panel={renderedContext} {...parts.context} />
         </SlidePanel>
       )}
 
@@ -142,7 +184,7 @@ export const Shell = () => {
         >
           <LocalNav
             onClose={() => dispatch({ type: 'TOGGLE_NAV' })}
-            background="shell-page"
+            surface="overlayNav"
             height="100%"
             width={NAV_WIDTH}
           />
@@ -162,6 +204,6 @@ export const Shell = () => {
 
       <FeedbackLayer />
       <ShellToast />
-    </Box>
+    </Surface>
   );
 };
