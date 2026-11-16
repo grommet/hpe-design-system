@@ -1,0 +1,34 @@
+{
+  "caseId": "button-smoke",
+  "generatedAt": "2026-11-16T20:50:53.251Z",
+  "conditions": {
+    "mcp-cc": {
+      "runCount": 1,
+      "buildPasses": 1,
+      "meanCoveragePercent": 100,
+      "cleanHygieneRuns": 1,
+      "importedPackages": [
+        "grommet",
+        "react"
+      ]
+    },
+    "mcp-no-cc": {
+      "runCount": 1,
+      "buildPasses": 1,
+      "meanCoveragePercent": 100,
+      "cleanHygieneRuns": 1,
+      "importedPackages": [
+        "grommet"
+      ]
+    },
+    "screenshot": {
+      "runCount": 1,
+      "buildPasses": 1,
+      "meanCoveragePercent": 100,
+      "cleanHygieneRuns": 1,
+      "importedPackages": [
+        "grommet"
+      ]
+    }
+  }
+}
