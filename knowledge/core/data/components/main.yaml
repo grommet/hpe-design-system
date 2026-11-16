@@ -35,7 +35,7 @@ usage:
   whenToUse:
     - Use Main for the primary content area of an app layout.
     - Always place Page and its PageContent inside Main. Reuse the application
-      shell's Main rather than adding another in the routed page.
+    - Reuse the application shell's Main rather than adding another in the routed page.
     - Use background='background-back' for proper visual hierarchy.
     - Place inside Grid when building app shell layouts.
     - Use round prop on top corners for polished app shell look.
