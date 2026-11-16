@@ -5,6 +5,12 @@ packed-consumer checks, Changeset enforcement, and a non-publishing candidate
 workflow are implemented. The package remains private. This document does not
 announce a release or approve content for publication.
 
+See the README's [architecture and direction](./README.md#architecture-and-direction)
+and [product roadmap](./README.md#product-roadmap) for the shared-core adapter
+model and implemented, planned, and exploratory milestones. This contract
+defines the first-release boundary and distribution gates, not a commitment
+to every future surface.
+
 ## Product boundary
 
 The first external release will provide one self-contained

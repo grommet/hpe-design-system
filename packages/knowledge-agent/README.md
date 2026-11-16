@@ -13,6 +13,34 @@ and a non-publishing candidate workflow are implemented. The package remains
 private. Registry choice, content approval, publisher setup, and the two-team
 pilot are still required before wider distribution.
 
+## Architecture and direction
+
+The package separates design-system knowledge and retrieval from the surfaces
+that expose them:
+
+```text
+Bundled knowledge snapshot
+           |
+Shared retrieval and formatting core
+           |
+           +-- Typed library API   [implemented]
+           +-- CLI adapter         [implemented]
+           +-- Local MCP adapter   [planned, after pilot]
+           `-- HTTP API adapter    [exploratory, deferred]
+```
+
+The CLI and library already share retrieval and formatting logic. Future
+adapters should use the public typed library rather than introduce separate
+loaders, matching rules, or manually maintained knowledge formats. Live-source
+authoring remains an explicit contributor workflow, not an installed-runtime
+fallback.
+
+The CLI/library are the initial consumption surfaces. MCP provides a planned
+agent-native interface over the same capabilities; an HTTP API remains an
+option only if demonstrated centralized-service needs justify its operational
+and access-control requirements. Neither requires replacing offline package
+consumption.
+
 ## Try the package in another project
 
 Until registry distribution is approved, a maintainer can build a local
@@ -177,7 +205,28 @@ approval or compatibility certification. The workflow tests Ubuntu/Node 24
 only; review the separate six-job compatibility matrix at the same commit.
 The workflow has not yet been remotely verified.
 
-## Feedback and next surfaces
+## Product roadmap
+
+This roadmap distinguishes working capabilities from planned and exploratory
+directions. It is not a release announcement or a commitment to every adapter.
+The [distribution contract](./DISTRIBUTION.md) defines release approval and
+artifact-acceptance requirements.
+
+| Milestone                      | Status                                  | Outcome / exit gate                                                                                                                                                                          |
+| ------------------------------ | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Portable CLI and typed library | Implemented; package remains private    | Bundled validated knowledge, offline queries, structured results, and isolated packed-consumer checks.                                                                                       |
+| Controlled distribution        | In progress; approval-gated             | Choose registry/access, assign owners, approve content, and distribute the verified artifact through a protected publisher; verify an external registry installation.                        |
+| Two-team React/Grommet pilot   | Planned; requires approved distribution | Validate agreed real-project scenarios, CLI/library use collectively, and an upgrade; resolve release-blocking findings.                                                                     |
+| Wider team availability        | Planned; after successful pilot         | Provide verified releases, support ownership, installation/upgrade guidance, and known limitations.                                                                                          |
+| Local MCP adapter              | Planned; after successful pilot         | Expose structured tools through a thin local stdio adapter over the public library, preserving offline behavior and retrieval parity. Can proceed alongside wider rollout.                   |
+| HTTP API / hosted service      | Exploratory; deferred                   | Revisit only for demonstrated centralized-service needs, with explicit hosting, authentication, content-access, and operating-ownership decisions. Not required for the CLI/library release. |
+
+Keep the initial code and knowledge in one package. Separate data or adapter
+packages only when actual consumers, dependency weight, or release cadences
+justify the split. Broader framework implementations and hosted transports are
+not implicit commitments of the current API.
+
+## Feedback
 
 For pilot issues, use the repository issue tracker and include the package
 version, content digest, Node/platform details, reproduction query, expected
@@ -188,6 +237,4 @@ before registry distribution.
 
 The pilot requires two React/Grommet teams to demonstrate CLI/library use and
 an upgrade against agreed scenarios. Resolve release-blocking findings before
-wider rollout. Local MCP should wrap the same library after the pilot; hosted
-services, independent data packages, and broader framework implementations are
-deferred.
+wider rollout.
