@@ -201,6 +201,7 @@ export const SubscriptionDetails = () => {
             <Box gridArea="nav" pad="xsmall" flex={false}>
               <NavigationMenu
                 items={navigation}
+                open={false}
                 background="background-front"
                 fill="vertical"
                 round="large"
