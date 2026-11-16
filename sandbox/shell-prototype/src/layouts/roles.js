@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-
 // Layout roles for the stress tests. A layout declares each area once, by
 // what it is in the surface model, and the resolver turns that into a token
 // for whichever architecture is selected in the preview bar.

@@ -1,10 +1,9 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-
 // The colour an element is actually painted: walks up from the element
 // compositing every translucent background onto the first opaque one, in
 // floats, rounding once. This is what a screenshot would show, so the
-// gallery's chips report rendering rather than a model of it.
+// layouts' chips report rendering rather than a model of it.
 const parse = value => {
   const m = /rgba?\(([^)]+)\)/.exec(value || '');
   if (!m) return null;
