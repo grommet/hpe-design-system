@@ -1,7 +1,6 @@
 id: main
 name: Main
-description:
-  Semantic landmark for the application's primary content.
+description: Semantic landmark for the application's primary content.
 importPath: grommet
 framework: react
 props:
@@ -34,7 +33,6 @@ props:
 usage:
   whenToUse:
     - Use Main for the primary content area of an app layout.
-    - Always place Page and its PageContent inside Main. Reuse the application
     - Reuse the application shell's Main rather than adding another in the routed page.
     - Use background='background-back' for proper visual hierarchy.
     - Place inside Grid when building app shell layouts.
