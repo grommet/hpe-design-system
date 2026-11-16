@@ -14,10 +14,17 @@ import {
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseArgs } from 'node:util';
 import { loadSourceKnowledge, repoRoot } from '../src/source-knowledge.js';
 import { searchKnowledge } from '../src/context-generator.js';
+import { validateCandidateSource, writeCandidate } from './candidate.js';
+import type { KnowledgeSnapshot } from '../src/knowledge.js';
 
 const packageRoot = fileURLToPath(new URL('../', import.meta.url));
+const { values } = parseArgs({
+  options: { 'candidate-dir': { type: 'string' } },
+});
+const candidateDirectory = values['candidate-dir'];
 const temporary = mkdtempSync(
   path.join(os.tmpdir(), 'hpe-knowledge-consumer-'),
 );
@@ -29,6 +36,13 @@ const npm = (...args: string[]) =>
   });
 
 try {
+  const source = loadSourceKnowledge({ strict: true });
+  const candidateSource = {
+    snapshot: source,
+    requestedVersion: process.env.REQUESTED_VERSION,
+    expectedCommit: process.env.EXPECTED_COMMIT,
+  };
+  if (candidateDirectory) validateCandidateSource(candidateSource);
   const [packed]: {
     filename: string;
     files: { path: string }[];
@@ -122,7 +136,6 @@ require('node:module').syncBuiltinESMExports();
       env: { ...process.env, NODE_PATH: '' },
     });
   const cli = path.join(installed, 'bin/cli.js');
-  const source = loadSourceKnowledge({ strict: true });
   [
     ['Build a login form', 'login-form'],
     ['Create an app shell with navigation', 'application-shell'],
@@ -243,6 +256,13 @@ void prompt;
 
   const snapshotFile = path.join(installed, 'dist/knowledge.json');
   const snapshot = readFileSync(snapshotFile, 'utf8');
+  const bundledSnapshot: KnowledgeSnapshot = JSON.parse(snapshot);
+  assert.deepEqual(bundledSnapshot, JSON.parse(JSON.stringify(source)));
+  const installedManifest = JSON.parse(
+    readFileSync(path.join(installed, 'package.json'), 'utf8'),
+  );
+  assert.equal(installedManifest.name, '@hpe-design/knowledge-agent');
+  assert.equal(installedManifest.version, source.packageVersion);
   [
     '{',
     JSON.stringify({ ...JSON.parse(snapshot), schemaVersion: 999 }),
@@ -266,6 +286,17 @@ void prompt;
     .digest('hex');
   console.log(`OK packed consumer: ${packed.files.length} files.`);
   console.log(`Tarball sha256: ${digest}`);
+  if (candidateDirectory) {
+    writeCandidate({
+      ...candidateSource,
+      snapshot: bundledSnapshot,
+      tarball,
+      directory: path.resolve(candidateDirectory),
+    });
+    console.log(
+      `Verified candidate saved to ${path.resolve(candidateDirectory)}`,
+    );
+  }
 } finally {
   rmSync(temporary, { recursive: true, force: true });
 }

@@ -1,8 +1,9 @@
 # External consumption contract
 
-Status: local snapshot, compiled CLI/library, structured results, and
-packed-consumer checks are implemented. The package remains private. This
-document does not announce a release or approve content for publication.
+Status: local snapshot, compiled CLI/library, structured results,
+packed-consumer checks, Changeset enforcement, and a non-publishing candidate
+workflow are implemented. The package remains private. This document does not
+announce a release or approve content for publication.
 
 ## Product boundary
 
@@ -174,13 +175,67 @@ contracts:
 - Before 1.0, use a minor bump for breaking changes and document them explicitly;
   after 1.0, use a major bump.
 
-Knowledge changes outside this package must participate in release enforcement.
-Do not rely only on package-directory path filters.
+The [knowledge validation workflow](../../.github/workflows/validate-knowledge.yml)
+enforces these rules across package and canonical-source paths using
+`pnpm validate:knowledge-changeset --base=origin/master --head=HEAD`.
+The guard compares committed merge-base/head inputs, not dirty edits:
+
+- Canonical component/pattern definitions, shared types, selected standards,
+  and the root license require a release entry.
+- Potentially published runtime, build, snippet, and root dependency-graph
+  changes trigger isolated frozen-install builds when no entry is present.
+  Published manifest metadata differences require an entry directly.
+- Normalized artifact comparison ignores source-revision metadata and generated
+  revision URLs, including their derived digest. It preserves actual content,
+  runtime files, schema, declarations, file additions/removals, and published
+  package metadata. Invalid content digests or failed builds fail closed.
+- A qualifying Changeset must be added or modified in the compared range,
+  name the package in YAML frontmatter with a patch/minor/major release, and
+  contain a nonempty summary. A previously existing entry or body-only mention
+  is insufficient.
+- Tests and non-bundled documentation do not trigger a release. The consumption
+  exemption is restricted to this package's version-only manifest update,
+  changelog, and deleted Changesets naming this package, with no other changes.
 
 Leave `"private": true` in place until the registry and access policy are
 approved. The root Changesets configuration's public access default is not
 permission to publish this package. This contract does not authorize changing
-that flag, creating tags, uploading candidates, or publishing.
+that flag, creating tags, dispatching candidate uploads without content review,
+or publishing.
+
+### Non-publishing candidate workflow
+
+The manual
+[candidate workflow](../../.github/workflows/knowledge-agent-release-candidate.yml)
+accepts an exact committed version and requires default-branch dispatch. It
+checks out the dispatch commit, installs frozen dependencies without lifecycle
+scripts, validates structure/types/tests, and builds and packs once through
+`test:package`. Schema validation is part of that build. Only after the
+isolated packed-consumer checks succeed does it preserve:
+
+- The exact tested tarball, without rebuilding/repacking it.
+- `tarball.sha256`, the tarball's SHA-256 digest.
+- `release-metadata.json`, including version, commit, knowledge schema/content
+  digest, clean-source state, validation environment, workflow run/attempt,
+  and packed-consumer result.
+
+The candidate check rejects dirty sources, mismatched requested version/commit,
+and existing output directories. Local callers can opt into the same export
+with `REQUESTED_VERSION`, `EXPECTED_COMMIT`, and
+`test:package --candidate-dir /absolute/path/new-directory`.
+Without this option, the test still deletes its temporary consumer and tarball.
+
+The workflow uses read-only repository permissions, uploads run-specific
+artifacts retained for 30 days, and has no registry write, release, or tag step.
+It validates Ubuntu/Node 24 only; verify the separate compatibility matrix for
+the same commit before making support claims. No remote execution or registry
+verification is claimed by this implementation.
+
+Content approval must precede sharing/uploading a candidate. The workflow is
+not itself an enforced content-approval or publication gate; named approvers
+and protected publisher controls still need to be established. A future
+publisher must consume the approved tarball and verify its recorded identity,
+not silently generate a replacement artifact.
 
 Before any registry distribution, record:
 

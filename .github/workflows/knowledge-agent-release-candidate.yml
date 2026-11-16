@@ -1,0 +1,81 @@
+name: Knowledge-agent release candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Exact committed package version to prepare (no publication)'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: knowledge-agent-candidate-${{ inputs.version }}
+  cancel-in-progress: false
+
+jobs:
+  candidate:
+    name: Validate and preserve exact candidate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require default-branch dispatch
+        env:
+          WORKFLOW_REF: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: test "$WORKFLOW_REF" = "$DEFAULT_BRANCH"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Validate knowledge structure
+        run: pnpm validate:knowledge-structure
+      - name: Typecheck knowledge-agent
+        run: pnpm --filter @hpe-design/knowledge-agent typecheck
+      - name: Run knowledge-agent tests
+        run: pnpm --filter @hpe-design/knowledge-agent test
+      - name: Build, pack, and test the exact candidate
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+          EXPECTED_COMMIT: ${{ github.sha }}
+        run: |
+          pnpm --filter @hpe-design/knowledge-agent test:package \
+            --candidate-dir "$RUNNER_TEMP/knowledge-agent-candidate"
+      - name: Upload validated candidate (not a registry release)
+        uses: actions/upload-artifact@v4
+        with:
+          name: knowledge-agent-${{ inputs.version }}-${{ github.run_id }}-${{ github.run_attempt }}-candidate
+          path: ${{ runner.temp }}/knowledge-agent-candidate/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Write candidate evidence
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+          CANDIDATE_COMMIT: ${{ github.sha }}
+        run: |
+          {
+            echo "## Knowledge-agent candidate (not published)"
+            echo
+            echo "| Evidence | Value |"
+            echo "| --- | --- |"
+            echo "| Version | $REQUESTED_VERSION |"
+            echo "| Commit | $CANDIDATE_COMMIT |"
+            echo "| Validation | Typecheck, tests, and exact packed-consumer checks passed |"
+            echo "| Tarball SHA-256 | $(cat "$RUNNER_TEMP/knowledge-agent-candidate/tarball.sha256") |"
+            echo "| Compatibility | This run validates Ubuntu/Node 24 only; review the separate matrix |"
+            echo "| Publication | Not performed; registry/content approval and a protected publisher are still required |"
+          } >> "$GITHUB_STEP_SUMMARY"

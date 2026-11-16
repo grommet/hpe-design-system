@@ -51,6 +51,8 @@ const instructionKeywords: Record<string, string[]> = {
   ],
 };
 
+export const instructionFileNames = Object.keys(instructionKeywords);
+
 function readInstructions(sourceRevision: string) {
   const directory = 'knowledge/core/instructions/standards';
   return Object.entries(instructionKeywords)

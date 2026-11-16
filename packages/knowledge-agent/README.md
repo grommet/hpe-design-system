@@ -8,9 +8,10 @@ This is a context generator, not an LLM service or autonomous implementation
 agent. React/Grommet is the implementation source of truth. Other framework
 targets return conceptual guidance, not validated implementations.
 
-**Status:** local packaging and external-consumer validation are implemented.
-The package remains private. Registry choice, content approval, publisher setup,
-and the two-team pilot are still required before wider distribution.
+**Status:** local packaging, external-consumer validation, Changeset enforcement,
+and a non-publishing candidate workflow are implemented. The package remains
+private. Registry choice, content approval, publisher setup, and the two-team
+pilot are still required before wider distribution.
 
 ## Try the package in another project
 
@@ -128,14 +129,55 @@ Generated files remain under `dist`. The nested compiled layout preserves
 canonical type-relative imports entirely inside the package; only the declared
 root export is public. The Apache-2.0 license is included as `dist/LICENSE`.
 
-## Releases, feedback, and next surfaces
+## Changesets and release candidates
 
-The [distribution contract](https://github.com/grommet/hpe-design-system/blob/master/packages/knowledge-agent/DISTRIBUTION.md)
-records publication prerequisites and versioning policy. This implementation
-does not enable registry publication or change other packages' release flows.
-A Changeset accompanies the initial code/content changes; automated
-knowledge-agent-specific Changeset enforcement and candidate publication remain
-follow-up release work.
+The [distribution contract](./DISTRIBUTION.md) records publication prerequisites
+and versioning policy. The pull-request check requires an added or modified
+Changeset whose frontmatter names `@hpe-design/knowledge-agent`, specifies a
+patch/minor/major release, and has a nonempty summary. An unchanged Changeset or
+a package mention only in the summary does not cover new changes.
+
+Check a committed branch against its fetched base locally:
+
+```sh
+pnpm validate:knowledge-changeset --base=origin/master --head=HEAD
+```
+
+This compares commits, not uncommitted edits. Canonical definitions, types,
+selected standards, and licensing changes require an entry. Runtime/build,
+snippet, and root dependency-graph changes are built in isolated checkouts when
+needed; unchanged normalized published output does not require an entry.
+Commit-derived links and their digest are normalized, but runtime, schema,
+content, and published package metadata differences are not ignored. Build
+failures fail the check. Non-bundled docs/tests are excluded. A narrowly scoped
+version/changelog update that consumes this package's Changesets is exempt.
+
+After maintainer/content review, a maintainer can dispatch the
+[candidate workflow](../../.github/workflows/knowledge-agent-release-candidate.yml)
+from the default branch with its exact committed package version. It validates
+and preserves the same tarball that passes packed-consumer checks, alongside
+`release-metadata.json` and `tarball.sha256`. The uploaded artifact is
+run/attempt-specific and retained for 30 days. It does not publish to a registry,
+create a tag, or change another package's release flow.
+
+For the equivalent local check, use a clean checkout and a new output directory
+outside it:
+
+```sh
+REQUESTED_VERSION=0.1.0 EXPECTED_COMMIT="$(git rev-parse HEAD)" \
+  pnpm --filter @hpe-design/knowledge-agent test:package \
+  --candidate-dir /absolute/path/new-candidate-directory
+```
+
+Replace `0.1.0` with the exact committed package version. Dirty sources,
+version/revision mismatches, failed consumer checks, and existing output
+directories are rejected. Candidate evidence records the source revision,
+knowledge digest, tarball hash, and validation environment; it is not content
+approval or compatibility certification. The workflow tests Ubuntu/Node 24
+only; review the separate six-job compatibility matrix at the same commit.
+The workflow has not yet been remotely verified.
+
+## Feedback and next surfaces
 
 For pilot issues, use the repository issue tracker and include the package
 version, content digest, Node/platform details, reproduction query, expected
