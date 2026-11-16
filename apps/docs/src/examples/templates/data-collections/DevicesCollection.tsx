@@ -138,6 +138,7 @@ export const DevicesCollection = () => {
             <Box gridArea="nav" pad="xsmall" flex={false}>
               <NavigationMenu
                 items={navigation}
+                open={false}
                 background={surfaceBackground}
                 fill="vertical"
                 round="large"
