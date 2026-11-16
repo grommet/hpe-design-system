@@ -198,11 +198,14 @@ export const SubscriptionDetails = () => {
             />
           </Box>
           {showNav && (
-            <NavigationMenu
-              items={navigation}
-              background="background-front"
-              gridArea="nav"
-            />
+            <Box gridArea="nav" pad="xsmall" flex={false}>
+              <NavigationMenu
+                items={navigation}
+                background="background-front"
+                fill="vertical"
+                round="large"
+              />
+            </Box>
           )}
           <Main gridArea="main" overflow="auto">
             {/* Page sizes to its content so its bottom padding follows the
