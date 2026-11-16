@@ -203,6 +203,7 @@ process.stdout.write('consumer checks passed\\n');
     'node_modules/.bin',
     process.platform === 'win32' ? 'hpe-design-agent.cmd' : 'hpe-design-agent',
   );
+  const preload = JSON.stringify(blocker);
   const linked = spawnSync(linkedBin, ['Build a login form', '--json'], {
     cwd: temporary,
     encoding: 'utf8',
@@ -210,7 +211,7 @@ process.stdout.write('consumer checks passed\\n');
     env: {
       ...process.env,
       NODE_PATH: '',
-      NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --require "${blocker}"`,
+      NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --require ${preload}`,
     },
   });
   assert.equal(linked.status, 0, linked.stderr);
