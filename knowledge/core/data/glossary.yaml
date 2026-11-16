@@ -3,18 +3,18 @@
   term: Application region
   definition: >
     A top-level area that the application shell arranges: the global header,
-    navigation, main content (Main containing Page), a shell-managed context
-    pane, or the footer. These regions are built with semantic components
-    such as Header, Nav, Main, and Footer, whose HTML elements expose
-    landmark roles when used in the appropriate context, so assistive
-    technology can move between them.
+    application-level navigation, main content (Main containing Page), a
+    shell-managed context pane, or the footer. These regions are built with
+    semantic components such as Header, Nav, Main, and Footer, whose HTML
+    elements expose landmark roles when used in the appropriate context, so
+    assistive technology can move between them.
   usage: >
     Use this term for the areas the shell arranges with Grid or Box and for
     the boundaries between them. Application regions are separated by their
     own theme padding, not by a gap. Every screen has application regions,
     including a single-column one, which still has a header, main content,
-    and footer. PageHeader and everything inside PageContent belong to the
-    main content region; divisions there are page regions and content
+    and optional footer. PageHeader and everything inside PageContent belong
+    to the main content region; divisions there are page regions and content
     sections.
   confusedWith:
     - page-region
@@ -24,8 +24,8 @@
   term: Page region
   definition: >
     A major content area within Main, such as a filters region beside a
-    results region. A page region may contain content sections and need not
-    be an ARIA landmark.
+    results region. A page region may contain content sections and may be,
+    but need not be, an ARIA landmark.
   usage: >
     Use this term for the largest divisions of a page's content, whether
     they are arranged in rows or columns. The page rhythm separates page
@@ -47,7 +47,7 @@
   usage: >
     Use this term for the first level of grouping inside a page region, the
     level the page rhythm calls top-level sections: xlarge between content-sections,
-    medium inside. A content-section may be a surface but usually is a plain Box set
+    medium inside. A content-section may be a surface but usually is an unstyled Box set
     apart by spacing and a heading. In the layered background approach,
     background-front and background-contrast mark which sections carry
     focus.
