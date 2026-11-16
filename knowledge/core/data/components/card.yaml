@@ -87,6 +87,7 @@ variants:
       is available.
     example: |-
       <Card background="background-front">
+        {/* use semantically correct heading level */}
         <CardHeader><Heading level={3} margin="none">Title</Heading></CardHeader>
         <CardBody><Text>Content goes here.</Text></CardBody>
       </Card>
