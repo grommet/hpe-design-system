@@ -3,20 +3,25 @@
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import { Area, LayoutFrame, Lines } from './Area';
+import {
+  container as c,
+  fixed,
+  floating,
+  frame,
+  framedRoot,
+  none,
+} from './roles';
 
 // Simplified page designs, each declared once by role and painted with the
 // architecture selected in the preview bar. Every layout records what it
 // stresses and what, if anything, the theme would need beyond the surface
 // tokens (see catalog.js). The framed shell itself is the full prototype.
+//
+// LayoutFrame stands in for the app: it paints the page once, as the
+// Grommet root does. An area with the role `none` takes no surface and
+// shows whatever is behind it, which at the top level is the page.
 
 const MONO = { fontFamily: 'ui-monospace, Menlo, monospace' };
-
-const frame = { kind: 'frame' };
-const framedRoot = { kind: 'framedRoot' };
-const floating = { kind: 'floating' };
-const none = { kind: 'none' };
-const c = depth => ({ kind: 'container', depth });
-const fixed = token => ({ kind: 'fixed', token });
 
 const Small = ({ children, ...rest }) => (
   <Text size="xsmall" {...rest}>
@@ -29,7 +34,7 @@ Small.propTypes = { children: PropTypes.node };
 // 1 · Email client: three sibling panes of different tones on one page,
 // selected rows, a floating compose window that restarts the chain.
 export const EmailClient = () => (
-  <LayoutFrame height="380px">
+  <LayoutFrame height="420px">
     <Box direction="row" fill>
       <Area
         role={c(1)}
@@ -191,9 +196,9 @@ KanbanColumn.propTypes = {
 };
 
 export const TaskManager = () => (
-  <LayoutFrame height="560px">
+  <LayoutFrame height="610px">
     <Box direction="row" fill>
-      <Box flex pad="small" gap="small">
+      <Area role={none} label="board" flex pad="small" gap="small">
         <Text weight={500}>Release 26.2</Text>
         <Area
           role={c(1)}
@@ -210,8 +215,9 @@ export const TaskManager = () => (
             <Area
               role={none}
               label="add column (ghost)"
-              width="90px"
+              width="120px"
               flex={false}
+              pad="xsmall"
               round="xsmall"
               border={{ color: 'border-strong', style: 'dashed' }}
               align="center"
@@ -229,7 +235,7 @@ export const TaskManager = () => (
         >
           <Lines n={1} />
         </Area>
-      </Box>
+      </Area>
       <Area
         role={c(1)}
         label="task detail"
@@ -407,7 +413,7 @@ NodeCard.propTypes = {
 };
 
 export const NodeEditor = () => (
-  <LayoutFrame height="600px">
+  <LayoutFrame height="640px">
     <Box direction="row" fill>
       <Area
         role={none}
@@ -502,7 +508,7 @@ export const NodeEditor = () => (
 // 5 · Knowledge base: an accent hero band with a container on it, status
 // admonitions, code blocks, a transparent table of contents.
 export const KnowledgeBase = () => (
-  <LayoutFrame height="580px">
+  <LayoutFrame height="720px">
     <Box fill>
       <Area
         role={fixed('background-accent-blue-strong')}

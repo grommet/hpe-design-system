@@ -13,6 +13,14 @@
 //                                    selected. Same in every architecture.
 //   { kind: 'none' }                 transparent (decision 6)
 
+export const root = { kind: 'root' };
+export const frame = { kind: 'frame' };
+export const framedRoot = { kind: 'framedRoot' };
+export const floating = { kind: 'floating' };
+export const none = { kind: 'none' };
+export const container = depth => ({ kind: 'container', depth });
+export const fixed = token => ({ kind: 'fixed', token });
+
 const T = name => `background-surface-${name}`;
 const short = token => token.replace('background-surface-', '');
 

@@ -1,18 +1,31 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import { useContext, useEffect, useRef, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 import { SurfaceContext } from '../surfaces';
 import { effectiveBackground } from './measure';
-import { resolveRole } from './roles';
+import { resolveRole, root } from './roles';
 import { stepName } from './steps';
 
 const MONO = { fontFamily: 'ui-monospace, Menlo, monospace' };
 
+// What is painted behind an area: the page, or the nearest ancestor area
+// with a surface or fill of its own. An area that takes no surface shows
+// it, and its chip says which.
+const BehindContext = createContext({ display: undefined, page: true });
+
 // Annotation chip: area name, token, and the colour actually painted
-// (measured from the element, compositing translucent ancestors).
-export const Tag = ({ label, resolved, hex }) => (
+// (measured from the element, compositing translucent ancestors). For an
+// area with no surface, `behind` names the surface that shows through.
+export const Tag = ({ label, resolved, behind, hex }) => (
   <Box direction="row" gap="xsmall" align="center" wrap flex={false}>
     <Text size="xsmall" weight={600}>
       {label}
@@ -20,6 +33,14 @@ export const Tag = ({ label, resolved, hex }) => (
     <Text size="xsmall" style={MONO}>
       {resolved.display}
     </Text>
+    {behind && (
+      <Text size="xsmall">
+        {behind.page ? 'shows the page: ' : 'shows its parent: '}
+        <Text size="xsmall" style={MONO}>
+          {behind.display}
+        </Text>
+      </Text>
+    )}
     {hex && (
       <Text size="xsmall" style={MONO} color="text-weak">
         {stepName(hex)}
@@ -31,6 +52,10 @@ export const Tag = ({ label, resolved, hex }) => (
 Tag.propTypes = {
   label: PropTypes.string.isRequired,
   resolved: PropTypes.object.isRequired,
+  behind: PropTypes.shape({
+    display: PropTypes.string,
+    page: PropTypes.bool,
+  }),
   hex: PropTypes.string,
 };
 
@@ -69,7 +94,13 @@ export const Area = ({
   ...rest
 }) => {
   const { arch, mode, grey, annotate } = useContext(SurfaceContext);
+  const behind = useContext(BehindContext);
   const resolved = resolveRole(arch, role);
+  // What this area's own children sit on, when it paints anything.
+  const own = useMemo(
+    () => ({ display: resolved.display, page: false }),
+    [resolved.display],
+  );
   const ref = useRef();
   const showTag = annotate && Boolean(label);
   const measured = useMeasured(ref, showTag, [arch, mode, grey]);
@@ -77,7 +108,8 @@ export const Area = ({
     <Tag
       label={label}
       resolved={resolved}
-      hex={resolved.token ? measured : null}
+      behind={resolved.token ? undefined : behind}
+      hex={measured}
     />
   ) : null;
   // Grommet resolves descendants of a coloured band by the band's own
@@ -89,7 +121,7 @@ export const Area = ({
     resolved.token && pinMode
       ? { color: resolved.token, dark: mode === 'dark' }
       : resolved.token || undefined;
-  return (
+  const box = (
     <Box
       ref={ref}
       background={background}
@@ -108,6 +140,11 @@ export const Area = ({
         {children}
       </Box>
     </Box>
+  );
+  return resolved.token ? (
+    <BehindContext.Provider value={own}>{box}</BehindContext.Provider>
+  ) : (
+    box
   );
 };
 
@@ -135,26 +172,34 @@ Area.propTypes = {
   wrap: PropTypes.bool,
 };
 
-// The bordered canvas a layout is drawn in, painted with the architecture's
-// page root so areas with no surface show the page through. `height` is a
-// minimum: the canvas takes the spare viewport height so annotation chips
-// have room, and scrolls if they still do not fit.
+// The bordered canvas a layout is drawn in. It stands in for the app: it
+// paints the architecture's page root once, as the Grommet root does, so
+// areas with no surface show the page through. `height` is a minimum: the
+// canvas takes the spare viewport height so annotation chips have room, and
+// scrolls if they still do not fit.
 export const LayoutFrame = ({ height, children }) => {
   const { arch } = useContext(SurfaceContext);
+  const page = resolveRole(arch, root);
+  const behind = useMemo(
+    () => ({ display: page.display, page: true }),
+    [page.display],
+  );
   return (
-    <Box
-      background={resolveRole(arch, { kind: 'root' }).token}
-      overflow="auto"
-      round="small"
-      border={{ color: 'border-strong' }}
-      style={{
-        position: 'relative',
-        height: `max(${height}, calc(100vh - 320px))`,
-      }}
-      flex={false}
-    >
-      {children}
-    </Box>
+    <BehindContext.Provider value={behind}>
+      <Box
+        background={page.token}
+        overflow="auto"
+        round="small"
+        border={{ color: 'border-strong' }}
+        style={{
+          position: 'relative',
+          height: `max(${height}, calc(100vh - 480px))`,
+        }}
+        flex={false}
+      >
+        {children}
+      </Box>
+    </BehindContext.Provider>
   );
 };
 

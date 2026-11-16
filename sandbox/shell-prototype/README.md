@@ -144,7 +144,8 @@ The app is one page with a bar on top:
   client, kanban, word processor, node editor and knowledge base.
 - **Annotations**: label each area with the token it is painted with. On the
   two shell tabs the bar also lists the token each role takes, so a change
-  of architecture is visible at a glance.
+  of architecture is visible at a glance. On a stress test, an area that
+  takes no surface says which surface shows through it.
 - **Grey page**: apply a peer surface theme. Light values are swapped (base
   and tone-2 take grey.50, tone-1 takes white) and dark is unchanged, because
   in dark the Landmark and legacy values already agree (decisions 11b, 4a).
@@ -209,6 +210,11 @@ Where things live:
   page.
 - `src/layouts/`: the stress-test layouts, declared by role (`roles.js`).
   Their chips show the value actually painted, measured from the element.
+  `LayoutFrame` stands in for the app and paints the page once, as the
+  Grommet root does. Each layout's `appLevel` list in `catalog.js` is shown
+  above it as "Applied at the app level": the page first, then the other
+  top-level regions, including the ones that paint nothing and only show
+  the page.
 
 In the framed shell the rail is one `background-contrast` layer darker than
 the chrome so it reads as a separate region from the local nav; in the
