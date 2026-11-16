@@ -13,5 +13,7 @@ From the repository root, run `pnpm validate:knowledge-schema` after editing
 data or types. It generates schemas directly from the types and validates the
 loader-consumed YAML/JSON without creating generated artifacts. Run
 `pnpm --filter @hpe-design/knowledge-agent typecheck` to check consumers.
-Both checks run in knowledge CI. Runtime loading is unchanged and does not
-validate content automatically.
+Both checks run in knowledge CI. Live-source authoring does not validate content
+automatically. Knowledge-agent builds validate source and resolved snapshot
+schemas, and its installed runtime validates the bundled snapshot and content
+digest. Generated package-local declarations preserve this canonical contract.

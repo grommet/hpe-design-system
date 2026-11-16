@@ -1,13 +1,16 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { describe, expect, it } from 'vitest';
-import { generateSystemPrompt } from './context-generator';
+import { formatContext, searchKnowledge } from './context-generator';
+import { loadSourceKnowledge } from './source-knowledge';
+import type { FrameworkTarget } from './types';
 
-const ansiPattern = new RegExp(`${String.fromCharCode(27)}\\[[0-9;]*m`, 'g');
-
-function stripAnsi(value: string): string {
-  return value.replace(ansiPattern, '');
-}
+const search = (query: string, framework: FrameworkTarget = 'react') =>
+  searchKnowledge(loadSourceKnowledge(), 'source', query, framework);
+const generateSystemPrompt = (
+  query: string,
+  framework: FrameworkTarget = 'react',
+) => formatContext(search(query, framework));
 
 describe('knowledge-agent context generator', () => {
   it('surfaces a login form pattern for authentication queries', () => {
@@ -26,13 +29,50 @@ describe('knowledge-agent context generator', () => {
 
   it('marks non-react targets as conceptual-only guidance', () => {
     const prompt = generateSystemPrompt('Build a login form', 'vue');
-    const plainPrompt = stripAnsi(prompt);
-
-    expect(prompt).toContain('\u001B[');
-    expect(plainPrompt).toContain('Requested framework: vue');
-    expect(plainPrompt).toContain('conceptual guidance');
-    expect(plainPrompt).toContain('not yet fully validated for this target');
+    expect(prompt).not.toContain('\u001B[');
+    expect(prompt).toContain('Requested framework: vue');
+    expect(prompt).toContain('conceptual guidance');
+    expect(prompt).toContain('not yet fully validated for this target');
     expect(prompt).not.toContain('Import: grommet');
     expect(prompt).not.toContain('```tsx');
+  });
+
+  it('returns structured definitions, provenance and content identity', () => {
+    const result = search('Build a login form');
+    expect(result.status).toBe('matched');
+    expect(result.patterns.map(pattern => pattern.id)).toContain('login-form');
+    expect(
+      result.patterns.find(pattern => pattern.id === 'login-form')
+        ?.templateCode,
+    ).toContain('FormField');
+    expect(result.sources).toContainEqual({
+      type: 'pattern',
+      id: 'knowledge:pattern/login-form',
+    });
+    expect(result.knowledge.mode).toBe('source');
+    expect(result.knowledge.contentDigest).toMatch(/^[a-f0-9]{64}$/);
+    expect(result.knowledge.sourceRevision).toMatch(/^[a-f0-9]{40}$/);
+  });
+
+  it.each(['qzxjkvxyz', '!!!'])(
+    'distinguishes no matches for %s from errors',
+    query => {
+      const result = search(query);
+      expect(result.status).toBe('no-match');
+      expect(result.components).toEqual([]);
+      expect(result.patterns).toEqual([]);
+      expect(formatContext(result)).toContain('No Direct Matches Found');
+    },
+  );
+
+  it.each(['', '  \n '])('rejects empty query %j', query => {
+    expect(() => search(query)).toThrow('non-empty string');
+  });
+
+  it('returns conceptual diagnostics separately from styling', () => {
+    const result = search('Build a login form', 'angular');
+    expect(result.frameworkStatus).toBe('conceptual');
+    expect(result.diagnostics[0].code).toBe('conceptual-framework');
+    expect(result.diagnostics[0].message).toContain('not yet fully validated');
   });
 });

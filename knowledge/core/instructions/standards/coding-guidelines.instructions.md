@@ -8,7 +8,17 @@ applyTo: '**/*.{js,jsx,ts,tsx}'
 
 ## Before Implementing
 
-Before implementing or modifying a component, run the knowledge-agent to check current component and pattern coverage for the task:
+Before implementing or modifying a component, query the knowledge-agent to check
+current component and pattern coverage. If this guidance was returned by a query,
+use that result rather than recursively querying the same request.
+
+In a consumer project with the package installed:
+
+```bash
+npx --no-install hpe-design-agent "<feature description>"
+```
+
+In the design-system monorepo, query live authoring sources:
 
 ```bash
 pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"
@@ -124,7 +134,7 @@ const SnapScrollBox = styled(Box)`
 1. **Single Responsibility:** Keep components focused — one responsibility per component.
 2. **Exports:** Export components as named exports unless the file is a page-level default export.
 3. **State Ownership:** Co-locate related state and handlers within the component that owns them.
-4. **Verification:** Use the `sandbox/grommet-app` environment to verify component behavior before submitting for review.
+4. **Verification:** Verify behavior in the consuming project's application and tests. Design-system contributors use `sandbox/grommet-app` before submitting for review.
 
 ---
 

@@ -18,14 +18,15 @@ solution: >
   background-active (persistent route fill) and an inner Box with background-hover
   (hover overlay, applies even when active). The ActiveMarker - a 4px vertical bar
   at background-primary-strong - sits inside the inner row as the primary active cue.
-  See examples/NavigationMenu/ for the full production reference implementation.
+  See the template and examples in knowledge/core/data/examples/navigation-menu/
+  for the reference implementation.
 relatedComponents:
   - nav
   - list
   - button
   - box
   - text
-referenceImplementation: examples/NavigationMenu/
+referenceImplementation: https://github.com/grommet/hpe-design-system/tree/master/knowledge/core/data/examples/navigation-menu
 usage:
   whenToUse:
     - Use Nav as the semantic root element; set role="menubar" on the root list and

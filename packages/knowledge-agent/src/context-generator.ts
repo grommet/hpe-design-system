@@ -1,47 +1,12 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import * as fs from 'node:fs';
-import * as path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { buildSearchEntities, querySearchEntities } from './vector-search.js';
-import { loadComponents, loadPatterns } from './data-loader.js';
 import type {
-  DesignSystemSchema,
-  FrameworkTarget,
-  PatternGraph,
-  PatternNode,
-} from './types.js';
-
-const REPO_ROOT = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  '../../..',
-);
-const INSTRUCTION_DIRECTORIES = [
-  path.join(REPO_ROOT, 'knowledge', 'core', 'instructions', 'standards'),
-  path.join(REPO_ROOT, '.github', 'instructions'),
-];
-
-const font = {
-  bold: '\u001B[1m',
-  cyan: '\u001B[36m',
-  reset: '\u001B[0m',
-  yellow: '\u001B[33m',
-};
-
-function highlight(value: string): string {
-  return `${font.cyan}${value}${font.reset}`;
-}
-
-function warning(value: string): string {
-  return `${font.yellow}${font.bold}${value}${font.reset}`;
-}
-
-interface InstructionFile {
-  name: string;
-  path: string;
-  keywords: string[];
-  content: string;
-}
+  Instruction,
+  KnowledgeSnapshot,
+  QueryResult,
+} from './knowledge.js';
+import type { FrameworkTarget, PatternGraph, PatternNode } from './types.js';
 
 function normalizeSearchText(value: string): string {
   return value
@@ -51,123 +16,23 @@ function normalizeSearchText(value: string): string {
     .replace(/\s+/g, ' ');
 }
 
-function loadDesignSystem(): DesignSystemSchema {
-  return {
-    tokens: {},
-    components: loadComponents(),
-    patterns: loadPatterns(),
-  };
-}
-
 function formatTargetValidationNotice(
   targetFramework: FrameworkTarget,
 ): string {
   return [
-    `${font.bold}Requested framework:${font.reset} ${highlight(
-      targetFramework,
-    )}.`,
-    `This response is ${highlight('conceptual guidance')} derived from the`,
+    `Requested framework: ${targetFramework}.`,
+    'This response is conceptual guidance derived from the',
     'current React/Grommet design-system source of truth and is',
-    `${warning('not yet fully validated for this target')}.`,
+    'not yet fully validated for this target.',
     'Framework-specific imports, template code, and implementation details',
     'may require adaptation before use.',
   ].join(' ');
 }
 
-function loadInstructionFiles(): InstructionFile[] {
-  const seen = new Set<string>();
-
-  const files = INSTRUCTION_DIRECTORIES.flatMap(directory => {
-    if (!fs.existsSync(directory)) return [];
-
-    return fs
-      .readdirSync(directory)
-      .filter(file => file.endsWith('.instructions.md'))
-      .filter(file => {
-        if (seen.has(file)) return false;
-        seen.add(file);
-        return true;
-      })
-      .map(file => ({
-        directory,
-        file,
-      }));
-  });
-
-  return files.map(({ directory, file }) => {
-    const filepath = path.join(directory, file);
-    const content = fs.readFileSync(filepath, 'utf-8');
-    const keywordMap: Record<string, string[]> = {
-      'coding-guidelines.instructions.md': [
-        'grommet',
-        'component',
-        'token',
-        'design system',
-        'accessibility',
-        'button',
-        'layout',
-        'theme',
-      ],
-      'grommet.instructions.md': [
-        'theme',
-        'theming',
-        'dark mode',
-        'light mode',
-        'grommet',
-        'setup',
-      ],
-      'grommet-layouts.instructions.md': [
-        'layout',
-        'page',
-        'shell',
-        'app',
-        'navigation',
-        'header',
-        'sidebar',
-        'grid',
-        'structure',
-      ],
-      'grommet-responsive.instructions.md': [
-        'responsive',
-        'mobile',
-        'breakpoint',
-        'screen size',
-        'tablet',
-        'desktop',
-      ],
-      'grommet-data.instructions.md': [
-        'data',
-        'table',
-        'list',
-        'datatable',
-        'filter',
-        'sort',
-        'pagination',
-      ],
-      'styling-UI-components.instructions.md': [
-        'style',
-        'styling',
-        'token',
-        'color',
-        'spacing',
-        'css',
-        'design token',
-      ],
-    };
-
-    return {
-      name: file,
-      path: filepath,
-      keywords: keywordMap[file] || [],
-      content,
-    };
-  });
-}
-
 function findRelevantInstructions(
   query: string,
-  instructions: InstructionFile[],
-): InstructionFile[] {
+  instructions: Instruction[],
+): Instruction[] {
   const normalizedQuery = normalizeSearchText(query);
 
   return instructions.filter(instruction =>
@@ -228,33 +93,33 @@ function describePatternGraph(graph: PatternGraph): string {
   return sentences.join(' ');
 }
 
-export function generateSystemPrompt(
+export function searchKnowledge(
+  snapshot: KnowledgeSnapshot,
+  mode: 'source' | 'bundled',
   userQuery: string,
   targetFramework: FrameworkTarget = 'react',
-): string {
-  const ds = loadDesignSystem();
-  const query = normalizeSearchText(userQuery);
-  const instructionFiles = loadInstructionFiles();
-
-  /* eslint-disable max-len */
-  if (!query) {
-    return [
-      'You are an expert UI developer using the HPE Design System.',
-      'Here are the relevant design system definitions based on the user query.',
-      '### No Direct Matches Found',
-      'No components or patterns directly matched the query.',
-      'Consider breaking the request into smaller component names before building.',
-    ].join('\n\n');
+): QueryResult {
+  if (typeof userQuery !== 'string' || !userQuery.trim()) {
+    throw new TypeError('Query must be a non-empty string.');
   }
-  /* eslint-enable max-len */
+  if (
+    !['react', 'vue', 'angular', 'web-components', 'agnostic'].includes(
+      targetFramework,
+    )
+  ) {
+    throw new TypeError(`Unknown framework target: ${targetFramework}`);
+  }
+  const ds = { ...snapshot.content, tokens: {} };
+  const query = normalizeSearchText(userQuery);
 
   const vectorResults = querySearchEntities(buildSearchEntities(ds), userQuery);
 
   const relevantComponents = ds.components.filter(component => {
     return (
-      query.includes(normalizeSearchText(component.name)) ||
-      query.includes(normalizeSearchText(component.id)) ||
-      normalizeSearchText(component.description).includes(query)
+      (query !== '' && query.includes(normalizeSearchText(component.name))) ||
+      (query !== '' && query.includes(normalizeSearchText(component.id))) ||
+      (query !== '' &&
+        normalizeSearchText(component.description).includes(query))
     );
   });
 
@@ -263,8 +128,9 @@ export function generateSystemPrompt(
       query.includes(normalizeSearchText(alias)),
     );
     return (
-      query.includes(normalizeSearchText(pattern.name)) ||
-      normalizeSearchText(pattern.description).includes(query) ||
+      (query !== '' && query.includes(normalizeSearchText(pattern.name))) ||
+      (query !== '' &&
+        normalizeSearchText(pattern.description).includes(query)) ||
       aliasMatch
     );
   });
@@ -313,9 +179,65 @@ export function generateSystemPrompt(
 
   const relevantInstructions = findRelevantInstructions(
     query,
-    instructionFiles,
+    snapshot.content.instructions,
   );
 
+  return {
+    schemaVersion: 1,
+    packageVersion: snapshot.packageVersion,
+    knowledge: {
+      version: snapshot.packageVersion,
+      schemaVersion: snapshot.schemaVersion,
+      contentDigest: snapshot.contentDigest,
+      sourceRevision: snapshot.sourceRevision,
+      dirty: snapshot.dirty,
+      mode,
+    },
+    query: userQuery,
+    framework: targetFramework,
+    frameworkStatus:
+      targetFramework === 'react' ? 'react-grommet' : 'conceptual',
+    status:
+      relevantComponents.length || relevantPatterns.length
+        ? 'matched'
+        : 'no-match',
+    components: relevantComponents,
+    patterns: relevantPatterns,
+    instructions: relevantInstructions,
+    sources: [
+      ...relevantComponents.map(component => ({
+        id: `knowledge:component/${component.id}`,
+        type: 'component' as const,
+      })),
+      ...relevantPatterns.map(pattern => ({
+        id: `knowledge:pattern/${pattern.id}`,
+        type: 'pattern' as const,
+      })),
+      ...relevantInstructions.map(instruction => ({
+        id: instruction.id,
+        type: 'instruction' as const,
+      })),
+    ],
+    diagnostics:
+      targetFramework === 'react'
+        ? []
+        : [
+            {
+              code: 'conceptual-framework',
+              message: formatTargetValidationNotice(targetFramework),
+            },
+          ],
+  };
+}
+
+export function formatContext(result: QueryResult): string {
+  const {
+    query: userQuery,
+    framework: targetFramework,
+    components: relevantComponents,
+    patterns: relevantPatterns,
+    instructions: relevantInstructions,
+  } = result;
   /* eslint-disable max-len */
   let prompt =
     'You are an expert UI developer using the HPE Design System.\n\n';
@@ -392,5 +314,3 @@ export function generateSystemPrompt(
 
   return prompt;
 }
-
-export { loadDesignSystem };

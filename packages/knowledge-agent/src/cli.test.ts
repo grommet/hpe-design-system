@@ -23,7 +23,7 @@ describe('knowledge-agent CLI', () => {
     );
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain('\u001B[');
+    expect(result.stderr).not.toContain('\u001B[');
     expect(stripAnsi(result.stderr)).toContain(
       'Error: Unknown option: --unknown',
     );
@@ -32,7 +32,7 @@ describe('knowledge-agent CLI', () => {
     expect(result.stdout).toContain('--help');
   });
 
-  it('rejects unsupported framework targets with highlighted guidance', () => {
+  it('rejects unsupported framework targets with guidance', () => {
     const result = spawnSync(
       'pnpm',
       ['exec', 'tsx', 'src/cli.ts', '--', 'Create a dashboard', '-f', 'svelte'],
@@ -43,7 +43,7 @@ describe('knowledge-agent CLI', () => {
     );
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain('\u001B[');
+    expect(result.stderr).not.toContain('\u001B[');
     const expectedMessage = [
       'Error: Unknown framework target: svelte.',
       'Expected one of: react, vue, angular, web-components, agnostic',
@@ -51,5 +51,32 @@ describe('knowledge-agent CLI', () => {
 
     expect(stripAnsi(result.stderr)).toContain(expectedMessage);
     expect(result.stdout).toContain('--framework <target>');
+  });
+
+  it('emits parseable JSON for source-mode queries', () => {
+    const result = spawnSync(
+      process.execPath,
+      ['--import', 'tsx', 'src/cli.ts', 'Build a login form', '--json'],
+      { cwd: packageRoot, encoding: 'utf8' },
+    );
+    expect(result.status).toBe(0);
+    const output = JSON.parse(result.stdout);
+    expect(output.knowledge.mode).toBe('source');
+    expect(
+      output.patterns.map((pattern: { id: string }) => pattern.id),
+    ).toContain('login-form');
+    expect(result.stdout).not.toContain('\u001B[');
+    expect(result.stdout).not.toContain(packageRoot);
+  });
+
+  it('rejects whitespace-only queries without JSON stdout', () => {
+    const result = spawnSync(
+      process.execPath,
+      ['--import', 'tsx', 'src/cli.ts', '  ', '--json'],
+      { cwd: packageRoot, encoding: 'utf8' },
+    );
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('non-empty string');
+    expect(result.stdout).toBe('');
   });
 });
