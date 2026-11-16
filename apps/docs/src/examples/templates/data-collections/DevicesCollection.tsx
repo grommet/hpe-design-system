@@ -8,7 +8,6 @@ import {
   CheckBox,
   Grid,
   Main,
-  Nav,
   Page,
   PageContent,
   PageHeader,
@@ -23,10 +22,10 @@ import {
   Console,
   Cube,
   Download,
-  Sidebar,
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
+import { NavigationMenu } from '@shared/aries-core';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
 import {
@@ -111,33 +110,6 @@ function EnergySummary() {
   );
 }
 
-// Collapsed, icon-only primary navigation rail.
-function SideNav({ ...rest }: Pick<ComponentProps<typeof Box>, 'gridArea'>) {
-  return (
-    <Box pad="xsmall" flex={false} {...rest}>
-      <Nav
-        a11yTitle="Primary"
-        align="center"
-        background={surfaceBackground}
-        fill="vertical"
-        gap="4xsmall"
-        pad={{ vertical: '3xsmall' }}
-        round="large"
-        width="5xsmall"
-      >
-        <Button
-          icon={<Sidebar />}
-          a11yTitle="Expand navigation"
-          tip="Expand navigation"
-        />
-        {navigation.map(({ icon, label }) => (
-          <Button key={label} icon={icon} a11yTitle={label} tip={label} />
-        ))}
-      </Nav>
-    </Box>
-  );
-}
-
 export const DevicesCollection = () => {
   const size = useContext(ResponsiveContext);
   const [user, setUser] = useState<typeof defaultUser | undefined>(defaultUser);
@@ -162,7 +134,13 @@ export const DevicesCollection = () => {
           <Box gridArea="header">
             <GlobalHeader />
           </Box>
-          {showNav && <SideNav gridArea="nav" />}
+          {showNav && (
+            <NavigationMenu
+              items={navigation}
+              background={surfaceBackground}
+              gridArea="nav"
+            />
+          )}
           <Main gridArea="main">
             <Page pad={{ bottom: '3xlarge' }}>
               {/* PageHeader already pads below itself, so a medium gap is
