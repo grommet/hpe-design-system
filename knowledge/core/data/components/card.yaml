@@ -33,8 +33,10 @@ props:
     type: () => void
     required: false
     description:
-      Makes the card interactive. When provided, the card receives hover
-      and focus styles. Add role='button' and tabIndex={0} for full keyboard accessibility.
+      Makes the card interactive. Grommet then makes the card focusable,
+      activates it on Enter and Space, and shows hover and focus styles, so do
+      not add tabIndex or focusIndicator. Add role='button', which Grommet
+      does not set.
   - name: gap
     type: "'none' | 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large'
       | 'xlarge'"
@@ -101,9 +103,9 @@ variants:
       triggers an action.
     when:
       Grid or list of items where each card leads to a detail view. Add role='button'
-      (or wrap in Anchor) and tabIndex={0} for keyboard access.
+      (or wrap in Anchor); Grommet handles focus and keyboard activation.
     example: |-
-      <Card onClick={() => navigate(`/items/${item.id}`)} role="button" tabIndex={0} focusIndicator>
+      <Card onClick={() => navigate(`/items/${item.id}`)} role="button">
         <CardBody><Text>{item.name}</Text></CardBody>
       </Card>
   - name: metric
@@ -170,7 +172,7 @@ behaviors:
 accessibility:
   keyboard:
     - key: Enter / Space
-      action: Activates the card when it has role='button' and an onClick handler
+      action: Activates the card when it has an onClick handler
     - key: Tab / Shift+Tab
       action:
         Moves focus to the card (clickable) or through interactive elements within
@@ -186,11 +188,6 @@ accessibility:
       condition:
         For clickable cards that lack a visible heading describing where clicking
         leads
-    - attribute: tabIndex
-      value: '0'
-      condition:
-        Required on clickable cards that are not natively focusable — ensures
-        keyboard reachability
   wcag:
     - criterion: 1.3.1 Info and Relationships
       status: pass
