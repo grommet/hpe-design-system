@@ -1,8 +1,7 @@
 id: main
 name: Main
 description:
-  Semantic landmark for the application's primary content. Page and its
-  PageContent must always be placed inside Main.
+  Semantic landmark for the application's primary content.
 importPath: grommet
 framework: react
 props:
