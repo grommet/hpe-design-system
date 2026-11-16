@@ -22,16 +22,16 @@ import {
   Storage,
   VirtualStorage,
 } from '@hpe-design/icons-grommet';
+import { NavigationMenu } from '@shared/aries-core';
 import type { User } from '../global-header';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { AppContainer } from '../page-layouts/components';
-import { SideNav } from '../side-nav';
 import {
   DiscoverServices,
   HealthOverview,
   WeekAtAGlance,
 } from './content';
-import { pageBackground, surfaceBackground } from './content/overview/data';
+import { pageBackground } from './content/overview/data';
 
 const navigation = [
   { label: 'Workloads', icon: <Cube /> },
@@ -85,9 +85,9 @@ export const OverviewDashboard = () => {
             <GlobalHeader />
           </Box>
           {showNav && (
-            <SideNav
+            <NavigationMenu
               items={navigation}
-              background={surfaceBackground}
+              background="background-front"
               gridArea="nav"
             />
           )}
