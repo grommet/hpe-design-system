@@ -4,7 +4,12 @@ import { execFileSync } from 'node:child_process';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadComponents, loadPatterns } from './data-loader.js';
+import {
+  loadComponents,
+  loadFoundations,
+  loadGlossary,
+  loadPatterns,
+} from './data-loader.js';
 import { digestContent } from './knowledge.js';
 import type { KnowledgeSnapshot } from './knowledge.js';
 
@@ -96,6 +101,8 @@ export function loadSourceKnowledge(
     components: loadComponents(options),
     patterns: loadPatterns(options),
     instructions: readInstructions(sourceRevision),
+    foundations: loadFoundations(options),
+    glossary: loadGlossary(options),
   };
   return {
     schemaVersion: 1,

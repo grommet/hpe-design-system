@@ -179,10 +179,11 @@ export function checkKnowledgeChangeset(options: {
 
   const authored = changed.filter(
     file =>
-      /^knowledge\/core\/data\/(components|patterns)\/[^/]+\.(json|ya?ml)$/.test(
+      /^knowledge\/core\/data\/(components|patterns|foundations)\/[^/]+\.(json|ya?ml)$/.test(
         file,
       ) ||
       file === 'knowledge/core/data/types.ts' ||
+      file === 'knowledge/core/data/glossary.yaml' ||
       selectedInstructions.has(file) ||
       file === 'LICENSE',
   );

@@ -56,6 +56,7 @@ try {
     'context-generator',
     'index',
     'knowledge',
+    'rules',
     'types',
     'vector-search',
   ];
@@ -157,6 +158,8 @@ require('node:module').syncBuiltinESMExports();
     assert.deepEqual(output.components, live.components);
     assert.deepEqual(output.patterns, live.patterns);
     assert.deepEqual(output.instructions, live.instructions);
+    assert.deepEqual(output.foundations, live.foundations);
+    assert.deepEqual(output.glossary, live.glossary);
     assert(!result.stdout.includes('\u001B['));
     assert(!result.stdout.includes(repoRoot));
     assert(!result.stdout.includes('CONSUMER_INSTRUCTIONS_MUST_NOT_BE_READ'));
@@ -192,6 +195,13 @@ const prompt = generateSystemPrompt('Build a login form', 'vue');
 assert(prompt.includes('not yet fully validated'));
 assert(!prompt.includes(String.fromCharCode(27) + '['));
 assert(!prompt.includes('\`\`\`tsx'));
+assert(prompt.includes('### Foundation Rules'));
+const withoutRules = generateSystemPrompt(
+  'Build a login form', 'react', 'none',
+);
+assert(!withoutRules.includes('### Foundation Rules'));
+const fullRules = generateSystemPrompt('Build a login form', 'react', 'full');
+assert(fullRules.includes('****Rationale:****'));
 process.stdout.write('consumer checks passed\\n');
 `,
   );
@@ -219,6 +229,18 @@ process.stdout.write('consumer checks passed\\n');
   const text = node(cli, 'Build a login form');
   assert.equal(text.status, 0, text.stderr);
   assert(text.stdout.includes('Login Form'));
+  assert(text.stdout.includes('### Foundation Rules'));
+  const checklist = node(cli, '--checklist');
+  assert.equal(checklist.status, 0, checklist.stderr);
+  assert(checklist.stdout.includes('[color-names-its-target]'));
+  assert(!checklist.stdout.includes('http'));
+  const rule = node(cli, '--rule', 'color-names-its-target');
+  assert.equal(rule.status, 0, rule.stderr);
+  assert(rule.stdout.includes('****Rationale:****'));
+  assert(rule.stdout.includes('The part of the UI a color token'));
+  const noRules = node(cli, 'Build a login form', '--rules', 'none');
+  assert.equal(noRules.status, 0, noRules.stderr);
+  assert(!noRules.stdout.includes('### Foundation Rules'));
   const invalid = node(cli, '  ', '--json');
   assert.equal(invalid.status, 1);
   assert(invalid.stderr.includes('non-empty'));
@@ -231,10 +253,13 @@ process.stdout.write('consumer checks passed\\n');
 import {
   searchDesignSystem, generateSystemPrompt,
   type QueryResult, type ComponentDefinition,
+  type RuleDetail,
 } from '@hpe-design/knowledge-agent';
 const result: QueryResult = searchDesignSystem('Build a login form');
 const components: ComponentDefinition[] = result.components;
 const prompt: string = generateSystemPrompt(components[0].name, 'react');
+const detail: RuleDetail = 'full';
+generateSystemPrompt(components[0].name, 'react', detail);
 void prompt;
 `,
   );

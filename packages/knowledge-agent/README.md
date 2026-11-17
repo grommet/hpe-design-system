@@ -1,8 +1,8 @@
 # @hpe-design/knowledge-agent
 
 Offline HPE Design System context for React/Grommet projects. Query component
-and pattern definitions, examples, templates, and selected implementation
-standards through a CLI or typed ESM library.
+and pattern definitions, foundation rules, glossary terms, examples, templates,
+and selected implementation standards through a CLI or typed ESM library.
 
 This is a context generator, not an LLM service or autonomous implementation
 agent. React/Grommet is the implementation source of truth. Other framework
@@ -57,6 +57,8 @@ In the consumer project, install that tarball as a pinned dependency:
 npm install /absolute/path/knowledge-agent.tgz
 npx --no-install hpe-design-agent "Build a login form"
 npx --no-install hpe-design-agent "Create an app shell" --json
+npx --no-install hpe-design-agent --checklist
+npx --no-install hpe-design-agent --rule color-names-its-target
 ```
 
 Installation may require network access for dependencies. Queries require no
@@ -87,14 +89,26 @@ Both functions default to `react`. Accepted framework targets are `react`,
 `vue`, `angular`, `web-components`, and `agnostic`.
 
 `searchDesignSystem` returns resolved components, patterns, selected
-instructions, logical source IDs, query/framework status, diagnostics, and
+instructions, foundation rules, glossary terms, logical source IDs,
+query/framework status, diagnostics, and
 version metadata. `--json` emits the same response shape. A non-React result
 includes `frameworkStatus: "conceptual"` and a framework diagnostic; its raw
 definitions still describe the React/Grommet source, not a port to that target.
 
 `generateSystemPrompt` formats the shared retrieval result as ANSI-free text.
+Its optional third argument selects foundation-rule detail: `checklist`
+(default), `full`, or `none`. The CLI provides the same text control through
+`--rules <detail>`. Structured JSON results always include foundations and
+glossary data; `--rules` changes text formatting only.
+
 Non-React context omits React import claims and TSX pattern templates.
 Importing the library does not parse arguments, print output, or exit.
+
+Use `--checklist` for all foundation rules or `--rule <id>` for one rule with
+rationale, examples, and related glossary terms. Both work without a query;
+`--checklist` also accepts a query but prints only the checklist. These two
+commands are mutually exclusive and text-only; combining either with `--json`
+fails explicitly without JSON stdout.
 
 | Condition                                       | Behavior                                                                          |
 | ----------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -125,17 +139,24 @@ Query live sources, including unbuilt edits:
 ```sh
 pnpm --filter @hpe-design/knowledge-agent generate -- "Build a login form"
 pnpm --filter @hpe-design/knowledge-agent generate -- "Create an app shell" --json
+pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --framework react
+pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --rules none
+pnpm --filter @hpe-design/knowledge-agent generate -- --rule color-names-its-target
+pnpm --filter @hpe-design/knowledge-agent generate -- --checklist
 ```
 
 This path reports `mode: "source"`. The installed bin instead requires a build
 and always uses its bundled snapshot. Neither mode silently falls back to the
 other. Missing snippets retain warning/placeholder behavior for live authoring,
-but fail a strict package build.
+but fail a strict package build. Builders and validators can use `--checklist`
+for a lean constraint list and fetch individual rules by ID when explaining
+or reporting a failure. Rules are not relevance-filtered by the query.
 
 The canonical contract remains `knowledge/core/data/types.ts`; package
 declarations are generated from it, not separately maintained. A build validates
 source schemas, resolves snippets/templates, checks resolved snapshot schemas,
-and bundles four explicitly selected canonical standards. Authoring aids,
+and bundles foundation/glossary data plus four explicitly selected canonical
+standards. Authoring aids,
 capability agents, prompts, skills, archive content, and token packages are not
 included.
 

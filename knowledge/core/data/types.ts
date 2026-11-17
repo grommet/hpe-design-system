@@ -266,6 +266,70 @@ export interface DesignSystemSchema {
   tokens: DesignTokens;
   components: ComponentDefinition[];
   patterns: PatternDefinition[];
+  foundations: FoundationDefinition[];
+  glossary: GlossaryTerm[];
+}
+
+/** Knowledge categories that internal references resolve by id. */
+export type InternalKnowledgeRefKind =
+  'glossary' | 'rule' | 'component' | 'pattern';
+
+/** Reference to design system knowledge by its id. */
+export interface InternalKnowledgeRef {
+  /** The category of the referenced knowledge. */
+  kind: InternalKnowledgeRefKind;
+
+  /** ID of the referenced knowledge within the design system. */
+  id: string;
+}
+
+/** Reference to an external standard or resource. */
+export interface ExternalKnowledgeRef {
+  kind: 'external';
+
+  /** Human-readable title, rendered as the link text. */
+  label: string;
+
+  /** URL of the external resource. */
+  url: string;
+}
+
+/**
+ * Cross-reference from a rule to related knowledge.
+ * Internal references require id; external references require label and url.
+ */
+export type KnowledgeRef = InternalKnowledgeRef | ExternalKnowledgeRef;
+
+export interface Rule {
+  /** Stable descriptive identifier for the rule. */
+  id: string;
+
+  /** The rule stated plainly as an instruction. */
+  statement: string;
+
+  /** The specific reason this rule exists instead of its opposite. */
+  rationale: string;
+
+  /** Optional illustrative code example. */
+  example?: ComponentExample;
+
+  /** Optional references to related knowledge or external standards. */
+  relatedTo?: KnowledgeRef[];
+}
+
+export interface FoundationDefinition {
+  id: string;
+  name: string;
+  description: string;
+  rules: Rule[];
+}
+
+export interface GlossaryTerm {
+  id: string;
+  term: string;
+  definition: string;
+  usage?: string;
+  confusedWith?: string[];
 }
 
 export type ComponentDefinitionSource = Omit<

@@ -34,7 +34,7 @@ New AI workflow contributors should begin with the
 ## Core
 
 - `agents/`:
-- `data/`: structured data defining HPE Design System components and patterns
+- `data/`: structured components, patterns, foundation rules, and glossary terms
 - `instructions/`:
 - `prompts/`:
 - `skills/`:
@@ -46,6 +46,9 @@ implementation queries. Query live authoring sources with
 The package also builds a self-contained snapshot for its compiled CLI and
 typed library. Registry publication remains gated; see its README for local
 tarball consumption and packed-consumer validation.
+It also renders the foundation rules as a checklist (`--checklist`) or one rule
+in full (`--rule <id>`); see the
+[foundation-rules skill](core/skills/foundation-rules/SKILL.md).
 
 ## Capability Index
 

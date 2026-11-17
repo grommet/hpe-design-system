@@ -18,8 +18,9 @@ The first external release will provide one self-contained
 
 - The existing `hpe-design-agent` CLI.
 - An ESM library with TypeScript declarations.
-- A versioned snapshot of component, pattern, and selected implementation
-  guidance, including resolved examples and templates.
+- A versioned snapshot of components, patterns, foundation rules, glossary
+  terms, and selected implementation guidance, including resolved examples
+  and templates.
 - Offline query execution after installation, without an LLM, account,
   application framework dependency, or runtime download.
 
@@ -39,14 +40,16 @@ passes.
 Keep authored knowledge and types in their existing authoritative locations.
 Generated package assets must not become a second manually maintained source.
 
-The initial source inventory contains 62 component definitions and seven
-patterns. These counts describe the starting inventory, not permanent build
-constants.
+The source inventory contains 61 component definitions, eight patterns, four
+foundations, and a glossary. These counts describe the current inventory, not
+permanent build constants.
 
 | Input                                                                                  | Treatment                                                                                               |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | [Component definitions](../../knowledge/core/data/components/)                         | Include loader-consumed YAML/JSON definitions after schema validation                                   |
 | [Pattern definitions](../../knowledge/core/data/patterns/)                             | Include loader-consumed YAML/JSON definitions after schema validation                                   |
+| [Foundation rules](../../knowledge/core/data/foundations/)                             | Include canonical rule definitions for checklist and full-detail projections                            |
+| [Glossary](../../knowledge/core/data/glossary.yaml)                                    | Include canonical terms used by full rule projections                                                   |
 | [Examples and templates](../../knowledge/core/data/examples/)                          | Resolve files referenced by included definitions; do not copy unrelated example trees                   |
 | [Canonical types](../../knowledge/core/data/types.ts)                                  | Generate package-local declarations from the shared contract; do not maintain copied source definitions |
 | Four standards instructions listed below                                               | Candidate inclusion set; resolve portability findings before release approval                           |
@@ -76,7 +79,7 @@ instruction files merely because they appear in either directory.
   recorded source revision. Missing targets fail loading/building.
 - The navigation pattern now references its actual canonical examples instead
   of the nonexistent `examples/NavigationMenu/` location.
-- All seven patterns' snippets/templates resolve at build time. Missing files
+- All included patterns' snippets/templates resolve at build time. Missing files
   fail candidate creation; live authoring retains its warning behavior.
 
 An allowlist is a technical selection boundary, not a confidentiality or
@@ -127,18 +130,19 @@ Do not expose implementation modules as accidental public subpaths.
 
 Structured results must contain:
 
-| Field                    | Contract                                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------------------- |
-| `schemaVersion`          | Response schema version, initially `1`                                                      |
-| `packageVersion`         | Installed code version                                                                      |
-| `knowledge`              | Snapshot version, content digest, logical source revision, and explicit source/bundled mode |
-| `query`, `framework`     | Original query and effective framework target                                               |
-| `status`                 | `matched` or `no-match`; never an installation-error fallback                               |
-| `frameworkStatus`        | `react-grommet` or `conceptual`; does not assert universal implementation validation        |
-| `components`, `patterns` | Resolved canonical definitions selected by the shared retrieval logic                       |
-| `instructions`           | Selected instruction content with logical source identifiers                                |
-| `sources`                | Stable provenance for returned definitions and instructions                                 |
-| `diagnostics`            | Explicit framework caveats and other nonfatal notices                                       |
+| Field                     | Contract                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------- |
+| `schemaVersion`           | Response schema version, initially `1`                                                      |
+| `packageVersion`          | Installed code version                                                                      |
+| `knowledge`               | Snapshot version, content digest, logical source revision, and explicit source/bundled mode |
+| `query`, `framework`      | Original query and effective framework target                                               |
+| `status`                  | `matched` or `no-match`; never an installation-error fallback                               |
+| `frameworkStatus`         | `react-grommet` or `conceptual`; does not assert universal implementation validation        |
+| `components`, `patterns`  | Resolved canonical definitions selected by the shared retrieval logic                       |
+| `instructions`            | Selected instruction content with logical source identifiers                                |
+| `foundations`, `glossary` | Canonical foundation rules and glossary terms, independent of query matching                |
+| `sources`                 | Stable provenance for returned definitions and instructions                                 |
+| `diagnostics`             | Explicit framework caveats and other nonfatal notices                                       |
 
 Keep existing matching/ranking and related-definition expansion. Retrieval
 algorithm changes require separate evidence; portability is not a reason to
@@ -147,6 +151,13 @@ change recommendations.
 Add CLI `--json` as an adapter over the same result. Machine-readable output and
 library context strings must contain no ANSI escapes or local absolute paths.
 Terminal-only presentation belongs in the CLI.
+
+Foundation rules are appended as a checklist by default. The optional third
+argument to `generateSystemPrompt` and CLI `--rules` select `checklist`, `full`,
+or `none` for text formatting; structured results retain the canonical data.
+The installed and source CLIs both support standalone `--checklist` and
+`--rule <id>` text commands. These are mutually exclusive and cannot be combined
+with `--json`.
 
 | Condition                                      | Library behavior                                      | CLI behavior                                                        |
 | ---------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------- |
@@ -186,8 +197,8 @@ enforces these rules across package and canonical-source paths using
 `pnpm validate:knowledge-changeset --base=origin/master --head=HEAD`.
 The guard compares committed merge-base/head inputs, not dirty edits:
 
-- Canonical component/pattern definitions, shared types, selected standards,
-  and the root license require a release entry.
+- Canonical component/pattern/foundation definitions, glossary terms, shared
+  types, selected standards, and the root license require a release entry.
 - Potentially published runtime, build, snippet, and root dependency-graph
   changes trigger isolated frozen-install builds when no entry is present.
   Published manifest metadata differences require an entry directly.

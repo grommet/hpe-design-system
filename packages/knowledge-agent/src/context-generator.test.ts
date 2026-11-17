@@ -4,13 +4,15 @@ import { describe, expect, it } from 'vitest';
 import { formatContext, searchKnowledge } from './context-generator';
 import { loadSourceKnowledge } from './source-knowledge';
 import type { FrameworkTarget } from './types';
+import type { RuleDetail } from './rules';
 
 const search = (query: string, framework: FrameworkTarget = 'react') =>
   searchKnowledge(loadSourceKnowledge(), 'source', query, framework);
 const generateSystemPrompt = (
   query: string,
   framework: FrameworkTarget = 'react',
-) => formatContext(search(query, framework));
+  ruleDetail: RuleDetail | 'none' = 'checklist',
+) => formatContext(search(query, framework), ruleDetail);
 
 describe('knowledge-agent context generator', () => {
   it('surfaces a login form pattern for authentication queries', () => {
@@ -18,6 +20,49 @@ describe('knowledge-agent context generator', () => {
 
     expect(prompt).toContain('Login Form');
     expect(prompt).toMatch(/login-form|Login Form/i);
+    expect(prompt).toContain('### Foundation Rules');
+    expect(prompt).toContain('color-names-its-target');
+    expect(prompt).not.toContain('### Foundational Rules');
+    expect(prompt).not.toContain('### Glossary');
+  });
+
+  it('can omit foundation rules from the prompt', () => {
+    const prompt = generateSystemPrompt('Build a login form', 'react', 'none');
+
+    expect(prompt).not.toContain('### Foundation Rules');
+  });
+
+  it('renders foundation rules after components and patterns', () => {
+    const prompt = generateSystemPrompt('Build a login form');
+    const rulesIndex = prompt.indexOf('### Foundation Rules');
+
+    expect(prompt.indexOf('### Available Components')).toBeGreaterThan(-1);
+    expect(prompt.indexOf('### Recommended Patterns')).toBeGreaterThan(-1);
+    expect(rulesIndex).toBeGreaterThan(
+      prompt.indexOf('### Available Components'),
+    );
+    expect(rulesIndex).toBeGreaterThan(
+      prompt.indexOf('### Recommended Patterns'),
+    );
+  });
+
+  it('exposes foundation and glossary data in structured results', () => {
+    const result = search('Build a login form');
+    expect(
+      result.foundations.flatMap(foundation =>
+        foundation.rules.map(rule => rule.id),
+      ),
+    ).toContain('color-names-its-target');
+    expect(result.glossary.map(term => term.id)).toContain('color-target');
+    expect(result.sources).toContainEqual({
+      type: 'foundation',
+      id: 'knowledge:foundation/color',
+    });
+    expect(result.sources).toContainEqual({
+      type: 'glossary',
+      id: 'knowledge:glossary/color-target',
+    });
+    expect(formatContext(result, 'full')).toContain('****Rationale:****');
   });
 
   it('includes relevant instructions for layout queries', () => {

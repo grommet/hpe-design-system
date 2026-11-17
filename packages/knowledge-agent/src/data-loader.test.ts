@@ -3,7 +3,12 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { loadComponents, loadPatterns } from './data-loader';
+import {
+  loadComponents,
+  loadFoundations,
+  loadGlossary,
+  loadPatterns,
+} from './data-loader';
 import type {
   ComponentDefinitionSource,
   ComponentExampleSource,
@@ -147,5 +152,18 @@ describe('knowledge data loader', () => {
     expect(() => loadComponents({ strict: true })).toThrow(
       'Required components directory',
     );
+  });
+
+  it('requires foundation and glossary sources in strict builds', () => {
+    expect(() => loadFoundations({ strict: true })).toThrow(
+      'Required foundations directory',
+    );
+    expect(() => loadGlossary({ strict: true })).toThrow(
+      'Required glossary file',
+    );
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(loadFoundations()).toEqual([]);
+    expect(loadGlossary()).toEqual([]);
+    expect(warn).toHaveBeenCalledTimes(2);
   });
 });

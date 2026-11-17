@@ -84,6 +84,8 @@ describe('knowledge-agent Changeset guard', () => {
     'knowledge/core/data/components/button.yaml',
     'knowledge/core/data/patterns/login-form.yaml',
     'knowledge/core/data/types.ts',
+    'knowledge/core/data/foundations/color.yaml',
+    'knowledge/core/data/glossary.yaml',
     'knowledge/core/instructions/standards/grommet-layouts.instructions.md',
   ])('does not accept an unchanged Changeset for %s', file => {
     const repo = repository();
@@ -135,6 +137,8 @@ describe('knowledge-agent Changeset guard', () => {
       const content = {
         components: [],
         patterns: [],
+        foundations: [],
+        glossary: [],
         instructions: [
           {
             id: 'layout',
@@ -214,7 +218,10 @@ const cp = require('node:child_process');
 const crypto = require('node:crypto');
 const revision = cp.execFileSync('git', ['rev-parse', 'HEAD'])
   .toString().trim();
-const content = { components: [], patterns: [], instructions: [] };
+const content = {
+  components: [], patterns: [], instructions: [],
+  foundations: [], glossary: [],
+};
 fs.mkdirSync('dist', { recursive: true });
 fs.writeFileSync('dist/knowledge.json', JSON.stringify({
   schemaVersion: 1, packageVersion: '0.1.0', sourceRevision: revision,

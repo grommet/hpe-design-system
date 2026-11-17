@@ -3,7 +3,9 @@
 import { createHash } from 'node:crypto';
 import type {
   ComponentDefinition,
+  FoundationDefinition,
   FrameworkTarget,
+  GlossaryTerm,
   PatternDefinition,
 } from './types.js';
 
@@ -18,6 +20,8 @@ export interface KnowledgeContent {
   components: ComponentDefinition[];
   patterns: PatternDefinition[];
   instructions: Instruction[];
+  foundations: FoundationDefinition[];
+  glossary: GlossaryTerm[];
 }
 
 export interface KnowledgeSnapshot {
@@ -47,7 +51,12 @@ export interface QueryResult {
   components: ComponentDefinition[];
   patterns: PatternDefinition[];
   instructions: Instruction[];
-  sources: { id: string; type: 'component' | 'pattern' | 'instruction' }[];
+  foundations: FoundationDefinition[];
+  glossary: GlossaryTerm[];
+  sources: {
+    id: string;
+    type: 'component' | 'pattern' | 'instruction' | 'foundation' | 'glossary';
+  }[];
   diagnostics: { code: 'conceptual-framework'; message: string }[];
 }
 

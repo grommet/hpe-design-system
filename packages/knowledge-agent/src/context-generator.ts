@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { buildSearchEntities, querySearchEntities } from './vector-search.js';
+import { renderRules, type RuleDetail } from './rules.js';
 import type {
   Instruction,
   KnowledgeSnapshot,
@@ -204,6 +205,8 @@ export function searchKnowledge(
     components: relevantComponents,
     patterns: relevantPatterns,
     instructions: relevantInstructions,
+    foundations: ds.foundations,
+    glossary: ds.glossary,
     sources: [
       ...relevantComponents.map(component => ({
         id: `knowledge:component/${component.id}`,
@@ -216,6 +219,14 @@ export function searchKnowledge(
       ...relevantInstructions.map(instruction => ({
         id: instruction.id,
         type: 'instruction' as const,
+      })),
+      ...ds.foundations.map(foundation => ({
+        id: `knowledge:foundation/${foundation.id}`,
+        type: 'foundation' as const,
+      })),
+      ...ds.glossary.map(term => ({
+        id: `knowledge:glossary/${term.id}`,
+        type: 'glossary' as const,
       })),
     ],
     diagnostics:
@@ -230,7 +241,10 @@ export function searchKnowledge(
   };
 }
 
-export function formatContext(result: QueryResult): string {
+export function formatContext(
+  result: QueryResult,
+  ruleDetail: RuleDetail | 'none' = 'checklist',
+): string {
   const {
     query: userQuery,
     framework: targetFramework,
@@ -309,7 +323,20 @@ export function formatContext(result: QueryResult): string {
         prompt += `- Template guidance: a framework-specific implementation template is not yet validated for ${targetFramework}; treat the pattern structure as conceptual guidance only.\n`;
       }
     });
+    prompt += '\n';
   }
+
+  if (ruleDetail !== 'none') {
+    prompt += '### Foundation Rules\n\n';
+    if (ruleDetail === 'checklist') {
+      prompt +=
+        'Treat each statement as a constraint on the build. If you need the reason behind a rule, request it by id.\n\n';
+    } else {
+      prompt += 'Here are the foundation rules in full detail.\n\n';
+    }
+    prompt += `${renderRules(result.foundations, ruleDetail, result.glossary)}\n\n`;
+  }
+
   /* eslint-enable max-len */
 
   return prompt;

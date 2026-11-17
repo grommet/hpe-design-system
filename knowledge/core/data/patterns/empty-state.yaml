@@ -1,0 +1,134 @@
+id: empty-state
+name: Empty State
+aliases:
+  - no data
+  - no results
+  - zero state
+  - blank slate
+  - nothing to show
+  - empty list
+  - empty table
+description: Message shown in place of content when a page, list, table, card, or layer has nothing to display, telling the user what is missing, why, and what to do next.
+problem: A view has no data to show, because nothing exists yet, an action returned no results, a task left nothing further to do, or an error prevented the data from loading. The user needs to know why and how to move forward.
+solution: Grommet does not export an EmptyState component. Compose one from a Box (gap medium) holding an optional xlarge icon, a nested Box (gap 3xsmall) with a Heading and a Paragraph, and optional actions. Align it to center, or to start in left-aligned layouts.
+relatedComponents:
+  - box
+  - heading
+  - text
+  - button
+  - anchor
+  - skeleton
+  - spinner
+  - notification
+anatomy:
+  - label: '1'
+    region: Icon
+    purpose: Imagery that helps the user process the message.
+    availability: optional
+    notes: Use size="xlarge".
+  - label: '2'
+    region: Heading
+    purpose: Communicates the system status.
+    availability: required
+    notes: Use the semantic heading level that fits where the empty state is placed.
+  - label: '3'
+    region: Description
+    purpose: Guides the user out of the empty state.
+    availability: optional
+    notes: Use the default text size.
+  - label: '4'
+    region: Action
+    purpose: A direct pathway out of the empty state.
+    availability: optional
+    notes: Usually a single button; add a supporting button only when the use case warrants it. Limit to two.
+  - label: '5'
+    region: Link
+    purpose: An additional learning cue that helps the user out of the empty state.
+    availability: optional
+    notes: Usually a single link. Limit to two.
+usage:
+  whenToUse:
+    - Use when nothing exists yet, such as a user's first visit to a list or table.
+    - Use when a user's action returns nothing, such as a search or filter with no results, or leaves nothing further to do, such as clearing all notifications.
+    - Use when an error prevents data from loading. Use the StatusWarning icon with icon-warning, and say how to resolve the problem without blaming the user.
+    - Say what is missing, why it is missing, and what the user can do next.
+    - Give a direct way out wherever one exists, such as a primary Button that creates the first item.
+    - Place it where the data would appear. Center it in the available space, or align it to the top left in left-aligned layouts.
+    - Pair it with an inline Notification when the user's own action caused the error.
+  whenToAvoid:
+    - Do not import EmptyState from grommet; it is not a Grommet component.
+    - Do not show an empty state while content is loading; use Skeleton or Spinner.
+    - Do not use generic copy such as "Nothing here" without explaining why and what to do next.
+    - Do not lead the user to a dead end when there is a way to populate the view.
+    - Do not use more than two buttons or more than two links.
+examples:
+  - description: Empty state composition with no-data, no-results, and error examples
+    codeFile: knowledge/core/data/examples/empty-state/template.tsx
+templateCodeFile: knowledge/core/data/examples/empty-state/template.tsx
+graph:
+  rootId: empty-state
+  nodes:
+    - id: empty-state
+      componentId: box
+      role: empty state container
+      props:
+        gap: medium
+        align: center
+        flex: false
+      children: [icon, message, actions]
+      binding: static
+      notes: Use align="start" in left-aligned layouts, and pass the same value to the message Box and the description's textAlign.
+    - id: icon
+      componentId: box
+      role: optional icon
+      props: {}
+      children: []
+      binding: slot
+      notes: An icon from @hpe-design/icons-grommet at size="xlarge", marked aria-hidden because the heading carries the meaning.
+    - id: message
+      componentId: box
+      role: heading and description group
+      props:
+        align: center
+        gap: 3xsmall
+      children: [title, description]
+      binding: static
+    - id: title
+      componentId: heading
+      role: empty state heading
+      props:
+        margin: none
+      children: []
+      binding: static
+      notes: Required. Set level from the heading hierarchy where the empty state is placed.
+    - id: description
+      componentId: text
+      role: description (Paragraph)
+      props:
+        margin: none
+        textAlign: center
+      children: []
+      binding: slot
+      notes: Render with Paragraph rather than Text, so the theme's maxWidth constrains the line length.
+    - id: actions
+      componentId: box
+      role: optional actions
+      props:
+        align: center
+        gap: xsmall
+      children: [primary-action, link]
+      binding: slot
+      notes: Needed only when a button and a link are both present; a single Button can be passed directly.
+    - id: primary-action
+      componentId: button
+      role: primary action
+      props:
+        primary: true
+      children: []
+      binding: slot
+    - id: link
+      componentId: anchor
+      role: learning link
+      props: {}
+      children: []
+      binding: slot

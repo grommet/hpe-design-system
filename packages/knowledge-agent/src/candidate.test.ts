@@ -18,7 +18,13 @@ afterEach(() => {
     );
 });
 function snapshot(): KnowledgeSnapshot {
-  const content = { components: [], patterns: [], instructions: [] };
+  const content = {
+    components: [],
+    patterns: [],
+    instructions: [],
+    foundations: [],
+    glossary: [],
+  };
   return {
     schemaVersion: 1,
     packageVersion: '0.2.0',

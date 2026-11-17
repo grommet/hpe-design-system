@@ -3,9 +3,11 @@
 import { loadBundledKnowledge } from './bundled-knowledge.js';
 import { formatContext, searchKnowledge } from './context-generator.js';
 import type { FrameworkTarget } from './types.js';
+import type { RuleDetail } from './rules.js';
 
 export type * from './types.js';
 export type { QueryResult } from './knowledge.js';
+export type { RuleDetail } from './rules.js';
 
 export function searchDesignSystem(
   query: string,
@@ -17,6 +19,7 @@ export function searchDesignSystem(
 export function generateSystemPrompt(
   query: string,
   framework: FrameworkTarget = 'react',
+  ruleDetail: RuleDetail | 'none' = 'checklist',
 ): string {
-  return formatContext(searchDesignSystem(query, framework));
+  return formatContext(searchDesignSystem(query, framework), ruleDetail);
 }

@@ -9,6 +9,8 @@ import type {
   ComponentDefinitionSource,
   ComponentExample,
   ComponentExampleSource,
+  FoundationDefinition,
+  GlossaryTerm,
   PatternDefinition,
   PatternDefinitionSource,
 } from './types.js';
@@ -31,6 +33,20 @@ const PATTERNS_DIR = path.join(
   'core',
   'data',
   'patterns',
+);
+const FOUNDATIONS_DIR = path.join(
+  ROOT_DIR,
+  'knowledge',
+  'core',
+  'data',
+  'foundations',
+);
+const GLOSSARY_FILE = path.join(
+  ROOT_DIR,
+  'knowledge',
+  'core',
+  'data',
+  'glossary.yaml',
 );
 
 interface LoadOptions {
@@ -135,4 +151,25 @@ export function loadPatterns(options: LoadOptions = {}): PatternDefinition[] {
     options,
   );
   return raw.map(pattern => resolvePatternFiles(pattern, options));
+}
+
+export function loadFoundations(
+  options: LoadOptions = {},
+): FoundationDefinition[] {
+  return loadYamlOrJsonFiles<FoundationDefinition>(
+    FOUNDATIONS_DIR,
+    'foundations',
+    options,
+  );
+}
+
+export function loadGlossary(options: LoadOptions = {}): GlossaryTerm[] {
+  if (!fs.existsSync(GLOSSARY_FILE)) {
+    if (options.strict) throw new Error('Required glossary file not found');
+    console.warn(`⚠️  glossary file not found: ${GLOSSARY_FILE}`);
+    return [];
+  }
+
+  const content = fs.readFileSync(GLOSSARY_FILE, 'utf-8');
+  return yaml.parse(content) as GlossaryTerm[];
 }

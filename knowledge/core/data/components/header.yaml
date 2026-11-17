@@ -46,17 +46,34 @@ examples:
       \ gap=\"xsmall\">\n    <Button icon={<User />} tip=\"Account\" />\n  </Box>\n\
       </Header>"
   - description: Responsive header with hamburger menu on small screens
-    code:
-      "import { useContext } from 'react';\nimport { ResponsiveContext } from 'grommet';\n\
-      \nfunction AppHeader() {\n  const size = useContext(ResponsiveContext);\n  const\
-      \ isSmall = size === 'small' || size === 'xsmall';\n  return (\n    <Header pad={{\
-      \ horizontal: 'medium', vertical: 'small' }} background=\"background-front\" border=\"\
-      bottom\">\n      <Button plain label={<Text weight=\"bold\">HPE App</Text>} />\n\
-      \      {isSmall ? (\n        <Menu icon={<Menu />} items={navItems} dropAlign={{\
-      \ top: 'bottom', right: 'right' }} />\n      ) : (\n        <Nav direction=\"\
-      row\" gap=\"small\">\n          {navItems.map(item => <Anchor key={item.id} label={item.label}\
-      \ onClick={() => setPage(item.id)} />)}\n        </Nav>\n      )}\n      <Button\
-      \ icon={<User />} tip=\"Account\" />\n    </Header>\n  );\n}"
+    code: |-
+      import { useContext } from 'react';
+      import { Anchor, Button, Header, Menu, Nav, ResponsiveContext, Text } from 'grommet';
+      // The Menu icon shares its name with the Menu component, so alias the icon.
+      import { Menu as MenuIcon, User } from '@hpe-design/icons-grommet';
+
+      function AppHeader() {
+        const size = useContext(ResponsiveContext);
+        const isSmall = size === 'small' || size === 'xsmall';
+        return (
+          <Header pad={{ horizontal: 'medium', vertical: 'small' }} background="background-front" border="bottom">
+            <Button plain label={<Text weight="bold">HPE App</Text>} />
+            {isSmall ? (
+              <Menu
+                icon={<MenuIcon aria-hidden="true" />}
+                a11yTitle="Open navigation"
+                items={navItems}
+                dropAlign={{ top: 'bottom', right: 'right' }}
+              />
+            ) : (
+              <Nav direction="row" gap="small">
+                {navItems.map(item => <Anchor key={item.id} label={item.label} onClick={() => setPage(item.id)} />)}
+              </Nav>
+            )}
+            <Button icon={<User aria-hidden="true" />} a11yTitle="Account" tip="Account" />
+          </Header>
+        );
+      }
 variants:
   - name: brand-utility
     description:
@@ -86,9 +103,15 @@ variants:
     when:
       Any app that includes inline navigation items in the header and must support
       mobile viewports.
-    example: 'const isSmall = useContext(ResponsiveContext) === ''small'';
+    example: |-
+      import { Menu as MenuIcon } from '@hpe-design/icons-grommet';
+      const isSmall = useContext(ResponsiveContext) === 'small';
 
-      {isSmall ? <Menu icon={<Menu />} items={navItems} /> : <Nav direction="row">{...}</Nav>}'
+      {isSmall ? (
+        <Menu icon={<MenuIcon aria-hidden="true" />} a11yTitle="Open navigation" items={navItems} />
+      ) : (
+        <Nav direction="row">{...}</Nav>
+      )}
 anatomy:
   - label: '1'
     region: Brand zone
