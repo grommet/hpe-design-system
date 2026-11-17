@@ -12,7 +12,9 @@ props:
   - name: values
     type: '{ value: number, color?: string, label?: string }[]'
     required: true
-    description: Array of values to display (0-100)
+    description:
+      Values to display (0-100). Omit color to preserve the theme's configured
+      meter color; set it only for intentional semantic or categorical encoding.
   - name: size
     type: "'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'full'"
     required: false
@@ -35,32 +37,47 @@ props:
 usage:
   whenToUse:
     - Use for progress indicators and metrics.
-    - Use semantic color tokens in values array.
+    - For a single quantitative value without color meaning, omit values[].color to preserve the HPE theme's dataVis-categorical-10 default.
+    - Set values[].color only for intentional semantic or categorical encoding.
+    - Use foreground-* when a fill needs to communicate a semantic role, and dataVis-* for categories.
     - Use type="bar" for horizontal progress.
     - Use type="circle" for radial progress.
   whenToAvoid:
     - Do not use for non-numeric data.
     - Avoid hardcoded hex colors.
     - Do not use values outside 0-100 range.
+    - Do not set color just to style an otherwise unencoded quantitative value.
 examples:
-  - description: Progress Bar
-    code:
-      "<Meter\n  type=\"bar\"\n  values={[{ value: 75, color: 'status-ok' }]}\n\
-      \  size=\"small\"\n/>"
-  - description: Multiple Values
-    code:
-      "<Meter\n  type=\"bar\"\n  values={[\n    { value: 30, color: 'status-ok',\
-      \ label: 'Complete' },\n    { value: 20, color: 'status-warning', label: 'In Progress'\
-      \ }\n  ]}\n/>"
+  - description: Progress Bar Using the Theme Default
+    code: |
+      <Meter
+        type="bar"
+        values={[{ value: 75 }]}
+        size="small"
+      />
+  - description: Progress with an Explicit Semantic Threshold
+    code: |
+      <Meter
+        type="bar"
+        values={[{ value: 85, color: 'foreground-warning', label: 'Near capacity' }]}
+        size="small"
+      />
+  - description: Categorical Breakdown
+    code: |
+      <Meter
+        type="pie"
+        values={[
+          { value: 60, color: 'dataVis-categorical-10', label: 'Used' },
+          { value: 40, color: 'dataVis-categorical-20', label: 'Available' }
+        ]}
+      />
 variants:
   - name: bar
     description: Horizontal bar showing one or more stacked value segments.
     when:
       Progress tracking, storage usage, or any linear metric. Most space-efficient
       variant.
-    example:
-      '<Meter type="bar" values={[{ value: 70, color: ''status-ok'' }]} size="small"
-      />'
+    example: '<Meter type="bar" values={[{ value: 70 }]} size="small" />'
   - name: circle
     description: Full circular (donut) chart showing one or more value arcs.
     when:
@@ -75,15 +92,15 @@ variants:
       Showing proportional composition of multiple categories (e.g., status breakdown
       across a fleet).
     example:
-      '<Meter type="pie" values={[{ value: 40, color: ''status-ok'' }, { value:
-      30, color: ''status-warning'' }, { value: 30, color: ''status-critical'' }]} />'
+      '<Meter type="pie" values={[{ value: 40, color: ''foreground-ok'' }, { value:
+      30, color: ''foreground-warning'' }, { value: 30, color: ''foreground-critical'' }]} />'
   - name: semicircle
     description: Half-circle gauge, useful when vertical space is constrained.
     when:
       Gauge-style displays such as CPU load or signal strength where a full circle
       would be too tall.
     example:
-      '<Meter type="semicircle" values={[{ value: 60, color: ''status-warning''
+      '<Meter type="semicircle" values={[{ value: 60, color: ''foreground-warning''
       }]} />'
 anatomy:
   - label: meter track

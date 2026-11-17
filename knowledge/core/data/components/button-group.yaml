@@ -42,13 +42,15 @@ variants:
       \ label=\"Cancel\" onClick={handleCancel} />\n</ButtonGroup>"
   - name: destructive
     description:
-      A destructive (critical color) primary button paired with a cancel
-      action.
+      A destructive primary button paired with a cancel action. The primary
+      button is styled like any other primary button; the confirmation dialog
+      and explicit label carry the severity, not a red colour.
     when: Confirming irreversible actions such as deletion or data wipe.
-    example:
-      "<ButtonGroup>\n  <Button\n    label=\"Delete server\"\n    color=\"status-critical\"\
-      \n    primary\n    onClick={handleDelete}\n  />\n  <Button label=\"Cancel\" onClick={handleCancel}\
-      \ />\n</ButtonGroup>"
+    example: |-
+      <ButtonGroup>
+        <Button label="Delete server" primary onClick={handleDelete} />
+        <Button label="Cancel" onClick={handleCancel} />
+      </ButtonGroup>
   - name: icon-actions
     description: Icon-only buttons grouped for compact toolbars.
     when: Dense UI toolbars or table row action cells with limited horizontal space.
@@ -96,8 +98,7 @@ examples:
       "<Layer>\n  <Box pad=\"medium\" gap=\"medium\" width=\"medium\">\n    <Heading\
       \ level={3} margin=\"none\">Delete server?</Heading>\n    <Text>This action cannot\
       \ be undone.</Text>\n    <Box direction=\"row\" justify=\"end\">\n      <ButtonGroup>\n\
-      \        <Button\n          label=\"Delete\"\n          primary\n          color=\"\
-      status-critical\"\n          onClick={handleDelete}\n        />\n        <Button\
+      \        <Button label=\"Delete\" primary onClick={handleDelete} />\n        <Button\
       \ label=\"Cancel\" onClick={onClose} />\n      </ButtonGroup>\n    </Box>\n  </Box>\n\
       </Layer>"
   - description: Table row actions

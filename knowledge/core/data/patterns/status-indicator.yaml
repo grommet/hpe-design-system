@@ -23,7 +23,7 @@ usage:
     - Use for compact, read-only health, outcome, or lifecycle status in tables, lists, and detail views.
     - Always render both the semantic icon and a visible text label so the status is understandable without color perception.
     - Map application-specific values such as success, warning, failed, and inactive to ok, warning, error, and info before rendering.
-    - Use status-ok, status-warning, status-critical, and text-weak only on their corresponding semantic icons.
+    - Colour only the icon, using the icon-* token for its role (icon-ok, icon-warning, icon-critical, icon-info). Never apply the target-less status-* aliases, and never put a text-* token on an icon.
     - Override the default label when the domain term is more precise, such as Active or Inactive for account lifecycle status.
     - Keep labels short and consistently cased, such as Success, Warning, and Failed.
   whenToAvoid:
@@ -54,7 +54,7 @@ graph:
       props: {}
       children: []
       binding: state
-      notes: Use StatusGood with status-ok, StatusWarning with status-warning, StatusCritical with status-critical, or StatusInfo with text-weak.
+      notes: Use StatusGood with icon-ok, StatusWarning with icon-warning, StatusCritical with icon-critical, or StatusInfo with icon-info. Mark the icon aria-hidden; the label carries the meaning.
     - id: status-label
       componentId: text
       role: visible status label

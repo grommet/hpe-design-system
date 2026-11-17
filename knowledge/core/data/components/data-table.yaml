@@ -77,14 +77,31 @@ examples:
       "<DataTable\n  columns={[\n    { property: 'name', header: 'Name', primary:\
       \ true },\n    { property: 'email', header: 'Email' },\n    { property: 'role',\
       \ header: 'Role' },\n  ]}\n  data={users}\n/>"
-  - description: Table with Custom Rendering
-    code:
-      "<DataTable\n  columns={[\n    { property: 'name', header: 'Name', primary:\
-      \ true },\n    { property: 'status', header: 'Status',\n      render: datum =>\
-      \ (\n        <Box pad={{ vertical: 'xxsmall', horizontal: 'small' }}\n       \
-      \   background={datum.status === 'active' ? 'status-ok' : 'status-unknown'}\n\
-      \          round=\"small\">\n          <Text size=\"small\">{datum.status}</Text>\n\
-      \        </Box>\n      )\n    },\n  ]}\n  data={users}\n  sortable\n/>"
+  - description: Table with Custom Rendering (status as icon + text)
+    code: |-
+      import { StatusGood, StatusUnknown } from '@hpe-design/icons-grommet';
+
+      <DataTable
+        columns={[
+          { property: 'name', header: 'Name', primary: true },
+          {
+            property: 'status',
+            header: 'Status',
+            render: datum => (
+              <Box direction="row" align="center" gap="xsmall">
+                {datum.status === 'active' ? (
+                  <StatusGood aria-hidden="true" color="icon-ok" />
+                ) : (
+                  <StatusUnknown aria-hidden="true" color="icon-unknown" />
+                )}
+                <Text>{datum.status}</Text>
+              </Box>
+            ),
+          },
+        ]}
+        data={users}
+        sortable
+      />
   - description: Paginated Table
     code:
       "<Data data={rows} properties={{ name: { label: 'Name' } }}>\n  <Toolbar>\n\

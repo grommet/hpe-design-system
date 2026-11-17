@@ -16,7 +16,7 @@
 
 - 525716f: Adds a new accent color palette and a new `color.foreground.info` color to the semantic colors, fixes the unselected CheckBox/RadioButton control border contrast, and aligns form-input hover styling.
 
-  - Added accent colors (`color.background.accent.{blue,purple,cyan}.{weak,strong}`, `color.border.accent.{blue,purple,cyan}.strong`) for use as functional, sparingly-applied brand accents. Hues carry no fixed semantic meaning. Background accent colors have been contrast-validated when paired with `color.{text,icon}.{default,strong,weak}` light and dark modes.
+  - Added accent colors (`color.background.accent.{blue,purple,cyan}.{weak,strong}`, `color.border.accent.{blue,purple,cyan}.strong`) for use as functional, sparingly-applied brand accents. Hues carry no fixed semantic meaning. Weak background accent colors have been contrast-validated when paired with `color.{text,icon}.{default,strong,weak}`, and strong background accent colors when paired with `color.{text,icon}.onStrong`, in light and dark modes.
 
   - Added `color.foreground.info` color for representing an informational status in foreground graphics such as `Meter` and progress bars. Completes the foreground status set (`color.foreground.critical`, `color.foreground.warning`, `color.foreground.ok`, `color.foreground.unknown`, `color.foreground.info`).
 

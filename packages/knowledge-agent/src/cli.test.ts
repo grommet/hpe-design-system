@@ -52,4 +52,94 @@ describe('knowledge-agent CLI', () => {
     expect(stripAnsi(result.stderr)).toContain(expectedMessage);
     expect(result.stdout).toContain('--framework <target>');
   });
+
+  it('rejects unsupported rules detail values', () => {
+    const result = spawnSync(
+      'pnpm',
+      [
+        'exec',
+        'tsx',
+        'src/cli.ts',
+        '--',
+        'Create a dashboard',
+        '--rules',
+        'bogus',
+      ],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain(
+      'Expected one of: checklist, full, none',
+    );
+  });
+
+  it('rejects unknown rule ids and lists valid ids', () => {
+    const result = spawnSync(
+      'pnpm',
+      ['exec', 'tsx', 'src/cli.ts', '--', '--rule', 'nope'],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain('Valid ids:');
+    expect(result.stderr).toContain('color-names-its-target');
+  });
+
+  it.each([
+    { label: 'without a query', queryArgs: [] },
+    {
+      label: 'with a query',
+      queryArgs: [
+        'device fleet page with summary cards, filterable table and detail drawer',
+      ],
+    },
+  ])('prints the foundation checklist $label', ({ queryArgs }) => {
+    const result = spawnSync(
+      'pnpm',
+      ['exec', 'tsx', 'src/cli.ts', '--', ...queryArgs, '--checklist'],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(0);
+    expect(result.stdout).toMatch(/^### Foundation Rules\n\n/);
+    expect(result.stdout.match(/^### Foundation Rules$/gm)).toHaveLength(1);
+    expect(result.stdout).toContain('### Color');
+    expect(result.stdout).toContain('- [color-names-its-target]');
+    expect(result.stdout).not.toContain('http');
+    expect(result.stdout).not.toContain('Rationale:');
+  });
+
+  it('rejects using checklist and rule together', () => {
+    const result = spawnSync(
+      'pnpm',
+      [
+        'exec',
+        'tsx',
+        'src/cli.ts',
+        '--',
+        '--checklist',
+        '--rule',
+        'color-names-its-target',
+      ],
+      {
+        cwd: packageRoot,
+        encoding: 'utf8',
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(stripAnsi(result.stderr)).toContain(
+      '--checklist and --rule cannot be used together',
+    );
+  });
 });

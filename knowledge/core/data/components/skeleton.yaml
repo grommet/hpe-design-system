@@ -109,11 +109,15 @@ examples:
       \ width=\"120px\" /></Text>\n    <Text size=\"small\"><Skeleton width=\"80px\"\
       \ /></Text>\n  </Box>\n</Box>"
   - description: Skeleton loading card
-    code:
-      "<Card width=\"medium\">\n  <Skeleton width=\"100%\" height=\"160px\" />\n\
-      \  <CardBody pad=\"medium\" gap=\"xsmall\">\n    <Heading level={3} margin=\"\
-      none\"><Skeleton /></Heading>\n    <Text><Skeleton /></Text>\n    <Text><Skeleton\
-      \ width=\"60%\" /></Text>\n  </CardBody>\n</Card>"
+    code: |-
+      <Card width="medium">
+        <Skeleton width="100%" height="160px" />
+        <CardBody gap="xsmall">
+          <Heading level={3} margin="none"><Skeleton /></Heading>
+          <Text><Skeleton /></Text>
+          <Text><Skeleton width="60%" /></Text>
+        </CardBody>
+      </Card>
   - description: Conditional skeleton vs loaded content
     code:
       "const [loading, setLoading] = useState(true);\n\nreturn (\n  <Box gap=\"\

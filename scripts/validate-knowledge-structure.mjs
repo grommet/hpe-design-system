@@ -3,6 +3,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import yaml from 'yaml';
+import { validateFoundationReferences } from './knowledge-references.mjs';
 
 const scriptFilePath = fileURLToPath(import.meta.url);
 const scriptDirPath = path.dirname(scriptFilePath);
@@ -124,6 +126,54 @@ thinPromptChecks.forEach((check) => {
     }
   });
 });
+
+const foundationsDir = path.join(repoRoot, 'knowledge', 'core', 'data', 'foundations');
+const componentsDir = path.join(repoRoot, 'knowledge', 'core', 'data', 'components');
+const patternsDir = path.join(repoRoot, 'knowledge', 'core', 'data', 'patterns');
+const glossaryPath = path.join(repoRoot, 'knowledge', 'core', 'data', 'glossary.yaml');
+
+// Mirrors the knowledge agent's loader so references resolve to loaded ids.
+const loadDataFiles = (dir) =>
+  fs.existsSync(dir)
+    ? fs
+        .readdirSync(dir)
+        .filter((file) => /\.(json|ya?ml)$/.test(file))
+        .sort()
+        .map((file) => {
+          const source = fs.readFileSync(path.join(dir, file), 'utf8');
+          return { file, data: file.endsWith('.json') ? JSON.parse(source) : yaml.parse(source) };
+        })
+    : [];
+
+const glossaryTerms = fs.existsSync(glossaryPath)
+  ? yaml.parse(fs.readFileSync(glossaryPath, 'utf8'))
+  : [];
+const glossaryIds = new Set(glossaryTerms.map((term) => term.id));
+
+glossaryTerms.forEach((term) => {
+  (term.confusedWith ?? []).forEach((confusedId) => {
+    if (!glossaryIds.has(confusedId)) {
+      violations.push(
+        `knowledge/core/data/glossary.yaml: term "${term.id}" has confusedWith reference to unknown term "${confusedId}"`,
+      );
+    }
+  });
+});
+
+const foundationsByFile = loadDataFiles(foundationsDir).map(({ file, data }) => ({
+  file,
+  foundation: data,
+}));
+const componentIds = new Set(loadDataFiles(componentsDir).map(({ data }) => data?.id));
+const patternIds = new Set(loadDataFiles(patternsDir).map(({ data }) => data?.id));
+
+violations.push(
+  ...validateFoundationReferences(foundationsByFile, {
+    glossary: glossaryIds,
+    component: componentIds,
+    pattern: patternIds,
+  }),
+);
 
 if (violations.length > 0) {
   console.error('Knowledge structure validation failed:');
