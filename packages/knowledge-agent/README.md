@@ -54,10 +54,10 @@ Create the destination directory first. Packing automatically runs the package's
 `prepack` build, so a separate build command is unnecessary. Use `--dir` here
 rather than `--filter` to avoid recursive execution.
 
-In the consumer project, install that tarball as a pinned dependency:
+In the consumer project, install that tarball as a development dependency:
 
 ```sh
-npm install /absolute/path/knowledge-agent.tgz
+npm install --save-dev /absolute/path/knowledge-agent.tgz
 npx --no-install hpe-design-agent "Build a login form"
 npx --no-install hpe-design-agent "Create an app shell" --json
 npx --no-install hpe-design-agent --checklist
