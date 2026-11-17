@@ -47,9 +47,12 @@ Until registry distribution is approved, a maintainer can build a local
 tarball from this repository:
 
 ```sh
-pnpm --filter @hpe-design/knowledge-agent build
-pnpm --filter @hpe-design/knowledge-agent pack --out /absolute/path/knowledge-agent.tgz
+pnpm --dir packages/knowledge-agent pack --out /absolute/path/knowledge-agent.tgz
 ```
+
+Create the destination directory first. Packing automatically runs the package's
+`prepack` build, so a separate build command is unnecessary. Use `--dir` here
+rather than `--filter` to avoid recursive execution.
 
 In the consumer project, install that tarball as a pinned dependency:
 
