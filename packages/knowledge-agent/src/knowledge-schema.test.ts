@@ -245,8 +245,12 @@ describe('knowledge source schemas', () => {
     const result = validateKnowledgeDirectory(directory, validators);
     expect(result.filesChecked).toBe(2);
     expect(result.errors).toHaveLength(2);
-    expect(result.errors.join('\n')).toContain('components/broken.yaml');
-    expect(result.errors.join('\n')).toContain('patterns/broken.json');
+    expect(result.errors.join('\n')).toContain(
+      path.join('components', 'broken.yaml'),
+    );
+    expect(result.errors.join('\n')).toContain(
+      path.join('patterns', 'broken.json'),
+    );
   });
 
   it('accepts all current loader-consumed content', () => {
