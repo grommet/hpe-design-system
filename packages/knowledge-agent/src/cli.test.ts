@@ -7,20 +7,23 @@ import { describe, expect, it } from 'vitest';
 const packageRoot = fileURLToPath(new URL('..', import.meta.url));
 const ansiPattern = new RegExp(`${String.fromCharCode(27)}\\[[0-9;]*m`, 'g');
 
+function runCli(...args: string[]) {
+  const result = spawnSync(
+    process.execPath,
+    ['--import', 'tsx', 'src/cli.ts', ...args],
+    { cwd: packageRoot, encoding: 'utf8' },
+  );
+  if (result.error) throw result.error;
+  return result;
+}
+
 function stripAnsi(value: string): string {
   return value.replace(ansiPattern, '');
 }
 
 describe('knowledge-agent CLI', () => {
   it('rejects unsupported options with usage help', () => {
-    const result = spawnSync(
-      'pnpm',
-      ['exec', 'tsx', 'src/cli.ts', '--', 'Create a dashboard', '--unknown'],
-      {
-        cwd: packageRoot,
-        encoding: 'utf8',
-      },
-    );
+    const result = runCli('Create a dashboard', '--unknown');
 
     expect(result.status).toBe(1);
     expect(result.stderr).not.toContain('\u001B[');
@@ -33,14 +36,7 @@ describe('knowledge-agent CLI', () => {
   });
 
   it('rejects unsupported framework targets with guidance', () => {
-    const result = spawnSync(
-      'pnpm',
-      ['exec', 'tsx', 'src/cli.ts', '--', 'Create a dashboard', '-f', 'svelte'],
-      {
-        cwd: packageRoot,
-        encoding: 'utf8',
-      },
-    );
+    const result = runCli('Create a dashboard', '-f', 'svelte');
 
     expect(result.status).toBe(1);
     expect(result.stderr).not.toContain('\u001B[');
@@ -54,11 +50,7 @@ describe('knowledge-agent CLI', () => {
   });
 
   it('emits parseable JSON for source-mode queries', () => {
-    const result = spawnSync(
-      process.execPath,
-      ['--import', 'tsx', 'src/cli.ts', 'Build a login form', '--json'],
-      { cwd: packageRoot, encoding: 'utf8' },
-    );
+    const result = runCli('Build a login form', '--json');
     expect(result.status).toBe(0);
     const output = JSON.parse(result.stdout);
     expect(output.knowledge.mode).toBe('source');
@@ -70,33 +62,14 @@ describe('knowledge-agent CLI', () => {
   });
 
   it('rejects whitespace-only queries without JSON stdout', () => {
-    const result = spawnSync(
-      process.execPath,
-      ['--import', 'tsx', 'src/cli.ts', '  ', '--json'],
-      { cwd: packageRoot, encoding: 'utf8' },
-    );
+    const result = runCli('  ', '--json');
     expect(result.status).toBe(1);
     expect(result.stderr).toContain('non-empty string');
     expect(result.stdout).toBe('');
   });
 
   it('rejects unsupported rules detail values', () => {
-    const result = spawnSync(
-      'pnpm',
-      [
-        'exec',
-        'tsx',
-        'src/cli.ts',
-        '--',
-        'Create a dashboard',
-        '--rules',
-        'bogus',
-      ],
-      {
-        cwd: packageRoot,
-        encoding: 'utf8',
-      },
-    );
+    const result = runCli('Create a dashboard', '--rules', 'bogus');
 
     expect(result.status).toBe(1);
     expect(stripAnsi(result.stderr)).toContain(
@@ -105,14 +78,7 @@ describe('knowledge-agent CLI', () => {
   });
 
   it('rejects unknown rule ids and lists valid ids', () => {
-    const result = spawnSync(
-      'pnpm',
-      ['exec', 'tsx', 'src/cli.ts', '--', '--rule', 'nope'],
-      {
-        cwd: packageRoot,
-        encoding: 'utf8',
-      },
-    );
+    const result = runCli('--rule', 'nope');
 
     expect(result.status).toBe(1);
     expect(stripAnsi(result.stderr)).toContain('Valid ids:');
@@ -128,14 +94,7 @@ describe('knowledge-agent CLI', () => {
       ],
     },
   ])('prints the foundation checklist $label', ({ queryArgs }) => {
-    const result = spawnSync(
-      'pnpm',
-      ['exec', 'tsx', 'src/cli.ts', '--', ...queryArgs, '--checklist'],
-      {
-        cwd: packageRoot,
-        encoding: 'utf8',
-      },
-    );
+    const result = runCli(...queryArgs, '--checklist');
 
     expect(result.status).toBe(0);
     expect(result.stdout).toMatch(/^### Foundation Rules\n\n/);
@@ -147,22 +106,7 @@ describe('knowledge-agent CLI', () => {
   });
 
   it('rejects using checklist and rule together', () => {
-    const result = spawnSync(
-      'pnpm',
-      [
-        'exec',
-        'tsx',
-        'src/cli.ts',
-        '--',
-        '--checklist',
-        '--rule',
-        'color-names-its-target',
-      ],
-      {
-        cwd: packageRoot,
-        encoding: 'utf8',
-      },
-    );
+    const result = runCli('--checklist', '--rule', 'color-names-its-target');
 
     expect(result.status).toBe(1);
     expect(stripAnsi(result.stderr)).toContain(
@@ -171,11 +115,7 @@ describe('knowledge-agent CLI', () => {
   });
 
   it('prints a rule with glossary context without requiring a query', () => {
-    const result = spawnSync(
-      process.execPath,
-      ['--import', 'tsx', 'src/cli.ts', '--rule', 'color-names-its-target'],
-      { cwd: packageRoot, encoding: 'utf8' },
-    );
+    const result = runCli('--rule', 'color-names-its-target');
     expect(result.status).toBe(0);
     expect(result.stdout).toContain('****Rationale:****');
     expect(result.stdout).toContain('The part of the UI a color token');
@@ -183,21 +123,13 @@ describe('knowledge-agent CLI', () => {
   });
 
   it.each(['--rule', '--rules'])('rejects a missing %s value', flag => {
-    const result = spawnSync(
-      process.execPath,
-      ['--import', 'tsx', 'src/cli.ts', flag],
-      { cwd: packageRoot, encoding: 'utf8' },
-    );
+    const result = runCli(flag);
     expect(result.status).toBe(1);
     expect(result.stderr).toContain(`Missing value for ${flag}`);
   });
 
   it('keeps stdout empty for incompatible JSON rule commands', () => {
-    const result = spawnSync(
-      process.execPath,
-      ['--import', 'tsx', 'src/cli.ts', '--checklist', '--json'],
-      { cwd: packageRoot, encoding: 'utf8' },
-    );
+    const result = runCli('--checklist', '--json');
     expect(result.status).toBe(1);
     expect(result.stdout).toBe('');
     expect(result.stderr).toContain('--json cannot be used');

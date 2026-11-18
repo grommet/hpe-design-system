@@ -16,6 +16,7 @@ const directories: string[] = [];
 const changeset =
   "---\n'@hpe-design/knowledge-agent': patch\n---\nFix guidance.\n";
 const packagePath = 'packages/knowledge-agent';
+const gitTestTimeout = 20_000;
 function temporary() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'knowledge-guard-test-'));
   directories.push(root);
@@ -59,10 +60,12 @@ function repository() {
     },
   };
 }
-afterEach(() => {
-  directories
-    .splice(0)
-    .forEach(root => fs.rmSync(root, { recursive: true, force: true }));
+afterEach(async () => {
+  await Promise.all(
+    directories
+      .splice(0)
+      .map(root => fs.promises.rm(root, { recursive: true, force: true })),
+  );
 });
 
 describe('knowledge-agent Changeset guard', () => {
@@ -95,7 +98,7 @@ describe('knowledge-agent Changeset guard', () => {
     write(repo.root, '.changeset/new.md', changeset);
     repo.commit();
     expect(checkKnowledgeChangeset(repo)).toContain('Changed Changeset');
-  });
+  }, gitTestTimeout);
 
   it('skips tests and non-bundled documentation', () => {
     const repo = repository();
@@ -108,7 +111,7 @@ describe('knowledge-agent Changeset guard', () => {
     );
     repo.commit();
     expect(checkKnowledgeChangeset(repo)).toContain('No published');
-  });
+  }, gitTestTimeout);
 
   it('allows consuming Changesets only for a version/changelog update', () => {
     const repo = repository();
@@ -128,7 +131,7 @@ describe('knowledge-agent Changeset guard', () => {
     write(repo.root, 'knowledge/core/data/components/button.yaml', 'new data');
     repo.commit();
     expect(() => checkKnowledgeChangeset(repo)).toThrow('Add a new or updated');
-  });
+  }, gitTestTimeout);
 
   it('normalizes provenance but detects changed published content', () => {
     const left = temporary();
