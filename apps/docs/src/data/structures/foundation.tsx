@@ -393,6 +393,18 @@ export const foundation = [
     description: `Practical guidance for choosing between the page,
     containers, and floating layers, and when content needs a container
     at all.`,
+    preview: {
+      image: {
+        src: {
+          light:
+            '/foundationImages/foundation-preview-designing-with-surfaces.svg',
+          dark:
+            '/foundationImages/foundation-preview-designing-with-surfaces-' +
+            'invert.svg',
+        },
+        alt: 'Designing with surfaces preview',
+      },
+    },
     seoDescription: `Practical guidance for applying surface design tokens:
     choosing between the page, containers, and floating layers, deciding
     whether content needs a container, and alternating surface tones.`,
