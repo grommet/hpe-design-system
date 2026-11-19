@@ -393,6 +393,15 @@ export const foundation = [
     cardOrder: 4,
     description: `Understand how root surfaces and alternating surface tones 
     group, separate, and emphasise content.`,
+    preview: {
+      image: {
+        src: {
+          light: '/foundationImages/foundation-preview-surfaces.svg',
+          dark: '/foundationImages/foundation-preview-surfaces-invert.svg',
+        },
+        alt: 'HPE Understanding Surfaces Preview',
+      },
+    },
     seoDescription: `Learn how HPE Design System surfaces work: root surfaces, 
     alternating surface tones, floating layers, and which background tokens 
     are not surfaces.`,
