@@ -93,14 +93,14 @@ Inside that container, toned cards take the other tone. A container using `backg
 
 ### Tabs and containment scope
 
-Tab placement is worth deciding early, because every panel beneath the tabs inherits it. Tabs inside a container commit their panels to being contained; tabs on the page leave each panel beneath the tab free to be contained or uncontained depending on the panel content.
+Tab placement is worth deciding early, because the content each tab shows inherits it.
 
-- **Tabs on the page.** Each panel is then free to be contained or uncontained according to its own content. A panel that needs internal grouping can add it at the first level.
-- **Tabs inside a container.** Every panel on every tab is now contained, and any panel needing its own internal grouping starts one step further in.
+- **Tabs on the page.** Each tab's content stays free to be contained or uncontained. This includes tabs that govern one section of a page.
+- **Tabs inside a container.** Every tab's content is contained, so the choice is made for all of them at once.
 
-**So choose tab placement by looking across the whole tab set, not just the tab that happens to be open first.** If any tab is likely to need internal grouping, keep the tab strip on the page.
+**Choose the placement by looking across the whole tab set, not only the tab that opens first.** If any tab's content is better uncontained, or needs containers of its own, consider keeping the tabs out of a container.
 
-Note: "Page-level" tabs control the main page content and may switch to a different page or route in some products. "Container-level" tabs control content within a particular container. Place page-level tabs with the page header, and container-level tabs at the top of the container they govern.
+Place page-level tabs with the page header, and container-level tabs at the top of the container they govern.
 
 ## Applying surfaces by role
 
@@ -131,8 +131,8 @@ Whether an element is contained. These are sensible defaults that depend on the 
 | Simple linear form                        | uncontained                  | Contain per section when it has several sections.                                                                                       |
 | Metadata block (key/value)                | uncontained                  | Contain when its peers are contained.                                                                                                   |
 | Wizard step body                          | uncontained on the page      | Contain each section when a step has several.                                                                                           |
-| Page-level tabs                           | on the page                  | Controls the whole page content area, and keeps every panel free.                                                                       |
-| Container-level tabs                      | on the container they govern | Commits every panel to being contained.                                                                                                 |
+| Page-level tabs                           | on the page                  | Controls the whole page content area, and keeps each tab's content free.                                                                |
+| Container-level tabs                      | on the container they govern | Every tab's content is contained.                                                                                                       |
 
 ## Page examples using surfaces
 
