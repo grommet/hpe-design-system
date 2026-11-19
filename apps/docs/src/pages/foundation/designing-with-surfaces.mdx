@@ -19,9 +19,10 @@ Start with the simplest option, and only add more when the content is still hard
 1. Content directly on the surface, with spacing, typography, and layout doing the grouping.
 2. A container, when spacing has stopped doing that job.
 3. A container inside it, when a group within needs its own identity. Sparingly, and for the same reason.
-4. A divider, last, when spacing and a change of surface together still are not enough.
 
-Most content settles on the surface it is on, or in a single container. Dividers come last because a surface already draws the boundary a divider would draw, without adding a line to the page.
+Most content settles on the surface it is on, or in a single container.
+
+To separate groups, prefer a change of surface to a divider, because a surface draws the boundary without adding a line to the page. Dividers remain useful, especially within a group, such as between rows or above a footer.
 
 ### When a container helps
 
@@ -46,7 +47,7 @@ The tones alternate indefinitely, so each container remains distinct from the su
 
 Sometimes a container should not stand out from what it sits on, like a card that reads as part of the page, or a panel that should not announce itself.
 
-**Give it no surface at all.** Leave it transparent and let it sit on whatever is behind it. This works on a page, in a modal, and inside a shell panel without changing, because the container is not claiming a surface of its own.
+**Give it no surface at all.** Leave it transparent and let it sit on whatever is behind it. This works on a page, in a modal, and inside a shell panel without changing, because the container is not claiming a surface of its own. Where it still has to be seen, a border can mark its edge.
 
 Do not reach for a tone that happens to match the surface behind it. A tone is there to separate, and a white card on a white page separates nothing; it also stops behaving correctly when the surface values change.
 
@@ -215,7 +216,6 @@ Token, version, and deprecation mechanics are on [design token versioning](/desi
 | Decide whether content needs a container before choosing a token.                                                                      | Wrap every element in a container.                                                                                  | A container signals _this belongs together_. Used everywhere, it signals nothing.                           |
 | Give a container whichever tone it is not sitting on.                                                                                  | Repeat the surface behind it, put `background.surface.tone.2` directly on the page, or pick a tone by how it looks. | A tone that matches the surface behind it separates nothing.                                                |
 | Let the surface tones (`tone.1` and `tone.2`) alternate as deep as the content genuinely goes.                                         | Count levels, or flatten a real hierarchy to stay shallow.                                                          | There is no ceiling. If depth is a problem, it is an information architecture problem.                      |
-| Separate regions with a change of surface.                                                                                             | Reach for a divider or a heavy border first.                                                                        | A surface draws the boundary without adding a line to the page.                                             |
 | Let a reusable component take its surface from context.                                                                                | Hard-code a tone into a shared component.                                                                           | It will be wrong in one of the places it appears, and it breaks system-wide value changes.                  |
 | Put page-level tabs on the page.                                                                                                       | Put them in a container out of habit.                                                                               | Container-level tabs commit every panel on every tab to being contained.                                    |
 | Use a status or accent background design token for meaning or emphasis, and `background.contrast` for a small fill inside a component. | Reach for a third surface tone, or use a tone for a fill inside a component.                                        | There are exactly two tones, and they are for structure. Anything else is a different kind of design token. |
