@@ -63,6 +63,7 @@
     "validate:docs-creation-page": "node knowledge/capabilities/docs-creation/scripts/validate-page.mjs",
     "validate:design-tokens-changeset": "node scripts/validate-design-tokens-changeset.mjs",
     "validate:knowledge-format": "prettier --check \"knowledge/**/*.{yaml,yml}\"",
+    "validate:knowledge-changeset": "tsx scripts/validate-knowledge-changeset.ts",
     "validate:knowledge-schema": "tsx scripts/validate-knowledge-schema.ts",
     "validate:knowledge-structure": "node scripts/validate-knowledge-structure.mjs",
     "test:knowledge-structure": "node --test scripts/knowledge-references.test.mjs",

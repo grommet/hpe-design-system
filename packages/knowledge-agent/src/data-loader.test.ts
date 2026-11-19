@@ -3,7 +3,12 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { loadComponents, loadPatterns } from './data-loader';
+import {
+  loadComponents,
+  loadFoundations,
+  loadGlossary,
+  loadPatterns,
+} from './data-loader';
 import type {
   ComponentDefinitionSource,
   ComponentExampleSource,
@@ -116,6 +121,14 @@ describe('knowledge data loader', () => {
       );
       expect(warn).toHaveBeenCalledWith(expect.stringContaining(snippetPath));
     });
+
+    it('fails strict candidate loading for missing references', () => {
+      files.delete(path.join(repoRoot, snippetPath));
+      add([{ description: 'Missing', codeFile: snippetPath }]);
+      expect(() => load({ strict: true })).toThrow(
+        `Required file not found: ${snippetPath}`,
+      );
+    });
   });
 
   it('keeps pattern examples optional and resolves its template', () => {
@@ -124,8 +137,33 @@ describe('knowledge data loader', () => {
     expect(loadPatterns()[0].templateCode).toBe(snippet);
   });
 
-  it('preserves an inline pattern template when a file is also specified', () => {
+  it('prefers an inline pattern template over its file', () => {
     addPattern([], { templateCodeFile: snippetPath, templateCode: '<Grid />' });
     expect(loadPatterns()[0].templateCode).toBe('<Grid />');
+  });
+
+  it('fails strict loading for a missing template or directory', () => {
+    addPattern([], { templateCodeFile: snippetPath });
+    files.delete(path.join(repoRoot, snippetPath));
+    expect(() => loadPatterns({ strict: true })).toThrow(
+      'Required file not found',
+    );
+    files.delete(path.join(repoRoot, 'knowledge/core/data/components'));
+    expect(() => loadComponents({ strict: true })).toThrow(
+      'Required components directory',
+    );
+  });
+
+  it('requires foundation and glossary sources in strict builds', () => {
+    expect(() => loadFoundations({ strict: true })).toThrow(
+      'Required foundations directory',
+    );
+    expect(() => loadGlossary({ strict: true })).toThrow(
+      'Required glossary file',
+    );
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(loadFoundations()).toEqual([]);
+    expect(loadGlossary()).toEqual([]);
+    expect(warn).toHaveBeenCalledTimes(2);
   });
 });

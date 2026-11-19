@@ -14,6 +14,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  require-knowledge-changeset:
+    if: github.event_name == 'pull_request'
+    name: Require knowledge-agent Changeset
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Check published knowledge and build inputs
+        env:
+          GITHUB_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
+        run: pnpm validate:knowledge-changeset
+
   validate-knowledge-structure:
     name: Validate knowledge structure
     runs-on: ubuntu-latest
@@ -103,3 +126,25 @@ jobs:
       - name: Annotate test failure
         if: ${{ failure() }}
         run: echo "::error title=Knowledge Contract Checks Failed::Run 'pnpm validate:knowledge-schema', 'pnpm --filter @hpe-design/knowledge-agent typecheck', and 'pnpm --filter @hpe-design/knowledge-agent test' locally for details."
+
+  test-knowledge-package:
+    name: Packed knowledge consumer (${{ matrix.os }}, Node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: ['22', '24.15.0']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Test production-only packed consumer
+        run: pnpm --filter @hpe-design/knowledge-agent test:package

@@ -540,9 +540,9 @@ importers:
 
   packages/knowledge-agent:
     dependencies:
-      yaml:
-        specifier: ^2.9.1
-        version: 2.9.1
+      ajv:
+        specifier: ^8.20.0
+        version: 8.20.0
     devDependencies:
       '@types/node':
         specifier: ^26.6.6
@@ -556,6 +556,9 @@ importers:
       vitest:
         specifier: ^3.2.7
         version: 3.2.7(@types/debug@4.1.13)(@types/node@26.6.6)(@vitest/ui@3.2.7)(jiti@2.7.0)(jsdom@26.1.0)(lightningcss@1.33.0)(terser@5.51.2)(tsx@4.23.15)(yaml@2.9.1)
+      yaml:
+        specifier: ^2.9.1
+        version: 2.9.1
 
   sandbox/grommet-app:
     dependencies:

@@ -10,7 +10,17 @@ When building application and page layouts that align with the HPE Design System
 
 ## Before Implementing
 
-Before implementing or modifying a layout, run the knowledge-agent to check current pattern and component coverage for the task:
+Before implementing or modifying a layout, query the knowledge-agent to check
+current pattern and component coverage. If this guidance was returned by a query,
+use that result rather than recursively querying the same request.
+
+In a consumer project with the package installed:
+
+```bash
+npx --no-install hpe-design-agent "<feature description>"
+```
+
+In the design-system monorepo, query live authoring sources:
 
 ```bash
 pnpm --filter @hpe-design/knowledge-agent generate -- "<feature description>"
