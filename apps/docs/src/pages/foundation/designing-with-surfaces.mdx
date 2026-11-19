@@ -10,6 +10,8 @@ When applying surfaces to a page, decide in this order:
    - The first container on the page, or on a floating layer, takes `background.surface.tone.1`. A container inside it takes `background.surface.tone.2`, and the two tones keep alternating.
    - A container that should match what is behind it takes no surface.
 
+Choose each surface for the role it plays, not for its color. The values behind the design tokens differ between light and dark modes and can change.
+
 ## Deciding whether to contain
 
 Containment is a decision, not a default. A container signals _this all belongs together_, so the question is how much of that signal the content actually needs, and whether spacing and headings are already providing it.
@@ -49,7 +51,7 @@ Sometimes a container should not stand out from what it sits on, like a card tha
 
 **Give it no surface at all.** Leave it transparent and let it sit on whatever is behind it. This works on a page, in a modal, and inside a shell panel without changing, because the container is not claiming a surface of its own. Where it still has to be seen, a border can mark its edge.
 
-Do not reach for a tone that happens to match the surface behind it. A tone is there to separate, and a white card on a white page separates nothing; it also stops behaving correctly when the surface values change.
+Do not reach for a tone that happens to match the surface behind it. A tone is there to separate, and a card that matches the page behind it separates nothing; it also stops behaving correctly when the surface values change.
 
 ## Reusable components
 
