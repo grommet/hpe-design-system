@@ -2,15 +2,13 @@ Surfaces are what a page is built from: the page itself, the containers on it, a
 
 ## Applying surfaces
 
-**Start with the page.** A page or canvas is `background.surface.base`. Modals, drawers, menus, and tooltips are `background.surface.floating` (floating components are typically pre-styled as part of the HPE Design System).
+When applying surfaces to a page, decide in this order:
 
-**Containers take a surface tone.** There are two, and they work the same way on a page or inside a floating layer. The first container on either takes `background.surface.tone.1`; `background.surface.tone.2` is only ever used on `background.surface.tone.1`.
-
-**Nest by alternating.** Inside that container, `background.surface.tone.2`. Inside that, `background.surface.tone.1` again. The two tones keep alternating, so nesting can continue without limit. What matters is the surface a container sits on, not how deep it is.
-
-The numbers are labels, not levels. `background.surface.tone.2` is not "level two".
-
-Containers are not automatic. See [deciding whether to contain](#deciding-whether-to-contain) before reaching for one, or jump to [applying surfaces by role](#applying-surfaces-by-role) for the common cases at a glance.
+1. **Whether the content needs a container.** This depends on the content and on what surrounds it. See [deciding whether to contain](#deciding-whether-to-contain).
+2. **Which design token it takes.** This follows from where it sits:
+   - A page or canvas is `background.surface.base`. Modals, drawers, menus, and tooltips are `background.surface.floating`, and are typically pre-styled.
+   - The first container on the page, or on a floating layer, takes `background.surface.tone.1`. A container inside it takes `background.surface.tone.2`, and the two tones keep alternating.
+   - A container that should match what is behind it takes no surface.
 
 ## Deciding whether to contain
 
