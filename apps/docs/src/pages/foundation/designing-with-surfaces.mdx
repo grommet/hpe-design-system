@@ -59,19 +59,21 @@ Surface tokens are contextual. A reusable component should take its surface from
 
 ## Common cases
 
+Each case below gives a default. The [four questions](#when-a-container-helps) decide when to depart from it.
+
 ### Tables
 
-Tables are self-structuring. Rows, columns, and headers already do the grouping, so a container adds visual weight without adding meaning. Default to leaving a table uncontained.
+Leave a table or a list uncontained by default. Its rows and headers already hold it together, so it rarely runs into its neighbors.
 
-Reach for a container when the table has become one module among several **and** the structural cues that were doing the grouping—headings, whitespace, and position on the page—have stopped working.
+Consider a container when the table shares a set with contained modules, such as a grid of dashboard cards, or when headings and spacing no longer set it apart. A table under its own heading, below a row of cards, is not part of that set.
 
 A table being large, dense, or scrollable is not, on its own, a reason to contain it.
 
 ### Forms
 
-A short linear form sits directly on the surface it is on. Spacing and labels already carry the structure.
+Leave a short form, or a wizard step with one section, uncontained. Spacing and labels already carry the structure, and it is usually alone on its surface.
 
-When a form has several distinct sections that a reader needs to tell apart, give each section a container rather than wrapping the whole form in one. Wrapping the whole form restates a boundary the page already provides; containing the sections does the work that is actually needed.
+When a form or a wizard step has several sections, give each section a container by default. Sections of fields hold similar content, so they run together without one. Avoid wrapping the whole form instead, because that restates a boundary the page already provides.
 
 ### Cards and card sets
 
