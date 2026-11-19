@@ -116,45 +116,33 @@ Note: "Page-level" tabs control the main page content and may switch to a differ
 
 ### Fixed
 
-They are the same on every page and in every product, and they are not judgement calls.
+Which design token an element takes. This follows from its role and from what it sits on, not from its content.
 
-| Element                                               | Design token                                                        | Notes                                                                                                       |
-| ----------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Page or canvas                                        | `background.surface.base`                                           | The surface every page, dashboard, detail view, or document is built on.                                    |
-| Global header                                         | `background.surface.base`                                           | Shares the page surface so header and canvas read as one continuous workspace.                              |
-| Modal, drawer, menu, tooltip                          | `background.surface.floating`                                       | Renders over the page, and the tones start again inside it.                                                 |
-| Overlay scrim                                         | `background.screenOverlay`                                          | Behind floating surfaces.                                                                                   |
-| Meaning, emphasis, or a small fill inside a component | A status background, an accent background, or `background.contrast` | Not a surface. Does not alternate. See [what is not a surface](/foundation/surfaces#what-is-not-a-surface). |
+| Element                                               | Design token                                                        | Notes                                                                                                                 |
+| ----------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Page or canvas                                        | `background.surface.base`                                           | The surface every page, dashboard, detail view, or document is built on.                                              |
+| Container on the page or on a floating layer          | `background.surface.tone.1`                                         | A card or a grouping container. The first container on either.                                                        |
+| Container inside another container                    | The tone its parent is not                                          | `background.surface.tone.2` inside `background.surface.tone.1`, and the reverse. This includes a card inside a panel. |
+| Modal, drawer, menu, tooltip                          | `background.surface.floating`                                       | Renders over the page, and the tones start again inside it.                                                           |
+| Overlay scrim                                         | `background.screenOverlay`                                          | Behind floating surfaces.                                                                                             |
+| Meaning, emphasis, or a small fill inside a component | A status background, an accent background, or `background.contrast` | Not a surface. Does not alternate. See [what is not a surface](/foundation/surfaces#what-is-not-a-surface).           |
+
+The application shell is not covered here. For the global header, navigation, and side panels, follow the current shell implementation and the [page examples](#page-examples-using-surfaces).
 
 ### Compositional
 
-These depend on what the element sits on and what the content needs. They are sensible defaults, and the sections above cover when a page has good reason to depart from them.
+Whether an element is contained. These are sensible defaults that depend on the content and on what surrounds it, and the [four questions](#when-a-container-helps) say when to depart from them.
 
-| Element                                                  | Default                      | Notes                                                                                                                                              |
-| -------------------------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Page header (title, breadcrumbs, actions)                | uncontained                  | Sits directly on the page.                                                                                                                         |
-| Card on the page                                         | `background.surface.tone.1`  | A card carries its own boundary, so it takes a tone by default. See [leaving cards untoned](#leaving-cards-untoned) for the exceptions.            |
-| Grouping container on the page or in a floating layer    | `background.surface.tone.1`  | When spacing has stopped doing the grouping. The first container on `background.surface.base` or `background.surface.floating` starts with tone 1. |
-| Container inside a `background.surface.tone.1` container | `background.surface.tone.2`  | Whichever tone the parent is not.                                                                                                                  |
-| Container inside a `background.surface.tone.2` container | `background.surface.tone.1`  | Whichever tone the parent is not. The tones keep alternating from here.                                                                            |
-| Data table or list                                       | uncontained                  | See [tables](#tables).                                                                                                                             |
-| Simple linear form                                       | uncontained                  | Contain per section when it has several sections.                                                                                                  |
-| Metadata block (key/value)                               | uncontained                  | Contain when it sits beside visually heavy siblings and needs balancing.                                                                           |
-| Wizard step body                                         | uncontained on the page      | Contain a sub-module inside a step only when it is complex enough to need it.                                                                      |
-| Page-level tabs                                          | on the page                  | Controls the whole page content area, and keeps every panel free.                                                                                  |
-| Container-level tabs                                     | on the container they govern | Commits every panel to being contained.                                                                                                            |
-
-## The application shell
-
-The shell frames the workspace; the workspace is where tasks happen.
-
-| Zone                           | Role                                        | Design token                  |
-| ------------------------------ | ------------------------------------------- | ----------------------------- |
-| Navigation rail                | Persistent app navigation—collapsible       | `background.surface.tone.1`   |
-| Global header                  | App-wide header above the workspace         | `background.surface.base`     |
-| Workspace / canvas / page slot | Primary page area where users perform tasks | `background.surface.base`     |
-| Contextual panel               | Persistent or semi-persistent tools         | `background.surface.tone.1`   |
-| Floating layers                | Modals, drawers, menus                      | `background.surface.floating` |
+| Element                                   | Default                      | Notes                                                                                                                                   |
+| ----------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Page header (title, breadcrumbs, actions) | uncontained                  | Sits directly on the page.                                                                                                              |
+| Card                                      | toned                        | A card carries its own boundary, so it takes a tone by default. See [leaving cards untoned](#leaving-cards-untoned) for the exceptions. |
+| Data table or list                        | uncontained                  | See [tables](#tables).                                                                                                                  |
+| Simple linear form                        | uncontained                  | Contain per section when it has several sections.                                                                                       |
+| Metadata block (key/value)                | uncontained                  | Contain when its peers are contained.                                                                                                   |
+| Wizard step body                          | uncontained on the page      | Contain each section when a step has several.                                                                                           |
+| Page-level tabs                           | on the page                  | Controls the whole page content area, and keeps every panel free.                                                                       |
+| Container-level tabs                      | on the container they govern | Commits every panel to being contained.                                                                                                 |
 
 ## Page examples using surfaces
 
