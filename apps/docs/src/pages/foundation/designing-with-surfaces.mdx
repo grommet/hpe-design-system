@@ -39,23 +39,13 @@ When every answer is no, leave the group uncontained. A group alone on its surfa
 
 The type of content and its size are not reasons on their own. The same questions apply to a table, a form, or a list.
 
+The page as a whole matters too. A report, a summary view, or a long-form detail page can read better as one continuous document, and a container around every section would break it into tiles.
+
 These are starting points. The sections below work through the cases where a page has good reason to depart from them.
 
 ### When nesting deeply
 
 The tones alternate indefinitely, so each container remains distinct from the surface behind it. While depth is effectively unlimited, extensive nesting may indicate an information architecture issue. Containment is intended to simplify a page, and excessive nesting can reduce clarity.
-
-## Containers without their own surface
-
-Sometimes a container should not stand out from what it sits on, like a card that reads as part of the page, or a panel that should not announce itself.
-
-**Give it no surface at all.** Leave it transparent and let it sit on whatever is behind it. This works on a page, in a modal, and inside a shell panel without changing, because the container is not claiming a surface of its own. Where it still has to be seen, a border can mark its edge.
-
-Do not reach for a tone that happens to match the surface behind it. A tone is there to separate, and a card that matches the page behind it separates nothing; it also stops behaving correctly when the surface values change.
-
-## Reusable components
-
-Surface tokens are contextual. A reusable component should take its surface from where it is used, not fix one value for every place it appears. A card on the page and the same card inside a shell panel may need different tokens.
 
 ## Common cases
 
@@ -77,34 +67,29 @@ When a form or a wizard step has several sections, give each section a container
 
 ### Cards and card sets
 
-A card is a component that carries its own boundary, so the decision to contain has typically been made by choosing it. What is left is which tone it takes, and as a starting point, give each card a tone, alternating from whatever it sits on. That usually holds whether it appears alone, in a set of three, or in a set of twenty.
+A card carries its own boundary, so choosing one has usually settled the question of containment. As a starting point, give each card a tone, whether it appears alone, in a set of three, or in a set of twenty.
 
-A card's tone depends on what it sits on, not on what kind of card it is. On the page it takes `background.surface.tone.1`; inside a panel using `background.surface.tone.1`, it takes `background.surface.tone.2`. What stays constant is that it has a surface of its own. The tone is set for the place the card is used, never fixed in the card itself, so the same card can appear on a page, in a panel, or in a drawer; see [reusable components](#reusable-components).
+A card's tone depends on what it sits on, not on what kind of card it is. On the page it takes `background.surface.tone.1`, and inside a panel that uses `background.surface.tone.1` it takes `background.surface.tone.2`. Set the tone where the card is placed, not in the card itself, so that the same card can appear on a page, in a panel, or in a drawer. The same applies to any reusable container.
 
-A toned card also still reads as a card when a row becomes a stack at narrow width.
-
-This matters most when the card is a target. A card the reader clicks, opens, or selects reads as a single object rather than a cluster of text, and its boundary tells the reader what the target is.
+A toned card still reads as a card when a row becomes a stack at narrow widths. The tone matters most when the card is a target: a card the reader clicks, opens, or selects reads as one object, and its boundary shows what the target is.
 
 ### Leaving cards untoned
 
-Sometimes no tone is the better answer.
+Sometimes no tone is the better answer, and a card or a panel should not stand out from what it sits on. The usual case is a set that is very tightly bound. In a compact KPI strip that is read at a glance, a surface for each figure can add noise rather than clarity, so contain the set and leave the figures on it.
 
-- **The set is very tightly bound.** A compact KPI strip, read at a glance, where per-card surfaces add noise rather than clarity. Contain the set and leave the cards on it.
-- **The page should read as a continuous document.** Some pages—a report, a summary view, or a long-form detail page—are better served by reading as one continuous thing than as a grid of modules. Toning every card there fragments the page into tiles when what you want is flow. If that is the effect you are after, leaving cards untoned is a legitimate way to get it, and it is a decision about the page as a whole rather than about any one card.
+A card that is a target, or that is likely to appear elsewhere, is usually better off keeping its tone.
 
-Both are worth making deliberately. If the card is a target, or if it is likely to appear elsewhere, it is usually better off keeping its tone.
+To leave a container untoned, give it no surface at all. Leave it transparent, and it works on a page, in a modal, and inside a panel without changing, because it is not claiming a surface of its own. Where it still has to be seen, a border can mark its edge.
+
+Do not reach for a tone that happens to match the surface behind it. A tone is there to separate, and a card that matches the page behind it separates nothing; it also stops behaving correctly when the surface values change.
 
 ### Grouping a set
 
-Putting a container around a set of cards is a separate, layout-led decision. Toned cards keep their tone inside it: a container using `background.surface.tone.1` with cards using `background.surface.tone.2` is ordinary nesting, following the ordinary rule.
+Putting a container around a set of cards is a separate, layout-led decision. A set of toned cards is usually fine without one, because the cards' own surfaces already do the separating.
 
-Worth reaching for when:
+Ask the [four questions](#when-a-container-helps) of the set as a whole. A container is worth considering when the set runs into what surrounds it, or when it expands and collapses as a unit.
 
-- **The set has to be told apart from what surrounds it.** Rarely, a summary strip above a table, competing with other page furniture, may need a boundary that spacing is no longer giving it.
-- **The set behaves as one region.** It scrolls, collapses, or reflows as a unit, and a boundary makes that legible.
-- **The set is one module among several**, and the page's existing grouping has stopped separating them—the general test in [deciding whether to contain](#deciding-whether-to-contain).
-
-If none of those apply, a set of toned cards is usually fine uncontained. Their own surfaces are doing the work, and a container adds a boundary that is not earning anything.
+Inside that container, toned cards take the other tone. A container using `background.surface.tone.1` with cards using `background.surface.tone.2` is ordinary nesting.
 
 ### Tabs and containment scope
 
