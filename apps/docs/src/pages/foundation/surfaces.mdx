@@ -15,13 +15,20 @@ Structure typically starts with spacing, headings, and layout. Surfaces are adde
 
 A floating layer sits over the page rather than in it, so that a menu, a dialog, or a tooltip can appear without disturbing the layout beneath. See [what counts as floating](#what-counts-as-floating).
 
-## Root surfaces and tones
+## Surface design tokens
 
 **Root surfaces** are the starting surfaces upon which content and other surfaces sit. `background.surface.base` is the page or canvas. `background.surface.floating` is for modals, drawers, menus, and tooltips.
 
 **Surface tones** are used on containers needing grouping, separation, or emphasis. These are `background.surface.tone.1` and `background.surface.tone.2`.
 
-### Nesting tones
+| Role | Design token | Example light | Example dark | Definition |
+| --- | --- | --- | --- | --- |
+| Page (root surface) | `background.surface.base` | placeholder image | placeholder image | The surface a page or canvas is built on. Content and containers sit on it. A container placed directly on it takes `background.surface.tone.1`, or no surface at all if it should read as part of the page. |
+| Tone | `background.surface.tone.1` | placeholder image | placeholder image | A surface used to group, separate, or emphasise. Use it for a container that sits directly on `background.surface.base`, on `background.surface.floating`, or on `background.surface.tone.2`. |
+| Tone | `background.surface.tone.2` | placeholder image | placeholder image | A surface used to group, separate, or emphasise. Use it for a container that sits on `background.surface.tone.1`. Not for use directly on the page or on a floating surface. |
+| Floating (root surface) | `background.surface.floating` | placeholder image | placeholder image | The root surface for floating UI. See [what counts as floating](#what-counts-as-floating). |
+
+## Nesting tones
 
 Nested containers alternate between `background.surface.tone.1` and `background.surface.tone.2`. Tone 1, then tone 2, then tone 1 again, as deep as the content goes: the pair works indefinitely, and nothing runs out.
 
@@ -37,16 +44,7 @@ The tones are peers. Neither is deeper than the other, and the numbers are label
 
 Surfaces are chosen by asking what the content needs: "Does this need grouping, separation, or emphasis?" not by asking "How far down the tree does it sit?"
 
-## Surface design tokens
-
-| Role | Design token | Example light | Example dark | Definition |
-| --- | --- | --- | --- | --- |
-| Page (root surface) | `background.surface.base` | placeholder image | placeholder image | The surface a page or canvas is built on. Content and containers sit on it. A container placed directly on it takes `background.surface.tone.1`, or no surface at all if it should read as part of the page. |
-| Tone | `background.surface.tone.1` | placeholder image | placeholder image | A surface used to group, separate, or emphasise. Use it for a container that sits directly on `background.surface.base`, on `background.surface.floating`, or on `background.surface.tone.2`. |
-| Tone | `background.surface.tone.2` | placeholder image | placeholder image | A surface used to group, separate, or emphasise. Use it for a container that sits on `background.surface.tone.1`. Not for use directly on the page or on a floating surface. |
-| Floating (root surface) | `background.surface.floating` | placeholder image | placeholder image | The root surface for floating UI. See [what counts as floating](#what-counts-as-floating). |
-
-### What counts as floating
+## What counts as floating
 
 **In the page, or over it?**
 

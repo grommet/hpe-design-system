@@ -407,10 +407,9 @@ export const foundation = [
     are not surfaces.`,
     sections: [
       'What surfaces are for',
-      'Root surfaces and tones',
+      'Surface design tokens',
       'Nesting tones',
       'A note on the numbers',
-      'Surface design tokens',
       'What counts as floating',
       'What is not a surface',
       'Fills inside a component',
