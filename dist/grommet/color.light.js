@@ -19,6 +19,8 @@ export default {
         "contrast": "rgba(0, 0, 0, 0.04)",
         "contrast-hover": "rgba(0, 0, 0, 0.08)",
         "critical": "#ffecec",
+        "critical-strong": "#cc1f1a",
+        "critical-strong-hover": "#9c0f0b",
         "default": "#ffffff",
         "disabled": "rgba(0, 0, 0, 0.04)",
         "floating": "#ffffff",
@@ -85,6 +87,7 @@ export default {
       },
       "icon": {
         "critical": "#cc1f1a",
+        "critical-hover": "#9c0f0b",
         "default": "#3e4550",
         "disabled": "rgba(0, 0, 0, 0.24)",
         "info": "#0055da",

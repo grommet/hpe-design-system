@@ -3832,6 +3832,50 @@ export default {
     ],
     "key": "{base.color.red.800}"
   },
+  "hpe.base.color.red.900": {
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "codeSyntax": {},
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "$type": "color",
+    "$value": "#9c0f0b",
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
+      "$type": "color",
+      "$value": "#9c0f0b"
+    },
+    "name": "hpe.base.color.red.900",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "red",
+      "subitem": "900"
+    },
+    "path": [
+      "base",
+      "color",
+      "red",
+      "900"
+    ],
+    "key": "{base.color.red.900}"
+  },
   "hpe.base.color.red.1000": {
     "$description": "",
     "$extensions": {

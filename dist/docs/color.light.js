@@ -598,6 +598,102 @@ export default {
     ],
     "key": "{color.background.critical.DEFAULT.REST}"
   },
+  "hpe.color.background.critical.strong": {
+    "$description": "The strong variant of background-critical. Use for solid, high-emphasis fills communicating errors or danger, such as a selected control in an error state. Pair with text-onStrong and icon-onStrong. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "codeSyntax": {},
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ]
+      }
+    },
+    "$type": "color",
+    "$value": "#cc1f1a",
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$description": "The strong variant of background-critical. Use for solid, high-emphasis fills communicating errors or danger, such as a selected control in an error state. Pair with text-onStrong and icon-onStrong. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      },
+      "$type": "color",
+      "$value": "{base.color.red.800}"
+    },
+    "name": "hpe.color.background.critical.strong",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "critical",
+      "subitem": "strong",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "critical",
+      "strong",
+      "REST"
+    ],
+    "key": "{color.background.critical.strong.REST}"
+  },
+  "hpe.color.background.critical.strong.hover": {
+    "$description": "Hover variant of background-critical-strong.",
+    "$extensions": {
+      "com.figma": {
+        "codeSyntax": {},
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ]
+      }
+    },
+    "$type": "color",
+    "$value": "#9c0f0b",
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$description": "Hover variant of background-critical-strong.",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        }
+      },
+      "$type": "color",
+      "$value": "{base.color.red.900}"
+    },
+    "name": "hpe.color.background.critical.strong.hover",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "critical",
+      "subitem": "strong",
+      "state": "hover"
+    },
+    "path": [
+      "color",
+      "background",
+      "critical",
+      "strong",
+      "hover"
+    ],
+    "key": "{color.background.critical.strong.hover}"
+  },
   "hpe.color.background.default": {
     "$description": "Default background color to be used on containers.",
     "$extensions": {
@@ -3318,6 +3414,56 @@ export default {
       "REST"
     ],
     "key": "{color.icon.critical.DEFAULT.REST}"
+  },
+  "hpe.color.icon.critical.hover": {
+    "$description": "Hover variant of icon-critical. Use for interactive icons and icon-like indicators communicating errors or danger. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "codeSyntax": {},
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ]
+      }
+    },
+    "$type": "color",
+    "$value": "#9c0f0b",
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$description": "Hover variant of icon-critical. Use for interactive icons and icon-like indicators communicating errors or danger. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "codeSyntax": {},
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ]
+        }
+      },
+      "$type": "color",
+      "$value": "{base.color.red.900}"
+    },
+    "name": "hpe.color.icon.critical.hover",
+    "attributes": {
+      "category": "color",
+      "type": "icon",
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "hover"
+    },
+    "path": [
+      "color",
+      "icon",
+      "critical",
+      "DEFAULT",
+      "hover"
+    ],
+    "key": "{color.icon.critical.DEFAULT.hover}"
   },
   "hpe.color.icon.default": {
     "$description": "Default icon color that is accessible on standard background colors.",

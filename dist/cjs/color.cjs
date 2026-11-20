@@ -19,6 +19,8 @@ module.exports = {
         "contrast": "var(--hpe-color-background-contrast)",
         "contrast-hover": "var(--hpe-color-background-contrast-hover)",
         "critical": "var(--hpe-color-background-critical)",
+        "critical-strong": "var(--hpe-color-background-critical-strong)",
+        "critical-strong-hover": "var(--hpe-color-background-critical-strong-hover)",
         "default": "var(--hpe-color-background-default)",
         "disabled": "var(--hpe-color-background-disabled)",
         "floating": "var(--hpe-color-background-floating)",
@@ -85,6 +87,7 @@ module.exports = {
       },
       "icon": {
         "critical": "var(--hpe-color-icon-critical)",
+        "critical-hover": "var(--hpe-color-icon-critical-hover)",
         "default": "var(--hpe-color-icon-default)",
         "disabled": "var(--hpe-color-icon-disabled)",
         "info": "var(--hpe-color-icon-info)",

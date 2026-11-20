@@ -94,6 +94,7 @@ module.exports = {
         "red-500": "var(--hpe-base-color-red-500)",
         "red-600": "var(--hpe-base-color-red-600)",
         "red-800": "var(--hpe-base-color-red-800)",
+        "red-900": "var(--hpe-base-color-red-900)",
         "red-1000": "var(--hpe-base-color-red-1000)",
         "white-100": "var(--hpe-base-color-white-100)",
         "white-opacity10": "var(--hpe-base-color-white-opacity10)",

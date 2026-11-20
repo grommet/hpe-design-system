@@ -94,6 +94,7 @@ export default {
         "red-500": "#fc6161",
         "red-600": "#ec3331",
         "red-800": "#cc1f1a",
+        "red-900": "#9c0f0b",
         "red-1000": "#552120",
         "white-100": "#ffffff",
         "white-opacity10": "rgba(255, 255, 255, 0.1)",
