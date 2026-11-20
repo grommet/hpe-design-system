@@ -59,6 +59,8 @@ const config = {
       ...config.resolve,
       alias: {
         ...config.resolve.alias,
+        // Docs examples must share the decorator's Grommet context providers.
+        grommet: join(getAbsolutePath('grommet'), 'es6'),
         'apps/docs': resolve(__dirname, '../../../apps/docs'),
       },
       fallback: {
