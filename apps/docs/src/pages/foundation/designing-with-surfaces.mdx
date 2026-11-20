@@ -144,7 +144,7 @@ Whether an element is contained. These are sensible defaults that depend on the 
 
 **Summary cards:** Each card uses `background.surface.tone.1`. Cards carry their own boundary, making each one visually distinct.
 
-**Data table:** Remains uncontained on `background.surface.base`. Tables are self-structuring: rows, columns, and headers already provide the visual grouping. Only add a container if the table becomes one module among several and spacing and headings no longer create adequate separation.
+**Data table:** Uncontained on `background.surface.base`. It sits under its own heading, below the summary cards, so it is not part of their set. See [tables](#tables).
 
 placeholder image
 
@@ -162,7 +162,7 @@ placeholder image
 
 **Page header:** Uncontained. Spacing and typography already group the title, any step indicator, and supporting text, so a container would add weight without adding meaning.
 
-**Form sections:** Each section takes its own container using `background.surface.tone.1`. The form has two groups a reader needs to tell apart, and each carries its own heading and set of inputs, so the container binds the heading to the fields it governs.
+**Form sections:** Each section takes its own container using `background.surface.tone.1`. The form has several sections, and each carries its own heading and set of inputs, so the container binds the heading to the fields it governs.
 
 placeholder image
 
@@ -190,7 +190,7 @@ placeholder image
 
 **Dashboard cards:** Each card uses `background.surface.tone.1`. A dashboard is a set of distinct modules, each binding disparate content such as a title, a KPI, and a chart, and a card carries its own boundary so each module reads as one object rather than a cluster of text. This matters most where a card is a target the reader clicks or opens, because the boundary tells them what the target is.
 
-**Why the cards are not grouped in a container:** The cards' own surfaces are already doing the separating, so a container around the grid would add a boundary that is not earning anything. Group a set only when it has to be told apart from what surrounds it, or when it scrolls, collapses, or reflows as a single region.
+**Why the cards are not grouped in a container:** The cards' own surfaces are already doing the separating, so a container around the grid would add a boundary that is not earning anything. See [grouping a set](#grouping-a-set).
 
 **Charts and tables inside a card:** Uncontained on the card's own surface. They are self-structuring, and the card has already drawn the boundary.
 
