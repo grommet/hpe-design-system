@@ -5,9 +5,13 @@ import PropTypes from 'prop-types';
 import { Box, Button, Heading, Layer, Text, ResponsiveContext } from 'grommet';
 import { WizardContext } from '.';
 
-export const CancellationLayer = ({ onSetOpen, ...rest }) => {
-  const { defaultFormValues, setFormValues } = useContext(WizardContext);
+export const CancellationLayer = ({ onExit, onSetOpen, title, ...rest }) => {
+  // title and onExit fall back to the template WizardContext so examples
+  // built on that context keep working without passing props.
+  const { defaultFormValues, setFormValues, wizardTitle } =
+    useContext(WizardContext);
   const size = useContext(ResponsiveContext);
+  const exit = onExit || (() => setFormValues(defaultFormValues));
   return (
     <Layer
       position="center"
@@ -21,7 +25,9 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
           <Heading level={2} margin="none">
             Cancel
           </Heading>
-          <Text color="text-strong">Wizard Title</Text>
+          <Text color="text-strong">
+            {title || wizardTitle || 'Wizard Title'}
+          </Text>
         </>
         <Text>
           You have unsaved changes. Leaving this page will cause you to lose all
@@ -45,7 +51,7 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
             fill={!['xsmall', 'small'].includes(size) ? false : 'horizontal'}
             onClick={() => {
               onSetOpen(false);
-              setFormValues(defaultFormValues);
+              exit();
             }}
             primary
           />
@@ -56,6 +62,8 @@ export const CancellationLayer = ({ onSetOpen, ...rest }) => {
 };
 
 CancellationLayer.propTypes = {
+  onExit: PropTypes.func,
   onSetOpen: PropTypes.func.isRequired,
   target: PropTypes.object,
+  title: PropTypes.string,
 };
