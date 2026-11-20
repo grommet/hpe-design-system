@@ -177,6 +177,32 @@
             "$type": "color",
             "$value": "{base.color.red.50}"
           }
+        },
+        "strong": {
+          "REST": {
+            "$description": "The strong variant of background-critical. Use for solid, high-emphasis fills communicating errors or danger, such as a selected control in an error state. Pair with text-onStrong and icon-onStrong. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.red.800}"
+          },
+          "hover": {
+            "$description": "Hover variant of background-critical-strong.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.red.900}"
+          }
         }
       },
       "default": {
@@ -1069,6 +1095,18 @@
             },
             "$type": "color",
             "$value": "{base.color.red.800}"
+          },
+          "hover": {
+            "$description": "Hover variant of icon-critical. Use for interactive icons and icon-like indicators communicating errors or danger. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.red.900}"
           }
         }
       },
