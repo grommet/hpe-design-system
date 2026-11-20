@@ -1,0 +1,186 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React, { useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import {
+  AnnounceContext,
+  Box,
+  Button,
+  Data,
+  DataFilters,
+  DataSearch,
+  DataSummary,
+  DataTable,
+  Form,
+  FormField,
+  Heading,
+  ResponsiveContext,
+  Select,
+  Toolbar,
+  TextInput,
+} from 'grommet';
+import { ButtonGroup, LayerHeader } from '@shared/aries-core';
+import devices from '../../../data/mockData/devices.json';
+import {
+  ConfirmationContext,
+  ConfirmationProvider,
+  DoubleConfirmation,
+  Sidedrawer,
+  useConfirmation,
+} from '../layer/components';
+import { ContentPane } from '../../../layouts/content/ContentPane';
+
+export const ButtonBeginNewTaskExample = () => (
+  <ConfirmationProvider>
+    <ConfirmationContext.Consumer>
+      {({ showLayer, showConfirmation }) => (
+        <>
+          <Devices />
+          {showLayer ? <AddDevice /> : null}
+          {showConfirmation ? <DoubleConfirmation title="device" /> : null}
+        </>
+      )}
+    </ConfirmationContext.Consumer>
+  </ConfirmationProvider>
+);
+
+const AddDevice = ({ ...rest }) => {
+  const { onClose } = useConfirmation();
+  const announce = useContext(AnnounceContext);
+
+  useEffect(() => {
+    announce('Add device modal opened', 'assertive');
+  }, [announce]);
+
+  return (
+    <Sidedrawer onEsc={onClose} {...rest}>
+      <LayerHeader title="Add device" onClose={onClose} />
+      <AddDeviceForm id="devices-form" onClose={onClose} />
+    </Sidedrawer>
+  );
+};
+
+const columns = [
+  { header: 'Name', primary: true, property: 'name' },
+  { header: 'Type', property: 'type' },
+  { header: 'Status', property: 'status' },
+];
+
+const Devices = () => {
+  const { setShowLayer } = useConfirmation();
+  return (
+
+        <ContentPane gap="medium">
+          <Heading id="devices-heading" level={2} margin="none">
+            Devices
+          </Heading>
+          <Box align="start">
+            <Data data={devices}>
+              <Toolbar>
+                <DataSearch />
+                <DataFilters layer />
+                <Box flex />
+                <Button
+                  label="Add device"
+                  onClick={() => setShowLayer(true)}
+                  secondary
+                />
+              </Toolbar>
+              <DataSummary />
+              <Box align="start" overflow="auto">
+                <DataTable 
+                  aria-describedby="devices-heading" 
+                  columns={columns} 
+                />
+              </Box>
+            </Data>
+          </Box>
+        </ContentPane>
+  );
+};
+
+const defaultFormValues = {
+  'device-name': '',
+  'device-type': '',
+  'device-status': '',
+};
+
+const AddDeviceForm = ({ onClose, ...rest }) => {
+  const [formValue, setFormValue] = useState(defaultFormValues);
+  const { setShowLayer, setTouched } = useConfirmation();
+  const size = useContext(ResponsiveContext);
+  const mobileLayout = ['xsmall', 'small', 'medium'].includes(size);
+
+  // setTouched to false when form dismounts
+  useEffect(() => () => setTouched(false), [setTouched]);
+
+  return (
+    <Form
+      onSubmit={() => {
+        setShowLayer(false);
+      }}
+      messages={{
+        required: 'This is a required field.',
+      }}
+      value={formValue}
+      onChange={(nextValue, { touched }) => {
+        setFormValue(nextValue);
+        setTouched(Object.keys(touched).length);
+      }}
+      {...rest}
+    >
+      {/* using content-driven container 
+        https://design-system.hpe.design/templates/content-layouts?q=content#content-driven-layouts */}
+      <Box gap="medium" width="medium">
+        <Box>
+          <FormField
+            label="Device name"
+            name="device-name"
+            htmlFor="device-name"
+            required
+          >
+            <TextInput
+              id="device-name"
+              name="device-name"
+              placeholder="e.g. web-server-04"
+            />
+          </FormField>
+          <FormField
+            label="Type"
+            name="device-type"
+            htmlFor="device-type"
+            required
+          >
+            <Select
+              id="device-type"
+              name="device-type"
+              options={['Server', 'Database', 'Proxy']}
+              placeholder="Select type"
+            />
+          </FormField>
+          <FormField
+            label="Status"
+            name="device-status"
+            htmlFor="device-status"
+            required
+          >
+            <Select
+              id="device-status"
+              name="device-status"
+              options={['Active', 'Inactive']}
+              placeholder="Select status"
+            />
+          </FormField>
+        </Box>
+        <ButtonGroup direction={mobileLayout ? 'column' : 'row'}>
+          <Button label="Add device" primary type="submit" />
+          <Button label="Cancel" onClick={onClose} />
+        </ButtonGroup>
+      </Box>
+    </Form>
+  );
+};
+
+AddDeviceForm.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};

@@ -1,0 +1,24 @@
+// SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
+// SPDX-License-Identifier: Apache-2.0
+import React from 'react';
+import { Box, Button, CheckBoxGroup, FormField, Heading } from 'grommet';
+import { ButtonGroup } from '@shared/aries-core';
+
+export const ButtonBadActionLabelsPreview = () => (
+  <Box gap="medium">
+    <Heading level={2} margin="none">
+      Filters
+    </Heading>
+    <FormField label="Status" htmlFor="status-bad" name="status">
+      <CheckBoxGroup
+        id="status-bad"
+        name="status"
+        options={['Active', 'Inactive']}
+      />
+    </FormField>
+    <ButtonGroup>
+      <Button primary label="Apply" />
+      <Button label="Reset" />
+    </ButtonGroup>
+  </Box>
+);
