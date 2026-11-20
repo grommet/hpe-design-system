@@ -1,0 +1,199 @@
+Surfaces are what a page is built from: the page itself, the containers on it, and anything floating above it. This page covers how to choose between them. For what surfaces are for and the model behind them, see [Understanding surfaces](/foundation/surfaces). To move an existing design onto the surface design tokens, see [design token versioning](/design-tokens/versioning).
+
+## Applying surfaces
+
+When applying surfaces to a page, decide in this order:
+
+1. **Whether the content needs a container.** This depends on the content and on what surrounds it. See [deciding whether to contain](#deciding-whether-to-contain).
+2. **Which design token it takes.** This follows from where it sits:
+   - A page or canvas is `background.surface.base`. Modals, drawers, menus, and tooltips are `background.surface.floating`, and are typically pre-styled.
+   - The first container on the page, or on a floating layer, takes `background.surface.tone.1`. A container inside it takes `background.surface.tone.2`, and the two tones keep alternating.
+   - A container that should match what is behind it takes no surface.
+
+Choose each surface for the role it plays, not for its color. The values behind the design tokens differ between light and dark modes and can change.
+
+## Deciding whether to contain
+
+Containment is a decision, not a default. A container signals _this all belongs together_, so the question is how much of that signal the content actually needs, and whether spacing and headings are already providing it.
+
+Start with the simplest option, and only add more when the content is still hard to follow:
+
+1. Content directly on the surface, with spacing, typography, and layout doing the grouping.
+2. A container, when spacing has stopped doing that job.
+3. A container inside it, when a group within needs its own identity. Sparingly, and for the same reason.
+
+Most content settles on the surface it is on, or in a single container.
+
+To separate groups, prefer a change of surface to a divider, because a surface draws the boundary without adding a line to the page. Dividers remain useful, especially within a group, such as between rows or above a footer.
+
+### When a container helps
+
+To tell when spacing and headings are no longer enough, ask four questions about the group. Consider a container when any answer is yes.
+
+1. **Does it run into its neighbors?** It is hard to see where the group ends, most often when groups sit side by side, hold similar content, or have no more space between them than within them.
+2. **Do its parts need holding together?** It combines unlike elements, such as a title, a value, and a chart, that could be read as separate items or as part of a neighbor.
+3. **Does it act as one object?** It is a target to click, select, or drag, or it expands and collapses as a unit.
+4. **Are its peers contained?** It is one of a set of like groups, such as modules in a grid or sections of a form, and the others are contained.
+
+When every answer is no, leave the group uncontained. A group alone on its surface has no neighbors, so it rarely needs a container.
+
+The type of content and its size are not reasons on their own. The same questions apply to a table, a form, or a list.
+
+The page as a whole matters too. A report, a summary view, or a long-form detail page can read better as one continuous document, and a container around every section would break it into tiles.
+
+These are starting points. The sections below work through the cases where a page has good reason to depart from them.
+
+### When nesting deeply
+
+The tones alternate indefinitely, so there is no need to count levels, or to remove a container the content needs just to keep the nesting shallow. Extensive nesting may still indicate an information architecture issue, because containment is intended to simplify a page.
+
+## Common cases
+
+Each case below gives a default. The [four questions](#when-a-container-helps) decide when to depart from it.
+
+### Tables
+
+Leave a table or a list uncontained by default. Its rows and headers already hold it together, so it rarely runs into its neighbors.
+
+Consider a container when the table shares a set with contained modules, such as a grid of dashboard cards, or when headings and spacing no longer set it apart. A table under its own heading, below a row of cards, is not part of that set.
+
+A table being large, dense, or scrollable is not, on its own, a reason to contain it.
+
+### Forms
+
+Leave a short form, or a wizard step with one section, uncontained. Spacing and labels already carry the structure, and it is usually alone on its surface.
+
+When a form or a wizard step has several sections, give each section a container by default. Sections of fields hold similar content, so they run together without one. Avoid wrapping the whole form instead, because that restates a boundary the page already provides.
+
+Inputs carry their own fill and border, so they can stay distinct on a toned container without adjustment.
+
+### Cards and card sets
+
+A card carries its own boundary, so choosing one has usually settled the question of containment. As a starting point, give each card a tone, whether it appears alone, in a set of three, or in a set of twenty.
+
+A card's tone depends on what it sits on, not on what kind of card it is. On the page it takes `background.surface.tone.1`, and inside a panel that uses `background.surface.tone.1` it takes `background.surface.tone.2`. Set the tone where the card is placed, not in the card itself, so that the same card can appear on a page, in a panel, or in a drawer. The same applies to any reusable container.
+
+A toned card still reads as a card when a row becomes a stack at narrow widths. The tone matters most when the card is a target: a card the reader clicks, opens, or selects reads as one object, and its boundary shows what the target is.
+
+### Leaving cards untoned
+
+Sometimes no tone is the better answer, and a card or a panel should not stand out from what it sits on. The usual case is a set that is very tightly bound. In a compact KPI strip that is read at a glance, a surface for each figure can add noise rather than clarity, so contain the set and leave the figures on it.
+
+A card that is a target, or that is likely to appear elsewhere, is usually better off keeping its tone.
+
+To leave a container untoned, give it no surface at all. Leave it transparent, and it works on a page, in a modal, and inside a panel without changing, because it is not claiming a surface of its own. Where it still has to be seen, a border can mark its edge.
+
+Do not reach for a tone that happens to match the surface behind it. A tone is there to separate, and a card that matches the page behind it separates nothing; it also stops behaving correctly when the surface values change.
+
+### Grouping a set
+
+Putting a container around a set of cards is a separate, layout-led decision. A set of toned cards is usually fine without one, because the cards' own surfaces already do the separating.
+
+Ask the [four questions](#when-a-container-helps) of the set as a whole. A container is worth considering when the set runs into what surrounds it, or when it expands and collapses as a unit.
+
+Inside that container, toned cards take the other tone. A container using `background.surface.tone.1` with cards using `background.surface.tone.2` is ordinary nesting.
+
+### Tabs and containment scope
+
+Tab placement is worth deciding early, because the content each tab shows inherits it.
+
+- **Tabs on the page.** Each tab's content stays free to be contained or uncontained. This includes tabs that govern one section of a page.
+- **Tabs inside a container.** Every tab's content is contained, so the choice is made for all of them at once.
+
+**Choose the placement by looking across the whole tab set, not only the tab that opens first.** If any tab's content is better uncontained, or needs containers of its own, consider keeping the tabs out of a container.
+
+Place page-level tabs with the page header, and container-level tabs at the top of the container they govern.
+
+## Applying surfaces by role
+
+### Fixed
+
+Which design token an element takes. This follows from its role and from what it sits on, not from its content.
+
+| Element                                               | Design token                                                        | Notes                                                                                                                 |
+| ----------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Page or canvas                                        | `background.surface.base`                                           | The surface every page, dashboard, detail view, or document is built on.                                              |
+| Container on the page or on a floating layer          | `background.surface.tone.1`                                         | A card or a grouping container. The first container on either.                                                        |
+| Container inside another container                    | The tone its parent is not                                          | `background.surface.tone.2` inside `background.surface.tone.1`, and the reverse. This includes a card inside a panel. |
+| Modal, drawer, menu, tooltip                          | `background.surface.floating`                                       | Renders over the page, and the tones start again inside it.                                                           |
+| Overlay scrim                                         | `background.screenOverlay`                                          | Behind floating surfaces.                                                                                             |
+| Meaning, emphasis, or a small fill inside a component | A status background, an accent background, or `background.contrast` | Not a surface. Does not alternate. See [what is not a surface](/foundation/surfaces#what-is-not-a-surface).           |
+
+Use the surface design tokens as named. `color.surface.10`, `.20`, and `.30` are internal reference values and may change.
+
+The application shell is not covered here. For the global header, navigation, and side panels, follow the current shell implementation and the [page examples](#page-examples-using-surfaces).
+
+### Compositional
+
+Whether an element is contained. These are sensible defaults that depend on the content and on what surrounds it, and the [four questions](#when-a-container-helps) say when to depart from them.
+
+| Element                                   | Default                      | Notes                                                                                                                                   |
+| ----------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Page header (title, breadcrumbs, actions) | uncontained                  | Sits directly on the page.                                                                                                              |
+| Card                                      | toned                        | A card carries its own boundary, so it takes a tone by default. See [leaving cards untoned](#leaving-cards-untoned) for the exceptions. |
+| Data table or list                        | uncontained                  | See [tables](#tables).                                                                                                                  |
+| Simple linear form                        | uncontained                  | Contain per section when it has several sections.                                                                                       |
+| Metadata block (key/value)                | uncontained                  | Contain when its peers are contained.                                                                                                   |
+| Wizard step body                          | uncontained on the page      | Contain each section when a step has several.                                                                                           |
+| Page-level tabs                           | on the page                  | Controls the whole page content area, and keeps each tab's content free.                                                                |
+| Container-level tabs                      | on the container they govern | Every tab's content is contained.                                                                                                       |
+
+## Page examples using surfaces
+
+### Data collection and cards
+
+**Page background:** `background.surface.base`
+
+**Summary cards:** Each card uses `background.surface.tone.1`. Cards carry their own boundary, making each one visually distinct.
+
+**Data table:** Uncontained on `background.surface.base`. It sits under its own heading, below the summary cards, so it is not part of their set. See [tables](#tables).
+
+placeholder image
+
+### Simple form
+
+**Page background:** `background.surface.base`
+
+**Form:** Uncontained on `background.surface.base`. A short linear form is already structured by its labels, inputs, and spacing, so a container would restate a boundary the page is already providing. There is nothing here to tell apart from anything else: the form is the page content.
+
+placeholder image
+
+### Multi-section form
+
+**Page background:** `background.surface.base`
+
+**Page header:** Uncontained. Spacing and typography already group the title, any step indicator, and supporting text, so a container would add weight without adding meaning.
+
+**Form sections:** Each section takes its own container using `background.surface.tone.1`. The form has several sections, and each carries its own heading and set of inputs, so the container binds the heading to the fields it governs.
+
+placeholder image
+
+### Contextual chat page
+
+**Page background:** `background.surface.base`
+
+**Page header:** Uncontained. Spacing and typography carry the grouping.
+
+**Name-value pairs:** Uncontained on `background.surface.base`. A metadata block is self-structuring, with keys and values already forming the pattern a container would otherwise signal.
+
+**Data table:** Uncontained on `background.surface.base`. Rows, columns, and headers already group it, and the table being large or scrollable is not on its own a reason to contain it.
+
+**Contextual chat panel:** `background.surface.tone.1`. The panel takes up space in the layout rather than floating over the page: content sits alongside it, not underneath. That makes it a container and gives it a tone.
+
+**Cards inside the chat:** `background.surface.tone.2`, whichever tone the panel is not. This is ordinary alternation. The same card placed on the page would take `background.surface.tone.1`, which is why a card's tone is set where it is used rather than fixed in the card.
+
+placeholder image
+
+### Dashboard
+
+**Page background:** `background.surface.base`
+
+**Page header:** Uncontained. Title, filters, and actions sit directly on the page.
+
+**Dashboard cards:** Each card uses `background.surface.tone.1`. A dashboard is a set of distinct modules, each binding disparate content such as a title, a KPI, and a chart, and a card carries its own boundary so each module reads as one object rather than a cluster of text. This matters most where a card is a target the reader clicks or opens, because the boundary tells them what the target is.
+
+**Why the cards are not grouped in a container:** The cards' own surfaces are already doing the separating, so a container around the grid would add a boundary that is not earning anything. See [grouping a set](#grouping-a-set).
+
+**Charts and tables inside a card:** Uncontained on the card's own surface. They are self-structuring, and the card has already drawn the boundary.
+
+placeholder image
