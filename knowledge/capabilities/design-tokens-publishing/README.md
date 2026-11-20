@@ -42,6 +42,10 @@ Changeset status is a pre-version-PR check. After the release PR runs `changeset
 consumed Changesets are expected to be absent; candidate validation must instead verify the
 generated package version and changelog heading.
 
+The release PR workflow temporarily applies its package exclusions through
+`scripts/prepare-design-tokens-version.mjs` before Changesets validates the workspace. The script
+restores the original Changesets configuration even if versioning fails.
+
 ## Two-Stage Publication Workflow
 
 Run `.github/workflows/design-tokens-release.yml` manually with an approved ref and exact
