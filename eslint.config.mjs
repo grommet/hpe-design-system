@@ -111,6 +111,27 @@ export default defineConfig([
     },
   },
   {
+    files: ['apps/docs/src/**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        { js: 'never', jsx: 'never', ts: 'ignore', tsx: 'ignore' },
+      ],
+    },
+    settings: {
+      'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+      'import/parsers': {
+        '@typescript-eslint/parser': ['.ts', '.tsx'],
+      },
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+        },
+      },
+    },
+  },
+  {
     files: ['apps/docs/src/**/*.{js,jsx}'],
     rules: {
       'import/no-unresolved': [
