@@ -117,6 +117,8 @@ Which design token an element takes. This follows from its role and from what it
 | Overlay scrim                                         | `background.screenOverlay`                                          | Behind floating surfaces.                                                                                             |
 | Meaning, emphasis, or a small fill inside a component | A status background, an accent background, or `background.contrast` | Not a surface. Does not alternate. See [what is not a surface](/foundation/surfaces#what-is-not-a-surface).           |
 
+Use the surface design tokens as named. `color.surface.10`, `.20`, and `.30` are internal reference values and may change.
+
 The application shell is not covered here. For the global header, navigation, and side panels, follow the current shell implementation and the [page examples](#page-examples-using-surfaces).
 
 ### Compositional
@@ -197,15 +199,3 @@ placeholder image
 ## Migrating an existing design
 
 Token, version, and deprecation mechanics are on [design token versioning](/design-tokens/versioning).
-
-## Do and don't
-
-| Do                                                                                                                                     | Don't                                                                                                               | Why                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Decide whether content needs a container before choosing a token.                                                                      | Wrap every element in a container.                                                                                  | A container signals _this belongs together_. Used everywhere, it signals nothing.                           |
-| Give a container whichever tone it is not sitting on.                                                                                  | Repeat the surface behind it, put `background.surface.tone.2` directly on the page, or pick a tone by how it looks. | A tone that matches the surface behind it separates nothing.                                                |
-| Let the surface tones (`tone.1` and `tone.2`) alternate as deep as the content genuinely goes.                                         | Count levels, or flatten a real hierarchy to stay shallow.                                                          | There is no ceiling. If depth is a problem, it is an information architecture problem.                      |
-| Let a reusable component take its surface from context.                                                                                | Hard-code a tone into a shared component.                                                                           | It will be wrong in one of the places it appears, and it breaks system-wide value changes.                  |
-| Put page-level tabs on the page.                                                                                                       | Put them in a container out of habit.                                                                               | Container-level tabs commit every panel on every tab to being contained.                                    |
-| Use a status or accent background design token for meaning or emphasis, and `background.contrast` for a small fill inside a component. | Reach for a third surface tone, or use a tone for a fill inside a component.                                        | There are exactly two tones, and they are for structure. Anything else is a different kind of design token. |
-| Use the four surface tokens.                                                                                                           | Apply `color.surface.10`, `.20`, or `.30` directly.                                                                 | Those are internal and may change.                                                                          |
