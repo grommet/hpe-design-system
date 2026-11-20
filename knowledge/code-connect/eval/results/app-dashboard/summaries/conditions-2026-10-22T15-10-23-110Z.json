@@ -1,0 +1,14 @@
+{
+  "caseId": "app-dashboard",
+  "purpose": "Historical scorer smoke summary; not experimental results.",
+  "generatedAt": "2026-10-22T15:10:23.110Z",
+  "conditions": {
+    "screenshot": {
+      "runCount": 1,
+      "buildPasses": 1,
+      "meanCoveragePercent": 100,
+      "cleanHygieneRuns": 1,
+      "importedPackages": ["@hpe-design/icons-grommet", "grommet", "react"]
+    }
+  }
+}
