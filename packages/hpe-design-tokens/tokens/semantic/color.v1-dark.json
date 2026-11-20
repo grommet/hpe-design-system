@@ -122,12 +122,12 @@
       "back": {
         "DEFAULT": {
           "REST": {
-            "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
+            "$description": "Retained for existing work. For new work use color.background.surface.base for the page and color.background.surface.tone.1 for a container placed on it. Value unchanged.",
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                "scopes": []
               }
             },
             "$type": "color",
@@ -181,7 +181,7 @@
       },
       "default": {
         "REST": {
-          "$description": "Default background color to be used on containers.",
+          "$description": "A general-purpose background. Not part of the alternating chain. For pages and containers use color.background.surface.base, color.background.surface.tone.1, or color.background.surface.tone.2.",
           "$extensions": {
             "com.figma": {
               "codeSyntax": {},
@@ -212,12 +212,12 @@
       "floating": {
         "DEFAULT": {
           "REST": {
-            "$description": "Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers",
+            "$description": "Retained for existing work. For new work use color.background.surface.floating for UI that renders above the page. Value unchanged.",
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                "scopes": []
               }
             },
             "$type": "color",
@@ -228,12 +228,12 @@
       "front": {
         "DEFAULT": {
           "REST": {
-            "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
+            "$description": "Retained for existing work. For new work use color.background.surface.tone.1 for a container on the page, or color.background.surface.floating for UI that renders above it. Value unchanged.",
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                "scopes": []
               }
             },
             "$type": "color",
@@ -1289,6 +1289,56 @@
           },
           "$type": "color",
           "$value": "{color.text.weak.REST}"
+        }
+      }
+    },
+    "surface": {
+      "10": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. A three-step scale: in dark it is ordered by distance from the page (10 darkest, 30 lightest); in light 10 and 20 share a value by design.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1300}"
+          }
+        }
+      },
+      "20": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. A three-step scale: in dark it is ordered by distance from the page (10 darkest, 30 lightest); in light 10 and 20 share a value by design.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1200}"
+          }
+        }
+      },
+      "30": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating. A three-step scale: in dark it is ordered by distance from the page (10 darkest, 30 lightest); in light 10 and 20 share a value by design.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1000}"
+          }
         }
       }
     },
