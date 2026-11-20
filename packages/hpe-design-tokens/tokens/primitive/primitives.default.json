@@ -1068,6 +1068,18 @@
           "$type": "color",
           "$value": "#cc1f1a"
         },
+        "900": {
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "codeSyntax": {},
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"]
+            }
+          },
+          "$type": "color",
+          "$value": "#9c0f0b"
+        },
         "1000": {
           "$description": "",
           "$extensions": {
