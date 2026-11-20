@@ -1,0 +1,75 @@
+name: Deploy PocketBase to Cloud Run
+
+# Manual trigger only until Workload Identity Federation is configured (see
+# apps/pocketbase_app/EVALUATION.md, P3 item 10, for the required one-time GCP setup).
+on:
+  workflow_dispatch:
+    inputs:
+      pb_version:
+        description: 'PocketBase version to build (must match a released version tag, e.g. 0.40.3)'
+        required: true
+        default: '0.40.3'
+
+permissions:
+  contents: read
+  id-token: write # required for Workload Identity Federation, no stored service account keys
+
+env:
+  PROJECT_ID: hpe-design-system-adoption
+  REGION: us-central1
+  SERVICE_NAME: pocketbase-app
+  IMAGE: gcr.io/hpe-design-system-adoption/pocketbase-app
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/pocketbase_app
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOY_SERVICE_ACCOUNT }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for gcr.io
+        run: gcloud auth configure-docker gcr.io --quiet
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # --provenance=false --sbom=false is required: buildx attaches attestation
+      # manifests by default, which Cloud Run rejects even for single-platform images.
+      - name: Build and push image
+        id: build
+        run: |
+          docker buildx build \
+            --platform linux/amd64 \
+            --provenance=false \
+            --sbom=false \
+            --build-arg PB_VERSION=${{ inputs.pb_version }} \
+            -t "$IMAGE:${{ inputs.pb_version }}" \
+            -t "$IMAGE:latest" \
+            --push .
+          digest=$(docker buildx imagetools inspect "$IMAGE:${{ inputs.pb_version }}" --format '{{json .Manifest}}' | python3 -c "import json,sys; print(json.load(sys.stdin)['digest'])")
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+
+      - name: Pin cloud-run-service.yaml to the built digest
+        run: |
+          sed -i "s|image: gcr.io/hpe-design-system-adoption/pocketbase-app.*|image: $IMAGE@${{ steps.build.outputs.digest }}|" cloud-run-service.yaml
+          cat cloud-run-service.yaml
+
+      - name: Deploy to Cloud Run
+        run: gcloud run services replace cloud-run-service.yaml --region="$REGION"
+
+      - name: Verify health
+        run: |
+          url=$(gcloud run services describe "$SERVICE_NAME" --region="$REGION" --format='value(status.url)')
+          token=$(gcloud auth print-identity-token)
+          curl -sf -H "Authorization: Bearer $token" "$url/api/health"
