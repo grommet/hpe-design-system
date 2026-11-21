@@ -22,7 +22,7 @@ catalog:
   grommet: ^2.58.0
   grommet-icons: ^4.14.0
   grommet-theme-hpe: ^8.2.0
-  hpe-design-tokens: ^2.4.0
+  hpe-design-tokens: ^2.5.0
   prettier: ^3.10.1
   prop-types: ^15.8.1
   react: ^19.3.1
