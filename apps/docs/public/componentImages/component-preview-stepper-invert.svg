@@ -1,0 +1,14 @@
+<svg width="336" height="192" viewBox="0 0 336 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M70 78H266" stroke="#65737E" stroke-width="2"/>
+  <path d="M70 78H135" stroke="#8DFFBD" stroke-width="2"/>
+  <circle cx="70" cy="78" r="12" fill="#1D252D" stroke="#8DFFBD" stroke-width="2"/>
+  <path d="M64.5 78L68.5 82L76 74.5" stroke="#8DFFBD" stroke-width="2"/>
+  <circle cx="135" cy="78" r="12" fill="#8DFFBD"/>
+  <circle cx="135" cy="78" r="4" fill="#1D252D"/>
+  <circle cx="200" cy="78" r="12" fill="#1D252D" stroke="#65737E" stroke-width="2"/>
+  <circle cx="265" cy="78" r="12" fill="#1D252D" stroke="#65737E" stroke-width="2"/>
+  <text x="70" y="111" fill="#F3F5F6" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Done</text>
+  <text x="135" y="111" fill="#F3F5F6" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Details</text>
+  <text x="200" y="111" fill="#F3F5F6" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Review</text>
+  <text x="265" y="111" fill="#B1B9BE" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Finish</text>
+</svg>
