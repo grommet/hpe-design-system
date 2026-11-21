@@ -20,7 +20,7 @@ const testAllDisplays = async (eyes, t) => {
 const title = 'Screen Container';
 
 fixture(title)
-  .page(`${baseUrl}/templates/wizard`)
+  .page(`${baseUrl}/components/wizard`)
   .beforeEach(async () => {
     await waitForReact();
   });

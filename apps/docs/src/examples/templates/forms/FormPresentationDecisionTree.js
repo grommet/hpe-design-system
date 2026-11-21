@@ -275,7 +275,7 @@ const DecisionTree = () => {
               <Anchor color="text-strong">full-page form</Anchor>
             </Link>{' '}
             or as a{' '}
-            <Link href="/templates/wizard" passHref legacyBehavior>
+            <Link href="/components/wizard" passHref legacyBehavior>
               <Anchor color="text-strong">wizard</Anchor>
             </Link>
             . The advantage of presenting the layer in fullscreen mode is that
