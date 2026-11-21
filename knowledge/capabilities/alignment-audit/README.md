@@ -21,6 +21,20 @@ This capability follows the evaluate-plan-remediate continuous improvement loop,
 
 The orchestrator detects the current stage, gates on user approval before planning and before executing, then delegates to the sub-agents above in order.
 
+## Consumer distribution
+
+The knowledge-agent package exposes an external, consumer-project variant
+through its single **HPE Design System Agent** front door. The external bundle
+includes the evaluator, remediation planner, and app remediation executor;
+the internal orchestrator and design-system maintainer are not installed.
+Consumer Track B findings are report-only because the consumer project does
+not own canonical HPE Design System data or the knowledge-agent package.
+
+The consuming Copilot host executes the installed profiles. The package
+provides knowledge and agent files but does not execute or delegate agents.
+Planning and app remediation remain behind separate explicit user-approval
+gates.
+
 ## Typical Scope
 
 - App alignment review for a consumer implementation

@@ -18,17 +18,23 @@ The first external release will provide one self-contained
 
 - The existing `hpe-design-agent` CLI.
 - An ESM library with TypeScript declarations.
+- One installable, user-facing Copilot agent profile and helper profiles for
+  explicitly distributed capabilities. The consumer's Copilot host executes
+  and delegates these profiles; the npm package does not run agents.
 - A versioned snapshot of components, patterns, foundation rules, glossary
   terms, and selected implementation guidance, including resolved examples
   and templates.
+- Capability discovery and an initial consumer bundle for `alignment-audit`.
 - Offline query execution after installation, without an LLM, account,
   application framework dependency, or runtime download.
 
 The initial implementation target is React/Grommet. Existing non-React
 framework options remain conceptual guidance, not validated implementations.
 CommonJS, custom knowledge overlays, embeddings, hosted services, and skill or
-agent distribution are outside this first release. A local MCP adapter follows
-the two-team pilot rather than blocking the CLI/library release.
+general-purpose agent distribution are outside this first release. Only
+capability manifests with an explicit `spec.distribution` file allowlist can
+enter the bundle; all other capabilities remain internal. A local MCP adapter
+follows the two-team pilot rather than blocking the CLI/library release.
 
 The proposed compatibility target is Node.js 22 and 24 on Linux, macOS, and
 Windows. This is not a tested support claim: declare support in the package
@@ -44,18 +50,19 @@ The source inventory contains 61 component definitions, eight patterns, four
 foundations, and a glossary. These counts describe the current inventory, not
 permanent build constants.
 
-| Input                                                                                  | Treatment                                                                                               |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| [Component definitions](../../knowledge/core/data/components/)                         | Include loader-consumed YAML/JSON definitions after schema validation                                   |
-| [Pattern definitions](../../knowledge/core/data/patterns/)                             | Include loader-consumed YAML/JSON definitions after schema validation                                   |
-| [Foundation rules](../../knowledge/core/data/foundations/)                             | Include canonical rule definitions for checklist and full-detail projections                            |
-| [Glossary](../../knowledge/core/data/glossary.yaml)                                    | Include canonical terms used by full rule projections                                                   |
-| [Examples and templates](../../knowledge/core/data/examples/)                          | Resolve files referenced by included definitions; do not copy unrelated example trees                   |
-| [Canonical types](../../knowledge/core/data/types.ts)                                  | Generate package-local declarations from the shared contract; do not maintain copied source definitions |
-| Four standards instructions listed below                                               | Candidate inclusion set; resolve portability findings before release approval                           |
-| [Copilot entrypoints](../../.github/instructions/)                                     | Do not bundle mirrors of canonical standards or scan a consumer's repository                            |
-| Authoring aids, capability agents, prompts, skills, archive, and repository governance | Exclude from the first package                                                                          |
-| Token packages and applications                                                        | Exclude; this package does not provide live token data or application implementations                   |
+| Input                                                                                                              | Treatment                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| [Component definitions](../../knowledge/core/data/components/)                                                     | Include loader-consumed YAML/JSON definitions after schema validation                                                 |
+| [Pattern definitions](../../knowledge/core/data/patterns/)                                                         | Include loader-consumed YAML/JSON definitions after schema validation                                                 |
+| [Foundation rules](../../knowledge/core/data/foundations/)                                                         | Include canonical rule definitions for checklist and full-detail projections                                          |
+| [Glossary](../../knowledge/core/data/glossary.yaml)                                                                | Include canonical terms used by full rule projections                                                                 |
+| [Examples and templates](../../knowledge/core/data/examples/)                                                      | Resolve files referenced by included definitions; do not copy unrelated example trees                                 |
+| [Canonical types](../../knowledge/core/data/types.ts)                                                              | Generate package-local declarations from the shared contract; do not maintain copied source definitions               |
+| Four standards instructions listed below                                                                           | Candidate inclusion set; resolve portability findings before release approval                                         |
+| [Copilot entrypoints](../../.github/instructions/)                                                                 | Do not bundle mirrors of canonical standards or scan a consumer's repository                                          |
+| Internal authoring aids, capability assets without `spec.distribution`, skills, archive, and repository governance | Exclude from the consumer package                                                                                     |
+| Explicit capability distribution assets                                                                            | Include only the manifest allowlist; adapt helper profiles for consumer use and hide them from the user-facing picker |
+| Token packages and applications                                                                                    | Exclude; this package does not provide live token data or application implementations                                 |
 
 The candidate instruction allowlist is:
 
@@ -89,8 +96,18 @@ candidate before registry distribution.
 ## Snapshot and authoring behavior
 
 The installed library and CLI must use package-local assets by default. They
-must not discover a repository root, walk parent directories, read a consumer's
-`.github` files, or silently fall back to another source.
+must not discover a repository root, walk parent directories, read a
+consumer's `.github` files, or silently fall back to another source. The
+explicit `agent install` command is the only operation that writes to
+`.github/agents`; it must default to the current workspace, preview without
+writing under `--dry-run`, refuse collisions by default, and remove only files
+recorded in its package-owned installation manifest.
+
+The installable front-door profile routes knowledge questions through the
+library/CLI and delegates only to bundled helpers. Keep user-invocable helper
+profiles hidden, preserve explicit approval gates before planning and app
+remediation, and keep Track B design-system changes report-only for consumer
+projects. Do not claim that the package itself executes or delegates agents.
 
 Keep `pnpm --filter @hpe-design/knowledge-agent generate -- "<query>"` as the
 explicit live-source authoring workflow. It must see unbuilt knowledge edits.
@@ -285,6 +302,9 @@ The release gate is the exact tarball, not source-test success alone:
   neither the consumer working directory nor repo-only files affect results.
 - Inspect contents against the package allowlist, including required licensing
   notices and excluding tests, scratch files, and unapproved source content.
+- Verify that the exact capability allowlist is present, internal-only
+  capability assets are absent, helper profiles are hidden, and the installer
+  refuses overwrite/uninstall operations outside its ownership record.
 - Bind candidate metadata to the package version, source commit, and tarball
   digest; verify the artifact distributed from the approved registry.
 

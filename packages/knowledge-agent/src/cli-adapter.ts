@@ -1,7 +1,13 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { formatContext, searchKnowledge } from './context-generator.js';
+import { getCapability, listCapabilities } from './capabilities.js';
+import {
+  installDesignSystemAgent,
+  uninstallDesignSystemAgent,
+} from './agent-installer.js';
 import type { KnowledgeSnapshot } from './knowledge.js';
+import type { CapabilityCatalog } from './capabilities.js';
 import {
   findRule,
   renderChecklist,
@@ -33,16 +39,154 @@ Options:
                         Foundation Rules detail in text (default: checklist)
   --rule <id>           Print one rule in full, without requiring a query
   --checklist           Print all foundation rules, without requiring a query
+  capabilities list     List bundled consumer capabilities
+  capabilities show <id>
+                        Show one bundled capability
+  agent install         Install the Design System Agent into .github/agents
+  agent uninstall       Remove files owned by the package installer
   --help                Show this help message
 `);
+}
+
+function runCapabilitiesCommand(
+  args: string[],
+  loadCapabilities: () => CapabilityCatalog,
+): void {
+  const [action, ...options] = args;
+  const json = options.includes('--json');
+  const remaining = options.filter(option => option !== '--json');
+  const catalog = loadCapabilities();
+
+  if (action === 'list' && remaining.length === 0) {
+    const capabilities = listCapabilities(catalog);
+    if (json) console.log(JSON.stringify(capabilities, null, 2));
+    else if (capabilities.length === 0) {
+      console.log('No consumer capabilities are bundled.');
+    } else {
+      console.log('Available consumer capabilities:');
+      capabilities.forEach(capability =>
+        console.log(`- ${capability.id}: ${capability.summary}`),
+      );
+    }
+    return;
+  }
+
+  if (action === 'show' && remaining.length === 1) {
+    const capability = getCapability(catalog, remaining[0]);
+    if (!capability) {
+      const validIds = catalog.capabilities.map(item => item.id);
+      throw new TypeError(
+        [
+          `Unknown capability: ${remaining[0]}.`,
+          `Available: ${validIds.join(', ') || 'none'}`,
+        ].join(' '),
+      );
+    }
+    const detail = {
+      id: capability.id,
+      version: capability.version,
+      summary: capability.summary,
+      stages: capability.stages,
+      agentIds: capability.agentIds,
+      documentation: capability.documentation.map(item => item.path),
+    };
+    if (json) console.log(JSON.stringify(detail, null, 2));
+    else {
+      console.log(`${capability.id} (${capability.version})`);
+      console.log(capability.summary);
+      if (capability.stages.length > 0) {
+        console.log('\nStages:');
+        capability.stages.forEach(stage =>
+          console.log(`- ${stage.id}: ${stage.description}`),
+        );
+      }
+      if (capability.agentIds.length > 0) {
+        console.log(
+          `\nInstalled helper agents: ${capability.agentIds.join(', ')}`,
+        );
+      }
+    }
+    return;
+  }
+  throw new TypeError(
+    'Expected "capabilities list" or "capabilities show <id>".',
+  );
+}
+
+function parseTarget(args: string[]): {
+  workspace: string;
+  remaining: string[];
+} {
+  const targetIndexes = args.flatMap((argument, index) =>
+    argument === '--target' ? [index] : [],
+  );
+  if (targetIndexes.length > 1) {
+    throw new TypeError('--target can only be specified once');
+  }
+  const targetIndex = targetIndexes[0];
+  if (targetIndex === undefined) {
+    return { workspace: process.cwd(), remaining: args };
+  }
+  const workspace = args[targetIndex + 1];
+  if (!workspace || workspace.startsWith('-')) {
+    throw new TypeError('Missing value for --target');
+  }
+  const remaining = args.filter(
+    (_, index) => index !== targetIndex && index !== targetIndex + 1,
+  );
+  return { workspace, remaining };
+}
+
+function runAgentCommand(
+  args: string[],
+  loadCapabilities: () => CapabilityCatalog,
+): void {
+  const [action, ...options] = args;
+  const { workspace, remaining } = parseTarget(options);
+  if (action === 'install') {
+    const dryRun = remaining.includes('--dry-run');
+    const overwrite = remaining.includes('--overwrite');
+    const unknownOptions = remaining.filter(
+      option => option !== '--dry-run' && option !== '--overwrite',
+    );
+    if (unknownOptions.length > 0) {
+      throw new TypeError(`Unknown agent install option: ${unknownOptions[0]}`);
+    }
+    const files = installDesignSystemAgent(loadCapabilities(), {
+      workspace,
+      dryRun,
+      overwrite,
+    });
+    const actionDescription = dryRun ? 'Would install' : 'Installed';
+    console.log(
+      `${actionDescription} ${files.length} HPE Design System Agent files:`,
+    );
+    files.forEach(file => console.log(`- ${file}`));
+    return;
+  }
+  if (action === 'uninstall' && remaining.length === 0) {
+    const removed = uninstallDesignSystemAgent(workspace);
+    console.log(`Removed ${removed.length} HPE Design System Agent files.`);
+    return;
+  }
+  throw new TypeError('Expected "agent install" or "agent uninstall".');
 }
 
 export function runCli(
   load: () => KnowledgeSnapshot,
   mode: 'source' | 'bundled',
+  loadCapabilities: () => CapabilityCatalog,
 ): void {
   try {
     const args = process.argv.slice(2);
+    if (args[0] === 'capabilities') {
+      runCapabilitiesCommand(args.slice(1), loadCapabilities);
+      return;
+    }
+    if (args[0] === 'agent') {
+      runAgentCommand(args.slice(1), loadCapabilities);
+      return;
+    }
     const positional: string[] = [];
     let framework: FrameworkTarget = 'react';
     let json = false;

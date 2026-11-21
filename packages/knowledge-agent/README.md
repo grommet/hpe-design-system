@@ -3,13 +3,17 @@
 Offline HPE Design System context for React/Grommet projects. Query component
 and pattern definitions, foundation rules, glossary terms, examples, templates,
 and selected implementation standards through a CLI or typed ESM library.
+An installable Copilot agent provides a single entry point for these queries
+and explicitly bundled workflows.
 
-This is a context generator, not an LLM service or autonomous implementation
-agent. React/Grommet is the implementation source of truth. Other framework
-targets return conceptual guidance, not validated implementations.
+The package does not host or execute an LLM or agents. The consumer's Copilot
+host runs the installed agent profiles and delegates to their helpers.
+React/Grommet is the implementation source of truth. Other framework targets
+return conceptual guidance, not validated implementations.
 
-**Status:** local packaging, external-consumer validation, Changeset enforcement,
-and a non-publishing candidate workflow are implemented. The package remains
+**Status:** local packaging, capability discovery, a safe Copilot-agent
+installer, external-consumer validation, Changeset enforcement, and a
+non-publishing candidate workflow are implemented. The package remains
 private. Registry choice, content approval, publisher setup, and the two-team
 pilot are still required before wider distribution.
 
@@ -25,6 +29,7 @@ Shared retrieval and formatting core
            |
            +-- Typed library API   [implemented]
            +-- CLI adapter         [implemented]
+           +-- Copilot agent       [implemented; host-executed]
            +-- Local MCP adapter   [planned, after pilot]
            `-- HTTP API adapter    [exploratory, deferred]
 ```
@@ -35,11 +40,12 @@ loaders, matching rules, or manually maintained knowledge formats. Live-source
 authoring remains an explicit contributor workflow, not an installed-runtime
 fallback.
 
-The CLI/library are the initial consumption surfaces. MCP provides a planned
-agent-native interface over the same capabilities; an HTTP API remains an
-option only if demonstrated centralized-service needs justify its operational
-and access-control requirements. Neither requires replacing offline package
-consumption.
+The CLI/library are the core consumption surfaces. The installable Copilot
+agent is a thin host-side adapter over those same knowledge APIs and selected
+workflow assets. MCP provides a planned agent-native interface over the same
+capabilities; an HTTP API remains an option only if demonstrated
+centralized-service needs justify its operational and access-control
+requirements. Neither requires replacing offline package consumption.
 
 ## Try the package in another project
 
@@ -62,11 +68,36 @@ npx --no-install hpe-design-agent "Build a login form"
 npx --no-install hpe-design-agent "Create an app shell" --json
 npx --no-install hpe-design-agent --checklist
 npx --no-install hpe-design-agent --rule color-names-its-target
+npx --no-install hpe-design-agent capabilities list
+npx --no-install hpe-design-agent capabilities show alignment-audit
+npx --no-install hpe-design-agent agent install --dry-run
+npx --no-install hpe-design-agent agent install
 ```
 
 Installation may require network access for dependencies. Queries require no
 network connection, API key, development tooling, or design-system checkout.
-The package does not read the consumer's `.github` directory.
+Knowledge queries do not read the consumer's `.github` directory. The explicit
+agent installer writes only its generated profiles and ownership record there.
+
+### Install the Copilot agent
+
+`hpe-design-agent agent install` installs one user-facing **HPE Design System**
+agent and hidden helper profiles under `.github/agents`. The consumer's Copilot
+host executes the agent and its helper agents; the package does not execute
+them. The default target is the current workspace, or pass
+`--target <workspace>`. Use `--dry-run` to preview file paths.
+
+The installer refuses to overwrite an existing profile. Use `--overwrite` only
+when intentionally updating/replacing the generated files. It records exactly
+which agent files it owns; `hpe-design-agent agent uninstall` removes only
+those files and its ownership record, leaving unrelated files and directories
+untouched.
+
+Only capabilities with an explicit `spec.distribution` asset allowlist are
+discoverable or bundled. `alignment-audit` is the first consumer capability.
+Its external bundle includes evaluation and app-remediation helpers; design
+system data changes remain report-only. The installed agent pauses for user
+approval before planning and again before executing app changes.
 
 Node.js 22 and 24 on Linux, macOS, and Windows are the proposed compatibility
 matrix exercised by packed-consumer CI. Do not treat an unexecuted CI matrix as
@@ -78,6 +109,9 @@ a completed compatibility certification. The initial API is ESM-only.
 import {
   searchDesignSystem,
   generateSystemPrompt,
+  listCapabilities,
+  getCapability,
+  loadBundledCapabilityCatalog,
   type QueryResult,
 } from '@hpe-design/knowledge-agent';
 
@@ -86,6 +120,9 @@ console.log(result.patterns.map(pattern => pattern.id));
 console.log(result.knowledge.version, result.knowledge.contentDigest);
 
 const context = generateSystemPrompt('Create an app shell with navigation');
+const catalog = loadBundledCapabilityCatalog();
+console.log(listCapabilities(catalog).map(capability => capability.id));
+console.log(getCapability(catalog, 'alignment-audit')?.summary);
 ```
 
 Both functions default to `react`. Accepted framework targets are `react`,
@@ -159,9 +196,9 @@ The canonical contract remains `knowledge/core/data/types.ts`; package
 declarations are generated from it, not separately maintained. A build validates
 source schemas, resolves snippets/templates, checks resolved snapshot schemas,
 and bundles foundation/glossary data plus four explicitly selected canonical
-standards. Authoring aids,
-capability agents, prompts, skills, archive content, and token packages are not
-included.
+standards. Authoring aids, internal-only capability assets, prompts, skills, archive
+content, and token packages are not included. Only the files explicitly listed
+under a capability's `spec.distribution` are eligible for the consumer bundle.
 
 ```sh
 pnpm validate:knowledge-schema
@@ -173,7 +210,8 @@ pnpm --filter @hpe-design/knowledge-agent test:package
 
 `test:package` builds and packs an artifact, checks an exact file allowlist,
 installs only production dependencies into an unrelated temporary project, and
-tests CLI/library use, declarations, source/bundled parity, network-blocked
+tests CLI/library use, declarations, source/bundled parity, capability
+discovery, agent installation/overwrite/uninstall behavior, network-blocked
 queries, and corrupt/missing-asset failures. It deletes its temporary consumer
 and tarball afterward.
 
@@ -239,6 +277,7 @@ artifact-acceptance requirements.
 | Milestone                      | Status                                  | Outcome / exit gate                                                                                                                                                                          |
 | ------------------------------ | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Portable CLI and typed library | Implemented; package remains private    | Bundled validated knowledge, offline queries, structured results, and isolated packed-consumer checks.                                                                                       |
+| Copilot agent and capabilities | Implemented; package remains private    | One installable user-facing agent, explicit capability discovery, and the alignment-audit consumer bundle; the host runs all agent profiles.                                                 |
 | Controlled distribution        | In progress; approval-gated             | Choose registry/access, assign owners, approve content, and distribute the verified artifact through a protected publisher; verify an external registry installation.                        |
 | Two-team React/Grommet pilot   | Planned; requires approved distribution | Validate agreed real-project scenarios, CLI/library use collectively, and an upgrade; resolve release-blocking findings.                                                                     |
 | Wider team availability        | Planned; after successful pilot         | Provide verified releases, support ownership, installation/upgrade guidance, and known limitations.                                                                                          |
