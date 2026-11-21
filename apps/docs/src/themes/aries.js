@@ -9,6 +9,54 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  
+  // ===== CUSTOM EDIT START (Issue #6260 surface token bridge) =====
+  // SURFACE TOKEN BRIDGE
+  // Issue #6260: Landmark surface tokens - docs site styling.
+  // These surface tokens are temporary placeholders for the new landmark
+  // surface tokens that will ship with grommet-theme-hpe v9 and
+  // hpe-design-tokens v3.
+  //
+  // IMPLEMENTATION STRATEGY:
+  // 1. Components use the landmark surface token names
+  //    (background-surface-*) throughout the codebase NOW.
+  // 2. This theme file bridges the gap with temporary hex values in
+  //    light/dark modes.
+  // 3. When grommet-theme-hpe v9 ships with real surface tokens:
+  //    - Remove this colors section entirely (tokens will come from
+  //      the base theme)
+  //    - No component code changes needed
+  //
+  // TOKEN MAPPINGS:
+  // • background-surface-base      → page/canvas background
+  // • background-surface-tone-1    → primary containers/content panes
+  // • background-surface-tone-2    → nested content within tone-1
+  // • background-surface-floating  → floating surfaces (dropdowns,
+  //                                  search, etc)
+  //
+  // ALTERNATION RULE: Each nested surface uses the tone its parent is NOT.
+  global: {
+    colors: {
+      'background-surface-base': {
+        light: '#FFFFFF',
+        dark: '#1D1F27',
+      },
+      'background-surface-tone-1': {
+        light: '#F7F7F7',
+        dark: '#292D3A',
+      },
+      'background-surface-tone-2': {
+        light: '#FFFFFF',
+        dark: '#22252E',
+      },
+      'background-surface-floating': {
+        light: '#FFFFFF',
+        dark: '#22252E',
+      },
+    },
+  },
+  // ===== CUSTOM EDIT END (Issue #6260 surface token bridge) =====
+
   buttonGroup: {
     // any Box props
     gap: 'xsmall',
@@ -64,7 +112,8 @@ export const ariesPop = deepMerge(aries, {
       },
       color: 'text',
       toast: {
-        background: 'background-front',
+        // Issue #6260: Toast is a floating surface, uses landmark surface token
+        background: 'background-surface-floating',
       },
     },
   },

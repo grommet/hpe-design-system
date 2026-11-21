@@ -17,7 +17,7 @@ export const Annotation = ({ id, kind, target, ...rest }) => {
       background={
         kind === 'style'
           ? { color: 'decorative-purple', opacity: 'weak' }
-          : 'background-front'
+          : 'background-surface-tone-1'
       }
       border={{ color: 'border-weak' }}
       height={theme.global.edgeSize.medium}

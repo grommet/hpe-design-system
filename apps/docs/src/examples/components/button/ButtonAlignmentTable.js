@@ -71,9 +71,8 @@ export const ButtonAlignmentTable = () => (
   <Card
     alignSelf="start"
     elevation="none"
-    pad="medium"
+    pad="none"
     width="xlarge"
-    round="xsmall"
   >
     {/* style tag is necessary in order for table not 
     to exceed container width */}

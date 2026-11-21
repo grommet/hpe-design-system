@@ -19,7 +19,7 @@ export const SideNavHeader = ({ open, setOpen }) => {
     <Box
       direction="row"
       align="center"
-      background="background-front"
+      background="background-surface-tone-1"
       gap="xxsmall"
       justify="between"
       pad={{

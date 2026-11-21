@@ -27,6 +27,7 @@ export const LinkCard = ({ href, ...rest }) => {
       onClick={handleClick}
       target={!isInternalLink ? '_blank' : undefined}
       style={{ textDecoration: 'none' }}
+      background="background-surface-tone-1"
       {...rest}
     />
   );

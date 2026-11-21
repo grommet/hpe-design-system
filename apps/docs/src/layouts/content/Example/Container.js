@@ -33,7 +33,7 @@ export const Container = ({
   return (
     <Box
       align={!template && !screenContainer ? 'center' : undefined}
-      background="background-front"
+      background="background-surface-tone-1"
       direction="row"
       height={height}
       justify="center"

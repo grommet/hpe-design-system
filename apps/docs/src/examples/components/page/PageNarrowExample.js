@@ -24,7 +24,13 @@ import { ContentPane } from '../../../layouts';
 import { demoStyle } from './demoStyle';
 
 export const PageNarrowExample = () => (
-  <Page kind="narrow" flex="grow" pad={{ vertical: 'xlarge' }} {...demoStyle}>
+  <Page
+    background="background-surface-base"
+    kind="narrow"
+    flex="grow"
+    pad={{ vertical: 'xlarge' }}
+    {...demoStyle}
+  >
     <PageContent gap="xlarge" {...demoStyle}>
       <PageHeader
         title="Narrow page"

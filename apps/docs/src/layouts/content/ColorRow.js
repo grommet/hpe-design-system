@@ -20,7 +20,9 @@ export const ColorRow = ({
           ? { color: value, size: 'medium' }
           : undefined
       }
-      background={colorSpec.type === 'border' ? 'background-back' : value}
+      background={
+        colorSpec.type === 'border' ? 'background-surface-base' : value
+      }
       pad={{ horizontal: 'medium', vertical: 'xsmall' }}
       justify="between"
     >

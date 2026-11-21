@@ -11,6 +11,7 @@ import { demoStyle } from './demoStyle';
 
 export const PageExample = () => (
   <Page
+    background="background-surface-base"
     kind="narrow"
     as={ContentArea}
     title="Page"
