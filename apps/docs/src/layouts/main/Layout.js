@@ -50,7 +50,7 @@ export const Layout = ({
   const relatedContent = titleProp && getRelatedContent(titleProp);
   // Allow proper capitalization to be used
   const {
-    name: title,
+    name: title = titleProp,
     seoDescription,
     pageLayout,
     render,

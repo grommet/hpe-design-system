@@ -45,6 +45,9 @@ const realStructure = structure as StructurePage[];
 
 const PAGE_EXTENSIONS = new Set(['.js', '.jsx', '.md', '.mdx', '.ts', '.tsx']);
 const ROUTE_EXCLUSIONS = new Set(['404', '500', '_app', '_document', '_error']);
+const UNLISTED_REVIEW_ROUTES = new Set([
+  '/examples/error-and-loading-states',
+]);
 // Only include routes that are intentionally data-only or redirect-only.
 // Do not add entries for missing content routes; create page files instead.
 const STRUCTURE_ROUTE_FILE_ALLOWLIST = new Set<string>(['/show-more']);
@@ -284,7 +287,8 @@ describe('Structure Data Validation', () => {
       );
 
       const missingStructureEntries = [...routesFromFiles].filter(
-        route => !routesFromStructure.has(route),
+        route =>
+          !routesFromStructure.has(route) && !UNLISTED_REVIEW_ROUTES.has(route),
       );
 
       expect(
