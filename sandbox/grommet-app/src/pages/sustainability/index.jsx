@@ -20,7 +20,7 @@ import ContentPane from '../../components/ContentPane';
 
 function Sustainability() {
   return (
-    <Page pad={{ bottom: 'large' }}>
+    <Page>
       <PageContent>
         <PageHeader
           title="Sustainability Insight Center"

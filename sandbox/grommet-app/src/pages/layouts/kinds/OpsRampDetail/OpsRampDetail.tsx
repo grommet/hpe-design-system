@@ -59,7 +59,7 @@ export const OpsRampDetail: React.FC = () => {
         setExpanded={() => {}}
         sideBarOpen={!isSidebarCollapsed}
       />
-      <Page pad={{ bottom: 'xlarge' }}>
+      <Page>
         <PageContent>
           <PageHeader
             title="Kubernetes"
@@ -67,8 +67,8 @@ export const OpsRampDetail: React.FC = () => {
             parent={
               <RoutedAnchor
                 as={Link}
-                to="/layouts"
-                label="Layouts"
+                to="/"
+                label="Home"
                 icon={<Left />}
               />
             }

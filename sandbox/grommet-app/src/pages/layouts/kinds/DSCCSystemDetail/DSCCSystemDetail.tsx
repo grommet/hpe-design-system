@@ -52,15 +52,15 @@ export const DSCCSystemDetail = () => {
     : 'medium';
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} flex={false}>
+    <Page flex={false}>
       <PageContent>
         <PageHeader
           title="System detail page"
           parent={
             <RoutedAnchor
               as={Link}
-              to="/layouts"
-              label="Layouts"
+              to="/"
+              label="Home"
               icon={<Left />}
             />
           }

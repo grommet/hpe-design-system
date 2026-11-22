@@ -153,7 +153,7 @@ export const Collection = ({ ...rest }) => {
   );
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} {...rest}>
+    <Page {...rest}>
       <PageContent>
         <PageHeader
           title="Virtual Machines"
@@ -161,8 +161,8 @@ export const Collection = ({ ...rest }) => {
           parent={
             <RoutedAnchor
               as={Link}
-              label="Layouts"
-              to="/layouts"
+              label="Home"
+              to="/"
               icon={<Left />}
             />
           }

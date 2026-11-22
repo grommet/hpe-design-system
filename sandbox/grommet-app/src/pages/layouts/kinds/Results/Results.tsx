@@ -21,7 +21,9 @@ import {
   CardBody,
   CardFooter,
 } from 'grommet';
-import { Apps, Close, Configure, LinkNext } from '@hpe-design/icons-grommet';
+import { Apps, Close, Configure, Left, LinkNext } from '@hpe-design/icons-grommet';
+import { Link } from 'react-router-dom';
+import { RoutedAnchor } from '../../../../components';
 import insights from '../../../../mockData/insights.json';
 import { SupportingContext } from '../../../../contexts';
 import { AcccessPoints } from './AcccessPoints';
@@ -149,9 +151,14 @@ const ResultDetail = ({ datum }) => {
 export const Results = () => {
   const { setShowSupporting } = useContext(SupportingContext);
   return (
-    <Page pad={{ bottom: 'large' }}>
+    <Page>
       <PageContent>
-        <PageHeader title="Insights" />
+        <PageHeader
+          title="Insights"
+          parent={
+            <RoutedAnchor as={Link} to="/" label="Home" icon={<Left />} />
+          }
+        />
         <Data data={insights.insights} properties={properties}>
           <Box gap="medium">
             <Toolbar>

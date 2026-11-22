@@ -33,8 +33,8 @@ function Home() {
   const insightsLoading = useLoading(2000);
   const sidePanelLoading = useLoading(250);
   return (
-    <Page pad={{ top: 'large', bottom: 'xlarge' }}>
-      <PageContent gap="medium" responsive="container">
+    <Page>
+      <PageContent>
         <ResponsiveContext.Consumer>
           {size => (
             <Grid
@@ -51,7 +51,6 @@ function Home() {
                   actions={
                     <Button label="Customize" icon={<Configure />} reverse />
                   }
-                  pad="none"
                 />
                 <Box gap="large" animation="fadeIn">
                   <Box
