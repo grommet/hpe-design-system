@@ -6,7 +6,7 @@ import { Left } from '@hpe-design/icons-grommet';
 
 export const ReverseAnchor = ({ label, href, onClick, ...rest }) => (
   <Anchor
-    icon={<Left />}
+    icon={<Left aria-hidden />}
     label={label}
     href={href || '#'} // placeholder href to ensure it appears in tab flow
     onClick={onClick}
