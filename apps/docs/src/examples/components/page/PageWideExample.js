@@ -25,7 +25,12 @@ import { TextEmphasis } from '@shared/aries-core';
 import { demoStyle } from './demoStyle';
 
 export const PageWideExample = () => (
-  <Page flex="grow" pad={{ vertical: 'xlarge' }} {...demoStyle}>
+  <Page
+    background="background-surface-base"
+    flex="grow"
+    pad={{ vertical: 'xlarge' }}
+    {...demoStyle}
+  >
     <PageContent gap="xlarge" {...demoStyle}>
       <PageHeader title="Wide page" />
       <SummaryMetrics />

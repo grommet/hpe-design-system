@@ -44,7 +44,7 @@ export const ContainerDrivenLayout = () => {
 
   return (
     <Page
-      background="background-back"
+      background="background-surface-base"
       flex="grow"
       gap="xlarge"
       pad={{ bottom: 'xlarge' }}

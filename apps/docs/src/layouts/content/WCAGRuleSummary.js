@@ -58,7 +58,7 @@ export const WCAGRuleSummary = ({ statuses = [] }) => {
     <Box
       pad={{ vertical: 'xsmall', horizontal: 'medium' }}
       alignSelf="start"
-      background="background-front"
+      background="background-surface-tone-1"
       round="medium"
     >
       <NameValueList

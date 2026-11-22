@@ -74,6 +74,7 @@ export const ButtonAlignmentTable = () => (
     pad="medium"
     width="xlarge"
     round="xsmall"
+    background="background-surface-tone-1"
   >
     {/* style tag is necessary in order for table not 
     to exceed container width */}

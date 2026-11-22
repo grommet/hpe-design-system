@@ -17,7 +17,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
   return (
     <>
       <Box
-        background="background-contrast"
+        background="background-surface-tone-1"
         direction="row"
         gap="xsmall"
         onClick={() => {
@@ -33,7 +33,7 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
       </Box>
       <Collapsible open={open}>
         <Box
-          background="background-contrast"
+          background="background-surface-tone-1"
           height={{ max: 'xlarge' }}
           gap="medium"
           overflow="auto"

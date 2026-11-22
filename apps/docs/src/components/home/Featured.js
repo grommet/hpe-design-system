@@ -37,11 +37,11 @@ const FeaturedLayout = ({ ...rest }) => {
               align="center"
               justify="center"
               pad="xlarge"
-              background="background-front"
+              background="background-surface-tone-2"
             >
               {/* Icon with background color */}
               <Box
-                background="background-contrast"
+                background="background-surface-tone-1"
                 pad="medium"
                 round="small"
                 margin={{ bottom: 'small' }}
