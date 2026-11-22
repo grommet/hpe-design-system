@@ -1,5 +1,8 @@
 import { Example } from '../../layouts';
 import {
+  CenteredOnPageWizardExample,
+  LeftAlignedOnPageWizardExample,
+  OnPageWizardExample,
   TwoColumnWizardExample,
   WizardValidationExample,
   WizardAnatomy,
@@ -50,7 +53,7 @@ Use a wizard when your form involves multiple steps. This makes the experience m
 
 ## Guidance
 
-A wizard should always appear as a fullscreen modal.
+A wizard should appear as a fullscreen modal by default. When the task is a natural part of the page it lives on, such as creating an item from a dashboard, a wizard can instead appear [on the page](#on-page-wizards).
 
 ### Header and footer behavior
 
@@ -120,4 +123,79 @@ When additional guidance is necessary, use a two-column wizard. Click "See Fulls
   background="background-floating"
 >
   <TwoColumnWizardExample />
+</Example>
+
+### On-page wizards
+
+Use an on-page wizard when the task belongs to the page the user is already on, rather than interrupting them with a fullscreen takeover. Place the wizard directly on the page background, without a container. Containers, such as a grey background or a border, should only be used to group the sub-sections of a step that has several. Keep the buttons below the inputs, outside of the form body. Order them by importance in relation to their alignment: right-aligned buttons go default (Cancel), secondary (Previous), then primary (Next), with the primary button at the far right. Left-aligned buttons go primary, secondary, then default.
+
+Validate each step when the user selects "Next". Show errors inline on each input, and add a summary notification so the user understands why they could not continue and can move to the first error. Where the summary goes depends on the layout.
+
+#### Left-aligned
+
+Use Page's `narrow` kind, which centers a column of content on the page. Align the form to the left of that column and leave the space to its right free. The validation summary appears there, so it never pushes the inputs or buttons down. On smaller screens there is no spare space, so the summary appears below the inputs. Select "Next" with empty required fields to see it.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/OnPageWizardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/fields.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/OnPageWizardFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/useOnPageWizard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/ValidationSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/WizardContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/wizard/on-page"
+  screenContainer
+  showResponsiveControls={['laptop', 'mobile']}
+  width="100%"
+  background="background-front"
+>
+  <OnPageWizardExample />
+</Example>
+
+#### Centered
+
+Center a narrow column when the form should be the focus of the page. The header, step indicator, inputs, and buttons share the column. With no free space beside the inputs, the validation summary appears directly above the buttons.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/CenteredOnPageWizardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/fields.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/OnPageWizardFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/useOnPageWizard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/ValidationSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/WizardContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/wizard/on-page"
+  screenContainer
+  showResponsiveControls={['laptop', 'mobile']}
+  width="100%"
+  background="background-front"
+>
+  <CenteredOnPageWizardExample />
+</Example>
+
+#### Left-aligned on a wide page
+
+When the wizard should line up with the other screens in an application, use Page's default `wide` kind instead of `narrow`. The header, step indicator, inputs, and buttons all align to the left edge of the page content, so moving between a list or detail page and the wizard does not shift the layout. Keep the inputs to a comfortable width rather than letting them stretch. The space to their right stays free for the validation summary. Because the buttons are left-aligned, the primary button comes first.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/LeftAlignedOnPageWizardExample.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/fields.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/OnPageWizardFooter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/useOnPageWizard.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/on-page/ValidationSummary.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/WizardContext.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/apps/docs/src/examples/templates/wizard/components/CancellationLayer.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/apps/docs/src/examples/templates/wizard/on-page"
+  screenContainer
+  showResponsiveControls={['laptop', 'mobile']}
+  width="100%"
+  background="background-front"
+>
+  <LeftAlignedOnPageWizardExample />
 </Example>
