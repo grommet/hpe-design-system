@@ -64,7 +64,18 @@ const readTheme = (theme: (typeof themes)[number]) => {
     tokens,
     colors: (mode: string) => tokens[`color.${prefix}${mode}.json`],
     surface: tokens['surface.default.json'],
+    components: tokens[`component.${theme}.json`],
   };
+};
+
+// The snapshot themes keep the aliases they were released with.
+const handle = 'switch/default/control/handle';
+const releasedComponentAliases = {
+  'drop/default/background': '{color.background.floating.DEFAULT.REST}',
+  [`${handle}/rest/background`]: '{color.background.front.DEFAULT.REST}',
+  [`${handle}/hover/background`]: '{color.background.default.REST}',
+  [`${handle}/selected/rest/background`]: '{color.background.default.REST}',
+  [`${handle}/selected/hover/background`]: '{color.background.default.REST}',
 };
 
 describe('Landmark Surface collection', () => {
@@ -103,6 +114,24 @@ describe('Landmark Surface collection', () => {
           ),
         ).toEqual(releasedBackgrounds[theme][mode].map(path => `{${path}}`));
       }
+    },
+  );
+
+  it.each(themes)(
+    'rewires Drop and the Switch handle in the default theme only (%s)',
+    theme => {
+      const { components } = readTheme(theme);
+
+      for (const [path, released] of Object.entries(releasedComponentAliases)) {
+        expect(components[path].$value).toBe(
+          theme === 'default'
+            ? '{color.background.surface.floating.DEFAULT.REST}'
+            : released,
+        );
+      }
+      expect(components[`${handle}/disabled/rest/background`].$value).toBe(
+        '{color.background.disabled.DEFAULT.REST}',
+      );
     },
   );
 
