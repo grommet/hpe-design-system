@@ -269,7 +269,7 @@ describe('semantic_color_parser', () => {
 
   it('returns structured errors for invalid target and role variant', () => {
     const badTarget = parseSemanticColorTokenMetadata(
-      'hpe.color.surface.primary.strong.REST',
+      'hpe.color.elevation.primary.strong.REST',
     );
     const badVariant = parseSemanticColorTokenMetadata(
       'hpe.color.background.selected.secondary.DEFAULT.REST',

@@ -260,6 +260,7 @@ const colorModeFiles = fs
       : undefined,
   )
   .filter(file => file);
+const surfaceFile = `${TOKENS_DIR}/semantic/surface.default.json`;
 
 const global = fs.readFileSync(`${TOKENS_DIR}/semantic/global.default.json`);
 const parsedGlobal = JSON.parse(global);
@@ -286,8 +287,9 @@ fs.appendFileSync(
 
 const filterColor = (token, file) =>
   token.filePath === file && !token.path.includes(FIGMA_PREFIX);
+const filterSurface = token => filterColor(token, surfaceFile);
 
-const writeSemanticColorMetadataArtifacts = files => {
+const writeSemanticColorMetadataArtifacts = (files, collection) => {
   fs.mkdirSync(DOCS_METADATA_DIR, { recursive: true });
   const parseFailures = [];
 
@@ -372,7 +374,9 @@ const writeSemanticColorMetadataArtifacts = files => {
       softExceptionOnNonCanonicalRole: true,
     });
 
-    const fileSuffix = theme ? `${theme}-${mode}` : `${mode || 'default'}`;
+    const fileSuffix = [collection, theme, mode || 'default']
+      .filter(Boolean)
+      .join('-');
     const reportPath = `${DOCS_METADATA_DIR}semanticColorMetadata.report.${fileSuffix}.json`;
 
     fs.writeFileSync(
@@ -409,14 +413,18 @@ const writeSemanticColorMetadataArtifacts = files => {
 
 try {
   writeSemanticColorMetadataArtifacts(colorModeFiles);
+  writeSemanticColorMetadataArtifacts([surfaceFile], 'surface');
 
   await colorModeFiles.reduce(async (previousBuild, file) => {
     await previousBuild;
     const [theme, mode] = getThemeAndMode(file);
+    const isDefaultLight = !theme && mode === 'light';
     const colorDictionary = await HPEStyleDictionary.extend({
       source: [
         `${TOKENS_DIR}/primitive/primitives.default.json`,
         file,
+        // Keep the aliases in each CSS color scope so nested modes resolve locally.
+        surfaceFile,
         `${TOKENS_DIR}/.tmp/component-color-tokens.default.json`, // temp file with component color tokens
       ],
       platforms: {
@@ -431,7 +439,7 @@ try {
                 theme ? `${theme}-${mode}` : `${mode || ''}`
               }.js`,
               format: 'javascript/esm',
-              filter: token => filterColor(token, file),
+              filter: token => filterColor(token, file) || filterSurface(token),
             },
           ],
         },
@@ -446,7 +454,7 @@ try {
                 theme ? `${theme}-${mode}` : `${mode || ''}`
               }.cjs`,
               format: 'javascript/commonJs',
-              filter: token => filterColor(token, file),
+              filter: token => filterColor(token, file) || filterSurface(token),
             },
           ],
         },
@@ -461,6 +469,15 @@ try {
               format: 'javascript/esm',
               filter: token => filterColor(token, file),
             },
+            ...(isDefaultLight
+              ? [
+                  {
+                    destination: 'surface.js',
+                    format: 'javascript/esm',
+                    filter: filterSurface,
+                  },
+                ]
+              : []),
           ],
         },
         'js/cjs': {
@@ -474,6 +491,15 @@ try {
               format: 'javascript/commonJs',
               filter: token => filterColor(token, file),
             },
+            ...(isDefaultLight
+              ? [
+                  {
+                    destination: 'surface.cjs',
+                    format: 'javascript/commonJs',
+                    filter: filterSurface,
+                  },
+                ]
+              : []),
           ],
         },
         css: {
@@ -515,6 +541,15 @@ try {
               filter: token => filterColor(token, file),
               format: 'jsonFlat',
             },
+            ...(isDefaultLight
+              ? [
+                  {
+                    destination: 'surface.default.js',
+                    format: 'jsonFlat',
+                    filter: filterSurface,
+                  },
+                ]
+              : []),
           ],
         },
       },
@@ -675,6 +710,7 @@ try {
       `${TOKENS_DIR}/primitive/primitives.default.json`,
       `${TOKENS_DIR}/semantic/global.default.json`,
       `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
+      surfaceFile,
       `${TOKENS_DIR}/semantic/dimension.default.json`, // using default mode to have a reference name available
       `${TOKENS_DIR}/component/element.default.json`,
       `${TOKENS_DIR}/component/component.default.json`,

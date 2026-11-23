@@ -62,6 +62,20 @@ pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test
 pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output tokens_qa
 ```
 
+## Surface collection test sync
+
+`tokens/semantic/surface.default.json` adds a single `default` mode in the
+`surface` collection of the Semantic file. Its variables alias `color.surface.*`
+in the same file. The `toned` mode is not included.
+
+For prototype validation, use duplicated Figma files only. Preview the Semantic
+stage with `--env=test --dry-run --verbose-plan --plan-stage semantic` and
+check the collection and alias changes before any write. `--plan-stage` filters
+the plan display, not which stages execute. The Component stage needs the
+Surface variables to be published and available to the duplicate Component file
+before its new aliases can resolve. A dry run does not publish or expose
+planned Semantic additions to later stages.
+
 ## Release Runbook
 
 The release process uses Changesets for version and changelog preparation. GitHub and NPM
