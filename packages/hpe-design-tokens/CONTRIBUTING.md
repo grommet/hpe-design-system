@@ -46,7 +46,7 @@ pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output toke
 
 ### Token Version Parity
 
-When adding token paths, keep the corresponding default, v0, and v1 JSON
+When adding token paths, keep the corresponding default, v0, v1, and v2 JSON
 structures aligned. For semantic colors that are not supported in a prior
 version, set `$value` to `{color.transparent}`. Do not use `undefined` (which
 is not valid JSON) or `null` for color values.
@@ -64,9 +64,9 @@ use literal color values in primitive files.
 ## Tests And Where To Add Them
 
 - `src/tests/token_version_parity.test.ts`
-  - Checks token leaf paths and `$type` across default, v0, and v1 collections
-    and modes, using the same shared-file fallback as token theme discovery.
-    Values may differ between versions.
+  - Checks token leaf paths and `$type` across default, v0, v1, and v2
+    collections and modes, using the same shared-file fallback as token theme
+    discovery. Values may differ between versions.
   - Checks that the description, scopes, code syntax and publishing flag of
     each token are identical in every mode file of its collection.
   - Run with `pnpm --filter hpe-design-tokens exec vitest run src/tests/token_version_parity.test.ts`.

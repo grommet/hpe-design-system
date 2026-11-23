@@ -7,6 +7,7 @@ import {
   filterColorTokens,
   getThemeAndMode,
   numberToPixel,
+  snapshotVersion,
   COPYRIGHT,
 } from '../utils.ts';
 import {
@@ -254,7 +255,7 @@ try {
 const colorModeFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('color') && !file.includes('v1') && !file.includes('v0')
+    file.includes('color') && !snapshotVersion(file)
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
@@ -531,7 +532,7 @@ try {
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') && !file.includes('v1') && !file.includes('v0')
+    file.includes('dimension') && !snapshotVersion(file)
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )

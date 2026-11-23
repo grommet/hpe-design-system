@@ -33,7 +33,7 @@ function readTokenTypes(file: string) {
   return collectTokenTypes(tree);
 }
 
-describe.each(['v0', 'v1'])('%s token version parity', version => {
+describe.each(['v0', 'v1', 'v2'])('%s token version parity', version => {
   const versionFiles = new Map(
     themeFiles[version].map(file => [
       file.replace(`.${version}-`, '.').replace(`.${version}.`, '.default.'),
