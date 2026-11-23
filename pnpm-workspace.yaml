@@ -29,7 +29,7 @@ catalog:
   react-dom: ^19.3.1
   styled-components: ^6.6.0
   typescript: ^5.9.3
-  typescript-eslint: ^8.72.2
+  typescript-eslint: ^8.73.0
   vite: ^8.3.8
 catalogs:
   grommet-stable:
