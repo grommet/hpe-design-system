@@ -47,15 +47,16 @@ export default {
 
 ## Property Mapping
 
-| Figma property  | Template API                                                 |
-| --------------- | ------------------------------------------------------------ |
-| Text            | `figma.selectedInstance.getString('Label')`                  |
-| Boolean         | `figma.selectedInstance.getBoolean('Disabled')`              |
-| Variant         | `figma.selectedInstance.getEnum('Size', { small: 'small' })` |
-| Instance swap   | `figma.selectedInstance.getInstanceSwap('Icon')`             |
-| Nested instance | `figma.selectedInstance.findInstance('Layer name')`          |
-| Text layer      | `figma.selectedInstance.findText('Layer name')`              |
-| Slot            | `figma.selectedInstance.getSlot('Content')`                  |
+| Figma property       | Template API                                                 |
+| -------------------- | ------------------------------------------------------------ |
+| Text                 | `figma.selectedInstance.getString('Label')`                  |
+| Boolean              | `figma.selectedInstance.getBoolean('Disabled')`              |
+| Variant              | `figma.selectedInstance.getEnum('Size', { small: 'small' })` |
+| Instance swap        | `figma.selectedInstance.getInstanceSwap('Icon')`             |
+| Nested instance      | `figma.selectedInstance.findInstance('Layer name')`          |
+| Repeated instances   | `figma.selectedInstance.findLayers(predicate, options)`      |
+| Text layer           | `figma.selectedInstance.findText('Layer name')`              |
+| Slot                 | `figma.selectedInstance.getSlot('Content')`                  |
 
 - Match property names and enum options exactly, stripping API ID suffixes such as
   `#70:14`. Account for all relevant properties and document intentional omissions.
@@ -79,6 +80,21 @@ export default {
   `hasCodeConnect()`; the runtime handles unconnected instances.
 - Keep static representative compositions when there is no useful Figma-driven
   equivalent. Mirror the actual Grommet API rather than inventing props.
+
+## Composite Components
+
+- Check the parent component's public API before mapping its Figma children. If
+  the API models repeated or nested parts as data, map the parent and convert
+  those child instances into the API's arrays and objects; do not create
+  standalone templates for design atoms without a meaningful public component.
+- Use `findLayers` to collect repeated descendants and `getSlot` only for actual
+  SLOT properties. Narrow handles to `type === 'INSTANCE'` before reading
+  properties, and preserve the Figma order and parent-child hierarchy.
+- Map selected children to required current-item props. Define explicit behavior
+  for missing or multiple selections, unsupported enum values, and empty slots.
+- Map only API-supported properties. Let the parent component derive internal
+  indicators or connectors when it does so; document visual states with no
+  public API equivalent rather than inventing props.
 
 ## Validation and Publishing
 
