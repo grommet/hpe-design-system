@@ -6,9 +6,29 @@ import ts from 'typescript';
 
 const EVAL_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(EVAL_DIR, '../../..');
-const DEFAULT_CASE = path.join(EVAL_DIR, 'cases/app-dashboard/case.json');
+const DEFAULT_FIXTURE = path.join(
+  EVAL_DIR,
+  'fixtures/app-dashboard/fixture.json',
+);
 const RESULTS_DIR = path.join(EVAL_DIR, 'results');
 const CONDITIONS = new Set(['screenshot', 'mcp-no-cc', 'mcp-cc']);
+const OPTIONS = new Set([
+  'build',
+  'condition',
+  'cwd',
+  'fixture',
+  'mapping-commit',
+  'model',
+  'output-dir',
+  'prompt',
+  'prompt-file',
+  'prompt-version',
+  'purpose',
+  'results-dir',
+  'run-id',
+  'run-number',
+  'source',
+]);
 const COLOR_PATTERN =
   /#(?:[\da-f]{3,4}|[\da-f]{6}|[\da-f]{8})\b|\brgba?\(\s*[^)]*\)/gi;
 const PIXEL_PATTERN = /\b\d+(?:\.\d+)?px\b/gi;
@@ -49,7 +69,7 @@ const collectStringLiterals = node => {
   return values;
 };
 
-export const scoreSource = (source, caseData, fileName = 'Example.jsx') => {
+export const scoreSource = (source, fixture, fileName = 'Example.jsx') => {
   const sourceFile = ts.createSourceFile(
     fileName,
     source,
@@ -66,7 +86,7 @@ export const scoreSource = (source, caseData, fileName = 'Example.jsx') => {
     throw new Error(`Unable to parse JSX: ${messages}`);
   }
 
-  const expectedNames = new Set(Object.keys(caseData.expectedMappedInstances));
+  const expectedNames = new Set(Object.keys(fixture.expectedMappedInstances));
   const componentBindings = new Map();
   const importedPackages = new Set();
   const disallowedPackages = new Set();
@@ -91,7 +111,7 @@ export const scoreSource = (source, caseData, fileName = 'Example.jsx') => {
       const packageName = packageNameFromSpecifier(specifier);
       if (packageName) {
         importedPackages.add(packageName);
-        if (!caseData.allowedPackages.includes(packageName))
+        if (!fixture.allowedPackages.includes(packageName))
           disallowedPackages.add(packageName);
       }
 
@@ -125,7 +145,7 @@ export const scoreSource = (source, caseData, fileName = 'Example.jsx') => {
             addFinding('inline-style', attribute, element, prop, 'style prop');
 
           collectStringLiterals(attribute.initializer).forEach(value => {
-            if (caseData.colorProps.includes(prop)) {
+            if (fixture.colorProps.includes(prop)) {
               Array.from(value.matchAll(new RegExp(COLOR_PATTERN))).forEach(
                 match =>
                   addFinding(
@@ -137,7 +157,7 @@ export const scoreSource = (source, caseData, fileName = 'Example.jsx') => {
                   ),
               );
             }
-            if (caseData.pixelValueProps.includes(prop)) {
+            if (fixture.pixelValueProps.includes(prop)) {
               Array.from(value.matchAll(new RegExp(PIXEL_PATTERN))).forEach(
                 match =>
                   addFinding('pixel-value', attribute, element, prop, match[0]),
@@ -152,12 +172,12 @@ export const scoreSource = (source, caseData, fileName = 'Example.jsx') => {
   visit(sourceFile);
 
   const components = Object.fromEntries(
-    Object.entries(caseData.expectedMappedInstances).map(([name, expected]) => {
+    Object.entries(fixture.expectedMappedInstances).map(([name, expected]) => {
       const actual = actualInstances[name];
       return [name, { expected, actual, covered: Math.min(expected, actual) }];
     }),
   );
-  const expectedTotal = Object.values(caseData.expectedMappedInstances).reduce(
+  const expectedTotal = Object.values(fixture.expectedMappedInstances).reduce(
     (total, count) => total + count,
     0,
   );
@@ -227,16 +247,16 @@ const writeJsonExclusive = async (directory, fileName, data) => {
 };
 
 export const writeRunRecord = async (directory, record) => {
-  const fileName = `${[record.caseId, record.condition, record.runId]
+  const fileName = `${[record.fixtureId, record.condition, record.runId]
     .map(safeFilePart)
     .join('-')}.json`;
   return writeJsonExclusive(directory, fileName, record);
 };
 
-export const summarizeRuns = (records, caseId) => {
+export const summarizeRuns = (records, fixtureId) => {
   const eligibleRuns = records.filter(
     record =>
-      record.caseId === caseId && record.metadata?.isEvaluation !== false,
+      record.fixtureId === fixtureId && record.metadata?.isEvaluation !== false,
   );
   const grouped = eligibleRuns.reduce((groups, record) => {
     const current = groups[record.condition] ?? {
@@ -276,7 +296,7 @@ export const summarizeRuns = (records, caseId) => {
       },
     ]),
   );
-  return { caseId, generatedAt: new Date().toISOString(), conditions };
+  return { fixtureId, generatedAt: new Date().toISOString(), conditions };
 };
 
 const parseOptions = args => {
@@ -290,6 +310,7 @@ const parseOptions = args => {
       normalizedArgs[index + 1].startsWith('--')
     )
       throw new Error(`Expected a value after ${key}`);
+    if (!OPTIONS.has(key.slice(2))) throw new Error(`Unknown option: ${key}`);
     options[key.slice(2)] = normalizedArgs[index + 1];
     index += 1;
   }
@@ -339,20 +360,20 @@ const scoreRun = async options => {
   if (!Number.isSafeInteger(runNumber) || runNumber < 1)
     throw new Error('--run-number must be a positive integer');
 
-  const casePath = path.resolve(options.case ?? DEFAULT_CASE);
+  const fixturePath = path.resolve(options.fixture ?? DEFAULT_FIXTURE);
   const sourcePath = path.resolve(options.source);
-  const caseData = JSON.parse(await readFile(casePath, 'utf8'));
+  const fixture = JSON.parse(await readFile(fixturePath, 'utf8'));
   const source = await readFile(sourcePath, 'utf8');
   const prompt = await resolvePrompt(options);
   const mappingCommit = resolveMappingCommit(options['mapping-commit']);
-  const metrics = scoreSource(source, caseData, sourcePath);
+  const metrics = scoreSource(source, fixture, sourcePath);
   const cwd = path.resolve(options.cwd ?? process.cwd());
   const build = runBuild(options.build, cwd);
   const runId =
     options['run-id'] ?? new Date().toISOString().replace(/[:.]/g, '-');
   const record = {
     schemaVersion: 1,
-    caseId: caseData.id,
+    fixtureId: fixture.id,
     runNumber,
     runId,
     condition: options.condition,
@@ -366,19 +387,19 @@ const scoreRun = async options => {
         ? path.relative(REPO_ROOT, prompt.filePath)
         : null,
       promptVersion: options['prompt-version'] ?? null,
-      figmaFileKey: caseData.figmaFileKey ?? null,
-      figmaNodeId: caseData.figmaNodeId ?? caseData.figmaTargetNodeId ?? null,
-      figmaFrameNodeId: caseData.figmaFrameNodeId ?? null,
+      figmaFileKey: fixture.figmaFileKey ?? null,
+      figmaNodeId: fixture.figmaNodeId ?? fixture.figmaTargetNodeId ?? null,
+      figmaFrameNodeId: fixture.figmaFrameNodeId ?? null,
       mappingCommit,
       outputPath: path.relative(REPO_ROOT, sourcePath),
       source: path.relative(REPO_ROOT, sourcePath),
-      caseFile: path.relative(REPO_ROOT, casePath),
+      fixtureFile: path.relative(REPO_ROOT, fixturePath),
     },
     metrics,
     build,
   };
   const resultsDir = path.resolve(
-    options['results-dir'] ?? path.join(RESULTS_DIR, caseData.id),
+    options['results-dir'] ?? path.join(RESULTS_DIR, fixture.id),
   );
   const recordPath = await writeRunRecord(
     path.join(resultsDir, 'runs'),
@@ -392,10 +413,10 @@ const scoreRun = async options => {
 };
 
 const summarize = async options => {
-  const casePath = path.resolve(options.case ?? DEFAULT_CASE);
-  const caseData = JSON.parse(await readFile(casePath, 'utf8'));
+  const fixturePath = path.resolve(options.fixture ?? DEFAULT_FIXTURE);
+  const fixture = JSON.parse(await readFile(fixturePath, 'utf8'));
   const resultsDir = path.resolve(
-    options['results-dir'] ?? path.join(RESULTS_DIR, caseData.id),
+    options['results-dir'] ?? path.join(RESULTS_DIR, fixture.id),
   );
   const runsDir = path.join(resultsDir, 'runs');
   await mkdir(runsDir, { recursive: true });
@@ -407,7 +428,7 @@ const summarize = async options => {
       readFile(path.join(runsDir, name), 'utf8').then(JSON.parse),
     ),
   );
-  const summary = summarizeRuns(records, caseData.id);
+  const summary = summarizeRuns(records, fixture.id);
   const outputDir = path.resolve(
     options['output-dir'] ?? path.join(resultsDir, 'summaries'),
   );

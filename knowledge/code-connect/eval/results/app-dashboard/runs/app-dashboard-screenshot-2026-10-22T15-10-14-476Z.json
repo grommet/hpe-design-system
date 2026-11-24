@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "caseId": "app-dashboard",
+  "fixtureId": "app-dashboard",
   "runId": "2026-10-22T15-10-14-476Z",
   "condition": "screenshot",
   "recordedAt": "2026-10-22T15:10:14.477Z",
@@ -10,7 +10,7 @@
     "model": null,
     "promptVersion": null,
     "source": "eval/fixtures/passing-page.jsx",
-    "caseFile": "eval/cases/app-dashboard/case.json"
+    "fixtureFile": "knowledge/code-connect/eval/fixtures/app-dashboard/fixture.json"
   },
   "metrics": {
     "coverage": {

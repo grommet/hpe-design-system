@@ -13,15 +13,15 @@ import {
 } from './eval.mjs';
 
 const evalDirectory = path.dirname(fileURLToPath(import.meta.url));
-const appDashboardCase = JSON.parse(
+const appDashboardFixture = JSON.parse(
   await readFile(
-    path.join(evalDirectory, 'cases/app-dashboard/case.json'),
+    path.join(evalDirectory, 'fixtures/app-dashboard/fixture.json'),
     'utf8',
   ),
 );
-const buttonSmokeCase = JSON.parse(
+const buttonSmokeFixture = JSON.parse(
   await readFile(
-    path.join(evalDirectory, 'cases/button-smoke/case.json'),
+    path.join(evalDirectory, 'fixtures/button-smoke/fixture.json'),
     'utf8',
   ),
 );
@@ -31,7 +31,7 @@ const fixture = name =>
 test('counts mapped components through aliased imports', async () => {
   const metrics = scoreSource(
     await fixture('passing-page.jsx'),
-    appDashboardCase,
+    appDashboardFixture,
   );
   assert.equal(metrics.coverage.coveredTotal, 22);
   assert.equal(metrics.coverage.percent, 100);
@@ -52,7 +52,7 @@ test('counts mapped components through aliased imports', async () => {
 test('scores the single Button smoke target', async () => {
   const source = `import { Button as Action } from 'grommet';
     export default () => <Action label="Label" primary size="small" />;`;
-  const metrics = scoreSource(source, buttonSmokeCase);
+  const metrics = scoreSource(source, buttonSmokeFixture);
   assert.equal(metrics.coverage.coveredTotal, 1);
   assert.equal(metrics.coverage.percent, 100);
 });
@@ -60,7 +60,7 @@ test('scores the single Button smoke target', async () => {
 test('reports coverage, import, and hygiene failures', async () => {
   const metrics = scoreSource(
     await fixture('failing-page.jsx'),
-    appDashboardCase,
+    appDashboardFixture,
   );
   assert.equal(metrics.coverage.coveredTotal, 2);
   assert.deepEqual(metrics.imports.disallowed, ['not-allowed-package']);
@@ -75,7 +75,7 @@ test('ignores ordinary text and unconfigured props', () => {
   const source =
     'export default () => <div title="24px #fff rgb(0,0,0)" ' +
     'data-size="10px" width="100%">#000</div>';
-  const metrics = scoreSource(source, appDashboardCase);
+  const metrics = scoreSource(source, appDashboardFixture);
   assert.equal(metrics.hygiene.clean, true);
 });
 
@@ -86,11 +86,11 @@ test('captures successful and failed build results', () => {
   assert.equal(failure.exitCode, 7);
 });
 
-test('writes records without overwriting and summarizes per case', async () => {
-  assert.deepEqual(summarizeRuns([], appDashboardCase.id).conditions, {});
+test('writes records without overwriting and summarizes per fixture', async () => {
+  assert.deepEqual(summarizeRuns([], appDashboardFixture.id).conditions, {});
   const directory = await mkdtemp(path.join(os.tmpdir(), 'code-connect-eval-'));
   const record = {
-    caseId: appDashboardCase.id,
+    fixtureId: appDashboardFixture.id,
     runId: 'first-run',
     condition: 'mcp-cc',
     metadata: { isEvaluation: true },
@@ -111,7 +111,7 @@ test('writes records without overwriting and summarizes per case', async () => {
         record,
         {
           ...record,
-          caseId: 'another-page',
+          fixtureId: 'another-page',
           condition: 'screenshot',
         },
         {
@@ -124,9 +124,9 @@ test('writes records without overwriting and summarizes per case', async () => {
           },
         },
       ],
-      appDashboardCase.id,
+      appDashboardFixture.id,
     );
-    assert.equal(summary.caseId, appDashboardCase.id);
+    assert.equal(summary.fixtureId, appDashboardFixture.id);
     assert.equal(summary.conditions['mcp-cc'].runCount, 1);
     assert.equal(summary.conditions['mcp-cc'].meanCoveragePercent, 100);
     assert.equal(summary.conditions.screenshot, undefined);
@@ -153,6 +153,8 @@ test('records CLI run provenance', async () => {
         sourcePath,
         '--condition',
         'screenshot',
+        '--fixture',
+        path.join(evalDirectory, 'fixtures/app-dashboard/fixture.json'),
         '--build',
         'node -e "process.exit(0)"',
         '--cwd',
@@ -179,6 +181,8 @@ test('records CLI run provenance', async () => {
       'results/runs/app-dashboard-screenshot-provenance-check.json',
     );
     const record = JSON.parse(await readFile(recordPath, 'utf8'));
+    assert.equal(record.schemaVersion, 1);
+    assert.equal(record.fixtureId, appDashboardFixture.id);
     assert.equal(record.runNumber, 2);
     assert.equal(record.metadata.model, 'test-model');
     assert.equal(record.metadata.prompt, prompt);
@@ -193,7 +197,22 @@ test('records CLI run provenance', async () => {
       record.metadata.promptFile,
       path.relative(repoRoot, promptPath),
     );
+    assert.equal(
+      record.metadata.fixtureFile,
+      'knowledge/code-connect/eval/fixtures/app-dashboard/fixture.json',
+    );
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
+});
+
+test('rejects unknown options instead of silently using the default fixture', () => {
+  const script = path.join(evalDirectory, 'eval.mjs');
+  const result = spawnSync(
+    process.execPath,
+    [script, 'summary', '--fixtur', 'example.json'],
+    { encoding: 'utf8' },
+  );
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /Unknown option: --fixtur/);
 });

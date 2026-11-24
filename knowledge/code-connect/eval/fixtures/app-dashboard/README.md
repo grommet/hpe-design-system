@@ -3,7 +3,7 @@
 ## Fixture
 
 - Figma node: [Example frame](https://www.figma.com/design/4iURKcNplsUigS8LcGtVH0/HPE-Design-to-Code-Evaluation?node-id=1-978).
-- Source: HPE Design-to-Code Evaluation, Example frame (`1:978`); the source artifact is a GreenLake dashboard and serves as one concrete case in the source-agnostic evaluation protocol.
+- Source: HPE Design-to-Code Evaluation, Example frame (`1:978`); the source artifact is a GreenLake dashboard and serves as one fixture in the source-agnostic evaluation protocol.
 - Access check: Figma metadata and screenshot retrieval succeeded on 2026-10-13.
 - Native frame: 1536 × 2203 px.
 - Full-page reference: [PNG](assets/hpe-design-to-code-evaluation-reference.png).
@@ -34,6 +34,6 @@ Match text, hierarchy, relative placement, spacing, and visual treatment to the 
 
 The repository has Button and Menu mappings for this fixture. The frame-level Figma MCP response also returns 56 legacy Code Connect records without a named component template; their sources point to a separate StoreOnce project. Report these records as external/unusable source mappings, do not treat them as repository mappings, and do not count them toward coverage.
 
-Unmapped work includes the Page Header, header structure beyond its mapped Button and Menu targets, headings, icon wrappers, Date and Time instances, Inline Notifications, Meter circle/bar instances, legend groups, service and dashboard card compositions, right-rail lists, status tiles, recent-service rows, and the custom chart/graph regions. In particular, Figma layers named `Card` in this frame are frames, not connected Card instances. These areas remain part of visual-fidelity review but are not Code Connect coverage opportunities for this case.
+Unmapped work includes the Page Header, header structure beyond its mapped Button and Menu targets, headings, icon wrappers, Date and Time instances, Inline Notifications, Meter circle/bar instances, legend groups, service and dashboard card compositions, right-rail lists, status tiles, recent-service rows, and the custom chart/graph regions. In particular, Figma layers named `Card` in this frame are frames, not connected Card instances. These areas remain part of visual-fidelity review but are not Code Connect coverage opportunities for this fixture.
 
-When applying this protocol to a different source URL, create a new case with the same evidence fields and identify that source's mapped and unmapped areas independently.
+Apply the conditions and record runs as described in the [evaluation protocol](../../README.md). When applying this protocol to a different source URL, create a new fixture with the same evidence fields and identify that source's mapped and unmapped areas independently.

@@ -1,5 +1,5 @@
 {
-  "caseId": "app-dashboard",
+  "fixtureId": "app-dashboard",
   "purpose": "Historical scorer smoke summary; not experimental results.",
   "generatedAt": "2026-10-22T15:10:23.110Z",
   "conditions": {
