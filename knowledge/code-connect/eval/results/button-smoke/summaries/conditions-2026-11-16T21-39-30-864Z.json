@@ -1,5 +1,5 @@
 {
-  "caseId": "button-smoke",
+  "fixtureId": "button-smoke",
   "generatedAt": "2026-11-16T21:39:30.864Z",
   "conditions": {
     "mcp-cc": {

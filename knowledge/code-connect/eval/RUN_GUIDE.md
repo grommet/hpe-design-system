@@ -4,11 +4,11 @@ Follow this workflow to generate, capture, build, render, and score an evaluatio
 
 ## Worked example: Button smoke
 
-The smoke fixture is [Button smoke](cases/button-smoke/README.md): frame `2133:694`, representative mapped Button target `2133:695`, with its reference image and case contract under `cases/button-smoke/`.
+The smoke fixture is [Button smoke](fixtures/button-smoke/README.md): frame `2133:694`, representative mapped Button target `2133:695`, with its reference image and fixture contract under `fixtures/button-smoke/`.
 
 Run one valid attempt in each condition. Start each in a new agent session and a clean, isolated workspace at the same repository snapshot. Use the same model, locked prompt, output path, viewport, and fixture image. Do not let an agent see another run's output or context.
 
-For another case, use its case contract and human guide to replace the target URL/node, reference image, expected connected snippets, viewport, and case-specific result paths below. Keep the shared prompt unchanged. Repeat the workflow with a fresh workspace and session for every replication required by the protocol; the Button example needs only one valid run per condition.
+For another fixture, use its fixture contract and human guide to replace the target URL/node, reference image, expected connected snippets, viewport, and fixture-specific result paths below. Keep the shared prompt unchanged. Repeat the workflow with a fresh workspace and session for every replication required by the protocol; the Button example needs only one valid run per condition.
 
 ## Prepare each run
 
@@ -26,7 +26,7 @@ Use a client that can select the locked model, control Figma tool access, and ex
 
    Use unused paths; do not overwrite existing worktrees. Choose a snapshot without previous evaluation outputs or context. Keep all other run workspaces and result archives outside the agent's accessible workspace.
 3. Open only that condition's worktree in the client and start a new chat. Select `claude-sonnet-5.5` explicitly. Do not reuse a generation chat or attach another run's output.
-4. Attach `knowledge/code-connect/eval/cases/button-smoke/assets/button-primary-small.png` in every condition. In the MCP conditions, also supply the [mapped target URL](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?node-id=2133-695). Do not supply the fixture README's expected snippet or open a local mapping as design input.
+4. Attach `knowledge/code-connect/eval/fixtures/button-smoke/assets/button-primary-small.png` in every condition. In the MCP conditions, also supply the [mapped target URL](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?node-id=2133-695). Do not supply the fixture README's expected snippet or open a local mapping as design input.
 5. Apply the condition setup below, then send the shared prompt unchanged. Keep setup instructions and target attachment/URL separate from the locked prompt, and preserve both in the transcript.
 6. Preserve the first generated `Example.jsx` unchanged. The operator, not the generation agent, adds the temporary harness after generation. If the client returns source without writing the file, save that source verbatim at the locked output path.
 
@@ -151,11 +151,11 @@ Before scoring, confirm the attempt completed without tool/context errors, its r
 
 Copy the [locked prompt](README.md#locked-inputs) unchanged to `knowledge/code-connect/eval/.scratch/prompt.txt`. Score the archived source so the record points to the committed evidence. The scorer rebuilds the matching sandbox entry. Use a fresh scratch results directory for each attempt to avoid mixing old records into a new summary.
 
-The filtered pnpm script runs from `knowledge/code-connect`, so `--case`, `--source`, `--prompt-file`, and `--results-dir` below are relative to that package. `--cwd "$PWD"` sets the build command's working directory to the worktree root.
+The filtered pnpm script runs from `knowledge/code-connect`, so `--fixture`, `--source`, `--prompt-file`, and `--results-dir` below are relative to that package. `--cwd "$PWD"` sets the build command's working directory to the worktree root.
 
 ```bash
 pnpm --filter @hpe-design/code-connect eval:score -- \
-  --case eval/cases/button-smoke/case.json \
+  --fixture eval/fixtures/button-smoke/fixture.json \
   --source "eval/results/button-smoke/evidence/$CONDITION/run-$RUN_NUMBER/Example.jsx" \
   --condition "$CONDITION" \
   --build 'pnpm --filter grommet-app exec vite build --config eval.config.js' \
@@ -182,7 +182,7 @@ results/button-smoke/
     <condition summary JSON>
 ```
 
-This is the required evidence layout for new runs, not a claim that every historical run has every artifact. Additional raw transcript or configuration files can live in the corresponding evidence directory.
+This is the required evidence layout for new runs, not a claim that every historical run has every artifact. The archived `context.json` files and render notes are verbatim captures of the original sessions, so they reference the earlier `cases/button-smoke/` paths from before fixtures were renamed; do not rewrite them. Additional raw transcript or configuration files can live in the corresponding evidence directory.
 
 Do not put supporting JSON files such as `context.json` directly in `runs/`: the summary reads every top-level JSON file there as a run record. Do not mix earlier batches, invalid attempts, or duplicate rescoring records into the three-run smoke summary. When intentionally replacing a batch, review and remove only its superseded records and summary.
 
@@ -190,7 +190,7 @@ Generate the summary in the results workspace:
 
 ```bash
 pnpm --filter @hpe-design/code-connect eval:summary -- \
-  --case eval/cases/button-smoke/case.json
+  --fixture eval/fixtures/button-smoke/fixture.json
 ```
 
 Check that each condition has `runCount: 1` and `buildPasses: 1`. Review context and rendering separately: the summary does not validate either, and does not automatically discard failed builds. Commit the guide, three records, summary, and evidence together; do not commit disposable harness files.

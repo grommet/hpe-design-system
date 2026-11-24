@@ -9,6 +9,6 @@
 - Code Connect snippet: `import { Button } from 'grommet';` and `<Button label="Label" primary size="small"/>`.
 - Mapping source: [Button Code Connect mapping](../../../src/controls/Button.figma.ts).
 
-The frame contains a sheet of Button variants; this smoke case deliberately scopes the generated output to its representative mapped child. In MCP conditions, query the mapped target node so the comparison can confirm whether the snippet is delivered. Do not manually supply a mapping.
+The frame contains a sheet of Button variants; this smoke fixture deliberately scopes the generated output to its representative mapped child. In MCP conditions, query the mapped target node so the comparison can confirm whether the snippet is delivered. Do not manually supply a mapping.
 
 Use the shared condition definitions and locked prompt in the [evaluation protocol](../../README.md), then follow the [evaluation run guide](../../RUN_GUIDE.md) for the Button smoke worked example. Create a fresh agent session for each condition, capture the context received, and build/render the output in an isolated sandbox workspace. If Figma MCP returns only metadata for the frame, request design context for the mapped target child. Rerun a failed or broken smoke run; do not score it.

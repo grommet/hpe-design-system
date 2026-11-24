@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "caseId": "button-smoke",
+  "fixtureId": "button-smoke",
   "runNumber": 1,
   "runId": "2026-11-16T21-39-24-986Z",
   "condition": "screenshot",
@@ -18,7 +18,7 @@
     "mappingCommit": "83a2cdd04b7e58e1cc8ba5ca40830a1357fb5be0",
     "outputPath": "knowledge/code-connect/eval/results/button-smoke/evidence/screenshot/run-1/Example.jsx",
     "source": "knowledge/code-connect/eval/results/button-smoke/evidence/screenshot/run-1/Example.jsx",
-    "caseFile": "knowledge/code-connect/eval/cases/button-smoke/case.json"
+    "fixtureFile": "knowledge/code-connect/eval/fixtures/button-smoke/fixture.json"
   },
   "metrics": {
     "coverage": {
