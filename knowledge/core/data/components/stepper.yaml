@@ -1,0 +1,233 @@
+id: stepper
+name: Stepper
+description:
+  Shows ordered workflow progress and step states, with optional one-level
+  substeps and callbacks for step navigation.
+importPath: grommet
+framework: react
+props:
+  - name: steps
+    type: >-
+      Array<{ id: string; title: string; description?: string; status?: 'pending'
+      | 'completed' | 'error' | 'disabled'; disabledReason?: string; errorMessage?:
+      string; 'aria-label'?: string; children?: Array<{ id: string; title: string;
+      description?: string; status?: 'pending' | 'completed' | 'error' |
+      'disabled'; disabledReason?: string; errorMessage?: string; 'aria-label'?: string
+      }> }>
+    required: true
+    description:
+      Ordered steps. Each item requires an id and title and may include a description,
+      status, disabled reason, error message, accessible label, and one level of
+      child steps.
+  - name: currentStep
+    type: string
+    required: true
+    description:
+      ID of the current step. If it does not match an enabled step, the component
+      uses the first non-disabled step, or the first step if none are enabled.
+  - name: direction
+    type: "'horizontal' | 'vertical'"
+    required: false
+    description:
+      Layout orientation. Steps with children force vertical layout, even when
+      horizontal is requested.
+    defaultValue: horizontal
+  - name: clickableSteps
+    type: boolean
+    required: false
+    description:
+      When true, enabled steps render as buttons and can invoke onStepClick. When
+      false, steps render as non-interactive groups.
+    defaultValue: true
+  - name: showDescription
+    type: boolean
+    required: false
+    description: Whether to render step descriptions when provided.
+    defaultValue: true
+  - name: errorAnnouncement
+    type: "'assertive' | 'polite' | false"
+    required: false
+    description:
+      Live-region role used for a rendered step error message; false omits the
+      live-region role.
+    defaultValue: polite
+  - name: onStepClick
+    type: '(stepId: string) => void'
+    required: false
+    description:
+      Callback invoked with the ID of an enabled step when it is activated.
+      The application is responsible for updating currentStep.
+  - name: id
+    type: string
+    required: false
+    description: DOM id forwarded to the root ordered list.
+  - name: aria-label
+    type: string
+    required: false
+    description:
+      Accessible name for the root ordered list. A localized default is used
+      when this is not supplied.
+  - name: children
+    type: React.ReactNode
+    required: false
+    description: Custom content that replaces the default step items when provided.
+usage:
+  whenToUse:
+    - Use to show the current position and status in a known, ordered workflow.
+    - Use clickableSteps when users should be able to select enabled steps and the
+      application can handle onStepClick.
+    - Use vertical layout when steps include substeps or need room for full descriptions.
+  whenToAvoid:
+    - Do not use as a complete wizard or form flow. Stepper renders progress items
+      and reports step activation; it does not render step content, update currentStep,
+      or provide previous and next actions.
+    - Avoid using it for unordered destinations or general application navigation.
+variants:
+  - name: horizontal
+    description: Steps are arranged in a horizontal sequence.
+    when: Use for a single-level sequence when horizontal space is available.
+  - name: vertical
+    description:
+      Steps are arranged vertically; descriptions are not truncated when they
+      are shown.
+    when: Use when step details need more room or when the sequence contains substeps.
+  - name: nested
+    description: Parent steps contain one level of child steps and render vertically.
+    when: Use when a workflow needs a single level of substep hierarchy.
+  - name: read-only
+    description: Steps communicate progress without offering step navigation.
+    when: Use when users should review status but must not select another step.
+anatomy:
+  - label: step list
+    region: root
+    purpose: Ordered list containing the step sequence.
+    availability: always when default step rendering is used
+  - label: step item
+    region: list item
+    purpose:
+      Contains a status indicator, title, optional description, and any applicable
+      error or disabled-reason text.
+    availability: one per step when default step rendering is used
+  - label: step control
+    region: step item
+    purpose:
+      Button for clickable steps or a group when clickableSteps is false; disabled
+      steps expose aria-disabled.
+    availability: always when default step rendering is used
+  - label: status indicator
+    region: step control
+    purpose: Visual indicator of the step's current, pending, completed, error, or disabled state.
+    availability: always when default step rendering is used
+  - label: step title
+    region: step control
+    purpose: Names the step and contributes to its default accessible label.
+    availability: always when default step rendering is used
+  - label: step description
+    region: step control
+    purpose: Optional supporting text for the step.
+    availability: conditional
+    notes: Requires a description and showDescription=true.
+  - label: connector
+    region: between steps
+    purpose: Visually connects adjacent steps.
+    availability: conditional
+    notes: Omitted after the last step; connectors are hidden from assistive technology.
+  - label: error message
+    region: step item
+    purpose: Displays the step's errorMessage and may expose a live-region role.
+    availability: conditional
+    notes: Rendered only when status is error and errorMessage is provided.
+  - label: disabled reason
+    region: step item
+    purpose: Explains why the step cannot be selected.
+    availability: conditional
+    notes: Rendered only when status is disabled and disabledReason is provided.
+  - label: substep list
+    region: nested under a parent step
+    purpose: Ordered list of the parent's child steps.
+    availability: conditional
+    notes: Only one level of child steps is supported.
+behaviors:
+  interactiveStates:
+    - rest
+    - hover and active for clickable enabled steps
+    - keyboard focus
+  applicationStates:
+    - pending
+    - completed
+    - current
+    - error
+    - disabled
+  realEstate:
+    - direction selects horizontal or vertical layout; horizontal labels and descriptions truncate.
+    - Steps with children force vertical layout.
+    - Only one level of child steps is rendered; deeper nesting is unsupported.
+contentGuidelines:
+  - Provide a distinct id and a title for each step; the id identifies the current step
+    and links conditional helper text.
+  - Provide errorMessage with status error and disabledReason with status disabled;
+    each message is rendered only with its matching status.
+  - Keep child steps to one level. The implementation warns about deeper nesting and
+    does not render it.
+dosAndDonts:
+  - do: Keep step IDs distinct and use one to control currentStep.
+    dont: Reuse step IDs or assume the title identifies a step.
+    reason: Step IDs drive current-step matching, rendered keys, and helper-text references.
+  - do: Update currentStep in the application after handling onStepClick.
+    dont: Expect Stepper to change the current step or render its content automatically.
+    reason: The component reports activation but does not manage workflow state or panels.
+  - do: Limit children to one level.
+    dont: Add children to a child step.
+    reason: The installed implementation warns that deeper nesting is unsupported.
+accessibility:
+  keyboard:
+    - key: Tab / Shift+Tab
+      action:
+        When clickableSteps is true, enters or leaves the controls through the single
+        step button in the tab order. With clickableSteps false, generated step groups
+        are not keyboard focusable.
+    - key: Arrow Right / Arrow Left
+      action:
+        Moves focus forward or backward through all steps in horizontal layout,
+        including disabled steps, and wraps at either end.
+    - key: Arrow Down / Arrow Up
+      action:
+        Moves focus forward or backward through all steps in vertical layout, including
+        disabled steps, and wraps at either end.
+    - key: Home
+      action: Moves focus to the first step.
+    - key: End
+      action: Moves focus to the last step.
+    - key: Enter / Space
+      action: Invokes onStepClick for the focused enabled step when clickableSteps is true.
+  aria:
+    - attribute: aria-label
+      value: supplied label or localized Stepper progress label
+      condition: Names the root ordered list.
+    - attribute: aria-label
+      value: supplied step label or localized position and title
+      condition: Names each step control.
+    - attribute: aria-current
+      value: step
+      condition: Applied to the current step and its parent when a child step is current.
+    - attribute: aria-disabled
+      value: 'true'
+      condition: Applied to steps with status disabled.
+    - attribute: aria-describedby
+      value: generated error or disabled-reason element id
+      condition: Applied when the corresponding message is present.
+    - attribute: role
+      value: group
+      condition: Applied to step items when clickableSteps is false.
+    - attribute: aria-hidden
+      value: 'true'
+      condition: Applied to visual connectors.
+  announcements:
+    - trigger: An error step has an errorMessage.
+      message:
+        The message is exposed with role status by default, role alert when
+        errorAnnouncement is assertive, or no live-region role when false.
+relatedComponents:
+  - form
+  - button
+examples: []
