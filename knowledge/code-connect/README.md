@@ -109,6 +109,7 @@ This creates two complementary paths: direct Dev Mode handoff for human implemen
 - [Avatar](src/visualisations/Avatar.figma.ts)
 - [Notification](src/visualisations/Notification.figma.ts)
 - [Skeleton](src/visualisations/Skeleton.figma.ts)
+- [Stepper](src/visualisations/Stepper.figma.ts)
 - [Spinner](src/visualisations/Spinner.figma.ts)
 - [Tip](src/visualisations/Tip.figma.ts)
 
@@ -398,6 +399,7 @@ knowledge/code-connect/
 │       ├── Avatar.figma.ts
 │       ├── Notification.figma.ts
 │       ├── Skeleton.figma.ts
+│       ├── Stepper.figma.ts
 │       ├── Spinner.figma.ts
 │       └── Tip.figma.ts
 ├── .env                   # FIGMA_ACCESS_TOKEN (gitignored)
@@ -562,6 +564,7 @@ jobs:
 | `Avatar`       | ✅ Connected |
 | `Notification` | ✅ Connected |
 | `Skeleton`     | ✅ Connected |
+| `Stepper`      | ✅ Connected |
 | `Spinner`      | ✅ Connected |
 | `Tip`          | ✅ Connected |
 

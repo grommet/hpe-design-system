@@ -28,6 +28,37 @@ Typical example in this repo:
 
 - `Card` uses a representative composition of `CardHeader`, `CardBody`, and `CardFooter`
 
+### Composite components backed by data
+
+When Figma represents repeated or nested parts as child instances but the public
+component API accepts structured data, keep one template for the parent and
+convert the child instances into that data model. Preserve their order and
+hierarchy, and derive required current-item props from the selected child.
+
+```ts
+type Layer = ReturnType<typeof figma.selectedInstance.findLayers>[number];
+type ComponentInstance = Extract<Layer, { type: 'INSTANCE' }>;
+
+const stepInstances = figma.selectedInstance
+  .findLayers(
+    layer => layer.type === 'INSTANCE' && layer.name === '⌽ Step',
+    { traverseInstances: true },
+  )
+  .filter((layer): layer is ComponentInstance => layer.type === 'INSTANCE');
+```
+
+Convert each instance's exact text, boolean, and variant properties into
+`figma.helpers.react.object` values, then wrap the ordered result with
+`figma.helpers.react.array`. For nested items, traverse from each parent and
+emit the result under the API's child field. Validate required state such as a
+current item, and explicitly handle unsupported values or empty collections.
+
+Create separate templates for child nodes only when the codebase exposes a
+meaningful standalone public component. Otherwise, map visual parts through the
+parent API and document states that the API cannot represent. See the
+[Stepper template](../../../../code-connect/src/visualisations/Stepper.figma.ts)
+for a complete example.
+
 ## Optional and Structured Props
 
 Read real BOOLEAN toggles with `getBoolean`, not string comparisons. Use code
