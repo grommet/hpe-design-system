@@ -14,6 +14,8 @@ The protocol accepts a Figma URL supplied by any source owner; HPE ownership or 
 - **Condition:** the design context available to the generator, as defined below.
 - **Run:** one independent generation and its recorded results for a fixture under a condition.
 
+For workspace setup, context capture, the isolated build/render harness, and result collection, follow the [evaluation run guide](RUN_GUIDE.md), which uses Button smoke as a worked example.
+
 ## Conditions
 
 | Condition    | Design input                                                                                     |
@@ -26,7 +28,7 @@ Only the design-context condition changes. Use the same model, prompt, repositor
 
 ## Locked Inputs
 
-- Primary model: **Anthropic Claude Sonnet 4.5**, model ID `claude-sonnet-4-5-20250929`.
+- Primary model: **Anthropic Claude Sonnet 5.5**, Copilot model ID `claude-sonnet-5.5`. This replaces the original Sonnet 4.5 selection for valid evaluation runs; do not combine results from different models or use Auto model selection.
 - Full-page fixture: [App Dashboard](fixtures/app-dashboard/README.md).
 - Button smoke fixture: [Button smoke](fixtures/button-smoke/README.md).
 - Output path: `sandbox/grommet-app/src/eval/Example.jsx` in an isolated run workspace.
@@ -42,7 +44,7 @@ Implement the supplied Figma target as a single, default-exported React componen
 - **3 Button smoke runs:** 1 run in each condition, scoped to the Button node and screenshot identified in the fixture.
 - Total: 12 generated outputs. Smoke runs are a readiness check and are not included in the full-page coverage-gain calculation.
 
-Use a fresh agent context for each run. Preserve the prompt, target, and screenshot exactly. Keep each output and its run metadata separate so repetitions cannot influence one another.
+Use a fresh agent context for each run. Preserve the prompt, target, and screenshot exactly. Keep each output and its run metadata separate so repetitions cannot influence one another. Never supply or paste a Code Connect mapping manually.
 
 ## Measures And Targets
 
@@ -76,15 +78,15 @@ pnpm --filter @hpe-design/code-connect eval:test
 
 Score an output and capture its build result. Use `--fixture` to select another fixture; the default is `app-dashboard`. `--results-dir` overrides that fixture's result root. Each run is written to a new JSON file and existing records are never overwritten.
 
-Every scored run requires a positive `--run-number`, `--model`, and the exact prompt via `--prompt-file` (or `--prompt`). Copy the locked prompt above into `eval/.scratch/prompt.txt` for the examples below. Number repetitions from 1 independently for each fixture and condition. The record captures the prompt text, Figma identifiers from the fixture contract, the output path, and the current repository commit as `mappingCommit`; pass `--mapping-commit` to override the commit recorded.
+Every scored run requires a positive `--run-number`, `--model`, and the exact prompt via `--prompt-file` (or `--prompt`). Copy the locked prompt above into `eval/.scratch/prompt.txt` for the example below. Number repetitions from 1 independently for each fixture and condition. The record captures the prompt text, Figma identifiers from the fixture contract, the output path, and the current repository commit as `mappingCommit`; pass `--mapping-commit` to override the commit recorded.
 
 ```bash
-pnpm --filter @hpe-design/code-connect eval:score -- --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929 --run-number 1 --prompt-file eval/.scratch/prompt.txt
-
-pnpm --filter @hpe-design/code-connect eval:score -- --fixture eval/fixtures/button-smoke/fixture.json --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app build' --cwd "$PWD" --model claude-sonnet-4-5-20250929 --run-number 1 --prompt-file eval/.scratch/prompt.txt
+pnpm --filter @hpe-design/code-connect eval:score -- --source ../../sandbox/grommet-app/src/eval/Example.jsx --condition mcp-cc --build 'pnpm --filter grommet-app exec vite build --config eval.config.js' --cwd "$PWD" --model claude-sonnet-5.5 --run-number 1 --prompt-file eval/.scratch/prompt.txt
 ```
 
-Summarize eligible evaluation runs by condition for the selected fixture. Tooling smoke records are excluded.
+This generic command defaults to the App Dashboard fixture and requires the [isolated harness](RUN_GUIDE.md#build-and-render-in-isolation); use that fixture's viewport and retain its archived source. For the Button smoke fixture, follow the [worked example](RUN_GUIDE.md#worked-example-button-smoke).
+
+Summarize eligible evaluation runs by condition for the selected fixture. Tooling smoke records are excluded; failed evaluation builds are not automatically excluded.
 
 ```bash
 pnpm --filter @hpe-design/code-connect eval:summary

@@ -1,0 +1,6 @@
+Browser: Chrome Version 157.0.8103.79 (Official Build) (arm64)
+Viewport: 63 x 28 CSS pixels
+Device scale factor: 1
+Theme: HPE v8 light
+Console: No errors
+Visual observations: No differences
