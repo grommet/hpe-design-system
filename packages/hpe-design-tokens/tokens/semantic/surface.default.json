@@ -5,7 +5,7 @@
         "base": {
           "DEFAULT": {
             "REST": {
-              "$description": "Root surface for the page, app background or canvas. Content and containers sit on it. A container placed on it takes background-surface-tone-1; a container that should match the page takes no surface. Keywords: page, canvas, root",
+              "$description": "Root surface for the page, app background or canvas. Content and containers sit on it. A container placed on it takes background-surface-tone-1. Keywords: page, canvas, root",
               "$extensions": {
                 "com.figma": {
                   "codeSyntax": {},
@@ -22,7 +22,7 @@
           "1": {
             "DEFAULT": {
               "REST": {
-                "$description": "Surface tone for containers that group, separate or emphasize. Use it for a container that sits directly on the page, on a floating surface, or on background-surface-tone-2. The two tones alternate, so a container never repeats the surface behind it. Keywords: container, card, panel",
+                "$description": "Surface tone for containers that group, separate or emphasize. Use it for a container that sits directly on the page, on a floating surface, or on background-surface-tone-2. Keywords: container, card, panel",
                 "$extensions": {
                   "com.figma": {
                     "codeSyntax": {},
@@ -38,7 +38,7 @@
           "2": {
             "DEFAULT": {
               "REST": {
-                "$description": "Surface tone for containers that group, separate or emphasize. Use it for a container that sits on background-surface-tone-1. Not for use directly on the page or on a floating surface. Keywords: container, card, panel, nested",
+                "$description": "Surface tone for containers that group, separate or emphasize. Use it for a container that sits on background-surface-tone-1. Keywords: container, card, panel, nested",
                 "$extensions": {
                   "com.figma": {
                     "codeSyntax": {},
