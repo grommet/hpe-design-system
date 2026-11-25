@@ -46,6 +46,9 @@ package and version, existing canonical YAML if present, and intended scope.
    evidence matrix with source locations, exceptions, and explicitly inapplicable
    cases in the session report. Resolve contradictions before approval rather
    than deferring this check to coverage review.
+   When adding component rules, follow the component-rule conventions in
+   `knowledge/core/README.md`; preserve and reconcile any duplicated usage or
+   Do/Don't guidance, and flag unsupported rationales for review.
 5. Do not code examples. Preserve existing valid examples after checking their
    sources. For new examples, use `examples: []` until files exist; return a
    concrete presentation/example plan separating: exactly one simple primary;

@@ -151,6 +151,8 @@ export interface ComponentDefinition {
     /** Counter-indications: when NOT to use, and what to use instead */
     whenToAvoid: string[];
   };
+  /** Component-specific guidance and the reasons behind it. */
+  rules?: Rule[];
   variants?: ComponentVariant[];
   examples: ComponentExample[];
   anatomy?: AnatomyPart[];
