@@ -1,6 +1,11 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
-import type { FoundationDefinition, GlossaryTerm, Rule } from './types.js';
+import type {
+  ComponentDefinition,
+  FoundationDefinition,
+  GlossaryTerm,
+  Rule,
+} from './types.js';
 
 export type RuleDetail = 'checklist' | 'full';
 
@@ -19,9 +24,22 @@ export function findRule(
   return undefined;
 }
 
-export function renderChecklist(foundations: FoundationDefinition[]): string {
-  const sections = foundations.map(foundation => {
-    const rules = foundation.rules.map(rule => {
+export function findComponentRule(
+  components: ComponentDefinition[],
+  ruleId: string,
+): { component: ComponentDefinition; rule: Rule } | undefined {
+  for (const component of components) {
+    const rule = component.rules?.find(candidate => candidate.id === ruleId);
+    if (rule) return { component, rule };
+  }
+  return undefined;
+}
+
+export function renderChecklist(
+  definitions: { name: string; rules: Rule[] }[],
+): string {
+  const sections = definitions.map(definition => {
+    const rules = definition.rules.map(rule => {
       const related = (rule.relatedTo ?? [])
         .flatMap(reference =>
           reference.kind === 'external'
@@ -32,7 +50,7 @@ export function renderChecklist(foundations: FoundationDefinition[]): string {
       const suffix = related ? ` (see: ${related})` : '';
       return `- [${rule.id}] ${collapseWhitespace(rule.statement)}${suffix}`;
     });
-    return [`### ${foundation.name}`, ...rules].join('\n');
+    return [`### ${definition.name}`, ...rules].join('\n');
   });
 
   return [
@@ -42,12 +60,12 @@ export function renderChecklist(foundations: FoundationDefinition[]): string {
 }
 
 export function renderRule(
-  foundation: FoundationDefinition,
+  definition: { name: string },
   rule: Rule,
   glossary: GlossaryTerm[],
 ): string {
   const lines = [
-    `#### ${rule.id} (${foundation.name})`,
+    `#### ${rule.id} (${definition.name})`,
     '',
     '****Statement:****',
     collapseWhitespace(rule.statement),

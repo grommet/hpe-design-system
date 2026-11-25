@@ -21,9 +21,9 @@ const describeReference = reference => {
 };
 
 /**
- * Validates foundation rule ids and relatedTo references.
+ * Validates foundation and component rule ids and relatedTo references.
  *
- * Rule ids are collected across every foundation before references are
+ * Rule ids are collected across all definitions before references are
  * checked, so duplicates are detected globally and rule references may point
  * to rules in other files or later in the same file.
  *
@@ -31,15 +31,30 @@ const describeReference = reference => {
  *   foundationsByFile Parsed foundation files.
  * @param {{ glossary: Set<string>, component: Set<string>,
  *   pattern: Set<string> }} knownIds Ids that internal references may target.
+ * @param {Array<{ file: string, component: { rules?: Array<object> } }>}
+ *   componentsByFile Parsed component files.
  * @returns {string[]} Human-readable violations; empty when valid.
  */
-export function validateFoundationReferences(foundationsByFile, knownIds) {
+export function validateFoundationReferences(
+  foundationsByFile,
+  knownIds,
+  componentsByFile = [],
+) {
   const violations = [];
   const ruleLocations = new Map();
+  const definitions = [
+    ...foundationsByFile.map(({ file, foundation }) => ({
+      location: `${FOUNDATIONS_PATH}/${file}`,
+      rules: foundation?.rules ?? [],
+    })),
+    ...componentsByFile.map(({ file, component }) => ({
+      location: `knowledge/core/data/components/${file}`,
+      rules: component?.rules ?? [],
+    })),
+  ];
 
-  foundationsByFile.forEach(({ file, foundation }) => {
-    const location = `${FOUNDATIONS_PATH}/${file}`;
-    (foundation?.rules ?? []).forEach(rule => {
+  definitions.forEach(({ location, rules }) => {
+    rules.forEach(rule => {
       if (ruleLocations.has(rule.id)) {
         const firstLocation = ruleLocations.get(rule.id);
         violations.push(
@@ -59,9 +74,8 @@ export function validateFoundationReferences(foundationsByFile, knownIds) {
     pattern: knownIds.pattern,
   };
 
-  foundationsByFile.forEach(({ file, foundation }) => {
-    const location = `${FOUNDATIONS_PATH}/${file}`;
-    (foundation?.rules ?? []).forEach(rule => {
+  definitions.forEach(({ location, rules }) => {
+    rules.forEach(rule => {
       const relatedTo = rule.relatedTo ?? [];
       if (!Array.isArray(relatedTo)) {
         violations.push(

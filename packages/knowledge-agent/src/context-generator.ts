@@ -298,6 +298,10 @@ export function formatContext(
       if (component.usage.whenToAvoid?.length) {
         prompt += `- When to avoid: ${component.usage.whenToAvoid.join(' | ')}\n`;
       }
+      if (component.rules?.length) {
+        prompt += `- Rules:\n${component.rules.map(rule => `  - [${rule.id}] ${rule.statement.replace(/\s+/g, ' ').trim()}`).join('\n')}\n`;
+        prompt += '  Rationale is available with --rule <id>.\n';
+      }
       if (component.variants?.length) {
         prompt += `- Variants: ${component.variants.map(variant => `${variant.name} — ${variant.description} (${variant.when})`).join(' | ')}\n`;
       }

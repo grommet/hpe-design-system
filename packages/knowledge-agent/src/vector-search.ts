@@ -113,6 +113,7 @@ function componentText(component: ComponentDefinition): string {
     component.description,
     ...(component.usage?.whenToUse ?? []),
     ...(component.usage?.whenToAvoid ?? []),
+    ...(component.rules ?? []).map((rule) => rule.statement),
     ...(component.variants ?? []).flatMap((variant) => [
       variant.name,
       variant.description,
@@ -165,6 +166,14 @@ export function buildSearchEntities(ds: DesignSystemSchema): SearchEntity[] {
       name: component.name,
       text: componentText(component),
     })),
+    ...ds.components.flatMap((component) =>
+      (component.rules ?? []).map((rule) => ({
+        id: component.id,
+        type: 'component' as const,
+        name: component.name,
+        text: rule.statement,
+      })),
+    ),
     ...ds.patterns.map((pattern) => ({
       id: pattern.id,
       type: 'pattern' as const,
@@ -182,6 +191,7 @@ export function querySearchEntities(
   const topK = options.topK ?? 6;
   const minScore = options.minScore ?? 0.08;
   const queryVector = toVector(expandQueryTokens(tokenize(query)));
+  const seen = new Set<string>();
 
   return entities
     .map((entity) => ({
@@ -190,5 +200,11 @@ export function querySearchEntities(
     }))
     .filter((result) => result.score >= minScore)
     .sort((a, b) => b.score - a.score)
+    .filter(({ entity }) => {
+      const key = `${entity.type}:${entity.id}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
     .slice(0, topK);
 }

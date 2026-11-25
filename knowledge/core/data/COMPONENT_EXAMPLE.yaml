@@ -3,6 +3,7 @@ name: Menu
 description:
   Button that opens a dropdown menu with a list of actions or navigation
   items.
+importPath: grommet
 props:
   - name: items
     type:
@@ -36,6 +37,14 @@ usage:
     - Do not use Menu for primary navigation — use Nav with Anchors.
     - Do not nest menus within menus.
     - Avoid too many items — consider grouping or sub-navigation.
+rules:
+  - id: menu-limit-options
+    statement: Avoid adding too many options under one menu.
+    rationale: Too many options can make the actions hard to scan.
+    relatedTo:
+      - kind: external
+        label: Menu best practices
+        url: https://design-system.hpe.design/components/menu
 variants:
   - name: label-only
     description: Text label as the trigger button with an implicit chevron indicator.

@@ -137,6 +137,26 @@ require('node:module').syncBuiltinESMExports();
       env: { ...process.env, NODE_PATH: '' },
     });
   const cli = path.join(installed, 'bin/cli.js');
+  const componentRule = node(cli, '--rule', 'select-explain-validation-errors');
+  assert.equal(componentRule.status, 0, componentRule.stderr);
+  assert(componentRule.stdout.includes('Styling draws attention to an error'));
+  const componentChecklist = node(cli, '--checklist', '--component', 'select');
+  assert.equal(componentChecklist.status, 0, componentChecklist.stderr);
+  assert(
+    componentChecklist.stdout.includes('[select-explain-validation-errors]'),
+  );
+  assert(
+    !componentChecklist.stdout.includes('Styling draws attention to an error'),
+  );
+  const componentJson = node(cli, 'select', '--json');
+  assert.equal(componentJson.status, 0, componentJson.stderr);
+  const select = JSON.parse(componentJson.stdout).components.find(
+    (component: { id: string }) => component.id === 'select',
+  );
+  const selectRule = select.rules.find(
+    (item: { id: string }) => item.id === 'select-explain-validation-errors',
+  );
+  assert(selectRule.rationale.includes('Styling draws attention to an error'));
   [
     ['Build a login form', 'login-form'],
     ['Create an app shell with navigation', 'application-shell'],

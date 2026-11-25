@@ -45,7 +45,33 @@ export function validateKnowledgeSource(
       ? JSON.parse(source)
       : parseYaml(source);
     const validate = validators[category];
-    if (validate(data)) return [];
+    if (validate(data)) {
+      if (category === 'components' && data && typeof data === 'object') {
+        const component = data as {
+          id: string;
+          rules?: { id: string; statement: string; rationale: string }[];
+        };
+        return (component.rules ?? []).flatMap((rule, index) => {
+          const errors = (['id', 'statement', 'rationale'] as const).flatMap(
+            field =>
+              rule[field].trim()
+                ? []
+                : [`${fileName}:/rules/${index}/${field}: must not be blank`],
+          );
+          if (
+            rule.id.trim() &&
+            (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(rule.id) ||
+              !rule.id.startsWith(`${component.id}-`))
+          ) {
+            errors.push(
+              `${fileName}:/rules/${index}/id: must be kebab-case and start with "${component.id}-"`,
+            );
+          }
+          return errors;
+        });
+      }
+      return [];
+    }
     return (validate.errors ?? []).map(error => {
       const detail =
         error.keyword === 'additionalProperties'
@@ -102,6 +128,23 @@ export function validateKnowledgeDirectory(
         const message = error instanceof Error ? error.message : String(error);
         errors.push(`${relativePath}:/: ${message}`);
       }
+    }
+  }
+  const example = path.join(dataDirectory, 'COMPONENT_EXAMPLE.yaml');
+  if (fs.existsSync(example)) {
+    filesChecked += 1;
+    try {
+      errors.push(
+        ...validateKnowledgeSource(
+          fs.readFileSync(example, 'utf8'),
+          path.relative(repoRoot, example),
+          'components',
+          validators,
+        ),
+      );
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      errors.push(`${path.relative(repoRoot, example)}:/: ${message}`);
     }
   }
   return { filesChecked, errors };

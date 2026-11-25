@@ -3,6 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import { formatContext, searchKnowledge } from './context-generator';
 import { loadSourceKnowledge } from './source-knowledge';
+import { querySearchEntities } from './vector-search';
 import type { FrameworkTarget } from './types';
 import type { RuleDetail } from './rules';
 
@@ -63,6 +64,54 @@ describe('knowledge-agent context generator', () => {
       id: 'knowledge:glossary/color-target',
     });
     expect(formatContext(result, 'full')).toContain('****Rationale:****');
+  });
+
+  it('finds component guidance and shows statements without rationale in text', () => {
+    const result = search('select validation errors');
+    const select = result.components.find(
+      component => component.id === 'select',
+    );
+    const rule = select?.rules?.find(
+      item => item.id === 'select-explain-validation-errors',
+    );
+    expect(rule?.rationale).toContain('Styling draws attention to an error');
+    const prompt = formatContext(result, 'none');
+    expect(prompt).toContain('[select-explain-validation-errors]');
+    expect(prompt).not.toContain('Styling draws attention to an error');
+  });
+
+  it('indexes component rule statements for retrieval', () => {
+    const snapshot = loadSourceKnowledge();
+    const menu = snapshot.content.components.find(
+      component => component.id === 'menu',
+    );
+    expect(menu).toBeDefined();
+    menu!.rules = [
+      {
+        id: 'menu-unique',
+        statement: 'Quasarfish interplanetary guidance.',
+        rationale: 'A fixture reason.',
+      },
+    ];
+    const result = searchKnowledge(
+      snapshot,
+      'source',
+      'quasarfish interplanetary',
+    );
+    expect(result.components.map(component => component.id)).toContain('menu');
+  });
+
+  it('does not let multiple matching rules crowd out other components', () => {
+    const results = querySearchEntities(
+      [
+        { id: 'a', type: 'component', name: 'A', text: 'orbit stellar' },
+        { id: 'a', type: 'component', name: 'A', text: 'stellar orbit' },
+        { id: 'b', type: 'component', name: 'B', text: 'orbit stellar' },
+      ],
+      'orbit stellar',
+      { topK: 2 },
+    );
+    expect(results.map(result => result.entity.id)).toEqual(['a', 'b']);
   });
 
   it('includes relevant instructions for layout queries', () => {
