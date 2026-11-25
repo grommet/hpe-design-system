@@ -77,6 +77,36 @@ describe('knowledge source schemas', () => {
     ).toContain('fixture.json:/examples/0:');
   });
 
+  it('accepts component rules and rejects missing, blank, or invalid fields', () => {
+    const rule = {
+      id: 'button-describe-action',
+      statement: 'Describe the action.',
+      rationale: 'People can anticipate the outcome.',
+      relatedTo: [{ kind: 'component', id: 'button' }],
+    };
+    expect(validate(component)).toEqual([]);
+    expect(validate({ ...component, rules: [rule] })).toEqual([]);
+    expect(
+      validate({
+        ...component,
+        rules: [{ id: rule.id, statement: rule.statement }],
+      }).join('\n'),
+    ).toContain('(rationale)');
+    expect(
+      validate({ ...component, rules: [{ ...rule, rationale: '  ' }] }).join(
+        '\n',
+      ),
+    ).toContain('/rules/0/rationale: must not be blank');
+    expect(
+      validate({ ...component, rules: [{ ...rule, statement: 4 }] }).join('\n'),
+    ).toContain('/rules/0/statement:');
+    expect(
+      validate({ ...component, rules: [{ ...rule, id: 'Other-ID' }] }).join(
+        '\n',
+      ),
+    ).toContain('must be kebab-case and start with "button-"');
+  });
+
   it('accepts WCAG notes only as an optional array of strings', () => {
     const wcag = (fields: Record<string, unknown>) => ({
       ...component,
@@ -219,7 +249,7 @@ describe('knowledge source schemas', () => {
     ).toEqual([]);
   });
 
-  it('reports multiple bad files, ignores non-inputs, and rejects missing or empty collections', () => {
+  it('reports multiple bad files, checks the example, and rejects missing or empty collections', () => {
     const directory = fs.mkdtempSync(
       path.join(os.tmpdir(), 'knowledge-schema-'),
     );
@@ -243,14 +273,15 @@ describe('knowledge source schemas', () => {
       'not knowledge',
     );
     const result = validateKnowledgeDirectory(directory, validators);
-    expect(result.filesChecked).toBe(2);
-    expect(result.errors).toHaveLength(2);
+    expect(result.filesChecked).toBe(3);
+    expect(result.errors).toHaveLength(3);
     expect(result.errors.join('\n')).toContain(
       path.join('components', 'broken.yaml'),
     );
     expect(result.errors.join('\n')).toContain(
       path.join('patterns', 'broken.json'),
     );
+    expect(result.errors.join('\n')).toContain('COMPONENT_EXAMPLE.yaml');
   });
 
   it('accepts all current loader-consumed content', () => {

@@ -11,6 +11,7 @@ const knownIds = {
 };
 
 const foundation = (file, rules) => ({ file, foundation: { rules } });
+const component = (file, rules) => ({ file, component: { rules } });
 const rule = (id, relatedTo) => ({ id, relatedTo });
 const layoutAViolation = (reference, problem) =>
   'knowledge/core/data/foundations/layout.yaml: rule "layout-a" has ' +
@@ -54,6 +55,45 @@ describe('validateFoundationReferences', () => {
     );
 
     assert.deepEqual(violations, []);
+  });
+
+  it('resolves component and foundation rules in both directions and checks duplicates', () => {
+    const foundations = [
+      foundation('color.yaml', [
+        rule('color-a', [{ kind: 'rule', id: 'card-a' }]),
+      ]),
+    ];
+    const components = [
+      component('card.yaml', [
+        rule('card-a', [{ kind: 'rule', id: 'color-a' }]),
+      ]),
+    ];
+    assert.deepEqual(
+      validateFoundationReferences(foundations, knownIds, components),
+      [],
+    );
+    const violations = validateFoundationReferences(foundations, knownIds, [
+      component('card.yaml', [
+        rule('color-a', [{ kind: 'rule', id: 'missing' }]),
+      ]),
+    ]);
+    assert.match(
+      violations.join('\n'),
+      /components\/card.yaml: duplicate rule id "color-a"/,
+    );
+    assert.match(violations.join('\n'), /unknown rule id/);
+  });
+
+  it('checks component external references', () => {
+    const violations = validateFoundationReferences([], knownIds, [
+      component('card.yaml', [
+        rule('card-a', [{ kind: 'external', label: 'Docs', url: '' }]),
+      ]),
+    ]);
+    assert.match(
+      violations.join('\n'),
+      /components\/card.yaml: rule "card-a".*without a url/,
+    );
   });
 
   it('reports duplicate rule ids within one file', () => {

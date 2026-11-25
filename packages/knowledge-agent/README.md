@@ -107,11 +107,16 @@ glossary data; `--rules` changes text formatting only.
 Non-React context omits React import claims and TSX pattern templates.
 Importing the library does not parse arguments, print output, or exit.
 
-Use `--checklist` for all foundation rules or `--rule <id>` for one rule with
-rationale, examples, and related glossary terms. Both work without a query;
+Use `--checklist` for all foundation rules, `--checklist --component <id>`
+for one component's rules, or `--rule <id>` for a foundation or component
+rule with rationale, examples, and related glossary terms. These work without a query;
 `--checklist` also accepts a query but prints only the checklist. These two
 commands are mutually exclusive and text-only; combining either with `--json`
 fails explicitly without JSON stdout.
+
+Matched component rules appear as statements in text context; use `--rule` for
+the rationale. Component results in structured JSON include complete rules.
+The `--rules` detail option continues to control foundation text only.
 
 | Condition                                       | Behavior                                                                          |
 | ----------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -146,6 +151,8 @@ pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --fra
 pnpm --filter @hpe-design/knowledge-agent generate -- "Create a dashboard" --rules none
 pnpm --filter @hpe-design/knowledge-agent generate -- --rule color-names-its-target
 pnpm --filter @hpe-design/knowledge-agent generate -- --checklist
+pnpm --filter @hpe-design/knowledge-agent generate -- --checklist --component select
+pnpm --filter @hpe-design/knowledge-agent generate -- --rule select-explain-validation-errors
 ```
 
 This path reports `mode: "source"`. The installed bin instead requires a build
@@ -153,7 +160,8 @@ and always uses its bundled snapshot. Neither mode silently falls back to the
 other. Missing snippets retain warning/placeholder behavior for live authoring,
 but fail a strict package build. Builders and validators can use `--checklist`
 for a lean constraint list and fetch individual rules by ID when explaining
-or reporting a failure. Rules are not relevance-filtered by the query.
+or reporting a failure. Foundation rules are not relevance-filtered by the
+query; component rules appear with their matched component.
 
 The canonical contract remains `knowledge/core/data/types.ts`; package
 declarations are generated from it, not separately maintained. A build validates

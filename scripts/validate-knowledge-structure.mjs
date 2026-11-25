@@ -164,15 +164,25 @@ const foundationsByFile = loadDataFiles(foundationsDir).map(({ file, data }) => 
   file,
   foundation: data,
 }));
-const componentIds = new Set(loadDataFiles(componentsDir).map(({ data }) => data?.id));
+const componentsByFile = loadDataFiles(componentsDir).map(({ file, data }) => ({
+  file,
+  component: data,
+}));
+const componentIds = new Set(
+  componentsByFile.map(({ component }) => component?.id),
+);
 const patternIds = new Set(loadDataFiles(patternsDir).map(({ data }) => data?.id));
 
 violations.push(
-  ...validateFoundationReferences(foundationsByFile, {
-    glossary: glossaryIds,
-    component: componentIds,
-    pattern: patternIds,
-  }),
+  ...validateFoundationReferences(
+    foundationsByFile,
+    {
+      glossary: glossaryIds,
+      component: componentIds,
+      pattern: patternIds,
+    },
+    componentsByFile,
+  ),
 );
 
 if (violations.length > 0) {

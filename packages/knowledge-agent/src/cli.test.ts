@@ -122,11 +122,41 @@ describe('knowledge-agent CLI', () => {
     expect(result.stdout).not.toContain('\u001B[');
   });
 
-  it.each(['--rule', '--rules'])('rejects a missing %s value', flag => {
-    const result = runCli(flag);
-    expect(result.status).toBe(1);
-    expect(result.stderr).toContain(`Missing value for ${flag}`);
+  it('prints component checklists and full rules without changing foundation commands', () => {
+    const checklist = runCli('--checklist', '--component', 'select');
+    expect(checklist.status).toBe(0);
+    expect(checklist.stdout).toContain('[select-explain-validation-errors]');
+    expect(checklist.stdout).not.toContain(
+      'Styling draws attention to an error',
+    );
+    const detail = runCli('--rule', 'select-explain-validation-errors');
+    expect(detail.status).toBe(0);
+    expect(detail.stdout).toContain('Styling draws attention to an error');
+    const empty = runCli('--checklist', '--component', 'menu');
+    expect(empty.status).toBe(0);
+    expect(empty.stdout).toContain('No component rules defined.');
   });
+
+  it('rejects invalid component checklist requests', () => {
+    expect(runCli('--component', 'menu').stderr).toContain(
+      '--component requires --checklist',
+    );
+    expect(runCli('--checklist', '--component', 'missing').stderr).toContain(
+      'Unknown component id: missing',
+    );
+    const json = runCli('--checklist', '--component', 'menu', '--json');
+    expect(json.status).toBe(1);
+    expect(json.stdout).toBe('');
+  });
+
+  it.each(['--rule', '--rules', '--component'])(
+    'rejects a missing %s value',
+    flag => {
+      const result = runCli(flag);
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain(`Missing value for ${flag}`);
+    },
+  );
 
   it('keeps stdout empty for incompatible JSON rule commands', () => {
     const result = runCli('--checklist', '--json');
