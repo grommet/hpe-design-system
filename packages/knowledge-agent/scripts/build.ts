@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { Ajv } from 'ajv';
 import { createGenerator } from 'ts-json-schema-generator';
 import * as schemas from '../../../scripts/validate-knowledge-schema.js';
+import { buildCapabilityCatalog } from './build-capability-catalog.js';
 import { loadSourceKnowledge, repoRoot } from '../src/source-knowledge.js';
 
 const packageRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -21,8 +22,18 @@ const dist = path.join(packageRoot, 'dist');
 rmSync(dist, { recursive: true, force: true });
 const validation = schemas.validateKnowledgeDirectory();
 if (validation.errors.length) throw new Error(validation.errors.join('\n'));
+execFileSync(
+  process.execPath,
+  [path.join(repoRoot, 'scripts/validate-capability-manifests.mjs')],
+  { cwd: repoRoot, stdio: 'inherit' },
+);
 
 const snapshot = loadSourceKnowledge({ strict: true });
+const capabilityCatalog = buildCapabilityCatalog(
+  repoRoot,
+  packageRoot,
+  snapshot,
+);
 const generator = createGenerator({
   path: path.join(packageRoot, 'src/knowledge.ts'),
   type: 'KnowledgeSnapshot',
@@ -62,6 +73,10 @@ writeFileSync(
 writeFileSync(
   path.join(dist, 'knowledge.schema.json'),
   `${JSON.stringify(schema)}\n`,
+);
+writeFileSync(
+  path.join(dist, 'capabilities.json'),
+  `${JSON.stringify(capabilityCatalog)}\n`,
 );
 copyFileSync(path.join(repoRoot, 'LICENSE'), path.join(dist, 'LICENSE'));
 chmodSync(path.join(packageRoot, 'bin/cli.js'), 0o755);

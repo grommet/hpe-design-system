@@ -1,8 +1,11 @@
 // SPDX-FileCopyrightText: © Hewlett Packard Enterprise Development LP
 // SPDX-License-Identifier: Apache-2.0
 import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
 const packageRoot = fileURLToPath(new URL('..', import.meta.url));
 const ansiPattern = new RegExp(`${String.fromCharCode(27)}\\[[0-9;]*m`, 'g');
@@ -21,7 +24,56 @@ function stripAnsi(value: string): string {
   return value.replace(ansiPattern, '');
 }
 
+const workspaces: string[] = [];
+afterEach(() => {
+  workspaces.splice(0).forEach(workspace => {
+    fs.rmSync(workspace, { recursive: true, force: true });
+  });
+});
+
 describe('knowledge-agent CLI', () => {
+  it('lists only consumer-distributable capabilities as JSON', () => {
+    const result = runCli('capabilities', 'list', '--json');
+
+    expect(result.status).toBe(0);
+    expect(
+      JSON.parse(result.stdout).map((item: { id: string }) => item.id),
+    ).toEqual(['alignment-audit']);
+  });
+
+  it('shows capability stages and installable helper profiles', () => {
+    const result = runCli('capabilities', 'show', 'alignment-audit', '--json');
+
+    expect(result.status).toBe(0);
+    expect(JSON.parse(result.stdout)).toMatchObject({
+      id: 'alignment-audit',
+      agentIds: [
+        'hpe-design-system-alignment-audit-evaluator',
+        'hpe-design-system-alignment-audit-remediation-planner',
+        'hpe-design-system-alignment-audit-remediation-executor',
+      ],
+      documentation: ['README.md'],
+    });
+  });
+
+  it('previews an agent installation without changing the workspace', () => {
+    const workspace = fs.mkdtempSync(
+      path.join(os.tmpdir(), 'hpe-agent-cli-preview-'),
+    );
+    workspaces.push(workspace);
+    const result = runCli(
+      'agent',
+      'install',
+      '--target',
+      workspace,
+      '--dry-run',
+    );
+
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('Would install');
+    expect(fs.existsSync(path.join(workspace, '.github'))).toBe(false);
+  });
+
   it('rejects unsupported options with usage help', () => {
     const result = runCli('Create a dashboard', '--unknown');
 

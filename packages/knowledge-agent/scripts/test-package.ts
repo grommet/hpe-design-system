@@ -7,6 +7,7 @@ import {
   existsSync,
   mkdirSync,
   mkdtempSync,
+  readdirSync,
   readFileSync,
   rmSync,
   writeFileSync,
@@ -16,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { loadSourceKnowledge, repoRoot } from '../src/source-knowledge.js';
+import { loadSourceCapabilityCatalog } from '../src/source-capabilities.js';
 import { searchKnowledge } from '../src/context-generator.js';
 import { validateCandidateSource, writeCandidate } from './candidate.js';
 import type { KnowledgeSnapshot } from '../src/knowledge.js';
@@ -37,6 +39,7 @@ const npm = (...args: string[]) =>
 
 try {
   const source = loadSourceKnowledge({ strict: true });
+  const sourceCapabilityCatalog = loadSourceCapabilityCatalog();
   const candidateSource = {
     snapshot: source,
     requestedVersion: process.env.REQUESTED_VERSION,
@@ -50,8 +53,11 @@ try {
     npm('pack', '--ignore-scripts', '--json', '--pack-destination', temporary),
   );
   const runtimeModules = [
+    'agent-installer',
     'bin',
+    'bundled-capabilities',
     'bundled-knowledge',
+    'capabilities',
     'cli-adapter',
     'context-generator',
     'index',
@@ -65,6 +71,7 @@ try {
     'README.md',
     'bin/cli.js',
     'dist/LICENSE',
+    'dist/capabilities.json',
     'dist/knowledge.json',
     'dist/knowledge.schema.json',
     'dist/knowledge/core/data/types.js',
@@ -145,7 +152,15 @@ require('node:module').syncBuiltinESMExports();
     const result = node(cli, query, '--json');
     assert.equal(result.status, 0, result.stderr);
     const output = JSON.parse(result.stdout);
-    assert.equal(output.knowledge.mode, 'bundled');
+    assert.equal(
+      output.knowledge.mode,
+      'bundled',
+      JSON.stringify({
+        keys: Object.keys(output),
+        knowledge: output.knowledge,
+        status: output.status,
+      }),
+    );
     assert.equal(output.knowledge.contentDigest, source.contentDigest);
     assert(
       output.patterns.some(
@@ -177,6 +192,7 @@ import { createRequire } from 'node:module';
 import { connect } from 'node:net';
 import {
   searchDesignSystem, generateSystemPrompt,
+  getCapability, listCapabilities, loadBundledCapabilityCatalog,
 } from '@hpe-design/knowledge-agent';
 const require = createRequire(import.meta.url);
 assert.throws(() => connect(443, 'example.invalid'), /networking is disabled/);
@@ -202,6 +218,16 @@ const withoutRules = generateSystemPrompt(
 assert(!withoutRules.includes('### Foundation Rules'));
 const fullRules = generateSystemPrompt('Build a login form', 'react', 'full');
 assert(fullRules.includes('****Rationale:****'));
+const capabilityCatalog = loadBundledCapabilityCatalog();
+assert.deepEqual(
+  listCapabilities(capabilityCatalog).map(item => item.id),
+  ['alignment-audit'],
+);
+assert.equal(
+  getCapability(capabilityCatalog, 'alignment-audit')?.assets.length,
+  3,
+);
+assert.equal(getCapability(capabilityCatalog, 'docs-refactor'), undefined);
 process.stdout.write('consumer checks passed\\n');
 `,
   );
@@ -246,20 +272,148 @@ process.stdout.write('consumer checks passed\\n');
   assert(invalid.stderr.includes('non-empty'));
   assert.equal(invalid.stdout, '');
 
+  const capabilitiesList = node(cli, 'capabilities', 'list', '--json');
+  assert.equal(capabilitiesList.status, 0, capabilitiesList.stderr);
+  assert.deepEqual(
+    JSON.parse(capabilitiesList.stdout).map(
+      (capability: { id: string }) => capability.id,
+    ),
+    ['alignment-audit'],
+  );
+  const capabilityDetail = node(
+    cli,
+    'capabilities',
+    'show',
+    'alignment-audit',
+    '--json',
+  );
+  assert.equal(capabilityDetail.status, 0, capabilityDetail.stderr);
+  assert(
+    JSON.parse(capabilityDetail.stdout).agentIds.includes(
+      'hpe-design-system-alignment-audit-evaluator',
+    ),
+  );
+
+  const consumerWorkspace = path.join(temporary, 'consumer-workspace');
+  mkdirSync(consumerWorkspace);
+  const dryRun = node(
+    cli,
+    'agent',
+    'install',
+    '--target',
+    consumerWorkspace,
+    '--dry-run',
+  );
+  assert.equal(dryRun.status, 0, dryRun.stderr);
+  assert(!existsSync(path.join(consumerWorkspace, '.github')));
+  const installedAgents = node(
+    cli,
+    'agent',
+    'install',
+    '--target',
+    consumerWorkspace,
+  );
+  assert.equal(installedAgents.status, 0, installedAgents.stderr);
+  const agentsDirectory = path.join(consumerWorkspace, '.github/agents');
+  const installedAgentFiles = [
+    'design-system-agent.agent.md',
+    'hpe-design-system-alignment-audit-evaluator.agent.md',
+    'hpe-design-system-alignment-audit-remediation-planner.agent.md',
+    'hpe-design-system-alignment-audit-remediation-executor.agent.md',
+  ];
+  installedAgentFiles.forEach(fileName =>
+    assert(existsSync(path.join(agentsDirectory, fileName)), fileName),
+  );
+  const helper = readFileSync(
+    path.join(agentsDirectory, installedAgentFiles[1]),
+    'utf8',
+  );
+  const frontdoor = readFileSync(
+    path.join(agentsDirectory, installedAgentFiles[0]),
+    'utf8',
+  );
+  assert(frontdoor.includes('name: hpe-design-system'));
+  assert(frontdoor.includes('approval'));
+  assert(frontdoor.includes('alignment-audit'));
+  assert(helper.includes('user-invocable: false'));
+  assert(helper.includes('tools:'));
+  assert(helper.includes('execute'));
+  assert(helper.includes('hpe-design-agent'));
+  assert(
+    !/pnpm --filter @hpe-design\/knowledge-agent\s+\S+/.test(helper),
+    [
+      'Consumer helpers must not contain executable',
+      'knowledge-agent monorepo commands',
+    ].join(' '),
+  );
+  assert(!helper.includes('design-system-maintainer.agent.md'));
+  const installedInventory = readdirSync(agentsDirectory);
+  const installedProfileCount = installedInventory.filter(fileName =>
+    fileName.endsWith('.agent.md'),
+  ).length;
+  assert.equal(installedProfileCount, 4);
+
+  const blockedWorkspace = path.join(temporary, 'blocked-workspace');
+  const blockedAgents = path.join(blockedWorkspace, '.github/agents');
+  mkdirSync(blockedAgents, { recursive: true });
+  const userOwnedAgent = path.join(
+    blockedAgents,
+    'design-system-agent.agent.md',
+  );
+  writeFileSync(userOwnedAgent, 'user-owned');
+  const blockedInstall = node(
+    cli,
+    'agent',
+    'install',
+    '--target',
+    blockedWorkspace,
+  );
+  assert.equal(blockedInstall.status, 1);
+  assert(blockedInstall.stderr.includes('--overwrite'));
+  assert.equal(readFileSync(userOwnedAgent, 'utf8'), 'user-owned');
+  writeFileSync(path.join(blockedAgents, 'unrelated.agent.md'), 'keep');
+  const replacedInstall = node(
+    cli,
+    'agent',
+    'install',
+    '--target',
+    blockedWorkspace,
+    '--overwrite',
+  );
+  assert.equal(replacedInstall.status, 0, replacedInstall.stderr);
+  const uninstalled = node(
+    cli,
+    'agent',
+    'uninstall',
+    '--target',
+    blockedWorkspace,
+  );
+  assert.equal(uninstalled.status, 0, uninstalled.stderr);
+  assert(!existsSync(userOwnedAgent));
+  assert.equal(
+    readFileSync(path.join(blockedAgents, 'unrelated.agent.md'), 'utf8'),
+    'keep',
+  );
+
   const declarationConsumer = path.join(temporary, 'consumer.mts');
   writeFileSync(
     declarationConsumer,
     `
 import {
   searchDesignSystem, generateSystemPrompt,
+  getCapability, listCapabilities, loadBundledCapabilityCatalog,
   type QueryResult, type ComponentDefinition,
-  type RuleDetail,
+  type RuleDetail, type CapabilityDescriptor,
 } from '@hpe-design/knowledge-agent';
 const result: QueryResult = searchDesignSystem('Build a login form');
 const components: ComponentDefinition[] = result.components;
 const prompt: string = generateSystemPrompt(components[0].name, 'react');
 const detail: RuleDetail = 'full';
 generateSystemPrompt(components[0].name, 'react', detail);
+const capabilities: CapabilityDescriptor[] = listCapabilities(
+  loadBundledCapabilityCatalog(),
+);
+getCapability(loadBundledCapabilityCatalog(), capabilities[0].id);
 void prompt;
 `,
   );
@@ -284,6 +438,12 @@ void prompt;
   const snapshot = readFileSync(snapshotFile, 'utf8');
   const bundledSnapshot: KnowledgeSnapshot = JSON.parse(snapshot);
   assert.deepEqual(bundledSnapshot, JSON.parse(JSON.stringify(source)));
+  assert.deepEqual(
+    JSON.parse(
+      readFileSync(path.join(installed, 'dist/capabilities.json'), 'utf8'),
+    ),
+    sourceCapabilityCatalog,
+  );
   const installedManifest = JSON.parse(
     readFileSync(path.join(installed, 'package.json'), 'utf8'),
   );
