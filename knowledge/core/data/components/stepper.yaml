@@ -56,7 +56,9 @@ props:
     required: false
     description:
       Callback invoked with the ID of an enabled step when it is activated.
-      The application is responsible for updating currentStep.
+      Callback invoked with the ID of an enabled step when it is activated. For a
+      parent step, this is its first enabled child. The application is responsible
+      for updating currentStep.
   - name: id
     type: string
     required: false
@@ -151,7 +153,7 @@ behaviors:
   interactiveStates:
     - rest
     - hover and active for clickable enabled steps
-    - keyboard focus
+    - keyboard focus when clickableSteps is true
   applicationStates:
     - pending
     - completed
@@ -174,11 +176,11 @@ dosAndDonts:
     dont: Reuse step IDs or assume the title identifies a step.
     reason: Step IDs drive current-step matching, rendered keys, and helper-text references.
   - do: Update currentStep in the application after handling onStepClick.
-    dont: Expect Stepper to change the current step or render its content automatically.
+    dont: Expect Stepper to update currentStep or render the active step's panel automatically.
     reason: The component reports activation but does not manage workflow state or panels.
   - do: Limit children to one level.
     dont: Add children to a child step.
-    reason: The installed implementation warns that deeper nesting is unsupported.
+    reason: The Grommet implementation warns that deeper nesting is unsupported.
 accessibility:
   keyboard:
     - key: Tab / Shift+Tab
@@ -205,7 +207,8 @@ accessibility:
       value: supplied label or localized Stepper progress label
       condition: Names the root ordered list.
     - attribute: aria-label
-      value: supplied step label or localized position and title
+      value: supplied step label or localized default; parent steps use their title, while leaf
+       steps include position and title. Substep labels include parent context.
       condition: Names each step control.
     - attribute: aria-current
       value: step
