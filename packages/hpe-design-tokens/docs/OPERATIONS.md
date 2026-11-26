@@ -62,19 +62,16 @@ pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test
 pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output tokens_qa
 ```
 
-## Surface collection test sync
+## Aliases to New Upstream Variables
 
-`tokens/semantic/surface.default.json` adds a single `default` mode in the
-`surface` collection of the Semantic file. Its variables alias `color.surface.*`
-in the same file. The `toned` mode is not included.
+A sync writes variables to a Figma file. It does not publish the file's library
+or accept the update in the next file. A dry run writes nothing, so later stages
+do not see the additions it plans.
 
-For prototype validation, use duplicated Figma files only. Preview the Semantic
-stage with `--env=test --dry-run --verbose-plan --plan-stage semantic` and
-check the collection and alias changes before any write. `--plan-stage` filters
-the plan display, not which stages execute. The Component stage needs the
-Surface variables to be published and available to the duplicate Component file
-before its new aliases can resolve. A dry run does not publish or expose
-planned Semantic additions to later stages.
+A stage can alias a variable from an upstream file only after that file has
+published it and the variable is already used in the stage's own file, for
+example through one alias made by hand. Until then the stage fails with
+`ALIAS_NOT_FOUND`.
 
 ## Release Runbook
 
