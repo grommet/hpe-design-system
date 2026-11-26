@@ -55,7 +55,6 @@ props:
     type: '(stepId: string) => void'
     required: false
     description:
-      Callback invoked with the ID of an enabled step when it is activated.
       Callback invoked with the ID of an enabled step when it is activated. For a
       parent step, this is its first enabled child. The application is responsible
       for updating currentStep.
