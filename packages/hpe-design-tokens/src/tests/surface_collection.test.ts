@@ -72,6 +72,19 @@ const readTheme = (theme: (typeof themes)[number]) => {
 const handle = 'switch/default/control/handle';
 const releasedComponentAliases = {
   'drop/default/background': '{color.background.floating.DEFAULT.REST}',
+  'fig/calendar/dropContainer/background':
+    '{color.background.floating.DEFAULT.REST}',
+  'fig/notification/toast/critical/rest/background':
+    '{color.background.floating.DEFAULT.REST}',
+  'fig/notification/toast/info/rest/background':
+    '{color.background.floating.DEFAULT.REST}',
+  'fig/notification/toast/ok/rest/background':
+    '{color.background.floating.DEFAULT.REST}',
+  'fig/notification/toast/unknown/rest/background':
+    '{color.background.floating.DEFAULT.REST}',
+  'fig/notification/toast/warning/rest/background':
+    '{color.background.floating.DEFAULT.REST}',
+  'fig/tip/container/background': '{color.background.floating.DEFAULT.REST}',
   [`${handle}/rest/background`]: '{color.background.front.DEFAULT.REST}',
   [`${handle}/hover/background`]: '{color.background.default.REST}',
   [`${handle}/selected/rest/background`]: '{color.background.default.REST}',
@@ -118,7 +131,7 @@ describe('Landmark Surface collection', () => {
   );
 
   it.each(themes)(
-    'rewires Drop and the Switch handle in the default theme only (%s)',
+    'rewires floating consumers in the default theme only (%s)',
     theme => {
       const { components } = readTheme(theme);
 

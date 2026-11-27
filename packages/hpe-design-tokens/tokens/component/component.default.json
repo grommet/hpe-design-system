@@ -8824,7 +8824,7 @@
             }
           },
           "$type": "color",
-          "$value": "{color.background.floating.DEFAULT.REST}"
+          "$value": "{color.background.surface.floating.DEFAULT.REST}"
         },
         "border": {
           "$description": "",
@@ -9940,7 +9940,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10008,7 +10008,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10152,7 +10152,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10220,7 +10220,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10288,7 +10288,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -13698,7 +13698,7 @@
             }
           },
           "$type": "color",
-          "$value": "{color.background.floating.DEFAULT.REST}"
+          "$value": "{color.background.surface.floating.DEFAULT.REST}"
         },
         "border": {
           "$description": "",
