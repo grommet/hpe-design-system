@@ -33,7 +33,7 @@ function readTokenTypes(file: string) {
   return collectTokenTypes(tree);
 }
 
-describe.each(['v0', 'v1'])('%s token version parity', version => {
+describe.each(['v0', 'v1', 'v2'])('%s token version parity', version => {
   const versionFiles = new Map(
     themeFiles[version].map(file => [
       file.replace(`.${version}-`, '.').replace(`.${version}.`, '.default.'),
@@ -61,4 +61,79 @@ describe.each(['v0', 'v1'])('%s token version parity', version => {
       ).toEqual(readTokenTypes(defaultFile));
     },
   );
+});
+
+type FigmaMetadata = {
+  description?: string;
+  hiddenFromPublishing?: boolean;
+  scopes?: string[];
+  codeSyntax?: Record<string, string>;
+};
+
+function collectFigmaMetadata(
+  node: unknown,
+  path = '',
+): Record<string, FigmaMetadata> {
+  if (!node || typeof node !== 'object' || Array.isArray(node)) {
+    return {};
+  }
+
+  if ('$value' in node) {
+    const token = node as {
+      $description?: string;
+      $extensions?: { 'com.figma'?: FigmaMetadata };
+    };
+    const figma = token.$extensions?.['com.figma'];
+
+    return {
+      [path]: {
+        description: token.$description,
+        hiddenFromPublishing: figma?.hiddenFromPublishing,
+        scopes: figma?.scopes && [...figma.scopes].sort(),
+        codeSyntax: figma?.codeSyntax,
+      },
+    };
+  }
+
+  return Object.fromEntries(
+    Object.entries(node)
+      .filter(([key]) => !key.startsWith('$'))
+      .flatMap(([key, value]) =>
+        Object.entries(
+          collectFigmaMetadata(value, path ? `${path}.${key}` : key),
+        ),
+      ),
+  );
+}
+
+function readFigmaMetadata(file: string) {
+  const tree: unknown = JSON.parse(fs.readFileSync(file, 'utf8'));
+  return collectFigmaMetadata(tree);
+}
+
+// Figma stores a variable's description, scopes, code syntax and publishing
+// flag once, not per mode. Mode files that disagree are rewritten on every
+// sync, so the last file read wins and a repeat sync is never a no-op.
+const filesByCollection = [...new Set(Object.values(themeFiles).flat())]
+  .sort()
+  .reduce<Record<string, string[]>>((collections, file) => {
+    const [collection] = (file.split('/').pop() ?? file).split('.');
+    return {
+      ...collections,
+      [collection]: [...(collections[collection] ?? []), file],
+    };
+  }, {});
+
+describe.each(
+  Object.entries(filesByCollection).filter(([, files]) => files.length > 1),
+)('%s Figma variable metadata', (_collection, files) => {
+  const [referenceFile, ...modeFiles] = files;
+
+  it.each(modeFiles)(`matches ${referenceFile} in %s`, modeFile => {
+    expect(
+      readFigmaMetadata(modeFile),
+      `${modeFile} must carry the same description, scopes, code syntax ` +
+        `and publishing flag as ${referenceFile}`,
+    ).toEqual(readFigmaMetadata(referenceFile));
+  });
 });

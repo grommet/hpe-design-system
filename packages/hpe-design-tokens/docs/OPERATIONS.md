@@ -62,6 +62,17 @@ pnpm --filter hpe-design-tokens sync-tokens-to-figma -- --env=test
 pnpm --filter hpe-design-tokens sync-figma-to-tokens -- --env=test --output tokens_qa
 ```
 
+## Aliases to New Upstream Variables
+
+A sync writes variables to a Figma file. It does not publish the file's library
+or accept the update in the next file. A dry run writes nothing, so later stages
+do not see the additions it plans.
+
+A stage can alias a variable from an upstream file only after that file has
+published it and the variable is already used in the stage's own file, for
+example through one alias made by hand. Until then the stage fails with
+`ALIAS_NOT_FOUND`.
+
 ## Release Runbook
 
 The release process uses Changesets for version and changelog preparation. GitHub and NPM

@@ -7281,7 +7281,7 @@
           }
         },
         "$type": "color",
-        "$value": "{color.background.floating.DEFAULT.REST}"
+        "$value": "{color.background.surface.floating.DEFAULT.REST}"
       },
       "borderRadius": {
         "$description": "",
@@ -8824,7 +8824,7 @@
             }
           },
           "$type": "color",
-          "$value": "{color.background.floating.DEFAULT.REST}"
+          "$value": "{color.background.surface.floating.DEFAULT.REST}"
         },
         "border": {
           "$description": "",
@@ -9940,7 +9940,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10008,7 +10008,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10152,7 +10152,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10220,7 +10220,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -10288,7 +10288,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.floating.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "border": {
               "$description": "",
@@ -13698,7 +13698,7 @@
             }
           },
           "$type": "color",
-          "$value": "{color.background.floating.DEFAULT.REST}"
+          "$value": "{color.background.surface.floating.DEFAULT.REST}"
         },
         "border": {
           "$description": "",
@@ -18260,7 +18260,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.default.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "borderColor": {
               "$description": "",
@@ -18298,7 +18298,7 @@
                 }
               },
               "$type": "color",
-              "$value": "{color.background.front.DEFAULT.REST}"
+              "$value": "{color.background.surface.floating.DEFAULT.REST}"
             },
             "borderColor": {
               "$description": "",
@@ -18337,7 +18337,7 @@
                   }
                 },
                 "$type": "color",
-                "$value": "{color.background.default.REST}"
+                "$value": "{color.background.surface.floating.DEFAULT.REST}"
               },
               "borderColor": {
                 "$description": "",
@@ -18375,7 +18375,7 @@
                   }
                 },
                 "$type": "color",
-                "$value": "{color.background.default.REST}"
+                "$value": "{color.background.surface.floating.DEFAULT.REST}"
               },
               "borderColor": {
                 "$description": "",

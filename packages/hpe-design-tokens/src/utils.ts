@@ -233,17 +233,18 @@ export const verifyReferences = (
 const TOKENS_DIR = 'tokens';
 export const COPYRIGHT = 'Copyright Hewlett Packard Enterprise Development LP.';
 
+// Snapshot themes are marked in the file name, for example
+// color.v1-light.json or component.v0.json. They exist for Figma only.
+export const snapshotVersion = (file: string) =>
+  (file.split('/').pop() ?? file).match(/\.(v\d+)[-.]/)?.[1];
+
 export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   const tokenDirs = readdirSync(tokensDir, { withFileTypes: true })
     .filter(dir => dir.isDirectory() &&
      !dir.name.startsWith('.'))  // Exclude hidden directories
     .map(dir => dir.name);
 
-  const themes: { [key: string]: string[] } = {
-    default: [],
-    v1: [],
-    v0: [],
-  };
+  const themes: { [key: string]: string[] } = { default: [] };
 
   const tokens = tokenDirs
     .map(dir =>
@@ -254,28 +255,22 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
     .flat();
 
   tokens.forEach(file => {
-    if (!file.includes('v1') && !file.includes('v0')) themes.default.push(file);
-    else if (file.includes('v1')) themes.v1.push(file);
-    else if (file.includes('v0')) themes.v0.push(file);
+    const theme = snapshotVersion(file) ?? 'default';
+    themes[theme] = themes[theme] || [];
+    themes[theme].push(file);
   });
 
-  themes.default.forEach(file => {
-    const [fileName] = file.split('/').slice(-1);
-    const collection = fileName.split('.')[0];
-    const v1Exists = themes.v1.find(v1File => {
-      const [v1FileName] = v1File.split('/').slice(-1);
-      const v1Collection = v1FileName.split('.')[0];
-      return v1Collection === collection;
+  // A collection with no snapshot file of its own is shared by every theme.
+  const collectionOf = (file: string) =>
+    file.split('/').slice(-1)[0].split('.')[0];
+  Object.keys(themes)
+    .filter(theme => theme !== 'default')
+    .forEach(theme => {
+      const ownCollections = new Set(themes[theme].map(collectionOf));
+      themes.default.forEach(file => {
+        if (!ownCollections.has(collectionOf(file))) themes[theme].push(file);
+      });
     });
-    if (!v1Exists) themes.v1.push(file);
-
-    const v0Exists = themes.v0.find(v0File => {
-      const [v0FileName] = v0File.split('/').slice(-1);
-      const v0Collection = v0FileName.split('.')[0];
-      return v0Collection === collection;
-    });
-    if (!v0Exists) themes.v0.push(file);
-  });
 
   return themes;
 };

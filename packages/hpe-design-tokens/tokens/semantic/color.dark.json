@@ -122,12 +122,12 @@
       "back": {
         "DEFAULT": {
           "REST": {
-            "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
+            "$description": "Use for the overall page background. It creates a backdrop for containers to sit on. Legacy color. See newer surface colors for styling pages and containers.",
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                "scopes": []
               }
             },
             "$type": "color",
@@ -207,7 +207,7 @@
       },
       "default": {
         "REST": {
-          "$description": "Default background color to be used on containers.",
+          "$description": "General-purpose background color. If styling pages or containers, use the surface colors instead.",
           "$extensions": {
             "com.figma": {
               "codeSyntax": {},
@@ -238,12 +238,12 @@
       "floating": {
         "DEFAULT": {
           "REST": {
-            "$description": "Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers",
+            "$description": "Retained for existing work. For new work use color.background.surface.floating for UI that renders above the page. Value unchanged. Identical to its replacement.",
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                "scopes": []
               }
             },
             "$type": "color",
@@ -254,12 +254,12 @@
       "front": {
         "DEFAULT": {
           "REST": {
-            "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
+            "$description": "Use for containers and surfaces that sit directly on top of the page. Legacy color. See newer surface colors for styling pages and containers.",
             "$extensions": {
               "com.figma": {
                 "codeSyntax": {},
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+                "scopes": []
               }
             },
             "$type": "color",
@@ -1327,6 +1327,56 @@
           },
           "$type": "color",
           "$value": "{color.text.weak.REST}"
+        }
+      }
+    },
+    "surface": {
+      "10": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1300}"
+          }
+        }
+      },
+      "20": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1200}"
+          }
+        }
+      },
+      "30": {
+        "DEFAULT": {
+          "REST": {
+            "$description": "[INTERNAL] Reference value for the surface tokens. Do not apply directly: use background-surface-base, background-surface-tone-1, background-surface-tone-2 or background-surface-floating.",
+            "$extensions": {
+              "com.figma": {
+                "codeSyntax": {},
+                "hiddenFromPublishing": true,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"]
+              }
+            },
+            "$type": "color",
+            "$value": "{base.color.grey.1000}"
+          }
         }
       }
     },
