@@ -419,6 +419,7 @@ export const foundation = [
       'Cards and card sets',
       'Leaving cards untoned',
       'Grouping a set',
+      'Reusable components',
       'Tabs and containment scope',
       'Applying surfaces by role',
       'Fixed',
