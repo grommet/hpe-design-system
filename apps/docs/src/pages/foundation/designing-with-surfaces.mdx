@@ -7,7 +7,7 @@ When applying surfaces to a page, decide in this order:
 1. **Whether the content needs a container.** This depends on the content and on what surrounds it. See [deciding whether to contain](#deciding-whether-to-contain).
 2. **Which design token it takes.** This follows from where it sits:
    - A page or canvas is `background.surface.base`. Modals, drawers, menus, and tooltips are `background.surface.floating`, and are typically pre-styled.
-   - The first container on the page, or on a floating layer, takes `background.surface.tone.1`. A container inside it takes `background.surface.tone.2`, and the two tones keep alternating.
+   - The first container on the page, or on a floating layer, takes `background.surface.tone.1`. A container inside it takes `background.surface.tone.2`. There are two tones, and they keep alternating.
    - A container that should match what is behind it takes no surface.
 
 Choose each surface for the role it plays, not for its color. The values behind the design tokens differ between light and dark modes and can change.
