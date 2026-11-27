@@ -142,7 +142,7 @@ Whether an element is contained. These are sensible defaults that depend on the 
 
 **Page background:** `background.surface.base`
 
-**Summary cards:** Each card uses `background.surface.tone.1`. Cards carry their own boundary, making each one visually distinct.
+**Summary cards:** Each card uses `background.surface.tone.1`. A card holds a title, a value, and supporting detail such as a chart, and keeps them together.
 
 **Data table:** Uncontained on `background.surface.base`. It sits under its own heading, below the summary cards, so it is not part of their set. See [tables](#tables).
 
@@ -152,7 +152,7 @@ placeholder image
 
 **Page background:** `background.surface.base`
 
-**Form:** Uncontained on `background.surface.base`. A short linear form is already structured by its labels, inputs, and spacing, so a container would restate a boundary the page is already providing. There is nothing here to tell apart from anything else: the form is the page content.
+**Form:** Uncontained on `background.surface.base`. The form is the only content on the page, so it has no neighbors to run into. See [forms](#forms).
 
 placeholder image
 
@@ -160,7 +160,7 @@ placeholder image
 
 **Page background:** `background.surface.base`
 
-**Page header:** Uncontained. Spacing and typography already group the title, any step indicator, and supporting text, so a container would add weight without adding meaning.
+**Page header:** Uncontained. Spacing and typography already group the title, any step indicator, and supporting text.
 
 **Form sections:** Each section takes its own container using `background.surface.tone.1`. The form has several sections, and each carries its own heading and set of inputs, so the container binds the heading to the fields it governs.
 
@@ -174,11 +174,11 @@ placeholder image
 
 **Summary cards:** Each card uses `background.surface.tone.1`. The three summaries sit side by side and hold similar content, so a card shows where each one ends.
 
-**Data table:** Uncontained on `background.surface.base`. Rows, columns, and headers already group it, and the table being large or scrollable is not on its own a reason to contain it.
+**Device list:** Uncontained on `background.surface.base`. It sits under its own heading, below the summary cards, so it is not part of their set. See [tables](#tables).
 
 **Contextual chat panel:** `background.surface.tone.1`. The panel takes up space in the layout rather than floating over the page: content sits alongside it, not underneath. That makes it a container and gives it a tone.
 
-**Cards inside the chat:** `background.surface.tone.2`, whichever tone the panel is not. This is ordinary alternation. The same card placed on the page would take `background.surface.tone.1`, which is why a card's tone is set where it is used rather than fixed in the card.
+**Cards inside the chat:** `background.surface.tone.2`, the tone the panel is not. The same card on the page would take `background.surface.tone.1`, which is why a card's tone is set where the card is placed.
 
 placeholder image
 
@@ -188,10 +188,10 @@ placeholder image
 
 **Page header:** Uncontained. Title, filters, and actions sit directly on the page.
 
-**Dashboard cards:** Each card uses `background.surface.tone.1`. A dashboard is a set of distinct modules, each binding disparate content such as a title, a KPI, and a chart, and a card carries its own boundary so each module reads as one object rather than a cluster of text. This matters most where a card is a target the reader clicks or opens, because the boundary tells them what the target is.
+**Dashboard cards:** Each card uses `background.surface.tone.1`. A module binds unlike content, such as a title, a KPI, and a chart, and the card makes it read as one object.
 
-**Why the cards are not grouped in a container:** The cards' own surfaces are already doing the separating, so a container around the grid would add a boundary that is not earning anything. See [grouping a set](#grouping-a-set).
+**Card grid:** No container around it. The cards' own surfaces already separate them. See [grouping a set](#grouping-a-set).
 
-**Charts and tables inside a card:** Uncontained on the card's own surface. They are self-structuring, and the card has already drawn the boundary.
+**Charts and tables inside a card:** Uncontained on the card's own surface. The card has already drawn the boundary.
 
 placeholder image
