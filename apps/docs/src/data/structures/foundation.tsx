@@ -387,6 +387,64 @@ export const foundation = [
     ],
   },
   {
+    name: 'Designing with surfaces',
+    category: 'Color',
+    cardOrder: 5,
+    description: `Practical guidance for choosing between the page,
+    containers, and floating layers, and when content needs a container
+    at all.`,
+    preview: {
+      image: {
+        src: {
+          light:
+            '/foundationImages/foundation-preview-designing-with-surfaces.svg',
+          dark:
+            '/foundationImages/foundation-preview-designing-with-surfaces-' +
+            'invert.svg',
+        },
+        alt: 'Designing with surfaces preview',
+      },
+    },
+    seoDescription: `Practical guidance for applying surface design tokens:
+    choosing between the page, containers, and floating layers, deciding
+    whether content needs a container, and alternating surface tones.`,
+    sections: [
+      'Applying surfaces',
+      'Deciding whether to contain',
+      'When a container helps',
+      'When nesting deeply',
+      'Common cases',
+      'Tables',
+      'Forms',
+      'Cards and card sets',
+      'Leaving cards untoned',
+      'Grouping a set',
+      'Reusable components',
+      'Tabs and containment scope',
+      'Applying surfaces by role',
+      'Fixed',
+      'Compositional',
+      'Page examples using surfaces',
+      'Data collection and cards',
+      'Simple form',
+      'Multi-section form',
+      'Contextual chat page',
+      'Dashboard',
+    ],
+    relatedContent: ['Background colors guidance', 'Color', 'Color pairing'],
+    tags: [
+      'surfaces',
+      'surface tones',
+      'surface tokens',
+      'containers',
+      'containment',
+      'nesting',
+      'cards',
+      'floating layers',
+      'background',
+    ],
+  },
+  {
     name: 'Color pairing',
     category: 'Color',
     cardOrder: 2,
